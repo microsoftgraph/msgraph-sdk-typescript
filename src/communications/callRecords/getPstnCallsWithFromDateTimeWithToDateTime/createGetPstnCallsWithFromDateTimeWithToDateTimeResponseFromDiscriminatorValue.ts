@@ -1,7 +1,7 @@
-import {GetPstnCallsWithFromDateTimeWithToDateTimeResponse} from './index';
+import {GetPstnCallsWithFromDateTimeWithToDateTimeResponseImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createGetPstnCallsWithFromDateTimeWithToDateTimeResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : GetPstnCallsWithFromDateTimeWithToDateTimeResponse {
+export function createGetPstnCallsWithFromDateTimeWithToDateTimeResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : GetPstnCallsWithFromDateTimeWithToDateTimeResponseImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new GetPstnCallsWithFromDateTimeWithToDateTimeResponse();
+    return new GetPstnCallsWithFromDateTimeWithToDateTimeResponseImpl();
 }

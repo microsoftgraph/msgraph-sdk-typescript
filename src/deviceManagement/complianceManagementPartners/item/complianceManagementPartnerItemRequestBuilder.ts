@@ -1,6 +1,7 @@
-import {ComplianceManagementPartner} from '../../../models/';
+import {ComplianceManagementPartnerImpl} from '../../../models/';
+import {ComplianceManagementPartner} from '../../../models/complianceManagementPartner';
 import {createComplianceManagementPartnerFromDiscriminatorValue} from '../../../models/createComplianceManagementPartnerFromDiscriminatorValue';
-import {ODataError} from '../../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {ComplianceManagementPartnerItemRequestBuilderDeleteRequestConfiguration} from './complianceManagementPartnerItemRequestBuilderDeleteRequestConfiguration';
 import {ComplianceManagementPartnerItemRequestBuilderGetRequestConfiguration} from './complianceManagementPartnerItemRequestBuilderGetRequestConfiguration';
@@ -77,7 +78,8 @@ export class ComplianceManagementPartnerItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new ComplianceManagementPartnerImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -101,7 +103,7 @@ export class ComplianceManagementPartnerItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ComplianceManagementPartner
      */
-    public get(requestConfiguration?: ComplianceManagementPartnerItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ComplianceManagementPartner | undefined> {
+    public get(requestConfiguration?: ComplianceManagementPartnerItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ComplianceManagementPartnerImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -109,7 +111,7 @@ export class ComplianceManagementPartnerItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<ComplianceManagementPartner>(requestInfo, createComplianceManagementPartnerFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<ComplianceManagementPartnerImpl>(requestInfo, createComplianceManagementPartnerFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update the navigation property complianceManagementPartners in deviceManagement

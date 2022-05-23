@@ -1,6 +1,7 @@
-import {DeviceManagementTroubleshootingEvent} from '../../../../models/';
+import {DeviceManagementTroubleshootingEventImpl} from '../../../../models/';
 import {createDeviceManagementTroubleshootingEventFromDiscriminatorValue} from '../../../../models/createDeviceManagementTroubleshootingEventFromDiscriminatorValue';
-import {ODataError} from '../../../../models/oDataErrors/';
+import {DeviceManagementTroubleshootingEvent} from '../../../../models/deviceManagementTroubleshootingEvent';
+import {ODataErrorImpl} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {DeviceManagementTroubleshootingEventItemRequestBuilderDeleteRequestConfiguration} from './deviceManagementTroubleshootingEventItemRequestBuilderDeleteRequestConfiguration';
 import {DeviceManagementTroubleshootingEventItemRequestBuilderGetRequestConfiguration} from './deviceManagementTroubleshootingEventItemRequestBuilderGetRequestConfiguration';
@@ -77,7 +78,8 @@ export class DeviceManagementTroubleshootingEventItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new DeviceManagementTroubleshootingEventImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -101,7 +103,7 @@ export class DeviceManagementTroubleshootingEventItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DeviceManagementTroubleshootingEvent
      */
-    public get(requestConfiguration?: DeviceManagementTroubleshootingEventItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DeviceManagementTroubleshootingEvent | undefined> {
+    public get(requestConfiguration?: DeviceManagementTroubleshootingEventItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DeviceManagementTroubleshootingEventImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -109,7 +111,7 @@ export class DeviceManagementTroubleshootingEventItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<DeviceManagementTroubleshootingEvent>(requestInfo, createDeviceManagementTroubleshootingEventFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<DeviceManagementTroubleshootingEventImpl>(requestInfo, createDeviceManagementTroubleshootingEventFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update the navigation property deviceManagementTroubleshootingEvents in users

@@ -1,7 +1,8 @@
-import {ManagedDeviceMobileAppConfiguration, ManagedDeviceMobileAppConfigurationCollectionResponse} from '../../models/';
+import {ManagedDeviceMobileAppConfigurationCollectionResponseImpl, ManagedDeviceMobileAppConfigurationImpl} from '../../models/';
 import {createManagedDeviceMobileAppConfigurationCollectionResponseFromDiscriminatorValue} from '../../models/createManagedDeviceMobileAppConfigurationCollectionResponseFromDiscriminatorValue';
 import {createManagedDeviceMobileAppConfigurationFromDiscriminatorValue} from '../../models/createManagedDeviceMobileAppConfigurationFromDiscriminatorValue';
-import {ODataError} from '../../models/oDataErrors/';
+import {ManagedDeviceMobileAppConfiguration} from '../../models/managedDeviceMobileAppConfiguration';
+import {ODataErrorImpl} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {MobileAppConfigurationsRequestBuilderGetRequestConfiguration} from './mobileAppConfigurationsRequestBuilderGetRequestConfiguration';
@@ -66,7 +67,8 @@ export class MobileAppConfigurationsRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new ManagedDeviceMobileAppConfigurationImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -75,7 +77,7 @@ export class MobileAppConfigurationsRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ManagedDeviceMobileAppConfigurationCollectionResponse
      */
-    public get(requestConfiguration?: MobileAppConfigurationsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ManagedDeviceMobileAppConfigurationCollectionResponse | undefined> {
+    public get(requestConfiguration?: MobileAppConfigurationsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ManagedDeviceMobileAppConfigurationCollectionResponseImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -83,7 +85,7 @@ export class MobileAppConfigurationsRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<ManagedDeviceMobileAppConfigurationCollectionResponse>(requestInfo, createManagedDeviceMobileAppConfigurationCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<ManagedDeviceMobileAppConfigurationCollectionResponseImpl>(requestInfo, createManagedDeviceMobileAppConfigurationCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Create new navigation property to mobileAppConfigurations for deviceAppManagement
@@ -92,7 +94,7 @@ export class MobileAppConfigurationsRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ManagedDeviceMobileAppConfiguration
      */
-    public post(body: ManagedDeviceMobileAppConfiguration | undefined, requestConfiguration?: MobileAppConfigurationsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ManagedDeviceMobileAppConfiguration | undefined> {
+    public post(body: ManagedDeviceMobileAppConfiguration | undefined, requestConfiguration?: MobileAppConfigurationsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ManagedDeviceMobileAppConfigurationImpl | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration
@@ -101,6 +103,6 @@ export class MobileAppConfigurationsRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<ManagedDeviceMobileAppConfiguration>(requestInfo, createManagedDeviceMobileAppConfigurationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<ManagedDeviceMobileAppConfigurationImpl>(requestInfo, createManagedDeviceMobileAppConfigurationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

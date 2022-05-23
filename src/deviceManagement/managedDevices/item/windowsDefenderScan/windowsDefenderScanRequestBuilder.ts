@@ -1,4 +1,5 @@
-import {WindowsDefenderScanPostRequestBody} from './index';
+import {WindowsDefenderScanPostRequestBodyImpl} from './index';
+import {WindowsDefenderScanPostRequestBody} from './windowsDefenderScanPostRequestBody';
 import {WindowsDefenderScanRequestBuilderPostRequestConfiguration} from './windowsDefenderScanRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
@@ -39,7 +40,8 @@ export class WindowsDefenderScanRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new WindowsDefenderScanPostRequestBodyImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**

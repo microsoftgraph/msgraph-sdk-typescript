@@ -1,6 +1,6 @@
 import {createGetUserIdsWithFlaggedAppRegistrationResponseFromDiscriminatorValue} from './createGetUserIdsWithFlaggedAppRegistrationResponseFromDiscriminatorValue';
 import {GetUserIdsWithFlaggedAppRegistrationRequestBuilderGetRequestConfiguration} from './getUserIdsWithFlaggedAppRegistrationRequestBuilderGetRequestConfiguration';
-import {GetUserIdsWithFlaggedAppRegistrationResponse} from './index';
+import {GetUserIdsWithFlaggedAppRegistrationResponseImpl} from './index';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the getUserIdsWithFlaggedAppRegistration method. */
@@ -46,10 +46,10 @@ export class GetUserIdsWithFlaggedAppRegistrationRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of GetUserIdsWithFlaggedAppRegistrationResponse
      */
-    public get(requestConfiguration?: GetUserIdsWithFlaggedAppRegistrationRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<GetUserIdsWithFlaggedAppRegistrationResponse | undefined> {
+    public get(requestConfiguration?: GetUserIdsWithFlaggedAppRegistrationRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<GetUserIdsWithFlaggedAppRegistrationResponseImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
-        return this.requestAdapter?.sendAsync<GetUserIdsWithFlaggedAppRegistrationResponse>(requestInfo, createGetUserIdsWithFlaggedAppRegistrationResponseFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<GetUserIdsWithFlaggedAppRegistrationResponseImpl>(requestInfo, createGetUserIdsWithFlaggedAppRegistrationResponseFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }

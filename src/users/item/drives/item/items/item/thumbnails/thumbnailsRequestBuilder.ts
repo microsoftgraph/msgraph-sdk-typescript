@@ -1,8 +1,9 @@
-import {ThumbnailSet, ThumbnailSetCollectionResponse} from '../../../../../../../models/';
+import {ThumbnailSetCollectionResponseImpl, ThumbnailSetImpl} from '../../../../../../../models/';
 import {createThumbnailSetCollectionResponseFromDiscriminatorValue} from '../../../../../../../models/createThumbnailSetCollectionResponseFromDiscriminatorValue';
 import {createThumbnailSetFromDiscriminatorValue} from '../../../../../../../models/createThumbnailSetFromDiscriminatorValue';
-import {ODataError} from '../../../../../../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {ThumbnailSet} from '../../../../../../../models/thumbnailSet';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {ThumbnailsRequestBuilderGetRequestConfiguration} from './thumbnailsRequestBuilderGetRequestConfiguration';
 import {ThumbnailsRequestBuilderPostRequestConfiguration} from './thumbnailsRequestBuilderPostRequestConfiguration';
@@ -66,7 +67,8 @@ export class ThumbnailsRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new ThumbnailSetImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -75,7 +77,7 @@ export class ThumbnailsRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ThumbnailSetCollectionResponse
      */
-    public get(requestConfiguration?: ThumbnailsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ThumbnailSetCollectionResponse | undefined> {
+    public get(requestConfiguration?: ThumbnailsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ThumbnailSetCollectionResponseImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -83,7 +85,7 @@ export class ThumbnailsRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<ThumbnailSetCollectionResponse>(requestInfo, createThumbnailSetCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<ThumbnailSetCollectionResponseImpl>(requestInfo, createThumbnailSetCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Create new navigation property to thumbnails for users
@@ -92,7 +94,7 @@ export class ThumbnailsRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ThumbnailSet
      */
-    public post(body: ThumbnailSet | undefined, requestConfiguration?: ThumbnailsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ThumbnailSet | undefined> {
+    public post(body: ThumbnailSet | undefined, requestConfiguration?: ThumbnailsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ThumbnailSetImpl | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration
@@ -101,6 +103,6 @@ export class ThumbnailsRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<ThumbnailSet>(requestInfo, createThumbnailSetFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<ThumbnailSetImpl>(requestInfo, createThumbnailSetFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

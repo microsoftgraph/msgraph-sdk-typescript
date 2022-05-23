@@ -1,7 +1,8 @@
-import {ThumbnailSet} from '../../../../../../../models/';
+import {ThumbnailSetImpl} from '../../../../../../../models/';
 import {createThumbnailSetFromDiscriminatorValue} from '../../../../../../../models/createThumbnailSetFromDiscriminatorValue';
-import {ODataError} from '../../../../../../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {ThumbnailSet} from '../../../../../../../models/thumbnailSet';
 import {ThumbnailSetItemRequestBuilderDeleteRequestConfiguration} from './thumbnailSetItemRequestBuilderDeleteRequestConfiguration';
 import {ThumbnailSetItemRequestBuilderGetRequestConfiguration} from './thumbnailSetItemRequestBuilderGetRequestConfiguration';
 import {ThumbnailSetItemRequestBuilderPatchRequestConfiguration} from './thumbnailSetItemRequestBuilderPatchRequestConfiguration';
@@ -77,7 +78,8 @@ export class ThumbnailSetItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new ThumbnailSetImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -101,7 +103,7 @@ export class ThumbnailSetItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ThumbnailSet
      */
-    public get(requestConfiguration?: ThumbnailSetItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ThumbnailSet | undefined> {
+    public get(requestConfiguration?: ThumbnailSetItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ThumbnailSetImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -109,7 +111,7 @@ export class ThumbnailSetItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<ThumbnailSet>(requestInfo, createThumbnailSetFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<ThumbnailSetImpl>(requestInfo, createThumbnailSetFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update the navigation property thumbnails in me

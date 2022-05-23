@@ -1,6 +1,7 @@
-import {ExtensionProperty} from '../../../../models/';
+import {ExtensionPropertyImpl} from '../../../../models/';
 import {createExtensionPropertyFromDiscriminatorValue} from '../../../../models/createExtensionPropertyFromDiscriminatorValue';
-import {ODataError} from '../../../../models/oDataErrors/';
+import {ExtensionProperty} from '../../../../models/extensionProperty';
+import {ODataErrorImpl} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {ExtensionPropertyItemRequestBuilderDeleteRequestConfiguration} from './extensionPropertyItemRequestBuilderDeleteRequestConfiguration';
 import {ExtensionPropertyItemRequestBuilderGetRequestConfiguration} from './extensionPropertyItemRequestBuilderGetRequestConfiguration';
@@ -77,7 +78,8 @@ export class ExtensionPropertyItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new ExtensionPropertyImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -101,7 +103,7 @@ export class ExtensionPropertyItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ExtensionProperty
      */
-    public get(requestConfiguration?: ExtensionPropertyItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ExtensionProperty | undefined> {
+    public get(requestConfiguration?: ExtensionPropertyItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ExtensionPropertyImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -109,7 +111,7 @@ export class ExtensionPropertyItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<ExtensionProperty>(requestInfo, createExtensionPropertyFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<ExtensionPropertyImpl>(requestInfo, createExtensionPropertyFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update the navigation property extensionProperties in applications

@@ -1,7 +1,7 @@
-import {AuthorizationPolicy} from './index';
+import {AuthorizationPolicyImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createAuthorizationPolicyFromDiscriminatorValue(parseNode: ParseNode | undefined) : AuthorizationPolicy {
+export function createAuthorizationPolicyFromDiscriminatorValue(parseNode: ParseNode | undefined) : AuthorizationPolicyImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new AuthorizationPolicy();
+    return new AuthorizationPolicyImpl();
 }

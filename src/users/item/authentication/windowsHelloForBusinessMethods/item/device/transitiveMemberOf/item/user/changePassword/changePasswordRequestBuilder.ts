@@ -1,5 +1,6 @@
+import {ChangePasswordPostRequestBody} from './changePasswordPostRequestBody';
 import {ChangePasswordRequestBuilderPostRequestConfiguration} from './changePasswordRequestBuilderPostRequestConfiguration';
-import {ChangePasswordPostRequestBody} from './index';
+import {ChangePasswordPostRequestBodyImpl} from './index';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the changePassword method. */
@@ -39,7 +40,8 @@ export class ChangePasswordRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new ChangePasswordPostRequestBodyImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**

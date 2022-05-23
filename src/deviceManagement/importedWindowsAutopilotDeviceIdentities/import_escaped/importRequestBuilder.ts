@@ -1,6 +1,7 @@
 import {createImportResponseFromDiscriminatorValue} from './createImportResponseFromDiscriminatorValue';
+import {ImportPostRequestBody} from './importPostRequestBody';
 import {ImportRequestBuilderPostRequestConfiguration} from './importRequestBuilderPostRequestConfiguration';
-import {ImportPostRequestBody, ImportResponse} from './index';
+import {ImportPostRequestBodyImpl, ImportResponseImpl} from './index';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the import method. */
@@ -40,7 +41,8 @@ export class ImportRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new ImportPostRequestBodyImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -50,11 +52,11 @@ export class ImportRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ImportResponse
      */
-    public post(body: ImportPostRequestBody | undefined, requestConfiguration?: ImportRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ImportResponse | undefined> {
+    public post(body: ImportPostRequestBody | undefined, requestConfiguration?: ImportRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ImportResponseImpl | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration
         );
-        return this.requestAdapter?.sendAsync<ImportResponse>(requestInfo, createImportResponseFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<ImportResponseImpl>(requestInfo, createImportResponseFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }

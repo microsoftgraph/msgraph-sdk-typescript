@@ -1,7 +1,7 @@
-import {EntitlementManagement} from './index';
+import {EntitlementManagementImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createEntitlementManagementFromDiscriminatorValue(parseNode: ParseNode | undefined) : EntitlementManagement {
+export function createEntitlementManagementFromDiscriminatorValue(parseNode: ParseNode | undefined) : EntitlementManagementImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new EntitlementManagement();
+    return new EntitlementManagementImpl();
 }

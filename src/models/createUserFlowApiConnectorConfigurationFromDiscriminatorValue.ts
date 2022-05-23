@@ -1,7 +1,7 @@
-import {UserFlowApiConnectorConfiguration} from './index';
+import {UserFlowApiConnectorConfigurationImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createUserFlowApiConnectorConfigurationFromDiscriminatorValue(parseNode: ParseNode | undefined) : UserFlowApiConnectorConfiguration {
+export function createUserFlowApiConnectorConfigurationFromDiscriminatorValue(parseNode: ParseNode | undefined) : UserFlowApiConnectorConfigurationImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new UserFlowApiConnectorConfiguration();
+    return new UserFlowApiConnectorConfigurationImpl();
 }

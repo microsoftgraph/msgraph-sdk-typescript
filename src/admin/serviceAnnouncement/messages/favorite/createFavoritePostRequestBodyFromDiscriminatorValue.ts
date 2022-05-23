@@ -1,7 +1,7 @@
-import {FavoritePostRequestBody} from './index';
+import {FavoritePostRequestBodyImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createFavoritePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : FavoritePostRequestBody {
+export function createFavoritePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : FavoritePostRequestBodyImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new FavoritePostRequestBody();
+    return new FavoritePostRequestBodyImpl();
 }

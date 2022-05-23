@@ -1,7 +1,8 @@
-import {LinkedResource, LinkedResourceCollectionResponse} from '../../../../../../../models/';
+import {LinkedResourceCollectionResponseImpl, LinkedResourceImpl} from '../../../../../../../models/';
 import {createLinkedResourceCollectionResponseFromDiscriminatorValue} from '../../../../../../../models/createLinkedResourceCollectionResponseFromDiscriminatorValue';
 import {createLinkedResourceFromDiscriminatorValue} from '../../../../../../../models/createLinkedResourceFromDiscriminatorValue';
-import {ODataError} from '../../../../../../../models/oDataErrors/';
+import {LinkedResource} from '../../../../../../../models/linkedResource';
+import {ODataErrorImpl} from '../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {LinkedResourcesRequestBuilderGetRequestConfiguration} from './linkedResourcesRequestBuilderGetRequestConfiguration';
@@ -66,7 +67,8 @@ export class LinkedResourcesRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new LinkedResourceImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -75,7 +77,7 @@ export class LinkedResourcesRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of LinkedResourceCollectionResponse
      */
-    public get(requestConfiguration?: LinkedResourcesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<LinkedResourceCollectionResponse | undefined> {
+    public get(requestConfiguration?: LinkedResourcesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<LinkedResourceCollectionResponseImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -83,7 +85,7 @@ export class LinkedResourcesRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<LinkedResourceCollectionResponse>(requestInfo, createLinkedResourceCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<LinkedResourceCollectionResponseImpl>(requestInfo, createLinkedResourceCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Create new navigation property to linkedResources for me
@@ -92,7 +94,7 @@ export class LinkedResourcesRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of LinkedResource
      */
-    public post(body: LinkedResource | undefined, requestConfiguration?: LinkedResourcesRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<LinkedResource | undefined> {
+    public post(body: LinkedResource | undefined, requestConfiguration?: LinkedResourcesRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<LinkedResourceImpl | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration
@@ -101,6 +103,6 @@ export class LinkedResourcesRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<LinkedResource>(requestInfo, createLinkedResourceFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<LinkedResourceImpl>(requestInfo, createLinkedResourceFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

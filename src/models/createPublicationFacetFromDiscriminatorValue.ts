@@ -1,7 +1,7 @@
-import {PublicationFacet} from './index';
+import {PublicationFacetImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createPublicationFacetFromDiscriminatorValue(parseNode: ParseNode | undefined) : PublicationFacet {
+export function createPublicationFacetFromDiscriminatorValue(parseNode: ParseNode | undefined) : PublicationFacetImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new PublicationFacet();
+    return new PublicationFacetImpl();
 }

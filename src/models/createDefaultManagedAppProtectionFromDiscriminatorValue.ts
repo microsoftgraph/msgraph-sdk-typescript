@@ -1,7 +1,7 @@
-import {DefaultManagedAppProtection} from './index';
+import {DefaultManagedAppProtectionImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createDefaultManagedAppProtectionFromDiscriminatorValue(parseNode: ParseNode | undefined) : DefaultManagedAppProtection {
+export function createDefaultManagedAppProtectionFromDiscriminatorValue(parseNode: ParseNode | undefined) : DefaultManagedAppProtectionImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new DefaultManagedAppProtection();
+    return new DefaultManagedAppProtectionImpl();
 }

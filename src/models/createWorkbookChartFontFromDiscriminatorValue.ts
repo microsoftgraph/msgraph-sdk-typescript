@@ -1,7 +1,7 @@
-import {WorkbookChartFont} from './index';
+import {WorkbookChartFontImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createWorkbookChartFontFromDiscriminatorValue(parseNode: ParseNode | undefined) : WorkbookChartFont {
+export function createWorkbookChartFontFromDiscriminatorValue(parseNode: ParseNode | undefined) : WorkbookChartFontImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new WorkbookChartFont();
+    return new WorkbookChartFontImpl();
 }

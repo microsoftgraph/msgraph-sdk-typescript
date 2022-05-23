@@ -1,7 +1,7 @@
-import {SubscriptionCollectionResponse} from './index';
+import {SubscriptionCollectionResponseImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createSubscriptionCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : SubscriptionCollectionResponse {
+export function createSubscriptionCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : SubscriptionCollectionResponseImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new SubscriptionCollectionResponse();
+    return new SubscriptionCollectionResponseImpl();
 }

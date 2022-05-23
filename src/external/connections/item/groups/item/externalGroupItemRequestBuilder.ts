@@ -1,6 +1,7 @@
-import {ExternalGroup} from '../../../../../models/externalConnectors/';
+import {ExternalGroupImpl} from '../../../../../models/externalConnectors/';
 import {createExternalGroupFromDiscriminatorValue} from '../../../../../models/externalConnectors/createExternalGroupFromDiscriminatorValue';
-import {ODataError} from '../../../../../models/oDataErrors/';
+import {ExternalGroup} from '../../../../../models/externalConnectors/externalGroup';
+import {ODataErrorImpl} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {ExternalGroupItemRequestBuilderDeleteRequestConfiguration} from './externalGroupItemRequestBuilderDeleteRequestConfiguration';
 import {ExternalGroupItemRequestBuilderGetRequestConfiguration} from './externalGroupItemRequestBuilderGetRequestConfiguration';
@@ -83,7 +84,8 @@ export class ExternalGroupItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new ExternalGroupImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -107,7 +109,7 @@ export class ExternalGroupItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ExternalGroup
      */
-    public get(requestConfiguration?: ExternalGroupItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ExternalGroup | undefined> {
+    public get(requestConfiguration?: ExternalGroupItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ExternalGroupImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -115,10 +117,10 @@ export class ExternalGroupItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<ExternalGroup>(requestInfo, createExternalGroupFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<ExternalGroupImpl>(requestInfo, createExternalGroupFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.external.connections.item.groups.item.members.item collection
+     * Gets an item from the MicrosoftGraph.external.connections.item.groups.item.members.item collection
      * @param id Unique identifier of the item
      * @returns a identityItemRequestBuilder
      */

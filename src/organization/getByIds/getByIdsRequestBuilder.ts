@@ -1,6 +1,7 @@
 import {createGetByIdsResponseFromDiscriminatorValue} from './createGetByIdsResponseFromDiscriminatorValue';
+import {GetByIdsPostRequestBody} from './getByIdsPostRequestBody';
 import {GetByIdsRequestBuilderPostRequestConfiguration} from './getByIdsRequestBuilderPostRequestConfiguration';
-import {GetByIdsPostRequestBody, GetByIdsResponse} from './index';
+import {GetByIdsPostRequestBodyImpl, GetByIdsResponseImpl} from './index';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the getByIds method. */
@@ -40,7 +41,8 @@ export class GetByIdsRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new GetByIdsPostRequestBodyImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -50,11 +52,11 @@ export class GetByIdsRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of GetByIdsResponse
      */
-    public post(body: GetByIdsPostRequestBody | undefined, requestConfiguration?: GetByIdsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<GetByIdsResponse | undefined> {
+    public post(body: GetByIdsPostRequestBody | undefined, requestConfiguration?: GetByIdsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<GetByIdsResponseImpl | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration
         );
-        return this.requestAdapter?.sendAsync<GetByIdsResponse>(requestInfo, createGetByIdsResponseFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<GetByIdsResponseImpl>(requestInfo, createGetByIdsResponseFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }

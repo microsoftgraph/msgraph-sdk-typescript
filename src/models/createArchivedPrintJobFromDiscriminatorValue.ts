@@ -1,7 +1,7 @@
-import {ArchivedPrintJob} from './index';
+import {ArchivedPrintJobImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createArchivedPrintJobFromDiscriminatorValue(parseNode: ParseNode | undefined) : ArchivedPrintJob {
+export function createArchivedPrintJobFromDiscriminatorValue(parseNode: ParseNode | undefined) : ArchivedPrintJobImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new ArchivedPrintJob();
+    return new ArchivedPrintJobImpl();
 }

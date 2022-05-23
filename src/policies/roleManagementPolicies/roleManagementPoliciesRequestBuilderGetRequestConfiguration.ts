@@ -1,12 +1,11 @@
 import {RoleManagementPoliciesRequestBuilderGetQueryParameters} from './roleManagementPoliciesRequestBuilderGetQueryParameters';
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
-/** Configuration for the request such as headers, query parameters, and middleware options. */
-export class RoleManagementPoliciesRequestBuilderGetRequestConfiguration {
+export interface RoleManagementPoliciesRequestBuilderGetRequestConfiguration{
     /** Request headers */
-    public headers?: Record<string, string> | undefined;
+    headers?:Record<string, string> | undefined;
     /** Request options */
-    public options?: RequestOption[] | undefined;
+    options?:RequestOption[] | undefined;
     /** Request query parameters */
-    public queryParameters?: RoleManagementPoliciesRequestBuilderGetQueryParameters | undefined;
+    queryParameters?:RoleManagementPoliciesRequestBuilderGetQueryParameters | undefined;
 }

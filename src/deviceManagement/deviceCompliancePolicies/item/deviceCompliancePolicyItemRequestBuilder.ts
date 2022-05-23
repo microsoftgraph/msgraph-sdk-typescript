@@ -1,6 +1,7 @@
-import {DeviceCompliancePolicy} from '../../../models/';
+import {DeviceCompliancePolicyImpl} from '../../../models/';
 import {createDeviceCompliancePolicyFromDiscriminatorValue} from '../../../models/createDeviceCompliancePolicyFromDiscriminatorValue';
-import {ODataError} from '../../../models/oDataErrors/';
+import {DeviceCompliancePolicy} from '../../../models/deviceCompliancePolicy';
+import {ODataErrorImpl} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {AssignRequestBuilder} from './assign/assignRequestBuilder';
 import {AssignmentsRequestBuilder} from './assignments/assignmentsRequestBuilder';
@@ -66,7 +67,7 @@ export class DeviceCompliancePolicyItemRequestBuilder {
         return new UserStatusOverviewRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceManagement.deviceCompliancePolicies.item.assignments.item collection
+     * Gets an item from the MicrosoftGraph.deviceManagement.deviceCompliancePolicies.item.assignments.item collection
      * @param id Unique identifier of the item
      * @returns a deviceCompliancePolicyAssignmentItemRequestBuilder
      */
@@ -138,7 +139,8 @@ export class DeviceCompliancePolicyItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new DeviceCompliancePolicyImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -157,7 +159,7 @@ export class DeviceCompliancePolicyItemRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceManagement.deviceCompliancePolicies.item.deviceSettingStateSummaries.item collection
+     * Gets an item from the MicrosoftGraph.deviceManagement.deviceCompliancePolicies.item.deviceSettingStateSummaries.item collection
      * @param id Unique identifier of the item
      * @returns a settingStateDeviceSummaryItemRequestBuilder
      */
@@ -168,7 +170,7 @@ export class DeviceCompliancePolicyItemRequestBuilder {
         return new SettingStateDeviceSummaryItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceManagement.deviceCompliancePolicies.item.deviceStatuses.item collection
+     * Gets an item from the MicrosoftGraph.deviceManagement.deviceCompliancePolicies.item.deviceStatuses.item collection
      * @param id Unique identifier of the item
      * @returns a deviceComplianceDeviceStatusItemRequestBuilder
      */
@@ -184,7 +186,7 @@ export class DeviceCompliancePolicyItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DeviceCompliancePolicy
      */
-    public get(requestConfiguration?: DeviceCompliancePolicyItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DeviceCompliancePolicy | undefined> {
+    public get(requestConfiguration?: DeviceCompliancePolicyItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DeviceCompliancePolicyImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -192,7 +194,7 @@ export class DeviceCompliancePolicyItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<DeviceCompliancePolicy>(requestInfo, createDeviceCompliancePolicyFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<DeviceCompliancePolicyImpl>(requestInfo, createDeviceCompliancePolicyFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update the navigation property deviceCompliancePolicies in deviceManagement
@@ -212,7 +214,7 @@ export class DeviceCompliancePolicyItemRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceManagement.deviceCompliancePolicies.item.scheduledActionsForRule.item collection
+     * Gets an item from the MicrosoftGraph.deviceManagement.deviceCompliancePolicies.item.scheduledActionsForRule.item collection
      * @param id Unique identifier of the item
      * @returns a deviceComplianceScheduledActionForRuleItemRequestBuilder
      */
@@ -223,7 +225,7 @@ export class DeviceCompliancePolicyItemRequestBuilder {
         return new DeviceComplianceScheduledActionForRuleItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceManagement.deviceCompliancePolicies.item.userStatuses.item collection
+     * Gets an item from the MicrosoftGraph.deviceManagement.deviceCompliancePolicies.item.userStatuses.item collection
      * @param id Unique identifier of the item
      * @returns a deviceComplianceUserStatusItemRequestBuilder
      */

@@ -1,4 +1,4 @@
-/** Casts the previous resource to user. */
+/** Casts the previous resource to group. */
 export enum ScheduleChangeRequestActor {
     Sender = "sender",
     Recipient = "recipient",

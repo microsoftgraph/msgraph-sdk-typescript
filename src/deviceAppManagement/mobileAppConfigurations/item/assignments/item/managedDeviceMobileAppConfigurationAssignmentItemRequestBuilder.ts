@@ -1,6 +1,7 @@
-import {ManagedDeviceMobileAppConfigurationAssignment} from '../../../../../models/';
+import {ManagedDeviceMobileAppConfigurationAssignmentImpl} from '../../../../../models/';
 import {createManagedDeviceMobileAppConfigurationAssignmentFromDiscriminatorValue} from '../../../../../models/createManagedDeviceMobileAppConfigurationAssignmentFromDiscriminatorValue';
-import {ODataError} from '../../../../../models/oDataErrors/';
+import {ManagedDeviceMobileAppConfigurationAssignment} from '../../../../../models/managedDeviceMobileAppConfigurationAssignment';
+import {ODataErrorImpl} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {ManagedDeviceMobileAppConfigurationAssignmentItemRequestBuilderDeleteRequestConfiguration} from './managedDeviceMobileAppConfigurationAssignmentItemRequestBuilderDeleteRequestConfiguration';
 import {ManagedDeviceMobileAppConfigurationAssignmentItemRequestBuilderGetRequestConfiguration} from './managedDeviceMobileAppConfigurationAssignmentItemRequestBuilderGetRequestConfiguration';
@@ -77,7 +78,8 @@ export class ManagedDeviceMobileAppConfigurationAssignmentItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new ManagedDeviceMobileAppConfigurationAssignmentImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -101,7 +103,7 @@ export class ManagedDeviceMobileAppConfigurationAssignmentItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ManagedDeviceMobileAppConfigurationAssignment
      */
-    public get(requestConfiguration?: ManagedDeviceMobileAppConfigurationAssignmentItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ManagedDeviceMobileAppConfigurationAssignment | undefined> {
+    public get(requestConfiguration?: ManagedDeviceMobileAppConfigurationAssignmentItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ManagedDeviceMobileAppConfigurationAssignmentImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -109,7 +111,7 @@ export class ManagedDeviceMobileAppConfigurationAssignmentItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<ManagedDeviceMobileAppConfigurationAssignment>(requestInfo, createManagedDeviceMobileAppConfigurationAssignmentFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<ManagedDeviceMobileAppConfigurationAssignmentImpl>(requestInfo, createManagedDeviceMobileAppConfigurationAssignmentFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update the navigation property assignments in deviceAppManagement

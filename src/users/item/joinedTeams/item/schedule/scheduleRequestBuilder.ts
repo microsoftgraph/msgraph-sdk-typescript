@@ -1,7 +1,8 @@
-import {Schedule} from '../../../../../models/';
+import {ScheduleImpl} from '../../../../../models/';
 import {createScheduleFromDiscriminatorValue} from '../../../../../models/createScheduleFromDiscriminatorValue';
-import {ODataError} from '../../../../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {Schedule} from '../../../../../models/schedule';
 import {OfferShiftRequestItemRequestBuilder} from './offerShiftRequests/item/offerShiftRequestItemRequestBuilder';
 import {OfferShiftRequestsRequestBuilder} from './offerShiftRequests/offerShiftRequestsRequestBuilder';
 import {OpenShiftChangeRequestItemRequestBuilder} from './openShiftChangeRequests/item/openShiftChangeRequestItemRequestBuilder';
@@ -136,7 +137,8 @@ export class ScheduleRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new ScheduleImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -160,7 +162,7 @@ export class ScheduleRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Schedule
      */
-    public get(requestConfiguration?: ScheduleRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Schedule | undefined> {
+    public get(requestConfiguration?: ScheduleRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ScheduleImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -168,10 +170,10 @@ export class ScheduleRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<Schedule>(requestInfo, createScheduleFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<ScheduleImpl>(requestInfo, createScheduleFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.joinedTeams.item.schedule.offerShiftRequests.item collection
+     * Gets an item from the MicrosoftGraph.users.item.joinedTeams.item.schedule.offerShiftRequests.item collection
      * @param id Unique identifier of the item
      * @returns a offerShiftRequestItemRequestBuilder
      */
@@ -182,7 +184,7 @@ export class ScheduleRequestBuilder {
         return new OfferShiftRequestItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.joinedTeams.item.schedule.openShiftChangeRequests.item collection
+     * Gets an item from the MicrosoftGraph.users.item.joinedTeams.item.schedule.openShiftChangeRequests.item collection
      * @param id Unique identifier of the item
      * @returns a openShiftChangeRequestItemRequestBuilder
      */
@@ -193,7 +195,7 @@ export class ScheduleRequestBuilder {
         return new OpenShiftChangeRequestItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.joinedTeams.item.schedule.openShifts.item collection
+     * Gets an item from the MicrosoftGraph.users.item.joinedTeams.item.schedule.openShifts.item collection
      * @param id Unique identifier of the item
      * @returns a openShiftItemRequestBuilder
      */
@@ -221,7 +223,7 @@ export class ScheduleRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.joinedTeams.item.schedule.schedulingGroups.item collection
+     * Gets an item from the MicrosoftGraph.users.item.joinedTeams.item.schedule.schedulingGroups.item collection
      * @param id Unique identifier of the item
      * @returns a schedulingGroupItemRequestBuilder
      */
@@ -232,7 +234,7 @@ export class ScheduleRequestBuilder {
         return new SchedulingGroupItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.joinedTeams.item.schedule.shifts.item collection
+     * Gets an item from the MicrosoftGraph.users.item.joinedTeams.item.schedule.shifts.item collection
      * @param id Unique identifier of the item
      * @returns a shiftItemRequestBuilder
      */
@@ -243,7 +245,7 @@ export class ScheduleRequestBuilder {
         return new ShiftItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.joinedTeams.item.schedule.swapShiftsChangeRequests.item collection
+     * Gets an item from the MicrosoftGraph.users.item.joinedTeams.item.schedule.swapShiftsChangeRequests.item collection
      * @param id Unique identifier of the item
      * @returns a swapShiftsChangeRequestItemRequestBuilder
      */
@@ -254,7 +256,7 @@ export class ScheduleRequestBuilder {
         return new SwapShiftsChangeRequestItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.joinedTeams.item.schedule.timeOffReasons.item collection
+     * Gets an item from the MicrosoftGraph.users.item.joinedTeams.item.schedule.timeOffReasons.item collection
      * @param id Unique identifier of the item
      * @returns a timeOffReasonItemRequestBuilder
      */
@@ -265,7 +267,7 @@ export class ScheduleRequestBuilder {
         return new TimeOffReasonItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.joinedTeams.item.schedule.timeOffRequests.item collection
+     * Gets an item from the MicrosoftGraph.users.item.joinedTeams.item.schedule.timeOffRequests.item collection
      * @param id Unique identifier of the item
      * @returns a timeOffRequestItemRequestBuilder
      */
@@ -276,7 +278,7 @@ export class ScheduleRequestBuilder {
         return new TimeOffRequestItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.joinedTeams.item.schedule.timesOff.item collection
+     * Gets an item from the MicrosoftGraph.users.item.joinedTeams.item.schedule.timesOff.item collection
      * @param id Unique identifier of the item
      * @returns a timeOffItemRequestBuilder
      */

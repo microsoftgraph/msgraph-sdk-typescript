@@ -1,7 +1,7 @@
-import {ChecklistItem} from './index';
+import {ChecklistItemImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createChecklistItemFromDiscriminatorValue(parseNode: ParseNode | undefined) : ChecklistItem {
+export function createChecklistItemFromDiscriminatorValue(parseNode: ParseNode | undefined) : ChecklistItemImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new ChecklistItem();
+    return new ChecklistItemImpl();
 }

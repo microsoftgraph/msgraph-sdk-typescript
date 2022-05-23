@@ -1,6 +1,7 @@
-import {Call} from '../../../models/';
+import {CallImpl} from '../../../models/';
+import {Call} from '../../../models/call';
 import {createCallFromDiscriminatorValue} from '../../../models/createCallFromDiscriminatorValue';
-import {ODataError} from '../../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {AnswerRequestBuilder} from './answer/answerRequestBuilder';
 import {AudioRoutingGroupsRequestBuilder} from './audioRoutingGroups/audioRoutingGroupsRequestBuilder';
@@ -99,7 +100,7 @@ export class CallItemRequestBuilder {
     /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.communications.calls.item.audioRoutingGroups.item collection
+     * Gets an item from the MicrosoftGraph.communications.calls.item.audioRoutingGroups.item collection
      * @param id Unique identifier of the item
      * @returns a audioRoutingGroupItemRequestBuilder
      */
@@ -171,7 +172,8 @@ export class CallItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new CallImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -195,7 +197,7 @@ export class CallItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Call
      */
-    public get(requestConfiguration?: CallItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Call | undefined> {
+    public get(requestConfiguration?: CallItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<CallImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -203,10 +205,10 @@ export class CallItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<Call>(requestInfo, createCallFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<CallImpl>(requestInfo, createCallFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.communications.calls.item.operations.item collection
+     * Gets an item from the MicrosoftGraph.communications.calls.item.operations.item collection
      * @param id Unique identifier of the item
      * @returns a commsOperationItemRequestBuilder
      */
@@ -217,7 +219,7 @@ export class CallItemRequestBuilder {
         return new CommsOperationItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.communications.calls.item.participants.item collection
+     * Gets an item from the MicrosoftGraph.communications.calls.item.participants.item collection
      * @param id Unique identifier of the item
      * @returns a participantItemRequestBuilder
      */

@@ -1,6 +1,7 @@
-import {EducationAssignmentDefaults} from '../../../../models/';
+import {EducationAssignmentDefaultsImpl} from '../../../../models/';
 import {createEducationAssignmentDefaultsFromDiscriminatorValue} from '../../../../models/createEducationAssignmentDefaultsFromDiscriminatorValue';
-import {ODataError} from '../../../../models/oDataErrors/';
+import {EducationAssignmentDefaults} from '../../../../models/educationAssignmentDefaults';
+import {ODataErrorImpl} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {AssignmentDefaultsRequestBuilderDeleteRequestConfiguration} from './assignmentDefaultsRequestBuilderDeleteRequestConfiguration';
 import {AssignmentDefaultsRequestBuilderGetRequestConfiguration} from './assignmentDefaultsRequestBuilderGetRequestConfiguration';
@@ -77,7 +78,8 @@ export class AssignmentDefaultsRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new EducationAssignmentDefaultsImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -101,7 +103,7 @@ export class AssignmentDefaultsRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of EducationAssignmentDefaults
      */
-    public get(requestConfiguration?: AssignmentDefaultsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EducationAssignmentDefaults | undefined> {
+    public get(requestConfiguration?: AssignmentDefaultsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EducationAssignmentDefaultsImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -109,7 +111,7 @@ export class AssignmentDefaultsRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<EducationAssignmentDefaults>(requestInfo, createEducationAssignmentDefaultsFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<EducationAssignmentDefaultsImpl>(requestInfo, createEducationAssignmentDefaultsFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update the navigation property assignmentDefaults in education

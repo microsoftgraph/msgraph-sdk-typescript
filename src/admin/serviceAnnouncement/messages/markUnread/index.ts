@@ -1,2 +1,5 @@
-export * from './markUnreadResponse'
+export * from './markUnreadResponseImpl'
+export * from './markUnreadPostRequestBodyImpl'
 export * from './markUnreadPostRequestBody'
+export * from './markUnreadRequestBuilderPostRequestConfiguration'
+export * from './markUnreadResponse'

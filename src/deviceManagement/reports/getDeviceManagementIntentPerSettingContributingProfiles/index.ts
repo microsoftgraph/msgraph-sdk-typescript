@@ -1,1 +1,3 @@
+export * from './getDeviceManagementIntentPerSettingContributingProfilesPostRequestBodyImpl'
 export * from './getDeviceManagementIntentPerSettingContributingProfilesPostRequestBody'
+export * from './getDeviceManagementIntentPerSettingContributingProfilesRequestBuilderPostRequestConfiguration'

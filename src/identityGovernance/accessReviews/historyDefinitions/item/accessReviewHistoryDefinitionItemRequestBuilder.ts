@@ -1,6 +1,7 @@
-import {AccessReviewHistoryDefinition} from '../../../../models/';
+import {AccessReviewHistoryDefinitionImpl} from '../../../../models/';
+import {AccessReviewHistoryDefinition} from '../../../../models/accessReviewHistoryDefinition';
 import {createAccessReviewHistoryDefinitionFromDiscriminatorValue} from '../../../../models/createAccessReviewHistoryDefinitionFromDiscriminatorValue';
-import {ODataError} from '../../../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {AccessReviewHistoryDefinitionItemRequestBuilderDeleteRequestConfiguration} from './accessReviewHistoryDefinitionItemRequestBuilderDeleteRequestConfiguration';
 import {AccessReviewHistoryDefinitionItemRequestBuilderGetRequestConfiguration} from './accessReviewHistoryDefinitionItemRequestBuilderGetRequestConfiguration';
@@ -83,7 +84,8 @@ export class AccessReviewHistoryDefinitionItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new AccessReviewHistoryDefinitionImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -107,7 +109,7 @@ export class AccessReviewHistoryDefinitionItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AccessReviewHistoryDefinition
      */
-    public get(requestConfiguration?: AccessReviewHistoryDefinitionItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AccessReviewHistoryDefinition | undefined> {
+    public get(requestConfiguration?: AccessReviewHistoryDefinitionItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AccessReviewHistoryDefinitionImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -115,10 +117,10 @@ export class AccessReviewHistoryDefinitionItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<AccessReviewHistoryDefinition>(requestInfo, createAccessReviewHistoryDefinitionFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<AccessReviewHistoryDefinitionImpl>(requestInfo, createAccessReviewHistoryDefinitionFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.identityGovernance.accessReviews.historyDefinitions.item.instances.item collection
+     * Gets an item from the MicrosoftGraph.identityGovernance.accessReviews.historyDefinitions.item.instances.item collection
      * @param id Unique identifier of the item
      * @returns a accessReviewHistoryInstanceItemRequestBuilder
      */

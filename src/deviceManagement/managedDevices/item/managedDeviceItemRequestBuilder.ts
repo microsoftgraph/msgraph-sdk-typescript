@@ -1,6 +1,7 @@
-import {ManagedDevice} from '../../../models/';
+import {ManagedDeviceImpl} from '../../../models/';
 import {createManagedDeviceFromDiscriminatorValue} from '../../../models/createManagedDeviceFromDiscriminatorValue';
-import {ODataError} from '../../../models/oDataErrors/';
+import {ManagedDevice} from '../../../models/managedDevice';
+import {ODataErrorImpl} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {BypassActivationLockRequestBuilder} from './bypassActivationLock/bypassActivationLockRequestBuilder';
 import {CleanWindowsDeviceRequestBuilder} from './cleanWindowsDevice/cleanWindowsDeviceRequestBuilder';
@@ -184,7 +185,8 @@ export class ManagedDeviceItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new ManagedDeviceImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -203,7 +205,7 @@ export class ManagedDeviceItemRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceManagement.managedDevices.item.deviceCompliancePolicyStates.item collection
+     * Gets an item from the MicrosoftGraph.deviceManagement.managedDevices.item.deviceCompliancePolicyStates.item collection
      * @param id Unique identifier of the item
      * @returns a deviceCompliancePolicyStateItemRequestBuilder
      */
@@ -214,7 +216,7 @@ export class ManagedDeviceItemRequestBuilder {
         return new DeviceCompliancePolicyStateItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceManagement.managedDevices.item.deviceConfigurationStates.item collection
+     * Gets an item from the MicrosoftGraph.deviceManagement.managedDevices.item.deviceConfigurationStates.item collection
      * @param id Unique identifier of the item
      * @returns a deviceConfigurationStateItemRequestBuilder
      */
@@ -230,7 +232,7 @@ export class ManagedDeviceItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ManagedDevice
      */
-    public get(requestConfiguration?: ManagedDeviceItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ManagedDevice | undefined> {
+    public get(requestConfiguration?: ManagedDeviceItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ManagedDeviceImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -238,7 +240,7 @@ export class ManagedDeviceItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<ManagedDevice>(requestInfo, createManagedDeviceFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<ManagedDeviceImpl>(requestInfo, createManagedDeviceFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update the navigation property managedDevices in deviceManagement

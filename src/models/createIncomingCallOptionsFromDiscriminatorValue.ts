@@ -1,7 +1,7 @@
-import {IncomingCallOptions} from './index';
+import {IncomingCallOptionsImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createIncomingCallOptionsFromDiscriminatorValue(parseNode: ParseNode | undefined) : IncomingCallOptions {
+export function createIncomingCallOptionsFromDiscriminatorValue(parseNode: ParseNode | undefined) : IncomingCallOptionsImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new IncomingCallOptions();
+    return new IncomingCallOptionsImpl();
 }

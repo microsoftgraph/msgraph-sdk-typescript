@@ -1,7 +1,8 @@
-import {CalendarGroup, CalendarGroupCollectionResponse} from '../../../models/';
+import {CalendarGroupCollectionResponseImpl, CalendarGroupImpl} from '../../../models/';
+import {CalendarGroup} from '../../../models/calendarGroup';
 import {createCalendarGroupCollectionResponseFromDiscriminatorValue} from '../../../models/createCalendarGroupCollectionResponseFromDiscriminatorValue';
 import {createCalendarGroupFromDiscriminatorValue} from '../../../models/createCalendarGroupFromDiscriminatorValue';
-import {ODataError} from '../../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CalendarGroupsRequestBuilderGetRequestConfiguration} from './calendarGroupsRequestBuilderGetRequestConfiguration';
 import {CalendarGroupsRequestBuilderPostRequestConfiguration} from './calendarGroupsRequestBuilderPostRequestConfiguration';
@@ -66,7 +67,8 @@ export class CalendarGroupsRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new CalendarGroupImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -75,7 +77,7 @@ export class CalendarGroupsRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of CalendarGroupCollectionResponse
      */
-    public get(requestConfiguration?: CalendarGroupsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<CalendarGroupCollectionResponse | undefined> {
+    public get(requestConfiguration?: CalendarGroupsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<CalendarGroupCollectionResponseImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -83,7 +85,7 @@ export class CalendarGroupsRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<CalendarGroupCollectionResponse>(requestInfo, createCalendarGroupCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<CalendarGroupCollectionResponseImpl>(requestInfo, createCalendarGroupCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Create new navigation property to calendarGroups for users
@@ -92,7 +94,7 @@ export class CalendarGroupsRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of CalendarGroup
      */
-    public post(body: CalendarGroup | undefined, requestConfiguration?: CalendarGroupsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<CalendarGroup | undefined> {
+    public post(body: CalendarGroup | undefined, requestConfiguration?: CalendarGroupsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<CalendarGroupImpl | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration
@@ -101,6 +103,6 @@ export class CalendarGroupsRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<CalendarGroup>(requestInfo, createCalendarGroupFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<CalendarGroupImpl>(requestInfo, createCalendarGroupFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

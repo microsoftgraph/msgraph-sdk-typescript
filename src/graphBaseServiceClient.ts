@@ -391,7 +391,7 @@ export class GraphBaseServiceClient {
         return new WorkbooksRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.agreementAcceptances.item collection
+     * Gets an item from the MicrosoftGraph.agreementAcceptances.item collection
      * @param id Unique identifier of the item
      * @returns a agreementAcceptanceItemRequestBuilder
      */
@@ -402,7 +402,7 @@ export class GraphBaseServiceClient {
         return new AgreementAcceptanceItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.agreements.item collection
+     * Gets an item from the MicrosoftGraph.agreements.item collection
      * @param id Unique identifier of the item
      * @returns a agreementItemRequestBuilder
      */
@@ -413,7 +413,7 @@ export class GraphBaseServiceClient {
         return new AgreementItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.applications.item collection
+     * Gets an item from the MicrosoftGraph.applications.item collection
      * @param id Unique identifier of the item
      * @returns a applicationItemRequestBuilder
      */
@@ -424,7 +424,7 @@ export class GraphBaseServiceClient {
         return new ApplicationItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.applicationTemplates.item collection
+     * Gets an item from the MicrosoftGraph.applicationTemplates.item collection
      * @param id Unique identifier of the item
      * @returns a applicationTemplateItemRequestBuilder
      */
@@ -435,7 +435,7 @@ export class GraphBaseServiceClient {
         return new ApplicationTemplateItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.authenticationMethodConfigurations.item collection
+     * Gets an item from the MicrosoftGraph.authenticationMethodConfigurations.item collection
      * @param id Unique identifier of the item
      * @returns a authenticationMethodConfigurationItemRequestBuilder
      */
@@ -446,7 +446,7 @@ export class GraphBaseServiceClient {
         return new AuthenticationMethodConfigurationItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.certificateBasedAuthConfiguration.item collection
+     * Gets an item from the MicrosoftGraph.certificateBasedAuthConfiguration.item collection
      * @param id Unique identifier of the item
      * @returns a certificateBasedAuthConfigurationItemRequestBuilder
      */
@@ -457,7 +457,7 @@ export class GraphBaseServiceClient {
         return new CertificateBasedAuthConfigurationItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.chats.item collection
+     * Gets an item from the MicrosoftGraph.chats.item collection
      * @param id Unique identifier of the item
      * @returns a chatItemRequestBuilder
      */
@@ -468,7 +468,7 @@ export class GraphBaseServiceClient {
         return new ChatItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.connections.item collection
+     * Gets an item from the MicrosoftGraph.connections.item collection
      * @param id Unique identifier of the item
      * @returns a externalConnectionItemRequestBuilder
      */
@@ -496,7 +496,7 @@ export class GraphBaseServiceClient {
         }
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.contacts.item collection
+     * Gets an item from the MicrosoftGraph.contacts.item collection
      * @param id Unique identifier of the item
      * @returns a orgContactItemRequestBuilder
      */
@@ -507,7 +507,7 @@ export class GraphBaseServiceClient {
         return new OrgContactItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.contracts.item collection
+     * Gets an item from the MicrosoftGraph.contracts.item collection
      * @param id Unique identifier of the item
      * @returns a contractItemRequestBuilder
      */
@@ -518,7 +518,7 @@ export class GraphBaseServiceClient {
         return new ContractItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.dataPolicyOperations.item collection
+     * Gets an item from the MicrosoftGraph.dataPolicyOperations.item collection
      * @param id Unique identifier of the item
      * @returns a dataPolicyOperationItemRequestBuilder
      */
@@ -529,7 +529,7 @@ export class GraphBaseServiceClient {
         return new DataPolicyOperationItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.devices.item collection
+     * Gets an item from the MicrosoftGraph.devices.item collection
      * @param id Unique identifier of the item
      * @returns a deviceItemRequestBuilder
      */
@@ -540,7 +540,7 @@ export class GraphBaseServiceClient {
         return new DeviceItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.directoryObjects.item collection
+     * Gets an item from the MicrosoftGraph.directoryObjects.item collection
      * @param id Unique identifier of the item
      * @returns a directoryObjectItemRequestBuilder
      */
@@ -551,7 +551,7 @@ export class GraphBaseServiceClient {
         return new DirectoryObjectItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.directoryRoles.item collection
+     * Gets an item from the MicrosoftGraph.directoryRoles.item collection
      * @param id Unique identifier of the item
      * @returns a directoryRoleItemRequestBuilder
      */
@@ -562,7 +562,7 @@ export class GraphBaseServiceClient {
         return new DirectoryRoleItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.directoryRoleTemplates.item collection
+     * Gets an item from the MicrosoftGraph.directoryRoleTemplates.item collection
      * @param id Unique identifier of the item
      * @returns a directoryRoleTemplateItemRequestBuilder
      */
@@ -573,7 +573,7 @@ export class GraphBaseServiceClient {
         return new DirectoryRoleTemplateItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.domainDnsRecords.item collection
+     * Gets an item from the MicrosoftGraph.domainDnsRecords.item collection
      * @param id Unique identifier of the item
      * @returns a domainDnsRecordItemRequestBuilder
      */
@@ -584,7 +584,7 @@ export class GraphBaseServiceClient {
         return new DomainDnsRecordItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.domains.item collection
+     * Gets an item from the MicrosoftGraph.domains.item collection
      * @param id Unique identifier of the item
      * @returns a domainItemRequestBuilder
      */
@@ -595,7 +595,7 @@ export class GraphBaseServiceClient {
         return new DomainItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.drives.item collection
+     * Gets an item from the MicrosoftGraph.drives.item collection
      * @param id Unique identifier of the item
      * @returns a driveItemRequestBuilder
      */
@@ -606,7 +606,7 @@ export class GraphBaseServiceClient {
         return new DriveItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.groupLifecyclePolicies.item collection
+     * Gets an item from the MicrosoftGraph.groupLifecyclePolicies.item collection
      * @param id Unique identifier of the item
      * @returns a groupLifecyclePolicyItemRequestBuilder
      */
@@ -617,7 +617,7 @@ export class GraphBaseServiceClient {
         return new GroupLifecyclePolicyItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item collection
+     * Gets an item from the MicrosoftGraph.groups.item collection
      * @param id Unique identifier of the item
      * @returns a groupItemRequestBuilder
      */
@@ -628,7 +628,7 @@ export class GraphBaseServiceClient {
         return new GroupItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.groupSettings.item collection
+     * Gets an item from the MicrosoftGraph.groupSettings.item collection
      * @param id Unique identifier of the item
      * @returns a groupSettingItemRequestBuilder
      */
@@ -639,7 +639,7 @@ export class GraphBaseServiceClient {
         return new GroupSettingItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.groupSettingTemplates.item collection
+     * Gets an item from the MicrosoftGraph.groupSettingTemplates.item collection
      * @param id Unique identifier of the item
      * @returns a groupSettingTemplateItemRequestBuilder
      */
@@ -650,7 +650,7 @@ export class GraphBaseServiceClient {
         return new GroupSettingTemplateItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.identityProviders.item collection
+     * Gets an item from the MicrosoftGraph.identityProviders.item collection
      * @param id Unique identifier of the item
      * @returns a identityProviderItemRequestBuilder
      */
@@ -661,7 +661,7 @@ export class GraphBaseServiceClient {
         return new IdentityProviderItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.invitations.item collection
+     * Gets an item from the MicrosoftGraph.invitations.item collection
      * @param id Unique identifier of the item
      * @returns a invitationItemRequestBuilder
      */
@@ -672,7 +672,7 @@ export class GraphBaseServiceClient {
         return new InvitationItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.localizations.item collection
+     * Gets an item from the MicrosoftGraph.localizations.item collection
      * @param id Unique identifier of the item
      * @returns a organizationalBrandingLocalizationItemRequestBuilder
      */
@@ -683,7 +683,7 @@ export class GraphBaseServiceClient {
         return new OrganizationalBrandingLocalizationItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.oauth2PermissionGrants.item collection
+     * Gets an item from the MicrosoftGraph.oauth2PermissionGrants.item collection
      * @param id Unique identifier of the item
      * @returns a oAuth2PermissionGrantItemRequestBuilder
      */
@@ -694,7 +694,7 @@ export class GraphBaseServiceClient {
         return new OAuth2PermissionGrantItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.organization.item collection
+     * Gets an item from the MicrosoftGraph.organization.item collection
      * @param id Unique identifier of the item
      * @returns a organizationItemRequestBuilder
      */
@@ -705,7 +705,7 @@ export class GraphBaseServiceClient {
         return new OrganizationItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.permissionGrants.item collection
+     * Gets an item from the MicrosoftGraph.permissionGrants.item collection
      * @param id Unique identifier of the item
      * @returns a resourceSpecificPermissionGrantItemRequestBuilder
      */
@@ -716,7 +716,7 @@ export class GraphBaseServiceClient {
         return new ResourceSpecificPermissionGrantItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.places.item collection
+     * Gets an item from the MicrosoftGraph.places.item collection
      * @param id Unique identifier of the item
      * @returns a placeItemRequestBuilder
      */
@@ -727,7 +727,7 @@ export class GraphBaseServiceClient {
         return new PlaceItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.schemaExtensions.item collection
+     * Gets an item from the MicrosoftGraph.schemaExtensions.item collection
      * @param id Unique identifier of the item
      * @returns a schemaExtensionItemRequestBuilder
      */
@@ -738,7 +738,7 @@ export class GraphBaseServiceClient {
         return new SchemaExtensionItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.scopedRoleMemberships.item collection
+     * Gets an item from the MicrosoftGraph.scopedRoleMemberships.item collection
      * @param id Unique identifier of the item
      * @returns a scopedRoleMembershipItemRequestBuilder
      */
@@ -749,7 +749,7 @@ export class GraphBaseServiceClient {
         return new ScopedRoleMembershipItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.servicePrincipals.item collection
+     * Gets an item from the MicrosoftGraph.servicePrincipals.item collection
      * @param id Unique identifier of the item
      * @returns a servicePrincipalItemRequestBuilder
      */
@@ -760,7 +760,7 @@ export class GraphBaseServiceClient {
         return new ServicePrincipalItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.shares.item collection
+     * Gets an item from the MicrosoftGraph.shares.item collection
      * @param id Unique identifier of the item
      * @returns a sharedDriveItemItemRequestBuilder
      */
@@ -771,7 +771,7 @@ export class GraphBaseServiceClient {
         return new SharedDriveItemItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item collection
+     * Gets an item from the MicrosoftGraph.sites.item collection
      * @param id Unique identifier of the item
      * @returns a siteItemRequestBuilder
      */
@@ -782,7 +782,7 @@ export class GraphBaseServiceClient {
         return new SiteItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.subscribedSkus.item collection
+     * Gets an item from the MicrosoftGraph.subscribedSkus.item collection
      * @param id Unique identifier of the item
      * @returns a subscribedSkuItemRequestBuilder
      */
@@ -793,7 +793,7 @@ export class GraphBaseServiceClient {
         return new SubscribedSkuItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.subscriptions.item collection
+     * Gets an item from the MicrosoftGraph.subscriptions.item collection
      * @param id Unique identifier of the item
      * @returns a subscriptionItemRequestBuilder
      */
@@ -804,7 +804,7 @@ export class GraphBaseServiceClient {
         return new SubscriptionItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.teams.item collection
+     * Gets an item from the MicrosoftGraph.teams.item collection
      * @param id Unique identifier of the item
      * @returns a teamItemRequestBuilder
      */
@@ -815,7 +815,7 @@ export class GraphBaseServiceClient {
         return new TeamItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.teamsTemplates.item collection
+     * Gets an item from the MicrosoftGraph.teamsTemplates.item collection
      * @param id Unique identifier of the item
      * @returns a teamsTemplateItemRequestBuilder
      */
@@ -826,7 +826,7 @@ export class GraphBaseServiceClient {
         return new TeamsTemplateItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item collection
+     * Gets an item from the MicrosoftGraph.users.item collection
      * @param id Unique identifier of the item
      * @returns a userItemRequestBuilder
      */
@@ -837,7 +837,7 @@ export class GraphBaseServiceClient {
         return new UserItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.workbooks.item collection
+     * Gets an item from the MicrosoftGraph.workbooks.item collection
      * @param id Unique identifier of the item
      * @returns a driveItemItemRequestBuilder
      */

@@ -1,7 +1,7 @@
-import {AlternativeSecurityId} from './index';
+import {AlternativeSecurityIdImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createAlternativeSecurityIdFromDiscriminatorValue(parseNode: ParseNode | undefined) : AlternativeSecurityId {
+export function createAlternativeSecurityIdFromDiscriminatorValue(parseNode: ParseNode | undefined) : AlternativeSecurityIdImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new AlternativeSecurityId();
+    return new AlternativeSecurityIdImpl();
 }

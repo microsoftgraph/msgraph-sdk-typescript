@@ -1,7 +1,7 @@
-import {ExportPersonalDataPostRequestBody} from './index';
+import {ExportPersonalDataPostRequestBodyImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createExportPersonalDataPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ExportPersonalDataPostRequestBody {
+export function createExportPersonalDataPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ExportPersonalDataPostRequestBodyImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new ExportPersonalDataPostRequestBody();
+    return new ExportPersonalDataPostRequestBodyImpl();
 }

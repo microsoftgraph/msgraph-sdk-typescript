@@ -1,9 +1,10 @@
-import {UnifiedRoleDefinition} from '../../../../models/';
+import {UnifiedRoleDefinitionImpl} from '../../../../models/';
 import {createUnifiedRoleDefinitionFromDiscriminatorValue} from '../../../../models/createUnifiedRoleDefinitionFromDiscriminatorValue';
-import {ODataError} from '../../../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {UnifiedRoleDefinition} from '../../../../models/unifiedRoleDefinition';
 import {InheritsPermissionsFromRequestBuilder} from './inheritsPermissionsFrom/inheritsPermissionsFromRequestBuilder';
-import {UnifiedRoleDefinitionItemRequestBuilder as i2c857fe8f81aa9f617c974e431397051b1e7f651cc86a2c03d20651cde3900e1} from './inheritsPermissionsFrom/item/unifiedRoleDefinitionItemRequestBuilder';
+import {UnifiedRoleDefinitionItemRequestBuilder as i75e992201509e21cd0fd18926ba467ef74f7a3ce615aa9aa4c6f51aba00890b7} from './inheritsPermissionsFrom/item/unifiedRoleDefinitionItemRequestBuilder';
 import {UnifiedRoleDefinitionItemRequestBuilderDeleteRequestConfiguration} from './unifiedRoleDefinitionItemRequestBuilderDeleteRequestConfiguration';
 import {UnifiedRoleDefinitionItemRequestBuilderGetRequestConfiguration} from './unifiedRoleDefinitionItemRequestBuilderGetRequestConfiguration';
 import {UnifiedRoleDefinitionItemRequestBuilderPatchRequestConfiguration} from './unifiedRoleDefinitionItemRequestBuilderPatchRequestConfiguration';
@@ -83,7 +84,8 @@ export class UnifiedRoleDefinitionItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new UnifiedRoleDefinitionImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -107,7 +109,7 @@ export class UnifiedRoleDefinitionItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of UnifiedRoleDefinition
      */
-    public get(requestConfiguration?: UnifiedRoleDefinitionItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<UnifiedRoleDefinition | undefined> {
+    public get(requestConfiguration?: UnifiedRoleDefinitionItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<UnifiedRoleDefinitionImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -115,18 +117,18 @@ export class UnifiedRoleDefinitionItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<UnifiedRoleDefinition>(requestInfo, createUnifiedRoleDefinitionFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<UnifiedRoleDefinitionImpl>(requestInfo, createUnifiedRoleDefinitionFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.roleManagement.entitlementManagement.roleDefinitions.item.inheritsPermissionsFrom.item collection
+     * Gets an item from the MicrosoftGraph.roleManagement.entitlementManagement.roleDefinitions.item.inheritsPermissionsFrom.item collection
      * @param id Unique identifier of the item
      * @returns a unifiedRoleDefinitionItemRequestBuilder
      */
-    public inheritsPermissionsFromById(id: string) : i2c857fe8f81aa9f617c974e431397051b1e7f651cc86a2c03d20651cde3900e1 {
+    public inheritsPermissionsFromById(id: string) : i75e992201509e21cd0fd18926ba467ef74f7a3ce615aa9aa4c6f51aba00890b7 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["unifiedRoleDefinition%2Did1"] = id
-        return new i2c857fe8f81aa9f617c974e431397051b1e7f651cc86a2c03d20651cde3900e1(urlTplParams, this.requestAdapter);
+        return new i75e992201509e21cd0fd18926ba467ef74f7a3ce615aa9aa4c6f51aba00890b7(urlTplParams, this.requestAdapter);
     };
     /**
      * Update the navigation property roleDefinitions in roleManagement

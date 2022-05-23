@@ -1,4 +1,5 @@
-import {SetPresencePostRequestBody} from './index';
+import {SetPresencePostRequestBodyImpl} from './index';
+import {SetPresencePostRequestBody} from './setPresencePostRequestBody';
 import {SetPresenceRequestBuilderPostRequestConfiguration} from './setPresenceRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
@@ -39,7 +40,8 @@ export class SetPresenceRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new SetPresencePostRequestBodyImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**

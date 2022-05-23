@@ -1,4 +1,5 @@
-import {SyncPostRequestBody} from './index';
+import {SyncPostRequestBodyImpl} from './index';
+import {SyncPostRequestBody} from './syncPostRequestBody';
 import {SyncRequestBuilderPostRequestConfiguration} from './syncRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
@@ -39,7 +40,8 @@ export class SyncRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new SyncPostRequestBodyImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**

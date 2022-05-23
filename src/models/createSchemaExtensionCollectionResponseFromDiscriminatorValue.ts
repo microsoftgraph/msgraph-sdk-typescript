@@ -1,7 +1,7 @@
-import {SchemaExtensionCollectionResponse} from './index';
+import {SchemaExtensionCollectionResponseImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createSchemaExtensionCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : SchemaExtensionCollectionResponse {
+export function createSchemaExtensionCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : SchemaExtensionCollectionResponseImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new SchemaExtensionCollectionResponse();
+    return new SchemaExtensionCollectionResponseImpl();
 }

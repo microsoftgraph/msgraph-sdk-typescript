@@ -1,7 +1,8 @@
-import {OrganizationalBranding} from '../../../models/';
+import {OrganizationalBrandingImpl} from '../../../models/';
 import {createOrganizationalBrandingFromDiscriminatorValue} from '../../../models/createOrganizationalBrandingFromDiscriminatorValue';
-import {ODataError} from '../../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {OrganizationalBranding} from '../../../models/organizationalBranding';
 import {BackgroundImageRequestBuilder} from './backgroundImage/backgroundImageRequestBuilder';
 import {BannerLogoRequestBuilder} from './bannerLogo/bannerLogoRequestBuilder';
 import {BrandingRequestBuilderDeleteRequestConfiguration} from './brandingRequestBuilderDeleteRequestConfiguration';
@@ -98,7 +99,8 @@ export class BrandingRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new OrganizationalBrandingImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -122,7 +124,7 @@ export class BrandingRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of OrganizationalBranding
      */
-    public get(requestConfiguration?: BrandingRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<OrganizationalBranding | undefined> {
+    public get(requestConfiguration?: BrandingRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<OrganizationalBrandingImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -130,10 +132,10 @@ export class BrandingRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<OrganizationalBranding>(requestInfo, createOrganizationalBrandingFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<OrganizationalBrandingImpl>(requestInfo, createOrganizationalBrandingFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.organization.item.branding.localizations.item collection
+     * Gets an item from the MicrosoftGraph.organization.item.branding.localizations.item collection
      * @param id Unique identifier of the item
      * @returns a organizationalBrandingLocalizationItemRequestBuilder
      */

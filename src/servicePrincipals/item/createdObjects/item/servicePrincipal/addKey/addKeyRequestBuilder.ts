@@ -1,7 +1,8 @@
-import {KeyCredential} from '../../../../../../models/';
+import {KeyCredentialImpl} from '../../../../../../models/';
 import {createKeyCredentialFromDiscriminatorValue} from '../../../../../../models/createKeyCredentialFromDiscriminatorValue';
 import {AddKeyRequestBuilderPostRequestConfiguration} from './addKeyRequestBuilderPostRequestConfiguration';
-import {KeyCredentialPostRequestBody} from './index';
+import {KeyCredentialPostRequestBodyImpl} from './index';
+import {KeyCredentialPostRequestBody} from './keyCredentialPostRequestBody';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the addKey method. */
@@ -41,7 +42,8 @@ export class AddKeyRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new KeyCredentialPostRequestBodyImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -51,11 +53,11 @@ export class AddKeyRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of KeyCredential
      */
-    public post(body: KeyCredentialPostRequestBody | undefined, requestConfiguration?: AddKeyRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<KeyCredential | undefined> {
+    public post(body: KeyCredentialPostRequestBody | undefined, requestConfiguration?: AddKeyRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<KeyCredentialImpl | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration
         );
-        return this.requestAdapter?.sendAsync<KeyCredential>(requestInfo, createKeyCredentialFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<KeyCredentialImpl>(requestInfo, createKeyCredentialFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }

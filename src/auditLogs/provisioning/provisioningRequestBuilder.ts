@@ -1,8 +1,9 @@
-import {ProvisioningObjectSummary, ProvisioningObjectSummaryCollectionResponse} from '../../models/';
+import {ProvisioningObjectSummaryCollectionResponseImpl, ProvisioningObjectSummaryImpl} from '../../models/';
 import {createProvisioningObjectSummaryCollectionResponseFromDiscriminatorValue} from '../../models/createProvisioningObjectSummaryCollectionResponseFromDiscriminatorValue';
 import {createProvisioningObjectSummaryFromDiscriminatorValue} from '../../models/createProvisioningObjectSummaryFromDiscriminatorValue';
-import {ODataError} from '../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {ProvisioningObjectSummary} from '../../models/provisioningObjectSummary';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {ProvisioningRequestBuilderGetRequestConfiguration} from './provisioningRequestBuilderGetRequestConfiguration';
 import {ProvisioningRequestBuilderPostRequestConfiguration} from './provisioningRequestBuilderPostRequestConfiguration';
@@ -66,7 +67,8 @@ export class ProvisioningRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new ProvisioningObjectSummaryImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -75,7 +77,7 @@ export class ProvisioningRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ProvisioningObjectSummaryCollectionResponse
      */
-    public get(requestConfiguration?: ProvisioningRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ProvisioningObjectSummaryCollectionResponse | undefined> {
+    public get(requestConfiguration?: ProvisioningRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ProvisioningObjectSummaryCollectionResponseImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -83,7 +85,7 @@ export class ProvisioningRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<ProvisioningObjectSummaryCollectionResponse>(requestInfo, createProvisioningObjectSummaryCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<ProvisioningObjectSummaryCollectionResponseImpl>(requestInfo, createProvisioningObjectSummaryCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Create new navigation property to provisioning for auditLogs
@@ -92,7 +94,7 @@ export class ProvisioningRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ProvisioningObjectSummary
      */
-    public post(body: ProvisioningObjectSummary | undefined, requestConfiguration?: ProvisioningRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ProvisioningObjectSummary | undefined> {
+    public post(body: ProvisioningObjectSummary | undefined, requestConfiguration?: ProvisioningRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ProvisioningObjectSummaryImpl | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration
@@ -101,6 +103,6 @@ export class ProvisioningRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<ProvisioningObjectSummary>(requestInfo, createProvisioningObjectSummaryFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<ProvisioningObjectSummaryImpl>(requestInfo, createProvisioningObjectSummaryFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

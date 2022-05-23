@@ -1,7 +1,8 @@
-import {VppToken} from '../../../models/';
+import {VppTokenImpl} from '../../../models/';
 import {createVppTokenFromDiscriminatorValue} from '../../../models/createVppTokenFromDiscriminatorValue';
-import {ODataError} from '../../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {VppToken} from '../../../models/vppToken';
 import {SyncLicensesRequestBuilder} from './syncLicenses/syncLicensesRequestBuilder';
 import {VppTokenItemRequestBuilderDeleteRequestConfiguration} from './vppTokenItemRequestBuilderDeleteRequestConfiguration';
 import {VppTokenItemRequestBuilderGetRequestConfiguration} from './vppTokenItemRequestBuilderGetRequestConfiguration';
@@ -82,7 +83,8 @@ export class VppTokenItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new VppTokenImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -106,7 +108,7 @@ export class VppTokenItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of VppToken
      */
-    public get(requestConfiguration?: VppTokenItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<VppToken | undefined> {
+    public get(requestConfiguration?: VppTokenItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<VppTokenImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -114,7 +116,7 @@ export class VppTokenItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<VppToken>(requestInfo, createVppTokenFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<VppTokenImpl>(requestInfo, createVppTokenFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update the navigation property vppTokens in deviceAppManagement

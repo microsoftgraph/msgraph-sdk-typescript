@@ -1,7 +1,8 @@
-import {PrintOperation} from '../../../models/';
+import {PrintOperationImpl} from '../../../models/';
 import {createPrintOperationFromDiscriminatorValue} from '../../../models/createPrintOperationFromDiscriminatorValue';
-import {ODataError} from '../../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {PrintOperation} from '../../../models/printOperation';
 import {PrintOperationItemRequestBuilderDeleteRequestConfiguration} from './printOperationItemRequestBuilderDeleteRequestConfiguration';
 import {PrintOperationItemRequestBuilderGetRequestConfiguration} from './printOperationItemRequestBuilderGetRequestConfiguration';
 import {PrintOperationItemRequestBuilderPatchRequestConfiguration} from './printOperationItemRequestBuilderPatchRequestConfiguration';
@@ -77,7 +78,8 @@ export class PrintOperationItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new PrintOperationImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -101,7 +103,7 @@ export class PrintOperationItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of PrintOperation
      */
-    public get(requestConfiguration?: PrintOperationItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<PrintOperation | undefined> {
+    public get(requestConfiguration?: PrintOperationItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<PrintOperationImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -109,7 +111,7 @@ export class PrintOperationItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<PrintOperation>(requestInfo, createPrintOperationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<PrintOperationImpl>(requestInfo, createPrintOperationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update the navigation property operations in print

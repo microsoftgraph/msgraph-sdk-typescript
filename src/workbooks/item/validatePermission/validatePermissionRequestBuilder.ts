@@ -1,4 +1,5 @@
-import {ValidatePermissionPostRequestBody} from './index';
+import {ValidatePermissionPostRequestBodyImpl} from './index';
+import {ValidatePermissionPostRequestBody} from './validatePermissionPostRequestBody';
 import {ValidatePermissionRequestBuilderPostRequestConfiguration} from './validatePermissionRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
@@ -39,7 +40,8 @@ export class ValidatePermissionRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new ValidatePermissionPostRequestBodyImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**

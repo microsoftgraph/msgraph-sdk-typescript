@@ -1,17 +1,18 @@
-import {ContentType} from '../../../../../../models/';
+import {ContentTypeImpl} from '../../../../../../models/';
+import {ContentType} from '../../../../../../models/contentType';
 import {createContentTypeFromDiscriminatorValue} from '../../../../../../models/createContentTypeFromDiscriminatorValue';
-import {ODataError} from '../../../../../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {AssociateWithHubSitesRequestBuilder} from './associateWithHubSites/associateWithHubSitesRequestBuilder';
 import {BaseRequestBuilder} from './base/baseRequestBuilder';
 import {BaseTypesRequestBuilder} from './baseTypes/baseTypesRequestBuilder';
-import {ContentTypeItemRequestBuilder as i85421474c07731ed7a337a903fed8a214561091def20a4b13abfe3abe9dc6f82} from './baseTypes/item/contentTypeItemRequestBuilder';
+import {ContentTypeItemRequestBuilder as ie687cb6965b6513002414ca32a499c821f2bcc669639a83adeba224226c70761} from './baseTypes/item/contentTypeItemRequestBuilder';
 import {ColumnLinksRequestBuilder} from './columnLinks/columnLinksRequestBuilder';
 import {ColumnLinkItemRequestBuilder} from './columnLinks/item/columnLinkItemRequestBuilder';
 import {ColumnPositionsRequestBuilder} from './columnPositions/columnPositionsRequestBuilder';
-import {ColumnDefinitionItemRequestBuilder as i9894d7d3ff006e1c70b909ec76befb2234e5175baf5b92564ad16d8c04b18c27} from './columnPositions/item/columnDefinitionItemRequestBuilder';
+import {ColumnDefinitionItemRequestBuilder as ia673c0db495d150e228406e888fde94cda1277d96def65cb52008fd11d3b1bf2} from './columnPositions/item/columnDefinitionItemRequestBuilder';
 import {ColumnsRequestBuilder} from './columns/columnsRequestBuilder';
-import {ColumnDefinitionItemRequestBuilder as i1a94693b59112b69bd96a638d2b8ab4725cfb014225afa40980f70d43e60949d} from './columns/item/columnDefinitionItemRequestBuilder';
+import {ColumnDefinitionItemRequestBuilder as i7e9c2776ae674e48885b42abdd3f227b8a88b5fb940fabfe193299495eaf72e8} from './columns/item/columnDefinitionItemRequestBuilder';
 import {ContentTypeItemRequestBuilderDeleteRequestConfiguration} from './contentTypeItemRequestBuilderDeleteRequestConfiguration';
 import {ContentTypeItemRequestBuilderGetRequestConfiguration} from './contentTypeItemRequestBuilderGetRequestConfiguration';
 import {ContentTypeItemRequestBuilderPatchRequestConfiguration} from './contentTypeItemRequestBuilderPatchRequestConfiguration';
@@ -66,18 +67,18 @@ export class ContentTypeItemRequestBuilder {
     /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.sites.item.contentTypes.item.baseTypes.item collection
+     * Gets an item from the MicrosoftGraph.groups.item.sites.item.contentTypes.item.baseTypes.item collection
      * @param id Unique identifier of the item
      * @returns a contentTypeItemRequestBuilder
      */
-    public baseTypesById(id: string) : i85421474c07731ed7a337a903fed8a214561091def20a4b13abfe3abe9dc6f82 {
+    public baseTypesById(id: string) : ie687cb6965b6513002414ca32a499c821f2bcc669639a83adeba224226c70761 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["contentType%2Did1"] = id
-        return new i85421474c07731ed7a337a903fed8a214561091def20a4b13abfe3abe9dc6f82(urlTplParams, this.requestAdapter);
+        return new ie687cb6965b6513002414ca32a499c821f2bcc669639a83adeba224226c70761(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.sites.item.contentTypes.item.columnLinks.item collection
+     * Gets an item from the MicrosoftGraph.groups.item.sites.item.contentTypes.item.columnLinks.item collection
      * @param id Unique identifier of the item
      * @returns a columnLinkItemRequestBuilder
      */
@@ -88,26 +89,26 @@ export class ContentTypeItemRequestBuilder {
         return new ColumnLinkItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.sites.item.contentTypes.item.columnPositions.item collection
+     * Gets an item from the MicrosoftGraph.groups.item.sites.item.contentTypes.item.columnPositions.item collection
      * @param id Unique identifier of the item
      * @returns a columnDefinitionItemRequestBuilder
      */
-    public columnPositionsById(id: string) : i9894d7d3ff006e1c70b909ec76befb2234e5175baf5b92564ad16d8c04b18c27 {
+    public columnPositionsById(id: string) : ia673c0db495d150e228406e888fde94cda1277d96def65cb52008fd11d3b1bf2 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["columnDefinition%2Did"] = id
-        return new i9894d7d3ff006e1c70b909ec76befb2234e5175baf5b92564ad16d8c04b18c27(urlTplParams, this.requestAdapter);
+        return new ia673c0db495d150e228406e888fde94cda1277d96def65cb52008fd11d3b1bf2(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.sites.item.contentTypes.item.columns.item collection
+     * Gets an item from the MicrosoftGraph.groups.item.sites.item.contentTypes.item.columns.item collection
      * @param id Unique identifier of the item
      * @returns a columnDefinitionItemRequestBuilder
      */
-    public columnsById(id: string) : i1a94693b59112b69bd96a638d2b8ab4725cfb014225afa40980f70d43e60949d {
+    public columnsById(id: string) : i7e9c2776ae674e48885b42abdd3f227b8a88b5fb940fabfe193299495eaf72e8 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["columnDefinition%2Did"] = id
-        return new i1a94693b59112b69bd96a638d2b8ab4725cfb014225afa40980f70d43e60949d(urlTplParams, this.requestAdapter);
+        return new i7e9c2776ae674e48885b42abdd3f227b8a88b5fb940fabfe193299495eaf72e8(urlTplParams, this.requestAdapter);
     };
     /**
      * Instantiates a new ContentTypeItemRequestBuilder and sets the default values.
@@ -171,7 +172,8 @@ export class ContentTypeItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new ContentTypeImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -195,7 +197,7 @@ export class ContentTypeItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ContentType
      */
-    public get(requestConfiguration?: ContentTypeItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ContentType | undefined> {
+    public get(requestConfiguration?: ContentTypeItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ContentTypeImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -203,7 +205,7 @@ export class ContentTypeItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<ContentType>(requestInfo, createContentTypeFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<ContentTypeImpl>(requestInfo, createContentTypeFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Provides operations to call the isPublished method.

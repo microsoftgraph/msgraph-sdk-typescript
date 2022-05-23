@@ -1,7 +1,8 @@
-import {ShiftPreferences} from '../../../../models/';
+import {ShiftPreferencesImpl} from '../../../../models/';
 import {createShiftPreferencesFromDiscriminatorValue} from '../../../../models/createShiftPreferencesFromDiscriminatorValue';
-import {ODataError} from '../../../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {ShiftPreferences} from '../../../../models/shiftPreferences';
 import {ShiftPreferencesRequestBuilderDeleteRequestConfiguration} from './shiftPreferencesRequestBuilderDeleteRequestConfiguration';
 import {ShiftPreferencesRequestBuilderGetRequestConfiguration} from './shiftPreferencesRequestBuilderGetRequestConfiguration';
 import {ShiftPreferencesRequestBuilderPatchRequestConfiguration} from './shiftPreferencesRequestBuilderPatchRequestConfiguration';
@@ -77,7 +78,8 @@ export class ShiftPreferencesRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new ShiftPreferencesImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -101,7 +103,7 @@ export class ShiftPreferencesRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ShiftPreferences
      */
-    public get(requestConfiguration?: ShiftPreferencesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ShiftPreferences | undefined> {
+    public get(requestConfiguration?: ShiftPreferencesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ShiftPreferencesImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -109,7 +111,7 @@ export class ShiftPreferencesRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<ShiftPreferences>(requestInfo, createShiftPreferencesFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<ShiftPreferencesImpl>(requestInfo, createShiftPreferencesFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update the navigation property shiftPreferences in users

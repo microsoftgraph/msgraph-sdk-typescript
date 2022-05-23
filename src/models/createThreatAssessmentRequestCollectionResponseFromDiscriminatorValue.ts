@@ -1,7 +1,7 @@
-import {ThreatAssessmentRequestCollectionResponse} from './index';
+import {ThreatAssessmentRequestCollectionResponseImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createThreatAssessmentRequestCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ThreatAssessmentRequestCollectionResponse {
+export function createThreatAssessmentRequestCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ThreatAssessmentRequestCollectionResponseImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new ThreatAssessmentRequestCollectionResponse();
+    return new ThreatAssessmentRequestCollectionResponseImpl();
 }

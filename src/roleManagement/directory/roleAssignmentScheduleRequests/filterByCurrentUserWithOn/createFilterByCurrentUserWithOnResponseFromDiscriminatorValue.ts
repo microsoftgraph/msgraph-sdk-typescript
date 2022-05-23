@@ -1,7 +1,7 @@
-import {FilterByCurrentUserWithOnResponse} from './index';
+import {FilterByCurrentUserWithOnResponseImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createFilterByCurrentUserWithOnResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : FilterByCurrentUserWithOnResponse {
+export function createFilterByCurrentUserWithOnResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : FilterByCurrentUserWithOnResponseImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new FilterByCurrentUserWithOnResponse();
+    return new FilterByCurrentUserWithOnResponseImpl();
 }

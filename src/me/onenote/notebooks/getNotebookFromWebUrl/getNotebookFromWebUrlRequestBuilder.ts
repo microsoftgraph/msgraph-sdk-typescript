@@ -1,7 +1,8 @@
-import {CopyNotebookModel} from '../../../../models/';
+import {CopyNotebookModelImpl} from '../../../../models/';
 import {createCopyNotebookModelFromDiscriminatorValue} from '../../../../models/createCopyNotebookModelFromDiscriminatorValue';
+import {GetNotebookFromWebUrlPostRequestBody} from './getNotebookFromWebUrlPostRequestBody';
 import {GetNotebookFromWebUrlRequestBuilderPostRequestConfiguration} from './getNotebookFromWebUrlRequestBuilderPostRequestConfiguration';
-import {GetNotebookFromWebUrlPostRequestBody} from './index';
+import {GetNotebookFromWebUrlPostRequestBodyImpl} from './index';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the getNotebookFromWebUrl method. */
@@ -41,7 +42,8 @@ export class GetNotebookFromWebUrlRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new GetNotebookFromWebUrlPostRequestBodyImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -51,11 +53,11 @@ export class GetNotebookFromWebUrlRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of CopyNotebookModel
      */
-    public post(body: GetNotebookFromWebUrlPostRequestBody | undefined, requestConfiguration?: GetNotebookFromWebUrlRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<CopyNotebookModel | undefined> {
+    public post(body: GetNotebookFromWebUrlPostRequestBody | undefined, requestConfiguration?: GetNotebookFromWebUrlRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<CopyNotebookModelImpl | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration
         );
-        return this.requestAdapter?.sendAsync<CopyNotebookModel>(requestInfo, createCopyNotebookModelFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<CopyNotebookModelImpl>(requestInfo, createCopyNotebookModelFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }

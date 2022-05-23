@@ -1,7 +1,7 @@
-import {CloudAppSecurityState} from './index';
+import {CloudAppSecurityStateImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createCloudAppSecurityStateFromDiscriminatorValue(parseNode: ParseNode | undefined) : CloudAppSecurityState {
+export function createCloudAppSecurityStateFromDiscriminatorValue(parseNode: ParseNode | undefined) : CloudAppSecurityStateImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new CloudAppSecurityState();
+    return new CloudAppSecurityStateImpl();
 }

@@ -1,7 +1,8 @@
-import {Approval, ApprovalCollectionResponse} from '../../../models/';
+import {ApprovalCollectionResponseImpl, ApprovalImpl} from '../../../models/';
+import {Approval} from '../../../models/approval';
 import {createApprovalCollectionResponseFromDiscriminatorValue} from '../../../models/createApprovalCollectionResponseFromDiscriminatorValue';
 import {createApprovalFromDiscriminatorValue} from '../../../models/createApprovalFromDiscriminatorValue';
-import {ODataError} from '../../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {AccessPackageAssignmentApprovalsRequestBuilderGetRequestConfiguration} from './accessPackageAssignmentApprovalsRequestBuilderGetRequestConfiguration';
 import {AccessPackageAssignmentApprovalsRequestBuilderPostRequestConfiguration} from './accessPackageAssignmentApprovalsRequestBuilderPostRequestConfiguration';
@@ -67,7 +68,8 @@ export class AccessPackageAssignmentApprovalsRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new ApprovalImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -85,7 +87,7 @@ export class AccessPackageAssignmentApprovalsRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ApprovalCollectionResponse
      */
-    public get(requestConfiguration?: AccessPackageAssignmentApprovalsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ApprovalCollectionResponse | undefined> {
+    public get(requestConfiguration?: AccessPackageAssignmentApprovalsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ApprovalCollectionResponseImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -93,7 +95,7 @@ export class AccessPackageAssignmentApprovalsRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<ApprovalCollectionResponse>(requestInfo, createApprovalCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<ApprovalCollectionResponseImpl>(requestInfo, createApprovalCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Create new navigation property to accessPackageAssignmentApprovals for identityGovernance
@@ -102,7 +104,7 @@ export class AccessPackageAssignmentApprovalsRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Approval
      */
-    public post(body: Approval | undefined, requestConfiguration?: AccessPackageAssignmentApprovalsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Approval | undefined> {
+    public post(body: Approval | undefined, requestConfiguration?: AccessPackageAssignmentApprovalsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ApprovalImpl | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration
@@ -111,6 +113,6 @@ export class AccessPackageAssignmentApprovalsRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<Approval>(requestInfo, createApprovalFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<ApprovalImpl>(requestInfo, createApprovalFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

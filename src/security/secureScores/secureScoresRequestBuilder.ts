@@ -1,8 +1,9 @@
-import {SecureScore, SecureScoreCollectionResponse} from '../../models/';
+import {SecureScoreCollectionResponseImpl, SecureScoreImpl} from '../../models/';
 import {createSecureScoreCollectionResponseFromDiscriminatorValue} from '../../models/createSecureScoreCollectionResponseFromDiscriminatorValue';
 import {createSecureScoreFromDiscriminatorValue} from '../../models/createSecureScoreFromDiscriminatorValue';
-import {ODataError} from '../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {SecureScore} from '../../models/secureScore';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {SecureScoresRequestBuilderGetRequestConfiguration} from './secureScoresRequestBuilderGetRequestConfiguration';
 import {SecureScoresRequestBuilderPostRequestConfiguration} from './secureScoresRequestBuilderPostRequestConfiguration';
@@ -66,7 +67,8 @@ export class SecureScoresRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new SecureScoreImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -75,7 +77,7 @@ export class SecureScoresRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of SecureScoreCollectionResponse
      */
-    public get(requestConfiguration?: SecureScoresRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<SecureScoreCollectionResponse | undefined> {
+    public get(requestConfiguration?: SecureScoresRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<SecureScoreCollectionResponseImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -83,7 +85,7 @@ export class SecureScoresRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<SecureScoreCollectionResponse>(requestInfo, createSecureScoreCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<SecureScoreCollectionResponseImpl>(requestInfo, createSecureScoreCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Create new navigation property to secureScores for security
@@ -92,7 +94,7 @@ export class SecureScoresRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of SecureScore
      */
-    public post(body: SecureScore | undefined, requestConfiguration?: SecureScoresRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<SecureScore | undefined> {
+    public post(body: SecureScore | undefined, requestConfiguration?: SecureScoresRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<SecureScoreImpl | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration
@@ -101,6 +103,6 @@ export class SecureScoresRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<SecureScore>(requestInfo, createSecureScoreFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<SecureScoreImpl>(requestInfo, createSecureScoreFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

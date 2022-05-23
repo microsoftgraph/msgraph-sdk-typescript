@@ -1,7 +1,7 @@
-import {Request} from './index';
+import {RequestImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createRequestFromDiscriminatorValue(parseNode: ParseNode | undefined) : Request {
+export function createRequestFromDiscriminatorValue(parseNode: ParseNode | undefined) : RequestImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
     const mappingValueNode = parseNode.getChildNode("@odata.type");
     if (mappingValueNode) {
@@ -9,9 +9,9 @@ export function createRequestFromDiscriminatorValue(parseNode: ParseNode | undef
         if (mappingValue) {
             switch (mappingValue) {
                 case "#microsoft.graph.request":
-                    return new Request();
+                    return new RequestImpl();
             }
         }
     }
-    return new Request();
+    return new RequestImpl();
 }

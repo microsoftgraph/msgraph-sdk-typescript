@@ -1,7 +1,7 @@
-import {CommsOperation} from './index';
+import {CommsOperationImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createCommsOperationFromDiscriminatorValue(parseNode: ParseNode | undefined) : CommsOperation {
+export function createCommsOperationFromDiscriminatorValue(parseNode: ParseNode | undefined) : CommsOperationImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
     const mappingValueNode = parseNode.getChildNode("@odata.type");
     if (mappingValueNode) {
@@ -9,9 +9,9 @@ export function createCommsOperationFromDiscriminatorValue(parseNode: ParseNode 
         if (mappingValue) {
             switch (mappingValue) {
                 case "#microsoft.graph.commsOperation":
-                    return new CommsOperation();
+                    return new CommsOperationImpl();
             }
         }
     }
-    return new CommsOperation();
+    return new CommsOperationImpl();
 }

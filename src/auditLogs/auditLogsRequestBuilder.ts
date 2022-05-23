@@ -1,6 +1,7 @@
-import {AuditLogRoot} from '../models/';
+import {AuditLogRootImpl} from '../models/';
+import {AuditLogRoot} from '../models/auditLogRoot';
 import {createAuditLogRootFromDiscriminatorValue} from '../models/createAuditLogRootFromDiscriminatorValue';
-import {ODataError} from '../models/oDataErrors/';
+import {ODataErrorImpl} from '../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {AuditLogsRequestBuilderGetRequestConfiguration} from './auditLogsRequestBuilderGetRequestConfiguration';
 import {AuditLogsRequestBuilderPatchRequestConfiguration} from './auditLogsRequestBuilderPatchRequestConfiguration';
@@ -84,11 +85,12 @@ export class AuditLogsRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new AuditLogRootImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.auditLogs.directoryAudits.item collection
+     * Gets an item from the MicrosoftGraph.auditLogs.directoryAudits.item collection
      * @param id Unique identifier of the item
      * @returns a directoryAuditItemRequestBuilder
      */
@@ -104,7 +106,7 @@ export class AuditLogsRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AuditLogRoot
      */
-    public get(requestConfiguration?: AuditLogsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AuditLogRoot | undefined> {
+    public get(requestConfiguration?: AuditLogsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AuditLogRootImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -112,7 +114,7 @@ export class AuditLogsRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<AuditLogRoot>(requestInfo, createAuditLogRootFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<AuditLogRootImpl>(requestInfo, createAuditLogRootFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update auditLogs
@@ -132,7 +134,7 @@ export class AuditLogsRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.auditLogs.provisioning.item collection
+     * Gets an item from the MicrosoftGraph.auditLogs.provisioning.item collection
      * @param id Unique identifier of the item
      * @returns a provisioningObjectSummaryItemRequestBuilder
      */
@@ -143,7 +145,7 @@ export class AuditLogsRequestBuilder {
         return new ProvisioningObjectSummaryItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.auditLogs.restrictedSignIns.item collection
+     * Gets an item from the MicrosoftGraph.auditLogs.restrictedSignIns.item collection
      * @param id Unique identifier of the item
      * @returns a restrictedSignInItemRequestBuilder
      */
@@ -154,7 +156,7 @@ export class AuditLogsRequestBuilder {
         return new RestrictedSignInItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.auditLogs.signIns.item collection
+     * Gets an item from the MicrosoftGraph.auditLogs.signIns.item collection
      * @param id Unique identifier of the item
      * @returns a signInItemRequestBuilder
      */

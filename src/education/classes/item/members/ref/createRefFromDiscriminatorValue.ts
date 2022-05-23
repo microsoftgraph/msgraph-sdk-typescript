@@ -1,7 +1,7 @@
-import {Ref} from './index';
+import {RefImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createRefFromDiscriminatorValue(parseNode: ParseNode | undefined) : Ref {
+export function createRefFromDiscriminatorValue(parseNode: ParseNode | undefined) : RefImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new Ref();
+    return new RefImpl();
 }

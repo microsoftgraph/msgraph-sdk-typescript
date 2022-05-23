@@ -1,6 +1,7 @@
-import {UpdateRecordingStatusOperation} from '../../../../models/';
+import {UpdateRecordingStatusOperationImpl} from '../../../../models/';
 import {createUpdateRecordingStatusOperationFromDiscriminatorValue} from '../../../../models/createUpdateRecordingStatusOperationFromDiscriminatorValue';
-import {UpdateRecordingStatusPostRequestBody} from './index';
+import {UpdateRecordingStatusPostRequestBodyImpl} from './index';
+import {UpdateRecordingStatusPostRequestBody} from './updateRecordingStatusPostRequestBody';
 import {UpdateRecordingStatusRequestBuilderPostRequestConfiguration} from './updateRecordingStatusRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
@@ -41,7 +42,8 @@ export class UpdateRecordingStatusRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new UpdateRecordingStatusPostRequestBodyImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -51,11 +53,11 @@ export class UpdateRecordingStatusRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of UpdateRecordingStatusOperation
      */
-    public post(body: UpdateRecordingStatusPostRequestBody | undefined, requestConfiguration?: UpdateRecordingStatusRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<UpdateRecordingStatusOperation | undefined> {
+    public post(body: UpdateRecordingStatusPostRequestBody | undefined, requestConfiguration?: UpdateRecordingStatusRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<UpdateRecordingStatusOperationImpl | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration
         );
-        return this.requestAdapter?.sendAsync<UpdateRecordingStatusOperation>(requestInfo, createUpdateRecordingStatusOperationFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<UpdateRecordingStatusOperationImpl>(requestInfo, createUpdateRecordingStatusOperationFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }

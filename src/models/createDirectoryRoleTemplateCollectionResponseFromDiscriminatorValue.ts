@@ -1,7 +1,7 @@
-import {DirectoryRoleTemplateCollectionResponse} from './index';
+import {DirectoryRoleTemplateCollectionResponseImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createDirectoryRoleTemplateCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : DirectoryRoleTemplateCollectionResponse {
+export function createDirectoryRoleTemplateCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : DirectoryRoleTemplateCollectionResponseImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new DirectoryRoleTemplateCollectionResponse();
+    return new DirectoryRoleTemplateCollectionResponseImpl();
 }

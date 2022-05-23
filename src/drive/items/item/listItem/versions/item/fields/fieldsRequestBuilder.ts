@@ -1,6 +1,7 @@
-import {FieldValueSet} from '../../../../../../../models/';
+import {FieldValueSetImpl} from '../../../../../../../models/';
 import {createFieldValueSetFromDiscriminatorValue} from '../../../../../../../models/createFieldValueSetFromDiscriminatorValue';
-import {ODataError} from '../../../../../../../models/oDataErrors/';
+import {FieldValueSet} from '../../../../../../../models/fieldValueSet';
+import {ODataErrorImpl} from '../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {FieldsRequestBuilderDeleteRequestConfiguration} from './fieldsRequestBuilderDeleteRequestConfiguration';
 import {FieldsRequestBuilderGetRequestConfiguration} from './fieldsRequestBuilderGetRequestConfiguration';
@@ -77,7 +78,8 @@ export class FieldsRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new FieldValueSetImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -101,7 +103,7 @@ export class FieldsRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of FieldValueSet
      */
-    public get(requestConfiguration?: FieldsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<FieldValueSet | undefined> {
+    public get(requestConfiguration?: FieldsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<FieldValueSetImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -109,7 +111,7 @@ export class FieldsRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<FieldValueSet>(requestInfo, createFieldValueSetFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<FieldValueSetImpl>(requestInfo, createFieldValueSetFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update the navigation property fields in drive

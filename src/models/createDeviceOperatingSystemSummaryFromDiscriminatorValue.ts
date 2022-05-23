@@ -1,7 +1,7 @@
-import {DeviceOperatingSystemSummary} from './index';
+import {DeviceOperatingSystemSummaryImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createDeviceOperatingSystemSummaryFromDiscriminatorValue(parseNode: ParseNode | undefined) : DeviceOperatingSystemSummary {
+export function createDeviceOperatingSystemSummaryFromDiscriminatorValue(parseNode: ParseNode | undefined) : DeviceOperatingSystemSummaryImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new DeviceOperatingSystemSummary();
+    return new DeviceOperatingSystemSummaryImpl();
 }

@@ -1,7 +1,8 @@
-import {RiskDetection} from '../../../models/';
+import {RiskDetectionImpl} from '../../../models/';
 import {createRiskDetectionFromDiscriminatorValue} from '../../../models/createRiskDetectionFromDiscriminatorValue';
-import {ODataError} from '../../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {RiskDetection} from '../../../models/riskDetection';
 import {RiskDetectionItemRequestBuilderDeleteRequestConfiguration} from './riskDetectionItemRequestBuilderDeleteRequestConfiguration';
 import {RiskDetectionItemRequestBuilderGetRequestConfiguration} from './riskDetectionItemRequestBuilderGetRequestConfiguration';
 import {RiskDetectionItemRequestBuilderPatchRequestConfiguration} from './riskDetectionItemRequestBuilderPatchRequestConfiguration';
@@ -77,7 +78,8 @@ export class RiskDetectionItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new RiskDetectionImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -101,7 +103,7 @@ export class RiskDetectionItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of RiskDetection
      */
-    public get(requestConfiguration?: RiskDetectionItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<RiskDetection | undefined> {
+    public get(requestConfiguration?: RiskDetectionItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<RiskDetectionImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -109,7 +111,7 @@ export class RiskDetectionItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<RiskDetection>(requestInfo, createRiskDetectionFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<RiskDetectionImpl>(requestInfo, createRiskDetectionFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update the navigation property riskDetections in identityProtection

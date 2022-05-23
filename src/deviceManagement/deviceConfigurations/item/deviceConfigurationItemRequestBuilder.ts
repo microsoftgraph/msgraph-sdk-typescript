@@ -1,6 +1,7 @@
-import {DeviceConfiguration} from '../../../models/';
+import {DeviceConfigurationImpl} from '../../../models/';
 import {createDeviceConfigurationFromDiscriminatorValue} from '../../../models/createDeviceConfigurationFromDiscriminatorValue';
-import {ODataError} from '../../../models/oDataErrors/';
+import {DeviceConfiguration} from '../../../models/deviceConfiguration';
+import {ODataErrorImpl} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {AssignRequestBuilder} from './assign/assignRequestBuilder';
 import {AssignmentsRequestBuilder} from './assignments/assignmentsRequestBuilder';
@@ -56,7 +57,7 @@ export class DeviceConfigurationItemRequestBuilder {
         return new UserStatusOverviewRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceManagement.deviceConfigurations.item.assignments.item collection
+     * Gets an item from the MicrosoftGraph.deviceManagement.deviceConfigurations.item.assignments.item collection
      * @param id Unique identifier of the item
      * @returns a deviceConfigurationAssignmentItemRequestBuilder
      */
@@ -128,7 +129,8 @@ export class DeviceConfigurationItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new DeviceConfigurationImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -147,7 +149,7 @@ export class DeviceConfigurationItemRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceManagement.deviceConfigurations.item.deviceSettingStateSummaries.item collection
+     * Gets an item from the MicrosoftGraph.deviceManagement.deviceConfigurations.item.deviceSettingStateSummaries.item collection
      * @param id Unique identifier of the item
      * @returns a settingStateDeviceSummaryItemRequestBuilder
      */
@@ -158,7 +160,7 @@ export class DeviceConfigurationItemRequestBuilder {
         return new SettingStateDeviceSummaryItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceManagement.deviceConfigurations.item.deviceStatuses.item collection
+     * Gets an item from the MicrosoftGraph.deviceManagement.deviceConfigurations.item.deviceStatuses.item collection
      * @param id Unique identifier of the item
      * @returns a deviceConfigurationDeviceStatusItemRequestBuilder
      */
@@ -174,7 +176,7 @@ export class DeviceConfigurationItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DeviceConfiguration
      */
-    public get(requestConfiguration?: DeviceConfigurationItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DeviceConfiguration | undefined> {
+    public get(requestConfiguration?: DeviceConfigurationItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DeviceConfigurationImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -182,7 +184,7 @@ export class DeviceConfigurationItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<DeviceConfiguration>(requestInfo, createDeviceConfigurationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<DeviceConfigurationImpl>(requestInfo, createDeviceConfigurationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Provides operations to call the getOmaSettingPlainTextValue method.
@@ -211,7 +213,7 @@ export class DeviceConfigurationItemRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceManagement.deviceConfigurations.item.userStatuses.item collection
+     * Gets an item from the MicrosoftGraph.deviceManagement.deviceConfigurations.item.userStatuses.item collection
      * @param id Unique identifier of the item
      * @returns a deviceConfigurationUserStatusItemRequestBuilder
      */

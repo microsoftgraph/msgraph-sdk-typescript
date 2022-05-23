@@ -1,5 +1,6 @@
+import {ConfirmCompromisedPostRequestBody} from './confirmCompromisedPostRequestBody';
 import {ConfirmCompromisedRequestBuilderPostRequestConfiguration} from './confirmCompromisedRequestBuilderPostRequestConfiguration';
-import {ConfirmCompromisedPostRequestBody} from './index';
+import {ConfirmCompromisedPostRequestBodyImpl} from './index';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the confirmCompromised method. */
@@ -39,7 +40,8 @@ export class ConfirmCompromisedRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new ConfirmCompromisedPostRequestBodyImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**

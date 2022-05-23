@@ -1,4 +1,5 @@
-import {SetPriorityPostRequestBody} from './index';
+import {SetPriorityPostRequestBodyImpl} from './index';
+import {SetPriorityPostRequestBody} from './setPriorityPostRequestBody';
 import {SetPriorityRequestBuilderPostRequestConfiguration} from './setPriorityRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
@@ -39,7 +40,8 @@ export class SetPriorityRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new SetPriorityPostRequestBodyImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**

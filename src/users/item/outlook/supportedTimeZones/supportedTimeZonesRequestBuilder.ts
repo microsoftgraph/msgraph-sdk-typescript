@@ -1,5 +1,5 @@
 import {createSupportedTimeZonesResponseFromDiscriminatorValue} from './createSupportedTimeZonesResponseFromDiscriminatorValue';
-import {SupportedTimeZonesResponse} from './index';
+import {SupportedTimeZonesResponseImpl} from './index';
 import {SupportedTimeZonesRequestBuilderGetRequestConfiguration} from './supportedTimeZonesRequestBuilderGetRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
@@ -46,10 +46,10 @@ export class SupportedTimeZonesRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of SupportedTimeZonesResponse
      */
-    public get(requestConfiguration?: SupportedTimeZonesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<SupportedTimeZonesResponse | undefined> {
+    public get(requestConfiguration?: SupportedTimeZonesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<SupportedTimeZonesResponseImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
-        return this.requestAdapter?.sendAsync<SupportedTimeZonesResponse>(requestInfo, createSupportedTimeZonesResponseFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<SupportedTimeZonesResponseImpl>(requestInfo, createSupportedTimeZonesResponseFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }

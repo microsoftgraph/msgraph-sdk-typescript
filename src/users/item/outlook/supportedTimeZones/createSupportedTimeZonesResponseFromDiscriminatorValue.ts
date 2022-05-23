@@ -1,7 +1,7 @@
-import {SupportedTimeZonesResponse} from './index';
+import {SupportedTimeZonesResponseImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createSupportedTimeZonesResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : SupportedTimeZonesResponse {
+export function createSupportedTimeZonesResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : SupportedTimeZonesResponseImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new SupportedTimeZonesResponse();
+    return new SupportedTimeZonesResponseImpl();
 }

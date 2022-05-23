@@ -1,11 +1,12 @@
-import {PermissionGrantPolicy} from '../../../models/';
+import {PermissionGrantPolicyImpl} from '../../../models/';
 import {createPermissionGrantPolicyFromDiscriminatorValue} from '../../../models/createPermissionGrantPolicyFromDiscriminatorValue';
-import {ODataError} from '../../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {PermissionGrantPolicy} from '../../../models/permissionGrantPolicy';
 import {ExcludesRequestBuilder} from './excludes/excludesRequestBuilder';
-import {PermissionGrantConditionSetItemRequestBuilder as i9edd8e4de9412285275a765d06f54ff6478fce722d4aca09d1af5dabf18daa5a} from './excludes/item/permissionGrantConditionSetItemRequestBuilder';
+import {PermissionGrantConditionSetItemRequestBuilder as icdcaecb83e1a96823841e24d4d4a38ca237ec43d8d6f0a211ddf19094fe784e7} from './excludes/item/permissionGrantConditionSetItemRequestBuilder';
 import {IncludesRequestBuilder} from './includes/includesRequestBuilder';
-import {PermissionGrantConditionSetItemRequestBuilder as if9859889de051bd4455dfb7953bbf113c7f3d3ec253cfedc2ce81fadb8e20e22} from './includes/item/permissionGrantConditionSetItemRequestBuilder';
+import {PermissionGrantConditionSetItemRequestBuilder as if6b0fc6e3bf6ebc5e7e4db0060a5a67ea185eac93d504145bd6be716c61fa0d4} from './includes/item/permissionGrantConditionSetItemRequestBuilder';
 import {PermissionGrantPolicyItemRequestBuilderDeleteRequestConfiguration} from './permissionGrantPolicyItemRequestBuilderDeleteRequestConfiguration';
 import {PermissionGrantPolicyItemRequestBuilderGetRequestConfiguration} from './permissionGrantPolicyItemRequestBuilderGetRequestConfiguration';
 import {PermissionGrantPolicyItemRequestBuilderPatchRequestConfiguration} from './permissionGrantPolicyItemRequestBuilderPatchRequestConfiguration';
@@ -89,7 +90,8 @@ export class PermissionGrantPolicyItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new PermissionGrantPolicyImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -108,15 +110,15 @@ export class PermissionGrantPolicyItemRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.policies.permissionGrantPolicies.item.excludes.item collection
+     * Gets an item from the MicrosoftGraph.policies.permissionGrantPolicies.item.excludes.item collection
      * @param id Unique identifier of the item
      * @returns a permissionGrantConditionSetItemRequestBuilder
      */
-    public excludesById(id: string) : i9edd8e4de9412285275a765d06f54ff6478fce722d4aca09d1af5dabf18daa5a {
+    public excludesById(id: string) : icdcaecb83e1a96823841e24d4d4a38ca237ec43d8d6f0a211ddf19094fe784e7 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["permissionGrantConditionSet%2Did"] = id
-        return new i9edd8e4de9412285275a765d06f54ff6478fce722d4aca09d1af5dabf18daa5a(urlTplParams, this.requestAdapter);
+        return new icdcaecb83e1a96823841e24d4d4a38ca237ec43d8d6f0a211ddf19094fe784e7(urlTplParams, this.requestAdapter);
     };
     /**
      * The policy that specifies the conditions under which consent can be granted.
@@ -124,7 +126,7 @@ export class PermissionGrantPolicyItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of PermissionGrantPolicy
      */
-    public get(requestConfiguration?: PermissionGrantPolicyItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<PermissionGrantPolicy | undefined> {
+    public get(requestConfiguration?: PermissionGrantPolicyItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<PermissionGrantPolicyImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -132,18 +134,18 @@ export class PermissionGrantPolicyItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<PermissionGrantPolicy>(requestInfo, createPermissionGrantPolicyFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<PermissionGrantPolicyImpl>(requestInfo, createPermissionGrantPolicyFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.policies.permissionGrantPolicies.item.includes.item collection
+     * Gets an item from the MicrosoftGraph.policies.permissionGrantPolicies.item.includes.item collection
      * @param id Unique identifier of the item
      * @returns a permissionGrantConditionSetItemRequestBuilder
      */
-    public includesById(id: string) : if9859889de051bd4455dfb7953bbf113c7f3d3ec253cfedc2ce81fadb8e20e22 {
+    public includesById(id: string) : if6b0fc6e3bf6ebc5e7e4db0060a5a67ea185eac93d504145bd6be716c61fa0d4 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["permissionGrantConditionSet%2Did"] = id
-        return new if9859889de051bd4455dfb7953bbf113c7f3d3ec253cfedc2ce81fadb8e20e22(urlTplParams, this.requestAdapter);
+        return new if6b0fc6e3bf6ebc5e7e4db0060a5a67ea185eac93d504145bd6be716c61fa0d4(urlTplParams, this.requestAdapter);
     };
     /**
      * Update the navigation property permissionGrantPolicies in policies

@@ -1,7 +1,7 @@
-import {CopyToSectionGroupPostRequestBody} from './index';
+import {CopyToSectionGroupPostRequestBodyImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createCopyToSectionGroupPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : CopyToSectionGroupPostRequestBody {
+export function createCopyToSectionGroupPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : CopyToSectionGroupPostRequestBodyImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new CopyToSectionGroupPostRequestBody();
+    return new CopyToSectionGroupPostRequestBodyImpl();
 }

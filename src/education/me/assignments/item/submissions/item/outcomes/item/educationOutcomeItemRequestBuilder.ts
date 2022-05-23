@@ -1,6 +1,7 @@
-import {EducationOutcome} from '../../../../../../../../models/';
+import {EducationOutcomeImpl} from '../../../../../../../../models/';
 import {createEducationOutcomeFromDiscriminatorValue} from '../../../../../../../../models/createEducationOutcomeFromDiscriminatorValue';
-import {ODataError} from '../../../../../../../../models/oDataErrors/';
+import {EducationOutcome} from '../../../../../../../../models/educationOutcome';
+import {ODataErrorImpl} from '../../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {EducationOutcomeItemRequestBuilderDeleteRequestConfiguration} from './educationOutcomeItemRequestBuilderDeleteRequestConfiguration';
 import {EducationOutcomeItemRequestBuilderGetRequestConfiguration} from './educationOutcomeItemRequestBuilderGetRequestConfiguration';
@@ -77,7 +78,8 @@ export class EducationOutcomeItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new EducationOutcomeImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -101,7 +103,7 @@ export class EducationOutcomeItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of EducationOutcome
      */
-    public get(requestConfiguration?: EducationOutcomeItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EducationOutcome | undefined> {
+    public get(requestConfiguration?: EducationOutcomeItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EducationOutcomeImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -109,7 +111,7 @@ export class EducationOutcomeItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<EducationOutcome>(requestInfo, createEducationOutcomeFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<EducationOutcomeImpl>(requestInfo, createEducationOutcomeFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update the navigation property outcomes in education

@@ -1,6 +1,7 @@
-import {AudioRoutingGroup} from '../../../../../models/';
+import {AudioRoutingGroupImpl} from '../../../../../models/';
+import {AudioRoutingGroup} from '../../../../../models/audioRoutingGroup';
 import {createAudioRoutingGroupFromDiscriminatorValue} from '../../../../../models/createAudioRoutingGroupFromDiscriminatorValue';
-import {ODataError} from '../../../../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {AudioRoutingGroupItemRequestBuilderDeleteRequestConfiguration} from './audioRoutingGroupItemRequestBuilderDeleteRequestConfiguration';
 import {AudioRoutingGroupItemRequestBuilderGetRequestConfiguration} from './audioRoutingGroupItemRequestBuilderGetRequestConfiguration';
@@ -77,7 +78,8 @@ export class AudioRoutingGroupItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new AudioRoutingGroupImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -101,7 +103,7 @@ export class AudioRoutingGroupItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AudioRoutingGroup
      */
-    public get(requestConfiguration?: AudioRoutingGroupItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AudioRoutingGroup | undefined> {
+    public get(requestConfiguration?: AudioRoutingGroupItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AudioRoutingGroupImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -109,7 +111,7 @@ export class AudioRoutingGroupItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<AudioRoutingGroup>(requestInfo, createAudioRoutingGroupFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<AudioRoutingGroupImpl>(requestInfo, createAudioRoutingGroupFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update the navigation property audioRoutingGroups in communications

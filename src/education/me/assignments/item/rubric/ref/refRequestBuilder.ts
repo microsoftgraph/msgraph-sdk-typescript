@@ -1,6 +1,7 @@
-import {ReferenceUpdateSchema} from '../../../../../../models/';
-import {ODataError} from '../../../../../../models/oDataErrors/';
+import {ReferenceUpdateSchemaImpl} from '../../../../../../models/';
+import {ODataErrorImpl} from '../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {ReferenceUpdateSchema} from '../../../../../../models/referenceUpdateSchema';
 import {RefRequestBuilderDeleteRequestConfiguration} from './refRequestBuilderDeleteRequestConfiguration';
 import {RefRequestBuilderGetRequestConfiguration} from './refRequestBuilderGetRequestConfiguration';
 import {RefRequestBuilderPutRequestConfiguration} from './refRequestBuilderPutRequestConfiguration';
@@ -75,7 +76,8 @@ export class RefRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new ReferenceUpdateSchemaImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**

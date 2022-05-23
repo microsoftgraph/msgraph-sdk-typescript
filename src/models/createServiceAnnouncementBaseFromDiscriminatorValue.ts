@@ -1,7 +1,7 @@
-import {ServiceAnnouncementBase} from './index';
+import {ServiceAnnouncementBaseImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createServiceAnnouncementBaseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ServiceAnnouncementBase {
+export function createServiceAnnouncementBaseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ServiceAnnouncementBaseImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
     const mappingValueNode = parseNode.getChildNode("@odata.type");
     if (mappingValueNode) {
@@ -9,9 +9,9 @@ export function createServiceAnnouncementBaseFromDiscriminatorValue(parseNode: P
         if (mappingValue) {
             switch (mappingValue) {
                 case "#microsoft.graph.serviceAnnouncementBase":
-                    return new ServiceAnnouncementBase();
+                    return new ServiceAnnouncementBaseImpl();
             }
         }
     }
-    return new ServiceAnnouncementBase();
+    return new ServiceAnnouncementBaseImpl();
 }

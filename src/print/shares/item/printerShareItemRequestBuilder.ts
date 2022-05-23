@@ -1,7 +1,8 @@
-import {PrinterShare} from '../../../models/';
+import {PrinterShareImpl} from '../../../models/';
 import {createPrinterShareFromDiscriminatorValue} from '../../../models/createPrinterShareFromDiscriminatorValue';
-import {ODataError} from '../../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {PrinterShare} from '../../../models/printerShare';
 import {AllowedGroupsRequestBuilder} from './allowedGroups/allowedGroupsRequestBuilder';
 import {GroupItemRequestBuilder} from './allowedGroups/item/groupItemRequestBuilder';
 import {AllowedUsersRequestBuilder} from './allowedUsers/allowedUsersRequestBuilder';
@@ -33,7 +34,7 @@ export class PrinterShareItemRequestBuilder {
     /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.print.shares.item.allowedGroups.item collection
+     * Gets an item from the MicrosoftGraph.print.shares.item.allowedGroups.item collection
      * @param id Unique identifier of the item
      * @returns a groupItemRequestBuilder
      */
@@ -44,7 +45,7 @@ export class PrinterShareItemRequestBuilder {
         return new GroupItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.print.shares.item.allowedUsers.item collection
+     * Gets an item from the MicrosoftGraph.print.shares.item.allowedUsers.item collection
      * @param id Unique identifier of the item
      * @returns a userItemRequestBuilder
      */
@@ -116,7 +117,8 @@ export class PrinterShareItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new PrinterShareImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -140,7 +142,7 @@ export class PrinterShareItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of PrinterShare
      */
-    public get(requestConfiguration?: PrinterShareItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<PrinterShare | undefined> {
+    public get(requestConfiguration?: PrinterShareItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<PrinterShareImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -148,7 +150,7 @@ export class PrinterShareItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<PrinterShare>(requestInfo, createPrinterShareFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<PrinterShareImpl>(requestInfo, createPrinterShareFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update the navigation property shares in print

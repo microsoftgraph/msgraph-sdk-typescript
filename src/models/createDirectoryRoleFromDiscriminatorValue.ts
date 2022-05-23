@@ -1,7 +1,7 @@
-import {DirectoryRole} from './index';
+import {DirectoryRoleImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createDirectoryRoleFromDiscriminatorValue(parseNode: ParseNode | undefined) : DirectoryRole {
+export function createDirectoryRoleFromDiscriminatorValue(parseNode: ParseNode | undefined) : DirectoryRoleImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new DirectoryRole();
+    return new DirectoryRoleImpl();
 }

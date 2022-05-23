@@ -1,7 +1,8 @@
-import {Printer} from '../../../models/';
+import {PrinterImpl} from '../../../models/';
 import {createPrinterFromDiscriminatorValue} from '../../../models/createPrinterFromDiscriminatorValue';
-import {ODataError} from '../../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {Printer} from '../../../models/printer';
 import {ConnectorsRequestBuilder} from './connectors/connectorsRequestBuilder';
 import {PrintConnectorItemRequestBuilder} from './connectors/item/printConnectorItemRequestBuilder';
 import {PrinterItemRequestBuilderDeleteRequestConfiguration} from './printerItemRequestBuilderDeleteRequestConfiguration';
@@ -39,7 +40,7 @@ export class PrinterItemRequestBuilder {
     /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.print.printers.item.connectors.item collection
+     * Gets an item from the MicrosoftGraph.print.printers.item.connectors.item collection
      * @param id Unique identifier of the item
      * @returns a printConnectorItemRequestBuilder
      */
@@ -111,7 +112,8 @@ export class PrinterItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new PrinterImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -135,7 +137,7 @@ export class PrinterItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Printer
      */
-    public get(requestConfiguration?: PrinterItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Printer | undefined> {
+    public get(requestConfiguration?: PrinterItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<PrinterImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -143,7 +145,7 @@ export class PrinterItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<Printer>(requestInfo, createPrinterFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<PrinterImpl>(requestInfo, createPrinterFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update the navigation property printers in print
@@ -163,7 +165,7 @@ export class PrinterItemRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.print.printers.item.shares.item collection
+     * Gets an item from the MicrosoftGraph.print.printers.item.shares.item collection
      * @param id Unique identifier of the item
      * @returns a printerShareItemRequestBuilder
      */
@@ -174,7 +176,7 @@ export class PrinterItemRequestBuilder {
         return new PrinterShareItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.print.printers.item.taskTriggers.item collection
+     * Gets an item from the MicrosoftGraph.print.printers.item.taskTriggers.item collection
      * @param id Unique identifier of the item
      * @returns a printTaskTriggerItemRequestBuilder
      */

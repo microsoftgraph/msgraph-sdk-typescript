@@ -1,5 +1,6 @@
+import {GetConfigurationPolicyNonComplianceSummaryReportPostRequestBody} from './getConfigurationPolicyNonComplianceSummaryReportPostRequestBody';
 import {GetConfigurationPolicyNonComplianceSummaryReportRequestBuilderPostRequestConfiguration} from './getConfigurationPolicyNonComplianceSummaryReportRequestBuilderPostRequestConfiguration';
-import {GetConfigurationPolicyNonComplianceSummaryReportPostRequestBody} from './index';
+import {GetConfigurationPolicyNonComplianceSummaryReportPostRequestBodyImpl} from './index';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the getConfigurationPolicyNonComplianceSummaryReport method. */
@@ -39,7 +40,8 @@ export class GetConfigurationPolicyNonComplianceSummaryReportRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new GetConfigurationPolicyNonComplianceSummaryReportPostRequestBodyImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**

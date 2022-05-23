@@ -1,7 +1,8 @@
-import {ConditionalAccessPolicy, ConditionalAccessPolicyCollectionResponse} from '../../models/';
+import {ConditionalAccessPolicyCollectionResponseImpl, ConditionalAccessPolicyImpl} from '../../models/';
+import {ConditionalAccessPolicy} from '../../models/conditionalAccessPolicy';
 import {createConditionalAccessPolicyCollectionResponseFromDiscriminatorValue} from '../../models/createConditionalAccessPolicyCollectionResponseFromDiscriminatorValue';
 import {createConditionalAccessPolicyFromDiscriminatorValue} from '../../models/createConditionalAccessPolicyFromDiscriminatorValue';
-import {ODataError} from '../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {ConditionalAccessPoliciesRequestBuilderGetRequestConfiguration} from './conditionalAccessPoliciesRequestBuilderGetRequestConfiguration';
 import {ConditionalAccessPoliciesRequestBuilderPostRequestConfiguration} from './conditionalAccessPoliciesRequestBuilderPostRequestConfiguration';
@@ -66,7 +67,8 @@ export class ConditionalAccessPoliciesRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new ConditionalAccessPolicyImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -75,7 +77,7 @@ export class ConditionalAccessPoliciesRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ConditionalAccessPolicyCollectionResponse
      */
-    public get(requestConfiguration?: ConditionalAccessPoliciesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ConditionalAccessPolicyCollectionResponse | undefined> {
+    public get(requestConfiguration?: ConditionalAccessPoliciesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ConditionalAccessPolicyCollectionResponseImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -83,7 +85,7 @@ export class ConditionalAccessPoliciesRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<ConditionalAccessPolicyCollectionResponse>(requestInfo, createConditionalAccessPolicyCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<ConditionalAccessPolicyCollectionResponseImpl>(requestInfo, createConditionalAccessPolicyCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Create new navigation property to conditionalAccessPolicies for policies
@@ -92,7 +94,7 @@ export class ConditionalAccessPoliciesRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ConditionalAccessPolicy
      */
-    public post(body: ConditionalAccessPolicy | undefined, requestConfiguration?: ConditionalAccessPoliciesRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ConditionalAccessPolicy | undefined> {
+    public post(body: ConditionalAccessPolicy | undefined, requestConfiguration?: ConditionalAccessPoliciesRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ConditionalAccessPolicyImpl | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration
@@ -101,6 +103,6 @@ export class ConditionalAccessPoliciesRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<ConditionalAccessPolicy>(requestInfo, createConditionalAccessPolicyFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<ConditionalAccessPolicyImpl>(requestInfo, createConditionalAccessPolicyFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

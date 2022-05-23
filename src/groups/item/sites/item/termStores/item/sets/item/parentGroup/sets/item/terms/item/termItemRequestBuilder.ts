@@ -1,9 +1,10 @@
-import {ODataError} from '../../../../../../../../../../../../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../../../../../../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {Term} from '../../../../../../../../../../../../../models/termStore/';
+import {TermImpl} from '../../../../../../../../../../../../../models/termStore/';
 import {createTermFromDiscriminatorValue} from '../../../../../../../../../../../../../models/termStore/createTermFromDiscriminatorValue';
+import {Term} from '../../../../../../../../../../../../../models/termStore/term';
 import {ChildrenRequestBuilder} from './children/childrenRequestBuilder';
-import {TermItemRequestBuilder as i20771added17f81b87afd29b807dd0b983a1d1176b837901605d182d3c845221} from './children/item/termItemRequestBuilder';
+import {TermItemRequestBuilder as ibdd688a1d2756ccb2aabf2ae315bec9ec13471b6c8cfac15b4f54efe3209b73a} from './children/item/termItemRequestBuilder';
 import {RelationItemRequestBuilder} from './relations/item/relationItemRequestBuilder';
 import {RelationsRequestBuilder} from './relations/relationsRequestBuilder';
 import {SetRequestBuilder} from './set/setRequestBuilder';
@@ -33,15 +34,15 @@ export class TermItemRequestBuilder {
     /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.sites.item.termStores.item.sets.item.parentGroup.sets.item.terms.item.children.item collection
+     * Gets an item from the MicrosoftGraph.groups.item.sites.item.termStores.item.sets.item.parentGroup.sets.item.terms.item.children.item collection
      * @param id Unique identifier of the item
      * @returns a termItemRequestBuilder
      */
-    public childrenById(id: string) : i20771added17f81b87afd29b807dd0b983a1d1176b837901605d182d3c845221 {
+    public childrenById(id: string) : ibdd688a1d2756ccb2aabf2ae315bec9ec13471b6c8cfac15b4f54efe3209b73a {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["term%2Did1"] = id
-        return new i20771added17f81b87afd29b807dd0b983a1d1176b837901605d182d3c845221(urlTplParams, this.requestAdapter);
+        return new ibdd688a1d2756ccb2aabf2ae315bec9ec13471b6c8cfac15b4f54efe3209b73a(urlTplParams, this.requestAdapter);
     };
     /**
      * Instantiates a new TermItemRequestBuilder and sets the default values.
@@ -105,7 +106,8 @@ export class TermItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new TermImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -129,7 +131,7 @@ export class TermItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Term
      */
-    public get(requestConfiguration?: TermItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Term | undefined> {
+    public get(requestConfiguration?: TermItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<TermImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -137,7 +139,7 @@ export class TermItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<Term>(requestInfo, createTermFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<TermImpl>(requestInfo, createTermFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update the navigation property terms in groups
@@ -157,7 +159,7 @@ export class TermItemRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.sites.item.termStores.item.sets.item.parentGroup.sets.item.terms.item.relations.item collection
+     * Gets an item from the MicrosoftGraph.groups.item.sites.item.termStores.item.sets.item.parentGroup.sets.item.terms.item.relations.item collection
      * @param id Unique identifier of the item
      * @returns a relationItemRequestBuilder
      */

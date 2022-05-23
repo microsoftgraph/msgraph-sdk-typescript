@@ -1,4 +1,4 @@
-import {OnenotePagePreview} from '../../../../../../../../../../../../models/';
+import {OnenotePagePreviewImpl} from '../../../../../../../../../../../../models/';
 import {createOnenotePagePreviewFromDiscriminatorValue} from '../../../../../../../../../../../../models/createOnenotePagePreviewFromDiscriminatorValue';
 import {PreviewRequestBuilderGetRequestConfiguration} from './previewRequestBuilderGetRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
@@ -46,10 +46,10 @@ export class PreviewRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of OnenotePagePreview
      */
-    public get(requestConfiguration?: PreviewRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<OnenotePagePreview | undefined> {
+    public get(requestConfiguration?: PreviewRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<OnenotePagePreviewImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
-        return this.requestAdapter?.sendAsync<OnenotePagePreview>(requestInfo, createOnenotePagePreviewFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<OnenotePagePreviewImpl>(requestInfo, createOnenotePagePreviewFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }

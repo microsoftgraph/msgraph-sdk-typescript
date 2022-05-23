@@ -1,6 +1,7 @@
-import {AccessReviewInstanceDecisionItem} from '../../../../../../../../models/';
+import {AccessReviewInstanceDecisionItemImpl} from '../../../../../../../../models/';
+import {AccessReviewInstanceDecisionItem} from '../../../../../../../../models/accessReviewInstanceDecisionItem';
 import {createAccessReviewInstanceDecisionItemFromDiscriminatorValue} from '../../../../../../../../models/createAccessReviewInstanceDecisionItemFromDiscriminatorValue';
-import {ODataError} from '../../../../../../../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {AccessReviewInstanceDecisionItemItemRequestBuilderDeleteRequestConfiguration} from './accessReviewInstanceDecisionItemItemRequestBuilderDeleteRequestConfiguration';
 import {AccessReviewInstanceDecisionItemItemRequestBuilderGetRequestConfiguration} from './accessReviewInstanceDecisionItemItemRequestBuilderGetRequestConfiguration';
@@ -77,7 +78,8 @@ export class AccessReviewInstanceDecisionItemItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new AccessReviewInstanceDecisionItemImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -101,7 +103,7 @@ export class AccessReviewInstanceDecisionItemItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AccessReviewInstanceDecisionItem
      */
-    public get(requestConfiguration?: AccessReviewInstanceDecisionItemItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AccessReviewInstanceDecisionItem | undefined> {
+    public get(requestConfiguration?: AccessReviewInstanceDecisionItemItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AccessReviewInstanceDecisionItemImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -109,7 +111,7 @@ export class AccessReviewInstanceDecisionItemItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<AccessReviewInstanceDecisionItem>(requestInfo, createAccessReviewInstanceDecisionItemFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<AccessReviewInstanceDecisionItemImpl>(requestInfo, createAccessReviewInstanceDecisionItemFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update the navigation property decisions in identityGovernance

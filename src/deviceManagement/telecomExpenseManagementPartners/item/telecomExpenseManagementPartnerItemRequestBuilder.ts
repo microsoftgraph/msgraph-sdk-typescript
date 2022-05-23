@@ -1,7 +1,8 @@
-import {TelecomExpenseManagementPartner} from '../../../models/';
+import {TelecomExpenseManagementPartnerImpl} from '../../../models/';
 import {createTelecomExpenseManagementPartnerFromDiscriminatorValue} from '../../../models/createTelecomExpenseManagementPartnerFromDiscriminatorValue';
-import {ODataError} from '../../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {TelecomExpenseManagementPartner} from '../../../models/telecomExpenseManagementPartner';
 import {TelecomExpenseManagementPartnerItemRequestBuilderDeleteRequestConfiguration} from './telecomExpenseManagementPartnerItemRequestBuilderDeleteRequestConfiguration';
 import {TelecomExpenseManagementPartnerItemRequestBuilderGetRequestConfiguration} from './telecomExpenseManagementPartnerItemRequestBuilderGetRequestConfiguration';
 import {TelecomExpenseManagementPartnerItemRequestBuilderPatchRequestConfiguration} from './telecomExpenseManagementPartnerItemRequestBuilderPatchRequestConfiguration';
@@ -77,7 +78,8 @@ export class TelecomExpenseManagementPartnerItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new TelecomExpenseManagementPartnerImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -101,7 +103,7 @@ export class TelecomExpenseManagementPartnerItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of TelecomExpenseManagementPartner
      */
-    public get(requestConfiguration?: TelecomExpenseManagementPartnerItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<TelecomExpenseManagementPartner | undefined> {
+    public get(requestConfiguration?: TelecomExpenseManagementPartnerItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<TelecomExpenseManagementPartnerImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -109,7 +111,7 @@ export class TelecomExpenseManagementPartnerItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<TelecomExpenseManagementPartner>(requestInfo, createTelecomExpenseManagementPartnerFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<TelecomExpenseManagementPartnerImpl>(requestInfo, createTelecomExpenseManagementPartnerFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update the navigation property telecomExpenseManagementPartners in deviceManagement

@@ -1,6 +1,7 @@
-import {Session} from '../../../../../models/callRecords/';
+import {SessionImpl} from '../../../../../models/callRecords/';
 import {createSessionFromDiscriminatorValue} from '../../../../../models/callRecords/createSessionFromDiscriminatorValue';
-import {ODataError} from '../../../../../models/oDataErrors/';
+import {Session} from '../../../../../models/callRecords/session';
+import {ODataErrorImpl} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {SegmentItemRequestBuilder} from './segments/item/segmentItemRequestBuilder';
 import {SegmentsRequestBuilder} from './segments/segmentsRequestBuilder';
@@ -83,7 +84,8 @@ export class SessionItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new SessionImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -107,7 +109,7 @@ export class SessionItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Session
      */
-    public get(requestConfiguration?: SessionItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Session | undefined> {
+    public get(requestConfiguration?: SessionItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<SessionImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -115,7 +117,7 @@ export class SessionItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<Session>(requestInfo, createSessionFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<SessionImpl>(requestInfo, createSessionFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update the navigation property sessions in communications
@@ -135,7 +137,7 @@ export class SessionItemRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.communications.callRecords.item.sessions.item.segments.item collection
+     * Gets an item from the MicrosoftGraph.communications.callRecords.item.sessions.item.segments.item collection
      * @param id Unique identifier of the item
      * @returns a segmentItemRequestBuilder
      */

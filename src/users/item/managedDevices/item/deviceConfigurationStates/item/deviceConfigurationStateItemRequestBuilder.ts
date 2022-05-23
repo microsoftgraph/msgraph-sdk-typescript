@@ -1,6 +1,7 @@
-import {DeviceConfigurationState} from '../../../../../../models/';
+import {DeviceConfigurationStateImpl} from '../../../../../../models/';
 import {createDeviceConfigurationStateFromDiscriminatorValue} from '../../../../../../models/createDeviceConfigurationStateFromDiscriminatorValue';
-import {ODataError} from '../../../../../../models/oDataErrors/';
+import {DeviceConfigurationState} from '../../../../../../models/deviceConfigurationState';
+import {ODataErrorImpl} from '../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {DeviceConfigurationStateItemRequestBuilderDeleteRequestConfiguration} from './deviceConfigurationStateItemRequestBuilderDeleteRequestConfiguration';
 import {DeviceConfigurationStateItemRequestBuilderGetRequestConfiguration} from './deviceConfigurationStateItemRequestBuilderGetRequestConfiguration';
@@ -77,7 +78,8 @@ export class DeviceConfigurationStateItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new DeviceConfigurationStateImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -101,7 +103,7 @@ export class DeviceConfigurationStateItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DeviceConfigurationState
      */
-    public get(requestConfiguration?: DeviceConfigurationStateItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DeviceConfigurationState | undefined> {
+    public get(requestConfiguration?: DeviceConfigurationStateItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DeviceConfigurationStateImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -109,7 +111,7 @@ export class DeviceConfigurationStateItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<DeviceConfigurationState>(requestInfo, createDeviceConfigurationStateFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<DeviceConfigurationStateImpl>(requestInfo, createDeviceConfigurationStateFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update the navigation property deviceConfigurationStates in users

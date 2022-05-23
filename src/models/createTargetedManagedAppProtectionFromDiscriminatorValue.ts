@@ -1,7 +1,7 @@
-import {TargetedManagedAppProtection} from './index';
+import {TargetedManagedAppProtectionImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createTargetedManagedAppProtectionFromDiscriminatorValue(parseNode: ParseNode | undefined) : TargetedManagedAppProtection {
+export function createTargetedManagedAppProtectionFromDiscriminatorValue(parseNode: ParseNode | undefined) : TargetedManagedAppProtectionImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
     const mappingValueNode = parseNode.getChildNode("@odata.type");
     if (mappingValueNode) {
@@ -9,9 +9,9 @@ export function createTargetedManagedAppProtectionFromDiscriminatorValue(parseNo
         if (mappingValue) {
             switch (mappingValue) {
                 case "#microsoft.graph.targetedManagedAppProtection":
-                    return new TargetedManagedAppProtection();
+                    return new TargetedManagedAppProtectionImpl();
             }
         }
     }
-    return new TargetedManagedAppProtection();
+    return new TargetedManagedAppProtectionImpl();
 }

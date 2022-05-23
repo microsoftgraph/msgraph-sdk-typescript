@@ -1,7 +1,7 @@
-import {ClonePostRequestBody} from './index';
+import {ClonePostRequestBodyImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createClonePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ClonePostRequestBody {
+export function createClonePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ClonePostRequestBodyImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new ClonePostRequestBody();
+    return new ClonePostRequestBodyImpl();
 }

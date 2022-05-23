@@ -1,7 +1,8 @@
-import {Trending} from '../../../../models/';
+import {TrendingImpl} from '../../../../models/';
 import {createTrendingFromDiscriminatorValue} from '../../../../models/createTrendingFromDiscriminatorValue';
-import {ODataError} from '../../../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {Trending} from '../../../../models/trending';
 import {ResourceRequestBuilder} from './resource/resourceRequestBuilder';
 import {TrendingItemRequestBuilderDeleteRequestConfiguration} from './trendingItemRequestBuilderDeleteRequestConfiguration';
 import {TrendingItemRequestBuilderGetRequestConfiguration} from './trendingItemRequestBuilderGetRequestConfiguration';
@@ -82,7 +83,8 @@ export class TrendingItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new TrendingImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -106,7 +108,7 @@ export class TrendingItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Trending
      */
-    public get(requestConfiguration?: TrendingItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Trending | undefined> {
+    public get(requestConfiguration?: TrendingItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<TrendingImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -114,7 +116,7 @@ export class TrendingItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<Trending>(requestInfo, createTrendingFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<TrendingImpl>(requestInfo, createTrendingFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update the navigation property trending in me

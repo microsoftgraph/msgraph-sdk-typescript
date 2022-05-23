@@ -1,7 +1,7 @@
-import {Dictionary} from './index';
+import {DictionaryImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createDictionaryFromDiscriminatorValue(parseNode: ParseNode | undefined) : Dictionary {
+export function createDictionaryFromDiscriminatorValue(parseNode: ParseNode | undefined) : DictionaryImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new Dictionary();
+    return new DictionaryImpl();
 }

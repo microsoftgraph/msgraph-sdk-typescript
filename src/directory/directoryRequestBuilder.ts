@@ -1,6 +1,7 @@
-import {Directory} from '../models/';
+import {DirectoryImpl} from '../models/';
 import {createDirectoryFromDiscriminatorValue} from '../models/createDirectoryFromDiscriminatorValue';
-import {ODataError} from '../models/oDataErrors/';
+import {Directory} from '../models/directory';
+import {ODataErrorImpl} from '../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {AdministrativeUnitsRequestBuilder} from './administrativeUnits/administrativeUnitsRequestBuilder';
 import {AdministrativeUnitItemRequestBuilder} from './administrativeUnits/item/administrativeUnitItemRequestBuilder';
@@ -33,7 +34,7 @@ export class DirectoryRequestBuilder {
     /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.directory.administrativeUnits.item collection
+     * Gets an item from the MicrosoftGraph.directory.administrativeUnits.item collection
      * @param id Unique identifier of the item
      * @returns a administrativeUnitItemRequestBuilder
      */
@@ -89,11 +90,12 @@ export class DirectoryRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new DirectoryImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.directory.deletedItems.item collection
+     * Gets an item from the MicrosoftGraph.directory.deletedItems.item collection
      * @param id Unique identifier of the item
      * @returns a directoryObjectItemRequestBuilder
      */
@@ -104,7 +106,7 @@ export class DirectoryRequestBuilder {
         return new DirectoryObjectItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.directory.federationConfigurations.item collection
+     * Gets an item from the MicrosoftGraph.directory.federationConfigurations.item collection
      * @param id Unique identifier of the item
      * @returns a identityProviderBaseItemRequestBuilder
      */
@@ -120,7 +122,7 @@ export class DirectoryRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Directory
      */
-    public get(requestConfiguration?: DirectoryRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Directory | undefined> {
+    public get(requestConfiguration?: DirectoryRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DirectoryImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -128,7 +130,7 @@ export class DirectoryRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<Directory>(requestInfo, createDirectoryFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<DirectoryImpl>(requestInfo, createDirectoryFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update directory

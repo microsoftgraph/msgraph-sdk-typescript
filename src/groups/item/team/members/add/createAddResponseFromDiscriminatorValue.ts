@@ -1,7 +1,7 @@
-import {AddResponse} from './index';
+import {AddResponseImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createAddResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : AddResponse {
+export function createAddResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : AddResponseImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new AddResponse();
+    return new AddResponseImpl();
 }

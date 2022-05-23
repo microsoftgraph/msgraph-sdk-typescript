@@ -1,7 +1,7 @@
-import {ResourceSpecificPermissionGrantCollectionResponse} from './index';
+import {ResourceSpecificPermissionGrantCollectionResponseImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createResourceSpecificPermissionGrantCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ResourceSpecificPermissionGrantCollectionResponse {
+export function createResourceSpecificPermissionGrantCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ResourceSpecificPermissionGrantCollectionResponseImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new ResourceSpecificPermissionGrantCollectionResponse();
+    return new ResourceSpecificPermissionGrantCollectionResponseImpl();
 }

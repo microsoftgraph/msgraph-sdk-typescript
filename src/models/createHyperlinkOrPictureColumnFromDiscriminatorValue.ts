@@ -1,7 +1,7 @@
-import {HyperlinkOrPictureColumn} from './index';
+import {HyperlinkOrPictureColumnImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createHyperlinkOrPictureColumnFromDiscriminatorValue(parseNode: ParseNode | undefined) : HyperlinkOrPictureColumn {
+export function createHyperlinkOrPictureColumnFromDiscriminatorValue(parseNode: ParseNode | undefined) : HyperlinkOrPictureColumnImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new HyperlinkOrPictureColumn();
+    return new HyperlinkOrPictureColumnImpl();
 }

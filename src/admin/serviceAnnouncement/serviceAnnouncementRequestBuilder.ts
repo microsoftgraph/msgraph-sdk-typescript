@@ -1,7 +1,8 @@
-import {ServiceAnnouncement} from '../../models/';
+import {ServiceAnnouncementImpl} from '../../models/';
 import {createServiceAnnouncementFromDiscriminatorValue} from '../../models/createServiceAnnouncementFromDiscriminatorValue';
-import {ODataError} from '../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {ServiceAnnouncement} from '../../models/serviceAnnouncement';
 import {HealthOverviewsRequestBuilder} from './healthOverviews/healthOverviewsRequestBuilder';
 import {ServiceHealthItemRequestBuilder} from './healthOverviews/item/serviceHealthItemRequestBuilder';
 import {IssuesRequestBuilder} from './issues/issuesRequestBuilder';
@@ -95,7 +96,8 @@ export class ServiceAnnouncementRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new ServiceAnnouncementImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -119,7 +121,7 @@ export class ServiceAnnouncementRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ServiceAnnouncement
      */
-    public get(requestConfiguration?: ServiceAnnouncementRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ServiceAnnouncement | undefined> {
+    public get(requestConfiguration?: ServiceAnnouncementRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ServiceAnnouncementImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -127,10 +129,10 @@ export class ServiceAnnouncementRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<ServiceAnnouncement>(requestInfo, createServiceAnnouncementFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<ServiceAnnouncementImpl>(requestInfo, createServiceAnnouncementFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.admin.serviceAnnouncement.healthOverviews.item collection
+     * Gets an item from the MicrosoftGraph.admin.serviceAnnouncement.healthOverviews.item collection
      * @param id Unique identifier of the item
      * @returns a serviceHealthItemRequestBuilder
      */
@@ -141,7 +143,7 @@ export class ServiceAnnouncementRequestBuilder {
         return new ServiceHealthItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.admin.serviceAnnouncement.issues.item collection
+     * Gets an item from the MicrosoftGraph.admin.serviceAnnouncement.issues.item collection
      * @param id Unique identifier of the item
      * @returns a serviceHealthIssueItemRequestBuilder
      */
@@ -152,7 +154,7 @@ export class ServiceAnnouncementRequestBuilder {
         return new ServiceHealthIssueItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.admin.serviceAnnouncement.messages.item collection
+     * Gets an item from the MicrosoftGraph.admin.serviceAnnouncement.messages.item collection
      * @param id Unique identifier of the item
      * @returns a serviceUpdateMessageItemRequestBuilder
      */

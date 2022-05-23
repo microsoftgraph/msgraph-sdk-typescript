@@ -1,0 +1,47 @@
+import {createRemoteAssistancePartnerFromDiscriminatorValue} from './createRemoteAssistancePartnerFromDiscriminatorValue';
+import {RemoteAssistancePartnerImpl} from './index';
+import {RemoteAssistancePartner} from './remoteAssistancePartner';
+import {RemoteAssistancePartnerCollectionResponse} from './remoteAssistancePartnerCollectionResponse';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+
+export class RemoteAssistancePartnerCollectionResponseImpl implements AdditionalDataHolder, Parsable, RemoteAssistancePartnerCollectionResponse {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
+    /** The nextLink property */
+    public nextLink?: string | undefined;
+    /** The value property */
+    public value?: RemoteAssistancePartner[] | undefined;
+    /**
+     * Instantiates a new RemoteAssistancePartnerCollectionResponse and sets the default values.
+     * @param remoteAssistancePartnerCollectionResponseParameterValue 
+     */
+    public constructor(remoteAssistancePartnerCollectionResponseParameterValue?: RemoteAssistancePartnerCollectionResponse | undefined) {
+        this.additionalData = remoteAssistancePartnerCollectionResponseParameterValue?.additionalData ? remoteAssistancePartnerCollectionResponseParameterValue?.additionalData! : {}
+        this.nextLink = remoteAssistancePartnerCollectionResponseParameterValue?.nextLink ;
+        this.value = remoteAssistancePartnerCollectionResponseParameterValue?.value ;
+    };
+    /**
+     * The deserialization information for the current model
+     * @returns a Record<string, (node: ParseNode) => void>
+     */
+    public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
+        return {
+            "@odata.nextLink": n => { this.nextLink = n.getStringValue(); },
+            "value": n => { this.value = n.getCollectionOfObjectValues<RemoteAssistancePartnerImpl>(createRemoteAssistancePartnerFromDiscriminatorValue); },
+        };
+    };
+    /**
+     * Serializes information the current object
+     * @param writer Serialization writer to use to serialize this model
+     */
+    public serialize(writer: SerializationWriter) : void {
+        if(!writer) throw new Error("writer cannot be undefined");
+        if(this.nextLink){
+        writer.writeStringValue("@odata.nextLink", this.nextLink);
+        }
+        if(this.value && this.value.length != 0){        const valueArrValue: RemoteAssistancePartnerImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new RemoteAssistancePartnerImpl(element));});
+        writer.writeCollectionOfObjectValues<RemoteAssistancePartnerImpl>("value", valueArrValue);
+        }
+        writer.writeAdditionalData(this.additionalData);
+    };
+}

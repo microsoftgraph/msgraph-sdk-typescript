@@ -1,6 +1,7 @@
-import {AttendanceRecord} from '../../../../../../../../models/';
+import {AttendanceRecordImpl} from '../../../../../../../../models/';
+import {AttendanceRecord} from '../../../../../../../../models/attendanceRecord';
 import {createAttendanceRecordFromDiscriminatorValue} from '../../../../../../../../models/createAttendanceRecordFromDiscriminatorValue';
-import {ODataError} from '../../../../../../../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {AttendanceRecordItemRequestBuilderDeleteRequestConfiguration} from './attendanceRecordItemRequestBuilderDeleteRequestConfiguration';
 import {AttendanceRecordItemRequestBuilderGetRequestConfiguration} from './attendanceRecordItemRequestBuilderGetRequestConfiguration';
@@ -77,7 +78,8 @@ export class AttendanceRecordItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new AttendanceRecordImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -101,7 +103,7 @@ export class AttendanceRecordItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AttendanceRecord
      */
-    public get(requestConfiguration?: AttendanceRecordItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AttendanceRecord | undefined> {
+    public get(requestConfiguration?: AttendanceRecordItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AttendanceRecordImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -109,7 +111,7 @@ export class AttendanceRecordItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<AttendanceRecord>(requestInfo, createAttendanceRecordFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<AttendanceRecordImpl>(requestInfo, createAttendanceRecordFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update the navigation property attendanceRecords in users

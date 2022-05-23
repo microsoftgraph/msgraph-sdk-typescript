@@ -1,7 +1,7 @@
-import {SignIn} from './index';
+import {SignInImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createSignInFromDiscriminatorValue(parseNode: ParseNode | undefined) : SignIn {
+export function createSignInFromDiscriminatorValue(parseNode: ParseNode | undefined) : SignInImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
     const mappingValueNode = parseNode.getChildNode("@odata.type");
     if (mappingValueNode) {
@@ -9,9 +9,9 @@ export function createSignInFromDiscriminatorValue(parseNode: ParseNode | undefi
         if (mappingValue) {
             switch (mappingValue) {
                 case "#microsoft.graph.signIn":
-                    return new SignIn();
+                    return new SignInImpl();
             }
         }
     }
-    return new SignIn();
+    return new SignInImpl();
 }

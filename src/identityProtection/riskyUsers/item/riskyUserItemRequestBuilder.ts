@@ -1,7 +1,8 @@
-import {RiskyUser} from '../../../models/';
+import {RiskyUserImpl} from '../../../models/';
 import {createRiskyUserFromDiscriminatorValue} from '../../../models/createRiskyUserFromDiscriminatorValue';
-import {ODataError} from '../../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {RiskyUser} from '../../../models/riskyUser';
 import {HistoryRequestBuilder} from './history/historyRequestBuilder';
 import {RiskyUserHistoryItemItemRequestBuilder} from './history/item/riskyUserHistoryItemItemRequestBuilder';
 import {RiskyUserItemRequestBuilderDeleteRequestConfiguration} from './riskyUserItemRequestBuilderDeleteRequestConfiguration';
@@ -83,7 +84,8 @@ export class RiskyUserItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new RiskyUserImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -107,7 +109,7 @@ export class RiskyUserItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of RiskyUser
      */
-    public get(requestConfiguration?: RiskyUserItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<RiskyUser | undefined> {
+    public get(requestConfiguration?: RiskyUserItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<RiskyUserImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -115,10 +117,10 @@ export class RiskyUserItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<RiskyUser>(requestInfo, createRiskyUserFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<RiskyUserImpl>(requestInfo, createRiskyUserFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.identityProtection.riskyUsers.item.history.item collection
+     * Gets an item from the MicrosoftGraph.identityProtection.riskyUsers.item.history.item collection
      * @param id Unique identifier of the item
      * @returns a riskyUserHistoryItemItemRequestBuilder
      */

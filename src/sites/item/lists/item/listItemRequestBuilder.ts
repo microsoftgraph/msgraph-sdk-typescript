@@ -1,6 +1,7 @@
-import {List} from '../../../../models/';
+import {ListImpl} from '../../../../models/';
 import {createListFromDiscriminatorValue} from '../../../../models/createListFromDiscriminatorValue';
-import {ODataError} from '../../../../models/oDataErrors/';
+import {List} from '../../../../models/list';
+import {ODataErrorImpl} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {ColumnsRequestBuilder} from './columns/columnsRequestBuilder';
 import {ColumnDefinitionItemRequestBuilder} from './columns/item/columnDefinitionItemRequestBuilder';
@@ -51,7 +52,7 @@ export class ListItemRequestBuilder {
     /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.lists.item.columns.item collection
+     * Gets an item from the MicrosoftGraph.sites.item.lists.item.columns.item collection
      * @param id Unique identifier of the item
      * @returns a columnDefinitionItemRequestBuilder
      */
@@ -75,7 +76,7 @@ export class ListItemRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.lists.item.contentTypes.item collection
+     * Gets an item from the MicrosoftGraph.sites.item.lists.item.contentTypes.item collection
      * @param id Unique identifier of the item
      * @returns a contentTypeItemRequestBuilder
      */
@@ -134,7 +135,8 @@ export class ListItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new ListImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -158,7 +160,7 @@ export class ListItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of List
      */
-    public get(requestConfiguration?: ListItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<List | undefined> {
+    public get(requestConfiguration?: ListItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ListImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -166,10 +168,10 @@ export class ListItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<List>(requestInfo, createListFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<ListImpl>(requestInfo, createListFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.lists.item.items.item collection
+     * Gets an item from the MicrosoftGraph.sites.item.lists.item.items.item collection
      * @param id Unique identifier of the item
      * @returns a listItemItemRequestBuilder
      */
@@ -180,7 +182,7 @@ export class ListItemRequestBuilder {
         return new ListItemItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.lists.item.operations.item collection
+     * Gets an item from the MicrosoftGraph.sites.item.lists.item.operations.item collection
      * @param id Unique identifier of the item
      * @returns a richLongRunningOperationItemRequestBuilder
      */
@@ -208,7 +210,7 @@ export class ListItemRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.lists.item.subscriptions.item collection
+     * Gets an item from the MicrosoftGraph.sites.item.lists.item.subscriptions.item collection
      * @param id Unique identifier of the item
      * @returns a subscriptionItemRequestBuilder
      */

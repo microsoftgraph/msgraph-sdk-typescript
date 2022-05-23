@@ -1,5 +1,6 @@
+import {ClearPresencePostRequestBody} from './clearPresencePostRequestBody';
 import {ClearPresenceRequestBuilderPostRequestConfiguration} from './clearPresenceRequestBuilderPostRequestConfiguration';
-import {ClearPresencePostRequestBody} from './index';
+import {ClearPresencePostRequestBodyImpl} from './index';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the clearPresence method. */
@@ -39,7 +40,8 @@ export class ClearPresenceRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new ClearPresencePostRequestBodyImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**

@@ -1,7 +1,8 @@
-import {PrintServiceEndpoint} from '../../../../../models/';
+import {PrintServiceEndpointImpl} from '../../../../../models/';
 import {createPrintServiceEndpointFromDiscriminatorValue} from '../../../../../models/createPrintServiceEndpointFromDiscriminatorValue';
-import {ODataError} from '../../../../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {PrintServiceEndpoint} from '../../../../../models/printServiceEndpoint';
 import {PrintServiceEndpointItemRequestBuilderDeleteRequestConfiguration} from './printServiceEndpointItemRequestBuilderDeleteRequestConfiguration';
 import {PrintServiceEndpointItemRequestBuilderGetRequestConfiguration} from './printServiceEndpointItemRequestBuilderGetRequestConfiguration';
 import {PrintServiceEndpointItemRequestBuilderPatchRequestConfiguration} from './printServiceEndpointItemRequestBuilderPatchRequestConfiguration';
@@ -77,7 +78,8 @@ export class PrintServiceEndpointItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new PrintServiceEndpointImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -101,7 +103,7 @@ export class PrintServiceEndpointItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of PrintServiceEndpoint
      */
-    public get(requestConfiguration?: PrintServiceEndpointItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<PrintServiceEndpoint | undefined> {
+    public get(requestConfiguration?: PrintServiceEndpointItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<PrintServiceEndpointImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -109,7 +111,7 @@ export class PrintServiceEndpointItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<PrintServiceEndpoint>(requestInfo, createPrintServiceEndpointFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<PrintServiceEndpointImpl>(requestInfo, createPrintServiceEndpointFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update the navigation property endpoints in print

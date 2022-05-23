@@ -1,6 +1,7 @@
-import {Channel} from '../../../../models/';
+import {ChannelImpl} from '../../../../models/';
+import {Channel} from '../../../../models/channel';
 import {createChannelFromDiscriminatorValue} from '../../../../models/createChannelFromDiscriminatorValue';
-import {ODataError} from '../../../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {ChannelItemRequestBuilderDeleteRequestConfiguration} from './channelItemRequestBuilderDeleteRequestConfiguration';
 import {ChannelItemRequestBuilderGetRequestConfiguration} from './channelItemRequestBuilderGetRequestConfiguration';
@@ -115,7 +116,8 @@ export class ChannelItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new ChannelImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -139,7 +141,7 @@ export class ChannelItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Channel
      */
-    public get(requestConfiguration?: ChannelItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Channel | undefined> {
+    public get(requestConfiguration?: ChannelItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ChannelImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -147,10 +149,10 @@ export class ChannelItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<Channel>(requestInfo, createChannelFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<ChannelImpl>(requestInfo, createChannelFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.teams.item.channels.item.members.item collection
+     * Gets an item from the MicrosoftGraph.teams.item.channels.item.members.item collection
      * @param id Unique identifier of the item
      * @returns a conversationMemberItemRequestBuilder
      */
@@ -161,7 +163,7 @@ export class ChannelItemRequestBuilder {
         return new ConversationMemberItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.teams.item.channels.item.messages.item collection
+     * Gets an item from the MicrosoftGraph.teams.item.channels.item.messages.item collection
      * @param id Unique identifier of the item
      * @returns a chatMessageItemRequestBuilder
      */
@@ -189,7 +191,7 @@ export class ChannelItemRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.teams.item.channels.item.tabs.item collection
+     * Gets an item from the MicrosoftGraph.teams.item.channels.item.tabs.item collection
      * @param id Unique identifier of the item
      * @returns a teamsTabItemRequestBuilder
      */

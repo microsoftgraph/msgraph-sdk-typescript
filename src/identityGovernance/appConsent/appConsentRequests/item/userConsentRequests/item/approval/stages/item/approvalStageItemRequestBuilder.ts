@@ -1,6 +1,7 @@
-import {ApprovalStage} from '../../../../../../../../../models/';
+import {ApprovalStageImpl} from '../../../../../../../../../models/';
+import {ApprovalStage} from '../../../../../../../../../models/approvalStage';
 import {createApprovalStageFromDiscriminatorValue} from '../../../../../../../../../models/createApprovalStageFromDiscriminatorValue';
-import {ODataError} from '../../../../../../../../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {ApprovalStageItemRequestBuilderDeleteRequestConfiguration} from './approvalStageItemRequestBuilderDeleteRequestConfiguration';
 import {ApprovalStageItemRequestBuilderGetRequestConfiguration} from './approvalStageItemRequestBuilderGetRequestConfiguration';
@@ -77,7 +78,8 @@ export class ApprovalStageItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new ApprovalStageImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -101,7 +103,7 @@ export class ApprovalStageItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ApprovalStage
      */
-    public get(requestConfiguration?: ApprovalStageItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ApprovalStage | undefined> {
+    public get(requestConfiguration?: ApprovalStageItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ApprovalStageImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -109,7 +111,7 @@ export class ApprovalStageItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<ApprovalStage>(requestInfo, createApprovalStageFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<ApprovalStageImpl>(requestInfo, createApprovalStageFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update the navigation property stages in identityGovernance

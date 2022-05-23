@@ -1,7 +1,7 @@
-import {Extension} from './index';
+import {ExtensionImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createExtensionFromDiscriminatorValue(parseNode: ParseNode | undefined) : Extension {
+export function createExtensionFromDiscriminatorValue(parseNode: ParseNode | undefined) : ExtensionImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
     const mappingValueNode = parseNode.getChildNode("@odata.type");
     if (mappingValueNode) {
@@ -9,9 +9,9 @@ export function createExtensionFromDiscriminatorValue(parseNode: ParseNode | und
         if (mappingValue) {
             switch (mappingValue) {
                 case "#microsoft.graph.extension":
-                    return new Extension();
+                    return new ExtensionImpl();
             }
         }
     }
-    return new Extension();
+    return new ExtensionImpl();
 }

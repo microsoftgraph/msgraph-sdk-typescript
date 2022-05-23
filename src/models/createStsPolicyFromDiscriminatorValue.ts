@@ -1,7 +1,7 @@
-import {StsPolicy} from './index';
+import {StsPolicyImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createStsPolicyFromDiscriminatorValue(parseNode: ParseNode | undefined) : StsPolicy {
+export function createStsPolicyFromDiscriminatorValue(parseNode: ParseNode | undefined) : StsPolicyImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
     const mappingValueNode = parseNode.getChildNode("@odata.type");
     if (mappingValueNode) {
@@ -9,9 +9,9 @@ export function createStsPolicyFromDiscriminatorValue(parseNode: ParseNode | und
         if (mappingValue) {
             switch (mappingValue) {
                 case "#microsoft.graph.stsPolicy":
-                    return new StsPolicy();
+                    return new StsPolicyImpl();
             }
         }
     }
-    return new StsPolicy();
+    return new StsPolicyImpl();
 }

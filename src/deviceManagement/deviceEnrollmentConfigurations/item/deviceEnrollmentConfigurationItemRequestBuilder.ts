@@ -1,6 +1,7 @@
-import {DeviceEnrollmentConfiguration} from '../../../models/';
+import {DeviceEnrollmentConfigurationImpl} from '../../../models/';
 import {createDeviceEnrollmentConfigurationFromDiscriminatorValue} from '../../../models/createDeviceEnrollmentConfigurationFromDiscriminatorValue';
-import {ODataError} from '../../../models/oDataErrors/';
+import {DeviceEnrollmentConfiguration} from '../../../models/deviceEnrollmentConfiguration';
+import {ODataErrorImpl} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {AssignRequestBuilder} from './assign/assignRequestBuilder';
 import {AssignmentsRequestBuilder} from './assignments/assignmentsRequestBuilder';
@@ -32,7 +33,7 @@ export class DeviceEnrollmentConfigurationItemRequestBuilder {
     /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceManagement.deviceEnrollmentConfigurations.item.assignments.item collection
+     * Gets an item from the MicrosoftGraph.deviceManagement.deviceEnrollmentConfigurations.item.assignments.item collection
      * @param id Unique identifier of the item
      * @returns a enrollmentConfigurationAssignmentItemRequestBuilder
      */
@@ -104,7 +105,8 @@ export class DeviceEnrollmentConfigurationItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new DeviceEnrollmentConfigurationImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -128,7 +130,7 @@ export class DeviceEnrollmentConfigurationItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DeviceEnrollmentConfiguration
      */
-    public get(requestConfiguration?: DeviceEnrollmentConfigurationItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DeviceEnrollmentConfiguration | undefined> {
+    public get(requestConfiguration?: DeviceEnrollmentConfigurationItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DeviceEnrollmentConfigurationImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -136,7 +138,7 @@ export class DeviceEnrollmentConfigurationItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<DeviceEnrollmentConfiguration>(requestInfo, createDeviceEnrollmentConfigurationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<DeviceEnrollmentConfigurationImpl>(requestInfo, createDeviceEnrollmentConfigurationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update the navigation property deviceEnrollmentConfigurations in deviceManagement

@@ -1,7 +1,8 @@
-import {MeetingAttendanceReport, MeetingAttendanceReportCollectionResponse} from '../../../../models/';
+import {MeetingAttendanceReportCollectionResponseImpl, MeetingAttendanceReportImpl} from '../../../../models/';
 import {createMeetingAttendanceReportCollectionResponseFromDiscriminatorValue} from '../../../../models/createMeetingAttendanceReportCollectionResponseFromDiscriminatorValue';
 import {createMeetingAttendanceReportFromDiscriminatorValue} from '../../../../models/createMeetingAttendanceReportFromDiscriminatorValue';
-import {ODataError} from '../../../../models/oDataErrors/';
+import {MeetingAttendanceReport} from '../../../../models/meetingAttendanceReport';
+import {ODataErrorImpl} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {AttendanceReportsRequestBuilderGetRequestConfiguration} from './attendanceReportsRequestBuilderGetRequestConfiguration';
 import {AttendanceReportsRequestBuilderPostRequestConfiguration} from './attendanceReportsRequestBuilderPostRequestConfiguration';
@@ -66,7 +67,8 @@ export class AttendanceReportsRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new MeetingAttendanceReportImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -75,7 +77,7 @@ export class AttendanceReportsRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of MeetingAttendanceReportCollectionResponse
      */
-    public get(requestConfiguration?: AttendanceReportsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<MeetingAttendanceReportCollectionResponse | undefined> {
+    public get(requestConfiguration?: AttendanceReportsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<MeetingAttendanceReportCollectionResponseImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -83,7 +85,7 @@ export class AttendanceReportsRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<MeetingAttendanceReportCollectionResponse>(requestInfo, createMeetingAttendanceReportCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<MeetingAttendanceReportCollectionResponseImpl>(requestInfo, createMeetingAttendanceReportCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Create new navigation property to attendanceReports for me
@@ -92,7 +94,7 @@ export class AttendanceReportsRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of MeetingAttendanceReport
      */
-    public post(body: MeetingAttendanceReport | undefined, requestConfiguration?: AttendanceReportsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<MeetingAttendanceReport | undefined> {
+    public post(body: MeetingAttendanceReport | undefined, requestConfiguration?: AttendanceReportsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<MeetingAttendanceReportImpl | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration
@@ -101,6 +103,6 @@ export class AttendanceReportsRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<MeetingAttendanceReport>(requestInfo, createMeetingAttendanceReportFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<MeetingAttendanceReportImpl>(requestInfo, createMeetingAttendanceReportFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

@@ -1,6 +1,7 @@
+import {CheckMemberGroupsPostRequestBody} from './checkMemberGroupsPostRequestBody';
 import {CheckMemberGroupsRequestBuilderPostRequestConfiguration} from './checkMemberGroupsRequestBuilderPostRequestConfiguration';
 import {createCheckMemberGroupsResponseFromDiscriminatorValue} from './createCheckMemberGroupsResponseFromDiscriminatorValue';
-import {CheckMemberGroupsPostRequestBody, CheckMemberGroupsResponse} from './index';
+import {CheckMemberGroupsPostRequestBodyImpl, CheckMemberGroupsResponseImpl} from './index';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the checkMemberGroups method. */
@@ -40,7 +41,8 @@ export class CheckMemberGroupsRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new CheckMemberGroupsPostRequestBodyImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -50,11 +52,11 @@ export class CheckMemberGroupsRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of CheckMemberGroupsResponse
      */
-    public post(body: CheckMemberGroupsPostRequestBody | undefined, requestConfiguration?: CheckMemberGroupsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<CheckMemberGroupsResponse | undefined> {
+    public post(body: CheckMemberGroupsPostRequestBody | undefined, requestConfiguration?: CheckMemberGroupsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<CheckMemberGroupsResponseImpl | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration
         );
-        return this.requestAdapter?.sendAsync<CheckMemberGroupsResponse>(requestInfo, createCheckMemberGroupsResponseFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<CheckMemberGroupsResponseImpl>(requestInfo, createCheckMemberGroupsResponseFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }

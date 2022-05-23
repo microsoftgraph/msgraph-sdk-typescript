@@ -1,5 +1,6 @@
+import {ChangeScreenSharingRolePostRequestBody} from './changeScreenSharingRolePostRequestBody';
 import {ChangeScreenSharingRoleRequestBuilderPostRequestConfiguration} from './changeScreenSharingRoleRequestBuilderPostRequestConfiguration';
-import {ChangeScreenSharingRolePostRequestBody} from './index';
+import {ChangeScreenSharingRolePostRequestBodyImpl} from './index';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the changeScreenSharingRole method. */
@@ -39,7 +40,8 @@ export class ChangeScreenSharingRoleRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new ChangeScreenSharingRolePostRequestBodyImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**

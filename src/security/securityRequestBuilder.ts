@@ -1,7 +1,8 @@
-import {Security} from '../models/';
+import {SecurityImpl} from '../models/';
 import {createSecurityFromDiscriminatorValue} from '../models/createSecurityFromDiscriminatorValue';
-import {ODataError} from '../models/oDataErrors/';
+import {ODataErrorImpl} from '../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {Security} from '../models/security';
 import {AlertsRequestBuilder} from './alerts/alertsRequestBuilder';
 import {AlertItemRequestBuilder} from './alerts/item/alertItemRequestBuilder';
 import {SecureScoreControlProfileItemRequestBuilder} from './secureScoreControlProfiles/item/secureScoreControlProfileItemRequestBuilder';
@@ -33,7 +34,7 @@ export class SecurityRequestBuilder {
     /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.security.alerts.item collection
+     * Gets an item from the MicrosoftGraph.security.alerts.item collection
      * @param id Unique identifier of the item
      * @returns a alertItemRequestBuilder
      */
@@ -89,7 +90,8 @@ export class SecurityRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new SecurityImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -98,7 +100,7 @@ export class SecurityRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Security
      */
-    public get(requestConfiguration?: SecurityRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Security | undefined> {
+    public get(requestConfiguration?: SecurityRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<SecurityImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -106,7 +108,7 @@ export class SecurityRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<Security>(requestInfo, createSecurityFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<SecurityImpl>(requestInfo, createSecurityFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update security
@@ -126,7 +128,7 @@ export class SecurityRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.security.secureScoreControlProfiles.item collection
+     * Gets an item from the MicrosoftGraph.security.secureScoreControlProfiles.item collection
      * @param id Unique identifier of the item
      * @returns a secureScoreControlProfileItemRequestBuilder
      */
@@ -137,7 +139,7 @@ export class SecurityRequestBuilder {
         return new SecureScoreControlProfileItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.security.secureScores.item collection
+     * Gets an item from the MicrosoftGraph.security.secureScores.item collection
      * @param id Unique identifier of the item
      * @returns a secureScoreItemRequestBuilder
      */

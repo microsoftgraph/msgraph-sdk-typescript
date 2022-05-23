@@ -1,7 +1,7 @@
-import {FileSecurityState} from './index';
+import {FileSecurityStateImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createFileSecurityStateFromDiscriminatorValue(parseNode: ParseNode | undefined) : FileSecurityState {
+export function createFileSecurityStateFromDiscriminatorValue(parseNode: ParseNode | undefined) : FileSecurityStateImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new FileSecurityState();
+    return new FileSecurityStateImpl();
 }

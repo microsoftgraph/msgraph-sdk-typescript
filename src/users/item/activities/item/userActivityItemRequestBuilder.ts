@@ -1,7 +1,8 @@
-import {UserActivity} from '../../../../models/';
+import {UserActivityImpl} from '../../../../models/';
 import {createUserActivityFromDiscriminatorValue} from '../../../../models/createUserActivityFromDiscriminatorValue';
-import {ODataError} from '../../../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {UserActivity} from '../../../../models/userActivity';
 import {HistoryItemsRequestBuilder} from './historyItems/historyItemsRequestBuilder';
 import {ActivityHistoryItemItemRequestBuilder} from './historyItems/item/activityHistoryItemItemRequestBuilder';
 import {UserActivityItemRequestBuilderDeleteRequestConfiguration} from './userActivityItemRequestBuilderDeleteRequestConfiguration';
@@ -83,7 +84,8 @@ export class UserActivityItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new UserActivityImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -107,7 +109,7 @@ export class UserActivityItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of UserActivity
      */
-    public get(requestConfiguration?: UserActivityItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<UserActivity | undefined> {
+    public get(requestConfiguration?: UserActivityItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<UserActivityImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -115,10 +117,10 @@ export class UserActivityItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<UserActivity>(requestInfo, createUserActivityFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<UserActivityImpl>(requestInfo, createUserActivityFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.activities.item.historyItems.item collection
+     * Gets an item from the MicrosoftGraph.users.item.activities.item.historyItems.item collection
      * @param id Unique identifier of the item
      * @returns a activityHistoryItemItemRequestBuilder
      */

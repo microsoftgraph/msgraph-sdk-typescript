@@ -1,7 +1,7 @@
-import {EducationCategory} from './index';
+import {EducationCategoryImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createEducationCategoryFromDiscriminatorValue(parseNode: ParseNode | undefined) : EducationCategory {
+export function createEducationCategoryFromDiscriminatorValue(parseNode: ParseNode | undefined) : EducationCategoryImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new EducationCategory();
+    return new EducationCategoryImpl();
 }

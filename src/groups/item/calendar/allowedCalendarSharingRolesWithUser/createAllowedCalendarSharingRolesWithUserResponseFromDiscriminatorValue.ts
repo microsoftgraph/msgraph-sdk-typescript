@@ -1,7 +1,7 @@
-import {AllowedCalendarSharingRolesWithUserResponse} from './index';
+import {AllowedCalendarSharingRolesWithUserResponseImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createAllowedCalendarSharingRolesWithUserResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : AllowedCalendarSharingRolesWithUserResponse {
+export function createAllowedCalendarSharingRolesWithUserResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : AllowedCalendarSharingRolesWithUserResponseImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new AllowedCalendarSharingRolesWithUserResponse();
+    return new AllowedCalendarSharingRolesWithUserResponseImpl();
 }

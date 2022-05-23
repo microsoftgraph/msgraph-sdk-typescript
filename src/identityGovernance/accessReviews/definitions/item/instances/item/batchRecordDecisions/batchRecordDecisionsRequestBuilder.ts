@@ -1,5 +1,6 @@
+import {BatchRecordDecisionsPostRequestBody} from './batchRecordDecisionsPostRequestBody';
 import {BatchRecordDecisionsRequestBuilderPostRequestConfiguration} from './batchRecordDecisionsRequestBuilderPostRequestConfiguration';
-import {BatchRecordDecisionsPostRequestBody} from './index';
+import {BatchRecordDecisionsPostRequestBodyImpl} from './index';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the batchRecordDecisions method. */
@@ -39,7 +40,8 @@ export class BatchRecordDecisionsRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new BatchRecordDecisionsPostRequestBodyImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**

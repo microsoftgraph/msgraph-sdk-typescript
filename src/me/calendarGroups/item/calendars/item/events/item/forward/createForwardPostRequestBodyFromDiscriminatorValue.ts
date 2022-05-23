@@ -1,7 +1,7 @@
-import {ForwardPostRequestBody} from './index';
+import {ForwardPostRequestBodyImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createForwardPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ForwardPostRequestBody {
+export function createForwardPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ForwardPostRequestBodyImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new ForwardPostRequestBody();
+    return new ForwardPostRequestBodyImpl();
 }

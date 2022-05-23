@@ -1,6 +1,7 @@
-import {DeviceConfigurationUserStatus} from '../../../../../models/';
+import {DeviceConfigurationUserStatusImpl} from '../../../../../models/';
 import {createDeviceConfigurationUserStatusFromDiscriminatorValue} from '../../../../../models/createDeviceConfigurationUserStatusFromDiscriminatorValue';
-import {ODataError} from '../../../../../models/oDataErrors/';
+import {DeviceConfigurationUserStatus} from '../../../../../models/deviceConfigurationUserStatus';
+import {ODataErrorImpl} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {DeviceConfigurationUserStatusItemRequestBuilderDeleteRequestConfiguration} from './deviceConfigurationUserStatusItemRequestBuilderDeleteRequestConfiguration';
 import {DeviceConfigurationUserStatusItemRequestBuilderGetRequestConfiguration} from './deviceConfigurationUserStatusItemRequestBuilderGetRequestConfiguration';
@@ -77,7 +78,8 @@ export class DeviceConfigurationUserStatusItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new DeviceConfigurationUserStatusImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -101,7 +103,7 @@ export class DeviceConfigurationUserStatusItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DeviceConfigurationUserStatus
      */
-    public get(requestConfiguration?: DeviceConfigurationUserStatusItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DeviceConfigurationUserStatus | undefined> {
+    public get(requestConfiguration?: DeviceConfigurationUserStatusItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DeviceConfigurationUserStatusImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -109,7 +111,7 @@ export class DeviceConfigurationUserStatusItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<DeviceConfigurationUserStatus>(requestInfo, createDeviceConfigurationUserStatusFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<DeviceConfigurationUserStatusImpl>(requestInfo, createDeviceConfigurationUserStatusFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update the navigation property userStatuses in deviceManagement

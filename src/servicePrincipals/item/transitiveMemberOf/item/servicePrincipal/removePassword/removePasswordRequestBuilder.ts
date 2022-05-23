@@ -1,4 +1,5 @@
-import {RemovePasswordPostRequestBody} from './index';
+import {RemovePasswordPostRequestBodyImpl} from './index';
+import {RemovePasswordPostRequestBody} from './removePasswordPostRequestBody';
 import {RemovePasswordRequestBuilderPostRequestConfiguration} from './removePasswordRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
@@ -39,7 +40,8 @@ export class RemovePasswordRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new RemovePasswordPostRequestBodyImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**

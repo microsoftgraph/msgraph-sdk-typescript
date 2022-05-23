@@ -1,7 +1,8 @@
-import {AccessPackageAssignmentRequest, AccessPackageAssignmentRequestCollectionResponse} from '../../../models/';
+import {AccessPackageAssignmentRequestCollectionResponseImpl, AccessPackageAssignmentRequestImpl} from '../../../models/';
+import {AccessPackageAssignmentRequest} from '../../../models/accessPackageAssignmentRequest';
 import {createAccessPackageAssignmentRequestCollectionResponseFromDiscriminatorValue} from '../../../models/createAccessPackageAssignmentRequestCollectionResponseFromDiscriminatorValue';
 import {createAccessPackageAssignmentRequestFromDiscriminatorValue} from '../../../models/createAccessPackageAssignmentRequestFromDiscriminatorValue';
-import {ODataError} from '../../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {AssignmentRequestsRequestBuilderGetRequestConfiguration} from './assignmentRequestsRequestBuilderGetRequestConfiguration';
 import {AssignmentRequestsRequestBuilderPostRequestConfiguration} from './assignmentRequestsRequestBuilderPostRequestConfiguration';
@@ -67,7 +68,8 @@ export class AssignmentRequestsRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new AccessPackageAssignmentRequestImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -85,7 +87,7 @@ export class AssignmentRequestsRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AccessPackageAssignmentRequestCollectionResponse
      */
-    public get(requestConfiguration?: AssignmentRequestsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AccessPackageAssignmentRequestCollectionResponse | undefined> {
+    public get(requestConfiguration?: AssignmentRequestsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AccessPackageAssignmentRequestCollectionResponseImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -93,7 +95,7 @@ export class AssignmentRequestsRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<AccessPackageAssignmentRequestCollectionResponse>(requestInfo, createAccessPackageAssignmentRequestCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<AccessPackageAssignmentRequestCollectionResponseImpl>(requestInfo, createAccessPackageAssignmentRequestCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Create new navigation property to assignmentRequests for identityGovernance
@@ -102,7 +104,7 @@ export class AssignmentRequestsRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AccessPackageAssignmentRequest
      */
-    public post(body: AccessPackageAssignmentRequest | undefined, requestConfiguration?: AssignmentRequestsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AccessPackageAssignmentRequest | undefined> {
+    public post(body: AccessPackageAssignmentRequest | undefined, requestConfiguration?: AssignmentRequestsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AccessPackageAssignmentRequestImpl | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration
@@ -111,6 +113,6 @@ export class AssignmentRequestsRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<AccessPackageAssignmentRequest>(requestInfo, createAccessPackageAssignmentRequestFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<AccessPackageAssignmentRequestImpl>(requestInfo, createAccessPackageAssignmentRequestFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

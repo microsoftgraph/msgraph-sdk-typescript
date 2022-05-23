@@ -1,7 +1,7 @@
-import {ExcludeTarget} from './index';
+import {ExcludeTargetImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createExcludeTargetFromDiscriminatorValue(parseNode: ParseNode | undefined) : ExcludeTarget {
+export function createExcludeTargetFromDiscriminatorValue(parseNode: ParseNode | undefined) : ExcludeTargetImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new ExcludeTarget();
+    return new ExcludeTargetImpl();
 }

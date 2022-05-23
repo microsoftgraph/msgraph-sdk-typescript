@@ -1,5 +1,6 @@
+import {DismissPostRequestBody} from './dismissPostRequestBody';
 import {DismissRequestBuilderPostRequestConfiguration} from './dismissRequestBuilderPostRequestConfiguration';
-import {DismissPostRequestBody} from './index';
+import {DismissPostRequestBodyImpl} from './index';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the dismiss method. */
@@ -39,7 +40,8 @@ export class DismissRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new DismissPostRequestBodyImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**

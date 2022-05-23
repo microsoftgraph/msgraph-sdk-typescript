@@ -1,7 +1,8 @@
-import {UnifiedRoleManagementPolicyRule} from '../../../../../models/';
+import {UnifiedRoleManagementPolicyRuleImpl} from '../../../../../models/';
 import {createUnifiedRoleManagementPolicyRuleFromDiscriminatorValue} from '../../../../../models/createUnifiedRoleManagementPolicyRuleFromDiscriminatorValue';
-import {ODataError} from '../../../../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {UnifiedRoleManagementPolicyRule} from '../../../../../models/unifiedRoleManagementPolicyRule';
 import {UnifiedRoleManagementPolicyRuleItemRequestBuilderDeleteRequestConfiguration} from './unifiedRoleManagementPolicyRuleItemRequestBuilderDeleteRequestConfiguration';
 import {UnifiedRoleManagementPolicyRuleItemRequestBuilderGetRequestConfiguration} from './unifiedRoleManagementPolicyRuleItemRequestBuilderGetRequestConfiguration';
 import {UnifiedRoleManagementPolicyRuleItemRequestBuilderPatchRequestConfiguration} from './unifiedRoleManagementPolicyRuleItemRequestBuilderPatchRequestConfiguration';
@@ -77,7 +78,8 @@ export class UnifiedRoleManagementPolicyRuleItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new UnifiedRoleManagementPolicyRuleImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -101,7 +103,7 @@ export class UnifiedRoleManagementPolicyRuleItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of UnifiedRoleManagementPolicyRule
      */
-    public get(requestConfiguration?: UnifiedRoleManagementPolicyRuleItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<UnifiedRoleManagementPolicyRule | undefined> {
+    public get(requestConfiguration?: UnifiedRoleManagementPolicyRuleItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<UnifiedRoleManagementPolicyRuleImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -109,7 +111,7 @@ export class UnifiedRoleManagementPolicyRuleItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<UnifiedRoleManagementPolicyRule>(requestInfo, createUnifiedRoleManagementPolicyRuleFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<UnifiedRoleManagementPolicyRuleImpl>(requestInfo, createUnifiedRoleManagementPolicyRuleFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update the navigation property rules in policies

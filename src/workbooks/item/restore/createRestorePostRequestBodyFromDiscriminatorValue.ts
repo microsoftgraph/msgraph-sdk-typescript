@@ -1,7 +1,7 @@
-import {RestorePostRequestBody} from './index';
+import {RestorePostRequestBodyImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createRestorePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : RestorePostRequestBody {
+export function createRestorePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : RestorePostRequestBodyImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new RestorePostRequestBody();
+    return new RestorePostRequestBodyImpl();
 }

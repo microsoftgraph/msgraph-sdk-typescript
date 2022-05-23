@@ -1,7 +1,7 @@
-import {GetAvailableExtensionPropertiesResponse} from './index';
+import {GetAvailableExtensionPropertiesResponseImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createGetAvailableExtensionPropertiesResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : GetAvailableExtensionPropertiesResponse {
+export function createGetAvailableExtensionPropertiesResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : GetAvailableExtensionPropertiesResponseImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new GetAvailableExtensionPropertiesResponse();
+    return new GetAvailableExtensionPropertiesResponseImpl();
 }

@@ -1,6 +1,7 @@
-import {MobileThreatDefenseConnector} from '../../../models/';
+import {MobileThreatDefenseConnectorImpl} from '../../../models/';
 import {createMobileThreatDefenseConnectorFromDiscriminatorValue} from '../../../models/createMobileThreatDefenseConnectorFromDiscriminatorValue';
-import {ODataError} from '../../../models/oDataErrors/';
+import {MobileThreatDefenseConnector} from '../../../models/mobileThreatDefenseConnector';
+import {ODataErrorImpl} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {MobileThreatDefenseConnectorItemRequestBuilderDeleteRequestConfiguration} from './mobileThreatDefenseConnectorItemRequestBuilderDeleteRequestConfiguration';
 import {MobileThreatDefenseConnectorItemRequestBuilderGetRequestConfiguration} from './mobileThreatDefenseConnectorItemRequestBuilderGetRequestConfiguration';
@@ -77,7 +78,8 @@ export class MobileThreatDefenseConnectorItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new MobileThreatDefenseConnectorImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -101,7 +103,7 @@ export class MobileThreatDefenseConnectorItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of MobileThreatDefenseConnector
      */
-    public get(requestConfiguration?: MobileThreatDefenseConnectorItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<MobileThreatDefenseConnector | undefined> {
+    public get(requestConfiguration?: MobileThreatDefenseConnectorItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<MobileThreatDefenseConnectorImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -109,7 +111,7 @@ export class MobileThreatDefenseConnectorItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<MobileThreatDefenseConnector>(requestInfo, createMobileThreatDefenseConnectorFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<MobileThreatDefenseConnectorImpl>(requestInfo, createMobileThreatDefenseConnectorFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update the navigation property mobileThreatDefenseConnectors in deviceManagement

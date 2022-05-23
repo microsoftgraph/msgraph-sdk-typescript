@@ -1,8 +1,9 @@
-import {OnlineMeeting, OnlineMeetingCollectionResponse} from '../../models/';
+import {OnlineMeetingCollectionResponseImpl, OnlineMeetingImpl} from '../../models/';
 import {createOnlineMeetingCollectionResponseFromDiscriminatorValue} from '../../models/createOnlineMeetingCollectionResponseFromDiscriminatorValue';
 import {createOnlineMeetingFromDiscriminatorValue} from '../../models/createOnlineMeetingFromDiscriminatorValue';
-import {ODataError} from '../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {OnlineMeeting} from '../../models/onlineMeeting';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {CreateOrGetRequestBuilder} from './createOrGet/createOrGetRequestBuilder';
 import {OnlineMeetingsRequestBuilderGetRequestConfiguration} from './onlineMeetingsRequestBuilderGetRequestConfiguration';
@@ -71,7 +72,8 @@ export class OnlineMeetingsRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new OnlineMeetingImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -80,7 +82,7 @@ export class OnlineMeetingsRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of OnlineMeetingCollectionResponse
      */
-    public get(requestConfiguration?: OnlineMeetingsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<OnlineMeetingCollectionResponse | undefined> {
+    public get(requestConfiguration?: OnlineMeetingsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<OnlineMeetingCollectionResponseImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -88,7 +90,7 @@ export class OnlineMeetingsRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<OnlineMeetingCollectionResponse>(requestInfo, createOnlineMeetingCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<OnlineMeetingCollectionResponseImpl>(requestInfo, createOnlineMeetingCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Create new navigation property to onlineMeetings for communications
@@ -97,7 +99,7 @@ export class OnlineMeetingsRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of OnlineMeeting
      */
-    public post(body: OnlineMeeting | undefined, requestConfiguration?: OnlineMeetingsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<OnlineMeeting | undefined> {
+    public post(body: OnlineMeeting | undefined, requestConfiguration?: OnlineMeetingsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<OnlineMeetingImpl | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration
@@ -106,6 +108,6 @@ export class OnlineMeetingsRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<OnlineMeeting>(requestInfo, createOnlineMeetingFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<OnlineMeetingImpl>(requestInfo, createOnlineMeetingFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

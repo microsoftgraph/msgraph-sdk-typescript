@@ -1,7 +1,7 @@
-import {GroupLifecyclePolicyCollectionResponse} from './index';
+import {GroupLifecyclePolicyCollectionResponseImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createGroupLifecyclePolicyCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : GroupLifecyclePolicyCollectionResponse {
+export function createGroupLifecyclePolicyCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : GroupLifecyclePolicyCollectionResponseImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new GroupLifecyclePolicyCollectionResponse();
+    return new GroupLifecyclePolicyCollectionResponseImpl();
 }

@@ -1,7 +1,7 @@
-import {ConditionalAccessSessionControl} from './index';
+import {ConditionalAccessSessionControlImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createConditionalAccessSessionControlFromDiscriminatorValue(parseNode: ParseNode | undefined) : ConditionalAccessSessionControl {
+export function createConditionalAccessSessionControlFromDiscriminatorValue(parseNode: ParseNode | undefined) : ConditionalAccessSessionControlImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new ConditionalAccessSessionControl();
+    return new ConditionalAccessSessionControlImpl();
 }

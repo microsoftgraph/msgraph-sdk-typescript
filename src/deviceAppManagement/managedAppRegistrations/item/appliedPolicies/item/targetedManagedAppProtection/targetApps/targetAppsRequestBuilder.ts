@@ -1,4 +1,5 @@
-import {TargetAppsPostRequestBody} from './index';
+import {TargetAppsPostRequestBodyImpl} from './index';
+import {TargetAppsPostRequestBody} from './targetAppsPostRequestBody';
 import {TargetAppsRequestBuilderPostRequestConfiguration} from './targetAppsRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
@@ -39,7 +40,8 @@ export class TargetAppsRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new TargetAppsPostRequestBodyImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**

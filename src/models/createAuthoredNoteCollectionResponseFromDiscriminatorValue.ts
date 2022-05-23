@@ -1,7 +1,7 @@
-import {AuthoredNoteCollectionResponse} from './index';
+import {AuthoredNoteCollectionResponseImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createAuthoredNoteCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : AuthoredNoteCollectionResponse {
+export function createAuthoredNoteCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : AuthoredNoteCollectionResponseImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new AuthoredNoteCollectionResponse();
+    return new AuthoredNoteCollectionResponseImpl();
 }

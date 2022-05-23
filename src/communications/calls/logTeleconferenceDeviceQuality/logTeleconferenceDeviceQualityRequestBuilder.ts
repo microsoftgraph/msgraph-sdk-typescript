@@ -1,4 +1,5 @@
-import {LogTeleconferenceDeviceQualityPostRequestBody} from './index';
+import {LogTeleconferenceDeviceQualityPostRequestBodyImpl} from './index';
+import {LogTeleconferenceDeviceQualityPostRequestBody} from './logTeleconferenceDeviceQualityPostRequestBody';
 import {LogTeleconferenceDeviceQualityRequestBuilderPostRequestConfiguration} from './logTeleconferenceDeviceQualityRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
@@ -39,7 +40,8 @@ export class LogTeleconferenceDeviceQualityRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new LogTeleconferenceDeviceQualityPostRequestBodyImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**

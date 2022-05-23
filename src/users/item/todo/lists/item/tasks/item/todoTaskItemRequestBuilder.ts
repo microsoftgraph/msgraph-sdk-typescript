@@ -1,7 +1,8 @@
-import {TodoTask} from '../../../../../../../models/';
+import {TodoTaskImpl} from '../../../../../../../models/';
 import {createTodoTaskFromDiscriminatorValue} from '../../../../../../../models/createTodoTaskFromDiscriminatorValue';
-import {ODataError} from '../../../../../../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {TodoTask} from '../../../../../../../models/todoTask';
 import {ChecklistItemsRequestBuilder} from './checklistItems/checklistItemsRequestBuilder';
 import {ChecklistItemItemRequestBuilder} from './checklistItems/item/checklistItemItemRequestBuilder';
 import {ExtensionsRequestBuilder} from './extensions/extensionsRequestBuilder';
@@ -34,7 +35,7 @@ export class TodoTaskItemRequestBuilder {
     /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.todo.lists.item.tasks.item.checklistItems.item collection
+     * Gets an item from the MicrosoftGraph.users.item.todo.lists.item.tasks.item.checklistItems.item collection
      * @param id Unique identifier of the item
      * @returns a checklistItemItemRequestBuilder
      */
@@ -106,7 +107,8 @@ export class TodoTaskItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new TodoTaskImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -125,7 +127,7 @@ export class TodoTaskItemRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.todo.lists.item.tasks.item.extensions.item collection
+     * Gets an item from the MicrosoftGraph.users.item.todo.lists.item.tasks.item.extensions.item collection
      * @param id Unique identifier of the item
      * @returns a extensionItemRequestBuilder
      */
@@ -141,7 +143,7 @@ export class TodoTaskItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of TodoTask
      */
-    public get(requestConfiguration?: TodoTaskItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<TodoTask | undefined> {
+    public get(requestConfiguration?: TodoTaskItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<TodoTaskImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -149,10 +151,10 @@ export class TodoTaskItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<TodoTask>(requestInfo, createTodoTaskFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<TodoTaskImpl>(requestInfo, createTodoTaskFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.todo.lists.item.tasks.item.linkedResources.item collection
+     * Gets an item from the MicrosoftGraph.users.item.todo.lists.item.tasks.item.linkedResources.item collection
      * @param id Unique identifier of the item
      * @returns a linkedResourceItemRequestBuilder
      */

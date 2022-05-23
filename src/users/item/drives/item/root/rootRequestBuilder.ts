@@ -1,6 +1,7 @@
-import {DriveItem} from '../../../../../models/';
+import {DriveItemImpl} from '../../../../../models/';
 import {createDriveItemFromDiscriminatorValue} from '../../../../../models/createDriveItemFromDiscriminatorValue';
-import {ODataError} from '../../../../../models/oDataErrors/';
+import {DriveItem} from '../../../../../models/driveItem';
+import {ODataErrorImpl} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {AnalyticsRequestBuilder} from './analytics/analyticsRequestBuilder';
 import {ChildrenRequestBuilder} from './children/childrenRequestBuilder';
@@ -61,7 +62,7 @@ export class RootRequestBuilder {
         return new VersionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.drives.item.root.children.item collection
+     * Gets an item from the MicrosoftGraph.users.item.drives.item.root.children.item collection
      * @param id Unique identifier of the item
      * @returns a driveItemItemRequestBuilder
      */
@@ -133,7 +134,8 @@ export class RootRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new DriveItemImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -157,7 +159,7 @@ export class RootRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DriveItem
      */
-    public get(requestConfiguration?: RootRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DriveItem | undefined> {
+    public get(requestConfiguration?: RootRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DriveItemImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -165,7 +167,7 @@ export class RootRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<DriveItem>(requestInfo, createDriveItemFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<DriveItemImpl>(requestInfo, createDriveItemFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update the navigation property root in users
@@ -185,7 +187,7 @@ export class RootRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.drives.item.root.permissions.item collection
+     * Gets an item from the MicrosoftGraph.users.item.drives.item.root.permissions.item collection
      * @param id Unique identifier of the item
      * @returns a permissionItemRequestBuilder
      */
@@ -196,7 +198,7 @@ export class RootRequestBuilder {
         return new PermissionItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.drives.item.root.subscriptions.item collection
+     * Gets an item from the MicrosoftGraph.users.item.drives.item.root.subscriptions.item collection
      * @param id Unique identifier of the item
      * @returns a subscriptionItemRequestBuilder
      */
@@ -207,7 +209,7 @@ export class RootRequestBuilder {
         return new SubscriptionItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.drives.item.root.thumbnails.item collection
+     * Gets an item from the MicrosoftGraph.users.item.drives.item.root.thumbnails.item collection
      * @param id Unique identifier of the item
      * @returns a thumbnailSetItemRequestBuilder
      */
@@ -218,7 +220,7 @@ export class RootRequestBuilder {
         return new ThumbnailSetItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.drives.item.root.versions.item collection
+     * Gets an item from the MicrosoftGraph.users.item.drives.item.root.versions.item collection
      * @param id Unique identifier of the item
      * @returns a driveItemVersionItemRequestBuilder
      */

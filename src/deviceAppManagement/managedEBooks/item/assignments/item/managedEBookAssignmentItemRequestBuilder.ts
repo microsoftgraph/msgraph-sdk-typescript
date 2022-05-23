@@ -1,6 +1,7 @@
-import {ManagedEBookAssignment} from '../../../../../models/';
+import {ManagedEBookAssignmentImpl} from '../../../../../models/';
 import {createManagedEBookAssignmentFromDiscriminatorValue} from '../../../../../models/createManagedEBookAssignmentFromDiscriminatorValue';
-import {ODataError} from '../../../../../models/oDataErrors/';
+import {ManagedEBookAssignment} from '../../../../../models/managedEBookAssignment';
+import {ODataErrorImpl} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {ManagedEBookAssignmentItemRequestBuilderDeleteRequestConfiguration} from './managedEBookAssignmentItemRequestBuilderDeleteRequestConfiguration';
 import {ManagedEBookAssignmentItemRequestBuilderGetRequestConfiguration} from './managedEBookAssignmentItemRequestBuilderGetRequestConfiguration';
@@ -77,7 +78,8 @@ export class ManagedEBookAssignmentItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new ManagedEBookAssignmentImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -101,7 +103,7 @@ export class ManagedEBookAssignmentItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ManagedEBookAssignment
      */
-    public get(requestConfiguration?: ManagedEBookAssignmentItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ManagedEBookAssignment | undefined> {
+    public get(requestConfiguration?: ManagedEBookAssignmentItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ManagedEBookAssignmentImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -109,7 +111,7 @@ export class ManagedEBookAssignmentItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<ManagedEBookAssignment>(requestInfo, createManagedEBookAssignmentFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<ManagedEBookAssignmentImpl>(requestInfo, createManagedEBookAssignmentFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update the navigation property assignments in deviceAppManagement

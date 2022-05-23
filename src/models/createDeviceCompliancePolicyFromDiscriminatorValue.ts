@@ -1,7 +1,7 @@
-import {DeviceCompliancePolicy} from './index';
+import {DeviceCompliancePolicyImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createDeviceCompliancePolicyFromDiscriminatorValue(parseNode: ParseNode | undefined) : DeviceCompliancePolicy {
+export function createDeviceCompliancePolicyFromDiscriminatorValue(parseNode: ParseNode | undefined) : DeviceCompliancePolicyImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
     const mappingValueNode = parseNode.getChildNode("@odata.type");
     if (mappingValueNode) {
@@ -9,9 +9,9 @@ export function createDeviceCompliancePolicyFromDiscriminatorValue(parseNode: Pa
         if (mappingValue) {
             switch (mappingValue) {
                 case "#microsoft.graph.deviceCompliancePolicy":
-                    return new DeviceCompliancePolicy();
+                    return new DeviceCompliancePolicyImpl();
             }
         }
     }
-    return new DeviceCompliancePolicy();
+    return new DeviceCompliancePolicyImpl();
 }

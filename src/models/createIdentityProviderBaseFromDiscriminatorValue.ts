@@ -1,7 +1,7 @@
-import {IdentityProviderBase} from './index';
+import {IdentityProviderBaseImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createIdentityProviderBaseFromDiscriminatorValue(parseNode: ParseNode | undefined) : IdentityProviderBase {
+export function createIdentityProviderBaseFromDiscriminatorValue(parseNode: ParseNode | undefined) : IdentityProviderBaseImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
     const mappingValueNode = parseNode.getChildNode("@odata.type");
     if (mappingValueNode) {
@@ -9,9 +9,9 @@ export function createIdentityProviderBaseFromDiscriminatorValue(parseNode: Pars
         if (mappingValue) {
             switch (mappingValue) {
                 case "#microsoft.graph.identityProviderBase":
-                    return new IdentityProviderBase();
+                    return new IdentityProviderBaseImpl();
             }
         }
     }
-    return new IdentityProviderBase();
+    return new IdentityProviderBaseImpl();
 }

@@ -1,5 +1,6 @@
+import {CheckinPostRequestBody} from './checkinPostRequestBody';
 import {CheckinRequestBuilderPostRequestConfiguration} from './checkinRequestBuilderPostRequestConfiguration';
-import {CheckinPostRequestBody} from './index';
+import {CheckinPostRequestBodyImpl} from './index';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the checkin method. */
@@ -39,7 +40,8 @@ export class CheckinRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new CheckinPostRequestBodyImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**

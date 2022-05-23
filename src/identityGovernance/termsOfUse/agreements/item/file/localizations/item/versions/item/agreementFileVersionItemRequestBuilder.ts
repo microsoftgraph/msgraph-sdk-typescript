@@ -1,6 +1,7 @@
-import {AgreementFileVersion} from '../../../../../../../../../models/';
+import {AgreementFileVersionImpl} from '../../../../../../../../../models/';
+import {AgreementFileVersion} from '../../../../../../../../../models/agreementFileVersion';
 import {createAgreementFileVersionFromDiscriminatorValue} from '../../../../../../../../../models/createAgreementFileVersionFromDiscriminatorValue';
-import {ODataError} from '../../../../../../../../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {AgreementFileVersionItemRequestBuilderDeleteRequestConfiguration} from './agreementFileVersionItemRequestBuilderDeleteRequestConfiguration';
 import {AgreementFileVersionItemRequestBuilderGetRequestConfiguration} from './agreementFileVersionItemRequestBuilderGetRequestConfiguration';
@@ -77,7 +78,8 @@ export class AgreementFileVersionItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new AgreementFileVersionImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -101,7 +103,7 @@ export class AgreementFileVersionItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AgreementFileVersion
      */
-    public get(requestConfiguration?: AgreementFileVersionItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AgreementFileVersion | undefined> {
+    public get(requestConfiguration?: AgreementFileVersionItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AgreementFileVersionImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -109,7 +111,7 @@ export class AgreementFileVersionItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<AgreementFileVersion>(requestInfo, createAgreementFileVersionFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<AgreementFileVersionImpl>(requestInfo, createAgreementFileVersionFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update the navigation property versions in identityGovernance

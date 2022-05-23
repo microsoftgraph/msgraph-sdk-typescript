@@ -1,7 +1,7 @@
-import {InvitationParticipantInfo} from './index';
+import {InvitationParticipantInfoImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createInvitationParticipantInfoFromDiscriminatorValue(parseNode: ParseNode | undefined) : InvitationParticipantInfo {
+export function createInvitationParticipantInfoFromDiscriminatorValue(parseNode: ParseNode | undefined) : InvitationParticipantInfoImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new InvitationParticipantInfo();
+    return new InvitationParticipantInfoImpl();
 }

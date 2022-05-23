@@ -1,7 +1,7 @@
-import {BookingStaffMemberBaseCollectionResponse} from './index';
+import {BookingStaffMemberBaseCollectionResponseImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createBookingStaffMemberBaseCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : BookingStaffMemberBaseCollectionResponse {
+export function createBookingStaffMemberBaseCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : BookingStaffMemberBaseCollectionResponseImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new BookingStaffMemberBaseCollectionResponse();
+    return new BookingStaffMemberBaseCollectionResponseImpl();
 }

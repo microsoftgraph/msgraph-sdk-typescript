@@ -1,7 +1,7 @@
-import {TermsOfUseContainer} from './index';
+import {TermsOfUseContainerImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createTermsOfUseContainerFromDiscriminatorValue(parseNode: ParseNode | undefined) : TermsOfUseContainer {
+export function createTermsOfUseContainerFromDiscriminatorValue(parseNode: ParseNode | undefined) : TermsOfUseContainerImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new TermsOfUseContainer();
+    return new TermsOfUseContainerImpl();
 }

@@ -1,7 +1,7 @@
-import {UserScopeTeamsAppInstallationCollectionResponse} from './index';
+import {UserScopeTeamsAppInstallationCollectionResponseImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createUserScopeTeamsAppInstallationCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : UserScopeTeamsAppInstallationCollectionResponse {
+export function createUserScopeTeamsAppInstallationCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : UserScopeTeamsAppInstallationCollectionResponseImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new UserScopeTeamsAppInstallationCollectionResponse();
+    return new UserScopeTeamsAppInstallationCollectionResponseImpl();
 }

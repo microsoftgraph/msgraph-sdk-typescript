@@ -1,7 +1,7 @@
-import {PstnCallLogRow} from './index';
+import {PstnCallLogRowImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createPstnCallLogRowFromDiscriminatorValue(parseNode: ParseNode | undefined) : PstnCallLogRow {
+export function createPstnCallLogRowFromDiscriminatorValue(parseNode: ParseNode | undefined) : PstnCallLogRowImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new PstnCallLogRow();
+    return new PstnCallLogRowImpl();
 }

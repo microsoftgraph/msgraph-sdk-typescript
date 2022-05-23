@@ -1,8 +1,9 @@
-import {ResourceOperation, ResourceOperationCollectionResponse} from '../../models/';
+import {ResourceOperationCollectionResponseImpl, ResourceOperationImpl} from '../../models/';
 import {createResourceOperationCollectionResponseFromDiscriminatorValue} from '../../models/createResourceOperationCollectionResponseFromDiscriminatorValue';
 import {createResourceOperationFromDiscriminatorValue} from '../../models/createResourceOperationFromDiscriminatorValue';
-import {ODataError} from '../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {ResourceOperation} from '../../models/resourceOperation';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {ResourceOperationsRequestBuilderGetRequestConfiguration} from './resourceOperationsRequestBuilderGetRequestConfiguration';
 import {ResourceOperationsRequestBuilderPostRequestConfiguration} from './resourceOperationsRequestBuilderPostRequestConfiguration';
@@ -66,7 +67,8 @@ export class ResourceOperationsRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new ResourceOperationImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -75,7 +77,7 @@ export class ResourceOperationsRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ResourceOperationCollectionResponse
      */
-    public get(requestConfiguration?: ResourceOperationsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ResourceOperationCollectionResponse | undefined> {
+    public get(requestConfiguration?: ResourceOperationsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ResourceOperationCollectionResponseImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -83,7 +85,7 @@ export class ResourceOperationsRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<ResourceOperationCollectionResponse>(requestInfo, createResourceOperationCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<ResourceOperationCollectionResponseImpl>(requestInfo, createResourceOperationCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Create new navigation property to resourceOperations for deviceManagement
@@ -92,7 +94,7 @@ export class ResourceOperationsRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ResourceOperation
      */
-    public post(body: ResourceOperation | undefined, requestConfiguration?: ResourceOperationsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ResourceOperation | undefined> {
+    public post(body: ResourceOperation | undefined, requestConfiguration?: ResourceOperationsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ResourceOperationImpl | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration
@@ -101,6 +103,6 @@ export class ResourceOperationsRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<ResourceOperation>(requestInfo, createResourceOperationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<ResourceOperationImpl>(requestInfo, createResourceOperationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

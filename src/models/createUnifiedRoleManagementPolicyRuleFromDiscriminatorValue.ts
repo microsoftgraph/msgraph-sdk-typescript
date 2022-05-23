@@ -1,7 +1,7 @@
-import {UnifiedRoleManagementPolicyRule} from './index';
+import {UnifiedRoleManagementPolicyRuleImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createUnifiedRoleManagementPolicyRuleFromDiscriminatorValue(parseNode: ParseNode | undefined) : UnifiedRoleManagementPolicyRule {
+export function createUnifiedRoleManagementPolicyRuleFromDiscriminatorValue(parseNode: ParseNode | undefined) : UnifiedRoleManagementPolicyRuleImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
     const mappingValueNode = parseNode.getChildNode("@odata.type");
     if (mappingValueNode) {
@@ -9,9 +9,9 @@ export function createUnifiedRoleManagementPolicyRuleFromDiscriminatorValue(pars
         if (mappingValue) {
             switch (mappingValue) {
                 case "#microsoft.graph.unifiedRoleManagementPolicyRule":
-                    return new UnifiedRoleManagementPolicyRule();
+                    return new UnifiedRoleManagementPolicyRuleImpl();
             }
         }
     }
-    return new UnifiedRoleManagementPolicyRule();
+    return new UnifiedRoleManagementPolicyRuleImpl();
 }

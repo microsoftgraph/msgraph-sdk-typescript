@@ -1,7 +1,7 @@
-import {IosManagedAppProtection} from './index';
+import {IosManagedAppProtectionImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createIosManagedAppProtectionFromDiscriminatorValue(parseNode: ParseNode | undefined) : IosManagedAppProtection {
+export function createIosManagedAppProtectionFromDiscriminatorValue(parseNode: ParseNode | undefined) : IosManagedAppProtectionImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new IosManagedAppProtection();
+    return new IosManagedAppProtectionImpl();
 }

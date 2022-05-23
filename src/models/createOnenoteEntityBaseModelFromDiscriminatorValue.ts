@@ -1,7 +1,7 @@
-import {OnenoteEntityBaseModel} from './index';
+import {OnenoteEntityBaseModelImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createOnenoteEntityBaseModelFromDiscriminatorValue(parseNode: ParseNode | undefined) : OnenoteEntityBaseModel {
+export function createOnenoteEntityBaseModelFromDiscriminatorValue(parseNode: ParseNode | undefined) : OnenoteEntityBaseModelImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
     const mappingValueNode = parseNode.getChildNode("@odata.type");
     if (mappingValueNode) {
@@ -9,9 +9,9 @@ export function createOnenoteEntityBaseModelFromDiscriminatorValue(parseNode: Pa
         if (mappingValue) {
             switch (mappingValue) {
                 case "#microsoft.graph.onenoteEntityBaseModel":
-                    return new OnenoteEntityBaseModel();
+                    return new OnenoteEntityBaseModelImpl();
             }
         }
     }
-    return new OnenoteEntityBaseModel();
+    return new OnenoteEntityBaseModelImpl();
 }

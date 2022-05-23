@@ -1,6 +1,7 @@
-import {ClaimsMappingPolicy} from '../../../models/';
+import {ClaimsMappingPolicyImpl} from '../../../models/';
+import {ClaimsMappingPolicy} from '../../../models/claimsMappingPolicy';
 import {createClaimsMappingPolicyFromDiscriminatorValue} from '../../../models/createClaimsMappingPolicyFromDiscriminatorValue';
-import {ODataError} from '../../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {ClaimsMappingPolicyItemRequestBuilderDeleteRequestConfiguration} from './claimsMappingPolicyItemRequestBuilderDeleteRequestConfiguration';
 import {ClaimsMappingPolicyItemRequestBuilderGetRequestConfiguration} from './claimsMappingPolicyItemRequestBuilderGetRequestConfiguration';
@@ -77,7 +78,8 @@ export class ClaimsMappingPolicyItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new ClaimsMappingPolicyImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -101,7 +103,7 @@ export class ClaimsMappingPolicyItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ClaimsMappingPolicy
      */
-    public get(requestConfiguration?: ClaimsMappingPolicyItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ClaimsMappingPolicy | undefined> {
+    public get(requestConfiguration?: ClaimsMappingPolicyItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ClaimsMappingPolicyImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -109,7 +111,7 @@ export class ClaimsMappingPolicyItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<ClaimsMappingPolicy>(requestInfo, createClaimsMappingPolicyFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<ClaimsMappingPolicyImpl>(requestInfo, createClaimsMappingPolicyFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update the navigation property claimsMappingPolicies in policies

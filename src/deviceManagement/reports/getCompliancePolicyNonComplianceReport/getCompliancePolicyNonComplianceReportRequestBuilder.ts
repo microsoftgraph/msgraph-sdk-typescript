@@ -1,5 +1,6 @@
+import {GetCompliancePolicyNonComplianceReportPostRequestBody} from './getCompliancePolicyNonComplianceReportPostRequestBody';
 import {GetCompliancePolicyNonComplianceReportRequestBuilderPostRequestConfiguration} from './getCompliancePolicyNonComplianceReportRequestBuilderPostRequestConfiguration';
-import {GetCompliancePolicyNonComplianceReportPostRequestBody} from './index';
+import {GetCompliancePolicyNonComplianceReportPostRequestBodyImpl} from './index';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the getCompliancePolicyNonComplianceReport method. */
@@ -39,7 +40,8 @@ export class GetCompliancePolicyNonComplianceReportRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new GetCompliancePolicyNonComplianceReportPostRequestBodyImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**

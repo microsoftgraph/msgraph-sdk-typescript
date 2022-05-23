@@ -1,7 +1,7 @@
-import {SyncPostRequestBody} from './index';
+import {SyncPostRequestBodyImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createSyncPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : SyncPostRequestBody {
+export function createSyncPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : SyncPostRequestBodyImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new SyncPostRequestBody();
+    return new SyncPostRequestBodyImpl();
 }

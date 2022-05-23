@@ -1,8 +1,9 @@
-import {SecureScoreControlProfile, SecureScoreControlProfileCollectionResponse} from '../../models/';
+import {SecureScoreControlProfileCollectionResponseImpl, SecureScoreControlProfileImpl} from '../../models/';
 import {createSecureScoreControlProfileCollectionResponseFromDiscriminatorValue} from '../../models/createSecureScoreControlProfileCollectionResponseFromDiscriminatorValue';
 import {createSecureScoreControlProfileFromDiscriminatorValue} from '../../models/createSecureScoreControlProfileFromDiscriminatorValue';
-import {ODataError} from '../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {SecureScoreControlProfile} from '../../models/secureScoreControlProfile';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {SecureScoreControlProfilesRequestBuilderGetRequestConfiguration} from './secureScoreControlProfilesRequestBuilderGetRequestConfiguration';
 import {SecureScoreControlProfilesRequestBuilderPostRequestConfiguration} from './secureScoreControlProfilesRequestBuilderPostRequestConfiguration';
@@ -66,7 +67,8 @@ export class SecureScoreControlProfilesRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new SecureScoreControlProfileImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -75,7 +77,7 @@ export class SecureScoreControlProfilesRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of SecureScoreControlProfileCollectionResponse
      */
-    public get(requestConfiguration?: SecureScoreControlProfilesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<SecureScoreControlProfileCollectionResponse | undefined> {
+    public get(requestConfiguration?: SecureScoreControlProfilesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<SecureScoreControlProfileCollectionResponseImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -83,7 +85,7 @@ export class SecureScoreControlProfilesRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<SecureScoreControlProfileCollectionResponse>(requestInfo, createSecureScoreControlProfileCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<SecureScoreControlProfileCollectionResponseImpl>(requestInfo, createSecureScoreControlProfileCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Create new navigation property to secureScoreControlProfiles for security
@@ -92,7 +94,7 @@ export class SecureScoreControlProfilesRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of SecureScoreControlProfile
      */
-    public post(body: SecureScoreControlProfile | undefined, requestConfiguration?: SecureScoreControlProfilesRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<SecureScoreControlProfile | undefined> {
+    public post(body: SecureScoreControlProfile | undefined, requestConfiguration?: SecureScoreControlProfilesRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<SecureScoreControlProfileImpl | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration
@@ -101,6 +103,6 @@ export class SecureScoreControlProfilesRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<SecureScoreControlProfile>(requestInfo, createSecureScoreControlProfileFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<SecureScoreControlProfileImpl>(requestInfo, createSecureScoreControlProfileFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

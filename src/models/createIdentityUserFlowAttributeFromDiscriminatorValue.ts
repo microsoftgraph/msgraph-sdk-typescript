@@ -1,7 +1,7 @@
-import {IdentityUserFlowAttribute} from './index';
+import {IdentityUserFlowAttributeImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createIdentityUserFlowAttributeFromDiscriminatorValue(parseNode: ParseNode | undefined) : IdentityUserFlowAttribute {
+export function createIdentityUserFlowAttributeFromDiscriminatorValue(parseNode: ParseNode | undefined) : IdentityUserFlowAttributeImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
     const mappingValueNode = parseNode.getChildNode("@odata.type");
     if (mappingValueNode) {
@@ -9,9 +9,9 @@ export function createIdentityUserFlowAttributeFromDiscriminatorValue(parseNode:
         if (mappingValue) {
             switch (mappingValue) {
                 case "#microsoft.graph.identityUserFlowAttribute":
-                    return new IdentityUserFlowAttribute();
+                    return new IdentityUserFlowAttributeImpl();
             }
         }
     }
-    return new IdentityUserFlowAttribute();
+    return new IdentityUserFlowAttributeImpl();
 }

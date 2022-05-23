@@ -1,4 +1,5 @@
-import {SetOrderPostRequestBody} from './index';
+import {SetOrderPostRequestBodyImpl} from './index';
+import {SetOrderPostRequestBody} from './setOrderPostRequestBody';
 import {SetOrderRequestBuilderPostRequestConfiguration} from './setOrderRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
@@ -39,7 +40,8 @@ export class SetOrderRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new SetOrderPostRequestBodyImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**

@@ -1,5 +1,5 @@
 import {createSupportedLanguagesResponseFromDiscriminatorValue} from './createSupportedLanguagesResponseFromDiscriminatorValue';
-import {SupportedLanguagesResponse} from './index';
+import {SupportedLanguagesResponseImpl} from './index';
 import {SupportedLanguagesRequestBuilderGetRequestConfiguration} from './supportedLanguagesRequestBuilderGetRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
@@ -46,10 +46,10 @@ export class SupportedLanguagesRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of SupportedLanguagesResponse
      */
-    public get(requestConfiguration?: SupportedLanguagesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<SupportedLanguagesResponse | undefined> {
+    public get(requestConfiguration?: SupportedLanguagesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<SupportedLanguagesResponseImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
-        return this.requestAdapter?.sendAsync<SupportedLanguagesResponse>(requestInfo, createSupportedLanguagesResponseFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<SupportedLanguagesResponseImpl>(requestInfo, createSupportedLanguagesResponseFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }

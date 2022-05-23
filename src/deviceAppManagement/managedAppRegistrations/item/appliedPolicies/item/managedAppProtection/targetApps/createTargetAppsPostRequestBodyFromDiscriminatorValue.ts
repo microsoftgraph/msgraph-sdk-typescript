@@ -1,7 +1,7 @@
-import {TargetAppsPostRequestBody} from './index';
+import {TargetAppsPostRequestBodyImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createTargetAppsPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : TargetAppsPostRequestBody {
+export function createTargetAppsPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : TargetAppsPostRequestBodyImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new TargetAppsPostRequestBody();
+    return new TargetAppsPostRequestBodyImpl();
 }

@@ -1,4 +1,4 @@
-import {ODataError} from '../../../../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {AttachmentsArchiveRequestBuilderGetRequestConfiguration} from './attachmentsArchiveRequestBuilderGetRequestConfiguration';
 import {AttachmentsArchiveRequestBuilderPutRequestConfiguration} from './attachmentsArchiveRequestBuilderPutRequestConfiguration';

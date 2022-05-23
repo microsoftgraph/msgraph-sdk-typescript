@@ -1,7 +1,7 @@
-import {WorkbookWorksheet} from './index';
+import {WorkbookWorksheetImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createWorkbookWorksheetFromDiscriminatorValue(parseNode: ParseNode | undefined) : WorkbookWorksheet {
+export function createWorkbookWorksheetFromDiscriminatorValue(parseNode: ParseNode | undefined) : WorkbookWorksheetImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new WorkbookWorksheet();
+    return new WorkbookWorksheetImpl();
 }

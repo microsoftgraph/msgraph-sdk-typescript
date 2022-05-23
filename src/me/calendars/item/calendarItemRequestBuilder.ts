@@ -1,6 +1,7 @@
-import {Calendar} from '../../../models/';
+import {CalendarImpl} from '../../../models/';
+import {Calendar} from '../../../models/calendar';
 import {createCalendarFromDiscriminatorValue} from '../../../models/createCalendarFromDiscriminatorValue';
-import {ODataError} from '../../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {AllowedCalendarSharingRolesWithUserRequestBuilder} from './allowedCalendarSharingRolesWithUser/allowedCalendarSharingRolesWithUserRequestBuilder';
 import {CalendarItemRequestBuilderDeleteRequestConfiguration} from './calendarItemRequestBuilderDeleteRequestConfiguration';
@@ -9,9 +10,9 @@ import {CalendarItemRequestBuilderPatchRequestConfiguration} from './calendarIte
 import {CalendarPermissionsRequestBuilder} from './calendarPermissions/calendarPermissionsRequestBuilder';
 import {CalendarPermissionItemRequestBuilder} from './calendarPermissions/item/calendarPermissionItemRequestBuilder';
 import {CalendarViewRequestBuilder} from './calendarView/calendarViewRequestBuilder';
-import {EventItemRequestBuilder as iee506399606ff982252b6fc02358fe7c403cf7149794d80b34073b50928f31f2} from './calendarView/item/eventItemRequestBuilder';
+import {EventItemRequestBuilder as i8fdb1e0f973384f990dea5e104f610b21130236a8b8d563e6696a6f26bf2018b} from './calendarView/item/eventItemRequestBuilder';
 import {EventsRequestBuilder} from './events/eventsRequestBuilder';
-import {EventItemRequestBuilder as i5db58ceb1ecd481e59ebe13d0b0a277e7d1b5c95b6d7def6f68de79c820008dd} from './events/item/eventItemRequestBuilder';
+import {EventItemRequestBuilder as i30f082890953630f408508d987e1f70cac3c4fcda814d32c24b4f04f3fdd8ab3} from './events/item/eventItemRequestBuilder';
 import {GetScheduleRequestBuilder} from './getSchedule/getScheduleRequestBuilder';
 import {MultiValueLegacyExtendedPropertyItemRequestBuilder} from './multiValueExtendedProperties/item/multiValueLegacyExtendedPropertyItemRequestBuilder';
 import {MultiValueExtendedPropertiesRequestBuilder} from './multiValueExtendedProperties/multiValueExtendedPropertiesRequestBuilder';
@@ -61,7 +62,7 @@ export class CalendarItemRequestBuilder {
         return new AllowedCalendarSharingRolesWithUserRequestBuilder(this.pathParameters, this.requestAdapter, user);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.me.calendars.item.calendarPermissions.item collection
+     * Gets an item from the MicrosoftGraph.me.calendars.item.calendarPermissions.item collection
      * @param id Unique identifier of the item
      * @returns a calendarPermissionItemRequestBuilder
      */
@@ -72,15 +73,15 @@ export class CalendarItemRequestBuilder {
         return new CalendarPermissionItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.me.calendars.item.calendarView.item collection
+     * Gets an item from the MicrosoftGraph.me.calendars.item.calendarView.item collection
      * @param id Unique identifier of the item
      * @returns a eventItemRequestBuilder
      */
-    public calendarViewById(id: string) : iee506399606ff982252b6fc02358fe7c403cf7149794d80b34073b50928f31f2 {
+    public calendarViewById(id: string) : i8fdb1e0f973384f990dea5e104f610b21130236a8b8d563e6696a6f26bf2018b {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["event%2Did"] = id
-        return new iee506399606ff982252b6fc02358fe7c403cf7149794d80b34073b50928f31f2(urlTplParams, this.requestAdapter);
+        return new i8fdb1e0f973384f990dea5e104f610b21130236a8b8d563e6696a6f26bf2018b(urlTplParams, this.requestAdapter);
     };
     /**
      * Instantiates a new CalendarItemRequestBuilder and sets the default values.
@@ -144,7 +145,8 @@ export class CalendarItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new CalendarImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -163,15 +165,15 @@ export class CalendarItemRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.me.calendars.item.events.item collection
+     * Gets an item from the MicrosoftGraph.me.calendars.item.events.item collection
      * @param id Unique identifier of the item
      * @returns a eventItemRequestBuilder
      */
-    public eventsById(id: string) : i5db58ceb1ecd481e59ebe13d0b0a277e7d1b5c95b6d7def6f68de79c820008dd {
+    public eventsById(id: string) : i30f082890953630f408508d987e1f70cac3c4fcda814d32c24b4f04f3fdd8ab3 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["event%2Did"] = id
-        return new i5db58ceb1ecd481e59ebe13d0b0a277e7d1b5c95b6d7def6f68de79c820008dd(urlTplParams, this.requestAdapter);
+        return new i30f082890953630f408508d987e1f70cac3c4fcda814d32c24b4f04f3fdd8ab3(urlTplParams, this.requestAdapter);
     };
     /**
      * The user's calendars. Read-only. Nullable.
@@ -179,7 +181,7 @@ export class CalendarItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Calendar
      */
-    public get(requestConfiguration?: CalendarItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Calendar | undefined> {
+    public get(requestConfiguration?: CalendarItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<CalendarImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -187,10 +189,10 @@ export class CalendarItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<Calendar>(requestInfo, createCalendarFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<CalendarImpl>(requestInfo, createCalendarFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.me.calendars.item.multiValueExtendedProperties.item collection
+     * Gets an item from the MicrosoftGraph.me.calendars.item.multiValueExtendedProperties.item collection
      * @param id Unique identifier of the item
      * @returns a multiValueLegacyExtendedPropertyItemRequestBuilder
      */
@@ -218,7 +220,7 @@ export class CalendarItemRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.me.calendars.item.singleValueExtendedProperties.item collection
+     * Gets an item from the MicrosoftGraph.me.calendars.item.singleValueExtendedProperties.item collection
      * @param id Unique identifier of the item
      * @returns a singleValueLegacyExtendedPropertyItemRequestBuilder
      */

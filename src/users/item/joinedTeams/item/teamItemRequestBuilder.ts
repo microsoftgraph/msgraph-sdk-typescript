@@ -1,7 +1,8 @@
-import {Team} from '../../../../models/';
+import {TeamImpl} from '../../../../models/';
 import {createTeamFromDiscriminatorValue} from '../../../../models/createTeamFromDiscriminatorValue';
-import {ODataError} from '../../../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {Team} from '../../../../models/team';
 import {ChannelsRequestBuilder} from './channels/channelsRequestBuilder';
 import {ChannelItemRequestBuilder} from './channels/item/channelItemRequestBuilder';
 import {GroupRequestBuilder} from './group/groupRequestBuilder';
@@ -60,7 +61,7 @@ export class TeamItemRequestBuilder {
     /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.joinedTeams.item.channels.item collection
+     * Gets an item from the MicrosoftGraph.users.item.joinedTeams.item.channels.item collection
      * @param id Unique identifier of the item
      * @returns a channelItemRequestBuilder
      */
@@ -132,7 +133,8 @@ export class TeamItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new TeamImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -156,7 +158,7 @@ export class TeamItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Team
      */
-    public get(requestConfiguration?: TeamItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Team | undefined> {
+    public get(requestConfiguration?: TeamItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<TeamImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -164,10 +166,10 @@ export class TeamItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<Team>(requestInfo, createTeamFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<TeamImpl>(requestInfo, createTeamFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.joinedTeams.item.installedApps.item collection
+     * Gets an item from the MicrosoftGraph.users.item.joinedTeams.item.installedApps.item collection
      * @param id Unique identifier of the item
      * @returns a teamsAppInstallationItemRequestBuilder
      */
@@ -178,7 +180,7 @@ export class TeamItemRequestBuilder {
         return new TeamsAppInstallationItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.joinedTeams.item.members.item collection
+     * Gets an item from the MicrosoftGraph.users.item.joinedTeams.item.members.item collection
      * @param id Unique identifier of the item
      * @returns a conversationMemberItemRequestBuilder
      */
@@ -189,7 +191,7 @@ export class TeamItemRequestBuilder {
         return new ConversationMemberItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.joinedTeams.item.operations.item collection
+     * Gets an item from the MicrosoftGraph.users.item.joinedTeams.item.operations.item collection
      * @param id Unique identifier of the item
      * @returns a teamsAsyncOperationItemRequestBuilder
      */

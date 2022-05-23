@@ -1,7 +1,8 @@
-import {TermsAndConditionsAssignment} from '../../../../../models/';
+import {TermsAndConditionsAssignmentImpl} from '../../../../../models/';
 import {createTermsAndConditionsAssignmentFromDiscriminatorValue} from '../../../../../models/createTermsAndConditionsAssignmentFromDiscriminatorValue';
-import {ODataError} from '../../../../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {TermsAndConditionsAssignment} from '../../../../../models/termsAndConditionsAssignment';
 import {TermsAndConditionsAssignmentItemRequestBuilderDeleteRequestConfiguration} from './termsAndConditionsAssignmentItemRequestBuilderDeleteRequestConfiguration';
 import {TermsAndConditionsAssignmentItemRequestBuilderGetRequestConfiguration} from './termsAndConditionsAssignmentItemRequestBuilderGetRequestConfiguration';
 import {TermsAndConditionsAssignmentItemRequestBuilderPatchRequestConfiguration} from './termsAndConditionsAssignmentItemRequestBuilderPatchRequestConfiguration';
@@ -77,7 +78,8 @@ export class TermsAndConditionsAssignmentItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new TermsAndConditionsAssignmentImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -101,7 +103,7 @@ export class TermsAndConditionsAssignmentItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of TermsAndConditionsAssignment
      */
-    public get(requestConfiguration?: TermsAndConditionsAssignmentItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<TermsAndConditionsAssignment | undefined> {
+    public get(requestConfiguration?: TermsAndConditionsAssignmentItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<TermsAndConditionsAssignmentImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -109,7 +111,7 @@ export class TermsAndConditionsAssignmentItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<TermsAndConditionsAssignment>(requestInfo, createTermsAndConditionsAssignmentFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<TermsAndConditionsAssignmentImpl>(requestInfo, createTermsAndConditionsAssignmentFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update the navigation property assignments in deviceManagement

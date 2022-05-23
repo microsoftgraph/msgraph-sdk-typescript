@@ -1,7 +1,7 @@
-import {AttendanceRecord} from './index';
+import {AttendanceRecordImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createAttendanceRecordFromDiscriminatorValue(parseNode: ParseNode | undefined) : AttendanceRecord {
+export function createAttendanceRecordFromDiscriminatorValue(parseNode: ParseNode | undefined) : AttendanceRecordImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new AttendanceRecord();
+    return new AttendanceRecordImpl();
 }

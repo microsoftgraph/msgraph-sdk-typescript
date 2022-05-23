@@ -1,6 +1,6 @@
 import {createGetManagedAppPoliciesResponseFromDiscriminatorValue} from './createGetManagedAppPoliciesResponseFromDiscriminatorValue';
 import {GetManagedAppPoliciesRequestBuilderGetRequestConfiguration} from './getManagedAppPoliciesRequestBuilderGetRequestConfiguration';
-import {GetManagedAppPoliciesResponse} from './index';
+import {GetManagedAppPoliciesResponseImpl} from './index';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the getManagedAppPolicies method. */
@@ -46,10 +46,10 @@ export class GetManagedAppPoliciesRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of GetManagedAppPoliciesResponse
      */
-    public get(requestConfiguration?: GetManagedAppPoliciesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<GetManagedAppPoliciesResponse | undefined> {
+    public get(requestConfiguration?: GetManagedAppPoliciesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<GetManagedAppPoliciesResponseImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
-        return this.requestAdapter?.sendAsync<GetManagedAppPoliciesResponse>(requestInfo, createGetManagedAppPoliciesResponseFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<GetManagedAppPoliciesResponseImpl>(requestInfo, createGetManagedAppPoliciesResponseFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }

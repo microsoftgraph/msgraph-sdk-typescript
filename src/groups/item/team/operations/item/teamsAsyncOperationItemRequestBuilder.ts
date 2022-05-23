@@ -1,7 +1,8 @@
-import {TeamsAsyncOperation} from '../../../../../models/';
+import {TeamsAsyncOperationImpl} from '../../../../../models/';
 import {createTeamsAsyncOperationFromDiscriminatorValue} from '../../../../../models/createTeamsAsyncOperationFromDiscriminatorValue';
-import {ODataError} from '../../../../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {TeamsAsyncOperation} from '../../../../../models/teamsAsyncOperation';
 import {TeamsAsyncOperationItemRequestBuilderDeleteRequestConfiguration} from './teamsAsyncOperationItemRequestBuilderDeleteRequestConfiguration';
 import {TeamsAsyncOperationItemRequestBuilderGetRequestConfiguration} from './teamsAsyncOperationItemRequestBuilderGetRequestConfiguration';
 import {TeamsAsyncOperationItemRequestBuilderPatchRequestConfiguration} from './teamsAsyncOperationItemRequestBuilderPatchRequestConfiguration';
@@ -77,7 +78,8 @@ export class TeamsAsyncOperationItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new TeamsAsyncOperationImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -101,7 +103,7 @@ export class TeamsAsyncOperationItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of TeamsAsyncOperation
      */
-    public get(requestConfiguration?: TeamsAsyncOperationItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<TeamsAsyncOperation | undefined> {
+    public get(requestConfiguration?: TeamsAsyncOperationItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<TeamsAsyncOperationImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -109,7 +111,7 @@ export class TeamsAsyncOperationItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<TeamsAsyncOperation>(requestInfo, createTeamsAsyncOperationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<TeamsAsyncOperationImpl>(requestInfo, createTeamsAsyncOperationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update the navigation property operations in groups

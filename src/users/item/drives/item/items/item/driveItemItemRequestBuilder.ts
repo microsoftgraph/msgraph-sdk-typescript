@@ -1,10 +1,11 @@
-import {DriveItem} from '../../../../../../models/';
+import {DriveItemImpl} from '../../../../../../models/';
 import {createDriveItemFromDiscriminatorValue} from '../../../../../../models/createDriveItemFromDiscriminatorValue';
-import {ODataError} from '../../../../../../models/oDataErrors/';
+import {DriveItem} from '../../../../../../models/driveItem';
+import {ODataErrorImpl} from '../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {AnalyticsRequestBuilder} from './analytics/analyticsRequestBuilder';
 import {ChildrenRequestBuilder} from './children/childrenRequestBuilder';
-import {DriveItemItemRequestBuilder as i4ead1c1f6f8e42a39268d42d776982cf009e8f72877ec607a15fbabdc71662c0} from './children/item/driveItemItemRequestBuilder';
+import {DriveItemItemRequestBuilder as i5ed2610bab0513bc2bbced0bcd525ec24ea37d1a3a62bed602e2654ad3a08676} from './children/item/driveItemItemRequestBuilder';
 import {ContentRequestBuilder} from './content/contentRequestBuilder';
 import {DriveItemItemRequestBuilderDeleteRequestConfiguration} from './driveItemItemRequestBuilderDeleteRequestConfiguration';
 import {DriveItemItemRequestBuilderGetRequestConfiguration} from './driveItemItemRequestBuilderGetRequestConfiguration';
@@ -61,15 +62,15 @@ export class DriveItemItemRequestBuilder {
         return new VersionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.drives.item.items.item.children.item collection
+     * Gets an item from the MicrosoftGraph.users.item.drives.item.items.item.children.item collection
      * @param id Unique identifier of the item
      * @returns a driveItemItemRequestBuilder
      */
-    public childrenById(id: string) : i4ead1c1f6f8e42a39268d42d776982cf009e8f72877ec607a15fbabdc71662c0 {
+    public childrenById(id: string) : i5ed2610bab0513bc2bbced0bcd525ec24ea37d1a3a62bed602e2654ad3a08676 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["driveItem%2Did1"] = id
-        return new i4ead1c1f6f8e42a39268d42d776982cf009e8f72877ec607a15fbabdc71662c0(urlTplParams, this.requestAdapter);
+        return new i5ed2610bab0513bc2bbced0bcd525ec24ea37d1a3a62bed602e2654ad3a08676(urlTplParams, this.requestAdapter);
     };
     /**
      * Instantiates a new DriveItemItemRequestBuilder and sets the default values.
@@ -133,7 +134,8 @@ export class DriveItemItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new DriveItemImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -157,7 +159,7 @@ export class DriveItemItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DriveItem
      */
-    public get(requestConfiguration?: DriveItemItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DriveItem | undefined> {
+    public get(requestConfiguration?: DriveItemItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DriveItemImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -165,7 +167,7 @@ export class DriveItemItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<DriveItem>(requestInfo, createDriveItemFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<DriveItemImpl>(requestInfo, createDriveItemFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update the navigation property items in users
@@ -185,7 +187,7 @@ export class DriveItemItemRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.drives.item.items.item.permissions.item collection
+     * Gets an item from the MicrosoftGraph.users.item.drives.item.items.item.permissions.item collection
      * @param id Unique identifier of the item
      * @returns a permissionItemRequestBuilder
      */
@@ -196,7 +198,7 @@ export class DriveItemItemRequestBuilder {
         return new PermissionItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.drives.item.items.item.subscriptions.item collection
+     * Gets an item from the MicrosoftGraph.users.item.drives.item.items.item.subscriptions.item collection
      * @param id Unique identifier of the item
      * @returns a subscriptionItemRequestBuilder
      */
@@ -207,7 +209,7 @@ export class DriveItemItemRequestBuilder {
         return new SubscriptionItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.drives.item.items.item.thumbnails.item collection
+     * Gets an item from the MicrosoftGraph.users.item.drives.item.items.item.thumbnails.item collection
      * @param id Unique identifier of the item
      * @returns a thumbnailSetItemRequestBuilder
      */
@@ -218,7 +220,7 @@ export class DriveItemItemRequestBuilder {
         return new ThumbnailSetItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.drives.item.items.item.versions.item collection
+     * Gets an item from the MicrosoftGraph.users.item.drives.item.items.item.versions.item collection
      * @param id Unique identifier of the item
      * @returns a driveItemVersionItemRequestBuilder
      */

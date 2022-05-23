@@ -1,7 +1,7 @@
-import {ActionResultPart} from './index';
+import {ActionResultPartImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createActionResultPartFromDiscriminatorValue(parseNode: ParseNode | undefined) : ActionResultPart {
+export function createActionResultPartFromDiscriminatorValue(parseNode: ParseNode | undefined) : ActionResultPartImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new ActionResultPart();
+    return new ActionResultPartImpl();
 }

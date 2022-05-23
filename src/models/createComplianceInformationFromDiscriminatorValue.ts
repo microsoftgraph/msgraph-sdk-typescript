@@ -1,7 +1,7 @@
-import {ComplianceInformation} from './index';
+import {ComplianceInformationImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createComplianceInformationFromDiscriminatorValue(parseNode: ParseNode | undefined) : ComplianceInformation {
+export function createComplianceInformationFromDiscriminatorValue(parseNode: ParseNode | undefined) : ComplianceInformationImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new ComplianceInformation();
+    return new ComplianceInformationImpl();
 }

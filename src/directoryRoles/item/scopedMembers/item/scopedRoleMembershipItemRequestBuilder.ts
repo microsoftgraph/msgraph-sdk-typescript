@@ -1,7 +1,8 @@
-import {ScopedRoleMembership} from '../../../../models/';
+import {ScopedRoleMembershipImpl} from '../../../../models/';
 import {createScopedRoleMembershipFromDiscriminatorValue} from '../../../../models/createScopedRoleMembershipFromDiscriminatorValue';
-import {ODataError} from '../../../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {ScopedRoleMembership} from '../../../../models/scopedRoleMembership';
 import {ScopedRoleMembershipItemRequestBuilderDeleteRequestConfiguration} from './scopedRoleMembershipItemRequestBuilderDeleteRequestConfiguration';
 import {ScopedRoleMembershipItemRequestBuilderGetRequestConfiguration} from './scopedRoleMembershipItemRequestBuilderGetRequestConfiguration';
 import {ScopedRoleMembershipItemRequestBuilderPatchRequestConfiguration} from './scopedRoleMembershipItemRequestBuilderPatchRequestConfiguration';
@@ -77,7 +78,8 @@ export class ScopedRoleMembershipItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new ScopedRoleMembershipImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -101,7 +103,7 @@ export class ScopedRoleMembershipItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ScopedRoleMembership
      */
-    public get(requestConfiguration?: ScopedRoleMembershipItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ScopedRoleMembership | undefined> {
+    public get(requestConfiguration?: ScopedRoleMembershipItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ScopedRoleMembershipImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -109,7 +111,7 @@ export class ScopedRoleMembershipItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<ScopedRoleMembership>(requestInfo, createScopedRoleMembershipFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<ScopedRoleMembershipImpl>(requestInfo, createScopedRoleMembershipFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update the navigation property scopedMembers in directoryRoles

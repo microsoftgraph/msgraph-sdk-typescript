@@ -1,7 +1,7 @@
-import {ServiceUpdateMessage} from './index';
+import {ServiceUpdateMessageImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createServiceUpdateMessageFromDiscriminatorValue(parseNode: ParseNode | undefined) : ServiceUpdateMessage {
+export function createServiceUpdateMessageFromDiscriminatorValue(parseNode: ParseNode | undefined) : ServiceUpdateMessageImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new ServiceUpdateMessage();
+    return new ServiceUpdateMessageImpl();
 }

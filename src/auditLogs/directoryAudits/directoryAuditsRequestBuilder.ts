@@ -1,7 +1,8 @@
-import {DirectoryAudit, DirectoryAuditCollectionResponse} from '../../models/';
+import {DirectoryAuditCollectionResponseImpl, DirectoryAuditImpl} from '../../models/';
 import {createDirectoryAuditCollectionResponseFromDiscriminatorValue} from '../../models/createDirectoryAuditCollectionResponseFromDiscriminatorValue';
 import {createDirectoryAuditFromDiscriminatorValue} from '../../models/createDirectoryAuditFromDiscriminatorValue';
-import {ODataError} from '../../models/oDataErrors/';
+import {DirectoryAudit} from '../../models/directoryAudit';
+import {ODataErrorImpl} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DirectoryAuditsRequestBuilderGetRequestConfiguration} from './directoryAuditsRequestBuilderGetRequestConfiguration';
@@ -66,7 +67,8 @@ export class DirectoryAuditsRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new DirectoryAuditImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -75,7 +77,7 @@ export class DirectoryAuditsRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DirectoryAuditCollectionResponse
      */
-    public get(requestConfiguration?: DirectoryAuditsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DirectoryAuditCollectionResponse | undefined> {
+    public get(requestConfiguration?: DirectoryAuditsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DirectoryAuditCollectionResponseImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -83,7 +85,7 @@ export class DirectoryAuditsRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<DirectoryAuditCollectionResponse>(requestInfo, createDirectoryAuditCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<DirectoryAuditCollectionResponseImpl>(requestInfo, createDirectoryAuditCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Create new navigation property to directoryAudits for auditLogs
@@ -92,7 +94,7 @@ export class DirectoryAuditsRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DirectoryAudit
      */
-    public post(body: DirectoryAudit | undefined, requestConfiguration?: DirectoryAuditsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DirectoryAudit | undefined> {
+    public post(body: DirectoryAudit | undefined, requestConfiguration?: DirectoryAuditsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DirectoryAuditImpl | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration
@@ -101,6 +103,6 @@ export class DirectoryAuditsRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<DirectoryAudit>(requestInfo, createDirectoryAuditFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<DirectoryAuditImpl>(requestInfo, createDirectoryAuditFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

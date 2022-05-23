@@ -1,7 +1,8 @@
-import {EducationOutcome, EducationOutcomeCollectionResponse} from '../../../../../../../models/';
+import {EducationOutcomeCollectionResponseImpl, EducationOutcomeImpl} from '../../../../../../../models/';
 import {createEducationOutcomeCollectionResponseFromDiscriminatorValue} from '../../../../../../../models/createEducationOutcomeCollectionResponseFromDiscriminatorValue';
 import {createEducationOutcomeFromDiscriminatorValue} from '../../../../../../../models/createEducationOutcomeFromDiscriminatorValue';
-import {ODataError} from '../../../../../../../models/oDataErrors/';
+import {EducationOutcome} from '../../../../../../../models/educationOutcome';
+import {ODataErrorImpl} from '../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {OutcomesRequestBuilderGetRequestConfiguration} from './outcomesRequestBuilderGetRequestConfiguration';
@@ -66,7 +67,8 @@ export class OutcomesRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new EducationOutcomeImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -75,7 +77,7 @@ export class OutcomesRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of EducationOutcomeCollectionResponse
      */
-    public get(requestConfiguration?: OutcomesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EducationOutcomeCollectionResponse | undefined> {
+    public get(requestConfiguration?: OutcomesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EducationOutcomeCollectionResponseImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -83,7 +85,7 @@ export class OutcomesRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<EducationOutcomeCollectionResponse>(requestInfo, createEducationOutcomeCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<EducationOutcomeCollectionResponseImpl>(requestInfo, createEducationOutcomeCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Create new navigation property to outcomes for education
@@ -92,7 +94,7 @@ export class OutcomesRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of EducationOutcome
      */
-    public post(body: EducationOutcome | undefined, requestConfiguration?: OutcomesRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EducationOutcome | undefined> {
+    public post(body: EducationOutcome | undefined, requestConfiguration?: OutcomesRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EducationOutcomeImpl | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration
@@ -101,6 +103,6 @@ export class OutcomesRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<EducationOutcome>(requestInfo, createEducationOutcomeFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<EducationOutcomeImpl>(requestInfo, createEducationOutcomeFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

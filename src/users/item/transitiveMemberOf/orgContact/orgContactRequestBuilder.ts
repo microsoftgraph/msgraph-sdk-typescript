@@ -1,6 +1,6 @@
-import {OrgContactCollectionResponse} from '../../../../models/';
+import {OrgContactCollectionResponseImpl} from '../../../../models/';
 import {createOrgContactCollectionResponseFromDiscriminatorValue} from '../../../../models/createOrgContactCollectionResponseFromDiscriminatorValue';
-import {ODataError} from '../../../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {OrgContactRequestBuilderGetRequestConfiguration} from './orgContactRequestBuilderGetRequestConfiguration';
@@ -54,7 +54,7 @@ export class OrgContactRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of OrgContactCollectionResponse
      */
-    public get(requestConfiguration?: OrgContactRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<OrgContactCollectionResponse | undefined> {
+    public get(requestConfiguration?: OrgContactRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<OrgContactCollectionResponseImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -62,6 +62,6 @@ export class OrgContactRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<OrgContactCollectionResponse>(requestInfo, createOrgContactCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<OrgContactCollectionResponseImpl>(requestInfo, createOrgContactCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

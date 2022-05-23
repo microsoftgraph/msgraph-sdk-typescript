@@ -1,6 +1,7 @@
-import {AuthoredNote} from '../../../../../models/';
+import {AuthoredNoteImpl} from '../../../../../models/';
+import {AuthoredNote} from '../../../../../models/authoredNote';
 import {createAuthoredNoteFromDiscriminatorValue} from '../../../../../models/createAuthoredNoteFromDiscriminatorValue';
-import {ODataError} from '../../../../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {AuthoredNoteItemRequestBuilderDeleteRequestConfiguration} from './authoredNoteItemRequestBuilderDeleteRequestConfiguration';
 import {AuthoredNoteItemRequestBuilderGetRequestConfiguration} from './authoredNoteItemRequestBuilderGetRequestConfiguration';
@@ -77,7 +78,8 @@ export class AuthoredNoteItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new AuthoredNoteImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -101,7 +103,7 @@ export class AuthoredNoteItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AuthoredNote
      */
-    public get(requestConfiguration?: AuthoredNoteItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AuthoredNote | undefined> {
+    public get(requestConfiguration?: AuthoredNoteItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AuthoredNoteImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -109,7 +111,7 @@ export class AuthoredNoteItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<AuthoredNote>(requestInfo, createAuthoredNoteFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<AuthoredNoteImpl>(requestInfo, createAuthoredNoteFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update the navigation property notes in privacy

@@ -1,7 +1,7 @@
-import {ListItemVersionCollectionResponse} from './index';
+import {ListItemVersionCollectionResponseImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createListItemVersionCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ListItemVersionCollectionResponse {
+export function createListItemVersionCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ListItemVersionCollectionResponseImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new ListItemVersionCollectionResponse();
+    return new ListItemVersionCollectionResponseImpl();
 }

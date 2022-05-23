@@ -1,6 +1,6 @@
-import {EndpointCollectionResponse} from '../../../../../../../models/';
+import {EndpointCollectionResponseImpl} from '../../../../../../../models/';
 import {createEndpointCollectionResponseFromDiscriminatorValue} from '../../../../../../../models/createEndpointCollectionResponseFromDiscriminatorValue';
-import {ODataError} from '../../../../../../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {EndpointRequestBuilderGetRequestConfiguration} from './endpointRequestBuilderGetRequestConfiguration';
@@ -54,7 +54,7 @@ export class EndpointRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of EndpointCollectionResponse
      */
-    public get(requestConfiguration?: EndpointRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EndpointCollectionResponse | undefined> {
+    public get(requestConfiguration?: EndpointRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EndpointCollectionResponseImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -62,6 +62,6 @@ export class EndpointRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<EndpointCollectionResponse>(requestInfo, createEndpointCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<EndpointCollectionResponseImpl>(requestInfo, createEndpointCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

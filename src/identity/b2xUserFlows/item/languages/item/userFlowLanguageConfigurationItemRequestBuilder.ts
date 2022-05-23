@@ -1,10 +1,11 @@
-import {UserFlowLanguageConfiguration} from '../../../../../models/';
+import {UserFlowLanguageConfigurationImpl} from '../../../../../models/';
 import {createUserFlowLanguageConfigurationFromDiscriminatorValue} from '../../../../../models/createUserFlowLanguageConfigurationFromDiscriminatorValue';
-import {ODataError} from '../../../../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {UserFlowLanguageConfiguration} from '../../../../../models/userFlowLanguageConfiguration';
 import {DefaultPagesRequestBuilder} from './defaultPages/defaultPagesRequestBuilder';
-import {UserFlowLanguagePageItemRequestBuilder as i6aeadeee81ad1d48c1efd195ff388082a0958b3e29492864eae87d102709f08f} from './defaultPages/item/userFlowLanguagePageItemRequestBuilder';
-import {UserFlowLanguagePageItemRequestBuilder as i3b49bcfaf80c52cf8321b8cdc7b130961ff8a5193a09b2aaa8acdd90c5aaedcd} from './overridesPages/item/userFlowLanguagePageItemRequestBuilder';
+import {UserFlowLanguagePageItemRequestBuilder as i02445f928641d2528ff8432aa10fa9fe28f9e155676802b7e96972f05481bf87} from './defaultPages/item/userFlowLanguagePageItemRequestBuilder';
+import {UserFlowLanguagePageItemRequestBuilder as i61debdccf08937ace9cec969a566b0bbba67db81f7ccb7650e4a0edd79c937e2} from './overridesPages/item/userFlowLanguagePageItemRequestBuilder';
 import {OverridesPagesRequestBuilder} from './overridesPages/overridesPagesRequestBuilder';
 import {UserFlowLanguageConfigurationItemRequestBuilderDeleteRequestConfiguration} from './userFlowLanguageConfigurationItemRequestBuilderDeleteRequestConfiguration';
 import {UserFlowLanguageConfigurationItemRequestBuilderGetRequestConfiguration} from './userFlowLanguageConfigurationItemRequestBuilderGetRequestConfiguration';
@@ -89,19 +90,20 @@ export class UserFlowLanguageConfigurationItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new UserFlowLanguageConfigurationImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.identity.b2xUserFlows.item.languages.item.defaultPages.item collection
+     * Gets an item from the MicrosoftGraph.identity.b2xUserFlows.item.languages.item.defaultPages.item collection
      * @param id Unique identifier of the item
      * @returns a userFlowLanguagePageItemRequestBuilder
      */
-    public defaultPagesById(id: string) : i6aeadeee81ad1d48c1efd195ff388082a0958b3e29492864eae87d102709f08f {
+    public defaultPagesById(id: string) : i02445f928641d2528ff8432aa10fa9fe28f9e155676802b7e96972f05481bf87 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["userFlowLanguagePage%2Did"] = id
-        return new i6aeadeee81ad1d48c1efd195ff388082a0958b3e29492864eae87d102709f08f(urlTplParams, this.requestAdapter);
+        return new i02445f928641d2528ff8432aa10fa9fe28f9e155676802b7e96972f05481bf87(urlTplParams, this.requestAdapter);
     };
     /**
      * Delete navigation property languages for identity
@@ -124,7 +126,7 @@ export class UserFlowLanguageConfigurationItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of UserFlowLanguageConfiguration
      */
-    public get(requestConfiguration?: UserFlowLanguageConfigurationItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<UserFlowLanguageConfiguration | undefined> {
+    public get(requestConfiguration?: UserFlowLanguageConfigurationItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<UserFlowLanguageConfigurationImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -132,18 +134,18 @@ export class UserFlowLanguageConfigurationItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<UserFlowLanguageConfiguration>(requestInfo, createUserFlowLanguageConfigurationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<UserFlowLanguageConfigurationImpl>(requestInfo, createUserFlowLanguageConfigurationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.identity.b2xUserFlows.item.languages.item.overridesPages.item collection
+     * Gets an item from the MicrosoftGraph.identity.b2xUserFlows.item.languages.item.overridesPages.item collection
      * @param id Unique identifier of the item
      * @returns a userFlowLanguagePageItemRequestBuilder
      */
-    public overridesPagesById(id: string) : i3b49bcfaf80c52cf8321b8cdc7b130961ff8a5193a09b2aaa8acdd90c5aaedcd {
+    public overridesPagesById(id: string) : i61debdccf08937ace9cec969a566b0bbba67db81f7ccb7650e4a0edd79c937e2 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["userFlowLanguagePage%2Did"] = id
-        return new i3b49bcfaf80c52cf8321b8cdc7b130961ff8a5193a09b2aaa8acdd90c5aaedcd(urlTplParams, this.requestAdapter);
+        return new i61debdccf08937ace9cec969a566b0bbba67db81f7ccb7650e4a0edd79c937e2(urlTplParams, this.requestAdapter);
     };
     /**
      * Update the navigation property languages in identity

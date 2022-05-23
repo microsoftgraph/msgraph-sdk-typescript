@@ -1,7 +1,8 @@
-import {OnlineMeeting} from '../../../models/';
+import {OnlineMeetingImpl} from '../../../models/';
 import {createOnlineMeetingFromDiscriminatorValue} from '../../../models/createOnlineMeetingFromDiscriminatorValue';
-import {ODataError} from '../../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {OnlineMeeting} from '../../../models/onlineMeeting';
 import {AttendanceReportsRequestBuilder} from './attendanceReports/attendanceReportsRequestBuilder';
 import {MeetingAttendanceReportItemRequestBuilder} from './attendanceReports/item/meetingAttendanceReportItemRequestBuilder';
 import {AttendeeReportRequestBuilder} from './attendeeReport/attendeeReportRequestBuilder';
@@ -27,7 +28,7 @@ export class OnlineMeetingItemRequestBuilder {
     /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.communications.onlineMeetings.item.attendanceReports.item collection
+     * Gets an item from the MicrosoftGraph.communications.onlineMeetings.item.attendanceReports.item collection
      * @param id Unique identifier of the item
      * @returns a meetingAttendanceReportItemRequestBuilder
      */
@@ -99,7 +100,8 @@ export class OnlineMeetingItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new OnlineMeetingImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -123,7 +125,7 @@ export class OnlineMeetingItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of OnlineMeeting
      */
-    public get(requestConfiguration?: OnlineMeetingItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<OnlineMeeting | undefined> {
+    public get(requestConfiguration?: OnlineMeetingItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<OnlineMeetingImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -131,7 +133,7 @@ export class OnlineMeetingItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<OnlineMeeting>(requestInfo, createOnlineMeetingFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<OnlineMeetingImpl>(requestInfo, createOnlineMeetingFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update the navigation property onlineMeetings in communications

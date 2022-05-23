@@ -1,5 +1,6 @@
+import {ForceDeletePostRequestBody} from './forceDeletePostRequestBody';
 import {ForceDeleteRequestBuilderPostRequestConfiguration} from './forceDeleteRequestBuilderPostRequestConfiguration';
-import {ForceDeletePostRequestBody} from './index';
+import {ForceDeletePostRequestBodyImpl} from './index';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the forceDelete method. */
@@ -39,7 +40,8 @@ export class ForceDeleteRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new ForceDeletePostRequestBodyImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**

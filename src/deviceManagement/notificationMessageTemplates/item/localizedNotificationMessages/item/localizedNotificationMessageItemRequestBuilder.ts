@@ -1,6 +1,7 @@
-import {LocalizedNotificationMessage} from '../../../../../models/';
+import {LocalizedNotificationMessageImpl} from '../../../../../models/';
 import {createLocalizedNotificationMessageFromDiscriminatorValue} from '../../../../../models/createLocalizedNotificationMessageFromDiscriminatorValue';
-import {ODataError} from '../../../../../models/oDataErrors/';
+import {LocalizedNotificationMessage} from '../../../../../models/localizedNotificationMessage';
+import {ODataErrorImpl} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {LocalizedNotificationMessageItemRequestBuilderDeleteRequestConfiguration} from './localizedNotificationMessageItemRequestBuilderDeleteRequestConfiguration';
 import {LocalizedNotificationMessageItemRequestBuilderGetRequestConfiguration} from './localizedNotificationMessageItemRequestBuilderGetRequestConfiguration';
@@ -77,7 +78,8 @@ export class LocalizedNotificationMessageItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new LocalizedNotificationMessageImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -101,7 +103,7 @@ export class LocalizedNotificationMessageItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of LocalizedNotificationMessage
      */
-    public get(requestConfiguration?: LocalizedNotificationMessageItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<LocalizedNotificationMessage | undefined> {
+    public get(requestConfiguration?: LocalizedNotificationMessageItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<LocalizedNotificationMessageImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -109,7 +111,7 @@ export class LocalizedNotificationMessageItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<LocalizedNotificationMessage>(requestInfo, createLocalizedNotificationMessageFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<LocalizedNotificationMessageImpl>(requestInfo, createLocalizedNotificationMessageFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update the navigation property localizedNotificationMessages in deviceManagement

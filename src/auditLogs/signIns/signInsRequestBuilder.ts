@@ -1,8 +1,9 @@
-import {SignIn, SignInCollectionResponse} from '../../models/';
+import {SignInCollectionResponseImpl, SignInImpl} from '../../models/';
 import {createSignInCollectionResponseFromDiscriminatorValue} from '../../models/createSignInCollectionResponseFromDiscriminatorValue';
 import {createSignInFromDiscriminatorValue} from '../../models/createSignInFromDiscriminatorValue';
-import {ODataError} from '../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {SignIn} from '../../models/signIn';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {SignInsRequestBuilderGetRequestConfiguration} from './signInsRequestBuilderGetRequestConfiguration';
 import {SignInsRequestBuilderPostRequestConfiguration} from './signInsRequestBuilderPostRequestConfiguration';
@@ -66,7 +67,8 @@ export class SignInsRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new SignInImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -75,7 +77,7 @@ export class SignInsRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of SignInCollectionResponse
      */
-    public get(requestConfiguration?: SignInsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<SignInCollectionResponse | undefined> {
+    public get(requestConfiguration?: SignInsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<SignInCollectionResponseImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -83,7 +85,7 @@ export class SignInsRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<SignInCollectionResponse>(requestInfo, createSignInCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<SignInCollectionResponseImpl>(requestInfo, createSignInCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Create new navigation property to signIns for auditLogs
@@ -92,7 +94,7 @@ export class SignInsRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of SignIn
      */
-    public post(body: SignIn | undefined, requestConfiguration?: SignInsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<SignIn | undefined> {
+    public post(body: SignIn | undefined, requestConfiguration?: SignInsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<SignInImpl | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration
@@ -101,6 +103,6 @@ export class SignInsRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<SignIn>(requestInfo, createSignInFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<SignInImpl>(requestInfo, createSignInFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

@@ -1,7 +1,7 @@
-import {ApiAuthenticationConfigurationBase} from './index';
+import {ApiAuthenticationConfigurationBaseImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createApiAuthenticationConfigurationBaseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ApiAuthenticationConfigurationBase {
+export function createApiAuthenticationConfigurationBaseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ApiAuthenticationConfigurationBaseImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new ApiAuthenticationConfigurationBase();
+    return new ApiAuthenticationConfigurationBaseImpl();
 }

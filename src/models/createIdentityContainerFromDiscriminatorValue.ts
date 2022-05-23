@@ -1,7 +1,7 @@
-import {IdentityContainer} from './index';
+import {IdentityContainerImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createIdentityContainerFromDiscriminatorValue(parseNode: ParseNode | undefined) : IdentityContainer {
+export function createIdentityContainerFromDiscriminatorValue(parseNode: ParseNode | undefined) : IdentityContainerImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new IdentityContainer();
+    return new IdentityContainerImpl();
 }

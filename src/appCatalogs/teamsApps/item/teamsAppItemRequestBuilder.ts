@@ -1,7 +1,8 @@
-import {TeamsApp} from '../../../models/';
+import {TeamsAppImpl} from '../../../models/';
 import {createTeamsAppFromDiscriminatorValue} from '../../../models/createTeamsAppFromDiscriminatorValue';
-import {ODataError} from '../../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {TeamsApp} from '../../../models/teamsApp';
 import {AppDefinitionsRequestBuilder} from './appDefinitions/appDefinitionsRequestBuilder';
 import {TeamsAppDefinitionItemRequestBuilder} from './appDefinitions/item/teamsAppDefinitionItemRequestBuilder';
 import {TeamsAppItemRequestBuilderDeleteRequestConfiguration} from './teamsAppItemRequestBuilderDeleteRequestConfiguration';
@@ -22,7 +23,7 @@ export class TeamsAppItemRequestBuilder {
     /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.appCatalogs.teamsApps.item.appDefinitions.item collection
+     * Gets an item from the MicrosoftGraph.appCatalogs.teamsApps.item.appDefinitions.item collection
      * @param id Unique identifier of the item
      * @returns a teamsAppDefinitionItemRequestBuilder
      */
@@ -94,7 +95,8 @@ export class TeamsAppItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new TeamsAppImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -118,7 +120,7 @@ export class TeamsAppItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of TeamsApp
      */
-    public get(requestConfiguration?: TeamsAppItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<TeamsApp | undefined> {
+    public get(requestConfiguration?: TeamsAppItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<TeamsAppImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -126,7 +128,7 @@ export class TeamsAppItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<TeamsApp>(requestInfo, createTeamsAppFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<TeamsAppImpl>(requestInfo, createTeamsAppFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update the navigation property teamsApps in appCatalogs

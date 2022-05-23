@@ -1,7 +1,7 @@
-import {ManagedDeviceMobileAppConfiguration} from './index';
+import {ManagedDeviceMobileAppConfigurationImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createManagedDeviceMobileAppConfigurationFromDiscriminatorValue(parseNode: ParseNode | undefined) : ManagedDeviceMobileAppConfiguration {
+export function createManagedDeviceMobileAppConfigurationFromDiscriminatorValue(parseNode: ParseNode | undefined) : ManagedDeviceMobileAppConfigurationImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
     const mappingValueNode = parseNode.getChildNode("@odata.type");
     if (mappingValueNode) {
@@ -9,9 +9,9 @@ export function createManagedDeviceMobileAppConfigurationFromDiscriminatorValue(
         if (mappingValue) {
             switch (mappingValue) {
                 case "#microsoft.graph.managedDeviceMobileAppConfiguration":
-                    return new ManagedDeviceMobileAppConfiguration();
+                    return new ManagedDeviceMobileAppConfigurationImpl();
             }
         }
     }
-    return new ManagedDeviceMobileAppConfiguration();
+    return new ManagedDeviceMobileAppConfigurationImpl();
 }

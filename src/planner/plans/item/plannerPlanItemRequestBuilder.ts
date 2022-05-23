@@ -1,7 +1,8 @@
-import {PlannerPlan} from '../../../models/';
+import {PlannerPlanImpl} from '../../../models/';
 import {createPlannerPlanFromDiscriminatorValue} from '../../../models/createPlannerPlanFromDiscriminatorValue';
-import {ODataError} from '../../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {PlannerPlan} from '../../../models/plannerPlan';
 import {BucketsRequestBuilder} from './buckets/bucketsRequestBuilder';
 import {PlannerBucketItemRequestBuilder} from './buckets/item/plannerBucketItemRequestBuilder';
 import {DetailsRequestBuilder} from './details/detailsRequestBuilder';
@@ -33,7 +34,7 @@ export class PlannerPlanItemRequestBuilder {
     /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.planner.plans.item.buckets.item collection
+     * Gets an item from the MicrosoftGraph.planner.plans.item.buckets.item collection
      * @param id Unique identifier of the item
      * @returns a plannerBucketItemRequestBuilder
      */
@@ -105,7 +106,8 @@ export class PlannerPlanItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new PlannerPlanImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -129,7 +131,7 @@ export class PlannerPlanItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of PlannerPlan
      */
-    public get(requestConfiguration?: PlannerPlanItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<PlannerPlan | undefined> {
+    public get(requestConfiguration?: PlannerPlanItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<PlannerPlanImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -137,7 +139,7 @@ export class PlannerPlanItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<PlannerPlan>(requestInfo, createPlannerPlanFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<PlannerPlanImpl>(requestInfo, createPlannerPlanFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update the navigation property plans in planner
@@ -157,7 +159,7 @@ export class PlannerPlanItemRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.planner.plans.item.tasks.item collection
+     * Gets an item from the MicrosoftGraph.planner.plans.item.tasks.item collection
      * @param id Unique identifier of the item
      * @returns a plannerTaskItemRequestBuilder
      */

@@ -1,13 +1,14 @@
-import {ChatMessage} from '../../../../../../models/';
+import {ChatMessageImpl} from '../../../../../../models/';
+import {ChatMessage} from '../../../../../../models/chatMessage';
 import {createChatMessageFromDiscriminatorValue} from '../../../../../../models/createChatMessageFromDiscriminatorValue';
-import {ODataError} from '../../../../../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {ChatMessageItemRequestBuilderDeleteRequestConfiguration} from './chatMessageItemRequestBuilderDeleteRequestConfiguration';
 import {ChatMessageItemRequestBuilderGetRequestConfiguration} from './chatMessageItemRequestBuilderGetRequestConfiguration';
 import {ChatMessageItemRequestBuilderPatchRequestConfiguration} from './chatMessageItemRequestBuilderPatchRequestConfiguration';
 import {HostedContentsRequestBuilder} from './hostedContents/hostedContentsRequestBuilder';
 import {ChatMessageHostedContentItemRequestBuilder} from './hostedContents/item/chatMessageHostedContentItemRequestBuilder';
-import {ChatMessageItemRequestBuilder as i10b9ea335bd6b596cfc2f04b8c4eb4aca1a8b1eb27e6c271fad88d8814af1797} from './replies/item/chatMessageItemRequestBuilder';
+import {ChatMessageItemRequestBuilder as ib4e39dc0dce9f2ebea1bb2c173b07c83d4788fec1086067378cefbf2b666999f} from './replies/item/chatMessageItemRequestBuilder';
 import {RepliesRequestBuilder} from './replies/repliesRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
@@ -89,7 +90,8 @@ export class ChatMessageItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new ChatMessageImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -113,7 +115,7 @@ export class ChatMessageItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ChatMessage
      */
-    public get(requestConfiguration?: ChatMessageItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ChatMessage | undefined> {
+    public get(requestConfiguration?: ChatMessageItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ChatMessageImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -121,10 +123,10 @@ export class ChatMessageItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<ChatMessage>(requestInfo, createChatMessageFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<ChatMessageImpl>(requestInfo, createChatMessageFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.team.primaryChannel.messages.item.hostedContents.item collection
+     * Gets an item from the MicrosoftGraph.groups.item.team.primaryChannel.messages.item.hostedContents.item collection
      * @param id Unique identifier of the item
      * @returns a chatMessageHostedContentItemRequestBuilder
      */
@@ -152,14 +154,14 @@ export class ChatMessageItemRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.team.primaryChannel.messages.item.replies.item collection
+     * Gets an item from the MicrosoftGraph.groups.item.team.primaryChannel.messages.item.replies.item collection
      * @param id Unique identifier of the item
      * @returns a chatMessageItemRequestBuilder
      */
-    public repliesById(id: string) : i10b9ea335bd6b596cfc2f04b8c4eb4aca1a8b1eb27e6c271fad88d8814af1797 {
+    public repliesById(id: string) : ib4e39dc0dce9f2ebea1bb2c173b07c83d4788fec1086067378cefbf2b666999f {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["chatMessage%2Did1"] = id
-        return new i10b9ea335bd6b596cfc2f04b8c4eb4aca1a8b1eb27e6c271fad88d8814af1797(urlTplParams, this.requestAdapter);
+        return new ib4e39dc0dce9f2ebea1bb2c173b07c83d4788fec1086067378cefbf2b666999f(urlTplParams, this.requestAdapter);
     };
 }

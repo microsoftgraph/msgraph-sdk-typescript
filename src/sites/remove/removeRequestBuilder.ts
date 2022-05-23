@@ -1,5 +1,6 @@
 import {createRemoveResponseFromDiscriminatorValue} from './createRemoveResponseFromDiscriminatorValue';
-import {RemovePostRequestBody, RemoveResponse} from './index';
+import {RemovePostRequestBodyImpl, RemoveResponseImpl} from './index';
+import {RemovePostRequestBody} from './removePostRequestBody';
 import {RemoveRequestBuilderPostRequestConfiguration} from './removeRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
@@ -40,7 +41,8 @@ export class RemoveRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new RemovePostRequestBodyImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -50,11 +52,11 @@ export class RemoveRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of RemoveResponse
      */
-    public post(body: RemovePostRequestBody | undefined, requestConfiguration?: RemoveRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<RemoveResponse | undefined> {
+    public post(body: RemovePostRequestBody | undefined, requestConfiguration?: RemoveRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<RemoveResponseImpl | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration
         );
-        return this.requestAdapter?.sendAsync<RemoveResponse>(requestInfo, createRemoveResponseFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<RemoveResponseImpl>(requestInfo, createRemoveResponseFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }

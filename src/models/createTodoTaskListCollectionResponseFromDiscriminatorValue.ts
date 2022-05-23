@@ -1,7 +1,7 @@
-import {TodoTaskListCollectionResponse} from './index';
+import {TodoTaskListCollectionResponseImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createTodoTaskListCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : TodoTaskListCollectionResponse {
+export function createTodoTaskListCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : TodoTaskListCollectionResponseImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new TodoTaskListCollectionResponse();
+    return new TodoTaskListCollectionResponseImpl();
 }

@@ -1,7 +1,8 @@
-import {WindowsInformationProtectionAppLearningSummary} from '../../../models/';
+import {WindowsInformationProtectionAppLearningSummaryImpl} from '../../../models/';
 import {createWindowsInformationProtectionAppLearningSummaryFromDiscriminatorValue} from '../../../models/createWindowsInformationProtectionAppLearningSummaryFromDiscriminatorValue';
-import {ODataError} from '../../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {WindowsInformationProtectionAppLearningSummary} from '../../../models/windowsInformationProtectionAppLearningSummary';
 import {WindowsInformationProtectionAppLearningSummaryItemRequestBuilderDeleteRequestConfiguration} from './windowsInformationProtectionAppLearningSummaryItemRequestBuilderDeleteRequestConfiguration';
 import {WindowsInformationProtectionAppLearningSummaryItemRequestBuilderGetRequestConfiguration} from './windowsInformationProtectionAppLearningSummaryItemRequestBuilderGetRequestConfiguration';
 import {WindowsInformationProtectionAppLearningSummaryItemRequestBuilderPatchRequestConfiguration} from './windowsInformationProtectionAppLearningSummaryItemRequestBuilderPatchRequestConfiguration';
@@ -77,7 +78,8 @@ export class WindowsInformationProtectionAppLearningSummaryItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new WindowsInformationProtectionAppLearningSummaryImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -101,7 +103,7 @@ export class WindowsInformationProtectionAppLearningSummaryItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of WindowsInformationProtectionAppLearningSummary
      */
-    public get(requestConfiguration?: WindowsInformationProtectionAppLearningSummaryItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WindowsInformationProtectionAppLearningSummary | undefined> {
+    public get(requestConfiguration?: WindowsInformationProtectionAppLearningSummaryItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WindowsInformationProtectionAppLearningSummaryImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -109,7 +111,7 @@ export class WindowsInformationProtectionAppLearningSummaryItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<WindowsInformationProtectionAppLearningSummary>(requestInfo, createWindowsInformationProtectionAppLearningSummaryFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<WindowsInformationProtectionAppLearningSummaryImpl>(requestInfo, createWindowsInformationProtectionAppLearningSummaryFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update the navigation property windowsInformationProtectionAppLearningSummaries in deviceManagement

@@ -1,6 +1,7 @@
-import {Admin} from '../models/';
+import {AdminImpl} from '../models/';
+import {Admin} from '../models/admin';
 import {createAdminFromDiscriminatorValue} from '../models/createAdminFromDiscriminatorValue';
-import {ODataError} from '../models/oDataErrors/';
+import {ODataErrorImpl} from '../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {AdminRequestBuilderGetRequestConfiguration} from './adminRequestBuilderGetRequestConfiguration';
 import {AdminRequestBuilderPatchRequestConfiguration} from './adminRequestBuilderPatchRequestConfiguration';
@@ -65,7 +66,8 @@ export class AdminRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new AdminImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -74,7 +76,7 @@ export class AdminRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Admin
      */
-    public get(requestConfiguration?: AdminRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Admin | undefined> {
+    public get(requestConfiguration?: AdminRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AdminImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -82,7 +84,7 @@ export class AdminRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<Admin>(requestInfo, createAdminFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<AdminImpl>(requestInfo, createAdminFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update admin

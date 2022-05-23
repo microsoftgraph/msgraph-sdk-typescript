@@ -1,6 +1,7 @@
-import {EBookInstallSummary} from '../../../../models/';
+import {EBookInstallSummaryImpl} from '../../../../models/';
 import {createEBookInstallSummaryFromDiscriminatorValue} from '../../../../models/createEBookInstallSummaryFromDiscriminatorValue';
-import {ODataError} from '../../../../models/oDataErrors/';
+import {EBookInstallSummary} from '../../../../models/eBookInstallSummary';
+import {ODataErrorImpl} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {InstallSummaryRequestBuilderDeleteRequestConfiguration} from './installSummaryRequestBuilderDeleteRequestConfiguration';
 import {InstallSummaryRequestBuilderGetRequestConfiguration} from './installSummaryRequestBuilderGetRequestConfiguration';
@@ -77,7 +78,8 @@ export class InstallSummaryRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new EBookInstallSummaryImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -101,7 +103,7 @@ export class InstallSummaryRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of EBookInstallSummary
      */
-    public get(requestConfiguration?: InstallSummaryRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EBookInstallSummary | undefined> {
+    public get(requestConfiguration?: InstallSummaryRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EBookInstallSummaryImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -109,7 +111,7 @@ export class InstallSummaryRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<EBookInstallSummary>(requestInfo, createEBookInstallSummaryFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<EBookInstallSummaryImpl>(requestInfo, createEBookInstallSummaryFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update the navigation property installSummary in deviceAppManagement

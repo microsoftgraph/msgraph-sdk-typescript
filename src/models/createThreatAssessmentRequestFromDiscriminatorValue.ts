@@ -1,7 +1,7 @@
-import {ThreatAssessmentRequest} from './index';
+import {ThreatAssessmentRequestImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createThreatAssessmentRequestFromDiscriminatorValue(parseNode: ParseNode | undefined) : ThreatAssessmentRequest {
+export function createThreatAssessmentRequestFromDiscriminatorValue(parseNode: ParseNode | undefined) : ThreatAssessmentRequestImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
     const mappingValueNode = parseNode.getChildNode("@odata.type");
     if (mappingValueNode) {
@@ -9,9 +9,9 @@ export function createThreatAssessmentRequestFromDiscriminatorValue(parseNode: P
         if (mappingValue) {
             switch (mappingValue) {
                 case "#microsoft.graph.threatAssessmentRequest":
-                    return new ThreatAssessmentRequest();
+                    return new ThreatAssessmentRequestImpl();
             }
         }
     }
-    return new ThreatAssessmentRequest();
+    return new ThreatAssessmentRequestImpl();
 }

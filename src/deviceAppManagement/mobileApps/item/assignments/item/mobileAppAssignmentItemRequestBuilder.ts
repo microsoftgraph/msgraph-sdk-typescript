@@ -1,6 +1,7 @@
-import {MobileAppAssignment} from '../../../../../models/';
+import {MobileAppAssignmentImpl} from '../../../../../models/';
 import {createMobileAppAssignmentFromDiscriminatorValue} from '../../../../../models/createMobileAppAssignmentFromDiscriminatorValue';
-import {ODataError} from '../../../../../models/oDataErrors/';
+import {MobileAppAssignment} from '../../../../../models/mobileAppAssignment';
+import {ODataErrorImpl} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {MobileAppAssignmentItemRequestBuilderDeleteRequestConfiguration} from './mobileAppAssignmentItemRequestBuilderDeleteRequestConfiguration';
 import {MobileAppAssignmentItemRequestBuilderGetRequestConfiguration} from './mobileAppAssignmentItemRequestBuilderGetRequestConfiguration';
@@ -77,7 +78,8 @@ export class MobileAppAssignmentItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new MobileAppAssignmentImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -101,7 +103,7 @@ export class MobileAppAssignmentItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of MobileAppAssignment
      */
-    public get(requestConfiguration?: MobileAppAssignmentItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<MobileAppAssignment | undefined> {
+    public get(requestConfiguration?: MobileAppAssignmentItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<MobileAppAssignmentImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -109,7 +111,7 @@ export class MobileAppAssignmentItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<MobileAppAssignment>(requestInfo, createMobileAppAssignmentFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<MobileAppAssignmentImpl>(requestInfo, createMobileAppAssignmentFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update the navigation property assignments in deviceAppManagement

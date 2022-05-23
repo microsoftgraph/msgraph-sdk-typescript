@@ -1,7 +1,7 @@
-import {RegistrationEnforcement} from './index';
+import {RegistrationEnforcementImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createRegistrationEnforcementFromDiscriminatorValue(parseNode: ParseNode | undefined) : RegistrationEnforcement {
+export function createRegistrationEnforcementFromDiscriminatorValue(parseNode: ParseNode | undefined) : RegistrationEnforcementImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new RegistrationEnforcement();
+    return new RegistrationEnforcementImpl();
 }

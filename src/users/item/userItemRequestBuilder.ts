@@ -1,7 +1,8 @@
-import {User} from '../../models/';
+import {UserImpl} from '../../models/';
 import {createUserFromDiscriminatorValue} from '../../models/createUserFromDiscriminatorValue';
-import {ODataError} from '../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {User} from '../../models/user';
 import {ActivitiesRequestBuilder} from './activities/activitiesRequestBuilder';
 import {UserActivityItemRequestBuilder} from './activities/item/userActivityItemRequestBuilder';
 import {AgreementAcceptancesRequestBuilder} from './agreementAcceptances/agreementAcceptancesRequestBuilder';
@@ -16,7 +17,7 @@ import {CalendarGroupItemRequestBuilder} from './calendarGroups/item/calendarGro
 import {CalendarsRequestBuilder} from './calendars/calendarsRequestBuilder';
 import {CalendarItemRequestBuilder} from './calendars/item/calendarItemRequestBuilder';
 import {CalendarViewRequestBuilder} from './calendarView/calendarViewRequestBuilder';
-import {EventItemRequestBuilder as id3b0f8d7750ef07c7c51c3665fd3af3a01ad07e883ee0764d77a38f1b1ba3fdf} from './calendarView/item/eventItemRequestBuilder';
+import {EventItemRequestBuilder as ic1fa8dfaeea18fa754549f537651f164d63a076b04a4596cc0764903fcd82d4f} from './calendarView/item/eventItemRequestBuilder';
 import {ChangePasswordRequestBuilder} from './changePassword/changePasswordRequestBuilder';
 import {ChatsRequestBuilder} from './chats/chatsRequestBuilder';
 import {ChatItemRequestBuilder} from './chats/item/chatItemRequestBuilder';
@@ -27,16 +28,16 @@ import {ContactFolderItemRequestBuilder} from './contactFolders/item/contactFold
 import {ContactsRequestBuilder} from './contacts/contactsRequestBuilder';
 import {ContactItemRequestBuilder} from './contacts/item/contactItemRequestBuilder';
 import {CreatedObjectsRequestBuilder} from './createdObjects/createdObjectsRequestBuilder';
-import {DirectoryObjectItemRequestBuilder as if3aa3c8c1d4c5b40c695a98805baefd351b0d91d53e7bcb61f08f4534db827d9} from './createdObjects/item/directoryObjectItemRequestBuilder';
+import {DirectoryObjectItemRequestBuilder as i90e221181763ff4cd53f34e61640e5932f0ecff3cb21691cdf892c2694bd5ed2} from './createdObjects/item/directoryObjectItemRequestBuilder';
 import {DeviceManagementTroubleshootingEventsRequestBuilder} from './deviceManagementTroubleshootingEvents/deviceManagementTroubleshootingEventsRequestBuilder';
 import {DeviceManagementTroubleshootingEventItemRequestBuilder} from './deviceManagementTroubleshootingEvents/item/deviceManagementTroubleshootingEventItemRequestBuilder';
 import {DirectReportsRequestBuilder} from './directReports/directReportsRequestBuilder';
-import {DirectoryObjectItemRequestBuilder as ie4f7a3adc11feb16fc44557a4d5a2e2ae50e64f4641f289eb2036f52124e4dc5} from './directReports/item/directoryObjectItemRequestBuilder';
+import {DirectoryObjectItemRequestBuilder as i38270e777511044972f2a86134298588f52072f51f4f83503eb1246159f570ce} from './directReports/item/directoryObjectItemRequestBuilder';
 import {DriveRequestBuilder} from './drive/driveRequestBuilder';
 import {DrivesRequestBuilder} from './drives/drivesRequestBuilder';
 import {DriveItemRequestBuilder} from './drives/item/driveItemRequestBuilder';
 import {EventsRequestBuilder} from './events/eventsRequestBuilder';
-import {EventItemRequestBuilder as idff49b5aa167ad3a60a502a055381eb631511ac272b610e97e2ee7f0205633e2} from './events/item/eventItemRequestBuilder';
+import {EventItemRequestBuilder as i9ca58cca494bc27f312e521270fbc2519e973d96e8d0514a3a7269eb90e20963} from './events/item/eventItemRequestBuilder';
 import {ExportPersonalDataRequestBuilder} from './exportPersonalData/exportPersonalDataRequestBuilder';
 import {ExtensionsRequestBuilder} from './extensions/extensionsRequestBuilder';
 import {ExtensionItemRequestBuilder} from './extensions/item/extensionItemRequestBuilder';
@@ -61,7 +62,7 @@ import {ManagedAppRegistrationsRequestBuilder} from './managedAppRegistrations/m
 import {ManagedDeviceItemRequestBuilder} from './managedDevices/item/managedDeviceItemRequestBuilder';
 import {ManagedDevicesRequestBuilder} from './managedDevices/managedDevicesRequestBuilder';
 import {ManagerRequestBuilder} from './manager/managerRequestBuilder';
-import {DirectoryObjectItemRequestBuilder as i18f52bf6bc5c1c8b3304492b981916ccf9ebb43631988ec15e02d772cfb00573} from './memberOf/item/directoryObjectItemRequestBuilder';
+import {DirectoryObjectItemRequestBuilder as i9d86079ee7f312737249837376523d5478a7359d95d14c684064a58bcc7d727f} from './memberOf/item/directoryObjectItemRequestBuilder';
 import {MemberOfRequestBuilder} from './memberOf/memberOfRequestBuilder';
 import {MessageItemRequestBuilder} from './messages/item/messageItemRequestBuilder';
 import {MessagesRequestBuilder} from './messages/messagesRequestBuilder';
@@ -71,9 +72,9 @@ import {OnenoteRequestBuilder} from './onenote/onenoteRequestBuilder';
 import {OnlineMeetingItemRequestBuilder} from './onlineMeetings/item/onlineMeetingItemRequestBuilder';
 import {OnlineMeetingsRequestBuilder} from './onlineMeetings/onlineMeetingsRequestBuilder';
 import {OutlookRequestBuilder} from './outlook/outlookRequestBuilder';
-import {DirectoryObjectItemRequestBuilder as i2aef51b84a32beb2693af5b7b8a2f55a4fd109a7efad565592698239164d682a} from './ownedDevices/item/directoryObjectItemRequestBuilder';
+import {DirectoryObjectItemRequestBuilder as i402aa46f932e19eeb1d13d83eb7cee42394d840b3b3c52746c8c99d5d2a9be44} from './ownedDevices/item/directoryObjectItemRequestBuilder';
 import {OwnedDevicesRequestBuilder} from './ownedDevices/ownedDevicesRequestBuilder';
-import {DirectoryObjectItemRequestBuilder as i058626e962792aedcea1eb90a3e6876666fcf8731682e43a2bde0e3625fa31da} from './ownedObjects/item/directoryObjectItemRequestBuilder';
+import {DirectoryObjectItemRequestBuilder as ia203956bf79751a6ccdbad4c2fb199b1e2d3e3c19f6f0698655bfd39991f664c} from './ownedObjects/item/directoryObjectItemRequestBuilder';
 import {OwnedObjectsRequestBuilder} from './ownedObjects/ownedObjectsRequestBuilder';
 import {PersonItemRequestBuilder} from './people/item/personItemRequestBuilder';
 import {PeopleRequestBuilder} from './people/peopleRequestBuilder';
@@ -82,7 +83,7 @@ import {ProfilePhotoItemRequestBuilder} from './photos/item/profilePhotoItemRequ
 import {PhotosRequestBuilder} from './photos/photosRequestBuilder';
 import {PlannerRequestBuilder} from './planner/plannerRequestBuilder';
 import {PresenceRequestBuilder} from './presence/presenceRequestBuilder';
-import {DirectoryObjectItemRequestBuilder as i7d79802aaceac043beca51df3db3db8ed8431b0c91cd8325b5b0abf2ead40bcb} from './registeredDevices/item/directoryObjectItemRequestBuilder';
+import {DirectoryObjectItemRequestBuilder as i51be30cc4ba3b6e251aabd0758ef0a36eec1fdd116c2955c7c6374087b04de83} from './registeredDevices/item/directoryObjectItemRequestBuilder';
 import {RegisteredDevicesRequestBuilder} from './registeredDevices/registeredDevicesRequestBuilder';
 import {ReminderViewWithStartDateTimeWithEndDateTimeRequestBuilder} from './reminderViewWithStartDateTimeWithEndDateTime/reminderViewWithStartDateTimeWithEndDateTimeRequestBuilder';
 import {RemoveAllDevicesFromManagementRequestBuilder} from './removeAllDevicesFromManagement/removeAllDevicesFromManagementRequestBuilder';
@@ -95,7 +96,7 @@ import {SendMailRequestBuilder} from './sendMail/sendMailRequestBuilder';
 import {SettingsRequestBuilder} from './settings/settingsRequestBuilder';
 import {TeamworkRequestBuilder} from './teamwork/teamworkRequestBuilder';
 import {TodoRequestBuilder} from './todo/todoRequestBuilder';
-import {DirectoryObjectItemRequestBuilder as ie63433783ab729cdddec741a9dffe4aaad5418284b12e1dc6e2c6832365f7e14} from './transitiveMemberOf/item/directoryObjectItemRequestBuilder';
+import {DirectoryObjectItemRequestBuilder as ifbac43021898c73443d85f8d067675218036ee769ae809807347521fd9a9baca} from './transitiveMemberOf/item/directoryObjectItemRequestBuilder';
 import {TransitiveMemberOfRequestBuilder} from './transitiveMemberOf/transitiveMemberOfRequestBuilder';
 import {TranslateExchangeIdsRequestBuilder} from './translateExchangeIds/translateExchangeIdsRequestBuilder';
 import {UserItemRequestBuilderDeleteRequestConfiguration} from './userItemRequestBuilderDeleteRequestConfiguration';
@@ -361,7 +362,7 @@ export class UserItemRequestBuilder {
         return new WipeManagedAppRegistrationsByDeviceTagRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.activities.item collection
+     * Gets an item from the MicrosoftGraph.users.item.activities.item collection
      * @param id Unique identifier of the item
      * @returns a userActivityItemRequestBuilder
      */
@@ -372,7 +373,7 @@ export class UserItemRequestBuilder {
         return new UserActivityItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.agreementAcceptances.item collection
+     * Gets an item from the MicrosoftGraph.users.item.agreementAcceptances.item collection
      * @param id Unique identifier of the item
      * @returns a agreementAcceptanceItemRequestBuilder
      */
@@ -383,7 +384,7 @@ export class UserItemRequestBuilder {
         return new AgreementAcceptanceItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.appRoleAssignments.item collection
+     * Gets an item from the MicrosoftGraph.users.item.appRoleAssignments.item collection
      * @param id Unique identifier of the item
      * @returns a appRoleAssignmentItemRequestBuilder
      */
@@ -394,7 +395,7 @@ export class UserItemRequestBuilder {
         return new AppRoleAssignmentItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.calendarGroups.item collection
+     * Gets an item from the MicrosoftGraph.users.item.calendarGroups.item collection
      * @param id Unique identifier of the item
      * @returns a calendarGroupItemRequestBuilder
      */
@@ -405,7 +406,7 @@ export class UserItemRequestBuilder {
         return new CalendarGroupItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.calendars.item collection
+     * Gets an item from the MicrosoftGraph.users.item.calendars.item collection
      * @param id Unique identifier of the item
      * @returns a calendarItemRequestBuilder
      */
@@ -416,18 +417,18 @@ export class UserItemRequestBuilder {
         return new CalendarItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.calendarView.item collection
+     * Gets an item from the MicrosoftGraph.users.item.calendarView.item collection
      * @param id Unique identifier of the item
      * @returns a eventItemRequestBuilder
      */
-    public calendarViewById(id: string) : id3b0f8d7750ef07c7c51c3665fd3af3a01ad07e883ee0764d77a38f1b1ba3fdf {
+    public calendarViewById(id: string) : ic1fa8dfaeea18fa754549f537651f164d63a076b04a4596cc0764903fcd82d4f {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["event%2Did"] = id
-        return new id3b0f8d7750ef07c7c51c3665fd3af3a01ad07e883ee0764d77a38f1b1ba3fdf(urlTplParams, this.requestAdapter);
+        return new ic1fa8dfaeea18fa754549f537651f164d63a076b04a4596cc0764903fcd82d4f(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.chats.item collection
+     * Gets an item from the MicrosoftGraph.users.item.chats.item collection
      * @param id Unique identifier of the item
      * @returns a chatItemRequestBuilder
      */
@@ -451,7 +452,7 @@ export class UserItemRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.contactFolders.item collection
+     * Gets an item from the MicrosoftGraph.users.item.contactFolders.item collection
      * @param id Unique identifier of the item
      * @returns a contactFolderItemRequestBuilder
      */
@@ -462,7 +463,7 @@ export class UserItemRequestBuilder {
         return new ContactFolderItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.contacts.item collection
+     * Gets an item from the MicrosoftGraph.users.item.contacts.item collection
      * @param id Unique identifier of the item
      * @returns a contactItemRequestBuilder
      */
@@ -473,7 +474,7 @@ export class UserItemRequestBuilder {
         return new ContactItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * In this tutorial, a fictitious company called Contoso Limited wishes to have its IT Helpdesk manage the lifecycle of employees’ access. The company has identified the Azure AD User Administrator role as the appropriate privileged role required by IT Helpdesk, and will use the PIM API to assign the role. You'll create a role-assignable security group for IT Helpdesk and using the PIM API, assign the security group eligibility to the User Administrator role. By assigning the eligible role to a security group, Contoso has a more efficient way to manage administrator access to resources such as Azure AD roles. For example: Assigning eligibility instead of a persistently active User Administrator privilege allows the company to enforce **just-in-time access**, which grants temporary permissions to carry out the privileged tasks. After defining the role eligibility, the eligible group member then activates their assignment for a temporary period. All records of role activations will be auditable by the company.
+     * Suppose you use Azure AD security groups to assign identities (also called *principals*) access to resources in your organization. Periodically, you need to attest that all members of the security group need their membership and by extension, their access to the resources assigned to the security group. This tutorial guides you to use the access review API to review access to a security group in your Azure AD tenant. You can use Graph Explorer or Postman to try out and test your access reviews API calls before you automate them into a script or an app. This test environment saves you time by helping you properly define and validate your queries without repeatedly recompiling your application.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -489,15 +490,15 @@ export class UserItemRequestBuilder {
         return requestInfo;
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.createdObjects.item collection
+     * Gets an item from the MicrosoftGraph.users.item.createdObjects.item collection
      * @param id Unique identifier of the item
      * @returns a directoryObjectItemRequestBuilder
      */
-    public createdObjectsById(id: string) : if3aa3c8c1d4c5b40c695a98805baefd351b0d91d53e7bcb61f08f4534db827d9 {
+    public createdObjectsById(id: string) : i90e221181763ff4cd53f34e61640e5932f0ecff3cb21691cdf892c2694bd5ed2 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["directoryObject%2Did"] = id
-        return new if3aa3c8c1d4c5b40c695a98805baefd351b0d91d53e7bcb61f08f4534db827d9(urlTplParams, this.requestAdapter);
+        return new i90e221181763ff4cd53f34e61640e5932f0ecff3cb21691cdf892c2694bd5ed2(urlTplParams, this.requestAdapter);
     };
     public createGetRequestInformation(requestConfiguration?: UserItemRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
@@ -527,11 +528,12 @@ export class UserItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new UserImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
-     * In this tutorial, a fictitious company called Contoso Limited wishes to have its IT Helpdesk manage the lifecycle of employees’ access. The company has identified the Azure AD User Administrator role as the appropriate privileged role required by IT Helpdesk, and will use the PIM API to assign the role. You'll create a role-assignable security group for IT Helpdesk and using the PIM API, assign the security group eligibility to the User Administrator role. By assigning the eligible role to a security group, Contoso has a more efficient way to manage administrator access to resources such as Azure AD roles. For example: Assigning eligibility instead of a persistently active User Administrator privilege allows the company to enforce **just-in-time access**, which grants temporary permissions to carry out the privileged tasks. After defining the role eligibility, the eligible group member then activates their assignment for a temporary period. All records of role activations will be auditable by the company.
+     * Suppose you use Azure AD security groups to assign identities (also called *principals*) access to resources in your organization. Periodically, you need to attest that all members of the security group need their membership and by extension, their access to the resources assigned to the security group. This tutorial guides you to use the access review API to review access to a security group in your Azure AD tenant. You can use Graph Explorer or Postman to try out and test your access reviews API calls before you automate them into a script or an app. This test environment saves you time by helping you properly define and validate your queries without repeatedly recompiling your application.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
@@ -546,7 +548,7 @@ export class UserItemRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.deviceManagementTroubleshootingEvents.item collection
+     * Gets an item from the MicrosoftGraph.users.item.deviceManagementTroubleshootingEvents.item collection
      * @param id Unique identifier of the item
      * @returns a deviceManagementTroubleshootingEventItemRequestBuilder
      */
@@ -557,18 +559,18 @@ export class UserItemRequestBuilder {
         return new DeviceManagementTroubleshootingEventItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.directReports.item collection
+     * Gets an item from the MicrosoftGraph.users.item.directReports.item collection
      * @param id Unique identifier of the item
      * @returns a directoryObjectItemRequestBuilder
      */
-    public directReportsById(id: string) : ie4f7a3adc11feb16fc44557a4d5a2e2ae50e64f4641f289eb2036f52124e4dc5 {
+    public directReportsById(id: string) : i38270e777511044972f2a86134298588f52072f51f4f83503eb1246159f570ce {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["directoryObject%2Did"] = id
-        return new ie4f7a3adc11feb16fc44557a4d5a2e2ae50e64f4641f289eb2036f52124e4dc5(urlTplParams, this.requestAdapter);
+        return new i38270e777511044972f2a86134298588f52072f51f4f83503eb1246159f570ce(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.drives.item collection
+     * Gets an item from the MicrosoftGraph.users.item.drives.item collection
      * @param id Unique identifier of the item
      * @returns a driveItemRequestBuilder
      */
@@ -579,18 +581,18 @@ export class UserItemRequestBuilder {
         return new DriveItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.events.item collection
+     * Gets an item from the MicrosoftGraph.users.item.events.item collection
      * @param id Unique identifier of the item
      * @returns a eventItemRequestBuilder
      */
-    public eventsById(id: string) : idff49b5aa167ad3a60a502a055381eb631511ac272b610e97e2ee7f0205633e2 {
+    public eventsById(id: string) : i9ca58cca494bc27f312e521270fbc2519e973d96e8d0514a3a7269eb90e20963 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["event%2Did"] = id
-        return new idff49b5aa167ad3a60a502a055381eb631511ac272b610e97e2ee7f0205633e2(urlTplParams, this.requestAdapter);
+        return new i9ca58cca494bc27f312e521270fbc2519e973d96e8d0514a3a7269eb90e20963(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.extensions.item collection
+     * Gets an item from the MicrosoftGraph.users.item.extensions.item collection
      * @param id Unique identifier of the item
      * @returns a extensionItemRequestBuilder
      */
@@ -601,7 +603,7 @@ export class UserItemRequestBuilder {
         return new ExtensionItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.followedSites.item collection
+     * Gets an item from the MicrosoftGraph.users.item.followedSites.item collection
      * @param id Unique identifier of the item
      * @returns a siteItemRequestBuilder
      */
@@ -611,7 +613,7 @@ export class UserItemRequestBuilder {
         urlTplParams["site%2Did"] = id
         return new SiteItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
-    public get(requestConfiguration?: UserItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<User | undefined> {
+    public get(requestConfiguration?: UserItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<UserImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -619,7 +621,7 @@ export class UserItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<User>(requestInfo, createUserFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<UserImpl>(requestInfo, createUserFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Provides operations to call the getManagedAppDiagnosticStatuses method.
@@ -636,7 +638,7 @@ export class UserItemRequestBuilder {
         return new GetManagedAppPoliciesRequestBuilder(this.pathParameters, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.joinedTeams.item collection
+     * Gets an item from the MicrosoftGraph.users.item.joinedTeams.item collection
      * @param id Unique identifier of the item
      * @returns a teamItemRequestBuilder
      */
@@ -647,7 +649,7 @@ export class UserItemRequestBuilder {
         return new TeamItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.licenseDetails.item collection
+     * Gets an item from the MicrosoftGraph.users.item.licenseDetails.item collection
      * @param id Unique identifier of the item
      * @returns a licenseDetailsItemRequestBuilder
      */
@@ -658,7 +660,7 @@ export class UserItemRequestBuilder {
         return new LicenseDetailsItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.mailFolders.item collection
+     * Gets an item from the MicrosoftGraph.users.item.mailFolders.item collection
      * @param id Unique identifier of the item
      * @returns a mailFolderItemRequestBuilder
      */
@@ -669,7 +671,7 @@ export class UserItemRequestBuilder {
         return new MailFolderItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.managedAppRegistrations.item collection
+     * Gets an item from the MicrosoftGraph.users.item.managedAppRegistrations.item collection
      * @param id Unique identifier of the item
      * @returns a managedAppRegistrationItemRequestBuilder
      */
@@ -680,7 +682,7 @@ export class UserItemRequestBuilder {
         return new ManagedAppRegistrationItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.managedDevices.item collection
+     * Gets an item from the MicrosoftGraph.users.item.managedDevices.item collection
      * @param id Unique identifier of the item
      * @returns a managedDeviceItemRequestBuilder
      */
@@ -691,18 +693,18 @@ export class UserItemRequestBuilder {
         return new ManagedDeviceItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.memberOf.item collection
+     * Gets an item from the MicrosoftGraph.users.item.memberOf.item collection
      * @param id Unique identifier of the item
      * @returns a directoryObjectItemRequestBuilder
      */
-    public memberOfById(id: string) : i18f52bf6bc5c1c8b3304492b981916ccf9ebb43631988ec15e02d772cfb00573 {
+    public memberOfById(id: string) : i9d86079ee7f312737249837376523d5478a7359d95d14c684064a58bcc7d727f {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["directoryObject%2Did"] = id
-        return new i18f52bf6bc5c1c8b3304492b981916ccf9ebb43631988ec15e02d772cfb00573(urlTplParams, this.requestAdapter);
+        return new i9d86079ee7f312737249837376523d5478a7359d95d14c684064a58bcc7d727f(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.messages.item collection
+     * Gets an item from the MicrosoftGraph.users.item.messages.item collection
      * @param id Unique identifier of the item
      * @returns a messageItemRequestBuilder
      */
@@ -713,7 +715,7 @@ export class UserItemRequestBuilder {
         return new MessageItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.oauth2PermissionGrants.item collection
+     * Gets an item from the MicrosoftGraph.users.item.oauth2PermissionGrants.item collection
      * @param id Unique identifier of the item
      * @returns a oAuth2PermissionGrantItemRequestBuilder
      */
@@ -724,7 +726,7 @@ export class UserItemRequestBuilder {
         return new OAuth2PermissionGrantItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.onlineMeetings.item collection
+     * Gets an item from the MicrosoftGraph.users.item.onlineMeetings.item collection
      * @param id Unique identifier of the item
      * @returns a onlineMeetingItemRequestBuilder
      */
@@ -735,26 +737,26 @@ export class UserItemRequestBuilder {
         return new OnlineMeetingItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.ownedDevices.item collection
+     * Gets an item from the MicrosoftGraph.users.item.ownedDevices.item collection
      * @param id Unique identifier of the item
      * @returns a directoryObjectItemRequestBuilder
      */
-    public ownedDevicesById(id: string) : i2aef51b84a32beb2693af5b7b8a2f55a4fd109a7efad565592698239164d682a {
+    public ownedDevicesById(id: string) : i402aa46f932e19eeb1d13d83eb7cee42394d840b3b3c52746c8c99d5d2a9be44 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["directoryObject%2Did"] = id
-        return new i2aef51b84a32beb2693af5b7b8a2f55a4fd109a7efad565592698239164d682a(urlTplParams, this.requestAdapter);
+        return new i402aa46f932e19eeb1d13d83eb7cee42394d840b3b3c52746c8c99d5d2a9be44(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.ownedObjects.item collection
+     * Gets an item from the MicrosoftGraph.users.item.ownedObjects.item collection
      * @param id Unique identifier of the item
      * @returns a directoryObjectItemRequestBuilder
      */
-    public ownedObjectsById(id: string) : i058626e962792aedcea1eb90a3e6876666fcf8731682e43a2bde0e3625fa31da {
+    public ownedObjectsById(id: string) : ia203956bf79751a6ccdbad4c2fb199b1e2d3e3c19f6f0698655bfd39991f664c {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["directoryObject%2Did"] = id
-        return new i058626e962792aedcea1eb90a3e6876666fcf8731682e43a2bde0e3625fa31da(urlTplParams, this.requestAdapter);
+        return new ia203956bf79751a6ccdbad4c2fb199b1e2d3e3c19f6f0698655bfd39991f664c(urlTplParams, this.requestAdapter);
     };
     /**
      * This article provides examples of how to assign, update, or remove different types of custom security attributes for users and applications (service principals). Custom security attributes can be assigned or updated only through a `PATCH` operation in an [Update user](/graph/api/user-update?view=graph-rest-beta&preserve-view=true) or [Update servicePrincipal](/graph/api/serviceprincipal-update?view=graph-rest-beta&preserve-view=true) request.
@@ -774,7 +776,7 @@ export class UserItemRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.people.item collection
+     * Gets an item from the MicrosoftGraph.users.item.people.item collection
      * @param id Unique identifier of the item
      * @returns a personItemRequestBuilder
      */
@@ -785,7 +787,7 @@ export class UserItemRequestBuilder {
         return new PersonItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.photos.item collection
+     * Gets an item from the MicrosoftGraph.users.item.photos.item collection
      * @param id Unique identifier of the item
      * @returns a profilePhotoItemRequestBuilder
      */
@@ -796,15 +798,15 @@ export class UserItemRequestBuilder {
         return new ProfilePhotoItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.registeredDevices.item collection
+     * Gets an item from the MicrosoftGraph.users.item.registeredDevices.item collection
      * @param id Unique identifier of the item
      * @returns a directoryObjectItemRequestBuilder
      */
-    public registeredDevicesById(id: string) : i7d79802aaceac043beca51df3db3db8ed8431b0c91cd8325b5b0abf2ead40bcb {
+    public registeredDevicesById(id: string) : i51be30cc4ba3b6e251aabd0758ef0a36eec1fdd116c2955c7c6374087b04de83 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["directoryObject%2Did"] = id
-        return new i7d79802aaceac043beca51df3db3db8ed8431b0c91cd8325b5b0abf2ead40bcb(urlTplParams, this.requestAdapter);
+        return new i51be30cc4ba3b6e251aabd0758ef0a36eec1fdd116c2955c7c6374087b04de83(urlTplParams, this.requestAdapter);
     };
     /**
      * Provides operations to call the reminderView method.
@@ -818,7 +820,7 @@ export class UserItemRequestBuilder {
         return new ReminderViewWithStartDateTimeWithEndDateTimeRequestBuilder(this.pathParameters, this.requestAdapter, endDateTime, startDateTime);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.scopedRoleMemberOf.item collection
+     * Gets an item from the MicrosoftGraph.users.item.scopedRoleMemberOf.item collection
      * @param id Unique identifier of the item
      * @returns a scopedRoleMembershipItemRequestBuilder
      */
@@ -829,14 +831,14 @@ export class UserItemRequestBuilder {
         return new ScopedRoleMembershipItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.transitiveMemberOf.item collection
+     * Gets an item from the MicrosoftGraph.users.item.transitiveMemberOf.item collection
      * @param id Unique identifier of the item
      * @returns a directoryObjectItemRequestBuilder
      */
-    public transitiveMemberOfById(id: string) : ie63433783ab729cdddec741a9dffe4aaad5418284b12e1dc6e2c6832365f7e14 {
+    public transitiveMemberOfById(id: string) : ifbac43021898c73443d85f8d067675218036ee769ae809807347521fd9a9baca {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["directoryObject%2Did"] = id
-        return new ie63433783ab729cdddec741a9dffe4aaad5418284b12e1dc6e2c6832365f7e14(urlTplParams, this.requestAdapter);
+        return new ifbac43021898c73443d85f8d067675218036ee769ae809807347521fd9a9baca(urlTplParams, this.requestAdapter);
     };
 }

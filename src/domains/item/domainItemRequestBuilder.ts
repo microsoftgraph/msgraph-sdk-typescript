@@ -1,6 +1,7 @@
-import {Domain} from '../../models/';
+import {DomainImpl} from '../../models/';
 import {createDomainFromDiscriminatorValue} from '../../models/createDomainFromDiscriminatorValue';
-import {ODataError} from '../../models/oDataErrors/';
+import {Domain} from '../../models/domain';
+import {ODataErrorImpl} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {DomainItemRequestBuilderDeleteRequestConfiguration} from './domainItemRequestBuilderDeleteRequestConfiguration';
 import {DomainItemRequestBuilderGetRequestConfiguration} from './domainItemRequestBuilderGetRequestConfiguration';
@@ -10,9 +11,9 @@ import {DirectoryObjectItemRequestBuilder} from './domainNameReferences/item/dir
 import {FederationConfigurationRequestBuilder} from './federationConfiguration/federationConfigurationRequestBuilder';
 import {InternalDomainFederationItemRequestBuilder} from './federationConfiguration/item/internalDomainFederationItemRequestBuilder';
 import {ForceDeleteRequestBuilder} from './forceDelete/forceDeleteRequestBuilder';
-import {DomainDnsRecordItemRequestBuilder as if42c50e3e2ba9cccdeb447503ef296586e785bdceb37d68d3f26a20ec7a74730} from './serviceConfigurationRecords/item/domainDnsRecordItemRequestBuilder';
+import {DomainDnsRecordItemRequestBuilder as i9e944a8b71752a37a61b9edc4219412bd62c7c751fee16ccacdcdd13bb97ee01} from './serviceConfigurationRecords/item/domainDnsRecordItemRequestBuilder';
 import {ServiceConfigurationRecordsRequestBuilder} from './serviceConfigurationRecords/serviceConfigurationRecordsRequestBuilder';
-import {DomainDnsRecordItemRequestBuilder as i34c2b049a11a56a0e845314c4913041442dc5d005e49ac8abe88e67f09a2a130} from './verificationDnsRecords/item/domainDnsRecordItemRequestBuilder';
+import {DomainDnsRecordItemRequestBuilder as ibbb466aceebf9f679884b817c0e08b48a9bae65fdd1c47864beb21085d3a77da} from './verificationDnsRecords/item/domainDnsRecordItemRequestBuilder';
 import {VerificationDnsRecordsRequestBuilder} from './verificationDnsRecords/verificationDnsRecordsRequestBuilder';
 import {VerifyRequestBuilder} from './verify/verifyRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
@@ -111,7 +112,8 @@ export class DomainItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new DomainImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -130,7 +132,7 @@ export class DomainItemRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.domains.item.domainNameReferences.item collection
+     * Gets an item from the MicrosoftGraph.domains.item.domainNameReferences.item collection
      * @param id Unique identifier of the item
      * @returns a directoryObjectItemRequestBuilder
      */
@@ -141,7 +143,7 @@ export class DomainItemRequestBuilder {
         return new DirectoryObjectItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.domains.item.federationConfiguration.item collection
+     * Gets an item from the MicrosoftGraph.domains.item.federationConfiguration.item collection
      * @param id Unique identifier of the item
      * @returns a internalDomainFederationItemRequestBuilder
      */
@@ -157,7 +159,7 @@ export class DomainItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Domain
      */
-    public get(requestConfiguration?: DomainItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Domain | undefined> {
+    public get(requestConfiguration?: DomainItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DomainImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -165,7 +167,7 @@ export class DomainItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<Domain>(requestInfo, createDomainFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<DomainImpl>(requestInfo, createDomainFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update the properties of domain object.
@@ -185,25 +187,25 @@ export class DomainItemRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.domains.item.serviceConfigurationRecords.item collection
+     * Gets an item from the MicrosoftGraph.domains.item.serviceConfigurationRecords.item collection
      * @param id Unique identifier of the item
      * @returns a domainDnsRecordItemRequestBuilder
      */
-    public serviceConfigurationRecordsById(id: string) : if42c50e3e2ba9cccdeb447503ef296586e785bdceb37d68d3f26a20ec7a74730 {
+    public serviceConfigurationRecordsById(id: string) : i9e944a8b71752a37a61b9edc4219412bd62c7c751fee16ccacdcdd13bb97ee01 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["domainDnsRecord%2Did"] = id
-        return new if42c50e3e2ba9cccdeb447503ef296586e785bdceb37d68d3f26a20ec7a74730(urlTplParams, this.requestAdapter);
+        return new i9e944a8b71752a37a61b9edc4219412bd62c7c751fee16ccacdcdd13bb97ee01(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.domains.item.verificationDnsRecords.item collection
+     * Gets an item from the MicrosoftGraph.domains.item.verificationDnsRecords.item collection
      * @param id Unique identifier of the item
      * @returns a domainDnsRecordItemRequestBuilder
      */
-    public verificationDnsRecordsById(id: string) : i34c2b049a11a56a0e845314c4913041442dc5d005e49ac8abe88e67f09a2a130 {
+    public verificationDnsRecordsById(id: string) : ibbb466aceebf9f679884b817c0e08b48a9bae65fdd1c47864beb21085d3a77da {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["domainDnsRecord%2Did"] = id
-        return new i34c2b049a11a56a0e845314c4913041442dc5d005e49ac8abe88e67f09a2a130(urlTplParams, this.requestAdapter);
+        return new ibbb466aceebf9f679884b817c0e08b48a9bae65fdd1c47864beb21085d3a77da(urlTplParams, this.requestAdapter);
     };
 }

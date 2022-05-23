@@ -1,7 +1,8 @@
-import {ApplicationTemplate, ApplicationTemplateCollectionResponse} from '../models/';
+import {ApplicationTemplateCollectionResponseImpl, ApplicationTemplateImpl} from '../models/';
+import {ApplicationTemplate} from '../models/applicationTemplate';
 import {createApplicationTemplateCollectionResponseFromDiscriminatorValue} from '../models/createApplicationTemplateCollectionResponseFromDiscriminatorValue';
 import {createApplicationTemplateFromDiscriminatorValue} from '../models/createApplicationTemplateFromDiscriminatorValue';
-import {ODataError} from '../models/oDataErrors/';
+import {ODataErrorImpl} from '../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {ApplicationTemplatesRequestBuilderGetRequestConfiguration} from './applicationTemplatesRequestBuilderGetRequestConfiguration';
 import {ApplicationTemplatesRequestBuilderPostRequestConfiguration} from './applicationTemplatesRequestBuilderPostRequestConfiguration';
@@ -66,7 +67,8 @@ export class ApplicationTemplatesRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new ApplicationTemplateImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -75,7 +77,7 @@ export class ApplicationTemplatesRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ApplicationTemplateCollectionResponse
      */
-    public get(requestConfiguration?: ApplicationTemplatesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ApplicationTemplateCollectionResponse | undefined> {
+    public get(requestConfiguration?: ApplicationTemplatesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ApplicationTemplateCollectionResponseImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -83,7 +85,7 @@ export class ApplicationTemplatesRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<ApplicationTemplateCollectionResponse>(requestInfo, createApplicationTemplateCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<ApplicationTemplateCollectionResponseImpl>(requestInfo, createApplicationTemplateCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Add new entity to applicationTemplates
@@ -92,7 +94,7 @@ export class ApplicationTemplatesRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ApplicationTemplate
      */
-    public post(body: ApplicationTemplate | undefined, requestConfiguration?: ApplicationTemplatesRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ApplicationTemplate | undefined> {
+    public post(body: ApplicationTemplate | undefined, requestConfiguration?: ApplicationTemplatesRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ApplicationTemplateImpl | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration
@@ -101,6 +103,6 @@ export class ApplicationTemplatesRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<ApplicationTemplate>(requestInfo, createApplicationTemplateFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<ApplicationTemplateImpl>(requestInfo, createApplicationTemplateFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

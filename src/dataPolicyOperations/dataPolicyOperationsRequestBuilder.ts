@@ -1,7 +1,8 @@
-import {DataPolicyOperation, DataPolicyOperationCollectionResponse} from '../models/';
+import {DataPolicyOperationCollectionResponseImpl, DataPolicyOperationImpl} from '../models/';
 import {createDataPolicyOperationCollectionResponseFromDiscriminatorValue} from '../models/createDataPolicyOperationCollectionResponseFromDiscriminatorValue';
 import {createDataPolicyOperationFromDiscriminatorValue} from '../models/createDataPolicyOperationFromDiscriminatorValue';
-import {ODataError} from '../models/oDataErrors/';
+import {DataPolicyOperation} from '../models/dataPolicyOperation';
+import {ODataErrorImpl} from '../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DataPolicyOperationsRequestBuilderGetRequestConfiguration} from './dataPolicyOperationsRequestBuilderGetRequestConfiguration';
@@ -66,7 +67,8 @@ export class DataPolicyOperationsRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new DataPolicyOperationImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -75,7 +77,7 @@ export class DataPolicyOperationsRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DataPolicyOperationCollectionResponse
      */
-    public get(requestConfiguration?: DataPolicyOperationsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DataPolicyOperationCollectionResponse | undefined> {
+    public get(requestConfiguration?: DataPolicyOperationsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DataPolicyOperationCollectionResponseImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -83,7 +85,7 @@ export class DataPolicyOperationsRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<DataPolicyOperationCollectionResponse>(requestInfo, createDataPolicyOperationCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<DataPolicyOperationCollectionResponseImpl>(requestInfo, createDataPolicyOperationCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Add new entity to dataPolicyOperations
@@ -92,7 +94,7 @@ export class DataPolicyOperationsRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DataPolicyOperation
      */
-    public post(body: DataPolicyOperation | undefined, requestConfiguration?: DataPolicyOperationsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DataPolicyOperation | undefined> {
+    public post(body: DataPolicyOperation | undefined, requestConfiguration?: DataPolicyOperationsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DataPolicyOperationImpl | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration
@@ -101,6 +103,6 @@ export class DataPolicyOperationsRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<DataPolicyOperation>(requestInfo, createDataPolicyOperationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<DataPolicyOperationImpl>(requestInfo, createDataPolicyOperationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

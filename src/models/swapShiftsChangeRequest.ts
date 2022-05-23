@@ -1,46 +1,6 @@
-import {OfferShiftRequest} from './index';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {OfferShiftRequest} from './offerShiftRequest';
 
-/** Casts the previous resource to user. */
-export class SwapShiftsChangeRequest extends OfferShiftRequest implements Parsable {
+export interface SwapShiftsChangeRequest extends OfferShiftRequest{
     /** Shift ID for the recipient user with whom the request is to swap. */
-    private _recipientShiftId?: string | undefined;
-    /**
-     * Instantiates a new swapShiftsChangeRequest and sets the default values.
-     */
-    public constructor() {
-        super();
-    };
-    /**
-     * The deserialization information for the current model
-     * @returns a Record<string, (node: ParseNode) => void>
-     */
-    public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
-        return {...super.getFieldDeserializers(),
-            "recipientShiftId": n => { this.recipientShiftId = n.getStringValue(); },
-        };
-    };
-    /**
-     * Gets the recipientShiftId property value. Shift ID for the recipient user with whom the request is to swap.
-     * @returns a string
-     */
-    public get recipientShiftId() {
-        return this._recipientShiftId;
-    };
-    /**
-     * Sets the recipientShiftId property value. Shift ID for the recipient user with whom the request is to swap.
-     * @param value Value to set for the recipientShiftId property.
-     */
-    public set recipientShiftId(value: string | undefined) {
-        this._recipientShiftId = value;
-    };
-    /**
-     * Serializes information the current object
-     * @param writer Serialization writer to use to serialize this model
-     */
-    public serialize(writer: SerializationWriter) : void {
-        if(!writer) throw new Error("writer cannot be undefined");
-        super.serialize(writer);
-        writer.writeStringValue("recipientShiftId", this.recipientShiftId);
-    };
+    recipientShiftId?:string | undefined;
 }

@@ -1,7 +1,7 @@
-import {LocalizedNotificationMessage} from './index';
+import {LocalizedNotificationMessageImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createLocalizedNotificationMessageFromDiscriminatorValue(parseNode: ParseNode | undefined) : LocalizedNotificationMessage {
+export function createLocalizedNotificationMessageFromDiscriminatorValue(parseNode: ParseNode | undefined) : LocalizedNotificationMessageImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new LocalizedNotificationMessage();
+    return new LocalizedNotificationMessageImpl();
 }

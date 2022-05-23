@@ -1,7 +1,7 @@
-import {ScheduleChangeRequest} from './index';
+import {ScheduleChangeRequestImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createScheduleChangeRequestFromDiscriminatorValue(parseNode: ParseNode | undefined) : ScheduleChangeRequest {
+export function createScheduleChangeRequestFromDiscriminatorValue(parseNode: ParseNode | undefined) : ScheduleChangeRequestImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
     const mappingValueNode = parseNode.getChildNode("@odata.type");
     if (mappingValueNode) {
@@ -9,9 +9,9 @@ export function createScheduleChangeRequestFromDiscriminatorValue(parseNode: Par
         if (mappingValue) {
             switch (mappingValue) {
                 case "#microsoft.graph.scheduleChangeRequest":
-                    return new ScheduleChangeRequest();
+                    return new ScheduleChangeRequestImpl();
             }
         }
     }
-    return new ScheduleChangeRequest();
+    return new ScheduleChangeRequestImpl();
 }

@@ -1,6 +1,7 @@
-import {IdentityApiConnector} from '../../../../models/';
+import {IdentityApiConnectorImpl} from '../../../../models/';
 import {createIdentityApiConnectorFromDiscriminatorValue} from '../../../../models/createIdentityApiConnectorFromDiscriminatorValue';
-import {UploadClientCertificatePostRequestBody} from './index';
+import {UploadClientCertificatePostRequestBodyImpl} from './index';
+import {UploadClientCertificatePostRequestBody} from './uploadClientCertificatePostRequestBody';
 import {UploadClientCertificateRequestBuilderPostRequestConfiguration} from './uploadClientCertificateRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
@@ -41,7 +42,8 @@ export class UploadClientCertificateRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new UploadClientCertificatePostRequestBodyImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -51,11 +53,11 @@ export class UploadClientCertificateRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of IdentityApiConnector
      */
-    public post(body: UploadClientCertificatePostRequestBody | undefined, requestConfiguration?: UploadClientCertificateRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<IdentityApiConnector | undefined> {
+    public post(body: UploadClientCertificatePostRequestBody | undefined, requestConfiguration?: UploadClientCertificateRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<IdentityApiConnectorImpl | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration
         );
-        return this.requestAdapter?.sendAsync<IdentityApiConnector>(requestInfo, createIdentityApiConnectorFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<IdentityApiConnectorImpl>(requestInfo, createIdentityApiConnectorFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }

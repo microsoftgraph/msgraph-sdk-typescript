@@ -1,7 +1,7 @@
-import {DeviceManagement} from './index';
+import {DeviceManagementImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createDeviceManagementFromDiscriminatorValue(parseNode: ParseNode | undefined) : DeviceManagement {
+export function createDeviceManagementFromDiscriminatorValue(parseNode: ParseNode | undefined) : DeviceManagementImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new DeviceManagement();
+    return new DeviceManagementImpl();
 }

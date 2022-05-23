@@ -1,7 +1,7 @@
-import {AgreementFileLocalization} from './index';
+import {AgreementFileLocalizationImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createAgreementFileLocalizationFromDiscriminatorValue(parseNode: ParseNode | undefined) : AgreementFileLocalization {
+export function createAgreementFileLocalizationFromDiscriminatorValue(parseNode: ParseNode | undefined) : AgreementFileLocalizationImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new AgreementFileLocalization();
+    return new AgreementFileLocalizationImpl();
 }

@@ -1,7 +1,7 @@
-import {InternalDomainFederationCollectionResponse} from './index';
+import {InternalDomainFederationCollectionResponseImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createInternalDomainFederationCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : InternalDomainFederationCollectionResponse {
+export function createInternalDomainFederationCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : InternalDomainFederationCollectionResponseImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new InternalDomainFederationCollectionResponse();
+    return new InternalDomainFederationCollectionResponseImpl();
 }

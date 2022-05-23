@@ -1,6 +1,7 @@
-import {IdentityContainer} from '../models/';
+import {IdentityContainerImpl} from '../models/';
 import {createIdentityContainerFromDiscriminatorValue} from '../models/createIdentityContainerFromDiscriminatorValue';
-import {ODataError} from '../models/oDataErrors/';
+import {IdentityContainer} from '../models/identityContainer';
+import {ODataErrorImpl} from '../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {ApiConnectorsRequestBuilder} from './apiConnectors/apiConnectorsRequestBuilder';
 import {IdentityApiConnectorItemRequestBuilder} from './apiConnectors/item/identityApiConnectorItemRequestBuilder';
@@ -44,7 +45,7 @@ export class IdentityRequestBuilder {
         return new UserFlowAttributesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.identity.apiConnectors.item collection
+     * Gets an item from the MicrosoftGraph.identity.apiConnectors.item collection
      * @param id Unique identifier of the item
      * @returns a identityApiConnectorItemRequestBuilder
      */
@@ -55,7 +56,7 @@ export class IdentityRequestBuilder {
         return new IdentityApiConnectorItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.identity.b2xUserFlows.item collection
+     * Gets an item from the MicrosoftGraph.identity.b2xUserFlows.item collection
      * @param id Unique identifier of the item
      * @returns a b2xIdentityUserFlowItemRequestBuilder
      */
@@ -111,7 +112,8 @@ export class IdentityRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new IdentityContainerImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -120,7 +122,7 @@ export class IdentityRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of IdentityContainer
      */
-    public get(requestConfiguration?: IdentityRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<IdentityContainer | undefined> {
+    public get(requestConfiguration?: IdentityRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<IdentityContainerImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -128,10 +130,10 @@ export class IdentityRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<IdentityContainer>(requestInfo, createIdentityContainerFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<IdentityContainerImpl>(requestInfo, createIdentityContainerFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.identity.identityProviders.item collection
+     * Gets an item from the MicrosoftGraph.identity.identityProviders.item collection
      * @param id Unique identifier of the item
      * @returns a identityProviderBaseItemRequestBuilder
      */
@@ -159,7 +161,7 @@ export class IdentityRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.identity.userFlowAttributes.item collection
+     * Gets an item from the MicrosoftGraph.identity.userFlowAttributes.item collection
      * @param id Unique identifier of the item
      * @returns a identityUserFlowAttributeItemRequestBuilder
      */

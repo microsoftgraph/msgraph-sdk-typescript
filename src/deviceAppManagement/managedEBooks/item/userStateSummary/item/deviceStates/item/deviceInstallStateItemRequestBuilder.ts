@@ -1,6 +1,7 @@
-import {DeviceInstallState} from '../../../../../../../models/';
+import {DeviceInstallStateImpl} from '../../../../../../../models/';
 import {createDeviceInstallStateFromDiscriminatorValue} from '../../../../../../../models/createDeviceInstallStateFromDiscriminatorValue';
-import {ODataError} from '../../../../../../../models/oDataErrors/';
+import {DeviceInstallState} from '../../../../../../../models/deviceInstallState';
+import {ODataErrorImpl} from '../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {DeviceInstallStateItemRequestBuilderDeleteRequestConfiguration} from './deviceInstallStateItemRequestBuilderDeleteRequestConfiguration';
 import {DeviceInstallStateItemRequestBuilderGetRequestConfiguration} from './deviceInstallStateItemRequestBuilderGetRequestConfiguration';
@@ -77,7 +78,8 @@ export class DeviceInstallStateItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new DeviceInstallStateImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -101,7 +103,7 @@ export class DeviceInstallStateItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DeviceInstallState
      */
-    public get(requestConfiguration?: DeviceInstallStateItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DeviceInstallState | undefined> {
+    public get(requestConfiguration?: DeviceInstallStateItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DeviceInstallStateImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -109,7 +111,7 @@ export class DeviceInstallStateItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<DeviceInstallState>(requestInfo, createDeviceInstallStateFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<DeviceInstallStateImpl>(requestInfo, createDeviceInstallStateFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update the navigation property deviceStates in deviceAppManagement

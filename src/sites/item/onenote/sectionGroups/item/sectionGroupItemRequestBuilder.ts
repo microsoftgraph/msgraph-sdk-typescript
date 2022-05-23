@@ -1,13 +1,14 @@
-import {SectionGroup} from '../../../../../models/';
+import {SectionGroupImpl} from '../../../../../models/';
 import {createSectionGroupFromDiscriminatorValue} from '../../../../../models/createSectionGroupFromDiscriminatorValue';
-import {ODataError} from '../../../../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {SectionGroup} from '../../../../../models/sectionGroup';
 import {ParentNotebookRequestBuilder} from './parentNotebook/parentNotebookRequestBuilder';
 import {ParentSectionGroupRequestBuilder} from './parentSectionGroup/parentSectionGroupRequestBuilder';
 import {SectionGroupItemRequestBuilderDeleteRequestConfiguration} from './sectionGroupItemRequestBuilderDeleteRequestConfiguration';
 import {SectionGroupItemRequestBuilderGetRequestConfiguration} from './sectionGroupItemRequestBuilderGetRequestConfiguration';
 import {SectionGroupItemRequestBuilderPatchRequestConfiguration} from './sectionGroupItemRequestBuilderPatchRequestConfiguration';
-import {SectionGroupItemRequestBuilder as i0c5d2c4f1c6a1c986b369e5003cfba88292cbe399498f84b2a97591cc9876b63} from './sectionGroups/item/sectionGroupItemRequestBuilder';
+import {SectionGroupItemRequestBuilder as i1dd1fc05a3188d610bad9dad2d95ca1b29f4e1d99f7f76e3882594b6deed2b2f} from './sectionGroups/item/sectionGroupItemRequestBuilder';
 import {SectionGroupsRequestBuilder} from './sectionGroups/sectionGroupsRequestBuilder';
 import {OnenoteSectionItemRequestBuilder} from './sections/item/onenoteSectionItemRequestBuilder';
 import {SectionsRequestBuilder} from './sections/sectionsRequestBuilder';
@@ -99,7 +100,8 @@ export class SectionGroupItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new SectionGroupImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -123,7 +125,7 @@ export class SectionGroupItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of SectionGroup
      */
-    public get(requestConfiguration?: SectionGroupItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<SectionGroup | undefined> {
+    public get(requestConfiguration?: SectionGroupItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<SectionGroupImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -131,7 +133,7 @@ export class SectionGroupItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<SectionGroup>(requestInfo, createSectionGroupFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<SectionGroupImpl>(requestInfo, createSectionGroupFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update the navigation property sectionGroups in sites
@@ -151,18 +153,18 @@ export class SectionGroupItemRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.onenote.sectionGroups.item.sectionGroups.item collection
+     * Gets an item from the MicrosoftGraph.sites.item.onenote.sectionGroups.item.sectionGroups.item collection
      * @param id Unique identifier of the item
      * @returns a sectionGroupItemRequestBuilder
      */
-    public sectionGroupsById(id: string) : i0c5d2c4f1c6a1c986b369e5003cfba88292cbe399498f84b2a97591cc9876b63 {
+    public sectionGroupsById(id: string) : i1dd1fc05a3188d610bad9dad2d95ca1b29f4e1d99f7f76e3882594b6deed2b2f {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["sectionGroup%2Did1"] = id
-        return new i0c5d2c4f1c6a1c986b369e5003cfba88292cbe399498f84b2a97591cc9876b63(urlTplParams, this.requestAdapter);
+        return new i1dd1fc05a3188d610bad9dad2d95ca1b29f4e1d99f7f76e3882594b6deed2b2f(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.onenote.sectionGroups.item.sections.item collection
+     * Gets an item from the MicrosoftGraph.sites.item.onenote.sectionGroups.item.sections.item collection
      * @param id Unique identifier of the item
      * @returns a onenoteSectionItemRequestBuilder
      */

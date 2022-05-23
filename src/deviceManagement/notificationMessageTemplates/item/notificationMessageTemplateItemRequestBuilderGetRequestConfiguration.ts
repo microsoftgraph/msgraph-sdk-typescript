@@ -1,12 +1,11 @@
 import {NotificationMessageTemplateItemRequestBuilderGetQueryParameters} from './notificationMessageTemplateItemRequestBuilderGetQueryParameters';
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
-/** Configuration for the request such as headers, query parameters, and middleware options. */
-export class NotificationMessageTemplateItemRequestBuilderGetRequestConfiguration {
+export interface NotificationMessageTemplateItemRequestBuilderGetRequestConfiguration{
     /** Request headers */
-    public headers?: Record<string, string> | undefined;
+    headers?:Record<string, string> | undefined;
     /** Request options */
-    public options?: RequestOption[] | undefined;
+    options?:RequestOption[] | undefined;
     /** Request query parameters */
-    public queryParameters?: NotificationMessageTemplateItemRequestBuilderGetQueryParameters | undefined;
+    queryParameters?:NotificationMessageTemplateItemRequestBuilderGetQueryParameters | undefined;
 }

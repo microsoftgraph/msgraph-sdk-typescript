@@ -1,6 +1,7 @@
-import {UnmuteParticipantOperation} from '../../../../models/';
+import {UnmuteParticipantOperationImpl} from '../../../../models/';
 import {createUnmuteParticipantOperationFromDiscriminatorValue} from '../../../../models/createUnmuteParticipantOperationFromDiscriminatorValue';
-import {UnmutePostRequestBody} from './index';
+import {UnmutePostRequestBodyImpl} from './index';
+import {UnmutePostRequestBody} from './unmutePostRequestBody';
 import {UnmuteRequestBuilderPostRequestConfiguration} from './unmuteRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
@@ -41,7 +42,8 @@ export class UnmuteRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new UnmutePostRequestBodyImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -51,11 +53,11 @@ export class UnmuteRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of UnmuteParticipantOperation
      */
-    public post(body: UnmutePostRequestBody | undefined, requestConfiguration?: UnmuteRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<UnmuteParticipantOperation | undefined> {
+    public post(body: UnmutePostRequestBody | undefined, requestConfiguration?: UnmuteRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<UnmuteParticipantOperationImpl | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration
         );
-        return this.requestAdapter?.sendAsync<UnmuteParticipantOperation>(requestInfo, createUnmuteParticipantOperationFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<UnmuteParticipantOperationImpl>(requestInfo, createUnmuteParticipantOperationFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }

@@ -1,6 +1,7 @@
-import {Contact} from '../../../../../../../../models/';
+import {ContactImpl} from '../../../../../../../../models/';
+import {Contact} from '../../../../../../../../models/contact';
 import {createContactFromDiscriminatorValue} from '../../../../../../../../models/createContactFromDiscriminatorValue';
-import {ODataError} from '../../../../../../../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {ContactItemRequestBuilderDeleteRequestConfiguration} from './contactItemRequestBuilderDeleteRequestConfiguration';
 import {ContactItemRequestBuilderGetRequestConfiguration} from './contactItemRequestBuilderGetRequestConfiguration';
@@ -100,7 +101,8 @@ export class ContactItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new ContactImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -119,7 +121,7 @@ export class ContactItemRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.contactFolders.item.childFolders.item.contacts.item.extensions.item collection
+     * Gets an item from the MicrosoftGraph.users.item.contactFolders.item.childFolders.item.contacts.item.extensions.item collection
      * @param id Unique identifier of the item
      * @returns a extensionItemRequestBuilder
      */
@@ -135,7 +137,7 @@ export class ContactItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Contact
      */
-    public get(requestConfiguration?: ContactItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Contact | undefined> {
+    public get(requestConfiguration?: ContactItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ContactImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -143,10 +145,10 @@ export class ContactItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<Contact>(requestInfo, createContactFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<ContactImpl>(requestInfo, createContactFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.contactFolders.item.childFolders.item.contacts.item.multiValueExtendedProperties.item collection
+     * Gets an item from the MicrosoftGraph.users.item.contactFolders.item.childFolders.item.contacts.item.multiValueExtendedProperties.item collection
      * @param id Unique identifier of the item
      * @returns a multiValueLegacyExtendedPropertyItemRequestBuilder
      */
@@ -174,7 +176,7 @@ export class ContactItemRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.contactFolders.item.childFolders.item.contacts.item.singleValueExtendedProperties.item collection
+     * Gets an item from the MicrosoftGraph.users.item.contactFolders.item.childFolders.item.contacts.item.singleValueExtendedProperties.item collection
      * @param id Unique identifier of the item
      * @returns a singleValueLegacyExtendedPropertyItemRequestBuilder
      */

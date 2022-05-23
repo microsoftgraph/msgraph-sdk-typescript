@@ -1,7 +1,7 @@
-import {ValidatePropertiesPostRequestBody} from './index';
+import {ValidatePropertiesPostRequestBodyImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createValidatePropertiesPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ValidatePropertiesPostRequestBody {
+export function createValidatePropertiesPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ValidatePropertiesPostRequestBodyImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new ValidatePropertiesPostRequestBody();
+    return new ValidatePropertiesPostRequestBodyImpl();
 }

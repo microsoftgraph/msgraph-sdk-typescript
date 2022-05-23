@@ -1,6 +1,7 @@
-import {EducationCategory} from '../../../../../models/';
+import {EducationCategoryImpl} from '../../../../../models/';
 import {createEducationCategoryFromDiscriminatorValue} from '../../../../../models/createEducationCategoryFromDiscriminatorValue';
-import {ODataError} from '../../../../../models/oDataErrors/';
+import {EducationCategory} from '../../../../../models/educationCategory';
+import {ODataErrorImpl} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {EducationCategoryItemRequestBuilderDeleteRequestConfiguration} from './educationCategoryItemRequestBuilderDeleteRequestConfiguration';
 import {EducationCategoryItemRequestBuilderGetRequestConfiguration} from './educationCategoryItemRequestBuilderGetRequestConfiguration';
@@ -77,7 +78,8 @@ export class EducationCategoryItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new EducationCategoryImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -101,7 +103,7 @@ export class EducationCategoryItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of EducationCategory
      */
-    public get(requestConfiguration?: EducationCategoryItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EducationCategory | undefined> {
+    public get(requestConfiguration?: EducationCategoryItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EducationCategoryImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -109,7 +111,7 @@ export class EducationCategoryItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<EducationCategory>(requestInfo, createEducationCategoryFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<EducationCategoryImpl>(requestInfo, createEducationCategoryFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update the navigation property assignmentCategories in education

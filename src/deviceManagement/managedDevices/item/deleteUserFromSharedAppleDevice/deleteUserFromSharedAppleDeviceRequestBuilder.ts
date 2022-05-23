@@ -1,5 +1,6 @@
+import {DeleteUserFromSharedAppleDevicePostRequestBody} from './deleteUserFromSharedAppleDevicePostRequestBody';
 import {DeleteUserFromSharedAppleDeviceRequestBuilderPostRequestConfiguration} from './deleteUserFromSharedAppleDeviceRequestBuilderPostRequestConfiguration';
-import {DeleteUserFromSharedAppleDevicePostRequestBody} from './index';
+import {DeleteUserFromSharedAppleDevicePostRequestBodyImpl} from './index';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the deleteUserFromSharedAppleDevice method. */
@@ -39,7 +40,8 @@ export class DeleteUserFromSharedAppleDeviceRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new DeleteUserFromSharedAppleDevicePostRequestBodyImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**

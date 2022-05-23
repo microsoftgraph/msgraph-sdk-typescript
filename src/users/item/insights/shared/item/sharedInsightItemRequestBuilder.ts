@@ -1,7 +1,8 @@
-import {SharedInsight} from '../../../../../models/';
+import {SharedInsightImpl} from '../../../../../models/';
 import {createSharedInsightFromDiscriminatorValue} from '../../../../../models/createSharedInsightFromDiscriminatorValue';
-import {ODataError} from '../../../../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {SharedInsight} from '../../../../../models/sharedInsight';
 import {LastSharedMethodRequestBuilder} from './lastSharedMethod/lastSharedMethodRequestBuilder';
 import {ResourceRequestBuilder} from './resource/resourceRequestBuilder';
 import {SharedInsightItemRequestBuilderDeleteRequestConfiguration} from './sharedInsightItemRequestBuilderDeleteRequestConfiguration';
@@ -87,7 +88,8 @@ export class SharedInsightItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new SharedInsightImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -111,7 +113,7 @@ export class SharedInsightItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of SharedInsight
      */
-    public get(requestConfiguration?: SharedInsightItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<SharedInsight | undefined> {
+    public get(requestConfiguration?: SharedInsightItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<SharedInsightImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -119,7 +121,7 @@ export class SharedInsightItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<SharedInsight>(requestInfo, createSharedInsightFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<SharedInsightImpl>(requestInfo, createSharedInsightFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update the navigation property shared in users

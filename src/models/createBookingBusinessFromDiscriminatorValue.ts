@@ -1,7 +1,7 @@
-import {BookingBusiness} from './index';
+import {BookingBusinessImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createBookingBusinessFromDiscriminatorValue(parseNode: ParseNode | undefined) : BookingBusiness {
+export function createBookingBusinessFromDiscriminatorValue(parseNode: ParseNode | undefined) : BookingBusinessImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new BookingBusiness();
+    return new BookingBusinessImpl();
 }

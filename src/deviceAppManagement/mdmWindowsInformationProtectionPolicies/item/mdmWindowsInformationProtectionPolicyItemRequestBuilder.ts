@@ -1,6 +1,7 @@
-import {MdmWindowsInformationProtectionPolicy} from '../../../models/';
+import {MdmWindowsInformationProtectionPolicyImpl} from '../../../models/';
 import {createMdmWindowsInformationProtectionPolicyFromDiscriminatorValue} from '../../../models/createMdmWindowsInformationProtectionPolicyFromDiscriminatorValue';
-import {ODataError} from '../../../models/oDataErrors/';
+import {MdmWindowsInformationProtectionPolicy} from '../../../models/mdmWindowsInformationProtectionPolicy';
+import {ODataErrorImpl} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {MdmWindowsInformationProtectionPolicyItemRequestBuilderDeleteRequestConfiguration} from './mdmWindowsInformationProtectionPolicyItemRequestBuilderDeleteRequestConfiguration';
 import {MdmWindowsInformationProtectionPolicyItemRequestBuilderGetRequestConfiguration} from './mdmWindowsInformationProtectionPolicyItemRequestBuilderGetRequestConfiguration';
@@ -77,7 +78,8 @@ export class MdmWindowsInformationProtectionPolicyItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new MdmWindowsInformationProtectionPolicyImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -101,7 +103,7 @@ export class MdmWindowsInformationProtectionPolicyItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of MdmWindowsInformationProtectionPolicy
      */
-    public get(requestConfiguration?: MdmWindowsInformationProtectionPolicyItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<MdmWindowsInformationProtectionPolicy | undefined> {
+    public get(requestConfiguration?: MdmWindowsInformationProtectionPolicyItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<MdmWindowsInformationProtectionPolicyImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -109,7 +111,7 @@ export class MdmWindowsInformationProtectionPolicyItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<MdmWindowsInformationProtectionPolicy>(requestInfo, createMdmWindowsInformationProtectionPolicyFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<MdmWindowsInformationProtectionPolicyImpl>(requestInfo, createMdmWindowsInformationProtectionPolicyFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update the navigation property mdmWindowsInformationProtectionPolicies in deviceAppManagement

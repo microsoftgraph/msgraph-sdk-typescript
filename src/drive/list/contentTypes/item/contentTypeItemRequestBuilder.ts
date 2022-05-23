@@ -1,17 +1,18 @@
-import {ContentType} from '../../../../models/';
+import {ContentTypeImpl} from '../../../../models/';
+import {ContentType} from '../../../../models/contentType';
 import {createContentTypeFromDiscriminatorValue} from '../../../../models/createContentTypeFromDiscriminatorValue';
-import {ODataError} from '../../../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {AssociateWithHubSitesRequestBuilder} from './associateWithHubSites/associateWithHubSitesRequestBuilder';
 import {BaseRequestBuilder} from './base/baseRequestBuilder';
 import {BaseTypesRequestBuilder} from './baseTypes/baseTypesRequestBuilder';
-import {ContentTypeItemRequestBuilder as i35d96b02c52add6d60af32d4307af63c151b02fdf02d9c1143d1c1c55ee0d949} from './baseTypes/item/contentTypeItemRequestBuilder';
+import {ContentTypeItemRequestBuilder as iad63f55fb910f64ab68a7d7470cb52cdf06216e0986daea4f7965e00248d7b4f} from './baseTypes/item/contentTypeItemRequestBuilder';
 import {ColumnLinksRequestBuilder} from './columnLinks/columnLinksRequestBuilder';
 import {ColumnLinkItemRequestBuilder} from './columnLinks/item/columnLinkItemRequestBuilder';
 import {ColumnPositionsRequestBuilder} from './columnPositions/columnPositionsRequestBuilder';
-import {ColumnDefinitionItemRequestBuilder as i5d9e5fc55a635fba7378446e3a263d74b49a45880e60983709034ac1b4eb38a0} from './columnPositions/item/columnDefinitionItemRequestBuilder';
+import {ColumnDefinitionItemRequestBuilder as idd7b530afed0199ddcdd9fa99e29af4e6d3b700afc05fb5fe0d15a68ba76c691} from './columnPositions/item/columnDefinitionItemRequestBuilder';
 import {ColumnsRequestBuilder} from './columns/columnsRequestBuilder';
-import {ColumnDefinitionItemRequestBuilder as i39c8588e137b4036073c41dc215b544ab9611e8b5428ec4ea77b430319d41423} from './columns/item/columnDefinitionItemRequestBuilder';
+import {ColumnDefinitionItemRequestBuilder as ie3c7143b8bd5fa800c60c0e2876804ffafaaae0862ffc47b488872e5fdb6c48a} from './columns/item/columnDefinitionItemRequestBuilder';
 import {ContentTypeItemRequestBuilderDeleteRequestConfiguration} from './contentTypeItemRequestBuilderDeleteRequestConfiguration';
 import {ContentTypeItemRequestBuilderGetRequestConfiguration} from './contentTypeItemRequestBuilderGetRequestConfiguration';
 import {ContentTypeItemRequestBuilderPatchRequestConfiguration} from './contentTypeItemRequestBuilderPatchRequestConfiguration';
@@ -66,18 +67,18 @@ export class ContentTypeItemRequestBuilder {
     /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.drive.list.contentTypes.item.baseTypes.item collection
+     * Gets an item from the MicrosoftGraph.drive.list.contentTypes.item.baseTypes.item collection
      * @param id Unique identifier of the item
      * @returns a contentTypeItemRequestBuilder
      */
-    public baseTypesById(id: string) : i35d96b02c52add6d60af32d4307af63c151b02fdf02d9c1143d1c1c55ee0d949 {
+    public baseTypesById(id: string) : iad63f55fb910f64ab68a7d7470cb52cdf06216e0986daea4f7965e00248d7b4f {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["contentType%2Did1"] = id
-        return new i35d96b02c52add6d60af32d4307af63c151b02fdf02d9c1143d1c1c55ee0d949(urlTplParams, this.requestAdapter);
+        return new iad63f55fb910f64ab68a7d7470cb52cdf06216e0986daea4f7965e00248d7b4f(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.drive.list.contentTypes.item.columnLinks.item collection
+     * Gets an item from the MicrosoftGraph.drive.list.contentTypes.item.columnLinks.item collection
      * @param id Unique identifier of the item
      * @returns a columnLinkItemRequestBuilder
      */
@@ -88,26 +89,26 @@ export class ContentTypeItemRequestBuilder {
         return new ColumnLinkItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.drive.list.contentTypes.item.columnPositions.item collection
+     * Gets an item from the MicrosoftGraph.drive.list.contentTypes.item.columnPositions.item collection
      * @param id Unique identifier of the item
      * @returns a columnDefinitionItemRequestBuilder
      */
-    public columnPositionsById(id: string) : i5d9e5fc55a635fba7378446e3a263d74b49a45880e60983709034ac1b4eb38a0 {
+    public columnPositionsById(id: string) : idd7b530afed0199ddcdd9fa99e29af4e6d3b700afc05fb5fe0d15a68ba76c691 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["columnDefinition%2Did"] = id
-        return new i5d9e5fc55a635fba7378446e3a263d74b49a45880e60983709034ac1b4eb38a0(urlTplParams, this.requestAdapter);
+        return new idd7b530afed0199ddcdd9fa99e29af4e6d3b700afc05fb5fe0d15a68ba76c691(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.drive.list.contentTypes.item.columns.item collection
+     * Gets an item from the MicrosoftGraph.drive.list.contentTypes.item.columns.item collection
      * @param id Unique identifier of the item
      * @returns a columnDefinitionItemRequestBuilder
      */
-    public columnsById(id: string) : i39c8588e137b4036073c41dc215b544ab9611e8b5428ec4ea77b430319d41423 {
+    public columnsById(id: string) : ie3c7143b8bd5fa800c60c0e2876804ffafaaae0862ffc47b488872e5fdb6c48a {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["columnDefinition%2Did"] = id
-        return new i39c8588e137b4036073c41dc215b544ab9611e8b5428ec4ea77b430319d41423(urlTplParams, this.requestAdapter);
+        return new ie3c7143b8bd5fa800c60c0e2876804ffafaaae0862ffc47b488872e5fdb6c48a(urlTplParams, this.requestAdapter);
     };
     /**
      * Instantiates a new ContentTypeItemRequestBuilder and sets the default values.
@@ -171,7 +172,8 @@ export class ContentTypeItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new ContentTypeImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -195,7 +197,7 @@ export class ContentTypeItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ContentType
      */
-    public get(requestConfiguration?: ContentTypeItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ContentType | undefined> {
+    public get(requestConfiguration?: ContentTypeItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ContentTypeImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -203,7 +205,7 @@ export class ContentTypeItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<ContentType>(requestInfo, createContentTypeFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<ContentTypeImpl>(requestInfo, createContentTypeFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Provides operations to call the isPublished method.

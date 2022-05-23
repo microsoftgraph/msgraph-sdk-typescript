@@ -1,6 +1,6 @@
 import {createGetCompatibleHubContentTypesResponseFromDiscriminatorValue} from './createGetCompatibleHubContentTypesResponseFromDiscriminatorValue';
 import {GetCompatibleHubContentTypesRequestBuilderGetRequestConfiguration} from './getCompatibleHubContentTypesRequestBuilderGetRequestConfiguration';
-import {GetCompatibleHubContentTypesResponse} from './index';
+import {GetCompatibleHubContentTypesResponseImpl} from './index';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the getCompatibleHubContentTypes method. */
@@ -46,10 +46,10 @@ export class GetCompatibleHubContentTypesRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of GetCompatibleHubContentTypesResponse
      */
-    public get(requestConfiguration?: GetCompatibleHubContentTypesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<GetCompatibleHubContentTypesResponse | undefined> {
+    public get(requestConfiguration?: GetCompatibleHubContentTypesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<GetCompatibleHubContentTypesResponseImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
-        return this.requestAdapter?.sendAsync<GetCompatibleHubContentTypesResponse>(requestInfo, createGetCompatibleHubContentTypesResponseFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<GetCompatibleHubContentTypesResponseImpl>(requestInfo, createGetCompatibleHubContentTypesResponseFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }

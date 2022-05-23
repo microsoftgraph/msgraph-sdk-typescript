@@ -1,6 +1,6 @@
 import {createGetPstnCallsWithFromDateTimeWithToDateTimeResponseFromDiscriminatorValue} from './createGetPstnCallsWithFromDateTimeWithToDateTimeResponseFromDiscriminatorValue';
 import {GetPstnCallsWithFromDateTimeWithToDateTimeRequestBuilderGetRequestConfiguration} from './getPstnCallsWithFromDateTimeWithToDateTimeRequestBuilderGetRequestConfiguration';
-import {GetPstnCallsWithFromDateTimeWithToDateTimeResponse} from './index';
+import {GetPstnCallsWithFromDateTimeWithToDateTimeResponseImpl} from './index';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the getPstnCalls method. */
@@ -50,10 +50,10 @@ export class GetPstnCallsWithFromDateTimeWithToDateTimeRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of GetPstnCallsWithFromDateTimeWithToDateTimeResponse
      */
-    public get(requestConfiguration?: GetPstnCallsWithFromDateTimeWithToDateTimeRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<GetPstnCallsWithFromDateTimeWithToDateTimeResponse | undefined> {
+    public get(requestConfiguration?: GetPstnCallsWithFromDateTimeWithToDateTimeRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<GetPstnCallsWithFromDateTimeWithToDateTimeResponseImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
-        return this.requestAdapter?.sendAsync<GetPstnCallsWithFromDateTimeWithToDateTimeResponse>(requestInfo, createGetPstnCallsWithFromDateTimeWithToDateTimeResponseFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<GetPstnCallsWithFromDateTimeWithToDateTimeResponseImpl>(requestInfo, createGetPstnCallsWithFromDateTimeWithToDateTimeResponseFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }

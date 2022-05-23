@@ -1,6 +1,7 @@
+import {CheckMemberObjectsPostRequestBody} from './checkMemberObjectsPostRequestBody';
 import {CheckMemberObjectsRequestBuilderPostRequestConfiguration} from './checkMemberObjectsRequestBuilderPostRequestConfiguration';
 import {createCheckMemberObjectsResponseFromDiscriminatorValue} from './createCheckMemberObjectsResponseFromDiscriminatorValue';
-import {CheckMemberObjectsPostRequestBody, CheckMemberObjectsResponse} from './index';
+import {CheckMemberObjectsPostRequestBodyImpl, CheckMemberObjectsResponseImpl} from './index';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the checkMemberObjects method. */
@@ -40,7 +41,8 @@ export class CheckMemberObjectsRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new CheckMemberObjectsPostRequestBodyImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -50,11 +52,11 @@ export class CheckMemberObjectsRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of CheckMemberObjectsResponse
      */
-    public post(body: CheckMemberObjectsPostRequestBody | undefined, requestConfiguration?: CheckMemberObjectsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<CheckMemberObjectsResponse | undefined> {
+    public post(body: CheckMemberObjectsPostRequestBody | undefined, requestConfiguration?: CheckMemberObjectsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<CheckMemberObjectsResponseImpl | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration
         );
-        return this.requestAdapter?.sendAsync<CheckMemberObjectsResponse>(requestInfo, createCheckMemberObjectsResponseFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<CheckMemberObjectsResponseImpl>(requestInfo, createCheckMemberObjectsResponseFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }

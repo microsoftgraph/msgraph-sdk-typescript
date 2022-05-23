@@ -1,7 +1,7 @@
-import {ConversationMember} from './index';
+import {ConversationMemberImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createConversationMemberFromDiscriminatorValue(parseNode: ParseNode | undefined) : ConversationMember {
+export function createConversationMemberFromDiscriminatorValue(parseNode: ParseNode | undefined) : ConversationMemberImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
     const mappingValueNode = parseNode.getChildNode("@odata.type");
     if (mappingValueNode) {
@@ -9,9 +9,9 @@ export function createConversationMemberFromDiscriminatorValue(parseNode: ParseN
         if (mappingValue) {
             switch (mappingValue) {
                 case "#microsoft.graph.conversationMember":
-                    return new ConversationMember();
+                    return new ConversationMemberImpl();
             }
         }
     }
-    return new ConversationMember();
+    return new ConversationMemberImpl();
 }

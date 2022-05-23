@@ -1,7 +1,7 @@
-import {UnifiedRoleScheduleBase} from './index';
+import {UnifiedRoleScheduleBaseImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createUnifiedRoleScheduleBaseFromDiscriminatorValue(parseNode: ParseNode | undefined) : UnifiedRoleScheduleBase {
+export function createUnifiedRoleScheduleBaseFromDiscriminatorValue(parseNode: ParseNode | undefined) : UnifiedRoleScheduleBaseImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
     const mappingValueNode = parseNode.getChildNode("@odata.type");
     if (mappingValueNode) {
@@ -9,9 +9,9 @@ export function createUnifiedRoleScheduleBaseFromDiscriminatorValue(parseNode: P
         if (mappingValue) {
             switch (mappingValue) {
                 case "#microsoft.graph.unifiedRoleScheduleBase":
-                    return new UnifiedRoleScheduleBase();
+                    return new UnifiedRoleScheduleBaseImpl();
             }
         }
     }
-    return new UnifiedRoleScheduleBase();
+    return new UnifiedRoleScheduleBaseImpl();
 }

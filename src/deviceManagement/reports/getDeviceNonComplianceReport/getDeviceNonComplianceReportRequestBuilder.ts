@@ -1,5 +1,6 @@
+import {GetDeviceNonComplianceReportPostRequestBody} from './getDeviceNonComplianceReportPostRequestBody';
 import {GetDeviceNonComplianceReportRequestBuilderPostRequestConfiguration} from './getDeviceNonComplianceReportRequestBuilderPostRequestConfiguration';
-import {GetDeviceNonComplianceReportPostRequestBody} from './index';
+import {GetDeviceNonComplianceReportPostRequestBodyImpl} from './index';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the getDeviceNonComplianceReport method. */
@@ -39,7 +40,8 @@ export class GetDeviceNonComplianceReportRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new GetDeviceNonComplianceReportPostRequestBodyImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**

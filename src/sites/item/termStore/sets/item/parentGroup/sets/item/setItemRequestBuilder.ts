@@ -1,15 +1,16 @@
-import {ODataError} from '../../../../../../../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {Set} from '../../../../../../../../models/termStore/';
+import {SetImpl} from '../../../../../../../../models/termStore/';
 import {createSetFromDiscriminatorValue} from '../../../../../../../../models/termStore/createSetFromDiscriminatorValue';
+import {Set} from '../../../../../../../../models/termStore/set';
 import {ChildrenRequestBuilder} from './children/childrenRequestBuilder';
-import {TermItemRequestBuilder as i812331514d8b05d861cad5ce7b4020dc466510523409f3ddaad469d7e318a413} from './children/item/termItemRequestBuilder';
+import {TermItemRequestBuilder as i235eb8c538baa0d8426f3c856cd973f0e5d50141c8b92d8deeb01944b40659f0} from './children/item/termItemRequestBuilder';
 import {RelationItemRequestBuilder} from './relations/item/relationItemRequestBuilder';
 import {RelationsRequestBuilder} from './relations/relationsRequestBuilder';
 import {SetItemRequestBuilderDeleteRequestConfiguration} from './setItemRequestBuilderDeleteRequestConfiguration';
 import {SetItemRequestBuilderGetRequestConfiguration} from './setItemRequestBuilderGetRequestConfiguration';
 import {SetItemRequestBuilderPatchRequestConfiguration} from './setItemRequestBuilderPatchRequestConfiguration';
-import {TermItemRequestBuilder as i477c426060cf488e049d81caff2f0868a38c19eb1fe4645da19fea30d239c606} from './terms/item/termItemRequestBuilder';
+import {TermItemRequestBuilder as i1b2c843f7043223931b7c69ecdbfc9894a420d7a883096ce4cfbbeb996ef2c22} from './terms/item/termItemRequestBuilder';
 import {TermsRequestBuilder} from './terms/termsRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
@@ -34,15 +35,15 @@ export class SetItemRequestBuilder {
     /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.termStore.sets.item.parentGroup.sets.item.children.item collection
+     * Gets an item from the MicrosoftGraph.sites.item.termStore.sets.item.parentGroup.sets.item.children.item collection
      * @param id Unique identifier of the item
      * @returns a termItemRequestBuilder
      */
-    public childrenById(id: string) : i812331514d8b05d861cad5ce7b4020dc466510523409f3ddaad469d7e318a413 {
+    public childrenById(id: string) : i235eb8c538baa0d8426f3c856cd973f0e5d50141c8b92d8deeb01944b40659f0 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["term%2Did"] = id
-        return new i812331514d8b05d861cad5ce7b4020dc466510523409f3ddaad469d7e318a413(urlTplParams, this.requestAdapter);
+        return new i235eb8c538baa0d8426f3c856cd973f0e5d50141c8b92d8deeb01944b40659f0(urlTplParams, this.requestAdapter);
     };
     /**
      * Instantiates a new SetItemRequestBuilder and sets the default values.
@@ -106,7 +107,8 @@ export class SetItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new SetImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -130,7 +132,7 @@ export class SetItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Set
      */
-    public get(requestConfiguration?: SetItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Set | undefined> {
+    public get(requestConfiguration?: SetItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<SetImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -138,7 +140,7 @@ export class SetItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<Set>(requestInfo, createSetFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<SetImpl>(requestInfo, createSetFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update the navigation property sets in sites
@@ -158,7 +160,7 @@ export class SetItemRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.termStore.sets.item.parentGroup.sets.item.relations.item collection
+     * Gets an item from the MicrosoftGraph.sites.item.termStore.sets.item.parentGroup.sets.item.relations.item collection
      * @param id Unique identifier of the item
      * @returns a relationItemRequestBuilder
      */
@@ -169,14 +171,14 @@ export class SetItemRequestBuilder {
         return new RelationItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.termStore.sets.item.parentGroup.sets.item.terms.item collection
+     * Gets an item from the MicrosoftGraph.sites.item.termStore.sets.item.parentGroup.sets.item.terms.item collection
      * @param id Unique identifier of the item
      * @returns a termItemRequestBuilder
      */
-    public termsById(id: string) : i477c426060cf488e049d81caff2f0868a38c19eb1fe4645da19fea30d239c606 {
+    public termsById(id: string) : i1b2c843f7043223931b7c69ecdbfc9894a420d7a883096ce4cfbbeb996ef2c22 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["term%2Did"] = id
-        return new i477c426060cf488e049d81caff2f0868a38c19eb1fe4645da19fea30d239c606(urlTplParams, this.requestAdapter);
+        return new i1b2c843f7043223931b7c69ecdbfc9894a420d7a883096ce4cfbbeb996ef2c22(urlTplParams, this.requestAdapter);
     };
 }

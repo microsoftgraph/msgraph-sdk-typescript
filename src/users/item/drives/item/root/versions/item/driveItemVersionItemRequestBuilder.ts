@@ -1,6 +1,7 @@
-import {DriveItemVersion} from '../../../../../../../models/';
+import {DriveItemVersionImpl} from '../../../../../../../models/';
 import {createDriveItemVersionFromDiscriminatorValue} from '../../../../../../../models/createDriveItemVersionFromDiscriminatorValue';
-import {ODataError} from '../../../../../../../models/oDataErrors/';
+import {DriveItemVersion} from '../../../../../../../models/driveItemVersion';
+import {ODataErrorImpl} from '../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {ContentRequestBuilder} from './content/contentRequestBuilder';
 import {DriveItemVersionItemRequestBuilderDeleteRequestConfiguration} from './driveItemVersionItemRequestBuilderDeleteRequestConfiguration';
@@ -87,7 +88,8 @@ export class DriveItemVersionItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new DriveItemVersionImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -111,7 +113,7 @@ export class DriveItemVersionItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DriveItemVersion
      */
-    public get(requestConfiguration?: DriveItemVersionItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DriveItemVersion | undefined> {
+    public get(requestConfiguration?: DriveItemVersionItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DriveItemVersionImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -119,7 +121,7 @@ export class DriveItemVersionItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<DriveItemVersion>(requestInfo, createDriveItemVersionFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<DriveItemVersionImpl>(requestInfo, createDriveItemVersionFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update the navigation property versions in users

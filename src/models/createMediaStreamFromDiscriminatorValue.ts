@@ -1,7 +1,7 @@
-import {MediaStream} from './index';
+import {MediaStreamImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createMediaStreamFromDiscriminatorValue(parseNode: ParseNode | undefined) : MediaStream {
+export function createMediaStreamFromDiscriminatorValue(parseNode: ParseNode | undefined) : MediaStreamImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new MediaStream();
+    return new MediaStreamImpl();
 }

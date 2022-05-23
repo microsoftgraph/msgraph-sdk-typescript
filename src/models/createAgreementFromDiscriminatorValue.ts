@@ -1,7 +1,7 @@
-import {Agreement} from './index';
+import {AgreementImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createAgreementFromDiscriminatorValue(parseNode: ParseNode | undefined) : Agreement {
+export function createAgreementFromDiscriminatorValue(parseNode: ParseNode | undefined) : AgreementImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new Agreement();
+    return new AgreementImpl();
 }

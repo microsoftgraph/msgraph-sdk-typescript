@@ -1,6 +1,7 @@
-import {EducationRubric} from '../../../../models/';
+import {EducationRubricImpl} from '../../../../models/';
 import {createEducationRubricFromDiscriminatorValue} from '../../../../models/createEducationRubricFromDiscriminatorValue';
-import {ODataError} from '../../../../models/oDataErrors/';
+import {EducationRubric} from '../../../../models/educationRubric';
+import {ODataErrorImpl} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {EducationRubricItemRequestBuilderDeleteRequestConfiguration} from './educationRubricItemRequestBuilderDeleteRequestConfiguration';
 import {EducationRubricItemRequestBuilderGetRequestConfiguration} from './educationRubricItemRequestBuilderGetRequestConfiguration';
@@ -77,7 +78,8 @@ export class EducationRubricItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new EducationRubricImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -101,7 +103,7 @@ export class EducationRubricItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of EducationRubric
      */
-    public get(requestConfiguration?: EducationRubricItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EducationRubric | undefined> {
+    public get(requestConfiguration?: EducationRubricItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EducationRubricImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -109,7 +111,7 @@ export class EducationRubricItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<EducationRubric>(requestInfo, createEducationRubricFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<EducationRubricImpl>(requestInfo, createEducationRubricFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update the navigation property rubrics in education

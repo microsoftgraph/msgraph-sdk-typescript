@@ -1,6 +1,7 @@
-import {ItemPreviewInfo} from '../../../models/';
+import {ItemPreviewInfoImpl} from '../../../models/';
 import {createItemPreviewInfoFromDiscriminatorValue} from '../../../models/createItemPreviewInfoFromDiscriminatorValue';
-import {PreviewPostRequestBody} from './index';
+import {PreviewPostRequestBodyImpl} from './index';
+import {PreviewPostRequestBody} from './previewPostRequestBody';
 import {PreviewRequestBuilderPostRequestConfiguration} from './previewRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
@@ -41,7 +42,8 @@ export class PreviewRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new PreviewPostRequestBodyImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -51,11 +53,11 @@ export class PreviewRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ItemPreviewInfo
      */
-    public post(body: PreviewPostRequestBody | undefined, requestConfiguration?: PreviewRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ItemPreviewInfo | undefined> {
+    public post(body: PreviewPostRequestBody | undefined, requestConfiguration?: PreviewRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ItemPreviewInfoImpl | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration
         );
-        return this.requestAdapter?.sendAsync<ItemPreviewInfo>(requestInfo, createItemPreviewInfoFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<ItemPreviewInfoImpl>(requestInfo, createItemPreviewInfoFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }

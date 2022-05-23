@@ -1,7 +1,8 @@
-import {PrintService} from '../../../models/';
+import {PrintServiceImpl} from '../../../models/';
 import {createPrintServiceFromDiscriminatorValue} from '../../../models/createPrintServiceFromDiscriminatorValue';
-import {ODataError} from '../../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {PrintService} from '../../../models/printService';
 import {EndpointsRequestBuilder} from './endpoints/endpointsRequestBuilder';
 import {PrintServiceEndpointItemRequestBuilder} from './endpoints/item/printServiceEndpointItemRequestBuilder';
 import {PrintServiceItemRequestBuilderDeleteRequestConfiguration} from './printServiceItemRequestBuilderDeleteRequestConfiguration';
@@ -83,7 +84,8 @@ export class PrintServiceItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new PrintServiceImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -102,7 +104,7 @@ export class PrintServiceItemRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.print.services.item.endpoints.item collection
+     * Gets an item from the MicrosoftGraph.print.services.item.endpoints.item collection
      * @param id Unique identifier of the item
      * @returns a printServiceEndpointItemRequestBuilder
      */
@@ -118,7 +120,7 @@ export class PrintServiceItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of PrintService
      */
-    public get(requestConfiguration?: PrintServiceItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<PrintService | undefined> {
+    public get(requestConfiguration?: PrintServiceItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<PrintServiceImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -126,7 +128,7 @@ export class PrintServiceItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<PrintService>(requestInfo, createPrintServiceFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<PrintServiceImpl>(requestInfo, createPrintServiceFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update the navigation property services in print

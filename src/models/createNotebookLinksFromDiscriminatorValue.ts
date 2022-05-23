@@ -1,7 +1,7 @@
-import {NotebookLinks} from './index';
+import {NotebookLinksImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createNotebookLinksFromDiscriminatorValue(parseNode: ParseNode | undefined) : NotebookLinks {
+export function createNotebookLinksFromDiscriminatorValue(parseNode: ParseNode | undefined) : NotebookLinksImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new NotebookLinks();
+    return new NotebookLinksImpl();
 }

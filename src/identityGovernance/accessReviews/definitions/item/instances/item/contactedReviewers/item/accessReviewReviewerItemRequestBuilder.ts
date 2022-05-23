@@ -1,6 +1,7 @@
-import {AccessReviewReviewer} from '../../../../../../../../models/';
+import {AccessReviewReviewerImpl} from '../../../../../../../../models/';
+import {AccessReviewReviewer} from '../../../../../../../../models/accessReviewReviewer';
 import {createAccessReviewReviewerFromDiscriminatorValue} from '../../../../../../../../models/createAccessReviewReviewerFromDiscriminatorValue';
-import {ODataError} from '../../../../../../../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {AccessReviewReviewerItemRequestBuilderDeleteRequestConfiguration} from './accessReviewReviewerItemRequestBuilderDeleteRequestConfiguration';
 import {AccessReviewReviewerItemRequestBuilderGetRequestConfiguration} from './accessReviewReviewerItemRequestBuilderGetRequestConfiguration';
@@ -77,7 +78,8 @@ export class AccessReviewReviewerItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new AccessReviewReviewerImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -101,7 +103,7 @@ export class AccessReviewReviewerItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AccessReviewReviewer
      */
-    public get(requestConfiguration?: AccessReviewReviewerItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AccessReviewReviewer | undefined> {
+    public get(requestConfiguration?: AccessReviewReviewerItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AccessReviewReviewerImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -109,7 +111,7 @@ export class AccessReviewReviewerItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<AccessReviewReviewer>(requestInfo, createAccessReviewReviewerFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<AccessReviewReviewerImpl>(requestInfo, createAccessReviewReviewerFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update the navigation property contactedReviewers in identityGovernance

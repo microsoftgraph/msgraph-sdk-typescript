@@ -1,4 +1,5 @@
-import {SendActivityNotificationPostRequestBody} from './index';
+import {SendActivityNotificationPostRequestBodyImpl} from './index';
+import {SendActivityNotificationPostRequestBody} from './sendActivityNotificationPostRequestBody';
 import {SendActivityNotificationRequestBuilderPostRequestConfiguration} from './sendActivityNotificationRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
@@ -39,7 +40,8 @@ export class SendActivityNotificationRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new SendActivityNotificationPostRequestBodyImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**

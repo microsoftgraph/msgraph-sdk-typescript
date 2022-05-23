@@ -1,6 +1,7 @@
-import {ChecklistItem} from '../../../../../../../../models/';
+import {ChecklistItemImpl} from '../../../../../../../../models/';
+import {ChecklistItem} from '../../../../../../../../models/checklistItem';
 import {createChecklistItemFromDiscriminatorValue} from '../../../../../../../../models/createChecklistItemFromDiscriminatorValue';
-import {ODataError} from '../../../../../../../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {ChecklistItemItemRequestBuilderDeleteRequestConfiguration} from './checklistItemItemRequestBuilderDeleteRequestConfiguration';
 import {ChecklistItemItemRequestBuilderGetRequestConfiguration} from './checklistItemItemRequestBuilderGetRequestConfiguration';
@@ -77,7 +78,8 @@ export class ChecklistItemItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new ChecklistItemImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -101,7 +103,7 @@ export class ChecklistItemItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ChecklistItem
      */
-    public get(requestConfiguration?: ChecklistItemItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ChecklistItem | undefined> {
+    public get(requestConfiguration?: ChecklistItemItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ChecklistItemImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -109,7 +111,7 @@ export class ChecklistItemItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<ChecklistItem>(requestInfo, createChecklistItemFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<ChecklistItemImpl>(requestInfo, createChecklistItemFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update the navigation property checklistItems in me

@@ -1,7 +1,8 @@
-import {SolutionsRoot} from '../models/';
+import {SolutionsRootImpl} from '../models/';
 import {createSolutionsRootFromDiscriminatorValue} from '../models/createSolutionsRootFromDiscriminatorValue';
-import {ODataError} from '../models/oDataErrors/';
+import {ODataErrorImpl} from '../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {SolutionsRoot} from '../models/solutionsRoot';
 import {BookingBusinessesRequestBuilder} from './bookingBusinesses/bookingBusinessesRequestBuilder';
 import {BookingBusinessItemRequestBuilder} from './bookingBusinesses/item/bookingBusinessItemRequestBuilder';
 import {BookingCurrenciesRequestBuilder} from './bookingCurrencies/bookingCurrenciesRequestBuilder';
@@ -27,7 +28,7 @@ export class SolutionsRequestBuilder {
     /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.solutions.bookingBusinesses.item collection
+     * Gets an item from the MicrosoftGraph.solutions.bookingBusinesses.item collection
      * @param id Unique identifier of the item
      * @returns a bookingBusinessItemRequestBuilder
      */
@@ -38,7 +39,7 @@ export class SolutionsRequestBuilder {
         return new BookingBusinessItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.solutions.bookingCurrencies.item collection
+     * Gets an item from the MicrosoftGraph.solutions.bookingCurrencies.item collection
      * @param id Unique identifier of the item
      * @returns a bookingCurrencyItemRequestBuilder
      */
@@ -94,7 +95,8 @@ export class SolutionsRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new SolutionsRootImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -103,7 +105,7 @@ export class SolutionsRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of SolutionsRoot
      */
-    public get(requestConfiguration?: SolutionsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<SolutionsRoot | undefined> {
+    public get(requestConfiguration?: SolutionsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<SolutionsRootImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -111,7 +113,7 @@ export class SolutionsRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<SolutionsRoot>(requestInfo, createSolutionsRootFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<SolutionsRootImpl>(requestInfo, createSolutionsRootFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update solutions

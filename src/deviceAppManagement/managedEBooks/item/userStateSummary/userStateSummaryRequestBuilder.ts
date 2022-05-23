@@ -1,8 +1,9 @@
-import {UserInstallStateSummary, UserInstallStateSummaryCollectionResponse} from '../../../../models/';
+import {UserInstallStateSummaryCollectionResponseImpl, UserInstallStateSummaryImpl} from '../../../../models/';
 import {createUserInstallStateSummaryCollectionResponseFromDiscriminatorValue} from '../../../../models/createUserInstallStateSummaryCollectionResponseFromDiscriminatorValue';
 import {createUserInstallStateSummaryFromDiscriminatorValue} from '../../../../models/createUserInstallStateSummaryFromDiscriminatorValue';
-import {ODataError} from '../../../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {UserInstallStateSummary} from '../../../../models/userInstallStateSummary';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {UserStateSummaryRequestBuilderGetRequestConfiguration} from './userStateSummaryRequestBuilderGetRequestConfiguration';
 import {UserStateSummaryRequestBuilderPostRequestConfiguration} from './userStateSummaryRequestBuilderPostRequestConfiguration';
@@ -66,7 +67,8 @@ export class UserStateSummaryRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new UserInstallStateSummaryImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -75,7 +77,7 @@ export class UserStateSummaryRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of UserInstallStateSummaryCollectionResponse
      */
-    public get(requestConfiguration?: UserStateSummaryRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<UserInstallStateSummaryCollectionResponse | undefined> {
+    public get(requestConfiguration?: UserStateSummaryRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<UserInstallStateSummaryCollectionResponseImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -83,7 +85,7 @@ export class UserStateSummaryRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<UserInstallStateSummaryCollectionResponse>(requestInfo, createUserInstallStateSummaryCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<UserInstallStateSummaryCollectionResponseImpl>(requestInfo, createUserInstallStateSummaryCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Create new navigation property to userStateSummary for deviceAppManagement
@@ -92,7 +94,7 @@ export class UserStateSummaryRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of UserInstallStateSummary
      */
-    public post(body: UserInstallStateSummary | undefined, requestConfiguration?: UserStateSummaryRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<UserInstallStateSummary | undefined> {
+    public post(body: UserInstallStateSummary | undefined, requestConfiguration?: UserStateSummaryRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<UserInstallStateSummaryImpl | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration
@@ -101,6 +103,6 @@ export class UserStateSummaryRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<UserInstallStateSummary>(requestInfo, createUserInstallStateSummaryFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<UserInstallStateSummaryImpl>(requestInfo, createUserInstallStateSummaryFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

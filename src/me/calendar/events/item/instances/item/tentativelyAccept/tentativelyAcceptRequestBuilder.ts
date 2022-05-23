@@ -1,4 +1,5 @@
-import {TentativelyAcceptPostRequestBody} from './index';
+import {TentativelyAcceptPostRequestBodyImpl} from './index';
+import {TentativelyAcceptPostRequestBody} from './tentativelyAcceptPostRequestBody';
 import {TentativelyAcceptRequestBuilderPostRequestConfiguration} from './tentativelyAcceptRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
@@ -39,7 +40,8 @@ export class TentativelyAcceptRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new TentativelyAcceptPostRequestBodyImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**

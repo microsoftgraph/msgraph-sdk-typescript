@@ -1,8 +1,9 @@
-import {SettingStateDeviceSummary, SettingStateDeviceSummaryCollectionResponse} from '../../../../models/';
+import {SettingStateDeviceSummaryCollectionResponseImpl, SettingStateDeviceSummaryImpl} from '../../../../models/';
 import {createSettingStateDeviceSummaryCollectionResponseFromDiscriminatorValue} from '../../../../models/createSettingStateDeviceSummaryCollectionResponseFromDiscriminatorValue';
 import {createSettingStateDeviceSummaryFromDiscriminatorValue} from '../../../../models/createSettingStateDeviceSummaryFromDiscriminatorValue';
-import {ODataError} from '../../../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {SettingStateDeviceSummary} from '../../../../models/settingStateDeviceSummary';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DeviceSettingStateSummariesRequestBuilderGetRequestConfiguration} from './deviceSettingStateSummariesRequestBuilderGetRequestConfiguration';
 import {DeviceSettingStateSummariesRequestBuilderPostRequestConfiguration} from './deviceSettingStateSummariesRequestBuilderPostRequestConfiguration';
@@ -66,7 +67,8 @@ export class DeviceSettingStateSummariesRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new SettingStateDeviceSummaryImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -75,7 +77,7 @@ export class DeviceSettingStateSummariesRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of SettingStateDeviceSummaryCollectionResponse
      */
-    public get(requestConfiguration?: DeviceSettingStateSummariesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<SettingStateDeviceSummaryCollectionResponse | undefined> {
+    public get(requestConfiguration?: DeviceSettingStateSummariesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<SettingStateDeviceSummaryCollectionResponseImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -83,7 +85,7 @@ export class DeviceSettingStateSummariesRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<SettingStateDeviceSummaryCollectionResponse>(requestInfo, createSettingStateDeviceSummaryCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<SettingStateDeviceSummaryCollectionResponseImpl>(requestInfo, createSettingStateDeviceSummaryCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Create new navigation property to deviceSettingStateSummaries for deviceManagement
@@ -92,7 +94,7 @@ export class DeviceSettingStateSummariesRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of SettingStateDeviceSummary
      */
-    public post(body: SettingStateDeviceSummary | undefined, requestConfiguration?: DeviceSettingStateSummariesRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<SettingStateDeviceSummary | undefined> {
+    public post(body: SettingStateDeviceSummary | undefined, requestConfiguration?: DeviceSettingStateSummariesRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<SettingStateDeviceSummaryImpl | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration
@@ -101,6 +103,6 @@ export class DeviceSettingStateSummariesRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<SettingStateDeviceSummary>(requestInfo, createSettingStateDeviceSummaryFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<SettingStateDeviceSummaryImpl>(requestInfo, createSettingStateDeviceSummaryFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

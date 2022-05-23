@@ -1,4 +1,5 @@
-import {RemoveKeyPostRequestBody} from './index';
+import {RemoveKeyPostRequestBodyImpl} from './index';
+import {RemoveKeyPostRequestBody} from './removeKeyPostRequestBody';
 import {RemoveKeyRequestBuilderPostRequestConfiguration} from './removeKeyRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
@@ -39,7 +40,8 @@ export class RemoveKeyRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new RemoveKeyPostRequestBodyImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**

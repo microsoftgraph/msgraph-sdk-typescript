@@ -1,7 +1,8 @@
-import {ThreatAssessmentResult} from '../../../../../models/';
+import {ThreatAssessmentResultImpl} from '../../../../../models/';
 import {createThreatAssessmentResultFromDiscriminatorValue} from '../../../../../models/createThreatAssessmentResultFromDiscriminatorValue';
-import {ODataError} from '../../../../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {ThreatAssessmentResult} from '../../../../../models/threatAssessmentResult';
 import {ThreatAssessmentResultItemRequestBuilderDeleteRequestConfiguration} from './threatAssessmentResultItemRequestBuilderDeleteRequestConfiguration';
 import {ThreatAssessmentResultItemRequestBuilderGetRequestConfiguration} from './threatAssessmentResultItemRequestBuilderGetRequestConfiguration';
 import {ThreatAssessmentResultItemRequestBuilderPatchRequestConfiguration} from './threatAssessmentResultItemRequestBuilderPatchRequestConfiguration';
@@ -77,7 +78,8 @@ export class ThreatAssessmentResultItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new ThreatAssessmentResultImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -101,7 +103,7 @@ export class ThreatAssessmentResultItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ThreatAssessmentResult
      */
-    public get(requestConfiguration?: ThreatAssessmentResultItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ThreatAssessmentResult | undefined> {
+    public get(requestConfiguration?: ThreatAssessmentResultItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ThreatAssessmentResultImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -109,7 +111,7 @@ export class ThreatAssessmentResultItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<ThreatAssessmentResult>(requestInfo, createThreatAssessmentResultFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<ThreatAssessmentResultImpl>(requestInfo, createThreatAssessmentResultFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update the navigation property results in informationProtection

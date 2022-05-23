@@ -1,5 +1,6 @@
+import {GetDeviceManagementIntentPerSettingContributingProfilesPostRequestBody} from './getDeviceManagementIntentPerSettingContributingProfilesPostRequestBody';
 import {GetDeviceManagementIntentPerSettingContributingProfilesRequestBuilderPostRequestConfiguration} from './getDeviceManagementIntentPerSettingContributingProfilesRequestBuilderPostRequestConfiguration';
-import {GetDeviceManagementIntentPerSettingContributingProfilesPostRequestBody} from './index';
+import {GetDeviceManagementIntentPerSettingContributingProfilesPostRequestBodyImpl} from './index';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the getDeviceManagementIntentPerSettingContributingProfiles method. */
@@ -39,7 +40,8 @@ export class GetDeviceManagementIntentPerSettingContributingProfilesRequestBuild
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new GetDeviceManagementIntentPerSettingContributingProfilesPostRequestBodyImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**

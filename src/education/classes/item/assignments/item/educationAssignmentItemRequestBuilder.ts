@@ -1,6 +1,7 @@
-import {EducationAssignment} from '../../../../../models/';
+import {EducationAssignmentImpl} from '../../../../../models/';
 import {createEducationAssignmentFromDiscriminatorValue} from '../../../../../models/createEducationAssignmentFromDiscriminatorValue';
-import {ODataError} from '../../../../../models/oDataErrors/';
+import {EducationAssignment} from '../../../../../models/educationAssignment';
+import {ODataErrorImpl} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CategoriesRequestBuilder} from './categories/categoriesRequestBuilder';
 import {EducationCategoryItemRequestBuilder} from './categories/item/educationCategoryItemRequestBuilder';
@@ -49,7 +50,7 @@ export class EducationAssignmentItemRequestBuilder {
     /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.education.classes.item.assignments.item.categories.item collection
+     * Gets an item from the MicrosoftGraph.education.classes.item.assignments.item.categories.item collection
      * @param id Unique identifier of the item
      * @returns a educationCategoryItemRequestBuilder
      */
@@ -121,7 +122,8 @@ export class EducationAssignmentItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new EducationAssignmentImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -145,7 +147,7 @@ export class EducationAssignmentItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of EducationAssignment
      */
-    public get(requestConfiguration?: EducationAssignmentItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EducationAssignment | undefined> {
+    public get(requestConfiguration?: EducationAssignmentItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EducationAssignmentImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -153,7 +155,7 @@ export class EducationAssignmentItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<EducationAssignment>(requestInfo, createEducationAssignmentFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<EducationAssignmentImpl>(requestInfo, createEducationAssignmentFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update the navigation property assignments in education
@@ -173,7 +175,7 @@ export class EducationAssignmentItemRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.education.classes.item.assignments.item.resources.item collection
+     * Gets an item from the MicrosoftGraph.education.classes.item.assignments.item.resources.item collection
      * @param id Unique identifier of the item
      * @returns a educationAssignmentResourceItemRequestBuilder
      */
@@ -184,7 +186,7 @@ export class EducationAssignmentItemRequestBuilder {
         return new EducationAssignmentResourceItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.education.classes.item.assignments.item.submissions.item collection
+     * Gets an item from the MicrosoftGraph.education.classes.item.assignments.item.submissions.item collection
      * @param id Unique identifier of the item
      * @returns a educationSubmissionItemRequestBuilder
      */

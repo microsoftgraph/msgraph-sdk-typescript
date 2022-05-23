@@ -1,7 +1,7 @@
-import {WindowsInformationProtectionResourceCollection} from './index';
+import {WindowsInformationProtectionResourceCollectionImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createWindowsInformationProtectionResourceCollectionFromDiscriminatorValue(parseNode: ParseNode | undefined) : WindowsInformationProtectionResourceCollection {
+export function createWindowsInformationProtectionResourceCollectionFromDiscriminatorValue(parseNode: ParseNode | undefined) : WindowsInformationProtectionResourceCollectionImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new WindowsInformationProtectionResourceCollection();
+    return new WindowsInformationProtectionResourceCollectionImpl();
 }

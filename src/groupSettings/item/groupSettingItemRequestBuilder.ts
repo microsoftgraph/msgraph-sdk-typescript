@@ -1,6 +1,7 @@
-import {GroupSetting} from '../../models/';
+import {GroupSettingImpl} from '../../models/';
 import {createGroupSettingFromDiscriminatorValue} from '../../models/createGroupSettingFromDiscriminatorValue';
-import {ODataError} from '../../models/oDataErrors/';
+import {GroupSetting} from '../../models/groupSetting';
+import {ODataErrorImpl} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {GroupSettingItemRequestBuilderDeleteRequestConfiguration} from './groupSettingItemRequestBuilderDeleteRequestConfiguration';
 import {GroupSettingItemRequestBuilderGetRequestConfiguration} from './groupSettingItemRequestBuilderGetRequestConfiguration';
@@ -77,7 +78,8 @@ export class GroupSettingItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new GroupSettingImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -101,7 +103,7 @@ export class GroupSettingItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of GroupSetting
      */
-    public get(requestConfiguration?: GroupSettingItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<GroupSetting | undefined> {
+    public get(requestConfiguration?: GroupSettingItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<GroupSettingImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -109,7 +111,7 @@ export class GroupSettingItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<GroupSetting>(requestInfo, createGroupSettingFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<GroupSettingImpl>(requestInfo, createGroupSettingFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update the properties of a [groupSetting](../resources/groupsetting.md) object for tenant-wide [group](../resources/group.md) settings or a specific group setting.

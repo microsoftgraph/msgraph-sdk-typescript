@@ -1,7 +1,7 @@
-import {DeviceManagementExportJobCollectionResponse} from './index';
+import {DeviceManagementExportJobCollectionResponseImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createDeviceManagementExportJobCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : DeviceManagementExportJobCollectionResponse {
+export function createDeviceManagementExportJobCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : DeviceManagementExportJobCollectionResponseImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new DeviceManagementExportJobCollectionResponse();
+    return new DeviceManagementExportJobCollectionResponseImpl();
 }

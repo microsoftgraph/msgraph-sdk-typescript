@@ -1,7 +1,8 @@
-import {SignIn} from '../../../models/';
+import {SignInImpl} from '../../../models/';
 import {createSignInFromDiscriminatorValue} from '../../../models/createSignInFromDiscriminatorValue';
-import {ODataError} from '../../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {SignIn} from '../../../models/signIn';
 import {SignInItemRequestBuilderDeleteRequestConfiguration} from './signInItemRequestBuilderDeleteRequestConfiguration';
 import {SignInItemRequestBuilderGetRequestConfiguration} from './signInItemRequestBuilderGetRequestConfiguration';
 import {SignInItemRequestBuilderPatchRequestConfiguration} from './signInItemRequestBuilderPatchRequestConfiguration';
@@ -77,7 +78,8 @@ export class SignInItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new SignInImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -101,7 +103,7 @@ export class SignInItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of SignIn
      */
-    public get(requestConfiguration?: SignInItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<SignIn | undefined> {
+    public get(requestConfiguration?: SignInItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<SignInImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -109,7 +111,7 @@ export class SignInItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<SignIn>(requestInfo, createSignInFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<SignInImpl>(requestInfo, createSignInFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update the navigation property signIns in auditLogs

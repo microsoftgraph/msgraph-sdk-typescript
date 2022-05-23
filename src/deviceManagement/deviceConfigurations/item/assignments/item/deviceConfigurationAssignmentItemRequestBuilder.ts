@@ -1,6 +1,7 @@
-import {DeviceConfigurationAssignment} from '../../../../../models/';
+import {DeviceConfigurationAssignmentImpl} from '../../../../../models/';
 import {createDeviceConfigurationAssignmentFromDiscriminatorValue} from '../../../../../models/createDeviceConfigurationAssignmentFromDiscriminatorValue';
-import {ODataError} from '../../../../../models/oDataErrors/';
+import {DeviceConfigurationAssignment} from '../../../../../models/deviceConfigurationAssignment';
+import {ODataErrorImpl} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {DeviceConfigurationAssignmentItemRequestBuilderDeleteRequestConfiguration} from './deviceConfigurationAssignmentItemRequestBuilderDeleteRequestConfiguration';
 import {DeviceConfigurationAssignmentItemRequestBuilderGetRequestConfiguration} from './deviceConfigurationAssignmentItemRequestBuilderGetRequestConfiguration';
@@ -77,7 +78,8 @@ export class DeviceConfigurationAssignmentItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new DeviceConfigurationAssignmentImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -101,7 +103,7 @@ export class DeviceConfigurationAssignmentItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DeviceConfigurationAssignment
      */
-    public get(requestConfiguration?: DeviceConfigurationAssignmentItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DeviceConfigurationAssignment | undefined> {
+    public get(requestConfiguration?: DeviceConfigurationAssignmentItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DeviceConfigurationAssignmentImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -109,7 +111,7 @@ export class DeviceConfigurationAssignmentItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<DeviceConfigurationAssignment>(requestInfo, createDeviceConfigurationAssignmentFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<DeviceConfigurationAssignmentImpl>(requestInfo, createDeviceConfigurationAssignmentFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update the navigation property assignments in deviceManagement

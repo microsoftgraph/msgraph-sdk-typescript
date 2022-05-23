@@ -1,119 +1,15 @@
-import {createDeviceFromDiscriminatorValue} from './createDeviceFromDiscriminatorValue';
-import {AuthenticationMethod, Device} from './index';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AuthenticationMethod} from './authenticationMethod';
+import {Device} from './device';
 
-/** Casts the previous resource to user. */
-export class MicrosoftAuthenticatorAuthenticationMethod extends AuthenticationMethod implements Parsable {
+export interface MicrosoftAuthenticatorAuthenticationMethod extends AuthenticationMethod{
     /** The date and time that this app was registered. This property is null if the device is not registered for passwordless Phone Sign-In. */
-    private _createdDateTime?: Date | undefined;
+    createdDateTime?:Date | undefined;
     /** The registered device on which Microsoft Authenticator resides. This property is null if the device is not registered for passwordless Phone Sign-In. */
-    private _device?: Device | undefined;
+    device?:Device | undefined;
     /** Tags containing app metadata. */
-    private _deviceTag?: string | undefined;
+    deviceTag?:string | undefined;
     /** The name of the device on which this app is registered. */
-    private _displayName?: string | undefined;
+    displayName?:string | undefined;
     /** Numerical version of this instance of the Authenticator app. */
-    private _phoneAppVersion?: string | undefined;
-    /**
-     * Instantiates a new microsoftAuthenticatorAuthenticationMethod and sets the default values.
-     */
-    public constructor() {
-        super();
-    };
-    /**
-     * Gets the createdDateTime property value. The date and time that this app was registered. This property is null if the device is not registered for passwordless Phone Sign-In.
-     * @returns a Date
-     */
-    public get createdDateTime() {
-        return this._createdDateTime;
-    };
-    /**
-     * Sets the createdDateTime property value. The date and time that this app was registered. This property is null if the device is not registered for passwordless Phone Sign-In.
-     * @param value Value to set for the createdDateTime property.
-     */
-    public set createdDateTime(value: Date | undefined) {
-        this._createdDateTime = value;
-    };
-    /**
-     * Gets the device property value. The registered device on which Microsoft Authenticator resides. This property is null if the device is not registered for passwordless Phone Sign-In.
-     * @returns a device
-     */
-    public get device() {
-        return this._device;
-    };
-    /**
-     * Sets the device property value. The registered device on which Microsoft Authenticator resides. This property is null if the device is not registered for passwordless Phone Sign-In.
-     * @param value Value to set for the device property.
-     */
-    public set device(value: Device | undefined) {
-        this._device = value;
-    };
-    /**
-     * Gets the deviceTag property value. Tags containing app metadata.
-     * @returns a string
-     */
-    public get deviceTag() {
-        return this._deviceTag;
-    };
-    /**
-     * Sets the deviceTag property value. Tags containing app metadata.
-     * @param value Value to set for the deviceTag property.
-     */
-    public set deviceTag(value: string | undefined) {
-        this._deviceTag = value;
-    };
-    /**
-     * Gets the displayName property value. The name of the device on which this app is registered.
-     * @returns a string
-     */
-    public get displayName() {
-        return this._displayName;
-    };
-    /**
-     * Sets the displayName property value. The name of the device on which this app is registered.
-     * @param value Value to set for the displayName property.
-     */
-    public set displayName(value: string | undefined) {
-        this._displayName = value;
-    };
-    /**
-     * The deserialization information for the current model
-     * @returns a Record<string, (node: ParseNode) => void>
-     */
-    public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
-        return {...super.getFieldDeserializers(),
-            "createdDateTime": n => { this.createdDateTime = n.getDateValue(); },
-            "device": n => { this.device = n.getObjectValue<Device>(createDeviceFromDiscriminatorValue); },
-            "deviceTag": n => { this.deviceTag = n.getStringValue(); },
-            "displayName": n => { this.displayName = n.getStringValue(); },
-            "phoneAppVersion": n => { this.phoneAppVersion = n.getStringValue(); },
-        };
-    };
-    /**
-     * Gets the phoneAppVersion property value. Numerical version of this instance of the Authenticator app.
-     * @returns a string
-     */
-    public get phoneAppVersion() {
-        return this._phoneAppVersion;
-    };
-    /**
-     * Sets the phoneAppVersion property value. Numerical version of this instance of the Authenticator app.
-     * @param value Value to set for the phoneAppVersion property.
-     */
-    public set phoneAppVersion(value: string | undefined) {
-        this._phoneAppVersion = value;
-    };
-    /**
-     * Serializes information the current object
-     * @param writer Serialization writer to use to serialize this model
-     */
-    public serialize(writer: SerializationWriter) : void {
-        if(!writer) throw new Error("writer cannot be undefined");
-        super.serialize(writer);
-        writer.writeDateValue("createdDateTime", this.createdDateTime);
-        writer.writeObjectValue<Device>("device", this.device);
-        writer.writeStringValue("deviceTag", this.deviceTag);
-        writer.writeStringValue("displayName", this.displayName);
-        writer.writeStringValue("phoneAppVersion", this.phoneAppVersion);
-    };
+    phoneAppVersion?:string | undefined;
 }

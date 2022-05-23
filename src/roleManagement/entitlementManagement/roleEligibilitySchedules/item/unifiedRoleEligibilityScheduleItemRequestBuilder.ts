@@ -1,7 +1,8 @@
-import {UnifiedRoleEligibilitySchedule} from '../../../../models/';
+import {UnifiedRoleEligibilityScheduleImpl} from '../../../../models/';
 import {createUnifiedRoleEligibilityScheduleFromDiscriminatorValue} from '../../../../models/createUnifiedRoleEligibilityScheduleFromDiscriminatorValue';
-import {ODataError} from '../../../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {UnifiedRoleEligibilitySchedule} from '../../../../models/unifiedRoleEligibilitySchedule';
 import {UnifiedRoleEligibilityScheduleItemRequestBuilderDeleteRequestConfiguration} from './unifiedRoleEligibilityScheduleItemRequestBuilderDeleteRequestConfiguration';
 import {UnifiedRoleEligibilityScheduleItemRequestBuilderGetRequestConfiguration} from './unifiedRoleEligibilityScheduleItemRequestBuilderGetRequestConfiguration';
 import {UnifiedRoleEligibilityScheduleItemRequestBuilderPatchRequestConfiguration} from './unifiedRoleEligibilityScheduleItemRequestBuilderPatchRequestConfiguration';
@@ -77,7 +78,8 @@ export class UnifiedRoleEligibilityScheduleItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new UnifiedRoleEligibilityScheduleImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -101,7 +103,7 @@ export class UnifiedRoleEligibilityScheduleItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of UnifiedRoleEligibilitySchedule
      */
-    public get(requestConfiguration?: UnifiedRoleEligibilityScheduleItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<UnifiedRoleEligibilitySchedule | undefined> {
+    public get(requestConfiguration?: UnifiedRoleEligibilityScheduleItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<UnifiedRoleEligibilityScheduleImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -109,7 +111,7 @@ export class UnifiedRoleEligibilityScheduleItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<UnifiedRoleEligibilitySchedule>(requestInfo, createUnifiedRoleEligibilityScheduleFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<UnifiedRoleEligibilityScheduleImpl>(requestInfo, createUnifiedRoleEligibilityScheduleFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update the navigation property roleEligibilitySchedules in roleManagement

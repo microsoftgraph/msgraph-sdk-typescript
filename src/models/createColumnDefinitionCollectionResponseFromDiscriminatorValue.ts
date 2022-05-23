@@ -1,7 +1,7 @@
-import {ColumnDefinitionCollectionResponse} from './index';
+import {ColumnDefinitionCollectionResponseImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createColumnDefinitionCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ColumnDefinitionCollectionResponse {
+export function createColumnDefinitionCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ColumnDefinitionCollectionResponseImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new ColumnDefinitionCollectionResponse();
+    return new ColumnDefinitionCollectionResponseImpl();
 }

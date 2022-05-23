@@ -1,6 +1,6 @@
-import {ManagedMobileLobApp} from '../../../../models/';
+import {ManagedMobileLobAppImpl} from '../../../../models/';
 import {createManagedMobileLobAppFromDiscriminatorValue} from '../../../../models/createManagedMobileLobAppFromDiscriminatorValue';
-import {ODataError} from '../../../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {ManagedMobileLobAppRequestBuilderGetRequestConfiguration} from './managedMobileLobAppRequestBuilderGetRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
@@ -49,7 +49,7 @@ export class ManagedMobileLobAppRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ManagedMobileLobApp
      */
-    public get(requestConfiguration?: ManagedMobileLobAppRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ManagedMobileLobApp | undefined> {
+    public get(requestConfiguration?: ManagedMobileLobAppRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ManagedMobileLobAppImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -57,6 +57,6 @@ export class ManagedMobileLobAppRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<ManagedMobileLobApp>(requestInfo, createManagedMobileLobAppFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<ManagedMobileLobAppImpl>(requestInfo, createManagedMobileLobAppFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

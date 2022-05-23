@@ -1,7 +1,7 @@
-import {Domain} from './index';
+import {DomainImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createDomainFromDiscriminatorValue(parseNode: ParseNode | undefined) : Domain {
+export function createDomainFromDiscriminatorValue(parseNode: ParseNode | undefined) : DomainImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new Domain();
+    return new DomainImpl();
 }

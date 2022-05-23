@@ -1,6 +1,7 @@
-import {DirectoryAudit} from '../../../models/';
+import {DirectoryAuditImpl} from '../../../models/';
 import {createDirectoryAuditFromDiscriminatorValue} from '../../../models/createDirectoryAuditFromDiscriminatorValue';
-import {ODataError} from '../../../models/oDataErrors/';
+import {DirectoryAudit} from '../../../models/directoryAudit';
+import {ODataErrorImpl} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {DirectoryAuditItemRequestBuilderDeleteRequestConfiguration} from './directoryAuditItemRequestBuilderDeleteRequestConfiguration';
 import {DirectoryAuditItemRequestBuilderGetRequestConfiguration} from './directoryAuditItemRequestBuilderGetRequestConfiguration';
@@ -77,7 +78,8 @@ export class DirectoryAuditItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new DirectoryAuditImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -101,7 +103,7 @@ export class DirectoryAuditItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DirectoryAudit
      */
-    public get(requestConfiguration?: DirectoryAuditItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DirectoryAudit | undefined> {
+    public get(requestConfiguration?: DirectoryAuditItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DirectoryAuditImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -109,7 +111,7 @@ export class DirectoryAuditItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<DirectoryAudit>(requestInfo, createDirectoryAuditFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<DirectoryAuditImpl>(requestInfo, createDirectoryAuditFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update the navigation property directoryAudits in auditLogs

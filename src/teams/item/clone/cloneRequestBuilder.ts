@@ -1,5 +1,6 @@
+import {ClonePostRequestBody} from './clonePostRequestBody';
 import {CloneRequestBuilderPostRequestConfiguration} from './cloneRequestBuilderPostRequestConfiguration';
-import {ClonePostRequestBody} from './index';
+import {ClonePostRequestBodyImpl} from './index';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the clone method. */
@@ -39,7 +40,8 @@ export class CloneRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new ClonePostRequestBodyImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**

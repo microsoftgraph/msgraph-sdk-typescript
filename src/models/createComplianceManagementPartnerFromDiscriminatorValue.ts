@@ -1,7 +1,7 @@
-import {ComplianceManagementPartner} from './index';
+import {ComplianceManagementPartnerImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createComplianceManagementPartnerFromDiscriminatorValue(parseNode: ParseNode | undefined) : ComplianceManagementPartner {
+export function createComplianceManagementPartnerFromDiscriminatorValue(parseNode: ParseNode | undefined) : ComplianceManagementPartnerImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new ComplianceManagementPartner();
+    return new ComplianceManagementPartnerImpl();
 }

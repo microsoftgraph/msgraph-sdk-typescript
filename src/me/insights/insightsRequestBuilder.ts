@@ -1,7 +1,8 @@
-import {OfficeGraphInsights} from '../../models/';
+import {OfficeGraphInsightsImpl} from '../../models/';
 import {createOfficeGraphInsightsFromDiscriminatorValue} from '../../models/createOfficeGraphInsightsFromDiscriminatorValue';
-import {ODataError} from '../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {OfficeGraphInsights} from '../../models/officeGraphInsights';
 import {InsightsRequestBuilderDeleteRequestConfiguration} from './insightsRequestBuilderDeleteRequestConfiguration';
 import {InsightsRequestBuilderGetRequestConfiguration} from './insightsRequestBuilderGetRequestConfiguration';
 import {InsightsRequestBuilderPatchRequestConfiguration} from './insightsRequestBuilderPatchRequestConfiguration';
@@ -95,7 +96,8 @@ export class InsightsRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new OfficeGraphInsightsImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -119,7 +121,7 @@ export class InsightsRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of OfficeGraphInsights
      */
-    public get(requestConfiguration?: InsightsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<OfficeGraphInsights | undefined> {
+    public get(requestConfiguration?: InsightsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<OfficeGraphInsightsImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -127,7 +129,7 @@ export class InsightsRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<OfficeGraphInsights>(requestInfo, createOfficeGraphInsightsFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<OfficeGraphInsightsImpl>(requestInfo, createOfficeGraphInsightsFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update the navigation property insights in me
@@ -147,7 +149,7 @@ export class InsightsRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.me.insights.shared.item collection
+     * Gets an item from the MicrosoftGraph.me.insights.shared.item collection
      * @param id Unique identifier of the item
      * @returns a sharedInsightItemRequestBuilder
      */
@@ -158,7 +160,7 @@ export class InsightsRequestBuilder {
         return new SharedInsightItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.me.insights.trending.item collection
+     * Gets an item from the MicrosoftGraph.me.insights.trending.item collection
      * @param id Unique identifier of the item
      * @returns a trendingItemRequestBuilder
      */
@@ -169,7 +171,7 @@ export class InsightsRequestBuilder {
         return new TrendingItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.me.insights.used.item collection
+     * Gets an item from the MicrosoftGraph.me.insights.used.item collection
      * @param id Unique identifier of the item
      * @returns a usedInsightItemRequestBuilder
      */

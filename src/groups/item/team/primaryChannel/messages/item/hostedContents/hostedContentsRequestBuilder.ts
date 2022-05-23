@@ -1,7 +1,8 @@
-import {ChatMessageHostedContent, ChatMessageHostedContentCollectionResponse} from '../../../../../../../models/';
+import {ChatMessageHostedContentCollectionResponseImpl, ChatMessageHostedContentImpl} from '../../../../../../../models/';
+import {ChatMessageHostedContent} from '../../../../../../../models/chatMessageHostedContent';
 import {createChatMessageHostedContentCollectionResponseFromDiscriminatorValue} from '../../../../../../../models/createChatMessageHostedContentCollectionResponseFromDiscriminatorValue';
 import {createChatMessageHostedContentFromDiscriminatorValue} from '../../../../../../../models/createChatMessageHostedContentFromDiscriminatorValue';
-import {ODataError} from '../../../../../../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {HostedContentsRequestBuilderGetRequestConfiguration} from './hostedContentsRequestBuilderGetRequestConfiguration';
@@ -66,7 +67,8 @@ export class HostedContentsRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new ChatMessageHostedContentImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -75,7 +77,7 @@ export class HostedContentsRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ChatMessageHostedContentCollectionResponse
      */
-    public get(requestConfiguration?: HostedContentsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ChatMessageHostedContentCollectionResponse | undefined> {
+    public get(requestConfiguration?: HostedContentsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ChatMessageHostedContentCollectionResponseImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -83,7 +85,7 @@ export class HostedContentsRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<ChatMessageHostedContentCollectionResponse>(requestInfo, createChatMessageHostedContentCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<ChatMessageHostedContentCollectionResponseImpl>(requestInfo, createChatMessageHostedContentCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Create new navigation property to hostedContents for groups
@@ -92,7 +94,7 @@ export class HostedContentsRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ChatMessageHostedContent
      */
-    public post(body: ChatMessageHostedContent | undefined, requestConfiguration?: HostedContentsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ChatMessageHostedContent | undefined> {
+    public post(body: ChatMessageHostedContent | undefined, requestConfiguration?: HostedContentsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ChatMessageHostedContentImpl | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration
@@ -101,6 +103,6 @@ export class HostedContentsRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<ChatMessageHostedContent>(requestInfo, createChatMessageHostedContentFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<ChatMessageHostedContentImpl>(requestInfo, createChatMessageHostedContentFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

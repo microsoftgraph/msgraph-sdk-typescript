@@ -1,6 +1,7 @@
-import {EducationAssignmentResource} from '../../../../../../../models/';
+import {EducationAssignmentResourceImpl} from '../../../../../../../models/';
 import {createEducationAssignmentResourceFromDiscriminatorValue} from '../../../../../../../models/createEducationAssignmentResourceFromDiscriminatorValue';
-import {ODataError} from '../../../../../../../models/oDataErrors/';
+import {EducationAssignmentResource} from '../../../../../../../models/educationAssignmentResource';
+import {ODataErrorImpl} from '../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {EducationAssignmentResourceItemRequestBuilderDeleteRequestConfiguration} from './educationAssignmentResourceItemRequestBuilderDeleteRequestConfiguration';
 import {EducationAssignmentResourceItemRequestBuilderGetRequestConfiguration} from './educationAssignmentResourceItemRequestBuilderGetRequestConfiguration';
@@ -77,7 +78,8 @@ export class EducationAssignmentResourceItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new EducationAssignmentResourceImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -101,7 +103,7 @@ export class EducationAssignmentResourceItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of EducationAssignmentResource
      */
-    public get(requestConfiguration?: EducationAssignmentResourceItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EducationAssignmentResource | undefined> {
+    public get(requestConfiguration?: EducationAssignmentResourceItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EducationAssignmentResourceImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -109,7 +111,7 @@ export class EducationAssignmentResourceItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<EducationAssignmentResource>(requestInfo, createEducationAssignmentResourceFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<EducationAssignmentResourceImpl>(requestInfo, createEducationAssignmentResourceFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update the navigation property resources in education

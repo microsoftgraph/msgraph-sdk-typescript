@@ -1,4 +1,4 @@
-import {User} from '../../../../../models/';
+import {UserImpl} from '../../../../../models/';
 import {createUserFromDiscriminatorValue} from '../../../../../models/createUserFromDiscriminatorValue';
 import {ReprocessLicenseAssignmentRequestBuilderPostRequestConfiguration} from './reprocessLicenseAssignmentRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
@@ -46,10 +46,10 @@ export class ReprocessLicenseAssignmentRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of User
      */
-    public post(requestConfiguration?: ReprocessLicenseAssignmentRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<User | undefined> {
+    public post(requestConfiguration?: ReprocessLicenseAssignmentRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<UserImpl | undefined> {
         const requestInfo = this.createPostRequestInformation(
             requestConfiguration
         );
-        return this.requestAdapter?.sendAsync<User>(requestInfo, createUserFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<UserImpl>(requestInfo, createUserFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }

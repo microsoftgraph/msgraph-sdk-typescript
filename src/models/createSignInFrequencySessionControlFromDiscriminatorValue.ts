@@ -1,7 +1,7 @@
-import {SignInFrequencySessionControl} from './index';
+import {SignInFrequencySessionControlImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createSignInFrequencySessionControlFromDiscriminatorValue(parseNode: ParseNode | undefined) : SignInFrequencySessionControl {
+export function createSignInFrequencySessionControlFromDiscriminatorValue(parseNode: ParseNode | undefined) : SignInFrequencySessionControlImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new SignInFrequencySessionControl();
+    return new SignInFrequencySessionControlImpl();
 }

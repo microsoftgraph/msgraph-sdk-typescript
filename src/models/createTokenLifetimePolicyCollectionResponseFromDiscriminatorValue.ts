@@ -1,7 +1,7 @@
-import {TokenLifetimePolicyCollectionResponse} from './index';
+import {TokenLifetimePolicyCollectionResponseImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createTokenLifetimePolicyCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : TokenLifetimePolicyCollectionResponse {
+export function createTokenLifetimePolicyCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : TokenLifetimePolicyCollectionResponseImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new TokenLifetimePolicyCollectionResponse();
+    return new TokenLifetimePolicyCollectionResponseImpl();
 }

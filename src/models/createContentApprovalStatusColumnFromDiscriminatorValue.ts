@@ -1,7 +1,7 @@
-import {ContentApprovalStatusColumn} from './index';
+import {ContentApprovalStatusColumnImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createContentApprovalStatusColumnFromDiscriminatorValue(parseNode: ParseNode | undefined) : ContentApprovalStatusColumn {
+export function createContentApprovalStatusColumnFromDiscriminatorValue(parseNode: ParseNode | undefined) : ContentApprovalStatusColumnImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new ContentApprovalStatusColumn();
+    return new ContentApprovalStatusColumnImpl();
 }

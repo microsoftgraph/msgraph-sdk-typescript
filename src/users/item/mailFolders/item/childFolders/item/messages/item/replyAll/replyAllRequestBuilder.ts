@@ -1,4 +1,5 @@
-import {ReplyAllPostRequestBody} from './index';
+import {ReplyAllPostRequestBodyImpl} from './index';
+import {ReplyAllPostRequestBody} from './replyAllPostRequestBody';
 import {ReplyAllRequestBuilderPostRequestConfiguration} from './replyAllRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
@@ -39,7 +40,8 @@ export class ReplyAllRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new ReplyAllPostRequestBodyImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**

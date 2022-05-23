@@ -1,6 +1,7 @@
-import {Bitlocker} from '../../models/';
+import {BitlockerImpl} from '../../models/';
+import {Bitlocker} from '../../models/bitlocker';
 import {createBitlockerFromDiscriminatorValue} from '../../models/createBitlockerFromDiscriminatorValue';
-import {ODataError} from '../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {BitlockerRequestBuilderDeleteRequestConfiguration} from './bitlockerRequestBuilderDeleteRequestConfiguration';
 import {BitlockerRequestBuilderGetRequestConfiguration} from './bitlockerRequestBuilderGetRequestConfiguration';
@@ -83,7 +84,8 @@ export class BitlockerRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new BitlockerImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -107,7 +109,7 @@ export class BitlockerRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Bitlocker
      */
-    public get(requestConfiguration?: BitlockerRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Bitlocker | undefined> {
+    public get(requestConfiguration?: BitlockerRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<BitlockerImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -115,7 +117,7 @@ export class BitlockerRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<Bitlocker>(requestInfo, createBitlockerFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<BitlockerImpl>(requestInfo, createBitlockerFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update the navigation property bitlocker in informationProtection
@@ -135,7 +137,7 @@ export class BitlockerRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.informationProtection.bitlocker.recoveryKeys.item collection
+     * Gets an item from the MicrosoftGraph.informationProtection.bitlocker.recoveryKeys.item collection
      * @param id Unique identifier of the item
      * @returns a bitlockerRecoveryKeyItemRequestBuilder
      */

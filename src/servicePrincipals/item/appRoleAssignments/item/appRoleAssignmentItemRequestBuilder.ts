@@ -1,6 +1,7 @@
-import {AppRoleAssignment} from '../../../../models/';
+import {AppRoleAssignmentImpl} from '../../../../models/';
+import {AppRoleAssignment} from '../../../../models/appRoleAssignment';
 import {createAppRoleAssignmentFromDiscriminatorValue} from '../../../../models/createAppRoleAssignmentFromDiscriminatorValue';
-import {ODataError} from '../../../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {AppRoleAssignmentItemRequestBuilderDeleteRequestConfiguration} from './appRoleAssignmentItemRequestBuilderDeleteRequestConfiguration';
 import {AppRoleAssignmentItemRequestBuilderGetRequestConfiguration} from './appRoleAssignmentItemRequestBuilderGetRequestConfiguration';
@@ -77,7 +78,8 @@ export class AppRoleAssignmentItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new AppRoleAssignmentImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -101,7 +103,7 @@ export class AppRoleAssignmentItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AppRoleAssignment
      */
-    public get(requestConfiguration?: AppRoleAssignmentItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AppRoleAssignment | undefined> {
+    public get(requestConfiguration?: AppRoleAssignmentItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AppRoleAssignmentImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -109,7 +111,7 @@ export class AppRoleAssignmentItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<AppRoleAssignment>(requestInfo, createAppRoleAssignmentFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<AppRoleAssignmentImpl>(requestInfo, createAppRoleAssignmentFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update the navigation property appRoleAssignments in servicePrincipals

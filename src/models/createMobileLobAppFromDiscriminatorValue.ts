@@ -1,7 +1,7 @@
-import {MobileLobApp} from './index';
+import {MobileLobAppImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createMobileLobAppFromDiscriminatorValue(parseNode: ParseNode | undefined) : MobileLobApp {
+export function createMobileLobAppFromDiscriminatorValue(parseNode: ParseNode | undefined) : MobileLobAppImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
     const mappingValueNode = parseNode.getChildNode("@odata.type");
     if (mappingValueNode) {
@@ -9,9 +9,9 @@ export function createMobileLobAppFromDiscriminatorValue(parseNode: ParseNode | 
         if (mappingValue) {
             switch (mappingValue) {
                 case "#microsoft.graph.mobileLobApp":
-                    return new MobileLobApp();
+                    return new MobileLobAppImpl();
             }
         }
     }
-    return new MobileLobApp();
+    return new MobileLobAppImpl();
 }

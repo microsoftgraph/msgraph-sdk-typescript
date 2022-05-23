@@ -1,8 +1,9 @@
-import {TeamsApp, TeamsAppCollectionResponse} from '../../models/';
+import {TeamsAppCollectionResponseImpl, TeamsAppImpl} from '../../models/';
 import {createTeamsAppCollectionResponseFromDiscriminatorValue} from '../../models/createTeamsAppCollectionResponseFromDiscriminatorValue';
 import {createTeamsAppFromDiscriminatorValue} from '../../models/createTeamsAppFromDiscriminatorValue';
-import {ODataError} from '../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {TeamsApp} from '../../models/teamsApp';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {TeamsAppsRequestBuilderGetRequestConfiguration} from './teamsAppsRequestBuilderGetRequestConfiguration';
 import {TeamsAppsRequestBuilderPostRequestConfiguration} from './teamsAppsRequestBuilderPostRequestConfiguration';
@@ -66,7 +67,8 @@ export class TeamsAppsRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new TeamsAppImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -75,7 +77,7 @@ export class TeamsAppsRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of TeamsAppCollectionResponse
      */
-    public get(requestConfiguration?: TeamsAppsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<TeamsAppCollectionResponse | undefined> {
+    public get(requestConfiguration?: TeamsAppsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<TeamsAppCollectionResponseImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -83,7 +85,7 @@ export class TeamsAppsRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<TeamsAppCollectionResponse>(requestInfo, createTeamsAppCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<TeamsAppCollectionResponseImpl>(requestInfo, createTeamsAppCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Create new navigation property to teamsApps for appCatalogs
@@ -92,7 +94,7 @@ export class TeamsAppsRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of TeamsApp
      */
-    public post(body: TeamsApp | undefined, requestConfiguration?: TeamsAppsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<TeamsApp | undefined> {
+    public post(body: TeamsApp | undefined, requestConfiguration?: TeamsAppsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<TeamsAppImpl | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration
@@ -101,6 +103,6 @@ export class TeamsAppsRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<TeamsApp>(requestInfo, createTeamsAppFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<TeamsAppImpl>(requestInfo, createTeamsAppFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

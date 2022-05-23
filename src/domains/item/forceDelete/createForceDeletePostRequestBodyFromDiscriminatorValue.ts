@@ -1,7 +1,7 @@
-import {ForceDeletePostRequestBody} from './index';
+import {ForceDeletePostRequestBodyImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createForceDeletePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ForceDeletePostRequestBody {
+export function createForceDeletePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ForceDeletePostRequestBodyImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new ForceDeletePostRequestBody();
+    return new ForceDeletePostRequestBodyImpl();
 }

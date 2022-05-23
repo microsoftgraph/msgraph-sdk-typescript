@@ -1,8 +1,9 @@
-import {WindowsAutopilotDeviceIdentity, WindowsAutopilotDeviceIdentityCollectionResponse} from '../../models/';
+import {WindowsAutopilotDeviceIdentityCollectionResponseImpl, WindowsAutopilotDeviceIdentityImpl} from '../../models/';
 import {createWindowsAutopilotDeviceIdentityCollectionResponseFromDiscriminatorValue} from '../../models/createWindowsAutopilotDeviceIdentityCollectionResponseFromDiscriminatorValue';
 import {createWindowsAutopilotDeviceIdentityFromDiscriminatorValue} from '../../models/createWindowsAutopilotDeviceIdentityFromDiscriminatorValue';
-import {ODataError} from '../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {WindowsAutopilotDeviceIdentity} from '../../models/windowsAutopilotDeviceIdentity';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {WindowsAutopilotDeviceIdentitiesRequestBuilderGetRequestConfiguration} from './windowsAutopilotDeviceIdentitiesRequestBuilderGetRequestConfiguration';
 import {WindowsAutopilotDeviceIdentitiesRequestBuilderPostRequestConfiguration} from './windowsAutopilotDeviceIdentitiesRequestBuilderPostRequestConfiguration';
@@ -66,7 +67,8 @@ export class WindowsAutopilotDeviceIdentitiesRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new WindowsAutopilotDeviceIdentityImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -75,7 +77,7 @@ export class WindowsAutopilotDeviceIdentitiesRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of WindowsAutopilotDeviceIdentityCollectionResponse
      */
-    public get(requestConfiguration?: WindowsAutopilotDeviceIdentitiesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WindowsAutopilotDeviceIdentityCollectionResponse | undefined> {
+    public get(requestConfiguration?: WindowsAutopilotDeviceIdentitiesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WindowsAutopilotDeviceIdentityCollectionResponseImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -83,7 +85,7 @@ export class WindowsAutopilotDeviceIdentitiesRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<WindowsAutopilotDeviceIdentityCollectionResponse>(requestInfo, createWindowsAutopilotDeviceIdentityCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<WindowsAutopilotDeviceIdentityCollectionResponseImpl>(requestInfo, createWindowsAutopilotDeviceIdentityCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Create new navigation property to windowsAutopilotDeviceIdentities for deviceManagement
@@ -92,7 +94,7 @@ export class WindowsAutopilotDeviceIdentitiesRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of WindowsAutopilotDeviceIdentity
      */
-    public post(body: WindowsAutopilotDeviceIdentity | undefined, requestConfiguration?: WindowsAutopilotDeviceIdentitiesRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WindowsAutopilotDeviceIdentity | undefined> {
+    public post(body: WindowsAutopilotDeviceIdentity | undefined, requestConfiguration?: WindowsAutopilotDeviceIdentitiesRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WindowsAutopilotDeviceIdentityImpl | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration
@@ -101,6 +103,6 @@ export class WindowsAutopilotDeviceIdentitiesRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<WindowsAutopilotDeviceIdentity>(requestInfo, createWindowsAutopilotDeviceIdentityFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<WindowsAutopilotDeviceIdentityImpl>(requestInfo, createWindowsAutopilotDeviceIdentityFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

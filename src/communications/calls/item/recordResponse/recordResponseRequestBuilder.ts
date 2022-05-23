@@ -1,6 +1,7 @@
-import {RecordOperation} from '../../../../models/';
+import {RecordOperationImpl} from '../../../../models/';
 import {createRecordOperationFromDiscriminatorValue} from '../../../../models/createRecordOperationFromDiscriminatorValue';
-import {RecordResponsePostRequestBody} from './index';
+import {RecordResponsePostRequestBodyImpl} from './index';
+import {RecordResponsePostRequestBody} from './recordResponsePostRequestBody';
 import {RecordResponseRequestBuilderPostRequestConfiguration} from './recordResponseRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
@@ -41,7 +42,8 @@ export class RecordResponseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new RecordResponsePostRequestBodyImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -51,11 +53,11 @@ export class RecordResponseRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of RecordOperation
      */
-    public post(body: RecordResponsePostRequestBody | undefined, requestConfiguration?: RecordResponseRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<RecordOperation | undefined> {
+    public post(body: RecordResponsePostRequestBody | undefined, requestConfiguration?: RecordResponseRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<RecordOperationImpl | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration
         );
-        return this.requestAdapter?.sendAsync<RecordOperation>(requestInfo, createRecordOperationFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<RecordOperationImpl>(requestInfo, createRecordOperationFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }

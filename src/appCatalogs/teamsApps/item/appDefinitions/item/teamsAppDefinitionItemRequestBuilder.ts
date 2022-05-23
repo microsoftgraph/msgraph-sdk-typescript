@@ -1,7 +1,8 @@
-import {TeamsAppDefinition} from '../../../../../models/';
+import {TeamsAppDefinitionImpl} from '../../../../../models/';
 import {createTeamsAppDefinitionFromDiscriminatorValue} from '../../../../../models/createTeamsAppDefinitionFromDiscriminatorValue';
-import {ODataError} from '../../../../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {TeamsAppDefinition} from '../../../../../models/teamsAppDefinition';
 import {BotRequestBuilder} from './bot/botRequestBuilder';
 import {TeamsAppDefinitionItemRequestBuilderDeleteRequestConfiguration} from './teamsAppDefinitionItemRequestBuilderDeleteRequestConfiguration';
 import {TeamsAppDefinitionItemRequestBuilderGetRequestConfiguration} from './teamsAppDefinitionItemRequestBuilderGetRequestConfiguration';
@@ -82,7 +83,8 @@ export class TeamsAppDefinitionItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new TeamsAppDefinitionImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -106,7 +108,7 @@ export class TeamsAppDefinitionItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of TeamsAppDefinition
      */
-    public get(requestConfiguration?: TeamsAppDefinitionItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<TeamsAppDefinition | undefined> {
+    public get(requestConfiguration?: TeamsAppDefinitionItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<TeamsAppDefinitionImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -114,7 +116,7 @@ export class TeamsAppDefinitionItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<TeamsAppDefinition>(requestInfo, createTeamsAppDefinitionFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<TeamsAppDefinitionImpl>(requestInfo, createTeamsAppDefinitionFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update the navigation property appDefinitions in appCatalogs

@@ -1,7 +1,7 @@
-import {GetDeviceManagementIntentPerSettingContributingProfilesPostRequestBody} from './index';
+import {GetDeviceManagementIntentPerSettingContributingProfilesPostRequestBodyImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createGetDeviceManagementIntentPerSettingContributingProfilesPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : GetDeviceManagementIntentPerSettingContributingProfilesPostRequestBody {
+export function createGetDeviceManagementIntentPerSettingContributingProfilesPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : GetDeviceManagementIntentPerSettingContributingProfilesPostRequestBodyImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new GetDeviceManagementIntentPerSettingContributingProfilesPostRequestBody();
+    return new GetDeviceManagementIntentPerSettingContributingProfilesPostRequestBodyImpl();
 }

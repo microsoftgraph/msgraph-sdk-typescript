@@ -1,5 +1,6 @@
+import {CopyToDefaultContentLocationPostRequestBody} from './copyToDefaultContentLocationPostRequestBody';
 import {CopyToDefaultContentLocationRequestBuilderPostRequestConfiguration} from './copyToDefaultContentLocationRequestBuilderPostRequestConfiguration';
-import {CopyToDefaultContentLocationPostRequestBody} from './index';
+import {CopyToDefaultContentLocationPostRequestBodyImpl} from './index';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the copyToDefaultContentLocation method. */
@@ -39,7 +40,8 @@ export class CopyToDefaultContentLocationRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new CopyToDefaultContentLocationPostRequestBodyImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**

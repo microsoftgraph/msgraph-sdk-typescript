@@ -1,7 +1,7 @@
-import {IdentitySecurityDefaultsEnforcementPolicy} from './index';
+import {IdentitySecurityDefaultsEnforcementPolicyImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createIdentitySecurityDefaultsEnforcementPolicyFromDiscriminatorValue(parseNode: ParseNode | undefined) : IdentitySecurityDefaultsEnforcementPolicy {
+export function createIdentitySecurityDefaultsEnforcementPolicyFromDiscriminatorValue(parseNode: ParseNode | undefined) : IdentitySecurityDefaultsEnforcementPolicyImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new IdentitySecurityDefaultsEnforcementPolicy();
+    return new IdentitySecurityDefaultsEnforcementPolicyImpl();
 }

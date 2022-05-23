@@ -1,7 +1,7 @@
-import {TimeOff} from './index';
+import {TimeOffImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createTimeOffFromDiscriminatorValue(parseNode: ParseNode | undefined) : TimeOff {
+export function createTimeOffFromDiscriminatorValue(parseNode: ParseNode | undefined) : TimeOffImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new TimeOff();
+    return new TimeOffImpl();
 }

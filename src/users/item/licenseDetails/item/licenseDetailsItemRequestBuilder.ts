@@ -1,6 +1,7 @@
-import {LicenseDetails} from '../../../../models/';
+import {LicenseDetailsImpl} from '../../../../models/';
 import {createLicenseDetailsFromDiscriminatorValue} from '../../../../models/createLicenseDetailsFromDiscriminatorValue';
-import {ODataError} from '../../../../models/oDataErrors/';
+import {LicenseDetails} from '../../../../models/licenseDetails';
+import {ODataErrorImpl} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {LicenseDetailsItemRequestBuilderDeleteRequestConfiguration} from './licenseDetailsItemRequestBuilderDeleteRequestConfiguration';
 import {LicenseDetailsItemRequestBuilderGetRequestConfiguration} from './licenseDetailsItemRequestBuilderGetRequestConfiguration';
@@ -77,7 +78,8 @@ export class LicenseDetailsItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new LicenseDetailsImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -101,7 +103,7 @@ export class LicenseDetailsItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of LicenseDetails
      */
-    public get(requestConfiguration?: LicenseDetailsItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<LicenseDetails | undefined> {
+    public get(requestConfiguration?: LicenseDetailsItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<LicenseDetailsImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -109,7 +111,7 @@ export class LicenseDetailsItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<LicenseDetails>(requestInfo, createLicenseDetailsFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<LicenseDetailsImpl>(requestInfo, createLicenseDetailsFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update the navigation property licenseDetails in users

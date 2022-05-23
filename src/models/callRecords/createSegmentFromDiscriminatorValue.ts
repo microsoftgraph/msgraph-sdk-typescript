@@ -1,7 +1,7 @@
-import {Segment} from './index';
+import {SegmentImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createSegmentFromDiscriminatorValue(parseNode: ParseNode | undefined) : Segment {
+export function createSegmentFromDiscriminatorValue(parseNode: ParseNode | undefined) : SegmentImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new Segment();
+    return new SegmentImpl();
 }

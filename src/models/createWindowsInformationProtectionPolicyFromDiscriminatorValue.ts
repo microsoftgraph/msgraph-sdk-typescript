@@ -1,7 +1,7 @@
-import {WindowsInformationProtectionPolicy} from './index';
+import {WindowsInformationProtectionPolicyImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createWindowsInformationProtectionPolicyFromDiscriminatorValue(parseNode: ParseNode | undefined) : WindowsInformationProtectionPolicy {
+export function createWindowsInformationProtectionPolicyFromDiscriminatorValue(parseNode: ParseNode | undefined) : WindowsInformationProtectionPolicyImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new WindowsInformationProtectionPolicy();
+    return new WindowsInformationProtectionPolicyImpl();
 }

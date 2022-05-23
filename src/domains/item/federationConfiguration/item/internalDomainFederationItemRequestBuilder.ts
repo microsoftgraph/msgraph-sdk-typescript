@@ -1,6 +1,7 @@
-import {InternalDomainFederation} from '../../../../models/';
+import {InternalDomainFederationImpl} from '../../../../models/';
 import {createInternalDomainFederationFromDiscriminatorValue} from '../../../../models/createInternalDomainFederationFromDiscriminatorValue';
-import {ODataError} from '../../../../models/oDataErrors/';
+import {InternalDomainFederation} from '../../../../models/internalDomainFederation';
+import {ODataErrorImpl} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {InternalDomainFederationItemRequestBuilderDeleteRequestConfiguration} from './internalDomainFederationItemRequestBuilderDeleteRequestConfiguration';
 import {InternalDomainFederationItemRequestBuilderGetRequestConfiguration} from './internalDomainFederationItemRequestBuilderGetRequestConfiguration';
@@ -77,7 +78,8 @@ export class InternalDomainFederationItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new InternalDomainFederationImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -101,7 +103,7 @@ export class InternalDomainFederationItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of InternalDomainFederation
      */
-    public get(requestConfiguration?: InternalDomainFederationItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<InternalDomainFederation | undefined> {
+    public get(requestConfiguration?: InternalDomainFederationItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<InternalDomainFederationImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -109,7 +111,7 @@ export class InternalDomainFederationItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<InternalDomainFederation>(requestInfo, createInternalDomainFederationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<InternalDomainFederationImpl>(requestInfo, createInternalDomainFederationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update the navigation property federationConfiguration in domains

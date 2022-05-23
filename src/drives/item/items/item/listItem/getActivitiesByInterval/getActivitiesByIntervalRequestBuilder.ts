@@ -1,6 +1,6 @@
 import {createGetActivitiesByIntervalResponseFromDiscriminatorValue} from './createGetActivitiesByIntervalResponseFromDiscriminatorValue';
 import {GetActivitiesByIntervalRequestBuilderGetRequestConfiguration} from './getActivitiesByIntervalRequestBuilderGetRequestConfiguration';
-import {GetActivitiesByIntervalResponse} from './index';
+import {GetActivitiesByIntervalResponseImpl} from './index';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the getActivitiesByInterval method. */
@@ -46,10 +46,10 @@ export class GetActivitiesByIntervalRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of GetActivitiesByIntervalResponse
      */
-    public get(requestConfiguration?: GetActivitiesByIntervalRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<GetActivitiesByIntervalResponse | undefined> {
+    public get(requestConfiguration?: GetActivitiesByIntervalRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<GetActivitiesByIntervalResponseImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
-        return this.requestAdapter?.sendAsync<GetActivitiesByIntervalResponse>(requestInfo, createGetActivitiesByIntervalResponseFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<GetActivitiesByIntervalResponseImpl>(requestInfo, createGetActivitiesByIntervalResponseFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }

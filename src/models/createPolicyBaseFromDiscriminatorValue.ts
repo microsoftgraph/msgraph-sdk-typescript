@@ -1,7 +1,7 @@
-import {PolicyBase} from './index';
+import {PolicyBaseImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createPolicyBaseFromDiscriminatorValue(parseNode: ParseNode | undefined) : PolicyBase {
+export function createPolicyBaseFromDiscriminatorValue(parseNode: ParseNode | undefined) : PolicyBaseImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
     const mappingValueNode = parseNode.getChildNode("@odata.type");
     if (mappingValueNode) {
@@ -9,9 +9,9 @@ export function createPolicyBaseFromDiscriminatorValue(parseNode: ParseNode | un
         if (mappingValue) {
             switch (mappingValue) {
                 case "#microsoft.graph.policyBase":
-                    return new PolicyBase();
+                    return new PolicyBaseImpl();
             }
         }
     }
-    return new PolicyBase();
+    return new PolicyBaseImpl();
 }

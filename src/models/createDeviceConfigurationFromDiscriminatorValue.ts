@@ -1,7 +1,7 @@
-import {DeviceConfiguration} from './index';
+import {DeviceConfigurationImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createDeviceConfigurationFromDiscriminatorValue(parseNode: ParseNode | undefined) : DeviceConfiguration {
+export function createDeviceConfigurationFromDiscriminatorValue(parseNode: ParseNode | undefined) : DeviceConfigurationImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
     const mappingValueNode = parseNode.getChildNode("@odata.type");
     if (mappingValueNode) {
@@ -9,9 +9,9 @@ export function createDeviceConfigurationFromDiscriminatorValue(parseNode: Parse
         if (mappingValue) {
             switch (mappingValue) {
                 case "#microsoft.graph.deviceConfiguration":
-                    return new DeviceConfiguration();
+                    return new DeviceConfigurationImpl();
             }
         }
     }
-    return new DeviceConfiguration();
+    return new DeviceConfigurationImpl();
 }

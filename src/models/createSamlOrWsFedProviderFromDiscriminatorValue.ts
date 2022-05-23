@@ -1,7 +1,7 @@
-import {SamlOrWsFedProvider} from './index';
+import {SamlOrWsFedProviderImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createSamlOrWsFedProviderFromDiscriminatorValue(parseNode: ParseNode | undefined) : SamlOrWsFedProvider {
+export function createSamlOrWsFedProviderFromDiscriminatorValue(parseNode: ParseNode | undefined) : SamlOrWsFedProviderImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
     const mappingValueNode = parseNode.getChildNode("@odata.type");
     if (mappingValueNode) {
@@ -9,9 +9,9 @@ export function createSamlOrWsFedProviderFromDiscriminatorValue(parseNode: Parse
         if (mappingValue) {
             switch (mappingValue) {
                 case "#microsoft.graph.samlOrWsFedProvider":
-                    return new SamlOrWsFedProvider();
+                    return new SamlOrWsFedProviderImpl();
             }
         }
     }
-    return new SamlOrWsFedProvider();
+    return new SamlOrWsFedProviderImpl();
 }

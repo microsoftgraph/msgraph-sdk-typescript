@@ -1,7 +1,7 @@
-import {ManagedApp} from './index';
+import {ManagedAppImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createManagedAppFromDiscriminatorValue(parseNode: ParseNode | undefined) : ManagedApp {
+export function createManagedAppFromDiscriminatorValue(parseNode: ParseNode | undefined) : ManagedAppImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
     const mappingValueNode = parseNode.getChildNode("@odata.type");
     if (mappingValueNode) {
@@ -9,9 +9,9 @@ export function createManagedAppFromDiscriminatorValue(parseNode: ParseNode | un
         if (mappingValue) {
             switch (mappingValue) {
                 case "#microsoft.graph.managedApp":
-                    return new ManagedApp();
+                    return new ManagedAppImpl();
             }
         }
     }
-    return new ManagedApp();
+    return new ManagedAppImpl();
 }

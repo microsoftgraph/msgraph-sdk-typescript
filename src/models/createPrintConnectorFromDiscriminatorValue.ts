@@ -1,7 +1,7 @@
-import {PrintConnector} from './index';
+import {PrintConnectorImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createPrintConnectorFromDiscriminatorValue(parseNode: ParseNode | undefined) : PrintConnector {
+export function createPrintConnectorFromDiscriminatorValue(parseNode: ParseNode | undefined) : PrintConnectorImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new PrintConnector();
+    return new PrintConnectorImpl();
 }

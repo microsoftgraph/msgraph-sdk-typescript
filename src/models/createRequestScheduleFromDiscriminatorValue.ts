@@ -1,7 +1,7 @@
-import {RequestSchedule} from './index';
+import {RequestScheduleImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createRequestScheduleFromDiscriminatorValue(parseNode: ParseNode | undefined) : RequestSchedule {
+export function createRequestScheduleFromDiscriminatorValue(parseNode: ParseNode | undefined) : RequestScheduleImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new RequestSchedule();
+    return new RequestScheduleImpl();
 }

@@ -1,6 +1,7 @@
-import {Chat} from '../../../models/';
+import {ChatImpl} from '../../../models/';
+import {Chat} from '../../../models/chat';
 import {createChatFromDiscriminatorValue} from '../../../models/createChatFromDiscriminatorValue';
-import {ODataError} from '../../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {ChatItemRequestBuilderDeleteRequestConfiguration} from './chatItemRequestBuilderDeleteRequestConfiguration';
 import {ChatItemRequestBuilderGetRequestConfiguration} from './chatItemRequestBuilderGetRequestConfiguration';
@@ -101,7 +102,8 @@ export class ChatItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new ChatImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -125,7 +127,7 @@ export class ChatItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Chat
      */
-    public get(requestConfiguration?: ChatItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Chat | undefined> {
+    public get(requestConfiguration?: ChatItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ChatImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -133,10 +135,10 @@ export class ChatItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<Chat>(requestInfo, createChatFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<ChatImpl>(requestInfo, createChatFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.me.chats.item.installedApps.item collection
+     * Gets an item from the MicrosoftGraph.me.chats.item.installedApps.item collection
      * @param id Unique identifier of the item
      * @returns a teamsAppInstallationItemRequestBuilder
      */
@@ -147,7 +149,7 @@ export class ChatItemRequestBuilder {
         return new TeamsAppInstallationItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.me.chats.item.members.item collection
+     * Gets an item from the MicrosoftGraph.me.chats.item.members.item collection
      * @param id Unique identifier of the item
      * @returns a conversationMemberItemRequestBuilder
      */
@@ -158,7 +160,7 @@ export class ChatItemRequestBuilder {
         return new ConversationMemberItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.me.chats.item.messages.item collection
+     * Gets an item from the MicrosoftGraph.me.chats.item.messages.item collection
      * @param id Unique identifier of the item
      * @returns a chatMessageItemRequestBuilder
      */
@@ -186,7 +188,7 @@ export class ChatItemRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.me.chats.item.tabs.item collection
+     * Gets an item from the MicrosoftGraph.me.chats.item.tabs.item collection
      * @param id Unique identifier of the item
      * @returns a teamsTabItemRequestBuilder
      */

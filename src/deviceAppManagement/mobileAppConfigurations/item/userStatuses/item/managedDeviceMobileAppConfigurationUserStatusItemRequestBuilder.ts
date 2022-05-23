@@ -1,6 +1,7 @@
-import {ManagedDeviceMobileAppConfigurationUserStatus} from '../../../../../models/';
+import {ManagedDeviceMobileAppConfigurationUserStatusImpl} from '../../../../../models/';
 import {createManagedDeviceMobileAppConfigurationUserStatusFromDiscriminatorValue} from '../../../../../models/createManagedDeviceMobileAppConfigurationUserStatusFromDiscriminatorValue';
-import {ODataError} from '../../../../../models/oDataErrors/';
+import {ManagedDeviceMobileAppConfigurationUserStatus} from '../../../../../models/managedDeviceMobileAppConfigurationUserStatus';
+import {ODataErrorImpl} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {ManagedDeviceMobileAppConfigurationUserStatusItemRequestBuilderDeleteRequestConfiguration} from './managedDeviceMobileAppConfigurationUserStatusItemRequestBuilderDeleteRequestConfiguration';
 import {ManagedDeviceMobileAppConfigurationUserStatusItemRequestBuilderGetRequestConfiguration} from './managedDeviceMobileAppConfigurationUserStatusItemRequestBuilderGetRequestConfiguration';
@@ -77,7 +78,8 @@ export class ManagedDeviceMobileAppConfigurationUserStatusItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new ManagedDeviceMobileAppConfigurationUserStatusImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -101,7 +103,7 @@ export class ManagedDeviceMobileAppConfigurationUserStatusItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ManagedDeviceMobileAppConfigurationUserStatus
      */
-    public get(requestConfiguration?: ManagedDeviceMobileAppConfigurationUserStatusItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ManagedDeviceMobileAppConfigurationUserStatus | undefined> {
+    public get(requestConfiguration?: ManagedDeviceMobileAppConfigurationUserStatusItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ManagedDeviceMobileAppConfigurationUserStatusImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -109,7 +111,7 @@ export class ManagedDeviceMobileAppConfigurationUserStatusItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<ManagedDeviceMobileAppConfigurationUserStatus>(requestInfo, createManagedDeviceMobileAppConfigurationUserStatusFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<ManagedDeviceMobileAppConfigurationUserStatusImpl>(requestInfo, createManagedDeviceMobileAppConfigurationUserStatusFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update the navigation property userStatuses in deviceAppManagement

@@ -1,6 +1,7 @@
-import {ManagedMobileApp} from '../../../../../models/';
+import {ManagedMobileAppImpl} from '../../../../../models/';
 import {createManagedMobileAppFromDiscriminatorValue} from '../../../../../models/createManagedMobileAppFromDiscriminatorValue';
-import {ODataError} from '../../../../../models/oDataErrors/';
+import {ManagedMobileApp} from '../../../../../models/managedMobileApp';
+import {ODataErrorImpl} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {ManagedMobileAppItemRequestBuilderDeleteRequestConfiguration} from './managedMobileAppItemRequestBuilderDeleteRequestConfiguration';
 import {ManagedMobileAppItemRequestBuilderGetRequestConfiguration} from './managedMobileAppItemRequestBuilderGetRequestConfiguration';
@@ -77,7 +78,8 @@ export class ManagedMobileAppItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new ManagedMobileAppImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -101,7 +103,7 @@ export class ManagedMobileAppItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ManagedMobileApp
      */
-    public get(requestConfiguration?: ManagedMobileAppItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ManagedMobileApp | undefined> {
+    public get(requestConfiguration?: ManagedMobileAppItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ManagedMobileAppImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -109,7 +111,7 @@ export class ManagedMobileAppItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<ManagedMobileApp>(requestInfo, createManagedMobileAppFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<ManagedMobileAppImpl>(requestInfo, createManagedMobileAppFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update the navigation property apps in deviceAppManagement

@@ -1,7 +1,7 @@
-import {ShiftPreferences} from './index';
+import {ShiftPreferencesImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createShiftPreferencesFromDiscriminatorValue(parseNode: ParseNode | undefined) : ShiftPreferences {
+export function createShiftPreferencesFromDiscriminatorValue(parseNode: ParseNode | undefined) : ShiftPreferencesImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new ShiftPreferences();
+    return new ShiftPreferencesImpl();
 }

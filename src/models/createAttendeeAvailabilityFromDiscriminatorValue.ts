@@ -1,7 +1,7 @@
-import {AttendeeAvailability} from './index';
+import {AttendeeAvailabilityImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createAttendeeAvailabilityFromDiscriminatorValue(parseNode: ParseNode | undefined) : AttendeeAvailability {
+export function createAttendeeAvailabilityFromDiscriminatorValue(parseNode: ParseNode | undefined) : AttendeeAvailabilityImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new AttendeeAvailability();
+    return new AttendeeAvailabilityImpl();
 }

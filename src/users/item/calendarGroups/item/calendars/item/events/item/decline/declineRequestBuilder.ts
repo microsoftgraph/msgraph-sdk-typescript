@@ -1,5 +1,6 @@
+import {DeclinePostRequestBody} from './declinePostRequestBody';
 import {DeclineRequestBuilderPostRequestConfiguration} from './declineRequestBuilderPostRequestConfiguration';
-import {DeclinePostRequestBody} from './index';
+import {DeclinePostRequestBodyImpl} from './index';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the decline method. */
@@ -39,7 +40,8 @@ export class DeclineRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new DeclinePostRequestBodyImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**

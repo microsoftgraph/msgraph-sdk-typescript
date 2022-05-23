@@ -1,7 +1,7 @@
-import {FreeBusyError} from './index';
+import {FreeBusyErrorImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createFreeBusyErrorFromDiscriminatorValue(parseNode: ParseNode | undefined) : FreeBusyError {
+export function createFreeBusyErrorFromDiscriminatorValue(parseNode: ParseNode | undefined) : FreeBusyErrorImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new FreeBusyError();
+    return new FreeBusyErrorImpl();
 }

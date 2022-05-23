@@ -1,7 +1,7 @@
-import {AlertDetection} from './index';
+import {AlertDetectionImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createAlertDetectionFromDiscriminatorValue(parseNode: ParseNode | undefined) : AlertDetection {
+export function createAlertDetectionFromDiscriminatorValue(parseNode: ParseNode | undefined) : AlertDetectionImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new AlertDetection();
+    return new AlertDetectionImpl();
 }

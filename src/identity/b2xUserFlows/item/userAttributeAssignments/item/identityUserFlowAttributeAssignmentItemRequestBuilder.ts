@@ -1,6 +1,7 @@
-import {IdentityUserFlowAttributeAssignment} from '../../../../../models/';
+import {IdentityUserFlowAttributeAssignmentImpl} from '../../../../../models/';
 import {createIdentityUserFlowAttributeAssignmentFromDiscriminatorValue} from '../../../../../models/createIdentityUserFlowAttributeAssignmentFromDiscriminatorValue';
-import {ODataError} from '../../../../../models/oDataErrors/';
+import {IdentityUserFlowAttributeAssignment} from '../../../../../models/identityUserFlowAttributeAssignment';
+import {ODataErrorImpl} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {IdentityUserFlowAttributeAssignmentItemRequestBuilderDeleteRequestConfiguration} from './identityUserFlowAttributeAssignmentItemRequestBuilderDeleteRequestConfiguration';
 import {IdentityUserFlowAttributeAssignmentItemRequestBuilderGetRequestConfiguration} from './identityUserFlowAttributeAssignmentItemRequestBuilderGetRequestConfiguration';
@@ -82,7 +83,8 @@ export class IdentityUserFlowAttributeAssignmentItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new IdentityUserFlowAttributeAssignmentImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -106,7 +108,7 @@ export class IdentityUserFlowAttributeAssignmentItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of IdentityUserFlowAttributeAssignment
      */
-    public get(requestConfiguration?: IdentityUserFlowAttributeAssignmentItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<IdentityUserFlowAttributeAssignment | undefined> {
+    public get(requestConfiguration?: IdentityUserFlowAttributeAssignmentItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<IdentityUserFlowAttributeAssignmentImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -114,7 +116,7 @@ export class IdentityUserFlowAttributeAssignmentItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<IdentityUserFlowAttributeAssignment>(requestInfo, createIdentityUserFlowAttributeAssignmentFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<IdentityUserFlowAttributeAssignmentImpl>(requestInfo, createIdentityUserFlowAttributeAssignmentFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update the navigation property userAttributeAssignments in identity

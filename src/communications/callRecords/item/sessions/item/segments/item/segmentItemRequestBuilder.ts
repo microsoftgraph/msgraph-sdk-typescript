@@ -1,6 +1,7 @@
-import {Segment} from '../../../../../../../models/callRecords/';
+import {SegmentImpl} from '../../../../../../../models/callRecords/';
 import {createSegmentFromDiscriminatorValue} from '../../../../../../../models/callRecords/createSegmentFromDiscriminatorValue';
-import {ODataError} from '../../../../../../../models/oDataErrors/';
+import {Segment} from '../../../../../../../models/callRecords/segment';
+import {ODataErrorImpl} from '../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {SegmentItemRequestBuilderDeleteRequestConfiguration} from './segmentItemRequestBuilderDeleteRequestConfiguration';
 import {SegmentItemRequestBuilderGetRequestConfiguration} from './segmentItemRequestBuilderGetRequestConfiguration';
@@ -77,7 +78,8 @@ export class SegmentItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new SegmentImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -101,7 +103,7 @@ export class SegmentItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Segment
      */
-    public get(requestConfiguration?: SegmentItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Segment | undefined> {
+    public get(requestConfiguration?: SegmentItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<SegmentImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -109,7 +111,7 @@ export class SegmentItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<Segment>(requestInfo, createSegmentFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<SegmentImpl>(requestInfo, createSegmentFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update the navigation property segments in communications

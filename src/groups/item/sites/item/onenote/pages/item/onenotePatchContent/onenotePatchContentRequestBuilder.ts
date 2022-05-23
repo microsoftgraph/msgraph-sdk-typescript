@@ -1,4 +1,5 @@
-import {OnenotePatchContentPostRequestBody} from './index';
+import {OnenotePatchContentPostRequestBodyImpl} from './index';
+import {OnenotePatchContentPostRequestBody} from './onenotePatchContentPostRequestBody';
 import {OnenotePatchContentRequestBuilderPostRequestConfiguration} from './onenotePatchContentRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
@@ -39,7 +40,8 @@ export class OnenotePatchContentRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new OnenotePatchContentPostRequestBodyImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**

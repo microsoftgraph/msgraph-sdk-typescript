@@ -1,7 +1,8 @@
-import {OnenoteResource} from '../../../../models/';
+import {OnenoteResourceImpl} from '../../../../models/';
 import {createOnenoteResourceFromDiscriminatorValue} from '../../../../models/createOnenoteResourceFromDiscriminatorValue';
-import {ODataError} from '../../../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {OnenoteResource} from '../../../../models/onenoteResource';
 import {ContentRequestBuilder} from './content/contentRequestBuilder';
 import {OnenoteResourceItemRequestBuilderDeleteRequestConfiguration} from './onenoteResourceItemRequestBuilderDeleteRequestConfiguration';
 import {OnenoteResourceItemRequestBuilderGetRequestConfiguration} from './onenoteResourceItemRequestBuilderGetRequestConfiguration';
@@ -82,7 +83,8 @@ export class OnenoteResourceItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new OnenoteResourceImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -106,7 +108,7 @@ export class OnenoteResourceItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of OnenoteResource
      */
-    public get(requestConfiguration?: OnenoteResourceItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<OnenoteResource | undefined> {
+    public get(requestConfiguration?: OnenoteResourceItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<OnenoteResourceImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -114,7 +116,7 @@ export class OnenoteResourceItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<OnenoteResource>(requestInfo, createOnenoteResourceFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<OnenoteResourceImpl>(requestInfo, createOnenoteResourceFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update the navigation property resources in me

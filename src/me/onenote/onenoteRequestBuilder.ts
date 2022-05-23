@@ -1,7 +1,8 @@
-import {Onenote} from '../../models/';
+import {OnenoteImpl} from '../../models/';
 import {createOnenoteFromDiscriminatorValue} from '../../models/createOnenoteFromDiscriminatorValue';
-import {ODataError} from '../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {Onenote} from '../../models/onenote';
 import {NotebookItemRequestBuilder} from './notebooks/item/notebookItemRequestBuilder';
 import {NotebooksRequestBuilder} from './notebooks/notebooksRequestBuilder';
 import {OnenoteRequestBuilderDeleteRequestConfiguration} from './onenoteRequestBuilderDeleteRequestConfiguration';
@@ -113,7 +114,8 @@ export class OnenoteRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new OnenoteImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -137,7 +139,7 @@ export class OnenoteRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Onenote
      */
-    public get(requestConfiguration?: OnenoteRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Onenote | undefined> {
+    public get(requestConfiguration?: OnenoteRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<OnenoteImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -145,10 +147,10 @@ export class OnenoteRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<Onenote>(requestInfo, createOnenoteFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<OnenoteImpl>(requestInfo, createOnenoteFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.me.onenote.notebooks.item collection
+     * Gets an item from the MicrosoftGraph.me.onenote.notebooks.item collection
      * @param id Unique identifier of the item
      * @returns a notebookItemRequestBuilder
      */
@@ -159,7 +161,7 @@ export class OnenoteRequestBuilder {
         return new NotebookItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.me.onenote.operations.item collection
+     * Gets an item from the MicrosoftGraph.me.onenote.operations.item collection
      * @param id Unique identifier of the item
      * @returns a onenoteOperationItemRequestBuilder
      */
@@ -170,7 +172,7 @@ export class OnenoteRequestBuilder {
         return new OnenoteOperationItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.me.onenote.pages.item collection
+     * Gets an item from the MicrosoftGraph.me.onenote.pages.item collection
      * @param id Unique identifier of the item
      * @returns a onenotePageItemRequestBuilder
      */
@@ -198,7 +200,7 @@ export class OnenoteRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.me.onenote.resources.item collection
+     * Gets an item from the MicrosoftGraph.me.onenote.resources.item collection
      * @param id Unique identifier of the item
      * @returns a onenoteResourceItemRequestBuilder
      */
@@ -209,7 +211,7 @@ export class OnenoteRequestBuilder {
         return new OnenoteResourceItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.me.onenote.sectionGroups.item collection
+     * Gets an item from the MicrosoftGraph.me.onenote.sectionGroups.item collection
      * @param id Unique identifier of the item
      * @returns a sectionGroupItemRequestBuilder
      */
@@ -220,7 +222,7 @@ export class OnenoteRequestBuilder {
         return new SectionGroupItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.me.onenote.sections.item collection
+     * Gets an item from the MicrosoftGraph.me.onenote.sections.item collection
      * @param id Unique identifier of the item
      * @returns a onenoteSectionItemRequestBuilder
      */

@@ -1,7 +1,7 @@
-import {ChatMessageHostedContentCollectionResponse} from './index';
+import {ChatMessageHostedContentCollectionResponseImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createChatMessageHostedContentCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ChatMessageHostedContentCollectionResponse {
+export function createChatMessageHostedContentCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ChatMessageHostedContentCollectionResponseImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new ChatMessageHostedContentCollectionResponse();
+    return new ChatMessageHostedContentCollectionResponseImpl();
 }

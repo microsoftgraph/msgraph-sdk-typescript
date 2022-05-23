@@ -1,7 +1,8 @@
-import {OnenoteOperation} from '../../../../../models/';
+import {OnenoteOperationImpl} from '../../../../../models/';
 import {createOnenoteOperationFromDiscriminatorValue} from '../../../../../models/createOnenoteOperationFromDiscriminatorValue';
-import {ODataError} from '../../../../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {OnenoteOperation} from '../../../../../models/onenoteOperation';
 import {OnenoteOperationItemRequestBuilderDeleteRequestConfiguration} from './onenoteOperationItemRequestBuilderDeleteRequestConfiguration';
 import {OnenoteOperationItemRequestBuilderGetRequestConfiguration} from './onenoteOperationItemRequestBuilderGetRequestConfiguration';
 import {OnenoteOperationItemRequestBuilderPatchRequestConfiguration} from './onenoteOperationItemRequestBuilderPatchRequestConfiguration';
@@ -77,7 +78,8 @@ export class OnenoteOperationItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new OnenoteOperationImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -101,7 +103,7 @@ export class OnenoteOperationItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of OnenoteOperation
      */
-    public get(requestConfiguration?: OnenoteOperationItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<OnenoteOperation | undefined> {
+    public get(requestConfiguration?: OnenoteOperationItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<OnenoteOperationImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -109,7 +111,7 @@ export class OnenoteOperationItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<OnenoteOperation>(requestInfo, createOnenoteOperationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<OnenoteOperationImpl>(requestInfo, createOnenoteOperationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update the navigation property operations in groups

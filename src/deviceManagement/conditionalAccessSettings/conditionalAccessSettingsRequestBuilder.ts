@@ -1,7 +1,8 @@
-import {OnPremisesConditionalAccessSettings} from '../../models/';
+import {OnPremisesConditionalAccessSettingsImpl} from '../../models/';
 import {createOnPremisesConditionalAccessSettingsFromDiscriminatorValue} from '../../models/createOnPremisesConditionalAccessSettingsFromDiscriminatorValue';
-import {ODataError} from '../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {OnPremisesConditionalAccessSettings} from '../../models/onPremisesConditionalAccessSettings';
 import {ConditionalAccessSettingsRequestBuilderDeleteRequestConfiguration} from './conditionalAccessSettingsRequestBuilderDeleteRequestConfiguration';
 import {ConditionalAccessSettingsRequestBuilderGetRequestConfiguration} from './conditionalAccessSettingsRequestBuilderGetRequestConfiguration';
 import {ConditionalAccessSettingsRequestBuilderPatchRequestConfiguration} from './conditionalAccessSettingsRequestBuilderPatchRequestConfiguration';
@@ -77,7 +78,8 @@ export class ConditionalAccessSettingsRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new OnPremisesConditionalAccessSettingsImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -101,7 +103,7 @@ export class ConditionalAccessSettingsRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of OnPremisesConditionalAccessSettings
      */
-    public get(requestConfiguration?: ConditionalAccessSettingsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<OnPremisesConditionalAccessSettings | undefined> {
+    public get(requestConfiguration?: ConditionalAccessSettingsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<OnPremisesConditionalAccessSettingsImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -109,7 +111,7 @@ export class ConditionalAccessSettingsRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<OnPremisesConditionalAccessSettings>(requestInfo, createOnPremisesConditionalAccessSettingsFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<OnPremisesConditionalAccessSettingsImpl>(requestInfo, createOnPremisesConditionalAccessSettingsFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update the navigation property conditionalAccessSettings in deviceManagement

@@ -1,5 +1,6 @@
+import {AcceptPostRequestBody} from './acceptPostRequestBody';
 import {AcceptRequestBuilderPostRequestConfiguration} from './acceptRequestBuilderPostRequestConfiguration';
-import {AcceptPostRequestBody} from './index';
+import {AcceptPostRequestBodyImpl} from './index';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the accept method. */
@@ -39,7 +40,8 @@ export class AcceptRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new AcceptPostRequestBodyImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**

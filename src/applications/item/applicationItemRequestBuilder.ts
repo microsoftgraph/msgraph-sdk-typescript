@@ -1,6 +1,7 @@
-import {Application} from '../../models/';
+import {ApplicationImpl} from '../../models/';
+import {Application} from '../../models/application';
 import {createApplicationFromDiscriminatorValue} from '../../models/createApplicationFromDiscriminatorValue';
-import {ODataError} from '../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {AddKeyRequestBuilder} from './addKey/addKeyRequestBuilder';
 import {AddPasswordRequestBuilder} from './addPassword/addPasswordRequestBuilder';
@@ -172,7 +173,8 @@ export class ApplicationItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new ApplicationImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -191,7 +193,7 @@ export class ApplicationItemRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.applications.item.extensionProperties.item collection
+     * Gets an item from the MicrosoftGraph.applications.item.extensionProperties.item collection
      * @param id Unique identifier of the item
      * @returns a extensionPropertyItemRequestBuilder
      */
@@ -207,7 +209,7 @@ export class ApplicationItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Application
      */
-    public get(requestConfiguration?: ApplicationItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Application | undefined> {
+    public get(requestConfiguration?: ApplicationItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ApplicationImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -215,10 +217,10 @@ export class ApplicationItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<Application>(requestInfo, createApplicationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<ApplicationImpl>(requestInfo, createApplicationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.applications.item.homeRealmDiscoveryPolicies.item collection
+     * Gets an item from the MicrosoftGraph.applications.item.homeRealmDiscoveryPolicies.item collection
      * @param id Unique identifier of the item
      * @returns a homeRealmDiscoveryPolicyItemRequestBuilder
      */
@@ -229,7 +231,7 @@ export class ApplicationItemRequestBuilder {
         return new HomeRealmDiscoveryPolicyItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.applications.item.owners.item collection
+     * Gets an item from the MicrosoftGraph.applications.item.owners.item collection
      * @param id Unique identifier of the item
      * @returns a directoryObjectItemRequestBuilder
      */
@@ -257,7 +259,7 @@ export class ApplicationItemRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.applications.item.tokenIssuancePolicies.item collection
+     * Gets an item from the MicrosoftGraph.applications.item.tokenIssuancePolicies.item collection
      * @param id Unique identifier of the item
      * @returns a tokenIssuancePolicyItemRequestBuilder
      */
@@ -268,7 +270,7 @@ export class ApplicationItemRequestBuilder {
         return new TokenIssuancePolicyItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.applications.item.tokenLifetimePolicies.item collection
+     * Gets an item from the MicrosoftGraph.applications.item.tokenLifetimePolicies.item collection
      * @param id Unique identifier of the item
      * @returns a tokenLifetimePolicyItemRequestBuilder
      */

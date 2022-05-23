@@ -1,7 +1,8 @@
-import {TokenIssuancePolicy} from '../../../models/';
+import {TokenIssuancePolicyImpl} from '../../../models/';
 import {createTokenIssuancePolicyFromDiscriminatorValue} from '../../../models/createTokenIssuancePolicyFromDiscriminatorValue';
-import {ODataError} from '../../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {TokenIssuancePolicy} from '../../../models/tokenIssuancePolicy';
 import {TokenIssuancePolicyItemRequestBuilderDeleteRequestConfiguration} from './tokenIssuancePolicyItemRequestBuilderDeleteRequestConfiguration';
 import {TokenIssuancePolicyItemRequestBuilderGetRequestConfiguration} from './tokenIssuancePolicyItemRequestBuilderGetRequestConfiguration';
 import {TokenIssuancePolicyItemRequestBuilderPatchRequestConfiguration} from './tokenIssuancePolicyItemRequestBuilderPatchRequestConfiguration';
@@ -77,7 +78,8 @@ export class TokenIssuancePolicyItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new TokenIssuancePolicyImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -101,7 +103,7 @@ export class TokenIssuancePolicyItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of TokenIssuancePolicy
      */
-    public get(requestConfiguration?: TokenIssuancePolicyItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<TokenIssuancePolicy | undefined> {
+    public get(requestConfiguration?: TokenIssuancePolicyItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<TokenIssuancePolicyImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -109,7 +111,7 @@ export class TokenIssuancePolicyItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<TokenIssuancePolicy>(requestInfo, createTokenIssuancePolicyFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<TokenIssuancePolicyImpl>(requestInfo, createTokenIssuancePolicyFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update the navigation property tokenIssuancePolicies in policies

@@ -1,5 +1,6 @@
+import {GetDeviceManagementIntentSettingsReportPostRequestBody} from './getDeviceManagementIntentSettingsReportPostRequestBody';
 import {GetDeviceManagementIntentSettingsReportRequestBuilderPostRequestConfiguration} from './getDeviceManagementIntentSettingsReportRequestBuilderPostRequestConfiguration';
-import {GetDeviceManagementIntentSettingsReportPostRequestBody} from './index';
+import {GetDeviceManagementIntentSettingsReportPostRequestBodyImpl} from './index';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the getDeviceManagementIntentSettingsReport method. */
@@ -39,7 +40,8 @@ export class GetDeviceManagementIntentSettingsReportRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new GetDeviceManagementIntentSettingsReportPostRequestBodyImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**

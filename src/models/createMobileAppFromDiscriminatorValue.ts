@@ -1,7 +1,7 @@
-import {MobileApp} from './index';
+import {MobileAppImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createMobileAppFromDiscriminatorValue(parseNode: ParseNode | undefined) : MobileApp {
+export function createMobileAppFromDiscriminatorValue(parseNode: ParseNode | undefined) : MobileAppImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
     const mappingValueNode = parseNode.getChildNode("@odata.type");
     if (mappingValueNode) {
@@ -9,9 +9,9 @@ export function createMobileAppFromDiscriminatorValue(parseNode: ParseNode | und
         if (mappingValue) {
             switch (mappingValue) {
                 case "#microsoft.graph.mobileApp":
-                    return new MobileApp();
+                    return new MobileAppImpl();
             }
         }
     }
-    return new MobileApp();
+    return new MobileAppImpl();
 }

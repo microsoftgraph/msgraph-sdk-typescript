@@ -1,10 +1,11 @@
-import {UnifiedRoleManagementPolicy} from '../../../models/';
+import {UnifiedRoleManagementPolicyImpl} from '../../../models/';
 import {createUnifiedRoleManagementPolicyFromDiscriminatorValue} from '../../../models/createUnifiedRoleManagementPolicyFromDiscriminatorValue';
-import {ODataError} from '../../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {UnifiedRoleManagementPolicy} from '../../../models/unifiedRoleManagementPolicy';
 import {EffectiveRulesRequestBuilder} from './effectiveRules/effectiveRulesRequestBuilder';
-import {UnifiedRoleManagementPolicyRuleItemRequestBuilder as ia40e5b4dfc4f932f58859b037d6bd550dc1b64cf92d909c5c2bd8f9bb3b976ec} from './effectiveRules/item/unifiedRoleManagementPolicyRuleItemRequestBuilder';
-import {UnifiedRoleManagementPolicyRuleItemRequestBuilder as ib7537d91007c74df50220e8af9edec8645866417b1cf7b5dd57c4d955f8b9521} from './rules/item/unifiedRoleManagementPolicyRuleItemRequestBuilder';
+import {UnifiedRoleManagementPolicyRuleItemRequestBuilder as ia903ab73bbb020238a677619a7cd9f549acabe28c93f299fe5dfcbed6c61ca54} from './effectiveRules/item/unifiedRoleManagementPolicyRuleItemRequestBuilder';
+import {UnifiedRoleManagementPolicyRuleItemRequestBuilder as i596d7869117d1be6d9b9de4f9cbb8dfb117db4762c7189856165170e7c929fb4} from './rules/item/unifiedRoleManagementPolicyRuleItemRequestBuilder';
 import {RulesRequestBuilder} from './rules/rulesRequestBuilder';
 import {UnifiedRoleManagementPolicyItemRequestBuilderDeleteRequestConfiguration} from './unifiedRoleManagementPolicyItemRequestBuilderDeleteRequestConfiguration';
 import {UnifiedRoleManagementPolicyItemRequestBuilderGetRequestConfiguration} from './unifiedRoleManagementPolicyItemRequestBuilderGetRequestConfiguration';
@@ -89,7 +90,8 @@ export class UnifiedRoleManagementPolicyItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new UnifiedRoleManagementPolicyImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -108,15 +110,15 @@ export class UnifiedRoleManagementPolicyItemRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.policies.roleManagementPolicies.item.effectiveRules.item collection
+     * Gets an item from the MicrosoftGraph.policies.roleManagementPolicies.item.effectiveRules.item collection
      * @param id Unique identifier of the item
      * @returns a unifiedRoleManagementPolicyRuleItemRequestBuilder
      */
-    public effectiveRulesById(id: string) : ia40e5b4dfc4f932f58859b037d6bd550dc1b64cf92d909c5c2bd8f9bb3b976ec {
+    public effectiveRulesById(id: string) : ia903ab73bbb020238a677619a7cd9f549acabe28c93f299fe5dfcbed6c61ca54 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["unifiedRoleManagementPolicyRule%2Did"] = id
-        return new ia40e5b4dfc4f932f58859b037d6bd550dc1b64cf92d909c5c2bd8f9bb3b976ec(urlTplParams, this.requestAdapter);
+        return new ia903ab73bbb020238a677619a7cd9f549acabe28c93f299fe5dfcbed6c61ca54(urlTplParams, this.requestAdapter);
     };
     /**
      * Represents the role management policies.
@@ -124,7 +126,7 @@ export class UnifiedRoleManagementPolicyItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of UnifiedRoleManagementPolicy
      */
-    public get(requestConfiguration?: UnifiedRoleManagementPolicyItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<UnifiedRoleManagementPolicy | undefined> {
+    public get(requestConfiguration?: UnifiedRoleManagementPolicyItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<UnifiedRoleManagementPolicyImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -132,7 +134,7 @@ export class UnifiedRoleManagementPolicyItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<UnifiedRoleManagementPolicy>(requestInfo, createUnifiedRoleManagementPolicyFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<UnifiedRoleManagementPolicyImpl>(requestInfo, createUnifiedRoleManagementPolicyFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update the navigation property roleManagementPolicies in policies
@@ -152,14 +154,14 @@ export class UnifiedRoleManagementPolicyItemRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.policies.roleManagementPolicies.item.rules.item collection
+     * Gets an item from the MicrosoftGraph.policies.roleManagementPolicies.item.rules.item collection
      * @param id Unique identifier of the item
      * @returns a unifiedRoleManagementPolicyRuleItemRequestBuilder
      */
-    public rulesById(id: string) : ib7537d91007c74df50220e8af9edec8645866417b1cf7b5dd57c4d955f8b9521 {
+    public rulesById(id: string) : i596d7869117d1be6d9b9de4f9cbb8dfb117db4762c7189856165170e7c929fb4 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["unifiedRoleManagementPolicyRule%2Did"] = id
-        return new ib7537d91007c74df50220e8af9edec8645866417b1cf7b5dd57c4d955f8b9521(urlTplParams, this.requestAdapter);
+        return new i596d7869117d1be6d9b9de4f9cbb8dfb117db4762c7189856165170e7c929fb4(urlTplParams, this.requestAdapter);
     };
 }

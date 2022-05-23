@@ -1,7 +1,7 @@
-import {ArchiveResponse} from './index';
+import {ArchiveResponseImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createArchiveResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ArchiveResponse {
+export function createArchiveResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ArchiveResponseImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new ArchiveResponse();
+    return new ArchiveResponseImpl();
 }

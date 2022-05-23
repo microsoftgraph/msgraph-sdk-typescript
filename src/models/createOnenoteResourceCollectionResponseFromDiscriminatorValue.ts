@@ -1,7 +1,7 @@
-import {OnenoteResourceCollectionResponse} from './index';
+import {OnenoteResourceCollectionResponseImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createOnenoteResourceCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : OnenoteResourceCollectionResponse {
+export function createOnenoteResourceCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : OnenoteResourceCollectionResponseImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new OnenoteResourceCollectionResponse();
+    return new OnenoteResourceCollectionResponseImpl();
 }

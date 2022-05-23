@@ -1,7 +1,8 @@
-import {WindowsInformationProtectionNetworkLearningSummary} from '../../../models/';
+import {WindowsInformationProtectionNetworkLearningSummaryImpl} from '../../../models/';
 import {createWindowsInformationProtectionNetworkLearningSummaryFromDiscriminatorValue} from '../../../models/createWindowsInformationProtectionNetworkLearningSummaryFromDiscriminatorValue';
-import {ODataError} from '../../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {WindowsInformationProtectionNetworkLearningSummary} from '../../../models/windowsInformationProtectionNetworkLearningSummary';
 import {WindowsInformationProtectionNetworkLearningSummaryItemRequestBuilderDeleteRequestConfiguration} from './windowsInformationProtectionNetworkLearningSummaryItemRequestBuilderDeleteRequestConfiguration';
 import {WindowsInformationProtectionNetworkLearningSummaryItemRequestBuilderGetRequestConfiguration} from './windowsInformationProtectionNetworkLearningSummaryItemRequestBuilderGetRequestConfiguration';
 import {WindowsInformationProtectionNetworkLearningSummaryItemRequestBuilderPatchRequestConfiguration} from './windowsInformationProtectionNetworkLearningSummaryItemRequestBuilderPatchRequestConfiguration';
@@ -77,7 +78,8 @@ export class WindowsInformationProtectionNetworkLearningSummaryItemRequestBuilde
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new WindowsInformationProtectionNetworkLearningSummaryImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -101,7 +103,7 @@ export class WindowsInformationProtectionNetworkLearningSummaryItemRequestBuilde
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of WindowsInformationProtectionNetworkLearningSummary
      */
-    public get(requestConfiguration?: WindowsInformationProtectionNetworkLearningSummaryItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WindowsInformationProtectionNetworkLearningSummary | undefined> {
+    public get(requestConfiguration?: WindowsInformationProtectionNetworkLearningSummaryItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WindowsInformationProtectionNetworkLearningSummaryImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -109,7 +111,7 @@ export class WindowsInformationProtectionNetworkLearningSummaryItemRequestBuilde
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<WindowsInformationProtectionNetworkLearningSummary>(requestInfo, createWindowsInformationProtectionNetworkLearningSummaryFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<WindowsInformationProtectionNetworkLearningSummaryImpl>(requestInfo, createWindowsInformationProtectionNetworkLearningSummaryFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update the navigation property windowsInformationProtectionNetworkLearningSummaries in deviceManagement

@@ -1,6 +1,6 @@
-import {SoftwareUpdateStatusSummary} from '../../models/';
+import {SoftwareUpdateStatusSummaryImpl} from '../../models/';
 import {createSoftwareUpdateStatusSummaryFromDiscriminatorValue} from '../../models/createSoftwareUpdateStatusSummaryFromDiscriminatorValue';
-import {ODataError} from '../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {SoftwareUpdateStatusSummaryRequestBuilderGetRequestConfiguration} from './softwareUpdateStatusSummaryRequestBuilderGetRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
@@ -49,7 +49,7 @@ export class SoftwareUpdateStatusSummaryRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of SoftwareUpdateStatusSummary
      */
-    public get(requestConfiguration?: SoftwareUpdateStatusSummaryRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<SoftwareUpdateStatusSummary | undefined> {
+    public get(requestConfiguration?: SoftwareUpdateStatusSummaryRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<SoftwareUpdateStatusSummaryImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -57,6 +57,6 @@ export class SoftwareUpdateStatusSummaryRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<SoftwareUpdateStatusSummary>(requestInfo, createSoftwareUpdateStatusSummaryFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<SoftwareUpdateStatusSummaryImpl>(requestInfo, createSoftwareUpdateStatusSummaryFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

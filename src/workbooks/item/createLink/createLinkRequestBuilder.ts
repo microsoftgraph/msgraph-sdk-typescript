@@ -1,7 +1,8 @@
-import {Permission} from '../../../models/';
+import {PermissionImpl} from '../../../models/';
 import {createPermissionFromDiscriminatorValue} from '../../../models/createPermissionFromDiscriminatorValue';
+import {CreateLinkPostRequestBody} from './createLinkPostRequestBody';
 import {CreateLinkRequestBuilderPostRequestConfiguration} from './createLinkRequestBuilderPostRequestConfiguration';
-import {CreateLinkPostRequestBody} from './index';
+import {CreateLinkPostRequestBodyImpl} from './index';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the createLink method. */
@@ -41,7 +42,8 @@ export class CreateLinkRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new CreateLinkPostRequestBodyImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -51,11 +53,11 @@ export class CreateLinkRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Permission
      */
-    public post(body: CreateLinkPostRequestBody | undefined, requestConfiguration?: CreateLinkRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Permission | undefined> {
+    public post(body: CreateLinkPostRequestBody | undefined, requestConfiguration?: CreateLinkRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<PermissionImpl | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration
         );
-        return this.requestAdapter?.sendAsync<Permission>(requestInfo, createPermissionFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<PermissionImpl>(requestInfo, createPermissionFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }

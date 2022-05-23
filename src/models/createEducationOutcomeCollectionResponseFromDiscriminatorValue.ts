@@ -1,7 +1,7 @@
-import {EducationOutcomeCollectionResponse} from './index';
+import {EducationOutcomeCollectionResponseImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createEducationOutcomeCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : EducationOutcomeCollectionResponse {
+export function createEducationOutcomeCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : EducationOutcomeCollectionResponseImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new EducationOutcomeCollectionResponse();
+    return new EducationOutcomeCollectionResponseImpl();
 }

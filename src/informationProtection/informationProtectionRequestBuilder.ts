@@ -1,6 +1,7 @@
-import {InformationProtection} from '../models/';
+import {InformationProtectionImpl} from '../models/';
 import {createInformationProtectionFromDiscriminatorValue} from '../models/createInformationProtectionFromDiscriminatorValue';
-import {ODataError} from '../models/oDataErrors/';
+import {InformationProtection} from '../models/informationProtection';
+import {ODataErrorImpl} from '../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {BitlockerRequestBuilder} from './bitlocker/bitlockerRequestBuilder';
 import {InformationProtectionRequestBuilderGetRequestConfiguration} from './informationProtectionRequestBuilderGetRequestConfiguration';
@@ -71,7 +72,8 @@ export class InformationProtectionRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new InformationProtectionImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -80,7 +82,7 @@ export class InformationProtectionRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of InformationProtection
      */
-    public get(requestConfiguration?: InformationProtectionRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<InformationProtection | undefined> {
+    public get(requestConfiguration?: InformationProtectionRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<InformationProtectionImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -88,7 +90,7 @@ export class InformationProtectionRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<InformationProtection>(requestInfo, createInformationProtectionFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<InformationProtectionImpl>(requestInfo, createInformationProtectionFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update informationProtection
@@ -108,7 +110,7 @@ export class InformationProtectionRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.informationProtection.threatAssessmentRequests.item collection
+     * Gets an item from the MicrosoftGraph.informationProtection.threatAssessmentRequests.item collection
      * @param id Unique identifier of the item
      * @returns a threatAssessmentRequestItemRequestBuilder
      */

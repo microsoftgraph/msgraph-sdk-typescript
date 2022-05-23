@@ -1,17 +1,18 @@
-import {Site} from '../../models/';
+import {SiteImpl} from '../../models/';
 import {createSiteFromDiscriminatorValue} from '../../models/createSiteFromDiscriminatorValue';
-import {ODataError} from '../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {Site} from '../../models/site';
 import {AnalyticsRequestBuilder} from './analytics/analyticsRequestBuilder';
 import {ColumnsRequestBuilder} from './columns/columnsRequestBuilder';
-import {ColumnDefinitionItemRequestBuilder as i0651dfe4698a70eee0ef5305cd747a2902cd5762eb79a6bc5dfdd41f40242fb4} from './columns/item/columnDefinitionItemRequestBuilder';
+import {ColumnDefinitionItemRequestBuilder as i9e96a391426d4e53c2e7f6e9128838b07c0c1429de7da4576568f71d5985d839} from './columns/item/columnDefinitionItemRequestBuilder';
 import {ContentTypesRequestBuilder} from './contentTypes/contentTypesRequestBuilder';
 import {ContentTypeItemRequestBuilder} from './contentTypes/item/contentTypeItemRequestBuilder';
 import {DriveRequestBuilder} from './drive/driveRequestBuilder';
 import {DrivesRequestBuilder} from './drives/drivesRequestBuilder';
 import {DriveItemRequestBuilder} from './drives/item/driveItemRequestBuilder';
 import {ExternalColumnsRequestBuilder} from './externalColumns/externalColumnsRequestBuilder';
-import {ColumnDefinitionItemRequestBuilder as i69d9a20ea8706f655d5acd969cb4c0af2751247cd7b152f2ca687eb1181eca8f} from './externalColumns/item/columnDefinitionItemRequestBuilder';
+import {ColumnDefinitionItemRequestBuilder as i5af8c8b4180030ca52bdaf35671f120ba82bee933b95da7d925fcf113d77ce01} from './externalColumns/item/columnDefinitionItemRequestBuilder';
 import {GetActivitiesByIntervalRequestBuilder} from './getActivitiesByInterval/getActivitiesByIntervalRequestBuilder';
 import {GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder} from './getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInterval/getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder';
 import {GetApplicableContentTypesForListWithListIdRequestBuilder} from './getApplicableContentTypesForListWithListId/getApplicableContentTypesForListWithListIdRequestBuilder';
@@ -27,7 +28,7 @@ import {PermissionItemRequestBuilder} from './permissions/item/permissionItemReq
 import {PermissionsRequestBuilder} from './permissions/permissionsRequestBuilder';
 import {SiteItemRequestBuilderGetRequestConfiguration} from './siteItemRequestBuilderGetRequestConfiguration';
 import {SiteItemRequestBuilderPatchRequestConfiguration} from './siteItemRequestBuilderPatchRequestConfiguration';
-import {SiteItemRequestBuilder as if9b6bcaec5c4a15417f50b4b2bb6037ae4fb788e8f7d060e671f01914a2b4f06} from './sites/item/siteItemRequestBuilder';
+import {SiteItemRequestBuilder as ie75d660ac583515f2a50c0ae995ecf2c299e734cd501de4e0047887c6eb6efda} from './sites/item/siteItemRequestBuilder';
 import {SitesRequestBuilder} from './sites/sitesRequestBuilder';
 import {TermStoreRequestBuilder} from './termStore/termStoreRequestBuilder';
 import {StoreItemRequestBuilder} from './termStores/item/storeItemRequestBuilder';
@@ -99,15 +100,15 @@ export class SiteItemRequestBuilder {
     /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.columns.item collection
+     * Gets an item from the MicrosoftGraph.sites.item.columns.item collection
      * @param id Unique identifier of the item
      * @returns a columnDefinitionItemRequestBuilder
      */
-    public columnsById(id: string) : i0651dfe4698a70eee0ef5305cd747a2902cd5762eb79a6bc5dfdd41f40242fb4 {
+    public columnsById(id: string) : i9e96a391426d4e53c2e7f6e9128838b07c0c1429de7da4576568f71d5985d839 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["columnDefinition%2Did"] = id
-        return new i0651dfe4698a70eee0ef5305cd747a2902cd5762eb79a6bc5dfdd41f40242fb4(urlTplParams, this.requestAdapter);
+        return new i9e96a391426d4e53c2e7f6e9128838b07c0c1429de7da4576568f71d5985d839(urlTplParams, this.requestAdapter);
     };
     /**
      * Instantiates a new SiteItemRequestBuilder and sets the default values.
@@ -123,7 +124,7 @@ export class SiteItemRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.contentTypes.item collection
+     * Gets an item from the MicrosoftGraph.sites.item.contentTypes.item collection
      * @param id Unique identifier of the item
      * @returns a contentTypeItemRequestBuilder
      */
@@ -166,11 +167,12 @@ export class SiteItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new SiteImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.drives.item collection
+     * Gets an item from the MicrosoftGraph.sites.item.drives.item collection
      * @param id Unique identifier of the item
      * @returns a driveItemRequestBuilder
      */
@@ -181,15 +183,15 @@ export class SiteItemRequestBuilder {
         return new DriveItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.externalColumns.item collection
+     * Gets an item from the MicrosoftGraph.sites.item.externalColumns.item collection
      * @param id Unique identifier of the item
      * @returns a columnDefinitionItemRequestBuilder
      */
-    public externalColumnsById(id: string) : i69d9a20ea8706f655d5acd969cb4c0af2751247cd7b152f2ca687eb1181eca8f {
+    public externalColumnsById(id: string) : i5af8c8b4180030ca52bdaf35671f120ba82bee933b95da7d925fcf113d77ce01 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["columnDefinition%2Did"] = id
-        return new i69d9a20ea8706f655d5acd969cb4c0af2751247cd7b152f2ca687eb1181eca8f(urlTplParams, this.requestAdapter);
+        return new i5af8c8b4180030ca52bdaf35671f120ba82bee933b95da7d925fcf113d77ce01(urlTplParams, this.requestAdapter);
     };
     /**
      * Retrieve properties and relationships for a [site][] resource.A **site** resource represents a team site in SharePoint.
@@ -197,7 +199,7 @@ export class SiteItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Site
      */
-    public get(requestConfiguration?: SiteItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Site | undefined> {
+    public get(requestConfiguration?: SiteItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<SiteImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -205,7 +207,7 @@ export class SiteItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<Site>(requestInfo, createSiteFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<SiteImpl>(requestInfo, createSiteFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Provides operations to call the getActivitiesByInterval method.
@@ -246,7 +248,7 @@ export class SiteItemRequestBuilder {
         return new GetByPathWithPathRequestBuilder(this.pathParameters, this.requestAdapter, path);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.items.item collection
+     * Gets an item from the MicrosoftGraph.sites.item.items.item collection
      * @param id Unique identifier of the item
      * @returns a baseItemItemRequestBuilder
      */
@@ -257,7 +259,7 @@ export class SiteItemRequestBuilder {
         return new BaseItemItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.lists.item collection
+     * Gets an item from the MicrosoftGraph.sites.item.lists.item collection
      * @param id Unique identifier of the item
      * @returns a listItemRequestBuilder
      */
@@ -268,7 +270,7 @@ export class SiteItemRequestBuilder {
         return new ListItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.operations.item collection
+     * Gets an item from the MicrosoftGraph.sites.item.operations.item collection
      * @param id Unique identifier of the item
      * @returns a richLongRunningOperationItemRequestBuilder
      */
@@ -296,7 +298,7 @@ export class SiteItemRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.permissions.item collection
+     * Gets an item from the MicrosoftGraph.sites.item.permissions.item collection
      * @param id Unique identifier of the item
      * @returns a permissionItemRequestBuilder
      */
@@ -307,18 +309,18 @@ export class SiteItemRequestBuilder {
         return new PermissionItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.sites.item collection
+     * Gets an item from the MicrosoftGraph.sites.item.sites.item collection
      * @param id Unique identifier of the item
      * @returns a siteItemRequestBuilder
      */
-    public sitesById(id: string) : if9b6bcaec5c4a15417f50b4b2bb6037ae4fb788e8f7d060e671f01914a2b4f06 {
+    public sitesById(id: string) : ie75d660ac583515f2a50c0ae995ecf2c299e734cd501de4e0047887c6eb6efda {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["site%2Did1"] = id
-        return new if9b6bcaec5c4a15417f50b4b2bb6037ae4fb788e8f7d060e671f01914a2b4f06(urlTplParams, this.requestAdapter);
+        return new ie75d660ac583515f2a50c0ae995ecf2c299e734cd501de4e0047887c6eb6efda(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.termStores.item collection
+     * Gets an item from the MicrosoftGraph.sites.item.termStores.item collection
      * @param id Unique identifier of the item
      * @returns a storeItemRequestBuilder
      */

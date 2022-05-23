@@ -1,6 +1,7 @@
+import {AddGroupPostRequestBody} from './addGroupPostRequestBody';
 import {AddGroupRequestBuilderPostRequestConfiguration} from './addGroupRequestBuilderPostRequestConfiguration';
 import {createAddGroupResponseFromDiscriminatorValue} from './createAddGroupResponseFromDiscriminatorValue';
-import {AddGroupPostRequestBody, AddGroupResponse} from './index';
+import {AddGroupPostRequestBodyImpl, AddGroupResponseImpl} from './index';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the addGroup method. */
@@ -40,7 +41,8 @@ export class AddGroupRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new AddGroupPostRequestBodyImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -50,11 +52,11 @@ export class AddGroupRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AddGroupResponse
      */
-    public post(body: AddGroupPostRequestBody | undefined, requestConfiguration?: AddGroupRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AddGroupResponse | undefined> {
+    public post(body: AddGroupPostRequestBody | undefined, requestConfiguration?: AddGroupRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AddGroupResponseImpl | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration
         );
-        return this.requestAdapter?.sendAsync<AddGroupResponse>(requestInfo, createAddGroupResponseFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<AddGroupResponseImpl>(requestInfo, createAddGroupResponseFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }

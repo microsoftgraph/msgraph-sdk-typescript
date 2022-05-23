@@ -1,6 +1,7 @@
-import {Agreement} from '../../../../models/';
+import {AgreementImpl} from '../../../../models/';
+import {Agreement} from '../../../../models/agreement';
 import {createAgreementFromDiscriminatorValue} from '../../../../models/createAgreementFromDiscriminatorValue';
-import {ODataError} from '../../../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {AcceptancesRequestBuilder} from './acceptances/acceptancesRequestBuilder';
 import {AgreementAcceptanceItemRequestBuilder} from './acceptances/item/agreementAcceptanceItemRequestBuilder';
@@ -33,7 +34,7 @@ export class AgreementItemRequestBuilder {
     /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.identityGovernance.termsOfUse.agreements.item.acceptances.item collection
+     * Gets an item from the MicrosoftGraph.identityGovernance.termsOfUse.agreements.item.acceptances.item collection
      * @param id Unique identifier of the item
      * @returns a agreementAcceptanceItemRequestBuilder
      */
@@ -105,7 +106,8 @@ export class AgreementItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new AgreementImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -124,7 +126,7 @@ export class AgreementItemRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.identityGovernance.termsOfUse.agreements.item.files.item collection
+     * Gets an item from the MicrosoftGraph.identityGovernance.termsOfUse.agreements.item.files.item collection
      * @param id Unique identifier of the item
      * @returns a agreementFileLocalizationItemRequestBuilder
      */
@@ -140,7 +142,7 @@ export class AgreementItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Agreement
      */
-    public get(requestConfiguration?: AgreementItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Agreement | undefined> {
+    public get(requestConfiguration?: AgreementItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AgreementImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -148,7 +150,7 @@ export class AgreementItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<Agreement>(requestInfo, createAgreementFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<AgreementImpl>(requestInfo, createAgreementFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update the navigation property agreements in identityGovernance

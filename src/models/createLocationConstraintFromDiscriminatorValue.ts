@@ -1,7 +1,7 @@
-import {LocationConstraint} from './index';
+import {LocationConstraintImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createLocationConstraintFromDiscriminatorValue(parseNode: ParseNode | undefined) : LocationConstraint {
+export function createLocationConstraintFromDiscriminatorValue(parseNode: ParseNode | undefined) : LocationConstraintImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new LocationConstraint();
+    return new LocationConstraintImpl();
 }

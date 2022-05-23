@@ -1,7 +1,8 @@
-import {PolicyRoot} from '../models/';
+import {PolicyRootImpl} from '../models/';
 import {createPolicyRootFromDiscriminatorValue} from '../models/createPolicyRootFromDiscriminatorValue';
-import {ODataError} from '../models/oDataErrors/';
+import {ODataErrorImpl} from '../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {PolicyRoot} from '../models/policyRoot';
 import {ActivityBasedTimeoutPoliciesRequestBuilder} from './activityBasedTimeoutPolicies/activityBasedTimeoutPoliciesRequestBuilder';
 import {ActivityBasedTimeoutPolicyItemRequestBuilder} from './activityBasedTimeoutPolicies/item/activityBasedTimeoutPolicyItemRequestBuilder';
 import {AdminConsentRequestPolicyRequestBuilder} from './adminConsentRequestPolicy/adminConsentRequestPolicyRequestBuilder';
@@ -100,7 +101,7 @@ export class PoliciesRequestBuilder {
     /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.policies.activityBasedTimeoutPolicies.item collection
+     * Gets an item from the MicrosoftGraph.policies.activityBasedTimeoutPolicies.item collection
      * @param id Unique identifier of the item
      * @returns a activityBasedTimeoutPolicyItemRequestBuilder
      */
@@ -111,7 +112,7 @@ export class PoliciesRequestBuilder {
         return new ActivityBasedTimeoutPolicyItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.policies.claimsMappingPolicies.item collection
+     * Gets an item from the MicrosoftGraph.policies.claimsMappingPolicies.item collection
      * @param id Unique identifier of the item
      * @returns a claimsMappingPolicyItemRequestBuilder
      */
@@ -122,7 +123,7 @@ export class PoliciesRequestBuilder {
         return new ClaimsMappingPolicyItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.policies.conditionalAccessPolicies.item collection
+     * Gets an item from the MicrosoftGraph.policies.conditionalAccessPolicies.item collection
      * @param id Unique identifier of the item
      * @returns a conditionalAccessPolicyItemRequestBuilder
      */
@@ -178,11 +179,12 @@ export class PoliciesRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new PolicyRootImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.policies.featureRolloutPolicies.item collection
+     * Gets an item from the MicrosoftGraph.policies.featureRolloutPolicies.item collection
      * @param id Unique identifier of the item
      * @returns a featureRolloutPolicyItemRequestBuilder
      */
@@ -198,7 +200,7 @@ export class PoliciesRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of PolicyRoot
      */
-    public get(requestConfiguration?: PoliciesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<PolicyRoot | undefined> {
+    public get(requestConfiguration?: PoliciesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<PolicyRootImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -206,10 +208,10 @@ export class PoliciesRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<PolicyRoot>(requestInfo, createPolicyRootFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<PolicyRootImpl>(requestInfo, createPolicyRootFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.policies.homeRealmDiscoveryPolicies.item collection
+     * Gets an item from the MicrosoftGraph.policies.homeRealmDiscoveryPolicies.item collection
      * @param id Unique identifier of the item
      * @returns a homeRealmDiscoveryPolicyItemRequestBuilder
      */
@@ -237,7 +239,7 @@ export class PoliciesRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.policies.permissionGrantPolicies.item collection
+     * Gets an item from the MicrosoftGraph.policies.permissionGrantPolicies.item collection
      * @param id Unique identifier of the item
      * @returns a permissionGrantPolicyItemRequestBuilder
      */
@@ -248,7 +250,7 @@ export class PoliciesRequestBuilder {
         return new PermissionGrantPolicyItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.policies.roleManagementPolicies.item collection
+     * Gets an item from the MicrosoftGraph.policies.roleManagementPolicies.item collection
      * @param id Unique identifier of the item
      * @returns a unifiedRoleManagementPolicyItemRequestBuilder
      */
@@ -259,7 +261,7 @@ export class PoliciesRequestBuilder {
         return new UnifiedRoleManagementPolicyItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.policies.roleManagementPolicyAssignments.item collection
+     * Gets an item from the MicrosoftGraph.policies.roleManagementPolicyAssignments.item collection
      * @param id Unique identifier of the item
      * @returns a unifiedRoleManagementPolicyAssignmentItemRequestBuilder
      */
@@ -270,7 +272,7 @@ export class PoliciesRequestBuilder {
         return new UnifiedRoleManagementPolicyAssignmentItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.policies.tokenIssuancePolicies.item collection
+     * Gets an item from the MicrosoftGraph.policies.tokenIssuancePolicies.item collection
      * @param id Unique identifier of the item
      * @returns a tokenIssuancePolicyItemRequestBuilder
      */
@@ -281,7 +283,7 @@ export class PoliciesRequestBuilder {
         return new TokenIssuancePolicyItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.policies.tokenLifetimePolicies.item collection
+     * Gets an item from the MicrosoftGraph.policies.tokenLifetimePolicies.item collection
      * @param id Unique identifier of the item
      * @returns a tokenLifetimePolicyItemRequestBuilder
      */

@@ -1,9 +1,10 @@
-import {ContactFolder} from '../../../../models/';
+import {ContactFolderImpl} from '../../../../models/';
+import {ContactFolder} from '../../../../models/contactFolder';
 import {createContactFolderFromDiscriminatorValue} from '../../../../models/createContactFolderFromDiscriminatorValue';
-import {ODataError} from '../../../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {ChildFoldersRequestBuilder} from './childFolders/childFoldersRequestBuilder';
-import {ContactFolderItemRequestBuilder as i8efd70b37efb9fcde2b76a5db18a3de09c49ceab1cafc59b7e27d6106b5fc438} from './childFolders/item/contactFolderItemRequestBuilder';
+import {ContactFolderItemRequestBuilder as i4800f236e3a33233fe4ad41af0f90fccc2cafcf44c8a2bf9047855e178f0234a} from './childFolders/item/contactFolderItemRequestBuilder';
 import {ContactFolderItemRequestBuilderDeleteRequestConfiguration} from './contactFolderItemRequestBuilderDeleteRequestConfiguration';
 import {ContactFolderItemRequestBuilderGetRequestConfiguration} from './contactFolderItemRequestBuilderGetRequestConfiguration';
 import {ContactFolderItemRequestBuilderPatchRequestConfiguration} from './contactFolderItemRequestBuilderPatchRequestConfiguration';
@@ -40,15 +41,15 @@ export class ContactFolderItemRequestBuilder {
     /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.contactFolders.item.childFolders.item collection
+     * Gets an item from the MicrosoftGraph.users.item.contactFolders.item.childFolders.item collection
      * @param id Unique identifier of the item
      * @returns a contactFolderItemRequestBuilder
      */
-    public childFoldersById(id: string) : i8efd70b37efb9fcde2b76a5db18a3de09c49ceab1cafc59b7e27d6106b5fc438 {
+    public childFoldersById(id: string) : i4800f236e3a33233fe4ad41af0f90fccc2cafcf44c8a2bf9047855e178f0234a {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["contactFolder%2Did1"] = id
-        return new i8efd70b37efb9fcde2b76a5db18a3de09c49ceab1cafc59b7e27d6106b5fc438(urlTplParams, this.requestAdapter);
+        return new i4800f236e3a33233fe4ad41af0f90fccc2cafcf44c8a2bf9047855e178f0234a(urlTplParams, this.requestAdapter);
     };
     /**
      * Instantiates a new ContactFolderItemRequestBuilder and sets the default values.
@@ -64,7 +65,7 @@ export class ContactFolderItemRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.contactFolders.item.contacts.item collection
+     * Gets an item from the MicrosoftGraph.users.item.contactFolders.item.contacts.item collection
      * @param id Unique identifier of the item
      * @returns a contactItemRequestBuilder
      */
@@ -123,7 +124,8 @@ export class ContactFolderItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new ContactFolderImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -147,7 +149,7 @@ export class ContactFolderItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ContactFolder
      */
-    public get(requestConfiguration?: ContactFolderItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ContactFolder | undefined> {
+    public get(requestConfiguration?: ContactFolderItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ContactFolderImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -155,10 +157,10 @@ export class ContactFolderItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<ContactFolder>(requestInfo, createContactFolderFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<ContactFolderImpl>(requestInfo, createContactFolderFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.contactFolders.item.multiValueExtendedProperties.item collection
+     * Gets an item from the MicrosoftGraph.users.item.contactFolders.item.multiValueExtendedProperties.item collection
      * @param id Unique identifier of the item
      * @returns a multiValueLegacyExtendedPropertyItemRequestBuilder
      */
@@ -186,7 +188,7 @@ export class ContactFolderItemRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.contactFolders.item.singleValueExtendedProperties.item collection
+     * Gets an item from the MicrosoftGraph.users.item.contactFolders.item.singleValueExtendedProperties.item collection
      * @param id Unique identifier of the item
      * @returns a singleValueLegacyExtendedPropertyItemRequestBuilder
      */

@@ -1,7 +1,7 @@
-import {Place} from './index';
+import {PlaceImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createPlaceFromDiscriminatorValue(parseNode: ParseNode | undefined) : Place {
+export function createPlaceFromDiscriminatorValue(parseNode: ParseNode | undefined) : PlaceImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
     const mappingValueNode = parseNode.getChildNode("@odata.type");
     if (mappingValueNode) {
@@ -9,9 +9,9 @@ export function createPlaceFromDiscriminatorValue(parseNode: ParseNode | undefin
         if (mappingValue) {
             switch (mappingValue) {
                 case "#microsoft.graph.place":
-                    return new Place();
+                    return new PlaceImpl();
             }
         }
     }
-    return new Place();
+    return new PlaceImpl();
 }

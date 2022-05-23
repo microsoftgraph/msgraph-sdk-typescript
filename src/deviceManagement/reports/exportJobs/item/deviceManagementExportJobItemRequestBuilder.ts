@@ -1,6 +1,7 @@
-import {DeviceManagementExportJob} from '../../../../models/';
+import {DeviceManagementExportJobImpl} from '../../../../models/';
 import {createDeviceManagementExportJobFromDiscriminatorValue} from '../../../../models/createDeviceManagementExportJobFromDiscriminatorValue';
-import {ODataError} from '../../../../models/oDataErrors/';
+import {DeviceManagementExportJob} from '../../../../models/deviceManagementExportJob';
+import {ODataErrorImpl} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {DeviceManagementExportJobItemRequestBuilderDeleteRequestConfiguration} from './deviceManagementExportJobItemRequestBuilderDeleteRequestConfiguration';
 import {DeviceManagementExportJobItemRequestBuilderGetRequestConfiguration} from './deviceManagementExportJobItemRequestBuilderGetRequestConfiguration';
@@ -77,7 +78,8 @@ export class DeviceManagementExportJobItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new DeviceManagementExportJobImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -101,7 +103,7 @@ export class DeviceManagementExportJobItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DeviceManagementExportJob
      */
-    public get(requestConfiguration?: DeviceManagementExportJobItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DeviceManagementExportJob | undefined> {
+    public get(requestConfiguration?: DeviceManagementExportJobItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DeviceManagementExportJobImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -109,7 +111,7 @@ export class DeviceManagementExportJobItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<DeviceManagementExportJob>(requestInfo, createDeviceManagementExportJobFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<DeviceManagementExportJobImpl>(requestInfo, createDeviceManagementExportJobFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update the navigation property exportJobs in deviceManagement

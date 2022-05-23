@@ -1,6 +1,7 @@
-import {DeviceAndAppManagementRoleAssignment} from '../../../models/';
+import {DeviceAndAppManagementRoleAssignmentImpl} from '../../../models/';
 import {createDeviceAndAppManagementRoleAssignmentFromDiscriminatorValue} from '../../../models/createDeviceAndAppManagementRoleAssignmentFromDiscriminatorValue';
-import {ODataError} from '../../../models/oDataErrors/';
+import {DeviceAndAppManagementRoleAssignment} from '../../../models/deviceAndAppManagementRoleAssignment';
+import {ODataErrorImpl} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {DeviceAndAppManagementRoleAssignmentItemRequestBuilderDeleteRequestConfiguration} from './deviceAndAppManagementRoleAssignmentItemRequestBuilderDeleteRequestConfiguration';
 import {DeviceAndAppManagementRoleAssignmentItemRequestBuilderGetRequestConfiguration} from './deviceAndAppManagementRoleAssignmentItemRequestBuilderGetRequestConfiguration';
@@ -77,7 +78,8 @@ export class DeviceAndAppManagementRoleAssignmentItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new DeviceAndAppManagementRoleAssignmentImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -101,7 +103,7 @@ export class DeviceAndAppManagementRoleAssignmentItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DeviceAndAppManagementRoleAssignment
      */
-    public get(requestConfiguration?: DeviceAndAppManagementRoleAssignmentItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DeviceAndAppManagementRoleAssignment | undefined> {
+    public get(requestConfiguration?: DeviceAndAppManagementRoleAssignmentItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DeviceAndAppManagementRoleAssignmentImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -109,7 +111,7 @@ export class DeviceAndAppManagementRoleAssignmentItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<DeviceAndAppManagementRoleAssignment>(requestInfo, createDeviceAndAppManagementRoleAssignmentFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<DeviceAndAppManagementRoleAssignmentImpl>(requestInfo, createDeviceAndAppManagementRoleAssignmentFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update the navigation property roleAssignments in deviceManagement

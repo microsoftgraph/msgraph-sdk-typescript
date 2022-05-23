@@ -1,2 +1,5 @@
+export * from './favoritePostRequestBodyImpl'
+export * from './favoriteResponseImpl'
 export * from './favoriteResponse'
 export * from './favoritePostRequestBody'
+export * from './favoriteRequestBuilderPostRequestConfiguration'

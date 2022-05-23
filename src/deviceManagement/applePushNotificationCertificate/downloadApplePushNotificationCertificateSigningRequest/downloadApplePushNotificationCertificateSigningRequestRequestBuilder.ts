@@ -1,6 +1,6 @@
 import {createDownloadApplePushNotificationCertificateSigningRequestResponseFromDiscriminatorValue} from './createDownloadApplePushNotificationCertificateSigningRequestResponseFromDiscriminatorValue';
 import {DownloadApplePushNotificationCertificateSigningRequestRequestBuilderGetRequestConfiguration} from './downloadApplePushNotificationCertificateSigningRequestRequestBuilderGetRequestConfiguration';
-import {DownloadApplePushNotificationCertificateSigningRequestResponse} from './index';
+import {DownloadApplePushNotificationCertificateSigningRequestResponseImpl} from './index';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the downloadApplePushNotificationCertificateSigningRequest method. */
@@ -46,10 +46,10 @@ export class DownloadApplePushNotificationCertificateSigningRequestRequestBuilde
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DownloadApplePushNotificationCertificateSigningRequestResponse
      */
-    public get(requestConfiguration?: DownloadApplePushNotificationCertificateSigningRequestRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DownloadApplePushNotificationCertificateSigningRequestResponse | undefined> {
+    public get(requestConfiguration?: DownloadApplePushNotificationCertificateSigningRequestRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DownloadApplePushNotificationCertificateSigningRequestResponseImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
-        return this.requestAdapter?.sendAsync<DownloadApplePushNotificationCertificateSigningRequestResponse>(requestInfo, createDownloadApplePushNotificationCertificateSigningRequestResponseFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<DownloadApplePushNotificationCertificateSigningRequestResponseImpl>(requestInfo, createDownloadApplePushNotificationCertificateSigningRequestResponseFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }

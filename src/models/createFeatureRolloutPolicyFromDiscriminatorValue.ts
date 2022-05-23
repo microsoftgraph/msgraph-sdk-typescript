@@ -1,7 +1,7 @@
-import {FeatureRolloutPolicy} from './index';
+import {FeatureRolloutPolicyImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createFeatureRolloutPolicyFromDiscriminatorValue(parseNode: ParseNode | undefined) : FeatureRolloutPolicy {
+export function createFeatureRolloutPolicyFromDiscriminatorValue(parseNode: ParseNode | undefined) : FeatureRolloutPolicyImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new FeatureRolloutPolicy();
+    return new FeatureRolloutPolicyImpl();
 }

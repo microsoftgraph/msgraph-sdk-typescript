@@ -1,7 +1,8 @@
-import {OpenShiftChangeRequest} from '../../../../../../models/';
+import {OpenShiftChangeRequestImpl} from '../../../../../../models/';
 import {createOpenShiftChangeRequestFromDiscriminatorValue} from '../../../../../../models/createOpenShiftChangeRequestFromDiscriminatorValue';
-import {ODataError} from '../../../../../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {OpenShiftChangeRequest} from '../../../../../../models/openShiftChangeRequest';
 import {OpenShiftChangeRequestItemRequestBuilderDeleteRequestConfiguration} from './openShiftChangeRequestItemRequestBuilderDeleteRequestConfiguration';
 import {OpenShiftChangeRequestItemRequestBuilderGetRequestConfiguration} from './openShiftChangeRequestItemRequestBuilderGetRequestConfiguration';
 import {OpenShiftChangeRequestItemRequestBuilderPatchRequestConfiguration} from './openShiftChangeRequestItemRequestBuilderPatchRequestConfiguration';
@@ -77,7 +78,8 @@ export class OpenShiftChangeRequestItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new OpenShiftChangeRequestImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -101,7 +103,7 @@ export class OpenShiftChangeRequestItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of OpenShiftChangeRequest
      */
-    public get(requestConfiguration?: OpenShiftChangeRequestItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<OpenShiftChangeRequest | undefined> {
+    public get(requestConfiguration?: OpenShiftChangeRequestItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<OpenShiftChangeRequestImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -109,7 +111,7 @@ export class OpenShiftChangeRequestItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<OpenShiftChangeRequest>(requestInfo, createOpenShiftChangeRequestFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<OpenShiftChangeRequestImpl>(requestInfo, createOpenShiftChangeRequestFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update the navigation property openShiftChangeRequests in me

@@ -1,6 +1,7 @@
 import {createGetScheduleResponseFromDiscriminatorValue} from './createGetScheduleResponseFromDiscriminatorValue';
+import {GetSchedulePostRequestBody} from './getSchedulePostRequestBody';
 import {GetScheduleRequestBuilderPostRequestConfiguration} from './getScheduleRequestBuilderPostRequestConfiguration';
-import {GetSchedulePostRequestBody, GetScheduleResponse} from './index';
+import {GetSchedulePostRequestBodyImpl, GetScheduleResponseImpl} from './index';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the getSchedule method. */
@@ -40,7 +41,8 @@ export class GetScheduleRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new GetSchedulePostRequestBodyImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -50,11 +52,11 @@ export class GetScheduleRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of GetScheduleResponse
      */
-    public post(body: GetSchedulePostRequestBody | undefined, requestConfiguration?: GetScheduleRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<GetScheduleResponse | undefined> {
+    public post(body: GetSchedulePostRequestBody | undefined, requestConfiguration?: GetScheduleRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<GetScheduleResponseImpl | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration
         );
-        return this.requestAdapter?.sendAsync<GetScheduleResponse>(requestInfo, createGetScheduleResponseFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<GetScheduleResponseImpl>(requestInfo, createGetScheduleResponseFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }

@@ -1,7 +1,8 @@
-import {RoleManagement} from '../models/';
+import {RoleManagementImpl} from '../models/';
 import {createRoleManagementFromDiscriminatorValue} from '../models/createRoleManagementFromDiscriminatorValue';
-import {ODataError} from '../models/oDataErrors/';
+import {ODataErrorImpl} from '../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {RoleManagement} from '../models/roleManagement';
 import {DirectoryRequestBuilder} from './directory/directoryRequestBuilder';
 import {EntitlementManagementRequestBuilder} from './entitlementManagement/entitlementManagementRequestBuilder';
 import {RoleManagementRequestBuilderGetRequestConfiguration} from './roleManagementRequestBuilderGetRequestConfiguration';
@@ -70,7 +71,8 @@ export class RoleManagementRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new RoleManagementImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -79,7 +81,7 @@ export class RoleManagementRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of RoleManagement
      */
-    public get(requestConfiguration?: RoleManagementRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<RoleManagement | undefined> {
+    public get(requestConfiguration?: RoleManagementRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<RoleManagementImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -87,7 +89,7 @@ export class RoleManagementRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<RoleManagement>(requestInfo, createRoleManagementFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<RoleManagementImpl>(requestInfo, createRoleManagementFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update roleManagement

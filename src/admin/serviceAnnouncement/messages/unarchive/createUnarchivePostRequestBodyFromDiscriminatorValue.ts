@@ -1,7 +1,7 @@
-import {UnarchivePostRequestBody} from './index';
+import {UnarchivePostRequestBodyImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createUnarchivePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : UnarchivePostRequestBody {
+export function createUnarchivePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : UnarchivePostRequestBodyImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new UnarchivePostRequestBody();
+    return new UnarchivePostRequestBodyImpl();
 }

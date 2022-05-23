@@ -1,8 +1,9 @@
-import {RestrictedSignIn, RestrictedSignInCollectionResponse} from '../../models/';
+import {RestrictedSignInCollectionResponseImpl, RestrictedSignInImpl} from '../../models/';
 import {createRestrictedSignInCollectionResponseFromDiscriminatorValue} from '../../models/createRestrictedSignInCollectionResponseFromDiscriminatorValue';
 import {createRestrictedSignInFromDiscriminatorValue} from '../../models/createRestrictedSignInFromDiscriminatorValue';
-import {ODataError} from '../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {RestrictedSignIn} from '../../models/restrictedSignIn';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {RestrictedSignInsRequestBuilderGetRequestConfiguration} from './restrictedSignInsRequestBuilderGetRequestConfiguration';
 import {RestrictedSignInsRequestBuilderPostRequestConfiguration} from './restrictedSignInsRequestBuilderPostRequestConfiguration';
@@ -66,7 +67,8 @@ export class RestrictedSignInsRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new RestrictedSignInImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -75,7 +77,7 @@ export class RestrictedSignInsRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of RestrictedSignInCollectionResponse
      */
-    public get(requestConfiguration?: RestrictedSignInsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<RestrictedSignInCollectionResponse | undefined> {
+    public get(requestConfiguration?: RestrictedSignInsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<RestrictedSignInCollectionResponseImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -83,7 +85,7 @@ export class RestrictedSignInsRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<RestrictedSignInCollectionResponse>(requestInfo, createRestrictedSignInCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<RestrictedSignInCollectionResponseImpl>(requestInfo, createRestrictedSignInCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Create new navigation property to restrictedSignIns for auditLogs
@@ -92,7 +94,7 @@ export class RestrictedSignInsRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of RestrictedSignIn
      */
-    public post(body: RestrictedSignIn | undefined, requestConfiguration?: RestrictedSignInsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<RestrictedSignIn | undefined> {
+    public post(body: RestrictedSignIn | undefined, requestConfiguration?: RestrictedSignInsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<RestrictedSignInImpl | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration
@@ -101,6 +103,6 @@ export class RestrictedSignInsRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<RestrictedSignIn>(requestInfo, createRestrictedSignInFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<RestrictedSignInImpl>(requestInfo, createRestrictedSignInFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

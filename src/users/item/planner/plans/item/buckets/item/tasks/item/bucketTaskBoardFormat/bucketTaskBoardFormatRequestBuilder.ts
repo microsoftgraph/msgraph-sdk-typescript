@@ -1,7 +1,8 @@
-import {PlannerBucketTaskBoardTaskFormat} from '../../../../../../../../../../models/';
+import {PlannerBucketTaskBoardTaskFormatImpl} from '../../../../../../../../../../models/';
 import {createPlannerBucketTaskBoardTaskFormatFromDiscriminatorValue} from '../../../../../../../../../../models/createPlannerBucketTaskBoardTaskFormatFromDiscriminatorValue';
-import {ODataError} from '../../../../../../../../../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../../../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {PlannerBucketTaskBoardTaskFormat} from '../../../../../../../../../../models/plannerBucketTaskBoardTaskFormat';
 import {BucketTaskBoardFormatRequestBuilderDeleteRequestConfiguration} from './bucketTaskBoardFormatRequestBuilderDeleteRequestConfiguration';
 import {BucketTaskBoardFormatRequestBuilderGetRequestConfiguration} from './bucketTaskBoardFormatRequestBuilderGetRequestConfiguration';
 import {BucketTaskBoardFormatRequestBuilderPatchRequestConfiguration} from './bucketTaskBoardFormatRequestBuilderPatchRequestConfiguration';
@@ -77,7 +78,8 @@ export class BucketTaskBoardFormatRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new PlannerBucketTaskBoardTaskFormatImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -101,7 +103,7 @@ export class BucketTaskBoardFormatRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of PlannerBucketTaskBoardTaskFormat
      */
-    public get(requestConfiguration?: BucketTaskBoardFormatRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<PlannerBucketTaskBoardTaskFormat | undefined> {
+    public get(requestConfiguration?: BucketTaskBoardFormatRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<PlannerBucketTaskBoardTaskFormatImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -109,7 +111,7 @@ export class BucketTaskBoardFormatRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<PlannerBucketTaskBoardTaskFormat>(requestInfo, createPlannerBucketTaskBoardTaskFormatFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<PlannerBucketTaskBoardTaskFormatImpl>(requestInfo, createPlannerBucketTaskBoardTaskFormatFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update the navigation property bucketTaskBoardFormat in users

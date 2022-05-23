@@ -1,7 +1,7 @@
-import {SharedInsightCollectionResponse} from './index';
+import {SharedInsightCollectionResponseImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createSharedInsightCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : SharedInsightCollectionResponse {
+export function createSharedInsightCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : SharedInsightCollectionResponseImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new SharedInsightCollectionResponse();
+    return new SharedInsightCollectionResponseImpl();
 }

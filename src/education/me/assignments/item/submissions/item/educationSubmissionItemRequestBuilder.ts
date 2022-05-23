@@ -1,6 +1,7 @@
-import {EducationSubmission} from '../../../../../../models/';
+import {EducationSubmissionImpl} from '../../../../../../models/';
 import {createEducationSubmissionFromDiscriminatorValue} from '../../../../../../models/createEducationSubmissionFromDiscriminatorValue';
-import {ODataError} from '../../../../../../models/oDataErrors/';
+import {EducationSubmission} from '../../../../../../models/educationSubmission';
+import {ODataErrorImpl} from '../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {EducationSubmissionItemRequestBuilderDeleteRequestConfiguration} from './educationSubmissionItemRequestBuilderDeleteRequestConfiguration';
 import {EducationSubmissionItemRequestBuilderGetRequestConfiguration} from './educationSubmissionItemRequestBuilderGetRequestConfiguration';
@@ -8,12 +9,12 @@ import {EducationSubmissionItemRequestBuilderPatchRequestConfiguration} from './
 import {EducationOutcomeItemRequestBuilder} from './outcomes/item/educationOutcomeItemRequestBuilder';
 import {OutcomesRequestBuilder} from './outcomes/outcomesRequestBuilder';
 import {ReassignRequestBuilder} from './reassign/reassignRequestBuilder';
-import {EducationSubmissionResourceItemRequestBuilder as i9be2c966d9bedc6eccf8e7f6d954c13f23489bebb36f661a440ae3258654374e} from './resources/item/educationSubmissionResourceItemRequestBuilder';
+import {EducationSubmissionResourceItemRequestBuilder as ibfa2f5889f2e5decb08b242c3351faa1f0d97cedfc68989b21ae84d8682de512} from './resources/item/educationSubmissionResourceItemRequestBuilder';
 import {ResourcesRequestBuilder} from './resources/resourcesRequestBuilder';
 import {ReturnRequestBuilder} from './return_escaped/returnRequestBuilder';
 import {SetUpResourcesFolderRequestBuilder} from './setUpResourcesFolder/setUpResourcesFolderRequestBuilder';
 import {SubmitRequestBuilder} from './submit/submitRequestBuilder';
-import {EducationSubmissionResourceItemRequestBuilder as i37cdf1f137000070b80bb9f1f91d06f6f590126d5edbb87c06bc96a1477cefac} from './submittedResources/item/educationSubmissionResourceItemRequestBuilder';
+import {EducationSubmissionResourceItemRequestBuilder as i8bbb6c976a8421cfd2503f781e6d6bc71ef06f6051ef2c3a89053a8629096486} from './submittedResources/item/educationSubmissionResourceItemRequestBuilder';
 import {SubmittedResourcesRequestBuilder} from './submittedResources/submittedResourcesRequestBuilder';
 import {UnsubmitRequestBuilder} from './unsubmit/unsubmitRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
@@ -120,7 +121,8 @@ export class EducationSubmissionItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new EducationSubmissionImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -144,7 +146,7 @@ export class EducationSubmissionItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of EducationSubmission
      */
-    public get(requestConfiguration?: EducationSubmissionItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EducationSubmission | undefined> {
+    public get(requestConfiguration?: EducationSubmissionItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EducationSubmissionImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -152,10 +154,10 @@ export class EducationSubmissionItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<EducationSubmission>(requestInfo, createEducationSubmissionFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<EducationSubmissionImpl>(requestInfo, createEducationSubmissionFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.education.me.assignments.item.submissions.item.outcomes.item collection
+     * Gets an item from the MicrosoftGraph.education.me.assignments.item.submissions.item.outcomes.item collection
      * @param id Unique identifier of the item
      * @returns a educationOutcomeItemRequestBuilder
      */
@@ -183,25 +185,25 @@ export class EducationSubmissionItemRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.education.me.assignments.item.submissions.item.resources.item collection
+     * Gets an item from the MicrosoftGraph.education.me.assignments.item.submissions.item.resources.item collection
      * @param id Unique identifier of the item
      * @returns a educationSubmissionResourceItemRequestBuilder
      */
-    public resourcesById(id: string) : i9be2c966d9bedc6eccf8e7f6d954c13f23489bebb36f661a440ae3258654374e {
+    public resourcesById(id: string) : ibfa2f5889f2e5decb08b242c3351faa1f0d97cedfc68989b21ae84d8682de512 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["educationSubmissionResource%2Did"] = id
-        return new i9be2c966d9bedc6eccf8e7f6d954c13f23489bebb36f661a440ae3258654374e(urlTplParams, this.requestAdapter);
+        return new ibfa2f5889f2e5decb08b242c3351faa1f0d97cedfc68989b21ae84d8682de512(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.education.me.assignments.item.submissions.item.submittedResources.item collection
+     * Gets an item from the MicrosoftGraph.education.me.assignments.item.submissions.item.submittedResources.item collection
      * @param id Unique identifier of the item
      * @returns a educationSubmissionResourceItemRequestBuilder
      */
-    public submittedResourcesById(id: string) : i37cdf1f137000070b80bb9f1f91d06f6f590126d5edbb87c06bc96a1477cefac {
+    public submittedResourcesById(id: string) : i8bbb6c976a8421cfd2503f781e6d6bc71ef06f6051ef2c3a89053a8629096486 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["educationSubmissionResource%2Did"] = id
-        return new i37cdf1f137000070b80bb9f1f91d06f6f590126d5edbb87c06bc96a1477cefac(urlTplParams, this.requestAdapter);
+        return new i8bbb6c976a8421cfd2503f781e6d6bc71ef06f6051ef2c3a89053a8629096486(urlTplParams, this.requestAdapter);
     };
 }

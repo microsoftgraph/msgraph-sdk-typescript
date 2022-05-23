@@ -1,0 +1,47 @@
+import {createTrendingFromDiscriminatorValue} from './createTrendingFromDiscriminatorValue';
+import {TrendingImpl} from './index';
+import {Trending} from './trending';
+import {TrendingCollectionResponse} from './trendingCollectionResponse';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+
+export class TrendingCollectionResponseImpl implements AdditionalDataHolder, Parsable, TrendingCollectionResponse {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
+    /** The nextLink property */
+    public nextLink?: string | undefined;
+    /** The value property */
+    public value?: Trending[] | undefined;
+    /**
+     * Instantiates a new TrendingCollectionResponse and sets the default values.
+     * @param trendingCollectionResponseParameterValue 
+     */
+    public constructor(trendingCollectionResponseParameterValue?: TrendingCollectionResponse | undefined) {
+        this.additionalData = trendingCollectionResponseParameterValue?.additionalData ? trendingCollectionResponseParameterValue?.additionalData! : {}
+        this.nextLink = trendingCollectionResponseParameterValue?.nextLink ;
+        this.value = trendingCollectionResponseParameterValue?.value ;
+    };
+    /**
+     * The deserialization information for the current model
+     * @returns a Record<string, (node: ParseNode) => void>
+     */
+    public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
+        return {
+            "@odata.nextLink": n => { this.nextLink = n.getStringValue(); },
+            "value": n => { this.value = n.getCollectionOfObjectValues<TrendingImpl>(createTrendingFromDiscriminatorValue); },
+        };
+    };
+    /**
+     * Serializes information the current object
+     * @param writer Serialization writer to use to serialize this model
+     */
+    public serialize(writer: SerializationWriter) : void {
+        if(!writer) throw new Error("writer cannot be undefined");
+        if(this.nextLink){
+        writer.writeStringValue("@odata.nextLink", this.nextLink);
+        }
+        if(this.value && this.value.length != 0){        const valueArrValue: TrendingImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new TrendingImpl(element));});
+        writer.writeCollectionOfObjectValues<TrendingImpl>("value", valueArrValue);
+        }
+        writer.writeAdditionalData(this.additionalData);
+    };
+}

@@ -1,6 +1,7 @@
-import {ApplePushNotificationCertificate} from '../../models/';
+import {ApplePushNotificationCertificateImpl} from '../../models/';
+import {ApplePushNotificationCertificate} from '../../models/applePushNotificationCertificate';
 import {createApplePushNotificationCertificateFromDiscriminatorValue} from '../../models/createApplePushNotificationCertificateFromDiscriminatorValue';
-import {ODataError} from '../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {ApplePushNotificationCertificateRequestBuilderDeleteRequestConfiguration} from './applePushNotificationCertificateRequestBuilderDeleteRequestConfiguration';
 import {ApplePushNotificationCertificateRequestBuilderGetRequestConfiguration} from './applePushNotificationCertificateRequestBuilderGetRequestConfiguration';
@@ -78,7 +79,8 @@ export class ApplePushNotificationCertificateRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new ApplePushNotificationCertificateImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -109,7 +111,7 @@ export class ApplePushNotificationCertificateRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ApplePushNotificationCertificate
      */
-    public get(requestConfiguration?: ApplePushNotificationCertificateRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ApplePushNotificationCertificate | undefined> {
+    public get(requestConfiguration?: ApplePushNotificationCertificateRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ApplePushNotificationCertificateImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -117,7 +119,7 @@ export class ApplePushNotificationCertificateRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<ApplePushNotificationCertificate>(requestInfo, createApplePushNotificationCertificateFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<ApplePushNotificationCertificateImpl>(requestInfo, createApplePushNotificationCertificateFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update the navigation property applePushNotificationCertificate in deviceManagement

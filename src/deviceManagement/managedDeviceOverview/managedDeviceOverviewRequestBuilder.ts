@@ -1,6 +1,6 @@
-import {ManagedDeviceOverview} from '../../models/';
+import {ManagedDeviceOverviewImpl} from '../../models/';
 import {createManagedDeviceOverviewFromDiscriminatorValue} from '../../models/createManagedDeviceOverviewFromDiscriminatorValue';
-import {ODataError} from '../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {ManagedDeviceOverviewRequestBuilderGetRequestConfiguration} from './managedDeviceOverviewRequestBuilderGetRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
@@ -49,7 +49,7 @@ export class ManagedDeviceOverviewRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ManagedDeviceOverview
      */
-    public get(requestConfiguration?: ManagedDeviceOverviewRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ManagedDeviceOverview | undefined> {
+    public get(requestConfiguration?: ManagedDeviceOverviewRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ManagedDeviceOverviewImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -57,6 +57,6 @@ export class ManagedDeviceOverviewRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<ManagedDeviceOverview>(requestInfo, createManagedDeviceOverviewFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<ManagedDeviceOverviewImpl>(requestInfo, createManagedDeviceOverviewFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

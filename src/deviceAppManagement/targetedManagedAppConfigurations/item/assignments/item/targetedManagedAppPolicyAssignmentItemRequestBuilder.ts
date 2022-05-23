@@ -1,7 +1,8 @@
-import {TargetedManagedAppPolicyAssignment} from '../../../../../models/';
+import {TargetedManagedAppPolicyAssignmentImpl} from '../../../../../models/';
 import {createTargetedManagedAppPolicyAssignmentFromDiscriminatorValue} from '../../../../../models/createTargetedManagedAppPolicyAssignmentFromDiscriminatorValue';
-import {ODataError} from '../../../../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {TargetedManagedAppPolicyAssignment} from '../../../../../models/targetedManagedAppPolicyAssignment';
 import {TargetedManagedAppPolicyAssignmentItemRequestBuilderDeleteRequestConfiguration} from './targetedManagedAppPolicyAssignmentItemRequestBuilderDeleteRequestConfiguration';
 import {TargetedManagedAppPolicyAssignmentItemRequestBuilderGetRequestConfiguration} from './targetedManagedAppPolicyAssignmentItemRequestBuilderGetRequestConfiguration';
 import {TargetedManagedAppPolicyAssignmentItemRequestBuilderPatchRequestConfiguration} from './targetedManagedAppPolicyAssignmentItemRequestBuilderPatchRequestConfiguration';
@@ -77,7 +78,8 @@ export class TargetedManagedAppPolicyAssignmentItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new TargetedManagedAppPolicyAssignmentImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -101,7 +103,7 @@ export class TargetedManagedAppPolicyAssignmentItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of TargetedManagedAppPolicyAssignment
      */
-    public get(requestConfiguration?: TargetedManagedAppPolicyAssignmentItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<TargetedManagedAppPolicyAssignment | undefined> {
+    public get(requestConfiguration?: TargetedManagedAppPolicyAssignmentItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<TargetedManagedAppPolicyAssignmentImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -109,7 +111,7 @@ export class TargetedManagedAppPolicyAssignmentItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<TargetedManagedAppPolicyAssignment>(requestInfo, createTargetedManagedAppPolicyAssignmentFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<TargetedManagedAppPolicyAssignmentImpl>(requestInfo, createTargetedManagedAppPolicyAssignmentFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update the navigation property assignments in deviceAppManagement

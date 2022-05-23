@@ -1,5 +1,5 @@
 import {createRevokeSignInSessionsResponseFromDiscriminatorValue} from './createRevokeSignInSessionsResponseFromDiscriminatorValue';
-import {RevokeSignInSessionsResponse} from './index';
+import {RevokeSignInSessionsResponseImpl} from './index';
 import {RevokeSignInSessionsRequestBuilderPostRequestConfiguration} from './revokeSignInSessionsRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
@@ -46,10 +46,10 @@ export class RevokeSignInSessionsRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of RevokeSignInSessionsResponse
      */
-    public post(requestConfiguration?: RevokeSignInSessionsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<RevokeSignInSessionsResponse | undefined> {
+    public post(requestConfiguration?: RevokeSignInSessionsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<RevokeSignInSessionsResponseImpl | undefined> {
         const requestInfo = this.createPostRequestInformation(
             requestConfiguration
         );
-        return this.requestAdapter?.sendAsync<RevokeSignInSessionsResponse>(requestInfo, createRevokeSignInSessionsResponseFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<RevokeSignInSessionsResponseImpl>(requestInfo, createRevokeSignInSessionsResponseFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }

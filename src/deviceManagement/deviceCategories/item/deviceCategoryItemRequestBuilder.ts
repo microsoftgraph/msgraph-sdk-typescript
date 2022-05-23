@@ -1,6 +1,7 @@
-import {DeviceCategory} from '../../../models/';
+import {DeviceCategoryImpl} from '../../../models/';
 import {createDeviceCategoryFromDiscriminatorValue} from '../../../models/createDeviceCategoryFromDiscriminatorValue';
-import {ODataError} from '../../../models/oDataErrors/';
+import {DeviceCategory} from '../../../models/deviceCategory';
+import {ODataErrorImpl} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {DeviceCategoryItemRequestBuilderDeleteRequestConfiguration} from './deviceCategoryItemRequestBuilderDeleteRequestConfiguration';
 import {DeviceCategoryItemRequestBuilderGetRequestConfiguration} from './deviceCategoryItemRequestBuilderGetRequestConfiguration';
@@ -77,7 +78,8 @@ export class DeviceCategoryItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new DeviceCategoryImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -101,7 +103,7 @@ export class DeviceCategoryItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DeviceCategory
      */
-    public get(requestConfiguration?: DeviceCategoryItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DeviceCategory | undefined> {
+    public get(requestConfiguration?: DeviceCategoryItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DeviceCategoryImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -109,7 +111,7 @@ export class DeviceCategoryItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<DeviceCategory>(requestInfo, createDeviceCategoryFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<DeviceCategoryImpl>(requestInfo, createDeviceCategoryFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update the navigation property deviceCategories in deviceManagement

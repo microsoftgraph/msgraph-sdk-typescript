@@ -1,7 +1,7 @@
-import {DomainDnsRecord} from './index';
+import {DomainDnsRecordImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createDomainDnsRecordFromDiscriminatorValue(parseNode: ParseNode | undefined) : DomainDnsRecord {
+export function createDomainDnsRecordFromDiscriminatorValue(parseNode: ParseNode | undefined) : DomainDnsRecordImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
     const mappingValueNode = parseNode.getChildNode("@odata.type");
     if (mappingValueNode) {
@@ -9,9 +9,9 @@ export function createDomainDnsRecordFromDiscriminatorValue(parseNode: ParseNode
         if (mappingValue) {
             switch (mappingValue) {
                 case "#microsoft.graph.domainDnsRecord":
-                    return new DomainDnsRecord();
+                    return new DomainDnsRecordImpl();
             }
         }
     }
-    return new DomainDnsRecord();
+    return new DomainDnsRecordImpl();
 }

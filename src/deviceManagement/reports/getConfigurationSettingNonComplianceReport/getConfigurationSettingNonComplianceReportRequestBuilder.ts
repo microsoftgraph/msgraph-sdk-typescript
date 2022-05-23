@@ -1,5 +1,6 @@
+import {GetConfigurationSettingNonComplianceReportPostRequestBody} from './getConfigurationSettingNonComplianceReportPostRequestBody';
 import {GetConfigurationSettingNonComplianceReportRequestBuilderPostRequestConfiguration} from './getConfigurationSettingNonComplianceReportRequestBuilderPostRequestConfiguration';
-import {GetConfigurationSettingNonComplianceReportPostRequestBody} from './index';
+import {GetConfigurationSettingNonComplianceReportPostRequestBodyImpl} from './index';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the getConfigurationSettingNonComplianceReport method. */
@@ -39,7 +40,8 @@ export class GetConfigurationSettingNonComplianceReportRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new GetConfigurationSettingNonComplianceReportPostRequestBodyImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**

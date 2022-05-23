@@ -1,7 +1,7 @@
-import {WindowsInformationProtection} from './index';
+import {WindowsInformationProtectionImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createWindowsInformationProtectionFromDiscriminatorValue(parseNode: ParseNode | undefined) : WindowsInformationProtection {
+export function createWindowsInformationProtectionFromDiscriminatorValue(parseNode: ParseNode | undefined) : WindowsInformationProtectionImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
     const mappingValueNode = parseNode.getChildNode("@odata.type");
     if (mappingValueNode) {
@@ -9,9 +9,9 @@ export function createWindowsInformationProtectionFromDiscriminatorValue(parseNo
         if (mappingValue) {
             switch (mappingValue) {
                 case "#microsoft.graph.windowsInformationProtection":
-                    return new WindowsInformationProtection();
+                    return new WindowsInformationProtectionImpl();
             }
         }
     }
-    return new WindowsInformationProtection();
+    return new WindowsInformationProtectionImpl();
 }

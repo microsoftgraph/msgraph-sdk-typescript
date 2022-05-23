@@ -1,6 +1,7 @@
-import {IdentityGovernance} from '../models/';
+import {IdentityGovernanceImpl} from '../models/';
 import {createIdentityGovernanceFromDiscriminatorValue} from '../models/createIdentityGovernanceFromDiscriminatorValue';
-import {ODataError} from '../models/oDataErrors/';
+import {IdentityGovernance} from '../models/identityGovernance';
+import {ODataErrorImpl} from '../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {AccessReviewsRequestBuilder} from './accessReviews/accessReviewsRequestBuilder';
 import {AppConsentRequestBuilder} from './appConsent/appConsentRequestBuilder';
@@ -80,7 +81,8 @@ export class IdentityGovernanceRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new IdentityGovernanceImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -89,7 +91,7 @@ export class IdentityGovernanceRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of IdentityGovernance
      */
-    public get(requestConfiguration?: IdentityGovernanceRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<IdentityGovernance | undefined> {
+    public get(requestConfiguration?: IdentityGovernanceRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<IdentityGovernanceImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -97,7 +99,7 @@ export class IdentityGovernanceRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<IdentityGovernance>(requestInfo, createIdentityGovernanceFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<IdentityGovernanceImpl>(requestInfo, createIdentityGovernanceFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update identityGovernance

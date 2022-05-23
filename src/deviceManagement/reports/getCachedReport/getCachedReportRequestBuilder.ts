@@ -1,5 +1,6 @@
+import {GetCachedReportPostRequestBody} from './getCachedReportPostRequestBody';
 import {GetCachedReportRequestBuilderPostRequestConfiguration} from './getCachedReportRequestBuilderPostRequestConfiguration';
-import {GetCachedReportPostRequestBody} from './index';
+import {GetCachedReportPostRequestBodyImpl} from './index';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the getCachedReport method. */
@@ -39,7 +40,8 @@ export class GetCachedReportRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new GetCachedReportPostRequestBodyImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**

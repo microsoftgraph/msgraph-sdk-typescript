@@ -1,5 +1,5 @@
 import {createRecentResponseFromDiscriminatorValue} from './createRecentResponseFromDiscriminatorValue';
-import {RecentResponse} from './index';
+import {RecentResponseImpl} from './index';
 import {RecentRequestBuilderGetRequestConfiguration} from './recentRequestBuilderGetRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
@@ -46,10 +46,10 @@ export class RecentRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of RecentResponse
      */
-    public get(requestConfiguration?: RecentRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<RecentResponse | undefined> {
+    public get(requestConfiguration?: RecentRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<RecentResponseImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
-        return this.requestAdapter?.sendAsync<RecentResponse>(requestInfo, createRecentResponseFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<RecentResponseImpl>(requestInfo, createRecentResponseFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }

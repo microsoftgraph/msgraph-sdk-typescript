@@ -1,7 +1,7 @@
-import {LongRunningOperation} from './index';
+import {LongRunningOperationImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createLongRunningOperationFromDiscriminatorValue(parseNode: ParseNode | undefined) : LongRunningOperation {
+export function createLongRunningOperationFromDiscriminatorValue(parseNode: ParseNode | undefined) : LongRunningOperationImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
     const mappingValueNode = parseNode.getChildNode("@odata.type");
     if (mappingValueNode) {
@@ -9,9 +9,9 @@ export function createLongRunningOperationFromDiscriminatorValue(parseNode: Pars
         if (mappingValue) {
             switch (mappingValue) {
                 case "#microsoft.graph.longRunningOperation":
-                    return new LongRunningOperation();
+                    return new LongRunningOperationImpl();
             }
         }
     }
-    return new LongRunningOperation();
+    return new LongRunningOperationImpl();
 }

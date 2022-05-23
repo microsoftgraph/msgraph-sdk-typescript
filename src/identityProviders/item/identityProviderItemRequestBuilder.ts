@@ -1,6 +1,7 @@
-import {IdentityProvider} from '../../models/';
+import {IdentityProviderImpl} from '../../models/';
 import {createIdentityProviderFromDiscriminatorValue} from '../../models/createIdentityProviderFromDiscriminatorValue';
-import {ODataError} from '../../models/oDataErrors/';
+import {IdentityProvider} from '../../models/identityProvider';
+import {ODataErrorImpl} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {IdentityProviderItemRequestBuilderDeleteRequestConfiguration} from './identityProviderItemRequestBuilderDeleteRequestConfiguration';
 import {IdentityProviderItemRequestBuilderGetRequestConfiguration} from './identityProviderItemRequestBuilderGetRequestConfiguration';
@@ -77,7 +78,8 @@ export class IdentityProviderItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new IdentityProviderImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -101,7 +103,7 @@ export class IdentityProviderItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of IdentityProvider
      */
-    public get(requestConfiguration?: IdentityProviderItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<IdentityProvider | undefined> {
+    public get(requestConfiguration?: IdentityProviderItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<IdentityProviderImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -109,7 +111,7 @@ export class IdentityProviderItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<IdentityProvider>(requestInfo, createIdentityProviderFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<IdentityProviderImpl>(requestInfo, createIdentityProviderFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update entity in identityProviders

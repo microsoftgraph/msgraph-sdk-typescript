@@ -1,7 +1,7 @@
-import {Message} from './index';
+import {MessageImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createMessageFromDiscriminatorValue(parseNode: ParseNode | undefined) : Message {
+export function createMessageFromDiscriminatorValue(parseNode: ParseNode | undefined) : MessageImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
     const mappingValueNode = parseNode.getChildNode("@odata.type");
     if (mappingValueNode) {
@@ -9,9 +9,9 @@ export function createMessageFromDiscriminatorValue(parseNode: ParseNode | undef
         if (mappingValue) {
             switch (mappingValue) {
                 case "#microsoft.graph.message":
-                    return new Message();
+                    return new MessageImpl();
             }
         }
     }
-    return new Message();
+    return new MessageImpl();
 }

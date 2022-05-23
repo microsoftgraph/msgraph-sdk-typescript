@@ -1,6 +1,7 @@
-import {PlayPromptOperation} from '../../../../models/';
+import {PlayPromptOperationImpl} from '../../../../models/';
 import {createPlayPromptOperationFromDiscriminatorValue} from '../../../../models/createPlayPromptOperationFromDiscriminatorValue';
-import {PlayPromptPostRequestBody} from './index';
+import {PlayPromptPostRequestBodyImpl} from './index';
+import {PlayPromptPostRequestBody} from './playPromptPostRequestBody';
 import {PlayPromptRequestBuilderPostRequestConfiguration} from './playPromptRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
@@ -41,7 +42,8 @@ export class PlayPromptRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new PlayPromptPostRequestBodyImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -51,11 +53,11 @@ export class PlayPromptRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of PlayPromptOperation
      */
-    public post(body: PlayPromptPostRequestBody | undefined, requestConfiguration?: PlayPromptRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<PlayPromptOperation | undefined> {
+    public post(body: PlayPromptPostRequestBody | undefined, requestConfiguration?: PlayPromptRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<PlayPromptOperationImpl | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration
         );
-        return this.requestAdapter?.sendAsync<PlayPromptOperation>(requestInfo, createPlayPromptOperationFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<PlayPromptOperationImpl>(requestInfo, createPlayPromptOperationFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }

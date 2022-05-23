@@ -1,7 +1,8 @@
-import {Person} from '../../../../models/';
+import {PersonImpl} from '../../../../models/';
 import {createPersonFromDiscriminatorValue} from '../../../../models/createPersonFromDiscriminatorValue';
-import {ODataError} from '../../../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {Person} from '../../../../models/person';
 import {PersonItemRequestBuilderDeleteRequestConfiguration} from './personItemRequestBuilderDeleteRequestConfiguration';
 import {PersonItemRequestBuilderGetRequestConfiguration} from './personItemRequestBuilderGetRequestConfiguration';
 import {PersonItemRequestBuilderPatchRequestConfiguration} from './personItemRequestBuilderPatchRequestConfiguration';
@@ -77,7 +78,8 @@ export class PersonItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new PersonImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -101,7 +103,7 @@ export class PersonItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Person
      */
-    public get(requestConfiguration?: PersonItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Person | undefined> {
+    public get(requestConfiguration?: PersonItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<PersonImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -109,7 +111,7 @@ export class PersonItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<Person>(requestInfo, createPersonFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<PersonImpl>(requestInfo, createPersonFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update the navigation property people in users

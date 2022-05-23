@@ -1,7 +1,7 @@
-import {DeviceComplianceUserStatus} from './index';
+import {DeviceComplianceUserStatusImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createDeviceComplianceUserStatusFromDiscriminatorValue(parseNode: ParseNode | undefined) : DeviceComplianceUserStatus {
+export function createDeviceComplianceUserStatusFromDiscriminatorValue(parseNode: ParseNode | undefined) : DeviceComplianceUserStatusImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new DeviceComplianceUserStatus();
+    return new DeviceComplianceUserStatusImpl();
 }

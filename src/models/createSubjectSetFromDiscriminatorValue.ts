@@ -1,7 +1,7 @@
-import {SubjectSet} from './index';
+import {SubjectSetImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createSubjectSetFromDiscriminatorValue(parseNode: ParseNode | undefined) : SubjectSet {
+export function createSubjectSetFromDiscriminatorValue(parseNode: ParseNode | undefined) : SubjectSetImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new SubjectSet();
+    return new SubjectSetImpl();
 }

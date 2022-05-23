@@ -1,7 +1,8 @@
-import {SubscribedSku} from '../../models/';
+import {SubscribedSkuImpl} from '../../models/';
 import {createSubscribedSkuFromDiscriminatorValue} from '../../models/createSubscribedSkuFromDiscriminatorValue';
-import {ODataError} from '../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {SubscribedSku} from '../../models/subscribedSku';
 import {SubscribedSkuItemRequestBuilderDeleteRequestConfiguration} from './subscribedSkuItemRequestBuilderDeleteRequestConfiguration';
 import {SubscribedSkuItemRequestBuilderGetRequestConfiguration} from './subscribedSkuItemRequestBuilderGetRequestConfiguration';
 import {SubscribedSkuItemRequestBuilderPatchRequestConfiguration} from './subscribedSkuItemRequestBuilderPatchRequestConfiguration';
@@ -77,7 +78,8 @@ export class SubscribedSkuItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new SubscribedSkuImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -101,7 +103,7 @@ export class SubscribedSkuItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of SubscribedSku
      */
-    public get(requestConfiguration?: SubscribedSkuItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<SubscribedSku | undefined> {
+    public get(requestConfiguration?: SubscribedSkuItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<SubscribedSkuImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -109,7 +111,7 @@ export class SubscribedSkuItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<SubscribedSku>(requestInfo, createSubscribedSkuFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<SubscribedSkuImpl>(requestInfo, createSubscribedSkuFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update entity in subscribedSkus

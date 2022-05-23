@@ -1,7 +1,8 @@
-import {TimeOffReason} from '../../../../../../models/';
+import {TimeOffReasonImpl} from '../../../../../../models/';
 import {createTimeOffReasonFromDiscriminatorValue} from '../../../../../../models/createTimeOffReasonFromDiscriminatorValue';
-import {ODataError} from '../../../../../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {TimeOffReason} from '../../../../../../models/timeOffReason';
 import {TimeOffReasonItemRequestBuilderDeleteRequestConfiguration} from './timeOffReasonItemRequestBuilderDeleteRequestConfiguration';
 import {TimeOffReasonItemRequestBuilderGetRequestConfiguration} from './timeOffReasonItemRequestBuilderGetRequestConfiguration';
 import {TimeOffReasonItemRequestBuilderPatchRequestConfiguration} from './timeOffReasonItemRequestBuilderPatchRequestConfiguration';
@@ -77,7 +78,8 @@ export class TimeOffReasonItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new TimeOffReasonImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -101,7 +103,7 @@ export class TimeOffReasonItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of TimeOffReason
      */
-    public get(requestConfiguration?: TimeOffReasonItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<TimeOffReason | undefined> {
+    public get(requestConfiguration?: TimeOffReasonItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<TimeOffReasonImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -109,7 +111,7 @@ export class TimeOffReasonItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<TimeOffReason>(requestInfo, createTimeOffReasonFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<TimeOffReasonImpl>(requestInfo, createTimeOffReasonFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update the navigation property timeOffReasons in groups

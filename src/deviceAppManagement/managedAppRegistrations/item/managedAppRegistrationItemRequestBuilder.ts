@@ -1,11 +1,12 @@
-import {ManagedAppRegistration} from '../../../models/';
+import {ManagedAppRegistrationImpl} from '../../../models/';
 import {createManagedAppRegistrationFromDiscriminatorValue} from '../../../models/createManagedAppRegistrationFromDiscriminatorValue';
-import {ODataError} from '../../../models/oDataErrors/';
+import {ManagedAppRegistration} from '../../../models/managedAppRegistration';
+import {ODataErrorImpl} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {AppliedPoliciesRequestBuilder} from './appliedPolicies/appliedPoliciesRequestBuilder';
-import {ManagedAppPolicyItemRequestBuilder as ieef01d7cd1ae5da0e6e1cb9b8113e736fcd3932da838cc762302e1ba8fcd4bb1} from './appliedPolicies/item/managedAppPolicyItemRequestBuilder';
+import {ManagedAppPolicyItemRequestBuilder as i02f4e9a033ab52989a97e60c23262a4bff968b0aad605259456d4a05ecce9f55} from './appliedPolicies/item/managedAppPolicyItemRequestBuilder';
 import {IntendedPoliciesRequestBuilder} from './intendedPolicies/intendedPoliciesRequestBuilder';
-import {ManagedAppPolicyItemRequestBuilder as i13769201f001bbb083c5448a46179dd0baa213d70d9545ef25f30089f096b6fb} from './intendedPolicies/item/managedAppPolicyItemRequestBuilder';
+import {ManagedAppPolicyItemRequestBuilder as i614787a4168892e90c82618ecb2314ca7d5dbc776ae31c7a89ec90496677f6e6} from './intendedPolicies/item/managedAppPolicyItemRequestBuilder';
 import {ManagedAppRegistrationItemRequestBuilderDeleteRequestConfiguration} from './managedAppRegistrationItemRequestBuilderDeleteRequestConfiguration';
 import {ManagedAppRegistrationItemRequestBuilderGetRequestConfiguration} from './managedAppRegistrationItemRequestBuilderGetRequestConfiguration';
 import {ManagedAppRegistrationItemRequestBuilderPatchRequestConfiguration} from './managedAppRegistrationItemRequestBuilderPatchRequestConfiguration';
@@ -34,15 +35,15 @@ export class ManagedAppRegistrationItemRequestBuilder {
     /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceAppManagement.managedAppRegistrations.item.appliedPolicies.item collection
+     * Gets an item from the MicrosoftGraph.deviceAppManagement.managedAppRegistrations.item.appliedPolicies.item collection
      * @param id Unique identifier of the item
      * @returns a managedAppPolicyItemRequestBuilder
      */
-    public appliedPoliciesById(id: string) : ieef01d7cd1ae5da0e6e1cb9b8113e736fcd3932da838cc762302e1ba8fcd4bb1 {
+    public appliedPoliciesById(id: string) : i02f4e9a033ab52989a97e60c23262a4bff968b0aad605259456d4a05ecce9f55 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["managedAppPolicy%2Did"] = id
-        return new ieef01d7cd1ae5da0e6e1cb9b8113e736fcd3932da838cc762302e1ba8fcd4bb1(urlTplParams, this.requestAdapter);
+        return new i02f4e9a033ab52989a97e60c23262a4bff968b0aad605259456d4a05ecce9f55(urlTplParams, this.requestAdapter);
     };
     /**
      * Instantiates a new ManagedAppRegistrationItemRequestBuilder and sets the default values.
@@ -106,7 +107,8 @@ export class ManagedAppRegistrationItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new ManagedAppRegistrationImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -130,7 +132,7 @@ export class ManagedAppRegistrationItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ManagedAppRegistration
      */
-    public get(requestConfiguration?: ManagedAppRegistrationItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ManagedAppRegistration | undefined> {
+    public get(requestConfiguration?: ManagedAppRegistrationItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ManagedAppRegistrationImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -138,21 +140,21 @@ export class ManagedAppRegistrationItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<ManagedAppRegistration>(requestInfo, createManagedAppRegistrationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<ManagedAppRegistrationImpl>(requestInfo, createManagedAppRegistrationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceAppManagement.managedAppRegistrations.item.intendedPolicies.item collection
+     * Gets an item from the MicrosoftGraph.deviceAppManagement.managedAppRegistrations.item.intendedPolicies.item collection
      * @param id Unique identifier of the item
      * @returns a managedAppPolicyItemRequestBuilder
      */
-    public intendedPoliciesById(id: string) : i13769201f001bbb083c5448a46179dd0baa213d70d9545ef25f30089f096b6fb {
+    public intendedPoliciesById(id: string) : i614787a4168892e90c82618ecb2314ca7d5dbc776ae31c7a89ec90496677f6e6 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["managedAppPolicy%2Did"] = id
-        return new i13769201f001bbb083c5448a46179dd0baa213d70d9545ef25f30089f096b6fb(urlTplParams, this.requestAdapter);
+        return new i614787a4168892e90c82618ecb2314ca7d5dbc776ae31c7a89ec90496677f6e6(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceAppManagement.managedAppRegistrations.item.operations.item collection
+     * Gets an item from the MicrosoftGraph.deviceAppManagement.managedAppRegistrations.item.operations.item collection
      * @param id Unique identifier of the item
      * @returns a managedAppOperationItemRequestBuilder
      */

@@ -1,4 +1,4 @@
-import {AccessReviewHistoryInstance} from '../../../../../../../models/';
+import {AccessReviewHistoryInstanceImpl} from '../../../../../../../models/';
 import {createAccessReviewHistoryInstanceFromDiscriminatorValue} from '../../../../../../../models/createAccessReviewHistoryInstanceFromDiscriminatorValue';
 import {GenerateDownloadUriRequestBuilderPostRequestConfiguration} from './generateDownloadUriRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
@@ -46,10 +46,10 @@ export class GenerateDownloadUriRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AccessReviewHistoryInstance
      */
-    public post(requestConfiguration?: GenerateDownloadUriRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AccessReviewHistoryInstance | undefined> {
+    public post(requestConfiguration?: GenerateDownloadUriRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AccessReviewHistoryInstanceImpl | undefined> {
         const requestInfo = this.createPostRequestInformation(
             requestConfiguration
         );
-        return this.requestAdapter?.sendAsync<AccessReviewHistoryInstance>(requestInfo, createAccessReviewHistoryInstanceFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<AccessReviewHistoryInstanceImpl>(requestInfo, createAccessReviewHistoryInstanceFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }

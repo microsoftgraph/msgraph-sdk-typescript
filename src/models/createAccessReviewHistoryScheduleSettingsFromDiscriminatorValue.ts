@@ -1,7 +1,7 @@
-import {AccessReviewHistoryScheduleSettings} from './index';
+import {AccessReviewHistoryScheduleSettingsImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createAccessReviewHistoryScheduleSettingsFromDiscriminatorValue(parseNode: ParseNode | undefined) : AccessReviewHistoryScheduleSettings {
+export function createAccessReviewHistoryScheduleSettingsFromDiscriminatorValue(parseNode: ParseNode | undefined) : AccessReviewHistoryScheduleSettingsImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new AccessReviewHistoryScheduleSettings();
+    return new AccessReviewHistoryScheduleSettingsImpl();
 }

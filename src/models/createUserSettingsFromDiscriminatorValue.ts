@@ -1,7 +1,7 @@
-import {UserSettings} from './index';
+import {UserSettingsImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createUserSettingsFromDiscriminatorValue(parseNode: ParseNode | undefined) : UserSettings {
+export function createUserSettingsFromDiscriminatorValue(parseNode: ParseNode | undefined) : UserSettingsImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new UserSettings();
+    return new UserSettingsImpl();
 }

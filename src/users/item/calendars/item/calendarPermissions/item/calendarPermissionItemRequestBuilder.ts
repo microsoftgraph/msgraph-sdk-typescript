@@ -1,6 +1,7 @@
-import {CalendarPermission} from '../../../../../../models/';
+import {CalendarPermissionImpl} from '../../../../../../models/';
+import {CalendarPermission} from '../../../../../../models/calendarPermission';
 import {createCalendarPermissionFromDiscriminatorValue} from '../../../../../../models/createCalendarPermissionFromDiscriminatorValue';
-import {ODataError} from '../../../../../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CalendarPermissionItemRequestBuilderDeleteRequestConfiguration} from './calendarPermissionItemRequestBuilderDeleteRequestConfiguration';
 import {CalendarPermissionItemRequestBuilderGetRequestConfiguration} from './calendarPermissionItemRequestBuilderGetRequestConfiguration';
@@ -77,7 +78,8 @@ export class CalendarPermissionItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new CalendarPermissionImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -101,7 +103,7 @@ export class CalendarPermissionItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of CalendarPermission
      */
-    public get(requestConfiguration?: CalendarPermissionItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<CalendarPermission | undefined> {
+    public get(requestConfiguration?: CalendarPermissionItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<CalendarPermissionImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -109,7 +111,7 @@ export class CalendarPermissionItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<CalendarPermission>(requestInfo, createCalendarPermissionFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<CalendarPermissionImpl>(requestInfo, createCalendarPermissionFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update the navigation property calendarPermissions in users

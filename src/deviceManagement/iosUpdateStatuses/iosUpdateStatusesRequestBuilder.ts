@@ -1,7 +1,8 @@
-import {IosUpdateDeviceStatus, IosUpdateDeviceStatusCollectionResponse} from '../../models/';
+import {IosUpdateDeviceStatusCollectionResponseImpl, IosUpdateDeviceStatusImpl} from '../../models/';
 import {createIosUpdateDeviceStatusCollectionResponseFromDiscriminatorValue} from '../../models/createIosUpdateDeviceStatusCollectionResponseFromDiscriminatorValue';
 import {createIosUpdateDeviceStatusFromDiscriminatorValue} from '../../models/createIosUpdateDeviceStatusFromDiscriminatorValue';
-import {ODataError} from '../../models/oDataErrors/';
+import {IosUpdateDeviceStatus} from '../../models/iosUpdateDeviceStatus';
+import {ODataErrorImpl} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {IosUpdateStatusesRequestBuilderGetRequestConfiguration} from './iosUpdateStatusesRequestBuilderGetRequestConfiguration';
@@ -66,7 +67,8 @@ export class IosUpdateStatusesRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new IosUpdateDeviceStatusImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -75,7 +77,7 @@ export class IosUpdateStatusesRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of IosUpdateDeviceStatusCollectionResponse
      */
-    public get(requestConfiguration?: IosUpdateStatusesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<IosUpdateDeviceStatusCollectionResponse | undefined> {
+    public get(requestConfiguration?: IosUpdateStatusesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<IosUpdateDeviceStatusCollectionResponseImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -83,7 +85,7 @@ export class IosUpdateStatusesRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<IosUpdateDeviceStatusCollectionResponse>(requestInfo, createIosUpdateDeviceStatusCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<IosUpdateDeviceStatusCollectionResponseImpl>(requestInfo, createIosUpdateDeviceStatusCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Create new navigation property to iosUpdateStatuses for deviceManagement
@@ -92,7 +94,7 @@ export class IosUpdateStatusesRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of IosUpdateDeviceStatus
      */
-    public post(body: IosUpdateDeviceStatus | undefined, requestConfiguration?: IosUpdateStatusesRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<IosUpdateDeviceStatus | undefined> {
+    public post(body: IosUpdateDeviceStatus | undefined, requestConfiguration?: IosUpdateStatusesRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<IosUpdateDeviceStatusImpl | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration
@@ -101,6 +103,6 @@ export class IosUpdateStatusesRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<IosUpdateDeviceStatus>(requestInfo, createIosUpdateDeviceStatusFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<IosUpdateDeviceStatusImpl>(requestInfo, createIosUpdateDeviceStatusFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

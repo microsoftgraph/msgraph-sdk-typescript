@@ -1,4 +1,5 @@
-import {SnoozeReminderPostRequestBody} from './index';
+import {SnoozeReminderPostRequestBodyImpl} from './index';
+import {SnoozeReminderPostRequestBody} from './snoozeReminderPostRequestBody';
 import {SnoozeReminderRequestBuilderPostRequestConfiguration} from './snoozeReminderRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
@@ -39,7 +40,8 @@ export class SnoozeReminderRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new SnoozeReminderPostRequestBodyImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**

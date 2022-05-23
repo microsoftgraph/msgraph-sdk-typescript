@@ -1,6 +1,6 @@
-import {MobileLobAppCollectionResponse} from '../../../models/';
+import {MobileLobAppCollectionResponseImpl} from '../../../models/';
 import {createMobileLobAppCollectionResponseFromDiscriminatorValue} from '../../../models/createMobileLobAppCollectionResponseFromDiscriminatorValue';
-import {ODataError} from '../../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {MobileLobAppRequestBuilderGetRequestConfiguration} from './mobileLobAppRequestBuilderGetRequestConfiguration';
@@ -54,7 +54,7 @@ export class MobileLobAppRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of MobileLobAppCollectionResponse
      */
-    public get(requestConfiguration?: MobileLobAppRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<MobileLobAppCollectionResponse | undefined> {
+    public get(requestConfiguration?: MobileLobAppRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<MobileLobAppCollectionResponseImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -62,6 +62,6 @@ export class MobileLobAppRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<MobileLobAppCollectionResponse>(requestInfo, createMobileLobAppCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<MobileLobAppCollectionResponseImpl>(requestInfo, createMobileLobAppCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

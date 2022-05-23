@@ -1,7 +1,7 @@
-import {GetConfigurationPolicyNonComplianceReportPostRequestBody} from './index';
+import {GetConfigurationPolicyNonComplianceReportPostRequestBodyImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createGetConfigurationPolicyNonComplianceReportPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : GetConfigurationPolicyNonComplianceReportPostRequestBody {
+export function createGetConfigurationPolicyNonComplianceReportPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : GetConfigurationPolicyNonComplianceReportPostRequestBodyImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new GetConfigurationPolicyNonComplianceReportPostRequestBody();
+    return new GetConfigurationPolicyNonComplianceReportPostRequestBodyImpl();
 }

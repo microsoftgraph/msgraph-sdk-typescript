@@ -1,7 +1,7 @@
-import {PreviewPostRequestBody} from './index';
+import {PreviewPostRequestBodyImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createPreviewPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : PreviewPostRequestBody {
+export function createPreviewPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : PreviewPostRequestBodyImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new PreviewPostRequestBody();
+    return new PreviewPostRequestBodyImpl();
 }

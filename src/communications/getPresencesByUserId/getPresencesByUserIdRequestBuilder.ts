@@ -1,6 +1,7 @@
 import {createGetPresencesByUserIdResponseFromDiscriminatorValue} from './createGetPresencesByUserIdResponseFromDiscriminatorValue';
+import {GetPresencesByUserIdPostRequestBody} from './getPresencesByUserIdPostRequestBody';
 import {GetPresencesByUserIdRequestBuilderPostRequestConfiguration} from './getPresencesByUserIdRequestBuilderPostRequestConfiguration';
-import {GetPresencesByUserIdPostRequestBody, GetPresencesByUserIdResponse} from './index';
+import {GetPresencesByUserIdPostRequestBodyImpl, GetPresencesByUserIdResponseImpl} from './index';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the getPresencesByUserId method. */
@@ -40,7 +41,8 @@ export class GetPresencesByUserIdRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new GetPresencesByUserIdPostRequestBodyImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -50,11 +52,11 @@ export class GetPresencesByUserIdRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of GetPresencesByUserIdResponse
      */
-    public post(body: GetPresencesByUserIdPostRequestBody | undefined, requestConfiguration?: GetPresencesByUserIdRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<GetPresencesByUserIdResponse | undefined> {
+    public post(body: GetPresencesByUserIdPostRequestBody | undefined, requestConfiguration?: GetPresencesByUserIdRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<GetPresencesByUserIdResponseImpl | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration
         );
-        return this.requestAdapter?.sendAsync<GetPresencesByUserIdResponse>(requestInfo, createGetPresencesByUserIdResponseFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<GetPresencesByUserIdResponseImpl>(requestInfo, createGetPresencesByUserIdResponseFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }

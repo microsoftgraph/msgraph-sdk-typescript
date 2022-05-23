@@ -1,7 +1,7 @@
-import {AssignLicensePostRequestBody} from './index';
+import {AssignLicensePostRequestBodyImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createAssignLicensePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : AssignLicensePostRequestBody {
+export function createAssignLicensePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : AssignLicensePostRequestBodyImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new AssignLicensePostRequestBody();
+    return new AssignLicensePostRequestBodyImpl();
 }

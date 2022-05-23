@@ -1,7 +1,7 @@
-import {Team} from './index';
+import {TeamImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createTeamFromDiscriminatorValue(parseNode: ParseNode | undefined) : Team {
+export function createTeamFromDiscriminatorValue(parseNode: ParseNode | undefined) : TeamImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new Team();
+    return new TeamImpl();
 }

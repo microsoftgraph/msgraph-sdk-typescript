@@ -1,7 +1,7 @@
-import {WindowsAutopilotDeviceIdentityCollectionResponse} from './index';
+import {WindowsAutopilotDeviceIdentityCollectionResponseImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createWindowsAutopilotDeviceIdentityCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : WindowsAutopilotDeviceIdentityCollectionResponse {
+export function createWindowsAutopilotDeviceIdentityCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : WindowsAutopilotDeviceIdentityCollectionResponseImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new WindowsAutopilotDeviceIdentityCollectionResponse();
+    return new WindowsAutopilotDeviceIdentityCollectionResponseImpl();
 }

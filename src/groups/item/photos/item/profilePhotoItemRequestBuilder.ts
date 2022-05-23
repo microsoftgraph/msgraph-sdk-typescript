@@ -1,7 +1,8 @@
-import {ProfilePhoto} from '../../../../models/';
+import {ProfilePhotoImpl} from '../../../../models/';
 import {createProfilePhotoFromDiscriminatorValue} from '../../../../models/createProfilePhotoFromDiscriminatorValue';
-import {ODataError} from '../../../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {ProfilePhoto} from '../../../../models/profilePhoto';
 import {ProfilePhotoItemRequestBuilderDeleteRequestConfiguration} from './profilePhotoItemRequestBuilderDeleteRequestConfiguration';
 import {ProfilePhotoItemRequestBuilderGetRequestConfiguration} from './profilePhotoItemRequestBuilderGetRequestConfiguration';
 import {ProfilePhotoItemRequestBuilderPatchRequestConfiguration} from './profilePhotoItemRequestBuilderPatchRequestConfiguration';
@@ -82,7 +83,8 @@ export class ProfilePhotoItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new ProfilePhotoImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -106,7 +108,7 @@ export class ProfilePhotoItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ProfilePhoto
      */
-    public get(requestConfiguration?: ProfilePhotoItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ProfilePhoto | undefined> {
+    public get(requestConfiguration?: ProfilePhotoItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ProfilePhotoImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -114,7 +116,7 @@ export class ProfilePhotoItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<ProfilePhoto>(requestInfo, createProfilePhotoFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<ProfilePhotoImpl>(requestInfo, createProfilePhotoFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update the navigation property photos in groups

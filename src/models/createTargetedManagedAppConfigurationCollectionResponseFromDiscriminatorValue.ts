@@ -1,7 +1,7 @@
-import {TargetedManagedAppConfigurationCollectionResponse} from './index';
+import {TargetedManagedAppConfigurationCollectionResponseImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createTargetedManagedAppConfigurationCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : TargetedManagedAppConfigurationCollectionResponse {
+export function createTargetedManagedAppConfigurationCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : TargetedManagedAppConfigurationCollectionResponseImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new TargetedManagedAppConfigurationCollectionResponse();
+    return new TargetedManagedAppConfigurationCollectionResponseImpl();
 }

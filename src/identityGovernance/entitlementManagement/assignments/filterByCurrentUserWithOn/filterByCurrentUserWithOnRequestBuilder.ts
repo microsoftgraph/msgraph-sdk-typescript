@@ -1,6 +1,6 @@
 import {createFilterByCurrentUserWithOnResponseFromDiscriminatorValue} from './createFilterByCurrentUserWithOnResponseFromDiscriminatorValue';
 import {FilterByCurrentUserWithOnRequestBuilderGetRequestConfiguration} from './filterByCurrentUserWithOnRequestBuilderGetRequestConfiguration';
-import {FilterByCurrentUserWithOnResponse} from './index';
+import {FilterByCurrentUserWithOnResponseImpl} from './index';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the filterByCurrentUser method. */
@@ -48,10 +48,10 @@ export class FilterByCurrentUserWithOnRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of FilterByCurrentUserWithOnResponse
      */
-    public get(requestConfiguration?: FilterByCurrentUserWithOnRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<FilterByCurrentUserWithOnResponse | undefined> {
+    public get(requestConfiguration?: FilterByCurrentUserWithOnRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<FilterByCurrentUserWithOnResponseImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
-        return this.requestAdapter?.sendAsync<FilterByCurrentUserWithOnResponse>(requestInfo, createFilterByCurrentUserWithOnResponseFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<FilterByCurrentUserWithOnResponseImpl>(requestInfo, createFilterByCurrentUserWithOnResponseFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }

@@ -1,6 +1,7 @@
-import {Authentication} from '../../models/';
+import {AuthenticationImpl} from '../../models/';
+import {Authentication} from '../../models/authentication';
 import {createAuthenticationFromDiscriminatorValue} from '../../models/createAuthenticationFromDiscriminatorValue';
-import {ODataError} from '../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {AuthenticationRequestBuilderDeleteRequestConfiguration} from './authenticationRequestBuilderDeleteRequestConfiguration';
 import {AuthenticationRequestBuilderGetRequestConfiguration} from './authenticationRequestBuilderGetRequestConfiguration';
@@ -101,7 +102,8 @@ export class AuthenticationRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new AuthenticationImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -120,7 +122,7 @@ export class AuthenticationRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.me.authentication.fido2Methods.item collection
+     * Gets an item from the MicrosoftGraph.me.authentication.fido2Methods.item collection
      * @param id Unique identifier of the item
      * @returns a fido2AuthenticationMethodItemRequestBuilder
      */
@@ -136,7 +138,7 @@ export class AuthenticationRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Authentication
      */
-    public get(requestConfiguration?: AuthenticationRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Authentication | undefined> {
+    public get(requestConfiguration?: AuthenticationRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AuthenticationImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -144,10 +146,10 @@ export class AuthenticationRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<Authentication>(requestInfo, createAuthenticationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<AuthenticationImpl>(requestInfo, createAuthenticationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.me.authentication.methods.item collection
+     * Gets an item from the MicrosoftGraph.me.authentication.methods.item collection
      * @param id Unique identifier of the item
      * @returns a authenticationMethodItemRequestBuilder
      */
@@ -158,7 +160,7 @@ export class AuthenticationRequestBuilder {
         return new AuthenticationMethodItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.me.authentication.microsoftAuthenticatorMethods.item collection
+     * Gets an item from the MicrosoftGraph.me.authentication.microsoftAuthenticatorMethods.item collection
      * @param id Unique identifier of the item
      * @returns a microsoftAuthenticatorAuthenticationMethodItemRequestBuilder
      */
@@ -186,7 +188,7 @@ export class AuthenticationRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.me.authentication.windowsHelloForBusinessMethods.item collection
+     * Gets an item from the MicrosoftGraph.me.authentication.windowsHelloForBusinessMethods.item collection
      * @param id Unique identifier of the item
      * @returns a windowsHelloForBusinessAuthenticationMethodItemRequestBuilder
      */

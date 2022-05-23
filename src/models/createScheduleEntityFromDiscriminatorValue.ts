@@ -1,7 +1,7 @@
-import {ScheduleEntity} from './index';
+import {ScheduleEntityImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createScheduleEntityFromDiscriminatorValue(parseNode: ParseNode | undefined) : ScheduleEntity {
+export function createScheduleEntityFromDiscriminatorValue(parseNode: ParseNode | undefined) : ScheduleEntityImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new ScheduleEntity();
+    return new ScheduleEntityImpl();
 }

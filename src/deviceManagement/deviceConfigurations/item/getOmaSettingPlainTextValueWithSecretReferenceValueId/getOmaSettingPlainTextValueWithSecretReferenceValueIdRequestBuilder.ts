@@ -1,6 +1,6 @@
 import {createGetOmaSettingPlainTextValueWithSecretReferenceValueIdResponseFromDiscriminatorValue} from './createGetOmaSettingPlainTextValueWithSecretReferenceValueIdResponseFromDiscriminatorValue';
 import {GetOmaSettingPlainTextValueWithSecretReferenceValueIdRequestBuilderGetRequestConfiguration} from './getOmaSettingPlainTextValueWithSecretReferenceValueIdRequestBuilderGetRequestConfiguration';
-import {GetOmaSettingPlainTextValueWithSecretReferenceValueIdResponse} from './index';
+import {GetOmaSettingPlainTextValueWithSecretReferenceValueIdResponseImpl} from './index';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the getOmaSettingPlainTextValue method. */
@@ -48,10 +48,10 @@ export class GetOmaSettingPlainTextValueWithSecretReferenceValueIdRequestBuilder
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of GetOmaSettingPlainTextValueWithSecretReferenceValueIdResponse
      */
-    public get(requestConfiguration?: GetOmaSettingPlainTextValueWithSecretReferenceValueIdRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<GetOmaSettingPlainTextValueWithSecretReferenceValueIdResponse | undefined> {
+    public get(requestConfiguration?: GetOmaSettingPlainTextValueWithSecretReferenceValueIdRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<GetOmaSettingPlainTextValueWithSecretReferenceValueIdResponseImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
-        return this.requestAdapter?.sendAsync<GetOmaSettingPlainTextValueWithSecretReferenceValueIdResponse>(requestInfo, createGetOmaSettingPlainTextValueWithSecretReferenceValueIdResponseFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<GetOmaSettingPlainTextValueWithSecretReferenceValueIdResponseImpl>(requestInfo, createGetOmaSettingPlainTextValueWithSecretReferenceValueIdResponseFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }

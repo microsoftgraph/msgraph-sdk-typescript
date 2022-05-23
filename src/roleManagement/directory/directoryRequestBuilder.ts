@@ -1,7 +1,8 @@
-import {RbacApplication} from '../../models/';
+import {RbacApplicationImpl} from '../../models/';
 import {createRbacApplicationFromDiscriminatorValue} from '../../models/createRbacApplicationFromDiscriminatorValue';
-import {ODataError} from '../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {RbacApplication} from '../../models/rbacApplication';
 import {DirectoryRequestBuilderDeleteRequestConfiguration} from './directoryRequestBuilderDeleteRequestConfiguration';
 import {DirectoryRequestBuilderGetRequestConfiguration} from './directoryRequestBuilderGetRequestConfiguration';
 import {DirectoryRequestBuilderPatchRequestConfiguration} from './directoryRequestBuilderPatchRequestConfiguration';
@@ -125,7 +126,8 @@ export class DirectoryRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new RbacApplicationImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -149,7 +151,7 @@ export class DirectoryRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of RbacApplication
      */
-    public get(requestConfiguration?: DirectoryRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<RbacApplication | undefined> {
+    public get(requestConfiguration?: DirectoryRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<RbacApplicationImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -157,7 +159,7 @@ export class DirectoryRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<RbacApplication>(requestInfo, createRbacApplicationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<RbacApplicationImpl>(requestInfo, createRbacApplicationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update the navigation property directory in roleManagement
@@ -177,7 +179,7 @@ export class DirectoryRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.roleManagement.directory.roleAssignments.item collection
+     * Gets an item from the MicrosoftGraph.roleManagement.directory.roleAssignments.item collection
      * @param id Unique identifier of the item
      * @returns a unifiedRoleAssignmentItemRequestBuilder
      */
@@ -188,7 +190,7 @@ export class DirectoryRequestBuilder {
         return new UnifiedRoleAssignmentItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.roleManagement.directory.roleAssignmentScheduleInstances.item collection
+     * Gets an item from the MicrosoftGraph.roleManagement.directory.roleAssignmentScheduleInstances.item collection
      * @param id Unique identifier of the item
      * @returns a unifiedRoleAssignmentScheduleInstanceItemRequestBuilder
      */
@@ -199,7 +201,7 @@ export class DirectoryRequestBuilder {
         return new UnifiedRoleAssignmentScheduleInstanceItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.roleManagement.directory.roleAssignmentScheduleRequests.item collection
+     * Gets an item from the MicrosoftGraph.roleManagement.directory.roleAssignmentScheduleRequests.item collection
      * @param id Unique identifier of the item
      * @returns a unifiedRoleAssignmentScheduleRequestItemRequestBuilder
      */
@@ -210,7 +212,7 @@ export class DirectoryRequestBuilder {
         return new UnifiedRoleAssignmentScheduleRequestItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.roleManagement.directory.roleAssignmentSchedules.item collection
+     * Gets an item from the MicrosoftGraph.roleManagement.directory.roleAssignmentSchedules.item collection
      * @param id Unique identifier of the item
      * @returns a unifiedRoleAssignmentScheduleItemRequestBuilder
      */
@@ -221,7 +223,7 @@ export class DirectoryRequestBuilder {
         return new UnifiedRoleAssignmentScheduleItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.roleManagement.directory.roleDefinitions.item collection
+     * Gets an item from the MicrosoftGraph.roleManagement.directory.roleDefinitions.item collection
      * @param id Unique identifier of the item
      * @returns a unifiedRoleDefinitionItemRequestBuilder
      */
@@ -232,7 +234,7 @@ export class DirectoryRequestBuilder {
         return new UnifiedRoleDefinitionItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.roleManagement.directory.roleEligibilityScheduleInstances.item collection
+     * Gets an item from the MicrosoftGraph.roleManagement.directory.roleEligibilityScheduleInstances.item collection
      * @param id Unique identifier of the item
      * @returns a unifiedRoleEligibilityScheduleInstanceItemRequestBuilder
      */
@@ -243,7 +245,7 @@ export class DirectoryRequestBuilder {
         return new UnifiedRoleEligibilityScheduleInstanceItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.roleManagement.directory.roleEligibilityScheduleRequests.item collection
+     * Gets an item from the MicrosoftGraph.roleManagement.directory.roleEligibilityScheduleRequests.item collection
      * @param id Unique identifier of the item
      * @returns a unifiedRoleEligibilityScheduleRequestItemRequestBuilder
      */
@@ -254,7 +256,7 @@ export class DirectoryRequestBuilder {
         return new UnifiedRoleEligibilityScheduleRequestItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.roleManagement.directory.roleEligibilitySchedules.item collection
+     * Gets an item from the MicrosoftGraph.roleManagement.directory.roleEligibilitySchedules.item collection
      * @param id Unique identifier of the item
      * @returns a unifiedRoleEligibilityScheduleItemRequestBuilder
      */

@@ -1,7 +1,8 @@
-import {DeviceComplianceScheduledActionForRule, DeviceComplianceScheduledActionForRuleCollectionResponse} from '../../../../models/';
+import {DeviceComplianceScheduledActionForRuleCollectionResponseImpl, DeviceComplianceScheduledActionForRuleImpl} from '../../../../models/';
 import {createDeviceComplianceScheduledActionForRuleCollectionResponseFromDiscriminatorValue} from '../../../../models/createDeviceComplianceScheduledActionForRuleCollectionResponseFromDiscriminatorValue';
 import {createDeviceComplianceScheduledActionForRuleFromDiscriminatorValue} from '../../../../models/createDeviceComplianceScheduledActionForRuleFromDiscriminatorValue';
-import {ODataError} from '../../../../models/oDataErrors/';
+import {DeviceComplianceScheduledActionForRule} from '../../../../models/deviceComplianceScheduledActionForRule';
+import {ODataErrorImpl} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {ScheduledActionsForRuleRequestBuilderGetRequestConfiguration} from './scheduledActionsForRuleRequestBuilderGetRequestConfiguration';
@@ -66,7 +67,8 @@ export class ScheduledActionsForRuleRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new DeviceComplianceScheduledActionForRuleImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -75,7 +77,7 @@ export class ScheduledActionsForRuleRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DeviceComplianceScheduledActionForRuleCollectionResponse
      */
-    public get(requestConfiguration?: ScheduledActionsForRuleRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DeviceComplianceScheduledActionForRuleCollectionResponse | undefined> {
+    public get(requestConfiguration?: ScheduledActionsForRuleRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DeviceComplianceScheduledActionForRuleCollectionResponseImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -83,7 +85,7 @@ export class ScheduledActionsForRuleRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<DeviceComplianceScheduledActionForRuleCollectionResponse>(requestInfo, createDeviceComplianceScheduledActionForRuleCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<DeviceComplianceScheduledActionForRuleCollectionResponseImpl>(requestInfo, createDeviceComplianceScheduledActionForRuleCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Create new navigation property to scheduledActionsForRule for deviceManagement
@@ -92,7 +94,7 @@ export class ScheduledActionsForRuleRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DeviceComplianceScheduledActionForRule
      */
-    public post(body: DeviceComplianceScheduledActionForRule | undefined, requestConfiguration?: ScheduledActionsForRuleRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DeviceComplianceScheduledActionForRule | undefined> {
+    public post(body: DeviceComplianceScheduledActionForRule | undefined, requestConfiguration?: ScheduledActionsForRuleRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DeviceComplianceScheduledActionForRuleImpl | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration
@@ -101,6 +103,6 @@ export class ScheduledActionsForRuleRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<DeviceComplianceScheduledActionForRule>(requestInfo, createDeviceComplianceScheduledActionForRuleFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<DeviceComplianceScheduledActionForRuleImpl>(requestInfo, createDeviceComplianceScheduledActionForRuleFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

@@ -1,7 +1,7 @@
-import {DeviceComplianceActionItem} from './index';
+import {DeviceComplianceActionItemImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createDeviceComplianceActionItemFromDiscriminatorValue(parseNode: ParseNode | undefined) : DeviceComplianceActionItem {
+export function createDeviceComplianceActionItemFromDiscriminatorValue(parseNode: ParseNode | undefined) : DeviceComplianceActionItemImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new DeviceComplianceActionItem();
+    return new DeviceComplianceActionItemImpl();
 }

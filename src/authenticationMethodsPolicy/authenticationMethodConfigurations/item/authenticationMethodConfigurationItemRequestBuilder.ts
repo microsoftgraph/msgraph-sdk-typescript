@@ -1,6 +1,7 @@
-import {AuthenticationMethodConfiguration} from '../../../models/';
+import {AuthenticationMethodConfigurationImpl} from '../../../models/';
+import {AuthenticationMethodConfiguration} from '../../../models/authenticationMethodConfiguration';
 import {createAuthenticationMethodConfigurationFromDiscriminatorValue} from '../../../models/createAuthenticationMethodConfigurationFromDiscriminatorValue';
-import {ODataError} from '../../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {AuthenticationMethodConfigurationItemRequestBuilderDeleteRequestConfiguration} from './authenticationMethodConfigurationItemRequestBuilderDeleteRequestConfiguration';
 import {AuthenticationMethodConfigurationItemRequestBuilderGetRequestConfiguration} from './authenticationMethodConfigurationItemRequestBuilderGetRequestConfiguration';
@@ -77,7 +78,8 @@ export class AuthenticationMethodConfigurationItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new AuthenticationMethodConfigurationImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -101,7 +103,7 @@ export class AuthenticationMethodConfigurationItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AuthenticationMethodConfiguration
      */
-    public get(requestConfiguration?: AuthenticationMethodConfigurationItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AuthenticationMethodConfiguration | undefined> {
+    public get(requestConfiguration?: AuthenticationMethodConfigurationItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AuthenticationMethodConfigurationImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -109,7 +111,7 @@ export class AuthenticationMethodConfigurationItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<AuthenticationMethodConfiguration>(requestInfo, createAuthenticationMethodConfigurationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<AuthenticationMethodConfigurationImpl>(requestInfo, createAuthenticationMethodConfigurationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update the navigation property authenticationMethodConfigurations in authenticationMethodsPolicy

@@ -1,7 +1,7 @@
-import {CallRecordCollectionResponse} from './index';
+import {CallRecordCollectionResponseImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createCallRecordCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : CallRecordCollectionResponse {
+export function createCallRecordCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : CallRecordCollectionResponseImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new CallRecordCollectionResponse();
+    return new CallRecordCollectionResponseImpl();
 }

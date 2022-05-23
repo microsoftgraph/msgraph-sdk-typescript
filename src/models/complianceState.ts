@@ -1,4 +1,4 @@
-/** Casts the previous resource to user. */
+/** Provides operations to manage the deviceManagement singleton. */
 export enum ComplianceState {
     /** Unknown. */
     Unknown = "unknown",

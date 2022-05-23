@@ -1,5 +1,5 @@
 import {createSetMobileDeviceManagementAuthorityResponseFromDiscriminatorValue} from './createSetMobileDeviceManagementAuthorityResponseFromDiscriminatorValue';
-import {SetMobileDeviceManagementAuthorityResponse} from './index';
+import {SetMobileDeviceManagementAuthorityResponseImpl} from './index';
 import {SetMobileDeviceManagementAuthorityRequestBuilderPostRequestConfiguration} from './setMobileDeviceManagementAuthorityRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
@@ -46,10 +46,10 @@ export class SetMobileDeviceManagementAuthorityRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of SetMobileDeviceManagementAuthorityResponse
      */
-    public post(requestConfiguration?: SetMobileDeviceManagementAuthorityRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<SetMobileDeviceManagementAuthorityResponse | undefined> {
+    public post(requestConfiguration?: SetMobileDeviceManagementAuthorityRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<SetMobileDeviceManagementAuthorityResponseImpl | undefined> {
         const requestInfo = this.createPostRequestInformation(
             requestConfiguration
         );
-        return this.requestAdapter?.sendAsync<SetMobileDeviceManagementAuthorityResponse>(requestInfo, createSetMobileDeviceManagementAuthorityResponseFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<SetMobileDeviceManagementAuthorityResponseImpl>(requestInfo, createSetMobileDeviceManagementAuthorityResponseFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }

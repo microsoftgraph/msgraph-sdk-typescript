@@ -1,7 +1,7 @@
-import {AccessPackageApprovalStage} from './index';
+import {AccessPackageApprovalStageImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createAccessPackageApprovalStageFromDiscriminatorValue(parseNode: ParseNode | undefined) : AccessPackageApprovalStage {
+export function createAccessPackageApprovalStageFromDiscriminatorValue(parseNode: ParseNode | undefined) : AccessPackageApprovalStageImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new AccessPackageApprovalStage();
+    return new AccessPackageApprovalStageImpl();
 }

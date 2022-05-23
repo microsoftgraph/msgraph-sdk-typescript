@@ -1,6 +1,7 @@
-import {IdentityApiConnector} from '../../../models/';
+import {IdentityApiConnectorImpl} from '../../../models/';
 import {createIdentityApiConnectorFromDiscriminatorValue} from '../../../models/createIdentityApiConnectorFromDiscriminatorValue';
-import {ODataError} from '../../../models/oDataErrors/';
+import {IdentityApiConnector} from '../../../models/identityApiConnector';
+import {ODataErrorImpl} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {IdentityApiConnectorItemRequestBuilderDeleteRequestConfiguration} from './identityApiConnectorItemRequestBuilderDeleteRequestConfiguration';
 import {IdentityApiConnectorItemRequestBuilderGetRequestConfiguration} from './identityApiConnectorItemRequestBuilderGetRequestConfiguration';
@@ -82,7 +83,8 @@ export class IdentityApiConnectorItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new IdentityApiConnectorImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -106,7 +108,7 @@ export class IdentityApiConnectorItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of IdentityApiConnector
      */
-    public get(requestConfiguration?: IdentityApiConnectorItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<IdentityApiConnector | undefined> {
+    public get(requestConfiguration?: IdentityApiConnectorItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<IdentityApiConnectorImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -114,7 +116,7 @@ export class IdentityApiConnectorItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<IdentityApiConnector>(requestInfo, createIdentityApiConnectorFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<IdentityApiConnectorImpl>(requestInfo, createIdentityApiConnectorFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update the navigation property apiConnectors in identity

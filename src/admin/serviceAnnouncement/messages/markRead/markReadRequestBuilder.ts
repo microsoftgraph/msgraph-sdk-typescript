@@ -1,5 +1,6 @@
 import {createMarkReadResponseFromDiscriminatorValue} from './createMarkReadResponseFromDiscriminatorValue';
-import {MarkReadPostRequestBody, MarkReadResponse} from './index';
+import {MarkReadPostRequestBodyImpl, MarkReadResponseImpl} from './index';
+import {MarkReadPostRequestBody} from './markReadPostRequestBody';
 import {MarkReadRequestBuilderPostRequestConfiguration} from './markReadRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
@@ -40,7 +41,8 @@ export class MarkReadRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new MarkReadPostRequestBodyImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -50,11 +52,11 @@ export class MarkReadRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of MarkReadResponse
      */
-    public post(body: MarkReadPostRequestBody | undefined, requestConfiguration?: MarkReadRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<MarkReadResponse | undefined> {
+    public post(body: MarkReadPostRequestBody | undefined, requestConfiguration?: MarkReadRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<MarkReadResponseImpl | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration
         );
-        return this.requestAdapter?.sendAsync<MarkReadResponse>(requestInfo, createMarkReadResponseFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<MarkReadResponseImpl>(requestInfo, createMarkReadResponseFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }

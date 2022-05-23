@@ -1,7 +1,7 @@
-import {UserFlowLanguageConfiguration} from './index';
+import {UserFlowLanguageConfigurationImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createUserFlowLanguageConfigurationFromDiscriminatorValue(parseNode: ParseNode | undefined) : UserFlowLanguageConfiguration {
+export function createUserFlowLanguageConfigurationFromDiscriminatorValue(parseNode: ParseNode | undefined) : UserFlowLanguageConfigurationImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new UserFlowLanguageConfiguration();
+    return new UserFlowLanguageConfigurationImpl();
 }

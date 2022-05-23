@@ -1,7 +1,7 @@
-import {ClaimsMappingPolicy} from './index';
+import {ClaimsMappingPolicyImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createClaimsMappingPolicyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ClaimsMappingPolicy {
+export function createClaimsMappingPolicyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ClaimsMappingPolicyImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new ClaimsMappingPolicy();
+    return new ClaimsMappingPolicyImpl();
 }

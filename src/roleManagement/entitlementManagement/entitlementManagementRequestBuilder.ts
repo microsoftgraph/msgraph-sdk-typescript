@@ -1,7 +1,8 @@
-import {RbacApplication} from '../../models/';
+import {RbacApplicationImpl} from '../../models/';
 import {createRbacApplicationFromDiscriminatorValue} from '../../models/createRbacApplicationFromDiscriminatorValue';
-import {ODataError} from '../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {RbacApplication} from '../../models/rbacApplication';
 import {EntitlementManagementRequestBuilderDeleteRequestConfiguration} from './entitlementManagementRequestBuilderDeleteRequestConfiguration';
 import {EntitlementManagementRequestBuilderGetRequestConfiguration} from './entitlementManagementRequestBuilderGetRequestConfiguration';
 import {EntitlementManagementRequestBuilderPatchRequestConfiguration} from './entitlementManagementRequestBuilderPatchRequestConfiguration';
@@ -125,7 +126,8 @@ export class EntitlementManagementRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new RbacApplicationImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -149,7 +151,7 @@ export class EntitlementManagementRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of RbacApplication
      */
-    public get(requestConfiguration?: EntitlementManagementRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<RbacApplication | undefined> {
+    public get(requestConfiguration?: EntitlementManagementRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<RbacApplicationImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -157,7 +159,7 @@ export class EntitlementManagementRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<RbacApplication>(requestInfo, createRbacApplicationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<RbacApplicationImpl>(requestInfo, createRbacApplicationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update the navigation property entitlementManagement in roleManagement
@@ -177,7 +179,7 @@ export class EntitlementManagementRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.roleManagement.entitlementManagement.roleAssignments.item collection
+     * Gets an item from the MicrosoftGraph.roleManagement.entitlementManagement.roleAssignments.item collection
      * @param id Unique identifier of the item
      * @returns a unifiedRoleAssignmentItemRequestBuilder
      */
@@ -188,7 +190,7 @@ export class EntitlementManagementRequestBuilder {
         return new UnifiedRoleAssignmentItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.roleManagement.entitlementManagement.roleAssignmentScheduleInstances.item collection
+     * Gets an item from the MicrosoftGraph.roleManagement.entitlementManagement.roleAssignmentScheduleInstances.item collection
      * @param id Unique identifier of the item
      * @returns a unifiedRoleAssignmentScheduleInstanceItemRequestBuilder
      */
@@ -199,7 +201,7 @@ export class EntitlementManagementRequestBuilder {
         return new UnifiedRoleAssignmentScheduleInstanceItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.roleManagement.entitlementManagement.roleAssignmentScheduleRequests.item collection
+     * Gets an item from the MicrosoftGraph.roleManagement.entitlementManagement.roleAssignmentScheduleRequests.item collection
      * @param id Unique identifier of the item
      * @returns a unifiedRoleAssignmentScheduleRequestItemRequestBuilder
      */
@@ -210,7 +212,7 @@ export class EntitlementManagementRequestBuilder {
         return new UnifiedRoleAssignmentScheduleRequestItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.roleManagement.entitlementManagement.roleAssignmentSchedules.item collection
+     * Gets an item from the MicrosoftGraph.roleManagement.entitlementManagement.roleAssignmentSchedules.item collection
      * @param id Unique identifier of the item
      * @returns a unifiedRoleAssignmentScheduleItemRequestBuilder
      */
@@ -221,7 +223,7 @@ export class EntitlementManagementRequestBuilder {
         return new UnifiedRoleAssignmentScheduleItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.roleManagement.entitlementManagement.roleDefinitions.item collection
+     * Gets an item from the MicrosoftGraph.roleManagement.entitlementManagement.roleDefinitions.item collection
      * @param id Unique identifier of the item
      * @returns a unifiedRoleDefinitionItemRequestBuilder
      */
@@ -232,7 +234,7 @@ export class EntitlementManagementRequestBuilder {
         return new UnifiedRoleDefinitionItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.roleManagement.entitlementManagement.roleEligibilityScheduleInstances.item collection
+     * Gets an item from the MicrosoftGraph.roleManagement.entitlementManagement.roleEligibilityScheduleInstances.item collection
      * @param id Unique identifier of the item
      * @returns a unifiedRoleEligibilityScheduleInstanceItemRequestBuilder
      */
@@ -243,7 +245,7 @@ export class EntitlementManagementRequestBuilder {
         return new UnifiedRoleEligibilityScheduleInstanceItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.roleManagement.entitlementManagement.roleEligibilityScheduleRequests.item collection
+     * Gets an item from the MicrosoftGraph.roleManagement.entitlementManagement.roleEligibilityScheduleRequests.item collection
      * @param id Unique identifier of the item
      * @returns a unifiedRoleEligibilityScheduleRequestItemRequestBuilder
      */
@@ -254,7 +256,7 @@ export class EntitlementManagementRequestBuilder {
         return new UnifiedRoleEligibilityScheduleRequestItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.roleManagement.entitlementManagement.roleEligibilitySchedules.item collection
+     * Gets an item from the MicrosoftGraph.roleManagement.entitlementManagement.roleEligibilitySchedules.item collection
      * @param id Unique identifier of the item
      * @returns a unifiedRoleEligibilityScheduleItemRequestBuilder
      */

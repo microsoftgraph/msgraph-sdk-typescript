@@ -1,6 +1,7 @@
-import {ActivityBasedTimeoutPolicy} from '../../../models/';
+import {ActivityBasedTimeoutPolicyImpl} from '../../../models/';
+import {ActivityBasedTimeoutPolicy} from '../../../models/activityBasedTimeoutPolicy';
 import {createActivityBasedTimeoutPolicyFromDiscriminatorValue} from '../../../models/createActivityBasedTimeoutPolicyFromDiscriminatorValue';
-import {ODataError} from '../../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {ActivityBasedTimeoutPolicyItemRequestBuilderDeleteRequestConfiguration} from './activityBasedTimeoutPolicyItemRequestBuilderDeleteRequestConfiguration';
 import {ActivityBasedTimeoutPolicyItemRequestBuilderGetRequestConfiguration} from './activityBasedTimeoutPolicyItemRequestBuilderGetRequestConfiguration';
@@ -77,7 +78,8 @@ export class ActivityBasedTimeoutPolicyItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new ActivityBasedTimeoutPolicyImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -101,7 +103,7 @@ export class ActivityBasedTimeoutPolicyItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ActivityBasedTimeoutPolicy
      */
-    public get(requestConfiguration?: ActivityBasedTimeoutPolicyItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ActivityBasedTimeoutPolicy | undefined> {
+    public get(requestConfiguration?: ActivityBasedTimeoutPolicyItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ActivityBasedTimeoutPolicyImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -109,7 +111,7 @@ export class ActivityBasedTimeoutPolicyItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<ActivityBasedTimeoutPolicy>(requestInfo, createActivityBasedTimeoutPolicyFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<ActivityBasedTimeoutPolicyImpl>(requestInfo, createActivityBasedTimeoutPolicyFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update the navigation property activityBasedTimeoutPolicies in policies

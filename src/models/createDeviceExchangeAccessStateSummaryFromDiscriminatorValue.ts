@@ -1,7 +1,7 @@
-import {DeviceExchangeAccessStateSummary} from './index';
+import {DeviceExchangeAccessStateSummaryImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createDeviceExchangeAccessStateSummaryFromDiscriminatorValue(parseNode: ParseNode | undefined) : DeviceExchangeAccessStateSummary {
+export function createDeviceExchangeAccessStateSummaryFromDiscriminatorValue(parseNode: ParseNode | undefined) : DeviceExchangeAccessStateSummaryImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new DeviceExchangeAccessStateSummary();
+    return new DeviceExchangeAccessStateSummaryImpl();
 }

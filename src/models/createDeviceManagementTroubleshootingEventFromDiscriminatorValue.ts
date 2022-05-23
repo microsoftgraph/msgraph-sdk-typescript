@@ -1,7 +1,7 @@
-import {DeviceManagementTroubleshootingEvent} from './index';
+import {DeviceManagementTroubleshootingEventImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createDeviceManagementTroubleshootingEventFromDiscriminatorValue(parseNode: ParseNode | undefined) : DeviceManagementTroubleshootingEvent {
+export function createDeviceManagementTroubleshootingEventFromDiscriminatorValue(parseNode: ParseNode | undefined) : DeviceManagementTroubleshootingEventImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
     const mappingValueNode = parseNode.getChildNode("@odata.type");
     if (mappingValueNode) {
@@ -9,9 +9,9 @@ export function createDeviceManagementTroubleshootingEventFromDiscriminatorValue
         if (mappingValue) {
             switch (mappingValue) {
                 case "#microsoft.graph.deviceManagementTroubleshootingEvent":
-                    return new DeviceManagementTroubleshootingEvent();
+                    return new DeviceManagementTroubleshootingEventImpl();
             }
         }
     }
-    return new DeviceManagementTroubleshootingEvent();
+    return new DeviceManagementTroubleshootingEventImpl();
 }

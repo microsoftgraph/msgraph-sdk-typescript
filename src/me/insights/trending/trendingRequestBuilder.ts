@@ -1,8 +1,9 @@
-import {Trending, TrendingCollectionResponse} from '../../../models/';
+import {TrendingCollectionResponseImpl, TrendingImpl} from '../../../models/';
 import {createTrendingCollectionResponseFromDiscriminatorValue} from '../../../models/createTrendingCollectionResponseFromDiscriminatorValue';
 import {createTrendingFromDiscriminatorValue} from '../../../models/createTrendingFromDiscriminatorValue';
-import {ODataError} from '../../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {Trending} from '../../../models/trending';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {TrendingRequestBuilderGetRequestConfiguration} from './trendingRequestBuilderGetRequestConfiguration';
 import {TrendingRequestBuilderPostRequestConfiguration} from './trendingRequestBuilderPostRequestConfiguration';
@@ -66,7 +67,8 @@ export class TrendingRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new TrendingImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -75,7 +77,7 @@ export class TrendingRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of TrendingCollectionResponse
      */
-    public get(requestConfiguration?: TrendingRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<TrendingCollectionResponse | undefined> {
+    public get(requestConfiguration?: TrendingRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<TrendingCollectionResponseImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -83,7 +85,7 @@ export class TrendingRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<TrendingCollectionResponse>(requestInfo, createTrendingCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<TrendingCollectionResponseImpl>(requestInfo, createTrendingCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Create new navigation property to trending for me
@@ -92,7 +94,7 @@ export class TrendingRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Trending
      */
-    public post(body: Trending | undefined, requestConfiguration?: TrendingRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Trending | undefined> {
+    public post(body: Trending | undefined, requestConfiguration?: TrendingRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<TrendingImpl | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration
@@ -101,6 +103,6 @@ export class TrendingRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<Trending>(requestInfo, createTrendingFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<TrendingImpl>(requestInfo, createTrendingFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

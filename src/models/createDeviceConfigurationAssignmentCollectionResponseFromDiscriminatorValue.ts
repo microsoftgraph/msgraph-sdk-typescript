@@ -1,7 +1,7 @@
-import {DeviceConfigurationAssignmentCollectionResponse} from './index';
+import {DeviceConfigurationAssignmentCollectionResponseImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createDeviceConfigurationAssignmentCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : DeviceConfigurationAssignmentCollectionResponse {
+export function createDeviceConfigurationAssignmentCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : DeviceConfigurationAssignmentCollectionResponseImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new DeviceConfigurationAssignmentCollectionResponse();
+    return new DeviceConfigurationAssignmentCollectionResponseImpl();
 }

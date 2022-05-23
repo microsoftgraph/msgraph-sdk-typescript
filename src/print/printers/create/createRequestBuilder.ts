@@ -1,5 +1,6 @@
+import {CreatePostRequestBody} from './createPostRequestBody';
 import {CreateRequestBuilderPostRequestConfiguration} from './createRequestBuilderPostRequestConfiguration';
-import {CreatePostRequestBody} from './index';
+import {CreatePostRequestBodyImpl} from './index';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the create method. */
@@ -39,7 +40,8 @@ export class CreateRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new CreatePostRequestBodyImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**

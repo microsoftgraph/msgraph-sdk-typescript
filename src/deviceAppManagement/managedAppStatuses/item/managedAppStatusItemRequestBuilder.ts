@@ -1,6 +1,7 @@
-import {ManagedAppStatus} from '../../../models/';
+import {ManagedAppStatusImpl} from '../../../models/';
 import {createManagedAppStatusFromDiscriminatorValue} from '../../../models/createManagedAppStatusFromDiscriminatorValue';
-import {ODataError} from '../../../models/oDataErrors/';
+import {ManagedAppStatus} from '../../../models/managedAppStatus';
+import {ODataErrorImpl} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {ManagedAppStatusItemRequestBuilderDeleteRequestConfiguration} from './managedAppStatusItemRequestBuilderDeleteRequestConfiguration';
 import {ManagedAppStatusItemRequestBuilderGetRequestConfiguration} from './managedAppStatusItemRequestBuilderGetRequestConfiguration';
@@ -77,7 +78,8 @@ export class ManagedAppStatusItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new ManagedAppStatusImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -101,7 +103,7 @@ export class ManagedAppStatusItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ManagedAppStatus
      */
-    public get(requestConfiguration?: ManagedAppStatusItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ManagedAppStatus | undefined> {
+    public get(requestConfiguration?: ManagedAppStatusItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ManagedAppStatusImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -109,7 +111,7 @@ export class ManagedAppStatusItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<ManagedAppStatus>(requestInfo, createManagedAppStatusFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<ManagedAppStatusImpl>(requestInfo, createManagedAppStatusFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update the navigation property managedAppStatuses in deviceAppManagement

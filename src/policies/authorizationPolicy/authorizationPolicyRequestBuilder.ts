@@ -1,6 +1,7 @@
-import {AuthorizationPolicy} from '../../models/';
+import {AuthorizationPolicyImpl} from '../../models/';
+import {AuthorizationPolicy} from '../../models/authorizationPolicy';
 import {createAuthorizationPolicyFromDiscriminatorValue} from '../../models/createAuthorizationPolicyFromDiscriminatorValue';
-import {ODataError} from '../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {AuthorizationPolicyRequestBuilderDeleteRequestConfiguration} from './authorizationPolicyRequestBuilderDeleteRequestConfiguration';
 import {AuthorizationPolicyRequestBuilderGetRequestConfiguration} from './authorizationPolicyRequestBuilderGetRequestConfiguration';
@@ -77,7 +78,8 @@ export class AuthorizationPolicyRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new AuthorizationPolicyImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -101,7 +103,7 @@ export class AuthorizationPolicyRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AuthorizationPolicy
      */
-    public get(requestConfiguration?: AuthorizationPolicyRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AuthorizationPolicy | undefined> {
+    public get(requestConfiguration?: AuthorizationPolicyRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AuthorizationPolicyImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -109,7 +111,7 @@ export class AuthorizationPolicyRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<AuthorizationPolicy>(requestInfo, createAuthorizationPolicyFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<AuthorizationPolicyImpl>(requestInfo, createAuthorizationPolicyFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update the navigation property authorizationPolicy in policies

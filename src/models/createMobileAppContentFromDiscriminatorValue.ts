@@ -1,7 +1,7 @@
-import {MobileAppContent} from './index';
+import {MobileAppContentImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createMobileAppContentFromDiscriminatorValue(parseNode: ParseNode | undefined) : MobileAppContent {
+export function createMobileAppContentFromDiscriminatorValue(parseNode: ParseNode | undefined) : MobileAppContentImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new MobileAppContent();
+    return new MobileAppContentImpl();
 }

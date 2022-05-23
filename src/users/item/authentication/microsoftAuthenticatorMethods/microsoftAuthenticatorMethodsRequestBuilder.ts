@@ -1,7 +1,8 @@
-import {MicrosoftAuthenticatorAuthenticationMethod, MicrosoftAuthenticatorAuthenticationMethodCollectionResponse} from '../../../../models/';
+import {MicrosoftAuthenticatorAuthenticationMethodCollectionResponseImpl, MicrosoftAuthenticatorAuthenticationMethodImpl} from '../../../../models/';
 import {createMicrosoftAuthenticatorAuthenticationMethodCollectionResponseFromDiscriminatorValue} from '../../../../models/createMicrosoftAuthenticatorAuthenticationMethodCollectionResponseFromDiscriminatorValue';
 import {createMicrosoftAuthenticatorAuthenticationMethodFromDiscriminatorValue} from '../../../../models/createMicrosoftAuthenticatorAuthenticationMethodFromDiscriminatorValue';
-import {ODataError} from '../../../../models/oDataErrors/';
+import {MicrosoftAuthenticatorAuthenticationMethod} from '../../../../models/microsoftAuthenticatorAuthenticationMethod';
+import {ODataErrorImpl} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {MicrosoftAuthenticatorMethodsRequestBuilderGetRequestConfiguration} from './microsoftAuthenticatorMethodsRequestBuilderGetRequestConfiguration';
@@ -66,7 +67,8 @@ export class MicrosoftAuthenticatorMethodsRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new MicrosoftAuthenticatorAuthenticationMethodImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -75,7 +77,7 @@ export class MicrosoftAuthenticatorMethodsRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of MicrosoftAuthenticatorAuthenticationMethodCollectionResponse
      */
-    public get(requestConfiguration?: MicrosoftAuthenticatorMethodsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<MicrosoftAuthenticatorAuthenticationMethodCollectionResponse | undefined> {
+    public get(requestConfiguration?: MicrosoftAuthenticatorMethodsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<MicrosoftAuthenticatorAuthenticationMethodCollectionResponseImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -83,7 +85,7 @@ export class MicrosoftAuthenticatorMethodsRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<MicrosoftAuthenticatorAuthenticationMethodCollectionResponse>(requestInfo, createMicrosoftAuthenticatorAuthenticationMethodCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<MicrosoftAuthenticatorAuthenticationMethodCollectionResponseImpl>(requestInfo, createMicrosoftAuthenticatorAuthenticationMethodCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Create new navigation property to microsoftAuthenticatorMethods for users
@@ -92,7 +94,7 @@ export class MicrosoftAuthenticatorMethodsRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of MicrosoftAuthenticatorAuthenticationMethod
      */
-    public post(body: MicrosoftAuthenticatorAuthenticationMethod | undefined, requestConfiguration?: MicrosoftAuthenticatorMethodsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<MicrosoftAuthenticatorAuthenticationMethod | undefined> {
+    public post(body: MicrosoftAuthenticatorAuthenticationMethod | undefined, requestConfiguration?: MicrosoftAuthenticatorMethodsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<MicrosoftAuthenticatorAuthenticationMethodImpl | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration
@@ -101,6 +103,6 @@ export class MicrosoftAuthenticatorMethodsRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<MicrosoftAuthenticatorAuthenticationMethod>(requestInfo, createMicrosoftAuthenticatorAuthenticationMethodFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<MicrosoftAuthenticatorAuthenticationMethodImpl>(requestInfo, createMicrosoftAuthenticatorAuthenticationMethodFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

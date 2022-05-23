@@ -1,6 +1,7 @@
-import {IdentityUserFlowAttribute} from '../../../models/';
+import {IdentityUserFlowAttributeImpl} from '../../../models/';
 import {createIdentityUserFlowAttributeFromDiscriminatorValue} from '../../../models/createIdentityUserFlowAttributeFromDiscriminatorValue';
-import {ODataError} from '../../../models/oDataErrors/';
+import {IdentityUserFlowAttribute} from '../../../models/identityUserFlowAttribute';
+import {ODataErrorImpl} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {IdentityUserFlowAttributeItemRequestBuilderDeleteRequestConfiguration} from './identityUserFlowAttributeItemRequestBuilderDeleteRequestConfiguration';
 import {IdentityUserFlowAttributeItemRequestBuilderGetRequestConfiguration} from './identityUserFlowAttributeItemRequestBuilderGetRequestConfiguration';
@@ -77,7 +78,8 @@ export class IdentityUserFlowAttributeItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new IdentityUserFlowAttributeImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -101,7 +103,7 @@ export class IdentityUserFlowAttributeItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of IdentityUserFlowAttribute
      */
-    public get(requestConfiguration?: IdentityUserFlowAttributeItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<IdentityUserFlowAttribute | undefined> {
+    public get(requestConfiguration?: IdentityUserFlowAttributeItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<IdentityUserFlowAttributeImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -109,7 +111,7 @@ export class IdentityUserFlowAttributeItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<IdentityUserFlowAttribute>(requestInfo, createIdentityUserFlowAttributeFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<IdentityUserFlowAttributeImpl>(requestInfo, createIdentityUserFlowAttributeFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update the navigation property userFlowAttributes in identity

@@ -1,7 +1,7 @@
-import {RichLongRunningOperation} from './index';
+import {RichLongRunningOperationImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createRichLongRunningOperationFromDiscriminatorValue(parseNode: ParseNode | undefined) : RichLongRunningOperation {
+export function createRichLongRunningOperationFromDiscriminatorValue(parseNode: ParseNode | undefined) : RichLongRunningOperationImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new RichLongRunningOperation();
+    return new RichLongRunningOperationImpl();
 }

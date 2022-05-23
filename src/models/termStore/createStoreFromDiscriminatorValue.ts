@@ -1,7 +1,7 @@
-import {Store} from './index';
+import {StoreImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createStoreFromDiscriminatorValue(parseNode: ParseNode | undefined) : Store {
+export function createStoreFromDiscriminatorValue(parseNode: ParseNode | undefined) : StoreImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new Store();
+    return new StoreImpl();
 }

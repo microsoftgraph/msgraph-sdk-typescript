@@ -1,7 +1,7 @@
-import {ContactFolderCollectionResponse} from './index';
+import {ContactFolderCollectionResponseImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createContactFolderCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ContactFolderCollectionResponse {
+export function createContactFolderCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ContactFolderCollectionResponseImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new ContactFolderCollectionResponse();
+    return new ContactFolderCollectionResponseImpl();
 }

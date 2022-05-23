@@ -1,7 +1,7 @@
-import {MessageRuleCollectionResponse} from './index';
+import {MessageRuleCollectionResponseImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createMessageRuleCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : MessageRuleCollectionResponse {
+export function createMessageRuleCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : MessageRuleCollectionResponseImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new MessageRuleCollectionResponse();
+    return new MessageRuleCollectionResponseImpl();
 }

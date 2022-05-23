@@ -1,6 +1,7 @@
-import {NamedLocation} from '../../../../models/';
+import {NamedLocationImpl} from '../../../../models/';
 import {createNamedLocationFromDiscriminatorValue} from '../../../../models/createNamedLocationFromDiscriminatorValue';
-import {ODataError} from '../../../../models/oDataErrors/';
+import {NamedLocation} from '../../../../models/namedLocation';
+import {ODataErrorImpl} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {NamedLocationItemRequestBuilderDeleteRequestConfiguration} from './namedLocationItemRequestBuilderDeleteRequestConfiguration';
 import {NamedLocationItemRequestBuilderGetRequestConfiguration} from './namedLocationItemRequestBuilderGetRequestConfiguration';
@@ -77,7 +78,8 @@ export class NamedLocationItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new NamedLocationImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -101,7 +103,7 @@ export class NamedLocationItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of NamedLocation
      */
-    public get(requestConfiguration?: NamedLocationItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<NamedLocation | undefined> {
+    public get(requestConfiguration?: NamedLocationItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<NamedLocationImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -109,7 +111,7 @@ export class NamedLocationItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<NamedLocation>(requestInfo, createNamedLocationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<NamedLocationImpl>(requestInfo, createNamedLocationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update the navigation property namedLocations in identity

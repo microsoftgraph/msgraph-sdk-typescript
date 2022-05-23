@@ -1,7 +1,7 @@
-import {EducationSubmissionResource} from './index';
+import {EducationSubmissionResourceImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createEducationSubmissionResourceFromDiscriminatorValue(parseNode: ParseNode | undefined) : EducationSubmissionResource {
+export function createEducationSubmissionResourceFromDiscriminatorValue(parseNode: ParseNode | undefined) : EducationSubmissionResourceImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new EducationSubmissionResource();
+    return new EducationSubmissionResourceImpl();
 }

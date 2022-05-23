@@ -1,6 +1,7 @@
-import {BookingService} from '../../../../../models/';
+import {BookingServiceImpl} from '../../../../../models/';
+import {BookingService} from '../../../../../models/bookingService';
 import {createBookingServiceFromDiscriminatorValue} from '../../../../../models/createBookingServiceFromDiscriminatorValue';
-import {ODataError} from '../../../../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {BookingServiceItemRequestBuilderDeleteRequestConfiguration} from './bookingServiceItemRequestBuilderDeleteRequestConfiguration';
 import {BookingServiceItemRequestBuilderGetRequestConfiguration} from './bookingServiceItemRequestBuilderGetRequestConfiguration';
@@ -77,7 +78,8 @@ export class BookingServiceItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new BookingServiceImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -101,7 +103,7 @@ export class BookingServiceItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of BookingService
      */
-    public get(requestConfiguration?: BookingServiceItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<BookingService | undefined> {
+    public get(requestConfiguration?: BookingServiceItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<BookingServiceImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -109,7 +111,7 @@ export class BookingServiceItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<BookingService>(requestInfo, createBookingServiceFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<BookingServiceImpl>(requestInfo, createBookingServiceFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update the navigation property services in solutions

@@ -1,7 +1,7 @@
-import {MailTips} from './index';
+import {MailTipsImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createMailTipsFromDiscriminatorValue(parseNode: ParseNode | undefined) : MailTips {
+export function createMailTipsFromDiscriminatorValue(parseNode: ParseNode | undefined) : MailTipsImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new MailTips();
+    return new MailTipsImpl();
 }

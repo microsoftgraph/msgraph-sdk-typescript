@@ -1,7 +1,7 @@
-import {EducationAssignmentDefaults} from './index';
+import {EducationAssignmentDefaultsImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createEducationAssignmentDefaultsFromDiscriminatorValue(parseNode: ParseNode | undefined) : EducationAssignmentDefaults {
+export function createEducationAssignmentDefaultsFromDiscriminatorValue(parseNode: ParseNode | undefined) : EducationAssignmentDefaultsImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new EducationAssignmentDefaults();
+    return new EducationAssignmentDefaultsImpl();
 }

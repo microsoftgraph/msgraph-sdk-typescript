@@ -1,6 +1,7 @@
-import {DeviceManagement} from '../models/';
+import {DeviceManagementImpl} from '../models/';
 import {createDeviceManagementFromDiscriminatorValue} from '../models/createDeviceManagementFromDiscriminatorValue';
-import {ODataError} from '../models/oDataErrors/';
+import {DeviceManagement} from '../models/deviceManagement';
+import {ODataErrorImpl} from '../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {ApplePushNotificationCertificateRequestBuilder} from './applePushNotificationCertificate/applePushNotificationCertificateRequestBuilder';
 import {ComplianceManagementPartnersRequestBuilder} from './complianceManagementPartners/complianceManagementPartnersRequestBuilder';
@@ -196,7 +197,7 @@ export class DeviceManagementRequestBuilder {
         return new WindowsInformationProtectionNetworkLearningSummariesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceManagement.complianceManagementPartners.item collection
+     * Gets an item from the MicrosoftGraph.deviceManagement.complianceManagementPartners.item collection
      * @param id Unique identifier of the item
      * @returns a complianceManagementPartnerItemRequestBuilder
      */
@@ -252,11 +253,12 @@ export class DeviceManagementRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new DeviceManagementImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceManagement.detectedApps.item collection
+     * Gets an item from the MicrosoftGraph.deviceManagement.detectedApps.item collection
      * @param id Unique identifier of the item
      * @returns a detectedAppItemRequestBuilder
      */
@@ -267,7 +269,7 @@ export class DeviceManagementRequestBuilder {
         return new DetectedAppItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceManagement.deviceCategories.item collection
+     * Gets an item from the MicrosoftGraph.deviceManagement.deviceCategories.item collection
      * @param id Unique identifier of the item
      * @returns a deviceCategoryItemRequestBuilder
      */
@@ -278,7 +280,7 @@ export class DeviceManagementRequestBuilder {
         return new DeviceCategoryItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceManagement.deviceCompliancePolicies.item collection
+     * Gets an item from the MicrosoftGraph.deviceManagement.deviceCompliancePolicies.item collection
      * @param id Unique identifier of the item
      * @returns a deviceCompliancePolicyItemRequestBuilder
      */
@@ -289,7 +291,7 @@ export class DeviceManagementRequestBuilder {
         return new DeviceCompliancePolicyItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceManagement.deviceCompliancePolicySettingStateSummaries.item collection
+     * Gets an item from the MicrosoftGraph.deviceManagement.deviceCompliancePolicySettingStateSummaries.item collection
      * @param id Unique identifier of the item
      * @returns a deviceCompliancePolicySettingStateSummaryItemRequestBuilder
      */
@@ -300,7 +302,7 @@ export class DeviceManagementRequestBuilder {
         return new DeviceCompliancePolicySettingStateSummaryItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceManagement.deviceConfigurations.item collection
+     * Gets an item from the MicrosoftGraph.deviceManagement.deviceConfigurations.item collection
      * @param id Unique identifier of the item
      * @returns a deviceConfigurationItemRequestBuilder
      */
@@ -311,7 +313,7 @@ export class DeviceManagementRequestBuilder {
         return new DeviceConfigurationItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceManagement.deviceEnrollmentConfigurations.item collection
+     * Gets an item from the MicrosoftGraph.deviceManagement.deviceEnrollmentConfigurations.item collection
      * @param id Unique identifier of the item
      * @returns a deviceEnrollmentConfigurationItemRequestBuilder
      */
@@ -322,7 +324,7 @@ export class DeviceManagementRequestBuilder {
         return new DeviceEnrollmentConfigurationItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceManagement.deviceManagementPartners.item collection
+     * Gets an item from the MicrosoftGraph.deviceManagement.deviceManagementPartners.item collection
      * @param id Unique identifier of the item
      * @returns a deviceManagementPartnerItemRequestBuilder
      */
@@ -333,7 +335,7 @@ export class DeviceManagementRequestBuilder {
         return new DeviceManagementPartnerItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceManagement.exchangeConnectors.item collection
+     * Gets an item from the MicrosoftGraph.deviceManagement.exchangeConnectors.item collection
      * @param id Unique identifier of the item
      * @returns a deviceManagementExchangeConnectorItemRequestBuilder
      */
@@ -349,7 +351,7 @@ export class DeviceManagementRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DeviceManagement
      */
-    public get(requestConfiguration?: DeviceManagementRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DeviceManagement | undefined> {
+    public get(requestConfiguration?: DeviceManagementRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DeviceManagementImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -357,7 +359,7 @@ export class DeviceManagementRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<DeviceManagement>(requestInfo, createDeviceManagementFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<DeviceManagementImpl>(requestInfo, createDeviceManagementFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Provides operations to call the getEffectivePermissions method.
@@ -369,7 +371,7 @@ export class DeviceManagementRequestBuilder {
         return new GetEffectivePermissionsWithScopeRequestBuilder(this.pathParameters, this.requestAdapter, scope);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceManagement.importedWindowsAutopilotDeviceIdentities.item collection
+     * Gets an item from the MicrosoftGraph.deviceManagement.importedWindowsAutopilotDeviceIdentities.item collection
      * @param id Unique identifier of the item
      * @returns a importedWindowsAutopilotDeviceIdentityItemRequestBuilder
      */
@@ -380,7 +382,7 @@ export class DeviceManagementRequestBuilder {
         return new ImportedWindowsAutopilotDeviceIdentityItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceManagement.iosUpdateStatuses.item collection
+     * Gets an item from the MicrosoftGraph.deviceManagement.iosUpdateStatuses.item collection
      * @param id Unique identifier of the item
      * @returns a iosUpdateDeviceStatusItemRequestBuilder
      */
@@ -391,7 +393,7 @@ export class DeviceManagementRequestBuilder {
         return new IosUpdateDeviceStatusItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceManagement.managedDevices.item collection
+     * Gets an item from the MicrosoftGraph.deviceManagement.managedDevices.item collection
      * @param id Unique identifier of the item
      * @returns a managedDeviceItemRequestBuilder
      */
@@ -402,7 +404,7 @@ export class DeviceManagementRequestBuilder {
         return new ManagedDeviceItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceManagement.mobileThreatDefenseConnectors.item collection
+     * Gets an item from the MicrosoftGraph.deviceManagement.mobileThreatDefenseConnectors.item collection
      * @param id Unique identifier of the item
      * @returns a mobileThreatDefenseConnectorItemRequestBuilder
      */
@@ -413,7 +415,7 @@ export class DeviceManagementRequestBuilder {
         return new MobileThreatDefenseConnectorItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceManagement.notificationMessageTemplates.item collection
+     * Gets an item from the MicrosoftGraph.deviceManagement.notificationMessageTemplates.item collection
      * @param id Unique identifier of the item
      * @returns a notificationMessageTemplateItemRequestBuilder
      */
@@ -441,7 +443,7 @@ export class DeviceManagementRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceManagement.remoteAssistancePartners.item collection
+     * Gets an item from the MicrosoftGraph.deviceManagement.remoteAssistancePartners.item collection
      * @param id Unique identifier of the item
      * @returns a remoteAssistancePartnerItemRequestBuilder
      */
@@ -452,7 +454,7 @@ export class DeviceManagementRequestBuilder {
         return new RemoteAssistancePartnerItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceManagement.resourceOperations.item collection
+     * Gets an item from the MicrosoftGraph.deviceManagement.resourceOperations.item collection
      * @param id Unique identifier of the item
      * @returns a resourceOperationItemRequestBuilder
      */
@@ -463,7 +465,7 @@ export class DeviceManagementRequestBuilder {
         return new ResourceOperationItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceManagement.roleAssignments.item collection
+     * Gets an item from the MicrosoftGraph.deviceManagement.roleAssignments.item collection
      * @param id Unique identifier of the item
      * @returns a deviceAndAppManagementRoleAssignmentItemRequestBuilder
      */
@@ -474,7 +476,7 @@ export class DeviceManagementRequestBuilder {
         return new DeviceAndAppManagementRoleAssignmentItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceManagement.roleDefinitions.item collection
+     * Gets an item from the MicrosoftGraph.deviceManagement.roleDefinitions.item collection
      * @param id Unique identifier of the item
      * @returns a roleDefinitionItemRequestBuilder
      */
@@ -485,7 +487,7 @@ export class DeviceManagementRequestBuilder {
         return new RoleDefinitionItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceManagement.telecomExpenseManagementPartners.item collection
+     * Gets an item from the MicrosoftGraph.deviceManagement.telecomExpenseManagementPartners.item collection
      * @param id Unique identifier of the item
      * @returns a telecomExpenseManagementPartnerItemRequestBuilder
      */
@@ -496,7 +498,7 @@ export class DeviceManagementRequestBuilder {
         return new TelecomExpenseManagementPartnerItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceManagement.termsAndConditions.item collection
+     * Gets an item from the MicrosoftGraph.deviceManagement.termsAndConditions.item collection
      * @param id Unique identifier of the item
      * @returns a termsAndConditionsItemRequestBuilder
      */
@@ -507,7 +509,7 @@ export class DeviceManagementRequestBuilder {
         return new TermsAndConditionsItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceManagement.troubleshootingEvents.item collection
+     * Gets an item from the MicrosoftGraph.deviceManagement.troubleshootingEvents.item collection
      * @param id Unique identifier of the item
      * @returns a deviceManagementTroubleshootingEventItemRequestBuilder
      */
@@ -527,7 +529,7 @@ export class DeviceManagementRequestBuilder {
         return new VerifyWindowsEnrollmentAutoDiscoveryWithDomainNameRequestBuilder(this.pathParameters, this.requestAdapter, domainName);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceManagement.windowsAutopilotDeviceIdentities.item collection
+     * Gets an item from the MicrosoftGraph.deviceManagement.windowsAutopilotDeviceIdentities.item collection
      * @param id Unique identifier of the item
      * @returns a windowsAutopilotDeviceIdentityItemRequestBuilder
      */
@@ -538,7 +540,7 @@ export class DeviceManagementRequestBuilder {
         return new WindowsAutopilotDeviceIdentityItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceManagement.windowsInformationProtectionAppLearningSummaries.item collection
+     * Gets an item from the MicrosoftGraph.deviceManagement.windowsInformationProtectionAppLearningSummaries.item collection
      * @param id Unique identifier of the item
      * @returns a windowsInformationProtectionAppLearningSummaryItemRequestBuilder
      */
@@ -549,7 +551,7 @@ export class DeviceManagementRequestBuilder {
         return new WindowsInformationProtectionAppLearningSummaryItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceManagement.windowsInformationProtectionNetworkLearningSummaries.item collection
+     * Gets an item from the MicrosoftGraph.deviceManagement.windowsInformationProtectionNetworkLearningSummaries.item collection
      * @param id Unique identifier of the item
      * @returns a windowsInformationProtectionNetworkLearningSummaryItemRequestBuilder
      */

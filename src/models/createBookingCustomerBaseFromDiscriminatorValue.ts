@@ -1,7 +1,7 @@
-import {BookingCustomerBase} from './index';
+import {BookingCustomerBaseImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createBookingCustomerBaseFromDiscriminatorValue(parseNode: ParseNode | undefined) : BookingCustomerBase {
+export function createBookingCustomerBaseFromDiscriminatorValue(parseNode: ParseNode | undefined) : BookingCustomerBaseImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
     const mappingValueNode = parseNode.getChildNode("@odata.type");
     if (mappingValueNode) {
@@ -9,9 +9,9 @@ export function createBookingCustomerBaseFromDiscriminatorValue(parseNode: Parse
         if (mappingValue) {
             switch (mappingValue) {
                 case "#microsoft.graph.bookingCustomerBase":
-                    return new BookingCustomerBase();
+                    return new BookingCustomerBaseImpl();
             }
         }
     }
-    return new BookingCustomerBase();
+    return new BookingCustomerBaseImpl();
 }

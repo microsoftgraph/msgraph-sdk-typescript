@@ -1,7 +1,7 @@
-import {TeamsAppInstallation} from './index';
+import {TeamsAppInstallationImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createTeamsAppInstallationFromDiscriminatorValue(parseNode: ParseNode | undefined) : TeamsAppInstallation {
+export function createTeamsAppInstallationFromDiscriminatorValue(parseNode: ParseNode | undefined) : TeamsAppInstallationImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
     const mappingValueNode = parseNode.getChildNode("@odata.type");
     if (mappingValueNode) {
@@ -9,9 +9,9 @@ export function createTeamsAppInstallationFromDiscriminatorValue(parseNode: Pars
         if (mappingValue) {
             switch (mappingValue) {
                 case "#microsoft.graph.teamsAppInstallation":
-                    return new TeamsAppInstallation();
+                    return new TeamsAppInstallationImpl();
             }
         }
     }
-    return new TeamsAppInstallation();
+    return new TeamsAppInstallationImpl();
 }

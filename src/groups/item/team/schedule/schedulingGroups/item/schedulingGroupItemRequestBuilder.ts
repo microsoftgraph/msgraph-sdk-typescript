@@ -1,7 +1,8 @@
-import {SchedulingGroup} from '../../../../../../models/';
+import {SchedulingGroupImpl} from '../../../../../../models/';
 import {createSchedulingGroupFromDiscriminatorValue} from '../../../../../../models/createSchedulingGroupFromDiscriminatorValue';
-import {ODataError} from '../../../../../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {SchedulingGroup} from '../../../../../../models/schedulingGroup';
 import {SchedulingGroupItemRequestBuilderDeleteRequestConfiguration} from './schedulingGroupItemRequestBuilderDeleteRequestConfiguration';
 import {SchedulingGroupItemRequestBuilderGetRequestConfiguration} from './schedulingGroupItemRequestBuilderGetRequestConfiguration';
 import {SchedulingGroupItemRequestBuilderPatchRequestConfiguration} from './schedulingGroupItemRequestBuilderPatchRequestConfiguration';
@@ -77,7 +78,8 @@ export class SchedulingGroupItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new SchedulingGroupImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -101,7 +103,7 @@ export class SchedulingGroupItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of SchedulingGroup
      */
-    public get(requestConfiguration?: SchedulingGroupItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<SchedulingGroup | undefined> {
+    public get(requestConfiguration?: SchedulingGroupItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<SchedulingGroupImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -109,7 +111,7 @@ export class SchedulingGroupItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<SchedulingGroup>(requestInfo, createSchedulingGroupFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<SchedulingGroupImpl>(requestInfo, createSchedulingGroupFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update the navigation property schedulingGroups in groups

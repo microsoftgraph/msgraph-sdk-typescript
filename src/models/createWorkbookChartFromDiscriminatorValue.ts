@@ -1,7 +1,7 @@
-import {WorkbookChart} from './index';
+import {WorkbookChartImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createWorkbookChartFromDiscriminatorValue(parseNode: ParseNode | undefined) : WorkbookChart {
+export function createWorkbookChartFromDiscriminatorValue(parseNode: ParseNode | undefined) : WorkbookChartImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new WorkbookChart();
+    return new WorkbookChartImpl();
 }

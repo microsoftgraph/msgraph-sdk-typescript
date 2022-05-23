@@ -1,6 +1,7 @@
-import {ManagedAppOperation} from '../../../../../models/';
+import {ManagedAppOperationImpl} from '../../../../../models/';
 import {createManagedAppOperationFromDiscriminatorValue} from '../../../../../models/createManagedAppOperationFromDiscriminatorValue';
-import {ODataError} from '../../../../../models/oDataErrors/';
+import {ManagedAppOperation} from '../../../../../models/managedAppOperation';
+import {ODataErrorImpl} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {ManagedAppOperationItemRequestBuilderDeleteRequestConfiguration} from './managedAppOperationItemRequestBuilderDeleteRequestConfiguration';
 import {ManagedAppOperationItemRequestBuilderGetRequestConfiguration} from './managedAppOperationItemRequestBuilderGetRequestConfiguration';
@@ -77,7 +78,8 @@ export class ManagedAppOperationItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new ManagedAppOperationImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -101,7 +103,7 @@ export class ManagedAppOperationItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ManagedAppOperation
      */
-    public get(requestConfiguration?: ManagedAppOperationItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ManagedAppOperation | undefined> {
+    public get(requestConfiguration?: ManagedAppOperationItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ManagedAppOperationImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -109,7 +111,7 @@ export class ManagedAppOperationItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<ManagedAppOperation>(requestInfo, createManagedAppOperationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<ManagedAppOperationImpl>(requestInfo, createManagedAppOperationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update the navigation property operations in deviceAppManagement

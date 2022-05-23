@@ -1,6 +1,6 @@
 import {createGetEffectivePermissionsWithScopeResponseFromDiscriminatorValue} from './createGetEffectivePermissionsWithScopeResponseFromDiscriminatorValue';
 import {GetEffectivePermissionsWithScopeRequestBuilderGetRequestConfiguration} from './getEffectivePermissionsWithScopeRequestBuilderGetRequestConfiguration';
-import {GetEffectivePermissionsWithScopeResponse} from './index';
+import {GetEffectivePermissionsWithScopeResponseImpl} from './index';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the getEffectivePermissions method. */
@@ -48,10 +48,10 @@ export class GetEffectivePermissionsWithScopeRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of GetEffectivePermissionsWithScopeResponse
      */
-    public get(requestConfiguration?: GetEffectivePermissionsWithScopeRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<GetEffectivePermissionsWithScopeResponse | undefined> {
+    public get(requestConfiguration?: GetEffectivePermissionsWithScopeRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<GetEffectivePermissionsWithScopeResponseImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
-        return this.requestAdapter?.sendAsync<GetEffectivePermissionsWithScopeResponse>(requestInfo, createGetEffectivePermissionsWithScopeResponseFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<GetEffectivePermissionsWithScopeResponseImpl>(requestInfo, createGetEffectivePermissionsWithScopeResponseFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }

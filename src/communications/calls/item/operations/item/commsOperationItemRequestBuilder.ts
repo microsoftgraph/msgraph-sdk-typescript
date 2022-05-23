@@ -1,6 +1,7 @@
-import {CommsOperation} from '../../../../../models/';
+import {CommsOperationImpl} from '../../../../../models/';
+import {CommsOperation} from '../../../../../models/commsOperation';
 import {createCommsOperationFromDiscriminatorValue} from '../../../../../models/createCommsOperationFromDiscriminatorValue';
-import {ODataError} from '../../../../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CommsOperationItemRequestBuilderDeleteRequestConfiguration} from './commsOperationItemRequestBuilderDeleteRequestConfiguration';
 import {CommsOperationItemRequestBuilderGetRequestConfiguration} from './commsOperationItemRequestBuilderGetRequestConfiguration';
@@ -77,7 +78,8 @@ export class CommsOperationItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new CommsOperationImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -101,7 +103,7 @@ export class CommsOperationItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of CommsOperation
      */
-    public get(requestConfiguration?: CommsOperationItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<CommsOperation | undefined> {
+    public get(requestConfiguration?: CommsOperationItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<CommsOperationImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -109,7 +111,7 @@ export class CommsOperationItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<CommsOperation>(requestInfo, createCommsOperationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<CommsOperationImpl>(requestInfo, createCommsOperationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update the navigation property operations in communications

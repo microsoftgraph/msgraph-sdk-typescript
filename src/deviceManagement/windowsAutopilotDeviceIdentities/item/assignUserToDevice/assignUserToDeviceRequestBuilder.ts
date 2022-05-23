@@ -1,5 +1,6 @@
+import {AssignUserToDevicePostRequestBody} from './assignUserToDevicePostRequestBody';
 import {AssignUserToDeviceRequestBuilderPostRequestConfiguration} from './assignUserToDeviceRequestBuilderPostRequestConfiguration';
-import {AssignUserToDevicePostRequestBody} from './index';
+import {AssignUserToDevicePostRequestBodyImpl} from './index';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the assignUserToDevice method. */
@@ -39,7 +40,8 @@ export class AssignUserToDeviceRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new AssignUserToDevicePostRequestBodyImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**

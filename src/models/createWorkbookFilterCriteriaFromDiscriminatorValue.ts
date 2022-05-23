@@ -1,7 +1,7 @@
-import {WorkbookFilterCriteria} from './index';
+import {WorkbookFilterCriteriaImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createWorkbookFilterCriteriaFromDiscriminatorValue(parseNode: ParseNode | undefined) : WorkbookFilterCriteria {
+export function createWorkbookFilterCriteriaFromDiscriminatorValue(parseNode: ParseNode | undefined) : WorkbookFilterCriteriaImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new WorkbookFilterCriteria();
+    return new WorkbookFilterCriteriaImpl();
 }

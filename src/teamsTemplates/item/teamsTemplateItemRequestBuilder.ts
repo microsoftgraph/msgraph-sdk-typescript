@@ -1,7 +1,8 @@
-import {TeamsTemplate} from '../../models/';
+import {TeamsTemplateImpl} from '../../models/';
 import {createTeamsTemplateFromDiscriminatorValue} from '../../models/createTeamsTemplateFromDiscriminatorValue';
-import {ODataError} from '../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {TeamsTemplate} from '../../models/teamsTemplate';
 import {TeamsTemplateItemRequestBuilderDeleteRequestConfiguration} from './teamsTemplateItemRequestBuilderDeleteRequestConfiguration';
 import {TeamsTemplateItemRequestBuilderGetRequestConfiguration} from './teamsTemplateItemRequestBuilderGetRequestConfiguration';
 import {TeamsTemplateItemRequestBuilderPatchRequestConfiguration} from './teamsTemplateItemRequestBuilderPatchRequestConfiguration';
@@ -77,7 +78,8 @@ export class TeamsTemplateItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new TeamsTemplateImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -101,7 +103,7 @@ export class TeamsTemplateItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of TeamsTemplate
      */
-    public get(requestConfiguration?: TeamsTemplateItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<TeamsTemplate | undefined> {
+    public get(requestConfiguration?: TeamsTemplateItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<TeamsTemplateImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -109,7 +111,7 @@ export class TeamsTemplateItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<TeamsTemplate>(requestInfo, createTeamsTemplateFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<TeamsTemplateImpl>(requestInfo, createTeamsTemplateFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update entity in teamsTemplates

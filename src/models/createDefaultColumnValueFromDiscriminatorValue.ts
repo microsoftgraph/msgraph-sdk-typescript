@@ -1,7 +1,7 @@
-import {DefaultColumnValue} from './index';
+import {DefaultColumnValueImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createDefaultColumnValueFromDiscriminatorValue(parseNode: ParseNode | undefined) : DefaultColumnValue {
+export function createDefaultColumnValueFromDiscriminatorValue(parseNode: ParseNode | undefined) : DefaultColumnValueImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new DefaultColumnValue();
+    return new DefaultColumnValueImpl();
 }

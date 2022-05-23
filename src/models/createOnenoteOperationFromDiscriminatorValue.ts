@@ -1,7 +1,7 @@
-import {OnenoteOperation} from './index';
+import {OnenoteOperationImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createOnenoteOperationFromDiscriminatorValue(parseNode: ParseNode | undefined) : OnenoteOperation {
+export function createOnenoteOperationFromDiscriminatorValue(parseNode: ParseNode | undefined) : OnenoteOperationImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new OnenoteOperation();
+    return new OnenoteOperationImpl();
 }

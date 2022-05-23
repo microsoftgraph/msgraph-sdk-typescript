@@ -1,8 +1,9 @@
-import {TimeOffRequest, TimeOffRequestCollectionResponse} from '../../../../../../models/';
+import {TimeOffRequestCollectionResponseImpl, TimeOffRequestImpl} from '../../../../../../models/';
 import {createTimeOffRequestCollectionResponseFromDiscriminatorValue} from '../../../../../../models/createTimeOffRequestCollectionResponseFromDiscriminatorValue';
 import {createTimeOffRequestFromDiscriminatorValue} from '../../../../../../models/createTimeOffRequestFromDiscriminatorValue';
-import {ODataError} from '../../../../../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {TimeOffRequest} from '../../../../../../models/timeOffRequest';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {TimeOffRequestsRequestBuilderGetRequestConfiguration} from './timeOffRequestsRequestBuilderGetRequestConfiguration';
 import {TimeOffRequestsRequestBuilderPostRequestConfiguration} from './timeOffRequestsRequestBuilderPostRequestConfiguration';
@@ -66,7 +67,8 @@ export class TimeOffRequestsRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new TimeOffRequestImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -75,7 +77,7 @@ export class TimeOffRequestsRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of TimeOffRequestCollectionResponse
      */
-    public get(requestConfiguration?: TimeOffRequestsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<TimeOffRequestCollectionResponse | undefined> {
+    public get(requestConfiguration?: TimeOffRequestsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<TimeOffRequestCollectionResponseImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -83,7 +85,7 @@ export class TimeOffRequestsRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<TimeOffRequestCollectionResponse>(requestInfo, createTimeOffRequestCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<TimeOffRequestCollectionResponseImpl>(requestInfo, createTimeOffRequestCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Create new navigation property to timeOffRequests for users
@@ -92,7 +94,7 @@ export class TimeOffRequestsRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of TimeOffRequest
      */
-    public post(body: TimeOffRequest | undefined, requestConfiguration?: TimeOffRequestsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<TimeOffRequest | undefined> {
+    public post(body: TimeOffRequest | undefined, requestConfiguration?: TimeOffRequestsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<TimeOffRequestImpl | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration
@@ -101,6 +103,6 @@ export class TimeOffRequestsRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<TimeOffRequest>(requestInfo, createTimeOffRequestFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<TimeOffRequestImpl>(requestInfo, createTimeOffRequestFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

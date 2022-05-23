@@ -1,12 +1,11 @@
 import {TimeOffReasonItemRequestBuilderGetQueryParameters} from './timeOffReasonItemRequestBuilderGetQueryParameters';
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
-/** Configuration for the request such as headers, query parameters, and middleware options. */
-export class TimeOffReasonItemRequestBuilderGetRequestConfiguration {
+export interface TimeOffReasonItemRequestBuilderGetRequestConfiguration{
     /** Request headers */
-    public headers?: Record<string, string> | undefined;
+    headers?:Record<string, string> | undefined;
     /** Request options */
-    public options?: RequestOption[] | undefined;
+    options?:RequestOption[] | undefined;
     /** Request query parameters */
-    public queryParameters?: TimeOffReasonItemRequestBuilderGetQueryParameters | undefined;
+    queryParameters?:TimeOffReasonItemRequestBuilderGetQueryParameters | undefined;
 }

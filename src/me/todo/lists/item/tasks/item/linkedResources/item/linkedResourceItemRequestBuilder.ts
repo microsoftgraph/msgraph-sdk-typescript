@@ -1,6 +1,7 @@
-import {LinkedResource} from '../../../../../../../../models/';
+import {LinkedResourceImpl} from '../../../../../../../../models/';
 import {createLinkedResourceFromDiscriminatorValue} from '../../../../../../../../models/createLinkedResourceFromDiscriminatorValue';
-import {ODataError} from '../../../../../../../../models/oDataErrors/';
+import {LinkedResource} from '../../../../../../../../models/linkedResource';
+import {ODataErrorImpl} from '../../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {LinkedResourceItemRequestBuilderDeleteRequestConfiguration} from './linkedResourceItemRequestBuilderDeleteRequestConfiguration';
 import {LinkedResourceItemRequestBuilderGetRequestConfiguration} from './linkedResourceItemRequestBuilderGetRequestConfiguration';
@@ -77,7 +78,8 @@ export class LinkedResourceItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new LinkedResourceImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -101,7 +103,7 @@ export class LinkedResourceItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of LinkedResource
      */
-    public get(requestConfiguration?: LinkedResourceItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<LinkedResource | undefined> {
+    public get(requestConfiguration?: LinkedResourceItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<LinkedResourceImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -109,7 +111,7 @@ export class LinkedResourceItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<LinkedResource>(requestInfo, createLinkedResourceFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<LinkedResourceImpl>(requestInfo, createLinkedResourceFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update the navigation property linkedResources in me

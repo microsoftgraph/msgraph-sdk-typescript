@@ -1,7 +1,8 @@
-import {SchemaExtension} from '../../models/';
+import {SchemaExtensionImpl} from '../../models/';
 import {createSchemaExtensionFromDiscriminatorValue} from '../../models/createSchemaExtensionFromDiscriminatorValue';
-import {ODataError} from '../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {SchemaExtension} from '../../models/schemaExtension';
 import {SchemaExtensionItemRequestBuilderDeleteRequestConfiguration} from './schemaExtensionItemRequestBuilderDeleteRequestConfiguration';
 import {SchemaExtensionItemRequestBuilderGetRequestConfiguration} from './schemaExtensionItemRequestBuilderGetRequestConfiguration';
 import {SchemaExtensionItemRequestBuilderPatchRequestConfiguration} from './schemaExtensionItemRequestBuilderPatchRequestConfiguration';
@@ -77,7 +78,8 @@ export class SchemaExtensionItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new SchemaExtensionImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -101,7 +103,7 @@ export class SchemaExtensionItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of SchemaExtension
      */
-    public get(requestConfiguration?: SchemaExtensionItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<SchemaExtension | undefined> {
+    public get(requestConfiguration?: SchemaExtensionItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<SchemaExtensionImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -109,7 +111,7 @@ export class SchemaExtensionItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<SchemaExtension>(requestInfo, createSchemaExtensionFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<SchemaExtensionImpl>(requestInfo, createSchemaExtensionFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update entity in schemaExtensions

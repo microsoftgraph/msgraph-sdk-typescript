@@ -1,7 +1,7 @@
-import {EducationStudent} from './index';
+import {EducationStudentImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createEducationStudentFromDiscriminatorValue(parseNode: ParseNode | undefined) : EducationStudent {
+export function createEducationStudentFromDiscriminatorValue(parseNode: ParseNode | undefined) : EducationStudentImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new EducationStudent();
+    return new EducationStudentImpl();
 }

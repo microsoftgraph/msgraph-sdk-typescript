@@ -1,8 +1,9 @@
-import {Participant, ParticipantCollectionResponse} from '../../../../models/';
+import {ParticipantCollectionResponseImpl, ParticipantImpl} from '../../../../models/';
 import {createParticipantCollectionResponseFromDiscriminatorValue} from '../../../../models/createParticipantCollectionResponseFromDiscriminatorValue';
 import {createParticipantFromDiscriminatorValue} from '../../../../models/createParticipantFromDiscriminatorValue';
-import {ODataError} from '../../../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {Participant} from '../../../../models/participant';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {InviteRequestBuilder} from './invite/inviteRequestBuilder';
 import {ParticipantsRequestBuilderGetRequestConfiguration} from './participantsRequestBuilderGetRequestConfiguration';
@@ -71,7 +72,8 @@ export class ParticipantsRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new ParticipantImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -80,7 +82,7 @@ export class ParticipantsRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ParticipantCollectionResponse
      */
-    public get(requestConfiguration?: ParticipantsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ParticipantCollectionResponse | undefined> {
+    public get(requestConfiguration?: ParticipantsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ParticipantCollectionResponseImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -88,7 +90,7 @@ export class ParticipantsRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<ParticipantCollectionResponse>(requestInfo, createParticipantCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<ParticipantCollectionResponseImpl>(requestInfo, createParticipantCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Create new navigation property to participants for communications
@@ -97,7 +99,7 @@ export class ParticipantsRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Participant
      */
-    public post(body: Participant | undefined, requestConfiguration?: ParticipantsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Participant | undefined> {
+    public post(body: Participant | undefined, requestConfiguration?: ParticipantsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ParticipantImpl | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration
@@ -106,6 +108,6 @@ export class ParticipantsRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<Participant>(requestInfo, createParticipantFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<ParticipantImpl>(requestInfo, createParticipantFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

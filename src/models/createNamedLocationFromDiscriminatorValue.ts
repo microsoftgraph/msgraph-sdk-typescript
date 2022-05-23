@@ -1,7 +1,7 @@
-import {NamedLocation} from './index';
+import {NamedLocationImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createNamedLocationFromDiscriminatorValue(parseNode: ParseNode | undefined) : NamedLocation {
+export function createNamedLocationFromDiscriminatorValue(parseNode: ParseNode | undefined) : NamedLocationImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
     const mappingValueNode = parseNode.getChildNode("@odata.type");
     if (mappingValueNode) {
@@ -9,9 +9,9 @@ export function createNamedLocationFromDiscriminatorValue(parseNode: ParseNode |
         if (mappingValue) {
             switch (mappingValue) {
                 case "#microsoft.graph.namedLocation":
-                    return new NamedLocation();
+                    return new NamedLocationImpl();
             }
         }
     }
-    return new NamedLocation();
+    return new NamedLocationImpl();
 }

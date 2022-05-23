@@ -1,21 +1,22 @@
-import {Drive} from '../models/';
+import {DriveImpl} from '../models/';
 import {createDriveFromDiscriminatorValue} from '../models/createDriveFromDiscriminatorValue';
-import {ODataError} from '../models/oDataErrors/';
+import {Drive} from '../models/drive';
+import {ODataErrorImpl} from '../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {BundlesRequestBuilder} from './bundles/bundlesRequestBuilder';
-import {DriveItemItemRequestBuilder as i8206508961c572e18e631114dbc7102078ce94aab7b8e2ace987563ef389a2b2} from './bundles/item/driveItemItemRequestBuilder';
+import {DriveItemItemRequestBuilder as i0b7fdf1ec1f43c42f1ef084cf9106faaca4adefb44f21181b3c14a7024381238} from './bundles/item/driveItemItemRequestBuilder';
 import {DriveRequestBuilderGetRequestConfiguration} from './driveRequestBuilderGetRequestConfiguration';
 import {DriveRequestBuilderPatchRequestConfiguration} from './driveRequestBuilderPatchRequestConfiguration';
 import {FollowingRequestBuilder} from './following/followingRequestBuilder';
-import {DriveItemItemRequestBuilder as i6131ecb129fca5d2c95f365ce93927497eaeadbbd709849676be27876dbdb482} from './following/item/driveItemItemRequestBuilder';
-import {DriveItemItemRequestBuilder as if6641a0c0f7d5944718f22b718fe31af69df3042eacd0757d2f0374e4c5080dd} from './items/item/driveItemItemRequestBuilder';
+import {DriveItemItemRequestBuilder as id1b25a4691d5d100bd784d0d1ad10a2f615640d789e9d0bd16ae44799f3e5912} from './following/item/driveItemItemRequestBuilder';
+import {DriveItemItemRequestBuilder as i9766a1616b91c7045c57a5671ffc753cbde491d472b13f1736141319dfeaad2b} from './items/item/driveItemItemRequestBuilder';
 import {ItemsRequestBuilder} from './items/itemsRequestBuilder';
 import {ListRequestBuilder} from './list/listRequestBuilder';
 import {RecentRequestBuilder} from './recent/recentRequestBuilder';
 import {RootRequestBuilder} from './root/rootRequestBuilder';
 import {SearchWithQRequestBuilder} from './searchWithQ/searchWithQRequestBuilder';
 import {SharedWithMeRequestBuilder} from './sharedWithMe/sharedWithMeRequestBuilder';
-import {DriveItemItemRequestBuilder as i804e640d2b824d667662b3596525b21e5d37b8f7eb021c8974a3cd25c8aa1519} from './special/item/driveItemItemRequestBuilder';
+import {DriveItemItemRequestBuilder as ibf4c80273c8b3a526e9f7415912867a4757808ca91d030c7a2212081943e51f6} from './special/item/driveItemItemRequestBuilder';
 import {SpecialRequestBuilder} from './special/specialRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
@@ -52,15 +53,15 @@ export class DriveRequestBuilder {
     /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.drive.bundles.item collection
+     * Gets an item from the MicrosoftGraph.drive.bundles.item collection
      * @param id Unique identifier of the item
      * @returns a driveItemItemRequestBuilder
      */
-    public bundlesById(id: string) : i8206508961c572e18e631114dbc7102078ce94aab7b8e2ace987563ef389a2b2 {
+    public bundlesById(id: string) : i0b7fdf1ec1f43c42f1ef084cf9106faaca4adefb44f21181b3c14a7024381238 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["driveItem%2Did"] = id
-        return new i8206508961c572e18e631114dbc7102078ce94aab7b8e2ace987563ef389a2b2(urlTplParams, this.requestAdapter);
+        return new i0b7fdf1ec1f43c42f1ef084cf9106faaca4adefb44f21181b3c14a7024381238(urlTplParams, this.requestAdapter);
     };
     /**
      * Instantiates a new DriveRequestBuilder and sets the default values.
@@ -108,19 +109,20 @@ export class DriveRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new DriveImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.drive.following.item collection
+     * Gets an item from the MicrosoftGraph.drive.following.item collection
      * @param id Unique identifier of the item
      * @returns a driveItemItemRequestBuilder
      */
-    public followingById(id: string) : i6131ecb129fca5d2c95f365ce93927497eaeadbbd709849676be27876dbdb482 {
+    public followingById(id: string) : id1b25a4691d5d100bd784d0d1ad10a2f615640d789e9d0bd16ae44799f3e5912 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["driveItem%2Did"] = id
-        return new i6131ecb129fca5d2c95f365ce93927497eaeadbbd709849676be27876dbdb482(urlTplParams, this.requestAdapter);
+        return new id1b25a4691d5d100bd784d0d1ad10a2f615640d789e9d0bd16ae44799f3e5912(urlTplParams, this.requestAdapter);
     };
     /**
      * Get drive
@@ -128,7 +130,7 @@ export class DriveRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Drive
      */
-    public get(requestConfiguration?: DriveRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Drive | undefined> {
+    public get(requestConfiguration?: DriveRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DriveImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -136,18 +138,18 @@ export class DriveRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<Drive>(requestInfo, createDriveFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<DriveImpl>(requestInfo, createDriveFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.drive.items.item collection
+     * Gets an item from the MicrosoftGraph.drive.items.item collection
      * @param id Unique identifier of the item
      * @returns a driveItemItemRequestBuilder
      */
-    public itemsById(id: string) : if6641a0c0f7d5944718f22b718fe31af69df3042eacd0757d2f0374e4c5080dd {
+    public itemsById(id: string) : i9766a1616b91c7045c57a5671ffc753cbde491d472b13f1736141319dfeaad2b {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["driveItem%2Did"] = id
-        return new if6641a0c0f7d5944718f22b718fe31af69df3042eacd0757d2f0374e4c5080dd(urlTplParams, this.requestAdapter);
+        return new i9766a1616b91c7045c57a5671ffc753cbde491d472b13f1736141319dfeaad2b(urlTplParams, this.requestAdapter);
     };
     /**
      * Update drive
@@ -190,14 +192,14 @@ export class DriveRequestBuilder {
         return new SharedWithMeRequestBuilder(this.pathParameters, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.drive.special.item collection
+     * Gets an item from the MicrosoftGraph.drive.special.item collection
      * @param id Unique identifier of the item
      * @returns a driveItemItemRequestBuilder
      */
-    public specialById(id: string) : i804e640d2b824d667662b3596525b21e5d37b8f7eb021c8974a3cd25c8aa1519 {
+    public specialById(id: string) : ibf4c80273c8b3a526e9f7415912867a4757808ca91d030c7a2212081943e51f6 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["driveItem%2Did"] = id
-        return new i804e640d2b824d667662b3596525b21e5d37b8f7eb021c8974a3cd25c8aa1519(urlTplParams, this.requestAdapter);
+        return new ibf4c80273c8b3a526e9f7415912867a4757808ca91d030c7a2212081943e51f6(urlTplParams, this.requestAdapter);
     };
 }

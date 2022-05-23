@@ -1,7 +1,8 @@
-import {MeetingTimeSuggestionsResult} from '../../../models/';
+import {MeetingTimeSuggestionsResultImpl} from '../../../models/';
 import {createMeetingTimeSuggestionsResultFromDiscriminatorValue} from '../../../models/createMeetingTimeSuggestionsResultFromDiscriminatorValue';
+import {FindMeetingTimesPostRequestBody} from './findMeetingTimesPostRequestBody';
 import {FindMeetingTimesRequestBuilderPostRequestConfiguration} from './findMeetingTimesRequestBuilderPostRequestConfiguration';
-import {FindMeetingTimesPostRequestBody} from './index';
+import {FindMeetingTimesPostRequestBodyImpl} from './index';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the findMeetingTimes method. */
@@ -41,7 +42,8 @@ export class FindMeetingTimesRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new FindMeetingTimesPostRequestBodyImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -51,11 +53,11 @@ export class FindMeetingTimesRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of MeetingTimeSuggestionsResult
      */
-    public post(body: FindMeetingTimesPostRequestBody | undefined, requestConfiguration?: FindMeetingTimesRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<MeetingTimeSuggestionsResult | undefined> {
+    public post(body: FindMeetingTimesPostRequestBody | undefined, requestConfiguration?: FindMeetingTimesRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<MeetingTimeSuggestionsResultImpl | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration
         );
-        return this.requestAdapter?.sendAsync<MeetingTimeSuggestionsResult>(requestInfo, createMeetingTimeSuggestionsResultFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<MeetingTimeSuggestionsResultImpl>(requestInfo, createMeetingTimeSuggestionsResultFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }

@@ -1,5 +1,6 @@
+import {GetPolicyNonComplianceMetadataPostRequestBody} from './getPolicyNonComplianceMetadataPostRequestBody';
 import {GetPolicyNonComplianceMetadataRequestBuilderPostRequestConfiguration} from './getPolicyNonComplianceMetadataRequestBuilderPostRequestConfiguration';
-import {GetPolicyNonComplianceMetadataPostRequestBody} from './index';
+import {GetPolicyNonComplianceMetadataPostRequestBodyImpl} from './index';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the getPolicyNonComplianceMetadata method. */
@@ -39,7 +40,8 @@ export class GetPolicyNonComplianceMetadataRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new GetPolicyNonComplianceMetadataPostRequestBodyImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**

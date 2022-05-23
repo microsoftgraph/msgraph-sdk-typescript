@@ -1,7 +1,7 @@
-import {WorkbookChartAxisTitleFormat} from './index';
+import {WorkbookChartAxisTitleFormatImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createWorkbookChartAxisTitleFormatFromDiscriminatorValue(parseNode: ParseNode | undefined) : WorkbookChartAxisTitleFormat {
+export function createWorkbookChartAxisTitleFormatFromDiscriminatorValue(parseNode: ParseNode | undefined) : WorkbookChartAxisTitleFormatImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new WorkbookChartAxisTitleFormat();
+    return new WorkbookChartAxisTitleFormatImpl();
 }

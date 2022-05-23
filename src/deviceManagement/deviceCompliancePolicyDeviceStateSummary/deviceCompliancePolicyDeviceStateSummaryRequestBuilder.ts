@@ -1,6 +1,7 @@
-import {DeviceCompliancePolicyDeviceStateSummary} from '../../models/';
+import {DeviceCompliancePolicyDeviceStateSummaryImpl} from '../../models/';
 import {createDeviceCompliancePolicyDeviceStateSummaryFromDiscriminatorValue} from '../../models/createDeviceCompliancePolicyDeviceStateSummaryFromDiscriminatorValue';
-import {ODataError} from '../../models/oDataErrors/';
+import {DeviceCompliancePolicyDeviceStateSummary} from '../../models/deviceCompliancePolicyDeviceStateSummary';
+import {ODataErrorImpl} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {DeviceCompliancePolicyDeviceStateSummaryRequestBuilderDeleteRequestConfiguration} from './deviceCompliancePolicyDeviceStateSummaryRequestBuilderDeleteRequestConfiguration';
 import {DeviceCompliancePolicyDeviceStateSummaryRequestBuilderGetRequestConfiguration} from './deviceCompliancePolicyDeviceStateSummaryRequestBuilderGetRequestConfiguration';
@@ -77,7 +78,8 @@ export class DeviceCompliancePolicyDeviceStateSummaryRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new DeviceCompliancePolicyDeviceStateSummaryImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -101,7 +103,7 @@ export class DeviceCompliancePolicyDeviceStateSummaryRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DeviceCompliancePolicyDeviceStateSummary
      */
-    public get(requestConfiguration?: DeviceCompliancePolicyDeviceStateSummaryRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DeviceCompliancePolicyDeviceStateSummary | undefined> {
+    public get(requestConfiguration?: DeviceCompliancePolicyDeviceStateSummaryRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DeviceCompliancePolicyDeviceStateSummaryImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -109,7 +111,7 @@ export class DeviceCompliancePolicyDeviceStateSummaryRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<DeviceCompliancePolicyDeviceStateSummary>(requestInfo, createDeviceCompliancePolicyDeviceStateSummaryFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<DeviceCompliancePolicyDeviceStateSummaryImpl>(requestInfo, createDeviceCompliancePolicyDeviceStateSummaryFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update the navigation property deviceCompliancePolicyDeviceStateSummary in deviceManagement

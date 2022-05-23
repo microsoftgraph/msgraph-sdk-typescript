@@ -1,7 +1,7 @@
-import {ManagedAppStatusCollectionResponse} from './index';
+import {ManagedAppStatusCollectionResponseImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createManagedAppStatusCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ManagedAppStatusCollectionResponse {
+export function createManagedAppStatusCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ManagedAppStatusCollectionResponseImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new ManagedAppStatusCollectionResponse();
+    return new ManagedAppStatusCollectionResponseImpl();
 }

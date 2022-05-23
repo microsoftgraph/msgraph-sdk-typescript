@@ -1,7 +1,7 @@
-import {DeviceComplianceSettingStateCollectionResponse} from './index';
+import {DeviceComplianceSettingStateCollectionResponseImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createDeviceComplianceSettingStateCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : DeviceComplianceSettingStateCollectionResponse {
+export function createDeviceComplianceSettingStateCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : DeviceComplianceSettingStateCollectionResponseImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new DeviceComplianceSettingStateCollectionResponse();
+    return new DeviceComplianceSettingStateCollectionResponseImpl();
 }

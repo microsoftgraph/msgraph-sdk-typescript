@@ -1,7 +1,8 @@
-import {ODataError} from '../../../../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {Store} from '../../../../../models/termStore/';
+import {StoreImpl} from '../../../../../models/termStore/';
 import {createStoreFromDiscriminatorValue} from '../../../../../models/termStore/createStoreFromDiscriminatorValue';
+import {Store} from '../../../../../models/termStore/store';
 import {GroupsRequestBuilder} from './groups/groupsRequestBuilder';
 import {GroupItemRequestBuilder} from './groups/item/groupItemRequestBuilder';
 import {SetItemRequestBuilder} from './sets/item/setItemRequestBuilder';
@@ -89,7 +90,8 @@ export class TermStoreRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new StoreImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -113,7 +115,7 @@ export class TermStoreRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Store
      */
-    public get(requestConfiguration?: TermStoreRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Store | undefined> {
+    public get(requestConfiguration?: TermStoreRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<StoreImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -121,10 +123,10 @@ export class TermStoreRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<Store>(requestInfo, createStoreFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<StoreImpl>(requestInfo, createStoreFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.sites.item.termStore.groups.item collection
+     * Gets an item from the MicrosoftGraph.groups.item.sites.item.termStore.groups.item collection
      * @param id Unique identifier of the item
      * @returns a groupItemRequestBuilder
      */
@@ -152,7 +154,7 @@ export class TermStoreRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.sites.item.termStore.sets.item collection
+     * Gets an item from the MicrosoftGraph.groups.item.sites.item.termStore.sets.item collection
      * @param id Unique identifier of the item
      * @returns a setItemRequestBuilder
      */

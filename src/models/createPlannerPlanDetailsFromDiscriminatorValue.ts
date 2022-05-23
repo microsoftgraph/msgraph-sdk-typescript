@@ -1,7 +1,7 @@
-import {PlannerPlanDetails} from './index';
+import {PlannerPlanDetailsImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createPlannerPlanDetailsFromDiscriminatorValue(parseNode: ParseNode | undefined) : PlannerPlanDetails {
+export function createPlannerPlanDetailsFromDiscriminatorValue(parseNode: ParseNode | undefined) : PlannerPlanDetailsImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new PlannerPlanDetails();
+    return new PlannerPlanDetailsImpl();
 }

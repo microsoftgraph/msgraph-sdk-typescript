@@ -1,6 +1,7 @@
-import {DeviceComplianceActionItem} from '../../../../../../../models/';
+import {DeviceComplianceActionItemImpl} from '../../../../../../../models/';
 import {createDeviceComplianceActionItemFromDiscriminatorValue} from '../../../../../../../models/createDeviceComplianceActionItemFromDiscriminatorValue';
-import {ODataError} from '../../../../../../../models/oDataErrors/';
+import {DeviceComplianceActionItem} from '../../../../../../../models/deviceComplianceActionItem';
+import {ODataErrorImpl} from '../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {DeviceComplianceActionItemItemRequestBuilderDeleteRequestConfiguration} from './deviceComplianceActionItemItemRequestBuilderDeleteRequestConfiguration';
 import {DeviceComplianceActionItemItemRequestBuilderGetRequestConfiguration} from './deviceComplianceActionItemItemRequestBuilderGetRequestConfiguration';
@@ -77,7 +78,8 @@ export class DeviceComplianceActionItemItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new DeviceComplianceActionItemImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -101,7 +103,7 @@ export class DeviceComplianceActionItemItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DeviceComplianceActionItem
      */
-    public get(requestConfiguration?: DeviceComplianceActionItemItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DeviceComplianceActionItem | undefined> {
+    public get(requestConfiguration?: DeviceComplianceActionItemItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DeviceComplianceActionItemImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -109,7 +111,7 @@ export class DeviceComplianceActionItemItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<DeviceComplianceActionItem>(requestInfo, createDeviceComplianceActionItemFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<DeviceComplianceActionItemImpl>(requestInfo, createDeviceComplianceActionItemFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update the navigation property scheduledActionConfigurations in deviceManagement

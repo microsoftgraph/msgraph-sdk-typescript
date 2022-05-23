@@ -1,6 +1,7 @@
-import {EntitlementManagement} from '../../models/';
+import {EntitlementManagementImpl} from '../../models/';
 import {createEntitlementManagementFromDiscriminatorValue} from '../../models/createEntitlementManagementFromDiscriminatorValue';
-import {ODataError} from '../../models/oDataErrors/';
+import {EntitlementManagement} from '../../models/entitlementManagement';
+import {ODataErrorImpl} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {AccessPackageAssignmentApprovalsRequestBuilder} from './accessPackageAssignmentApprovals/accessPackageAssignmentApprovalsRequestBuilder';
 import {ApprovalItemRequestBuilder} from './accessPackageAssignmentApprovals/item/approvalItemRequestBuilder';
@@ -63,7 +64,7 @@ export class EntitlementManagementRequestBuilder {
     /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.identityGovernance.entitlementManagement.accessPackageAssignmentApprovals.item collection
+     * Gets an item from the MicrosoftGraph.identityGovernance.entitlementManagement.accessPackageAssignmentApprovals.item collection
      * @param id Unique identifier of the item
      * @returns a approvalItemRequestBuilder
      */
@@ -74,7 +75,7 @@ export class EntitlementManagementRequestBuilder {
         return new ApprovalItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.identityGovernance.entitlementManagement.accessPackages.item collection
+     * Gets an item from the MicrosoftGraph.identityGovernance.entitlementManagement.accessPackages.item collection
      * @param id Unique identifier of the item
      * @returns a accessPackageItemRequestBuilder
      */
@@ -85,7 +86,7 @@ export class EntitlementManagementRequestBuilder {
         return new AccessPackageItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.identityGovernance.entitlementManagement.assignmentPolicies.item collection
+     * Gets an item from the MicrosoftGraph.identityGovernance.entitlementManagement.assignmentPolicies.item collection
      * @param id Unique identifier of the item
      * @returns a accessPackageAssignmentPolicyItemRequestBuilder
      */
@@ -96,7 +97,7 @@ export class EntitlementManagementRequestBuilder {
         return new AccessPackageAssignmentPolicyItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.identityGovernance.entitlementManagement.assignmentRequests.item collection
+     * Gets an item from the MicrosoftGraph.identityGovernance.entitlementManagement.assignmentRequests.item collection
      * @param id Unique identifier of the item
      * @returns a accessPackageAssignmentRequestItemRequestBuilder
      */
@@ -107,7 +108,7 @@ export class EntitlementManagementRequestBuilder {
         return new AccessPackageAssignmentRequestItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.identityGovernance.entitlementManagement.assignments.item collection
+     * Gets an item from the MicrosoftGraph.identityGovernance.entitlementManagement.assignments.item collection
      * @param id Unique identifier of the item
      * @returns a accessPackageAssignmentItemRequestBuilder
      */
@@ -118,7 +119,7 @@ export class EntitlementManagementRequestBuilder {
         return new AccessPackageAssignmentItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.identityGovernance.entitlementManagement.catalogs.item collection
+     * Gets an item from the MicrosoftGraph.identityGovernance.entitlementManagement.catalogs.item collection
      * @param id Unique identifier of the item
      * @returns a accessPackageCatalogItemRequestBuilder
      */
@@ -129,7 +130,7 @@ export class EntitlementManagementRequestBuilder {
         return new AccessPackageCatalogItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.identityGovernance.entitlementManagement.connectedOrganizations.item collection
+     * Gets an item from the MicrosoftGraph.identityGovernance.entitlementManagement.connectedOrganizations.item collection
      * @param id Unique identifier of the item
      * @returns a connectedOrganizationItemRequestBuilder
      */
@@ -201,7 +202,8 @@ export class EntitlementManagementRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new EntitlementManagementImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -225,7 +227,7 @@ export class EntitlementManagementRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of EntitlementManagement
      */
-    public get(requestConfiguration?: EntitlementManagementRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EntitlementManagement | undefined> {
+    public get(requestConfiguration?: EntitlementManagementRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EntitlementManagementImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -233,7 +235,7 @@ export class EntitlementManagementRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<EntitlementManagement>(requestInfo, createEntitlementManagementFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<EntitlementManagementImpl>(requestInfo, createEntitlementManagementFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update the navigation property entitlementManagement in identityGovernance

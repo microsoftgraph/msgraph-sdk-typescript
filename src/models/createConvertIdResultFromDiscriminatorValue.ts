@@ -1,7 +1,7 @@
-import {ConvertIdResult} from './index';
+import {ConvertIdResultImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createConvertIdResultFromDiscriminatorValue(parseNode: ParseNode | undefined) : ConvertIdResult {
+export function createConvertIdResultFromDiscriminatorValue(parseNode: ParseNode | undefined) : ConvertIdResultImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new ConvertIdResult();
+    return new ConvertIdResultImpl();
 }

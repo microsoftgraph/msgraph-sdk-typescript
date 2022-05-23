@@ -1,7 +1,7 @@
-import {BatchRecordDecisionsPostRequestBody} from './index';
+import {BatchRecordDecisionsPostRequestBodyImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createBatchRecordDecisionsPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : BatchRecordDecisionsPostRequestBody {
+export function createBatchRecordDecisionsPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : BatchRecordDecisionsPostRequestBodyImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new BatchRecordDecisionsPostRequestBody();
+    return new BatchRecordDecisionsPostRequestBodyImpl();
 }

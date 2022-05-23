@@ -1,7 +1,8 @@
-import {BitlockerRecoveryKey, BitlockerRecoveryKeyCollectionResponse} from '../../../models/';
+import {BitlockerRecoveryKeyCollectionResponseImpl, BitlockerRecoveryKeyImpl} from '../../../models/';
+import {BitlockerRecoveryKey} from '../../../models/bitlockerRecoveryKey';
 import {createBitlockerRecoveryKeyCollectionResponseFromDiscriminatorValue} from '../../../models/createBitlockerRecoveryKeyCollectionResponseFromDiscriminatorValue';
 import {createBitlockerRecoveryKeyFromDiscriminatorValue} from '../../../models/createBitlockerRecoveryKeyFromDiscriminatorValue';
-import {ODataError} from '../../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {RecoveryKeysRequestBuilderGetRequestConfiguration} from './recoveryKeysRequestBuilderGetRequestConfiguration';
@@ -66,7 +67,8 @@ export class RecoveryKeysRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new BitlockerRecoveryKeyImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -75,7 +77,7 @@ export class RecoveryKeysRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of BitlockerRecoveryKeyCollectionResponse
      */
-    public get(requestConfiguration?: RecoveryKeysRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<BitlockerRecoveryKeyCollectionResponse | undefined> {
+    public get(requestConfiguration?: RecoveryKeysRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<BitlockerRecoveryKeyCollectionResponseImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -83,7 +85,7 @@ export class RecoveryKeysRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<BitlockerRecoveryKeyCollectionResponse>(requestInfo, createBitlockerRecoveryKeyCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<BitlockerRecoveryKeyCollectionResponseImpl>(requestInfo, createBitlockerRecoveryKeyCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Create new navigation property to recoveryKeys for informationProtection
@@ -92,7 +94,7 @@ export class RecoveryKeysRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of BitlockerRecoveryKey
      */
-    public post(body: BitlockerRecoveryKey | undefined, requestConfiguration?: RecoveryKeysRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<BitlockerRecoveryKey | undefined> {
+    public post(body: BitlockerRecoveryKey | undefined, requestConfiguration?: RecoveryKeysRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<BitlockerRecoveryKeyImpl | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration
@@ -101,6 +103,6 @@ export class RecoveryKeysRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<BitlockerRecoveryKey>(requestInfo, createBitlockerRecoveryKeyFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<BitlockerRecoveryKeyImpl>(requestInfo, createBitlockerRecoveryKeyFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

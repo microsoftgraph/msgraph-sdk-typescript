@@ -1,4 +1,4 @@
-import {ProvisionChannelEmailResult} from '../../../../../../models/';
+import {ProvisionChannelEmailResultImpl} from '../../../../../../models/';
 import {createProvisionChannelEmailResultFromDiscriminatorValue} from '../../../../../../models/createProvisionChannelEmailResultFromDiscriminatorValue';
 import {ProvisionEmailRequestBuilderPostRequestConfiguration} from './provisionEmailRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
@@ -46,10 +46,10 @@ export class ProvisionEmailRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ProvisionChannelEmailResult
      */
-    public post(requestConfiguration?: ProvisionEmailRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ProvisionChannelEmailResult | undefined> {
+    public post(requestConfiguration?: ProvisionEmailRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ProvisionChannelEmailResultImpl | undefined> {
         const requestInfo = this.createPostRequestInformation(
             requestConfiguration
         );
-        return this.requestAdapter?.sendAsync<ProvisionChannelEmailResult>(requestInfo, createProvisionChannelEmailResultFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<ProvisionChannelEmailResultImpl>(requestInfo, createProvisionChannelEmailResultFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }

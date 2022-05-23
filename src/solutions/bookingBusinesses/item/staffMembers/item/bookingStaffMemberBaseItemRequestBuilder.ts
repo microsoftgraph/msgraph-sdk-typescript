@@ -1,6 +1,7 @@
-import {BookingStaffMemberBase} from '../../../../../models/';
+import {BookingStaffMemberBaseImpl} from '../../../../../models/';
+import {BookingStaffMemberBase} from '../../../../../models/bookingStaffMemberBase';
 import {createBookingStaffMemberBaseFromDiscriminatorValue} from '../../../../../models/createBookingStaffMemberBaseFromDiscriminatorValue';
-import {ODataError} from '../../../../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {BookingStaffMemberBaseItemRequestBuilderDeleteRequestConfiguration} from './bookingStaffMemberBaseItemRequestBuilderDeleteRequestConfiguration';
 import {BookingStaffMemberBaseItemRequestBuilderGetRequestConfiguration} from './bookingStaffMemberBaseItemRequestBuilderGetRequestConfiguration';
@@ -77,7 +78,8 @@ export class BookingStaffMemberBaseItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new BookingStaffMemberBaseImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -101,7 +103,7 @@ export class BookingStaffMemberBaseItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of BookingStaffMemberBase
      */
-    public get(requestConfiguration?: BookingStaffMemberBaseItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<BookingStaffMemberBase | undefined> {
+    public get(requestConfiguration?: BookingStaffMemberBaseItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<BookingStaffMemberBaseImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -109,7 +111,7 @@ export class BookingStaffMemberBaseItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<BookingStaffMemberBase>(requestInfo, createBookingStaffMemberBaseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<BookingStaffMemberBaseImpl>(requestInfo, createBookingStaffMemberBaseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update the navigation property staffMembers in solutions

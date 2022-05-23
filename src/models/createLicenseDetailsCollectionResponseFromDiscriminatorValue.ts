@@ -1,7 +1,7 @@
-import {LicenseDetailsCollectionResponse} from './index';
+import {LicenseDetailsCollectionResponseImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createLicenseDetailsCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : LicenseDetailsCollectionResponse {
+export function createLicenseDetailsCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : LicenseDetailsCollectionResponseImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new LicenseDetailsCollectionResponse();
+    return new LicenseDetailsCollectionResponseImpl();
 }

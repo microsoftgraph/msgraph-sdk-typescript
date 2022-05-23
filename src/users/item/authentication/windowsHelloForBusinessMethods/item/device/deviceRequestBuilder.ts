@@ -1,19 +1,20 @@
-import {Device} from '../../../../../../models/';
+import {DeviceImpl} from '../../../../../../models/';
 import {createDeviceFromDiscriminatorValue} from '../../../../../../models/createDeviceFromDiscriminatorValue';
-import {ODataError} from '../../../../../../models/oDataErrors/';
+import {Device} from '../../../../../../models/device';
+import {ODataErrorImpl} from '../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {DeviceRequestBuilderDeleteRequestConfiguration} from './deviceRequestBuilderDeleteRequestConfiguration';
 import {DeviceRequestBuilderGetRequestConfiguration} from './deviceRequestBuilderGetRequestConfiguration';
 import {DeviceRequestBuilderPatchRequestConfiguration} from './deviceRequestBuilderPatchRequestConfiguration';
 import {ExtensionsRequestBuilder} from './extensions/extensionsRequestBuilder';
 import {ExtensionItemRequestBuilder} from './extensions/item/extensionItemRequestBuilder';
-import {DirectoryObjectItemRequestBuilder as i144bde85a1dc37bef274f1f1047dbe8f46ab462ca15075f3c3f2af4100a3d153} from './memberOf/item/directoryObjectItemRequestBuilder';
+import {DirectoryObjectItemRequestBuilder as if20b456b3436dc1df48cb5c8d871c42ba426e45aec6a625b69a32cfbb5718081} from './memberOf/item/directoryObjectItemRequestBuilder';
 import {MemberOfRequestBuilder} from './memberOf/memberOfRequestBuilder';
-import {DirectoryObjectItemRequestBuilder as iebe4df9035bad7f9ff6722615d9a10094f882e6df2ad9b9b6338f614c6a54809} from './registeredOwners/item/directoryObjectItemRequestBuilder';
+import {DirectoryObjectItemRequestBuilder as id9459a9ac9a726513e1377a7b37f6dde612ddca76d88ab955beb100e3c08ae5d} from './registeredOwners/item/directoryObjectItemRequestBuilder';
 import {RegisteredOwnersRequestBuilder} from './registeredOwners/registeredOwnersRequestBuilder';
-import {DirectoryObjectItemRequestBuilder as if6ae4459e60b2457da004aea499b47b92ae888cf55056587c39f9f30b00fe7cb} from './registeredUsers/item/directoryObjectItemRequestBuilder';
+import {DirectoryObjectItemRequestBuilder as i597dad52ddcf5ca7f959bf3d408c39951b5f79823e1886469146d498035b8435} from './registeredUsers/item/directoryObjectItemRequestBuilder';
 import {RegisteredUsersRequestBuilder} from './registeredUsers/registeredUsersRequestBuilder';
-import {DirectoryObjectItemRequestBuilder as i2a015add602cb3d2c4d2fb8daa3226a2871f79a7ca41d3b4f1f865d39137d35e} from './transitiveMemberOf/item/directoryObjectItemRequestBuilder';
+import {DirectoryObjectItemRequestBuilder as i23fc947e2611fe5ed6e1a603a5f187870bfedc8a66c3ba42e9707138cdd6e700} from './transitiveMemberOf/item/directoryObjectItemRequestBuilder';
 import {TransitiveMemberOfRequestBuilder} from './transitiveMemberOf/transitiveMemberOfRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
@@ -107,7 +108,8 @@ export class DeviceRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new DeviceImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -126,7 +128,7 @@ export class DeviceRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.authentication.windowsHelloForBusinessMethods.item.device.extensions.item collection
+     * Gets an item from the MicrosoftGraph.users.item.authentication.windowsHelloForBusinessMethods.item.device.extensions.item collection
      * @param id Unique identifier of the item
      * @returns a extensionItemRequestBuilder
      */
@@ -142,7 +144,7 @@ export class DeviceRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Device
      */
-    public get(requestConfiguration?: DeviceRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Device | undefined> {
+    public get(requestConfiguration?: DeviceRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DeviceImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -150,18 +152,18 @@ export class DeviceRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<Device>(requestInfo, createDeviceFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<DeviceImpl>(requestInfo, createDeviceFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.authentication.windowsHelloForBusinessMethods.item.device.memberOf.item collection
+     * Gets an item from the MicrosoftGraph.users.item.authentication.windowsHelloForBusinessMethods.item.device.memberOf.item collection
      * @param id Unique identifier of the item
      * @returns a directoryObjectItemRequestBuilder
      */
-    public memberOfById(id: string) : i144bde85a1dc37bef274f1f1047dbe8f46ab462ca15075f3c3f2af4100a3d153 {
+    public memberOfById(id: string) : if20b456b3436dc1df48cb5c8d871c42ba426e45aec6a625b69a32cfbb5718081 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["directoryObject%2Did"] = id
-        return new i144bde85a1dc37bef274f1f1047dbe8f46ab462ca15075f3c3f2af4100a3d153(urlTplParams, this.requestAdapter);
+        return new if20b456b3436dc1df48cb5c8d871c42ba426e45aec6a625b69a32cfbb5718081(urlTplParams, this.requestAdapter);
     };
     /**
      * Update the navigation property device in users
@@ -181,36 +183,36 @@ export class DeviceRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.authentication.windowsHelloForBusinessMethods.item.device.registeredOwners.item collection
+     * Gets an item from the MicrosoftGraph.users.item.authentication.windowsHelloForBusinessMethods.item.device.registeredOwners.item collection
      * @param id Unique identifier of the item
      * @returns a directoryObjectItemRequestBuilder
      */
-    public registeredOwnersById(id: string) : iebe4df9035bad7f9ff6722615d9a10094f882e6df2ad9b9b6338f614c6a54809 {
+    public registeredOwnersById(id: string) : id9459a9ac9a726513e1377a7b37f6dde612ddca76d88ab955beb100e3c08ae5d {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["directoryObject%2Did"] = id
-        return new iebe4df9035bad7f9ff6722615d9a10094f882e6df2ad9b9b6338f614c6a54809(urlTplParams, this.requestAdapter);
+        return new id9459a9ac9a726513e1377a7b37f6dde612ddca76d88ab955beb100e3c08ae5d(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.authentication.windowsHelloForBusinessMethods.item.device.registeredUsers.item collection
+     * Gets an item from the MicrosoftGraph.users.item.authentication.windowsHelloForBusinessMethods.item.device.registeredUsers.item collection
      * @param id Unique identifier of the item
      * @returns a directoryObjectItemRequestBuilder
      */
-    public registeredUsersById(id: string) : if6ae4459e60b2457da004aea499b47b92ae888cf55056587c39f9f30b00fe7cb {
+    public registeredUsersById(id: string) : i597dad52ddcf5ca7f959bf3d408c39951b5f79823e1886469146d498035b8435 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["directoryObject%2Did"] = id
-        return new if6ae4459e60b2457da004aea499b47b92ae888cf55056587c39f9f30b00fe7cb(urlTplParams, this.requestAdapter);
+        return new i597dad52ddcf5ca7f959bf3d408c39951b5f79823e1886469146d498035b8435(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.authentication.windowsHelloForBusinessMethods.item.device.transitiveMemberOf.item collection
+     * Gets an item from the MicrosoftGraph.users.item.authentication.windowsHelloForBusinessMethods.item.device.transitiveMemberOf.item collection
      * @param id Unique identifier of the item
      * @returns a directoryObjectItemRequestBuilder
      */
-    public transitiveMemberOfById(id: string) : i2a015add602cb3d2c4d2fb8daa3226a2871f79a7ca41d3b4f1f865d39137d35e {
+    public transitiveMemberOfById(id: string) : i23fc947e2611fe5ed6e1a603a5f187870bfedc8a66c3ba42e9707138cdd6e700 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["directoryObject%2Did"] = id
-        return new i2a015add602cb3d2c4d2fb8daa3226a2871f79a7ca41d3b4f1f865d39137d35e(urlTplParams, this.requestAdapter);
+        return new i23fc947e2611fe5ed6e1a603a5f187870bfedc8a66c3ba42e9707138cdd6e700(urlTplParams, this.requestAdapter);
     };
 }

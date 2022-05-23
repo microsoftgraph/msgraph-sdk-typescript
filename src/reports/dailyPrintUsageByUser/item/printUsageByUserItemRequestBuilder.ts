@@ -1,7 +1,8 @@
-import {PrintUsageByUser} from '../../../models/';
+import {PrintUsageByUserImpl} from '../../../models/';
 import {createPrintUsageByUserFromDiscriminatorValue} from '../../../models/createPrintUsageByUserFromDiscriminatorValue';
-import {ODataError} from '../../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {PrintUsageByUser} from '../../../models/printUsageByUser';
 import {PrintUsageByUserItemRequestBuilderDeleteRequestConfiguration} from './printUsageByUserItemRequestBuilderDeleteRequestConfiguration';
 import {PrintUsageByUserItemRequestBuilderGetRequestConfiguration} from './printUsageByUserItemRequestBuilderGetRequestConfiguration';
 import {PrintUsageByUserItemRequestBuilderPatchRequestConfiguration} from './printUsageByUserItemRequestBuilderPatchRequestConfiguration';
@@ -77,7 +78,8 @@ export class PrintUsageByUserItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new PrintUsageByUserImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -101,7 +103,7 @@ export class PrintUsageByUserItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of PrintUsageByUser
      */
-    public get(requestConfiguration?: PrintUsageByUserItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<PrintUsageByUser | undefined> {
+    public get(requestConfiguration?: PrintUsageByUserItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<PrintUsageByUserImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -109,7 +111,7 @@ export class PrintUsageByUserItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<PrintUsageByUser>(requestInfo, createPrintUsageByUserFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<PrintUsageByUserImpl>(requestInfo, createPrintUsageByUserFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update the navigation property dailyPrintUsageByUser in reports

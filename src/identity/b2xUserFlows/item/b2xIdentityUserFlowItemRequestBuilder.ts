@@ -1,6 +1,7 @@
-import {B2xIdentityUserFlow} from '../../../models/';
+import {B2xIdentityUserFlowImpl} from '../../../models/';
+import {B2xIdentityUserFlow} from '../../../models/b2xIdentityUserFlow';
 import {createB2xIdentityUserFlowFromDiscriminatorValue} from '../../../models/createB2xIdentityUserFlowFromDiscriminatorValue';
-import {ODataError} from '../../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {B2xIdentityUserFlowItemRequestBuilderDeleteRequestConfiguration} from './b2xIdentityUserFlowItemRequestBuilderDeleteRequestConfiguration';
 import {B2xIdentityUserFlowItemRequestBuilderGetRequestConfiguration} from './b2xIdentityUserFlowItemRequestBuilderGetRequestConfiguration';
@@ -101,7 +102,8 @@ export class B2xIdentityUserFlowItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new B2xIdentityUserFlowImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -125,7 +127,7 @@ export class B2xIdentityUserFlowItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of B2xIdentityUserFlow
      */
-    public get(requestConfiguration?: B2xIdentityUserFlowItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<B2xIdentityUserFlow | undefined> {
+    public get(requestConfiguration?: B2xIdentityUserFlowItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<B2xIdentityUserFlowImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -133,10 +135,10 @@ export class B2xIdentityUserFlowItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<B2xIdentityUserFlow>(requestInfo, createB2xIdentityUserFlowFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<B2xIdentityUserFlowImpl>(requestInfo, createB2xIdentityUserFlowFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.identity.b2xUserFlows.item.identityProviders.item collection
+     * Gets an item from the MicrosoftGraph.identity.b2xUserFlows.item.identityProviders.item collection
      * @param id Unique identifier of the item
      * @returns a identityProviderItemRequestBuilder
      */
@@ -147,7 +149,7 @@ export class B2xIdentityUserFlowItemRequestBuilder {
         return new IdentityProviderItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.identity.b2xUserFlows.item.languages.item collection
+     * Gets an item from the MicrosoftGraph.identity.b2xUserFlows.item.languages.item collection
      * @param id Unique identifier of the item
      * @returns a userFlowLanguageConfigurationItemRequestBuilder
      */
@@ -175,7 +177,7 @@ export class B2xIdentityUserFlowItemRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.identity.b2xUserFlows.item.userAttributeAssignments.item collection
+     * Gets an item from the MicrosoftGraph.identity.b2xUserFlows.item.userAttributeAssignments.item collection
      * @param id Unique identifier of the item
      * @returns a identityUserFlowAttributeAssignmentItemRequestBuilder
      */
@@ -186,7 +188,7 @@ export class B2xIdentityUserFlowItemRequestBuilder {
         return new IdentityUserFlowAttributeAssignmentItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.identity.b2xUserFlows.item.userFlowIdentityProviders.item collection
+     * Gets an item from the MicrosoftGraph.identity.b2xUserFlows.item.userFlowIdentityProviders.item collection
      * @param id Unique identifier of the item
      * @returns a identityProviderBaseItemRequestBuilder
      */

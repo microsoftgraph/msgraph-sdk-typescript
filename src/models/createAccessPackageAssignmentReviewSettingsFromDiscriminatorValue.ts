@@ -1,7 +1,7 @@
-import {AccessPackageAssignmentReviewSettings} from './index';
+import {AccessPackageAssignmentReviewSettingsImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createAccessPackageAssignmentReviewSettingsFromDiscriminatorValue(parseNode: ParseNode | undefined) : AccessPackageAssignmentReviewSettings {
+export function createAccessPackageAssignmentReviewSettingsFromDiscriminatorValue(parseNode: ParseNode | undefined) : AccessPackageAssignmentReviewSettingsImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new AccessPackageAssignmentReviewSettings();
+    return new AccessPackageAssignmentReviewSettingsImpl();
 }

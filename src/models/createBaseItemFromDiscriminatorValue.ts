@@ -1,7 +1,7 @@
-import {BaseItem} from './index';
+import {BaseItemImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createBaseItemFromDiscriminatorValue(parseNode: ParseNode | undefined) : BaseItem {
+export function createBaseItemFromDiscriminatorValue(parseNode: ParseNode | undefined) : BaseItemImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
     const mappingValueNode = parseNode.getChildNode("@odata.type");
     if (mappingValueNode) {
@@ -9,9 +9,9 @@ export function createBaseItemFromDiscriminatorValue(parseNode: ParseNode | unde
         if (mappingValue) {
             switch (mappingValue) {
                 case "#microsoft.graph.baseItem":
-                    return new BaseItem();
+                    return new BaseItemImpl();
             }
         }
     }
-    return new BaseItem();
+    return new BaseItemImpl();
 }

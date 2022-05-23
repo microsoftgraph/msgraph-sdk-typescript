@@ -1,7 +1,7 @@
-import {BookingAppointment} from './index';
+import {BookingAppointmentImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createBookingAppointmentFromDiscriminatorValue(parseNode: ParseNode | undefined) : BookingAppointment {
+export function createBookingAppointmentFromDiscriminatorValue(parseNode: ParseNode | undefined) : BookingAppointmentImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new BookingAppointment();
+    return new BookingAppointmentImpl();
 }

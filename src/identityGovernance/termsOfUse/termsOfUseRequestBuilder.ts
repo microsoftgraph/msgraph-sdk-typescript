@@ -1,7 +1,8 @@
-import {TermsOfUseContainer} from '../../models/';
+import {TermsOfUseContainerImpl} from '../../models/';
 import {createTermsOfUseContainerFromDiscriminatorValue} from '../../models/createTermsOfUseContainerFromDiscriminatorValue';
-import {ODataError} from '../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {TermsOfUseContainer} from '../../models/termsOfUseContainer';
 import {AgreementAcceptancesRequestBuilder} from './agreementAcceptances/agreementAcceptancesRequestBuilder';
 import {AgreementAcceptanceItemRequestBuilder} from './agreementAcceptances/item/agreementAcceptanceItemRequestBuilder';
 import {AgreementsRequestBuilder} from './agreements/agreementsRequestBuilder';
@@ -28,7 +29,7 @@ export class TermsOfUseRequestBuilder {
     /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.identityGovernance.termsOfUse.agreementAcceptances.item collection
+     * Gets an item from the MicrosoftGraph.identityGovernance.termsOfUse.agreementAcceptances.item collection
      * @param id Unique identifier of the item
      * @returns a agreementAcceptanceItemRequestBuilder
      */
@@ -39,7 +40,7 @@ export class TermsOfUseRequestBuilder {
         return new AgreementAcceptanceItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.identityGovernance.termsOfUse.agreements.item collection
+     * Gets an item from the MicrosoftGraph.identityGovernance.termsOfUse.agreements.item collection
      * @param id Unique identifier of the item
      * @returns a agreementItemRequestBuilder
      */
@@ -111,7 +112,8 @@ export class TermsOfUseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new TermsOfUseContainerImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -135,7 +137,7 @@ export class TermsOfUseRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of TermsOfUseContainer
      */
-    public get(requestConfiguration?: TermsOfUseRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<TermsOfUseContainer | undefined> {
+    public get(requestConfiguration?: TermsOfUseRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<TermsOfUseContainerImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -143,7 +145,7 @@ export class TermsOfUseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<TermsOfUseContainer>(requestInfo, createTermsOfUseContainerFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<TermsOfUseContainerImpl>(requestInfo, createTermsOfUseContainerFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update the navigation property termsOfUse in identityGovernance

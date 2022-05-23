@@ -1,7 +1,7 @@
-import {SearchHit} from './index';
+import {SearchHitImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createSearchHitFromDiscriminatorValue(parseNode: ParseNode | undefined) : SearchHit {
+export function createSearchHitFromDiscriminatorValue(parseNode: ParseNode | undefined) : SearchHitImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new SearchHit();
+    return new SearchHitImpl();
 }

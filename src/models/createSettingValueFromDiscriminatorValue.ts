@@ -1,7 +1,7 @@
-import {SettingValue} from './index';
+import {SettingValueImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createSettingValueFromDiscriminatorValue(parseNode: ParseNode | undefined) : SettingValue {
+export function createSettingValueFromDiscriminatorValue(parseNode: ParseNode | undefined) : SettingValueImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new SettingValue();
+    return new SettingValueImpl();
 }

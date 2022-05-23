@@ -1,7 +1,7 @@
-import {SnoozeReminderPostRequestBody} from './index';
+import {SnoozeReminderPostRequestBodyImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createSnoozeReminderPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : SnoozeReminderPostRequestBody {
+export function createSnoozeReminderPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : SnoozeReminderPostRequestBodyImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new SnoozeReminderPostRequestBody();
+    return new SnoozeReminderPostRequestBodyImpl();
 }

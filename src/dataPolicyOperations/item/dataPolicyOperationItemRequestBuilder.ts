@@ -1,6 +1,7 @@
-import {DataPolicyOperation} from '../../models/';
+import {DataPolicyOperationImpl} from '../../models/';
 import {createDataPolicyOperationFromDiscriminatorValue} from '../../models/createDataPolicyOperationFromDiscriminatorValue';
-import {ODataError} from '../../models/oDataErrors/';
+import {DataPolicyOperation} from '../../models/dataPolicyOperation';
+import {ODataErrorImpl} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {DataPolicyOperationItemRequestBuilderDeleteRequestConfiguration} from './dataPolicyOperationItemRequestBuilderDeleteRequestConfiguration';
 import {DataPolicyOperationItemRequestBuilderGetRequestConfiguration} from './dataPolicyOperationItemRequestBuilderGetRequestConfiguration';
@@ -77,7 +78,8 @@ export class DataPolicyOperationItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new DataPolicyOperationImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -101,7 +103,7 @@ export class DataPolicyOperationItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DataPolicyOperation
      */
-    public get(requestConfiguration?: DataPolicyOperationItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DataPolicyOperation | undefined> {
+    public get(requestConfiguration?: DataPolicyOperationItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DataPolicyOperationImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -109,7 +111,7 @@ export class DataPolicyOperationItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<DataPolicyOperation>(requestInfo, createDataPolicyOperationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<DataPolicyOperationImpl>(requestInfo, createDataPolicyOperationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update entity in dataPolicyOperations

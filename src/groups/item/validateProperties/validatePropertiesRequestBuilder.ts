@@ -1,4 +1,5 @@
-import {ValidatePropertiesPostRequestBody} from './index';
+import {ValidatePropertiesPostRequestBodyImpl} from './index';
+import {ValidatePropertiesPostRequestBody} from './validatePropertiesPostRequestBody';
 import {ValidatePropertiesRequestBuilderPostRequestConfiguration} from './validatePropertiesRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
@@ -39,7 +40,8 @@ export class ValidatePropertiesRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new ValidatePropertiesPostRequestBodyImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**

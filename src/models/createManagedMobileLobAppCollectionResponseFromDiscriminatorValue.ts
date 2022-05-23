@@ -1,7 +1,7 @@
-import {ManagedMobileLobAppCollectionResponse} from './index';
+import {ManagedMobileLobAppCollectionResponseImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createManagedMobileLobAppCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ManagedMobileLobAppCollectionResponse {
+export function createManagedMobileLobAppCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ManagedMobileLobAppCollectionResponseImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new ManagedMobileLobAppCollectionResponse();
+    return new ManagedMobileLobAppCollectionResponseImpl();
 }

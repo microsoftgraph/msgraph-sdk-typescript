@@ -1,7 +1,7 @@
-import {BookingStaffMemberBase} from './index';
+import {BookingStaffMemberBaseImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createBookingStaffMemberBaseFromDiscriminatorValue(parseNode: ParseNode | undefined) : BookingStaffMemberBase {
+export function createBookingStaffMemberBaseFromDiscriminatorValue(parseNode: ParseNode | undefined) : BookingStaffMemberBaseImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
     const mappingValueNode = parseNode.getChildNode("@odata.type");
     if (mappingValueNode) {
@@ -9,9 +9,9 @@ export function createBookingStaffMemberBaseFromDiscriminatorValue(parseNode: Pa
         if (mappingValue) {
             switch (mappingValue) {
                 case "#microsoft.graph.bookingStaffMemberBase":
-                    return new BookingStaffMemberBase();
+                    return new BookingStaffMemberBaseImpl();
             }
         }
     }
-    return new BookingStaffMemberBase();
+    return new BookingStaffMemberBaseImpl();
 }

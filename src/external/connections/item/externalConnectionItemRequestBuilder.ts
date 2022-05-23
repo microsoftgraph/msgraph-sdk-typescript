@@ -1,6 +1,7 @@
-import {ExternalConnection} from '../../../models/externalConnectors/';
+import {ExternalConnectionImpl} from '../../../models/externalConnectors/';
 import {createExternalConnectionFromDiscriminatorValue} from '../../../models/externalConnectors/createExternalConnectionFromDiscriminatorValue';
-import {ODataError} from '../../../models/oDataErrors/';
+import {ExternalConnection} from '../../../models/externalConnectors/externalConnection';
+import {ODataErrorImpl} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {ExternalConnectionItemRequestBuilderDeleteRequestConfiguration} from './externalConnectionItemRequestBuilderDeleteRequestConfiguration';
 import {ExternalConnectionItemRequestBuilderGetRequestConfiguration} from './externalConnectionItemRequestBuilderGetRequestConfiguration';
@@ -100,7 +101,8 @@ export class ExternalConnectionItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new ExternalConnectionImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -124,7 +126,7 @@ export class ExternalConnectionItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ExternalConnection
      */
-    public get(requestConfiguration?: ExternalConnectionItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ExternalConnection | undefined> {
+    public get(requestConfiguration?: ExternalConnectionItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ExternalConnectionImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -132,10 +134,10 @@ export class ExternalConnectionItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<ExternalConnection>(requestInfo, createExternalConnectionFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<ExternalConnectionImpl>(requestInfo, createExternalConnectionFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.external.connections.item.groups.item collection
+     * Gets an item from the MicrosoftGraph.external.connections.item.groups.item collection
      * @param id Unique identifier of the item
      * @returns a externalGroupItemRequestBuilder
      */
@@ -146,7 +148,7 @@ export class ExternalConnectionItemRequestBuilder {
         return new ExternalGroupItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.external.connections.item.items.item collection
+     * Gets an item from the MicrosoftGraph.external.connections.item.items.item collection
      * @param id Unique identifier of the item
      * @returns a externalItemItemRequestBuilder
      */
@@ -157,7 +159,7 @@ export class ExternalConnectionItemRequestBuilder {
         return new ExternalItemItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.external.connections.item.operations.item collection
+     * Gets an item from the MicrosoftGraph.external.connections.item.operations.item collection
      * @param id Unique identifier of the item
      * @returns a connectionOperationItemRequestBuilder
      */

@@ -1,6 +1,7 @@
-import {EducationRoot} from '../models/';
+import {EducationRootImpl} from '../models/';
 import {createEducationRootFromDiscriminatorValue} from '../models/createEducationRootFromDiscriminatorValue';
-import {ODataError} from '../models/oDataErrors/';
+import {EducationRoot} from '../models/educationRoot';
+import {ODataErrorImpl} from '../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {ClassesRequestBuilder} from './classes/classesRequestBuilder';
 import {EducationClassItemRequestBuilder} from './classes/item/educationClassItemRequestBuilder';
@@ -38,7 +39,7 @@ export class EducationRequestBuilder {
         return new UsersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.education.classes.item collection
+     * Gets an item from the MicrosoftGraph.education.classes.item collection
      * @param id Unique identifier of the item
      * @returns a educationClassItemRequestBuilder
      */
@@ -94,7 +95,8 @@ export class EducationRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new EducationRootImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -103,7 +105,7 @@ export class EducationRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of EducationRoot
      */
-    public get(requestConfiguration?: EducationRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EducationRoot | undefined> {
+    public get(requestConfiguration?: EducationRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EducationRootImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -111,7 +113,7 @@ export class EducationRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<EducationRoot>(requestInfo, createEducationRootFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<EducationRootImpl>(requestInfo, createEducationRootFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update education
@@ -131,7 +133,7 @@ export class EducationRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.education.schools.item collection
+     * Gets an item from the MicrosoftGraph.education.schools.item collection
      * @param id Unique identifier of the item
      * @returns a educationSchoolItemRequestBuilder
      */
@@ -142,7 +144,7 @@ export class EducationRequestBuilder {
         return new EducationSchoolItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.education.users.item collection
+     * Gets an item from the MicrosoftGraph.education.users.item collection
      * @param id Unique identifier of the item
      * @returns a educationUserItemRequestBuilder
      */

@@ -1,7 +1,8 @@
-import {SelfSignedCertificate} from '../../../../../../models/';
+import {SelfSignedCertificateImpl} from '../../../../../../models/';
 import {createSelfSignedCertificateFromDiscriminatorValue} from '../../../../../../models/createSelfSignedCertificateFromDiscriminatorValue';
 import {AddTokenSigningCertificateRequestBuilderPostRequestConfiguration} from './addTokenSigningCertificateRequestBuilderPostRequestConfiguration';
-import {SelfSignedCertificatePostRequestBody} from './index';
+import {SelfSignedCertificatePostRequestBodyImpl} from './index';
+import {SelfSignedCertificatePostRequestBody} from './selfSignedCertificatePostRequestBody';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the addTokenSigningCertificate method. */
@@ -41,7 +42,8 @@ export class AddTokenSigningCertificateRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new SelfSignedCertificatePostRequestBodyImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -51,11 +53,11 @@ export class AddTokenSigningCertificateRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of SelfSignedCertificate
      */
-    public post(body: SelfSignedCertificatePostRequestBody | undefined, requestConfiguration?: AddTokenSigningCertificateRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<SelfSignedCertificate | undefined> {
+    public post(body: SelfSignedCertificatePostRequestBody | undefined, requestConfiguration?: AddTokenSigningCertificateRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<SelfSignedCertificateImpl | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration
         );
-        return this.requestAdapter?.sendAsync<SelfSignedCertificate>(requestInfo, createSelfSignedCertificateFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<SelfSignedCertificateImpl>(requestInfo, createSelfSignedCertificateFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }

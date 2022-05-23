@@ -1,6 +1,7 @@
-import {CloudCommunications} from '../models/';
+import {CloudCommunicationsImpl} from '../models/';
+import {CloudCommunications} from '../models/cloudCommunications';
 import {createCloudCommunicationsFromDiscriminatorValue} from '../models/createCloudCommunicationsFromDiscriminatorValue';
-import {ODataError} from '../models/oDataErrors/';
+import {ODataErrorImpl} from '../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CallRecordsRequestBuilder} from './callRecords/callRecordsRequestBuilder';
 import {CallRecordItemRequestBuilder} from './callRecords/item/callRecordItemRequestBuilder';
@@ -44,7 +45,7 @@ export class CommunicationsRequestBuilder {
     /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.communications.callRecords.item collection
+     * Gets an item from the MicrosoftGraph.communications.callRecords.item collection
      * @param id Unique identifier of the item
      * @returns a callRecordItemRequestBuilder
      */
@@ -55,7 +56,7 @@ export class CommunicationsRequestBuilder {
         return new CallRecordItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.communications.calls.item collection
+     * Gets an item from the MicrosoftGraph.communications.calls.item collection
      * @param id Unique identifier of the item
      * @returns a callItemRequestBuilder
      */
@@ -111,7 +112,8 @@ export class CommunicationsRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new CloudCommunicationsImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -120,7 +122,7 @@ export class CommunicationsRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of CloudCommunications
      */
-    public get(requestConfiguration?: CommunicationsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<CloudCommunications | undefined> {
+    public get(requestConfiguration?: CommunicationsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<CloudCommunicationsImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -128,10 +130,10 @@ export class CommunicationsRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<CloudCommunications>(requestInfo, createCloudCommunicationsFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<CloudCommunicationsImpl>(requestInfo, createCloudCommunicationsFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.communications.onlineMeetings.item collection
+     * Gets an item from the MicrosoftGraph.communications.onlineMeetings.item collection
      * @param id Unique identifier of the item
      * @returns a onlineMeetingItemRequestBuilder
      */
@@ -159,7 +161,7 @@ export class CommunicationsRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.communications.presences.item collection
+     * Gets an item from the MicrosoftGraph.communications.presences.item collection
      * @param id Unique identifier of the item
      * @returns a presenceItemRequestBuilder
      */

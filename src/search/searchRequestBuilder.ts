@@ -1,7 +1,8 @@
-import {SearchEntity} from '../models/';
+import {SearchEntityImpl} from '../models/';
 import {createSearchEntityFromDiscriminatorValue} from '../models/createSearchEntityFromDiscriminatorValue';
-import {ODataError} from '../models/oDataErrors/';
+import {ODataErrorImpl} from '../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {SearchEntity} from '../models/searchEntity';
 import {QueryRequestBuilder} from './query/queryRequestBuilder';
 import {SearchRequestBuilderGetRequestConfiguration} from './searchRequestBuilderGetRequestConfiguration';
 import {SearchRequestBuilderPatchRequestConfiguration} from './searchRequestBuilderPatchRequestConfiguration';
@@ -65,7 +66,8 @@ export class SearchRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new SearchEntityImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -74,7 +76,7 @@ export class SearchRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of SearchEntity
      */
-    public get(requestConfiguration?: SearchRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<SearchEntity | undefined> {
+    public get(requestConfiguration?: SearchRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<SearchEntityImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -82,7 +84,7 @@ export class SearchRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<SearchEntity>(requestInfo, createSearchEntityFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<SearchEntityImpl>(requestInfo, createSearchEntityFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update search

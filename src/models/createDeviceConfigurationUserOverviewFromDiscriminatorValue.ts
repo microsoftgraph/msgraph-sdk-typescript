@@ -1,7 +1,7 @@
-import {DeviceConfigurationUserOverview} from './index';
+import {DeviceConfigurationUserOverviewImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createDeviceConfigurationUserOverviewFromDiscriminatorValue(parseNode: ParseNode | undefined) : DeviceConfigurationUserOverview {
+export function createDeviceConfigurationUserOverviewFromDiscriminatorValue(parseNode: ParseNode | undefined) : DeviceConfigurationUserOverviewImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new DeviceConfigurationUserOverview();
+    return new DeviceConfigurationUserOverviewImpl();
 }

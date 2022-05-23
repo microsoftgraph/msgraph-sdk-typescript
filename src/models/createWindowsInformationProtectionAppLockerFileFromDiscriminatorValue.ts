@@ -1,7 +1,7 @@
-import {WindowsInformationProtectionAppLockerFile} from './index';
+import {WindowsInformationProtectionAppLockerFileImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createWindowsInformationProtectionAppLockerFileFromDiscriminatorValue(parseNode: ParseNode | undefined) : WindowsInformationProtectionAppLockerFile {
+export function createWindowsInformationProtectionAppLockerFileFromDiscriminatorValue(parseNode: ParseNode | undefined) : WindowsInformationProtectionAppLockerFileImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new WindowsInformationProtectionAppLockerFile();
+    return new WindowsInformationProtectionAppLockerFileImpl();
 }

@@ -1,5 +1,6 @@
+import {GetReportFiltersPostRequestBody} from './getReportFiltersPostRequestBody';
 import {GetReportFiltersRequestBuilderPostRequestConfiguration} from './getReportFiltersRequestBuilderPostRequestConfiguration';
-import {GetReportFiltersPostRequestBody} from './index';
+import {GetReportFiltersPostRequestBodyImpl} from './index';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the getReportFilters method. */
@@ -39,7 +40,8 @@ export class GetReportFiltersRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new GetReportFiltersPostRequestBodyImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**

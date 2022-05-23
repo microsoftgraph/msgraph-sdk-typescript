@@ -1,7 +1,7 @@
-import {GetCachedReportPostRequestBody} from './index';
+import {GetCachedReportPostRequestBodyImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createGetCachedReportPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : GetCachedReportPostRequestBody {
+export function createGetCachedReportPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : GetCachedReportPostRequestBodyImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new GetCachedReportPostRequestBody();
+    return new GetCachedReportPostRequestBodyImpl();
 }

@@ -1,6 +1,7 @@
-import {AccessReviewScheduleDefinition} from '../../../../models/';
+import {AccessReviewScheduleDefinitionImpl} from '../../../../models/';
+import {AccessReviewScheduleDefinition} from '../../../../models/accessReviewScheduleDefinition';
 import {createAccessReviewScheduleDefinitionFromDiscriminatorValue} from '../../../../models/createAccessReviewScheduleDefinitionFromDiscriminatorValue';
-import {ODataError} from '../../../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {AccessReviewScheduleDefinitionItemRequestBuilderDeleteRequestConfiguration} from './accessReviewScheduleDefinitionItemRequestBuilderDeleteRequestConfiguration';
 import {AccessReviewScheduleDefinitionItemRequestBuilderGetRequestConfiguration} from './accessReviewScheduleDefinitionItemRequestBuilderGetRequestConfiguration';
@@ -88,7 +89,8 @@ export class AccessReviewScheduleDefinitionItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new AccessReviewScheduleDefinitionImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -112,7 +114,7 @@ export class AccessReviewScheduleDefinitionItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AccessReviewScheduleDefinition
      */
-    public get(requestConfiguration?: AccessReviewScheduleDefinitionItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AccessReviewScheduleDefinition | undefined> {
+    public get(requestConfiguration?: AccessReviewScheduleDefinitionItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AccessReviewScheduleDefinitionImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -120,10 +122,10 @@ export class AccessReviewScheduleDefinitionItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<AccessReviewScheduleDefinition>(requestInfo, createAccessReviewScheduleDefinitionFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<AccessReviewScheduleDefinitionImpl>(requestInfo, createAccessReviewScheduleDefinitionFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.identityGovernance.accessReviews.definitions.item.instances.item collection
+     * Gets an item from the MicrosoftGraph.identityGovernance.accessReviews.definitions.item.instances.item collection
      * @param id Unique identifier of the item
      * @returns a accessReviewInstanceItemRequestBuilder
      */

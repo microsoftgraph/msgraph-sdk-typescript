@@ -1,6 +1,7 @@
-import {InferenceClassification} from '../../models/';
+import {InferenceClassificationImpl} from '../../models/';
 import {createInferenceClassificationFromDiscriminatorValue} from '../../models/createInferenceClassificationFromDiscriminatorValue';
-import {ODataError} from '../../models/oDataErrors/';
+import {InferenceClassification} from '../../models/inferenceClassification';
+import {ODataErrorImpl} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {InferenceClassificationRequestBuilderDeleteRequestConfiguration} from './inferenceClassificationRequestBuilderDeleteRequestConfiguration';
 import {InferenceClassificationRequestBuilderGetRequestConfiguration} from './inferenceClassificationRequestBuilderGetRequestConfiguration';
@@ -83,7 +84,8 @@ export class InferenceClassificationRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new InferenceClassificationImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -107,7 +109,7 @@ export class InferenceClassificationRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of InferenceClassification
      */
-    public get(requestConfiguration?: InferenceClassificationRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<InferenceClassification | undefined> {
+    public get(requestConfiguration?: InferenceClassificationRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<InferenceClassificationImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -115,10 +117,10 @@ export class InferenceClassificationRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<InferenceClassification>(requestInfo, createInferenceClassificationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<InferenceClassificationImpl>(requestInfo, createInferenceClassificationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.me.inferenceClassification.overrides.item collection
+     * Gets an item from the MicrosoftGraph.me.inferenceClassification.overrides.item collection
      * @param id Unique identifier of the item
      * @returns a inferenceClassificationOverrideItemRequestBuilder
      */

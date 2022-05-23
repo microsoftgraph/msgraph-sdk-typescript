@@ -1,14 +1,15 @@
-import {BookingBusiness} from '../../../models/';
+import {BookingBusinessImpl} from '../../../models/';
+import {BookingBusiness} from '../../../models/bookingBusiness';
 import {createBookingBusinessFromDiscriminatorValue} from '../../../models/createBookingBusinessFromDiscriminatorValue';
-import {ODataError} from '../../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {AppointmentsRequestBuilder} from './appointments/appointmentsRequestBuilder';
-import {BookingAppointmentItemRequestBuilder as i549df13af914f5d18415b6b2e317bb0de2c91be54aaca79fb0e27b0aa2649626} from './appointments/item/bookingAppointmentItemRequestBuilder';
+import {BookingAppointmentItemRequestBuilder as i1239abbd4fb7cc5796031c837e834700746753fc5f5d2b890701693c87335be1} from './appointments/item/bookingAppointmentItemRequestBuilder';
 import {BookingBusinessItemRequestBuilderDeleteRequestConfiguration} from './bookingBusinessItemRequestBuilderDeleteRequestConfiguration';
 import {BookingBusinessItemRequestBuilderGetRequestConfiguration} from './bookingBusinessItemRequestBuilderGetRequestConfiguration';
 import {BookingBusinessItemRequestBuilderPatchRequestConfiguration} from './bookingBusinessItemRequestBuilderPatchRequestConfiguration';
 import {CalendarViewRequestBuilder} from './calendarView/calendarViewRequestBuilder';
-import {BookingAppointmentItemRequestBuilder as i286c0648ce5b2f5904e9046a9ca0cb117fe36890723bbbf3f391f7bbdb3c085b} from './calendarView/item/bookingAppointmentItemRequestBuilder';
+import {BookingAppointmentItemRequestBuilder as ib14200d56dfe9e0746327f9bb1b9ed401728441d149cf4643765f62cae3a71f8} from './calendarView/item/bookingAppointmentItemRequestBuilder';
 import {CustomersRequestBuilder} from './customers/customersRequestBuilder';
 import {BookingCustomerBaseItemRequestBuilder} from './customers/item/bookingCustomerBaseItemRequestBuilder';
 import {CustomQuestionsRequestBuilder} from './customQuestions/customQuestionsRequestBuilder';
@@ -62,26 +63,26 @@ export class BookingBusinessItemRequestBuilder {
     /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.solutions.bookingBusinesses.item.appointments.item collection
+     * Gets an item from the MicrosoftGraph.solutions.bookingBusinesses.item.appointments.item collection
      * @param id Unique identifier of the item
      * @returns a bookingAppointmentItemRequestBuilder
      */
-    public appointmentsById(id: string) : i549df13af914f5d18415b6b2e317bb0de2c91be54aaca79fb0e27b0aa2649626 {
+    public appointmentsById(id: string) : i1239abbd4fb7cc5796031c837e834700746753fc5f5d2b890701693c87335be1 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["bookingAppointment%2Did"] = id
-        return new i549df13af914f5d18415b6b2e317bb0de2c91be54aaca79fb0e27b0aa2649626(urlTplParams, this.requestAdapter);
+        return new i1239abbd4fb7cc5796031c837e834700746753fc5f5d2b890701693c87335be1(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.solutions.bookingBusinesses.item.calendarView.item collection
+     * Gets an item from the MicrosoftGraph.solutions.bookingBusinesses.item.calendarView.item collection
      * @param id Unique identifier of the item
      * @returns a bookingAppointmentItemRequestBuilder
      */
-    public calendarViewById(id: string) : i286c0648ce5b2f5904e9046a9ca0cb117fe36890723bbbf3f391f7bbdb3c085b {
+    public calendarViewById(id: string) : ib14200d56dfe9e0746327f9bb1b9ed401728441d149cf4643765f62cae3a71f8 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["bookingAppointment%2Did"] = id
-        return new i286c0648ce5b2f5904e9046a9ca0cb117fe36890723bbbf3f391f7bbdb3c085b(urlTplParams, this.requestAdapter);
+        return new ib14200d56dfe9e0746327f9bb1b9ed401728441d149cf4643765f62cae3a71f8(urlTplParams, this.requestAdapter);
     };
     /**
      * Instantiates a new BookingBusinessItemRequestBuilder and sets the default values.
@@ -145,11 +146,12 @@ export class BookingBusinessItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new BookingBusinessImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.solutions.bookingBusinesses.item.customers.item collection
+     * Gets an item from the MicrosoftGraph.solutions.bookingBusinesses.item.customers.item collection
      * @param id Unique identifier of the item
      * @returns a bookingCustomerBaseItemRequestBuilder
      */
@@ -160,7 +162,7 @@ export class BookingBusinessItemRequestBuilder {
         return new BookingCustomerBaseItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.solutions.bookingBusinesses.item.customQuestions.item collection
+     * Gets an item from the MicrosoftGraph.solutions.bookingBusinesses.item.customQuestions.item collection
      * @param id Unique identifier of the item
      * @returns a bookingCustomQuestionItemRequestBuilder
      */
@@ -191,7 +193,7 @@ export class BookingBusinessItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of BookingBusiness
      */
-    public get(requestConfiguration?: BookingBusinessItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<BookingBusiness | undefined> {
+    public get(requestConfiguration?: BookingBusinessItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<BookingBusinessImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -199,7 +201,7 @@ export class BookingBusinessItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<BookingBusiness>(requestInfo, createBookingBusinessFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<BookingBusinessImpl>(requestInfo, createBookingBusinessFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update the navigation property bookingBusinesses in solutions
@@ -219,7 +221,7 @@ export class BookingBusinessItemRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.solutions.bookingBusinesses.item.services.item collection
+     * Gets an item from the MicrosoftGraph.solutions.bookingBusinesses.item.services.item collection
      * @param id Unique identifier of the item
      * @returns a bookingServiceItemRequestBuilder
      */
@@ -230,7 +232,7 @@ export class BookingBusinessItemRequestBuilder {
         return new BookingServiceItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.solutions.bookingBusinesses.item.staffMembers.item collection
+     * Gets an item from the MicrosoftGraph.solutions.bookingBusinesses.item.staffMembers.item collection
      * @param id Unique identifier of the item
      * @returns a bookingStaffMemberBaseItemRequestBuilder
      */

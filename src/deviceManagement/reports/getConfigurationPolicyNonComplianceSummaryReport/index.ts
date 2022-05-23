@@ -1,1 +1,3 @@
+export * from './getConfigurationPolicyNonComplianceSummaryReportPostRequestBodyImpl'
 export * from './getConfigurationPolicyNonComplianceSummaryReportPostRequestBody'
+export * from './getConfigurationPolicyNonComplianceSummaryReportRequestBuilderPostRequestConfiguration'

@@ -1,6 +1,7 @@
-import {Event} from '../../../../../models/';
+import {EventImpl} from '../../../../../models/';
 import {createEventFromDiscriminatorValue} from '../../../../../models/createEventFromDiscriminatorValue';
-import {ODataError} from '../../../../../models/oDataErrors/';
+import {Event} from '../../../../../models/event';
+import {ODataErrorImpl} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {AcceptRequestBuilder} from './accept/acceptRequestBuilder';
 import {AttachmentsRequestBuilder} from './attachments/attachmentsRequestBuilder';
@@ -16,7 +17,7 @@ import {ExtensionsRequestBuilder} from './extensions/extensionsRequestBuilder';
 import {ExtensionItemRequestBuilder} from './extensions/item/extensionItemRequestBuilder';
 import {ForwardRequestBuilder} from './forward/forwardRequestBuilder';
 import {InstancesRequestBuilder} from './instances/instancesRequestBuilder';
-import {EventItemRequestBuilder as ie7e2831234094b03309e0f712ec7b32f464faa5668ab6dce9b9c86a25685852b} from './instances/item/eventItemRequestBuilder';
+import {EventItemRequestBuilder as ie2e9925322876516854f9e1d3a25a21a63a6a8be310013e0211ba232468ef3b7} from './instances/item/eventItemRequestBuilder';
 import {MultiValueLegacyExtendedPropertyItemRequestBuilder} from './multiValueExtendedProperties/item/multiValueLegacyExtendedPropertyItemRequestBuilder';
 import {MultiValueExtendedPropertiesRequestBuilder} from './multiValueExtendedProperties/multiValueExtendedPropertiesRequestBuilder';
 import {SingleValueLegacyExtendedPropertyItemRequestBuilder} from './singleValueExtendedProperties/item/singleValueLegacyExtendedPropertyItemRequestBuilder';
@@ -86,7 +87,7 @@ export class EventItemRequestBuilder {
     /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.calendar.calendarView.item.attachments.item collection
+     * Gets an item from the MicrosoftGraph.users.item.calendar.calendarView.item.attachments.item collection
      * @param id Unique identifier of the item
      * @returns a attachmentItemRequestBuilder
      */
@@ -158,7 +159,8 @@ export class EventItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new EventImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -177,7 +179,7 @@ export class EventItemRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.calendar.calendarView.item.extensions.item collection
+     * Gets an item from the MicrosoftGraph.users.item.calendar.calendarView.item.extensions.item collection
      * @param id Unique identifier of the item
      * @returns a extensionItemRequestBuilder
      */
@@ -193,7 +195,7 @@ export class EventItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Event
      */
-    public get(requestConfiguration?: EventItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Event | undefined> {
+    public get(requestConfiguration?: EventItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EventImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -201,21 +203,21 @@ export class EventItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<Event>(requestInfo, createEventFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<EventImpl>(requestInfo, createEventFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.calendar.calendarView.item.instances.item collection
+     * Gets an item from the MicrosoftGraph.users.item.calendar.calendarView.item.instances.item collection
      * @param id Unique identifier of the item
      * @returns a eventItemRequestBuilder
      */
-    public instancesById(id: string) : ie7e2831234094b03309e0f712ec7b32f464faa5668ab6dce9b9c86a25685852b {
+    public instancesById(id: string) : ie2e9925322876516854f9e1d3a25a21a63a6a8be310013e0211ba232468ef3b7 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["event%2Did1"] = id
-        return new ie7e2831234094b03309e0f712ec7b32f464faa5668ab6dce9b9c86a25685852b(urlTplParams, this.requestAdapter);
+        return new ie2e9925322876516854f9e1d3a25a21a63a6a8be310013e0211ba232468ef3b7(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.calendar.calendarView.item.multiValueExtendedProperties.item collection
+     * Gets an item from the MicrosoftGraph.users.item.calendar.calendarView.item.multiValueExtendedProperties.item collection
      * @param id Unique identifier of the item
      * @returns a multiValueLegacyExtendedPropertyItemRequestBuilder
      */
@@ -243,7 +245,7 @@ export class EventItemRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.calendar.calendarView.item.singleValueExtendedProperties.item collection
+     * Gets an item from the MicrosoftGraph.users.item.calendar.calendarView.item.singleValueExtendedProperties.item collection
      * @param id Unique identifier of the item
      * @returns a singleValueLegacyExtendedPropertyItemRequestBuilder
      */

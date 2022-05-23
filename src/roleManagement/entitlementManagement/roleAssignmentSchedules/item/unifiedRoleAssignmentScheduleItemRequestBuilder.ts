@@ -1,7 +1,8 @@
-import {UnifiedRoleAssignmentSchedule} from '../../../../models/';
+import {UnifiedRoleAssignmentScheduleImpl} from '../../../../models/';
 import {createUnifiedRoleAssignmentScheduleFromDiscriminatorValue} from '../../../../models/createUnifiedRoleAssignmentScheduleFromDiscriminatorValue';
-import {ODataError} from '../../../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {UnifiedRoleAssignmentSchedule} from '../../../../models/unifiedRoleAssignmentSchedule';
 import {ActivatedUsingRequestBuilder} from './activatedUsing/activatedUsingRequestBuilder';
 import {UnifiedRoleAssignmentScheduleItemRequestBuilderDeleteRequestConfiguration} from './unifiedRoleAssignmentScheduleItemRequestBuilderDeleteRequestConfiguration';
 import {UnifiedRoleAssignmentScheduleItemRequestBuilderGetRequestConfiguration} from './unifiedRoleAssignmentScheduleItemRequestBuilderGetRequestConfiguration';
@@ -82,7 +83,8 @@ export class UnifiedRoleAssignmentScheduleItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new UnifiedRoleAssignmentScheduleImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -106,7 +108,7 @@ export class UnifiedRoleAssignmentScheduleItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of UnifiedRoleAssignmentSchedule
      */
-    public get(requestConfiguration?: UnifiedRoleAssignmentScheduleItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<UnifiedRoleAssignmentSchedule | undefined> {
+    public get(requestConfiguration?: UnifiedRoleAssignmentScheduleItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<UnifiedRoleAssignmentScheduleImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -114,7 +116,7 @@ export class UnifiedRoleAssignmentScheduleItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<UnifiedRoleAssignmentSchedule>(requestInfo, createUnifiedRoleAssignmentScheduleFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<UnifiedRoleAssignmentScheduleImpl>(requestInfo, createUnifiedRoleAssignmentScheduleFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update the navigation property roleAssignmentSchedules in roleManagement

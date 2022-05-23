@@ -1,7 +1,7 @@
-import {WorkforceIntegration} from './index';
+import {WorkforceIntegrationImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createWorkforceIntegrationFromDiscriminatorValue(parseNode: ParseNode | undefined) : WorkforceIntegration {
+export function createWorkforceIntegrationFromDiscriminatorValue(parseNode: ParseNode | undefined) : WorkforceIntegrationImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new WorkforceIntegration();
+    return new WorkforceIntegrationImpl();
 }

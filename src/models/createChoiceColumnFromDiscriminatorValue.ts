@@ -1,7 +1,7 @@
-import {ChoiceColumn} from './index';
+import {ChoiceColumnImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createChoiceColumnFromDiscriminatorValue(parseNode: ParseNode | undefined) : ChoiceColumn {
+export function createChoiceColumnFromDiscriminatorValue(parseNode: ParseNode | undefined) : ChoiceColumnImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new ChoiceColumn();
+    return new ChoiceColumnImpl();
 }

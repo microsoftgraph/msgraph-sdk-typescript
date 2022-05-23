@@ -1,8 +1,9 @@
-import {ThreatAssessmentResult, ThreatAssessmentResultCollectionResponse} from '../../../../models/';
+import {ThreatAssessmentResultCollectionResponseImpl, ThreatAssessmentResultImpl} from '../../../../models/';
 import {createThreatAssessmentResultCollectionResponseFromDiscriminatorValue} from '../../../../models/createThreatAssessmentResultCollectionResponseFromDiscriminatorValue';
 import {createThreatAssessmentResultFromDiscriminatorValue} from '../../../../models/createThreatAssessmentResultFromDiscriminatorValue';
-import {ODataError} from '../../../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {ThreatAssessmentResult} from '../../../../models/threatAssessmentResult';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {ResultsRequestBuilderGetRequestConfiguration} from './resultsRequestBuilderGetRequestConfiguration';
 import {ResultsRequestBuilderPostRequestConfiguration} from './resultsRequestBuilderPostRequestConfiguration';
@@ -66,7 +67,8 @@ export class ResultsRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        const parsableBody = new ThreatAssessmentResultImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -75,7 +77,7 @@ export class ResultsRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ThreatAssessmentResultCollectionResponse
      */
-    public get(requestConfiguration?: ResultsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ThreatAssessmentResultCollectionResponse | undefined> {
+    public get(requestConfiguration?: ResultsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ThreatAssessmentResultCollectionResponseImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -83,7 +85,7 @@ export class ResultsRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<ThreatAssessmentResultCollectionResponse>(requestInfo, createThreatAssessmentResultCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<ThreatAssessmentResultCollectionResponseImpl>(requestInfo, createThreatAssessmentResultCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Create new navigation property to results for informationProtection
@@ -92,7 +94,7 @@ export class ResultsRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ThreatAssessmentResult
      */
-    public post(body: ThreatAssessmentResult | undefined, requestConfiguration?: ResultsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ThreatAssessmentResult | undefined> {
+    public post(body: ThreatAssessmentResult | undefined, requestConfiguration?: ResultsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ThreatAssessmentResultImpl | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration
@@ -101,6 +103,6 @@ export class ResultsRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<ThreatAssessmentResult>(requestInfo, createThreatAssessmentResultFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<ThreatAssessmentResultImpl>(requestInfo, createThreatAssessmentResultFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

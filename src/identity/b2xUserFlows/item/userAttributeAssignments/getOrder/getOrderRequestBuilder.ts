@@ -1,4 +1,4 @@
-import {AssignmentOrder} from '../../../../../models/';
+import {AssignmentOrderImpl} from '../../../../../models/';
 import {createAssignmentOrderFromDiscriminatorValue} from '../../../../../models/createAssignmentOrderFromDiscriminatorValue';
 import {GetOrderRequestBuilderGetRequestConfiguration} from './getOrderRequestBuilderGetRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
@@ -46,10 +46,10 @@ export class GetOrderRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AssignmentOrder
      */
-    public get(requestConfiguration?: GetOrderRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AssignmentOrder | undefined> {
+    public get(requestConfiguration?: GetOrderRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AssignmentOrderImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
-        return this.requestAdapter?.sendAsync<AssignmentOrder>(requestInfo, createAssignmentOrderFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<AssignmentOrderImpl>(requestInfo, createAssignmentOrderFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }
