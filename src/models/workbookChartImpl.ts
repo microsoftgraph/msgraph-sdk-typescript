@@ -16,31 +16,32 @@ import {WorkbookChartTitle} from './workbookChartTitle';
 import {WorkbookWorksheet} from './workbookWorksheet';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to user. */
 export class WorkbookChartImpl extends EntityImpl implements Parsable, WorkbookChart {
     /** Represents chart axes. Read-only. */
-    axes?: WorkbookChartAxes | undefined;
+    public axes?: WorkbookChartAxes | undefined;
     /** Represents the datalabels on the chart. Read-only. */
-    dataLabels?: WorkbookChartDataLabels | undefined;
+    public dataLabels?: WorkbookChartDataLabels | undefined;
     /** Encapsulates the format properties for the chart area. Read-only. */
-    format?: WorkbookChartAreaFormat | undefined;
+    public format?: WorkbookChartAreaFormat | undefined;
     /** Represents the height, in points, of the chart object. */
-    height?: number | undefined;
+    public height?: number | undefined;
     /** The distance, in points, from the left side of the chart to the worksheet origin. */
-    left?: number | undefined;
+    public left?: number | undefined;
     /** Represents the legend for the chart. Read-only. */
-    legend?: WorkbookChartLegend | undefined;
+    public legend?: WorkbookChartLegend | undefined;
     /** Represents the name of a chart object. */
-    name?: string | undefined;
+    public name?: string | undefined;
     /** Represents either a single series or collection of series in the chart. Read-only. */
-    series?: WorkbookChartSeries[] | undefined;
+    public series?: WorkbookChartSeries[] | undefined;
     /** Represents the title of the specified chart, including the text, visibility, position and formating of the title. Read-only. */
-    title?: WorkbookChartTitle | undefined;
+    public title?: WorkbookChartTitle | undefined;
     /** Represents the distance, in points, from the top edge of the object to the top of row 1 (on a worksheet) or the top of the chart area (on a chart). */
-    top?: number | undefined;
+    public top?: number | undefined;
     /** Represents the width, in points, of the chart object. */
-    width?: number | undefined;
+    public width?: number | undefined;
     /** The worksheet containing the current chart. Read-only. */
-    worksheet?: WorkbookWorksheet | undefined;
+    public worksheet?: WorkbookWorksheet | undefined;
     /**
      * Instantiates a new workbookChart and sets the default values.
      * @param workbookChartParameterValue 
@@ -88,51 +89,39 @@ export class WorkbookChartImpl extends EntityImpl implements Parsable, WorkbookC
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.axes){
-        if(this.axes)
         writer.writeObjectValue<WorkbookChartAxesImpl>("axes", new WorkbookChartAxesImpl(this.axes));
         }
         if(this.dataLabels){
-        if(this.dataLabels)
         writer.writeObjectValue<WorkbookChartDataLabelsImpl>("dataLabels", new WorkbookChartDataLabelsImpl(this.dataLabels));
         }
         if(this.format){
-        if(this.format)
         writer.writeObjectValue<WorkbookChartAreaFormatImpl>("format", new WorkbookChartAreaFormatImpl(this.format));
         }
         if(this.height){
-        if(this.height)
         writer.writeNumberValue("height", this.height);
         }
         if(this.left){
-        if(this.left)
         writer.writeNumberValue("left", this.left);
         }
         if(this.legend){
-        if(this.legend)
         writer.writeObjectValue<WorkbookChartLegendImpl>("legend", new WorkbookChartLegendImpl(this.legend));
         }
         if(this.name){
-        if(this.name)
         writer.writeStringValue("name", this.name);
         }
-        if(this.series){
-        const seriesArrValue: WorkbookChartSeriesImpl[] = []; this.series?.forEach(element => {seriesArrValue.push(new WorkbookChartSeriesImpl(element));});
+        if(this.series && this.series.length != 0){        const seriesArrValue: WorkbookChartSeriesImpl[] = []; this.series?.forEach(element => {seriesArrValue.push(new WorkbookChartSeriesImpl(element));});
         writer.writeCollectionOfObjectValues<WorkbookChartSeriesImpl>("series", seriesArrValue);
         }
         if(this.title){
-        if(this.title)
         writer.writeObjectValue<WorkbookChartTitleImpl>("title", new WorkbookChartTitleImpl(this.title));
         }
         if(this.top){
-        if(this.top)
         writer.writeNumberValue("top", this.top);
         }
         if(this.width){
-        if(this.width)
         writer.writeNumberValue("width", this.width);
         }
         if(this.worksheet){
-        if(this.worksheet)
         writer.writeObjectValue<WorkbookWorksheetImpl>("worksheet", new WorkbookWorksheetImpl(this.worksheet));
         }
     };

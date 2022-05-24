@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class EducationAssignmentResourceCollectionResponseImpl implements AdditionalDataHolder, EducationAssignmentResourceCollectionResponse, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: EducationAssignmentResource[] | undefined;
+    public value?: EducationAssignmentResource[] | undefined;
     /**
      * Instantiates a new EducationAssignmentResourceCollectionResponse and sets the default values.
      * @param educationAssignmentResourceCollectionResponseParameterValue 
      */
     public constructor(educationAssignmentResourceCollectionResponseParameterValue?: EducationAssignmentResourceCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = educationAssignmentResourceCollectionResponseParameterValue?.additionalData ? {} : educationAssignmentResourceCollectionResponseParameterValue?.additionalData!
+        this.additionalData = educationAssignmentResourceCollectionResponseParameterValue?.additionalData ? educationAssignmentResourceCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = educationAssignmentResourceCollectionResponseParameterValue?.nextLink ;
         this.value = educationAssignmentResourceCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class EducationAssignmentResourceCollectionResponseImpl implements Additi
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: EducationAssignmentResourceImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new EducationAssignmentResourceImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: EducationAssignmentResourceImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new EducationAssignmentResourceImpl(element));});
         writer.writeCollectionOfObjectValues<EducationAssignmentResourceImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

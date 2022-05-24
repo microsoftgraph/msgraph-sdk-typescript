@@ -6,15 +6,16 @@ import {WorkbookFilter} from './workbookFilter';
 import {WorkbookTableColumn} from './workbookTableColumn';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to user. */
 export class WorkbookTableColumnImpl extends EntityImpl implements Parsable, WorkbookTableColumn {
     /** Retrieve the filter applied to the column. Read-only. */
-    filter?: WorkbookFilter | undefined;
+    public filter?: WorkbookFilter | undefined;
     /** Returns the index number of the column within the columns collection of the table. Zero-indexed. Read-only. */
-    index?: number | undefined;
+    public index?: number | undefined;
     /** Returns the name of the table column. */
-    name?: string | undefined;
+    public name?: string | undefined;
     /** Represents the raw values of the specified range. The data returned could be of type string, number, or a boolean. Cell that contain an error will return the error string. */
-    values?: Json | undefined;
+    public values?: Json | undefined;
     /**
      * Instantiates a new workbookTableColumn and sets the default values.
      * @param workbookTableColumnParameterValue 
@@ -46,19 +47,15 @@ export class WorkbookTableColumnImpl extends EntityImpl implements Parsable, Wor
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.filter){
-        if(this.filter)
         writer.writeObjectValue<WorkbookFilterImpl>("filter", new WorkbookFilterImpl(this.filter));
         }
         if(this.index){
-        if(this.index)
         writer.writeNumberValue("index", this.index);
         }
         if(this.name){
-        if(this.name)
         writer.writeStringValue("name", this.name);
         }
         if(this.values){
-        if(this.values)
         writer.writeObjectValue<JsonImpl>("values", new JsonImpl(this.values));
         }
     };

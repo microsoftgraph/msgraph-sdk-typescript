@@ -1,20 +1,18 @@
-import {CalendarRoleType} from '../../../../../../../models/calendarRoleType';
 import {AllowedCalendarSharingRolesWithUserResponse} from './allowedCalendarSharingRolesWithUserResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the allowedCalendarSharingRoles method. */
 export class AllowedCalendarSharingRolesWithUserResponseImpl implements AdditionalDataHolder, AllowedCalendarSharingRolesWithUserResponse, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The value property */
-    value?: CalendarRoleType[] | undefined;
+    public value?: string[] | undefined;
     /**
      * Instantiates a new allowedCalendarSharingRolesWithUserResponse and sets the default values.
      * @param allowedCalendarSharingRolesWithUserResponseParameterValue 
      */
     public constructor(allowedCalendarSharingRolesWithUserResponseParameterValue?: AllowedCalendarSharingRolesWithUserResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = allowedCalendarSharingRolesWithUserResponseParameterValue?.additionalData ? {} : allowedCalendarSharingRolesWithUserResponseParameterValue?.additionalData!
+        this.additionalData = allowedCalendarSharingRolesWithUserResponseParameterValue?.additionalData ? allowedCalendarSharingRolesWithUserResponseParameterValue?.additionalData! : {}
         this.value = allowedCalendarSharingRolesWithUserResponseParameterValue?.value ;
     };
     /**
@@ -23,7 +21,7 @@ export class AllowedCalendarSharingRolesWithUserResponseImpl implements Addition
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
-            "value": n => { this.value = n.getEnumValues<CalendarRoleType>(CalendarRoleType); },
+            "value": n => { this.value = n.getCollectionOfPrimitiveValues<string>(); },
         };
     };
     /**
@@ -33,8 +31,7 @@ export class AllowedCalendarSharingRolesWithUserResponseImpl implements Addition
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.value){
-        if(this.value)
-        this.value && writer.writeEnumValue<CalendarRoleType>("value", ...this.value);
+        writer.writeCollectionOfPrimitiveValues<string>("value", this.value);
         }
         writer.writeAdditionalData(this.additionalData);
     };

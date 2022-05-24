@@ -6,11 +6,12 @@ import {WorkbookChartLineFormat} from './workbookChartLineFormat';
 import {WorkbookChartSeriesFormat} from './workbookChartSeriesFormat';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to user. */
 export class WorkbookChartSeriesFormatImpl extends EntityImpl implements Parsable, WorkbookChartSeriesFormat {
     /** Represents the fill format of a chart series, which includes background formating information. Read-only. */
-    fill?: WorkbookChartFill | undefined;
+    public fill?: WorkbookChartFill | undefined;
     /** Represents line formatting. Read-only. */
-    line?: WorkbookChartLineFormat | undefined;
+    public line?: WorkbookChartLineFormat | undefined;
     /**
      * Instantiates a new workbookChartSeriesFormat and sets the default values.
      * @param workbookChartSeriesFormatParameterValue 
@@ -38,11 +39,9 @@ export class WorkbookChartSeriesFormatImpl extends EntityImpl implements Parsabl
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.fill){
-        if(this.fill)
         writer.writeObjectValue<WorkbookChartFillImpl>("fill", new WorkbookChartFillImpl(this.fill));
         }
         if(this.line){
-        if(this.line)
         writer.writeObjectValue<WorkbookChartLineFormatImpl>("line", new WorkbookChartLineFormatImpl(this.line));
         }
     };

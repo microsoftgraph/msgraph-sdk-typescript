@@ -10,26 +10,25 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class MediaImpl implements AdditionalDataHolder, Media, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** Device information associated with the callee endpoint of this media. */
-    calleeDevice?: DeviceInfo | undefined;
+    public calleeDevice?: DeviceInfo | undefined;
     /** Network information associated with the callee endpoint of this media. */
-    calleeNetwork?: NetworkInfo | undefined;
+    public calleeNetwork?: NetworkInfo | undefined;
     /** Device information associated with the caller endpoint of this media. */
-    callerDevice?: DeviceInfo | undefined;
+    public callerDevice?: DeviceInfo | undefined;
     /** Network information associated with the caller endpoint of this media. */
-    callerNetwork?: NetworkInfo | undefined;
+    public callerNetwork?: NetworkInfo | undefined;
     /** How the media was identified during media negotiation stage. */
-    label?: string | undefined;
+    public label?: string | undefined;
     /** Network streams associated with this media. */
-    streams?: MediaStream[] | undefined;
+    public streams?: MediaStream[] | undefined;
     /**
      * Instantiates a new media and sets the default values.
      * @param mediaParameterValue 
      */
     public constructor(mediaParameterValue?: Media | undefined) {
-        this.additionalData = {};
-        this.additionalData = mediaParameterValue?.additionalData ? {} : mediaParameterValue?.additionalData!
+        this.additionalData = mediaParameterValue?.additionalData ? mediaParameterValue?.additionalData! : {}
         this.calleeDevice = mediaParameterValue?.calleeDevice ;
         this.calleeNetwork = mediaParameterValue?.calleeNetwork ;
         this.callerDevice = mediaParameterValue?.callerDevice ;
@@ -58,27 +57,21 @@ export class MediaImpl implements AdditionalDataHolder, Media, Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.calleeDevice){
-        if(this.calleeDevice)
         writer.writeObjectValue<DeviceInfoImpl>("calleeDevice", new DeviceInfoImpl(this.calleeDevice));
         }
         if(this.calleeNetwork){
-        if(this.calleeNetwork)
         writer.writeObjectValue<NetworkInfoImpl>("calleeNetwork", new NetworkInfoImpl(this.calleeNetwork));
         }
         if(this.callerDevice){
-        if(this.callerDevice)
         writer.writeObjectValue<DeviceInfoImpl>("callerDevice", new DeviceInfoImpl(this.callerDevice));
         }
         if(this.callerNetwork){
-        if(this.callerNetwork)
         writer.writeObjectValue<NetworkInfoImpl>("callerNetwork", new NetworkInfoImpl(this.callerNetwork));
         }
         if(this.label){
-        if(this.label)
         writer.writeStringValue("label", this.label);
         }
-        if(this.streams){
-        const streamsArrValue: MediaStreamImpl[] = []; this.streams?.forEach(element => {streamsArrValue.push(new MediaStreamImpl(element));});
+        if(this.streams && this.streams.length != 0){        const streamsArrValue: MediaStreamImpl[] = []; this.streams?.forEach(element => {streamsArrValue.push(new MediaStreamImpl(element));});
         writer.writeCollectionOfObjectValues<MediaStreamImpl>("streams", streamsArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

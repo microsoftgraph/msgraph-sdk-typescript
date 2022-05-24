@@ -2,9 +2,10 @@ import {EntityImpl} from './index';
 import {PlannerProgressTaskBoardTaskFormat} from './plannerProgressTaskBoardTaskFormat';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to user. */
 export class PlannerProgressTaskBoardTaskFormatImpl extends EntityImpl implements Parsable, PlannerProgressTaskBoardTaskFormat {
     /** Hint value used to order the task on the Progress view of the Task Board. The format is defined as outlined here. */
-    orderHint?: string | undefined;
+    public orderHint?: string | undefined;
     /**
      * Instantiates a new plannerProgressTaskBoardTaskFormat and sets the default values.
      * @param plannerProgressTaskBoardTaskFormatParameterValue 
@@ -30,7 +31,6 @@ export class PlannerProgressTaskBoardTaskFormatImpl extends EntityImpl implement
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.orderHint){
-        if(this.orderHint)
         writer.writeStringValue("orderHint", this.orderHint);
         }
     };

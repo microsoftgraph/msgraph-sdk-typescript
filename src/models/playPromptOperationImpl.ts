@@ -2,6 +2,7 @@ import {CommsOperationImpl} from './index';
 import {PlayPromptOperation} from './playPromptOperation';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to call the playPrompt method. */
 export class PlayPromptOperationImpl extends CommsOperationImpl implements Parsable, PlayPromptOperation {
     /**
      * Instantiates a new playPromptOperation and sets the default values.

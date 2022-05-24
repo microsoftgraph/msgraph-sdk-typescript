@@ -1,6 +1,6 @@
-import {DismissRequestBody} from './dismissRequestBody';
+import {DismissPostRequestBody} from './dismissPostRequestBody';
 import {DismissRequestBuilderPostRequestConfiguration} from './dismissRequestBuilderPostRequestConfiguration';
-import {DismissRequestBodyImpl} from './index';
+import {DismissPostRequestBodyImpl} from './index';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the dismiss method. */
@@ -30,7 +30,7 @@ export class DismissRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public createPostRequestInformation(body: DismissRequestBody | undefined, requestConfiguration?: DismissRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public createPostRequestInformation(body: DismissPostRequestBody | undefined, requestConfiguration?: DismissRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -40,8 +40,8 @@ export class DismissRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        const bodyParsable = new DismissRequestBodyImpl(body)
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", bodyParsable);
+        const parsableBody = new DismissPostRequestBodyImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -50,7 +50,7 @@ export class DismissRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public post(body: DismissRequestBody | undefined, requestConfiguration?: DismissRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public post(body: DismissPostRequestBody | undefined, requestConfiguration?: DismissRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration

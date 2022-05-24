@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class DeviceCompliancePolicyAssignmentCollectionResponseImpl implements AdditionalDataHolder, DeviceCompliancePolicyAssignmentCollectionResponse, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: DeviceCompliancePolicyAssignment[] | undefined;
+    public value?: DeviceCompliancePolicyAssignment[] | undefined;
     /**
      * Instantiates a new DeviceCompliancePolicyAssignmentCollectionResponse and sets the default values.
      * @param deviceCompliancePolicyAssignmentCollectionResponseParameterValue 
      */
     public constructor(deviceCompliancePolicyAssignmentCollectionResponseParameterValue?: DeviceCompliancePolicyAssignmentCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = deviceCompliancePolicyAssignmentCollectionResponseParameterValue?.additionalData ? {} : deviceCompliancePolicyAssignmentCollectionResponseParameterValue?.additionalData!
+        this.additionalData = deviceCompliancePolicyAssignmentCollectionResponseParameterValue?.additionalData ? deviceCompliancePolicyAssignmentCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = deviceCompliancePolicyAssignmentCollectionResponseParameterValue?.nextLink ;
         this.value = deviceCompliancePolicyAssignmentCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class DeviceCompliancePolicyAssignmentCollectionResponseImpl implements A
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: DeviceCompliancePolicyAssignmentImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new DeviceCompliancePolicyAssignmentImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: DeviceCompliancePolicyAssignmentImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new DeviceCompliancePolicyAssignmentImpl(element));});
         writer.writeCollectionOfObjectValues<DeviceCompliancePolicyAssignmentImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

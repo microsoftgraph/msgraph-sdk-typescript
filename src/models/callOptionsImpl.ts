@@ -3,16 +3,15 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class CallOptionsImpl implements AdditionalDataHolder, CallOptions, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The hideBotAfterEscalation property */
-    hideBotAfterEscalation?: boolean | undefined;
+    public hideBotAfterEscalation?: boolean | undefined;
     /**
      * Instantiates a new callOptions and sets the default values.
      * @param callOptionsParameterValue 
      */
     public constructor(callOptionsParameterValue?: CallOptions | undefined) {
-        this.additionalData = {};
-        this.additionalData = callOptionsParameterValue?.additionalData ? {} : callOptionsParameterValue?.additionalData!
+        this.additionalData = callOptionsParameterValue?.additionalData ? callOptionsParameterValue?.additionalData! : {}
         this.hideBotAfterEscalation = callOptionsParameterValue?.hideBotAfterEscalation ;
     };
     /**
@@ -31,7 +30,6 @@ export class CallOptionsImpl implements AdditionalDataHolder, CallOptions, Parsa
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.hideBotAfterEscalation){
-        if(this.hideBotAfterEscalation)
         writer.writeBooleanValue("hideBotAfterEscalation", this.hideBotAfterEscalation);
         }
         writer.writeAdditionalData(this.additionalData);

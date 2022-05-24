@@ -4,9 +4,10 @@ import {WorkbookChartAxisTitleFormat} from './workbookChartAxisTitleFormat';
 import {WorkbookChartFont} from './workbookChartFont';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to user. */
 export class WorkbookChartAxisTitleFormatImpl extends EntityImpl implements Parsable, WorkbookChartAxisTitleFormat {
     /** Represents the font attributes, such as font name, font size, color, etc. of chart axis title object. Read-only. */
-    font?: WorkbookChartFont | undefined;
+    public font?: WorkbookChartFont | undefined;
     /**
      * Instantiates a new workbookChartAxisTitleFormat and sets the default values.
      * @param workbookChartAxisTitleFormatParameterValue 
@@ -32,7 +33,6 @@ export class WorkbookChartAxisTitleFormatImpl extends EntityImpl implements Pars
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.font){
-        if(this.font)
         writer.writeObjectValue<WorkbookChartFontImpl>("font", new WorkbookChartFontImpl(this.font));
         }
     };

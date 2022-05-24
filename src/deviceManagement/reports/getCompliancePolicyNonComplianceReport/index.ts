@@ -1,5 +1,3 @@
-export * from './getCompliancePolicyNonComplianceReportRequestBodyImpl'
-export * from './getCompliancePolicyNonComplianceReportResponseImpl'
-export * from './getCompliancePolicyNonComplianceReportRequestBody'
-export * from './getCompliancePolicyNonComplianceReportResponse'
+export * from './getCompliancePolicyNonComplianceReportPostRequestBodyImpl'
+export * from './getCompliancePolicyNonComplianceReportPostRequestBody'
 export * from './getCompliancePolicyNonComplianceReportRequestBuilderPostRequestConfiguration'

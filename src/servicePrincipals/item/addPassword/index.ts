@@ -1,3 +1,3 @@
-export * from './passwordCredentialRequestBodyImpl'
-export * from './passwordCredentialRequestBody'
+export * from './passwordCredentialPostRequestBodyImpl'
+export * from './passwordCredentialPostRequestBody'
 export * from './addPasswordRequestBuilderPostRequestConfiguration'

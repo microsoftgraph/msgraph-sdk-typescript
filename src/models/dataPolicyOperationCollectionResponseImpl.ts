@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class DataPolicyOperationCollectionResponseImpl implements AdditionalDataHolder, DataPolicyOperationCollectionResponse, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: DataPolicyOperation[] | undefined;
+    public value?: DataPolicyOperation[] | undefined;
     /**
      * Instantiates a new DataPolicyOperationCollectionResponse and sets the default values.
      * @param dataPolicyOperationCollectionResponseParameterValue 
      */
     public constructor(dataPolicyOperationCollectionResponseParameterValue?: DataPolicyOperationCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = dataPolicyOperationCollectionResponseParameterValue?.additionalData ? {} : dataPolicyOperationCollectionResponseParameterValue?.additionalData!
+        this.additionalData = dataPolicyOperationCollectionResponseParameterValue?.additionalData ? dataPolicyOperationCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = dataPolicyOperationCollectionResponseParameterValue?.nextLink ;
         this.value = dataPolicyOperationCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class DataPolicyOperationCollectionResponseImpl implements AdditionalData
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: DataPolicyOperationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new DataPolicyOperationImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: DataPolicyOperationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new DataPolicyOperationImpl(element));});
         writer.writeCollectionOfObjectValues<DataPolicyOperationImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

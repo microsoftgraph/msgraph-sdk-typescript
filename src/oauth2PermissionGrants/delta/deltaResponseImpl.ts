@@ -7,16 +7,15 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Provides operations to call the delta method. */
 export class DeltaResponseImpl implements AdditionalDataHolder, DeltaResponse, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The value property */
-    value?: OAuth2PermissionGrant[] | undefined;
+    public value?: OAuth2PermissionGrant[] | undefined;
     /**
      * Instantiates a new deltaResponse and sets the default values.
      * @param deltaResponseParameterValue 
      */
     public constructor(deltaResponseParameterValue?: DeltaResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = deltaResponseParameterValue?.additionalData ? {} : deltaResponseParameterValue?.additionalData!
+        this.additionalData = deltaResponseParameterValue?.additionalData ? deltaResponseParameterValue?.additionalData! : {}
         this.value = deltaResponseParameterValue?.value ;
     };
     /**
@@ -34,8 +33,7 @@ export class DeltaResponseImpl implements AdditionalDataHolder, DeltaResponse, P
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        if(this.value){
-        const valueArrValue: OAuth2PermissionGrantImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new OAuth2PermissionGrantImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: OAuth2PermissionGrantImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new OAuth2PermissionGrantImpl(element));});
         writer.writeCollectionOfObjectValues<OAuth2PermissionGrantImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

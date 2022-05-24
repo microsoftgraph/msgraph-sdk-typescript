@@ -1,5 +1,3 @@
-export * from './getDeviceManagementIntentSettingsReportRequestBodyImpl'
-export * from './getDeviceManagementIntentSettingsReportResponseImpl'
-export * from './getDeviceManagementIntentSettingsReportResponse'
+export * from './getDeviceManagementIntentSettingsReportPostRequestBodyImpl'
 export * from './getDeviceManagementIntentSettingsReportRequestBuilderPostRequestConfiguration'
-export * from './getDeviceManagementIntentSettingsReportRequestBody'
+export * from './getDeviceManagementIntentSettingsReportPostRequestBody'

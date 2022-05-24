@@ -6,22 +6,21 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class PublicInnerErrorImpl implements AdditionalDataHolder, Parsable, PublicInnerError {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The error code. */
-    code?: string | undefined;
+    public code?: string | undefined;
     /** A collection of error details. */
-    details?: PublicErrorDetail[] | undefined;
+    public details?: PublicErrorDetail[] | undefined;
     /** The error message. */
-    message?: string | undefined;
+    public message?: string | undefined;
     /** The target of the error. */
-    target?: string | undefined;
+    public target?: string | undefined;
     /**
      * Instantiates a new publicInnerError and sets the default values.
      * @param publicInnerErrorParameterValue 
      */
     public constructor(publicInnerErrorParameterValue?: PublicInnerError | undefined) {
-        this.additionalData = {};
-        this.additionalData = publicInnerErrorParameterValue?.additionalData ? {} : publicInnerErrorParameterValue?.additionalData!
+        this.additionalData = publicInnerErrorParameterValue?.additionalData ? publicInnerErrorParameterValue?.additionalData! : {}
         this.code = publicInnerErrorParameterValue?.code ;
         this.details = publicInnerErrorParameterValue?.details ;
         this.message = publicInnerErrorParameterValue?.message ;
@@ -46,19 +45,15 @@ export class PublicInnerErrorImpl implements AdditionalDataHolder, Parsable, Pub
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.code){
-        if(this.code)
         writer.writeStringValue("code", this.code);
         }
-        if(this.details){
-        const detailsArrValue: PublicErrorDetailImpl[] = []; this.details?.forEach(element => {detailsArrValue.push(new PublicErrorDetailImpl(element));});
+        if(this.details && this.details.length != 0){        const detailsArrValue: PublicErrorDetailImpl[] = []; this.details?.forEach(element => {detailsArrValue.push(new PublicErrorDetailImpl(element));});
         writer.writeCollectionOfObjectValues<PublicErrorDetailImpl>("details", detailsArrValue);
         }
         if(this.message){
-        if(this.message)
         writer.writeStringValue("message", this.message);
         }
         if(this.target){
-        if(this.target)
         writer.writeStringValue("target", this.target);
         }
         writer.writeAdditionalData(this.additionalData);

@@ -4,7 +4,6 @@ import {createProfilePhotoFromDiscriminatorValue} from '../../../models/createPr
 import {ODataErrorImpl} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {ProfilePhoto} from '../../../models/profilePhoto';
-import {ProfilePhotoCollectionResponse} from '../../../models/profilePhotoCollectionResponse';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {PhotosRequestBuilderGetRequestConfiguration} from './photosRequestBuilderGetRequestConfiguration';
 import {PhotosRequestBuilderPostRequestConfiguration} from './photosRequestBuilderPostRequestConfiguration';
@@ -68,8 +67,8 @@ export class PhotosRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        const bodyParsable = new ProfilePhotoImpl(body)
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", bodyParsable);
+        const parsableBody = new ProfilePhotoImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -78,7 +77,7 @@ export class PhotosRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ProfilePhotoCollectionResponse
      */
-    public get(requestConfiguration?: PhotosRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ProfilePhotoCollectionResponse | undefined> {
+    public get(requestConfiguration?: PhotosRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ProfilePhotoCollectionResponseImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -95,7 +94,7 @@ export class PhotosRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ProfilePhoto
      */
-    public post(body: ProfilePhoto | undefined, requestConfiguration?: PhotosRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ProfilePhoto | undefined> {
+    public post(body: ProfilePhoto | undefined, requestConfiguration?: PhotosRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ProfilePhotoImpl | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration

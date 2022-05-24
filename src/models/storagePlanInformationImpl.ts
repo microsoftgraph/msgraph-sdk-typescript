@@ -3,16 +3,15 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class StoragePlanInformationImpl implements AdditionalDataHolder, Parsable, StoragePlanInformation {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** Indicates if there are higher storage quota plans available. Read-only. */
-    upgradeAvailable?: boolean | undefined;
+    public upgradeAvailable?: boolean | undefined;
     /**
      * Instantiates a new storagePlanInformation and sets the default values.
      * @param storagePlanInformationParameterValue 
      */
     public constructor(storagePlanInformationParameterValue?: StoragePlanInformation | undefined) {
-        this.additionalData = {};
-        this.additionalData = storagePlanInformationParameterValue?.additionalData ? {} : storagePlanInformationParameterValue?.additionalData!
+        this.additionalData = storagePlanInformationParameterValue?.additionalData ? storagePlanInformationParameterValue?.additionalData! : {}
         this.upgradeAvailable = storagePlanInformationParameterValue?.upgradeAvailable ;
     };
     /**
@@ -31,7 +30,6 @@ export class StoragePlanInformationImpl implements AdditionalDataHolder, Parsabl
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.upgradeAvailable){
-        if(this.upgradeAvailable)
         writer.writeBooleanValue("upgradeAvailable", this.upgradeAvailable);
         }
         writer.writeAdditionalData(this.additionalData);

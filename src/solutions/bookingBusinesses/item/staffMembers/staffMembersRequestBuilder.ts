@@ -1,6 +1,5 @@
 import {BookingStaffMemberBaseCollectionResponseImpl, BookingStaffMemberBaseImpl} from '../../../../models/';
 import {BookingStaffMemberBase} from '../../../../models/bookingStaffMemberBase';
-import {BookingStaffMemberBaseCollectionResponse} from '../../../../models/bookingStaffMemberBaseCollectionResponse';
 import {createBookingStaffMemberBaseCollectionResponseFromDiscriminatorValue} from '../../../../models/createBookingStaffMemberBaseCollectionResponseFromDiscriminatorValue';
 import {createBookingStaffMemberBaseFromDiscriminatorValue} from '../../../../models/createBookingStaffMemberBaseFromDiscriminatorValue';
 import {ODataErrorImpl} from '../../../../models/oDataErrors/';
@@ -68,8 +67,8 @@ export class StaffMembersRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        const bodyParsable = new BookingStaffMemberBaseImpl(body)
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", bodyParsable);
+        const parsableBody = new BookingStaffMemberBaseImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -78,7 +77,7 @@ export class StaffMembersRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of BookingStaffMemberBaseCollectionResponse
      */
-    public get(requestConfiguration?: StaffMembersRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<BookingStaffMemberBaseCollectionResponse | undefined> {
+    public get(requestConfiguration?: StaffMembersRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<BookingStaffMemberBaseCollectionResponseImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -95,7 +94,7 @@ export class StaffMembersRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of BookingStaffMemberBase
      */
-    public post(body: BookingStaffMemberBase | undefined, requestConfiguration?: StaffMembersRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<BookingStaffMemberBase | undefined> {
+    public post(body: BookingStaffMemberBase | undefined, requestConfiguration?: StaffMembersRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<BookingStaffMemberBaseImpl | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration

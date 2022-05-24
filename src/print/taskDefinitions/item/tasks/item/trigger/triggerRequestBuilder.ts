@@ -2,7 +2,6 @@ import {PrintTaskTriggerImpl} from '../../../../../../models/';
 import {createPrintTaskTriggerFromDiscriminatorValue} from '../../../../../../models/createPrintTaskTriggerFromDiscriminatorValue';
 import {ODataErrorImpl} from '../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {PrintTaskTrigger} from '../../../../../../models/printTaskTrigger';
 import {TriggerRequestBuilderGetRequestConfiguration} from './triggerRequestBuilderGetRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
@@ -50,7 +49,7 @@ export class TriggerRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of PrintTaskTrigger
      */
-    public get(requestConfiguration?: TriggerRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<PrintTaskTrigger | undefined> {
+    public get(requestConfiguration?: TriggerRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<PrintTaskTriggerImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );

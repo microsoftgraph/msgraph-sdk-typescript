@@ -8,34 +8,33 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class AccessReviewScheduleSettingsImpl implements AccessReviewScheduleSettings, AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** Optional field. Describes the  actions to take once a review is complete. There are two types that are currently supported: removeAccessApplyAction (default) and disableAndDeleteUserApplyAction. Field only needs to be specified in the case of disableAndDeleteUserApplyAction. */
-    applyActions?: AccessReviewApplyAction[] | undefined;
+    public applyActions?: AccessReviewApplyAction[] | undefined;
     /** Indicates whether decisions are automatically applied. When set to false, an admin must apply the decisions manually once the reviewer completes the access review. When set to true, decisions are applied automatically after the access review instance duration ends, whether or not the reviewers have responded. Default value is false. */
-    autoApplyDecisionsEnabled?: boolean | undefined;
+    public autoApplyDecisionsEnabled?: boolean | undefined;
     /** Decision chosen if defaultDecisionEnabled is enabled. Can be one of Approve, Deny, or Recommendation. */
-    defaultDecision?: string | undefined;
+    public defaultDecision?: string | undefined;
     /** Indicates whether the default decision is enabled or disabled when reviewers do not respond. Default value is false. */
-    defaultDecisionEnabled?: boolean | undefined;
+    public defaultDecisionEnabled?: boolean | undefined;
     /** Duration of each recurrence of review (accessReviewInstance) in number of days. NOTE: If the stageSettings of the accessReviewScheduleDefinition object is defined, its durationInDays setting will be used instead of the value of this property. */
-    instanceDurationInDays?: number | undefined;
+    public instanceDurationInDays?: number | undefined;
     /** Indicates whether reviewers are required to provide justification with their decision. Default value is false. */
-    justificationRequiredOnApproval?: boolean | undefined;
+    public justificationRequiredOnApproval?: boolean | undefined;
     /** Indicates whether emails are enabled or disabled. Default value is false. */
-    mailNotificationsEnabled?: boolean | undefined;
+    public mailNotificationsEnabled?: boolean | undefined;
     /** Indicates whether decision recommendations are enabled or disabled. NOTE: If the stageSettings of the accessReviewScheduleDefinition object is defined, its recommendationsEnabled setting will be used instead of the value of this property. */
-    recommendationsEnabled?: boolean | undefined;
+    public recommendationsEnabled?: boolean | undefined;
     /** Detailed settings for recurrence using the standard Outlook recurrence object. Note: Only dayOfMonth, interval, and type (weekly, absoluteMonthly) properties are supported. Use the property startDate on recurrenceRange to determine the day the review starts. */
-    recurrence?: PatternedRecurrence | undefined;
+    public recurrence?: PatternedRecurrence | undefined;
     /** Indicates whether reminders are enabled or disabled. Default value is false. */
-    reminderNotificationsEnabled?: boolean | undefined;
+    public reminderNotificationsEnabled?: boolean | undefined;
     /**
      * Instantiates a new accessReviewScheduleSettings and sets the default values.
      * @param accessReviewScheduleSettingsParameterValue 
      */
     public constructor(accessReviewScheduleSettingsParameterValue?: AccessReviewScheduleSettings | undefined) {
-        this.additionalData = {};
-        this.additionalData = accessReviewScheduleSettingsParameterValue?.additionalData ? {} : accessReviewScheduleSettingsParameterValue?.additionalData!
+        this.additionalData = accessReviewScheduleSettingsParameterValue?.additionalData ? accessReviewScheduleSettingsParameterValue?.additionalData! : {}
         this.applyActions = accessReviewScheduleSettingsParameterValue?.applyActions ;
         this.autoApplyDecisionsEnabled = accessReviewScheduleSettingsParameterValue?.autoApplyDecisionsEnabled ;
         this.defaultDecision = accessReviewScheduleSettingsParameterValue?.defaultDecision ;
@@ -71,44 +70,34 @@ export class AccessReviewScheduleSettingsImpl implements AccessReviewScheduleSet
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        if(this.applyActions){
-        const applyActionsArrValue: AccessReviewApplyActionImpl[] = []; this.applyActions?.forEach(element => {applyActionsArrValue.push(new AccessReviewApplyActionImpl(element));});
+        if(this.applyActions && this.applyActions.length != 0){        const applyActionsArrValue: AccessReviewApplyActionImpl[] = []; this.applyActions?.forEach(element => {applyActionsArrValue.push(new AccessReviewApplyActionImpl(element));});
         writer.writeCollectionOfObjectValues<AccessReviewApplyActionImpl>("applyActions", applyActionsArrValue);
         }
         if(this.autoApplyDecisionsEnabled){
-        if(this.autoApplyDecisionsEnabled)
         writer.writeBooleanValue("autoApplyDecisionsEnabled", this.autoApplyDecisionsEnabled);
         }
         if(this.defaultDecision){
-        if(this.defaultDecision)
         writer.writeStringValue("defaultDecision", this.defaultDecision);
         }
         if(this.defaultDecisionEnabled){
-        if(this.defaultDecisionEnabled)
         writer.writeBooleanValue("defaultDecisionEnabled", this.defaultDecisionEnabled);
         }
         if(this.instanceDurationInDays){
-        if(this.instanceDurationInDays)
         writer.writeNumberValue("instanceDurationInDays", this.instanceDurationInDays);
         }
         if(this.justificationRequiredOnApproval){
-        if(this.justificationRequiredOnApproval)
         writer.writeBooleanValue("justificationRequiredOnApproval", this.justificationRequiredOnApproval);
         }
         if(this.mailNotificationsEnabled){
-        if(this.mailNotificationsEnabled)
         writer.writeBooleanValue("mailNotificationsEnabled", this.mailNotificationsEnabled);
         }
         if(this.recommendationsEnabled){
-        if(this.recommendationsEnabled)
         writer.writeBooleanValue("recommendationsEnabled", this.recommendationsEnabled);
         }
         if(this.recurrence){
-        if(this.recurrence)
         writer.writeObjectValue<PatternedRecurrenceImpl>("recurrence", new PatternedRecurrenceImpl(this.recurrence));
         }
         if(this.reminderNotificationsEnabled){
-        if(this.reminderNotificationsEnabled)
         writer.writeBooleanValue("reminderNotificationsEnabled", this.reminderNotificationsEnabled);
         }
         writer.writeAdditionalData(this.additionalData);

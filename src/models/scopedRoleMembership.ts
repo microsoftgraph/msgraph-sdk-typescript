@@ -3,9 +3,9 @@ import {Identity} from './identity';
 
 export interface ScopedRoleMembership extends Entity{
     /** Unique identifier for the administrative unit that the directory role is scoped to */
-    administrativeUnitId?: string | undefined;
+    administrativeUnitId?:string | undefined;
     /** Unique identifier for the directory role that the member is in. */
-    roleId?: string | undefined;
+    roleId?:string | undefined;
     /** The roleMemberInfo property */
-    roleMemberInfo?: Identity | undefined;
+    roleMemberInfo?:Identity | undefined;
 }

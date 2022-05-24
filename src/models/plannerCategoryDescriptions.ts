@@ -1,55 +1,55 @@
 
 export interface PlannerCategoryDescriptions{
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    additionalData?:Record<string, unknown>;
     /** The label associated with Category 1 */
-    category1?: string | undefined;
+    category1?:string | undefined;
     /** The label associated with Category 10 */
-    category10?: string | undefined;
+    category10?:string | undefined;
     /** The label associated with Category 11 */
-    category11?: string | undefined;
+    category11?:string | undefined;
     /** The label associated with Category 12 */
-    category12?: string | undefined;
+    category12?:string | undefined;
     /** The label associated with Category 13 */
-    category13?: string | undefined;
+    category13?:string | undefined;
     /** The label associated with Category 14 */
-    category14?: string | undefined;
+    category14?:string | undefined;
     /** The label associated with Category 15 */
-    category15?: string | undefined;
+    category15?:string | undefined;
     /** The label associated with Category 16 */
-    category16?: string | undefined;
+    category16?:string | undefined;
     /** The label associated with Category 17 */
-    category17?: string | undefined;
+    category17?:string | undefined;
     /** The label associated with Category 18 */
-    category18?: string | undefined;
+    category18?:string | undefined;
     /** The label associated with Category 19 */
-    category19?: string | undefined;
+    category19?:string | undefined;
     /** The label associated with Category 2 */
-    category2?: string | undefined;
+    category2?:string | undefined;
     /** The label associated with Category 20 */
-    category20?: string | undefined;
+    category20?:string | undefined;
     /** The label associated with Category 21 */
-    category21?: string | undefined;
+    category21?:string | undefined;
     /** The label associated with Category 22 */
-    category22?: string | undefined;
+    category22?:string | undefined;
     /** The label associated with Category 23 */
-    category23?: string | undefined;
+    category23?:string | undefined;
     /** The label associated with Category 24 */
-    category24?: string | undefined;
+    category24?:string | undefined;
     /** The label associated with Category 25 */
-    category25?: string | undefined;
+    category25?:string | undefined;
     /** The label associated with Category 3 */
-    category3?: string | undefined;
+    category3?:string | undefined;
     /** The label associated with Category 4 */
-    category4?: string | undefined;
+    category4?:string | undefined;
     /** The label associated with Category 5 */
-    category5?: string | undefined;
+    category5?:string | undefined;
     /** The label associated with Category 6 */
-    category6?: string | undefined;
+    category6?:string | undefined;
     /** The label associated with Category 7 */
-    category7?: string | undefined;
+    category7?:string | undefined;
     /** The label associated with Category 8 */
-    category8?: string | undefined;
+    category8?:string | undefined;
     /** The label associated with Category 9 */
-    category9?: string | undefined;
+    category9?:string | undefined;
 }

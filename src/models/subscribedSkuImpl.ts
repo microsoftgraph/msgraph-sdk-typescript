@@ -6,21 +6,22 @@ import {ServicePlanInfo} from './servicePlanInfo';
 import {SubscribedSku} from './subscribedSku';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the collection of subscribedSku entities. */
 export class SubscribedSkuImpl extends EntityImpl implements Parsable, SubscribedSku {
     /** For example, 'User' or 'Company'. */
-    appliesTo?: string | undefined;
+    public appliesTo?: string | undefined;
     /** Possible values are: Enabled, Warning, Suspended, Deleted, LockedOut. The capabilityStatus is Enabled if the prepaidUnits property has at least 1 unit that is enabled, and LockedOut if the customer cancelled their subscription. */
-    capabilityStatus?: string | undefined;
+    public capabilityStatus?: string | undefined;
     /** The number of licenses that have been assigned. */
-    consumedUnits?: number | undefined;
+    public consumedUnits?: number | undefined;
     /** Information about the number and status of prepaid licenses. */
-    prepaidUnits?: LicenseUnitsDetail | undefined;
+    public prepaidUnits?: LicenseUnitsDetail | undefined;
     /** Information about the service plans that are available with the SKU. Not nullable */
-    servicePlans?: ServicePlanInfo[] | undefined;
+    public servicePlans?: ServicePlanInfo[] | undefined;
     /** The unique identifier (GUID) for the service SKU. */
-    skuId?: string | undefined;
+    public skuId?: string | undefined;
     /** The SKU part number; for example: 'AAD_PREMIUM' or 'RMSBASIC'. To get a list of commercial subscriptions that an organization has acquired, see List subscribedSkus. */
-    skuPartNumber?: string | undefined;
+    public skuPartNumber?: string | undefined;
     /**
      * Instantiates a new subscribedSku and sets the default values.
      * @param subscribedSkuParameterValue 
@@ -58,31 +59,24 @@ export class SubscribedSkuImpl extends EntityImpl implements Parsable, Subscribe
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.appliesTo){
-        if(this.appliesTo)
         writer.writeStringValue("appliesTo", this.appliesTo);
         }
         if(this.capabilityStatus){
-        if(this.capabilityStatus)
         writer.writeStringValue("capabilityStatus", this.capabilityStatus);
         }
         if(this.consumedUnits){
-        if(this.consumedUnits)
         writer.writeNumberValue("consumedUnits", this.consumedUnits);
         }
         if(this.prepaidUnits){
-        if(this.prepaidUnits)
         writer.writeObjectValue<LicenseUnitsDetailImpl>("prepaidUnits", new LicenseUnitsDetailImpl(this.prepaidUnits));
         }
-        if(this.servicePlans){
-        const servicePlansArrValue: ServicePlanInfoImpl[] = []; this.servicePlans?.forEach(element => {servicePlansArrValue.push(new ServicePlanInfoImpl(element));});
+        if(this.servicePlans && this.servicePlans.length != 0){        const servicePlansArrValue: ServicePlanInfoImpl[] = []; this.servicePlans?.forEach(element => {servicePlansArrValue.push(new ServicePlanInfoImpl(element));});
         writer.writeCollectionOfObjectValues<ServicePlanInfoImpl>("servicePlans", servicePlansArrValue);
         }
         if(this.skuId){
-        if(this.skuId)
         writer.writeStringValue("skuId", this.skuId);
         }
         if(this.skuPartNumber){
-        if(this.skuPartNumber)
         writer.writeStringValue("skuPartNumber", this.skuPartNumber);
         }
     };

@@ -1,5 +1,5 @@
-import {ScheduleActionsForRulesRequestBodyImpl} from './index';
-import {ScheduleActionsForRulesRequestBody} from './scheduleActionsForRulesRequestBody';
+import {ScheduleActionsForRulesPostRequestBodyImpl} from './index';
+import {ScheduleActionsForRulesPostRequestBody} from './scheduleActionsForRulesPostRequestBody';
 import {ScheduleActionsForRulesRequestBuilderPostRequestConfiguration} from './scheduleActionsForRulesRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
@@ -30,7 +30,7 @@ export class ScheduleActionsForRulesRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public createPostRequestInformation(body: ScheduleActionsForRulesRequestBody | undefined, requestConfiguration?: ScheduleActionsForRulesRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public createPostRequestInformation(body: ScheduleActionsForRulesPostRequestBody | undefined, requestConfiguration?: ScheduleActionsForRulesRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -40,8 +40,8 @@ export class ScheduleActionsForRulesRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        const bodyParsable = new ScheduleActionsForRulesRequestBodyImpl(body)
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", bodyParsable);
+        const parsableBody = new ScheduleActionsForRulesPostRequestBodyImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -50,7 +50,7 @@ export class ScheduleActionsForRulesRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public post(body: ScheduleActionsForRulesRequestBody | undefined, requestConfiguration?: ScheduleActionsForRulesRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public post(body: ScheduleActionsForRulesPostRequestBody | undefined, requestConfiguration?: ScheduleActionsForRulesRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration

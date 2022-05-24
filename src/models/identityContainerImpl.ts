@@ -15,15 +15,15 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Provides operations to manage the identityContainer singleton. */
 export class IdentityContainerImpl extends EntityImpl implements IdentityContainer, Parsable {
     /** Represents entry point for API connectors. */
-    apiConnectors?: IdentityApiConnector[] | undefined;
+    public apiConnectors?: IdentityApiConnector[] | undefined;
     /** Represents entry point for B2X and self-service sign-up identity userflows. */
-    b2xUserFlows?: B2xIdentityUserFlow[] | undefined;
+    public b2xUserFlows?: B2xIdentityUserFlow[] | undefined;
     /** the entry point for the Conditional Access (CA) object model. */
-    conditionalAccess?: ConditionalAccessRoot | undefined;
+    public conditionalAccess?: ConditionalAccessRoot | undefined;
     /** Represents entry point for identity provider base. */
-    identityProviders?: IdentityProviderBase[] | undefined;
+    public identityProviders?: IdentityProviderBase[] | undefined;
     /** Represents entry point for identity userflow attributes. */
-    userFlowAttributes?: IdentityUserFlowAttribute[] | undefined;
+    public userFlowAttributes?: IdentityUserFlowAttribute[] | undefined;
     /**
      * Instantiates a new identityContainer and sets the default values.
      * @param identityContainerParameterValue 
@@ -56,24 +56,19 @@ export class IdentityContainerImpl extends EntityImpl implements IdentityContain
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.apiConnectors){
-        const apiConnectorsArrValue: IdentityApiConnectorImpl[] = []; this.apiConnectors?.forEach(element => {apiConnectorsArrValue.push(new IdentityApiConnectorImpl(element));});
+        if(this.apiConnectors && this.apiConnectors.length != 0){        const apiConnectorsArrValue: IdentityApiConnectorImpl[] = []; this.apiConnectors?.forEach(element => {apiConnectorsArrValue.push(new IdentityApiConnectorImpl(element));});
         writer.writeCollectionOfObjectValues<IdentityApiConnectorImpl>("apiConnectors", apiConnectorsArrValue);
         }
-        if(this.b2xUserFlows){
-        const b2xUserFlowsArrValue: B2xIdentityUserFlowImpl[] = []; this.b2xUserFlows?.forEach(element => {b2xUserFlowsArrValue.push(new B2xIdentityUserFlowImpl(element));});
+        if(this.b2xUserFlows && this.b2xUserFlows.length != 0){        const b2xUserFlowsArrValue: B2xIdentityUserFlowImpl[] = []; this.b2xUserFlows?.forEach(element => {b2xUserFlowsArrValue.push(new B2xIdentityUserFlowImpl(element));});
         writer.writeCollectionOfObjectValues<B2xIdentityUserFlowImpl>("b2xUserFlows", b2xUserFlowsArrValue);
         }
         if(this.conditionalAccess){
-        if(this.conditionalAccess)
         writer.writeObjectValue<ConditionalAccessRootImpl>("conditionalAccess", new ConditionalAccessRootImpl(this.conditionalAccess));
         }
-        if(this.identityProviders){
-        const identityProvidersArrValue: IdentityProviderBaseImpl[] = []; this.identityProviders?.forEach(element => {identityProvidersArrValue.push(new IdentityProviderBaseImpl(element));});
+        if(this.identityProviders && this.identityProviders.length != 0){        const identityProvidersArrValue: IdentityProviderBaseImpl[] = []; this.identityProviders?.forEach(element => {identityProvidersArrValue.push(new IdentityProviderBaseImpl(element));});
         writer.writeCollectionOfObjectValues<IdentityProviderBaseImpl>("identityProviders", identityProvidersArrValue);
         }
-        if(this.userFlowAttributes){
-        const userFlowAttributesArrValue: IdentityUserFlowAttributeImpl[] = []; this.userFlowAttributes?.forEach(element => {userFlowAttributesArrValue.push(new IdentityUserFlowAttributeImpl(element));});
+        if(this.userFlowAttributes && this.userFlowAttributes.length != 0){        const userFlowAttributesArrValue: IdentityUserFlowAttributeImpl[] = []; this.userFlowAttributes?.forEach(element => {userFlowAttributesArrValue.push(new IdentityUserFlowAttributeImpl(element));});
         writer.writeCollectionOfObjectValues<IdentityUserFlowAttributeImpl>("userFlowAttributes", userFlowAttributesArrValue);
         }
     };

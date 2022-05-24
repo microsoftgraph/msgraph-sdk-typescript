@@ -2,9 +2,10 @@ import {OfferShiftRequestImpl} from './index';
 import {SwapShiftsChangeRequest} from './swapShiftsChangeRequest';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to group. */
 export class SwapShiftsChangeRequestImpl extends OfferShiftRequestImpl implements Parsable, SwapShiftsChangeRequest {
     /** Shift ID for the recipient user with whom the request is to swap. */
-    recipientShiftId?: string | undefined;
+    public recipientShiftId?: string | undefined;
     /**
      * Instantiates a new swapShiftsChangeRequest and sets the default values.
      * @param swapShiftsChangeRequestParameterValue 
@@ -30,7 +31,6 @@ export class SwapShiftsChangeRequestImpl extends OfferShiftRequestImpl implement
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.recipientShiftId){
-        if(this.recipientShiftId)
         writer.writeStringValue("recipientShiftId", this.recipientShiftId);
         }
     };

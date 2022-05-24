@@ -4,16 +4,15 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Provides operations to call the addGroup method. */
 export class AddGroupResponseImpl implements AddGroupResponse, AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The value property */
-    value?: boolean | undefined;
+    public value?: boolean | undefined;
     /**
      * Instantiates a new addGroupResponse and sets the default values.
      * @param addGroupResponseParameterValue 
      */
     public constructor(addGroupResponseParameterValue?: AddGroupResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = addGroupResponseParameterValue?.additionalData ? {} : addGroupResponseParameterValue?.additionalData!
+        this.additionalData = addGroupResponseParameterValue?.additionalData ? addGroupResponseParameterValue?.additionalData! : {}
         this.value = addGroupResponseParameterValue?.value ;
     };
     /**
@@ -32,7 +31,6 @@ export class AddGroupResponseImpl implements AddGroupResponse, AdditionalDataHol
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.value){
-        if(this.value)
         writer.writeBooleanValue("value", this.value);
         }
         writer.writeAdditionalData(this.additionalData);

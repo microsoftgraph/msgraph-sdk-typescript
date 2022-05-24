@@ -3,18 +3,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class SortPropertyImpl implements AdditionalDataHolder, Parsable, SortProperty {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** True if the sort order is descending. Default is false, with the sort order as ascending. Optional. */
-    isDescending?: boolean | undefined;
+    public isDescending?: boolean | undefined;
     /** The name of the property to sort on. Required. */
-    name?: string | undefined;
+    public name?: string | undefined;
     /**
      * Instantiates a new sortProperty and sets the default values.
      * @param sortPropertyParameterValue 
      */
     public constructor(sortPropertyParameterValue?: SortProperty | undefined) {
-        this.additionalData = {};
-        this.additionalData = sortPropertyParameterValue?.additionalData ? {} : sortPropertyParameterValue?.additionalData!
+        this.additionalData = sortPropertyParameterValue?.additionalData ? sortPropertyParameterValue?.additionalData! : {}
         this.isDescending = sortPropertyParameterValue?.isDescending ;
         this.name = sortPropertyParameterValue?.name ;
     };
@@ -35,11 +34,9 @@ export class SortPropertyImpl implements AdditionalDataHolder, Parsable, SortPro
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.isDescending){
-        if(this.isDescending)
         writer.writeBooleanValue("isDescending", this.isDescending);
         }
         if(this.name){
-        if(this.name)
         writer.writeStringValue("name", this.name);
         }
         writer.writeAdditionalData(this.additionalData);

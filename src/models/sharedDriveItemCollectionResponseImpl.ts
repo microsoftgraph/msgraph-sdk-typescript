@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class SharedDriveItemCollectionResponseImpl implements AdditionalDataHolder, Parsable, SharedDriveItemCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: SharedDriveItem[] | undefined;
+    public value?: SharedDriveItem[] | undefined;
     /**
      * Instantiates a new SharedDriveItemCollectionResponse and sets the default values.
      * @param sharedDriveItemCollectionResponseParameterValue 
      */
     public constructor(sharedDriveItemCollectionResponseParameterValue?: SharedDriveItemCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = sharedDriveItemCollectionResponseParameterValue?.additionalData ? {} : sharedDriveItemCollectionResponseParameterValue?.additionalData!
+        this.additionalData = sharedDriveItemCollectionResponseParameterValue?.additionalData ? sharedDriveItemCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = sharedDriveItemCollectionResponseParameterValue?.nextLink ;
         this.value = sharedDriveItemCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class SharedDriveItemCollectionResponseImpl implements AdditionalDataHold
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: SharedDriveItemImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new SharedDriveItemImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: SharedDriveItemImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new SharedDriveItemImpl(element));});
         writer.writeCollectionOfObjectValues<SharedDriveItemImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

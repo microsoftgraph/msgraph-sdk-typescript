@@ -4,11 +4,12 @@ import {RequestSchedule} from './requestSchedule';
 import {UnifiedRoleEligibilitySchedule} from './unifiedRoleEligibilitySchedule';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the roleManagement singleton. */
 export class UnifiedRoleEligibilityScheduleImpl extends UnifiedRoleScheduleBaseImpl implements Parsable, UnifiedRoleEligibilitySchedule {
     /** Membership type of the eligible assignment. It can either be Inherited, Direct, or Group. */
-    memberType?: string | undefined;
+    public memberType?: string | undefined;
     /** The schedule object of the eligible role assignment request. */
-    scheduleInfo?: RequestSchedule | undefined;
+    public scheduleInfo?: RequestSchedule | undefined;
     /**
      * Instantiates a new unifiedRoleEligibilitySchedule and sets the default values.
      * @param unifiedRoleEligibilityScheduleParameterValue 
@@ -36,11 +37,9 @@ export class UnifiedRoleEligibilityScheduleImpl extends UnifiedRoleScheduleBaseI
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.memberType){
-        if(this.memberType)
         writer.writeStringValue("memberType", this.memberType);
         }
         if(this.scheduleInfo){
-        if(this.scheduleInfo)
         writer.writeObjectValue<RequestScheduleImpl>("scheduleInfo", new RequestScheduleImpl(this.scheduleInfo));
         }
     };

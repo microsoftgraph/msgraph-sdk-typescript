@@ -4,9 +4,10 @@ import {createCertificateAuthorityFromDiscriminatorValue} from './createCertific
 import {CertificateAuthorityImpl, EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the collection of certificateBasedAuthConfiguration entities. */
 export class CertificateBasedAuthConfigurationImpl extends EntityImpl implements CertificateBasedAuthConfiguration, Parsable {
     /** Collection of certificate authorities which creates a trusted certificate chain. */
-    certificateAuthorities?: CertificateAuthority[] | undefined;
+    public certificateAuthorities?: CertificateAuthority[] | undefined;
     /**
      * Instantiates a new certificateBasedAuthConfiguration and sets the default values.
      * @param certificateBasedAuthConfigurationParameterValue 
@@ -31,8 +32,7 @@ export class CertificateBasedAuthConfigurationImpl extends EntityImpl implements
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.certificateAuthorities){
-        const certificateAuthoritiesArrValue: CertificateAuthorityImpl[] = []; this.certificateAuthorities?.forEach(element => {certificateAuthoritiesArrValue.push(new CertificateAuthorityImpl(element));});
+        if(this.certificateAuthorities && this.certificateAuthorities.length != 0){        const certificateAuthoritiesArrValue: CertificateAuthorityImpl[] = []; this.certificateAuthorities?.forEach(element => {certificateAuthoritiesArrValue.push(new CertificateAuthorityImpl(element));});
         writer.writeCollectionOfObjectValues<CertificateAuthorityImpl>("certificateAuthorities", certificateAuthoritiesArrValue);
         }
     };

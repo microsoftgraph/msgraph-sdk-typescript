@@ -1,9 +1,9 @@
 
 export interface InvestigationSecurityState{
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    additionalData?:Record<string, unknown>;
     /** The name property */
-    name?: string | undefined;
+    name?:string | undefined;
     /** The status property */
-    status?: string | undefined;
+    status?:string | undefined;
 }

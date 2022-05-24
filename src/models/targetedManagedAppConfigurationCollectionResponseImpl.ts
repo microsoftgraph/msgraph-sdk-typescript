@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class TargetedManagedAppConfigurationCollectionResponseImpl implements AdditionalDataHolder, Parsable, TargetedManagedAppConfigurationCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: TargetedManagedAppConfiguration[] | undefined;
+    public value?: TargetedManagedAppConfiguration[] | undefined;
     /**
      * Instantiates a new TargetedManagedAppConfigurationCollectionResponse and sets the default values.
      * @param targetedManagedAppConfigurationCollectionResponseParameterValue 
      */
     public constructor(targetedManagedAppConfigurationCollectionResponseParameterValue?: TargetedManagedAppConfigurationCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = targetedManagedAppConfigurationCollectionResponseParameterValue?.additionalData ? {} : targetedManagedAppConfigurationCollectionResponseParameterValue?.additionalData!
+        this.additionalData = targetedManagedAppConfigurationCollectionResponseParameterValue?.additionalData ? targetedManagedAppConfigurationCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = targetedManagedAppConfigurationCollectionResponseParameterValue?.nextLink ;
         this.value = targetedManagedAppConfigurationCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class TargetedManagedAppConfigurationCollectionResponseImpl implements Ad
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: TargetedManagedAppConfigurationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new TargetedManagedAppConfigurationImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: TargetedManagedAppConfigurationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new TargetedManagedAppConfigurationImpl(element));});
         writer.writeCollectionOfObjectValues<TargetedManagedAppConfigurationImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

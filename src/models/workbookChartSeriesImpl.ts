@@ -6,13 +6,14 @@ import {WorkbookChartSeries} from './workbookChartSeries';
 import {WorkbookChartSeriesFormat} from './workbookChartSeriesFormat';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to user. */
 export class WorkbookChartSeriesImpl extends EntityImpl implements Parsable, WorkbookChartSeries {
     /** Represents the formatting of a chart series, which includes fill and line formatting. Read-only. */
-    format?: WorkbookChartSeriesFormat | undefined;
+    public format?: WorkbookChartSeriesFormat | undefined;
     /** Represents the name of a series in a chart. */
-    name?: string | undefined;
+    public name?: string | undefined;
     /** Represents a collection of all points in the series. Read-only. */
-    points?: WorkbookChartPoint[] | undefined;
+    public points?: WorkbookChartPoint[] | undefined;
     /**
      * Instantiates a new workbookChartSeries and sets the default values.
      * @param workbookChartSeriesParameterValue 
@@ -42,15 +43,12 @@ export class WorkbookChartSeriesImpl extends EntityImpl implements Parsable, Wor
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.format){
-        if(this.format)
         writer.writeObjectValue<WorkbookChartSeriesFormatImpl>("format", new WorkbookChartSeriesFormatImpl(this.format));
         }
         if(this.name){
-        if(this.name)
         writer.writeStringValue("name", this.name);
         }
-        if(this.points){
-        const pointsArrValue: WorkbookChartPointImpl[] = []; this.points?.forEach(element => {pointsArrValue.push(new WorkbookChartPointImpl(element));});
+        if(this.points && this.points.length != 0){        const pointsArrValue: WorkbookChartPointImpl[] = []; this.points?.forEach(element => {pointsArrValue.push(new WorkbookChartPointImpl(element));});
         writer.writeCollectionOfObjectValues<WorkbookChartPointImpl>("points", pointsArrValue);
         }
     };

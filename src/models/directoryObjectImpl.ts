@@ -2,9 +2,10 @@ import {DirectoryObject} from './directoryObject';
 import {EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the collection of application entities. */
 export class DirectoryObjectImpl extends EntityImpl implements DirectoryObject, Parsable {
     /** Date and time when this object was deleted. Always null when the object hasn't been deleted. */
-    deletedDateTime?: Date | undefined;
+    public deletedDateTime?: Date | undefined;
     /**
      * Instantiates a new directoryObject and sets the default values.
      * @param directoryObjectParameterValue 
@@ -30,7 +31,6 @@ export class DirectoryObjectImpl extends EntityImpl implements DirectoryObject, 
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.deletedDateTime){
-        if(this.deletedDateTime)
         writer.writeDateValue("deletedDateTime", this.deletedDateTime);
         }
     };

@@ -3,16 +3,15 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class SearchQueryImpl implements AdditionalDataHolder, Parsable, SearchQuery {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The search query containing the search terms. Required. */
-    queryString?: string | undefined;
+    public queryString?: string | undefined;
     /**
      * Instantiates a new searchQuery and sets the default values.
      * @param searchQueryParameterValue 
      */
     public constructor(searchQueryParameterValue?: SearchQuery | undefined) {
-        this.additionalData = {};
-        this.additionalData = searchQueryParameterValue?.additionalData ? {} : searchQueryParameterValue?.additionalData!
+        this.additionalData = searchQueryParameterValue?.additionalData ? searchQueryParameterValue?.additionalData! : {}
         this.queryString = searchQueryParameterValue?.queryString ;
     };
     /**
@@ -31,7 +30,6 @@ export class SearchQueryImpl implements AdditionalDataHolder, Parsable, SearchQu
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.queryString){
-        if(this.queryString)
         writer.writeStringValue("queryString", this.queryString);
         }
         writer.writeAdditionalData(this.additionalData);

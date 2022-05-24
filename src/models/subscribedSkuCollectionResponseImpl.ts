@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class SubscribedSkuCollectionResponseImpl implements AdditionalDataHolder, Parsable, SubscribedSkuCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: SubscribedSku[] | undefined;
+    public value?: SubscribedSku[] | undefined;
     /**
      * Instantiates a new SubscribedSkuCollectionResponse and sets the default values.
      * @param subscribedSkuCollectionResponseParameterValue 
      */
     public constructor(subscribedSkuCollectionResponseParameterValue?: SubscribedSkuCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = subscribedSkuCollectionResponseParameterValue?.additionalData ? {} : subscribedSkuCollectionResponseParameterValue?.additionalData!
+        this.additionalData = subscribedSkuCollectionResponseParameterValue?.additionalData ? subscribedSkuCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = subscribedSkuCollectionResponseParameterValue?.nextLink ;
         this.value = subscribedSkuCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class SubscribedSkuCollectionResponseImpl implements AdditionalDataHolder
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: SubscribedSkuImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new SubscribedSkuImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: SubscribedSkuImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new SubscribedSkuImpl(element));});
         writer.writeCollectionOfObjectValues<SubscribedSkuImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

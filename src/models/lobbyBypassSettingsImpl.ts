@@ -4,18 +4,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class LobbyBypassSettingsImpl implements AdditionalDataHolder, LobbyBypassSettings, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** Specifies whether or not to always let dial-in callers bypass the lobby. Optional. */
-    isDialInBypassEnabled?: boolean | undefined;
+    public isDialInBypassEnabled?: boolean | undefined;
     /** Specifies the type of participants that are automatically admitted into a meeting, bypassing the lobby. Optional. */
-    scope?: LobbyBypassScope | undefined;
+    public scope?: LobbyBypassScope | undefined;
     /**
      * Instantiates a new lobbyBypassSettings and sets the default values.
      * @param lobbyBypassSettingsParameterValue 
      */
     public constructor(lobbyBypassSettingsParameterValue?: LobbyBypassSettings | undefined) {
-        this.additionalData = {};
-        this.additionalData = lobbyBypassSettingsParameterValue?.additionalData ? {} : lobbyBypassSettingsParameterValue?.additionalData!
+        this.additionalData = lobbyBypassSettingsParameterValue?.additionalData ? lobbyBypassSettingsParameterValue?.additionalData! : {}
         this.isDialInBypassEnabled = lobbyBypassSettingsParameterValue?.isDialInBypassEnabled ;
         this.scope = lobbyBypassSettingsParameterValue?.scope ;
     };
@@ -36,11 +35,9 @@ export class LobbyBypassSettingsImpl implements AdditionalDataHolder, LobbyBypas
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.isDialInBypassEnabled){
-        if(this.isDialInBypassEnabled)
         writer.writeBooleanValue("isDialInBypassEnabled", this.isDialInBypassEnabled);
         }
         if(this.scope){
-        if(this.scope)
         writer.writeEnumValue<LobbyBypassScope>("scope", this.scope);
         }
         writer.writeAdditionalData(this.additionalData);

@@ -1,6 +1,5 @@
 import {AuthenticationMethodConfigurationCollectionResponseImpl, AuthenticationMethodConfigurationImpl} from '../../models/';
 import {AuthenticationMethodConfiguration} from '../../models/authenticationMethodConfiguration';
-import {AuthenticationMethodConfigurationCollectionResponse} from '../../models/authenticationMethodConfigurationCollectionResponse';
 import {createAuthenticationMethodConfigurationCollectionResponseFromDiscriminatorValue} from '../../models/createAuthenticationMethodConfigurationCollectionResponseFromDiscriminatorValue';
 import {createAuthenticationMethodConfigurationFromDiscriminatorValue} from '../../models/createAuthenticationMethodConfigurationFromDiscriminatorValue';
 import {ODataErrorImpl} from '../../models/oDataErrors/';
@@ -68,8 +67,8 @@ export class AuthenticationMethodConfigurationsRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        const bodyParsable = new AuthenticationMethodConfigurationImpl(body)
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", bodyParsable);
+        const parsableBody = new AuthenticationMethodConfigurationImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -78,7 +77,7 @@ export class AuthenticationMethodConfigurationsRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AuthenticationMethodConfigurationCollectionResponse
      */
-    public get(requestConfiguration?: AuthenticationMethodConfigurationsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AuthenticationMethodConfigurationCollectionResponse | undefined> {
+    public get(requestConfiguration?: AuthenticationMethodConfigurationsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AuthenticationMethodConfigurationCollectionResponseImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -95,7 +94,7 @@ export class AuthenticationMethodConfigurationsRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AuthenticationMethodConfiguration
      */
-    public post(body: AuthenticationMethodConfiguration | undefined, requestConfiguration?: AuthenticationMethodConfigurationsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AuthenticationMethodConfiguration | undefined> {
+    public post(body: AuthenticationMethodConfiguration | undefined, requestConfiguration?: AuthenticationMethodConfigurationsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AuthenticationMethodConfigurationImpl | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration

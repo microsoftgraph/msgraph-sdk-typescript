@@ -4,9 +4,9 @@ import {SharePointIdentity} from './sharePointIdentity';
 
 export interface SharePointIdentitySet extends IdentitySet{
     /** The group associated with this action. Optional. */
-    group?: Identity | undefined;
+    group?:Identity | undefined;
     /** The SharePoint group associated with this action. Optional. */
-    siteGroup?: SharePointIdentity | undefined;
+    siteGroup?:SharePointIdentity | undefined;
     /** The SharePoint user associated with this action. Optional. */
-    siteUser?: SharePointIdentity | undefined;
+    siteUser?:SharePointIdentity | undefined;
 }

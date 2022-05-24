@@ -1,6 +1,5 @@
 import {EntityImpl} from '../../../../../models/';
 import {createEntityFromDiscriminatorValue} from '../../../../../models/createEntityFromDiscriminatorValue';
-import {Entity} from '../../../../../models/entity';
 import {ODataErrorImpl} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {LastSharedMethodRequestBuilderGetRequestConfiguration} from './lastSharedMethodRequestBuilderGetRequestConfiguration';
@@ -50,7 +49,7 @@ export class LastSharedMethodRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Entity
      */
-    public get(requestConfiguration?: LastSharedMethodRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Entity | undefined> {
+    public get(requestConfiguration?: LastSharedMethodRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EntityImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );

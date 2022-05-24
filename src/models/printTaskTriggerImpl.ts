@@ -5,11 +5,12 @@ import {PrintTaskDefinition} from './printTaskDefinition';
 import {PrintTaskTrigger} from './printTaskTrigger';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the print singleton. */
 export class PrintTaskTriggerImpl extends EntityImpl implements Parsable, PrintTaskTrigger {
     /** The definition property */
-    definition?: PrintTaskDefinition | undefined;
+    public definition?: PrintTaskDefinition | undefined;
     /** The Universal Print event that will cause a new printTask to be triggered. Valid values are described in the following table. */
-    event?: PrintEvent | undefined;
+    public event?: PrintEvent | undefined;
     /**
      * Instantiates a new printTaskTrigger and sets the default values.
      * @param printTaskTriggerParameterValue 
@@ -37,11 +38,9 @@ export class PrintTaskTriggerImpl extends EntityImpl implements Parsable, PrintT
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.definition){
-        if(this.definition)
         writer.writeObjectValue<PrintTaskDefinitionImpl>("definition", new PrintTaskDefinitionImpl(this.definition));
         }
         if(this.event){
-        if(this.event)
         writer.writeEnumValue<PrintEvent>("event", this.event);
         }
     };

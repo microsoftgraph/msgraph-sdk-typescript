@@ -1,3 +1,3 @@
-export * from './updateRecordingStatusRequestBodyImpl'
-export * from './updateRecordingStatusRequestBody'
+export * from './updateRecordingStatusPostRequestBodyImpl'
+export * from './updateRecordingStatusPostRequestBody'
 export * from './updateRecordingStatusRequestBuilderPostRequestConfiguration'

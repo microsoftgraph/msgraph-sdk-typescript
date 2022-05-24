@@ -7,41 +7,41 @@ import {Website} from './website';
 
 export interface Person extends Entity{
     /** The person's birthday. */
-    birthday?: string | undefined;
+    birthday?:string | undefined;
     /** The name of the person's company. */
-    companyName?: string | undefined;
+    companyName?:string | undefined;
     /** The person's department. */
-    department?: string | undefined;
+    department?:string | undefined;
     /** The person's display name. */
-    displayName?: string | undefined;
+    displayName?:string | undefined;
     /** The person's given name. */
-    givenName?: string | undefined;
+    givenName?:string | undefined;
     /** The instant message voice over IP (VOIP) session initiation protocol (SIP) address for the user. Read-only. */
-    imAddress?: string | undefined;
+    imAddress?:string | undefined;
     /** true if the user has flagged this person as a favorite. */
-    isFavorite?: boolean | undefined;
+    isFavorite?:boolean | undefined;
     /** The person's job title. */
-    jobTitle?: string | undefined;
+    jobTitle?:string | undefined;
     /** The location of the person's office. */
-    officeLocation?: string | undefined;
+    officeLocation?:string | undefined;
     /** Free-form notes that the user has taken about this person. */
-    personNotes?: string | undefined;
+    personNotes?:string | undefined;
     /** The type of person, for example distribution list. */
-    personType?: PersonType | undefined;
+    personType?:PersonType | undefined;
     /** The person's phone numbers. */
-    phones?: Phone[] | undefined;
+    phones?:Phone[] | undefined;
     /** The person's addresses. */
-    postalAddresses?: Location[] | undefined;
+    postalAddresses?:Location[] | undefined;
     /** The person's profession. */
-    profession?: string | undefined;
+    profession?:string | undefined;
     /** The person's email addresses. */
-    scoredEmailAddresses?: ScoredEmailAddress[] | undefined;
+    scoredEmailAddresses?:ScoredEmailAddress[] | undefined;
     /** The person's surname. */
-    surname?: string | undefined;
+    surname?:string | undefined;
     /** The user principal name (UPN) of the person. The UPN is an Internet-style login name for the person based on the Internet standard RFC 822. By convention, this should map to the person's email name. The general format is alias@domain. */
-    userPrincipalName?: string | undefined;
+    userPrincipalName?:string | undefined;
     /** The person's websites. */
-    websites?: Website[] | undefined;
+    websites?:Website[] | undefined;
     /** The phonetic Japanese name of the person's company. */
-    yomiCompany?: string | undefined;
+    yomiCompany?:string | undefined;
 }

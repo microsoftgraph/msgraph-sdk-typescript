@@ -1,6 +1,6 @@
-import {ConfirmCompromisedRequestBody} from './confirmCompromisedRequestBody';
+import {ConfirmCompromisedPostRequestBody} from './confirmCompromisedPostRequestBody';
 import {ConfirmCompromisedRequestBuilderPostRequestConfiguration} from './confirmCompromisedRequestBuilderPostRequestConfiguration';
-import {ConfirmCompromisedRequestBodyImpl} from './index';
+import {ConfirmCompromisedPostRequestBodyImpl} from './index';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the confirmCompromised method. */
@@ -30,7 +30,7 @@ export class ConfirmCompromisedRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public createPostRequestInformation(body: ConfirmCompromisedRequestBody | undefined, requestConfiguration?: ConfirmCompromisedRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public createPostRequestInformation(body: ConfirmCompromisedPostRequestBody | undefined, requestConfiguration?: ConfirmCompromisedRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -40,8 +40,8 @@ export class ConfirmCompromisedRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        const bodyParsable = new ConfirmCompromisedRequestBodyImpl(body)
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", bodyParsable);
+        const parsableBody = new ConfirmCompromisedPostRequestBodyImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -50,7 +50,7 @@ export class ConfirmCompromisedRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public post(body: ConfirmCompromisedRequestBody | undefined, requestConfiguration?: ConfirmCompromisedRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public post(body: ConfirmCompromisedPostRequestBody | undefined, requestConfiguration?: ConfirmCompromisedRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration

@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class AudioRoutingGroupCollectionResponseImpl implements AdditionalDataHolder, AudioRoutingGroupCollectionResponse, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: AudioRoutingGroup[] | undefined;
+    public value?: AudioRoutingGroup[] | undefined;
     /**
      * Instantiates a new AudioRoutingGroupCollectionResponse and sets the default values.
      * @param audioRoutingGroupCollectionResponseParameterValue 
      */
     public constructor(audioRoutingGroupCollectionResponseParameterValue?: AudioRoutingGroupCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = audioRoutingGroupCollectionResponseParameterValue?.additionalData ? {} : audioRoutingGroupCollectionResponseParameterValue?.additionalData!
+        this.additionalData = audioRoutingGroupCollectionResponseParameterValue?.additionalData ? audioRoutingGroupCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = audioRoutingGroupCollectionResponseParameterValue?.nextLink ;
         this.value = audioRoutingGroupCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class AudioRoutingGroupCollectionResponseImpl implements AdditionalDataHo
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: AudioRoutingGroupImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new AudioRoutingGroupImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: AudioRoutingGroupImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new AudioRoutingGroupImpl(element));});
         writer.writeCollectionOfObjectValues<AudioRoutingGroupImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

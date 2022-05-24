@@ -2,11 +2,12 @@ import {EntityImpl} from './index';
 import {MobileAppCategory} from './mobileAppCategory';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Contains properties for a single Intune app category. */
 export class MobileAppCategoryImpl extends EntityImpl implements MobileAppCategory, Parsable {
     /** The name of the app category. */
-    displayName?: string | undefined;
+    public displayName?: string | undefined;
     /** The date and time the mobileAppCategory was last modified. */
-    lastModifiedDateTime?: Date | undefined;
+    public lastModifiedDateTime?: Date | undefined;
     /**
      * Instantiates a new mobileAppCategory and sets the default values.
      * @param mobileAppCategoryParameterValue 
@@ -34,11 +35,9 @@ export class MobileAppCategoryImpl extends EntityImpl implements MobileAppCatego
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.displayName){
-        if(this.displayName)
         writer.writeStringValue("displayName", this.displayName);
         }
         if(this.lastModifiedDateTime){
-        if(this.lastModifiedDateTime)
         writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
         }
     };

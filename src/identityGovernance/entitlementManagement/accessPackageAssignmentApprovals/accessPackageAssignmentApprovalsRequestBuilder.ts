@@ -1,6 +1,5 @@
 import {ApprovalCollectionResponseImpl, ApprovalImpl} from '../../../models/';
 import {Approval} from '../../../models/approval';
-import {ApprovalCollectionResponse} from '../../../models/approvalCollectionResponse';
 import {createApprovalCollectionResponseFromDiscriminatorValue} from '../../../models/createApprovalCollectionResponseFromDiscriminatorValue';
 import {createApprovalFromDiscriminatorValue} from '../../../models/createApprovalFromDiscriminatorValue';
 import {ODataErrorImpl} from '../../../models/oDataErrors/';
@@ -69,8 +68,8 @@ export class AccessPackageAssignmentApprovalsRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        const bodyParsable = new ApprovalImpl(body)
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", bodyParsable);
+        const parsableBody = new ApprovalImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -88,7 +87,7 @@ export class AccessPackageAssignmentApprovalsRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ApprovalCollectionResponse
      */
-    public get(requestConfiguration?: AccessPackageAssignmentApprovalsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ApprovalCollectionResponse | undefined> {
+    public get(requestConfiguration?: AccessPackageAssignmentApprovalsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ApprovalCollectionResponseImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -105,7 +104,7 @@ export class AccessPackageAssignmentApprovalsRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Approval
      */
-    public post(body: Approval | undefined, requestConfiguration?: AccessPackageAssignmentApprovalsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Approval | undefined> {
+    public post(body: Approval | undefined, requestConfiguration?: AccessPackageAssignmentApprovalsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ApprovalImpl | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration

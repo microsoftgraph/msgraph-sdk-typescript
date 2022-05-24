@@ -3,16 +3,15 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class PrintSettingsImpl implements AdditionalDataHolder, Parsable, PrintSettings {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** Specifies whether document conversion is enabled for the tenant. If document conversion is enabled, Universal Print service will automatically convert documents into a format compatible with the printer (xps to pdf) when needed. */
-    documentConversionEnabled?: boolean | undefined;
+    public documentConversionEnabled?: boolean | undefined;
     /**
      * Instantiates a new printSettings and sets the default values.
      * @param printSettingsParameterValue 
      */
     public constructor(printSettingsParameterValue?: PrintSettings | undefined) {
-        this.additionalData = {};
-        this.additionalData = printSettingsParameterValue?.additionalData ? {} : printSettingsParameterValue?.additionalData!
+        this.additionalData = printSettingsParameterValue?.additionalData ? printSettingsParameterValue?.additionalData! : {}
         this.documentConversionEnabled = printSettingsParameterValue?.documentConversionEnabled ;
     };
     /**
@@ -31,7 +30,6 @@ export class PrintSettingsImpl implements AdditionalDataHolder, Parsable, PrintS
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.documentConversionEnabled){
-        if(this.documentConversionEnabled)
         writer.writeBooleanValue("documentConversionEnabled", this.documentConversionEnabled);
         }
         writer.writeAdditionalData(this.additionalData);

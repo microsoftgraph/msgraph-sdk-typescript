@@ -1,5 +1,4 @@
 import {CalendarImpl} from '../../../../../models/';
-import {Calendar} from '../../../../../models/calendar';
 import {createCalendarFromDiscriminatorValue} from '../../../../../models/createCalendarFromDiscriminatorValue';
 import {AcceptRequestBuilderPostRequestConfiguration} from './acceptRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
@@ -47,7 +46,7 @@ export class AcceptRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Calendar
      */
-    public post(requestConfiguration?: AcceptRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Calendar | undefined> {
+    public post(requestConfiguration?: AcceptRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<CalendarImpl | undefined> {
         const requestInfo = this.createPostRequestInformation(
             requestConfiguration
         );

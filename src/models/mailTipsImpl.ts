@@ -13,38 +13,37 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class MailTipsImpl implements AdditionalDataHolder, MailTips, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** Mail tips for automatic reply if it has been set up by the recipient. */
-    automaticReplies?: AutomaticRepliesMailTips | undefined;
+    public automaticReplies?: AutomaticRepliesMailTips | undefined;
     /** A custom mail tip that can be set on the recipient's mailbox. */
-    customMailTip?: string | undefined;
+    public customMailTip?: string | undefined;
     /** Whether the recipient's mailbox is restricted, for example, accepting messages from only a predefined list of senders, rejecting messages from a predefined list of senders, or accepting messages from only authenticated senders. */
-    deliveryRestricted?: boolean | undefined;
+    public deliveryRestricted?: boolean | undefined;
     /** The email address of the recipient to get mailtips for. */
-    emailAddress?: EmailAddress | undefined;
+    public emailAddress?: EmailAddress | undefined;
     /** Errors that occur during the getMailTips action. */
-    error_escaped?: MailTipsError | undefined;
+    public error_escaped?: MailTipsError | undefined;
     /** The number of external members if the recipient is a distribution list. */
-    externalMemberCount?: number | undefined;
+    public externalMemberCount?: number | undefined;
     /** Whether sending messages to the recipient requires approval. For example, if the recipient is a large distribution list and a moderator has been set up to approve messages sent to that distribution list, or if sending messages to a recipient requires approval of the recipient's manager. */
-    isModerated?: boolean | undefined;
+    public isModerated?: boolean | undefined;
     /** The mailbox full status of the recipient. */
-    mailboxFull?: boolean | undefined;
+    public mailboxFull?: boolean | undefined;
     /** The maximum message size that has been configured for the recipient's organization or mailbox. */
-    maxMessageSize?: number | undefined;
+    public maxMessageSize?: number | undefined;
     /** The scope of the recipient. Possible values are: none, internal, external, externalPartner, externalNonParther. For example, an administrator can set another organization to be its 'partner'. The scope is useful if an administrator wants certain mailtips to be accessible to certain scopes. It's also useful to senders to inform them that their message may leave the organization, helping them make the correct decisions about wording, tone and content. */
-    recipientScope?: RecipientScopeType | undefined;
+    public recipientScope?: RecipientScopeType | undefined;
     /** Recipients suggested based on previous contexts where they appear in the same message. */
-    recipientSuggestions?: Recipient[] | undefined;
+    public recipientSuggestions?: Recipient[] | undefined;
     /** The number of members if the recipient is a distribution list. */
-    totalMemberCount?: number | undefined;
+    public totalMemberCount?: number | undefined;
     /**
      * Instantiates a new mailTips and sets the default values.
      * @param mailTipsParameterValue 
      */
     public constructor(mailTipsParameterValue?: MailTips | undefined) {
-        this.additionalData = {};
-        this.additionalData = mailTipsParameterValue?.additionalData ? {} : mailTipsParameterValue?.additionalData!
+        this.additionalData = mailTipsParameterValue?.additionalData ? mailTipsParameterValue?.additionalData! : {}
         this.automaticReplies = mailTipsParameterValue?.automaticReplies ;
         this.customMailTip = mailTipsParameterValue?.customMailTip ;
         this.deliveryRestricted = mailTipsParameterValue?.deliveryRestricted ;
@@ -85,51 +84,39 @@ export class MailTipsImpl implements AdditionalDataHolder, MailTips, Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.automaticReplies){
-        if(this.automaticReplies)
         writer.writeObjectValue<AutomaticRepliesMailTipsImpl>("automaticReplies", new AutomaticRepliesMailTipsImpl(this.automaticReplies));
         }
         if(this.customMailTip){
-        if(this.customMailTip)
         writer.writeStringValue("customMailTip", this.customMailTip);
         }
         if(this.deliveryRestricted){
-        if(this.deliveryRestricted)
         writer.writeBooleanValue("deliveryRestricted", this.deliveryRestricted);
         }
         if(this.emailAddress){
-        if(this.emailAddress)
         writer.writeObjectValue<EmailAddressImpl>("emailAddress", new EmailAddressImpl(this.emailAddress));
         }
         if(this.error_escaped){
-        if(this.error_escaped)
         writer.writeObjectValue<MailTipsErrorImpl>("error", new MailTipsErrorImpl(this.error_escaped));
         }
         if(this.externalMemberCount){
-        if(this.externalMemberCount)
         writer.writeNumberValue("externalMemberCount", this.externalMemberCount);
         }
         if(this.isModerated){
-        if(this.isModerated)
         writer.writeBooleanValue("isModerated", this.isModerated);
         }
         if(this.mailboxFull){
-        if(this.mailboxFull)
         writer.writeBooleanValue("mailboxFull", this.mailboxFull);
         }
         if(this.maxMessageSize){
-        if(this.maxMessageSize)
         writer.writeNumberValue("maxMessageSize", this.maxMessageSize);
         }
         if(this.recipientScope){
-        if(this.recipientScope)
         writer.writeEnumValue<RecipientScopeType>("recipientScope", this.recipientScope);
         }
-        if(this.recipientSuggestions){
-        const recipientSuggestionsArrValue: RecipientImpl[] = []; this.recipientSuggestions?.forEach(element => {recipientSuggestionsArrValue.push(new RecipientImpl(element));});
+        if(this.recipientSuggestions && this.recipientSuggestions.length != 0){        const recipientSuggestionsArrValue: RecipientImpl[] = []; this.recipientSuggestions?.forEach(element => {recipientSuggestionsArrValue.push(new RecipientImpl(element));});
         writer.writeCollectionOfObjectValues<RecipientImpl>("recipientSuggestions", recipientSuggestionsArrValue);
         }
         if(this.totalMemberCount){
-        if(this.totalMemberCount)
         writer.writeNumberValue("totalMemberCount", this.totalMemberCount);
         }
         writer.writeAdditionalData(this.additionalData);

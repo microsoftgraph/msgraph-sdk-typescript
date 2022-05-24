@@ -4,18 +4,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class FileHashImpl implements AdditionalDataHolder, FileHash, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** File hash type. Possible values are: unknown, sha1, sha256, md5, authenticodeHash256, lsHash, ctph, peSha1, peSha256. */
-    hashType?: FileHashType | undefined;
+    public hashType?: FileHashType | undefined;
     /** Value of the file hash. */
-    hashValue?: string | undefined;
+    public hashValue?: string | undefined;
     /**
      * Instantiates a new fileHash and sets the default values.
      * @param fileHashParameterValue 
      */
     public constructor(fileHashParameterValue?: FileHash | undefined) {
-        this.additionalData = {};
-        this.additionalData = fileHashParameterValue?.additionalData ? {} : fileHashParameterValue?.additionalData!
+        this.additionalData = fileHashParameterValue?.additionalData ? fileHashParameterValue?.additionalData! : {}
         this.hashType = fileHashParameterValue?.hashType ;
         this.hashValue = fileHashParameterValue?.hashValue ;
     };
@@ -36,11 +35,9 @@ export class FileHashImpl implements AdditionalDataHolder, FileHash, Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.hashType){
-        if(this.hashType)
         writer.writeEnumValue<FileHashType>("hashType", this.hashType);
         }
         if(this.hashValue){
-        if(this.hashValue)
         writer.writeStringValue("hashValue", this.hashValue);
         }
         writer.writeAdditionalData(this.additionalData);

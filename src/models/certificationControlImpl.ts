@@ -3,18 +3,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class CertificationControlImpl implements AdditionalDataHolder, CertificationControl, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** Certification control name */
-    name?: string | undefined;
+    public name?: string | undefined;
     /** URL for the Microsoft Service Trust Portal */
-    url?: string | undefined;
+    public url?: string | undefined;
     /**
      * Instantiates a new certificationControl and sets the default values.
      * @param certificationControlParameterValue 
      */
     public constructor(certificationControlParameterValue?: CertificationControl | undefined) {
-        this.additionalData = {};
-        this.additionalData = certificationControlParameterValue?.additionalData ? {} : certificationControlParameterValue?.additionalData!
+        this.additionalData = certificationControlParameterValue?.additionalData ? certificationControlParameterValue?.additionalData! : {}
         this.name = certificationControlParameterValue?.name ;
         this.url = certificationControlParameterValue?.url ;
     };
@@ -35,11 +34,9 @@ export class CertificationControlImpl implements AdditionalDataHolder, Certifica
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.name){
-        if(this.name)
         writer.writeStringValue("name", this.name);
         }
         if(this.url){
-        if(this.url)
         writer.writeStringValue("url", this.url);
         }
         writer.writeAdditionalData(this.additionalData);

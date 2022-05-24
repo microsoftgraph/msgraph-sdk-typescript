@@ -15,37 +15,38 @@ import {UnifiedRoleEligibilityScheduleRequest} from './unifiedRoleEligibilitySch
 import {UnifiedRoleScheduleRequestActions} from './unifiedRoleScheduleRequestActions';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the roleManagement singleton. */
 export class UnifiedRoleEligibilityScheduleRequestImpl extends RequestImpl implements Parsable, UnifiedRoleEligibilityScheduleRequest {
     /** Represents the type of the operation on the role eligibility assignment. The possible values are: AdminAssign: For administrators to assign role eligibility to users or groups to roles.AdminExtend: For administrators to extend expiring assignments.AdminUpdate: For administrators to change existing role assignments.AdminRenew: For administrators to renew expired assignments.AdminRemove: For administrators to remove users or groups from eligible roles.UserAdd: For users to activate their eligible assignments.UserExtend: For users to request to extend their expiring eligible assignments.UserRemove: For users to deactivate their active eligible assignments.UserRenew: For users to request to renew their expired eligible assignments. */
-    action?: UnifiedRoleScheduleRequestActions | undefined;
+    public action?: UnifiedRoleScheduleRequestActions | undefined;
     /** Read-only property with details of the app-specific scope when the assignment scope is app-specific. Containment entity. */
-    appScope?: AppScope | undefined;
+    public appScope?: AppScope | undefined;
     /** Identifier of the app-specific scope when the assignment scope is app-specific. The scope of an assignment determines the set of resources for which the principal has been granted access. App scopes are scopes that are defined and understood by this application only. Use / for tenant-wide app scopes. Use directoryScopeId to limit the scope to particular directory objects, for example, administrative units. */
-    appScopeId?: string | undefined;
+    public appScopeId?: string | undefined;
     /** Property referencing the directory object that is the scope of the assignment. Provided so that callers can get the directory object using $expand at the same time as getting the role assignment. Read-only. */
-    directoryScope?: DirectoryObject | undefined;
+    public directoryScope?: DirectoryObject | undefined;
     /** Identifier of the directory object representing the scope of the assignment. The scope of an assignment determines the set of resources for which the principal has been granted access. Directory scopes are shared scopes stored in the directory that are understood by multiple applications. Use / for tenant-wide scope. Use appScopeId to limit the scope to an application only. */
-    directoryScopeId?: string | undefined;
+    public directoryScopeId?: string | undefined;
     /** A boolean that determines whether the call is a validation or an actual call. Only set this property if you want to check whether an activation is subject to additional rules like MFA before actually submitting the request. */
-    isValidationOnly?: boolean | undefined;
+    public isValidationOnly?: boolean | undefined;
     /** A message provided by users and administrators when create the request about why it is needed. */
-    justification?: string | undefined;
+    public justification?: string | undefined;
     /** Property referencing the principal that is getting a role assignment through the request. Provided so that callers can get the principal using $expand at the same time as getting the role assignment. Read-only. */
-    principal?: DirectoryObject | undefined;
+    public principal?: DirectoryObject | undefined;
     /** Identifier of the principal to which the assignment is being granted to. For example, a user or a group. For groups, they must be assignable to roles, that is, the isAssignableToRole of the group property set to true. */
-    principalId?: string | undefined;
+    public principalId?: string | undefined;
     /** Property indicating the roleDefinition the assignment is for. Provided so that callers can get the role definition using $expand at the same time as getting the role assignment. roleDefinition.Id will be auto expanded. */
-    roleDefinition?: UnifiedRoleDefinition | undefined;
+    public roleDefinition?: UnifiedRoleDefinition | undefined;
     /** Identifier of the unifiedRoleDefinition the assignment is for. Read only. */
-    roleDefinitionId?: string | undefined;
+    public roleDefinitionId?: string | undefined;
     /** The schedule object of the role assignment request. */
-    scheduleInfo?: RequestSchedule | undefined;
+    public scheduleInfo?: RequestSchedule | undefined;
     /** Property indicating the schedule for an eligible role assignment. */
-    targetSchedule?: UnifiedRoleEligibilitySchedule | undefined;
+    public targetSchedule?: UnifiedRoleEligibilitySchedule | undefined;
     /** The time period for which the eligibility assignment is valid. */
-    targetScheduleId?: string | undefined;
+    public targetScheduleId?: string | undefined;
     /** The details of the ticket number and ticket system that is attached to the role assignment request. */
-    ticketInfo?: TicketInfo | undefined;
+    public ticketInfo?: TicketInfo | undefined;
     /**
      * Instantiates a new unifiedRoleEligibilityScheduleRequest and sets the default values.
      * @param unifiedRoleEligibilityScheduleRequestParameterValue 
@@ -99,63 +100,48 @@ export class UnifiedRoleEligibilityScheduleRequestImpl extends RequestImpl imple
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.action){
-        if(this.action)
         writer.writeEnumValue<UnifiedRoleScheduleRequestActions>("action", this.action);
         }
         if(this.appScope){
-        if(this.appScope)
         writer.writeObjectValue<AppScopeImpl>("appScope", new AppScopeImpl(this.appScope));
         }
         if(this.appScopeId){
-        if(this.appScopeId)
         writer.writeStringValue("appScopeId", this.appScopeId);
         }
         if(this.directoryScope){
-        if(this.directoryScope)
         writer.writeObjectValue<DirectoryObjectImpl>("directoryScope", new DirectoryObjectImpl(this.directoryScope));
         }
         if(this.directoryScopeId){
-        if(this.directoryScopeId)
         writer.writeStringValue("directoryScopeId", this.directoryScopeId);
         }
         if(this.isValidationOnly){
-        if(this.isValidationOnly)
         writer.writeBooleanValue("isValidationOnly", this.isValidationOnly);
         }
         if(this.justification){
-        if(this.justification)
         writer.writeStringValue("justification", this.justification);
         }
         if(this.principal){
-        if(this.principal)
         writer.writeObjectValue<DirectoryObjectImpl>("principal", new DirectoryObjectImpl(this.principal));
         }
         if(this.principalId){
-        if(this.principalId)
         writer.writeStringValue("principalId", this.principalId);
         }
         if(this.roleDefinition){
-        if(this.roleDefinition)
         writer.writeObjectValue<UnifiedRoleDefinitionImpl>("roleDefinition", new UnifiedRoleDefinitionImpl(this.roleDefinition));
         }
         if(this.roleDefinitionId){
-        if(this.roleDefinitionId)
         writer.writeStringValue("roleDefinitionId", this.roleDefinitionId);
         }
         if(this.scheduleInfo){
-        if(this.scheduleInfo)
         writer.writeObjectValue<RequestScheduleImpl>("scheduleInfo", new RequestScheduleImpl(this.scheduleInfo));
         }
         if(this.targetSchedule){
-        if(this.targetSchedule)
         writer.writeObjectValue<UnifiedRoleEligibilityScheduleImpl>("targetSchedule", new UnifiedRoleEligibilityScheduleImpl(this.targetSchedule));
         }
         if(this.targetScheduleId){
-        if(this.targetScheduleId)
         writer.writeStringValue("targetScheduleId", this.targetScheduleId);
         }
         if(this.ticketInfo){
-        if(this.ticketInfo)
         writer.writeObjectValue<TicketInfoImpl>("ticketInfo", new TicketInfoImpl(this.ticketInfo));
         }
     };

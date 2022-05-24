@@ -14,23 +14,24 @@ import {SharedDriveItem} from './sharedDriveItem';
 import {Site} from './site';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the collection of sharedDriveItem entities. */
 export class SharedDriveItemImpl extends BaseItemImpl implements Parsable, SharedDriveItem {
     /** Used to access the underlying driveItem */
-    driveItem?: DriveItem | undefined;
+    public driveItem?: DriveItem | undefined;
     /** All driveItems contained in the sharing root. This collection cannot be enumerated. */
-    items?: DriveItem[] | undefined;
+    public items?: DriveItem[] | undefined;
     /** Used to access the underlying list */
-    list?: List | undefined;
+    public list?: List | undefined;
     /** Used to access the underlying listItem */
-    listItem?: ListItem | undefined;
+    public listItem?: ListItem | undefined;
     /** Information about the owner of the shared item being referenced. */
-    owner?: IdentitySet | undefined;
+    public owner?: IdentitySet | undefined;
     /** Used to access the permission representing the underlying sharing link */
-    permission?: Permission | undefined;
+    public permission?: Permission | undefined;
     /** Used to access the underlying driveItem. Deprecated -- use driveItem instead. */
-    root?: DriveItem | undefined;
+    public root?: DriveItem | undefined;
     /** Used to access the underlying site */
-    site?: Site | undefined;
+    public site?: Site | undefined;
     /**
      * Instantiates a new sharedDriveItem and sets the default values.
      * @param sharedDriveItemParameterValue 
@@ -70,35 +71,27 @@ export class SharedDriveItemImpl extends BaseItemImpl implements Parsable, Share
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.driveItem){
-        if(this.driveItem)
         writer.writeObjectValue<DriveItemImpl>("driveItem", new DriveItemImpl(this.driveItem));
         }
-        if(this.items){
-        const itemsArrValue: DriveItemImpl[] = []; this.items?.forEach(element => {itemsArrValue.push(new DriveItemImpl(element));});
+        if(this.items && this.items.length != 0){        const itemsArrValue: DriveItemImpl[] = []; this.items?.forEach(element => {itemsArrValue.push(new DriveItemImpl(element));});
         writer.writeCollectionOfObjectValues<DriveItemImpl>("items", itemsArrValue);
         }
         if(this.list){
-        if(this.list)
         writer.writeObjectValue<ListImpl>("list", new ListImpl(this.list));
         }
         if(this.listItem){
-        if(this.listItem)
         writer.writeObjectValue<ListItemImpl>("listItem", new ListItemImpl(this.listItem));
         }
         if(this.owner){
-        if(this.owner)
         writer.writeObjectValue<IdentitySetImpl>("owner", new IdentitySetImpl(this.owner));
         }
         if(this.permission){
-        if(this.permission)
         writer.writeObjectValue<PermissionImpl>("permission", new PermissionImpl(this.permission));
         }
         if(this.root){
-        if(this.root)
         writer.writeObjectValue<DriveItemImpl>("root", new DriveItemImpl(this.root));
         }
         if(this.site){
-        if(this.site)
         writer.writeObjectValue<SiteImpl>("site", new SiteImpl(this.site));
         }
     };

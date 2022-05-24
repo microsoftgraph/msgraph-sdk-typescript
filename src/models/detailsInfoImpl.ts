@@ -3,14 +3,13 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class DetailsInfoImpl implements AdditionalDataHolder, DetailsInfo, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /**
      * Instantiates a new detailsInfo and sets the default values.
      * @param detailsInfoParameterValue 
      */
     public constructor(detailsInfoParameterValue?: DetailsInfo | undefined) {
-        this.additionalData = {};
-        this.additionalData = detailsInfoParameterValue?.additionalData ? {} : detailsInfoParameterValue?.additionalData!
+        this.additionalData = detailsInfoParameterValue?.additionalData ? detailsInfoParameterValue?.additionalData! : {}
     };
     /**
      * The deserialization information for the current model

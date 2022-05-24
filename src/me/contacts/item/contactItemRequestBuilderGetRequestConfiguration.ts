@@ -3,9 +3,9 @@ import {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface ContactItemRequestBuilderGetRequestConfiguration{
     /** Request headers */
-    headers?: Record<string, string> | undefined;
+    headers?:Record<string, string> | undefined;
     /** Request options */
-    options?: RequestOption[] | undefined;
+    options?:RequestOption[] | undefined;
     /** Request query parameters */
-    queryParameters?: ContactItemRequestBuilderGetQueryParameters | undefined;
+    queryParameters?:ContactItemRequestBuilderGetQueryParameters | undefined;
 }

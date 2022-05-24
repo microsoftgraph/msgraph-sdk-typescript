@@ -3,16 +3,15 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class AlbumImpl implements AdditionalDataHolder, Album, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** Unique identifier of the [driveItem][] that is the cover of the album. */
-    coverImageItemId?: string | undefined;
+    public coverImageItemId?: string | undefined;
     /**
      * Instantiates a new album and sets the default values.
      * @param albumParameterValue 
      */
     public constructor(albumParameterValue?: Album | undefined) {
-        this.additionalData = {};
-        this.additionalData = albumParameterValue?.additionalData ? {} : albumParameterValue?.additionalData!
+        this.additionalData = albumParameterValue?.additionalData ? albumParameterValue?.additionalData! : {}
         this.coverImageItemId = albumParameterValue?.coverImageItemId ;
     };
     /**
@@ -31,7 +30,6 @@ export class AlbumImpl implements AdditionalDataHolder, Album, Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.coverImageItemId){
-        if(this.coverImageItemId)
         writer.writeStringValue("coverImageItemId", this.coverImageItemId);
         }
         writer.writeAdditionalData(this.additionalData);

@@ -6,11 +6,12 @@ import {WorkbookChartFont} from './workbookChartFont';
 import {WorkbookChartLegendFormat} from './workbookChartLegendFormat';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to user. */
 export class WorkbookChartLegendFormatImpl extends EntityImpl implements Parsable, WorkbookChartLegendFormat {
     /** Represents the fill format of an object, which includes background formating information. Read-only. */
-    fill?: WorkbookChartFill | undefined;
+    public fill?: WorkbookChartFill | undefined;
     /** Represents the font attributes such as font name, font size, color, etc. of a chart legend. Read-only. */
-    font?: WorkbookChartFont | undefined;
+    public font?: WorkbookChartFont | undefined;
     /**
      * Instantiates a new workbookChartLegendFormat and sets the default values.
      * @param workbookChartLegendFormatParameterValue 
@@ -38,11 +39,9 @@ export class WorkbookChartLegendFormatImpl extends EntityImpl implements Parsabl
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.fill){
-        if(this.fill)
         writer.writeObjectValue<WorkbookChartFillImpl>("fill", new WorkbookChartFillImpl(this.fill));
         }
         if(this.font){
-        if(this.font)
         writer.writeObjectValue<WorkbookChartFontImpl>("font", new WorkbookChartFontImpl(this.font));
         }
     };

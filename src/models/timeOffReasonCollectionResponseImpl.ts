@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class TimeOffReasonCollectionResponseImpl implements AdditionalDataHolder, Parsable, TimeOffReasonCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: TimeOffReason[] | undefined;
+    public value?: TimeOffReason[] | undefined;
     /**
      * Instantiates a new TimeOffReasonCollectionResponse and sets the default values.
      * @param timeOffReasonCollectionResponseParameterValue 
      */
     public constructor(timeOffReasonCollectionResponseParameterValue?: TimeOffReasonCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = timeOffReasonCollectionResponseParameterValue?.additionalData ? {} : timeOffReasonCollectionResponseParameterValue?.additionalData!
+        this.additionalData = timeOffReasonCollectionResponseParameterValue?.additionalData ? timeOffReasonCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = timeOffReasonCollectionResponseParameterValue?.nextLink ;
         this.value = timeOffReasonCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class TimeOffReasonCollectionResponseImpl implements AdditionalDataHolder
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: TimeOffReasonImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new TimeOffReasonImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: TimeOffReasonImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new TimeOffReasonImpl(element));});
         writer.writeCollectionOfObjectValues<TimeOffReasonImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

@@ -4,9 +4,10 @@ import {createAppConsentRequestFromDiscriminatorValue} from './createAppConsentR
 import {AppConsentRequestImpl, EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the identityGovernance singleton. */
 export class AppConsentApprovalRouteImpl extends EntityImpl implements AppConsentApprovalRoute, Parsable {
     /** A collection of userConsentRequest objects for a specific application. */
-    appConsentRequests?: AppConsentRequest[] | undefined;
+    public appConsentRequests?: AppConsentRequest[] | undefined;
     /**
      * Instantiates a new appConsentApprovalRoute and sets the default values.
      * @param appConsentApprovalRouteParameterValue 
@@ -31,8 +32,7 @@ export class AppConsentApprovalRouteImpl extends EntityImpl implements AppConsen
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.appConsentRequests){
-        const appConsentRequestsArrValue: AppConsentRequestImpl[] = []; this.appConsentRequests?.forEach(element => {appConsentRequestsArrValue.push(new AppConsentRequestImpl(element));});
+        if(this.appConsentRequests && this.appConsentRequests.length != 0){        const appConsentRequestsArrValue: AppConsentRequestImpl[] = []; this.appConsentRequests?.forEach(element => {appConsentRequestsArrValue.push(new AppConsentRequestImpl(element));});
         writer.writeCollectionOfObjectValues<AppConsentRequestImpl>("appConsentRequests", appConsentRequestsArrValue);
         }
     };

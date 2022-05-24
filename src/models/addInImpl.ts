@@ -6,20 +6,19 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class AddInImpl implements AddIn, AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The id property */
-    id?: string | undefined;
+    public id?: string | undefined;
     /** The properties property */
-    properties?: KeyValue[] | undefined;
+    public properties?: KeyValue[] | undefined;
     /** The type property */
-    type?: string | undefined;
+    public type?: string | undefined;
     /**
      * Instantiates a new addIn and sets the default values.
      * @param addInParameterValue 
      */
     public constructor(addInParameterValue?: AddIn | undefined) {
-        this.additionalData = {};
-        this.additionalData = addInParameterValue?.additionalData ? {} : addInParameterValue?.additionalData!
+        this.additionalData = addInParameterValue?.additionalData ? addInParameterValue?.additionalData! : {}
         this.id = addInParameterValue?.id ;
         this.properties = addInParameterValue?.properties ;
         this.type = addInParameterValue?.type ;
@@ -42,15 +41,12 @@ export class AddInImpl implements AddIn, AdditionalDataHolder, Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.id){
-        if(this.id)
         writer.writeStringValue("id", this.id);
         }
-        if(this.properties){
-        const propertiesArrValue: KeyValueImpl[] = []; this.properties?.forEach(element => {propertiesArrValue.push(new KeyValueImpl(element));});
+        if(this.properties && this.properties.length != 0){        const propertiesArrValue: KeyValueImpl[] = []; this.properties?.forEach(element => {propertiesArrValue.push(new KeyValueImpl(element));});
         writer.writeCollectionOfObjectValues<KeyValueImpl>("properties", propertiesArrValue);
         }
         if(this.type){
-        if(this.type)
         writer.writeStringValue("type", this.type);
         }
         writer.writeAdditionalData(this.additionalData);

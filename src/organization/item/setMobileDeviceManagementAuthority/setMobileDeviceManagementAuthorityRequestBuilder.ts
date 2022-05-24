@@ -1,7 +1,6 @@
 import {createSetMobileDeviceManagementAuthorityResponseFromDiscriminatorValue} from './createSetMobileDeviceManagementAuthorityResponseFromDiscriminatorValue';
 import {SetMobileDeviceManagementAuthorityResponseImpl} from './index';
 import {SetMobileDeviceManagementAuthorityRequestBuilderPostRequestConfiguration} from './setMobileDeviceManagementAuthorityRequestBuilderPostRequestConfiguration';
-import {SetMobileDeviceManagementAuthorityResponse} from './setMobileDeviceManagementAuthorityResponse';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the setMobileDeviceManagementAuthority method. */
@@ -47,7 +46,7 @@ export class SetMobileDeviceManagementAuthorityRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of SetMobileDeviceManagementAuthorityResponse
      */
-    public post(requestConfiguration?: SetMobileDeviceManagementAuthorityRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<SetMobileDeviceManagementAuthorityResponse | undefined> {
+    public post(requestConfiguration?: SetMobileDeviceManagementAuthorityRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<SetMobileDeviceManagementAuthorityResponseImpl | undefined> {
         const requestInfo = this.createPostRequestInformation(
             requestConfiguration
         );

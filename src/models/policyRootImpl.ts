@@ -35,35 +35,35 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Provides operations to manage the policyRoot singleton. */
 export class PolicyRootImpl extends EntityImpl implements Parsable, PolicyRoot {
     /** The policy that controls the idle time out for web sessions for applications. */
-    activityBasedTimeoutPolicies?: ActivityBasedTimeoutPolicy[] | undefined;
+    public activityBasedTimeoutPolicies?: ActivityBasedTimeoutPolicy[] | undefined;
     /** The policy by which consent requests are created and managed for the entire tenant. */
-    adminConsentRequestPolicy?: AdminConsentRequestPolicy | undefined;
+    public adminConsentRequestPolicy?: AdminConsentRequestPolicy | undefined;
     /** The policy configuration of the self-service sign-up experience of external users. */
-    authenticationFlowsPolicy?: AuthenticationFlowsPolicy | undefined;
+    public authenticationFlowsPolicy?: AuthenticationFlowsPolicy | undefined;
     /** The authentication methods and the users that are allowed to use them to sign in and perform multi-factor authentication (MFA) in Azure Active Directory (Azure AD). */
-    authenticationMethodsPolicy?: AuthenticationMethodsPolicy | undefined;
+    public authenticationMethodsPolicy?: AuthenticationMethodsPolicy | undefined;
     /** The policy that controls Azure AD authorization settings. */
-    authorizationPolicy?: AuthorizationPolicy | undefined;
+    public authorizationPolicy?: AuthorizationPolicy | undefined;
     /** The claim-mapping policies for WS-Fed, SAML, OAuth 2.0, and OpenID Connect protocols, for tokens issued to a specific application. */
-    claimsMappingPolicies?: ClaimsMappingPolicy[] | undefined;
+    public claimsMappingPolicies?: ClaimsMappingPolicy[] | undefined;
     /** The custom rules that define an access scenario. */
-    conditionalAccessPolicies?: ConditionalAccessPolicy[] | undefined;
+    public conditionalAccessPolicies?: ConditionalAccessPolicy[] | undefined;
     /** The feature rollout policy associated with a directory object. */
-    featureRolloutPolicies?: FeatureRolloutPolicy[] | undefined;
+    public featureRolloutPolicies?: FeatureRolloutPolicy[] | undefined;
     /** The policy to control Azure AD authentication behavior for federated users. */
-    homeRealmDiscoveryPolicies?: HomeRealmDiscoveryPolicy[] | undefined;
+    public homeRealmDiscoveryPolicies?: HomeRealmDiscoveryPolicy[] | undefined;
     /** The policy that represents the security defaults that protect against common attacks. */
-    identitySecurityDefaultsEnforcementPolicy?: IdentitySecurityDefaultsEnforcementPolicy | undefined;
+    public identitySecurityDefaultsEnforcementPolicy?: IdentitySecurityDefaultsEnforcementPolicy | undefined;
     /** The policy that specifies the conditions under which consent can be granted. */
-    permissionGrantPolicies?: PermissionGrantPolicy[] | undefined;
+    public permissionGrantPolicies?: PermissionGrantPolicy[] | undefined;
     /** Represents the role management policies. */
-    roleManagementPolicies?: UnifiedRoleManagementPolicy[] | undefined;
+    public roleManagementPolicies?: UnifiedRoleManagementPolicy[] | undefined;
     /** Represents the role management policy assignments. */
-    roleManagementPolicyAssignments?: UnifiedRoleManagementPolicyAssignment[] | undefined;
+    public roleManagementPolicyAssignments?: UnifiedRoleManagementPolicyAssignment[] | undefined;
     /** The policy that specifies the characteristics of SAML tokens issued by Azure AD. */
-    tokenIssuancePolicies?: TokenIssuancePolicy[] | undefined;
+    public tokenIssuancePolicies?: TokenIssuancePolicy[] | undefined;
     /** The policy that controls the lifetime of a JWT access token, an ID token, or a SAML 1.1/2.0 token issued by Azure AD. */
-    tokenLifetimePolicies?: TokenLifetimePolicy[] | undefined;
+    public tokenLifetimePolicies?: TokenLifetimePolicy[] | undefined;
     /**
      * Instantiates a new policyRoot and sets the default values.
      * @param policyRootParameterValue 
@@ -116,64 +116,49 @@ export class PolicyRootImpl extends EntityImpl implements Parsable, PolicyRoot {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.activityBasedTimeoutPolicies){
-        const activityBasedTimeoutPoliciesArrValue: ActivityBasedTimeoutPolicyImpl[] = []; this.activityBasedTimeoutPolicies?.forEach(element => {activityBasedTimeoutPoliciesArrValue.push(new ActivityBasedTimeoutPolicyImpl(element));});
+        if(this.activityBasedTimeoutPolicies && this.activityBasedTimeoutPolicies.length != 0){        const activityBasedTimeoutPoliciesArrValue: ActivityBasedTimeoutPolicyImpl[] = []; this.activityBasedTimeoutPolicies?.forEach(element => {activityBasedTimeoutPoliciesArrValue.push(new ActivityBasedTimeoutPolicyImpl(element));});
         writer.writeCollectionOfObjectValues<ActivityBasedTimeoutPolicyImpl>("activityBasedTimeoutPolicies", activityBasedTimeoutPoliciesArrValue);
         }
         if(this.adminConsentRequestPolicy){
-        if(this.adminConsentRequestPolicy)
         writer.writeObjectValue<AdminConsentRequestPolicyImpl>("adminConsentRequestPolicy", new AdminConsentRequestPolicyImpl(this.adminConsentRequestPolicy));
         }
         if(this.authenticationFlowsPolicy){
-        if(this.authenticationFlowsPolicy)
         writer.writeObjectValue<AuthenticationFlowsPolicyImpl>("authenticationFlowsPolicy", new AuthenticationFlowsPolicyImpl(this.authenticationFlowsPolicy));
         }
         if(this.authenticationMethodsPolicy){
-        if(this.authenticationMethodsPolicy)
         writer.writeObjectValue<AuthenticationMethodsPolicyImpl>("authenticationMethodsPolicy", new AuthenticationMethodsPolicyImpl(this.authenticationMethodsPolicy));
         }
         if(this.authorizationPolicy){
-        if(this.authorizationPolicy)
         writer.writeObjectValue<AuthorizationPolicyImpl>("authorizationPolicy", new AuthorizationPolicyImpl(this.authorizationPolicy));
         }
-        if(this.claimsMappingPolicies){
-        const claimsMappingPoliciesArrValue: ClaimsMappingPolicyImpl[] = []; this.claimsMappingPolicies?.forEach(element => {claimsMappingPoliciesArrValue.push(new ClaimsMappingPolicyImpl(element));});
+        if(this.claimsMappingPolicies && this.claimsMappingPolicies.length != 0){        const claimsMappingPoliciesArrValue: ClaimsMappingPolicyImpl[] = []; this.claimsMappingPolicies?.forEach(element => {claimsMappingPoliciesArrValue.push(new ClaimsMappingPolicyImpl(element));});
         writer.writeCollectionOfObjectValues<ClaimsMappingPolicyImpl>("claimsMappingPolicies", claimsMappingPoliciesArrValue);
         }
-        if(this.conditionalAccessPolicies){
-        const conditionalAccessPoliciesArrValue: ConditionalAccessPolicyImpl[] = []; this.conditionalAccessPolicies?.forEach(element => {conditionalAccessPoliciesArrValue.push(new ConditionalAccessPolicyImpl(element));});
+        if(this.conditionalAccessPolicies && this.conditionalAccessPolicies.length != 0){        const conditionalAccessPoliciesArrValue: ConditionalAccessPolicyImpl[] = []; this.conditionalAccessPolicies?.forEach(element => {conditionalAccessPoliciesArrValue.push(new ConditionalAccessPolicyImpl(element));});
         writer.writeCollectionOfObjectValues<ConditionalAccessPolicyImpl>("conditionalAccessPolicies", conditionalAccessPoliciesArrValue);
         }
-        if(this.featureRolloutPolicies){
-        const featureRolloutPoliciesArrValue: FeatureRolloutPolicyImpl[] = []; this.featureRolloutPolicies?.forEach(element => {featureRolloutPoliciesArrValue.push(new FeatureRolloutPolicyImpl(element));});
+        if(this.featureRolloutPolicies && this.featureRolloutPolicies.length != 0){        const featureRolloutPoliciesArrValue: FeatureRolloutPolicyImpl[] = []; this.featureRolloutPolicies?.forEach(element => {featureRolloutPoliciesArrValue.push(new FeatureRolloutPolicyImpl(element));});
         writer.writeCollectionOfObjectValues<FeatureRolloutPolicyImpl>("featureRolloutPolicies", featureRolloutPoliciesArrValue);
         }
-        if(this.homeRealmDiscoveryPolicies){
-        const homeRealmDiscoveryPoliciesArrValue: HomeRealmDiscoveryPolicyImpl[] = []; this.homeRealmDiscoveryPolicies?.forEach(element => {homeRealmDiscoveryPoliciesArrValue.push(new HomeRealmDiscoveryPolicyImpl(element));});
+        if(this.homeRealmDiscoveryPolicies && this.homeRealmDiscoveryPolicies.length != 0){        const homeRealmDiscoveryPoliciesArrValue: HomeRealmDiscoveryPolicyImpl[] = []; this.homeRealmDiscoveryPolicies?.forEach(element => {homeRealmDiscoveryPoliciesArrValue.push(new HomeRealmDiscoveryPolicyImpl(element));});
         writer.writeCollectionOfObjectValues<HomeRealmDiscoveryPolicyImpl>("homeRealmDiscoveryPolicies", homeRealmDiscoveryPoliciesArrValue);
         }
         if(this.identitySecurityDefaultsEnforcementPolicy){
-        if(this.identitySecurityDefaultsEnforcementPolicy)
         writer.writeObjectValue<IdentitySecurityDefaultsEnforcementPolicyImpl>("identitySecurityDefaultsEnforcementPolicy", new IdentitySecurityDefaultsEnforcementPolicyImpl(this.identitySecurityDefaultsEnforcementPolicy));
         }
-        if(this.permissionGrantPolicies){
-        const permissionGrantPoliciesArrValue: PermissionGrantPolicyImpl[] = []; this.permissionGrantPolicies?.forEach(element => {permissionGrantPoliciesArrValue.push(new PermissionGrantPolicyImpl(element));});
+        if(this.permissionGrantPolicies && this.permissionGrantPolicies.length != 0){        const permissionGrantPoliciesArrValue: PermissionGrantPolicyImpl[] = []; this.permissionGrantPolicies?.forEach(element => {permissionGrantPoliciesArrValue.push(new PermissionGrantPolicyImpl(element));});
         writer.writeCollectionOfObjectValues<PermissionGrantPolicyImpl>("permissionGrantPolicies", permissionGrantPoliciesArrValue);
         }
-        if(this.roleManagementPolicies){
-        const roleManagementPoliciesArrValue: UnifiedRoleManagementPolicyImpl[] = []; this.roleManagementPolicies?.forEach(element => {roleManagementPoliciesArrValue.push(new UnifiedRoleManagementPolicyImpl(element));});
+        if(this.roleManagementPolicies && this.roleManagementPolicies.length != 0){        const roleManagementPoliciesArrValue: UnifiedRoleManagementPolicyImpl[] = []; this.roleManagementPolicies?.forEach(element => {roleManagementPoliciesArrValue.push(new UnifiedRoleManagementPolicyImpl(element));});
         writer.writeCollectionOfObjectValues<UnifiedRoleManagementPolicyImpl>("roleManagementPolicies", roleManagementPoliciesArrValue);
         }
-        if(this.roleManagementPolicyAssignments){
-        const roleManagementPolicyAssignmentsArrValue: UnifiedRoleManagementPolicyAssignmentImpl[] = []; this.roleManagementPolicyAssignments?.forEach(element => {roleManagementPolicyAssignmentsArrValue.push(new UnifiedRoleManagementPolicyAssignmentImpl(element));});
+        if(this.roleManagementPolicyAssignments && this.roleManagementPolicyAssignments.length != 0){        const roleManagementPolicyAssignmentsArrValue: UnifiedRoleManagementPolicyAssignmentImpl[] = []; this.roleManagementPolicyAssignments?.forEach(element => {roleManagementPolicyAssignmentsArrValue.push(new UnifiedRoleManagementPolicyAssignmentImpl(element));});
         writer.writeCollectionOfObjectValues<UnifiedRoleManagementPolicyAssignmentImpl>("roleManagementPolicyAssignments", roleManagementPolicyAssignmentsArrValue);
         }
-        if(this.tokenIssuancePolicies){
-        const tokenIssuancePoliciesArrValue: TokenIssuancePolicyImpl[] = []; this.tokenIssuancePolicies?.forEach(element => {tokenIssuancePoliciesArrValue.push(new TokenIssuancePolicyImpl(element));});
+        if(this.tokenIssuancePolicies && this.tokenIssuancePolicies.length != 0){        const tokenIssuancePoliciesArrValue: TokenIssuancePolicyImpl[] = []; this.tokenIssuancePolicies?.forEach(element => {tokenIssuancePoliciesArrValue.push(new TokenIssuancePolicyImpl(element));});
         writer.writeCollectionOfObjectValues<TokenIssuancePolicyImpl>("tokenIssuancePolicies", tokenIssuancePoliciesArrValue);
         }
-        if(this.tokenLifetimePolicies){
-        const tokenLifetimePoliciesArrValue: TokenLifetimePolicyImpl[] = []; this.tokenLifetimePolicies?.forEach(element => {tokenLifetimePoliciesArrValue.push(new TokenLifetimePolicyImpl(element));});
+        if(this.tokenLifetimePolicies && this.tokenLifetimePolicies.length != 0){        const tokenLifetimePoliciesArrValue: TokenLifetimePolicyImpl[] = []; this.tokenLifetimePolicies?.forEach(element => {tokenLifetimePoliciesArrValue.push(new TokenLifetimePolicyImpl(element));});
         writer.writeCollectionOfObjectValues<TokenLifetimePolicyImpl>("tokenLifetimePolicies", tokenLifetimePoliciesArrValue);
         }
     };

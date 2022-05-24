@@ -6,11 +6,12 @@ import {WorkbookChartFont} from './workbookChartFont';
 import {WorkbookChartLineFormat} from './workbookChartLineFormat';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to user. */
 export class WorkbookChartAxisFormatImpl extends EntityImpl implements Parsable, WorkbookChartAxisFormat {
     /** Represents the font attributes (font name, font size, color, etc.) for a chart axis element. Read-only. */
-    font?: WorkbookChartFont | undefined;
+    public font?: WorkbookChartFont | undefined;
     /** Represents chart line formatting. Read-only. */
-    line?: WorkbookChartLineFormat | undefined;
+    public line?: WorkbookChartLineFormat | undefined;
     /**
      * Instantiates a new workbookChartAxisFormat and sets the default values.
      * @param workbookChartAxisFormatParameterValue 
@@ -38,11 +39,9 @@ export class WorkbookChartAxisFormatImpl extends EntityImpl implements Parsable,
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.font){
-        if(this.font)
         writer.writeObjectValue<WorkbookChartFontImpl>("font", new WorkbookChartFontImpl(this.font));
         }
         if(this.line){
-        if(this.line)
         writer.writeObjectValue<WorkbookChartLineFormatImpl>("line", new WorkbookChartLineFormatImpl(this.line));
         }
     };

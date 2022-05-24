@@ -7,18 +7,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class ProvisioningStatusInfoImpl implements AdditionalDataHolder, Parsable, ProvisioningStatusInfo {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The errorInformation property */
-    errorInformation?: ProvisioningErrorInfo | undefined;
+    public errorInformation?: ProvisioningErrorInfo | undefined;
     /** Possible values are: success, warning, failure, skipped, unknownFutureValue. */
-    status?: ProvisioningResult | undefined;
+    public status?: ProvisioningResult | undefined;
     /**
      * Instantiates a new provisioningStatusInfo and sets the default values.
      * @param provisioningStatusInfoParameterValue 
      */
     public constructor(provisioningStatusInfoParameterValue?: ProvisioningStatusInfo | undefined) {
-        this.additionalData = {};
-        this.additionalData = provisioningStatusInfoParameterValue?.additionalData ? {} : provisioningStatusInfoParameterValue?.additionalData!
+        this.additionalData = provisioningStatusInfoParameterValue?.additionalData ? provisioningStatusInfoParameterValue?.additionalData! : {}
         this.errorInformation = provisioningStatusInfoParameterValue?.errorInformation ;
         this.status = provisioningStatusInfoParameterValue?.status ;
     };
@@ -39,11 +38,9 @@ export class ProvisioningStatusInfoImpl implements AdditionalDataHolder, Parsabl
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.errorInformation){
-        if(this.errorInformation)
         writer.writeObjectValue<ProvisioningErrorInfoImpl>("errorInformation", new ProvisioningErrorInfoImpl(this.errorInformation));
         }
         if(this.status){
-        if(this.status)
         writer.writeEnumValue<ProvisioningResult>("status", this.status);
         }
         writer.writeAdditionalData(this.additionalData);

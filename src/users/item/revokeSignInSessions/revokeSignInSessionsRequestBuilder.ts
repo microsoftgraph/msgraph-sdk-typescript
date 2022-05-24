@@ -1,7 +1,6 @@
 import {createRevokeSignInSessionsResponseFromDiscriminatorValue} from './createRevokeSignInSessionsResponseFromDiscriminatorValue';
 import {RevokeSignInSessionsResponseImpl} from './index';
 import {RevokeSignInSessionsRequestBuilderPostRequestConfiguration} from './revokeSignInSessionsRequestBuilderPostRequestConfiguration';
-import {RevokeSignInSessionsResponse} from './revokeSignInSessionsResponse';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the revokeSignInSessions method. */
@@ -47,7 +46,7 @@ export class RevokeSignInSessionsRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of RevokeSignInSessionsResponse
      */
-    public post(requestConfiguration?: RevokeSignInSessionsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<RevokeSignInSessionsResponse | undefined> {
+    public post(requestConfiguration?: RevokeSignInSessionsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<RevokeSignInSessionsResponseImpl | undefined> {
         const requestInfo = this.createPostRequestInformation(
             requestConfiguration
         );

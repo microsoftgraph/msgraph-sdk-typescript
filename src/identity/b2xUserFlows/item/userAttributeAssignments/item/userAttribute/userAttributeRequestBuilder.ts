@@ -1,6 +1,5 @@
 import {IdentityUserFlowAttributeImpl} from '../../../../../../models/';
 import {createIdentityUserFlowAttributeFromDiscriminatorValue} from '../../../../../../models/createIdentityUserFlowAttributeFromDiscriminatorValue';
-import {IdentityUserFlowAttribute} from '../../../../../../models/identityUserFlowAttribute';
 import {ODataErrorImpl} from '../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {UserAttributeRequestBuilderGetRequestConfiguration} from './userAttributeRequestBuilderGetRequestConfiguration';
@@ -50,7 +49,7 @@ export class UserAttributeRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of IdentityUserFlowAttribute
      */
-    public get(requestConfiguration?: UserAttributeRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<IdentityUserFlowAttribute | undefined> {
+    public get(requestConfiguration?: UserAttributeRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<IdentityUserFlowAttributeImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );

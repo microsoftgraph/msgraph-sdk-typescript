@@ -4,20 +4,19 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class AuthenticationMethodsRegistrationCampaignIncludeTargetImpl implements AdditionalDataHolder, AuthenticationMethodsRegistrationCampaignIncludeTarget, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The object identifier of an Azure AD user or group. */
-    id?: string | undefined;
+    public id?: string | undefined;
     /** The authentication method that the user is prompted to register. The value must be microsoftAuthenticator. */
-    targetedAuthenticationMethod?: string | undefined;
+    public targetedAuthenticationMethod?: string | undefined;
     /** The type of the authentication method target. Possible values are: user, group, unknownFutureValue. */
-    targetType?: AuthenticationMethodTargetType | undefined;
+    public targetType?: AuthenticationMethodTargetType | undefined;
     /**
      * Instantiates a new authenticationMethodsRegistrationCampaignIncludeTarget and sets the default values.
      * @param authenticationMethodsRegistrationCampaignIncludeTargetParameterValue 
      */
     public constructor(authenticationMethodsRegistrationCampaignIncludeTargetParameterValue?: AuthenticationMethodsRegistrationCampaignIncludeTarget | undefined) {
-        this.additionalData = {};
-        this.additionalData = authenticationMethodsRegistrationCampaignIncludeTargetParameterValue?.additionalData ? {} : authenticationMethodsRegistrationCampaignIncludeTargetParameterValue?.additionalData!
+        this.additionalData = authenticationMethodsRegistrationCampaignIncludeTargetParameterValue?.additionalData ? authenticationMethodsRegistrationCampaignIncludeTargetParameterValue?.additionalData! : {}
         this.id = authenticationMethodsRegistrationCampaignIncludeTargetParameterValue?.id ;
         this.targetedAuthenticationMethod = authenticationMethodsRegistrationCampaignIncludeTargetParameterValue?.targetedAuthenticationMethod ;
         this.targetType = authenticationMethodsRegistrationCampaignIncludeTargetParameterValue?.targetType ;
@@ -40,15 +39,12 @@ export class AuthenticationMethodsRegistrationCampaignIncludeTargetImpl implemen
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.id){
-        if(this.id)
         writer.writeStringValue("id", this.id);
         }
         if(this.targetedAuthenticationMethod){
-        if(this.targetedAuthenticationMethod)
         writer.writeStringValue("targetedAuthenticationMethod", this.targetedAuthenticationMethod);
         }
         if(this.targetType){
-        if(this.targetType)
         writer.writeEnumValue<AuthenticationMethodTargetType>("targetType", this.targetType);
         }
         writer.writeAdditionalData(this.additionalData);

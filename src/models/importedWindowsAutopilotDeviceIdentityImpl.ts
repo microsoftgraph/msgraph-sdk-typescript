@@ -4,21 +4,22 @@ import {ImportedWindowsAutopilotDeviceIdentityState} from './importedWindowsAuto
 import {EntityImpl, ImportedWindowsAutopilotDeviceIdentityStateImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Imported windows autopilot devices. */
 export class ImportedWindowsAutopilotDeviceIdentityImpl extends EntityImpl implements ImportedWindowsAutopilotDeviceIdentity, Parsable {
     /** UPN of the user the device will be assigned */
-    assignedUserPrincipalName?: string | undefined;
+    public assignedUserPrincipalName?: string | undefined;
     /** Group Tag of the Windows autopilot device. */
-    groupTag?: string | undefined;
+    public groupTag?: string | undefined;
     /** Hardware Blob of the Windows autopilot device. */
-    hardwareIdentifier?: string | undefined;
+    public hardwareIdentifier?: string | undefined;
     /** The Import Id of the Windows autopilot device. */
-    importId?: string | undefined;
+    public importId?: string | undefined;
     /** Product Key of the Windows autopilot device. */
-    productKey?: string | undefined;
+    public productKey?: string | undefined;
     /** Serial number of the Windows autopilot device. */
-    serialNumber?: string | undefined;
+    public serialNumber?: string | undefined;
     /** Current state of the imported device. */
-    state?: ImportedWindowsAutopilotDeviceIdentityState | undefined;
+    public state?: ImportedWindowsAutopilotDeviceIdentityState | undefined;
     /**
      * Instantiates a new importedWindowsAutopilotDeviceIdentity and sets the default values.
      * @param importedWindowsAutopilotDeviceIdentityParameterValue 
@@ -56,31 +57,24 @@ export class ImportedWindowsAutopilotDeviceIdentityImpl extends EntityImpl imple
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.assignedUserPrincipalName){
-        if(this.assignedUserPrincipalName)
         writer.writeStringValue("assignedUserPrincipalName", this.assignedUserPrincipalName);
         }
         if(this.groupTag){
-        if(this.groupTag)
         writer.writeStringValue("groupTag", this.groupTag);
         }
         if(this.hardwareIdentifier){
-        if(this.hardwareIdentifier)
         writer.writeStringValue("hardwareIdentifier", this.hardwareIdentifier);
         }
         if(this.importId){
-        if(this.importId)
         writer.writeStringValue("importId", this.importId);
         }
         if(this.productKey){
-        if(this.productKey)
         writer.writeStringValue("productKey", this.productKey);
         }
         if(this.serialNumber){
-        if(this.serialNumber)
         writer.writeStringValue("serialNumber", this.serialNumber);
         }
         if(this.state){
-        if(this.state)
         writer.writeObjectValue<ImportedWindowsAutopilotDeviceIdentityStateImpl>("state", new ImportedWindowsAutopilotDeviceIdentityStateImpl(this.state));
         }
     };

@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class AuthenticationMethodConfigurationCollectionResponseImpl implements AdditionalDataHolder, AuthenticationMethodConfigurationCollectionResponse, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: AuthenticationMethodConfiguration[] | undefined;
+    public value?: AuthenticationMethodConfiguration[] | undefined;
     /**
      * Instantiates a new AuthenticationMethodConfigurationCollectionResponse and sets the default values.
      * @param authenticationMethodConfigurationCollectionResponseParameterValue 
      */
     public constructor(authenticationMethodConfigurationCollectionResponseParameterValue?: AuthenticationMethodConfigurationCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = authenticationMethodConfigurationCollectionResponseParameterValue?.additionalData ? {} : authenticationMethodConfigurationCollectionResponseParameterValue?.additionalData!
+        this.additionalData = authenticationMethodConfigurationCollectionResponseParameterValue?.additionalData ? authenticationMethodConfigurationCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = authenticationMethodConfigurationCollectionResponseParameterValue?.nextLink ;
         this.value = authenticationMethodConfigurationCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class AuthenticationMethodConfigurationCollectionResponseImpl implements 
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: AuthenticationMethodConfigurationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new AuthenticationMethodConfigurationImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: AuthenticationMethodConfigurationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new AuthenticationMethodConfigurationImpl(element));});
         writer.writeCollectionOfObjectValues<AuthenticationMethodConfigurationImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

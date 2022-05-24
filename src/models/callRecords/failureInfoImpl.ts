@@ -4,18 +4,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class FailureInfoImpl implements AdditionalDataHolder, FailureInfo, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** Classification of why a call or portion of a call failed. */
-    reason?: string | undefined;
+    public reason?: string | undefined;
     /** The stage when the failure occurred. Possible values are: unknown, callSetup, midcall, unknownFutureValue. */
-    stage?: FailureStage | undefined;
+    public stage?: FailureStage | undefined;
     /**
      * Instantiates a new failureInfo and sets the default values.
      * @param failureInfoParameterValue 
      */
     public constructor(failureInfoParameterValue?: FailureInfo | undefined) {
-        this.additionalData = {};
-        this.additionalData = failureInfoParameterValue?.additionalData ? {} : failureInfoParameterValue?.additionalData!
+        this.additionalData = failureInfoParameterValue?.additionalData ? failureInfoParameterValue?.additionalData! : {}
         this.reason = failureInfoParameterValue?.reason ;
         this.stage = failureInfoParameterValue?.stage ;
     };
@@ -36,11 +35,9 @@ export class FailureInfoImpl implements AdditionalDataHolder, FailureInfo, Parsa
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.reason){
-        if(this.reason)
         writer.writeStringValue("reason", this.reason);
         }
         if(this.stage){
-        if(this.stage)
         writer.writeEnumValue<FailureStage>("stage", this.stage);
         }
         writer.writeAdditionalData(this.additionalData);

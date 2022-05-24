@@ -7,18 +7,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class RecordingInfoImpl implements AdditionalDataHolder, Parsable, RecordingInfo {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The identities of recording initiator. */
-    initiator?: IdentitySet | undefined;
+    public initiator?: IdentitySet | undefined;
     /** Possible values are: unknown, notRecording, recording, or failed. */
-    recordingStatus?: RecordingStatus | undefined;
+    public recordingStatus?: RecordingStatus | undefined;
     /**
      * Instantiates a new recordingInfo and sets the default values.
      * @param recordingInfoParameterValue 
      */
     public constructor(recordingInfoParameterValue?: RecordingInfo | undefined) {
-        this.additionalData = {};
-        this.additionalData = recordingInfoParameterValue?.additionalData ? {} : recordingInfoParameterValue?.additionalData!
+        this.additionalData = recordingInfoParameterValue?.additionalData ? recordingInfoParameterValue?.additionalData! : {}
         this.initiator = recordingInfoParameterValue?.initiator ;
         this.recordingStatus = recordingInfoParameterValue?.recordingStatus ;
     };
@@ -39,11 +38,9 @@ export class RecordingInfoImpl implements AdditionalDataHolder, Parsable, Record
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.initiator){
-        if(this.initiator)
         writer.writeObjectValue<IdentitySetImpl>("initiator", new IdentitySetImpl(this.initiator));
         }
         if(this.recordingStatus){
-        if(this.recordingStatus)
         writer.writeEnumValue<RecordingStatus>("recordingStatus", this.recordingStatus);
         }
         writer.writeAdditionalData(this.additionalData);

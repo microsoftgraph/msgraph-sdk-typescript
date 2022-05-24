@@ -4,18 +4,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Set of allowed and not allowed actions for a resource. */
 export class ResourceActionImpl implements AdditionalDataHolder, Parsable, ResourceAction {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** Allowed Actions */
-    allowedResourceActions?: string[] | undefined;
+    public allowedResourceActions?: string[] | undefined;
     /** Not Allowed Actions. */
-    notAllowedResourceActions?: string[] | undefined;
+    public notAllowedResourceActions?: string[] | undefined;
     /**
      * Instantiates a new resourceAction and sets the default values.
      * @param resourceActionParameterValue 
      */
     public constructor(resourceActionParameterValue?: ResourceAction | undefined) {
-        this.additionalData = {};
-        this.additionalData = resourceActionParameterValue?.additionalData ? {} : resourceActionParameterValue?.additionalData!
+        this.additionalData = resourceActionParameterValue?.additionalData ? resourceActionParameterValue?.additionalData! : {}
         this.allowedResourceActions = resourceActionParameterValue?.allowedResourceActions ;
         this.notAllowedResourceActions = resourceActionParameterValue?.notAllowedResourceActions ;
     };
@@ -36,11 +35,9 @@ export class ResourceActionImpl implements AdditionalDataHolder, Parsable, Resou
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.allowedResourceActions){
-        if(this.allowedResourceActions)
         writer.writeCollectionOfPrimitiveValues<string>("allowedResourceActions", this.allowedResourceActions);
         }
         if(this.notAllowedResourceActions){
-        if(this.notAllowedResourceActions)
         writer.writeCollectionOfPrimitiveValues<string>("notAllowedResourceActions", this.notAllowedResourceActions);
         }
         writer.writeAdditionalData(this.additionalData);

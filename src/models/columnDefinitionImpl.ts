@@ -38,71 +38,72 @@ import {TextColumn} from './textColumn';
 import {ThumbnailColumn} from './thumbnailColumn';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to group. */
 export class ColumnDefinitionImpl extends EntityImpl implements ColumnDefinition, Parsable {
     /** This column stores boolean values. */
-    boolean?: BooleanColumn | undefined;
+    public boolean?: BooleanColumn | undefined;
     /** This column's data is calculated based on other columns. */
-    calculated?: CalculatedColumn | undefined;
+    public calculated?: CalculatedColumn | undefined;
     /** This column stores data from a list of choices. */
-    choice?: ChoiceColumn | undefined;
+    public choice?: ChoiceColumn | undefined;
     /** For site columns, the name of the group this column belongs to. Helps organize related columns. */
-    columnGroup?: string | undefined;
+    public columnGroup?: string | undefined;
     /** This column stores content approval status. */
-    contentApprovalStatus?: ContentApprovalStatusColumn | undefined;
+    public contentApprovalStatus?: ContentApprovalStatusColumn | undefined;
     /** This column stores currency values. */
-    currency?: CurrencyColumn | undefined;
+    public currency?: CurrencyColumn | undefined;
     /** This column stores DateTime values. */
-    dateTime?: DateTimeColumn | undefined;
+    public dateTime?: DateTimeColumn | undefined;
     /** The default value for this column. */
-    defaultValue?: DefaultColumnValue | undefined;
+    public defaultValue?: DefaultColumnValue | undefined;
     /** The user-facing description of the column. */
-    description?: string | undefined;
+    public description?: string | undefined;
     /** The user-facing name of the column. */
-    displayName?: string | undefined;
+    public displayName?: string | undefined;
     /** If true, no two list items may have the same value for this column. */
-    enforceUniqueValues?: boolean | undefined;
+    public enforceUniqueValues?: boolean | undefined;
     /** This column stores a geolocation. */
-    geolocation?: GeolocationColumn | undefined;
+    public geolocation?: GeolocationColumn | undefined;
     /** Specifies whether the column is displayed in the user interface. */
-    hidden?: boolean | undefined;
+    public hidden?: boolean | undefined;
     /** This column stores hyperlink or picture values. */
-    hyperlinkOrPicture?: HyperlinkOrPictureColumn | undefined;
+    public hyperlinkOrPicture?: HyperlinkOrPictureColumn | undefined;
     /** Specifies whether the column values can used for sorting and searching. */
-    indexed?: boolean | undefined;
+    public indexed?: boolean | undefined;
     /** Indicates whether this column can be deleted. */
-    isDeletable?: boolean | undefined;
+    public isDeletable?: boolean | undefined;
     /** Indicates whether values in the column can be reordered. Read-only. */
-    isReorderable?: boolean | undefined;
+    public isReorderable?: boolean | undefined;
     /** Specifies whether the column can be changed. */
-    isSealed?: boolean | undefined;
+    public isSealed?: boolean | undefined;
     /** This column's data is looked up from another source in the site. */
-    lookup?: LookupColumn | undefined;
+    public lookup?: LookupColumn | undefined;
     /** The API-facing name of the column as it appears in the [fields][] on a [listItem][]. For the user-facing name, see displayName. */
-    name?: string | undefined;
+    public name?: string | undefined;
     /** This column stores number values. */
-    number?: NumberColumn | undefined;
+    public number?: NumberColumn | undefined;
     /** This column stores Person or Group values. */
-    personOrGroup?: PersonOrGroupColumn | undefined;
+    public personOrGroup?: PersonOrGroupColumn | undefined;
     /** If true, changes to this column will be propagated to lists that implement the column. */
-    propagateChanges?: boolean | undefined;
+    public propagateChanges?: boolean | undefined;
     /** Specifies whether the column values can be modified. */
-    readOnly?: boolean | undefined;
+    public readOnly?: boolean | undefined;
     /** Specifies whether the column value isn't optional. */
-    required?: boolean | undefined;
+    public required?: boolean | undefined;
     /** The source column for content type column. */
-    sourceColumn?: ColumnDefinition | undefined;
+    public sourceColumn?: ColumnDefinition | undefined;
     /** ContentType from which this column is inherited from. Used only to fetch contentTypes columns. */
-    sourceContentType?: ContentTypeInfo | undefined;
+    public sourceContentType?: ContentTypeInfo | undefined;
     /** This column stores taxonomy terms. */
-    term?: TermColumn | undefined;
+    public term?: TermColumn | undefined;
     /** This column stores text values. */
-    text?: TextColumn | undefined;
+    public text?: TextColumn | undefined;
     /** This column stores thumbnail values. */
-    thumbnail?: ThumbnailColumn | undefined;
+    public thumbnail?: ThumbnailColumn | undefined;
     /** For site columns, the type of column. Read-only. */
-    type?: ColumnTypes | undefined;
+    public type?: ColumnTypes | undefined;
     /** This column stores validation formula and message for the column. */
-    validation?: ColumnValidation | undefined;
+    public validation?: ColumnValidation | undefined;
     /**
      * Instantiates a new columnDefinition and sets the default values.
      * @param columnDefinitionParameterValue 
@@ -190,131 +191,99 @@ export class ColumnDefinitionImpl extends EntityImpl implements ColumnDefinition
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.boolean){
-        if(this.boolean)
         writer.writeObjectValue<BooleanColumnImpl>("boolean", new BooleanColumnImpl(this.boolean));
         }
         if(this.calculated){
-        if(this.calculated)
         writer.writeObjectValue<CalculatedColumnImpl>("calculated", new CalculatedColumnImpl(this.calculated));
         }
         if(this.choice){
-        if(this.choice)
         writer.writeObjectValue<ChoiceColumnImpl>("choice", new ChoiceColumnImpl(this.choice));
         }
         if(this.columnGroup){
-        if(this.columnGroup)
         writer.writeStringValue("columnGroup", this.columnGroup);
         }
         if(this.contentApprovalStatus){
-        if(this.contentApprovalStatus)
         writer.writeObjectValue<ContentApprovalStatusColumnImpl>("contentApprovalStatus", new ContentApprovalStatusColumnImpl(this.contentApprovalStatus));
         }
         if(this.currency){
-        if(this.currency)
         writer.writeObjectValue<CurrencyColumnImpl>("currency", new CurrencyColumnImpl(this.currency));
         }
         if(this.dateTime){
-        if(this.dateTime)
         writer.writeObjectValue<DateTimeColumnImpl>("dateTime", new DateTimeColumnImpl(this.dateTime));
         }
         if(this.defaultValue){
-        if(this.defaultValue)
         writer.writeObjectValue<DefaultColumnValueImpl>("defaultValue", new DefaultColumnValueImpl(this.defaultValue));
         }
         if(this.description){
-        if(this.description)
         writer.writeStringValue("description", this.description);
         }
         if(this.displayName){
-        if(this.displayName)
         writer.writeStringValue("displayName", this.displayName);
         }
         if(this.enforceUniqueValues){
-        if(this.enforceUniqueValues)
         writer.writeBooleanValue("enforceUniqueValues", this.enforceUniqueValues);
         }
         if(this.geolocation){
-        if(this.geolocation)
         writer.writeObjectValue<GeolocationColumnImpl>("geolocation", new GeolocationColumnImpl(this.geolocation));
         }
         if(this.hidden){
-        if(this.hidden)
         writer.writeBooleanValue("hidden", this.hidden);
         }
         if(this.hyperlinkOrPicture){
-        if(this.hyperlinkOrPicture)
         writer.writeObjectValue<HyperlinkOrPictureColumnImpl>("hyperlinkOrPicture", new HyperlinkOrPictureColumnImpl(this.hyperlinkOrPicture));
         }
         if(this.indexed){
-        if(this.indexed)
         writer.writeBooleanValue("indexed", this.indexed);
         }
         if(this.isDeletable){
-        if(this.isDeletable)
         writer.writeBooleanValue("isDeletable", this.isDeletable);
         }
         if(this.isReorderable){
-        if(this.isReorderable)
         writer.writeBooleanValue("isReorderable", this.isReorderable);
         }
         if(this.isSealed){
-        if(this.isSealed)
         writer.writeBooleanValue("isSealed", this.isSealed);
         }
         if(this.lookup){
-        if(this.lookup)
         writer.writeObjectValue<LookupColumnImpl>("lookup", new LookupColumnImpl(this.lookup));
         }
         if(this.name){
-        if(this.name)
         writer.writeStringValue("name", this.name);
         }
         if(this.number){
-        if(this.number)
         writer.writeObjectValue<NumberColumnImpl>("number", new NumberColumnImpl(this.number));
         }
         if(this.personOrGroup){
-        if(this.personOrGroup)
         writer.writeObjectValue<PersonOrGroupColumnImpl>("personOrGroup", new PersonOrGroupColumnImpl(this.personOrGroup));
         }
         if(this.propagateChanges){
-        if(this.propagateChanges)
         writer.writeBooleanValue("propagateChanges", this.propagateChanges);
         }
         if(this.readOnly){
-        if(this.readOnly)
         writer.writeBooleanValue("readOnly", this.readOnly);
         }
         if(this.required){
-        if(this.required)
         writer.writeBooleanValue("required", this.required);
         }
         if(this.sourceColumn){
-        if(this.sourceColumn)
         writer.writeObjectValue<ColumnDefinitionImpl>("sourceColumn", new ColumnDefinitionImpl(this.sourceColumn));
         }
         if(this.sourceContentType){
-        if(this.sourceContentType)
         writer.writeObjectValue<ContentTypeInfoImpl>("sourceContentType", new ContentTypeInfoImpl(this.sourceContentType));
         }
         if(this.term){
-        if(this.term)
         writer.writeObjectValue<TermColumnImpl>("term", new TermColumnImpl(this.term));
         }
         if(this.text){
-        if(this.text)
         writer.writeObjectValue<TextColumnImpl>("text", new TextColumnImpl(this.text));
         }
         if(this.thumbnail){
-        if(this.thumbnail)
         writer.writeObjectValue<ThumbnailColumnImpl>("thumbnail", new ThumbnailColumnImpl(this.thumbnail));
         }
         if(this.type){
-        if(this.type)
         writer.writeEnumValue<ColumnTypes>("type", this.type);
         }
         if(this.validation){
-        if(this.validation)
         writer.writeObjectValue<ColumnValidationImpl>("validation", new ColumnValidationImpl(this.validation));
         }
     };

@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class ConnectionOperationCollectionResponseImpl implements AdditionalDataHolder, ConnectionOperationCollectionResponse, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: ConnectionOperation[] | undefined;
+    public value?: ConnectionOperation[] | undefined;
     /**
      * Instantiates a new ConnectionOperationCollectionResponse and sets the default values.
      * @param connectionOperationCollectionResponseParameterValue 
      */
     public constructor(connectionOperationCollectionResponseParameterValue?: ConnectionOperationCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = connectionOperationCollectionResponseParameterValue?.additionalData ? {} : connectionOperationCollectionResponseParameterValue?.additionalData!
+        this.additionalData = connectionOperationCollectionResponseParameterValue?.additionalData ? connectionOperationCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = connectionOperationCollectionResponseParameterValue?.nextLink ;
         this.value = connectionOperationCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class ConnectionOperationCollectionResponseImpl implements AdditionalData
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: ConnectionOperationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ConnectionOperationImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: ConnectionOperationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ConnectionOperationImpl(element));});
         writer.writeCollectionOfObjectValues<ConnectionOperationImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

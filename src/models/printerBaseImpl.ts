@@ -12,25 +12,26 @@ import {PrinterStatus} from './printerStatus';
 import {PrintJob} from './printJob';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the print singleton. */
 export class PrinterBaseImpl extends EntityImpl implements Parsable, PrinterBase {
     /** The capabilities of the printer/printerShare. */
-    capabilities?: PrinterCapabilities | undefined;
+    public capabilities?: PrinterCapabilities | undefined;
     /** The default print settings of printer/printerShare. */
-    defaults?: PrinterDefaults | undefined;
+    public defaults?: PrinterDefaults | undefined;
     /** The name of the printer/printerShare. */
-    displayName?: string | undefined;
+    public displayName?: string | undefined;
     /** Whether the printer/printerShare is currently accepting new print jobs. */
-    isAcceptingJobs?: boolean | undefined;
+    public isAcceptingJobs?: boolean | undefined;
     /** The list of jobs that are queued for printing by the printer/printerShare. */
-    jobs?: PrintJob[] | undefined;
+    public jobs?: PrintJob[] | undefined;
     /** The physical and/or organizational location of the printer/printerShare. */
-    location?: PrinterLocation | undefined;
+    public location?: PrinterLocation | undefined;
     /** The manufacturer of the printer/printerShare. */
-    manufacturer?: string | undefined;
+    public manufacturer?: string | undefined;
     /** The model name of the printer/printerShare. */
-    model?: string | undefined;
+    public model?: string | undefined;
     /** The status property */
-    status?: PrinterStatus | undefined;
+    public status?: PrinterStatus | undefined;
     /**
      * Instantiates a new printerBase and sets the default values.
      * @param printerBaseParameterValue 
@@ -72,39 +73,30 @@ export class PrinterBaseImpl extends EntityImpl implements Parsable, PrinterBase
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.capabilities){
-        if(this.capabilities)
         writer.writeObjectValue<PrinterCapabilitiesImpl>("capabilities", new PrinterCapabilitiesImpl(this.capabilities));
         }
         if(this.defaults){
-        if(this.defaults)
         writer.writeObjectValue<PrinterDefaultsImpl>("defaults", new PrinterDefaultsImpl(this.defaults));
         }
         if(this.displayName){
-        if(this.displayName)
         writer.writeStringValue("displayName", this.displayName);
         }
         if(this.isAcceptingJobs){
-        if(this.isAcceptingJobs)
         writer.writeBooleanValue("isAcceptingJobs", this.isAcceptingJobs);
         }
-        if(this.jobs){
-        const jobsArrValue: PrintJobImpl[] = []; this.jobs?.forEach(element => {jobsArrValue.push(new PrintJobImpl(element));});
+        if(this.jobs && this.jobs.length != 0){        const jobsArrValue: PrintJobImpl[] = []; this.jobs?.forEach(element => {jobsArrValue.push(new PrintJobImpl(element));});
         writer.writeCollectionOfObjectValues<PrintJobImpl>("jobs", jobsArrValue);
         }
         if(this.location){
-        if(this.location)
         writer.writeObjectValue<PrinterLocationImpl>("location", new PrinterLocationImpl(this.location));
         }
         if(this.manufacturer){
-        if(this.manufacturer)
         writer.writeStringValue("manufacturer", this.manufacturer);
         }
         if(this.model){
-        if(this.model)
         writer.writeStringValue("model", this.model);
         }
         if(this.status){
-        if(this.status)
         writer.writeObjectValue<PrinterStatusImpl>("status", new PrinterStatusImpl(this.status));
         }
     };

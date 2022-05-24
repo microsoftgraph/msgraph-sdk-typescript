@@ -18,53 +18,54 @@ import {OnlineMeeting} from './onlineMeeting';
 import {OnlineMeetingPresenters} from './onlineMeetingPresenters';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the cloudCommunications singleton. */
 export class OnlineMeetingImpl extends EntityImpl implements OnlineMeeting, Parsable {
     /** Indicates whether attendees can turn on their camera. */
-    allowAttendeeToEnableCamera?: boolean | undefined;
+    public allowAttendeeToEnableCamera?: boolean | undefined;
     /** Indicates whether attendees can turn on their microphone. */
-    allowAttendeeToEnableMic?: boolean | undefined;
+    public allowAttendeeToEnableMic?: boolean | undefined;
     /** Specifies who can be a presenter in a meeting. */
-    allowedPresenters?: OnlineMeetingPresenters | undefined;
+    public allowedPresenters?: OnlineMeetingPresenters | undefined;
     /** Specifies the mode of meeting chat. */
-    allowMeetingChat?: MeetingChatMode | undefined;
+    public allowMeetingChat?: MeetingChatMode | undefined;
     /** Indicates if Teams reactions are enabled for the meeting. */
-    allowTeamworkReactions?: boolean | undefined;
+    public allowTeamworkReactions?: boolean | undefined;
     /** The attendance reports of an online meeting. Read-only. */
-    attendanceReports?: MeetingAttendanceReport[] | undefined;
+    public attendanceReports?: MeetingAttendanceReport[] | undefined;
     /** The content stream of the attendee report of a Teams live event. Read-only. */
-    attendeeReport?: string | undefined;
+    public attendeeReport?: string | undefined;
     /** The phone access (dial-in) information for an online meeting. Read-only. */
-    audioConferencing?: AudioConferencing | undefined;
+    public audioConferencing?: AudioConferencing | undefined;
     /** Settings related to a live event. */
-    broadcastSettings?: BroadcastMeetingSettings | undefined;
+    public broadcastSettings?: BroadcastMeetingSettings | undefined;
     /** The chat information associated with this online meeting. */
-    chatInfo?: ChatInfo | undefined;
+    public chatInfo?: ChatInfo | undefined;
     /** The meeting creation time in UTC. Read-only. */
-    creationDateTime?: Date | undefined;
+    public creationDateTime?: Date | undefined;
     /** The meeting end time in UTC. */
-    endDateTime?: Date | undefined;
+    public endDateTime?: Date | undefined;
     /** The external ID. A custom ID. Optional. */
-    externalId?: string | undefined;
+    public externalId?: string | undefined;
     /** Indicates whether this is a Teams live event. */
-    isBroadcast?: boolean | undefined;
+    public isBroadcast?: boolean | undefined;
     /** Indicates whether to announce when callers join or leave. */
-    isEntryExitAnnounced?: boolean | undefined;
+    public isEntryExitAnnounced?: boolean | undefined;
     /** The join information in the language and locale variant specified in 'Accept-Language' request HTTP header. Read-only. */
-    joinInformation?: ItemBody | undefined;
+    public joinInformation?: ItemBody | undefined;
     /** The join URL of the online meeting. Read-only. */
-    joinWebUrl?: string | undefined;
+    public joinWebUrl?: string | undefined;
     /** Specifies which participants can bypass the meeting lobby. */
-    lobbyBypassSettings?: LobbyBypassSettings | undefined;
+    public lobbyBypassSettings?: LobbyBypassSettings | undefined;
     /** The participants associated with the online meeting. This includes the organizer and the attendees. */
-    participants?: MeetingParticipants | undefined;
+    public participants?: MeetingParticipants | undefined;
     /** Indicates whether to record the meeting automatically. */
-    recordAutomatically?: boolean | undefined;
+    public recordAutomatically?: boolean | undefined;
     /** The meeting start time in UTC. */
-    startDateTime?: Date | undefined;
+    public startDateTime?: Date | undefined;
     /** The subject of the online meeting. */
-    subject?: string | undefined;
+    public subject?: string | undefined;
     /** The video teleconferencing ID. Read-only. */
-    videoTeleconferenceId?: string | undefined;
+    public videoTeleconferenceId?: string | undefined;
     /**
      * Instantiates a new onlineMeeting and sets the default values.
      * @param onlineMeetingParameterValue 
@@ -134,95 +135,72 @@ export class OnlineMeetingImpl extends EntityImpl implements OnlineMeeting, Pars
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.allowAttendeeToEnableCamera){
-        if(this.allowAttendeeToEnableCamera)
         writer.writeBooleanValue("allowAttendeeToEnableCamera", this.allowAttendeeToEnableCamera);
         }
         if(this.allowAttendeeToEnableMic){
-        if(this.allowAttendeeToEnableMic)
         writer.writeBooleanValue("allowAttendeeToEnableMic", this.allowAttendeeToEnableMic);
         }
         if(this.allowedPresenters){
-        if(this.allowedPresenters)
         writer.writeEnumValue<OnlineMeetingPresenters>("allowedPresenters", this.allowedPresenters);
         }
         if(this.allowMeetingChat){
-        if(this.allowMeetingChat)
         writer.writeEnumValue<MeetingChatMode>("allowMeetingChat", this.allowMeetingChat);
         }
         if(this.allowTeamworkReactions){
-        if(this.allowTeamworkReactions)
         writer.writeBooleanValue("allowTeamworkReactions", this.allowTeamworkReactions);
         }
-        if(this.attendanceReports){
-        const attendanceReportsArrValue: MeetingAttendanceReportImpl[] = []; this.attendanceReports?.forEach(element => {attendanceReportsArrValue.push(new MeetingAttendanceReportImpl(element));});
+        if(this.attendanceReports && this.attendanceReports.length != 0){        const attendanceReportsArrValue: MeetingAttendanceReportImpl[] = []; this.attendanceReports?.forEach(element => {attendanceReportsArrValue.push(new MeetingAttendanceReportImpl(element));});
         writer.writeCollectionOfObjectValues<MeetingAttendanceReportImpl>("attendanceReports", attendanceReportsArrValue);
         }
         if(this.attendeeReport){
-        if(this.attendeeReport)
         writer.writeStringValue("attendeeReport", this.attendeeReport);
         }
         if(this.audioConferencing){
-        if(this.audioConferencing)
         writer.writeObjectValue<AudioConferencingImpl>("audioConferencing", new AudioConferencingImpl(this.audioConferencing));
         }
         if(this.broadcastSettings){
-        if(this.broadcastSettings)
         writer.writeObjectValue<BroadcastMeetingSettingsImpl>("broadcastSettings", new BroadcastMeetingSettingsImpl(this.broadcastSettings));
         }
         if(this.chatInfo){
-        if(this.chatInfo)
         writer.writeObjectValue<ChatInfoImpl>("chatInfo", new ChatInfoImpl(this.chatInfo));
         }
         if(this.creationDateTime){
-        if(this.creationDateTime)
         writer.writeDateValue("creationDateTime", this.creationDateTime);
         }
         if(this.endDateTime){
-        if(this.endDateTime)
         writer.writeDateValue("endDateTime", this.endDateTime);
         }
         if(this.externalId){
-        if(this.externalId)
         writer.writeStringValue("externalId", this.externalId);
         }
         if(this.isBroadcast){
-        if(this.isBroadcast)
         writer.writeBooleanValue("isBroadcast", this.isBroadcast);
         }
         if(this.isEntryExitAnnounced){
-        if(this.isEntryExitAnnounced)
         writer.writeBooleanValue("isEntryExitAnnounced", this.isEntryExitAnnounced);
         }
         if(this.joinInformation){
-        if(this.joinInformation)
         writer.writeObjectValue<ItemBodyImpl>("joinInformation", new ItemBodyImpl(this.joinInformation));
         }
         if(this.joinWebUrl){
-        if(this.joinWebUrl)
         writer.writeStringValue("joinWebUrl", this.joinWebUrl);
         }
         if(this.lobbyBypassSettings){
-        if(this.lobbyBypassSettings)
         writer.writeObjectValue<LobbyBypassSettingsImpl>("lobbyBypassSettings", new LobbyBypassSettingsImpl(this.lobbyBypassSettings));
         }
         if(this.participants){
-        if(this.participants)
         writer.writeObjectValue<MeetingParticipantsImpl>("participants", new MeetingParticipantsImpl(this.participants));
         }
         if(this.recordAutomatically){
-        if(this.recordAutomatically)
         writer.writeBooleanValue("recordAutomatically", this.recordAutomatically);
         }
         if(this.startDateTime){
-        if(this.startDateTime)
         writer.writeDateValue("startDateTime", this.startDateTime);
         }
         if(this.subject){
-        if(this.subject)
         writer.writeStringValue("subject", this.subject);
         }
         if(this.videoTeleconferenceId){
-        if(this.videoTeleconferenceId)
         writer.writeStringValue("videoTeleconferenceId", this.videoTeleconferenceId);
         }
     };

@@ -6,25 +6,26 @@ import {UnifiedRoleManagementPolicy} from './unifiedRoleManagementPolicy';
 import {UnifiedRoleManagementPolicyRule} from './unifiedRoleManagementPolicyRule';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the policyRoot singleton. */
 export class UnifiedRoleManagementPolicyImpl extends EntityImpl implements Parsable, UnifiedRoleManagementPolicy {
     /** Description for the policy. */
-    description?: string | undefined;
+    public description?: string | undefined;
     /** Display name for the policy. */
-    displayName?: string | undefined;
+    public displayName?: string | undefined;
     /** Not implemented. The list of effective rules like approval rules and expiration rules evaluated based on inherited referenced rules. For example, if there is a tenant-wide policy to enforce enabling an approval rule, the effective rule will be to enable approval even if the policy has a rule to disable approval. */
-    effectiveRules?: UnifiedRoleManagementPolicyRule[] | undefined;
+    public effectiveRules?: UnifiedRoleManagementPolicyRule[] | undefined;
     /** This can only be set to true for a single tenant wide policy which will apply to all scopes and roles. Set the scopeId to '/' and scopeType to Directory. */
-    isOrganizationDefault?: boolean | undefined;
+    public isOrganizationDefault?: boolean | undefined;
     /** The identity who last modified the role setting. */
-    lastModifiedBy?: Identity | undefined;
+    public lastModifiedBy?: Identity | undefined;
     /** The time when the role setting was last modified. */
-    lastModifiedDateTime?: Date | undefined;
+    public lastModifiedDateTime?: Date | undefined;
     /** The collection of rules like approval rules and expiration rules. */
-    rules?: UnifiedRoleManagementPolicyRule[] | undefined;
+    public rules?: UnifiedRoleManagementPolicyRule[] | undefined;
     /** The id of the scope where the policy is created. Can be / for the tenant or a group ID. Required. */
-    scopeId?: string | undefined;
+    public scopeId?: string | undefined;
     /** The type of the scope where the policy is created. One of Directory, DirectoryRole. Required. */
-    scopeType?: string | undefined;
+    public scopeType?: string | undefined;
     /**
      * Instantiates a new unifiedRoleManagementPolicy and sets the default values.
      * @param unifiedRoleManagementPolicyParameterValue 
@@ -66,39 +67,30 @@ export class UnifiedRoleManagementPolicyImpl extends EntityImpl implements Parsa
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.description){
-        if(this.description)
         writer.writeStringValue("description", this.description);
         }
         if(this.displayName){
-        if(this.displayName)
         writer.writeStringValue("displayName", this.displayName);
         }
-        if(this.effectiveRules){
-        const effectiveRulesArrValue: UnifiedRoleManagementPolicyRuleImpl[] = []; this.effectiveRules?.forEach(element => {effectiveRulesArrValue.push(new UnifiedRoleManagementPolicyRuleImpl(element));});
+        if(this.effectiveRules && this.effectiveRules.length != 0){        const effectiveRulesArrValue: UnifiedRoleManagementPolicyRuleImpl[] = []; this.effectiveRules?.forEach(element => {effectiveRulesArrValue.push(new UnifiedRoleManagementPolicyRuleImpl(element));});
         writer.writeCollectionOfObjectValues<UnifiedRoleManagementPolicyRuleImpl>("effectiveRules", effectiveRulesArrValue);
         }
         if(this.isOrganizationDefault){
-        if(this.isOrganizationDefault)
         writer.writeBooleanValue("isOrganizationDefault", this.isOrganizationDefault);
         }
         if(this.lastModifiedBy){
-        if(this.lastModifiedBy)
         writer.writeObjectValue<IdentityImpl>("lastModifiedBy", new IdentityImpl(this.lastModifiedBy));
         }
         if(this.lastModifiedDateTime){
-        if(this.lastModifiedDateTime)
         writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
         }
-        if(this.rules){
-        const rulesArrValue: UnifiedRoleManagementPolicyRuleImpl[] = []; this.rules?.forEach(element => {rulesArrValue.push(new UnifiedRoleManagementPolicyRuleImpl(element));});
+        if(this.rules && this.rules.length != 0){        const rulesArrValue: UnifiedRoleManagementPolicyRuleImpl[] = []; this.rules?.forEach(element => {rulesArrValue.push(new UnifiedRoleManagementPolicyRuleImpl(element));});
         writer.writeCollectionOfObjectValues<UnifiedRoleManagementPolicyRuleImpl>("rules", rulesArrValue);
         }
         if(this.scopeId){
-        if(this.scopeId)
         writer.writeStringValue("scopeId", this.scopeId);
         }
         if(this.scopeType){
-        if(this.scopeType)
         writer.writeStringValue("scopeType", this.scopeType);
         }
     };

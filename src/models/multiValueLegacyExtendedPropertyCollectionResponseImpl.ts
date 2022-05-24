@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class MultiValueLegacyExtendedPropertyCollectionResponseImpl implements AdditionalDataHolder, MultiValueLegacyExtendedPropertyCollectionResponse, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: MultiValueLegacyExtendedProperty[] | undefined;
+    public value?: MultiValueLegacyExtendedProperty[] | undefined;
     /**
      * Instantiates a new MultiValueLegacyExtendedPropertyCollectionResponse and sets the default values.
      * @param multiValueLegacyExtendedPropertyCollectionResponseParameterValue 
      */
     public constructor(multiValueLegacyExtendedPropertyCollectionResponseParameterValue?: MultiValueLegacyExtendedPropertyCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = multiValueLegacyExtendedPropertyCollectionResponseParameterValue?.additionalData ? {} : multiValueLegacyExtendedPropertyCollectionResponseParameterValue?.additionalData!
+        this.additionalData = multiValueLegacyExtendedPropertyCollectionResponseParameterValue?.additionalData ? multiValueLegacyExtendedPropertyCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = multiValueLegacyExtendedPropertyCollectionResponseParameterValue?.nextLink ;
         this.value = multiValueLegacyExtendedPropertyCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class MultiValueLegacyExtendedPropertyCollectionResponseImpl implements A
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: MultiValueLegacyExtendedPropertyImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new MultiValueLegacyExtendedPropertyImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: MultiValueLegacyExtendedPropertyImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new MultiValueLegacyExtendedPropertyImpl(element));});
         writer.writeCollectionOfObjectValues<MultiValueLegacyExtendedPropertyImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

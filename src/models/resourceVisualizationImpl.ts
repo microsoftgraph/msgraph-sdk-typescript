@@ -3,30 +3,29 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class ResourceVisualizationImpl implements AdditionalDataHolder, Parsable, ResourceVisualization {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** A string describing where the item is stored. For example, the name of a SharePoint site or the user name identifying the owner of the OneDrive storing the item. */
-    containerDisplayName?: string | undefined;
+    public containerDisplayName?: string | undefined;
     /** Can be used for filtering by the type of container in which the file is stored. Such as Site or OneDriveBusiness. */
-    containerType?: string | undefined;
+    public containerType?: string | undefined;
     /** A path leading to the folder in which the item is stored. */
-    containerWebUrl?: string | undefined;
+    public containerWebUrl?: string | undefined;
     /** The item's media type. Can be used for filtering for a specific type of file based on supported IANA Media Mime Types. Note that not all Media Mime Types are supported. */
-    mediaType?: string | undefined;
+    public mediaType?: string | undefined;
     /** A URL leading to the preview image for the item. */
-    previewImageUrl?: string | undefined;
+    public previewImageUrl?: string | undefined;
     /** A preview text for the item. */
-    previewText?: string | undefined;
+    public previewText?: string | undefined;
     /** The item's title text. */
-    title?: string | undefined;
+    public title?: string | undefined;
     /** The item's media type. Can be used for filtering for a specific file based on a specific type. See below for supported types. */
-    type?: string | undefined;
+    public type?: string | undefined;
     /**
      * Instantiates a new resourceVisualization and sets the default values.
      * @param resourceVisualizationParameterValue 
      */
     public constructor(resourceVisualizationParameterValue?: ResourceVisualization | undefined) {
-        this.additionalData = {};
-        this.additionalData = resourceVisualizationParameterValue?.additionalData ? {} : resourceVisualizationParameterValue?.additionalData!
+        this.additionalData = resourceVisualizationParameterValue?.additionalData ? resourceVisualizationParameterValue?.additionalData! : {}
         this.containerDisplayName = resourceVisualizationParameterValue?.containerDisplayName ;
         this.containerType = resourceVisualizationParameterValue?.containerType ;
         this.containerWebUrl = resourceVisualizationParameterValue?.containerWebUrl ;
@@ -59,35 +58,27 @@ export class ResourceVisualizationImpl implements AdditionalDataHolder, Parsable
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.containerDisplayName){
-        if(this.containerDisplayName)
         writer.writeStringValue("containerDisplayName", this.containerDisplayName);
         }
         if(this.containerType){
-        if(this.containerType)
         writer.writeStringValue("containerType", this.containerType);
         }
         if(this.containerWebUrl){
-        if(this.containerWebUrl)
         writer.writeStringValue("containerWebUrl", this.containerWebUrl);
         }
         if(this.mediaType){
-        if(this.mediaType)
         writer.writeStringValue("mediaType", this.mediaType);
         }
         if(this.previewImageUrl){
-        if(this.previewImageUrl)
         writer.writeStringValue("previewImageUrl", this.previewImageUrl);
         }
         if(this.previewText){
-        if(this.previewText)
         writer.writeStringValue("previewText", this.previewText);
         }
         if(this.title){
-        if(this.title)
         writer.writeStringValue("title", this.title);
         }
         if(this.type){
-        if(this.type)
         writer.writeStringValue("type", this.type);
         }
         writer.writeAdditionalData(this.additionalData);

@@ -1,3 +1,3 @@
-export * from './copyRequestBodyImpl'
+export * from './copyPostRequestBodyImpl'
+export * from './copyPostRequestBody'
 export * from './copyRequestBuilderPostRequestConfiguration'
-export * from './copyRequestBody'

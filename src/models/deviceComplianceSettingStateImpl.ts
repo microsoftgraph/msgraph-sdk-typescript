@@ -3,29 +3,30 @@ import {DeviceComplianceSettingState} from './deviceComplianceSettingState';
 import {EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Device compliance setting State for a given device. */
 export class DeviceComplianceSettingStateImpl extends EntityImpl implements DeviceComplianceSettingState, Parsable {
     /** The DateTime when device compliance grace period expires */
-    complianceGracePeriodExpirationDateTime?: Date | undefined;
+    public complianceGracePeriodExpirationDateTime?: Date | undefined;
     /** The Device Id that is being reported */
-    deviceId?: string | undefined;
+    public deviceId?: string | undefined;
     /** The device model that is being reported */
-    deviceModel?: string | undefined;
+    public deviceModel?: string | undefined;
     /** The Device Name that is being reported */
-    deviceName?: string | undefined;
+    public deviceName?: string | undefined;
     /** The setting class name and property name. */
-    setting?: string | undefined;
+    public setting?: string | undefined;
     /** The Setting Name that is being reported */
-    settingName?: string | undefined;
+    public settingName?: string | undefined;
     /** The compliance state of the setting. Possible values are: unknown, notApplicable, compliant, remediated, nonCompliant, error, conflict, notAssigned. */
-    state?: ComplianceStatus | undefined;
+    public state?: ComplianceStatus | undefined;
     /** The User email address that is being reported */
-    userEmail?: string | undefined;
+    public userEmail?: string | undefined;
     /** The user Id that is being reported */
-    userId?: string | undefined;
+    public userId?: string | undefined;
     /** The User Name that is being reported */
-    userName?: string | undefined;
+    public userName?: string | undefined;
     /** The User PrincipalName that is being reported */
-    userPrincipalName?: string | undefined;
+    public userPrincipalName?: string | undefined;
     /**
      * Instantiates a new deviceComplianceSettingState and sets the default values.
      * @param deviceComplianceSettingStateParameterValue 
@@ -71,47 +72,36 @@ export class DeviceComplianceSettingStateImpl extends EntityImpl implements Devi
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.complianceGracePeriodExpirationDateTime){
-        if(this.complianceGracePeriodExpirationDateTime)
         writer.writeDateValue("complianceGracePeriodExpirationDateTime", this.complianceGracePeriodExpirationDateTime);
         }
         if(this.deviceId){
-        if(this.deviceId)
         writer.writeStringValue("deviceId", this.deviceId);
         }
         if(this.deviceModel){
-        if(this.deviceModel)
         writer.writeStringValue("deviceModel", this.deviceModel);
         }
         if(this.deviceName){
-        if(this.deviceName)
         writer.writeStringValue("deviceName", this.deviceName);
         }
         if(this.setting){
-        if(this.setting)
         writer.writeStringValue("setting", this.setting);
         }
         if(this.settingName){
-        if(this.settingName)
         writer.writeStringValue("settingName", this.settingName);
         }
         if(this.state){
-        if(this.state)
         writer.writeEnumValue<ComplianceStatus>("state", this.state);
         }
         if(this.userEmail){
-        if(this.userEmail)
         writer.writeStringValue("userEmail", this.userEmail);
         }
         if(this.userId){
-        if(this.userId)
         writer.writeStringValue("userId", this.userId);
         }
         if(this.userName){
-        if(this.userName)
         writer.writeStringValue("userName", this.userName);
         }
         if(this.userPrincipalName){
-        if(this.userPrincipalName)
         writer.writeStringValue("userPrincipalName", this.userPrincipalName);
         }
     };

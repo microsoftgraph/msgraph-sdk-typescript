@@ -2,7 +2,6 @@ import {UnifiedRoleManagementPolicyImpl} from '../../../../models/';
 import {createUnifiedRoleManagementPolicyFromDiscriminatorValue} from '../../../../models/createUnifiedRoleManagementPolicyFromDiscriminatorValue';
 import {ODataErrorImpl} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {UnifiedRoleManagementPolicy} from '../../../../models/unifiedRoleManagementPolicy';
 import {PolicyRequestBuilderGetRequestConfiguration} from './policyRequestBuilderGetRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
@@ -50,7 +49,7 @@ export class PolicyRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of UnifiedRoleManagementPolicy
      */
-    public get(requestConfiguration?: PolicyRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<UnifiedRoleManagementPolicy | undefined> {
+    public get(requestConfiguration?: PolicyRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<UnifiedRoleManagementPolicyImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );

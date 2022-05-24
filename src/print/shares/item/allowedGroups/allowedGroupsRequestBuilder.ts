@@ -1,10 +1,10 @@
 import {GroupCollectionResponseImpl} from '../../../../models/';
 import {createGroupCollectionResponseFromDiscriminatorValue} from '../../../../models/createGroupCollectionResponseFromDiscriminatorValue';
-import {GroupCollectionResponse} from '../../../../models/groupCollectionResponse';
 import {ODataErrorImpl} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {AllowedGroupsRequestBuilderGetRequestConfiguration} from './allowedGroupsRequestBuilderGetRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {RefRequestBuilder} from './ref/refRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the allowedGroups property of the microsoft.graph.printerShare entity. */
@@ -15,6 +15,10 @@ export class AllowedGroupsRequestBuilder {
     }
     /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
+    /** The ref property */
+    public get ref(): RefRequestBuilder {
+        return new RefRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
     /** Url template to use to build the URL for the current request builder */
@@ -55,7 +59,7 @@ export class AllowedGroupsRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of GroupCollectionResponse
      */
-    public get(requestConfiguration?: AllowedGroupsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<GroupCollectionResponse | undefined> {
+    public get(requestConfiguration?: AllowedGroupsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<GroupCollectionResponseImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );

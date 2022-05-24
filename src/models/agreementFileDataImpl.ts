@@ -3,16 +3,15 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class AgreementFileDataImpl implements AdditionalDataHolder, AgreementFileData, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** Data that represents the terms of use PDF document. Read-only. Note: You can use the .NET Convert.ToBase64String method to convert your file to binary data for uploading using the Create agreements API. A sample syntax using this method in PowerShell is [convert]::ToBase64String((Get-Content -path 'your_file_path' -Encoding byte)). */
-    data?: string | undefined;
+    public data?: string | undefined;
     /**
      * Instantiates a new agreementFileData and sets the default values.
      * @param agreementFileDataParameterValue 
      */
     public constructor(agreementFileDataParameterValue?: AgreementFileData | undefined) {
-        this.additionalData = {};
-        this.additionalData = agreementFileDataParameterValue?.additionalData ? {} : agreementFileDataParameterValue?.additionalData!
+        this.additionalData = agreementFileDataParameterValue?.additionalData ? agreementFileDataParameterValue?.additionalData! : {}
         this.data = agreementFileDataParameterValue?.data ;
     };
     /**
@@ -31,7 +30,6 @@ export class AgreementFileDataImpl implements AdditionalDataHolder, AgreementFil
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.data){
-        if(this.data)
         writer.writeStringValue("data", this.data);
         }
         writer.writeAdditionalData(this.additionalData);

@@ -4,18 +4,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class PrintOperationStatusImpl implements AdditionalDataHolder, Parsable, PrintOperationStatus {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** A human-readable description of the printOperation's current processing state. Read-only. */
-    description?: string | undefined;
+    public description?: string | undefined;
     /** The printOperation's current processing state. Valid values are described in the following table. Read-only. */
-    state?: PrintOperationProcessingState | undefined;
+    public state?: PrintOperationProcessingState | undefined;
     /**
      * Instantiates a new printOperationStatus and sets the default values.
      * @param printOperationStatusParameterValue 
      */
     public constructor(printOperationStatusParameterValue?: PrintOperationStatus | undefined) {
-        this.additionalData = {};
-        this.additionalData = printOperationStatusParameterValue?.additionalData ? {} : printOperationStatusParameterValue?.additionalData!
+        this.additionalData = printOperationStatusParameterValue?.additionalData ? printOperationStatusParameterValue?.additionalData! : {}
         this.description = printOperationStatusParameterValue?.description ;
         this.state = printOperationStatusParameterValue?.state ;
     };
@@ -36,11 +35,9 @@ export class PrintOperationStatusImpl implements AdditionalDataHolder, Parsable,
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.description){
-        if(this.description)
         writer.writeStringValue("description", this.description);
         }
         if(this.state){
-        if(this.state)
         writer.writeEnumValue<PrintOperationProcessingState>("state", this.state);
         }
         writer.writeAdditionalData(this.additionalData);

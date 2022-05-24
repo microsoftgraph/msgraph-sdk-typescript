@@ -10,24 +10,23 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class ScheduleInformationImpl implements AdditionalDataHolder, Parsable, ScheduleInformation {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** Represents a merged view of availability of all the items in scheduleItems. The view consists of time slots. Availability during each time slot is indicated with: 0= free, 1= tentative, 2= busy, 3= out of office, 4= working elsewhere. */
-    availabilityView?: string | undefined;
+    public availabilityView?: string | undefined;
     /** Error information from attempting to get the availability of the user, distribution list, or resource. */
-    error_escaped?: FreeBusyError | undefined;
+    public error_escaped?: FreeBusyError | undefined;
     /** An SMTP address of the user, distribution list, or resource, identifying an instance of scheduleInformation. */
-    scheduleId?: string | undefined;
+    public scheduleId?: string | undefined;
     /** Contains the items that describe the availability of the user or resource. */
-    scheduleItems?: ScheduleItem[] | undefined;
+    public scheduleItems?: ScheduleItem[] | undefined;
     /** The days of the week and hours in a specific time zone that the user works. These are set as part of the user's mailboxSettings. */
-    workingHours?: WorkingHours | undefined;
+    public workingHours?: WorkingHours | undefined;
     /**
      * Instantiates a new scheduleInformation and sets the default values.
      * @param scheduleInformationParameterValue 
      */
     public constructor(scheduleInformationParameterValue?: ScheduleInformation | undefined) {
-        this.additionalData = {};
-        this.additionalData = scheduleInformationParameterValue?.additionalData ? {} : scheduleInformationParameterValue?.additionalData!
+        this.additionalData = scheduleInformationParameterValue?.additionalData ? scheduleInformationParameterValue?.additionalData! : {}
         this.availabilityView = scheduleInformationParameterValue?.availabilityView ;
         this.error_escaped = scheduleInformationParameterValue?.error_escaped ;
         this.scheduleId = scheduleInformationParameterValue?.scheduleId ;
@@ -54,23 +53,18 @@ export class ScheduleInformationImpl implements AdditionalDataHolder, Parsable, 
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.availabilityView){
-        if(this.availabilityView)
         writer.writeStringValue("availabilityView", this.availabilityView);
         }
         if(this.error_escaped){
-        if(this.error_escaped)
         writer.writeObjectValue<FreeBusyErrorImpl>("error", new FreeBusyErrorImpl(this.error_escaped));
         }
         if(this.scheduleId){
-        if(this.scheduleId)
         writer.writeStringValue("scheduleId", this.scheduleId);
         }
-        if(this.scheduleItems){
-        const scheduleItemsArrValue: ScheduleItemImpl[] = []; this.scheduleItems?.forEach(element => {scheduleItemsArrValue.push(new ScheduleItemImpl(element));});
+        if(this.scheduleItems && this.scheduleItems.length != 0){        const scheduleItemsArrValue: ScheduleItemImpl[] = []; this.scheduleItems?.forEach(element => {scheduleItemsArrValue.push(new ScheduleItemImpl(element));});
         writer.writeCollectionOfObjectValues<ScheduleItemImpl>("scheduleItems", scheduleItemsArrValue);
         }
         if(this.workingHours){
-        if(this.workingHours)
         writer.writeObjectValue<WorkingHoursImpl>("workingHours", new WorkingHoursImpl(this.workingHours));
         }
         writer.writeAdditionalData(this.additionalData);

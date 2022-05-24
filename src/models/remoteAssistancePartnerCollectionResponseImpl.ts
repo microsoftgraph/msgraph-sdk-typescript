@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class RemoteAssistancePartnerCollectionResponseImpl implements AdditionalDataHolder, Parsable, RemoteAssistancePartnerCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: RemoteAssistancePartner[] | undefined;
+    public value?: RemoteAssistancePartner[] | undefined;
     /**
      * Instantiates a new RemoteAssistancePartnerCollectionResponse and sets the default values.
      * @param remoteAssistancePartnerCollectionResponseParameterValue 
      */
     public constructor(remoteAssistancePartnerCollectionResponseParameterValue?: RemoteAssistancePartnerCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = remoteAssistancePartnerCollectionResponseParameterValue?.additionalData ? {} : remoteAssistancePartnerCollectionResponseParameterValue?.additionalData!
+        this.additionalData = remoteAssistancePartnerCollectionResponseParameterValue?.additionalData ? remoteAssistancePartnerCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = remoteAssistancePartnerCollectionResponseParameterValue?.nextLink ;
         this.value = remoteAssistancePartnerCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class RemoteAssistancePartnerCollectionResponseImpl implements Additional
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: RemoteAssistancePartnerImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new RemoteAssistancePartnerImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: RemoteAssistancePartnerImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new RemoteAssistancePartnerImpl(element));});
         writer.writeCollectionOfObjectValues<RemoteAssistancePartnerImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

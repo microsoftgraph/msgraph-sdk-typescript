@@ -4,9 +4,10 @@ import {UnifiedRoleManagementPolicyRule} from './unifiedRoleManagementPolicyRule
 import {UnifiedRoleManagementPolicyRuleTarget} from './unifiedRoleManagementPolicyRuleTarget';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the policyRoot singleton. */
 export class UnifiedRoleManagementPolicyRuleImpl extends EntityImpl implements Parsable, UnifiedRoleManagementPolicyRule {
     /** The target for the policy rule. */
-    target?: UnifiedRoleManagementPolicyRuleTarget | undefined;
+    public target?: UnifiedRoleManagementPolicyRuleTarget | undefined;
     /**
      * Instantiates a new unifiedRoleManagementPolicyRule and sets the default values.
      * @param unifiedRoleManagementPolicyRuleParameterValue 
@@ -32,7 +33,6 @@ export class UnifiedRoleManagementPolicyRuleImpl extends EntityImpl implements P
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.target){
-        if(this.target)
         writer.writeObjectValue<UnifiedRoleManagementPolicyRuleTargetImpl>("target", new UnifiedRoleManagementPolicyRuleTargetImpl(this.target));
         }
     };

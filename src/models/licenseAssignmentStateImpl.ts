@@ -3,26 +3,25 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class LicenseAssignmentStateImpl implements AdditionalDataHolder, LicenseAssignmentState, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The id of the group that assigns this license. If the assignment is a direct-assigned license, this field will be Null. Read-Only. */
-    assignedByGroup?: string | undefined;
+    public assignedByGroup?: string | undefined;
     /** The service plans that are disabled in this assignment. Read-Only. */
-    disabledPlans?: string[] | undefined;
+    public disabledPlans?: string[] | undefined;
     /** License assignment failure error. If the license is assigned successfully, this field will be Null. Read-Only. The possible values are CountViolation, MutuallyExclusiveViolation, DependencyViolation, ProhibitedInUsageLocationViolation, UniquenessViolation, and Other. For more information on how to identify and resolve license assignment errors see here. */
-    error_escaped?: string | undefined;
+    public error_escaped?: string | undefined;
     /** The timestamp when the state of the license assignment was last updated. */
-    lastUpdatedDateTime?: Date | undefined;
+    public lastUpdatedDateTime?: Date | undefined;
     /** The unique identifier for the SKU. Read-Only. */
-    skuId?: string | undefined;
+    public skuId?: string | undefined;
     /** Indicate the current state of this assignment. Read-Only. The possible values are Active, ActiveWithError, Disabled, and Error. */
-    state?: string | undefined;
+    public state?: string | undefined;
     /**
      * Instantiates a new licenseAssignmentState and sets the default values.
      * @param licenseAssignmentStateParameterValue 
      */
     public constructor(licenseAssignmentStateParameterValue?: LicenseAssignmentState | undefined) {
-        this.additionalData = {};
-        this.additionalData = licenseAssignmentStateParameterValue?.additionalData ? {} : licenseAssignmentStateParameterValue?.additionalData!
+        this.additionalData = licenseAssignmentStateParameterValue?.additionalData ? licenseAssignmentStateParameterValue?.additionalData! : {}
         this.assignedByGroup = licenseAssignmentStateParameterValue?.assignedByGroup ;
         this.disabledPlans = licenseAssignmentStateParameterValue?.disabledPlans ;
         this.error_escaped = licenseAssignmentStateParameterValue?.error_escaped ;
@@ -51,27 +50,21 @@ export class LicenseAssignmentStateImpl implements AdditionalDataHolder, License
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.assignedByGroup){
-        if(this.assignedByGroup)
         writer.writeStringValue("assignedByGroup", this.assignedByGroup);
         }
         if(this.disabledPlans){
-        if(this.disabledPlans)
         writer.writeCollectionOfPrimitiveValues<string>("disabledPlans", this.disabledPlans);
         }
         if(this.error_escaped){
-        if(this.error_escaped)
         writer.writeStringValue("error", this.error_escaped);
         }
         if(this.lastUpdatedDateTime){
-        if(this.lastUpdatedDateTime)
         writer.writeDateValue("lastUpdatedDateTime", this.lastUpdatedDateTime);
         }
         if(this.skuId){
-        if(this.skuId)
         writer.writeStringValue("skuId", this.skuId);
         }
         if(this.state){
-        if(this.state)
         writer.writeStringValue("state", this.state);
         }
         writer.writeAdditionalData(this.additionalData);

@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class TokenIssuancePolicyCollectionResponseImpl implements AdditionalDataHolder, Parsable, TokenIssuancePolicyCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: TokenIssuancePolicy[] | undefined;
+    public value?: TokenIssuancePolicy[] | undefined;
     /**
      * Instantiates a new TokenIssuancePolicyCollectionResponse and sets the default values.
      * @param tokenIssuancePolicyCollectionResponseParameterValue 
      */
     public constructor(tokenIssuancePolicyCollectionResponseParameterValue?: TokenIssuancePolicyCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = tokenIssuancePolicyCollectionResponseParameterValue?.additionalData ? {} : tokenIssuancePolicyCollectionResponseParameterValue?.additionalData!
+        this.additionalData = tokenIssuancePolicyCollectionResponseParameterValue?.additionalData ? tokenIssuancePolicyCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = tokenIssuancePolicyCollectionResponseParameterValue?.nextLink ;
         this.value = tokenIssuancePolicyCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class TokenIssuancePolicyCollectionResponseImpl implements AdditionalData
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: TokenIssuancePolicyImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new TokenIssuancePolicyImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: TokenIssuancePolicyImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new TokenIssuancePolicyImpl(element));});
         writer.writeCollectionOfObjectValues<TokenIssuancePolicyImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

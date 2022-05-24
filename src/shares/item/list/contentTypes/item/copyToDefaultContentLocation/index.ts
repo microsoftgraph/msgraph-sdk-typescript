@@ -1,3 +1,3 @@
-export * from './copyToDefaultContentLocationRequestBodyImpl'
+export * from './copyToDefaultContentLocationPostRequestBodyImpl'
 export * from './copyToDefaultContentLocationRequestBuilderPostRequestConfiguration'
-export * from './copyToDefaultContentLocationRequestBody'
+export * from './copyToDefaultContentLocationPostRequestBody'

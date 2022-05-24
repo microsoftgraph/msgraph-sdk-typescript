@@ -2,11 +2,12 @@ import {EntityImpl} from './index';
 import {WorkbookCommentReply} from './workbookCommentReply';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to user. */
 export class WorkbookCommentReplyImpl extends EntityImpl implements Parsable, WorkbookCommentReply {
     /** The content of replied comment. */
-    content?: string | undefined;
+    public content?: string | undefined;
     /** Indicates the type for the replied comment. */
-    contentType?: string | undefined;
+    public contentType?: string | undefined;
     /**
      * Instantiates a new workbookCommentReply and sets the default values.
      * @param workbookCommentReplyParameterValue 
@@ -34,11 +35,9 @@ export class WorkbookCommentReplyImpl extends EntityImpl implements Parsable, Wo
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.content){
-        if(this.content)
         writer.writeStringValue("content", this.content);
         }
         if(this.contentType){
-        if(this.contentType)
         writer.writeStringValue("contentType", this.contentType);
         }
     };

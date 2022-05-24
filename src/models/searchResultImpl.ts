@@ -3,16 +3,15 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class SearchResultImpl implements AdditionalDataHolder, Parsable, SearchResult {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** A callback URL that can be used to record telemetry information. The application should issue a GET on this URL if the user interacts with this item to improve the quality of results. */
-    onClickTelemetryUrl?: string | undefined;
+    public onClickTelemetryUrl?: string | undefined;
     /**
      * Instantiates a new searchResult and sets the default values.
      * @param searchResultParameterValue 
      */
     public constructor(searchResultParameterValue?: SearchResult | undefined) {
-        this.additionalData = {};
-        this.additionalData = searchResultParameterValue?.additionalData ? {} : searchResultParameterValue?.additionalData!
+        this.additionalData = searchResultParameterValue?.additionalData ? searchResultParameterValue?.additionalData! : {}
         this.onClickTelemetryUrl = searchResultParameterValue?.onClickTelemetryUrl ;
     };
     /**
@@ -31,7 +30,6 @@ export class SearchResultImpl implements AdditionalDataHolder, Parsable, SearchR
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.onClickTelemetryUrl){
-        if(this.onClickTelemetryUrl)
         writer.writeStringValue("onClickTelemetryUrl", this.onClickTelemetryUrl);
         }
         writer.writeAdditionalData(this.additionalData);

@@ -3,22 +3,21 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class NumberColumnImpl implements AdditionalDataHolder, NumberColumn, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** How many decimal places to display. See below for information about the possible values. */
-    decimalPlaces?: string | undefined;
+    public decimalPlaces?: string | undefined;
     /** How the value should be presented in the UX. Must be one of number or percentage. If unspecified, treated as number. */
-    displayAs?: string | undefined;
+    public displayAs?: string | undefined;
     /** The maximum permitted value. */
-    maximum?: number | undefined;
+    public maximum?: number | undefined;
     /** The minimum permitted value. */
-    minimum?: number | undefined;
+    public minimum?: number | undefined;
     /**
      * Instantiates a new numberColumn and sets the default values.
      * @param numberColumnParameterValue 
      */
     public constructor(numberColumnParameterValue?: NumberColumn | undefined) {
-        this.additionalData = {};
-        this.additionalData = numberColumnParameterValue?.additionalData ? {} : numberColumnParameterValue?.additionalData!
+        this.additionalData = numberColumnParameterValue?.additionalData ? numberColumnParameterValue?.additionalData! : {}
         this.decimalPlaces = numberColumnParameterValue?.decimalPlaces ;
         this.displayAs = numberColumnParameterValue?.displayAs ;
         this.maximum = numberColumnParameterValue?.maximum ;
@@ -43,19 +42,15 @@ export class NumberColumnImpl implements AdditionalDataHolder, NumberColumn, Par
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.decimalPlaces){
-        if(this.decimalPlaces)
         writer.writeStringValue("decimalPlaces", this.decimalPlaces);
         }
         if(this.displayAs){
-        if(this.displayAs)
         writer.writeStringValue("displayAs", this.displayAs);
         }
         if(this.maximum){
-        if(this.maximum)
         writer.writeNumberValue("maximum", this.maximum);
         }
         if(this.minimum){
-        if(this.minimum)
         writer.writeNumberValue("minimum", this.minimum);
         }
         writer.writeAdditionalData(this.additionalData);

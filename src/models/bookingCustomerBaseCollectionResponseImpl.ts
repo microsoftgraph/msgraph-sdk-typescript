@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class BookingCustomerBaseCollectionResponseImpl implements AdditionalDataHolder, BookingCustomerBaseCollectionResponse, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: BookingCustomerBase[] | undefined;
+    public value?: BookingCustomerBase[] | undefined;
     /**
      * Instantiates a new BookingCustomerBaseCollectionResponse and sets the default values.
      * @param bookingCustomerBaseCollectionResponseParameterValue 
      */
     public constructor(bookingCustomerBaseCollectionResponseParameterValue?: BookingCustomerBaseCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = bookingCustomerBaseCollectionResponseParameterValue?.additionalData ? {} : bookingCustomerBaseCollectionResponseParameterValue?.additionalData!
+        this.additionalData = bookingCustomerBaseCollectionResponseParameterValue?.additionalData ? bookingCustomerBaseCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = bookingCustomerBaseCollectionResponseParameterValue?.nextLink ;
         this.value = bookingCustomerBaseCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class BookingCustomerBaseCollectionResponseImpl implements AdditionalData
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: BookingCustomerBaseImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new BookingCustomerBaseImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: BookingCustomerBaseImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new BookingCustomerBaseImpl(element));});
         writer.writeCollectionOfObjectValues<BookingCustomerBaseImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

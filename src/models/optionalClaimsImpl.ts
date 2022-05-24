@@ -6,21 +6,20 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class OptionalClaimsImpl implements AdditionalDataHolder, OptionalClaims, Parsable {
     /** The optional claims returned in the JWT access token. */
-    accessToken?: OptionalClaim[] | undefined;
+    public accessToken?: OptionalClaim[] | undefined;
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The optional claims returned in the JWT ID token. */
-    idToken?: OptionalClaim[] | undefined;
+    public idToken?: OptionalClaim[] | undefined;
     /** The optional claims returned in the SAML token. */
-    saml2Token?: OptionalClaim[] | undefined;
+    public saml2Token?: OptionalClaim[] | undefined;
     /**
      * Instantiates a new optionalClaims and sets the default values.
      * @param optionalClaimsParameterValue 
      */
     public constructor(optionalClaimsParameterValue?: OptionalClaims | undefined) {
-        this.additionalData = {};
         this.accessToken = optionalClaimsParameterValue?.accessToken ;
-        this.additionalData = optionalClaimsParameterValue?.additionalData ? {} : optionalClaimsParameterValue?.additionalData!
+        this.additionalData = optionalClaimsParameterValue?.additionalData ? optionalClaimsParameterValue?.additionalData! : {}
         this.idToken = optionalClaimsParameterValue?.idToken ;
         this.saml2Token = optionalClaimsParameterValue?.saml2Token ;
     };
@@ -41,16 +40,13 @@ export class OptionalClaimsImpl implements AdditionalDataHolder, OptionalClaims,
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        if(this.accessToken){
-        const accessTokenArrValue: OptionalClaimImpl[] = []; this.accessToken?.forEach(element => {accessTokenArrValue.push(new OptionalClaimImpl(element));});
+        if(this.accessToken && this.accessToken.length != 0){        const accessTokenArrValue: OptionalClaimImpl[] = []; this.accessToken?.forEach(element => {accessTokenArrValue.push(new OptionalClaimImpl(element));});
         writer.writeCollectionOfObjectValues<OptionalClaimImpl>("accessToken", accessTokenArrValue);
         }
-        if(this.idToken){
-        const idTokenArrValue: OptionalClaimImpl[] = []; this.idToken?.forEach(element => {idTokenArrValue.push(new OptionalClaimImpl(element));});
+        if(this.idToken && this.idToken.length != 0){        const idTokenArrValue: OptionalClaimImpl[] = []; this.idToken?.forEach(element => {idTokenArrValue.push(new OptionalClaimImpl(element));});
         writer.writeCollectionOfObjectValues<OptionalClaimImpl>("idToken", idTokenArrValue);
         }
-        if(this.saml2Token){
-        const saml2TokenArrValue: OptionalClaimImpl[] = []; this.saml2Token?.forEach(element => {saml2TokenArrValue.push(new OptionalClaimImpl(element));});
+        if(this.saml2Token && this.saml2Token.length != 0){        const saml2TokenArrValue: OptionalClaimImpl[] = []; this.saml2Token?.forEach(element => {saml2TokenArrValue.push(new OptionalClaimImpl(element));});
         writer.writeCollectionOfObjectValues<OptionalClaimImpl>("saml2Token", saml2TokenArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

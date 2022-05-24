@@ -8,31 +8,32 @@ import {UnifiedRoleDefinition} from './unifiedRoleDefinition';
 import {UnifiedRoleScheduleBase} from './unifiedRoleScheduleBase';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the roleManagement singleton. */
 export class UnifiedRoleScheduleBaseImpl extends EntityImpl implements Parsable, UnifiedRoleScheduleBase {
     /** Read-only property with details of the app specific scope when the assignment scope is app specific. Containment entity. */
-    appScope?: AppScope | undefined;
+    public appScope?: AppScope | undefined;
     /** Identifier of the app-specific scope when the assignment scope is app-specific. The scope of an assignment determines the set of resources for which the principal has been granted access. App scopes are scopes that are defined and understood by this application only. Use / for tenant-wide app scopes. Use directoryScopeId to limit the scope to particular directory objects, for example, administrative units or all users. */
-    appScopeId?: string | undefined;
+    public appScopeId?: string | undefined;
     /** Time that the schedule was created. */
-    createdDateTime?: Date | undefined;
+    public createdDateTime?: Date | undefined;
     /** Identifier of the roleAssignmentScheduleRequest that created this schedule. */
-    createdUsing?: string | undefined;
+    public createdUsing?: string | undefined;
     /** Property referencing the directory object that is the scope of the assignment. Provided so that callers can get the directory object using $expand at the same time as getting the role assignment. Read-only. */
-    directoryScope?: DirectoryObject | undefined;
+    public directoryScope?: DirectoryObject | undefined;
     /** Identifier of the directory object representing the scope of the assignment. The scope of an assignment determines the set of resources for which the principal has been granted access. Directory scopes are shared scopes stored in the directory that are understood by multiple applications. Use / for tenant-wide scope. Use appScopeId to limit the scope to an application only. */
-    directoryScopeId?: string | undefined;
+    public directoryScopeId?: string | undefined;
     /** Last time the schedule was updated. */
-    modifiedDateTime?: Date | undefined;
+    public modifiedDateTime?: Date | undefined;
     /** Property referencing the principal that is getting a role assignment through the request. Provided so that callers can get the principal using $expand at the same time as getting the role assignment. Read-only. */
-    principal?: DirectoryObject | undefined;
+    public principal?: DirectoryObject | undefined;
     /** Identifier of the principal to which the assignment is being granted to. Supports $filter (eq). */
-    principalId?: string | undefined;
+    public principalId?: string | undefined;
     /** Property indicating the roleDefinition the assignment is for. Provided so that callers can get the role definition using $expand at the same time as getting the role assignment. roleDefinition.Id will be auto expanded. */
-    roleDefinition?: UnifiedRoleDefinition | undefined;
+    public roleDefinition?: UnifiedRoleDefinition | undefined;
     /** Identifier of the unifiedRoleDefinition the assignment is for. Read only. Supports $filter (eq). */
-    roleDefinitionId?: string | undefined;
+    public roleDefinitionId?: string | undefined;
     /** Status for the roleAssignmentSchedule. It can include state related messages like Provisioned, Revoked, Pending Provisioning, and Pending Approval. Supports $filter (eq). */
-    status?: string | undefined;
+    public status?: string | undefined;
     /**
      * Instantiates a new unifiedRoleScheduleBase and sets the default values.
      * @param unifiedRoleScheduleBaseParameterValue 
@@ -80,51 +81,39 @@ export class UnifiedRoleScheduleBaseImpl extends EntityImpl implements Parsable,
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.appScope){
-        if(this.appScope)
         writer.writeObjectValue<AppScopeImpl>("appScope", new AppScopeImpl(this.appScope));
         }
         if(this.appScopeId){
-        if(this.appScopeId)
         writer.writeStringValue("appScopeId", this.appScopeId);
         }
         if(this.createdDateTime){
-        if(this.createdDateTime)
         writer.writeDateValue("createdDateTime", this.createdDateTime);
         }
         if(this.createdUsing){
-        if(this.createdUsing)
         writer.writeStringValue("createdUsing", this.createdUsing);
         }
         if(this.directoryScope){
-        if(this.directoryScope)
         writer.writeObjectValue<DirectoryObjectImpl>("directoryScope", new DirectoryObjectImpl(this.directoryScope));
         }
         if(this.directoryScopeId){
-        if(this.directoryScopeId)
         writer.writeStringValue("directoryScopeId", this.directoryScopeId);
         }
         if(this.modifiedDateTime){
-        if(this.modifiedDateTime)
         writer.writeDateValue("modifiedDateTime", this.modifiedDateTime);
         }
         if(this.principal){
-        if(this.principal)
         writer.writeObjectValue<DirectoryObjectImpl>("principal", new DirectoryObjectImpl(this.principal));
         }
         if(this.principalId){
-        if(this.principalId)
         writer.writeStringValue("principalId", this.principalId);
         }
         if(this.roleDefinition){
-        if(this.roleDefinition)
         writer.writeObjectValue<UnifiedRoleDefinitionImpl>("roleDefinition", new UnifiedRoleDefinitionImpl(this.roleDefinition));
         }
         if(this.roleDefinitionId){
-        if(this.roleDefinitionId)
         writer.writeStringValue("roleDefinitionId", this.roleDefinitionId);
         }
         if(this.status){
-        if(this.status)
         writer.writeStringValue("status", this.status);
         }
     };

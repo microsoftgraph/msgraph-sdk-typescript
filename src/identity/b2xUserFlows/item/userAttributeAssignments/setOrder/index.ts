@@ -1,3 +1,3 @@
-export * from './setOrderRequestBodyImpl'
+export * from './setOrderPostRequestBodyImpl'
 export * from './setOrderRequestBuilderPostRequestConfiguration'
-export * from './setOrderRequestBody'
+export * from './setOrderPostRequestBody'

@@ -1,3 +1,3 @@
-export * from './scheduleActionsForRulesRequestBodyImpl'
+export * from './scheduleActionsForRulesPostRequestBodyImpl'
+export * from './scheduleActionsForRulesPostRequestBody'
 export * from './scheduleActionsForRulesRequestBuilderPostRequestConfiguration'
-export * from './scheduleActionsForRulesRequestBody'

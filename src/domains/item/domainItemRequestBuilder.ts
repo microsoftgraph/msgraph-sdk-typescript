@@ -64,7 +64,7 @@ export class DomainItemRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Delete domain
+     * Deletes a domain from a tenant.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -80,7 +80,7 @@ export class DomainItemRequestBuilder {
         return requestInfo;
     };
     /**
-     * Get domain
+     * Retrieve the properties and relationships of domain object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -97,7 +97,7 @@ export class DomainItemRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update domain
+     * Update the properties of domain object.
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -112,12 +112,12 @@ export class DomainItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        const bodyParsable = new DomainImpl(body)
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", bodyParsable);
+        const parsableBody = new DomainImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
-     * Delete domain
+     * Deletes a domain from a tenant.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
@@ -154,12 +154,12 @@ export class DomainItemRequestBuilder {
         return new InternalDomainFederationItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Get domain
+     * Retrieve the properties and relationships of domain object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Domain
      */
-    public get(requestConfiguration?: DomainItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Domain | undefined> {
+    public get(requestConfiguration?: DomainItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DomainImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -170,7 +170,7 @@ export class DomainItemRequestBuilder {
         return this.requestAdapter?.sendAsync<DomainImpl>(requestInfo, createDomainFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Update domain
+     * Update the properties of domain object.
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service

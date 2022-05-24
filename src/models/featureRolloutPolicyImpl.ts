@@ -5,19 +5,20 @@ import {DirectoryObjectImpl, EntityImpl} from './index';
 import {StagedFeatureName} from './stagedFeatureName';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the policyRoot singleton. */
 export class FeatureRolloutPolicyImpl extends EntityImpl implements FeatureRolloutPolicy, Parsable {
     /** Nullable. Specifies a list of directoryObjects that feature is enabled for. */
-    appliesTo?: DirectoryObject[] | undefined;
+    public appliesTo?: DirectoryObject[] | undefined;
     /** A description for this feature rollout policy. */
-    description?: string | undefined;
+    public description?: string | undefined;
     /** The display name for this  feature rollout policy. */
-    displayName?: string | undefined;
+    public displayName?: string | undefined;
     /** Possible values are: passthroughAuthentication, seamlessSso, passwordHashSync, emailAsAlternateId, unknownFutureValue. */
-    feature?: StagedFeatureName | undefined;
+    public feature?: StagedFeatureName | undefined;
     /** Indicates whether this feature rollout policy should be applied to the entire organization. */
-    isAppliedToOrganization?: boolean | undefined;
+    public isAppliedToOrganization?: boolean | undefined;
     /** Indicates whether the feature rollout is enabled. */
-    isEnabled?: boolean | undefined;
+    public isEnabled?: boolean | undefined;
     /**
      * Instantiates a new featureRolloutPolicy and sets the default values.
      * @param featureRolloutPolicyParameterValue 
@@ -52,28 +53,22 @@ export class FeatureRolloutPolicyImpl extends EntityImpl implements FeatureRollo
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.appliesTo){
-        const appliesToArrValue: DirectoryObjectImpl[] = []; this.appliesTo?.forEach(element => {appliesToArrValue.push(new DirectoryObjectImpl(element));});
+        if(this.appliesTo && this.appliesTo.length != 0){        const appliesToArrValue: DirectoryObjectImpl[] = []; this.appliesTo?.forEach(element => {appliesToArrValue.push(new DirectoryObjectImpl(element));});
         writer.writeCollectionOfObjectValues<DirectoryObjectImpl>("appliesTo", appliesToArrValue);
         }
         if(this.description){
-        if(this.description)
         writer.writeStringValue("description", this.description);
         }
         if(this.displayName){
-        if(this.displayName)
         writer.writeStringValue("displayName", this.displayName);
         }
         if(this.feature){
-        if(this.feature)
         writer.writeEnumValue<StagedFeatureName>("feature", this.feature);
         }
         if(this.isAppliedToOrganization){
-        if(this.isAppliedToOrganization)
         writer.writeBooleanValue("isAppliedToOrganization", this.isAppliedToOrganization);
         }
         if(this.isEnabled){
-        if(this.isEnabled)
         writer.writeBooleanValue("isEnabled", this.isEnabled);
         }
     };

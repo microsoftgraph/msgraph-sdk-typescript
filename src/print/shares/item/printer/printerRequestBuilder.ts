@@ -2,7 +2,6 @@ import {PrinterImpl} from '../../../../models/';
 import {createPrinterFromDiscriminatorValue} from '../../../../models/createPrinterFromDiscriminatorValue';
 import {ODataErrorImpl} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {Printer} from '../../../../models/printer';
 import {PrinterRequestBuilderGetRequestConfiguration} from './printerRequestBuilderGetRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
@@ -50,7 +49,7 @@ export class PrinterRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Printer
      */
-    public get(requestConfiguration?: PrinterRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Printer | undefined> {
+    public get(requestConfiguration?: PrinterRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<PrinterImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );

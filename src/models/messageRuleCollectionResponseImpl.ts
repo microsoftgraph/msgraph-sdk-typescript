@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class MessageRuleCollectionResponseImpl implements AdditionalDataHolder, MessageRuleCollectionResponse, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: MessageRule[] | undefined;
+    public value?: MessageRule[] | undefined;
     /**
      * Instantiates a new MessageRuleCollectionResponse and sets the default values.
      * @param messageRuleCollectionResponseParameterValue 
      */
     public constructor(messageRuleCollectionResponseParameterValue?: MessageRuleCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = messageRuleCollectionResponseParameterValue?.additionalData ? {} : messageRuleCollectionResponseParameterValue?.additionalData!
+        this.additionalData = messageRuleCollectionResponseParameterValue?.additionalData ? messageRuleCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = messageRuleCollectionResponseParameterValue?.nextLink ;
         this.value = messageRuleCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class MessageRuleCollectionResponseImpl implements AdditionalDataHolder, 
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: MessageRuleImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new MessageRuleImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: MessageRuleImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new MessageRuleImpl(element));});
         writer.writeCollectionOfObjectValues<MessageRuleImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

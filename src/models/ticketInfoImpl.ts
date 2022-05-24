@@ -3,18 +3,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class TicketInfoImpl implements AdditionalDataHolder, Parsable, TicketInfo {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** Ticket number meta data */
-    ticketNumber?: string | undefined;
+    public ticketNumber?: string | undefined;
     /** Ticket system meta data */
-    ticketSystem?: string | undefined;
+    public ticketSystem?: string | undefined;
     /**
      * Instantiates a new ticketInfo and sets the default values.
      * @param ticketInfoParameterValue 
      */
     public constructor(ticketInfoParameterValue?: TicketInfo | undefined) {
-        this.additionalData = {};
-        this.additionalData = ticketInfoParameterValue?.additionalData ? {} : ticketInfoParameterValue?.additionalData!
+        this.additionalData = ticketInfoParameterValue?.additionalData ? ticketInfoParameterValue?.additionalData! : {}
         this.ticketNumber = ticketInfoParameterValue?.ticketNumber ;
         this.ticketSystem = ticketInfoParameterValue?.ticketSystem ;
     };
@@ -35,11 +34,9 @@ export class TicketInfoImpl implements AdditionalDataHolder, Parsable, TicketInf
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.ticketNumber){
-        if(this.ticketNumber)
         writer.writeStringValue("ticketNumber", this.ticketNumber);
         }
         if(this.ticketSystem){
-        if(this.ticketSystem)
         writer.writeStringValue("ticketSystem", this.ticketSystem);
         }
         writer.writeAdditionalData(this.additionalData);

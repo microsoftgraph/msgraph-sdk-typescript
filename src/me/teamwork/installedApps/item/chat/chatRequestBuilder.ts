@@ -1,5 +1,4 @@
 import {ChatImpl} from '../../../../../models/';
-import {Chat} from '../../../../../models/chat';
 import {createChatFromDiscriminatorValue} from '../../../../../models/createChatFromDiscriminatorValue';
 import {ODataErrorImpl} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
@@ -50,7 +49,7 @@ export class ChatRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Chat
      */
-    public get(requestConfiguration?: ChatRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Chat | undefined> {
+    public get(requestConfiguration?: ChatRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ChatImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );

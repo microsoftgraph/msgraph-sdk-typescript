@@ -1,8 +1,7 @@
 import {PlayPromptOperationImpl} from '../../../../models/';
 import {createPlayPromptOperationFromDiscriminatorValue} from '../../../../models/createPlayPromptOperationFromDiscriminatorValue';
-import {PlayPromptOperation} from '../../../../models/playPromptOperation';
-import {PlayPromptRequestBodyImpl} from './index';
-import {PlayPromptRequestBody} from './playPromptRequestBody';
+import {PlayPromptPostRequestBodyImpl} from './index';
+import {PlayPromptPostRequestBody} from './playPromptPostRequestBody';
 import {PlayPromptRequestBuilderPostRequestConfiguration} from './playPromptRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
@@ -33,7 +32,7 @@ export class PlayPromptRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public createPostRequestInformation(body: PlayPromptRequestBody | undefined, requestConfiguration?: PlayPromptRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public createPostRequestInformation(body: PlayPromptPostRequestBody | undefined, requestConfiguration?: PlayPromptRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -43,8 +42,8 @@ export class PlayPromptRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        const bodyParsable = new PlayPromptRequestBodyImpl(body)
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", bodyParsable);
+        const parsableBody = new PlayPromptPostRequestBodyImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -54,7 +53,7 @@ export class PlayPromptRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of PlayPromptOperation
      */
-    public post(body: PlayPromptRequestBody | undefined, requestConfiguration?: PlayPromptRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<PlayPromptOperation | undefined> {
+    public post(body: PlayPromptPostRequestBody | undefined, requestConfiguration?: PlayPromptRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<PlayPromptOperationImpl | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration

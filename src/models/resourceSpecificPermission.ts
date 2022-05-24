@@ -1,15 +1,15 @@
 
 export interface ResourceSpecificPermission{
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    additionalData?:Record<string, unknown>;
     /** Describes the level of access that the resource-specific permission represents. */
-    description?: string | undefined;
+    description?:string | undefined;
     /** The display name for the resource-specific permission. */
-    displayName?: string | undefined;
+    displayName?:string | undefined;
     /** The unique identifier for the resource-specific application permission. */
-    id?: string | undefined;
+    id?:string | undefined;
     /** Indicates whether the permission is enabled. */
-    isEnabled?: boolean | undefined;
+    isEnabled?:boolean | undefined;
     /** The value of the permission. */
-    value?: string | undefined;
+    value?:string | undefined;
 }

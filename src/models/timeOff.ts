@@ -3,9 +3,9 @@ import {TimeOffItem} from './timeOffItem';
 
 export interface TimeOff extends ChangeTrackedEntity{
     /** The draft version of this timeOff that is viewable by managers. Required. */
-    draftTimeOff?: TimeOffItem | undefined;
+    draftTimeOff?:TimeOffItem | undefined;
     /** The shared version of this timeOff that is viewable by both employees and managers. Required. */
-    sharedTimeOff?: TimeOffItem | undefined;
+    sharedTimeOff?:TimeOffItem | undefined;
     /** ID of the user assigned to the timeOff. Required. */
-    userId?: string | undefined;
+    userId?:string | undefined;
 }

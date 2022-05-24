@@ -10,15 +10,16 @@ import {MicrosoftAuthenticatorAuthenticationMethod} from './microsoftAuthenticat
 import {WindowsHelloForBusinessAuthenticationMethod} from './windowsHelloForBusinessAuthenticationMethod';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to user. */
 export class AuthenticationImpl extends EntityImpl implements Authentication, Parsable {
     /** Represents the FIDO2 security keys registered to a user for authentication. */
-    fido2Methods?: Fido2AuthenticationMethod[] | undefined;
+    public fido2Methods?: Fido2AuthenticationMethod[] | undefined;
     /** Represents all authentication methods registered to a user. */
-    methods?: AuthenticationMethod[] | undefined;
+    public methods?: AuthenticationMethod[] | undefined;
     /** The details of the Microsoft Authenticator app registered to a user for authentication. */
-    microsoftAuthenticatorMethods?: MicrosoftAuthenticatorAuthenticationMethod[] | undefined;
+    public microsoftAuthenticatorMethods?: MicrosoftAuthenticatorAuthenticationMethod[] | undefined;
     /** Represents the Windows Hello for Business authentication method registered to a user for authentication. */
-    windowsHelloForBusinessMethods?: WindowsHelloForBusinessAuthenticationMethod[] | undefined;
+    public windowsHelloForBusinessMethods?: WindowsHelloForBusinessAuthenticationMethod[] | undefined;
     /**
      * Instantiates a new authentication and sets the default values.
      * @param authenticationParameterValue 
@@ -49,20 +50,16 @@ export class AuthenticationImpl extends EntityImpl implements Authentication, Pa
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.fido2Methods){
-        const fido2MethodsArrValue: Fido2AuthenticationMethodImpl[] = []; this.fido2Methods?.forEach(element => {fido2MethodsArrValue.push(new Fido2AuthenticationMethodImpl(element));});
+        if(this.fido2Methods && this.fido2Methods.length != 0){        const fido2MethodsArrValue: Fido2AuthenticationMethodImpl[] = []; this.fido2Methods?.forEach(element => {fido2MethodsArrValue.push(new Fido2AuthenticationMethodImpl(element));});
         writer.writeCollectionOfObjectValues<Fido2AuthenticationMethodImpl>("fido2Methods", fido2MethodsArrValue);
         }
-        if(this.methods){
-        const methodsArrValue: AuthenticationMethodImpl[] = []; this.methods?.forEach(element => {methodsArrValue.push(new AuthenticationMethodImpl(element));});
+        if(this.methods && this.methods.length != 0){        const methodsArrValue: AuthenticationMethodImpl[] = []; this.methods?.forEach(element => {methodsArrValue.push(new AuthenticationMethodImpl(element));});
         writer.writeCollectionOfObjectValues<AuthenticationMethodImpl>("methods", methodsArrValue);
         }
-        if(this.microsoftAuthenticatorMethods){
-        const microsoftAuthenticatorMethodsArrValue: MicrosoftAuthenticatorAuthenticationMethodImpl[] = []; this.microsoftAuthenticatorMethods?.forEach(element => {microsoftAuthenticatorMethodsArrValue.push(new MicrosoftAuthenticatorAuthenticationMethodImpl(element));});
+        if(this.microsoftAuthenticatorMethods && this.microsoftAuthenticatorMethods.length != 0){        const microsoftAuthenticatorMethodsArrValue: MicrosoftAuthenticatorAuthenticationMethodImpl[] = []; this.microsoftAuthenticatorMethods?.forEach(element => {microsoftAuthenticatorMethodsArrValue.push(new MicrosoftAuthenticatorAuthenticationMethodImpl(element));});
         writer.writeCollectionOfObjectValues<MicrosoftAuthenticatorAuthenticationMethodImpl>("microsoftAuthenticatorMethods", microsoftAuthenticatorMethodsArrValue);
         }
-        if(this.windowsHelloForBusinessMethods){
-        const windowsHelloForBusinessMethodsArrValue: WindowsHelloForBusinessAuthenticationMethodImpl[] = []; this.windowsHelloForBusinessMethods?.forEach(element => {windowsHelloForBusinessMethodsArrValue.push(new WindowsHelloForBusinessAuthenticationMethodImpl(element));});
+        if(this.windowsHelloForBusinessMethods && this.windowsHelloForBusinessMethods.length != 0){        const windowsHelloForBusinessMethodsArrValue: WindowsHelloForBusinessAuthenticationMethodImpl[] = []; this.windowsHelloForBusinessMethods?.forEach(element => {windowsHelloForBusinessMethodsArrValue.push(new WindowsHelloForBusinessAuthenticationMethodImpl(element));});
         writer.writeCollectionOfObjectValues<WindowsHelloForBusinessAuthenticationMethodImpl>("windowsHelloForBusinessMethods", windowsHelloForBusinessMethodsArrValue);
         }
     };

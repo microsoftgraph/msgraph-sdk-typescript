@@ -4,9 +4,10 @@ import {PrintService} from './printService';
 import {PrintServiceEndpoint} from './printServiceEndpoint';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the print singleton. */
 export class PrintServiceImpl extends EntityImpl implements Parsable, PrintService {
     /** Endpoints that can be used to access the service. Read-only. Nullable. */
-    endpoints?: PrintServiceEndpoint[] | undefined;
+    public endpoints?: PrintServiceEndpoint[] | undefined;
     /**
      * Instantiates a new printService and sets the default values.
      * @param printServiceParameterValue 
@@ -31,8 +32,7 @@ export class PrintServiceImpl extends EntityImpl implements Parsable, PrintServi
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.endpoints){
-        const endpointsArrValue: PrintServiceEndpointImpl[] = []; this.endpoints?.forEach(element => {endpointsArrValue.push(new PrintServiceEndpointImpl(element));});
+        if(this.endpoints && this.endpoints.length != 0){        const endpointsArrValue: PrintServiceEndpointImpl[] = []; this.endpoints?.forEach(element => {endpointsArrValue.push(new PrintServiceEndpointImpl(element));});
         writer.writeCollectionOfObjectValues<PrintServiceEndpointImpl>("endpoints", endpointsArrValue);
         }
     };

@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class SharedInsightCollectionResponseImpl implements AdditionalDataHolder, Parsable, SharedInsightCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: SharedInsight[] | undefined;
+    public value?: SharedInsight[] | undefined;
     /**
      * Instantiates a new SharedInsightCollectionResponse and sets the default values.
      * @param sharedInsightCollectionResponseParameterValue 
      */
     public constructor(sharedInsightCollectionResponseParameterValue?: SharedInsightCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = sharedInsightCollectionResponseParameterValue?.additionalData ? {} : sharedInsightCollectionResponseParameterValue?.additionalData!
+        this.additionalData = sharedInsightCollectionResponseParameterValue?.additionalData ? sharedInsightCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = sharedInsightCollectionResponseParameterValue?.nextLink ;
         this.value = sharedInsightCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class SharedInsightCollectionResponseImpl implements AdditionalDataHolder
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: SharedInsightImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new SharedInsightImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: SharedInsightImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new SharedInsightImpl(element));});
         writer.writeCollectionOfObjectValues<SharedInsightImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

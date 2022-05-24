@@ -3,14 +3,13 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class SubjectSetImpl implements AdditionalDataHolder, Parsable, SubjectSet {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /**
      * Instantiates a new subjectSet and sets the default values.
      * @param subjectSetParameterValue 
      */
     public constructor(subjectSetParameterValue?: SubjectSet | undefined) {
-        this.additionalData = {};
-        this.additionalData = subjectSetParameterValue?.additionalData ? {} : subjectSetParameterValue?.additionalData!
+        this.additionalData = subjectSetParameterValue?.additionalData ? subjectSetParameterValue?.additionalData! : {}
     };
     /**
      * The deserialization information for the current model

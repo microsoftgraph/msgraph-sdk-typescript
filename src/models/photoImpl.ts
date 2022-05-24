@@ -3,32 +3,31 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class PhotoImpl implements AdditionalDataHolder, Parsable, Photo {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** Camera manufacturer. Read-only. */
-    cameraMake?: string | undefined;
+    public cameraMake?: string | undefined;
     /** Camera model. Read-only. */
-    cameraModel?: string | undefined;
+    public cameraModel?: string | undefined;
     /** The denominator for the exposure time fraction from the camera. Read-only. */
-    exposureDenominator?: number | undefined;
+    public exposureDenominator?: number | undefined;
     /** The numerator for the exposure time fraction from the camera. Read-only. */
-    exposureNumerator?: number | undefined;
+    public exposureNumerator?: number | undefined;
     /** The F-stop value from the camera. Read-only. */
-    fNumber?: number | undefined;
+    public fNumber?: number | undefined;
     /** The focal length from the camera. Read-only. */
-    focalLength?: number | undefined;
+    public focalLength?: number | undefined;
     /** The ISO value from the camera. Read-only. */
-    iso?: number | undefined;
+    public iso?: number | undefined;
     /** The orientation value from the camera. Writable on OneDrive Personal. */
-    orientation?: number | undefined;
+    public orientation?: number | undefined;
     /** The date and time the photo was taken in UTC time. Read-only. */
-    takenDateTime?: Date | undefined;
+    public takenDateTime?: Date | undefined;
     /**
      * Instantiates a new photo and sets the default values.
      * @param photoParameterValue 
      */
     public constructor(photoParameterValue?: Photo | undefined) {
-        this.additionalData = {};
-        this.additionalData = photoParameterValue?.additionalData ? {} : photoParameterValue?.additionalData!
+        this.additionalData = photoParameterValue?.additionalData ? photoParameterValue?.additionalData! : {}
         this.cameraMake = photoParameterValue?.cameraMake ;
         this.cameraModel = photoParameterValue?.cameraModel ;
         this.exposureDenominator = photoParameterValue?.exposureDenominator ;
@@ -63,39 +62,30 @@ export class PhotoImpl implements AdditionalDataHolder, Parsable, Photo {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.cameraMake){
-        if(this.cameraMake)
         writer.writeStringValue("cameraMake", this.cameraMake);
         }
         if(this.cameraModel){
-        if(this.cameraModel)
         writer.writeStringValue("cameraModel", this.cameraModel);
         }
         if(this.exposureDenominator){
-        if(this.exposureDenominator)
         writer.writeNumberValue("exposureDenominator", this.exposureDenominator);
         }
         if(this.exposureNumerator){
-        if(this.exposureNumerator)
         writer.writeNumberValue("exposureNumerator", this.exposureNumerator);
         }
         if(this.fNumber){
-        if(this.fNumber)
         writer.writeNumberValue("fNumber", this.fNumber);
         }
         if(this.focalLength){
-        if(this.focalLength)
         writer.writeNumberValue("focalLength", this.focalLength);
         }
         if(this.iso){
-        if(this.iso)
         writer.writeNumberValue("iso", this.iso);
         }
         if(this.orientation){
-        if(this.orientation)
         writer.writeNumberValue("orientation", this.orientation);
         }
         if(this.takenDateTime){
-        if(this.takenDateTime)
         writer.writeDateValue("takenDateTime", this.takenDateTime);
         }
         writer.writeAdditionalData(this.additionalData);

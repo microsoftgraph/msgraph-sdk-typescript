@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class DeviceInstallStateCollectionResponseImpl implements AdditionalDataHolder, DeviceInstallStateCollectionResponse, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: DeviceInstallState[] | undefined;
+    public value?: DeviceInstallState[] | undefined;
     /**
      * Instantiates a new DeviceInstallStateCollectionResponse and sets the default values.
      * @param deviceInstallStateCollectionResponseParameterValue 
      */
     public constructor(deviceInstallStateCollectionResponseParameterValue?: DeviceInstallStateCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = deviceInstallStateCollectionResponseParameterValue?.additionalData ? {} : deviceInstallStateCollectionResponseParameterValue?.additionalData!
+        this.additionalData = deviceInstallStateCollectionResponseParameterValue?.additionalData ? deviceInstallStateCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = deviceInstallStateCollectionResponseParameterValue?.nextLink ;
         this.value = deviceInstallStateCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class DeviceInstallStateCollectionResponseImpl implements AdditionalDataH
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: DeviceInstallStateImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new DeviceInstallStateImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: DeviceInstallStateImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new DeviceInstallStateImpl(element));});
         writer.writeCollectionOfObjectValues<DeviceInstallStateImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

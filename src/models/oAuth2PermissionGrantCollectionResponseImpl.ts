@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class OAuth2PermissionGrantCollectionResponseImpl implements AdditionalDataHolder, OAuth2PermissionGrantCollectionResponse, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: OAuth2PermissionGrant[] | undefined;
+    public value?: OAuth2PermissionGrant[] | undefined;
     /**
      * Instantiates a new OAuth2PermissionGrantCollectionResponse and sets the default values.
      * @param oAuth2PermissionGrantCollectionResponseParameterValue 
      */
     public constructor(oAuth2PermissionGrantCollectionResponseParameterValue?: OAuth2PermissionGrantCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = oAuth2PermissionGrantCollectionResponseParameterValue?.additionalData ? {} : oAuth2PermissionGrantCollectionResponseParameterValue?.additionalData!
+        this.additionalData = oAuth2PermissionGrantCollectionResponseParameterValue?.additionalData ? oAuth2PermissionGrantCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = oAuth2PermissionGrantCollectionResponseParameterValue?.nextLink ;
         this.value = oAuth2PermissionGrantCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class OAuth2PermissionGrantCollectionResponseImpl implements AdditionalDa
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: OAuth2PermissionGrantImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new OAuth2PermissionGrantImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: OAuth2PermissionGrantImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new OAuth2PermissionGrantImpl(element));});
         writer.writeCollectionOfObjectValues<OAuth2PermissionGrantImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

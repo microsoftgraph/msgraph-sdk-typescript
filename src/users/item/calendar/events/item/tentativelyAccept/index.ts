@@ -1,3 +1,3 @@
-export * from './tentativelyAcceptRequestBodyImpl'
-export * from './tentativelyAcceptRequestBody'
+export * from './tentativelyAcceptPostRequestBodyImpl'
+export * from './tentativelyAcceptPostRequestBody'
 export * from './tentativelyAcceptRequestBuilderPostRequestConfiguration'

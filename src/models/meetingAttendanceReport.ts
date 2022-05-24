@@ -3,11 +3,11 @@ import {Entity} from './entity';
 
 export interface MeetingAttendanceReport extends Entity{
     /** List of attendance records of an attendance report. Read-only. */
-    attendanceRecords?: AttendanceRecord[] | undefined;
+    attendanceRecords?:AttendanceRecord[] | undefined;
     /** UTC time when the meeting ended. Read-only. */
-    meetingEndDateTime?: Date | undefined;
+    meetingEndDateTime?:Date | undefined;
     /** UTC time when the meeting started. Read-only. */
-    meetingStartDateTime?: Date | undefined;
+    meetingStartDateTime?:Date | undefined;
     /** Total number of participants. Read-only. */
-    totalParticipantCount?: number | undefined;
+    totalParticipantCount?:number | undefined;
 }

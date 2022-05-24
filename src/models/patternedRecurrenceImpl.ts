@@ -8,18 +8,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class PatternedRecurrenceImpl implements AdditionalDataHolder, Parsable, PatternedRecurrence {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The frequency of an event. Do not specify for a one-time access review.  For access reviews: Do not specify this property for a one-time access review.   Only interval, dayOfMonth, and type (weekly, absoluteMonthly) properties of recurrencePattern are supported. */
-    pattern?: RecurrencePattern | undefined;
+    public pattern?: RecurrencePattern | undefined;
     /** The duration of an event. */
-    range?: RecurrenceRange | undefined;
+    public range?: RecurrenceRange | undefined;
     /**
      * Instantiates a new patternedRecurrence and sets the default values.
      * @param patternedRecurrenceParameterValue 
      */
     public constructor(patternedRecurrenceParameterValue?: PatternedRecurrence | undefined) {
-        this.additionalData = {};
-        this.additionalData = patternedRecurrenceParameterValue?.additionalData ? {} : patternedRecurrenceParameterValue?.additionalData!
+        this.additionalData = patternedRecurrenceParameterValue?.additionalData ? patternedRecurrenceParameterValue?.additionalData! : {}
         this.pattern = patternedRecurrenceParameterValue?.pattern ;
         this.range = patternedRecurrenceParameterValue?.range ;
     };
@@ -40,11 +39,9 @@ export class PatternedRecurrenceImpl implements AdditionalDataHolder, Parsable, 
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.pattern){
-        if(this.pattern)
         writer.writeObjectValue<RecurrencePatternImpl>("pattern", new RecurrencePatternImpl(this.pattern));
         }
         if(this.range){
-        if(this.range)
         writer.writeObjectValue<RecurrenceRangeImpl>("range", new RecurrenceRangeImpl(this.range));
         }
         writer.writeAdditionalData(this.additionalData);

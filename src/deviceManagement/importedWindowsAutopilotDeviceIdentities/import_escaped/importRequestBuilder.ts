@@ -1,8 +1,7 @@
 import {createImportResponseFromDiscriminatorValue} from './createImportResponseFromDiscriminatorValue';
-import {ImportRequestBody} from './importRequestBody';
+import {ImportPostRequestBody} from './importPostRequestBody';
 import {ImportRequestBuilderPostRequestConfiguration} from './importRequestBuilderPostRequestConfiguration';
-import {ImportResponse} from './importResponse';
-import {ImportRequestBodyImpl, ImportResponseImpl} from './index';
+import {ImportPostRequestBodyImpl, ImportResponseImpl} from './index';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the import method. */
@@ -32,7 +31,7 @@ export class ImportRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public createPostRequestInformation(body: ImportRequestBody | undefined, requestConfiguration?: ImportRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public createPostRequestInformation(body: ImportPostRequestBody | undefined, requestConfiguration?: ImportRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -42,8 +41,8 @@ export class ImportRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        const bodyParsable = new ImportRequestBodyImpl(body)
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", bodyParsable);
+        const parsableBody = new ImportPostRequestBodyImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -53,7 +52,7 @@ export class ImportRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ImportResponse
      */
-    public post(body: ImportRequestBody | undefined, requestConfiguration?: ImportRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ImportResponse | undefined> {
+    public post(body: ImportPostRequestBody | undefined, requestConfiguration?: ImportRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ImportResponseImpl | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration

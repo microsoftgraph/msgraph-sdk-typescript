@@ -2,7 +2,6 @@ import {ODataErrorImpl} from '../../../../../../../../../../../../../../../../..
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {SetImpl} from '../../../../../../../../../../../../../../../../../models/termStore/';
 import {createSetFromDiscriminatorValue} from '../../../../../../../../../../../../../../../../../models/termStore/createSetFromDiscriminatorValue';
-import {Set} from '../../../../../../../../../../../../../../../../../models/termStore/set';
 import {SetRequestBuilderGetRequestConfiguration} from './setRequestBuilderGetRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
@@ -50,7 +49,7 @@ export class SetRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Set
      */
-    public get(requestConfiguration?: SetRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Set | undefined> {
+    public get(requestConfiguration?: SetRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<SetImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );

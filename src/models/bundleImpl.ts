@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class BundleImpl implements AdditionalDataHolder, Bundle, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** If the bundle is an [album][], then the album property is included */
-    album?: Album | undefined;
+    public album?: Album | undefined;
     /** Number of children contained immediately within this container. */
-    childCount?: number | undefined;
+    public childCount?: number | undefined;
     /**
      * Instantiates a new bundle and sets the default values.
      * @param bundleParameterValue 
      */
     public constructor(bundleParameterValue?: Bundle | undefined) {
-        this.additionalData = {};
-        this.additionalData = bundleParameterValue?.additionalData ? {} : bundleParameterValue?.additionalData!
+        this.additionalData = bundleParameterValue?.additionalData ? bundleParameterValue?.additionalData! : {}
         this.album = bundleParameterValue?.album ;
         this.childCount = bundleParameterValue?.childCount ;
     };
@@ -38,11 +37,9 @@ export class BundleImpl implements AdditionalDataHolder, Bundle, Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.album){
-        if(this.album)
         writer.writeObjectValue<AlbumImpl>("album", new AlbumImpl(this.album));
         }
         if(this.childCount){
-        if(this.childCount)
         writer.writeNumberValue("childCount", this.childCount);
         }
         writer.writeAdditionalData(this.additionalData);

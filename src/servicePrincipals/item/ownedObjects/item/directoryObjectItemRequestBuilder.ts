@@ -1,17 +1,41 @@
 import {DirectoryObjectImpl} from '../../../../models/';
 import {createDirectoryObjectFromDiscriminatorValue} from '../../../../models/createDirectoryObjectFromDiscriminatorValue';
-import {DirectoryObject} from '../../../../models/directoryObject';
 import {ODataErrorImpl} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {ApplicationRequestBuilder} from './application/applicationRequestBuilder';
+import {AppRoleAssignmentRequestBuilder} from './appRoleAssignment/appRoleAssignmentRequestBuilder';
 import {DirectoryObjectItemRequestBuilderGetRequestConfiguration} from './directoryObjectItemRequestBuilderGetRequestConfiguration';
+import {EndpointRequestBuilder} from './endpoint/endpointRequestBuilder';
+import {GroupRequestBuilder} from './group/groupRequestBuilder';
+import {ServicePrincipalRequestBuilder} from './servicePrincipal/servicePrincipalRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the ownedObjects property of the microsoft.graph.servicePrincipal entity. */
 export class DirectoryObjectItemRequestBuilder {
+    /** The application property */
+    public get application(): ApplicationRequestBuilder {
+        return new ApplicationRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** The appRoleAssignment property */
+    public get appRoleAssignment(): AppRoleAssignmentRequestBuilder {
+        return new AppRoleAssignmentRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** The endpoint property */
+    public get endpoint(): EndpointRequestBuilder {
+        return new EndpointRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** The group property */
+    public get group(): GroupRequestBuilder {
+        return new GroupRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
+    /** The servicePrincipal property */
+    public get servicePrincipal(): ServicePrincipalRequestBuilder {
+        return new ServicePrincipalRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
@@ -50,7 +74,7 @@ export class DirectoryObjectItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DirectoryObject
      */
-    public get(requestConfiguration?: DirectoryObjectItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DirectoryObject | undefined> {
+    public get(requestConfiguration?: DirectoryObjectItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DirectoryObjectImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );

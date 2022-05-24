@@ -7,16 +7,15 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Provides operations to call the supportedTimeZones method. */
 export class SupportedTimeZonesResponseImpl implements AdditionalDataHolder, Parsable, SupportedTimeZonesResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The value property */
-    value?: TimeZoneInformation[] | undefined;
+    public value?: TimeZoneInformation[] | undefined;
     /**
      * Instantiates a new supportedTimeZonesResponse and sets the default values.
      * @param supportedTimeZonesResponseParameterValue 
      */
     public constructor(supportedTimeZonesResponseParameterValue?: SupportedTimeZonesResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = supportedTimeZonesResponseParameterValue?.additionalData ? {} : supportedTimeZonesResponseParameterValue?.additionalData!
+        this.additionalData = supportedTimeZonesResponseParameterValue?.additionalData ? supportedTimeZonesResponseParameterValue?.additionalData! : {}
         this.value = supportedTimeZonesResponseParameterValue?.value ;
     };
     /**
@@ -34,8 +33,7 @@ export class SupportedTimeZonesResponseImpl implements AdditionalDataHolder, Par
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        if(this.value){
-        const valueArrValue: TimeZoneInformationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new TimeZoneInformationImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: TimeZoneInformationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new TimeZoneInformationImpl(element));});
         writer.writeCollectionOfObjectValues<TimeZoneInformationImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

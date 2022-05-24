@@ -13,13 +13,13 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Provides operations to manage the auditLogRoot singleton. */
 export class AuditLogRootImpl extends EntityImpl implements AuditLogRoot, Parsable {
     /** Read-only. Nullable. */
-    directoryAudits?: DirectoryAudit[] | undefined;
+    public directoryAudits?: DirectoryAudit[] | undefined;
     /** The provisioning property */
-    provisioning?: ProvisioningObjectSummary[] | undefined;
+    public provisioning?: ProvisioningObjectSummary[] | undefined;
     /** The restrictedSignIns property */
-    restrictedSignIns?: RestrictedSignIn[] | undefined;
+    public restrictedSignIns?: RestrictedSignIn[] | undefined;
     /** Read-only. Nullable. */
-    signIns?: SignIn[] | undefined;
+    public signIns?: SignIn[] | undefined;
     /**
      * Instantiates a new auditLogRoot and sets the default values.
      * @param auditLogRootParameterValue 
@@ -50,20 +50,16 @@ export class AuditLogRootImpl extends EntityImpl implements AuditLogRoot, Parsab
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.directoryAudits){
-        const directoryAuditsArrValue: DirectoryAuditImpl[] = []; this.directoryAudits?.forEach(element => {directoryAuditsArrValue.push(new DirectoryAuditImpl(element));});
+        if(this.directoryAudits && this.directoryAudits.length != 0){        const directoryAuditsArrValue: DirectoryAuditImpl[] = []; this.directoryAudits?.forEach(element => {directoryAuditsArrValue.push(new DirectoryAuditImpl(element));});
         writer.writeCollectionOfObjectValues<DirectoryAuditImpl>("directoryAudits", directoryAuditsArrValue);
         }
-        if(this.provisioning){
-        const provisioningArrValue: ProvisioningObjectSummaryImpl[] = []; this.provisioning?.forEach(element => {provisioningArrValue.push(new ProvisioningObjectSummaryImpl(element));});
+        if(this.provisioning && this.provisioning.length != 0){        const provisioningArrValue: ProvisioningObjectSummaryImpl[] = []; this.provisioning?.forEach(element => {provisioningArrValue.push(new ProvisioningObjectSummaryImpl(element));});
         writer.writeCollectionOfObjectValues<ProvisioningObjectSummaryImpl>("provisioning", provisioningArrValue);
         }
-        if(this.restrictedSignIns){
-        const restrictedSignInsArrValue: RestrictedSignInImpl[] = []; this.restrictedSignIns?.forEach(element => {restrictedSignInsArrValue.push(new RestrictedSignInImpl(element));});
+        if(this.restrictedSignIns && this.restrictedSignIns.length != 0){        const restrictedSignInsArrValue: RestrictedSignInImpl[] = []; this.restrictedSignIns?.forEach(element => {restrictedSignInsArrValue.push(new RestrictedSignInImpl(element));});
         writer.writeCollectionOfObjectValues<RestrictedSignInImpl>("restrictedSignIns", restrictedSignInsArrValue);
         }
-        if(this.signIns){
-        const signInsArrValue: SignInImpl[] = []; this.signIns?.forEach(element => {signInsArrValue.push(new SignInImpl(element));});
+        if(this.signIns && this.signIns.length != 0){        const signInsArrValue: SignInImpl[] = []; this.signIns?.forEach(element => {signInsArrValue.push(new SignInImpl(element));});
         writer.writeCollectionOfObjectValues<SignInImpl>("signIns", signInsArrValue);
         }
     };

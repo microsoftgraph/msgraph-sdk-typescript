@@ -3,16 +3,15 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class PublicClientApplicationImpl implements AdditionalDataHolder, Parsable, PublicClientApplication {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** Specifies the URLs where user tokens are sent for sign-in, or the redirect URIs where OAuth 2.0 authorization codes and access tokens are sent. */
-    redirectUris?: string[] | undefined;
+    public redirectUris?: string[] | undefined;
     /**
      * Instantiates a new publicClientApplication and sets the default values.
      * @param publicClientApplicationParameterValue 
      */
     public constructor(publicClientApplicationParameterValue?: PublicClientApplication | undefined) {
-        this.additionalData = {};
-        this.additionalData = publicClientApplicationParameterValue?.additionalData ? {} : publicClientApplicationParameterValue?.additionalData!
+        this.additionalData = publicClientApplicationParameterValue?.additionalData ? publicClientApplicationParameterValue?.additionalData! : {}
         this.redirectUris = publicClientApplicationParameterValue?.redirectUris ;
     };
     /**
@@ -31,7 +30,6 @@ export class PublicClientApplicationImpl implements AdditionalDataHolder, Parsab
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.redirectUris){
-        if(this.redirectUris)
         writer.writeCollectionOfPrimitiveValues<string>("redirectUris", this.redirectUris);
         }
         writer.writeAdditionalData(this.additionalData);

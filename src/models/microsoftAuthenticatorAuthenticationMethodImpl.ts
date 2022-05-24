@@ -4,17 +4,18 @@ import {AuthenticationMethodImpl, DeviceImpl} from './index';
 import {MicrosoftAuthenticatorAuthenticationMethod} from './microsoftAuthenticatorAuthenticationMethod';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to user. */
 export class MicrosoftAuthenticatorAuthenticationMethodImpl extends AuthenticationMethodImpl implements MicrosoftAuthenticatorAuthenticationMethod, Parsable {
     /** The date and time that this app was registered. This property is null if the device is not registered for passwordless Phone Sign-In. */
-    createdDateTime?: Date | undefined;
+    public createdDateTime?: Date | undefined;
     /** The registered device on which Microsoft Authenticator resides. This property is null if the device is not registered for passwordless Phone Sign-In. */
-    device?: Device | undefined;
+    public device?: Device | undefined;
     /** Tags containing app metadata. */
-    deviceTag?: string | undefined;
+    public deviceTag?: string | undefined;
     /** The name of the device on which this app is registered. */
-    displayName?: string | undefined;
+    public displayName?: string | undefined;
     /** Numerical version of this instance of the Authenticator app. */
-    phoneAppVersion?: string | undefined;
+    public phoneAppVersion?: string | undefined;
     /**
      * Instantiates a new microsoftAuthenticatorAuthenticationMethod and sets the default values.
      * @param microsoftAuthenticatorAuthenticationMethodParameterValue 
@@ -48,23 +49,18 @@ export class MicrosoftAuthenticatorAuthenticationMethodImpl extends Authenticati
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.createdDateTime){
-        if(this.createdDateTime)
         writer.writeDateValue("createdDateTime", this.createdDateTime);
         }
         if(this.device){
-        if(this.device)
         writer.writeObjectValue<DeviceImpl>("device", new DeviceImpl(this.device));
         }
         if(this.deviceTag){
-        if(this.deviceTag)
         writer.writeStringValue("deviceTag", this.deviceTag);
         }
         if(this.displayName){
-        if(this.displayName)
         writer.writeStringValue("displayName", this.displayName);
         }
         if(this.phoneAppVersion){
-        if(this.phoneAppVersion)
         writer.writeStringValue("phoneAppVersion", this.phoneAppVersion);
         }
     };

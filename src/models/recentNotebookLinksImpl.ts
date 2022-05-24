@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class RecentNotebookLinksImpl implements AdditionalDataHolder, Parsable, RecentNotebookLinks {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** Opens the notebook in the OneNote client, if it's installed. */
-    oneNoteClientUrl?: ExternalLink | undefined;
+    public oneNoteClientUrl?: ExternalLink | undefined;
     /** Opens the notebook in OneNote on the web. */
-    oneNoteWebUrl?: ExternalLink | undefined;
+    public oneNoteWebUrl?: ExternalLink | undefined;
     /**
      * Instantiates a new recentNotebookLinks and sets the default values.
      * @param recentNotebookLinksParameterValue 
      */
     public constructor(recentNotebookLinksParameterValue?: RecentNotebookLinks | undefined) {
-        this.additionalData = {};
-        this.additionalData = recentNotebookLinksParameterValue?.additionalData ? {} : recentNotebookLinksParameterValue?.additionalData!
+        this.additionalData = recentNotebookLinksParameterValue?.additionalData ? recentNotebookLinksParameterValue?.additionalData! : {}
         this.oneNoteClientUrl = recentNotebookLinksParameterValue?.oneNoteClientUrl ;
         this.oneNoteWebUrl = recentNotebookLinksParameterValue?.oneNoteWebUrl ;
     };
@@ -38,11 +37,9 @@ export class RecentNotebookLinksImpl implements AdditionalDataHolder, Parsable, 
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.oneNoteClientUrl){
-        if(this.oneNoteClientUrl)
         writer.writeObjectValue<ExternalLinkImpl>("oneNoteClientUrl", new ExternalLinkImpl(this.oneNoteClientUrl));
         }
         if(this.oneNoteWebUrl){
-        if(this.oneNoteWebUrl)
         writer.writeObjectValue<ExternalLinkImpl>("oneNoteWebUrl", new ExternalLinkImpl(this.oneNoteWebUrl));
         }
         writer.writeAdditionalData(this.additionalData);

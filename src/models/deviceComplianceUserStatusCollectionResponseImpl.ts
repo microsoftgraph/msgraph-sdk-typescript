@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class DeviceComplianceUserStatusCollectionResponseImpl implements AdditionalDataHolder, DeviceComplianceUserStatusCollectionResponse, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: DeviceComplianceUserStatus[] | undefined;
+    public value?: DeviceComplianceUserStatus[] | undefined;
     /**
      * Instantiates a new DeviceComplianceUserStatusCollectionResponse and sets the default values.
      * @param deviceComplianceUserStatusCollectionResponseParameterValue 
      */
     public constructor(deviceComplianceUserStatusCollectionResponseParameterValue?: DeviceComplianceUserStatusCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = deviceComplianceUserStatusCollectionResponseParameterValue?.additionalData ? {} : deviceComplianceUserStatusCollectionResponseParameterValue?.additionalData!
+        this.additionalData = deviceComplianceUserStatusCollectionResponseParameterValue?.additionalData ? deviceComplianceUserStatusCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = deviceComplianceUserStatusCollectionResponseParameterValue?.nextLink ;
         this.value = deviceComplianceUserStatusCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class DeviceComplianceUserStatusCollectionResponseImpl implements Additio
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: DeviceComplianceUserStatusImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new DeviceComplianceUserStatusImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: DeviceComplianceUserStatusImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new DeviceComplianceUserStatusImpl(element));});
         writer.writeCollectionOfObjectValues<DeviceComplianceUserStatusImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

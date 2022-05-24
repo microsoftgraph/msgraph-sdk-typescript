@@ -6,26 +6,25 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class WorkbookSortFieldImpl implements AdditionalDataHolder, Parsable, WorkbookSortField {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** Represents whether the sorting is done in an ascending fashion. */
-    ascending?: boolean | undefined;
+    public ascending?: boolean | undefined;
     /** Represents the color that is the target of the condition if the sorting is on font or cell color. */
-    color?: string | undefined;
+    public color?: string | undefined;
     /** Represents additional sorting options for this field. Possible values are: Normal, TextAsNumber. */
-    dataOption?: string | undefined;
+    public dataOption?: string | undefined;
     /** Represents the icon that is the target of the condition if the sorting is on the cell's icon. */
-    icon?: WorkbookIcon | undefined;
+    public icon?: WorkbookIcon | undefined;
     /** Represents the column (or row, depending on the sort orientation) that the condition is on. Represented as an offset from the first column (or row). */
-    key?: number | undefined;
+    public key?: number | undefined;
     /** Represents the type of sorting of this condition. Possible values are: Value, CellColor, FontColor, Icon. */
-    sortOn?: string | undefined;
+    public sortOn?: string | undefined;
     /**
      * Instantiates a new workbookSortField and sets the default values.
      * @param workbookSortFieldParameterValue 
      */
     public constructor(workbookSortFieldParameterValue?: WorkbookSortField | undefined) {
-        this.additionalData = {};
-        this.additionalData = workbookSortFieldParameterValue?.additionalData ? {} : workbookSortFieldParameterValue?.additionalData!
+        this.additionalData = workbookSortFieldParameterValue?.additionalData ? workbookSortFieldParameterValue?.additionalData! : {}
         this.ascending = workbookSortFieldParameterValue?.ascending ;
         this.color = workbookSortFieldParameterValue?.color ;
         this.dataOption = workbookSortFieldParameterValue?.dataOption ;
@@ -54,27 +53,21 @@ export class WorkbookSortFieldImpl implements AdditionalDataHolder, Parsable, Wo
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.ascending){
-        if(this.ascending)
         writer.writeBooleanValue("ascending", this.ascending);
         }
         if(this.color){
-        if(this.color)
         writer.writeStringValue("color", this.color);
         }
         if(this.dataOption){
-        if(this.dataOption)
         writer.writeStringValue("dataOption", this.dataOption);
         }
         if(this.icon){
-        if(this.icon)
         writer.writeObjectValue<WorkbookIconImpl>("icon", new WorkbookIconImpl(this.icon));
         }
         if(this.key){
-        if(this.key)
         writer.writeNumberValue("key", this.key);
         }
         if(this.sortOn){
-        if(this.sortOn)
         writer.writeStringValue("sortOn", this.sortOn);
         }
         writer.writeAdditionalData(this.additionalData);

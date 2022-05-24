@@ -4,20 +4,19 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class WorkbookOperationErrorImpl implements AdditionalDataHolder, Parsable, WorkbookOperationError {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The error code. */
-    code?: string | undefined;
+    public code?: string | undefined;
     /** The innerError property */
-    innerError?: WorkbookOperationError | undefined;
+    public innerError?: WorkbookOperationError | undefined;
     /** The error message. */
-    message?: string | undefined;
+    public message?: string | undefined;
     /**
      * Instantiates a new workbookOperationError and sets the default values.
      * @param workbookOperationErrorParameterValue 
      */
     public constructor(workbookOperationErrorParameterValue?: WorkbookOperationError | undefined) {
-        this.additionalData = {};
-        this.additionalData = workbookOperationErrorParameterValue?.additionalData ? {} : workbookOperationErrorParameterValue?.additionalData!
+        this.additionalData = workbookOperationErrorParameterValue?.additionalData ? workbookOperationErrorParameterValue?.additionalData! : {}
         this.code = workbookOperationErrorParameterValue?.code ;
         this.innerError = workbookOperationErrorParameterValue?.innerError ;
         this.message = workbookOperationErrorParameterValue?.message ;
@@ -40,15 +39,12 @@ export class WorkbookOperationErrorImpl implements AdditionalDataHolder, Parsabl
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.code){
-        if(this.code)
         writer.writeStringValue("code", this.code);
         }
         if(this.innerError){
-        if(this.innerError)
         writer.writeObjectValue<WorkbookOperationErrorImpl>("innerError", new WorkbookOperationErrorImpl(this.innerError));
         }
         if(this.message){
-        if(this.message)
         writer.writeStringValue("message", this.message);
         }
         writer.writeAdditionalData(this.additionalData);

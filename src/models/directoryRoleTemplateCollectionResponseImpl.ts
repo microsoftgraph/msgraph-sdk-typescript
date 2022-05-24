@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class DirectoryRoleTemplateCollectionResponseImpl implements AdditionalDataHolder, DirectoryRoleTemplateCollectionResponse, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: DirectoryRoleTemplate[] | undefined;
+    public value?: DirectoryRoleTemplate[] | undefined;
     /**
      * Instantiates a new DirectoryRoleTemplateCollectionResponse and sets the default values.
      * @param directoryRoleTemplateCollectionResponseParameterValue 
      */
     public constructor(directoryRoleTemplateCollectionResponseParameterValue?: DirectoryRoleTemplateCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = directoryRoleTemplateCollectionResponseParameterValue?.additionalData ? {} : directoryRoleTemplateCollectionResponseParameterValue?.additionalData!
+        this.additionalData = directoryRoleTemplateCollectionResponseParameterValue?.additionalData ? directoryRoleTemplateCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = directoryRoleTemplateCollectionResponseParameterValue?.nextLink ;
         this.value = directoryRoleTemplateCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class DirectoryRoleTemplateCollectionResponseImpl implements AdditionalDa
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: DirectoryRoleTemplateImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new DirectoryRoleTemplateImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: DirectoryRoleTemplateImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new DirectoryRoleTemplateImpl(element));});
         writer.writeCollectionOfObjectValues<DirectoryRoleTemplateImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

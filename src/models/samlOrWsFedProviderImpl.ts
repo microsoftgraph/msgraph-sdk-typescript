@@ -3,17 +3,18 @@ import {IdentityProviderBaseImpl} from './index';
 import {SamlOrWsFedProvider} from './samlOrWsFedProvider';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the collection of domain entities. */
 export class SamlOrWsFedProviderImpl extends IdentityProviderBaseImpl implements Parsable, SamlOrWsFedProvider {
     /** Issuer URI of the federation server. */
-    issuerUri?: string | undefined;
+    public issuerUri?: string | undefined;
     /** URI of the metadata exchange endpoint used for authentication from rich client applications. */
-    metadataExchangeUri?: string | undefined;
+    public metadataExchangeUri?: string | undefined;
     /** URI that web-based clients are directed to when signing in to Azure Active Directory (Azure AD) services. */
-    passiveSignInUri?: string | undefined;
+    public passiveSignInUri?: string | undefined;
     /** Preferred authentication protocol. Supported values include saml or wsfed. */
-    preferredAuthenticationProtocol?: AuthenticationProtocol | undefined;
+    public preferredAuthenticationProtocol?: AuthenticationProtocol | undefined;
     /** Current certificate used to sign tokens passed to the Microsoft identity platform. The certificate is formatted as a Base64 encoded string of the public portion of the federated IdP's token signing certificate and must be compatible with the X509Certificate2 class.   This property is used in the following scenarios:  if a rollover is required outside of the autorollover update a new federation service is being set up  if the new token signing certificate isn't present in the federation properties after the federation service certificate has been updated.   Azure AD updates certificates via an autorollover process in which it attempts to retrieve a new certificate from the federation service metadata, 30 days before expiry of the current certificate. If a new certificate isn't available, Azure AD monitors the metadata daily and will update the federation settings for the domain when a new certificate is available. */
-    signingCertificate?: string | undefined;
+    public signingCertificate?: string | undefined;
     /**
      * Instantiates a new samlOrWsFedProvider and sets the default values.
      * @param samlOrWsFedProviderParameterValue 
@@ -47,23 +48,18 @@ export class SamlOrWsFedProviderImpl extends IdentityProviderBaseImpl implements
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.issuerUri){
-        if(this.issuerUri)
         writer.writeStringValue("issuerUri", this.issuerUri);
         }
         if(this.metadataExchangeUri){
-        if(this.metadataExchangeUri)
         writer.writeStringValue("metadataExchangeUri", this.metadataExchangeUri);
         }
         if(this.passiveSignInUri){
-        if(this.passiveSignInUri)
         writer.writeStringValue("passiveSignInUri", this.passiveSignInUri);
         }
         if(this.preferredAuthenticationProtocol){
-        if(this.preferredAuthenticationProtocol)
         writer.writeEnumValue<AuthenticationProtocol>("preferredAuthenticationProtocol", this.preferredAuthenticationProtocol);
         }
         if(this.signingCertificate){
-        if(this.signingCertificate)
         writer.writeStringValue("signingCertificate", this.signingCertificate);
         }
     };

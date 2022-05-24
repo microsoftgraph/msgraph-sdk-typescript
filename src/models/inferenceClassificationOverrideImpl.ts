@@ -5,11 +5,12 @@ import {InferenceClassificationOverride} from './inferenceClassificationOverride
 import {InferenceClassificationType} from './inferenceClassificationType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to user. */
 export class InferenceClassificationOverrideImpl extends EntityImpl implements InferenceClassificationOverride, Parsable {
     /** Specifies how incoming messages from a specific sender should always be classified as. Possible values are: focused, other. */
-    classifyAs?: InferenceClassificationType | undefined;
+    public classifyAs?: InferenceClassificationType | undefined;
     /** The email address information of the sender for whom the override is created. */
-    senderEmailAddress?: EmailAddress | undefined;
+    public senderEmailAddress?: EmailAddress | undefined;
     /**
      * Instantiates a new inferenceClassificationOverride and sets the default values.
      * @param inferenceClassificationOverrideParameterValue 
@@ -37,11 +38,9 @@ export class InferenceClassificationOverrideImpl extends EntityImpl implements I
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.classifyAs){
-        if(this.classifyAs)
         writer.writeEnumValue<InferenceClassificationType>("classifyAs", this.classifyAs);
         }
         if(this.senderEmailAddress){
-        if(this.senderEmailAddress)
         writer.writeObjectValue<EmailAddressImpl>("senderEmailAddress", new EmailAddressImpl(this.senderEmailAddress));
         }
     };

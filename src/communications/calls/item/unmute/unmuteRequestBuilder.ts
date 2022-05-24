@@ -1,8 +1,7 @@
 import {UnmuteParticipantOperationImpl} from '../../../../models/';
 import {createUnmuteParticipantOperationFromDiscriminatorValue} from '../../../../models/createUnmuteParticipantOperationFromDiscriminatorValue';
-import {UnmuteParticipantOperation} from '../../../../models/unmuteParticipantOperation';
-import {UnmuteRequestBodyImpl} from './index';
-import {UnmuteRequestBody} from './unmuteRequestBody';
+import {UnmutePostRequestBodyImpl} from './index';
+import {UnmutePostRequestBody} from './unmutePostRequestBody';
 import {UnmuteRequestBuilderPostRequestConfiguration} from './unmuteRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
@@ -33,7 +32,7 @@ export class UnmuteRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public createPostRequestInformation(body: UnmuteRequestBody | undefined, requestConfiguration?: UnmuteRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public createPostRequestInformation(body: UnmutePostRequestBody | undefined, requestConfiguration?: UnmuteRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -43,8 +42,8 @@ export class UnmuteRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        const bodyParsable = new UnmuteRequestBodyImpl(body)
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", bodyParsable);
+        const parsableBody = new UnmutePostRequestBodyImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -54,7 +53,7 @@ export class UnmuteRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of UnmuteParticipantOperation
      */
-    public post(body: UnmuteRequestBody | undefined, requestConfiguration?: UnmuteRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<UnmuteParticipantOperation | undefined> {
+    public post(body: UnmutePostRequestBody | undefined, requestConfiguration?: UnmuteRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<UnmuteParticipantOperationImpl | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration

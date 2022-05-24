@@ -1,3 +1,3 @@
-export * from './createOrGetRequestBodyImpl'
-export * from './createOrGetRequestBody'
+export * from './createOrGetPostRequestBodyImpl'
 export * from './createOrGetRequestBuilderPostRequestConfiguration'
+export * from './createOrGetPostRequestBody'

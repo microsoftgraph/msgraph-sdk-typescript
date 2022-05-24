@@ -3,20 +3,19 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class ItemActionStatImpl implements AdditionalDataHolder, ItemActionStat, Parsable {
     /** The number of times the action took place. Read-only. */
-    actionCount?: number | undefined;
+    public actionCount?: number | undefined;
     /** The number of distinct actors that performed the action. Read-only. */
-    actorCount?: number | undefined;
+    public actorCount?: number | undefined;
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /**
      * Instantiates a new itemActionStat and sets the default values.
      * @param itemActionStatParameterValue 
      */
     public constructor(itemActionStatParameterValue?: ItemActionStat | undefined) {
-        this.additionalData = {};
         this.actionCount = itemActionStatParameterValue?.actionCount ;
         this.actorCount = itemActionStatParameterValue?.actorCount ;
-        this.additionalData = itemActionStatParameterValue?.additionalData ? {} : itemActionStatParameterValue?.additionalData!
+        this.additionalData = itemActionStatParameterValue?.additionalData ? itemActionStatParameterValue?.additionalData! : {}
     };
     /**
      * The deserialization information for the current model
@@ -35,11 +34,9 @@ export class ItemActionStatImpl implements AdditionalDataHolder, ItemActionStat,
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.actionCount){
-        if(this.actionCount)
         writer.writeNumberValue("actionCount", this.actionCount);
         }
         if(this.actorCount){
-        if(this.actorCount)
         writer.writeNumberValue("actorCount", this.actorCount);
         }
         writer.writeAdditionalData(this.additionalData);

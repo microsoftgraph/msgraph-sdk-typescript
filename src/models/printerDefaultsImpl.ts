@@ -1,7 +1,6 @@
 import {PrintColorMode} from './printColorMode';
 import {PrintDuplexMode} from './printDuplexMode';
 import {PrinterDefaults} from './printerDefaults';
-import {PrintFinishing} from './printFinishing';
 import {PrintMultipageLayout} from './printMultipageLayout';
 import {PrintOrientation} from './printOrientation';
 import {PrintQuality} from './printQuality';
@@ -10,48 +9,47 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class PrinterDefaultsImpl implements AdditionalDataHolder, Parsable, PrinterDefaults {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The default color mode to use when printing the document. Valid values are described in the following table. */
-    colorMode?: PrintColorMode | undefined;
+    public colorMode?: PrintColorMode | undefined;
     /** The default content (MIME) type to use when processing documents. */
-    contentType?: string | undefined;
+    public contentType?: string | undefined;
     /** The default number of copies printed per job. */
-    copiesPerJob?: number | undefined;
+    public copiesPerJob?: number | undefined;
     /** The default resolution in DPI to use when printing the job. */
-    dpi?: number | undefined;
+    public dpi?: number | undefined;
     /** The default duplex (double-sided) configuration to use when printing a document. Valid values are described in the following table. */
-    duplexMode?: PrintDuplexMode | undefined;
+    public duplexMode?: PrintDuplexMode | undefined;
     /** The default set of finishings to apply to print jobs. Valid values are described in the following table. */
-    finishings?: PrintFinishing[] | undefined;
+    public finishings?: string[] | undefined;
     /** The default fitPdfToPage setting. True to fit each page of a PDF document to a physical sheet of media; false to let the printer decide how to lay out impressions. */
-    fitPdfToPage?: boolean | undefined;
+    public fitPdfToPage?: boolean | undefined;
     /** The default input bin that serves as the paper source. */
-    inputBin?: string | undefined;
+    public inputBin?: string | undefined;
     /** The default media (such as paper) color to print the document on. */
-    mediaColor?: string | undefined;
+    public mediaColor?: string | undefined;
     /** The default media size to use. Supports standard size names for ISO and ANSI media sizes. Valid values are listed in the printerCapabilities topic. */
-    mediaSize?: string | undefined;
+    public mediaSize?: string | undefined;
     /** The default media (such as paper) type to print the document on. */
-    mediaType?: string | undefined;
+    public mediaType?: string | undefined;
     /** The default direction to lay out pages when multiple pages are being printed per sheet. Valid values are described in the following table. */
-    multipageLayout?: PrintMultipageLayout | undefined;
+    public multipageLayout?: PrintMultipageLayout | undefined;
     /** The default orientation to use when printing the document. Valid values are described in the following table. */
-    orientation?: PrintOrientation | undefined;
+    public orientation?: PrintOrientation | undefined;
     /** The default output bin to place completed prints into. See the printer's capabilities for a list of supported output bins. */
-    outputBin?: string | undefined;
+    public outputBin?: string | undefined;
     /** The default number of document pages to print on each sheet. */
-    pagesPerSheet?: number | undefined;
+    public pagesPerSheet?: number | undefined;
     /** The default quality to use when printing the document. Valid values are described in the following table. */
-    quality?: PrintQuality | undefined;
+    public quality?: PrintQuality | undefined;
     /** Specifies how the printer scales the document data to fit the requested media. Valid values are described in the following table. */
-    scaling?: PrintScaling | undefined;
+    public scaling?: PrintScaling | undefined;
     /**
      * Instantiates a new printerDefaults and sets the default values.
      * @param printerDefaultsParameterValue 
      */
     public constructor(printerDefaultsParameterValue?: PrinterDefaults | undefined) {
-        this.additionalData = {};
-        this.additionalData = printerDefaultsParameterValue?.additionalData ? {} : printerDefaultsParameterValue?.additionalData!
+        this.additionalData = printerDefaultsParameterValue?.additionalData ? printerDefaultsParameterValue?.additionalData! : {}
         this.colorMode = printerDefaultsParameterValue?.colorMode ;
         this.contentType = printerDefaultsParameterValue?.contentType ;
         this.copiesPerJob = printerDefaultsParameterValue?.copiesPerJob ;
@@ -81,7 +79,7 @@ export class PrinterDefaultsImpl implements AdditionalDataHolder, Parsable, Prin
             "copiesPerJob": n => { this.copiesPerJob = n.getNumberValue(); },
             "dpi": n => { this.dpi = n.getNumberValue(); },
             "duplexMode": n => { this.duplexMode = n.getEnumValue<PrintDuplexMode>(PrintDuplexMode); },
-            "finishings": n => { this.finishings = n.getEnumValues<PrintFinishing>(PrintFinishing); },
+            "finishings": n => { this.finishings = n.getCollectionOfPrimitiveValues<string>(); },
             "fitPdfToPage": n => { this.fitPdfToPage = n.getBooleanValue(); },
             "inputBin": n => { this.inputBin = n.getStringValue(); },
             "mediaColor": n => { this.mediaColor = n.getStringValue(); },
@@ -102,71 +100,54 @@ export class PrinterDefaultsImpl implements AdditionalDataHolder, Parsable, Prin
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.colorMode){
-        if(this.colorMode)
         writer.writeEnumValue<PrintColorMode>("colorMode", this.colorMode);
         }
         if(this.contentType){
-        if(this.contentType)
         writer.writeStringValue("contentType", this.contentType);
         }
         if(this.copiesPerJob){
-        if(this.copiesPerJob)
         writer.writeNumberValue("copiesPerJob", this.copiesPerJob);
         }
         if(this.dpi){
-        if(this.dpi)
         writer.writeNumberValue("dpi", this.dpi);
         }
         if(this.duplexMode){
-        if(this.duplexMode)
         writer.writeEnumValue<PrintDuplexMode>("duplexMode", this.duplexMode);
         }
         if(this.finishings){
-        if(this.finishings)
-        this.finishings && writer.writeEnumValue<PrintFinishing>("finishings", ...this.finishings);
+        writer.writeCollectionOfPrimitiveValues<string>("finishings", this.finishings);
         }
         if(this.fitPdfToPage){
-        if(this.fitPdfToPage)
         writer.writeBooleanValue("fitPdfToPage", this.fitPdfToPage);
         }
         if(this.inputBin){
-        if(this.inputBin)
         writer.writeStringValue("inputBin", this.inputBin);
         }
         if(this.mediaColor){
-        if(this.mediaColor)
         writer.writeStringValue("mediaColor", this.mediaColor);
         }
         if(this.mediaSize){
-        if(this.mediaSize)
         writer.writeStringValue("mediaSize", this.mediaSize);
         }
         if(this.mediaType){
-        if(this.mediaType)
         writer.writeStringValue("mediaType", this.mediaType);
         }
         if(this.multipageLayout){
-        if(this.multipageLayout)
         writer.writeEnumValue<PrintMultipageLayout>("multipageLayout", this.multipageLayout);
         }
         if(this.orientation){
-        if(this.orientation)
         writer.writeEnumValue<PrintOrientation>("orientation", this.orientation);
         }
         if(this.outputBin){
-        if(this.outputBin)
         writer.writeStringValue("outputBin", this.outputBin);
         }
         if(this.pagesPerSheet){
-        if(this.pagesPerSheet)
         writer.writeNumberValue("pagesPerSheet", this.pagesPerSheet);
         }
         if(this.quality){
-        if(this.quality)
         writer.writeEnumValue<PrintQuality>("quality", this.quality);
         }
         if(this.scaling){
-        if(this.scaling)
         writer.writeEnumValue<PrintScaling>("scaling", this.scaling);
         }
         writer.writeAdditionalData(this.additionalData);

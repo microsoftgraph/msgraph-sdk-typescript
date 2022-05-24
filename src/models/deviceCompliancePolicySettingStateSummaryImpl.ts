@@ -5,29 +5,30 @@ import {DeviceComplianceSettingStateImpl, EntityImpl} from './index';
 import {PolicyPlatformType} from './policyPlatformType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Device Compilance Policy Setting State summary across the account. */
 export class DeviceCompliancePolicySettingStateSummaryImpl extends EntityImpl implements DeviceCompliancePolicySettingStateSummary, Parsable {
     /** Number of compliant devices */
-    compliantDeviceCount?: number | undefined;
+    public compliantDeviceCount?: number | undefined;
     /** Number of conflict devices */
-    conflictDeviceCount?: number | undefined;
+    public conflictDeviceCount?: number | undefined;
     /** Not yet documented */
-    deviceComplianceSettingStates?: DeviceComplianceSettingState[] | undefined;
+    public deviceComplianceSettingStates?: DeviceComplianceSettingState[] | undefined;
     /** Number of error devices */
-    errorDeviceCount?: number | undefined;
+    public errorDeviceCount?: number | undefined;
     /** Number of NonCompliant devices */
-    nonCompliantDeviceCount?: number | undefined;
+    public nonCompliantDeviceCount?: number | undefined;
     /** Number of not applicable devices */
-    notApplicableDeviceCount?: number | undefined;
+    public notApplicableDeviceCount?: number | undefined;
     /** Setting platform. Possible values are: android, androidForWork, iOS, macOS, windowsPhone81, windows81AndLater, windows10AndLater, androidWorkProfile, windows10XProfile, androidAOSP, all. */
-    platformType?: PolicyPlatformType | undefined;
+    public platformType?: PolicyPlatformType | undefined;
     /** Number of remediated devices */
-    remediatedDeviceCount?: number | undefined;
+    public remediatedDeviceCount?: number | undefined;
     /** The setting class name and property name. */
-    setting?: string | undefined;
+    public setting?: string | undefined;
     /** Name of the setting. */
-    settingName?: string | undefined;
+    public settingName?: string | undefined;
     /** Number of unknown devices */
-    unknownDeviceCount?: number | undefined;
+    public unknownDeviceCount?: number | undefined;
     /**
      * Instantiates a new deviceCompliancePolicySettingStateSummary and sets the default values.
      * @param deviceCompliancePolicySettingStateSummaryParameterValue 
@@ -73,47 +74,36 @@ export class DeviceCompliancePolicySettingStateSummaryImpl extends EntityImpl im
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.compliantDeviceCount){
-        if(this.compliantDeviceCount)
         writer.writeNumberValue("compliantDeviceCount", this.compliantDeviceCount);
         }
         if(this.conflictDeviceCount){
-        if(this.conflictDeviceCount)
         writer.writeNumberValue("conflictDeviceCount", this.conflictDeviceCount);
         }
-        if(this.deviceComplianceSettingStates){
-        const deviceComplianceSettingStatesArrValue: DeviceComplianceSettingStateImpl[] = []; this.deviceComplianceSettingStates?.forEach(element => {deviceComplianceSettingStatesArrValue.push(new DeviceComplianceSettingStateImpl(element));});
+        if(this.deviceComplianceSettingStates && this.deviceComplianceSettingStates.length != 0){        const deviceComplianceSettingStatesArrValue: DeviceComplianceSettingStateImpl[] = []; this.deviceComplianceSettingStates?.forEach(element => {deviceComplianceSettingStatesArrValue.push(new DeviceComplianceSettingStateImpl(element));});
         writer.writeCollectionOfObjectValues<DeviceComplianceSettingStateImpl>("deviceComplianceSettingStates", deviceComplianceSettingStatesArrValue);
         }
         if(this.errorDeviceCount){
-        if(this.errorDeviceCount)
         writer.writeNumberValue("errorDeviceCount", this.errorDeviceCount);
         }
         if(this.nonCompliantDeviceCount){
-        if(this.nonCompliantDeviceCount)
         writer.writeNumberValue("nonCompliantDeviceCount", this.nonCompliantDeviceCount);
         }
         if(this.notApplicableDeviceCount){
-        if(this.notApplicableDeviceCount)
         writer.writeNumberValue("notApplicableDeviceCount", this.notApplicableDeviceCount);
         }
         if(this.platformType){
-        if(this.platformType)
         writer.writeEnumValue<PolicyPlatformType>("platformType", this.platformType);
         }
         if(this.remediatedDeviceCount){
-        if(this.remediatedDeviceCount)
         writer.writeNumberValue("remediatedDeviceCount", this.remediatedDeviceCount);
         }
         if(this.setting){
-        if(this.setting)
         writer.writeStringValue("setting", this.setting);
         }
         if(this.settingName){
-        if(this.settingName)
         writer.writeStringValue("settingName", this.settingName);
         }
         if(this.unknownDeviceCount){
-        if(this.unknownDeviceCount)
         writer.writeNumberValue("unknownDeviceCount", this.unknownDeviceCount);
         }
     };

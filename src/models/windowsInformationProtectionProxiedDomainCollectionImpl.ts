@@ -7,18 +7,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Windows Information Protection Proxied Domain Collection */
 export class WindowsInformationProtectionProxiedDomainCollectionImpl implements AdditionalDataHolder, Parsable, WindowsInformationProtectionProxiedDomainCollection {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** Display name */
-    displayName?: string | undefined;
+    public displayName?: string | undefined;
     /** Collection of proxied domains */
-    proxiedDomains?: ProxiedDomain[] | undefined;
+    public proxiedDomains?: ProxiedDomain[] | undefined;
     /**
      * Instantiates a new windowsInformationProtectionProxiedDomainCollection and sets the default values.
      * @param windowsInformationProtectionProxiedDomainCollectionParameterValue 
      */
     public constructor(windowsInformationProtectionProxiedDomainCollectionParameterValue?: WindowsInformationProtectionProxiedDomainCollection | undefined) {
-        this.additionalData = {};
-        this.additionalData = windowsInformationProtectionProxiedDomainCollectionParameterValue?.additionalData ? {} : windowsInformationProtectionProxiedDomainCollectionParameterValue?.additionalData!
+        this.additionalData = windowsInformationProtectionProxiedDomainCollectionParameterValue?.additionalData ? windowsInformationProtectionProxiedDomainCollectionParameterValue?.additionalData! : {}
         this.displayName = windowsInformationProtectionProxiedDomainCollectionParameterValue?.displayName ;
         this.proxiedDomains = windowsInformationProtectionProxiedDomainCollectionParameterValue?.proxiedDomains ;
     };
@@ -39,11 +38,9 @@ export class WindowsInformationProtectionProxiedDomainCollectionImpl implements 
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.displayName){
-        if(this.displayName)
         writer.writeStringValue("displayName", this.displayName);
         }
-        if(this.proxiedDomains){
-        const proxiedDomainsArrValue: ProxiedDomainImpl[] = []; this.proxiedDomains?.forEach(element => {proxiedDomainsArrValue.push(new ProxiedDomainImpl(element));});
+        if(this.proxiedDomains && this.proxiedDomains.length != 0){        const proxiedDomainsArrValue: ProxiedDomainImpl[] = []; this.proxiedDomains?.forEach(element => {proxiedDomainsArrValue.push(new ProxiedDomainImpl(element));});
         writer.writeCollectionOfObjectValues<ProxiedDomainImpl>("proxiedDomains", proxiedDomainsArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

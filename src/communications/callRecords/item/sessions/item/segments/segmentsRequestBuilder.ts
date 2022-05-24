@@ -2,7 +2,6 @@ import {SegmentCollectionResponseImpl, SegmentImpl} from '../../../../../../mode
 import {createSegmentCollectionResponseFromDiscriminatorValue} from '../../../../../../models/callRecords/createSegmentCollectionResponseFromDiscriminatorValue';
 import {createSegmentFromDiscriminatorValue} from '../../../../../../models/callRecords/createSegmentFromDiscriminatorValue';
 import {Segment} from '../../../../../../models/callRecords/segment';
-import {SegmentCollectionResponse} from '../../../../../../models/callRecords/segmentCollectionResponse';
 import {ODataErrorImpl} from '../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
@@ -68,8 +67,8 @@ export class SegmentsRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        const bodyParsable = new SegmentImpl(body)
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", bodyParsable);
+        const parsableBody = new SegmentImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -78,7 +77,7 @@ export class SegmentsRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of SegmentCollectionResponse
      */
-    public get(requestConfiguration?: SegmentsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<SegmentCollectionResponse | undefined> {
+    public get(requestConfiguration?: SegmentsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<SegmentCollectionResponseImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -95,7 +94,7 @@ export class SegmentsRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Segment
      */
-    public post(body: Segment | undefined, requestConfiguration?: SegmentsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Segment | undefined> {
+    public post(body: Segment | undefined, requestConfiguration?: SegmentsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<SegmentImpl | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration

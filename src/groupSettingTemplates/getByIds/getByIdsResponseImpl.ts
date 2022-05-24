@@ -7,16 +7,15 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Provides operations to call the getByIds method. */
 export class GetByIdsResponseImpl implements AdditionalDataHolder, GetByIdsResponse, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The value property */
-    value?: DirectoryObject[] | undefined;
+    public value?: DirectoryObject[] | undefined;
     /**
      * Instantiates a new getByIdsResponse and sets the default values.
      * @param getByIdsResponseParameterValue 
      */
     public constructor(getByIdsResponseParameterValue?: GetByIdsResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = getByIdsResponseParameterValue?.additionalData ? {} : getByIdsResponseParameterValue?.additionalData!
+        this.additionalData = getByIdsResponseParameterValue?.additionalData ? getByIdsResponseParameterValue?.additionalData! : {}
         this.value = getByIdsResponseParameterValue?.value ;
     };
     /**
@@ -34,8 +33,7 @@ export class GetByIdsResponseImpl implements AdditionalDataHolder, GetByIdsRespo
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        if(this.value){
-        const valueArrValue: DirectoryObjectImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new DirectoryObjectImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: DirectoryObjectImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new DirectoryObjectImpl(element));});
         writer.writeCollectionOfObjectValues<DirectoryObjectImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

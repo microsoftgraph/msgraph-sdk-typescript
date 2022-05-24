@@ -7,24 +7,23 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class BucketAggregationDefinitionImpl implements AdditionalDataHolder, BucketAggregationDefinition, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** True to specify the sort order as descending. The default is false, with the sort order as ascending. Optional. */
-    isDescending?: boolean | undefined;
+    public isDescending?: boolean | undefined;
     /** The minimum number of items that should be present in the aggregation to be returned in a bucket. Optional. */
-    minimumCount?: number | undefined;
+    public minimumCount?: number | undefined;
     /** A filter to define a matching criteria. The key should start with the specified prefix to be returned in the response. Optional. */
-    prefixFilter?: string | undefined;
+    public prefixFilter?: string | undefined;
     /** Specifies the manual ranges to compute the aggregations. This is only valid for non-string refiners of date or numeric type. Optional. */
-    ranges?: BucketAggregationRange[] | undefined;
+    public ranges?: BucketAggregationRange[] | undefined;
     /** The possible values are count to sort by the number of matches in the aggregation, keyAsStringto sort alphabeticaly based on the key in the aggregation, keyAsNumber for numerical sorting based on the key in the aggregation. Required. */
-    sortBy?: BucketAggregationSortProperty | undefined;
+    public sortBy?: BucketAggregationSortProperty | undefined;
     /**
      * Instantiates a new bucketAggregationDefinition and sets the default values.
      * @param bucketAggregationDefinitionParameterValue 
      */
     public constructor(bucketAggregationDefinitionParameterValue?: BucketAggregationDefinition | undefined) {
-        this.additionalData = {};
-        this.additionalData = bucketAggregationDefinitionParameterValue?.additionalData ? {} : bucketAggregationDefinitionParameterValue?.additionalData!
+        this.additionalData = bucketAggregationDefinitionParameterValue?.additionalData ? bucketAggregationDefinitionParameterValue?.additionalData! : {}
         this.isDescending = bucketAggregationDefinitionParameterValue?.isDescending ;
         this.minimumCount = bucketAggregationDefinitionParameterValue?.minimumCount ;
         this.prefixFilter = bucketAggregationDefinitionParameterValue?.prefixFilter ;
@@ -51,23 +50,18 @@ export class BucketAggregationDefinitionImpl implements AdditionalDataHolder, Bu
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.isDescending){
-        if(this.isDescending)
         writer.writeBooleanValue("isDescending", this.isDescending);
         }
         if(this.minimumCount){
-        if(this.minimumCount)
         writer.writeNumberValue("minimumCount", this.minimumCount);
         }
         if(this.prefixFilter){
-        if(this.prefixFilter)
         writer.writeStringValue("prefixFilter", this.prefixFilter);
         }
-        if(this.ranges){
-        const rangesArrValue: BucketAggregationRangeImpl[] = []; this.ranges?.forEach(element => {rangesArrValue.push(new BucketAggregationRangeImpl(element));});
+        if(this.ranges && this.ranges.length != 0){        const rangesArrValue: BucketAggregationRangeImpl[] = []; this.ranges?.forEach(element => {rangesArrValue.push(new BucketAggregationRangeImpl(element));});
         writer.writeCollectionOfObjectValues<BucketAggregationRangeImpl>("ranges", rangesArrValue);
         }
         if(this.sortBy){
-        if(this.sortBy)
         writer.writeEnumValue<BucketAggregationSortProperty>("sortBy", this.sortBy);
         }
         writer.writeAdditionalData(this.additionalData);

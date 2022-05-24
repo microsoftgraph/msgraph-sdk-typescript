@@ -5,24 +5,23 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Device action result */
 export class DeviceActionResultImpl implements AdditionalDataHolder, DeviceActionResult, Parsable {
     /** Action name */
-    actionName?: string | undefined;
+    public actionName?: string | undefined;
     /** State of the action. Possible values are: none, pending, canceled, active, done, failed, notSupported. */
-    actionState?: ActionState | undefined;
+    public actionState?: ActionState | undefined;
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** Time the action state was last updated */
-    lastUpdatedDateTime?: Date | undefined;
+    public lastUpdatedDateTime?: Date | undefined;
     /** Time the action was initiated */
-    startDateTime?: Date | undefined;
+    public startDateTime?: Date | undefined;
     /**
      * Instantiates a new deviceActionResult and sets the default values.
      * @param deviceActionResultParameterValue 
      */
     public constructor(deviceActionResultParameterValue?: DeviceActionResult | undefined) {
-        this.additionalData = {};
         this.actionName = deviceActionResultParameterValue?.actionName ;
         this.actionState = deviceActionResultParameterValue?.actionState ;
-        this.additionalData = deviceActionResultParameterValue?.additionalData ? {} : deviceActionResultParameterValue?.additionalData!
+        this.additionalData = deviceActionResultParameterValue?.additionalData ? deviceActionResultParameterValue?.additionalData! : {}
         this.lastUpdatedDateTime = deviceActionResultParameterValue?.lastUpdatedDateTime ;
         this.startDateTime = deviceActionResultParameterValue?.startDateTime ;
     };
@@ -45,19 +44,15 @@ export class DeviceActionResultImpl implements AdditionalDataHolder, DeviceActio
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.actionName){
-        if(this.actionName)
         writer.writeStringValue("actionName", this.actionName);
         }
         if(this.actionState){
-        if(this.actionState)
         writer.writeEnumValue<ActionState>("actionState", this.actionState);
         }
         if(this.lastUpdatedDateTime){
-        if(this.lastUpdatedDateTime)
         writer.writeDateValue("lastUpdatedDateTime", this.lastUpdatedDateTime);
         }
         if(this.startDateTime){
-        if(this.startDateTime)
         writer.writeDateValue("startDateTime", this.startDateTime);
         }
         writer.writeAdditionalData(this.additionalData);

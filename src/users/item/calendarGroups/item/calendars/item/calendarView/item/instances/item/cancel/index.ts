@@ -1,3 +1,3 @@
-export * from './cancelRequestBodyImpl'
-export * from './cancelRequestBody'
+export * from './cancelPostRequestBodyImpl'
 export * from './cancelRequestBuilderPostRequestConfiguration'
+export * from './cancelPostRequestBody'

@@ -20,27 +20,28 @@ import {Subscription} from './subscription';
 import {SystemFacet} from './systemFacet';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to group. */
 export class ListImpl extends BaseItemImpl implements List, Parsable {
     /** The collection of field definitions for this list. */
-    columns?: ColumnDefinition[] | undefined;
+    public columns?: ColumnDefinition[] | undefined;
     /** The collection of content types present in this list. */
-    contentTypes?: ContentType[] | undefined;
+    public contentTypes?: ContentType[] | undefined;
     /** The displayable title of the list. */
-    displayName?: string | undefined;
+    public displayName?: string | undefined;
     /** Only present on document libraries. Allows access to the list as a [drive][] resource with [driveItems][driveItem]. */
-    drive?: Drive | undefined;
+    public drive?: Drive | undefined;
     /** All items contained in the list. */
-    items?: ListItem[] | undefined;
+    public items?: ListItem[] | undefined;
     /** Provides additional details about the list. */
-    list?: ListInfo | undefined;
+    public list?: ListInfo | undefined;
     /** The collection of long running operations for the list. */
-    operations?: RichLongRunningOperation[] | undefined;
+    public operations?: RichLongRunningOperation[] | undefined;
     /** Returns identifiers useful for SharePoint REST compatibility. Read-only. */
-    sharepointIds?: SharepointIds | undefined;
+    public sharepointIds?: SharepointIds | undefined;
     /** The set of subscriptions on the list. */
-    subscriptions?: Subscription[] | undefined;
+    public subscriptions?: Subscription[] | undefined;
     /** If present, indicates that this is a system-managed list. Read-only. */
-    system?: SystemFacet | undefined;
+    public system?: SystemFacet | undefined;
     /**
      * Instantiates a new list and sets the default values.
      * @param listParameterValue 
@@ -83,44 +84,34 @@ export class ListImpl extends BaseItemImpl implements List, Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.columns){
-        const columnsArrValue: ColumnDefinitionImpl[] = []; this.columns?.forEach(element => {columnsArrValue.push(new ColumnDefinitionImpl(element));});
+        if(this.columns && this.columns.length != 0){        const columnsArrValue: ColumnDefinitionImpl[] = []; this.columns?.forEach(element => {columnsArrValue.push(new ColumnDefinitionImpl(element));});
         writer.writeCollectionOfObjectValues<ColumnDefinitionImpl>("columns", columnsArrValue);
         }
-        if(this.contentTypes){
-        const contentTypesArrValue: ContentTypeImpl[] = []; this.contentTypes?.forEach(element => {contentTypesArrValue.push(new ContentTypeImpl(element));});
+        if(this.contentTypes && this.contentTypes.length != 0){        const contentTypesArrValue: ContentTypeImpl[] = []; this.contentTypes?.forEach(element => {contentTypesArrValue.push(new ContentTypeImpl(element));});
         writer.writeCollectionOfObjectValues<ContentTypeImpl>("contentTypes", contentTypesArrValue);
         }
         if(this.displayName){
-        if(this.displayName)
         writer.writeStringValue("displayName", this.displayName);
         }
         if(this.drive){
-        if(this.drive)
         writer.writeObjectValue<DriveImpl>("drive", new DriveImpl(this.drive));
         }
-        if(this.items){
-        const itemsArrValue: ListItemImpl[] = []; this.items?.forEach(element => {itemsArrValue.push(new ListItemImpl(element));});
+        if(this.items && this.items.length != 0){        const itemsArrValue: ListItemImpl[] = []; this.items?.forEach(element => {itemsArrValue.push(new ListItemImpl(element));});
         writer.writeCollectionOfObjectValues<ListItemImpl>("items", itemsArrValue);
         }
         if(this.list){
-        if(this.list)
         writer.writeObjectValue<ListInfoImpl>("list", new ListInfoImpl(this.list));
         }
-        if(this.operations){
-        const operationsArrValue: RichLongRunningOperationImpl[] = []; this.operations?.forEach(element => {operationsArrValue.push(new RichLongRunningOperationImpl(element));});
+        if(this.operations && this.operations.length != 0){        const operationsArrValue: RichLongRunningOperationImpl[] = []; this.operations?.forEach(element => {operationsArrValue.push(new RichLongRunningOperationImpl(element));});
         writer.writeCollectionOfObjectValues<RichLongRunningOperationImpl>("operations", operationsArrValue);
         }
         if(this.sharepointIds){
-        if(this.sharepointIds)
         writer.writeObjectValue<SharepointIdsImpl>("sharepointIds", new SharepointIdsImpl(this.sharepointIds));
         }
-        if(this.subscriptions){
-        const subscriptionsArrValue: SubscriptionImpl[] = []; this.subscriptions?.forEach(element => {subscriptionsArrValue.push(new SubscriptionImpl(element));});
+        if(this.subscriptions && this.subscriptions.length != 0){        const subscriptionsArrValue: SubscriptionImpl[] = []; this.subscriptions?.forEach(element => {subscriptionsArrValue.push(new SubscriptionImpl(element));});
         writer.writeCollectionOfObjectValues<SubscriptionImpl>("subscriptions", subscriptionsArrValue);
         }
         if(this.system){
-        if(this.system)
         writer.writeObjectValue<SystemFacetImpl>("system", new SystemFacetImpl(this.system));
         }
     };

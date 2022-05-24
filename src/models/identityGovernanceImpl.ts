@@ -12,23 +12,22 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class IdentityGovernanceImpl implements AdditionalDataHolder, IdentityGovernance, Parsable {
     /** The accessReviews property */
-    accessReviews?: AccessReviewSet | undefined;
+    public accessReviews?: AccessReviewSet | undefined;
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The appConsent property */
-    appConsent?: AppConsentApprovalRoute | undefined;
+    public appConsent?: AppConsentApprovalRoute | undefined;
     /** The entitlementManagement property */
-    entitlementManagement?: EntitlementManagement | undefined;
+    public entitlementManagement?: EntitlementManagement | undefined;
     /** The termsOfUse property */
-    termsOfUse?: TermsOfUseContainer | undefined;
+    public termsOfUse?: TermsOfUseContainer | undefined;
     /**
      * Instantiates a new IdentityGovernance and sets the default values.
      * @param identityGovernanceParameterValue 
      */
     public constructor(identityGovernanceParameterValue?: IdentityGovernance | undefined) {
-        this.additionalData = {};
         this.accessReviews = identityGovernanceParameterValue?.accessReviews ;
-        this.additionalData = identityGovernanceParameterValue?.additionalData ? {} : identityGovernanceParameterValue?.additionalData!
+        this.additionalData = identityGovernanceParameterValue?.additionalData ? identityGovernanceParameterValue?.additionalData! : {}
         this.appConsent = identityGovernanceParameterValue?.appConsent ;
         this.entitlementManagement = identityGovernanceParameterValue?.entitlementManagement ;
         this.termsOfUse = identityGovernanceParameterValue?.termsOfUse ;
@@ -52,19 +51,15 @@ export class IdentityGovernanceImpl implements AdditionalDataHolder, IdentityGov
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.accessReviews){
-        if(this.accessReviews)
         writer.writeObjectValue<AccessReviewSetImpl>("accessReviews", new AccessReviewSetImpl(this.accessReviews));
         }
         if(this.appConsent){
-        if(this.appConsent)
         writer.writeObjectValue<AppConsentApprovalRouteImpl>("appConsent", new AppConsentApprovalRouteImpl(this.appConsent));
         }
         if(this.entitlementManagement){
-        if(this.entitlementManagement)
         writer.writeObjectValue<EntitlementManagementImpl>("entitlementManagement", new EntitlementManagementImpl(this.entitlementManagement));
         }
         if(this.termsOfUse){
-        if(this.termsOfUse)
         writer.writeObjectValue<TermsOfUseContainerImpl>("termsOfUse", new TermsOfUseContainerImpl(this.termsOfUse));
         }
         writer.writeAdditionalData(this.additionalData);

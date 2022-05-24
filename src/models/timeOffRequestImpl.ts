@@ -2,13 +2,14 @@ import {ScheduleChangeRequestImpl} from './index';
 import {TimeOffRequest} from './timeOffRequest';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to group. */
 export class TimeOffRequestImpl extends ScheduleChangeRequestImpl implements Parsable, TimeOffRequest {
     /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
-    endDateTime?: Date | undefined;
+    public endDateTime?: Date | undefined;
     /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
-    startDateTime?: Date | undefined;
+    public startDateTime?: Date | undefined;
     /** The reason for the time off. */
-    timeOffReasonId?: string | undefined;
+    public timeOffReasonId?: string | undefined;
     /**
      * Instantiates a new timeOffRequest and sets the default values.
      * @param timeOffRequestParameterValue 
@@ -38,15 +39,12 @@ export class TimeOffRequestImpl extends ScheduleChangeRequestImpl implements Par
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.endDateTime){
-        if(this.endDateTime)
         writer.writeDateValue("endDateTime", this.endDateTime);
         }
         if(this.startDateTime){
-        if(this.startDateTime)
         writer.writeDateValue("startDateTime", this.startDateTime);
         }
         if(this.timeOffReasonId){
-        if(this.timeOffReasonId)
         writer.writeStringValue("timeOffReasonId", this.timeOffReasonId);
         }
     };

@@ -1,5 +1,5 @@
-import {UpdateWindowsDeviceAccountRequestBodyImpl} from './index';
-import {UpdateWindowsDeviceAccountRequestBody} from './updateWindowsDeviceAccountRequestBody';
+import {UpdateWindowsDeviceAccountPostRequestBodyImpl} from './index';
+import {UpdateWindowsDeviceAccountPostRequestBody} from './updateWindowsDeviceAccountPostRequestBody';
 import {UpdateWindowsDeviceAccountRequestBuilderPostRequestConfiguration} from './updateWindowsDeviceAccountRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
@@ -30,7 +30,7 @@ export class UpdateWindowsDeviceAccountRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public createPostRequestInformation(body: UpdateWindowsDeviceAccountRequestBody | undefined, requestConfiguration?: UpdateWindowsDeviceAccountRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public createPostRequestInformation(body: UpdateWindowsDeviceAccountPostRequestBody | undefined, requestConfiguration?: UpdateWindowsDeviceAccountRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -40,8 +40,8 @@ export class UpdateWindowsDeviceAccountRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        const bodyParsable = new UpdateWindowsDeviceAccountRequestBodyImpl(body)
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", bodyParsable);
+        const parsableBody = new UpdateWindowsDeviceAccountPostRequestBodyImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -50,7 +50,7 @@ export class UpdateWindowsDeviceAccountRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public post(body: UpdateWindowsDeviceAccountRequestBody | undefined, requestConfiguration?: UpdateWindowsDeviceAccountRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public post(body: UpdateWindowsDeviceAccountPostRequestBody | undefined, requestConfiguration?: UpdateWindowsDeviceAccountRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration

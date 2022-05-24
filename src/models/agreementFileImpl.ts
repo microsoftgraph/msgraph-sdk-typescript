@@ -4,9 +4,10 @@ import {createAgreementFileLocalizationFromDiscriminatorValue} from './createAgr
 import {AgreementFileLocalizationImpl, AgreementFilePropertiesImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the collection of agreement entities. */
 export class AgreementFileImpl extends AgreementFilePropertiesImpl implements AgreementFile, Parsable {
     /** The localized version of the terms of use agreement files attached to the agreement. */
-    localizations?: AgreementFileLocalization[] | undefined;
+    public localizations?: AgreementFileLocalization[] | undefined;
     /**
      * Instantiates a new agreementFile and sets the default values.
      * @param agreementFileParameterValue 
@@ -31,8 +32,7 @@ export class AgreementFileImpl extends AgreementFilePropertiesImpl implements Ag
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.localizations){
-        const localizationsArrValue: AgreementFileLocalizationImpl[] = []; this.localizations?.forEach(element => {localizationsArrValue.push(new AgreementFileLocalizationImpl(element));});
+        if(this.localizations && this.localizations.length != 0){        const localizationsArrValue: AgreementFileLocalizationImpl[] = []; this.localizations?.forEach(element => {localizationsArrValue.push(new AgreementFileLocalizationImpl(element));});
         writer.writeCollectionOfObjectValues<AgreementFileLocalizationImpl>("localizations", localizationsArrValue);
         }
     };

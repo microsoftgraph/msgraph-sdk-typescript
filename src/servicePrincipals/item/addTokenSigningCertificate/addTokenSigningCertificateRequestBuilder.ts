@@ -1,9 +1,8 @@
 import {SelfSignedCertificateImpl} from '../../../models/';
 import {createSelfSignedCertificateFromDiscriminatorValue} from '../../../models/createSelfSignedCertificateFromDiscriminatorValue';
-import {SelfSignedCertificate} from '../../../models/selfSignedCertificate';
 import {AddTokenSigningCertificateRequestBuilderPostRequestConfiguration} from './addTokenSigningCertificateRequestBuilderPostRequestConfiguration';
-import {SelfSignedCertificateRequestBodyImpl} from './index';
-import {SelfSignedCertificateRequestBody} from './selfSignedCertificateRequestBody';
+import {SelfSignedCertificatePostRequestBodyImpl} from './index';
+import {SelfSignedCertificatePostRequestBody} from './selfSignedCertificatePostRequestBody';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the addTokenSigningCertificate method. */
@@ -33,7 +32,7 @@ export class AddTokenSigningCertificateRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public createPostRequestInformation(body: SelfSignedCertificateRequestBody | undefined, requestConfiguration?: AddTokenSigningCertificateRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public createPostRequestInformation(body: SelfSignedCertificatePostRequestBody | undefined, requestConfiguration?: AddTokenSigningCertificateRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -43,8 +42,8 @@ export class AddTokenSigningCertificateRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        const bodyParsable = new SelfSignedCertificateRequestBodyImpl(body)
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", bodyParsable);
+        const parsableBody = new SelfSignedCertificatePostRequestBodyImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -54,7 +53,7 @@ export class AddTokenSigningCertificateRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of SelfSignedCertificate
      */
-    public post(body: SelfSignedCertificateRequestBody | undefined, requestConfiguration?: AddTokenSigningCertificateRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<SelfSignedCertificate | undefined> {
+    public post(body: SelfSignedCertificatePostRequestBody | undefined, requestConfiguration?: AddTokenSigningCertificateRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<SelfSignedCertificateImpl | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration

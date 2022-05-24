@@ -5,13 +5,14 @@ import {ServiceHealthIssue} from './serviceHealthIssue';
 import {ServiceHealthStatus} from './serviceHealthStatus';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the admin singleton. */
 export class ServiceHealthImpl extends EntityImpl implements Parsable, ServiceHealth {
     /** A collection of issues that happened on the service, with detailed information for each issue. */
-    issues?: ServiceHealthIssue[] | undefined;
+    public issues?: ServiceHealthIssue[] | undefined;
     /** The service name. Use the list healthOverviews operation to get exact string names for services subscribed by the tenant. */
-    service?: string | undefined;
+    public service?: string | undefined;
     /** Show the overall service health status. Possible values are: serviceOperational, investigating, restoringService, verifyingService, serviceRestored, postIncidentReviewPublished, serviceDegradation, serviceInterruption, extendedRecovery, falsePositive, investigationSuspended, resolved, mitigatedExternal, mitigated, resolvedExternal, confirmed, reported, unknownFutureValue. For more details, see serviceHealthStatus values. */
-    status?: ServiceHealthStatus | undefined;
+    public status?: ServiceHealthStatus | undefined;
     /**
      * Instantiates a new serviceHealth and sets the default values.
      * @param serviceHealthParameterValue 
@@ -40,16 +41,13 @@ export class ServiceHealthImpl extends EntityImpl implements Parsable, ServiceHe
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.issues){
-        const issuesArrValue: ServiceHealthIssueImpl[] = []; this.issues?.forEach(element => {issuesArrValue.push(new ServiceHealthIssueImpl(element));});
+        if(this.issues && this.issues.length != 0){        const issuesArrValue: ServiceHealthIssueImpl[] = []; this.issues?.forEach(element => {issuesArrValue.push(new ServiceHealthIssueImpl(element));});
         writer.writeCollectionOfObjectValues<ServiceHealthIssueImpl>("issues", issuesArrValue);
         }
         if(this.service){
-        if(this.service)
         writer.writeStringValue("service", this.service);
         }
         if(this.status){
-        if(this.status)
         writer.writeEnumValue<ServiceHealthStatus>("status", this.status);
         }
     };

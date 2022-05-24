@@ -4,7 +4,7 @@ import {WorkbookChartPointFormat} from './workbookChartPointFormat';
 
 export interface WorkbookChartPoint extends Entity{
     /** Encapsulates the format properties chart point. Read-only. */
-    format?: WorkbookChartPointFormat | undefined;
+    format?:WorkbookChartPointFormat | undefined;
     /** Returns the value of a chart point. Read-only. */
-    value?: Json | undefined;
+    value?:Json | undefined;
 }

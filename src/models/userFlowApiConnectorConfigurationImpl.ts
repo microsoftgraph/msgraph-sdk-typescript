@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class UserFlowApiConnectorConfigurationImpl implements AdditionalDataHolder, Parsable, UserFlowApiConnectorConfiguration {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The postAttributeCollection property */
-    postAttributeCollection?: IdentityApiConnector | undefined;
+    public postAttributeCollection?: IdentityApiConnector | undefined;
     /** The postFederationSignup property */
-    postFederationSignup?: IdentityApiConnector | undefined;
+    public postFederationSignup?: IdentityApiConnector | undefined;
     /**
      * Instantiates a new userFlowApiConnectorConfiguration and sets the default values.
      * @param userFlowApiConnectorConfigurationParameterValue 
      */
     public constructor(userFlowApiConnectorConfigurationParameterValue?: UserFlowApiConnectorConfiguration | undefined) {
-        this.additionalData = {};
-        this.additionalData = userFlowApiConnectorConfigurationParameterValue?.additionalData ? {} : userFlowApiConnectorConfigurationParameterValue?.additionalData!
+        this.additionalData = userFlowApiConnectorConfigurationParameterValue?.additionalData ? userFlowApiConnectorConfigurationParameterValue?.additionalData! : {}
         this.postAttributeCollection = userFlowApiConnectorConfigurationParameterValue?.postAttributeCollection ;
         this.postFederationSignup = userFlowApiConnectorConfigurationParameterValue?.postFederationSignup ;
     };
@@ -38,11 +37,9 @@ export class UserFlowApiConnectorConfigurationImpl implements AdditionalDataHold
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.postAttributeCollection){
-        if(this.postAttributeCollection)
         writer.writeObjectValue<IdentityApiConnectorImpl>("postAttributeCollection", new IdentityApiConnectorImpl(this.postAttributeCollection));
         }
         if(this.postFederationSignup){
-        if(this.postFederationSignup)
         writer.writeObjectValue<IdentityApiConnectorImpl>("postFederationSignup", new IdentityApiConnectorImpl(this.postFederationSignup));
         }
         writer.writeAdditionalData(this.additionalData);

@@ -3,21 +3,21 @@ import {WorkbookIcon} from './workbookIcon';
 
 export interface WorkbookFilterCriteria{
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    additionalData?:Record<string, unknown>;
     /** The color property */
-    color?: string | undefined;
+    color?:string | undefined;
     /** The criterion1 property */
-    criterion1?: string | undefined;
+    criterion1?:string | undefined;
     /** The criterion2 property */
-    criterion2?: string | undefined;
+    criterion2?:string | undefined;
     /** The dynamicCriteria property */
-    dynamicCriteria?: string | undefined;
+    dynamicCriteria?:string | undefined;
     /** The filterOn property */
-    filterOn?: string | undefined;
+    filterOn?:string | undefined;
     /** The icon property */
-    icon?: WorkbookIcon | undefined;
+    icon?:WorkbookIcon | undefined;
     /** The operator property */
-    operator?: string | undefined;
+    operator?:string | undefined;
     /** The values property */
-    values?: Json | undefined;
+    values?:Json | undefined;
 }

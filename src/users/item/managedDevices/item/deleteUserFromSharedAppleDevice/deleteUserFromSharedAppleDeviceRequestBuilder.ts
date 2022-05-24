@@ -1,6 +1,6 @@
-import {DeleteUserFromSharedAppleDeviceRequestBody} from './deleteUserFromSharedAppleDeviceRequestBody';
+import {DeleteUserFromSharedAppleDevicePostRequestBody} from './deleteUserFromSharedAppleDevicePostRequestBody';
 import {DeleteUserFromSharedAppleDeviceRequestBuilderPostRequestConfiguration} from './deleteUserFromSharedAppleDeviceRequestBuilderPostRequestConfiguration';
-import {DeleteUserFromSharedAppleDeviceRequestBodyImpl} from './index';
+import {DeleteUserFromSharedAppleDevicePostRequestBodyImpl} from './index';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the deleteUserFromSharedAppleDevice method. */
@@ -30,7 +30,7 @@ export class DeleteUserFromSharedAppleDeviceRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public createPostRequestInformation(body: DeleteUserFromSharedAppleDeviceRequestBody | undefined, requestConfiguration?: DeleteUserFromSharedAppleDeviceRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public createPostRequestInformation(body: DeleteUserFromSharedAppleDevicePostRequestBody | undefined, requestConfiguration?: DeleteUserFromSharedAppleDeviceRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -40,8 +40,8 @@ export class DeleteUserFromSharedAppleDeviceRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        const bodyParsable = new DeleteUserFromSharedAppleDeviceRequestBodyImpl(body)
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", bodyParsable);
+        const parsableBody = new DeleteUserFromSharedAppleDevicePostRequestBodyImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -50,7 +50,7 @@ export class DeleteUserFromSharedAppleDeviceRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public post(body: DeleteUserFromSharedAppleDeviceRequestBody | undefined, requestConfiguration?: DeleteUserFromSharedAppleDeviceRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public post(body: DeleteUserFromSharedAppleDevicePostRequestBody | undefined, requestConfiguration?: DeleteUserFromSharedAppleDeviceRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration

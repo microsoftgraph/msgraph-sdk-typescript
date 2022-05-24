@@ -3,16 +3,15 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class EducationOnPremisesInfoImpl implements AdditionalDataHolder, EducationOnPremisesInfo, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** Unique identifier for the user object in Active Directory. */
-    immutableId?: string | undefined;
+    public immutableId?: string | undefined;
     /**
      * Instantiates a new educationOnPremisesInfo and sets the default values.
      * @param educationOnPremisesInfoParameterValue 
      */
     public constructor(educationOnPremisesInfoParameterValue?: EducationOnPremisesInfo | undefined) {
-        this.additionalData = {};
-        this.additionalData = educationOnPremisesInfoParameterValue?.additionalData ? {} : educationOnPremisesInfoParameterValue?.additionalData!
+        this.additionalData = educationOnPremisesInfoParameterValue?.additionalData ? educationOnPremisesInfoParameterValue?.additionalData! : {}
         this.immutableId = educationOnPremisesInfoParameterValue?.immutableId ;
     };
     /**
@@ -31,7 +30,6 @@ export class EducationOnPremisesInfoImpl implements AdditionalDataHolder, Educat
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.immutableId){
-        if(this.immutableId)
         writer.writeStringValue("immutableId", this.immutableId);
         }
         writer.writeAdditionalData(this.additionalData);

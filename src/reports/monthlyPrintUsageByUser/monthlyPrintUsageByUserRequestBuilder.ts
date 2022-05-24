@@ -4,7 +4,6 @@ import {createPrintUsageByUserFromDiscriminatorValue} from '../../models/createP
 import {ODataErrorImpl} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {PrintUsageByUser} from '../../models/printUsageByUser';
-import {PrintUsageByUserCollectionResponse} from '../../models/printUsageByUserCollectionResponse';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {MonthlyPrintUsageByUserRequestBuilderGetRequestConfiguration} from './monthlyPrintUsageByUserRequestBuilderGetRequestConfiguration';
 import {MonthlyPrintUsageByUserRequestBuilderPostRequestConfiguration} from './monthlyPrintUsageByUserRequestBuilderPostRequestConfiguration';
@@ -68,8 +67,8 @@ export class MonthlyPrintUsageByUserRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        const bodyParsable = new PrintUsageByUserImpl(body)
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", bodyParsable);
+        const parsableBody = new PrintUsageByUserImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -78,7 +77,7 @@ export class MonthlyPrintUsageByUserRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of PrintUsageByUserCollectionResponse
      */
-    public get(requestConfiguration?: MonthlyPrintUsageByUserRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<PrintUsageByUserCollectionResponse | undefined> {
+    public get(requestConfiguration?: MonthlyPrintUsageByUserRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<PrintUsageByUserCollectionResponseImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -95,7 +94,7 @@ export class MonthlyPrintUsageByUserRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of PrintUsageByUser
      */
-    public post(body: PrintUsageByUser | undefined, requestConfiguration?: MonthlyPrintUsageByUserRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<PrintUsageByUser | undefined> {
+    public post(body: PrintUsageByUser | undefined, requestConfiguration?: MonthlyPrintUsageByUserRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<PrintUsageByUserImpl | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration

@@ -6,20 +6,19 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class ColumnValidationImpl implements AdditionalDataHolder, ColumnValidation, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** Default BCP 47 language tag for the description. */
-    defaultLanguage?: string | undefined;
+    public defaultLanguage?: string | undefined;
     /** Localized messages that explain what is needed for this column's value to be considered valid. User will be prompted with this message if validation fails. */
-    descriptions?: DisplayNameLocalization[] | undefined;
+    public descriptions?: DisplayNameLocalization[] | undefined;
     /** The formula to validate column value. For examples, see Examples of common formulas in lists */
-    formula?: string | undefined;
+    public formula?: string | undefined;
     /**
      * Instantiates a new columnValidation and sets the default values.
      * @param columnValidationParameterValue 
      */
     public constructor(columnValidationParameterValue?: ColumnValidation | undefined) {
-        this.additionalData = {};
-        this.additionalData = columnValidationParameterValue?.additionalData ? {} : columnValidationParameterValue?.additionalData!
+        this.additionalData = columnValidationParameterValue?.additionalData ? columnValidationParameterValue?.additionalData! : {}
         this.defaultLanguage = columnValidationParameterValue?.defaultLanguage ;
         this.descriptions = columnValidationParameterValue?.descriptions ;
         this.formula = columnValidationParameterValue?.formula ;
@@ -42,15 +41,12 @@ export class ColumnValidationImpl implements AdditionalDataHolder, ColumnValidat
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.defaultLanguage){
-        if(this.defaultLanguage)
         writer.writeStringValue("defaultLanguage", this.defaultLanguage);
         }
-        if(this.descriptions){
-        const descriptionsArrValue: DisplayNameLocalizationImpl[] = []; this.descriptions?.forEach(element => {descriptionsArrValue.push(new DisplayNameLocalizationImpl(element));});
+        if(this.descriptions && this.descriptions.length != 0){        const descriptionsArrValue: DisplayNameLocalizationImpl[] = []; this.descriptions?.forEach(element => {descriptionsArrValue.push(new DisplayNameLocalizationImpl(element));});
         writer.writeCollectionOfObjectValues<DisplayNameLocalizationImpl>("descriptions", descriptionsArrValue);
         }
         if(this.formula){
-        if(this.formula)
         writer.writeStringValue("formula", this.formula);
         }
         writer.writeAdditionalData(this.additionalData);

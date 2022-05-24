@@ -1,5 +1,4 @@
 import {CertificateBasedAuthConfigurationImpl} from '../../../../models/';
-import {CertificateBasedAuthConfiguration} from '../../../../models/certificateBasedAuthConfiguration';
 import {createCertificateBasedAuthConfigurationFromDiscriminatorValue} from '../../../../models/createCertificateBasedAuthConfigurationFromDiscriminatorValue';
 import {ODataErrorImpl} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
@@ -50,7 +49,7 @@ export class CertificateBasedAuthConfigurationItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of CertificateBasedAuthConfiguration
      */
-    public get(requestConfiguration?: CertificateBasedAuthConfigurationItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<CertificateBasedAuthConfiguration | undefined> {
+    public get(requestConfiguration?: CertificateBasedAuthConfigurationItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<CertificateBasedAuthConfigurationImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );

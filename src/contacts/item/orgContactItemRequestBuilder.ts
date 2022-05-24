@@ -94,7 +94,7 @@ export class OrgContactItemRequestBuilder {
         return requestInfo;
     };
     /**
-     * Get orgContact
+     * Get the properties and relationships of an organizational contact object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -126,8 +126,8 @@ export class OrgContactItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        const bodyParsable = new OrgContactImpl(body)
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", bodyParsable);
+        const parsableBody = new OrgContactImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -157,12 +157,12 @@ export class OrgContactItemRequestBuilder {
         return new i215ad6eb4a45ed78b694703e6d7d2a8f4376af39e5d231e7a5af206c093c9687(urlTplParams, this.requestAdapter);
     };
     /**
-     * Get orgContact
+     * Get the properties and relationships of an organizational contact object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of OrgContact
      */
-    public get(requestConfiguration?: OrgContactItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<OrgContact | undefined> {
+    public get(requestConfiguration?: OrgContactItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<OrgContactImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );

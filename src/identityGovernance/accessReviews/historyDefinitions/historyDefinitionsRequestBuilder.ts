@@ -1,6 +1,5 @@
 import {AccessReviewHistoryDefinitionCollectionResponseImpl, AccessReviewHistoryDefinitionImpl} from '../../../models/';
 import {AccessReviewHistoryDefinition} from '../../../models/accessReviewHistoryDefinition';
-import {AccessReviewHistoryDefinitionCollectionResponse} from '../../../models/accessReviewHistoryDefinitionCollectionResponse';
 import {createAccessReviewHistoryDefinitionCollectionResponseFromDiscriminatorValue} from '../../../models/createAccessReviewHistoryDefinitionCollectionResponseFromDiscriminatorValue';
 import {createAccessReviewHistoryDefinitionFromDiscriminatorValue} from '../../../models/createAccessReviewHistoryDefinitionFromDiscriminatorValue';
 import {ODataErrorImpl} from '../../../models/oDataErrors/';
@@ -68,8 +67,8 @@ export class HistoryDefinitionsRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        const bodyParsable = new AccessReviewHistoryDefinitionImpl(body)
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", bodyParsable);
+        const parsableBody = new AccessReviewHistoryDefinitionImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -78,7 +77,7 @@ export class HistoryDefinitionsRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AccessReviewHistoryDefinitionCollectionResponse
      */
-    public get(requestConfiguration?: HistoryDefinitionsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AccessReviewHistoryDefinitionCollectionResponse | undefined> {
+    public get(requestConfiguration?: HistoryDefinitionsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AccessReviewHistoryDefinitionCollectionResponseImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -95,7 +94,7 @@ export class HistoryDefinitionsRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AccessReviewHistoryDefinition
      */
-    public post(body: AccessReviewHistoryDefinition | undefined, requestConfiguration?: HistoryDefinitionsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AccessReviewHistoryDefinition | undefined> {
+    public post(body: AccessReviewHistoryDefinition | undefined, requestConfiguration?: HistoryDefinitionsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AccessReviewHistoryDefinitionImpl | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration

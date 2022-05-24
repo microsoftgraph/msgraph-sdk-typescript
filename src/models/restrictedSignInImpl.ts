@@ -2,9 +2,10 @@ import {SignInImpl} from './index';
 import {RestrictedSignIn} from './restrictedSignIn';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the auditLogRoot singleton. */
 export class RestrictedSignInImpl extends SignInImpl implements Parsable, RestrictedSignIn {
     /** The targetTenantId property */
-    targetTenantId?: string | undefined;
+    public targetTenantId?: string | undefined;
     /**
      * Instantiates a new restrictedSignIn and sets the default values.
      * @param restrictedSignInParameterValue 
@@ -30,7 +31,6 @@ export class RestrictedSignInImpl extends SignInImpl implements Parsable, Restri
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.targetTenantId){
-        if(this.targetTenantId)
         writer.writeStringValue("targetTenantId", this.targetTenantId);
         }
     };

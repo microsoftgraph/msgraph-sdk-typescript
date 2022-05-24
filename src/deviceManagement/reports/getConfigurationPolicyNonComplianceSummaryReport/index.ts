@@ -1,5 +1,3 @@
-export * from './getConfigurationPolicyNonComplianceSummaryReportRequestBodyImpl'
-export * from './getConfigurationPolicyNonComplianceSummaryReportResponseImpl'
-export * from './getConfigurationPolicyNonComplianceSummaryReportRequestBody'
+export * from './getConfigurationPolicyNonComplianceSummaryReportPostRequestBodyImpl'
+export * from './getConfigurationPolicyNonComplianceSummaryReportPostRequestBody'
 export * from './getConfigurationPolicyNonComplianceSummaryReportRequestBuilderPostRequestConfiguration'
-export * from './getConfigurationPolicyNonComplianceSummaryReportResponse'

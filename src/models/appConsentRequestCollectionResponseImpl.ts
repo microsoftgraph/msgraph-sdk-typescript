@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class AppConsentRequestCollectionResponseImpl implements AdditionalDataHolder, AppConsentRequestCollectionResponse, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: AppConsentRequest[] | undefined;
+    public value?: AppConsentRequest[] | undefined;
     /**
      * Instantiates a new AppConsentRequestCollectionResponse and sets the default values.
      * @param appConsentRequestCollectionResponseParameterValue 
      */
     public constructor(appConsentRequestCollectionResponseParameterValue?: AppConsentRequestCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = appConsentRequestCollectionResponseParameterValue?.additionalData ? {} : appConsentRequestCollectionResponseParameterValue?.additionalData!
+        this.additionalData = appConsentRequestCollectionResponseParameterValue?.additionalData ? appConsentRequestCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = appConsentRequestCollectionResponseParameterValue?.nextLink ;
         this.value = appConsentRequestCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class AppConsentRequestCollectionResponseImpl implements AdditionalDataHo
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: AppConsentRequestImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new AppConsentRequestImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: AppConsentRequestImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new AppConsentRequestImpl(element));});
         writer.writeCollectionOfObjectValues<AppConsentRequestImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

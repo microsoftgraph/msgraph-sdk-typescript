@@ -7,26 +7,25 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class ScheduleItemImpl implements AdditionalDataHolder, Parsable, ScheduleItem {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The date, time, and time zone that the corresponding event ends. */
-    end?: DateTimeTimeZone | undefined;
+    public end?: DateTimeTimeZone | undefined;
     /** The sensitivity of the corresponding event. True if the event is marked private, false otherwise. Optional. */
-    isPrivate?: boolean | undefined;
+    public isPrivate?: boolean | undefined;
     /** The location where the corresponding event is held or attended from. Optional. */
-    location?: string | undefined;
+    public location?: string | undefined;
     /** The date, time, and time zone that the corresponding event starts. */
-    start?: DateTimeTimeZone | undefined;
+    public start?: DateTimeTimeZone | undefined;
     /** The availability status of the user or resource during the corresponding event. The possible values are: free, tentative, busy, oof, workingElsewhere, unknown. */
-    status?: FreeBusyStatus | undefined;
+    public status?: FreeBusyStatus | undefined;
     /** The corresponding event's subject line. Optional. */
-    subject?: string | undefined;
+    public subject?: string | undefined;
     /**
      * Instantiates a new scheduleItem and sets the default values.
      * @param scheduleItemParameterValue 
      */
     public constructor(scheduleItemParameterValue?: ScheduleItem | undefined) {
-        this.additionalData = {};
-        this.additionalData = scheduleItemParameterValue?.additionalData ? {} : scheduleItemParameterValue?.additionalData!
+        this.additionalData = scheduleItemParameterValue?.additionalData ? scheduleItemParameterValue?.additionalData! : {}
         this.end = scheduleItemParameterValue?.end ;
         this.isPrivate = scheduleItemParameterValue?.isPrivate ;
         this.location = scheduleItemParameterValue?.location ;
@@ -55,27 +54,21 @@ export class ScheduleItemImpl implements AdditionalDataHolder, Parsable, Schedul
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.end){
-        if(this.end)
         writer.writeObjectValue<DateTimeTimeZoneImpl>("end", new DateTimeTimeZoneImpl(this.end));
         }
         if(this.isPrivate){
-        if(this.isPrivate)
         writer.writeBooleanValue("isPrivate", this.isPrivate);
         }
         if(this.location){
-        if(this.location)
         writer.writeStringValue("location", this.location);
         }
         if(this.start){
-        if(this.start)
         writer.writeObjectValue<DateTimeTimeZoneImpl>("start", new DateTimeTimeZoneImpl(this.start));
         }
         if(this.status){
-        if(this.status)
         writer.writeEnumValue<FreeBusyStatus>("status", this.status);
         }
         if(this.subject){
-        if(this.subject)
         writer.writeStringValue("subject", this.subject);
         }
         writer.writeAdditionalData(this.additionalData);

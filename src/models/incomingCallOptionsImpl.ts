@@ -2,6 +2,7 @@ import {IncomingCallOptions} from './incomingCallOptions';
 import {CallOptionsImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to call the answer method. */
 export class IncomingCallOptionsImpl extends CallOptionsImpl implements IncomingCallOptions, Parsable {
     /**
      * Instantiates a new incomingCallOptions and sets the default values.

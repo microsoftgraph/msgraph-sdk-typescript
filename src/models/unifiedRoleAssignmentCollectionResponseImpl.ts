@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class UnifiedRoleAssignmentCollectionResponseImpl implements AdditionalDataHolder, Parsable, UnifiedRoleAssignmentCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: UnifiedRoleAssignment[] | undefined;
+    public value?: UnifiedRoleAssignment[] | undefined;
     /**
      * Instantiates a new UnifiedRoleAssignmentCollectionResponse and sets the default values.
      * @param unifiedRoleAssignmentCollectionResponseParameterValue 
      */
     public constructor(unifiedRoleAssignmentCollectionResponseParameterValue?: UnifiedRoleAssignmentCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = unifiedRoleAssignmentCollectionResponseParameterValue?.additionalData ? {} : unifiedRoleAssignmentCollectionResponseParameterValue?.additionalData!
+        this.additionalData = unifiedRoleAssignmentCollectionResponseParameterValue?.additionalData ? unifiedRoleAssignmentCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = unifiedRoleAssignmentCollectionResponseParameterValue?.nextLink ;
         this.value = unifiedRoleAssignmentCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class UnifiedRoleAssignmentCollectionResponseImpl implements AdditionalDa
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: UnifiedRoleAssignmentImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new UnifiedRoleAssignmentImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: UnifiedRoleAssignmentImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new UnifiedRoleAssignmentImpl(element));});
         writer.writeCollectionOfObjectValues<UnifiedRoleAssignmentImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

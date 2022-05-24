@@ -6,11 +6,12 @@ import {WorkbookChartPoint} from './workbookChartPoint';
 import {WorkbookChartPointFormat} from './workbookChartPointFormat';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to user. */
 export class WorkbookChartPointImpl extends EntityImpl implements Parsable, WorkbookChartPoint {
     /** Encapsulates the format properties chart point. Read-only. */
-    format?: WorkbookChartPointFormat | undefined;
+    public format?: WorkbookChartPointFormat | undefined;
     /** Returns the value of a chart point. Read-only. */
-    value?: Json | undefined;
+    public value?: Json | undefined;
     /**
      * Instantiates a new workbookChartPoint and sets the default values.
      * @param workbookChartPointParameterValue 
@@ -38,11 +39,9 @@ export class WorkbookChartPointImpl extends EntityImpl implements Parsable, Work
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.format){
-        if(this.format)
         writer.writeObjectValue<WorkbookChartPointFormatImpl>("format", new WorkbookChartPointFormatImpl(this.format));
         }
         if(this.value){
-        if(this.value)
         writer.writeObjectValue<JsonImpl>("value", new JsonImpl(this.value));
         }
     };

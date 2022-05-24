@@ -2,17 +2,18 @@ import {EntityImpl} from './index';
 import {LocalizedNotificationMessage} from './localizedNotificationMessage';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** The text content of a Notification Message Template for the specified locale. */
 export class LocalizedNotificationMessageImpl extends EntityImpl implements LocalizedNotificationMessage, Parsable {
     /** Flag to indicate whether or not this is the default locale for language fallback. This flag can only be set. To unset, set this property to true on another Localized Notification Message. */
-    isDefault?: boolean | undefined;
+    public isDefault?: boolean | undefined;
     /** DateTime the object was last modified. */
-    lastModifiedDateTime?: Date | undefined;
+    public lastModifiedDateTime?: Date | undefined;
     /** The Locale for which this message is destined. */
-    locale?: string | undefined;
+    public locale?: string | undefined;
     /** The Message Template content. */
-    messageTemplate?: string | undefined;
+    public messageTemplate?: string | undefined;
     /** The Message Template Subject. */
-    subject?: string | undefined;
+    public subject?: string | undefined;
     /**
      * Instantiates a new localizedNotificationMessage and sets the default values.
      * @param localizedNotificationMessageParameterValue 
@@ -46,23 +47,18 @@ export class LocalizedNotificationMessageImpl extends EntityImpl implements Loca
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.isDefault){
-        if(this.isDefault)
         writer.writeBooleanValue("isDefault", this.isDefault);
         }
         if(this.lastModifiedDateTime){
-        if(this.lastModifiedDateTime)
         writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
         }
         if(this.locale){
-        if(this.locale)
         writer.writeStringValue("locale", this.locale);
         }
         if(this.messageTemplate){
-        if(this.messageTemplate)
         writer.writeStringValue("messageTemplate", this.messageTemplate);
         }
         if(this.subject){
-        if(this.subject)
         writer.writeStringValue("subject", this.subject);
         }
     };

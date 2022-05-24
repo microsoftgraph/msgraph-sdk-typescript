@@ -4,18 +4,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class ToneInfoImpl implements AdditionalDataHolder, Parsable, ToneInfo {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** An incremental identifier used for ordering DTMF events. */
-    sequenceId?: number | undefined;
+    public sequenceId?: number | undefined;
     /** Possible values are: tone0, tone1, tone2, tone3, tone4, tone5, tone6, tone7, tone8, tone9, star, pound, a, b, c, d, flash. */
-    tone?: Tone | undefined;
+    public tone?: Tone | undefined;
     /**
      * Instantiates a new toneInfo and sets the default values.
      * @param toneInfoParameterValue 
      */
     public constructor(toneInfoParameterValue?: ToneInfo | undefined) {
-        this.additionalData = {};
-        this.additionalData = toneInfoParameterValue?.additionalData ? {} : toneInfoParameterValue?.additionalData!
+        this.additionalData = toneInfoParameterValue?.additionalData ? toneInfoParameterValue?.additionalData! : {}
         this.sequenceId = toneInfoParameterValue?.sequenceId ;
         this.tone = toneInfoParameterValue?.tone ;
     };
@@ -36,11 +35,9 @@ export class ToneInfoImpl implements AdditionalDataHolder, Parsable, ToneInfo {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.sequenceId){
-        if(this.sequenceId)
         writer.writeNumberValue("sequenceId", this.sequenceId);
         }
         if(this.tone){
-        if(this.tone)
         writer.writeEnumValue<Tone>("tone", this.tone);
         }
         writer.writeAdditionalData(this.additionalData);

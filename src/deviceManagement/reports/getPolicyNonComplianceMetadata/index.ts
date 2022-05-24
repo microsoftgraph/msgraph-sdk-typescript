@@ -1,5 +1,3 @@
-export * from './getPolicyNonComplianceMetadataResponseImpl'
-export * from './getPolicyNonComplianceMetadataRequestBodyImpl'
-export * from './getPolicyNonComplianceMetadataRequestBody'
+export * from './getPolicyNonComplianceMetadataPostRequestBodyImpl'
 export * from './getPolicyNonComplianceMetadataRequestBuilderPostRequestConfiguration'
-export * from './getPolicyNonComplianceMetadataResponse'
+export * from './getPolicyNonComplianceMetadataPostRequestBody'

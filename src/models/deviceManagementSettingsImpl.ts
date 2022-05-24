@@ -3,20 +3,19 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class DeviceManagementSettingsImpl implements AdditionalDataHolder, DeviceManagementSettings, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The number of days a device is allowed to go without checking in to remain compliant. */
-    deviceComplianceCheckinThresholdDays?: number | undefined;
+    public deviceComplianceCheckinThresholdDays?: number | undefined;
     /** Is feature enabled or not for scheduled action for rule. */
-    isScheduledActionEnabled?: boolean | undefined;
+    public isScheduledActionEnabled?: boolean | undefined;
     /** Device should be noncompliant when there is no compliance policy targeted when this is true */
-    secureByDefault?: boolean | undefined;
+    public secureByDefault?: boolean | undefined;
     /**
      * Instantiates a new deviceManagementSettings and sets the default values.
      * @param deviceManagementSettingsParameterValue 
      */
     public constructor(deviceManagementSettingsParameterValue?: DeviceManagementSettings | undefined) {
-        this.additionalData = {};
-        this.additionalData = deviceManagementSettingsParameterValue?.additionalData ? {} : deviceManagementSettingsParameterValue?.additionalData!
+        this.additionalData = deviceManagementSettingsParameterValue?.additionalData ? deviceManagementSettingsParameterValue?.additionalData! : {}
         this.deviceComplianceCheckinThresholdDays = deviceManagementSettingsParameterValue?.deviceComplianceCheckinThresholdDays ;
         this.isScheduledActionEnabled = deviceManagementSettingsParameterValue?.isScheduledActionEnabled ;
         this.secureByDefault = deviceManagementSettingsParameterValue?.secureByDefault ;
@@ -39,15 +38,12 @@ export class DeviceManagementSettingsImpl implements AdditionalDataHolder, Devic
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.deviceComplianceCheckinThresholdDays){
-        if(this.deviceComplianceCheckinThresholdDays)
         writer.writeNumberValue("deviceComplianceCheckinThresholdDays", this.deviceComplianceCheckinThresholdDays);
         }
         if(this.isScheduledActionEnabled){
-        if(this.isScheduledActionEnabled)
         writer.writeBooleanValue("isScheduledActionEnabled", this.isScheduledActionEnabled);
         }
         if(this.secureByDefault){
-        if(this.secureByDefault)
         writer.writeBooleanValue("secureByDefault", this.secureByDefault);
         }
         writer.writeAdditionalData(this.additionalData);

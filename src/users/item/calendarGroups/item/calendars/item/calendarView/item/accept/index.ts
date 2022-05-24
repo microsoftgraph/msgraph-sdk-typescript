@@ -1,3 +1,3 @@
-export * from './acceptRequestBodyImpl'
-export * from './acceptRequestBody'
+export * from './acceptPostRequestBodyImpl'
 export * from './acceptRequestBuilderPostRequestConfiguration'
+export * from './acceptPostRequestBody'

@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class SchedulingGroupCollectionResponseImpl implements AdditionalDataHolder, Parsable, SchedulingGroupCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: SchedulingGroup[] | undefined;
+    public value?: SchedulingGroup[] | undefined;
     /**
      * Instantiates a new SchedulingGroupCollectionResponse and sets the default values.
      * @param schedulingGroupCollectionResponseParameterValue 
      */
     public constructor(schedulingGroupCollectionResponseParameterValue?: SchedulingGroupCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = schedulingGroupCollectionResponseParameterValue?.additionalData ? {} : schedulingGroupCollectionResponseParameterValue?.additionalData!
+        this.additionalData = schedulingGroupCollectionResponseParameterValue?.additionalData ? schedulingGroupCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = schedulingGroupCollectionResponseParameterValue?.nextLink ;
         this.value = schedulingGroupCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class SchedulingGroupCollectionResponseImpl implements AdditionalDataHold
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: SchedulingGroupImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new SchedulingGroupImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: SchedulingGroupImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new SchedulingGroupImpl(element));});
         writer.writeCollectionOfObjectValues<SchedulingGroupImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

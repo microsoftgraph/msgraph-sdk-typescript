@@ -1,3 +1,3 @@
-export * from './instantiateRequestBodyImpl'
-export * from './instantiateRequestBody'
+export * from './instantiatePostRequestBodyImpl'
 export * from './instantiateRequestBuilderPostRequestConfiguration'
+export * from './instantiatePostRequestBody'

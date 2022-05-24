@@ -6,26 +6,25 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class SearchHitImpl implements AdditionalDataHolder, Parsable, SearchHit {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The name of the content source which the externalItem is part of . */
-    contentSource?: string | undefined;
+    public contentSource?: string | undefined;
     /** The internal identifier for the item. */
-    hitId?: string | undefined;
+    public hitId?: string | undefined;
     /** The rank or the order of the result. */
-    rank?: number | undefined;
+    public rank?: number | undefined;
     /** The resource property */
-    resource?: Entity | undefined;
+    public resource?: Entity | undefined;
     /** ID of the result template for rendering the search result. This ID must map to a display layout in the resultTemplates dictionary, included in the searchresponse as well. */
-    resultTemplateId?: string | undefined;
+    public resultTemplateId?: string | undefined;
     /** A summary of the result, if a summary is available. */
-    summary?: string | undefined;
+    public summary?: string | undefined;
     /**
      * Instantiates a new searchHit and sets the default values.
      * @param searchHitParameterValue 
      */
     public constructor(searchHitParameterValue?: SearchHit | undefined) {
-        this.additionalData = {};
-        this.additionalData = searchHitParameterValue?.additionalData ? {} : searchHitParameterValue?.additionalData!
+        this.additionalData = searchHitParameterValue?.additionalData ? searchHitParameterValue?.additionalData! : {}
         this.contentSource = searchHitParameterValue?.contentSource ;
         this.hitId = searchHitParameterValue?.hitId ;
         this.rank = searchHitParameterValue?.rank ;
@@ -54,27 +53,21 @@ export class SearchHitImpl implements AdditionalDataHolder, Parsable, SearchHit 
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.contentSource){
-        if(this.contentSource)
         writer.writeStringValue("contentSource", this.contentSource);
         }
         if(this.hitId){
-        if(this.hitId)
         writer.writeStringValue("hitId", this.hitId);
         }
         if(this.rank){
-        if(this.rank)
         writer.writeNumberValue("rank", this.rank);
         }
         if(this.resource){
-        if(this.resource)
         writer.writeObjectValue<EntityImpl>("resource", new EntityImpl(this.resource));
         }
         if(this.resultTemplateId){
-        if(this.resultTemplateId)
         writer.writeStringValue("resultTemplateId", this.resultTemplateId);
         }
         if(this.summary){
-        if(this.summary)
         writer.writeStringValue("summary", this.summary);
         }
         writer.writeAdditionalData(this.additionalData);

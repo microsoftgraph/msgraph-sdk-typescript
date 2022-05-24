@@ -1,6 +1,5 @@
 import {EducationSchoolCollectionResponseImpl} from '../../../models/';
 import {createEducationSchoolCollectionResponseFromDiscriminatorValue} from '../../../models/createEducationSchoolCollectionResponseFromDiscriminatorValue';
-import {EducationSchoolCollectionResponse} from '../../../models/educationSchoolCollectionResponse';
 import {ODataErrorImpl} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
@@ -55,7 +54,7 @@ export class SchoolsRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of EducationSchoolCollectionResponse
      */
-    public get(requestConfiguration?: SchoolsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EducationSchoolCollectionResponse | undefined> {
+    public get(requestConfiguration?: SchoolsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EducationSchoolCollectionResponseImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );

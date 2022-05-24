@@ -4,24 +4,23 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class ProvisioningErrorInfoImpl implements AdditionalDataHolder, Parsable, ProvisioningErrorInfo {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** Additional details in case of error. */
-    additionalDetails?: string | undefined;
+    public additionalDetails?: string | undefined;
     /** Categorizes the error code. Possible values are failure, nonServiceFailure, success, unknownFutureValue */
-    errorCategory?: ProvisioningStatusErrorCategory | undefined;
+    public errorCategory?: ProvisioningStatusErrorCategory | undefined;
     /** Unique error code if any occurred. Learn more */
-    errorCode?: string | undefined;
+    public errorCode?: string | undefined;
     /** Summarizes the status and describes why the status happened. */
-    reason?: string | undefined;
+    public reason?: string | undefined;
     /** Provides the resolution for the corresponding error. */
-    recommendedAction?: string | undefined;
+    public recommendedAction?: string | undefined;
     /**
      * Instantiates a new provisioningErrorInfo and sets the default values.
      * @param provisioningErrorInfoParameterValue 
      */
     public constructor(provisioningErrorInfoParameterValue?: ProvisioningErrorInfo | undefined) {
-        this.additionalData = {};
-        this.additionalData = provisioningErrorInfoParameterValue?.additionalData ? {} : provisioningErrorInfoParameterValue?.additionalData!
+        this.additionalData = provisioningErrorInfoParameterValue?.additionalData ? provisioningErrorInfoParameterValue?.additionalData! : {}
         this.additionalDetails = provisioningErrorInfoParameterValue?.additionalDetails ;
         this.errorCategory = provisioningErrorInfoParameterValue?.errorCategory ;
         this.errorCode = provisioningErrorInfoParameterValue?.errorCode ;
@@ -48,23 +47,18 @@ export class ProvisioningErrorInfoImpl implements AdditionalDataHolder, Parsable
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.additionalDetails){
-        if(this.additionalDetails)
         writer.writeStringValue("additionalDetails", this.additionalDetails);
         }
         if(this.errorCategory){
-        if(this.errorCategory)
         writer.writeEnumValue<ProvisioningStatusErrorCategory>("errorCategory", this.errorCategory);
         }
         if(this.errorCode){
-        if(this.errorCode)
         writer.writeStringValue("errorCode", this.errorCode);
         }
         if(this.reason){
-        if(this.reason)
         writer.writeStringValue("reason", this.reason);
         }
         if(this.recommendedAction){
-        if(this.recommendedAction)
         writer.writeStringValue("recommendedAction", this.recommendedAction);
         }
         writer.writeAdditionalData(this.additionalData);

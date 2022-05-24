@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class AccessReviewHistoryDefinitionCollectionResponseImpl implements AccessReviewHistoryDefinitionCollectionResponse, AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: AccessReviewHistoryDefinition[] | undefined;
+    public value?: AccessReviewHistoryDefinition[] | undefined;
     /**
      * Instantiates a new AccessReviewHistoryDefinitionCollectionResponse and sets the default values.
      * @param accessReviewHistoryDefinitionCollectionResponseParameterValue 
      */
     public constructor(accessReviewHistoryDefinitionCollectionResponseParameterValue?: AccessReviewHistoryDefinitionCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = accessReviewHistoryDefinitionCollectionResponseParameterValue?.additionalData ? {} : accessReviewHistoryDefinitionCollectionResponseParameterValue?.additionalData!
+        this.additionalData = accessReviewHistoryDefinitionCollectionResponseParameterValue?.additionalData ? accessReviewHistoryDefinitionCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = accessReviewHistoryDefinitionCollectionResponseParameterValue?.nextLink ;
         this.value = accessReviewHistoryDefinitionCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class AccessReviewHistoryDefinitionCollectionResponseImpl implements Acce
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: AccessReviewHistoryDefinitionImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new AccessReviewHistoryDefinitionImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: AccessReviewHistoryDefinitionImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new AccessReviewHistoryDefinitionImpl(element));});
         writer.writeCollectionOfObjectValues<AccessReviewHistoryDefinitionImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

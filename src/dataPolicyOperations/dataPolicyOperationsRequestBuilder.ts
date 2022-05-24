@@ -2,7 +2,6 @@ import {DataPolicyOperationCollectionResponseImpl, DataPolicyOperationImpl} from
 import {createDataPolicyOperationCollectionResponseFromDiscriminatorValue} from '../models/createDataPolicyOperationCollectionResponseFromDiscriminatorValue';
 import {createDataPolicyOperationFromDiscriminatorValue} from '../models/createDataPolicyOperationFromDiscriminatorValue';
 import {DataPolicyOperation} from '../models/dataPolicyOperation';
-import {DataPolicyOperationCollectionResponse} from '../models/dataPolicyOperationCollectionResponse';
 import {ODataErrorImpl} from '../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
@@ -36,7 +35,7 @@ export class DataPolicyOperationsRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Get dataPolicyOperation
+     * Retrieve the properties of the dataPolicyOperation object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -68,17 +67,17 @@ export class DataPolicyOperationsRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        const bodyParsable = new DataPolicyOperationImpl(body)
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", bodyParsable);
+        const parsableBody = new DataPolicyOperationImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
-     * Get dataPolicyOperation
+     * Retrieve the properties of the dataPolicyOperation object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DataPolicyOperationCollectionResponse
      */
-    public get(requestConfiguration?: DataPolicyOperationsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DataPolicyOperationCollectionResponse | undefined> {
+    public get(requestConfiguration?: DataPolicyOperationsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DataPolicyOperationCollectionResponseImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -95,7 +94,7 @@ export class DataPolicyOperationsRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DataPolicyOperation
      */
-    public post(body: DataPolicyOperation | undefined, requestConfiguration?: DataPolicyOperationsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DataPolicyOperation | undefined> {
+    public post(body: DataPolicyOperation | undefined, requestConfiguration?: DataPolicyOperationsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DataPolicyOperationImpl | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration

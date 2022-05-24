@@ -5,21 +5,22 @@ import {createConnectedOrganizationFromDiscriminatorValue} from './createConnect
 import {ConnectedOrganizationImpl, EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the identityGovernance singleton. */
 export class AccessPackageSubjectImpl extends EntityImpl implements AccessPackageSubject, Parsable {
     /** The connected organization of the subject. Read-only. Nullable. */
-    connectedOrganization?: ConnectedOrganization | undefined;
+    public connectedOrganization?: ConnectedOrganization | undefined;
     /** The display name of the subject. */
-    displayName?: string | undefined;
+    public displayName?: string | undefined;
     /** The email address of the subject. */
-    email?: string | undefined;
+    public email?: string | undefined;
     /** The object identifier of the subject. null if the subject is not yet a user in the tenant. */
-    objectId?: string | undefined;
+    public objectId?: string | undefined;
     /** A string representation of the principal's security identifier, if known, or null if the subject does not have a security identifier. */
-    onPremisesSecurityIdentifier?: string | undefined;
+    public onPremisesSecurityIdentifier?: string | undefined;
     /** The principal name, if known, of the subject. */
-    principalName?: string | undefined;
+    public principalName?: string | undefined;
     /** The resource type of the subject. The possible values are: notSpecified, user, servicePrincipal, unknownFutureValue. */
-    subjectType?: AccessPackageSubjectType | undefined;
+    public subjectType?: AccessPackageSubjectType | undefined;
     /**
      * Instantiates a new accessPackageSubject and sets the default values.
      * @param accessPackageSubjectParameterValue 
@@ -57,31 +58,24 @@ export class AccessPackageSubjectImpl extends EntityImpl implements AccessPackag
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.connectedOrganization){
-        if(this.connectedOrganization)
         writer.writeObjectValue<ConnectedOrganizationImpl>("connectedOrganization", new ConnectedOrganizationImpl(this.connectedOrganization));
         }
         if(this.displayName){
-        if(this.displayName)
         writer.writeStringValue("displayName", this.displayName);
         }
         if(this.email){
-        if(this.email)
         writer.writeStringValue("email", this.email);
         }
         if(this.objectId){
-        if(this.objectId)
         writer.writeStringValue("objectId", this.objectId);
         }
         if(this.onPremisesSecurityIdentifier){
-        if(this.onPremisesSecurityIdentifier)
         writer.writeStringValue("onPremisesSecurityIdentifier", this.onPremisesSecurityIdentifier);
         }
         if(this.principalName){
-        if(this.principalName)
         writer.writeStringValue("principalName", this.principalName);
         }
         if(this.subjectType){
-        if(this.subjectType)
         writer.writeEnumValue<AccessPackageSubjectType>("subjectType", this.subjectType);
         }
     };

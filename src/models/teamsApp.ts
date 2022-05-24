@@ -4,11 +4,11 @@ import {TeamsAppDistributionMethod} from './teamsAppDistributionMethod';
 
 export interface TeamsApp extends Entity{
     /** The details for each version of the app. */
-    appDefinitions?: TeamsAppDefinition[] | undefined;
+    appDefinitions?:TeamsAppDefinition[] | undefined;
     /** The name of the catalog app provided by the app developer in the Microsoft Teams zip app package. */
-    displayName?: string | undefined;
+    displayName?:string | undefined;
     /** The method of distribution for the app. Read-only. */
-    distributionMethod?: TeamsAppDistributionMethod | undefined;
+    distributionMethod?:TeamsAppDistributionMethod | undefined;
     /** The ID of the catalog provided by the app developer in the Microsoft Teams zip app package. */
-    externalId?: string | undefined;
+    externalId?:string | undefined;
 }

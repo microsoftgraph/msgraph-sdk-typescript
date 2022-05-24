@@ -2,17 +2,18 @@ import {EntityImpl} from './index';
 import {TelecomExpenseManagementPartner} from './telecomExpenseManagementPartner';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** telecomExpenseManagementPartner resources represent the metadata and status of a given TEM service. Once your organization has onboarded with a partner, the partner can be enabled or disabled to switch TEM functionality on or off. */
 export class TelecomExpenseManagementPartnerImpl extends EntityImpl implements Parsable, TelecomExpenseManagementPartner {
     /** Whether the partner's AAD app has been authorized to access Intune. */
-    appAuthorized?: boolean | undefined;
+    public appAuthorized?: boolean | undefined;
     /** Display name of the TEM partner. */
-    displayName?: string | undefined;
+    public displayName?: string | undefined;
     /** Whether Intune's connection to the TEM service is currently enabled or disabled. */
-    enabled?: boolean | undefined;
+    public enabled?: boolean | undefined;
     /** Timestamp of the last request sent to Intune by the TEM partner. */
-    lastConnectionDateTime?: Date | undefined;
+    public lastConnectionDateTime?: Date | undefined;
     /** URL of the TEM partner's administrative control panel, where an administrator can configure their TEM service. */
-    url?: string | undefined;
+    public url?: string | undefined;
     /**
      * Instantiates a new telecomExpenseManagementPartner and sets the default values.
      * @param telecomExpenseManagementPartnerParameterValue 
@@ -46,23 +47,18 @@ export class TelecomExpenseManagementPartnerImpl extends EntityImpl implements P
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.appAuthorized){
-        if(this.appAuthorized)
         writer.writeBooleanValue("appAuthorized", this.appAuthorized);
         }
         if(this.displayName){
-        if(this.displayName)
         writer.writeStringValue("displayName", this.displayName);
         }
         if(this.enabled){
-        if(this.enabled)
         writer.writeBooleanValue("enabled", this.enabled);
         }
         if(this.lastConnectionDateTime){
-        if(this.lastConnectionDateTime)
         writer.writeDateValue("lastConnectionDateTime", this.lastConnectionDateTime);
         }
         if(this.url){
-        if(this.url)
         writer.writeStringValue("url", this.url);
         }
     };

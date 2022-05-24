@@ -3,7 +3,7 @@ import {WorkbookWorksheetProtectionOptions} from './workbookWorksheetProtectionO
 
 export interface WorkbookWorksheetProtection extends Entity{
     /** Sheet protection options. Read-only. */
-    options?: WorkbookWorksheetProtectionOptions | undefined;
+    options?:WorkbookWorksheetProtectionOptions | undefined;
     /** Indicates if the worksheet is protected.  Read-only. */
-    protected?: boolean | undefined;
+    protected?:boolean | undefined;
 }

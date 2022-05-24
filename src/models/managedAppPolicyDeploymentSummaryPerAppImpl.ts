@@ -7,18 +7,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Represents policy deployment summary per app. */
 export class ManagedAppPolicyDeploymentSummaryPerAppImpl implements AdditionalDataHolder, ManagedAppPolicyDeploymentSummaryPerApp, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** Number of users the policy is applied. */
-    configurationAppliedUserCount?: number | undefined;
+    public configurationAppliedUserCount?: number | undefined;
     /** Deployment of an app. */
-    mobileAppIdentifier?: MobileAppIdentifier | undefined;
+    public mobileAppIdentifier?: MobileAppIdentifier | undefined;
     /**
      * Instantiates a new managedAppPolicyDeploymentSummaryPerApp and sets the default values.
      * @param managedAppPolicyDeploymentSummaryPerAppParameterValue 
      */
     public constructor(managedAppPolicyDeploymentSummaryPerAppParameterValue?: ManagedAppPolicyDeploymentSummaryPerApp | undefined) {
-        this.additionalData = {};
-        this.additionalData = managedAppPolicyDeploymentSummaryPerAppParameterValue?.additionalData ? {} : managedAppPolicyDeploymentSummaryPerAppParameterValue?.additionalData!
+        this.additionalData = managedAppPolicyDeploymentSummaryPerAppParameterValue?.additionalData ? managedAppPolicyDeploymentSummaryPerAppParameterValue?.additionalData! : {}
         this.configurationAppliedUserCount = managedAppPolicyDeploymentSummaryPerAppParameterValue?.configurationAppliedUserCount ;
         this.mobileAppIdentifier = managedAppPolicyDeploymentSummaryPerAppParameterValue?.mobileAppIdentifier ;
     };
@@ -39,11 +38,9 @@ export class ManagedAppPolicyDeploymentSummaryPerAppImpl implements AdditionalDa
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.configurationAppliedUserCount){
-        if(this.configurationAppliedUserCount)
         writer.writeNumberValue("configurationAppliedUserCount", this.configurationAppliedUserCount);
         }
         if(this.mobileAppIdentifier){
-        if(this.mobileAppIdentifier)
         writer.writeObjectValue<MobileAppIdentifierImpl>("mobileAppIdentifier", new MobileAppIdentifierImpl(this.mobileAppIdentifier));
         }
         writer.writeAdditionalData(this.additionalData);

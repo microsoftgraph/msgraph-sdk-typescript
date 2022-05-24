@@ -3,24 +3,23 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class SecureScoreControlStateUpdateImpl implements AdditionalDataHolder, Parsable, SecureScoreControlStateUpdate {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** Assigns the control to the user who will take the action. */
-    assignedTo?: string | undefined;
+    public assignedTo?: string | undefined;
     /** Provides optional comment about the control. */
-    comment?: string | undefined;
+    public comment?: string | undefined;
     /** State of the control, which can be modified via a PATCH command (for example, ignored, thirdParty). */
-    state?: string | undefined;
+    public state?: string | undefined;
     /** ID of the user who updated tenant state. */
-    updatedBy?: string | undefined;
+    public updatedBy?: string | undefined;
     /** Time at which the control state was updated. */
-    updatedDateTime?: Date | undefined;
+    public updatedDateTime?: Date | undefined;
     /**
      * Instantiates a new secureScoreControlStateUpdate and sets the default values.
      * @param secureScoreControlStateUpdateParameterValue 
      */
     public constructor(secureScoreControlStateUpdateParameterValue?: SecureScoreControlStateUpdate | undefined) {
-        this.additionalData = {};
-        this.additionalData = secureScoreControlStateUpdateParameterValue?.additionalData ? {} : secureScoreControlStateUpdateParameterValue?.additionalData!
+        this.additionalData = secureScoreControlStateUpdateParameterValue?.additionalData ? secureScoreControlStateUpdateParameterValue?.additionalData! : {}
         this.assignedTo = secureScoreControlStateUpdateParameterValue?.assignedTo ;
         this.comment = secureScoreControlStateUpdateParameterValue?.comment ;
         this.state = secureScoreControlStateUpdateParameterValue?.state ;
@@ -47,23 +46,18 @@ export class SecureScoreControlStateUpdateImpl implements AdditionalDataHolder, 
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.assignedTo){
-        if(this.assignedTo)
         writer.writeStringValue("assignedTo", this.assignedTo);
         }
         if(this.comment){
-        if(this.comment)
         writer.writeStringValue("comment", this.comment);
         }
         if(this.state){
-        if(this.state)
         writer.writeStringValue("state", this.state);
         }
         if(this.updatedBy){
-        if(this.updatedBy)
         writer.writeStringValue("updatedBy", this.updatedBy);
         }
         if(this.updatedDateTime){
-        if(this.updatedDateTime)
         writer.writeDateValue("updatedDateTime", this.updatedDateTime);
         }
         writer.writeAdditionalData(this.additionalData);

@@ -3,26 +3,25 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class UriClickSecurityStateImpl implements AdditionalDataHolder, Parsable, UriClickSecurityState {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The clickAction property */
-    clickAction?: string | undefined;
+    public clickAction?: string | undefined;
     /** The clickDateTime property */
-    clickDateTime?: Date | undefined;
+    public clickDateTime?: Date | undefined;
     /** The id property */
-    id?: string | undefined;
+    public id?: string | undefined;
     /** The sourceId property */
-    sourceId?: string | undefined;
+    public sourceId?: string | undefined;
     /** The uriDomain property */
-    uriDomain?: string | undefined;
+    public uriDomain?: string | undefined;
     /** The verdict property */
-    verdict?: string | undefined;
+    public verdict?: string | undefined;
     /**
      * Instantiates a new uriClickSecurityState and sets the default values.
      * @param uriClickSecurityStateParameterValue 
      */
     public constructor(uriClickSecurityStateParameterValue?: UriClickSecurityState | undefined) {
-        this.additionalData = {};
-        this.additionalData = uriClickSecurityStateParameterValue?.additionalData ? {} : uriClickSecurityStateParameterValue?.additionalData!
+        this.additionalData = uriClickSecurityStateParameterValue?.additionalData ? uriClickSecurityStateParameterValue?.additionalData! : {}
         this.clickAction = uriClickSecurityStateParameterValue?.clickAction ;
         this.clickDateTime = uriClickSecurityStateParameterValue?.clickDateTime ;
         this.id = uriClickSecurityStateParameterValue?.id ;
@@ -51,27 +50,21 @@ export class UriClickSecurityStateImpl implements AdditionalDataHolder, Parsable
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.clickAction){
-        if(this.clickAction)
         writer.writeStringValue("clickAction", this.clickAction);
         }
         if(this.clickDateTime){
-        if(this.clickDateTime)
         writer.writeDateValue("clickDateTime", this.clickDateTime);
         }
         if(this.id){
-        if(this.id)
         writer.writeStringValue("id", this.id);
         }
         if(this.sourceId){
-        if(this.sourceId)
         writer.writeStringValue("sourceId", this.sourceId);
         }
         if(this.uriDomain){
-        if(this.uriDomain)
         writer.writeStringValue("uriDomain", this.uriDomain);
         }
         if(this.verdict){
-        if(this.verdict)
         writer.writeStringValue("verdict", this.verdict);
         }
         writer.writeAdditionalData(this.additionalData);

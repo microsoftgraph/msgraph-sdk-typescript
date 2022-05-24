@@ -3,13 +3,13 @@ import {LocaleInfo} from './localeInfo';
 
 export interface AutomaticRepliesMailTips{
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    additionalData?:Record<string, unknown>;
     /** The automatic reply message. */
-    message?: string | undefined;
+    message?:string | undefined;
     /** The language that the automatic reply message is in. */
-    messageLanguage?: LocaleInfo | undefined;
+    messageLanguage?:LocaleInfo | undefined;
     /** The date and time that automatic replies are set to end. */
-    scheduledEndTime?: DateTimeTimeZone | undefined;
+    scheduledEndTime?:DateTimeTimeZone | undefined;
     /** The date and time that automatic replies are set to begin. */
-    scheduledStartTime?: DateTimeTimeZone | undefined;
+    scheduledStartTime?:DateTimeTimeZone | undefined;
 }

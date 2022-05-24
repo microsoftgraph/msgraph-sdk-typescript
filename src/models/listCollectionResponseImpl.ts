@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class ListCollectionResponseImpl implements AdditionalDataHolder, ListCollectionResponse, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: List[] | undefined;
+    public value?: List[] | undefined;
     /**
      * Instantiates a new ListCollectionResponse and sets the default values.
      * @param listCollectionResponseParameterValue 
      */
     public constructor(listCollectionResponseParameterValue?: ListCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = listCollectionResponseParameterValue?.additionalData ? {} : listCollectionResponseParameterValue?.additionalData!
+        this.additionalData = listCollectionResponseParameterValue?.additionalData ? listCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = listCollectionResponseParameterValue?.nextLink ;
         this.value = listCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class ListCollectionResponseImpl implements AdditionalDataHolder, ListCol
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: ListImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ListImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: ListImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ListImpl(element));});
         writer.writeCollectionOfObjectValues<ListImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

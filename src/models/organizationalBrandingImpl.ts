@@ -7,7 +7,7 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Provides operations to manage the organizationalBranding singleton. */
 export class OrganizationalBrandingImpl extends OrganizationalBrandingPropertiesImpl implements OrganizationalBranding, Parsable {
     /** Add different branding based on a locale. */
-    localizations?: OrganizationalBrandingLocalization[] | undefined;
+    public localizations?: OrganizationalBrandingLocalization[] | undefined;
     /**
      * Instantiates a new organizationalBranding and sets the default values.
      * @param organizationalBrandingParameterValue 
@@ -32,8 +32,7 @@ export class OrganizationalBrandingImpl extends OrganizationalBrandingProperties
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.localizations){
-        const localizationsArrValue: OrganizationalBrandingLocalizationImpl[] = []; this.localizations?.forEach(element => {localizationsArrValue.push(new OrganizationalBrandingLocalizationImpl(element));});
+        if(this.localizations && this.localizations.length != 0){        const localizationsArrValue: OrganizationalBrandingLocalizationImpl[] = []; this.localizations?.forEach(element => {localizationsArrValue.push(new OrganizationalBrandingLocalizationImpl(element));});
         writer.writeCollectionOfObjectValues<OrganizationalBrandingLocalizationImpl>("localizations", localizationsArrValue);
         }
     };

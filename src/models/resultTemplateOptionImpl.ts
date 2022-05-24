@@ -3,16 +3,15 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class ResultTemplateOptionImpl implements AdditionalDataHolder, Parsable, ResultTemplateOption {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** Indicates whether search display layouts are enabled. If enabled, the user will get the result template to render the search results content in the resultTemplates property of the response. The result template is based on Adaptive Cards. This property is optional. */
-    enableResultTemplate?: boolean | undefined;
+    public enableResultTemplate?: boolean | undefined;
     /**
      * Instantiates a new resultTemplateOption and sets the default values.
      * @param resultTemplateOptionParameterValue 
      */
     public constructor(resultTemplateOptionParameterValue?: ResultTemplateOption | undefined) {
-        this.additionalData = {};
-        this.additionalData = resultTemplateOptionParameterValue?.additionalData ? {} : resultTemplateOptionParameterValue?.additionalData!
+        this.additionalData = resultTemplateOptionParameterValue?.additionalData ? resultTemplateOptionParameterValue?.additionalData! : {}
         this.enableResultTemplate = resultTemplateOptionParameterValue?.enableResultTemplate ;
     };
     /**
@@ -31,7 +30,6 @@ export class ResultTemplateOptionImpl implements AdditionalDataHolder, Parsable,
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.enableResultTemplate){
-        if(this.enableResultTemplate)
         writer.writeBooleanValue("enableResultTemplate", this.enableResultTemplate);
         }
         writer.writeAdditionalData(this.additionalData);

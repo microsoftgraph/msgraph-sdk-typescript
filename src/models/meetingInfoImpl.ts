@@ -3,14 +3,13 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class MeetingInfoImpl implements AdditionalDataHolder, MeetingInfo, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /**
      * Instantiates a new meetingInfo and sets the default values.
      * @param meetingInfoParameterValue 
      */
     public constructor(meetingInfoParameterValue?: MeetingInfo | undefined) {
-        this.additionalData = {};
-        this.additionalData = meetingInfoParameterValue?.additionalData ? {} : meetingInfoParameterValue?.additionalData!
+        this.additionalData = meetingInfoParameterValue?.additionalData ? meetingInfoParameterValue?.additionalData! : {}
     };
     /**
      * The deserialization information for the current model

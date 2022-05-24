@@ -1,6 +1,5 @@
 import {DomainImpl} from '../../../models/';
 import {createDomainFromDiscriminatorValue} from '../../../models/createDomainFromDiscriminatorValue';
-import {Domain} from '../../../models/domain';
 import {VerifyRequestBuilderPostRequestConfiguration} from './verifyRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
@@ -47,7 +46,7 @@ export class VerifyRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Domain
      */
-    public post(requestConfiguration?: VerifyRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Domain | undefined> {
+    public post(requestConfiguration?: VerifyRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DomainImpl | undefined> {
         const requestInfo = this.createPostRequestInformation(
             requestConfiguration
         );

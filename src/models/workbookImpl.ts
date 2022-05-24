@@ -16,21 +16,22 @@ import {WorkbookTable} from './workbookTable';
 import {WorkbookWorksheet} from './workbookWorksheet';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to user. */
 export class WorkbookImpl extends EntityImpl implements Parsable, Workbook {
     /** The application property */
-    application?: WorkbookApplication | undefined;
+    public application?: WorkbookApplication | undefined;
     /** The comments property */
-    comments?: WorkbookComment[] | undefined;
+    public comments?: WorkbookComment[] | undefined;
     /** The functions property */
-    functions?: WorkbookFunctions | undefined;
+    public functions?: WorkbookFunctions | undefined;
     /** Represents a collection of workbooks scoped named items (named ranges and constants). Read-only. */
-    names?: WorkbookNamedItem[] | undefined;
+    public names?: WorkbookNamedItem[] | undefined;
     /** The status of Workbook operations. Getting an operation collection is not supported, but you can get the status of a long-running operation if the Location header is returned in the response. Read-only. Nullable. */
-    operations?: WorkbookOperation[] | undefined;
+    public operations?: WorkbookOperation[] | undefined;
     /** Represents a collection of tables associated with the workbook. Read-only. */
-    tables?: WorkbookTable[] | undefined;
+    public tables?: WorkbookTable[] | undefined;
     /** Represents a collection of worksheets associated with the workbook. Read-only. */
-    worksheets?: WorkbookWorksheet[] | undefined;
+    public worksheets?: WorkbookWorksheet[] | undefined;
     /**
      * Instantiates a new workbook and sets the default values.
      * @param workbookParameterValue 
@@ -68,31 +69,24 @@ export class WorkbookImpl extends EntityImpl implements Parsable, Workbook {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.application){
-        if(this.application)
         writer.writeObjectValue<WorkbookApplicationImpl>("application", new WorkbookApplicationImpl(this.application));
         }
-        if(this.comments){
-        const commentsArrValue: WorkbookCommentImpl[] = []; this.comments?.forEach(element => {commentsArrValue.push(new WorkbookCommentImpl(element));});
+        if(this.comments && this.comments.length != 0){        const commentsArrValue: WorkbookCommentImpl[] = []; this.comments?.forEach(element => {commentsArrValue.push(new WorkbookCommentImpl(element));});
         writer.writeCollectionOfObjectValues<WorkbookCommentImpl>("comments", commentsArrValue);
         }
         if(this.functions){
-        if(this.functions)
         writer.writeObjectValue<WorkbookFunctionsImpl>("functions", new WorkbookFunctionsImpl(this.functions));
         }
-        if(this.names){
-        const namesArrValue: WorkbookNamedItemImpl[] = []; this.names?.forEach(element => {namesArrValue.push(new WorkbookNamedItemImpl(element));});
+        if(this.names && this.names.length != 0){        const namesArrValue: WorkbookNamedItemImpl[] = []; this.names?.forEach(element => {namesArrValue.push(new WorkbookNamedItemImpl(element));});
         writer.writeCollectionOfObjectValues<WorkbookNamedItemImpl>("names", namesArrValue);
         }
-        if(this.operations){
-        const operationsArrValue: WorkbookOperationImpl[] = []; this.operations?.forEach(element => {operationsArrValue.push(new WorkbookOperationImpl(element));});
+        if(this.operations && this.operations.length != 0){        const operationsArrValue: WorkbookOperationImpl[] = []; this.operations?.forEach(element => {operationsArrValue.push(new WorkbookOperationImpl(element));});
         writer.writeCollectionOfObjectValues<WorkbookOperationImpl>("operations", operationsArrValue);
         }
-        if(this.tables){
-        const tablesArrValue: WorkbookTableImpl[] = []; this.tables?.forEach(element => {tablesArrValue.push(new WorkbookTableImpl(element));});
+        if(this.tables && this.tables.length != 0){        const tablesArrValue: WorkbookTableImpl[] = []; this.tables?.forEach(element => {tablesArrValue.push(new WorkbookTableImpl(element));});
         writer.writeCollectionOfObjectValues<WorkbookTableImpl>("tables", tablesArrValue);
         }
-        if(this.worksheets){
-        const worksheetsArrValue: WorkbookWorksheetImpl[] = []; this.worksheets?.forEach(element => {worksheetsArrValue.push(new WorkbookWorksheetImpl(element));});
+        if(this.worksheets && this.worksheets.length != 0){        const worksheetsArrValue: WorkbookWorksheetImpl[] = []; this.worksheets?.forEach(element => {worksheetsArrValue.push(new WorkbookWorksheetImpl(element));});
         writer.writeCollectionOfObjectValues<WorkbookWorksheetImpl>("worksheets", worksheetsArrValue);
         }
     };

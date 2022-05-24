@@ -1,10 +1,10 @@
 import {ClaimsMappingPolicyCollectionResponseImpl} from '../../../models/';
-import {ClaimsMappingPolicyCollectionResponse} from '../../../models/claimsMappingPolicyCollectionResponse';
 import {createClaimsMappingPolicyCollectionResponseFromDiscriminatorValue} from '../../../models/createClaimsMappingPolicyCollectionResponseFromDiscriminatorValue';
 import {ODataErrorImpl} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {ClaimsMappingPoliciesRequestBuilderGetRequestConfiguration} from './claimsMappingPoliciesRequestBuilderGetRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {RefRequestBuilder} from './ref/refRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the claimsMappingPolicies property of the microsoft.graph.servicePrincipal entity. */
@@ -15,6 +15,10 @@ export class ClaimsMappingPoliciesRequestBuilder {
     }
     /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
+    /** The ref property */
+    public get ref(): RefRequestBuilder {
+        return new RefRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
     /** Url template to use to build the URL for the current request builder */
@@ -55,7 +59,7 @@ export class ClaimsMappingPoliciesRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ClaimsMappingPolicyCollectionResponse
      */
-    public get(requestConfiguration?: ClaimsMappingPoliciesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ClaimsMappingPolicyCollectionResponse | undefined> {
+    public get(requestConfiguration?: ClaimsMappingPoliciesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ClaimsMappingPolicyCollectionResponseImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );

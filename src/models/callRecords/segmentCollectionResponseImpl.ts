@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class SegmentCollectionResponseImpl implements AdditionalDataHolder, Parsable, SegmentCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: Segment[] | undefined;
+    public value?: Segment[] | undefined;
     /**
      * Instantiates a new SegmentCollectionResponse and sets the default values.
      * @param segmentCollectionResponseParameterValue 
      */
     public constructor(segmentCollectionResponseParameterValue?: SegmentCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = segmentCollectionResponseParameterValue?.additionalData ? {} : segmentCollectionResponseParameterValue?.additionalData!
+        this.additionalData = segmentCollectionResponseParameterValue?.additionalData ? segmentCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = segmentCollectionResponseParameterValue?.nextLink ;
         this.value = segmentCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class SegmentCollectionResponseImpl implements AdditionalDataHolder, Pars
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: SegmentImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new SegmentImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: SegmentImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new SegmentImpl(element));});
         writer.writeCollectionOfObjectValues<SegmentImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

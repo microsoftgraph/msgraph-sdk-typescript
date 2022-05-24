@@ -6,23 +6,24 @@ import {MessageRuleActions} from './messageRuleActions';
 import {MessageRulePredicates} from './messageRulePredicates';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to user. */
 export class MessageRuleImpl extends EntityImpl implements MessageRule, Parsable {
     /** Actions to be taken on a message when the corresponding conditions are fulfilled. */
-    actions?: MessageRuleActions | undefined;
+    public actions?: MessageRuleActions | undefined;
     /** Conditions that when fulfilled, will trigger the corresponding actions for that rule. */
-    conditions?: MessageRulePredicates | undefined;
+    public conditions?: MessageRulePredicates | undefined;
     /** The display name of the rule. */
-    displayName?: string | undefined;
+    public displayName?: string | undefined;
     /** Exception conditions for the rule. */
-    exceptions?: MessageRulePredicates | undefined;
+    public exceptions?: MessageRulePredicates | undefined;
     /** Indicates whether the rule is in an error condition. Read-only. */
-    hasError?: boolean | undefined;
+    public hasError?: boolean | undefined;
     /** Indicates whether the rule is enabled to be applied to messages. */
-    isEnabled?: boolean | undefined;
+    public isEnabled?: boolean | undefined;
     /** Indicates if the rule is read-only and cannot be modified or deleted by the rules REST API. */
-    isReadOnly?: boolean | undefined;
+    public isReadOnly?: boolean | undefined;
     /** Indicates the order in which the rule is executed, among other rules. */
-    sequence?: number | undefined;
+    public sequence?: number | undefined;
     /**
      * Instantiates a new messageRule and sets the default values.
      * @param messageRuleParameterValue 
@@ -62,35 +63,27 @@ export class MessageRuleImpl extends EntityImpl implements MessageRule, Parsable
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.actions){
-        if(this.actions)
         writer.writeObjectValue<MessageRuleActionsImpl>("actions", new MessageRuleActionsImpl(this.actions));
         }
         if(this.conditions){
-        if(this.conditions)
         writer.writeObjectValue<MessageRulePredicatesImpl>("conditions", new MessageRulePredicatesImpl(this.conditions));
         }
         if(this.displayName){
-        if(this.displayName)
         writer.writeStringValue("displayName", this.displayName);
         }
         if(this.exceptions){
-        if(this.exceptions)
         writer.writeObjectValue<MessageRulePredicatesImpl>("exceptions", new MessageRulePredicatesImpl(this.exceptions));
         }
         if(this.hasError){
-        if(this.hasError)
         writer.writeBooleanValue("hasError", this.hasError);
         }
         if(this.isEnabled){
-        if(this.isEnabled)
         writer.writeBooleanValue("isEnabled", this.isEnabled);
         }
         if(this.isReadOnly){
-        if(this.isReadOnly)
         writer.writeBooleanValue("isReadOnly", this.isReadOnly);
         }
         if(this.sequence){
-        if(this.sequence)
         writer.writeNumberValue("sequence", this.sequence);
         }
     };

@@ -6,28 +6,27 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class AccessPackageAssignmentRequestRequirementsImpl implements AccessPackageAssignmentRequestRequirements, AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** Indicates whether the requestor is allowed to set a custom schedule. */
-    allowCustomAssignmentSchedule?: boolean | undefined;
+    public allowCustomAssignmentSchedule?: boolean | undefined;
     /** Indicates whether a request to add must be approved by an approver. */
-    isApprovalRequiredForAdd?: boolean | undefined;
+    public isApprovalRequiredForAdd?: boolean | undefined;
     /** Indicates whether a request to update must be approved by an approver. */
-    isApprovalRequiredForUpdate?: boolean | undefined;
+    public isApprovalRequiredForUpdate?: boolean | undefined;
     /** The description of the policy that the user is trying to request access using. */
-    policyDescription?: string | undefined;
+    public policyDescription?: string | undefined;
     /** The display name of the policy that the user is trying to request access using. */
-    policyDisplayName?: string | undefined;
+    public policyDisplayName?: string | undefined;
     /** The identifier of the policy that these requirements are associated with. This identifier can be used when creating a new assignment request. */
-    policyId?: string | undefined;
+    public policyId?: string | undefined;
     /** Schedule restrictions enforced, if any. */
-    schedule?: EntitlementManagementSchedule | undefined;
+    public schedule?: EntitlementManagementSchedule | undefined;
     /**
      * Instantiates a new accessPackageAssignmentRequestRequirements and sets the default values.
      * @param accessPackageAssignmentRequestRequirementsParameterValue 
      */
     public constructor(accessPackageAssignmentRequestRequirementsParameterValue?: AccessPackageAssignmentRequestRequirements | undefined) {
-        this.additionalData = {};
-        this.additionalData = accessPackageAssignmentRequestRequirementsParameterValue?.additionalData ? {} : accessPackageAssignmentRequestRequirementsParameterValue?.additionalData!
+        this.additionalData = accessPackageAssignmentRequestRequirementsParameterValue?.additionalData ? accessPackageAssignmentRequestRequirementsParameterValue?.additionalData! : {}
         this.allowCustomAssignmentSchedule = accessPackageAssignmentRequestRequirementsParameterValue?.allowCustomAssignmentSchedule ;
         this.isApprovalRequiredForAdd = accessPackageAssignmentRequestRequirementsParameterValue?.isApprovalRequiredForAdd ;
         this.isApprovalRequiredForUpdate = accessPackageAssignmentRequestRequirementsParameterValue?.isApprovalRequiredForUpdate ;
@@ -58,31 +57,24 @@ export class AccessPackageAssignmentRequestRequirementsImpl implements AccessPac
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.allowCustomAssignmentSchedule){
-        if(this.allowCustomAssignmentSchedule)
         writer.writeBooleanValue("allowCustomAssignmentSchedule", this.allowCustomAssignmentSchedule);
         }
         if(this.isApprovalRequiredForAdd){
-        if(this.isApprovalRequiredForAdd)
         writer.writeBooleanValue("isApprovalRequiredForAdd", this.isApprovalRequiredForAdd);
         }
         if(this.isApprovalRequiredForUpdate){
-        if(this.isApprovalRequiredForUpdate)
         writer.writeBooleanValue("isApprovalRequiredForUpdate", this.isApprovalRequiredForUpdate);
         }
         if(this.policyDescription){
-        if(this.policyDescription)
         writer.writeStringValue("policyDescription", this.policyDescription);
         }
         if(this.policyDisplayName){
-        if(this.policyDisplayName)
         writer.writeStringValue("policyDisplayName", this.policyDisplayName);
         }
         if(this.policyId){
-        if(this.policyId)
         writer.writeStringValue("policyId", this.policyId);
         }
         if(this.schedule){
-        if(this.schedule)
         writer.writeObjectValue<EntitlementManagementScheduleImpl>("schedule", new EntitlementManagementScheduleImpl(this.schedule));
         }
         writer.writeAdditionalData(this.additionalData);

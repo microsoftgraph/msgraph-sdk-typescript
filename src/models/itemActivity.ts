@@ -5,11 +5,11 @@ import {IdentitySet} from './identitySet';
 
 export interface ItemActivity extends Entity{
     /** An item was accessed. */
-    access?: AccessAction | undefined;
+    access?:AccessAction | undefined;
     /** Details about when the activity took place. Read-only. */
-    activityDateTime?: Date | undefined;
+    activityDateTime?:Date | undefined;
     /** Identity of who performed the action. Read-only. */
-    actor?: IdentitySet | undefined;
+    actor?:IdentitySet | undefined;
     /** Exposes the driveItem that was the target of this activity. */
-    driveItem?: DriveItem | undefined;
+    driveItem?:DriveItem | undefined;
 }

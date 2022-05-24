@@ -4,16 +4,15 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Provides operations to call the setMobileDeviceManagementAuthority method. */
 export class SetMobileDeviceManagementAuthorityResponseImpl implements AdditionalDataHolder, Parsable, SetMobileDeviceManagementAuthorityResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The value property */
-    value?: number | undefined;
+    public value?: number | undefined;
     /**
      * Instantiates a new setMobileDeviceManagementAuthorityResponse and sets the default values.
      * @param setMobileDeviceManagementAuthorityResponseParameterValue 
      */
     public constructor(setMobileDeviceManagementAuthorityResponseParameterValue?: SetMobileDeviceManagementAuthorityResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = setMobileDeviceManagementAuthorityResponseParameterValue?.additionalData ? {} : setMobileDeviceManagementAuthorityResponseParameterValue?.additionalData!
+        this.additionalData = setMobileDeviceManagementAuthorityResponseParameterValue?.additionalData ? setMobileDeviceManagementAuthorityResponseParameterValue?.additionalData! : {}
         this.value = setMobileDeviceManagementAuthorityResponseParameterValue?.value ;
     };
     /**
@@ -32,7 +31,6 @@ export class SetMobileDeviceManagementAuthorityResponseImpl implements Additiona
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.value){
-        if(this.value)
         writer.writeNumberValue("value", this.value);
         }
         writer.writeAdditionalData(this.additionalData);

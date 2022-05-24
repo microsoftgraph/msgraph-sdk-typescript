@@ -2,11 +2,12 @@ import {DirectoryObjectImpl} from './index';
 import {PolicyBase} from './policyBase';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the collection of application entities. */
 export class PolicyBaseImpl extends DirectoryObjectImpl implements Parsable, PolicyBase {
     /** Description for this policy. Required. */
-    description?: string | undefined;
+    public description?: string | undefined;
     /** Display name for this policy. Required. */
-    displayName?: string | undefined;
+    public displayName?: string | undefined;
     /**
      * Instantiates a new policyBase and sets the default values.
      * @param policyBaseParameterValue 
@@ -34,11 +35,9 @@ export class PolicyBaseImpl extends DirectoryObjectImpl implements Parsable, Pol
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.description){
-        if(this.description)
         writer.writeStringValue("description", this.description);
         }
         if(this.displayName){
-        if(this.displayName)
         writer.writeStringValue("displayName", this.displayName);
         }
     };

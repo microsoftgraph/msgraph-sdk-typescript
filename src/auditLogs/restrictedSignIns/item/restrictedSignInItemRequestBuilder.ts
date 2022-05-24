@@ -78,8 +78,8 @@ export class RestrictedSignInItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        const bodyParsable = new RestrictedSignInImpl(body)
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", bodyParsable);
+        const parsableBody = new RestrictedSignInImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -103,7 +103,7 @@ export class RestrictedSignInItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of RestrictedSignIn
      */
-    public get(requestConfiguration?: RestrictedSignInItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<RestrictedSignIn | undefined> {
+    public get(requestConfiguration?: RestrictedSignInItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<RestrictedSignInImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );

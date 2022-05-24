@@ -12,35 +12,36 @@ import {AdministrativeUnitImpl, EducationClassImpl, EducationOrganizationImpl, E
 import {PhysicalAddress} from './physicalAddress';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the educationRoot singleton. */
 export class EducationSchoolImpl extends EducationOrganizationImpl implements EducationSchool, Parsable {
     /** Address of the school. */
-    address?: PhysicalAddress | undefined;
+    public address?: PhysicalAddress | undefined;
     /** The underlying administrativeUnit for this school. */
-    administrativeUnit?: AdministrativeUnit | undefined;
+    public administrativeUnit?: AdministrativeUnit | undefined;
     /** Classes taught at the school. Nullable. */
-    classes?: EducationClass[] | undefined;
+    public classes?: EducationClass[] | undefined;
     /** Entity who created the school. */
-    createdBy?: IdentitySet | undefined;
+    public createdBy?: IdentitySet | undefined;
     /** ID of school in syncing system. */
-    externalId?: string | undefined;
+    public externalId?: string | undefined;
     /** ID of principal in syncing system. */
-    externalPrincipalId?: string | undefined;
+    public externalPrincipalId?: string | undefined;
     /** The fax property */
-    fax?: string | undefined;
+    public fax?: string | undefined;
     /** Highest grade taught. */
-    highestGrade?: string | undefined;
+    public highestGrade?: string | undefined;
     /** Lowest grade taught. */
-    lowestGrade?: string | undefined;
+    public lowestGrade?: string | undefined;
     /** Phone number of school. */
-    phone?: string | undefined;
+    public phone?: string | undefined;
     /** Email address of the principal. */
-    principalEmail?: string | undefined;
+    public principalEmail?: string | undefined;
     /** Name of the principal. */
-    principalName?: string | undefined;
+    public principalName?: string | undefined;
     /** School Number. */
-    schoolNumber?: string | undefined;
+    public schoolNumber?: string | undefined;
     /** Users in the school. Nullable. */
-    users?: EducationUser[] | undefined;
+    public users?: EducationUser[] | undefined;
     /**
      * Instantiates a new educationSchool and sets the default values.
      * @param educationSchoolParameterValue 
@@ -92,59 +93,45 @@ export class EducationSchoolImpl extends EducationOrganizationImpl implements Ed
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.address){
-        if(this.address)
         writer.writeObjectValue<PhysicalAddressImpl>("address", new PhysicalAddressImpl(this.address));
         }
         if(this.administrativeUnit){
-        if(this.administrativeUnit)
         writer.writeObjectValue<AdministrativeUnitImpl>("administrativeUnit", new AdministrativeUnitImpl(this.administrativeUnit));
         }
-        if(this.classes){
-        const classesArrValue: EducationClassImpl[] = []; this.classes?.forEach(element => {classesArrValue.push(new EducationClassImpl(element));});
+        if(this.classes && this.classes.length != 0){        const classesArrValue: EducationClassImpl[] = []; this.classes?.forEach(element => {classesArrValue.push(new EducationClassImpl(element));});
         writer.writeCollectionOfObjectValues<EducationClassImpl>("classes", classesArrValue);
         }
         if(this.createdBy){
-        if(this.createdBy)
         writer.writeObjectValue<IdentitySetImpl>("createdBy", new IdentitySetImpl(this.createdBy));
         }
         if(this.externalId){
-        if(this.externalId)
         writer.writeStringValue("externalId", this.externalId);
         }
         if(this.externalPrincipalId){
-        if(this.externalPrincipalId)
         writer.writeStringValue("externalPrincipalId", this.externalPrincipalId);
         }
         if(this.fax){
-        if(this.fax)
         writer.writeStringValue("fax", this.fax);
         }
         if(this.highestGrade){
-        if(this.highestGrade)
         writer.writeStringValue("highestGrade", this.highestGrade);
         }
         if(this.lowestGrade){
-        if(this.lowestGrade)
         writer.writeStringValue("lowestGrade", this.lowestGrade);
         }
         if(this.phone){
-        if(this.phone)
         writer.writeStringValue("phone", this.phone);
         }
         if(this.principalEmail){
-        if(this.principalEmail)
         writer.writeStringValue("principalEmail", this.principalEmail);
         }
         if(this.principalName){
-        if(this.principalName)
         writer.writeStringValue("principalName", this.principalName);
         }
         if(this.schoolNumber){
-        if(this.schoolNumber)
         writer.writeStringValue("schoolNumber", this.schoolNumber);
         }
-        if(this.users){
-        const usersArrValue: EducationUserImpl[] = []; this.users?.forEach(element => {usersArrValue.push(new EducationUserImpl(element));});
+        if(this.users && this.users.length != 0){        const usersArrValue: EducationUserImpl[] = []; this.users?.forEach(element => {usersArrValue.push(new EducationUserImpl(element));});
         writer.writeCollectionOfObjectValues<EducationUserImpl>("users", usersArrValue);
         }
     };

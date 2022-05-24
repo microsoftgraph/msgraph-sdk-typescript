@@ -3,14 +3,13 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class PlannerChecklistItemsImpl implements AdditionalDataHolder, Parsable, PlannerChecklistItems {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /**
      * Instantiates a new plannerChecklistItems and sets the default values.
      * @param plannerChecklistItemsParameterValue 
      */
     public constructor(plannerChecklistItemsParameterValue?: PlannerChecklistItems | undefined) {
-        this.additionalData = {};
-        this.additionalData = plannerChecklistItemsParameterValue?.additionalData ? {} : plannerChecklistItemsParameterValue?.additionalData!
+        this.additionalData = plannerChecklistItemsParameterValue?.additionalData ? plannerChecklistItemsParameterValue?.additionalData! : {}
     };
     /**
      * The deserialization information for the current model

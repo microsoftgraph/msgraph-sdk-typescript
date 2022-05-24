@@ -2,9 +2,10 @@ import {IdentitySecurityDefaultsEnforcementPolicy} from './identitySecurityDefau
 import {PolicyBaseImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the policyRoot singleton. */
 export class IdentitySecurityDefaultsEnforcementPolicyImpl extends PolicyBaseImpl implements IdentitySecurityDefaultsEnforcementPolicy, Parsable {
     /** If set to true, Azure Active Directory security defaults is enabled for the tenant. */
-    isEnabled?: boolean | undefined;
+    public isEnabled?: boolean | undefined;
     /**
      * Instantiates a new identitySecurityDefaultsEnforcementPolicy and sets the default values.
      * @param identitySecurityDefaultsEnforcementPolicyParameterValue 
@@ -30,7 +31,6 @@ export class IdentitySecurityDefaultsEnforcementPolicyImpl extends PolicyBaseImp
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.isEnabled){
-        if(this.isEnabled)
         writer.writeBooleanValue("isEnabled", this.isEnabled);
         }
     };

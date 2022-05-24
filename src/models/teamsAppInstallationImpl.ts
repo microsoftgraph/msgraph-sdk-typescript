@@ -6,11 +6,12 @@ import {TeamsAppDefinition} from './teamsAppDefinition';
 import {TeamsAppInstallation} from './teamsAppInstallation';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the collection of chat entities. */
 export class TeamsAppInstallationImpl extends EntityImpl implements Parsable, TeamsAppInstallation {
     /** The app that is installed. */
-    teamsApp?: TeamsApp | undefined;
+    public teamsApp?: TeamsApp | undefined;
     /** The details of this version of the app. */
-    teamsAppDefinition?: TeamsAppDefinition | undefined;
+    public teamsAppDefinition?: TeamsAppDefinition | undefined;
     /**
      * Instantiates a new teamsAppInstallation and sets the default values.
      * @param teamsAppInstallationParameterValue 
@@ -38,11 +39,9 @@ export class TeamsAppInstallationImpl extends EntityImpl implements Parsable, Te
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.teamsApp){
-        if(this.teamsApp)
         writer.writeObjectValue<TeamsAppImpl>("teamsApp", new TeamsAppImpl(this.teamsApp));
         }
         if(this.teamsAppDefinition){
-        if(this.teamsAppDefinition)
         writer.writeObjectValue<TeamsAppDefinitionImpl>("teamsAppDefinition", new TeamsAppDefinitionImpl(this.teamsAppDefinition));
         }
     };

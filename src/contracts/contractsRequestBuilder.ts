@@ -1,6 +1,5 @@
 import {ContractCollectionResponseImpl, ContractImpl} from '../models/';
 import {Contract} from '../models/contract';
-import {ContractCollectionResponse} from '../models/contractCollectionResponse';
 import {createContractCollectionResponseFromDiscriminatorValue} from '../models/createContractCollectionResponseFromDiscriminatorValue';
 import {createContractFromDiscriminatorValue} from '../models/createContractFromDiscriminatorValue';
 import {ODataErrorImpl} from '../models/oDataErrors/';
@@ -51,7 +50,7 @@ export class ContractsRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * List contracts
+     * Retrieve a list of [contract](../resources/contract.md) objects associated to a partner tenant.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -83,17 +82,17 @@ export class ContractsRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        const bodyParsable = new ContractImpl(body)
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", bodyParsable);
+        const parsableBody = new ContractImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
-     * List contracts
+     * Retrieve a list of [contract](../resources/contract.md) objects associated to a partner tenant.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ContractCollectionResponse
      */
-    public get(requestConfiguration?: ContractsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ContractCollectionResponse | undefined> {
+    public get(requestConfiguration?: ContractsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ContractCollectionResponseImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -110,7 +109,7 @@ export class ContractsRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Contract
      */
-    public post(body: Contract | undefined, requestConfiguration?: ContractsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Contract | undefined> {
+    public post(body: Contract | undefined, requestConfiguration?: ContractsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ContractImpl | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration

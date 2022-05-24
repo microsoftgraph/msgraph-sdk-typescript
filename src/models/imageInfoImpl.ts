@@ -3,23 +3,22 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class ImageInfoImpl implements AdditionalDataHolder, ImageInfo, Parsable {
     /** Optional; parameter used to indicate the server is able to render image dynamically in response to parameterization. For example – a high contrast image */
-    addImageQuery?: boolean | undefined;
+    public addImageQuery?: boolean | undefined;
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** Optional; alt-text accessible content for the image */
-    alternateText?: string | undefined;
+    public alternateText?: string | undefined;
     /** The alternativeText property */
-    alternativeText?: string | undefined;
+    public alternativeText?: string | undefined;
     /** Optional; URI that points to an icon which represents the application used to generate the activity */
-    iconUrl?: string | undefined;
+    public iconUrl?: string | undefined;
     /**
      * Instantiates a new imageInfo and sets the default values.
      * @param imageInfoParameterValue 
      */
     public constructor(imageInfoParameterValue?: ImageInfo | undefined) {
-        this.additionalData = {};
         this.addImageQuery = imageInfoParameterValue?.addImageQuery ;
-        this.additionalData = imageInfoParameterValue?.additionalData ? {} : imageInfoParameterValue?.additionalData!
+        this.additionalData = imageInfoParameterValue?.additionalData ? imageInfoParameterValue?.additionalData! : {}
         this.alternateText = imageInfoParameterValue?.alternateText ;
         this.alternativeText = imageInfoParameterValue?.alternativeText ;
         this.iconUrl = imageInfoParameterValue?.iconUrl ;
@@ -43,19 +42,15 @@ export class ImageInfoImpl implements AdditionalDataHolder, ImageInfo, Parsable 
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.addImageQuery){
-        if(this.addImageQuery)
         writer.writeBooleanValue("addImageQuery", this.addImageQuery);
         }
         if(this.alternateText){
-        if(this.alternateText)
         writer.writeStringValue("alternateText", this.alternateText);
         }
         if(this.alternativeText){
-        if(this.alternativeText)
         writer.writeStringValue("alternativeText", this.alternativeText);
         }
         if(this.iconUrl){
-        if(this.iconUrl)
         writer.writeStringValue("iconUrl", this.iconUrl);
         }
         writer.writeAdditionalData(this.additionalData);

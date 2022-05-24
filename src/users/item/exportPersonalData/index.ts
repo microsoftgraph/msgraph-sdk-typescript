@@ -1,3 +1,3 @@
-export * from './exportPersonalDataRequestBodyImpl'
-export * from './exportPersonalDataRequestBody'
+export * from './exportPersonalDataPostRequestBodyImpl'
+export * from './exportPersonalDataPostRequestBody'
 export * from './exportPersonalDataRequestBuilderPostRequestConfiguration'

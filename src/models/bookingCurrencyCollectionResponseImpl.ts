@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class BookingCurrencyCollectionResponseImpl implements AdditionalDataHolder, BookingCurrencyCollectionResponse, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: BookingCurrency[] | undefined;
+    public value?: BookingCurrency[] | undefined;
     /**
      * Instantiates a new BookingCurrencyCollectionResponse and sets the default values.
      * @param bookingCurrencyCollectionResponseParameterValue 
      */
     public constructor(bookingCurrencyCollectionResponseParameterValue?: BookingCurrencyCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = bookingCurrencyCollectionResponseParameterValue?.additionalData ? {} : bookingCurrencyCollectionResponseParameterValue?.additionalData!
+        this.additionalData = bookingCurrencyCollectionResponseParameterValue?.additionalData ? bookingCurrencyCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = bookingCurrencyCollectionResponseParameterValue?.nextLink ;
         this.value = bookingCurrencyCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class BookingCurrencyCollectionResponseImpl implements AdditionalDataHold
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: BookingCurrencyImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new BookingCurrencyImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: BookingCurrencyImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new BookingCurrencyImpl(element));});
         writer.writeCollectionOfObjectValues<BookingCurrencyImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

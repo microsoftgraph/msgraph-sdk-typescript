@@ -4,7 +4,6 @@ import {createPlaceFromDiscriminatorValue} from '../models/createPlaceFromDiscri
 import {ODataErrorImpl} from '../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {Place} from '../models/place';
-import {PlaceCollectionResponse} from '../models/placeCollectionResponse';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {PlacesRequestBuilderGetRequestConfiguration} from './placesRequestBuilderGetRequestConfiguration';
 import {PlacesRequestBuilderPostRequestConfiguration} from './placesRequestBuilderPostRequestConfiguration';
@@ -36,7 +35,7 @@ export class PlacesRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Get place
+     * Get the properties and relationships of a [place](../resources/place.md) object specified by either its ID or email address.  The **place** object can be one of the following types: Both **room** and **roomList** are derived from the [place](../resources/place.md) object. 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -68,17 +67,17 @@ export class PlacesRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        const bodyParsable = new PlaceImpl(body)
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", bodyParsable);
+        const parsableBody = new PlaceImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
-     * Get place
+     * Get the properties and relationships of a [place](../resources/place.md) object specified by either its ID or email address.  The **place** object can be one of the following types: Both **room** and **roomList** are derived from the [place](../resources/place.md) object. 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of PlaceCollectionResponse
      */
-    public get(requestConfiguration?: PlacesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<PlaceCollectionResponse | undefined> {
+    public get(requestConfiguration?: PlacesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<PlaceCollectionResponseImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -95,7 +94,7 @@ export class PlacesRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Place
      */
-    public post(body: Place | undefined, requestConfiguration?: PlacesRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Place | undefined> {
+    public post(body: Place | undefined, requestConfiguration?: PlacesRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<PlaceImpl | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration

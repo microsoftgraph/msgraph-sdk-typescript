@@ -4,13 +4,14 @@ import {EntityImpl, IdentityImpl} from './index';
 import {ScopedRoleMembership} from './scopedRoleMembership';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to user. */
 export class ScopedRoleMembershipImpl extends EntityImpl implements Parsable, ScopedRoleMembership {
     /** Unique identifier for the administrative unit that the directory role is scoped to */
-    administrativeUnitId?: string | undefined;
+    public administrativeUnitId?: string | undefined;
     /** Unique identifier for the directory role that the member is in. */
-    roleId?: string | undefined;
+    public roleId?: string | undefined;
     /** The roleMemberInfo property */
-    roleMemberInfo?: Identity | undefined;
+    public roleMemberInfo?: Identity | undefined;
     /**
      * Instantiates a new scopedRoleMembership and sets the default values.
      * @param scopedRoleMembershipParameterValue 
@@ -40,15 +41,12 @@ export class ScopedRoleMembershipImpl extends EntityImpl implements Parsable, Sc
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.administrativeUnitId){
-        if(this.administrativeUnitId)
         writer.writeStringValue("administrativeUnitId", this.administrativeUnitId);
         }
         if(this.roleId){
-        if(this.roleId)
         writer.writeStringValue("roleId", this.roleId);
         }
         if(this.roleMemberInfo){
-        if(this.roleMemberInfo)
         writer.writeObjectValue<IdentityImpl>("roleMemberInfo", new IdentityImpl(this.roleMemberInfo));
         }
     };

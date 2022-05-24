@@ -3,13 +3,14 @@ import {EntityImpl} from './index';
 import {PermissionClassificationType} from './permissionClassificationType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to call the instantiate method. */
 export class DelegatedPermissionClassificationImpl extends EntityImpl implements DelegatedPermissionClassification, Parsable {
     /** The classification value being given. Possible value: low. Does not support $filter. */
-    classification?: PermissionClassificationType | undefined;
+    public classification?: PermissionClassificationType | undefined;
     /** The unique identifier (id) for the delegated permission listed in the publishedPermissionScopes collection of the servicePrincipal. Required on create. Does not support $filter. */
-    permissionId?: string | undefined;
+    public permissionId?: string | undefined;
     /** The claim value (value) for the delegated permission listed in the publishedPermissionScopes collection of the servicePrincipal. Does not support $filter. */
-    permissionName?: string | undefined;
+    public permissionName?: string | undefined;
     /**
      * Instantiates a new delegatedPermissionClassification and sets the default values.
      * @param delegatedPermissionClassificationParameterValue 
@@ -39,15 +40,12 @@ export class DelegatedPermissionClassificationImpl extends EntityImpl implements
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.classification){
-        if(this.classification)
         writer.writeEnumValue<PermissionClassificationType>("classification", this.classification);
         }
         if(this.permissionId){
-        if(this.permissionId)
         writer.writeStringValue("permissionId", this.permissionId);
         }
         if(this.permissionName){
-        if(this.permissionName)
         writer.writeStringValue("permissionName", this.permissionName);
         }
     };

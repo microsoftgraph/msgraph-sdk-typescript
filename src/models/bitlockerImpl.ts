@@ -4,9 +4,10 @@ import {createBitlockerRecoveryKeyFromDiscriminatorValue} from './createBitlocke
 import {BitlockerRecoveryKeyImpl, EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the informationProtection singleton. */
 export class BitlockerImpl extends EntityImpl implements Bitlocker, Parsable {
     /** The recovery keys associated with the bitlocker entity. */
-    recoveryKeys?: BitlockerRecoveryKey[] | undefined;
+    public recoveryKeys?: BitlockerRecoveryKey[] | undefined;
     /**
      * Instantiates a new bitlocker and sets the default values.
      * @param bitlockerParameterValue 
@@ -31,8 +32,7 @@ export class BitlockerImpl extends EntityImpl implements Bitlocker, Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.recoveryKeys){
-        const recoveryKeysArrValue: BitlockerRecoveryKeyImpl[] = []; this.recoveryKeys?.forEach(element => {recoveryKeysArrValue.push(new BitlockerRecoveryKeyImpl(element));});
+        if(this.recoveryKeys && this.recoveryKeys.length != 0){        const recoveryKeysArrValue: BitlockerRecoveryKeyImpl[] = []; this.recoveryKeys?.forEach(element => {recoveryKeysArrValue.push(new BitlockerRecoveryKeyImpl(element));});
         writer.writeCollectionOfObjectValues<BitlockerRecoveryKeyImpl>("recoveryKeys", recoveryKeysArrValue);
         }
     };

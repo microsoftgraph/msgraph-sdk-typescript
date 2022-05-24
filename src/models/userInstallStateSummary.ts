@@ -3,13 +3,13 @@ import {Entity} from './entity';
 
 export interface UserInstallStateSummary extends Entity{
     /** The install state of the eBook. */
-    deviceStates?: DeviceInstallState[] | undefined;
+    deviceStates?:DeviceInstallState[] | undefined;
     /** Failed Device Count. */
-    failedDeviceCount?: number | undefined;
+    failedDeviceCount?:number | undefined;
     /** Installed Device Count. */
-    installedDeviceCount?: number | undefined;
+    installedDeviceCount?:number | undefined;
     /** Not installed device count. */
-    notInstalledDeviceCount?: number | undefined;
+    notInstalledDeviceCount?:number | undefined;
     /** User name. */
-    userName?: string | undefined;
+    userName?:string | undefined;
 }

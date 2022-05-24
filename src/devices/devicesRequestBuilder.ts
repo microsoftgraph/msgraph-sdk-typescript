@@ -2,7 +2,6 @@ import {DeviceCollectionResponseImpl, DeviceImpl} from '../models/';
 import {createDeviceCollectionResponseFromDiscriminatorValue} from '../models/createDeviceCollectionResponseFromDiscriminatorValue';
 import {createDeviceFromDiscriminatorValue} from '../models/createDeviceFromDiscriminatorValue';
 import {Device} from '../models/device';
-import {DeviceCollectionResponse} from '../models/deviceCollectionResponse';
 import {ODataErrorImpl} from '../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
@@ -51,7 +50,7 @@ export class DevicesRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * List devices
+     * Retrieve a list of devices registered in the directory. 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -68,7 +67,7 @@ export class DevicesRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create device
+     * Create a new device.
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -83,17 +82,17 @@ export class DevicesRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        const bodyParsable = new DeviceImpl(body)
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", bodyParsable);
+        const parsableBody = new DeviceImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
-     * List devices
+     * Retrieve a list of devices registered in the directory. 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DeviceCollectionResponse
      */
-    public get(requestConfiguration?: DevicesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DeviceCollectionResponse | undefined> {
+    public get(requestConfiguration?: DevicesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DeviceCollectionResponseImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -104,13 +103,13 @@ export class DevicesRequestBuilder {
         return this.requestAdapter?.sendAsync<DeviceCollectionResponseImpl>(requestInfo, createDeviceCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Create device
+     * Create a new device.
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Device
      */
-    public post(body: Device | undefined, requestConfiguration?: DevicesRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Device | undefined> {
+    public post(body: Device | undefined, requestConfiguration?: DevicesRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DeviceImpl | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration

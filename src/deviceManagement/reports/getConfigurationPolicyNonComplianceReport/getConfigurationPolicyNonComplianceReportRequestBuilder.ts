@@ -1,8 +1,6 @@
-import {createGetConfigurationPolicyNonComplianceReportResponseFromDiscriminatorValue} from './createGetConfigurationPolicyNonComplianceReportResponseFromDiscriminatorValue';
-import {GetConfigurationPolicyNonComplianceReportRequestBody} from './getConfigurationPolicyNonComplianceReportRequestBody';
+import {GetConfigurationPolicyNonComplianceReportPostRequestBody} from './getConfigurationPolicyNonComplianceReportPostRequestBody';
 import {GetConfigurationPolicyNonComplianceReportRequestBuilderPostRequestConfiguration} from './getConfigurationPolicyNonComplianceReportRequestBuilderPostRequestConfiguration';
-import {GetConfigurationPolicyNonComplianceReportResponse} from './getConfigurationPolicyNonComplianceReportResponse';
-import {GetConfigurationPolicyNonComplianceReportRequestBodyImpl, GetConfigurationPolicyNonComplianceReportResponseImpl} from './index';
+import {GetConfigurationPolicyNonComplianceReportPostRequestBodyImpl} from './index';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the getConfigurationPolicyNonComplianceReport method. */
@@ -32,7 +30,7 @@ export class GetConfigurationPolicyNonComplianceReportRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public createPostRequestInformation(body: GetConfigurationPolicyNonComplianceReportRequestBody | undefined, requestConfiguration?: GetConfigurationPolicyNonComplianceReportRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public createPostRequestInformation(body: GetConfigurationPolicyNonComplianceReportPostRequestBody | undefined, requestConfiguration?: GetConfigurationPolicyNonComplianceReportRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -42,8 +40,8 @@ export class GetConfigurationPolicyNonComplianceReportRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        const bodyParsable = new GetConfigurationPolicyNonComplianceReportRequestBodyImpl(body)
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", bodyParsable);
+        const parsableBody = new GetConfigurationPolicyNonComplianceReportPostRequestBodyImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -51,13 +49,13 @@ export class GetConfigurationPolicyNonComplianceReportRequestBuilder {
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of GetConfigurationPolicyNonComplianceReportResponse
+     * @returns a Promise of ArrayBuffer
      */
-    public post(body: GetConfigurationPolicyNonComplianceReportRequestBody | undefined, requestConfiguration?: GetConfigurationPolicyNonComplianceReportRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<GetConfigurationPolicyNonComplianceReportResponse | undefined> {
+    public post(body: GetConfigurationPolicyNonComplianceReportPostRequestBody | undefined, requestConfiguration?: GetConfigurationPolicyNonComplianceReportRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ArrayBuffer | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration
         );
-        return this.requestAdapter?.sendAsync<GetConfigurationPolicyNonComplianceReportResponseImpl>(requestInfo, createGetConfigurationPolicyNonComplianceReportResponseFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendPrimitiveAsync<ArrayBuffer>(requestInfo, "ArrayBuffer", responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }

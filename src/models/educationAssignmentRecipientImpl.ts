@@ -3,14 +3,13 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class EducationAssignmentRecipientImpl implements AdditionalDataHolder, EducationAssignmentRecipient, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /**
      * Instantiates a new educationAssignmentRecipient and sets the default values.
      * @param educationAssignmentRecipientParameterValue 
      */
     public constructor(educationAssignmentRecipientParameterValue?: EducationAssignmentRecipient | undefined) {
-        this.additionalData = {};
-        this.additionalData = educationAssignmentRecipientParameterValue?.additionalData ? {} : educationAssignmentRecipientParameterValue?.additionalData!
+        this.additionalData = educationAssignmentRecipientParameterValue?.additionalData ? educationAssignmentRecipientParameterValue?.additionalData! : {}
     };
     /**
      * The deserialization information for the current model

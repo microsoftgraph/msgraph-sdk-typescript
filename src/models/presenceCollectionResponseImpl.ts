@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class PresenceCollectionResponseImpl implements AdditionalDataHolder, Parsable, PresenceCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: Presence[] | undefined;
+    public value?: Presence[] | undefined;
     /**
      * Instantiates a new PresenceCollectionResponse and sets the default values.
      * @param presenceCollectionResponseParameterValue 
      */
     public constructor(presenceCollectionResponseParameterValue?: PresenceCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = presenceCollectionResponseParameterValue?.additionalData ? {} : presenceCollectionResponseParameterValue?.additionalData!
+        this.additionalData = presenceCollectionResponseParameterValue?.additionalData ? presenceCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = presenceCollectionResponseParameterValue?.nextLink ;
         this.value = presenceCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class PresenceCollectionResponseImpl implements AdditionalDataHolder, Par
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: PresenceImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new PresenceImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: PresenceImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new PresenceImpl(element));});
         writer.writeCollectionOfObjectValues<PresenceImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

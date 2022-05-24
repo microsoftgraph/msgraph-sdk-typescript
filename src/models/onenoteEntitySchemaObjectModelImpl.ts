@@ -2,9 +2,10 @@ import {OnenoteEntityBaseModelImpl} from './index';
 import {OnenoteEntitySchemaObjectModel} from './onenoteEntitySchemaObjectModel';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to group. */
 export class OnenoteEntitySchemaObjectModelImpl extends OnenoteEntityBaseModelImpl implements OnenoteEntitySchemaObjectModel, Parsable {
     /** The date and time when the page was created. The timestamp represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. */
-    createdDateTime?: Date | undefined;
+    public createdDateTime?: Date | undefined;
     /**
      * Instantiates a new onenoteEntitySchemaObjectModel and sets the default values.
      * @param onenoteEntitySchemaObjectModelParameterValue 
@@ -30,7 +31,6 @@ export class OnenoteEntitySchemaObjectModelImpl extends OnenoteEntityBaseModelIm
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.createdDateTime){
-        if(this.createdDateTime)
         writer.writeDateValue("createdDateTime", this.createdDateTime);
         }
     };

@@ -1,6 +1,5 @@
 import {AccessPackageCatalogCollectionResponseImpl, AccessPackageCatalogImpl} from '../../../models/';
 import {AccessPackageCatalog} from '../../../models/accessPackageCatalog';
-import {AccessPackageCatalogCollectionResponse} from '../../../models/accessPackageCatalogCollectionResponse';
 import {createAccessPackageCatalogCollectionResponseFromDiscriminatorValue} from '../../../models/createAccessPackageCatalogCollectionResponseFromDiscriminatorValue';
 import {createAccessPackageCatalogFromDiscriminatorValue} from '../../../models/createAccessPackageCatalogFromDiscriminatorValue';
 import {ODataErrorImpl} from '../../../models/oDataErrors/';
@@ -68,8 +67,8 @@ export class CatalogsRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        const bodyParsable = new AccessPackageCatalogImpl(body)
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", bodyParsable);
+        const parsableBody = new AccessPackageCatalogImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -78,7 +77,7 @@ export class CatalogsRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AccessPackageCatalogCollectionResponse
      */
-    public get(requestConfiguration?: CatalogsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AccessPackageCatalogCollectionResponse | undefined> {
+    public get(requestConfiguration?: CatalogsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AccessPackageCatalogCollectionResponseImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -95,7 +94,7 @@ export class CatalogsRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AccessPackageCatalog
      */
-    public post(body: AccessPackageCatalog | undefined, requestConfiguration?: CatalogsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AccessPackageCatalog | undefined> {
+    public post(body: AccessPackageCatalog | undefined, requestConfiguration?: CatalogsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AccessPackageCatalogImpl | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration

@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class OfferShiftRequestCollectionResponseImpl implements AdditionalDataHolder, OfferShiftRequestCollectionResponse, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: OfferShiftRequest[] | undefined;
+    public value?: OfferShiftRequest[] | undefined;
     /**
      * Instantiates a new OfferShiftRequestCollectionResponse and sets the default values.
      * @param offerShiftRequestCollectionResponseParameterValue 
      */
     public constructor(offerShiftRequestCollectionResponseParameterValue?: OfferShiftRequestCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = offerShiftRequestCollectionResponseParameterValue?.additionalData ? {} : offerShiftRequestCollectionResponseParameterValue?.additionalData!
+        this.additionalData = offerShiftRequestCollectionResponseParameterValue?.additionalData ? offerShiftRequestCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = offerShiftRequestCollectionResponseParameterValue?.nextLink ;
         this.value = offerShiftRequestCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class OfferShiftRequestCollectionResponseImpl implements AdditionalDataHo
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: OfferShiftRequestImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new OfferShiftRequestImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: OfferShiftRequestImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new OfferShiftRequestImpl(element));});
         writer.writeCollectionOfObjectValues<OfferShiftRequestImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

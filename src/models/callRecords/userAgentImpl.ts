@@ -3,18 +3,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class UserAgentImpl implements AdditionalDataHolder, Parsable, UserAgent {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** Identifies the version of application software used by this endpoint. */
-    applicationVersion?: string | undefined;
+    public applicationVersion?: string | undefined;
     /** User-agent header value reported by this endpoint. */
-    headerValue?: string | undefined;
+    public headerValue?: string | undefined;
     /**
      * Instantiates a new userAgent and sets the default values.
      * @param userAgentParameterValue 
      */
     public constructor(userAgentParameterValue?: UserAgent | undefined) {
-        this.additionalData = {};
-        this.additionalData = userAgentParameterValue?.additionalData ? {} : userAgentParameterValue?.additionalData!
+        this.additionalData = userAgentParameterValue?.additionalData ? userAgentParameterValue?.additionalData! : {}
         this.applicationVersion = userAgentParameterValue?.applicationVersion ;
         this.headerValue = userAgentParameterValue?.headerValue ;
     };
@@ -35,11 +34,9 @@ export class UserAgentImpl implements AdditionalDataHolder, Parsable, UserAgent 
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.applicationVersion){
-        if(this.applicationVersion)
         writer.writeStringValue("applicationVersion", this.applicationVersion);
         }
         if(this.headerValue){
-        if(this.headerValue)
         writer.writeStringValue("headerValue", this.headerValue);
         }
         writer.writeAdditionalData(this.additionalData);

@@ -5,27 +5,28 @@ import {DeviceManagementReportStatus} from './deviceManagementReportStatus';
 import {EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Entity representing a job to export a report */
 export class DeviceManagementExportJobImpl extends EntityImpl implements DeviceManagementExportJob, Parsable {
     /** Time that the exported report expires */
-    expirationDateTime?: Date | undefined;
+    public expirationDateTime?: Date | undefined;
     /** Filters applied on the report */
-    filter?: string | undefined;
+    public filter?: string | undefined;
     /** Format of the exported report. Possible values are: csv, pdf. */
-    format?: DeviceManagementReportFileFormat | undefined;
+    public format?: DeviceManagementReportFileFormat | undefined;
     /** Configures how the requested export job is localized. Possible values are: localizedValuesAsAdditionalColumn, replaceLocalizableValues. */
-    localizationType?: DeviceManagementExportJobLocalizationType | undefined;
+    public localizationType?: DeviceManagementExportJobLocalizationType | undefined;
     /** Name of the report */
-    reportName?: string | undefined;
+    public reportName?: string | undefined;
     /** Time that the exported report was requested */
-    requestDateTime?: Date | undefined;
+    public requestDateTime?: Date | undefined;
     /** Columns selected from the report */
-    select?: string[] | undefined;
+    public select?: string[] | undefined;
     /** A snapshot is an identifiable subset of the dataset represented by the ReportName. A sessionId or CachedReportConfiguration id can be used here. If a sessionId is specified, Filter, Select, and OrderBy are applied to the data represented by the sessionId. Filter, Select, and OrderBy cannot be specified together with a CachedReportConfiguration id. */
-    snapshotId?: string | undefined;
+    public snapshotId?: string | undefined;
     /** Status of the export job. Possible values are: unknown, notStarted, inProgress, completed, failed. */
-    status?: DeviceManagementReportStatus | undefined;
+    public status?: DeviceManagementReportStatus | undefined;
     /** Temporary location of the exported report */
-    url?: string | undefined;
+    public url?: string | undefined;
     /**
      * Instantiates a new deviceManagementExportJob and sets the default values.
      * @param deviceManagementExportJobParameterValue 
@@ -69,43 +70,33 @@ export class DeviceManagementExportJobImpl extends EntityImpl implements DeviceM
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.expirationDateTime){
-        if(this.expirationDateTime)
         writer.writeDateValue("expirationDateTime", this.expirationDateTime);
         }
         if(this.filter){
-        if(this.filter)
         writer.writeStringValue("filter", this.filter);
         }
         if(this.format){
-        if(this.format)
         writer.writeEnumValue<DeviceManagementReportFileFormat>("format", this.format);
         }
         if(this.localizationType){
-        if(this.localizationType)
         writer.writeEnumValue<DeviceManagementExportJobLocalizationType>("localizationType", this.localizationType);
         }
         if(this.reportName){
-        if(this.reportName)
         writer.writeStringValue("reportName", this.reportName);
         }
         if(this.requestDateTime){
-        if(this.requestDateTime)
         writer.writeDateValue("requestDateTime", this.requestDateTime);
         }
         if(this.select){
-        if(this.select)
         writer.writeCollectionOfPrimitiveValues<string>("select", this.select);
         }
         if(this.snapshotId){
-        if(this.snapshotId)
         writer.writeStringValue("snapshotId", this.snapshotId);
         }
         if(this.status){
-        if(this.status)
         writer.writeEnumValue<DeviceManagementReportStatus>("status", this.status);
         }
         if(this.url){
-        if(this.url)
         writer.writeStringValue("url", this.url);
         }
     };

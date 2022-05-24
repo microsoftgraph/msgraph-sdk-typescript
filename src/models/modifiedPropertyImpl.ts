@@ -3,20 +3,19 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class ModifiedPropertyImpl implements AdditionalDataHolder, ModifiedProperty, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** Name of property that was modified. */
-    displayName?: string | undefined;
+    public displayName?: string | undefined;
     /** New property value. */
-    newValue?: string | undefined;
+    public newValue?: string | undefined;
     /** Old property value. */
-    oldValue?: string | undefined;
+    public oldValue?: string | undefined;
     /**
      * Instantiates a new modifiedProperty and sets the default values.
      * @param modifiedPropertyParameterValue 
      */
     public constructor(modifiedPropertyParameterValue?: ModifiedProperty | undefined) {
-        this.additionalData = {};
-        this.additionalData = modifiedPropertyParameterValue?.additionalData ? {} : modifiedPropertyParameterValue?.additionalData!
+        this.additionalData = modifiedPropertyParameterValue?.additionalData ? modifiedPropertyParameterValue?.additionalData! : {}
         this.displayName = modifiedPropertyParameterValue?.displayName ;
         this.newValue = modifiedPropertyParameterValue?.newValue ;
         this.oldValue = modifiedPropertyParameterValue?.oldValue ;
@@ -39,15 +38,12 @@ export class ModifiedPropertyImpl implements AdditionalDataHolder, ModifiedPrope
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.displayName){
-        if(this.displayName)
         writer.writeStringValue("displayName", this.displayName);
         }
         if(this.newValue){
-        if(this.newValue)
         writer.writeStringValue("newValue", this.newValue);
         }
         if(this.oldValue){
-        if(this.oldValue)
         writer.writeStringValue("oldValue", this.oldValue);
         }
         writer.writeAdditionalData(this.additionalData);

@@ -2,9 +2,10 @@ import {ColumnLink} from './columnLink';
 import {EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to group. */
 export class ColumnLinkImpl extends EntityImpl implements ColumnLink, Parsable {
     /** The name of the column  in this content type. */
-    name?: string | undefined;
+    public name?: string | undefined;
     /**
      * Instantiates a new columnLink and sets the default values.
      * @param columnLinkParameterValue 
@@ -30,7 +31,6 @@ export class ColumnLinkImpl extends EntityImpl implements ColumnLink, Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.name){
-        if(this.name)
         writer.writeStringValue("name", this.name);
         }
     };

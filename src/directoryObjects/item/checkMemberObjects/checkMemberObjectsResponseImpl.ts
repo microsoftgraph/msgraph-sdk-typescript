@@ -4,16 +4,15 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Provides operations to call the checkMemberObjects method. */
 export class CheckMemberObjectsResponseImpl implements AdditionalDataHolder, CheckMemberObjectsResponse, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The value property */
-    value?: string[] | undefined;
+    public value?: string[] | undefined;
     /**
      * Instantiates a new checkMemberObjectsResponse and sets the default values.
      * @param checkMemberObjectsResponseParameterValue 
      */
     public constructor(checkMemberObjectsResponseParameterValue?: CheckMemberObjectsResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = checkMemberObjectsResponseParameterValue?.additionalData ? {} : checkMemberObjectsResponseParameterValue?.additionalData!
+        this.additionalData = checkMemberObjectsResponseParameterValue?.additionalData ? checkMemberObjectsResponseParameterValue?.additionalData! : {}
         this.value = checkMemberObjectsResponseParameterValue?.value ;
     };
     /**
@@ -32,7 +31,6 @@ export class CheckMemberObjectsResponseImpl implements AdditionalDataHolder, Che
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.value){
-        if(this.value)
         writer.writeCollectionOfPrimitiveValues<string>("value", this.value);
         }
         writer.writeAdditionalData(this.additionalData);

@@ -6,25 +6,26 @@ import {Post} from './post';
 import {Recipient} from './recipient';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to group. */
 export class ConversationThreadImpl extends EntityImpl implements ConversationThread, Parsable {
     /** The Cc: recipients for the thread. Returned only on $select. */
-    ccRecipients?: Recipient[] | undefined;
+    public ccRecipients?: Recipient[] | undefined;
     /** Indicates whether any of the posts within this thread has at least one attachment. Returned by default. */
-    hasAttachments?: boolean | undefined;
+    public hasAttachments?: boolean | undefined;
     /** Indicates if the thread is locked. Returned by default. */
-    isLocked?: boolean | undefined;
+    public isLocked?: boolean | undefined;
     /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Returned by default. */
-    lastDeliveredDateTime?: Date | undefined;
+    public lastDeliveredDateTime?: Date | undefined;
     /** Read-only. Nullable. */
-    posts?: Post[] | undefined;
+    public posts?: Post[] | undefined;
     /** A short summary from the body of the latest post in this conversation. Returned by default. */
-    preview?: string | undefined;
+    public preview?: string | undefined;
     /** The topic of the conversation. This property can be set when the conversation is created, but it cannot be updated. Returned by default. */
-    topic?: string | undefined;
+    public topic?: string | undefined;
     /** The To: recipients for the thread. Returned only on $select. */
-    toRecipients?: Recipient[] | undefined;
+    public toRecipients?: Recipient[] | undefined;
     /** All the users that sent a message to this thread. Returned by default. */
-    uniqueSenders?: string[] | undefined;
+    public uniqueSenders?: string[] | undefined;
     /**
      * Instantiates a new conversationThread and sets the default values.
      * @param conversationThreadParameterValue 
@@ -65,40 +66,31 @@ export class ConversationThreadImpl extends EntityImpl implements ConversationTh
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.ccRecipients){
-        const ccRecipientsArrValue: RecipientImpl[] = []; this.ccRecipients?.forEach(element => {ccRecipientsArrValue.push(new RecipientImpl(element));});
+        if(this.ccRecipients && this.ccRecipients.length != 0){        const ccRecipientsArrValue: RecipientImpl[] = []; this.ccRecipients?.forEach(element => {ccRecipientsArrValue.push(new RecipientImpl(element));});
         writer.writeCollectionOfObjectValues<RecipientImpl>("ccRecipients", ccRecipientsArrValue);
         }
         if(this.hasAttachments){
-        if(this.hasAttachments)
         writer.writeBooleanValue("hasAttachments", this.hasAttachments);
         }
         if(this.isLocked){
-        if(this.isLocked)
         writer.writeBooleanValue("isLocked", this.isLocked);
         }
         if(this.lastDeliveredDateTime){
-        if(this.lastDeliveredDateTime)
         writer.writeDateValue("lastDeliveredDateTime", this.lastDeliveredDateTime);
         }
-        if(this.posts){
-        const postsArrValue: PostImpl[] = []; this.posts?.forEach(element => {postsArrValue.push(new PostImpl(element));});
+        if(this.posts && this.posts.length != 0){        const postsArrValue: PostImpl[] = []; this.posts?.forEach(element => {postsArrValue.push(new PostImpl(element));});
         writer.writeCollectionOfObjectValues<PostImpl>("posts", postsArrValue);
         }
         if(this.preview){
-        if(this.preview)
         writer.writeStringValue("preview", this.preview);
         }
         if(this.topic){
-        if(this.topic)
         writer.writeStringValue("topic", this.topic);
         }
-        if(this.toRecipients){
-        const toRecipientsArrValue: RecipientImpl[] = []; this.toRecipients?.forEach(element => {toRecipientsArrValue.push(new RecipientImpl(element));});
+        if(this.toRecipients && this.toRecipients.length != 0){        const toRecipientsArrValue: RecipientImpl[] = []; this.toRecipients?.forEach(element => {toRecipientsArrValue.push(new RecipientImpl(element));});
         writer.writeCollectionOfObjectValues<RecipientImpl>("toRecipients", toRecipientsArrValue);
         }
         if(this.uniqueSenders){
-        if(this.uniqueSenders)
         writer.writeCollectionOfPrimitiveValues<string>("uniqueSenders", this.uniqueSenders);
         }
     };

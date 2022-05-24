@@ -3,56 +3,55 @@ import {AdditionalDataHolder, Duration, Parsable, ParseNode, SerializationWriter
 
 export class TeleconferenceDeviceMediaQualityImpl implements AdditionalDataHolder, Parsable, TeleconferenceDeviceMediaQuality {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The average inbound stream network jitter. */
-    averageInboundJitter?: Duration | undefined;
+    public averageInboundJitter?: Duration | undefined;
     /** The average inbound stream packet loss rate in percentage (0-100). For example, 0.01 means 0.01%. */
-    averageInboundPacketLossRateInPercentage?: number | undefined;
+    public averageInboundPacketLossRateInPercentage?: number | undefined;
     /** The average inbound stream network round trip delay. */
-    averageInboundRoundTripDelay?: Duration | undefined;
+    public averageInboundRoundTripDelay?: Duration | undefined;
     /** The average outbound stream network jitter. */
-    averageOutboundJitter?: Duration | undefined;
+    public averageOutboundJitter?: Duration | undefined;
     /** The average outbound stream packet loss rate in percentage (0-100). For example, 0.01 means 0.01%. */
-    averageOutboundPacketLossRateInPercentage?: number | undefined;
+    public averageOutboundPacketLossRateInPercentage?: number | undefined;
     /** The average outbound stream network round trip delay. */
-    averageOutboundRoundTripDelay?: Duration | undefined;
+    public averageOutboundRoundTripDelay?: Duration | undefined;
     /** The channel index of media. Indexing begins with 1.  If a media session contains 3 video modalities, channel indexes will be 1, 2, and 3. */
-    channelIndex?: number | undefined;
+    public channelIndex?: number | undefined;
     /** The total number of the inbound packets. */
-    inboundPackets?: number | undefined;
+    public inboundPackets?: number | undefined;
     /** the local IP address for the media session. */
-    localIPAddress?: string | undefined;
+    public localIPAddress?: string | undefined;
     /** The local media port. */
-    localPort?: number | undefined;
+    public localPort?: number | undefined;
     /** The maximum inbound stream network jitter. */
-    maximumInboundJitter?: Duration | undefined;
+    public maximumInboundJitter?: Duration | undefined;
     /** The maximum inbound stream packet loss rate in percentage (0-100). For example, 0.01 means 0.01%. */
-    maximumInboundPacketLossRateInPercentage?: number | undefined;
+    public maximumInboundPacketLossRateInPercentage?: number | undefined;
     /** The maximum inbound stream network round trip delay. */
-    maximumInboundRoundTripDelay?: Duration | undefined;
+    public maximumInboundRoundTripDelay?: Duration | undefined;
     /** The maximum outbound stream network jitter. */
-    maximumOutboundJitter?: Duration | undefined;
+    public maximumOutboundJitter?: Duration | undefined;
     /** The maximum outbound stream packet loss rate in percentage (0-100). For example, 0.01 means 0.01%. */
-    maximumOutboundPacketLossRateInPercentage?: number | undefined;
+    public maximumOutboundPacketLossRateInPercentage?: number | undefined;
     /** The maximum outbound stream network round trip delay. */
-    maximumOutboundRoundTripDelay?: Duration | undefined;
+    public maximumOutboundRoundTripDelay?: Duration | undefined;
     /** The total modality duration. If the media enabled and disabled multiple times, MediaDuration will the summation of all of the durations. */
-    mediaDuration?: Duration | undefined;
+    public mediaDuration?: Duration | undefined;
     /** The network link speed in bytes */
-    networkLinkSpeedInBytes?: number | undefined;
+    public networkLinkSpeedInBytes?: number | undefined;
     /** The total number of the outbound packets. */
-    outboundPackets?: number | undefined;
+    public outboundPackets?: number | undefined;
     /** The remote IP address for the media session. */
-    remoteIPAddress?: string | undefined;
+    public remoteIPAddress?: string | undefined;
     /** The remote media port. */
-    remotePort?: number | undefined;
+    public remotePort?: number | undefined;
     /**
      * Instantiates a new teleconferenceDeviceMediaQuality and sets the default values.
      * @param teleconferenceDeviceMediaQualityParameterValue 
      */
     public constructor(teleconferenceDeviceMediaQualityParameterValue?: TeleconferenceDeviceMediaQuality | undefined) {
-        this.additionalData = {};
-        this.additionalData = teleconferenceDeviceMediaQualityParameterValue?.additionalData ? {} : teleconferenceDeviceMediaQualityParameterValue?.additionalData!
+        this.additionalData = teleconferenceDeviceMediaQualityParameterValue?.additionalData ? teleconferenceDeviceMediaQualityParameterValue?.additionalData! : {}
         this.averageInboundJitter = teleconferenceDeviceMediaQualityParameterValue?.averageInboundJitter ;
         this.averageInboundPacketLossRateInPercentage = teleconferenceDeviceMediaQualityParameterValue?.averageInboundPacketLossRateInPercentage ;
         this.averageInboundRoundTripDelay = teleconferenceDeviceMediaQualityParameterValue?.averageInboundRoundTripDelay ;
@@ -111,87 +110,66 @@ export class TeleconferenceDeviceMediaQualityImpl implements AdditionalDataHolde
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.averageInboundJitter){
-        if(this.averageInboundJitter)
         writer.writeDurationValue("averageInboundJitter", this.averageInboundJitter);
         }
         if(this.averageInboundPacketLossRateInPercentage){
-        if(this.averageInboundPacketLossRateInPercentage)
         writer.writeNumberValue("averageInboundPacketLossRateInPercentage", this.averageInboundPacketLossRateInPercentage);
         }
         if(this.averageInboundRoundTripDelay){
-        if(this.averageInboundRoundTripDelay)
         writer.writeDurationValue("averageInboundRoundTripDelay", this.averageInboundRoundTripDelay);
         }
         if(this.averageOutboundJitter){
-        if(this.averageOutboundJitter)
         writer.writeDurationValue("averageOutboundJitter", this.averageOutboundJitter);
         }
         if(this.averageOutboundPacketLossRateInPercentage){
-        if(this.averageOutboundPacketLossRateInPercentage)
         writer.writeNumberValue("averageOutboundPacketLossRateInPercentage", this.averageOutboundPacketLossRateInPercentage);
         }
         if(this.averageOutboundRoundTripDelay){
-        if(this.averageOutboundRoundTripDelay)
         writer.writeDurationValue("averageOutboundRoundTripDelay", this.averageOutboundRoundTripDelay);
         }
         if(this.channelIndex){
-        if(this.channelIndex)
         writer.writeNumberValue("channelIndex", this.channelIndex);
         }
         if(this.inboundPackets){
-        if(this.inboundPackets)
         writer.writeNumberValue("inboundPackets", this.inboundPackets);
         }
         if(this.localIPAddress){
-        if(this.localIPAddress)
         writer.writeStringValue("localIPAddress", this.localIPAddress);
         }
         if(this.localPort){
-        if(this.localPort)
         writer.writeNumberValue("localPort", this.localPort);
         }
         if(this.maximumInboundJitter){
-        if(this.maximumInboundJitter)
         writer.writeDurationValue("maximumInboundJitter", this.maximumInboundJitter);
         }
         if(this.maximumInboundPacketLossRateInPercentage){
-        if(this.maximumInboundPacketLossRateInPercentage)
         writer.writeNumberValue("maximumInboundPacketLossRateInPercentage", this.maximumInboundPacketLossRateInPercentage);
         }
         if(this.maximumInboundRoundTripDelay){
-        if(this.maximumInboundRoundTripDelay)
         writer.writeDurationValue("maximumInboundRoundTripDelay", this.maximumInboundRoundTripDelay);
         }
         if(this.maximumOutboundJitter){
-        if(this.maximumOutboundJitter)
         writer.writeDurationValue("maximumOutboundJitter", this.maximumOutboundJitter);
         }
         if(this.maximumOutboundPacketLossRateInPercentage){
-        if(this.maximumOutboundPacketLossRateInPercentage)
         writer.writeNumberValue("maximumOutboundPacketLossRateInPercentage", this.maximumOutboundPacketLossRateInPercentage);
         }
         if(this.maximumOutboundRoundTripDelay){
-        if(this.maximumOutboundRoundTripDelay)
         writer.writeDurationValue("maximumOutboundRoundTripDelay", this.maximumOutboundRoundTripDelay);
         }
         if(this.mediaDuration){
-        if(this.mediaDuration)
         writer.writeDurationValue("mediaDuration", this.mediaDuration);
         }
         if(this.networkLinkSpeedInBytes){
-        if(this.networkLinkSpeedInBytes)
         writer.writeNumberValue("networkLinkSpeedInBytes", this.networkLinkSpeedInBytes);
         }
         if(this.outboundPackets){
-        if(this.outboundPackets)
         writer.writeNumberValue("outboundPackets", this.outboundPackets);
         }
         if(this.remoteIPAddress){
-        if(this.remoteIPAddress)
         writer.writeStringValue("remoteIPAddress", this.remoteIPAddress);
         }
         if(this.remotePort){
-        if(this.remotePort)
         writer.writeNumberValue("remotePort", this.remotePort);
         }
         writer.writeAdditionalData(this.additionalData);

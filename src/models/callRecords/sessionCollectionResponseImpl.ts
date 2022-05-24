@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class SessionCollectionResponseImpl implements AdditionalDataHolder, Parsable, SessionCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: Session[] | undefined;
+    public value?: Session[] | undefined;
     /**
      * Instantiates a new SessionCollectionResponse and sets the default values.
      * @param sessionCollectionResponseParameterValue 
      */
     public constructor(sessionCollectionResponseParameterValue?: SessionCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = sessionCollectionResponseParameterValue?.additionalData ? {} : sessionCollectionResponseParameterValue?.additionalData!
+        this.additionalData = sessionCollectionResponseParameterValue?.additionalData ? sessionCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = sessionCollectionResponseParameterValue?.nextLink ;
         this.value = sessionCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class SessionCollectionResponseImpl implements AdditionalDataHolder, Pars
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: SessionImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new SessionImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: SessionImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new SessionImpl(element));});
         writer.writeCollectionOfObjectValues<SessionImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

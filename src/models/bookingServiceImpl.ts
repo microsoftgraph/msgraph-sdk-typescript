@@ -11,45 +11,46 @@ import {BookingQuestionAssignmentImpl, BookingReminderImpl, BookingSchedulingPol
 import {Location} from './location';
 import {Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Represents a particular service offered by a booking business. */
 export class BookingServiceImpl extends EntityImpl implements BookingService, Parsable {
     /** Additional information that is sent to the customer when an appointment is confirmed. */
-    additionalInformation?: string | undefined;
+    public additionalInformation?: string | undefined;
     /** Contains the set of custom questions associated with a particular service. */
-    customQuestions?: BookingQuestionAssignment[] | undefined;
+    public customQuestions?: BookingQuestionAssignment[] | undefined;
     /** The default length of the service, represented in numbers of days, hours, minutes, and seconds. For example, P11D23H59M59.999999999999S. */
-    defaultDuration?: Duration | undefined;
+    public defaultDuration?: Duration | undefined;
     /** The default physical location for the service. */
-    defaultLocation?: Location | undefined;
+    public defaultLocation?: Location | undefined;
     /** The default monetary price for the service. */
-    defaultPrice?: number | undefined;
+    public defaultPrice?: number | undefined;
     /** The default way the service is charged. Possible values are: undefined, fixedPrice, startingAt, hourly, free, priceVaries, callUs, notSet, unknownFutureValue. */
-    defaultPriceType?: BookingPriceType | undefined;
+    public defaultPriceType?: BookingPriceType | undefined;
     /** The default set of reminders for an appointment of this service. The value of this property is available only when reading this bookingService by its ID. */
-    defaultReminders?: BookingReminder[] | undefined;
+    public defaultReminders?: BookingReminder[] | undefined;
     /** A text description for the service. */
-    description?: string | undefined;
+    public description?: string | undefined;
     /** A service name. */
-    displayName?: string | undefined;
+    public displayName?: string | undefined;
     /** True means this service is not available to customers for booking. */
-    isHiddenFromCustomers?: boolean | undefined;
+    public isHiddenFromCustomers?: boolean | undefined;
     /** True indicates that the appointments for the service will be held online. Default value is false. */
-    isLocationOnline?: boolean | undefined;
+    public isLocationOnline?: boolean | undefined;
     /** The maximum number of customers allowed in a service. If maximumAttendeesCount of the service is greater than 1, pass valid customer IDs while creating or updating an appointment.  To create a customer, use the Create bookingCustomer operation. */
-    maximumAttendeesCount?: number | undefined;
+    public maximumAttendeesCount?: number | undefined;
     /** Additional information about this service. */
-    notes?: string | undefined;
+    public notes?: string | undefined;
     /** The time to buffer after an appointment for this service ends, and before the next customer appointment can be booked. */
-    postBuffer?: Duration | undefined;
+    public postBuffer?: Duration | undefined;
     /** The time to buffer before an appointment for this service can start. */
-    preBuffer?: Duration | undefined;
+    public preBuffer?: Duration | undefined;
     /** The set of policies that determine how appointments for this type of service should be created and managed. */
-    schedulingPolicy?: BookingSchedulingPolicy | undefined;
+    public schedulingPolicy?: BookingSchedulingPolicy | undefined;
     /** True indicates SMS notifications can be sent to the customers for the appointment of the service. Default value is false. */
-    smsNotificationsEnabled?: boolean | undefined;
+    public smsNotificationsEnabled?: boolean | undefined;
     /** Represents those staff members who provide this service. */
-    staffMemberIds?: string[] | undefined;
+    public staffMemberIds?: string[] | undefined;
     /** The URL a customer uses to access the service. */
-    webUrl?: string | undefined;
+    public webUrl?: string | undefined;
     /**
      * Instantiates a new bookingService and sets the default values.
      * @param bookingServiceParameterValue 
@@ -111,79 +112,60 @@ export class BookingServiceImpl extends EntityImpl implements BookingService, Pa
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.additionalInformation){
-        if(this.additionalInformation)
         writer.writeStringValue("additionalInformation", this.additionalInformation);
         }
-        if(this.customQuestions){
-        const customQuestionsArrValue: BookingQuestionAssignmentImpl[] = []; this.customQuestions?.forEach(element => {customQuestionsArrValue.push(new BookingQuestionAssignmentImpl(element));});
+        if(this.customQuestions && this.customQuestions.length != 0){        const customQuestionsArrValue: BookingQuestionAssignmentImpl[] = []; this.customQuestions?.forEach(element => {customQuestionsArrValue.push(new BookingQuestionAssignmentImpl(element));});
         writer.writeCollectionOfObjectValues<BookingQuestionAssignmentImpl>("customQuestions", customQuestionsArrValue);
         }
         if(this.defaultDuration){
-        if(this.defaultDuration)
         writer.writeDurationValue("defaultDuration", this.defaultDuration);
         }
         if(this.defaultLocation){
-        if(this.defaultLocation)
         writer.writeObjectValue<LocationImpl>("defaultLocation", new LocationImpl(this.defaultLocation));
         }
         if(this.defaultPrice){
-        if(this.defaultPrice)
         writer.writeNumberValue("defaultPrice", this.defaultPrice);
         }
         if(this.defaultPriceType){
-        if(this.defaultPriceType)
         writer.writeEnumValue<BookingPriceType>("defaultPriceType", this.defaultPriceType);
         }
-        if(this.defaultReminders){
-        const defaultRemindersArrValue: BookingReminderImpl[] = []; this.defaultReminders?.forEach(element => {defaultRemindersArrValue.push(new BookingReminderImpl(element));});
+        if(this.defaultReminders && this.defaultReminders.length != 0){        const defaultRemindersArrValue: BookingReminderImpl[] = []; this.defaultReminders?.forEach(element => {defaultRemindersArrValue.push(new BookingReminderImpl(element));});
         writer.writeCollectionOfObjectValues<BookingReminderImpl>("defaultReminders", defaultRemindersArrValue);
         }
         if(this.description){
-        if(this.description)
         writer.writeStringValue("description", this.description);
         }
         if(this.displayName){
-        if(this.displayName)
         writer.writeStringValue("displayName", this.displayName);
         }
         if(this.isHiddenFromCustomers){
-        if(this.isHiddenFromCustomers)
         writer.writeBooleanValue("isHiddenFromCustomers", this.isHiddenFromCustomers);
         }
         if(this.isLocationOnline){
-        if(this.isLocationOnline)
         writer.writeBooleanValue("isLocationOnline", this.isLocationOnline);
         }
         if(this.maximumAttendeesCount){
-        if(this.maximumAttendeesCount)
         writer.writeNumberValue("maximumAttendeesCount", this.maximumAttendeesCount);
         }
         if(this.notes){
-        if(this.notes)
         writer.writeStringValue("notes", this.notes);
         }
         if(this.postBuffer){
-        if(this.postBuffer)
         writer.writeDurationValue("postBuffer", this.postBuffer);
         }
         if(this.preBuffer){
-        if(this.preBuffer)
         writer.writeDurationValue("preBuffer", this.preBuffer);
         }
         if(this.schedulingPolicy){
-        if(this.schedulingPolicy)
         writer.writeObjectValue<BookingSchedulingPolicyImpl>("schedulingPolicy", new BookingSchedulingPolicyImpl(this.schedulingPolicy));
         }
         if(this.smsNotificationsEnabled){
-        if(this.smsNotificationsEnabled)
         writer.writeBooleanValue("smsNotificationsEnabled", this.smsNotificationsEnabled);
         }
         if(this.staffMemberIds){
-        if(this.staffMemberIds)
         writer.writeCollectionOfPrimitiveValues<string>("staffMemberIds", this.staffMemberIds);
         }
         if(this.webUrl){
-        if(this.webUrl)
         writer.writeStringValue("webUrl", this.webUrl);
         }
     };

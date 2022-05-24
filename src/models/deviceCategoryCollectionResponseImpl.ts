@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class DeviceCategoryCollectionResponseImpl implements AdditionalDataHolder, DeviceCategoryCollectionResponse, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: DeviceCategory[] | undefined;
+    public value?: DeviceCategory[] | undefined;
     /**
      * Instantiates a new DeviceCategoryCollectionResponse and sets the default values.
      * @param deviceCategoryCollectionResponseParameterValue 
      */
     public constructor(deviceCategoryCollectionResponseParameterValue?: DeviceCategoryCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = deviceCategoryCollectionResponseParameterValue?.additionalData ? {} : deviceCategoryCollectionResponseParameterValue?.additionalData!
+        this.additionalData = deviceCategoryCollectionResponseParameterValue?.additionalData ? deviceCategoryCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = deviceCategoryCollectionResponseParameterValue?.nextLink ;
         this.value = deviceCategoryCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class DeviceCategoryCollectionResponseImpl implements AdditionalDataHolde
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: DeviceCategoryImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new DeviceCategoryImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: DeviceCategoryImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new DeviceCategoryImpl(element));});
         writer.writeCollectionOfObjectValues<DeviceCategoryImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

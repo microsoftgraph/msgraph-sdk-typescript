@@ -6,20 +6,19 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class InvitedUserMessageInfoImpl implements AdditionalDataHolder, InvitedUserMessageInfo, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** Additional recipients the invitation message should be sent to. Currently only 1 additional recipient is supported. */
-    ccRecipients?: Recipient[] | undefined;
+    public ccRecipients?: Recipient[] | undefined;
     /** Customized message body you want to send if you don't want the default message. */
-    customizedMessageBody?: string | undefined;
+    public customizedMessageBody?: string | undefined;
     /** The language you want to send the default message in. If the customizedMessageBody is specified, this property is ignored, and the message is sent using the customizedMessageBody. The language format should be in ISO 639. The default is en-US. */
-    messageLanguage?: string | undefined;
+    public messageLanguage?: string | undefined;
     /**
      * Instantiates a new invitedUserMessageInfo and sets the default values.
      * @param invitedUserMessageInfoParameterValue 
      */
     public constructor(invitedUserMessageInfoParameterValue?: InvitedUserMessageInfo | undefined) {
-        this.additionalData = {};
-        this.additionalData = invitedUserMessageInfoParameterValue?.additionalData ? {} : invitedUserMessageInfoParameterValue?.additionalData!
+        this.additionalData = invitedUserMessageInfoParameterValue?.additionalData ? invitedUserMessageInfoParameterValue?.additionalData! : {}
         this.ccRecipients = invitedUserMessageInfoParameterValue?.ccRecipients ;
         this.customizedMessageBody = invitedUserMessageInfoParameterValue?.customizedMessageBody ;
         this.messageLanguage = invitedUserMessageInfoParameterValue?.messageLanguage ;
@@ -41,16 +40,13 @@ export class InvitedUserMessageInfoImpl implements AdditionalDataHolder, Invited
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        if(this.ccRecipients){
-        const ccRecipientsArrValue: RecipientImpl[] = []; this.ccRecipients?.forEach(element => {ccRecipientsArrValue.push(new RecipientImpl(element));});
+        if(this.ccRecipients && this.ccRecipients.length != 0){        const ccRecipientsArrValue: RecipientImpl[] = []; this.ccRecipients?.forEach(element => {ccRecipientsArrValue.push(new RecipientImpl(element));});
         writer.writeCollectionOfObjectValues<RecipientImpl>("ccRecipients", ccRecipientsArrValue);
         }
         if(this.customizedMessageBody){
-        if(this.customizedMessageBody)
         writer.writeStringValue("customizedMessageBody", this.customizedMessageBody);
         }
         if(this.messageLanguage){
-        if(this.messageLanguage)
         writer.writeStringValue("messageLanguage", this.messageLanguage);
         }
         writer.writeAdditionalData(this.additionalData);

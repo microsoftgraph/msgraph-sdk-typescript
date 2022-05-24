@@ -12,25 +12,26 @@ import {EntitlementManagementSchedule} from './entitlementManagementSchedule';
 import {AccessPackageAssignmentImpl, AccessPackageImpl, AccessPackageSubjectImpl, EntitlementManagementScheduleImpl, EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the identityGovernance singleton. */
 export class AccessPackageAssignmentRequestImpl extends EntityImpl implements AccessPackageAssignmentRequest, Parsable {
     /** The access package associated with the accessPackageAssignmentRequest. An access package defines the collections of resource roles and the policies for how one or more users can get access to those resources. Read-only. Nullable. Supports $expand. */
-    accessPackage?: AccessPackage | undefined;
+    public accessPackage?: AccessPackage | undefined;
     /** For a requestType of UserAdd or AdminAdd, this is an access package assignment requested to be created.  For a requestType of UserRemove, AdminRemove or SystemRemove, this has the id property of an existing assignment to be removed.   Supports $expand. */
-    assignment?: AccessPackageAssignment | undefined;
+    public assignment?: AccessPackageAssignment | undefined;
     /** The date of the end of processing, either successful or failure, of a request. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. */
-    completedDateTime?: Date | undefined;
+    public completedDateTime?: Date | undefined;
     /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. */
-    createdDateTime?: Date | undefined;
+    public createdDateTime?: Date | undefined;
     /** The subject who requested or, if a direct assignment, was assigned. Read-only. Nullable. Supports $expand. */
-    requestor?: AccessPackageSubject | undefined;
+    public requestor?: AccessPackageSubject | undefined;
     /** One of UserAdd, UserRemove, AdminAdd, AdminRemove or SystemRemove. A request from the user themselves would have requestType of UserAdd or UserRemove. Read-only. */
-    requestType?: AccessPackageRequestType | undefined;
+    public requestType?: AccessPackageRequestType | undefined;
     /** The range of dates that access is to be assigned to the requestor. Read-only. */
-    schedule?: EntitlementManagementSchedule | undefined;
+    public schedule?: EntitlementManagementSchedule | undefined;
     /** The state of the request. The possible values are: submitted, pendingApproval, delivering, delivered, deliveryFailed, denied, scheduled, canceled, partiallyDelivered, unknownFutureValue. Read-only. */
-    state?: AccessPackageRequestState | undefined;
+    public state?: AccessPackageRequestState | undefined;
     /** More information on the request processing status. Read-only. */
-    status?: string | undefined;
+    public status?: string | undefined;
     /**
      * Instantiates a new accessPackageAssignmentRequest and sets the default values.
      * @param accessPackageAssignmentRequestParameterValue 
@@ -72,39 +73,30 @@ export class AccessPackageAssignmentRequestImpl extends EntityImpl implements Ac
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.accessPackage){
-        if(this.accessPackage)
         writer.writeObjectValue<AccessPackageImpl>("accessPackage", new AccessPackageImpl(this.accessPackage));
         }
         if(this.assignment){
-        if(this.assignment)
         writer.writeObjectValue<AccessPackageAssignmentImpl>("assignment", new AccessPackageAssignmentImpl(this.assignment));
         }
         if(this.completedDateTime){
-        if(this.completedDateTime)
         writer.writeDateValue("completedDateTime", this.completedDateTime);
         }
         if(this.createdDateTime){
-        if(this.createdDateTime)
         writer.writeDateValue("createdDateTime", this.createdDateTime);
         }
         if(this.requestor){
-        if(this.requestor)
         writer.writeObjectValue<AccessPackageSubjectImpl>("requestor", new AccessPackageSubjectImpl(this.requestor));
         }
         if(this.requestType){
-        if(this.requestType)
         writer.writeEnumValue<AccessPackageRequestType>("requestType", this.requestType);
         }
         if(this.schedule){
-        if(this.schedule)
         writer.writeObjectValue<EntitlementManagementScheduleImpl>("schedule", new EntitlementManagementScheduleImpl(this.schedule));
         }
         if(this.state){
-        if(this.state)
         writer.writeEnumValue<AccessPackageRequestState>("state", this.state);
         }
         if(this.status){
-        if(this.status)
         writer.writeStringValue("status", this.status);
         }
     };

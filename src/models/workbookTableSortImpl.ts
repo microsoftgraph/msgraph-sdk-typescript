@@ -4,13 +4,14 @@ import {WorkbookSortField} from './workbookSortField';
 import {WorkbookTableSort} from './workbookTableSort';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to user. */
 export class WorkbookTableSortImpl extends EntityImpl implements Parsable, WorkbookTableSort {
     /** Represents the current conditions used to last sort the table. Read-only. */
-    fields?: WorkbookSortField[] | undefined;
+    public fields?: WorkbookSortField[] | undefined;
     /** Represents whether the casing impacted the last sort of the table. Read-only. */
-    matchCase?: boolean | undefined;
+    public matchCase?: boolean | undefined;
     /** Represents Chinese character ordering method last used to sort the table. Possible values are: PinYin, StrokeCount. Read-only. */
-    method?: string | undefined;
+    public method?: string | undefined;
     /**
      * Instantiates a new workbookTableSort and sets the default values.
      * @param workbookTableSortParameterValue 
@@ -39,16 +40,13 @@ export class WorkbookTableSortImpl extends EntityImpl implements Parsable, Workb
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.fields){
-        const fieldsArrValue: WorkbookSortFieldImpl[] = []; this.fields?.forEach(element => {fieldsArrValue.push(new WorkbookSortFieldImpl(element));});
+        if(this.fields && this.fields.length != 0){        const fieldsArrValue: WorkbookSortFieldImpl[] = []; this.fields?.forEach(element => {fieldsArrValue.push(new WorkbookSortFieldImpl(element));});
         writer.writeCollectionOfObjectValues<WorkbookSortFieldImpl>("fields", fieldsArrValue);
         }
         if(this.matchCase){
-        if(this.matchCase)
         writer.writeBooleanValue("matchCase", this.matchCase);
         }
         if(this.method){
-        if(this.method)
         writer.writeStringValue("method", this.method);
         }
     };

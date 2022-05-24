@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class SingleValueLegacyExtendedPropertyCollectionResponseImpl implements AdditionalDataHolder, Parsable, SingleValueLegacyExtendedPropertyCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: SingleValueLegacyExtendedProperty[] | undefined;
+    public value?: SingleValueLegacyExtendedProperty[] | undefined;
     /**
      * Instantiates a new SingleValueLegacyExtendedPropertyCollectionResponse and sets the default values.
      * @param singleValueLegacyExtendedPropertyCollectionResponseParameterValue 
      */
     public constructor(singleValueLegacyExtendedPropertyCollectionResponseParameterValue?: SingleValueLegacyExtendedPropertyCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = singleValueLegacyExtendedPropertyCollectionResponseParameterValue?.additionalData ? {} : singleValueLegacyExtendedPropertyCollectionResponseParameterValue?.additionalData!
+        this.additionalData = singleValueLegacyExtendedPropertyCollectionResponseParameterValue?.additionalData ? singleValueLegacyExtendedPropertyCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = singleValueLegacyExtendedPropertyCollectionResponseParameterValue?.nextLink ;
         this.value = singleValueLegacyExtendedPropertyCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class SingleValueLegacyExtendedPropertyCollectionResponseImpl implements 
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: SingleValueLegacyExtendedPropertyImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new SingleValueLegacyExtendedPropertyImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: SingleValueLegacyExtendedPropertyImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new SingleValueLegacyExtendedPropertyImpl(element));});
         writer.writeCollectionOfObjectValues<SingleValueLegacyExtendedPropertyImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

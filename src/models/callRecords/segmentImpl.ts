@@ -9,19 +9,20 @@ import {Media} from './media';
 import {Segment} from './segment';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the cloudCommunications singleton. */
 export class SegmentImpl extends EntityImpl implements Parsable, Segment {
     /** Endpoint that answered this segment. */
-    callee?: Endpoint | undefined;
+    public callee?: Endpoint | undefined;
     /** Endpoint that initiated this segment. */
-    caller?: Endpoint | undefined;
+    public caller?: Endpoint | undefined;
     /** UTC time when the segment ended. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
-    endDateTime?: Date | undefined;
+    public endDateTime?: Date | undefined;
     /** Failure information associated with the segment if it failed. */
-    failureInfo?: FailureInfo | undefined;
+    public failureInfo?: FailureInfo | undefined;
     /** Media associated with this segment. */
-    media?: Media[] | undefined;
+    public media?: Media[] | undefined;
     /** UTC time when the segment started. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
-    startDateTime?: Date | undefined;
+    public startDateTime?: Date | undefined;
     /**
      * Instantiates a new segment and sets the default values.
      * @param segmentParameterValue 
@@ -57,27 +58,21 @@ export class SegmentImpl extends EntityImpl implements Parsable, Segment {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.callee){
-        if(this.callee)
         writer.writeObjectValue<EndpointImpl>("callee", new EndpointImpl(this.callee));
         }
         if(this.caller){
-        if(this.caller)
         writer.writeObjectValue<EndpointImpl>("caller", new EndpointImpl(this.caller));
         }
         if(this.endDateTime){
-        if(this.endDateTime)
         writer.writeDateValue("endDateTime", this.endDateTime);
         }
         if(this.failureInfo){
-        if(this.failureInfo)
         writer.writeObjectValue<FailureInfoImpl>("failureInfo", new FailureInfoImpl(this.failureInfo));
         }
-        if(this.media){
-        const mediaArrValue: MediaImpl[] = []; this.media?.forEach(element => {mediaArrValue.push(new MediaImpl(element));});
+        if(this.media && this.media.length != 0){        const mediaArrValue: MediaImpl[] = []; this.media?.forEach(element => {mediaArrValue.push(new MediaImpl(element));});
         writer.writeCollectionOfObjectValues<MediaImpl>("media", mediaArrValue);
         }
         if(this.startDateTime){
-        if(this.startDateTime)
         writer.writeDateValue("startDateTime", this.startDateTime);
         }
     };

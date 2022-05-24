@@ -9,29 +9,30 @@ import {OperationResult} from './operationResult';
 import {TargetResource} from './targetResource';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the auditLogRoot singleton. */
 export class DirectoryAuditImpl extends EntityImpl implements DirectoryAudit, Parsable {
     /** Indicates the date and time the activity was performed. The Timestamp type is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
-    activityDateTime?: Date | undefined;
+    public activityDateTime?: Date | undefined;
     /** Indicates the activity name or the operation name (E.g. 'Create User', 'Add member to group'). For a list of activities logged, refer to Azure Ad activity list. */
-    activityDisplayName?: string | undefined;
+    public activityDisplayName?: string | undefined;
     /** Indicates additional details on the activity. */
-    additionalDetails?: KeyValue[] | undefined;
+    public additionalDetails?: KeyValue[] | undefined;
     /** Indicates which resource category that's targeted by the activity. (For example: User Management, Group Management etc..) */
-    category?: string | undefined;
+    public category?: string | undefined;
     /** Indicates a unique ID that helps correlate activities that span across various services. Can be used to trace logs across services. */
-    correlationId?: string | undefined;
+    public correlationId?: string | undefined;
     /** The initiatedBy property */
-    initiatedBy?: AuditActivityInitiator | undefined;
+    public initiatedBy?: AuditActivityInitiator | undefined;
     /** Indicates information on which service initiated the activity (For example: Self-service Password Management, Core Directory, B2C, Invited Users, Microsoft Identity Manager, Privileged Identity Management. */
-    loggedByService?: string | undefined;
+    public loggedByService?: string | undefined;
     /** Indicates the type of operation that was performed. The possible values include but are not limited to the following: Add, Assign, Update, Unassign, and Delete. */
-    operationType?: string | undefined;
+    public operationType?: string | undefined;
     /** Indicates the result of the activity. Possible values are: success, failure, timeout, unknownFutureValue. */
-    result?: OperationResult | undefined;
+    public result?: OperationResult | undefined;
     /** Indicates the reason for failure if the result is failure or timeout. */
-    resultReason?: string | undefined;
+    public resultReason?: string | undefined;
     /** Information about the resource that changed due to the activity. */
-    targetResources?: TargetResource[] | undefined;
+    public targetResources?: TargetResource[] | undefined;
     /**
      * Instantiates a new directoryAudit and sets the default values.
      * @param directoryAuditParameterValue 
@@ -77,47 +78,36 @@ export class DirectoryAuditImpl extends EntityImpl implements DirectoryAudit, Pa
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.activityDateTime){
-        if(this.activityDateTime)
         writer.writeDateValue("activityDateTime", this.activityDateTime);
         }
         if(this.activityDisplayName){
-        if(this.activityDisplayName)
         writer.writeStringValue("activityDisplayName", this.activityDisplayName);
         }
-        if(this.additionalDetails){
-        const additionalDetailsArrValue: KeyValueImpl[] = []; this.additionalDetails?.forEach(element => {additionalDetailsArrValue.push(new KeyValueImpl(element));});
+        if(this.additionalDetails && this.additionalDetails.length != 0){        const additionalDetailsArrValue: KeyValueImpl[] = []; this.additionalDetails?.forEach(element => {additionalDetailsArrValue.push(new KeyValueImpl(element));});
         writer.writeCollectionOfObjectValues<KeyValueImpl>("additionalDetails", additionalDetailsArrValue);
         }
         if(this.category){
-        if(this.category)
         writer.writeStringValue("category", this.category);
         }
         if(this.correlationId){
-        if(this.correlationId)
         writer.writeStringValue("correlationId", this.correlationId);
         }
         if(this.initiatedBy){
-        if(this.initiatedBy)
         writer.writeObjectValue<AuditActivityInitiatorImpl>("initiatedBy", new AuditActivityInitiatorImpl(this.initiatedBy));
         }
         if(this.loggedByService){
-        if(this.loggedByService)
         writer.writeStringValue("loggedByService", this.loggedByService);
         }
         if(this.operationType){
-        if(this.operationType)
         writer.writeStringValue("operationType", this.operationType);
         }
         if(this.result){
-        if(this.result)
         writer.writeEnumValue<OperationResult>("result", this.result);
         }
         if(this.resultReason){
-        if(this.resultReason)
         writer.writeStringValue("resultReason", this.resultReason);
         }
-        if(this.targetResources){
-        const targetResourcesArrValue: TargetResourceImpl[] = []; this.targetResources?.forEach(element => {targetResourcesArrValue.push(new TargetResourceImpl(element));});
+        if(this.targetResources && this.targetResources.length != 0){        const targetResourcesArrValue: TargetResourceImpl[] = []; this.targetResources?.forEach(element => {targetResourcesArrValue.push(new TargetResourceImpl(element));});
         writer.writeCollectionOfObjectValues<TargetResourceImpl>("targetResources", targetResourcesArrValue);
         }
     };

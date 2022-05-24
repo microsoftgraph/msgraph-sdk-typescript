@@ -1,6 +1,5 @@
 import {AgreementFileVersionCollectionResponseImpl, AgreementFileVersionImpl} from '../../../../../../../../models/';
 import {AgreementFileVersion} from '../../../../../../../../models/agreementFileVersion';
-import {AgreementFileVersionCollectionResponse} from '../../../../../../../../models/agreementFileVersionCollectionResponse';
 import {createAgreementFileVersionCollectionResponseFromDiscriminatorValue} from '../../../../../../../../models/createAgreementFileVersionCollectionResponseFromDiscriminatorValue';
 import {createAgreementFileVersionFromDiscriminatorValue} from '../../../../../../../../models/createAgreementFileVersionFromDiscriminatorValue';
 import {ODataErrorImpl} from '../../../../../../../../models/oDataErrors/';
@@ -68,8 +67,8 @@ export class VersionsRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        const bodyParsable = new AgreementFileVersionImpl(body)
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", bodyParsable);
+        const parsableBody = new AgreementFileVersionImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -78,7 +77,7 @@ export class VersionsRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AgreementFileVersionCollectionResponse
      */
-    public get(requestConfiguration?: VersionsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AgreementFileVersionCollectionResponse | undefined> {
+    public get(requestConfiguration?: VersionsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AgreementFileVersionCollectionResponseImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -95,7 +94,7 @@ export class VersionsRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AgreementFileVersion
      */
-    public post(body: AgreementFileVersion | undefined, requestConfiguration?: VersionsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AgreementFileVersion | undefined> {
+    public post(body: AgreementFileVersion | undefined, requestConfiguration?: VersionsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AgreementFileVersionImpl | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration

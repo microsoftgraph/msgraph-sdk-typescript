@@ -4,19 +4,19 @@ import {ScheduleChangeState} from './scheduleChangeState';
 
 export interface ScheduleChangeRequest extends ChangeTrackedEntity{
     /** The assignedTo property */
-    assignedTo?: ScheduleChangeRequestActor | undefined;
+    assignedTo?:ScheduleChangeRequestActor | undefined;
     /** The managerActionDateTime property */
-    managerActionDateTime?: Date | undefined;
+    managerActionDateTime?:Date | undefined;
     /** The managerActionMessage property */
-    managerActionMessage?: string | undefined;
+    managerActionMessage?:string | undefined;
     /** The managerUserId property */
-    managerUserId?: string | undefined;
+    managerUserId?:string | undefined;
     /** The senderDateTime property */
-    senderDateTime?: Date | undefined;
+    senderDateTime?:Date | undefined;
     /** The senderMessage property */
-    senderMessage?: string | undefined;
+    senderMessage?:string | undefined;
     /** The senderUserId property */
-    senderUserId?: string | undefined;
+    senderUserId?:string | undefined;
     /** The state property */
-    state?: ScheduleChangeState | undefined;
+    state?:ScheduleChangeState | undefined;
 }

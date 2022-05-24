@@ -6,15 +6,16 @@ import {UnifiedRoleAssignmentSchedule} from './unifiedRoleAssignmentSchedule';
 import {UnifiedRoleEligibilitySchedule} from './unifiedRoleEligibilitySchedule';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the roleManagement singleton. */
 export class UnifiedRoleAssignmentScheduleImpl extends UnifiedRoleScheduleBaseImpl implements Parsable, UnifiedRoleAssignmentSchedule {
     /** If the roleAssignmentSchedule is activated by a roleEligibilitySchedule, this is the link to that schedule. */
-    activatedUsing?: UnifiedRoleEligibilitySchedule | undefined;
+    public activatedUsing?: UnifiedRoleEligibilitySchedule | undefined;
     /** Type of the assignment. It can either be Assigned or Activated. */
-    assignmentType?: string | undefined;
+    public assignmentType?: string | undefined;
     /** Membership type of the assignment. It can either be Inherited, Direct, or Group. */
-    memberType?: string | undefined;
+    public memberType?: string | undefined;
     /** The schedule object of the role assignment request. */
-    scheduleInfo?: RequestSchedule | undefined;
+    public scheduleInfo?: RequestSchedule | undefined;
     /**
      * Instantiates a new unifiedRoleAssignmentSchedule and sets the default values.
      * @param unifiedRoleAssignmentScheduleParameterValue 
@@ -46,19 +47,15 @@ export class UnifiedRoleAssignmentScheduleImpl extends UnifiedRoleScheduleBaseIm
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.activatedUsing){
-        if(this.activatedUsing)
         writer.writeObjectValue<UnifiedRoleEligibilityScheduleImpl>("activatedUsing", new UnifiedRoleEligibilityScheduleImpl(this.activatedUsing));
         }
         if(this.assignmentType){
-        if(this.assignmentType)
         writer.writeStringValue("assignmentType", this.assignmentType);
         }
         if(this.memberType){
-        if(this.memberType)
         writer.writeStringValue("memberType", this.memberType);
         }
         if(this.scheduleInfo){
-        if(this.scheduleInfo)
         writer.writeObjectValue<RequestScheduleImpl>("scheduleInfo", new RequestScheduleImpl(this.scheduleInfo));
         }
     };

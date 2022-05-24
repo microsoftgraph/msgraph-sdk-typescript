@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class CalendarGroupCollectionResponseImpl implements AdditionalDataHolder, CalendarGroupCollectionResponse, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: CalendarGroup[] | undefined;
+    public value?: CalendarGroup[] | undefined;
     /**
      * Instantiates a new CalendarGroupCollectionResponse and sets the default values.
      * @param calendarGroupCollectionResponseParameterValue 
      */
     public constructor(calendarGroupCollectionResponseParameterValue?: CalendarGroupCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = calendarGroupCollectionResponseParameterValue?.additionalData ? {} : calendarGroupCollectionResponseParameterValue?.additionalData!
+        this.additionalData = calendarGroupCollectionResponseParameterValue?.additionalData ? calendarGroupCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = calendarGroupCollectionResponseParameterValue?.nextLink ;
         this.value = calendarGroupCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class CalendarGroupCollectionResponseImpl implements AdditionalDataHolder
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: CalendarGroupImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new CalendarGroupImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: CalendarGroupImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new CalendarGroupImpl(element));});
         writer.writeCollectionOfObjectValues<CalendarGroupImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

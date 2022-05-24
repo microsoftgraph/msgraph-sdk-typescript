@@ -1,3 +1,3 @@
-export * from './wipeRequestBodyImpl'
+export * from './wipePostRequestBodyImpl'
+export * from './wipePostRequestBody'
 export * from './wipeRequestBuilderPostRequestConfiguration'
-export * from './wipeRequestBody'

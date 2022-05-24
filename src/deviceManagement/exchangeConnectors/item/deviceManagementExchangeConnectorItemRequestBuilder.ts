@@ -83,8 +83,8 @@ export class DeviceManagementExchangeConnectorItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        const bodyParsable = new DeviceManagementExchangeConnectorImpl(body)
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", bodyParsable);
+        const parsableBody = new DeviceManagementExchangeConnectorImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -108,7 +108,7 @@ export class DeviceManagementExchangeConnectorItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DeviceManagementExchangeConnector
      */
-    public get(requestConfiguration?: DeviceManagementExchangeConnectorItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DeviceManagementExchangeConnector | undefined> {
+    public get(requestConfiguration?: DeviceManagementExchangeConnectorItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DeviceManagementExchangeConnectorImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );

@@ -2,6 +2,7 @@ import {ClaimsMappingPolicy} from './claimsMappingPolicy';
 import {StsPolicyImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to call the instantiate method. */
 export class ClaimsMappingPolicyImpl extends StsPolicyImpl implements ClaimsMappingPolicy, Parsable {
     /**
      * Instantiates a new claimsMappingPolicy and sets the default values.

@@ -1,7 +1,6 @@
 import {createSupportedTimeZonesResponseFromDiscriminatorValue} from './createSupportedTimeZonesResponseFromDiscriminatorValue';
 import {SupportedTimeZonesResponseImpl} from './index';
 import {SupportedTimeZonesRequestBuilderGetRequestConfiguration} from './supportedTimeZonesRequestBuilderGetRequestConfiguration';
-import {SupportedTimeZonesResponse} from './supportedTimeZonesResponse';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the supportedTimeZones method. */
@@ -47,7 +46,7 @@ export class SupportedTimeZonesRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of SupportedTimeZonesResponse
      */
-    public get(requestConfiguration?: SupportedTimeZonesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<SupportedTimeZonesResponse | undefined> {
+    public get(requestConfiguration?: SupportedTimeZonesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<SupportedTimeZonesResponseImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );

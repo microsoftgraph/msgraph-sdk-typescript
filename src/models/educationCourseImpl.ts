@@ -3,24 +3,23 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class EducationCourseImpl implements AdditionalDataHolder, EducationCourse, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** Unique identifier for the course. */
-    courseNumber?: string | undefined;
+    public courseNumber?: string | undefined;
     /** Description of the course. */
-    description?: string | undefined;
+    public description?: string | undefined;
     /** Name of the course. */
-    displayName?: string | undefined;
+    public displayName?: string | undefined;
     /** ID of the course from the syncing system. */
-    externalId?: string | undefined;
+    public externalId?: string | undefined;
     /** Subject of the course. */
-    subject?: string | undefined;
+    public subject?: string | undefined;
     /**
      * Instantiates a new educationCourse and sets the default values.
      * @param educationCourseParameterValue 
      */
     public constructor(educationCourseParameterValue?: EducationCourse | undefined) {
-        this.additionalData = {};
-        this.additionalData = educationCourseParameterValue?.additionalData ? {} : educationCourseParameterValue?.additionalData!
+        this.additionalData = educationCourseParameterValue?.additionalData ? educationCourseParameterValue?.additionalData! : {}
         this.courseNumber = educationCourseParameterValue?.courseNumber ;
         this.description = educationCourseParameterValue?.description ;
         this.displayName = educationCourseParameterValue?.displayName ;
@@ -47,23 +46,18 @@ export class EducationCourseImpl implements AdditionalDataHolder, EducationCours
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.courseNumber){
-        if(this.courseNumber)
         writer.writeStringValue("courseNumber", this.courseNumber);
         }
         if(this.description){
-        if(this.description)
         writer.writeStringValue("description", this.description);
         }
         if(this.displayName){
-        if(this.displayName)
         writer.writeStringValue("displayName", this.displayName);
         }
         if(this.externalId){
-        if(this.externalId)
         writer.writeStringValue("externalId", this.externalId);
         }
         if(this.subject){
-        if(this.subject)
         writer.writeStringValue("subject", this.subject);
         }
         writer.writeAdditionalData(this.additionalData);

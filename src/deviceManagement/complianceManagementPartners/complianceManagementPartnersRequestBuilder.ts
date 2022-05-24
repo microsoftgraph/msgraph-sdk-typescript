@@ -1,6 +1,5 @@
 import {ComplianceManagementPartnerCollectionResponseImpl, ComplianceManagementPartnerImpl} from '../../models/';
 import {ComplianceManagementPartner} from '../../models/complianceManagementPartner';
-import {ComplianceManagementPartnerCollectionResponse} from '../../models/complianceManagementPartnerCollectionResponse';
 import {createComplianceManagementPartnerCollectionResponseFromDiscriminatorValue} from '../../models/createComplianceManagementPartnerCollectionResponseFromDiscriminatorValue';
 import {createComplianceManagementPartnerFromDiscriminatorValue} from '../../models/createComplianceManagementPartnerFromDiscriminatorValue';
 import {ODataErrorImpl} from '../../models/oDataErrors/';
@@ -68,8 +67,8 @@ export class ComplianceManagementPartnersRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        const bodyParsable = new ComplianceManagementPartnerImpl(body)
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", bodyParsable);
+        const parsableBody = new ComplianceManagementPartnerImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -78,7 +77,7 @@ export class ComplianceManagementPartnersRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ComplianceManagementPartnerCollectionResponse
      */
-    public get(requestConfiguration?: ComplianceManagementPartnersRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ComplianceManagementPartnerCollectionResponse | undefined> {
+    public get(requestConfiguration?: ComplianceManagementPartnersRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ComplianceManagementPartnerCollectionResponseImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -95,7 +94,7 @@ export class ComplianceManagementPartnersRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ComplianceManagementPartner
      */
-    public post(body: ComplianceManagementPartner | undefined, requestConfiguration?: ComplianceManagementPartnersRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ComplianceManagementPartner | undefined> {
+    public post(body: ComplianceManagementPartner | undefined, requestConfiguration?: ComplianceManagementPartnersRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ComplianceManagementPartnerImpl | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration

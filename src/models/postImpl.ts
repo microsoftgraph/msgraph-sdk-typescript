@@ -15,33 +15,34 @@ import {Recipient} from './recipient';
 import {SingleValueLegacyExtendedProperty} from './singleValueLegacyExtendedProperty';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to group. */
 export class PostImpl extends OutlookItemImpl implements Parsable, Post {
     /** The collection of fileAttachment, itemAttachment, and referenceAttachment attachments for the post. Read-only. Nullable. Supports $expand. */
-    attachments?: Attachment[] | undefined;
+    public attachments?: Attachment[] | undefined;
     /** The contents of the post. This is a default property. This property can be null. */
-    body?: ItemBody | undefined;
+    public body?: ItemBody | undefined;
     /** Unique ID of the conversation. Read-only. */
-    conversationId?: string | undefined;
+    public conversationId?: string | undefined;
     /** Unique ID of the conversation thread. Read-only. */
-    conversationThreadId?: string | undefined;
+    public conversationThreadId?: string | undefined;
     /** The collection of open extensions defined for the post. Read-only. Nullable. Supports $expand. */
-    extensions?: Extension[] | undefined;
+    public extensions?: Extension[] | undefined;
     /** The from property */
-    from?: Recipient | undefined;
+    public from?: Recipient | undefined;
     /** Indicates whether the post has at least one attachment. This is a default property. */
-    hasAttachments?: boolean | undefined;
+    public hasAttachments?: boolean | undefined;
     /** The earlier post that this post is replying to in the conversationThread. Read-only. Supports $expand. */
-    inReplyTo?: Post | undefined;
+    public inReplyTo?: Post | undefined;
     /** The collection of multi-value extended properties defined for the post. Read-only. Nullable. */
-    multiValueExtendedProperties?: MultiValueLegacyExtendedProperty[] | undefined;
+    public multiValueExtendedProperties?: MultiValueLegacyExtendedProperty[] | undefined;
     /** Conversation participants that were added to the thread as part of this post. */
-    newParticipants?: Recipient[] | undefined;
+    public newParticipants?: Recipient[] | undefined;
     /** Specifies when the post was received. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
-    receivedDateTime?: Date | undefined;
+    public receivedDateTime?: Date | undefined;
     /** Contains the address of the sender. The value of Sender is assumed to be the address of the authenticated user in the case when Sender is not specified. This is a default property. */
-    sender?: Recipient | undefined;
+    public sender?: Recipient | undefined;
     /** The collection of single-value extended properties defined for the post. Read-only. Nullable. */
-    singleValueExtendedProperties?: SingleValueLegacyExtendedProperty[] | undefined;
+    public singleValueExtendedProperties?: SingleValueLegacyExtendedProperty[] | undefined;
     /**
      * Instantiates a new post and sets the default values.
      * @param postParameterValue 
@@ -90,56 +91,43 @@ export class PostImpl extends OutlookItemImpl implements Parsable, Post {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.attachments){
-        const attachmentsArrValue: AttachmentImpl[] = []; this.attachments?.forEach(element => {attachmentsArrValue.push(new AttachmentImpl(element));});
+        if(this.attachments && this.attachments.length != 0){        const attachmentsArrValue: AttachmentImpl[] = []; this.attachments?.forEach(element => {attachmentsArrValue.push(new AttachmentImpl(element));});
         writer.writeCollectionOfObjectValues<AttachmentImpl>("attachments", attachmentsArrValue);
         }
         if(this.body){
-        if(this.body)
         writer.writeObjectValue<ItemBodyImpl>("body", new ItemBodyImpl(this.body));
         }
         if(this.conversationId){
-        if(this.conversationId)
         writer.writeStringValue("conversationId", this.conversationId);
         }
         if(this.conversationThreadId){
-        if(this.conversationThreadId)
         writer.writeStringValue("conversationThreadId", this.conversationThreadId);
         }
-        if(this.extensions){
-        const extensionsArrValue: ExtensionImpl[] = []; this.extensions?.forEach(element => {extensionsArrValue.push(new ExtensionImpl(element));});
+        if(this.extensions && this.extensions.length != 0){        const extensionsArrValue: ExtensionImpl[] = []; this.extensions?.forEach(element => {extensionsArrValue.push(new ExtensionImpl(element));});
         writer.writeCollectionOfObjectValues<ExtensionImpl>("extensions", extensionsArrValue);
         }
         if(this.from){
-        if(this.from)
         writer.writeObjectValue<RecipientImpl>("from", new RecipientImpl(this.from));
         }
         if(this.hasAttachments){
-        if(this.hasAttachments)
         writer.writeBooleanValue("hasAttachments", this.hasAttachments);
         }
         if(this.inReplyTo){
-        if(this.inReplyTo)
         writer.writeObjectValue<PostImpl>("inReplyTo", new PostImpl(this.inReplyTo));
         }
-        if(this.multiValueExtendedProperties){
-        const multiValueExtendedPropertiesArrValue: MultiValueLegacyExtendedPropertyImpl[] = []; this.multiValueExtendedProperties?.forEach(element => {multiValueExtendedPropertiesArrValue.push(new MultiValueLegacyExtendedPropertyImpl(element));});
+        if(this.multiValueExtendedProperties && this.multiValueExtendedProperties.length != 0){        const multiValueExtendedPropertiesArrValue: MultiValueLegacyExtendedPropertyImpl[] = []; this.multiValueExtendedProperties?.forEach(element => {multiValueExtendedPropertiesArrValue.push(new MultiValueLegacyExtendedPropertyImpl(element));});
         writer.writeCollectionOfObjectValues<MultiValueLegacyExtendedPropertyImpl>("multiValueExtendedProperties", multiValueExtendedPropertiesArrValue);
         }
-        if(this.newParticipants){
-        const newParticipantsArrValue: RecipientImpl[] = []; this.newParticipants?.forEach(element => {newParticipantsArrValue.push(new RecipientImpl(element));});
+        if(this.newParticipants && this.newParticipants.length != 0){        const newParticipantsArrValue: RecipientImpl[] = []; this.newParticipants?.forEach(element => {newParticipantsArrValue.push(new RecipientImpl(element));});
         writer.writeCollectionOfObjectValues<RecipientImpl>("newParticipants", newParticipantsArrValue);
         }
         if(this.receivedDateTime){
-        if(this.receivedDateTime)
         writer.writeDateValue("receivedDateTime", this.receivedDateTime);
         }
         if(this.sender){
-        if(this.sender)
         writer.writeObjectValue<RecipientImpl>("sender", new RecipientImpl(this.sender));
         }
-        if(this.singleValueExtendedProperties){
-        const singleValueExtendedPropertiesArrValue: SingleValueLegacyExtendedPropertyImpl[] = []; this.singleValueExtendedProperties?.forEach(element => {singleValueExtendedPropertiesArrValue.push(new SingleValueLegacyExtendedPropertyImpl(element));});
+        if(this.singleValueExtendedProperties && this.singleValueExtendedProperties.length != 0){        const singleValueExtendedPropertiesArrValue: SingleValueLegacyExtendedPropertyImpl[] = []; this.singleValueExtendedProperties?.forEach(element => {singleValueExtendedPropertiesArrValue.push(new SingleValueLegacyExtendedPropertyImpl(element));});
         writer.writeCollectionOfObjectValues<SingleValueLegacyExtendedPropertyImpl>("singleValueExtendedProperties", singleValueExtendedPropertiesArrValue);
         }
     };

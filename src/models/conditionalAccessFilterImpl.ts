@@ -4,18 +4,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class ConditionalAccessFilterImpl implements AdditionalDataHolder, ConditionalAccessFilter, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** Mode to use for the filter. Possible values are include or exclude. */
-    mode?: FilterMode | undefined;
+    public mode?: FilterMode | undefined;
     /** Rule syntax is similar to that used for membership rules for groups in Azure Active Directory. For details, see rules with multiple expressions */
-    rule?: string | undefined;
+    public rule?: string | undefined;
     /**
      * Instantiates a new conditionalAccessFilter and sets the default values.
      * @param conditionalAccessFilterParameterValue 
      */
     public constructor(conditionalAccessFilterParameterValue?: ConditionalAccessFilter | undefined) {
-        this.additionalData = {};
-        this.additionalData = conditionalAccessFilterParameterValue?.additionalData ? {} : conditionalAccessFilterParameterValue?.additionalData!
+        this.additionalData = conditionalAccessFilterParameterValue?.additionalData ? conditionalAccessFilterParameterValue?.additionalData! : {}
         this.mode = conditionalAccessFilterParameterValue?.mode ;
         this.rule = conditionalAccessFilterParameterValue?.rule ;
     };
@@ -36,11 +35,9 @@ export class ConditionalAccessFilterImpl implements AdditionalDataHolder, Condit
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.mode){
-        if(this.mode)
         writer.writeEnumValue<FilterMode>("mode", this.mode);
         }
         if(this.rule){
-        if(this.rule)
         writer.writeStringValue("rule", this.rule);
         }
         writer.writeAdditionalData(this.additionalData);

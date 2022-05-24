@@ -1,8 +1,6 @@
-import {createGetCachedReportResponseFromDiscriminatorValue} from './createGetCachedReportResponseFromDiscriminatorValue';
-import {GetCachedReportRequestBody} from './getCachedReportRequestBody';
+import {GetCachedReportPostRequestBody} from './getCachedReportPostRequestBody';
 import {GetCachedReportRequestBuilderPostRequestConfiguration} from './getCachedReportRequestBuilderPostRequestConfiguration';
-import {GetCachedReportResponse} from './getCachedReportResponse';
-import {GetCachedReportRequestBodyImpl, GetCachedReportResponseImpl} from './index';
+import {GetCachedReportPostRequestBodyImpl} from './index';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the getCachedReport method. */
@@ -32,7 +30,7 @@ export class GetCachedReportRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public createPostRequestInformation(body: GetCachedReportRequestBody | undefined, requestConfiguration?: GetCachedReportRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public createPostRequestInformation(body: GetCachedReportPostRequestBody | undefined, requestConfiguration?: GetCachedReportRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -42,8 +40,8 @@ export class GetCachedReportRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        const bodyParsable = new GetCachedReportRequestBodyImpl(body)
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", bodyParsable);
+        const parsableBody = new GetCachedReportPostRequestBodyImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -51,13 +49,13 @@ export class GetCachedReportRequestBuilder {
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of GetCachedReportResponse
+     * @returns a Promise of ArrayBuffer
      */
-    public post(body: GetCachedReportRequestBody | undefined, requestConfiguration?: GetCachedReportRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<GetCachedReportResponse | undefined> {
+    public post(body: GetCachedReportPostRequestBody | undefined, requestConfiguration?: GetCachedReportRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ArrayBuffer | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration
         );
-        return this.requestAdapter?.sendAsync<GetCachedReportResponseImpl>(requestInfo, createGetCachedReportResponseFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendPrimitiveAsync<ArrayBuffer>(requestInfo, "ArrayBuffer", responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }

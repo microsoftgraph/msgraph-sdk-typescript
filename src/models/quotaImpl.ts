@@ -6,26 +6,25 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class QuotaImpl implements AdditionalDataHolder, Parsable, Quota {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** Total space consumed by files in the recycle bin, in bytes. Read-only. */
-    deleted?: number | undefined;
+    public deleted?: number | undefined;
     /** Total space remaining before reaching the quota limit, in bytes. Read-only. */
-    remaining?: number | undefined;
+    public remaining?: number | undefined;
     /** Enumeration value that indicates the state of the storage space. Read-only. */
-    state?: string | undefined;
+    public state?: string | undefined;
     /** Information about the drive's storage quota plans. Only in Personal OneDrive. */
-    storagePlanInformation?: StoragePlanInformation | undefined;
+    public storagePlanInformation?: StoragePlanInformation | undefined;
     /** Total allowed storage space, in bytes. Read-only. */
-    total?: number | undefined;
+    public total?: number | undefined;
     /** Total space used, in bytes. Read-only. */
-    used?: number | undefined;
+    public used?: number | undefined;
     /**
      * Instantiates a new quota and sets the default values.
      * @param quotaParameterValue 
      */
     public constructor(quotaParameterValue?: Quota | undefined) {
-        this.additionalData = {};
-        this.additionalData = quotaParameterValue?.additionalData ? {} : quotaParameterValue?.additionalData!
+        this.additionalData = quotaParameterValue?.additionalData ? quotaParameterValue?.additionalData! : {}
         this.deleted = quotaParameterValue?.deleted ;
         this.remaining = quotaParameterValue?.remaining ;
         this.state = quotaParameterValue?.state ;
@@ -54,27 +53,21 @@ export class QuotaImpl implements AdditionalDataHolder, Parsable, Quota {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.deleted){
-        if(this.deleted)
         writer.writeNumberValue("deleted", this.deleted);
         }
         if(this.remaining){
-        if(this.remaining)
         writer.writeNumberValue("remaining", this.remaining);
         }
         if(this.state){
-        if(this.state)
         writer.writeStringValue("state", this.state);
         }
         if(this.storagePlanInformation){
-        if(this.storagePlanInformation)
         writer.writeObjectValue<StoragePlanInformationImpl>("storagePlanInformation", new StoragePlanInformationImpl(this.storagePlanInformation));
         }
         if(this.total){
-        if(this.total)
         writer.writeNumberValue("total", this.total);
         }
         if(this.used){
-        if(this.used)
         writer.writeNumberValue("used", this.used);
         }
         writer.writeAdditionalData(this.additionalData);

@@ -4,13 +4,14 @@ import {IdentityApiConnector} from './identityApiConnector';
 import {ApiAuthenticationConfigurationBaseImpl, EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the identityContainer singleton. */
 export class IdentityApiConnectorImpl extends EntityImpl implements IdentityApiConnector, Parsable {
     /** The object which describes the authentication configuration details for calling the API. Basic and PKCS 12 client certificate are supported. */
-    authenticationConfiguration?: ApiAuthenticationConfigurationBase | undefined;
+    public authenticationConfiguration?: ApiAuthenticationConfigurationBase | undefined;
     /** The name of the API connector. */
-    displayName?: string | undefined;
+    public displayName?: string | undefined;
     /** The URL of the API endpoint to call. */
-    targetUrl?: string | undefined;
+    public targetUrl?: string | undefined;
     /**
      * Instantiates a new identityApiConnector and sets the default values.
      * @param identityApiConnectorParameterValue 
@@ -40,15 +41,12 @@ export class IdentityApiConnectorImpl extends EntityImpl implements IdentityApiC
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.authenticationConfiguration){
-        if(this.authenticationConfiguration)
         writer.writeObjectValue<ApiAuthenticationConfigurationBaseImpl>("authenticationConfiguration", new ApiAuthenticationConfigurationBaseImpl(this.authenticationConfiguration));
         }
         if(this.displayName){
-        if(this.displayName)
         writer.writeStringValue("displayName", this.displayName);
         }
         if(this.targetUrl){
-        if(this.targetUrl)
         writer.writeStringValue("targetUrl", this.targetUrl);
         }
     };

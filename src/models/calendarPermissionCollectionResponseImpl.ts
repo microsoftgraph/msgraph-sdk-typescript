@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class CalendarPermissionCollectionResponseImpl implements AdditionalDataHolder, CalendarPermissionCollectionResponse, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: CalendarPermission[] | undefined;
+    public value?: CalendarPermission[] | undefined;
     /**
      * Instantiates a new CalendarPermissionCollectionResponse and sets the default values.
      * @param calendarPermissionCollectionResponseParameterValue 
      */
     public constructor(calendarPermissionCollectionResponseParameterValue?: CalendarPermissionCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = calendarPermissionCollectionResponseParameterValue?.additionalData ? {} : calendarPermissionCollectionResponseParameterValue?.additionalData!
+        this.additionalData = calendarPermissionCollectionResponseParameterValue?.additionalData ? calendarPermissionCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = calendarPermissionCollectionResponseParameterValue?.nextLink ;
         this.value = calendarPermissionCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class CalendarPermissionCollectionResponseImpl implements AdditionalDataH
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: CalendarPermissionImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new CalendarPermissionImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: CalendarPermissionImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new CalendarPermissionImpl(element));});
         writer.writeCollectionOfObjectValues<CalendarPermissionImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

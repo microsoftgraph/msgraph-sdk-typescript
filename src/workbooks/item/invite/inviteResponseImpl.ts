@@ -7,16 +7,15 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Provides operations to call the invite method. */
 export class InviteResponseImpl implements AdditionalDataHolder, InviteResponse, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The value property */
-    value?: Permission[] | undefined;
+    public value?: Permission[] | undefined;
     /**
      * Instantiates a new inviteResponse and sets the default values.
      * @param inviteResponseParameterValue 
      */
     public constructor(inviteResponseParameterValue?: InviteResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = inviteResponseParameterValue?.additionalData ? {} : inviteResponseParameterValue?.additionalData!
+        this.additionalData = inviteResponseParameterValue?.additionalData ? inviteResponseParameterValue?.additionalData! : {}
         this.value = inviteResponseParameterValue?.value ;
     };
     /**
@@ -34,8 +33,7 @@ export class InviteResponseImpl implements AdditionalDataHolder, InviteResponse,
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        if(this.value){
-        const valueArrValue: PermissionImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new PermissionImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: PermissionImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new PermissionImpl(element));});
         writer.writeCollectionOfObjectValues<PermissionImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

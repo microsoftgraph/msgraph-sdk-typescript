@@ -1,5 +1,4 @@
 import {AccessPackageSubjectImpl} from '../../../../../models/';
-import {AccessPackageSubject} from '../../../../../models/accessPackageSubject';
 import {createAccessPackageSubjectFromDiscriminatorValue} from '../../../../../models/createAccessPackageSubjectFromDiscriminatorValue';
 import {ODataErrorImpl} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
@@ -50,7 +49,7 @@ export class TargetRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AccessPackageSubject
      */
-    public get(requestConfiguration?: TargetRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AccessPackageSubject | undefined> {
+    public get(requestConfiguration?: TargetRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AccessPackageSubjectImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );

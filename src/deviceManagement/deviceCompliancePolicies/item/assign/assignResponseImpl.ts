@@ -7,16 +7,15 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Provides operations to call the assign method. */
 export class AssignResponseImpl implements AdditionalDataHolder, AssignResponse, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The value property */
-    value?: DeviceCompliancePolicyAssignment[] | undefined;
+    public value?: DeviceCompliancePolicyAssignment[] | undefined;
     /**
      * Instantiates a new assignResponse and sets the default values.
      * @param assignResponseParameterValue 
      */
     public constructor(assignResponseParameterValue?: AssignResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = assignResponseParameterValue?.additionalData ? {} : assignResponseParameterValue?.additionalData!
+        this.additionalData = assignResponseParameterValue?.additionalData ? assignResponseParameterValue?.additionalData! : {}
         this.value = assignResponseParameterValue?.value ;
     };
     /**
@@ -34,8 +33,7 @@ export class AssignResponseImpl implements AdditionalDataHolder, AssignResponse,
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        if(this.value){
-        const valueArrValue: DeviceCompliancePolicyAssignmentImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new DeviceCompliancePolicyAssignmentImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: DeviceCompliancePolicyAssignmentImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new DeviceCompliancePolicyAssignmentImpl(element));});
         writer.writeCollectionOfObjectValues<DeviceCompliancePolicyAssignmentImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

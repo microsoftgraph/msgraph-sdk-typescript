@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class DefaultManagedAppProtectionCollectionResponseImpl implements AdditionalDataHolder, DefaultManagedAppProtectionCollectionResponse, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: DefaultManagedAppProtection[] | undefined;
+    public value?: DefaultManagedAppProtection[] | undefined;
     /**
      * Instantiates a new DefaultManagedAppProtectionCollectionResponse and sets the default values.
      * @param defaultManagedAppProtectionCollectionResponseParameterValue 
      */
     public constructor(defaultManagedAppProtectionCollectionResponseParameterValue?: DefaultManagedAppProtectionCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = defaultManagedAppProtectionCollectionResponseParameterValue?.additionalData ? {} : defaultManagedAppProtectionCollectionResponseParameterValue?.additionalData!
+        this.additionalData = defaultManagedAppProtectionCollectionResponseParameterValue?.additionalData ? defaultManagedAppProtectionCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = defaultManagedAppProtectionCollectionResponseParameterValue?.nextLink ;
         this.value = defaultManagedAppProtectionCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class DefaultManagedAppProtectionCollectionResponseImpl implements Additi
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: DefaultManagedAppProtectionImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new DefaultManagedAppProtectionImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: DefaultManagedAppProtectionImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new DefaultManagedAppProtectionImpl(element));});
         writer.writeCollectionOfObjectValues<DefaultManagedAppProtectionImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

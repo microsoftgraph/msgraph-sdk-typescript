@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class TrendingCollectionResponseImpl implements AdditionalDataHolder, Parsable, TrendingCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: Trending[] | undefined;
+    public value?: Trending[] | undefined;
     /**
      * Instantiates a new TrendingCollectionResponse and sets the default values.
      * @param trendingCollectionResponseParameterValue 
      */
     public constructor(trendingCollectionResponseParameterValue?: TrendingCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = trendingCollectionResponseParameterValue?.additionalData ? {} : trendingCollectionResponseParameterValue?.additionalData!
+        this.additionalData = trendingCollectionResponseParameterValue?.additionalData ? trendingCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = trendingCollectionResponseParameterValue?.nextLink ;
         this.value = trendingCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class TrendingCollectionResponseImpl implements AdditionalDataHolder, Par
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: TrendingImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new TrendingImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: TrendingImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new TrendingImpl(element));});
         writer.writeCollectionOfObjectValues<TrendingImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

@@ -1,6 +1,5 @@
 import {ApplicationCollectionResponseImpl, ApplicationImpl} from '../models/';
 import {Application} from '../models/application';
-import {ApplicationCollectionResponse} from '../models/applicationCollectionResponse';
 import {createApplicationCollectionResponseFromDiscriminatorValue} from '../models/createApplicationCollectionResponseFromDiscriminatorValue';
 import {createApplicationFromDiscriminatorValue} from '../models/createApplicationFromDiscriminatorValue';
 import {ODataErrorImpl} from '../models/oDataErrors/';
@@ -52,7 +51,7 @@ export class ApplicationsRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * List applications
+     * Get the list of [applications](../resources/application.md) in this organization.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -69,7 +68,7 @@ export class ApplicationsRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create application
+     * Create a new [application](../resources/application.md) object.
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -84,8 +83,8 @@ export class ApplicationsRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        const bodyParsable = new ApplicationImpl(body)
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", bodyParsable);
+        const parsableBody = new ApplicationImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -96,12 +95,12 @@ export class ApplicationsRequestBuilder {
         return new DeltaRequestBuilder(this.pathParameters, this.requestAdapter);
     };
     /**
-     * List applications
+     * Get the list of [applications](../resources/application.md) in this organization.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ApplicationCollectionResponse
      */
-    public get(requestConfiguration?: ApplicationsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ApplicationCollectionResponse | undefined> {
+    public get(requestConfiguration?: ApplicationsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ApplicationCollectionResponseImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -112,13 +111,13 @@ export class ApplicationsRequestBuilder {
         return this.requestAdapter?.sendAsync<ApplicationCollectionResponseImpl>(requestInfo, createApplicationCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Create application
+     * Create a new [application](../resources/application.md) object.
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Application
      */
-    public post(body: Application | undefined, requestConfiguration?: ApplicationsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Application | undefined> {
+    public post(body: Application | undefined, requestConfiguration?: ApplicationsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ApplicationImpl | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration

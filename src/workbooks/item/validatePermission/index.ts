@@ -1,3 +1,3 @@
-export * from './validatePermissionRequestBodyImpl'
-export * from './validatePermissionRequestBody'
+export * from './validatePermissionPostRequestBodyImpl'
+export * from './validatePermissionPostRequestBody'
 export * from './validatePermissionRequestBuilderPostRequestConfiguration'

@@ -2,23 +2,24 @@ import {ApplicationTemplate} from './applicationTemplate';
 import {EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the collection of applicationTemplate entities. */
 export class ApplicationTemplateImpl extends EntityImpl implements ApplicationTemplate, Parsable {
     /** The list of categories for the application. Supported values can be: Collaboration, Business Management, Consumer, Content management, CRM, Data services, Developer services, E-commerce, Education, ERP, Finance, Health, Human resources, IT infrastructure, Mail, Management, Marketing, Media, Productivity, Project management, Telecommunications, Tools, Travel, and Web design & hosting. */
-    categories?: string[] | undefined;
+    public categories?: string[] | undefined;
     /** A description of the application. */
-    description?: string | undefined;
+    public description?: string | undefined;
     /** The name of the application. */
-    displayName?: string | undefined;
+    public displayName?: string | undefined;
     /** The home page URL of the application. */
-    homePageUrl?: string | undefined;
+    public homePageUrl?: string | undefined;
     /** The URL to get the logo for this application. */
-    logoUrl?: string | undefined;
+    public logoUrl?: string | undefined;
     /** The name of the publisher for this application. */
-    publisher?: string | undefined;
+    public publisher?: string | undefined;
     /** The list of provisioning modes supported by this application. The only valid value is sync. */
-    supportedProvisioningTypes?: string[] | undefined;
+    public supportedProvisioningTypes?: string[] | undefined;
     /** The list of single sign-on modes supported by this application. The supported values are oidc, password, saml, and notSupported. */
-    supportedSingleSignOnModes?: string[] | undefined;
+    public supportedSingleSignOnModes?: string[] | undefined;
     /**
      * Instantiates a new applicationTemplate and sets the default values.
      * @param applicationTemplateParameterValue 
@@ -58,35 +59,27 @@ export class ApplicationTemplateImpl extends EntityImpl implements ApplicationTe
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.categories){
-        if(this.categories)
         writer.writeCollectionOfPrimitiveValues<string>("categories", this.categories);
         }
         if(this.description){
-        if(this.description)
         writer.writeStringValue("description", this.description);
         }
         if(this.displayName){
-        if(this.displayName)
         writer.writeStringValue("displayName", this.displayName);
         }
         if(this.homePageUrl){
-        if(this.homePageUrl)
         writer.writeStringValue("homePageUrl", this.homePageUrl);
         }
         if(this.logoUrl){
-        if(this.logoUrl)
         writer.writeStringValue("logoUrl", this.logoUrl);
         }
         if(this.publisher){
-        if(this.publisher)
         writer.writeStringValue("publisher", this.publisher);
         }
         if(this.supportedProvisioningTypes){
-        if(this.supportedProvisioningTypes)
         writer.writeCollectionOfPrimitiveValues<string>("supportedProvisioningTypes", this.supportedProvisioningTypes);
         }
         if(this.supportedSingleSignOnModes){
-        if(this.supportedSingleSignOnModes)
         writer.writeCollectionOfPrimitiveValues<string>("supportedSingleSignOnModes", this.supportedSingleSignOnModes);
         }
     };

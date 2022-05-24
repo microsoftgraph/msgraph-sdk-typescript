@@ -2,13 +2,14 @@ import {EntityImpl} from './index';
 import {ResourceOperation} from './resourceOperation';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Describes the resourceOperation resource (entity) of the Microsoft Graph API (REST), which supports Intune workflows related to role-based access control (RBAC). */
 export class ResourceOperationImpl extends EntityImpl implements Parsable, ResourceOperation {
     /** Type of action this operation is going to perform. The actionName should be concise and limited to as few words as possible. */
-    actionName?: string | undefined;
+    public actionName?: string | undefined;
     /** Description of the resource operation. The description is used in mouse-over text for the operation when shown in the Azure Portal. */
-    description?: string | undefined;
+    public description?: string | undefined;
     /** Name of the Resource this operation is performed on. */
-    resourceName?: string | undefined;
+    public resourceName?: string | undefined;
     /**
      * Instantiates a new resourceOperation and sets the default values.
      * @param resourceOperationParameterValue 
@@ -38,15 +39,12 @@ export class ResourceOperationImpl extends EntityImpl implements Parsable, Resou
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.actionName){
-        if(this.actionName)
         writer.writeStringValue("actionName", this.actionName);
         }
         if(this.description){
-        if(this.description)
         writer.writeStringValue("description", this.description);
         }
         if(this.resourceName){
-        if(this.resourceName)
         writer.writeStringValue("resourceName", this.resourceName);
         }
     };

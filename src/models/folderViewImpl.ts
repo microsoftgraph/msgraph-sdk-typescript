@@ -3,20 +3,19 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class FolderViewImpl implements AdditionalDataHolder, FolderView, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The method by which the folder should be sorted. */
-    sortBy?: string | undefined;
+    public sortBy?: string | undefined;
     /** If true, indicates that items should be sorted in descending order. Otherwise, items should be sorted ascending. */
-    sortOrder?: string | undefined;
+    public sortOrder?: string | undefined;
     /** The type of view that should be used to represent the folder. */
-    viewType?: string | undefined;
+    public viewType?: string | undefined;
     /**
      * Instantiates a new folderView and sets the default values.
      * @param folderViewParameterValue 
      */
     public constructor(folderViewParameterValue?: FolderView | undefined) {
-        this.additionalData = {};
-        this.additionalData = folderViewParameterValue?.additionalData ? {} : folderViewParameterValue?.additionalData!
+        this.additionalData = folderViewParameterValue?.additionalData ? folderViewParameterValue?.additionalData! : {}
         this.sortBy = folderViewParameterValue?.sortBy ;
         this.sortOrder = folderViewParameterValue?.sortOrder ;
         this.viewType = folderViewParameterValue?.viewType ;
@@ -39,15 +38,12 @@ export class FolderViewImpl implements AdditionalDataHolder, FolderView, Parsabl
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.sortBy){
-        if(this.sortBy)
         writer.writeStringValue("sortBy", this.sortBy);
         }
         if(this.sortOrder){
-        if(this.sortOrder)
         writer.writeStringValue("sortOrder", this.sortOrder);
         }
         if(this.viewType){
-        if(this.viewType)
         writer.writeStringValue("viewType", this.viewType);
         }
         writer.writeAdditionalData(this.additionalData);

@@ -1,3 +1,3 @@
-export * from './setPresenceRequestBodyImpl'
-export * from './setPresenceRequestBody'
+export * from './setPresencePostRequestBodyImpl'
 export * from './setPresenceRequestBuilderPostRequestConfiguration'
+export * from './setPresencePostRequestBody'

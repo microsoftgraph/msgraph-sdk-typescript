@@ -14,23 +14,24 @@ import {ConfigurationImpl, ConnectionOperationImpl, ExternalGroupImpl, ExternalI
 import {Schema} from './schema';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the collection of externalConnection entities. */
 export class ExternalConnectionImpl extends EntityImpl implements ExternalConnection, Parsable {
     /** Specifies additional application IDs that are allowed to manage the connection and to index content in the connection. Optional. */
-    configuration?: Configuration | undefined;
+    public configuration?: Configuration | undefined;
     /** Description of the connection displayed in the Microsoft 365 admin center. Optional. */
-    description?: string | undefined;
+    public description?: string | undefined;
     /** Read-only. Nullable. */
-    groups?: ExternalGroup[] | undefined;
+    public groups?: ExternalGroup[] | undefined;
     /** Read-only. Nullable. */
-    items?: ExternalItem[] | undefined;
+    public items?: ExternalItem[] | undefined;
     /** The display name of the connection to be displayed in the Microsoft 365 admin center. Maximum length of 128 characters. Required. */
-    name?: string | undefined;
+    public name?: string | undefined;
     /** Read-only. Nullable. */
-    operations?: ConnectionOperation[] | undefined;
+    public operations?: ConnectionOperation[] | undefined;
     /** Read-only. Nullable. */
-    schema?: Schema | undefined;
+    public schema?: Schema | undefined;
     /** Indicates the current state of the connection. Possible values are draft, ready, obsolete, and limitExceeded. Required. */
-    state?: ConnectionState | undefined;
+    public state?: ConnectionState | undefined;
     /**
      * Instantiates a new externalConnection and sets the default values.
      * @param externalConnectionParameterValue 
@@ -70,35 +71,27 @@ export class ExternalConnectionImpl extends EntityImpl implements ExternalConnec
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.configuration){
-        if(this.configuration)
         writer.writeObjectValue<ConfigurationImpl>("configuration", new ConfigurationImpl(this.configuration));
         }
         if(this.description){
-        if(this.description)
         writer.writeStringValue("description", this.description);
         }
-        if(this.groups){
-        const groupsArrValue: ExternalGroupImpl[] = []; this.groups?.forEach(element => {groupsArrValue.push(new ExternalGroupImpl(element));});
+        if(this.groups && this.groups.length != 0){        const groupsArrValue: ExternalGroupImpl[] = []; this.groups?.forEach(element => {groupsArrValue.push(new ExternalGroupImpl(element));});
         writer.writeCollectionOfObjectValues<ExternalGroupImpl>("groups", groupsArrValue);
         }
-        if(this.items){
-        const itemsArrValue: ExternalItemImpl[] = []; this.items?.forEach(element => {itemsArrValue.push(new ExternalItemImpl(element));});
+        if(this.items && this.items.length != 0){        const itemsArrValue: ExternalItemImpl[] = []; this.items?.forEach(element => {itemsArrValue.push(new ExternalItemImpl(element));});
         writer.writeCollectionOfObjectValues<ExternalItemImpl>("items", itemsArrValue);
         }
         if(this.name){
-        if(this.name)
         writer.writeStringValue("name", this.name);
         }
-        if(this.operations){
-        const operationsArrValue: ConnectionOperationImpl[] = []; this.operations?.forEach(element => {operationsArrValue.push(new ConnectionOperationImpl(element));});
+        if(this.operations && this.operations.length != 0){        const operationsArrValue: ConnectionOperationImpl[] = []; this.operations?.forEach(element => {operationsArrValue.push(new ConnectionOperationImpl(element));});
         writer.writeCollectionOfObjectValues<ConnectionOperationImpl>("operations", operationsArrValue);
         }
         if(this.schema){
-        if(this.schema)
         writer.writeObjectValue<SchemaImpl>("schema", new SchemaImpl(this.schema));
         }
         if(this.state){
-        if(this.state)
         writer.writeEnumValue<ConnectionState>("state", this.state);
         }
     };

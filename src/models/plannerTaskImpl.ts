@@ -17,57 +17,58 @@ import {PlannerTask} from './plannerTask';
 import {PlannerTaskDetails} from './plannerTaskDetails';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to user. */
 export class PlannerTaskImpl extends EntityImpl implements Parsable, PlannerTask {
     /** Number of checklist items with value set to false, representing incomplete items. */
-    activeChecklistItemCount?: number | undefined;
+    public activeChecklistItemCount?: number | undefined;
     /** The categories to which the task has been applied. See applied Categories for possible values. */
-    appliedCategories?: PlannerAppliedCategories | undefined;
+    public appliedCategories?: PlannerAppliedCategories | undefined;
     /** Read-only. Nullable. Used to render the task correctly in the task board view when grouped by assignedTo. */
-    assignedToTaskBoardFormat?: PlannerAssignedToTaskBoardTaskFormat | undefined;
+    public assignedToTaskBoardFormat?: PlannerAssignedToTaskBoardTaskFormat | undefined;
     /** Hint used to order items of this type in a list view. The format is defined as outlined here. */
-    assigneePriority?: string | undefined;
+    public assigneePriority?: string | undefined;
     /** The set of assignees the task is assigned to. */
-    assignments?: PlannerAssignments | undefined;
+    public assignments?: PlannerAssignments | undefined;
     /** Bucket ID to which the task belongs. The bucket needs to be in the plan that the task is in. It is 28 characters long and case-sensitive. Format validation is done on the service. */
-    bucketId?: string | undefined;
+    public bucketId?: string | undefined;
     /** Read-only. Nullable. Used to render the task correctly in the task board view when grouped by bucket. */
-    bucketTaskBoardFormat?: PlannerBucketTaskBoardTaskFormat | undefined;
+    public bucketTaskBoardFormat?: PlannerBucketTaskBoardTaskFormat | undefined;
     /** Number of checklist items that are present on the task. */
-    checklistItemCount?: number | undefined;
+    public checklistItemCount?: number | undefined;
     /** Identity of the user that completed the task. */
-    completedBy?: IdentitySet | undefined;
+    public completedBy?: IdentitySet | undefined;
     /** Read-only. Date and time at which the 'percentComplete' of the task is set to '100'. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
-    completedDateTime?: Date | undefined;
+    public completedDateTime?: Date | undefined;
     /** Thread ID of the conversation on the task. This is the ID of the conversation thread object created in the group. */
-    conversationThreadId?: string | undefined;
+    public conversationThreadId?: string | undefined;
     /** Identity of the user that created the task. */
-    createdBy?: IdentitySet | undefined;
+    public createdBy?: IdentitySet | undefined;
     /** Read-only. Date and time at which the task is created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
-    createdDateTime?: Date | undefined;
+    public createdDateTime?: Date | undefined;
     /** Read-only. Nullable. Additional details about the task. */
-    details?: PlannerTaskDetails | undefined;
+    public details?: PlannerTaskDetails | undefined;
     /** Date and time at which the task is due. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
-    dueDateTime?: Date | undefined;
+    public dueDateTime?: Date | undefined;
     /** Read-only. Value is true if the details object of the task has a non-empty description and false otherwise. */
-    hasDescription?: boolean | undefined;
+    public hasDescription?: boolean | undefined;
     /** Hint used to order items of this type in a list view. The format is defined as outlined here. */
-    orderHint?: string | undefined;
+    public orderHint?: string | undefined;
     /** Percentage of task completion. When set to 100, the task is considered completed. */
-    percentComplete?: number | undefined;
+    public percentComplete?: number | undefined;
     /** Plan ID to which the task belongs. */
-    planId?: string | undefined;
+    public planId?: string | undefined;
     /** This sets the type of preview that shows up on the task. Possible values are: automatic, noPreview, checklist, description, reference. */
-    previewType?: PlannerPreviewType | undefined;
+    public previewType?: PlannerPreviewType | undefined;
     /** Priority of the task. Valid range of values is between 0 and 10 (inclusive), with increasing value being lower priority (0 has the highest priority and 10 has the lowest priority).  Currently, Planner interprets values 0 and 1 as 'urgent', 2 and 3 and 4 as 'important', 5, 6, and 7 as 'medium', and 8, 9, and 10 as 'low'.  Currently, Planner sets the value 1 for 'urgent', 3 for 'important', 5 for 'medium', and 9 for 'low'. */
-    priority?: number | undefined;
+    public priority?: number | undefined;
     /** Read-only. Nullable. Used to render the task correctly in the task board view when grouped by progress. */
-    progressTaskBoardFormat?: PlannerProgressTaskBoardTaskFormat | undefined;
+    public progressTaskBoardFormat?: PlannerProgressTaskBoardTaskFormat | undefined;
     /** Number of external references that exist on the task. */
-    referenceCount?: number | undefined;
+    public referenceCount?: number | undefined;
     /** Date and time at which the task starts. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
-    startDateTime?: Date | undefined;
+    public startDateTime?: Date | undefined;
     /** Title of the task. */
-    title?: string | undefined;
+    public title?: string | undefined;
     /**
      * Instantiates a new plannerTask and sets the default values.
      * @param plannerTaskParameterValue 
@@ -141,103 +142,78 @@ export class PlannerTaskImpl extends EntityImpl implements Parsable, PlannerTask
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.activeChecklistItemCount){
-        if(this.activeChecklistItemCount)
         writer.writeNumberValue("activeChecklistItemCount", this.activeChecklistItemCount);
         }
         if(this.appliedCategories){
-        if(this.appliedCategories)
         writer.writeObjectValue<PlannerAppliedCategoriesImpl>("appliedCategories", new PlannerAppliedCategoriesImpl(this.appliedCategories));
         }
         if(this.assignedToTaskBoardFormat){
-        if(this.assignedToTaskBoardFormat)
         writer.writeObjectValue<PlannerAssignedToTaskBoardTaskFormatImpl>("assignedToTaskBoardFormat", new PlannerAssignedToTaskBoardTaskFormatImpl(this.assignedToTaskBoardFormat));
         }
         if(this.assigneePriority){
-        if(this.assigneePriority)
         writer.writeStringValue("assigneePriority", this.assigneePriority);
         }
         if(this.assignments){
-        if(this.assignments)
         writer.writeObjectValue<PlannerAssignmentsImpl>("assignments", new PlannerAssignmentsImpl(this.assignments));
         }
         if(this.bucketId){
-        if(this.bucketId)
         writer.writeStringValue("bucketId", this.bucketId);
         }
         if(this.bucketTaskBoardFormat){
-        if(this.bucketTaskBoardFormat)
         writer.writeObjectValue<PlannerBucketTaskBoardTaskFormatImpl>("bucketTaskBoardFormat", new PlannerBucketTaskBoardTaskFormatImpl(this.bucketTaskBoardFormat));
         }
         if(this.checklistItemCount){
-        if(this.checklistItemCount)
         writer.writeNumberValue("checklistItemCount", this.checklistItemCount);
         }
         if(this.completedBy){
-        if(this.completedBy)
         writer.writeObjectValue<IdentitySetImpl>("completedBy", new IdentitySetImpl(this.completedBy));
         }
         if(this.completedDateTime){
-        if(this.completedDateTime)
         writer.writeDateValue("completedDateTime", this.completedDateTime);
         }
         if(this.conversationThreadId){
-        if(this.conversationThreadId)
         writer.writeStringValue("conversationThreadId", this.conversationThreadId);
         }
         if(this.createdBy){
-        if(this.createdBy)
         writer.writeObjectValue<IdentitySetImpl>("createdBy", new IdentitySetImpl(this.createdBy));
         }
         if(this.createdDateTime){
-        if(this.createdDateTime)
         writer.writeDateValue("createdDateTime", this.createdDateTime);
         }
         if(this.details){
-        if(this.details)
         writer.writeObjectValue<PlannerTaskDetailsImpl>("details", new PlannerTaskDetailsImpl(this.details));
         }
         if(this.dueDateTime){
-        if(this.dueDateTime)
         writer.writeDateValue("dueDateTime", this.dueDateTime);
         }
         if(this.hasDescription){
-        if(this.hasDescription)
         writer.writeBooleanValue("hasDescription", this.hasDescription);
         }
         if(this.orderHint){
-        if(this.orderHint)
         writer.writeStringValue("orderHint", this.orderHint);
         }
         if(this.percentComplete){
-        if(this.percentComplete)
         writer.writeNumberValue("percentComplete", this.percentComplete);
         }
         if(this.planId){
-        if(this.planId)
         writer.writeStringValue("planId", this.planId);
         }
         if(this.previewType){
-        if(this.previewType)
         writer.writeEnumValue<PlannerPreviewType>("previewType", this.previewType);
         }
         if(this.priority){
-        if(this.priority)
         writer.writeNumberValue("priority", this.priority);
         }
         if(this.progressTaskBoardFormat){
-        if(this.progressTaskBoardFormat)
         writer.writeObjectValue<PlannerProgressTaskBoardTaskFormatImpl>("progressTaskBoardFormat", new PlannerProgressTaskBoardTaskFormatImpl(this.progressTaskBoardFormat));
         }
         if(this.referenceCount){
-        if(this.referenceCount)
         writer.writeNumberValue("referenceCount", this.referenceCount);
         }
         if(this.startDateTime){
-        if(this.startDateTime)
         writer.writeDateValue("startDateTime", this.startDateTime);
         }
         if(this.title){
-        if(this.title)
         writer.writeStringValue("title", this.title);
         }
     };

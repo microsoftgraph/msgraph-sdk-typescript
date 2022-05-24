@@ -3,20 +3,19 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class AttendanceIntervalImpl implements AdditionalDataHolder, AttendanceInterval, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** Duration of the meeting interval in seconds; that is, the difference between joinDateTime and leaveDateTime. */
-    durationInSeconds?: number | undefined;
+    public durationInSeconds?: number | undefined;
     /** The time the attendee joined in UTC. */
-    joinDateTime?: Date | undefined;
+    public joinDateTime?: Date | undefined;
     /** The time the attendee left in UTC. */
-    leaveDateTime?: Date | undefined;
+    public leaveDateTime?: Date | undefined;
     /**
      * Instantiates a new attendanceInterval and sets the default values.
      * @param attendanceIntervalParameterValue 
      */
     public constructor(attendanceIntervalParameterValue?: AttendanceInterval | undefined) {
-        this.additionalData = {};
-        this.additionalData = attendanceIntervalParameterValue?.additionalData ? {} : attendanceIntervalParameterValue?.additionalData!
+        this.additionalData = attendanceIntervalParameterValue?.additionalData ? attendanceIntervalParameterValue?.additionalData! : {}
         this.durationInSeconds = attendanceIntervalParameterValue?.durationInSeconds ;
         this.joinDateTime = attendanceIntervalParameterValue?.joinDateTime ;
         this.leaveDateTime = attendanceIntervalParameterValue?.leaveDateTime ;
@@ -39,15 +38,12 @@ export class AttendanceIntervalImpl implements AdditionalDataHolder, AttendanceI
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.durationInSeconds){
-        if(this.durationInSeconds)
         writer.writeNumberValue("durationInSeconds", this.durationInSeconds);
         }
         if(this.joinDateTime){
-        if(this.joinDateTime)
         writer.writeDateValue("joinDateTime", this.joinDateTime);
         }
         if(this.leaveDateTime){
-        if(this.leaveDateTime)
         writer.writeDateValue("leaveDateTime", this.leaveDateTime);
         }
         writer.writeAdditionalData(this.additionalData);

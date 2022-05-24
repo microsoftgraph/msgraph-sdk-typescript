@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class TeamsAsyncOperationCollectionResponseImpl implements AdditionalDataHolder, Parsable, TeamsAsyncOperationCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: TeamsAsyncOperation[] | undefined;
+    public value?: TeamsAsyncOperation[] | undefined;
     /**
      * Instantiates a new TeamsAsyncOperationCollectionResponse and sets the default values.
      * @param teamsAsyncOperationCollectionResponseParameterValue 
      */
     public constructor(teamsAsyncOperationCollectionResponseParameterValue?: TeamsAsyncOperationCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = teamsAsyncOperationCollectionResponseParameterValue?.additionalData ? {} : teamsAsyncOperationCollectionResponseParameterValue?.additionalData!
+        this.additionalData = teamsAsyncOperationCollectionResponseParameterValue?.additionalData ? teamsAsyncOperationCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = teamsAsyncOperationCollectionResponseParameterValue?.nextLink ;
         this.value = teamsAsyncOperationCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class TeamsAsyncOperationCollectionResponseImpl implements AdditionalData
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: TeamsAsyncOperationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new TeamsAsyncOperationImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: TeamsAsyncOperationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new TeamsAsyncOperationImpl(element));});
         writer.writeCollectionOfObjectValues<TeamsAsyncOperationImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

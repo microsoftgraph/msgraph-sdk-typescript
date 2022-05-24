@@ -7,18 +7,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Windows Information Protection IP Range Collection */
 export class WindowsInformationProtectionIPRangeCollectionImpl implements AdditionalDataHolder, Parsable, WindowsInformationProtectionIPRangeCollection {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** Display name */
-    displayName?: string | undefined;
+    public displayName?: string | undefined;
     /** Collection of ip ranges */
-    ranges?: IpRange[] | undefined;
+    public ranges?: IpRange[] | undefined;
     /**
      * Instantiates a new windowsInformationProtectionIPRangeCollection and sets the default values.
      * @param windowsInformationProtectionIPRangeCollectionParameterValue 
      */
     public constructor(windowsInformationProtectionIPRangeCollectionParameterValue?: WindowsInformationProtectionIPRangeCollection | undefined) {
-        this.additionalData = {};
-        this.additionalData = windowsInformationProtectionIPRangeCollectionParameterValue?.additionalData ? {} : windowsInformationProtectionIPRangeCollectionParameterValue?.additionalData!
+        this.additionalData = windowsInformationProtectionIPRangeCollectionParameterValue?.additionalData ? windowsInformationProtectionIPRangeCollectionParameterValue?.additionalData! : {}
         this.displayName = windowsInformationProtectionIPRangeCollectionParameterValue?.displayName ;
         this.ranges = windowsInformationProtectionIPRangeCollectionParameterValue?.ranges ;
     };
@@ -39,11 +38,9 @@ export class WindowsInformationProtectionIPRangeCollectionImpl implements Additi
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.displayName){
-        if(this.displayName)
         writer.writeStringValue("displayName", this.displayName);
         }
-        if(this.ranges){
-        const rangesArrValue: IpRangeImpl[] = []; this.ranges?.forEach(element => {rangesArrValue.push(new IpRangeImpl(element));});
+        if(this.ranges && this.ranges.length != 0){        const rangesArrValue: IpRangeImpl[] = []; this.ranges?.forEach(element => {rangesArrValue.push(new IpRangeImpl(element));});
         writer.writeCollectionOfObjectValues<IpRangeImpl>("ranges", rangesArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

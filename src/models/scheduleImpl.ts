@@ -21,45 +21,46 @@ import {TimeOffReason} from './timeOffReason';
 import {TimeOffRequest} from './timeOffRequest';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to group. */
 export class ScheduleImpl extends EntityImpl implements Parsable, Schedule {
     /** Indicates whether the schedule is enabled for the team. Required. */
-    enabled?: boolean | undefined;
+    public enabled?: boolean | undefined;
     /** The offerShiftRequests property */
-    offerShiftRequests?: OfferShiftRequest[] | undefined;
+    public offerShiftRequests?: OfferShiftRequest[] | undefined;
     /** Indicates whether offer shift requests are enabled for the schedule. */
-    offerShiftRequestsEnabled?: boolean | undefined;
+    public offerShiftRequestsEnabled?: boolean | undefined;
     /** The openShiftChangeRequests property */
-    openShiftChangeRequests?: OpenShiftChangeRequest[] | undefined;
+    public openShiftChangeRequests?: OpenShiftChangeRequest[] | undefined;
     /** The openShifts property */
-    openShifts?: OpenShift[] | undefined;
+    public openShifts?: OpenShift[] | undefined;
     /** Indicates whether open shifts are enabled for the schedule. */
-    openShiftsEnabled?: boolean | undefined;
+    public openShiftsEnabled?: boolean | undefined;
     /** The status of the schedule provisioning. The possible values are notStarted, running, completed, failed. */
-    provisionStatus?: OperationStatus | undefined;
+    public provisionStatus?: OperationStatus | undefined;
     /** Additional information about why schedule provisioning failed. */
-    provisionStatusCode?: string | undefined;
+    public provisionStatusCode?: string | undefined;
     /** The logical grouping of users in the schedule (usually by role). */
-    schedulingGroups?: SchedulingGroup[] | undefined;
+    public schedulingGroups?: SchedulingGroup[] | undefined;
     /** The shifts in the schedule. */
-    shifts?: Shift[] | undefined;
+    public shifts?: Shift[] | undefined;
     /** The swapShiftsChangeRequests property */
-    swapShiftsChangeRequests?: SwapShiftsChangeRequest[] | undefined;
+    public swapShiftsChangeRequests?: SwapShiftsChangeRequest[] | undefined;
     /** Indicates whether swap shifts requests are enabled for the schedule. */
-    swapShiftsRequestsEnabled?: boolean | undefined;
+    public swapShiftsRequestsEnabled?: boolean | undefined;
     /** Indicates whether time clock is enabled for the schedule. */
-    timeClockEnabled?: boolean | undefined;
+    public timeClockEnabled?: boolean | undefined;
     /** The set of reasons for a time off in the schedule. */
-    timeOffReasons?: TimeOffReason[] | undefined;
+    public timeOffReasons?: TimeOffReason[] | undefined;
     /** The timeOffRequests property */
-    timeOffRequests?: TimeOffRequest[] | undefined;
+    public timeOffRequests?: TimeOffRequest[] | undefined;
     /** Indicates whether time off requests are enabled for the schedule. */
-    timeOffRequestsEnabled?: boolean | undefined;
+    public timeOffRequestsEnabled?: boolean | undefined;
     /** The instances of times off in the schedule. */
-    timesOff?: TimeOff[] | undefined;
+    public timesOff?: TimeOff[] | undefined;
     /** Indicates the time zone of the schedule team using tz database format. Required. */
-    timeZone?: string | undefined;
+    public timeZone?: string | undefined;
     /** The workforceIntegrationIds property */
-    workforceIntegrationIds?: string[] | undefined;
+    public workforceIntegrationIds?: string[] | undefined;
     /**
      * Instantiates a new schedule and sets the default values.
      * @param scheduleParameterValue 
@@ -121,79 +122,60 @@ export class ScheduleImpl extends EntityImpl implements Parsable, Schedule {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.enabled){
-        if(this.enabled)
         writer.writeBooleanValue("enabled", this.enabled);
         }
-        if(this.offerShiftRequests){
-        const offerShiftRequestsArrValue: OfferShiftRequestImpl[] = []; this.offerShiftRequests?.forEach(element => {offerShiftRequestsArrValue.push(new OfferShiftRequestImpl(element));});
+        if(this.offerShiftRequests && this.offerShiftRequests.length != 0){        const offerShiftRequestsArrValue: OfferShiftRequestImpl[] = []; this.offerShiftRequests?.forEach(element => {offerShiftRequestsArrValue.push(new OfferShiftRequestImpl(element));});
         writer.writeCollectionOfObjectValues<OfferShiftRequestImpl>("offerShiftRequests", offerShiftRequestsArrValue);
         }
         if(this.offerShiftRequestsEnabled){
-        if(this.offerShiftRequestsEnabled)
         writer.writeBooleanValue("offerShiftRequestsEnabled", this.offerShiftRequestsEnabled);
         }
-        if(this.openShiftChangeRequests){
-        const openShiftChangeRequestsArrValue: OpenShiftChangeRequestImpl[] = []; this.openShiftChangeRequests?.forEach(element => {openShiftChangeRequestsArrValue.push(new OpenShiftChangeRequestImpl(element));});
+        if(this.openShiftChangeRequests && this.openShiftChangeRequests.length != 0){        const openShiftChangeRequestsArrValue: OpenShiftChangeRequestImpl[] = []; this.openShiftChangeRequests?.forEach(element => {openShiftChangeRequestsArrValue.push(new OpenShiftChangeRequestImpl(element));});
         writer.writeCollectionOfObjectValues<OpenShiftChangeRequestImpl>("openShiftChangeRequests", openShiftChangeRequestsArrValue);
         }
-        if(this.openShifts){
-        const openShiftsArrValue: OpenShiftImpl[] = []; this.openShifts?.forEach(element => {openShiftsArrValue.push(new OpenShiftImpl(element));});
+        if(this.openShifts && this.openShifts.length != 0){        const openShiftsArrValue: OpenShiftImpl[] = []; this.openShifts?.forEach(element => {openShiftsArrValue.push(new OpenShiftImpl(element));});
         writer.writeCollectionOfObjectValues<OpenShiftImpl>("openShifts", openShiftsArrValue);
         }
         if(this.openShiftsEnabled){
-        if(this.openShiftsEnabled)
         writer.writeBooleanValue("openShiftsEnabled", this.openShiftsEnabled);
         }
         if(this.provisionStatus){
-        if(this.provisionStatus)
         writer.writeEnumValue<OperationStatus>("provisionStatus", this.provisionStatus);
         }
         if(this.provisionStatusCode){
-        if(this.provisionStatusCode)
         writer.writeStringValue("provisionStatusCode", this.provisionStatusCode);
         }
-        if(this.schedulingGroups){
-        const schedulingGroupsArrValue: SchedulingGroupImpl[] = []; this.schedulingGroups?.forEach(element => {schedulingGroupsArrValue.push(new SchedulingGroupImpl(element));});
+        if(this.schedulingGroups && this.schedulingGroups.length != 0){        const schedulingGroupsArrValue: SchedulingGroupImpl[] = []; this.schedulingGroups?.forEach(element => {schedulingGroupsArrValue.push(new SchedulingGroupImpl(element));});
         writer.writeCollectionOfObjectValues<SchedulingGroupImpl>("schedulingGroups", schedulingGroupsArrValue);
         }
-        if(this.shifts){
-        const shiftsArrValue: ShiftImpl[] = []; this.shifts?.forEach(element => {shiftsArrValue.push(new ShiftImpl(element));});
+        if(this.shifts && this.shifts.length != 0){        const shiftsArrValue: ShiftImpl[] = []; this.shifts?.forEach(element => {shiftsArrValue.push(new ShiftImpl(element));});
         writer.writeCollectionOfObjectValues<ShiftImpl>("shifts", shiftsArrValue);
         }
-        if(this.swapShiftsChangeRequests){
-        const swapShiftsChangeRequestsArrValue: SwapShiftsChangeRequestImpl[] = []; this.swapShiftsChangeRequests?.forEach(element => {swapShiftsChangeRequestsArrValue.push(new SwapShiftsChangeRequestImpl(element));});
+        if(this.swapShiftsChangeRequests && this.swapShiftsChangeRequests.length != 0){        const swapShiftsChangeRequestsArrValue: SwapShiftsChangeRequestImpl[] = []; this.swapShiftsChangeRequests?.forEach(element => {swapShiftsChangeRequestsArrValue.push(new SwapShiftsChangeRequestImpl(element));});
         writer.writeCollectionOfObjectValues<SwapShiftsChangeRequestImpl>("swapShiftsChangeRequests", swapShiftsChangeRequestsArrValue);
         }
         if(this.swapShiftsRequestsEnabled){
-        if(this.swapShiftsRequestsEnabled)
         writer.writeBooleanValue("swapShiftsRequestsEnabled", this.swapShiftsRequestsEnabled);
         }
         if(this.timeClockEnabled){
-        if(this.timeClockEnabled)
         writer.writeBooleanValue("timeClockEnabled", this.timeClockEnabled);
         }
-        if(this.timeOffReasons){
-        const timeOffReasonsArrValue: TimeOffReasonImpl[] = []; this.timeOffReasons?.forEach(element => {timeOffReasonsArrValue.push(new TimeOffReasonImpl(element));});
+        if(this.timeOffReasons && this.timeOffReasons.length != 0){        const timeOffReasonsArrValue: TimeOffReasonImpl[] = []; this.timeOffReasons?.forEach(element => {timeOffReasonsArrValue.push(new TimeOffReasonImpl(element));});
         writer.writeCollectionOfObjectValues<TimeOffReasonImpl>("timeOffReasons", timeOffReasonsArrValue);
         }
-        if(this.timeOffRequests){
-        const timeOffRequestsArrValue: TimeOffRequestImpl[] = []; this.timeOffRequests?.forEach(element => {timeOffRequestsArrValue.push(new TimeOffRequestImpl(element));});
+        if(this.timeOffRequests && this.timeOffRequests.length != 0){        const timeOffRequestsArrValue: TimeOffRequestImpl[] = []; this.timeOffRequests?.forEach(element => {timeOffRequestsArrValue.push(new TimeOffRequestImpl(element));});
         writer.writeCollectionOfObjectValues<TimeOffRequestImpl>("timeOffRequests", timeOffRequestsArrValue);
         }
         if(this.timeOffRequestsEnabled){
-        if(this.timeOffRequestsEnabled)
         writer.writeBooleanValue("timeOffRequestsEnabled", this.timeOffRequestsEnabled);
         }
-        if(this.timesOff){
-        const timesOffArrValue: TimeOffImpl[] = []; this.timesOff?.forEach(element => {timesOffArrValue.push(new TimeOffImpl(element));});
+        if(this.timesOff && this.timesOff.length != 0){        const timesOffArrValue: TimeOffImpl[] = []; this.timesOff?.forEach(element => {timesOffArrValue.push(new TimeOffImpl(element));});
         writer.writeCollectionOfObjectValues<TimeOffImpl>("timesOff", timesOffArrValue);
         }
         if(this.timeZone){
-        if(this.timeZone)
         writer.writeStringValue("timeZone", this.timeZone);
         }
         if(this.workforceIntegrationIds){
-        if(this.workforceIntegrationIds)
         writer.writeCollectionOfPrimitiveValues<string>("workforceIntegrationIds", this.workforceIntegrationIds);
         }
     };

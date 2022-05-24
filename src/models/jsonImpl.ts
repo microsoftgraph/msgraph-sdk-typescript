@@ -3,14 +3,13 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class JsonImpl implements AdditionalDataHolder, Json, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /**
      * Instantiates a new Json and sets the default values.
      * @param jsonParameterValue 
      */
     public constructor(jsonParameterValue?: Json | undefined) {
-        this.additionalData = {};
-        this.additionalData = jsonParameterValue?.additionalData ? {} : jsonParameterValue?.additionalData!
+        this.additionalData = jsonParameterValue?.additionalData ? jsonParameterValue?.additionalData! : {}
     };
     /**
      * The deserialization information for the current model

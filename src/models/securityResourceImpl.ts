@@ -4,18 +4,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class SecurityResourceImpl implements AdditionalDataHolder, Parsable, SecurityResource {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** Name of the resource that is related to current alert. Required. */
-    resource?: string | undefined;
+    public resource?: string | undefined;
     /** Represents type of security resources related to an alert. Possible values are: attacked, related. */
-    resourceType?: SecurityResourceType | undefined;
+    public resourceType?: SecurityResourceType | undefined;
     /**
      * Instantiates a new securityResource and sets the default values.
      * @param securityResourceParameterValue 
      */
     public constructor(securityResourceParameterValue?: SecurityResource | undefined) {
-        this.additionalData = {};
-        this.additionalData = securityResourceParameterValue?.additionalData ? {} : securityResourceParameterValue?.additionalData!
+        this.additionalData = securityResourceParameterValue?.additionalData ? securityResourceParameterValue?.additionalData! : {}
         this.resource = securityResourceParameterValue?.resource ;
         this.resourceType = securityResourceParameterValue?.resourceType ;
     };
@@ -36,11 +35,9 @@ export class SecurityResourceImpl implements AdditionalDataHolder, Parsable, Sec
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.resource){
-        if(this.resource)
         writer.writeStringValue("resource", this.resource);
         }
         if(this.resourceType){
-        if(this.resourceType)
         writer.writeEnumValue<SecurityResourceType>("resourceType", this.resourceType);
         }
         writer.writeAdditionalData(this.additionalData);

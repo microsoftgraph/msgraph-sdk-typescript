@@ -3,20 +3,19 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class PersonOrGroupColumnImpl implements AdditionalDataHolder, Parsable, PersonOrGroupColumn {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** Indicates whether multiple values can be selected from the source. */
-    allowMultipleSelection?: boolean | undefined;
+    public allowMultipleSelection?: boolean | undefined;
     /** Whether to allow selection of people only, or people and groups. Must be one of peopleAndGroups or peopleOnly. */
-    chooseFromType?: string | undefined;
+    public chooseFromType?: string | undefined;
     /** How to display the information about the person or group chosen. See below. */
-    displayAs?: string | undefined;
+    public displayAs?: string | undefined;
     /**
      * Instantiates a new personOrGroupColumn and sets the default values.
      * @param personOrGroupColumnParameterValue 
      */
     public constructor(personOrGroupColumnParameterValue?: PersonOrGroupColumn | undefined) {
-        this.additionalData = {};
-        this.additionalData = personOrGroupColumnParameterValue?.additionalData ? {} : personOrGroupColumnParameterValue?.additionalData!
+        this.additionalData = personOrGroupColumnParameterValue?.additionalData ? personOrGroupColumnParameterValue?.additionalData! : {}
         this.allowMultipleSelection = personOrGroupColumnParameterValue?.allowMultipleSelection ;
         this.chooseFromType = personOrGroupColumnParameterValue?.chooseFromType ;
         this.displayAs = personOrGroupColumnParameterValue?.displayAs ;
@@ -39,15 +38,12 @@ export class PersonOrGroupColumnImpl implements AdditionalDataHolder, Parsable, 
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.allowMultipleSelection){
-        if(this.allowMultipleSelection)
         writer.writeBooleanValue("allowMultipleSelection", this.allowMultipleSelection);
         }
         if(this.chooseFromType){
-        if(this.chooseFromType)
         writer.writeStringValue("chooseFromType", this.chooseFromType);
         }
         if(this.displayAs){
-        if(this.displayAs)
         writer.writeStringValue("displayAs", this.displayAs);
         }
         writer.writeAdditionalData(this.additionalData);

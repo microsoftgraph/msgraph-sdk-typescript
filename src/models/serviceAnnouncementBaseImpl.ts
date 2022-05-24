@@ -4,17 +4,18 @@ import {KeyValuePair} from './keyValuePair';
 import {ServiceAnnouncementBase} from './serviceAnnouncementBase';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the admin singleton. */
 export class ServiceAnnouncementBaseImpl extends EntityImpl implements Parsable, ServiceAnnouncementBase {
     /** Additional details about service event. This property doesn't support filters. */
-    details?: KeyValuePair[] | undefined;
+    public details?: KeyValuePair[] | undefined;
     /** The end time of the service event. */
-    endDateTime?: Date | undefined;
+    public endDateTime?: Date | undefined;
     /** The last modified time of the service event. */
-    lastModifiedDateTime?: Date | undefined;
+    public lastModifiedDateTime?: Date | undefined;
     /** The start time of the service event. */
-    startDateTime?: Date | undefined;
+    public startDateTime?: Date | undefined;
     /** The title of the service event. */
-    title?: string | undefined;
+    public title?: string | undefined;
     /**
      * Instantiates a new serviceAnnouncementBase and sets the default values.
      * @param serviceAnnouncementBaseParameterValue 
@@ -47,24 +48,19 @@ export class ServiceAnnouncementBaseImpl extends EntityImpl implements Parsable,
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.details){
-        const detailsArrValue: KeyValuePairImpl[] = []; this.details?.forEach(element => {detailsArrValue.push(new KeyValuePairImpl(element));});
+        if(this.details && this.details.length != 0){        const detailsArrValue: KeyValuePairImpl[] = []; this.details?.forEach(element => {detailsArrValue.push(new KeyValuePairImpl(element));});
         writer.writeCollectionOfObjectValues<KeyValuePairImpl>("details", detailsArrValue);
         }
         if(this.endDateTime){
-        if(this.endDateTime)
         writer.writeDateValue("endDateTime", this.endDateTime);
         }
         if(this.lastModifiedDateTime){
-        if(this.lastModifiedDateTime)
         writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
         }
         if(this.startDateTime){
-        if(this.startDateTime)
         writer.writeDateValue("startDateTime", this.startDateTime);
         }
         if(this.title){
-        if(this.title)
         writer.writeStringValue("title", this.title);
         }
     };

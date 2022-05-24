@@ -5,11 +5,11 @@ import {Term} from './term';
 
 export interface Relation extends Entity{
     /** The from [term] of the relation. The term from which the relationship is defined. A null value would indicate the relation is directly with the [set]. */
-    fromTerm?: Term | undefined;
+    fromTerm?:Term | undefined;
     /** The type of relation. Possible values are: pin, reuse. */
-    relationship?: RelationType | undefined;
+    relationship?:RelationType | undefined;
     /** The [set] in which the relation is relevant. */
-    set?: Set | undefined;
+    set?:Set | undefined;
     /** The to [term] of the relation. The term to which the relationship is defined. */
-    toTerm?: Term | undefined;
+    toTerm?:Term | undefined;
 }

@@ -58,7 +58,7 @@ export class SecurityRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * security resource type
+     * The security resource is the entry point for the Security object model. It returns a singleton security resource. It doesn't contain any usable properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -90,17 +90,17 @@ export class SecurityRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        const bodyParsable = new SecurityImpl(body)
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", bodyParsable);
+        const parsableBody = new SecurityImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
-     * security resource type
+     * The security resource is the entry point for the Security object model. It returns a singleton security resource. It doesn't contain any usable properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Security
      */
-    public get(requestConfiguration?: SecurityRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Security | undefined> {
+    public get(requestConfiguration?: SecurityRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<SecurityImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );

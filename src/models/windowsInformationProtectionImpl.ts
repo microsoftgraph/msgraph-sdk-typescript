@@ -17,57 +17,58 @@ import {WindowsInformationProtectionProxiedDomainCollection} from './windowsInfo
 import {WindowsInformationProtectionResourceCollection} from './windowsInformationProtectionResourceCollection';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Policy for Windows information protection to configure detailed management settings */
 export class WindowsInformationProtectionImpl extends ManagedAppPolicyImpl implements Parsable, WindowsInformationProtection {
     /** Navigation property to list of security groups targeted for policy. */
-    assignments?: TargetedManagedAppPolicyAssignment[] | undefined;
+    public assignments?: TargetedManagedAppPolicyAssignment[] | undefined;
     /** Specifies whether to allow Azure RMS encryption for WIP */
-    azureRightsManagementServicesAllowed?: boolean | undefined;
+    public azureRightsManagementServicesAllowed?: boolean | undefined;
     /** Specifies a recovery certificate that can be used for data recovery of encrypted files. This is the same as the data recovery agent(DRA) certificate for encrypting file system(EFS) */
-    dataRecoveryCertificate?: WindowsInformationProtectionDataRecoveryCertificate | undefined;
+    public dataRecoveryCertificate?: WindowsInformationProtectionDataRecoveryCertificate | undefined;
     /** WIP enforcement level.See the Enum definition for supported values. Possible values are: noProtection, encryptAndAuditOnly, encryptAuditAndPrompt, encryptAuditAndBlock. */
-    enforcementLevel?: WindowsInformationProtectionEnforcementLevel | undefined;
+    public enforcementLevel?: WindowsInformationProtectionEnforcementLevel | undefined;
     /** Primary enterprise domain */
-    enterpriseDomain?: string | undefined;
+    public enterpriseDomain?: string | undefined;
     /** This is the comma-separated list of internal proxy servers. For example, '157.54.14.28, 157.54.11.118, 10.202.14.167, 157.53.14.163, 157.69.210.59'. These proxies have been configured by the admin to connect to specific resources on the Internet. They are considered to be enterprise network locations. The proxies are only leveraged in configuring the EnterpriseProxiedDomains policy to force traffic to the matched domains through these proxies */
-    enterpriseInternalProxyServers?: WindowsInformationProtectionResourceCollection[] | undefined;
+    public enterpriseInternalProxyServers?: WindowsInformationProtectionResourceCollection[] | undefined;
     /** Sets the enterprise IP ranges that define the computers in the enterprise network. Data that comes from those computers will be considered part of the enterprise and protected. These locations will be considered a safe destination for enterprise data to be shared to */
-    enterpriseIPRanges?: WindowsInformationProtectionIPRangeCollection[] | undefined;
+    public enterpriseIPRanges?: WindowsInformationProtectionIPRangeCollection[] | undefined;
     /** Boolean value that tells the client to accept the configured list and not to use heuristics to attempt to find other subnets. Default is false */
-    enterpriseIPRangesAreAuthoritative?: boolean | undefined;
+    public enterpriseIPRangesAreAuthoritative?: boolean | undefined;
     /** This is the list of domains that comprise the boundaries of the enterprise. Data from one of these domains that is sent to a device will be considered enterprise data and protected These locations will be considered a safe destination for enterprise data to be shared to */
-    enterpriseNetworkDomainNames?: WindowsInformationProtectionResourceCollection[] | undefined;
+    public enterpriseNetworkDomainNames?: WindowsInformationProtectionResourceCollection[] | undefined;
     /** List of enterprise domains to be protected */
-    enterpriseProtectedDomainNames?: WindowsInformationProtectionResourceCollection[] | undefined;
+    public enterpriseProtectedDomainNames?: WindowsInformationProtectionResourceCollection[] | undefined;
     /** Contains a list of Enterprise resource domains hosted in the cloud that need to be protected. Connections to these resources are considered enterprise data. If a proxy is paired with a cloud resource, traffic to the cloud resource will be routed through the enterprise network via the denoted proxy server (on Port 80). A proxy server used for this purpose must also be configured using the EnterpriseInternalProxyServers policy */
-    enterpriseProxiedDomains?: WindowsInformationProtectionProxiedDomainCollection[] | undefined;
+    public enterpriseProxiedDomains?: WindowsInformationProtectionProxiedDomainCollection[] | undefined;
     /** This is a list of proxy servers. Any server not on this list is considered non-enterprise */
-    enterpriseProxyServers?: WindowsInformationProtectionResourceCollection[] | undefined;
+    public enterpriseProxyServers?: WindowsInformationProtectionResourceCollection[] | undefined;
     /** Boolean value that tells the client to accept the configured list of proxies and not try to detect other work proxies. Default is false */
-    enterpriseProxyServersAreAuthoritative?: boolean | undefined;
+    public enterpriseProxyServersAreAuthoritative?: boolean | undefined;
     /** Another way to input exempt apps through xml files */
-    exemptAppLockerFiles?: WindowsInformationProtectionAppLockerFile[] | undefined;
+    public exemptAppLockerFiles?: WindowsInformationProtectionAppLockerFile[] | undefined;
     /** Exempt applications can also access enterprise data, but the data handled by those applications are not protected. This is because some critical enterprise applications may have compatibility problems with encrypted data. */
-    exemptApps?: WindowsInformationProtectionApp[] | undefined;
+    public exemptApps?: WindowsInformationProtectionApp[] | undefined;
     /** Determines whether overlays are added to icons for WIP protected files in Explorer and enterprise only app tiles in the Start menu. Starting in Windows 10, version 1703 this setting also configures the visibility of the WIP icon in the title bar of a WIP-protected app */
-    iconsVisible?: boolean | undefined;
+    public iconsVisible?: boolean | undefined;
     /** This switch is for the Windows Search Indexer, to allow or disallow indexing of items */
-    indexingEncryptedStoresOrItemsBlocked?: boolean | undefined;
+    public indexingEncryptedStoresOrItemsBlocked?: boolean | undefined;
     /** Indicates if the policy is deployed to any inclusion groups or not. */
-    isAssigned?: boolean | undefined;
+    public isAssigned?: boolean | undefined;
     /** List of domain names that can used for work or personal resource */
-    neutralDomainResources?: WindowsInformationProtectionResourceCollection[] | undefined;
+    public neutralDomainResources?: WindowsInformationProtectionResourceCollection[] | undefined;
     /** Another way to input protected apps through xml files */
-    protectedAppLockerFiles?: WindowsInformationProtectionAppLockerFile[] | undefined;
+    public protectedAppLockerFiles?: WindowsInformationProtectionAppLockerFile[] | undefined;
     /** Protected applications can access enterprise data and the data handled by those applications are protected with encryption */
-    protectedApps?: WindowsInformationProtectionApp[] | undefined;
+    public protectedApps?: WindowsInformationProtectionApp[] | undefined;
     /** Specifies whether the protection under lock feature (also known as encrypt under pin) should be configured */
-    protectionUnderLockConfigRequired?: boolean | undefined;
+    public protectionUnderLockConfigRequired?: boolean | undefined;
     /** This policy controls whether to revoke the WIP keys when a device unenrolls from the management service. If set to 1 (Don't revoke keys), the keys will not be revoked and the user will continue to have access to protected files after unenrollment. If the keys are not revoked, there will be no revoked file cleanup subsequently. */
-    revokeOnUnenrollDisabled?: boolean | undefined;
+    public revokeOnUnenrollDisabled?: boolean | undefined;
     /** TemplateID GUID to use for RMS encryption. The RMS template allows the IT admin to configure the details about who has access to RMS-protected file and how long they have access */
-    rightsManagementServicesTemplateId?: string | undefined;
+    public rightsManagementServicesTemplateId?: string | undefined;
     /** Specifies a list of file extensions, so that files with these extensions are encrypted when copying from an SMB share within the corporate boundary */
-    smbAutoEncryptedFileExtensions?: WindowsInformationProtectionResourceCollection[] | undefined;
+    public smbAutoEncryptedFileExtensions?: WindowsInformationProtectionResourceCollection[] | undefined;
     /**
      * Instantiates a new windowsInformationProtection and sets the default values.
      * @param windowsInformationProtectionParameterValue 
@@ -140,104 +141,79 @@ export class WindowsInformationProtectionImpl extends ManagedAppPolicyImpl imple
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.assignments){
-        const assignmentsArrValue: TargetedManagedAppPolicyAssignmentImpl[] = []; this.assignments?.forEach(element => {assignmentsArrValue.push(new TargetedManagedAppPolicyAssignmentImpl(element));});
+        if(this.assignments && this.assignments.length != 0){        const assignmentsArrValue: TargetedManagedAppPolicyAssignmentImpl[] = []; this.assignments?.forEach(element => {assignmentsArrValue.push(new TargetedManagedAppPolicyAssignmentImpl(element));});
         writer.writeCollectionOfObjectValues<TargetedManagedAppPolicyAssignmentImpl>("assignments", assignmentsArrValue);
         }
         if(this.azureRightsManagementServicesAllowed){
-        if(this.azureRightsManagementServicesAllowed)
         writer.writeBooleanValue("azureRightsManagementServicesAllowed", this.azureRightsManagementServicesAllowed);
         }
         if(this.dataRecoveryCertificate){
-        if(this.dataRecoveryCertificate)
         writer.writeObjectValue<WindowsInformationProtectionDataRecoveryCertificateImpl>("dataRecoveryCertificate", new WindowsInformationProtectionDataRecoveryCertificateImpl(this.dataRecoveryCertificate));
         }
         if(this.enforcementLevel){
-        if(this.enforcementLevel)
         writer.writeEnumValue<WindowsInformationProtectionEnforcementLevel>("enforcementLevel", this.enforcementLevel);
         }
         if(this.enterpriseDomain){
-        if(this.enterpriseDomain)
         writer.writeStringValue("enterpriseDomain", this.enterpriseDomain);
         }
-        if(this.enterpriseInternalProxyServers){
-        const enterpriseInternalProxyServersArrValue: WindowsInformationProtectionResourceCollectionImpl[] = []; this.enterpriseInternalProxyServers?.forEach(element => {enterpriseInternalProxyServersArrValue.push(new WindowsInformationProtectionResourceCollectionImpl(element));});
+        if(this.enterpriseInternalProxyServers && this.enterpriseInternalProxyServers.length != 0){        const enterpriseInternalProxyServersArrValue: WindowsInformationProtectionResourceCollectionImpl[] = []; this.enterpriseInternalProxyServers?.forEach(element => {enterpriseInternalProxyServersArrValue.push(new WindowsInformationProtectionResourceCollectionImpl(element));});
         writer.writeCollectionOfObjectValues<WindowsInformationProtectionResourceCollectionImpl>("enterpriseInternalProxyServers", enterpriseInternalProxyServersArrValue);
         }
-        if(this.enterpriseIPRanges){
-        const enterpriseIPRangesArrValue: WindowsInformationProtectionIPRangeCollectionImpl[] = []; this.enterpriseIPRanges?.forEach(element => {enterpriseIPRangesArrValue.push(new WindowsInformationProtectionIPRangeCollectionImpl(element));});
+        if(this.enterpriseIPRanges && this.enterpriseIPRanges.length != 0){        const enterpriseIPRangesArrValue: WindowsInformationProtectionIPRangeCollectionImpl[] = []; this.enterpriseIPRanges?.forEach(element => {enterpriseIPRangesArrValue.push(new WindowsInformationProtectionIPRangeCollectionImpl(element));});
         writer.writeCollectionOfObjectValues<WindowsInformationProtectionIPRangeCollectionImpl>("enterpriseIPRanges", enterpriseIPRangesArrValue);
         }
         if(this.enterpriseIPRangesAreAuthoritative){
-        if(this.enterpriseIPRangesAreAuthoritative)
         writer.writeBooleanValue("enterpriseIPRangesAreAuthoritative", this.enterpriseIPRangesAreAuthoritative);
         }
-        if(this.enterpriseNetworkDomainNames){
-        const enterpriseNetworkDomainNamesArrValue: WindowsInformationProtectionResourceCollectionImpl[] = []; this.enterpriseNetworkDomainNames?.forEach(element => {enterpriseNetworkDomainNamesArrValue.push(new WindowsInformationProtectionResourceCollectionImpl(element));});
+        if(this.enterpriseNetworkDomainNames && this.enterpriseNetworkDomainNames.length != 0){        const enterpriseNetworkDomainNamesArrValue: WindowsInformationProtectionResourceCollectionImpl[] = []; this.enterpriseNetworkDomainNames?.forEach(element => {enterpriseNetworkDomainNamesArrValue.push(new WindowsInformationProtectionResourceCollectionImpl(element));});
         writer.writeCollectionOfObjectValues<WindowsInformationProtectionResourceCollectionImpl>("enterpriseNetworkDomainNames", enterpriseNetworkDomainNamesArrValue);
         }
-        if(this.enterpriseProtectedDomainNames){
-        const enterpriseProtectedDomainNamesArrValue: WindowsInformationProtectionResourceCollectionImpl[] = []; this.enterpriseProtectedDomainNames?.forEach(element => {enterpriseProtectedDomainNamesArrValue.push(new WindowsInformationProtectionResourceCollectionImpl(element));});
+        if(this.enterpriseProtectedDomainNames && this.enterpriseProtectedDomainNames.length != 0){        const enterpriseProtectedDomainNamesArrValue: WindowsInformationProtectionResourceCollectionImpl[] = []; this.enterpriseProtectedDomainNames?.forEach(element => {enterpriseProtectedDomainNamesArrValue.push(new WindowsInformationProtectionResourceCollectionImpl(element));});
         writer.writeCollectionOfObjectValues<WindowsInformationProtectionResourceCollectionImpl>("enterpriseProtectedDomainNames", enterpriseProtectedDomainNamesArrValue);
         }
-        if(this.enterpriseProxiedDomains){
-        const enterpriseProxiedDomainsArrValue: WindowsInformationProtectionProxiedDomainCollectionImpl[] = []; this.enterpriseProxiedDomains?.forEach(element => {enterpriseProxiedDomainsArrValue.push(new WindowsInformationProtectionProxiedDomainCollectionImpl(element));});
+        if(this.enterpriseProxiedDomains && this.enterpriseProxiedDomains.length != 0){        const enterpriseProxiedDomainsArrValue: WindowsInformationProtectionProxiedDomainCollectionImpl[] = []; this.enterpriseProxiedDomains?.forEach(element => {enterpriseProxiedDomainsArrValue.push(new WindowsInformationProtectionProxiedDomainCollectionImpl(element));});
         writer.writeCollectionOfObjectValues<WindowsInformationProtectionProxiedDomainCollectionImpl>("enterpriseProxiedDomains", enterpriseProxiedDomainsArrValue);
         }
-        if(this.enterpriseProxyServers){
-        const enterpriseProxyServersArrValue: WindowsInformationProtectionResourceCollectionImpl[] = []; this.enterpriseProxyServers?.forEach(element => {enterpriseProxyServersArrValue.push(new WindowsInformationProtectionResourceCollectionImpl(element));});
+        if(this.enterpriseProxyServers && this.enterpriseProxyServers.length != 0){        const enterpriseProxyServersArrValue: WindowsInformationProtectionResourceCollectionImpl[] = []; this.enterpriseProxyServers?.forEach(element => {enterpriseProxyServersArrValue.push(new WindowsInformationProtectionResourceCollectionImpl(element));});
         writer.writeCollectionOfObjectValues<WindowsInformationProtectionResourceCollectionImpl>("enterpriseProxyServers", enterpriseProxyServersArrValue);
         }
         if(this.enterpriseProxyServersAreAuthoritative){
-        if(this.enterpriseProxyServersAreAuthoritative)
         writer.writeBooleanValue("enterpriseProxyServersAreAuthoritative", this.enterpriseProxyServersAreAuthoritative);
         }
-        if(this.exemptAppLockerFiles){
-        const exemptAppLockerFilesArrValue: WindowsInformationProtectionAppLockerFileImpl[] = []; this.exemptAppLockerFiles?.forEach(element => {exemptAppLockerFilesArrValue.push(new WindowsInformationProtectionAppLockerFileImpl(element));});
+        if(this.exemptAppLockerFiles && this.exemptAppLockerFiles.length != 0){        const exemptAppLockerFilesArrValue: WindowsInformationProtectionAppLockerFileImpl[] = []; this.exemptAppLockerFiles?.forEach(element => {exemptAppLockerFilesArrValue.push(new WindowsInformationProtectionAppLockerFileImpl(element));});
         writer.writeCollectionOfObjectValues<WindowsInformationProtectionAppLockerFileImpl>("exemptAppLockerFiles", exemptAppLockerFilesArrValue);
         }
-        if(this.exemptApps){
-        const exemptAppsArrValue: WindowsInformationProtectionAppImpl[] = []; this.exemptApps?.forEach(element => {exemptAppsArrValue.push(new WindowsInformationProtectionAppImpl(element));});
+        if(this.exemptApps && this.exemptApps.length != 0){        const exemptAppsArrValue: WindowsInformationProtectionAppImpl[] = []; this.exemptApps?.forEach(element => {exemptAppsArrValue.push(new WindowsInformationProtectionAppImpl(element));});
         writer.writeCollectionOfObjectValues<WindowsInformationProtectionAppImpl>("exemptApps", exemptAppsArrValue);
         }
         if(this.iconsVisible){
-        if(this.iconsVisible)
         writer.writeBooleanValue("iconsVisible", this.iconsVisible);
         }
         if(this.indexingEncryptedStoresOrItemsBlocked){
-        if(this.indexingEncryptedStoresOrItemsBlocked)
         writer.writeBooleanValue("indexingEncryptedStoresOrItemsBlocked", this.indexingEncryptedStoresOrItemsBlocked);
         }
         if(this.isAssigned){
-        if(this.isAssigned)
         writer.writeBooleanValue("isAssigned", this.isAssigned);
         }
-        if(this.neutralDomainResources){
-        const neutralDomainResourcesArrValue: WindowsInformationProtectionResourceCollectionImpl[] = []; this.neutralDomainResources?.forEach(element => {neutralDomainResourcesArrValue.push(new WindowsInformationProtectionResourceCollectionImpl(element));});
+        if(this.neutralDomainResources && this.neutralDomainResources.length != 0){        const neutralDomainResourcesArrValue: WindowsInformationProtectionResourceCollectionImpl[] = []; this.neutralDomainResources?.forEach(element => {neutralDomainResourcesArrValue.push(new WindowsInformationProtectionResourceCollectionImpl(element));});
         writer.writeCollectionOfObjectValues<WindowsInformationProtectionResourceCollectionImpl>("neutralDomainResources", neutralDomainResourcesArrValue);
         }
-        if(this.protectedAppLockerFiles){
-        const protectedAppLockerFilesArrValue: WindowsInformationProtectionAppLockerFileImpl[] = []; this.protectedAppLockerFiles?.forEach(element => {protectedAppLockerFilesArrValue.push(new WindowsInformationProtectionAppLockerFileImpl(element));});
+        if(this.protectedAppLockerFiles && this.protectedAppLockerFiles.length != 0){        const protectedAppLockerFilesArrValue: WindowsInformationProtectionAppLockerFileImpl[] = []; this.protectedAppLockerFiles?.forEach(element => {protectedAppLockerFilesArrValue.push(new WindowsInformationProtectionAppLockerFileImpl(element));});
         writer.writeCollectionOfObjectValues<WindowsInformationProtectionAppLockerFileImpl>("protectedAppLockerFiles", protectedAppLockerFilesArrValue);
         }
-        if(this.protectedApps){
-        const protectedAppsArrValue: WindowsInformationProtectionAppImpl[] = []; this.protectedApps?.forEach(element => {protectedAppsArrValue.push(new WindowsInformationProtectionAppImpl(element));});
+        if(this.protectedApps && this.protectedApps.length != 0){        const protectedAppsArrValue: WindowsInformationProtectionAppImpl[] = []; this.protectedApps?.forEach(element => {protectedAppsArrValue.push(new WindowsInformationProtectionAppImpl(element));});
         writer.writeCollectionOfObjectValues<WindowsInformationProtectionAppImpl>("protectedApps", protectedAppsArrValue);
         }
         if(this.protectionUnderLockConfigRequired){
-        if(this.protectionUnderLockConfigRequired)
         writer.writeBooleanValue("protectionUnderLockConfigRequired", this.protectionUnderLockConfigRequired);
         }
         if(this.revokeOnUnenrollDisabled){
-        if(this.revokeOnUnenrollDisabled)
         writer.writeBooleanValue("revokeOnUnenrollDisabled", this.revokeOnUnenrollDisabled);
         }
         if(this.rightsManagementServicesTemplateId){
-        if(this.rightsManagementServicesTemplateId)
         writer.writeStringValue("rightsManagementServicesTemplateId", this.rightsManagementServicesTemplateId);
         }
-        if(this.smbAutoEncryptedFileExtensions){
-        const smbAutoEncryptedFileExtensionsArrValue: WindowsInformationProtectionResourceCollectionImpl[] = []; this.smbAutoEncryptedFileExtensions?.forEach(element => {smbAutoEncryptedFileExtensionsArrValue.push(new WindowsInformationProtectionResourceCollectionImpl(element));});
+        if(this.smbAutoEncryptedFileExtensions && this.smbAutoEncryptedFileExtensions.length != 0){        const smbAutoEncryptedFileExtensionsArrValue: WindowsInformationProtectionResourceCollectionImpl[] = []; this.smbAutoEncryptedFileExtensions?.forEach(element => {smbAutoEncryptedFileExtensionsArrValue.push(new WindowsInformationProtectionResourceCollectionImpl(element));});
         writer.writeCollectionOfObjectValues<WindowsInformationProtectionResourceCollectionImpl>("smbAutoEncryptedFileExtensions", smbAutoEncryptedFileExtensionsArrValue);
         }
     };

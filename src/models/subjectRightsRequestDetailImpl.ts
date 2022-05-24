@@ -6,28 +6,27 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class SubjectRightsRequestDetailImpl implements AdditionalDataHolder, Parsable, SubjectRightsRequestDetail {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** Count of items that are excluded from the request. */
-    excludedItemCount?: number | undefined;
+    public excludedItemCount?: number | undefined;
     /** Count of items per insight. */
-    insightCounts?: KeyValuePair[] | undefined;
+    public insightCounts?: KeyValuePair[] | undefined;
     /** Count of items found. */
-    itemCount?: number | undefined;
+    public itemCount?: number | undefined;
     /** Count of item that need review. */
-    itemNeedReview?: number | undefined;
+    public itemNeedReview?: number | undefined;
     /** Count of items per product, such as Exchange, SharePoint, OneDrive, and Teams. */
-    productItemCounts?: KeyValuePair[] | undefined;
+    public productItemCounts?: KeyValuePair[] | undefined;
     /** Count of items signed off by the administrator. */
-    signedOffItemCount?: number | undefined;
+    public signedOffItemCount?: number | undefined;
     /** Total item size in bytes. */
-    totalItemSize?: number | undefined;
+    public totalItemSize?: number | undefined;
     /**
      * Instantiates a new subjectRightsRequestDetail and sets the default values.
      * @param subjectRightsRequestDetailParameterValue 
      */
     public constructor(subjectRightsRequestDetailParameterValue?: SubjectRightsRequestDetail | undefined) {
-        this.additionalData = {};
-        this.additionalData = subjectRightsRequestDetailParameterValue?.additionalData ? {} : subjectRightsRequestDetailParameterValue?.additionalData!
+        this.additionalData = subjectRightsRequestDetailParameterValue?.additionalData ? subjectRightsRequestDetailParameterValue?.additionalData! : {}
         this.excludedItemCount = subjectRightsRequestDetailParameterValue?.excludedItemCount ;
         this.insightCounts = subjectRightsRequestDetailParameterValue?.insightCounts ;
         this.itemCount = subjectRightsRequestDetailParameterValue?.itemCount ;
@@ -58,31 +57,24 @@ export class SubjectRightsRequestDetailImpl implements AdditionalDataHolder, Par
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.excludedItemCount){
-        if(this.excludedItemCount)
         writer.writeNumberValue("excludedItemCount", this.excludedItemCount);
         }
-        if(this.insightCounts){
-        const insightCountsArrValue: KeyValuePairImpl[] = []; this.insightCounts?.forEach(element => {insightCountsArrValue.push(new KeyValuePairImpl(element));});
+        if(this.insightCounts && this.insightCounts.length != 0){        const insightCountsArrValue: KeyValuePairImpl[] = []; this.insightCounts?.forEach(element => {insightCountsArrValue.push(new KeyValuePairImpl(element));});
         writer.writeCollectionOfObjectValues<KeyValuePairImpl>("insightCounts", insightCountsArrValue);
         }
         if(this.itemCount){
-        if(this.itemCount)
         writer.writeNumberValue("itemCount", this.itemCount);
         }
         if(this.itemNeedReview){
-        if(this.itemNeedReview)
         writer.writeNumberValue("itemNeedReview", this.itemNeedReview);
         }
-        if(this.productItemCounts){
-        const productItemCountsArrValue: KeyValuePairImpl[] = []; this.productItemCounts?.forEach(element => {productItemCountsArrValue.push(new KeyValuePairImpl(element));});
+        if(this.productItemCounts && this.productItemCounts.length != 0){        const productItemCountsArrValue: KeyValuePairImpl[] = []; this.productItemCounts?.forEach(element => {productItemCountsArrValue.push(new KeyValuePairImpl(element));});
         writer.writeCollectionOfObjectValues<KeyValuePairImpl>("productItemCounts", productItemCountsArrValue);
         }
         if(this.signedOffItemCount){
-        if(this.signedOffItemCount)
         writer.writeNumberValue("signedOffItemCount", this.signedOffItemCount);
         }
         if(this.totalItemSize){
-        if(this.totalItemSize)
         writer.writeNumberValue("totalItemSize", this.totalItemSize);
         }
         writer.writeAdditionalData(this.additionalData);

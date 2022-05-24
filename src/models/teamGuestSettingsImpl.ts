@@ -3,18 +3,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class TeamGuestSettingsImpl implements AdditionalDataHolder, Parsable, TeamGuestSettings {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** If set to true, guests can add and update channels. */
-    allowCreateUpdateChannels?: boolean | undefined;
+    public allowCreateUpdateChannels?: boolean | undefined;
     /** If set to true, guests can delete channels. */
-    allowDeleteChannels?: boolean | undefined;
+    public allowDeleteChannels?: boolean | undefined;
     /**
      * Instantiates a new teamGuestSettings and sets the default values.
      * @param teamGuestSettingsParameterValue 
      */
     public constructor(teamGuestSettingsParameterValue?: TeamGuestSettings | undefined) {
-        this.additionalData = {};
-        this.additionalData = teamGuestSettingsParameterValue?.additionalData ? {} : teamGuestSettingsParameterValue?.additionalData!
+        this.additionalData = teamGuestSettingsParameterValue?.additionalData ? teamGuestSettingsParameterValue?.additionalData! : {}
         this.allowCreateUpdateChannels = teamGuestSettingsParameterValue?.allowCreateUpdateChannels ;
         this.allowDeleteChannels = teamGuestSettingsParameterValue?.allowDeleteChannels ;
     };
@@ -35,11 +34,9 @@ export class TeamGuestSettingsImpl implements AdditionalDataHolder, Parsable, Te
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.allowCreateUpdateChannels){
-        if(this.allowCreateUpdateChannels)
         writer.writeBooleanValue("allowCreateUpdateChannels", this.allowCreateUpdateChannels);
         }
         if(this.allowDeleteChannels){
-        if(this.allowDeleteChannels)
         writer.writeBooleanValue("allowDeleteChannels", this.allowDeleteChannels);
         }
         writer.writeAdditionalData(this.additionalData);

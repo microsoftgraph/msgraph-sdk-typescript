@@ -4,11 +4,12 @@ import {ApprovalImpl, RequestImpl} from './index';
 import {UserConsentRequest} from './userConsentRequest';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the identityGovernance singleton. */
 export class UserConsentRequestImpl extends RequestImpl implements Parsable, UserConsentRequest {
     /** Approval decisions associated with a request. */
-    approval?: Approval | undefined;
+    public approval?: Approval | undefined;
     /** The user's justification for requiring access to the app. Supports $filter (eq only) and $orderby. */
-    reason?: string | undefined;
+    public reason?: string | undefined;
     /**
      * Instantiates a new userConsentRequest and sets the default values.
      * @param userConsentRequestParameterValue 
@@ -36,11 +37,9 @@ export class UserConsentRequestImpl extends RequestImpl implements Parsable, Use
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.approval){
-        if(this.approval)
         writer.writeObjectValue<ApprovalImpl>("approval", new ApprovalImpl(this.approval));
         }
         if(this.reason){
-        if(this.reason)
         writer.writeStringValue("reason", this.reason);
         }
     };

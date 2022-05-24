@@ -4,13 +4,14 @@ import {OpenShift} from './openShift';
 import {OpenShiftItem} from './openShiftItem';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to group. */
 export class OpenShiftImpl extends ChangeTrackedEntityImpl implements OpenShift, Parsable {
     /** An unpublished open shift. */
-    draftOpenShift?: OpenShiftItem | undefined;
+    public draftOpenShift?: OpenShiftItem | undefined;
     /** ID for the scheduling group that the open shift belongs to. */
-    schedulingGroupId?: string | undefined;
+    public schedulingGroupId?: string | undefined;
     /** A published open shift. */
-    sharedOpenShift?: OpenShiftItem | undefined;
+    public sharedOpenShift?: OpenShiftItem | undefined;
     /**
      * Instantiates a new openShift and sets the default values.
      * @param openShiftParameterValue 
@@ -40,15 +41,12 @@ export class OpenShiftImpl extends ChangeTrackedEntityImpl implements OpenShift,
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.draftOpenShift){
-        if(this.draftOpenShift)
         writer.writeObjectValue<OpenShiftItemImpl>("draftOpenShift", new OpenShiftItemImpl(this.draftOpenShift));
         }
         if(this.schedulingGroupId){
-        if(this.schedulingGroupId)
         writer.writeStringValue("schedulingGroupId", this.schedulingGroupId);
         }
         if(this.sharedOpenShift){
-        if(this.sharedOpenShift)
         writer.writeObjectValue<OpenShiftItemImpl>("sharedOpenShift", new OpenShiftItemImpl(this.sharedOpenShift));
         }
     };

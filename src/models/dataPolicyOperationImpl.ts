@@ -3,19 +3,20 @@ import {DataPolicyOperationStatus} from './dataPolicyOperationStatus';
 import {EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the collection of dataPolicyOperation entities. */
 export class DataPolicyOperationImpl extends EntityImpl implements DataPolicyOperation, Parsable {
     /** Represents when the request for this data policy operation was completed, in UTC time, using the ISO 8601 format. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Null until the operation completes. */
-    completedDateTime?: Date | undefined;
+    public completedDateTime?: Date | undefined;
     /** Specifies the progress of an operation. */
-    progress?: number | undefined;
+    public progress?: number | undefined;
     /** Possible values are: notStarted, running, complete, failed, unknownFutureValue. */
-    status?: DataPolicyOperationStatus | undefined;
+    public status?: DataPolicyOperationStatus | undefined;
     /** The URL location to where data is being exported for export requests. */
-    storageLocation?: string | undefined;
+    public storageLocation?: string | undefined;
     /** Represents when the request for this data operation was submitted, in UTC time, using the ISO 8601 format. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
-    submittedDateTime?: Date | undefined;
+    public submittedDateTime?: Date | undefined;
     /** The id for the user on whom the operation is performed. */
-    userId?: string | undefined;
+    public userId?: string | undefined;
     /**
      * Instantiates a new dataPolicyOperation and sets the default values.
      * @param dataPolicyOperationParameterValue 
@@ -51,27 +52,21 @@ export class DataPolicyOperationImpl extends EntityImpl implements DataPolicyOpe
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.completedDateTime){
-        if(this.completedDateTime)
         writer.writeDateValue("completedDateTime", this.completedDateTime);
         }
         if(this.progress){
-        if(this.progress)
         writer.writeNumberValue("progress", this.progress);
         }
         if(this.status){
-        if(this.status)
         writer.writeEnumValue<DataPolicyOperationStatus>("status", this.status);
         }
         if(this.storageLocation){
-        if(this.storageLocation)
         writer.writeStringValue("storageLocation", this.storageLocation);
         }
         if(this.submittedDateTime){
-        if(this.submittedDateTime)
         writer.writeDateValue("submittedDateTime", this.submittedDateTime);
         }
         if(this.userId){
-        if(this.userId)
         writer.writeStringValue("userId", this.userId);
         }
     };

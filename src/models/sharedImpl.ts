@@ -6,22 +6,21 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class SharedImpl implements AdditionalDataHolder, Parsable, Shared {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The identity of the owner of the shared item. Read-only. */
-    owner?: IdentitySet | undefined;
+    public owner?: IdentitySet | undefined;
     /** Indicates the scope of how the item is shared: anonymous, organization, or users. Read-only. */
-    scope?: string | undefined;
+    public scope?: string | undefined;
     /** The identity of the user who shared the item. Read-only. */
-    sharedBy?: IdentitySet | undefined;
+    public sharedBy?: IdentitySet | undefined;
     /** The UTC date and time when the item was shared. Read-only. */
-    sharedDateTime?: Date | undefined;
+    public sharedDateTime?: Date | undefined;
     /**
      * Instantiates a new shared and sets the default values.
      * @param sharedParameterValue 
      */
     public constructor(sharedParameterValue?: Shared | undefined) {
-        this.additionalData = {};
-        this.additionalData = sharedParameterValue?.additionalData ? {} : sharedParameterValue?.additionalData!
+        this.additionalData = sharedParameterValue?.additionalData ? sharedParameterValue?.additionalData! : {}
         this.owner = sharedParameterValue?.owner ;
         this.scope = sharedParameterValue?.scope ;
         this.sharedBy = sharedParameterValue?.sharedBy ;
@@ -46,19 +45,15 @@ export class SharedImpl implements AdditionalDataHolder, Parsable, Shared {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.owner){
-        if(this.owner)
         writer.writeObjectValue<IdentitySetImpl>("owner", new IdentitySetImpl(this.owner));
         }
         if(this.scope){
-        if(this.scope)
         writer.writeStringValue("scope", this.scope);
         }
         if(this.sharedBy){
-        if(this.sharedBy)
         writer.writeObjectValue<IdentitySetImpl>("sharedBy", new IdentitySetImpl(this.sharedBy));
         }
         if(this.sharedDateTime){
-        if(this.sharedDateTime)
         writer.writeDateValue("sharedDateTime", this.sharedDateTime);
         }
         writer.writeAdditionalData(this.additionalData);

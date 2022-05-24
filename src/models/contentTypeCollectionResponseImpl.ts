@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class ContentTypeCollectionResponseImpl implements AdditionalDataHolder, ContentTypeCollectionResponse, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: ContentType[] | undefined;
+    public value?: ContentType[] | undefined;
     /**
      * Instantiates a new ContentTypeCollectionResponse and sets the default values.
      * @param contentTypeCollectionResponseParameterValue 
      */
     public constructor(contentTypeCollectionResponseParameterValue?: ContentTypeCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = contentTypeCollectionResponseParameterValue?.additionalData ? {} : contentTypeCollectionResponseParameterValue?.additionalData!
+        this.additionalData = contentTypeCollectionResponseParameterValue?.additionalData ? contentTypeCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = contentTypeCollectionResponseParameterValue?.nextLink ;
         this.value = contentTypeCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class ContentTypeCollectionResponseImpl implements AdditionalDataHolder, 
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: ContentTypeImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ContentTypeImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: ContentTypeImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ContentTypeImpl(element));});
         writer.writeCollectionOfObjectValues<ContentTypeImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

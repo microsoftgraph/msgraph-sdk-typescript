@@ -1,3 +1,3 @@
-export * from './syncRequestBodyImpl'
+export * from './syncPostRequestBodyImpl'
 export * from './syncRequestBuilderPostRequestConfiguration'
-export * from './syncRequestBody'
+export * from './syncPostRequestBody'

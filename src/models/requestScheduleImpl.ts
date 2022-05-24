@@ -8,20 +8,19 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class RequestScheduleImpl implements AdditionalDataHolder, Parsable, RequestSchedule {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** When the access should expire. */
-    expiration?: ExpirationPattern | undefined;
+    public expiration?: ExpirationPattern | undefined;
     /** For recurring access. Not used at present. */
-    recurrence?: PatternedRecurrence | undefined;
+    public recurrence?: PatternedRecurrence | undefined;
     /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
-    startDateTime?: Date | undefined;
+    public startDateTime?: Date | undefined;
     /**
      * Instantiates a new requestSchedule and sets the default values.
      * @param requestScheduleParameterValue 
      */
     public constructor(requestScheduleParameterValue?: RequestSchedule | undefined) {
-        this.additionalData = {};
-        this.additionalData = requestScheduleParameterValue?.additionalData ? {} : requestScheduleParameterValue?.additionalData!
+        this.additionalData = requestScheduleParameterValue?.additionalData ? requestScheduleParameterValue?.additionalData! : {}
         this.expiration = requestScheduleParameterValue?.expiration ;
         this.recurrence = requestScheduleParameterValue?.recurrence ;
         this.startDateTime = requestScheduleParameterValue?.startDateTime ;
@@ -44,15 +43,12 @@ export class RequestScheduleImpl implements AdditionalDataHolder, Parsable, Requ
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.expiration){
-        if(this.expiration)
         writer.writeObjectValue<ExpirationPatternImpl>("expiration", new ExpirationPatternImpl(this.expiration));
         }
         if(this.recurrence){
-        if(this.recurrence)
         writer.writeObjectValue<PatternedRecurrenceImpl>("recurrence", new PatternedRecurrenceImpl(this.recurrence));
         }
         if(this.startDateTime){
-        if(this.startDateTime)
         writer.writeDateValue("startDateTime", this.startDateTime);
         }
         writer.writeAdditionalData(this.additionalData);

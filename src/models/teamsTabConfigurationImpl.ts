@@ -3,22 +3,21 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class TeamsTabConfigurationImpl implements AdditionalDataHolder, Parsable, TeamsTabConfiguration {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** Url used for rendering tab contents in Teams. Required. */
-    contentUrl?: string | undefined;
+    public contentUrl?: string | undefined;
     /** Identifier for the entity hosted by the tab provider. */
-    entityId?: string | undefined;
+    public entityId?: string | undefined;
     /** Url called by Teams client when a Tab is removed using the Teams Client. */
-    removeUrl?: string | undefined;
+    public removeUrl?: string | undefined;
     /** Url for showing tab contents outside of Teams. */
-    websiteUrl?: string | undefined;
+    public websiteUrl?: string | undefined;
     /**
      * Instantiates a new teamsTabConfiguration and sets the default values.
      * @param teamsTabConfigurationParameterValue 
      */
     public constructor(teamsTabConfigurationParameterValue?: TeamsTabConfiguration | undefined) {
-        this.additionalData = {};
-        this.additionalData = teamsTabConfigurationParameterValue?.additionalData ? {} : teamsTabConfigurationParameterValue?.additionalData!
+        this.additionalData = teamsTabConfigurationParameterValue?.additionalData ? teamsTabConfigurationParameterValue?.additionalData! : {}
         this.contentUrl = teamsTabConfigurationParameterValue?.contentUrl ;
         this.entityId = teamsTabConfigurationParameterValue?.entityId ;
         this.removeUrl = teamsTabConfigurationParameterValue?.removeUrl ;
@@ -43,19 +42,15 @@ export class TeamsTabConfigurationImpl implements AdditionalDataHolder, Parsable
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.contentUrl){
-        if(this.contentUrl)
         writer.writeStringValue("contentUrl", this.contentUrl);
         }
         if(this.entityId){
-        if(this.entityId)
         writer.writeStringValue("entityId", this.entityId);
         }
         if(this.removeUrl){
-        if(this.removeUrl)
         writer.writeStringValue("removeUrl", this.removeUrl);
         }
         if(this.websiteUrl){
-        if(this.websiteUrl)
         writer.writeStringValue("websiteUrl", this.websiteUrl);
         }
         writer.writeAdditionalData(this.additionalData);

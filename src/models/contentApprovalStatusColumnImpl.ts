@@ -3,14 +3,13 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class ContentApprovalStatusColumnImpl implements AdditionalDataHolder, ContentApprovalStatusColumn, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /**
      * Instantiates a new contentApprovalStatusColumn and sets the default values.
      * @param contentApprovalStatusColumnParameterValue 
      */
     public constructor(contentApprovalStatusColumnParameterValue?: ContentApprovalStatusColumn | undefined) {
-        this.additionalData = {};
-        this.additionalData = contentApprovalStatusColumnParameterValue?.additionalData ? {} : contentApprovalStatusColumnParameterValue?.additionalData!
+        this.additionalData = contentApprovalStatusColumnParameterValue?.additionalData ? contentApprovalStatusColumnParameterValue?.additionalData! : {}
     };
     /**
      * The deserialization information for the current model

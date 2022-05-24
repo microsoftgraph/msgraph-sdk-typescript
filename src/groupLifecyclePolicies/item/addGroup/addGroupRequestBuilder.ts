@@ -1,8 +1,7 @@
-import {AddGroupRequestBody} from './addGroupRequestBody';
+import {AddGroupPostRequestBody} from './addGroupPostRequestBody';
 import {AddGroupRequestBuilderPostRequestConfiguration} from './addGroupRequestBuilderPostRequestConfiguration';
-import {AddGroupResponse} from './addGroupResponse';
 import {createAddGroupResponseFromDiscriminatorValue} from './createAddGroupResponseFromDiscriminatorValue';
-import {AddGroupRequestBodyImpl, AddGroupResponseImpl} from './index';
+import {AddGroupPostRequestBodyImpl, AddGroupResponseImpl} from './index';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the addGroup method. */
@@ -32,7 +31,7 @@ export class AddGroupRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public createPostRequestInformation(body: AddGroupRequestBody | undefined, requestConfiguration?: AddGroupRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public createPostRequestInformation(body: AddGroupPostRequestBody | undefined, requestConfiguration?: AddGroupRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -42,8 +41,8 @@ export class AddGroupRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        const bodyParsable = new AddGroupRequestBodyImpl(body)
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", bodyParsable);
+        const parsableBody = new AddGroupPostRequestBodyImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -53,7 +52,7 @@ export class AddGroupRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AddGroupResponse
      */
-    public post(body: AddGroupRequestBody | undefined, requestConfiguration?: AddGroupRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AddGroupResponse | undefined> {
+    public post(body: AddGroupPostRequestBody | undefined, requestConfiguration?: AddGroupRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AddGroupResponseImpl | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration

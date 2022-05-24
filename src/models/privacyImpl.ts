@@ -6,16 +6,15 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class PrivacyImpl implements AdditionalDataHolder, Parsable, Privacy {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The subjectRightsRequests property */
-    subjectRightsRequests?: SubjectRightsRequest[] | undefined;
+    public subjectRightsRequests?: SubjectRightsRequest[] | undefined;
     /**
      * Instantiates a new Privacy and sets the default values.
      * @param privacyParameterValue 
      */
     public constructor(privacyParameterValue?: Privacy | undefined) {
-        this.additionalData = {};
-        this.additionalData = privacyParameterValue?.additionalData ? {} : privacyParameterValue?.additionalData!
+        this.additionalData = privacyParameterValue?.additionalData ? privacyParameterValue?.additionalData! : {}
         this.subjectRightsRequests = privacyParameterValue?.subjectRightsRequests ;
     };
     /**
@@ -33,8 +32,7 @@ export class PrivacyImpl implements AdditionalDataHolder, Parsable, Privacy {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        if(this.subjectRightsRequests){
-        const subjectRightsRequestsArrValue: SubjectRightsRequestImpl[] = []; this.subjectRightsRequests?.forEach(element => {subjectRightsRequestsArrValue.push(new SubjectRightsRequestImpl(element));});
+        if(this.subjectRightsRequests && this.subjectRightsRequests.length != 0){        const subjectRightsRequestsArrValue: SubjectRightsRequestImpl[] = []; this.subjectRightsRequests?.forEach(element => {subjectRightsRequestsArrValue.push(new SubjectRightsRequestImpl(element));});
         writer.writeCollectionOfObjectValues<SubjectRightsRequestImpl>("subjectRightsRequests", subjectRightsRequestsArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

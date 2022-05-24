@@ -2,17 +2,17 @@ import {Entity} from './entity';
 
 export interface DeviceComplianceUserOverview extends Entity{
     /** Version of the policy for that overview */
-    configurationVersion?: number | undefined;
+    configurationVersion?:number | undefined;
     /** Number of error Users */
-    errorCount?: number | undefined;
+    errorCount?:number | undefined;
     /** Number of failed Users */
-    failedCount?: number | undefined;
+    failedCount?:number | undefined;
     /** Last update time */
-    lastUpdateDateTime?: Date | undefined;
+    lastUpdateDateTime?:Date | undefined;
     /** Number of not applicable users */
-    notApplicableCount?: number | undefined;
+    notApplicableCount?:number | undefined;
     /** Number of pending Users */
-    pendingCount?: number | undefined;
+    pendingCount?:number | undefined;
     /** Number of succeeded Users */
-    successCount?: number | undefined;
+    successCount?:number | undefined;
 }

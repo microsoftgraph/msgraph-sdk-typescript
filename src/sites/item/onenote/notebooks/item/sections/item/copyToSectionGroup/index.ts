@@ -1,3 +1,3 @@
-export * from './copyToSectionGroupRequestBodyImpl'
-export * from './copyToSectionGroupRequestBody'
+export * from './copyToSectionGroupPostRequestBodyImpl'
+export * from './copyToSectionGroupPostRequestBody'
 export * from './copyToSectionGroupRequestBuilderPostRequestConfiguration'

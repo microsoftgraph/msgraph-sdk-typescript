@@ -12,45 +12,46 @@ import {ScoredEmailAddress} from './scoredEmailAddress';
 import {Website} from './website';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to user. */
 export class PersonImpl extends EntityImpl implements Parsable, Person {
     /** The person's birthday. */
-    birthday?: string | undefined;
+    public birthday?: string | undefined;
     /** The name of the person's company. */
-    companyName?: string | undefined;
+    public companyName?: string | undefined;
     /** The person's department. */
-    department?: string | undefined;
+    public department?: string | undefined;
     /** The person's display name. */
-    displayName?: string | undefined;
+    public displayName?: string | undefined;
     /** The person's given name. */
-    givenName?: string | undefined;
+    public givenName?: string | undefined;
     /** The instant message voice over IP (VOIP) session initiation protocol (SIP) address for the user. Read-only. */
-    imAddress?: string | undefined;
+    public imAddress?: string | undefined;
     /** true if the user has flagged this person as a favorite. */
-    isFavorite?: boolean | undefined;
+    public isFavorite?: boolean | undefined;
     /** The person's job title. */
-    jobTitle?: string | undefined;
+    public jobTitle?: string | undefined;
     /** The location of the person's office. */
-    officeLocation?: string | undefined;
+    public officeLocation?: string | undefined;
     /** Free-form notes that the user has taken about this person. */
-    personNotes?: string | undefined;
+    public personNotes?: string | undefined;
     /** The type of person, for example distribution list. */
-    personType?: PersonType | undefined;
+    public personType?: PersonType | undefined;
     /** The person's phone numbers. */
-    phones?: Phone[] | undefined;
+    public phones?: Phone[] | undefined;
     /** The person's addresses. */
-    postalAddresses?: Location[] | undefined;
+    public postalAddresses?: Location[] | undefined;
     /** The person's profession. */
-    profession?: string | undefined;
+    public profession?: string | undefined;
     /** The person's email addresses. */
-    scoredEmailAddresses?: ScoredEmailAddress[] | undefined;
+    public scoredEmailAddresses?: ScoredEmailAddress[] | undefined;
     /** The person's surname. */
-    surname?: string | undefined;
+    public surname?: string | undefined;
     /** The user principal name (UPN) of the person. The UPN is an Internet-style login name for the person based on the Internet standard RFC 822. By convention, this should map to the person's email name. The general format is alias@domain. */
-    userPrincipalName?: string | undefined;
+    public userPrincipalName?: string | undefined;
     /** The person's websites. */
-    websites?: Website[] | undefined;
+    public websites?: Website[] | undefined;
     /** The phonetic Japanese name of the person's company. */
-    yomiCompany?: string | undefined;
+    public yomiCompany?: string | undefined;
     /**
      * Instantiates a new person and sets the default values.
      * @param personParameterValue 
@@ -112,79 +113,60 @@ export class PersonImpl extends EntityImpl implements Parsable, Person {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.birthday){
-        if(this.birthday)
         writer.writeStringValue("birthday", this.birthday);
         }
         if(this.companyName){
-        if(this.companyName)
         writer.writeStringValue("companyName", this.companyName);
         }
         if(this.department){
-        if(this.department)
         writer.writeStringValue("department", this.department);
         }
         if(this.displayName){
-        if(this.displayName)
         writer.writeStringValue("displayName", this.displayName);
         }
         if(this.givenName){
-        if(this.givenName)
         writer.writeStringValue("givenName", this.givenName);
         }
         if(this.imAddress){
-        if(this.imAddress)
         writer.writeStringValue("imAddress", this.imAddress);
         }
         if(this.isFavorite){
-        if(this.isFavorite)
         writer.writeBooleanValue("isFavorite", this.isFavorite);
         }
         if(this.jobTitle){
-        if(this.jobTitle)
         writer.writeStringValue("jobTitle", this.jobTitle);
         }
         if(this.officeLocation){
-        if(this.officeLocation)
         writer.writeStringValue("officeLocation", this.officeLocation);
         }
         if(this.personNotes){
-        if(this.personNotes)
         writer.writeStringValue("personNotes", this.personNotes);
         }
         if(this.personType){
-        if(this.personType)
         writer.writeObjectValue<PersonTypeImpl>("personType", new PersonTypeImpl(this.personType));
         }
-        if(this.phones){
-        const phonesArrValue: PhoneImpl[] = []; this.phones?.forEach(element => {phonesArrValue.push(new PhoneImpl(element));});
+        if(this.phones && this.phones.length != 0){        const phonesArrValue: PhoneImpl[] = []; this.phones?.forEach(element => {phonesArrValue.push(new PhoneImpl(element));});
         writer.writeCollectionOfObjectValues<PhoneImpl>("phones", phonesArrValue);
         }
-        if(this.postalAddresses){
-        const postalAddressesArrValue: LocationImpl[] = []; this.postalAddresses?.forEach(element => {postalAddressesArrValue.push(new LocationImpl(element));});
+        if(this.postalAddresses && this.postalAddresses.length != 0){        const postalAddressesArrValue: LocationImpl[] = []; this.postalAddresses?.forEach(element => {postalAddressesArrValue.push(new LocationImpl(element));});
         writer.writeCollectionOfObjectValues<LocationImpl>("postalAddresses", postalAddressesArrValue);
         }
         if(this.profession){
-        if(this.profession)
         writer.writeStringValue("profession", this.profession);
         }
-        if(this.scoredEmailAddresses){
-        const scoredEmailAddressesArrValue: ScoredEmailAddressImpl[] = []; this.scoredEmailAddresses?.forEach(element => {scoredEmailAddressesArrValue.push(new ScoredEmailAddressImpl(element));});
+        if(this.scoredEmailAddresses && this.scoredEmailAddresses.length != 0){        const scoredEmailAddressesArrValue: ScoredEmailAddressImpl[] = []; this.scoredEmailAddresses?.forEach(element => {scoredEmailAddressesArrValue.push(new ScoredEmailAddressImpl(element));});
         writer.writeCollectionOfObjectValues<ScoredEmailAddressImpl>("scoredEmailAddresses", scoredEmailAddressesArrValue);
         }
         if(this.surname){
-        if(this.surname)
         writer.writeStringValue("surname", this.surname);
         }
         if(this.userPrincipalName){
-        if(this.userPrincipalName)
         writer.writeStringValue("userPrincipalName", this.userPrincipalName);
         }
-        if(this.websites){
-        const websitesArrValue: WebsiteImpl[] = []; this.websites?.forEach(element => {websitesArrValue.push(new WebsiteImpl(element));});
+        if(this.websites && this.websites.length != 0){        const websitesArrValue: WebsiteImpl[] = []; this.websites?.forEach(element => {websitesArrValue.push(new WebsiteImpl(element));});
         writer.writeCollectionOfObjectValues<WebsiteImpl>("websites", websitesArrValue);
         }
         if(this.yomiCompany){
-        if(this.yomiCompany)
         writer.writeStringValue("yomiCompany", this.yomiCompany);
         }
     };

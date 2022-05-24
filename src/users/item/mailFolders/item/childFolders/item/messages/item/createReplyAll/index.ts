@@ -1,3 +1,3 @@
-export * from './createReplyAllRequestBodyImpl'
-export * from './createReplyAllRequestBody'
+export * from './createReplyAllPostRequestBodyImpl'
 export * from './createReplyAllRequestBuilderPostRequestConfiguration'
+export * from './createReplyAllPostRequestBody'

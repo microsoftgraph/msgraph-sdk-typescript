@@ -2,9 +2,10 @@ import {IdentityImpl} from './index';
 import {SharePointIdentity} from './sharePointIdentity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to user. */
 export class SharePointIdentityImpl extends IdentityImpl implements Parsable, SharePointIdentity {
     /** The sign in name of the SharePoint identity. */
-    loginName?: string | undefined;
+    public loginName?: string | undefined;
     /**
      * Instantiates a new sharePointIdentity and sets the default values.
      * @param sharePointIdentityParameterValue 
@@ -30,7 +31,6 @@ export class SharePointIdentityImpl extends IdentityImpl implements Parsable, Sh
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.loginName){
-        if(this.loginName)
         writer.writeStringValue("loginName", this.loginName);
         }
     };

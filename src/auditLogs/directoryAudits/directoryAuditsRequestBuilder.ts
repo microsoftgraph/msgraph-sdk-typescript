@@ -2,7 +2,6 @@ import {DirectoryAuditCollectionResponseImpl, DirectoryAuditImpl} from '../../mo
 import {createDirectoryAuditCollectionResponseFromDiscriminatorValue} from '../../models/createDirectoryAuditCollectionResponseFromDiscriminatorValue';
 import {createDirectoryAuditFromDiscriminatorValue} from '../../models/createDirectoryAuditFromDiscriminatorValue';
 import {DirectoryAudit} from '../../models/directoryAudit';
-import {DirectoryAuditCollectionResponse} from '../../models/directoryAuditCollectionResponse';
 import {ODataErrorImpl} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
@@ -68,8 +67,8 @@ export class DirectoryAuditsRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        const bodyParsable = new DirectoryAuditImpl(body)
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", bodyParsable);
+        const parsableBody = new DirectoryAuditImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -78,7 +77,7 @@ export class DirectoryAuditsRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DirectoryAuditCollectionResponse
      */
-    public get(requestConfiguration?: DirectoryAuditsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DirectoryAuditCollectionResponse | undefined> {
+    public get(requestConfiguration?: DirectoryAuditsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DirectoryAuditCollectionResponseImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -95,7 +94,7 @@ export class DirectoryAuditsRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DirectoryAudit
      */
-    public post(body: DirectoryAudit | undefined, requestConfiguration?: DirectoryAuditsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DirectoryAudit | undefined> {
+    public post(body: DirectoryAudit | undefined, requestConfiguration?: DirectoryAuditsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DirectoryAuditImpl | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration

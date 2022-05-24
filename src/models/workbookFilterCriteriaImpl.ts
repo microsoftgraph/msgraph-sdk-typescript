@@ -8,30 +8,29 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class WorkbookFilterCriteriaImpl implements AdditionalDataHolder, Parsable, WorkbookFilterCriteria {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The color property */
-    color?: string | undefined;
+    public color?: string | undefined;
     /** The criterion1 property */
-    criterion1?: string | undefined;
+    public criterion1?: string | undefined;
     /** The criterion2 property */
-    criterion2?: string | undefined;
+    public criterion2?: string | undefined;
     /** The dynamicCriteria property */
-    dynamicCriteria?: string | undefined;
+    public dynamicCriteria?: string | undefined;
     /** The filterOn property */
-    filterOn?: string | undefined;
+    public filterOn?: string | undefined;
     /** The icon property */
-    icon?: WorkbookIcon | undefined;
+    public icon?: WorkbookIcon | undefined;
     /** The operator property */
-    operator?: string | undefined;
+    public operator?: string | undefined;
     /** The values property */
-    values?: Json | undefined;
+    public values?: Json | undefined;
     /**
      * Instantiates a new workbookFilterCriteria and sets the default values.
      * @param workbookFilterCriteriaParameterValue 
      */
     public constructor(workbookFilterCriteriaParameterValue?: WorkbookFilterCriteria | undefined) {
-        this.additionalData = {};
-        this.additionalData = workbookFilterCriteriaParameterValue?.additionalData ? {} : workbookFilterCriteriaParameterValue?.additionalData!
+        this.additionalData = workbookFilterCriteriaParameterValue?.additionalData ? workbookFilterCriteriaParameterValue?.additionalData! : {}
         this.color = workbookFilterCriteriaParameterValue?.color ;
         this.criterion1 = workbookFilterCriteriaParameterValue?.criterion1 ;
         this.criterion2 = workbookFilterCriteriaParameterValue?.criterion2 ;
@@ -64,35 +63,27 @@ export class WorkbookFilterCriteriaImpl implements AdditionalDataHolder, Parsabl
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.color){
-        if(this.color)
         writer.writeStringValue("color", this.color);
         }
         if(this.criterion1){
-        if(this.criterion1)
         writer.writeStringValue("criterion1", this.criterion1);
         }
         if(this.criterion2){
-        if(this.criterion2)
         writer.writeStringValue("criterion2", this.criterion2);
         }
         if(this.dynamicCriteria){
-        if(this.dynamicCriteria)
         writer.writeStringValue("dynamicCriteria", this.dynamicCriteria);
         }
         if(this.filterOn){
-        if(this.filterOn)
         writer.writeStringValue("filterOn", this.filterOn);
         }
         if(this.icon){
-        if(this.icon)
         writer.writeObjectValue<WorkbookIconImpl>("icon", new WorkbookIconImpl(this.icon));
         }
         if(this.operator){
-        if(this.operator)
         writer.writeStringValue("operator", this.operator);
         }
         if(this.values){
-        if(this.values)
         writer.writeObjectValue<JsonImpl>("values", new JsonImpl(this.values));
         }
         writer.writeAdditionalData(this.additionalData);

@@ -1,3 +1,3 @@
-export * from './createForwardRequestBodyImpl'
+export * from './createForwardPostRequestBodyImpl'
 export * from './createForwardRequestBuilderPostRequestConfiguration'
-export * from './createForwardRequestBody'
+export * from './createForwardPostRequestBody'

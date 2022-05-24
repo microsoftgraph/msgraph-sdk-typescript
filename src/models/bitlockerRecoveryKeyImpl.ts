@@ -3,15 +3,16 @@ import {EntityImpl} from './index';
 import {VolumeType} from './volumeType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the informationProtection singleton. */
 export class BitlockerRecoveryKeyImpl extends EntityImpl implements BitlockerRecoveryKey, Parsable {
     /** The date and time when the key was originally backed up to Azure Active Directory. */
-    createdDateTime?: Date | undefined;
+    public createdDateTime?: Date | undefined;
     /** ID of the device the BitLocker key is originally backed up from. */
-    deviceId?: string | undefined;
+    public deviceId?: string | undefined;
     /** The BitLocker recovery key. */
-    key?: string | undefined;
+    public key?: string | undefined;
     /** Indicates the type of volume the BitLocker key is associated with. Possible values are: operatingSystemVolume, fixedDataVolume, removableDataVolume, unknownFutureValue. */
-    volumeType?: VolumeType | undefined;
+    public volumeType?: VolumeType | undefined;
     /**
      * Instantiates a new bitlockerRecoveryKey and sets the default values.
      * @param bitlockerRecoveryKeyParameterValue 
@@ -43,19 +44,15 @@ export class BitlockerRecoveryKeyImpl extends EntityImpl implements BitlockerRec
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.createdDateTime){
-        if(this.createdDateTime)
         writer.writeDateValue("createdDateTime", this.createdDateTime);
         }
         if(this.deviceId){
-        if(this.deviceId)
         writer.writeStringValue("deviceId", this.deviceId);
         }
         if(this.key){
-        if(this.key)
         writer.writeStringValue("key", this.key);
         }
         if(this.volumeType){
-        if(this.volumeType)
         writer.writeEnumValue<VolumeType>("volumeType", this.volumeType);
         }
     };

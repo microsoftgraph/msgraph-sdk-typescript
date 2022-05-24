@@ -3,32 +3,31 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class HostSecurityStateImpl implements AdditionalDataHolder, HostSecurityState, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** Host FQDN (Fully Qualified Domain Name) (for example, machine.company.com). */
-    fqdn?: string | undefined;
+    public fqdn?: string | undefined;
     /** The isAzureAdJoined property */
-    isAzureAdJoined?: boolean | undefined;
+    public isAzureAdJoined?: boolean | undefined;
     /** The isAzureAdRegistered property */
-    isAzureAdRegistered?: boolean | undefined;
+    public isAzureAdRegistered?: boolean | undefined;
     /** True if the host is domain joined to an on-premises Active Directory domain. */
-    isHybridAzureDomainJoined?: boolean | undefined;
+    public isHybridAzureDomainJoined?: boolean | undefined;
     /** The local host name, without the DNS domain name. */
-    netBiosName?: string | undefined;
+    public netBiosName?: string | undefined;
     /** Host Operating System. (For example, Windows10, MacOS, RHEL, etc.). */
-    os?: string | undefined;
+    public os?: string | undefined;
     /** Private (not routable) IPv4 or IPv6 address (see RFC 1918) at the time of the alert. */
-    privateIpAddress?: string | undefined;
+    public privateIpAddress?: string | undefined;
     /** Publicly routable IPv4 or IPv6 address (see RFC 1918) at time of the alert. */
-    publicIpAddress?: string | undefined;
+    public publicIpAddress?: string | undefined;
     /** Provider-generated/calculated risk score of the host.  Recommended value range of 0-1, which equates to a percentage. */
-    riskScore?: string | undefined;
+    public riskScore?: string | undefined;
     /**
      * Instantiates a new hostSecurityState and sets the default values.
      * @param hostSecurityStateParameterValue 
      */
     public constructor(hostSecurityStateParameterValue?: HostSecurityState | undefined) {
-        this.additionalData = {};
-        this.additionalData = hostSecurityStateParameterValue?.additionalData ? {} : hostSecurityStateParameterValue?.additionalData!
+        this.additionalData = hostSecurityStateParameterValue?.additionalData ? hostSecurityStateParameterValue?.additionalData! : {}
         this.fqdn = hostSecurityStateParameterValue?.fqdn ;
         this.isAzureAdJoined = hostSecurityStateParameterValue?.isAzureAdJoined ;
         this.isAzureAdRegistered = hostSecurityStateParameterValue?.isAzureAdRegistered ;
@@ -63,39 +62,30 @@ export class HostSecurityStateImpl implements AdditionalDataHolder, HostSecurity
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.fqdn){
-        if(this.fqdn)
         writer.writeStringValue("fqdn", this.fqdn);
         }
         if(this.isAzureAdJoined){
-        if(this.isAzureAdJoined)
         writer.writeBooleanValue("isAzureAdJoined", this.isAzureAdJoined);
         }
         if(this.isAzureAdRegistered){
-        if(this.isAzureAdRegistered)
         writer.writeBooleanValue("isAzureAdRegistered", this.isAzureAdRegistered);
         }
         if(this.isHybridAzureDomainJoined){
-        if(this.isHybridAzureDomainJoined)
         writer.writeBooleanValue("isHybridAzureDomainJoined", this.isHybridAzureDomainJoined);
         }
         if(this.netBiosName){
-        if(this.netBiosName)
         writer.writeStringValue("netBiosName", this.netBiosName);
         }
         if(this.os){
-        if(this.os)
         writer.writeStringValue("os", this.os);
         }
         if(this.privateIpAddress){
-        if(this.privateIpAddress)
         writer.writeStringValue("privateIpAddress", this.privateIpAddress);
         }
         if(this.publicIpAddress){
-        if(this.publicIpAddress)
         writer.writeStringValue("publicIpAddress", this.publicIpAddress);
         }
         if(this.riskScore){
-        if(this.riskScore)
         writer.writeStringValue("riskScore", this.riskScore);
         }
         writer.writeAdditionalData(this.additionalData);

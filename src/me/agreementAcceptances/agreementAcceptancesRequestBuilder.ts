@@ -1,5 +1,4 @@
 import {AgreementAcceptanceCollectionResponseImpl} from '../../models/';
-import {AgreementAcceptanceCollectionResponse} from '../../models/agreementAcceptanceCollectionResponse';
 import {createAgreementAcceptanceCollectionResponseFromDiscriminatorValue} from '../../models/createAgreementAcceptanceCollectionResponseFromDiscriminatorValue';
 import {ODataErrorImpl} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
@@ -55,7 +54,7 @@ export class AgreementAcceptancesRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AgreementAcceptanceCollectionResponse
      */
-    public get(requestConfiguration?: AgreementAcceptancesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AgreementAcceptanceCollectionResponse | undefined> {
+    public get(requestConfiguration?: AgreementAcceptancesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AgreementAcceptanceCollectionResponseImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );

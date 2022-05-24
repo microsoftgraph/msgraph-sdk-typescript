@@ -1,8 +1,7 @@
-import {CheckMemberGroupsRequestBody} from './checkMemberGroupsRequestBody';
+import {CheckMemberGroupsPostRequestBody} from './checkMemberGroupsPostRequestBody';
 import {CheckMemberGroupsRequestBuilderPostRequestConfiguration} from './checkMemberGroupsRequestBuilderPostRequestConfiguration';
-import {CheckMemberGroupsResponse} from './checkMemberGroupsResponse';
 import {createCheckMemberGroupsResponseFromDiscriminatorValue} from './createCheckMemberGroupsResponseFromDiscriminatorValue';
-import {CheckMemberGroupsRequestBodyImpl, CheckMemberGroupsResponseImpl} from './index';
+import {CheckMemberGroupsPostRequestBodyImpl, CheckMemberGroupsResponseImpl} from './index';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the checkMemberGroups method. */
@@ -32,7 +31,7 @@ export class CheckMemberGroupsRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public createPostRequestInformation(body: CheckMemberGroupsRequestBody | undefined, requestConfiguration?: CheckMemberGroupsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public createPostRequestInformation(body: CheckMemberGroupsPostRequestBody | undefined, requestConfiguration?: CheckMemberGroupsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -42,8 +41,8 @@ export class CheckMemberGroupsRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        const bodyParsable = new CheckMemberGroupsRequestBodyImpl(body)
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", bodyParsable);
+        const parsableBody = new CheckMemberGroupsPostRequestBodyImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -53,7 +52,7 @@ export class CheckMemberGroupsRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of CheckMemberGroupsResponse
      */
-    public post(body: CheckMemberGroupsRequestBody | undefined, requestConfiguration?: CheckMemberGroupsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<CheckMemberGroupsResponse | undefined> {
+    public post(body: CheckMemberGroupsPostRequestBody | undefined, requestConfiguration?: CheckMemberGroupsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<CheckMemberGroupsResponseImpl | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration

@@ -3,18 +3,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class ChannelIdentityImpl implements AdditionalDataHolder, ChannelIdentity, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The identity of the channel in which the message was posted. */
-    channelId?: string | undefined;
+    public channelId?: string | undefined;
     /** The identity of the team in which the message was posted. */
-    teamId?: string | undefined;
+    public teamId?: string | undefined;
     /**
      * Instantiates a new channelIdentity and sets the default values.
      * @param channelIdentityParameterValue 
      */
     public constructor(channelIdentityParameterValue?: ChannelIdentity | undefined) {
-        this.additionalData = {};
-        this.additionalData = channelIdentityParameterValue?.additionalData ? {} : channelIdentityParameterValue?.additionalData!
+        this.additionalData = channelIdentityParameterValue?.additionalData ? channelIdentityParameterValue?.additionalData! : {}
         this.channelId = channelIdentityParameterValue?.channelId ;
         this.teamId = channelIdentityParameterValue?.teamId ;
     };
@@ -35,11 +34,9 @@ export class ChannelIdentityImpl implements AdditionalDataHolder, ChannelIdentit
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.channelId){
-        if(this.channelId)
         writer.writeStringValue("channelId", this.channelId);
         }
         if(this.teamId){
-        if(this.teamId)
         writer.writeStringValue("teamId", this.teamId);
         }
         writer.writeAdditionalData(this.additionalData);

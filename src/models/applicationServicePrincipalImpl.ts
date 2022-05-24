@@ -8,18 +8,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class ApplicationServicePrincipalImpl implements AdditionalDataHolder, ApplicationServicePrincipal, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The application property */
-    application?: Application | undefined;
+    public application?: Application | undefined;
     /** The servicePrincipal property */
-    servicePrincipal?: ServicePrincipal | undefined;
+    public servicePrincipal?: ServicePrincipal | undefined;
     /**
-     * Instantiates a new applicationServicePrincipal and sets the default values.
+     * Instantiates a new ApplicationServicePrincipal and sets the default values.
      * @param applicationServicePrincipalParameterValue 
      */
     public constructor(applicationServicePrincipalParameterValue?: ApplicationServicePrincipal | undefined) {
-        this.additionalData = {};
-        this.additionalData = applicationServicePrincipalParameterValue?.additionalData ? {} : applicationServicePrincipalParameterValue?.additionalData!
+        this.additionalData = applicationServicePrincipalParameterValue?.additionalData ? applicationServicePrincipalParameterValue?.additionalData! : {}
         this.application = applicationServicePrincipalParameterValue?.application ;
         this.servicePrincipal = applicationServicePrincipalParameterValue?.servicePrincipal ;
     };
@@ -40,11 +39,9 @@ export class ApplicationServicePrincipalImpl implements AdditionalDataHolder, Ap
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.application){
-        if(this.application)
         writer.writeObjectValue<ApplicationImpl>("application", new ApplicationImpl(this.application));
         }
         if(this.servicePrincipal){
-        if(this.servicePrincipal)
         writer.writeObjectValue<ServicePrincipalImpl>("servicePrincipal", new ServicePrincipalImpl(this.servicePrincipal));
         }
         writer.writeAdditionalData(this.additionalData);

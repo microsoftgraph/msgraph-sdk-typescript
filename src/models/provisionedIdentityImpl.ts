@@ -4,11 +4,12 @@ import {DetailsInfoImpl, IdentityImpl} from './index';
 import {ProvisionedIdentity} from './provisionedIdentity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the auditLogRoot singleton. */
 export class ProvisionedIdentityImpl extends IdentityImpl implements Parsable, ProvisionedIdentity {
     /** Details of the identity. */
-    details?: DetailsInfo | undefined;
+    public details?: DetailsInfo | undefined;
     /** Type of identity that has been provisioned, such as 'user' or 'group'. */
-    identityType?: string | undefined;
+    public identityType?: string | undefined;
     /**
      * Instantiates a new provisionedIdentity and sets the default values.
      * @param provisionedIdentityParameterValue 
@@ -36,11 +37,9 @@ export class ProvisionedIdentityImpl extends IdentityImpl implements Parsable, P
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.details){
-        if(this.details)
         writer.writeObjectValue<DetailsInfoImpl>("details", new DetailsInfoImpl(this.details));
         }
         if(this.identityType){
-        if(this.identityType)
         writer.writeStringValue("identityType", this.identityType);
         }
     };

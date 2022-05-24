@@ -7,16 +7,15 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Provides operations to call the getAvailableExtensionProperties method. */
 export class GetAvailableExtensionPropertiesResponseImpl implements AdditionalDataHolder, GetAvailableExtensionPropertiesResponse, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The value property */
-    value?: ExtensionProperty[] | undefined;
+    public value?: ExtensionProperty[] | undefined;
     /**
      * Instantiates a new getAvailableExtensionPropertiesResponse and sets the default values.
      * @param getAvailableExtensionPropertiesResponseParameterValue 
      */
     public constructor(getAvailableExtensionPropertiesResponseParameterValue?: GetAvailableExtensionPropertiesResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = getAvailableExtensionPropertiesResponseParameterValue?.additionalData ? {} : getAvailableExtensionPropertiesResponseParameterValue?.additionalData!
+        this.additionalData = getAvailableExtensionPropertiesResponseParameterValue?.additionalData ? getAvailableExtensionPropertiesResponseParameterValue?.additionalData! : {}
         this.value = getAvailableExtensionPropertiesResponseParameterValue?.value ;
     };
     /**
@@ -34,8 +33,7 @@ export class GetAvailableExtensionPropertiesResponseImpl implements AdditionalDa
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        if(this.value){
-        const valueArrValue: ExtensionPropertyImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ExtensionPropertyImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: ExtensionPropertyImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ExtensionPropertyImpl(element));});
         writer.writeCollectionOfObjectValues<ExtensionPropertyImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

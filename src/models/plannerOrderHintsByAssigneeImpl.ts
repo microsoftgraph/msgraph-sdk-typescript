@@ -3,14 +3,13 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class PlannerOrderHintsByAssigneeImpl implements AdditionalDataHolder, Parsable, PlannerOrderHintsByAssignee {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /**
      * Instantiates a new plannerOrderHintsByAssignee and sets the default values.
      * @param plannerOrderHintsByAssigneeParameterValue 
      */
     public constructor(plannerOrderHintsByAssigneeParameterValue?: PlannerOrderHintsByAssignee | undefined) {
-        this.additionalData = {};
-        this.additionalData = plannerOrderHintsByAssigneeParameterValue?.additionalData ? {} : plannerOrderHintsByAssigneeParameterValue?.additionalData!
+        this.additionalData = plannerOrderHintsByAssigneeParameterValue?.additionalData ? plannerOrderHintsByAssigneeParameterValue?.additionalData! : {}
     };
     /**
      * The deserialization information for the current model

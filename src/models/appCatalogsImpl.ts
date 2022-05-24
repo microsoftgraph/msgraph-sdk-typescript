@@ -7,7 +7,7 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Provides operations to manage the appCatalogs singleton. */
 export class AppCatalogsImpl extends EntityImpl implements AppCatalogs, Parsable {
     /** The teamsApps property */
-    teamsApps?: TeamsApp[] | undefined;
+    public teamsApps?: TeamsApp[] | undefined;
     /**
      * Instantiates a new appCatalogs and sets the default values.
      * @param appCatalogsParameterValue 
@@ -32,8 +32,7 @@ export class AppCatalogsImpl extends EntityImpl implements AppCatalogs, Parsable
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.teamsApps){
-        const teamsAppsArrValue: TeamsAppImpl[] = []; this.teamsApps?.forEach(element => {teamsAppsArrValue.push(new TeamsAppImpl(element));});
+        if(this.teamsApps && this.teamsApps.length != 0){        const teamsAppsArrValue: TeamsAppImpl[] = []; this.teamsApps?.forEach(element => {teamsAppsArrValue.push(new TeamsAppImpl(element));});
         writer.writeCollectionOfObjectValues<TeamsAppImpl>("teamsApps", teamsAppsArrValue);
         }
     };

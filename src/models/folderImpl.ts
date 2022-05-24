@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class FolderImpl implements AdditionalDataHolder, Folder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** Number of children contained immediately within this container. */
-    childCount?: number | undefined;
+    public childCount?: number | undefined;
     /** A collection of properties defining the recommended view for the folder. */
-    view?: FolderView | undefined;
+    public view?: FolderView | undefined;
     /**
      * Instantiates a new folder and sets the default values.
      * @param folderParameterValue 
      */
     public constructor(folderParameterValue?: Folder | undefined) {
-        this.additionalData = {};
-        this.additionalData = folderParameterValue?.additionalData ? {} : folderParameterValue?.additionalData!
+        this.additionalData = folderParameterValue?.additionalData ? folderParameterValue?.additionalData! : {}
         this.childCount = folderParameterValue?.childCount ;
         this.view = folderParameterValue?.view ;
     };
@@ -38,11 +37,9 @@ export class FolderImpl implements AdditionalDataHolder, Folder, Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.childCount){
-        if(this.childCount)
         writer.writeNumberValue("childCount", this.childCount);
         }
         if(this.view){
-        if(this.view)
         writer.writeObjectValue<FolderViewImpl>("view", new FolderViewImpl(this.view));
         }
         writer.writeAdditionalData(this.additionalData);

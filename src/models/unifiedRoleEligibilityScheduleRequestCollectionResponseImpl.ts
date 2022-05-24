@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class UnifiedRoleEligibilityScheduleRequestCollectionResponseImpl implements AdditionalDataHolder, Parsable, UnifiedRoleEligibilityScheduleRequestCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: UnifiedRoleEligibilityScheduleRequest[] | undefined;
+    public value?: UnifiedRoleEligibilityScheduleRequest[] | undefined;
     /**
      * Instantiates a new UnifiedRoleEligibilityScheduleRequestCollectionResponse and sets the default values.
      * @param unifiedRoleEligibilityScheduleRequestCollectionResponseParameterValue 
      */
     public constructor(unifiedRoleEligibilityScheduleRequestCollectionResponseParameterValue?: UnifiedRoleEligibilityScheduleRequestCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = unifiedRoleEligibilityScheduleRequestCollectionResponseParameterValue?.additionalData ? {} : unifiedRoleEligibilityScheduleRequestCollectionResponseParameterValue?.additionalData!
+        this.additionalData = unifiedRoleEligibilityScheduleRequestCollectionResponseParameterValue?.additionalData ? unifiedRoleEligibilityScheduleRequestCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = unifiedRoleEligibilityScheduleRequestCollectionResponseParameterValue?.nextLink ;
         this.value = unifiedRoleEligibilityScheduleRequestCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class UnifiedRoleEligibilityScheduleRequestCollectionResponseImpl impleme
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: UnifiedRoleEligibilityScheduleRequestImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new UnifiedRoleEligibilityScheduleRequestImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: UnifiedRoleEligibilityScheduleRequestImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new UnifiedRoleEligibilityScheduleRequestImpl(element));});
         writer.writeCollectionOfObjectValues<UnifiedRoleEligibilityScheduleRequestImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

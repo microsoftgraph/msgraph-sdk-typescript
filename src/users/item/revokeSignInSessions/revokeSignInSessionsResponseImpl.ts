@@ -4,16 +4,15 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Provides operations to call the revokeSignInSessions method. */
 export class RevokeSignInSessionsResponseImpl implements AdditionalDataHolder, Parsable, RevokeSignInSessionsResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The value property */
-    value?: boolean | undefined;
+    public value?: boolean | undefined;
     /**
      * Instantiates a new revokeSignInSessionsResponse and sets the default values.
      * @param revokeSignInSessionsResponseParameterValue 
      */
     public constructor(revokeSignInSessionsResponseParameterValue?: RevokeSignInSessionsResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = revokeSignInSessionsResponseParameterValue?.additionalData ? {} : revokeSignInSessionsResponseParameterValue?.additionalData!
+        this.additionalData = revokeSignInSessionsResponseParameterValue?.additionalData ? revokeSignInSessionsResponseParameterValue?.additionalData! : {}
         this.value = revokeSignInSessionsResponseParameterValue?.value ;
     };
     /**
@@ -32,7 +31,6 @@ export class RevokeSignInSessionsResponseImpl implements AdditionalDataHolder, P
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.value){
-        if(this.value)
         writer.writeBooleanValue("value", this.value);
         }
         writer.writeAdditionalData(this.additionalData);

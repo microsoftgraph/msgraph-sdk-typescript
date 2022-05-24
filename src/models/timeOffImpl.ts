@@ -4,13 +4,14 @@ import {TimeOff} from './timeOff';
 import {TimeOffItem} from './timeOffItem';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to group. */
 export class TimeOffImpl extends ChangeTrackedEntityImpl implements Parsable, TimeOff {
     /** The draft version of this timeOff that is viewable by managers. Required. */
-    draftTimeOff?: TimeOffItem | undefined;
+    public draftTimeOff?: TimeOffItem | undefined;
     /** The shared version of this timeOff that is viewable by both employees and managers. Required. */
-    sharedTimeOff?: TimeOffItem | undefined;
+    public sharedTimeOff?: TimeOffItem | undefined;
     /** ID of the user assigned to the timeOff. Required. */
-    userId?: string | undefined;
+    public userId?: string | undefined;
     /**
      * Instantiates a new timeOff and sets the default values.
      * @param timeOffParameterValue 
@@ -40,15 +41,12 @@ export class TimeOffImpl extends ChangeTrackedEntityImpl implements Parsable, Ti
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.draftTimeOff){
-        if(this.draftTimeOff)
         writer.writeObjectValue<TimeOffItemImpl>("draftTimeOff", new TimeOffItemImpl(this.draftTimeOff));
         }
         if(this.sharedTimeOff){
-        if(this.sharedTimeOff)
         writer.writeObjectValue<TimeOffItemImpl>("sharedTimeOff", new TimeOffItemImpl(this.sharedTimeOff));
         }
         if(this.userId){
-        if(this.userId)
         writer.writeStringValue("userId", this.userId);
         }
     };

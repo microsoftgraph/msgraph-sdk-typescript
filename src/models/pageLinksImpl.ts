@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class PageLinksImpl implements AdditionalDataHolder, PageLinks, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** Opens the page in the OneNote native client if it's installed. */
-    oneNoteClientUrl?: ExternalLink | undefined;
+    public oneNoteClientUrl?: ExternalLink | undefined;
     /** Opens the page in OneNote on the web. */
-    oneNoteWebUrl?: ExternalLink | undefined;
+    public oneNoteWebUrl?: ExternalLink | undefined;
     /**
      * Instantiates a new pageLinks and sets the default values.
      * @param pageLinksParameterValue 
      */
     public constructor(pageLinksParameterValue?: PageLinks | undefined) {
-        this.additionalData = {};
-        this.additionalData = pageLinksParameterValue?.additionalData ? {} : pageLinksParameterValue?.additionalData!
+        this.additionalData = pageLinksParameterValue?.additionalData ? pageLinksParameterValue?.additionalData! : {}
         this.oneNoteClientUrl = pageLinksParameterValue?.oneNoteClientUrl ;
         this.oneNoteWebUrl = pageLinksParameterValue?.oneNoteWebUrl ;
     };
@@ -38,11 +37,9 @@ export class PageLinksImpl implements AdditionalDataHolder, PageLinks, Parsable 
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.oneNoteClientUrl){
-        if(this.oneNoteClientUrl)
         writer.writeObjectValue<ExternalLinkImpl>("oneNoteClientUrl", new ExternalLinkImpl(this.oneNoteClientUrl));
         }
         if(this.oneNoteWebUrl){
-        if(this.oneNoteWebUrl)
         writer.writeObjectValue<ExternalLinkImpl>("oneNoteWebUrl", new ExternalLinkImpl(this.oneNoteWebUrl));
         }
         writer.writeAdditionalData(this.additionalData);

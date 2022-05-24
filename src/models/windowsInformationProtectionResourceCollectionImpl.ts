@@ -4,18 +4,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Windows Information Protection Resource Collection */
 export class WindowsInformationProtectionResourceCollectionImpl implements AdditionalDataHolder, Parsable, WindowsInformationProtectionResourceCollection {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** Display name */
-    displayName?: string | undefined;
+    public displayName?: string | undefined;
     /** Collection of resources */
-    resources?: string[] | undefined;
+    public resources?: string[] | undefined;
     /**
      * Instantiates a new windowsInformationProtectionResourceCollection and sets the default values.
      * @param windowsInformationProtectionResourceCollectionParameterValue 
      */
     public constructor(windowsInformationProtectionResourceCollectionParameterValue?: WindowsInformationProtectionResourceCollection | undefined) {
-        this.additionalData = {};
-        this.additionalData = windowsInformationProtectionResourceCollectionParameterValue?.additionalData ? {} : windowsInformationProtectionResourceCollectionParameterValue?.additionalData!
+        this.additionalData = windowsInformationProtectionResourceCollectionParameterValue?.additionalData ? windowsInformationProtectionResourceCollectionParameterValue?.additionalData! : {}
         this.displayName = windowsInformationProtectionResourceCollectionParameterValue?.displayName ;
         this.resources = windowsInformationProtectionResourceCollectionParameterValue?.resources ;
     };
@@ -36,11 +35,9 @@ export class WindowsInformationProtectionResourceCollectionImpl implements Addit
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.displayName){
-        if(this.displayName)
         writer.writeStringValue("displayName", this.displayName);
         }
         if(this.resources){
-        if(this.resources)
         writer.writeCollectionOfPrimitiveValues<string>("resources", this.resources);
         }
         writer.writeAdditionalData(this.additionalData);

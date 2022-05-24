@@ -1,6 +1,6 @@
-import {ExportPersonalDataRequestBody} from './exportPersonalDataRequestBody';
+import {ExportPersonalDataPostRequestBody} from './exportPersonalDataPostRequestBody';
 import {ExportPersonalDataRequestBuilderPostRequestConfiguration} from './exportPersonalDataRequestBuilderPostRequestConfiguration';
-import {ExportPersonalDataRequestBodyImpl} from './index';
+import {ExportPersonalDataPostRequestBodyImpl} from './index';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the exportPersonalData method. */
@@ -30,7 +30,7 @@ export class ExportPersonalDataRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public createPostRequestInformation(body: ExportPersonalDataRequestBody | undefined, requestConfiguration?: ExportPersonalDataRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public createPostRequestInformation(body: ExportPersonalDataPostRequestBody | undefined, requestConfiguration?: ExportPersonalDataRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -40,8 +40,8 @@ export class ExportPersonalDataRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        const bodyParsable = new ExportPersonalDataRequestBodyImpl(body)
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", bodyParsable);
+        const parsableBody = new ExportPersonalDataPostRequestBodyImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -50,7 +50,7 @@ export class ExportPersonalDataRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public post(body: ExportPersonalDataRequestBody | undefined, requestConfiguration?: ExportPersonalDataRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public post(body: ExportPersonalDataPostRequestBody | undefined, requestConfiguration?: ExportPersonalDataRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration

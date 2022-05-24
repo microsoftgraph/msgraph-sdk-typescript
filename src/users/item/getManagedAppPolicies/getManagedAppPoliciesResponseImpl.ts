@@ -7,16 +7,15 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Provides operations to call the getManagedAppPolicies method. */
 export class GetManagedAppPoliciesResponseImpl implements AdditionalDataHolder, GetManagedAppPoliciesResponse, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The value property */
-    value?: ManagedAppPolicy[] | undefined;
+    public value?: ManagedAppPolicy[] | undefined;
     /**
      * Instantiates a new getManagedAppPoliciesResponse and sets the default values.
      * @param getManagedAppPoliciesResponseParameterValue 
      */
     public constructor(getManagedAppPoliciesResponseParameterValue?: GetManagedAppPoliciesResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = getManagedAppPoliciesResponseParameterValue?.additionalData ? {} : getManagedAppPoliciesResponseParameterValue?.additionalData!
+        this.additionalData = getManagedAppPoliciesResponseParameterValue?.additionalData ? getManagedAppPoliciesResponseParameterValue?.additionalData! : {}
         this.value = getManagedAppPoliciesResponseParameterValue?.value ;
     };
     /**
@@ -34,8 +33,7 @@ export class GetManagedAppPoliciesResponseImpl implements AdditionalDataHolder, 
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        if(this.value){
-        const valueArrValue: ManagedAppPolicyImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ManagedAppPolicyImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: ManagedAppPolicyImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ManagedAppPolicyImpl(element));});
         writer.writeCollectionOfObjectValues<ManagedAppPolicyImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

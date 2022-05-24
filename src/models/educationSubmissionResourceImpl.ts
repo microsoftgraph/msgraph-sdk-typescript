@@ -4,11 +4,12 @@ import {EducationSubmissionResource} from './educationSubmissionResource';
 import {EducationResourceImpl, EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the educationRoot singleton. */
 export class EducationSubmissionResourceImpl extends EntityImpl implements EducationSubmissionResource, Parsable {
     /** Pointer to the assignment from which this resource was copied. If this is null, the student uploaded the resource. */
-    assignmentResourceUrl?: string | undefined;
+    public assignmentResourceUrl?: string | undefined;
     /** Resource object. */
-    resource?: EducationResource | undefined;
+    public resource?: EducationResource | undefined;
     /**
      * Instantiates a new educationSubmissionResource and sets the default values.
      * @param educationSubmissionResourceParameterValue 
@@ -36,11 +37,9 @@ export class EducationSubmissionResourceImpl extends EntityImpl implements Educa
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.assignmentResourceUrl){
-        if(this.assignmentResourceUrl)
         writer.writeStringValue("assignmentResourceUrl", this.assignmentResourceUrl);
         }
         if(this.resource){
-        if(this.resource)
         writer.writeObjectValue<EducationResourceImpl>("resource", new EducationResourceImpl(this.resource));
         }
     };

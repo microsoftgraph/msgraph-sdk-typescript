@@ -10,15 +10,16 @@ import {UsageDetails} from './usageDetails';
 import {UsedInsight} from './usedInsight';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to user. */
 export class UsedInsightImpl extends EntityImpl implements Parsable, UsedInsight {
     /** Information about when the item was last viewed or modified by the user. Read only. */
-    lastUsed?: UsageDetails | undefined;
+    public lastUsed?: UsageDetails | undefined;
     /** Used for navigating to the item that was used. For file attachments, the type is fileAttachment. For linked attachments, the type is driveItem. */
-    resource?: Entity | undefined;
+    public resource?: Entity | undefined;
     /** Reference properties of the used document, such as the url and type of the document. Read-only */
-    resourceReference?: ResourceReference | undefined;
+    public resourceReference?: ResourceReference | undefined;
     /** Properties that you can use to visualize the document in your experience. Read-only */
-    resourceVisualization?: ResourceVisualization | undefined;
+    public resourceVisualization?: ResourceVisualization | undefined;
     /**
      * Instantiates a new usedInsight and sets the default values.
      * @param usedInsightParameterValue 
@@ -50,19 +51,15 @@ export class UsedInsightImpl extends EntityImpl implements Parsable, UsedInsight
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.lastUsed){
-        if(this.lastUsed)
         writer.writeObjectValue<UsageDetailsImpl>("lastUsed", new UsageDetailsImpl(this.lastUsed));
         }
         if(this.resource){
-        if(this.resource)
         writer.writeObjectValue<EntityImpl>("resource", new EntityImpl(this.resource));
         }
         if(this.resourceReference){
-        if(this.resourceReference)
         writer.writeObjectValue<ResourceReferenceImpl>("resourceReference", new ResourceReferenceImpl(this.resourceReference));
         }
         if(this.resourceVisualization){
-        if(this.resourceVisualization)
         writer.writeObjectValue<ResourceVisualizationImpl>("resourceVisualization", new ResourceVisualizationImpl(this.resourceVisualization));
         }
     };

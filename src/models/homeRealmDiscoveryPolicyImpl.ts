@@ -2,6 +2,7 @@ import {HomeRealmDiscoveryPolicy} from './homeRealmDiscoveryPolicy';
 import {StsPolicyImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the collection of application entities. */
 export class HomeRealmDiscoveryPolicyImpl extends StsPolicyImpl implements HomeRealmDiscoveryPolicy, Parsable {
     /**
      * Instantiates a new homeRealmDiscoveryPolicy and sets the default values.

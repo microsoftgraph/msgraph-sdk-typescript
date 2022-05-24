@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class OnenotePagePreviewImpl implements AdditionalDataHolder, OnenotePagePreview, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The links property */
-    links?: OnenotePagePreviewLinks | undefined;
+    public links?: OnenotePagePreviewLinks | undefined;
     /** The previewText property */
-    previewText?: string | undefined;
+    public previewText?: string | undefined;
     /**
-     * Instantiates a new onenotePagePreview and sets the default values.
+     * Instantiates a new OnenotePagePreview and sets the default values.
      * @param onenotePagePreviewParameterValue 
      */
     public constructor(onenotePagePreviewParameterValue?: OnenotePagePreview | undefined) {
-        this.additionalData = {};
-        this.additionalData = onenotePagePreviewParameterValue?.additionalData ? {} : onenotePagePreviewParameterValue?.additionalData!
+        this.additionalData = onenotePagePreviewParameterValue?.additionalData ? onenotePagePreviewParameterValue?.additionalData! : {}
         this.links = onenotePagePreviewParameterValue?.links ;
         this.previewText = onenotePagePreviewParameterValue?.previewText ;
     };
@@ -38,11 +37,9 @@ export class OnenotePagePreviewImpl implements AdditionalDataHolder, OnenotePage
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.links){
-        if(this.links)
         writer.writeObjectValue<OnenotePagePreviewLinksImpl>("links", new OnenotePagePreviewLinksImpl(this.links));
         }
         if(this.previewText){
-        if(this.previewText)
         writer.writeStringValue("previewText", this.previewText);
         }
         writer.writeAdditionalData(this.additionalData);

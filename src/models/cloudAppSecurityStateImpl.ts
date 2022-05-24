@@ -3,20 +3,19 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class CloudAppSecurityStateImpl implements AdditionalDataHolder, CloudAppSecurityState, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** Destination IP Address of the connection to the cloud application/service. */
-    destinationServiceIp?: string | undefined;
+    public destinationServiceIp?: string | undefined;
     /** Cloud application/service name (for example 'Salesforce', 'DropBox', etc.). */
-    destinationServiceName?: string | undefined;
+    public destinationServiceName?: string | undefined;
     /** Provider-generated/calculated risk score of the Cloud Application/Service. Recommended value range of 0-1, which equates to a percentage. */
-    riskScore?: string | undefined;
+    public riskScore?: string | undefined;
     /**
      * Instantiates a new cloudAppSecurityState and sets the default values.
      * @param cloudAppSecurityStateParameterValue 
      */
     public constructor(cloudAppSecurityStateParameterValue?: CloudAppSecurityState | undefined) {
-        this.additionalData = {};
-        this.additionalData = cloudAppSecurityStateParameterValue?.additionalData ? {} : cloudAppSecurityStateParameterValue?.additionalData!
+        this.additionalData = cloudAppSecurityStateParameterValue?.additionalData ? cloudAppSecurityStateParameterValue?.additionalData! : {}
         this.destinationServiceIp = cloudAppSecurityStateParameterValue?.destinationServiceIp ;
         this.destinationServiceName = cloudAppSecurityStateParameterValue?.destinationServiceName ;
         this.riskScore = cloudAppSecurityStateParameterValue?.riskScore ;
@@ -39,15 +38,12 @@ export class CloudAppSecurityStateImpl implements AdditionalDataHolder, CloudApp
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.destinationServiceIp){
-        if(this.destinationServiceIp)
         writer.writeStringValue("destinationServiceIp", this.destinationServiceIp);
         }
         if(this.destinationServiceName){
-        if(this.destinationServiceName)
         writer.writeStringValue("destinationServiceName", this.destinationServiceName);
         }
         if(this.riskScore){
-        if(this.riskScore)
         writer.writeStringValue("riskScore", this.riskScore);
         }
         writer.writeAdditionalData(this.additionalData);

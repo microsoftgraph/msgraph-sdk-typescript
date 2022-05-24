@@ -5,15 +5,16 @@ import {AuthenticationMethodImpl, DeviceImpl} from './index';
 import {WindowsHelloForBusinessAuthenticationMethod} from './windowsHelloForBusinessAuthenticationMethod';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to user. */
 export class WindowsHelloForBusinessAuthenticationMethodImpl extends AuthenticationMethodImpl implements Parsable, WindowsHelloForBusinessAuthenticationMethod {
     /** The date and time that this Windows Hello for Business key was registered. */
-    createdDateTime?: Date | undefined;
+    public createdDateTime?: Date | undefined;
     /** The registered device on which this Windows Hello for Business key resides. Supports $expand. When you get a user's Windows Hello for Business registration information, this property is returned only on a single GET and when you specify ?$expand. For example, GET /users/admin@contoso.com/authentication/windowsHelloForBusinessMethods/_jpuR-TGZtk6aQCLF3BQjA2?$expand=device. */
-    device?: Device | undefined;
+    public device?: Device | undefined;
     /** The name of the device on which Windows Hello for Business is registered */
-    displayName?: string | undefined;
+    public displayName?: string | undefined;
     /** Key strength of this Windows Hello for Business key. Possible values are: normal, weak, unknown. */
-    keyStrength?: AuthenticationMethodKeyStrength | undefined;
+    public keyStrength?: AuthenticationMethodKeyStrength | undefined;
     /**
      * Instantiates a new windowsHelloForBusinessAuthenticationMethod and sets the default values.
      * @param windowsHelloForBusinessAuthenticationMethodParameterValue 
@@ -45,19 +46,15 @@ export class WindowsHelloForBusinessAuthenticationMethodImpl extends Authenticat
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.createdDateTime){
-        if(this.createdDateTime)
         writer.writeDateValue("createdDateTime", this.createdDateTime);
         }
         if(this.device){
-        if(this.device)
         writer.writeObjectValue<DeviceImpl>("device", new DeviceImpl(this.device));
         }
         if(this.displayName){
-        if(this.displayName)
         writer.writeStringValue("displayName", this.displayName);
         }
         if(this.keyStrength){
-        if(this.keyStrength)
         writer.writeEnumValue<AuthenticationMethodKeyStrength>("keyStrength", this.keyStrength);
         }
     };

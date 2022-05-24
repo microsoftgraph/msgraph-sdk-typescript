@@ -2,9 +2,10 @@ import {IdentityProviderBase} from './identityProviderBase';
 import {EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the collection of domain entities. */
 export class IdentityProviderBaseImpl extends EntityImpl implements IdentityProviderBase, Parsable {
     /** The display name of the identity provider. */
-    displayName?: string | undefined;
+    public displayName?: string | undefined;
     /**
      * Instantiates a new identityProviderBase and sets the default values.
      * @param identityProviderBaseParameterValue 
@@ -30,7 +31,6 @@ export class IdentityProviderBaseImpl extends EntityImpl implements IdentityProv
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.displayName){
-        if(this.displayName)
         writer.writeStringValue("displayName", this.displayName);
         }
     };

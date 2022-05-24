@@ -2,13 +2,14 @@ import {EntityImpl} from './index';
 import {NamedLocation} from './namedLocation';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the identityContainer singleton. */
 export class NamedLocationImpl extends EntityImpl implements NamedLocation, Parsable {
     /** The Timestamp type represents creation date and time of the location using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. */
-    createdDateTime?: Date | undefined;
+    public createdDateTime?: Date | undefined;
     /** Human-readable name of the location. */
-    displayName?: string | undefined;
+    public displayName?: string | undefined;
     /** The Timestamp type represents last modified date and time of the location using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. */
-    modifiedDateTime?: Date | undefined;
+    public modifiedDateTime?: Date | undefined;
     /**
      * Instantiates a new namedLocation and sets the default values.
      * @param namedLocationParameterValue 
@@ -38,15 +39,12 @@ export class NamedLocationImpl extends EntityImpl implements NamedLocation, Pars
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.createdDateTime){
-        if(this.createdDateTime)
         writer.writeDateValue("createdDateTime", this.createdDateTime);
         }
         if(this.displayName){
-        if(this.displayName)
         writer.writeStringValue("displayName", this.displayName);
         }
         if(this.modifiedDateTime){
-        if(this.modifiedDateTime)
         writer.writeDateValue("modifiedDateTime", this.modifiedDateTime);
         }
     };

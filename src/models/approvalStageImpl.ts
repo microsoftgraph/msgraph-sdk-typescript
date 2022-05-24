@@ -4,21 +4,22 @@ import {Identity} from './identity';
 import {EntityImpl, IdentityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the identityGovernance singleton. */
 export class ApprovalStageImpl extends EntityImpl implements ApprovalStage, Parsable {
     /** Indicates whether the stage is assigned to the calling user to review. Read-only. */
-    assignedToMe?: boolean | undefined;
+    public assignedToMe?: boolean | undefined;
     /** The label provided by the policy creator to identify an approval stage. Read-only. */
-    displayName?: string | undefined;
+    public displayName?: string | undefined;
     /** The justification associated with the approval stage decision. */
-    justification?: string | undefined;
+    public justification?: string | undefined;
     /** The identifier of the reviewer. Read-only. */
-    reviewedBy?: Identity | undefined;
+    public reviewedBy?: Identity | undefined;
     /** The date and time when a decision was recorded. The date and time information uses ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. */
-    reviewedDateTime?: Date | undefined;
+    public reviewedDateTime?: Date | undefined;
     /** The result of this approval record. Possible values include: NotReviewed, Approved, Denied. */
-    reviewResult?: string | undefined;
+    public reviewResult?: string | undefined;
     /** The stage status. Possible values: InProgress, Initializing, Completed, Expired. Read-only. */
-    status?: string | undefined;
+    public status?: string | undefined;
     /**
      * Instantiates a new approvalStage and sets the default values.
      * @param approvalStageParameterValue 
@@ -56,31 +57,24 @@ export class ApprovalStageImpl extends EntityImpl implements ApprovalStage, Pars
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.assignedToMe){
-        if(this.assignedToMe)
         writer.writeBooleanValue("assignedToMe", this.assignedToMe);
         }
         if(this.displayName){
-        if(this.displayName)
         writer.writeStringValue("displayName", this.displayName);
         }
         if(this.justification){
-        if(this.justification)
         writer.writeStringValue("justification", this.justification);
         }
         if(this.reviewedBy){
-        if(this.reviewedBy)
         writer.writeObjectValue<IdentityImpl>("reviewedBy", new IdentityImpl(this.reviewedBy));
         }
         if(this.reviewedDateTime){
-        if(this.reviewedDateTime)
         writer.writeDateValue("reviewedDateTime", this.reviewedDateTime);
         }
         if(this.reviewResult){
-        if(this.reviewResult)
         writer.writeStringValue("reviewResult", this.reviewResult);
         }
         if(this.status){
-        if(this.status)
         writer.writeStringValue("status", this.status);
         }
     };

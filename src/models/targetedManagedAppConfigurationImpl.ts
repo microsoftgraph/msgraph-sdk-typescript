@@ -8,17 +8,18 @@ import {TargetedManagedAppConfiguration} from './targetedManagedAppConfiguration
 import {TargetedManagedAppPolicyAssignment} from './targetedManagedAppPolicyAssignment';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Configuration used to deliver a set of custom settings as-is to all users in the targeted security group */
 export class TargetedManagedAppConfigurationImpl extends ManagedAppConfigurationImpl implements Parsable, TargetedManagedAppConfiguration {
     /** List of apps to which the policy is deployed. */
-    apps?: ManagedMobileApp[] | undefined;
+    public apps?: ManagedMobileApp[] | undefined;
     /** Navigation property to list of inclusion and exclusion groups to which the policy is deployed. */
-    assignments?: TargetedManagedAppPolicyAssignment[] | undefined;
+    public assignments?: TargetedManagedAppPolicyAssignment[] | undefined;
     /** Count of apps to which the current policy is deployed. */
-    deployedAppCount?: number | undefined;
+    public deployedAppCount?: number | undefined;
     /** Navigation property to deployment summary of the configuration. */
-    deploymentSummary?: ManagedAppPolicyDeploymentSummary | undefined;
+    public deploymentSummary?: ManagedAppPolicyDeploymentSummary | undefined;
     /** Indicates if the policy is deployed to any inclusion groups or not. */
-    isAssigned?: boolean | undefined;
+    public isAssigned?: boolean | undefined;
     /**
      * Instantiates a new targetedManagedAppConfiguration and sets the default values.
      * @param targetedManagedAppConfigurationParameterValue 
@@ -51,24 +52,19 @@ export class TargetedManagedAppConfigurationImpl extends ManagedAppConfiguration
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.apps){
-        const appsArrValue: ManagedMobileAppImpl[] = []; this.apps?.forEach(element => {appsArrValue.push(new ManagedMobileAppImpl(element));});
+        if(this.apps && this.apps.length != 0){        const appsArrValue: ManagedMobileAppImpl[] = []; this.apps?.forEach(element => {appsArrValue.push(new ManagedMobileAppImpl(element));});
         writer.writeCollectionOfObjectValues<ManagedMobileAppImpl>("apps", appsArrValue);
         }
-        if(this.assignments){
-        const assignmentsArrValue: TargetedManagedAppPolicyAssignmentImpl[] = []; this.assignments?.forEach(element => {assignmentsArrValue.push(new TargetedManagedAppPolicyAssignmentImpl(element));});
+        if(this.assignments && this.assignments.length != 0){        const assignmentsArrValue: TargetedManagedAppPolicyAssignmentImpl[] = []; this.assignments?.forEach(element => {assignmentsArrValue.push(new TargetedManagedAppPolicyAssignmentImpl(element));});
         writer.writeCollectionOfObjectValues<TargetedManagedAppPolicyAssignmentImpl>("assignments", assignmentsArrValue);
         }
         if(this.deployedAppCount){
-        if(this.deployedAppCount)
         writer.writeNumberValue("deployedAppCount", this.deployedAppCount);
         }
         if(this.deploymentSummary){
-        if(this.deploymentSummary)
         writer.writeObjectValue<ManagedAppPolicyDeploymentSummaryImpl>("deploymentSummary", new ManagedAppPolicyDeploymentSummaryImpl(this.deploymentSummary));
         }
         if(this.isAssigned){
-        if(this.isAssigned)
         writer.writeBooleanValue("isAssigned", this.isAssigned);
         }
     };

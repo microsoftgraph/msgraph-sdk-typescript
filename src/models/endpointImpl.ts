@@ -2,17 +2,18 @@ import {Endpoint} from './endpoint';
 import {DirectoryObjectImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to call the instantiate method. */
 export class EndpointImpl extends DirectoryObjectImpl implements Endpoint, Parsable {
     /** Describes the capability that is associated with this resource. (e.g. Messages, Conversations, etc.) Not nullable. Read-only. */
-    capability?: string | undefined;
+    public capability?: string | undefined;
     /** Application id of the publishing underlying service. Not nullable. Read-only. */
-    providerId?: string | undefined;
+    public providerId?: string | undefined;
     /** Name of the publishing underlying service. Read-only. */
-    providerName?: string | undefined;
+    public providerName?: string | undefined;
     /** For Microsoft 365 groups, this is set to a well-known name for the resource (e.g. Yammer.FeedURL etc.). Not nullable. Read-only. */
-    providerResourceId?: string | undefined;
+    public providerResourceId?: string | undefined;
     /** URL of the published resource. Not nullable. Read-only. */
-    uri?: string | undefined;
+    public uri?: string | undefined;
     /**
      * Instantiates a new endpoint and sets the default values.
      * @param endpointParameterValue 
@@ -46,23 +47,18 @@ export class EndpointImpl extends DirectoryObjectImpl implements Endpoint, Parsa
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.capability){
-        if(this.capability)
         writer.writeStringValue("capability", this.capability);
         }
         if(this.providerId){
-        if(this.providerId)
         writer.writeStringValue("providerId", this.providerId);
         }
         if(this.providerName){
-        if(this.providerName)
         writer.writeStringValue("providerName", this.providerName);
         }
         if(this.providerResourceId){
-        if(this.providerResourceId)
         writer.writeStringValue("providerResourceId", this.providerResourceId);
         }
         if(this.uri){
-        if(this.uri)
         writer.writeStringValue("uri", this.uri);
         }
     };

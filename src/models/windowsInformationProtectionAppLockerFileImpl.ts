@@ -2,15 +2,16 @@ import {EntityImpl} from './index';
 import {WindowsInformationProtectionAppLockerFile} from './windowsInformationProtectionAppLockerFile';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Windows Information Protection AppLocker File */
 export class WindowsInformationProtectionAppLockerFileImpl extends EntityImpl implements Parsable, WindowsInformationProtectionAppLockerFile {
     /** The friendly name */
-    displayName?: string | undefined;
+    public displayName?: string | undefined;
     /** File as a byte array */
-    file?: string | undefined;
+    public file?: string | undefined;
     /** SHA256 hash of the file */
-    fileHash?: string | undefined;
+    public fileHash?: string | undefined;
     /** Version of the entity. */
-    version?: string | undefined;
+    public version?: string | undefined;
     /**
      * Instantiates a new windowsInformationProtectionAppLockerFile and sets the default values.
      * @param windowsInformationProtectionAppLockerFileParameterValue 
@@ -42,19 +43,15 @@ export class WindowsInformationProtectionAppLockerFileImpl extends EntityImpl im
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.displayName){
-        if(this.displayName)
         writer.writeStringValue("displayName", this.displayName);
         }
         if(this.file){
-        if(this.file)
         writer.writeStringValue("file", this.file);
         }
         if(this.fileHash){
-        if(this.fileHash)
         writer.writeStringValue("fileHash", this.fileHash);
         }
         if(this.version){
-        if(this.version)
         writer.writeStringValue("version", this.version);
         }
     };

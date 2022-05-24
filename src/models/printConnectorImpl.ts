@@ -4,19 +4,20 @@ import {PrintConnector} from './printConnector';
 import {PrinterLocation} from './printerLocation';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the print singleton. */
 export class PrintConnectorImpl extends EntityImpl implements Parsable, PrintConnector {
     /** The connector's version. */
-    appVersion?: string | undefined;
+    public appVersion?: string | undefined;
     /** The name of the connector. */
-    displayName?: string | undefined;
+    public displayName?: string | undefined;
     /** The connector machine's hostname. */
-    fullyQualifiedDomainName?: string | undefined;
+    public fullyQualifiedDomainName?: string | undefined;
     /** The physical and/or organizational location of the connector. */
-    location?: PrinterLocation | undefined;
+    public location?: PrinterLocation | undefined;
     /** The connector machine's operating system version. */
-    operatingSystem?: string | undefined;
+    public operatingSystem?: string | undefined;
     /** The DateTimeOffset when the connector was registered. */
-    registeredDateTime?: Date | undefined;
+    public registeredDateTime?: Date | undefined;
     /**
      * Instantiates a new printConnector and sets the default values.
      * @param printConnectorParameterValue 
@@ -52,27 +53,21 @@ export class PrintConnectorImpl extends EntityImpl implements Parsable, PrintCon
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.appVersion){
-        if(this.appVersion)
         writer.writeStringValue("appVersion", this.appVersion);
         }
         if(this.displayName){
-        if(this.displayName)
         writer.writeStringValue("displayName", this.displayName);
         }
         if(this.fullyQualifiedDomainName){
-        if(this.fullyQualifiedDomainName)
         writer.writeStringValue("fullyQualifiedDomainName", this.fullyQualifiedDomainName);
         }
         if(this.location){
-        if(this.location)
         writer.writeObjectValue<PrinterLocationImpl>("location", new PrinterLocationImpl(this.location));
         }
         if(this.operatingSystem){
-        if(this.operatingSystem)
         writer.writeStringValue("operatingSystem", this.operatingSystem);
         }
         if(this.registeredDateTime){
-        if(this.registeredDateTime)
         writer.writeDateValue("registeredDateTime", this.registeredDateTime);
         }
     };

@@ -4,9 +4,10 @@ import {Todo} from './todo';
 import {TodoTaskList} from './todoTaskList';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to user. */
 export class TodoImpl extends EntityImpl implements Parsable, Todo {
     /** The task lists in the users mailbox. */
-    lists?: TodoTaskList[] | undefined;
+    public lists?: TodoTaskList[] | undefined;
     /**
      * Instantiates a new todo and sets the default values.
      * @param todoParameterValue 
@@ -31,8 +32,7 @@ export class TodoImpl extends EntityImpl implements Parsable, Todo {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.lists){
-        const listsArrValue: TodoTaskListImpl[] = []; this.lists?.forEach(element => {listsArrValue.push(new TodoTaskListImpl(element));});
+        if(this.lists && this.lists.length != 0){        const listsArrValue: TodoTaskListImpl[] = []; this.lists?.forEach(element => {listsArrValue.push(new TodoTaskListImpl(element));});
         writer.writeCollectionOfObjectValues<TodoTaskListImpl>("lists", listsArrValue);
         }
     };

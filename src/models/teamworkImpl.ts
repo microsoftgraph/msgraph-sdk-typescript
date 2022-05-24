@@ -7,7 +7,7 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Provides operations to manage the teamwork singleton. */
 export class TeamworkImpl extends EntityImpl implements Parsable, Teamwork {
     /** A workforce integration with shifts. */
-    workforceIntegrations?: WorkforceIntegration[] | undefined;
+    public workforceIntegrations?: WorkforceIntegration[] | undefined;
     /**
      * Instantiates a new teamwork and sets the default values.
      * @param teamworkParameterValue 
@@ -32,8 +32,7 @@ export class TeamworkImpl extends EntityImpl implements Parsable, Teamwork {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.workforceIntegrations){
-        const workforceIntegrationsArrValue: WorkforceIntegrationImpl[] = []; this.workforceIntegrations?.forEach(element => {workforceIntegrationsArrValue.push(new WorkforceIntegrationImpl(element));});
+        if(this.workforceIntegrations && this.workforceIntegrations.length != 0){        const workforceIntegrationsArrValue: WorkforceIntegrationImpl[] = []; this.workforceIntegrations?.forEach(element => {workforceIntegrationsArrValue.push(new WorkforceIntegrationImpl(element));});
         writer.writeCollectionOfObjectValues<WorkforceIntegrationImpl>("workforceIntegrations", workforceIntegrationsArrValue);
         }
     };

@@ -1,7 +1,4 @@
-import {createIncidentReportResponseFromDiscriminatorValue} from './createIncidentReportResponseFromDiscriminatorValue';
 import {IncidentReportRequestBuilderGetRequestConfiguration} from './incidentReportRequestBuilderGetRequestConfiguration';
-import {IncidentReportResponse} from './incidentReportResponse';
-import {IncidentReportResponseImpl} from './index';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the incidentReport method. */
@@ -45,12 +42,12 @@ export class IncidentReportRequestBuilder {
      * Invoke function incidentReport
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of IncidentReportResponse
+     * @returns a Promise of ArrayBuffer
      */
-    public get(requestConfiguration?: IncidentReportRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<IncidentReportResponse | undefined> {
+    public get(requestConfiguration?: IncidentReportRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ArrayBuffer | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
-        return this.requestAdapter?.sendAsync<IncidentReportResponseImpl>(requestInfo, createIncidentReportResponseFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendPrimitiveAsync<ArrayBuffer>(requestInfo, "ArrayBuffer", responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }

@@ -3,5 +3,5 @@ import {OrganizationalBrandingProperties} from './organizationalBrandingProperti
 
 export interface OrganizationalBranding extends OrganizationalBrandingProperties{
     /** Add different branding based on a locale. */
-    localizations?: OrganizationalBrandingLocalization[] | undefined;
+    localizations?:OrganizationalBrandingLocalization[] | undefined;
 }

@@ -8,22 +8,21 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class SearchHitsContainerImpl implements AdditionalDataHolder, Parsable, SearchHitsContainer {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** Contains the collection of aggregations computed based on the provided aggregationOption specified in the request. */
-    aggregations?: SearchAggregation[] | undefined;
+    public aggregations?: SearchAggregation[] | undefined;
     /** A collection of the search results. */
-    hits?: SearchHit[] | undefined;
+    public hits?: SearchHit[] | undefined;
     /** Provides information if more results are available. Based on this information, you can adjust the from and size properties of the searchRequest accordingly. */
-    moreResultsAvailable?: boolean | undefined;
+    public moreResultsAvailable?: boolean | undefined;
     /** The total number of results. Note this is not the number of results on the page, but the total number of results satisfying the query. */
-    total?: number | undefined;
+    public total?: number | undefined;
     /**
      * Instantiates a new searchHitsContainer and sets the default values.
      * @param searchHitsContainerParameterValue 
      */
     public constructor(searchHitsContainerParameterValue?: SearchHitsContainer | undefined) {
-        this.additionalData = {};
-        this.additionalData = searchHitsContainerParameterValue?.additionalData ? {} : searchHitsContainerParameterValue?.additionalData!
+        this.additionalData = searchHitsContainerParameterValue?.additionalData ? searchHitsContainerParameterValue?.additionalData! : {}
         this.aggregations = searchHitsContainerParameterValue?.aggregations ;
         this.hits = searchHitsContainerParameterValue?.hits ;
         this.moreResultsAvailable = searchHitsContainerParameterValue?.moreResultsAvailable ;
@@ -47,20 +46,16 @@ export class SearchHitsContainerImpl implements AdditionalDataHolder, Parsable, 
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        if(this.aggregations){
-        const aggregationsArrValue: SearchAggregationImpl[] = []; this.aggregations?.forEach(element => {aggregationsArrValue.push(new SearchAggregationImpl(element));});
+        if(this.aggregations && this.aggregations.length != 0){        const aggregationsArrValue: SearchAggregationImpl[] = []; this.aggregations?.forEach(element => {aggregationsArrValue.push(new SearchAggregationImpl(element));});
         writer.writeCollectionOfObjectValues<SearchAggregationImpl>("aggregations", aggregationsArrValue);
         }
-        if(this.hits){
-        const hitsArrValue: SearchHitImpl[] = []; this.hits?.forEach(element => {hitsArrValue.push(new SearchHitImpl(element));});
+        if(this.hits && this.hits.length != 0){        const hitsArrValue: SearchHitImpl[] = []; this.hits?.forEach(element => {hitsArrValue.push(new SearchHitImpl(element));});
         writer.writeCollectionOfObjectValues<SearchHitImpl>("hits", hitsArrValue);
         }
         if(this.moreResultsAvailable){
-        if(this.moreResultsAvailable)
         writer.writeBooleanValue("moreResultsAvailable", this.moreResultsAvailable);
         }
         if(this.total){
-        if(this.total)
         writer.writeNumberValue("total", this.total);
         }
         writer.writeAdditionalData(this.additionalData);

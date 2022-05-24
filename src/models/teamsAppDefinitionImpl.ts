@@ -7,25 +7,26 @@ import {TeamsAppPublishingState} from './teamsAppPublishingState';
 import {TeamworkBot} from './teamworkBot';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the appCatalogs singleton. */
 export class TeamsAppDefinitionImpl extends EntityImpl implements Parsable, TeamsAppDefinition {
     /** The details of the bot specified in the Teams app manifest. */
-    bot?: TeamworkBot | undefined;
+    public bot?: TeamworkBot | undefined;
     /** The createdBy property */
-    createdBy?: IdentitySet | undefined;
+    public createdBy?: IdentitySet | undefined;
     /** Verbose description of the application. */
-    description?: string | undefined;
+    public description?: string | undefined;
     /** The name of the app provided by the app developer. */
-    displayName?: string | undefined;
+    public displayName?: string | undefined;
     /** The lastModifiedDateTime property */
-    lastModifiedDateTime?: Date | undefined;
+    public lastModifiedDateTime?: Date | undefined;
     /** The published status of a specific version of a Teams app. Possible values are:submitted — The specific version of the Teams app has been submitted and is under review. published  — The request to publish the specific version of the Teams app has been approved by the admin and the app is published.  rejected — The request to publish the specific version of the Teams app was rejected by the admin. */
-    publishingState?: TeamsAppPublishingState | undefined;
+    public publishingState?: TeamsAppPublishingState | undefined;
     /** Short description of the application. */
-    shortDescription?: string | undefined;
+    public shortDescription?: string | undefined;
     /** The ID from the Teams app manifest. */
-    teamsAppId?: string | undefined;
+    public teamsAppId?: string | undefined;
     /** The version number of the application. */
-    version?: string | undefined;
+    public version?: string | undefined;
     /**
      * Instantiates a new teamsAppDefinition and sets the default values.
      * @param teamsAppDefinitionParameterValue 
@@ -67,39 +68,30 @@ export class TeamsAppDefinitionImpl extends EntityImpl implements Parsable, Team
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.bot){
-        if(this.bot)
         writer.writeObjectValue<TeamworkBotImpl>("bot", new TeamworkBotImpl(this.bot));
         }
         if(this.createdBy){
-        if(this.createdBy)
         writer.writeObjectValue<IdentitySetImpl>("createdBy", new IdentitySetImpl(this.createdBy));
         }
         if(this.description){
-        if(this.description)
         writer.writeStringValue("description", this.description);
         }
         if(this.displayName){
-        if(this.displayName)
         writer.writeStringValue("displayName", this.displayName);
         }
         if(this.lastModifiedDateTime){
-        if(this.lastModifiedDateTime)
         writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
         }
         if(this.publishingState){
-        if(this.publishingState)
         writer.writeEnumValue<TeamsAppPublishingState>("publishingState", this.publishingState);
         }
         if(this.shortDescription){
-        if(this.shortDescription)
         writer.writeStringValue("shortDescription", this.shortDescription);
         }
         if(this.teamsAppId){
-        if(this.teamsAppId)
         writer.writeStringValue("teamsAppId", this.teamsAppId);
         }
         if(this.version){
-        if(this.version)
         writer.writeStringValue("version", this.version);
         }
     };

@@ -2,11 +2,12 @@ import {EntityImpl} from './index';
 import {ProfilePhoto} from './profilePhoto';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to user. */
 export class ProfilePhotoImpl extends EntityImpl implements Parsable, ProfilePhoto {
     /** The height of the photo. Read-only. */
-    height?: number | undefined;
+    public height?: number | undefined;
     /** The width of the photo. Read-only. */
-    width?: number | undefined;
+    public width?: number | undefined;
     /**
      * Instantiates a new profilePhoto and sets the default values.
      * @param profilePhotoParameterValue 
@@ -34,11 +35,9 @@ export class ProfilePhotoImpl extends EntityImpl implements Parsable, ProfilePho
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.height){
-        if(this.height)
         writer.writeNumberValue("height", this.height);
         }
         if(this.width){
-        if(this.width)
         writer.writeNumberValue("width", this.width);
         }
     };

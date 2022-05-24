@@ -3,28 +3,27 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class SharepointIdsImpl implements AdditionalDataHolder, Parsable, SharepointIds {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The unique identifier (guid) for the item's list in SharePoint. */
-    listId?: string | undefined;
+    public listId?: string | undefined;
     /** An integer identifier for the item within the containing list. */
-    listItemId?: string | undefined;
+    public listItemId?: string | undefined;
     /** The unique identifier (guid) for the item within OneDrive for Business or a SharePoint site. */
-    listItemUniqueId?: string | undefined;
+    public listItemUniqueId?: string | undefined;
     /** The unique identifier (guid) for the item's site collection (SPSite). */
-    siteId?: string | undefined;
+    public siteId?: string | undefined;
     /** The SharePoint URL for the site that contains the item. */
-    siteUrl?: string | undefined;
+    public siteUrl?: string | undefined;
     /** The unique identifier (guid) for the tenancy. */
-    tenantId?: string | undefined;
+    public tenantId?: string | undefined;
     /** The unique identifier (guid) for the item's site (SPWeb). */
-    webId?: string | undefined;
+    public webId?: string | undefined;
     /**
      * Instantiates a new sharepointIds and sets the default values.
      * @param sharepointIdsParameterValue 
      */
     public constructor(sharepointIdsParameterValue?: SharepointIds | undefined) {
-        this.additionalData = {};
-        this.additionalData = sharepointIdsParameterValue?.additionalData ? {} : sharepointIdsParameterValue?.additionalData!
+        this.additionalData = sharepointIdsParameterValue?.additionalData ? sharepointIdsParameterValue?.additionalData! : {}
         this.listId = sharepointIdsParameterValue?.listId ;
         this.listItemId = sharepointIdsParameterValue?.listItemId ;
         this.listItemUniqueId = sharepointIdsParameterValue?.listItemUniqueId ;
@@ -55,31 +54,24 @@ export class SharepointIdsImpl implements AdditionalDataHolder, Parsable, Sharep
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.listId){
-        if(this.listId)
         writer.writeStringValue("listId", this.listId);
         }
         if(this.listItemId){
-        if(this.listItemId)
         writer.writeStringValue("listItemId", this.listItemId);
         }
         if(this.listItemUniqueId){
-        if(this.listItemUniqueId)
         writer.writeStringValue("listItemUniqueId", this.listItemUniqueId);
         }
         if(this.siteId){
-        if(this.siteId)
         writer.writeStringValue("siteId", this.siteId);
         }
         if(this.siteUrl){
-        if(this.siteUrl)
         writer.writeStringValue("siteUrl", this.siteUrl);
         }
         if(this.tenantId){
-        if(this.tenantId)
         writer.writeStringValue("tenantId", this.tenantId);
         }
         if(this.webId){
-        if(this.webId)
         writer.writeStringValue("webId", this.webId);
         }
         writer.writeAdditionalData(this.additionalData);

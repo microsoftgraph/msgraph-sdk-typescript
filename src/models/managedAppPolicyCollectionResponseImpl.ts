@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class ManagedAppPolicyCollectionResponseImpl implements AdditionalDataHolder, ManagedAppPolicyCollectionResponse, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: ManagedAppPolicy[] | undefined;
+    public value?: ManagedAppPolicy[] | undefined;
     /**
      * Instantiates a new ManagedAppPolicyCollectionResponse and sets the default values.
      * @param managedAppPolicyCollectionResponseParameterValue 
      */
     public constructor(managedAppPolicyCollectionResponseParameterValue?: ManagedAppPolicyCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = managedAppPolicyCollectionResponseParameterValue?.additionalData ? {} : managedAppPolicyCollectionResponseParameterValue?.additionalData!
+        this.additionalData = managedAppPolicyCollectionResponseParameterValue?.additionalData ? managedAppPolicyCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = managedAppPolicyCollectionResponseParameterValue?.nextLink ;
         this.value = managedAppPolicyCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class ManagedAppPolicyCollectionResponseImpl implements AdditionalDataHol
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: ManagedAppPolicyImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ManagedAppPolicyImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: ManagedAppPolicyImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ManagedAppPolicyImpl(element));});
         writer.writeCollectionOfObjectValues<ManagedAppPolicyImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

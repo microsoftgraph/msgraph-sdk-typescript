@@ -4,22 +4,21 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Windows Information Protection DataRecoveryCertificate */
 export class WindowsInformationProtectionDataRecoveryCertificateImpl implements AdditionalDataHolder, Parsable, WindowsInformationProtectionDataRecoveryCertificate {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** Data recovery Certificate */
-    certificate?: string | undefined;
+    public certificate?: string | undefined;
     /** Data recovery Certificate description */
-    description?: string | undefined;
+    public description?: string | undefined;
     /** Data recovery Certificate expiration datetime */
-    expirationDateTime?: Date | undefined;
+    public expirationDateTime?: Date | undefined;
     /** Data recovery Certificate subject name */
-    subjectName?: string | undefined;
+    public subjectName?: string | undefined;
     /**
      * Instantiates a new windowsInformationProtectionDataRecoveryCertificate and sets the default values.
      * @param windowsInformationProtectionDataRecoveryCertificateParameterValue 
      */
     public constructor(windowsInformationProtectionDataRecoveryCertificateParameterValue?: WindowsInformationProtectionDataRecoveryCertificate | undefined) {
-        this.additionalData = {};
-        this.additionalData = windowsInformationProtectionDataRecoveryCertificateParameterValue?.additionalData ? {} : windowsInformationProtectionDataRecoveryCertificateParameterValue?.additionalData!
+        this.additionalData = windowsInformationProtectionDataRecoveryCertificateParameterValue?.additionalData ? windowsInformationProtectionDataRecoveryCertificateParameterValue?.additionalData! : {}
         this.certificate = windowsInformationProtectionDataRecoveryCertificateParameterValue?.certificate ;
         this.description = windowsInformationProtectionDataRecoveryCertificateParameterValue?.description ;
         this.expirationDateTime = windowsInformationProtectionDataRecoveryCertificateParameterValue?.expirationDateTime ;
@@ -44,19 +43,15 @@ export class WindowsInformationProtectionDataRecoveryCertificateImpl implements 
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.certificate){
-        if(this.certificate)
         writer.writeStringValue("certificate", this.certificate);
         }
         if(this.description){
-        if(this.description)
         writer.writeStringValue("description", this.description);
         }
         if(this.expirationDateTime){
-        if(this.expirationDateTime)
         writer.writeDateValue("expirationDateTime", this.expirationDateTime);
         }
         if(this.subjectName){
-        if(this.subjectName)
         writer.writeStringValue("subjectName", this.subjectName);
         }
         writer.writeAdditionalData(this.additionalData);

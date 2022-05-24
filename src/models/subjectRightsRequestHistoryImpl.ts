@@ -8,24 +8,23 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class SubjectRightsRequestHistoryImpl implements AdditionalDataHolder, Parsable, SubjectRightsRequestHistory {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** Identity of the user who changed the  subject rights request. */
-    changedBy?: IdentitySet | undefined;
+    public changedBy?: IdentitySet | undefined;
     /** Data and time when the entity was changed. */
-    eventDateTime?: Date | undefined;
+    public eventDateTime?: Date | undefined;
     /** The stage when the entity was changed. Possible values are: contentRetrieval, contentReview, generateReport, contentDeletion, caseResolved, unknownFutureValue. */
-    stage?: SubjectRightsRequestStage | undefined;
+    public stage?: SubjectRightsRequestStage | undefined;
     /** The status of the stage when the entity was changed. Possible values are: notStarted, current, completed, failed, unknownFutureValue. */
-    stageStatus?: SubjectRightsRequestStageStatus | undefined;
+    public stageStatus?: SubjectRightsRequestStageStatus | undefined;
     /** Type of history. */
-    type?: string | undefined;
+    public type?: string | undefined;
     /**
      * Instantiates a new subjectRightsRequestHistory and sets the default values.
      * @param subjectRightsRequestHistoryParameterValue 
      */
     public constructor(subjectRightsRequestHistoryParameterValue?: SubjectRightsRequestHistory | undefined) {
-        this.additionalData = {};
-        this.additionalData = subjectRightsRequestHistoryParameterValue?.additionalData ? {} : subjectRightsRequestHistoryParameterValue?.additionalData!
+        this.additionalData = subjectRightsRequestHistoryParameterValue?.additionalData ? subjectRightsRequestHistoryParameterValue?.additionalData! : {}
         this.changedBy = subjectRightsRequestHistoryParameterValue?.changedBy ;
         this.eventDateTime = subjectRightsRequestHistoryParameterValue?.eventDateTime ;
         this.stage = subjectRightsRequestHistoryParameterValue?.stage ;
@@ -52,23 +51,18 @@ export class SubjectRightsRequestHistoryImpl implements AdditionalDataHolder, Pa
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.changedBy){
-        if(this.changedBy)
         writer.writeObjectValue<IdentitySetImpl>("changedBy", new IdentitySetImpl(this.changedBy));
         }
         if(this.eventDateTime){
-        if(this.eventDateTime)
         writer.writeDateValue("eventDateTime", this.eventDateTime);
         }
         if(this.stage){
-        if(this.stage)
         writer.writeEnumValue<SubjectRightsRequestStage>("stage", this.stage);
         }
         if(this.stageStatus){
-        if(this.stageStatus)
         writer.writeEnumValue<SubjectRightsRequestStageStatus>("stageStatus", this.stageStatus);
         }
         if(this.type){
-        if(this.type)
         writer.writeStringValue("type", this.type);
         }
         writer.writeAdditionalData(this.additionalData);

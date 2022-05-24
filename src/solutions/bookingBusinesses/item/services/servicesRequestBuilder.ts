@@ -1,6 +1,5 @@
 import {BookingServiceCollectionResponseImpl, BookingServiceImpl} from '../../../../models/';
 import {BookingService} from '../../../../models/bookingService';
-import {BookingServiceCollectionResponse} from '../../../../models/bookingServiceCollectionResponse';
 import {createBookingServiceCollectionResponseFromDiscriminatorValue} from '../../../../models/createBookingServiceCollectionResponseFromDiscriminatorValue';
 import {createBookingServiceFromDiscriminatorValue} from '../../../../models/createBookingServiceFromDiscriminatorValue';
 import {ODataErrorImpl} from '../../../../models/oDataErrors/';
@@ -68,8 +67,8 @@ export class ServicesRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        const bodyParsable = new BookingServiceImpl(body)
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", bodyParsable);
+        const parsableBody = new BookingServiceImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -78,7 +77,7 @@ export class ServicesRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of BookingServiceCollectionResponse
      */
-    public get(requestConfiguration?: ServicesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<BookingServiceCollectionResponse | undefined> {
+    public get(requestConfiguration?: ServicesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<BookingServiceCollectionResponseImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -95,7 +94,7 @@ export class ServicesRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of BookingService
      */
-    public post(body: BookingService | undefined, requestConfiguration?: ServicesRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<BookingService | undefined> {
+    public post(body: BookingService | undefined, requestConfiguration?: ServicesRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<BookingServiceImpl | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration

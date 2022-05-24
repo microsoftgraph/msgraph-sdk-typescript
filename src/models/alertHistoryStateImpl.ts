@@ -5,28 +5,27 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class AlertHistoryStateImpl implements AdditionalDataHolder, AlertHistoryState, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The Application ID of the calling application that submitted an update (PATCH) to the alert. The appId should be extracted from the auth token and not entered manually by the calling application. */
-    appId?: string | undefined;
+    public appId?: string | undefined;
     /** UPN of user the alert was assigned to (note: alert.assignedTo only stores the last value/UPN). */
-    assignedTo?: string | undefined;
+    public assignedTo?: string | undefined;
     /** Comment entered by signed-in user. */
-    comments?: string[] | undefined;
+    public comments?: string[] | undefined;
     /** Analyst feedback on the alert in this update. Possible values are: unknown, truePositive, falsePositive, benignPositive. */
-    feedback?: AlertFeedback | undefined;
+    public feedback?: AlertFeedback | undefined;
     /** Alert status value (if updated). Possible values are: unknown, newAlert, inProgress, resolved, dismissed. */
-    status?: AlertStatus | undefined;
+    public status?: AlertStatus | undefined;
     /** Date and time of the alert update. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
-    updatedDateTime?: Date | undefined;
+    public updatedDateTime?: Date | undefined;
     /** UPN of the signed-in user that updated the alert (taken from the bearer token - if in user/delegated auth mode). */
-    user?: string | undefined;
+    public user?: string | undefined;
     /**
      * Instantiates a new alertHistoryState and sets the default values.
      * @param alertHistoryStateParameterValue 
      */
     public constructor(alertHistoryStateParameterValue?: AlertHistoryState | undefined) {
-        this.additionalData = {};
-        this.additionalData = alertHistoryStateParameterValue?.additionalData ? {} : alertHistoryStateParameterValue?.additionalData!
+        this.additionalData = alertHistoryStateParameterValue?.additionalData ? alertHistoryStateParameterValue?.additionalData! : {}
         this.appId = alertHistoryStateParameterValue?.appId ;
         this.assignedTo = alertHistoryStateParameterValue?.assignedTo ;
         this.comments = alertHistoryStateParameterValue?.comments ;
@@ -57,31 +56,24 @@ export class AlertHistoryStateImpl implements AdditionalDataHolder, AlertHistory
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.appId){
-        if(this.appId)
         writer.writeStringValue("appId", this.appId);
         }
         if(this.assignedTo){
-        if(this.assignedTo)
         writer.writeStringValue("assignedTo", this.assignedTo);
         }
         if(this.comments){
-        if(this.comments)
         writer.writeCollectionOfPrimitiveValues<string>("comments", this.comments);
         }
         if(this.feedback){
-        if(this.feedback)
         writer.writeEnumValue<AlertFeedback>("feedback", this.feedback);
         }
         if(this.status){
-        if(this.status)
         writer.writeEnumValue<AlertStatus>("status", this.status);
         }
         if(this.updatedDateTime){
-        if(this.updatedDateTime)
         writer.writeDateValue("updatedDateTime", this.updatedDateTime);
         }
         if(this.user){
-        if(this.user)
         writer.writeStringValue("user", this.user);
         }
         writer.writeAdditionalData(this.additionalData);

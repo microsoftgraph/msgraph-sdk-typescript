@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class PrintOperationCollectionResponseImpl implements AdditionalDataHolder, Parsable, PrintOperationCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: PrintOperation[] | undefined;
+    public value?: PrintOperation[] | undefined;
     /**
      * Instantiates a new PrintOperationCollectionResponse and sets the default values.
      * @param printOperationCollectionResponseParameterValue 
      */
     public constructor(printOperationCollectionResponseParameterValue?: PrintOperationCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = printOperationCollectionResponseParameterValue?.additionalData ? {} : printOperationCollectionResponseParameterValue?.additionalData!
+        this.additionalData = printOperationCollectionResponseParameterValue?.additionalData ? printOperationCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = printOperationCollectionResponseParameterValue?.nextLink ;
         this.value = printOperationCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class PrintOperationCollectionResponseImpl implements AdditionalDataHolde
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: PrintOperationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new PrintOperationImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: PrintOperationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new PrintOperationImpl(element));});
         writer.writeCollectionOfObjectValues<PrintOperationImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

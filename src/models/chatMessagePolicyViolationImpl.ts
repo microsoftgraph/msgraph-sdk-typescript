@@ -9,24 +9,23 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class ChatMessagePolicyViolationImpl implements AdditionalDataHolder, ChatMessagePolicyViolation, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The action taken by the DLP provider on the message with sensitive content. Supported values are: NoneNotifySender -- Inform the sender of the violation but allow readers to read the message.BlockAccess -- Block readers from reading the message.BlockAccessExternal -- Block users outside the organization from reading the message, while allowing users within the organization to read the message. */
-    dlpAction?: ChatMessagePolicyViolationDlpActionTypes | undefined;
+    public dlpAction?: ChatMessagePolicyViolationDlpActionTypes | undefined;
     /** Justification text provided by the sender of the message when overriding a policy violation. */
-    justificationText?: string | undefined;
+    public justificationText?: string | undefined;
     /** Information to display to the message sender about why the message was flagged as a violation. */
-    policyTip?: ChatMessagePolicyViolationPolicyTip | undefined;
+    public policyTip?: ChatMessagePolicyViolationPolicyTip | undefined;
     /** Indicates the action taken by the user on a message blocked by the DLP provider. Supported values are: NoneOverrideReportFalsePositiveWhen the DLP provider is updating the message for blocking sensitive content, userAction is not required. */
-    userAction?: ChatMessagePolicyViolationUserActionTypes | undefined;
+    public userAction?: ChatMessagePolicyViolationUserActionTypes | undefined;
     /** Indicates what actions the sender may take in response to the policy violation. Supported values are: NoneAllowFalsePositiveOverride -- Allows the sender to declare the policyViolation to be an error in the DLP app and its rules, and allow readers to see the message again if the dlpAction had hidden it.AllowOverrideWithoutJustification -- Allows the sender to overriide the DLP violation and allow readers to see the message again if the dlpAction had hidden it, without needing to provide an explanation for doing so. AllowOverrideWithJustification -- Allows the sender to overriide the DLP violation and allow readers to see the message again if the dlpAction had hidden it, after providing an explanation for doing so.AllowOverrideWithoutJustification and AllowOverrideWithJustification are mutually exclusive. */
-    verdictDetails?: ChatMessagePolicyViolationVerdictDetailsTypes | undefined;
+    public verdictDetails?: ChatMessagePolicyViolationVerdictDetailsTypes | undefined;
     /**
      * Instantiates a new chatMessagePolicyViolation and sets the default values.
      * @param chatMessagePolicyViolationParameterValue 
      */
     public constructor(chatMessagePolicyViolationParameterValue?: ChatMessagePolicyViolation | undefined) {
-        this.additionalData = {};
-        this.additionalData = chatMessagePolicyViolationParameterValue?.additionalData ? {} : chatMessagePolicyViolationParameterValue?.additionalData!
+        this.additionalData = chatMessagePolicyViolationParameterValue?.additionalData ? chatMessagePolicyViolationParameterValue?.additionalData! : {}
         this.dlpAction = chatMessagePolicyViolationParameterValue?.dlpAction ;
         this.justificationText = chatMessagePolicyViolationParameterValue?.justificationText ;
         this.policyTip = chatMessagePolicyViolationParameterValue?.policyTip ;
@@ -53,23 +52,18 @@ export class ChatMessagePolicyViolationImpl implements AdditionalDataHolder, Cha
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.dlpAction){
-        if(this.dlpAction)
         writer.writeEnumValue<ChatMessagePolicyViolationDlpActionTypes>("dlpAction", this.dlpAction);
         }
         if(this.justificationText){
-        if(this.justificationText)
         writer.writeStringValue("justificationText", this.justificationText);
         }
         if(this.policyTip){
-        if(this.policyTip)
         writer.writeObjectValue<ChatMessagePolicyViolationPolicyTipImpl>("policyTip", new ChatMessagePolicyViolationPolicyTipImpl(this.policyTip));
         }
         if(this.userAction){
-        if(this.userAction)
         writer.writeEnumValue<ChatMessagePolicyViolationUserActionTypes>("userAction", this.userAction);
         }
         if(this.verdictDetails){
-        if(this.verdictDetails)
         writer.writeEnumValue<ChatMessagePolicyViolationVerdictDetailsTypes>("verdictDetails", this.verdictDetails);
         }
         writer.writeAdditionalData(this.additionalData);

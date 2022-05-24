@@ -5,21 +5,21 @@ import {TeamworkBot} from './teamworkBot';
 
 export interface TeamsAppDefinition extends Entity{
     /** The details of the bot specified in the Teams app manifest. */
-    bot?: TeamworkBot | undefined;
+    bot?:TeamworkBot | undefined;
     /** The createdBy property */
-    createdBy?: IdentitySet | undefined;
+    createdBy?:IdentitySet | undefined;
     /** Verbose description of the application. */
-    description?: string | undefined;
+    description?:string | undefined;
     /** The name of the app provided by the app developer. */
-    displayName?: string | undefined;
+    displayName?:string | undefined;
     /** The lastModifiedDateTime property */
-    lastModifiedDateTime?: Date | undefined;
+    lastModifiedDateTime?:Date | undefined;
     /** The published status of a specific version of a Teams app. Possible values are:submitted — The specific version of the Teams app has been submitted and is under review. published  — The request to publish the specific version of the Teams app has been approved by the admin and the app is published.  rejected — The request to publish the specific version of the Teams app was rejected by the admin. */
-    publishingState?: TeamsAppPublishingState | undefined;
+    publishingState?:TeamsAppPublishingState | undefined;
     /** Short description of the application. */
-    shortDescription?: string | undefined;
+    shortDescription?:string | undefined;
     /** The ID from the Teams app manifest. */
-    teamsAppId?: string | undefined;
+    teamsAppId?:string | undefined;
     /** The version number of the application. */
-    version?: string | undefined;
+    version?:string | undefined;
 }

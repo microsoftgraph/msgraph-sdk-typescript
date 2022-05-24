@@ -7,16 +7,15 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Provides operations to call the recent method. */
 export class RecentResponseImpl implements AdditionalDataHolder, Parsable, RecentResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The value property */
-    value?: UserActivity[] | undefined;
+    public value?: UserActivity[] | undefined;
     /**
      * Instantiates a new recentResponse and sets the default values.
      * @param recentResponseParameterValue 
      */
     public constructor(recentResponseParameterValue?: RecentResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = recentResponseParameterValue?.additionalData ? {} : recentResponseParameterValue?.additionalData!
+        this.additionalData = recentResponseParameterValue?.additionalData ? recentResponseParameterValue?.additionalData! : {}
         this.value = recentResponseParameterValue?.value ;
     };
     /**
@@ -34,8 +33,7 @@ export class RecentResponseImpl implements AdditionalDataHolder, Parsable, Recen
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        if(this.value){
-        const valueArrValue: UserActivityImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new UserActivityImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: UserActivityImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new UserActivityImpl(element));});
         writer.writeCollectionOfObjectValues<UserActivityImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

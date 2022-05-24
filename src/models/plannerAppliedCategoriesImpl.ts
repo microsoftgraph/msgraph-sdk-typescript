@@ -3,14 +3,13 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class PlannerAppliedCategoriesImpl implements AdditionalDataHolder, Parsable, PlannerAppliedCategories {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /**
      * Instantiates a new plannerAppliedCategories and sets the default values.
      * @param plannerAppliedCategoriesParameterValue 
      */
     public constructor(plannerAppliedCategoriesParameterValue?: PlannerAppliedCategories | undefined) {
-        this.additionalData = {};
-        this.additionalData = plannerAppliedCategoriesParameterValue?.additionalData ? {} : plannerAppliedCategoriesParameterValue?.additionalData!
+        this.additionalData = plannerAppliedCategoriesParameterValue?.additionalData ? plannerAppliedCategoriesParameterValue?.additionalData! : {}
     };
     /**
      * The deserialization information for the current model

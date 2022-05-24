@@ -1,4 +1,4 @@
-/** Provides operations to manage the collection of drive entities. */
+/** Casts the previous resource to group. */
 export enum ColumnTypes {
     Note = "note",
     Text = "text",

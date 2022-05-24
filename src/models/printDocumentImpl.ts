@@ -2,13 +2,14 @@ import {EntityImpl} from './index';
 import {PrintDocument} from './printDocument';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the print singleton. */
 export class PrintDocumentImpl extends EntityImpl implements Parsable, PrintDocument {
     /** The document's content (MIME) type. Read-only. */
-    contentType?: string | undefined;
+    public contentType?: string | undefined;
     /** The document's name. Read-only. */
-    displayName?: string | undefined;
+    public displayName?: string | undefined;
     /** The document's size in bytes. Read-only. */
-    size?: number | undefined;
+    public size?: number | undefined;
     /**
      * Instantiates a new printDocument and sets the default values.
      * @param printDocumentParameterValue 
@@ -38,15 +39,12 @@ export class PrintDocumentImpl extends EntityImpl implements Parsable, PrintDocu
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.contentType){
-        if(this.contentType)
         writer.writeStringValue("contentType", this.contentType);
         }
         if(this.displayName){
-        if(this.displayName)
         writer.writeStringValue("displayName", this.displayName);
         }
         if(this.size){
-        if(this.size)
         writer.writeNumberValue("size", this.size);
         }
     };

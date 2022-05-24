@@ -12,33 +12,34 @@ import {MimeContent} from './mimeContent';
 import {UserInstallStateSummary} from './userInstallStateSummary';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** An abstract class containing the base properties for Managed eBook. */
 export class ManagedEBookImpl extends EntityImpl implements ManagedEBook, Parsable {
     /** The list of assignments for this eBook. */
-    assignments?: ManagedEBookAssignment[] | undefined;
+    public assignments?: ManagedEBookAssignment[] | undefined;
     /** The date and time when the eBook file was created. */
-    createdDateTime?: Date | undefined;
+    public createdDateTime?: Date | undefined;
     /** Description. */
-    description?: string | undefined;
+    public description?: string | undefined;
     /** The list of installation states for this eBook. */
-    deviceStates?: DeviceInstallState[] | undefined;
+    public deviceStates?: DeviceInstallState[] | undefined;
     /** Name of the eBook. */
-    displayName?: string | undefined;
+    public displayName?: string | undefined;
     /** The more information Url. */
-    informationUrl?: string | undefined;
+    public informationUrl?: string | undefined;
     /** Mobile App Install Summary. */
-    installSummary?: EBookInstallSummary | undefined;
+    public installSummary?: EBookInstallSummary | undefined;
     /** Book cover. */
-    largeCover?: MimeContent | undefined;
+    public largeCover?: MimeContent | undefined;
     /** The date and time when the eBook was last modified. */
-    lastModifiedDateTime?: Date | undefined;
+    public lastModifiedDateTime?: Date | undefined;
     /** The privacy statement Url. */
-    privacyInformationUrl?: string | undefined;
+    public privacyInformationUrl?: string | undefined;
     /** The date and time when the eBook was published. */
-    publishedDateTime?: Date | undefined;
+    public publishedDateTime?: Date | undefined;
     /** Publisher. */
-    publisher?: string | undefined;
+    public publisher?: string | undefined;
     /** The list of installation states for this eBook. */
-    userStateSummary?: UserInstallStateSummary[] | undefined;
+    public userStateSummary?: UserInstallStateSummary[] | undefined;
     /**
      * Instantiates a new managedEBook and sets the default values.
      * @param managedEBookParameterValue 
@@ -87,56 +88,43 @@ export class ManagedEBookImpl extends EntityImpl implements ManagedEBook, Parsab
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.assignments){
-        const assignmentsArrValue: ManagedEBookAssignmentImpl[] = []; this.assignments?.forEach(element => {assignmentsArrValue.push(new ManagedEBookAssignmentImpl(element));});
+        if(this.assignments && this.assignments.length != 0){        const assignmentsArrValue: ManagedEBookAssignmentImpl[] = []; this.assignments?.forEach(element => {assignmentsArrValue.push(new ManagedEBookAssignmentImpl(element));});
         writer.writeCollectionOfObjectValues<ManagedEBookAssignmentImpl>("assignments", assignmentsArrValue);
         }
         if(this.createdDateTime){
-        if(this.createdDateTime)
         writer.writeDateValue("createdDateTime", this.createdDateTime);
         }
         if(this.description){
-        if(this.description)
         writer.writeStringValue("description", this.description);
         }
-        if(this.deviceStates){
-        const deviceStatesArrValue: DeviceInstallStateImpl[] = []; this.deviceStates?.forEach(element => {deviceStatesArrValue.push(new DeviceInstallStateImpl(element));});
+        if(this.deviceStates && this.deviceStates.length != 0){        const deviceStatesArrValue: DeviceInstallStateImpl[] = []; this.deviceStates?.forEach(element => {deviceStatesArrValue.push(new DeviceInstallStateImpl(element));});
         writer.writeCollectionOfObjectValues<DeviceInstallStateImpl>("deviceStates", deviceStatesArrValue);
         }
         if(this.displayName){
-        if(this.displayName)
         writer.writeStringValue("displayName", this.displayName);
         }
         if(this.informationUrl){
-        if(this.informationUrl)
         writer.writeStringValue("informationUrl", this.informationUrl);
         }
         if(this.installSummary){
-        if(this.installSummary)
         writer.writeObjectValue<EBookInstallSummaryImpl>("installSummary", new EBookInstallSummaryImpl(this.installSummary));
         }
         if(this.largeCover){
-        if(this.largeCover)
         writer.writeObjectValue<MimeContentImpl>("largeCover", new MimeContentImpl(this.largeCover));
         }
         if(this.lastModifiedDateTime){
-        if(this.lastModifiedDateTime)
         writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
         }
         if(this.privacyInformationUrl){
-        if(this.privacyInformationUrl)
         writer.writeStringValue("privacyInformationUrl", this.privacyInformationUrl);
         }
         if(this.publishedDateTime){
-        if(this.publishedDateTime)
         writer.writeDateValue("publishedDateTime", this.publishedDateTime);
         }
         if(this.publisher){
-        if(this.publisher)
         writer.writeStringValue("publisher", this.publisher);
         }
-        if(this.userStateSummary){
-        const userStateSummaryArrValue: UserInstallStateSummaryImpl[] = []; this.userStateSummary?.forEach(element => {userStateSummaryArrValue.push(new UserInstallStateSummaryImpl(element));});
+        if(this.userStateSummary && this.userStateSummary.length != 0){        const userStateSummaryArrValue: UserInstallStateSummaryImpl[] = []; this.userStateSummary?.forEach(element => {userStateSummaryArrValue.push(new UserInstallStateSummaryImpl(element));});
         writer.writeCollectionOfObjectValues<UserInstallStateSummaryImpl>("userStateSummary", userStateSummaryArrValue);
         }
     };

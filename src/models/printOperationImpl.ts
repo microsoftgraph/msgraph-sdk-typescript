@@ -4,11 +4,12 @@ import {PrintOperation} from './printOperation';
 import {PrintOperationStatus} from './printOperationStatus';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the print singleton. */
 export class PrintOperationImpl extends EntityImpl implements Parsable, PrintOperation {
     /** The DateTimeOffset when the operation was created. Read-only. */
-    createdDateTime?: Date | undefined;
+    public createdDateTime?: Date | undefined;
     /** The status property */
-    status?: PrintOperationStatus | undefined;
+    public status?: PrintOperationStatus | undefined;
     /**
      * Instantiates a new printOperation and sets the default values.
      * @param printOperationParameterValue 
@@ -36,11 +37,9 @@ export class PrintOperationImpl extends EntityImpl implements Parsable, PrintOpe
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.createdDateTime){
-        if(this.createdDateTime)
         writer.writeDateValue("createdDateTime", this.createdDateTime);
         }
         if(this.status){
-        if(this.status)
         writer.writeObjectValue<PrintOperationStatusImpl>("status", new PrintOperationStatusImpl(this.status));
         }
     };

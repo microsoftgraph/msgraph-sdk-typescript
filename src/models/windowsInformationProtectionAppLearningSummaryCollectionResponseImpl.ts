@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class WindowsInformationProtectionAppLearningSummaryCollectionResponseImpl implements AdditionalDataHolder, Parsable, WindowsInformationProtectionAppLearningSummaryCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: WindowsInformationProtectionAppLearningSummary[] | undefined;
+    public value?: WindowsInformationProtectionAppLearningSummary[] | undefined;
     /**
      * Instantiates a new WindowsInformationProtectionAppLearningSummaryCollectionResponse and sets the default values.
      * @param windowsInformationProtectionAppLearningSummaryCollectionResponseParameterValue 
      */
     public constructor(windowsInformationProtectionAppLearningSummaryCollectionResponseParameterValue?: WindowsInformationProtectionAppLearningSummaryCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = windowsInformationProtectionAppLearningSummaryCollectionResponseParameterValue?.additionalData ? {} : windowsInformationProtectionAppLearningSummaryCollectionResponseParameterValue?.additionalData!
+        this.additionalData = windowsInformationProtectionAppLearningSummaryCollectionResponseParameterValue?.additionalData ? windowsInformationProtectionAppLearningSummaryCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = windowsInformationProtectionAppLearningSummaryCollectionResponseParameterValue?.nextLink ;
         this.value = windowsInformationProtectionAppLearningSummaryCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class WindowsInformationProtectionAppLearningSummaryCollectionResponseImp
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: WindowsInformationProtectionAppLearningSummaryImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new WindowsInformationProtectionAppLearningSummaryImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: WindowsInformationProtectionAppLearningSummaryImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new WindowsInformationProtectionAppLearningSummaryImpl(element));});
         writer.writeCollectionOfObjectValues<WindowsInformationProtectionAppLearningSummaryImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

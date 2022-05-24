@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class ChatMessageCollectionResponseImpl implements AdditionalDataHolder, ChatMessageCollectionResponse, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: ChatMessage[] | undefined;
+    public value?: ChatMessage[] | undefined;
     /**
      * Instantiates a new ChatMessageCollectionResponse and sets the default values.
      * @param chatMessageCollectionResponseParameterValue 
      */
     public constructor(chatMessageCollectionResponseParameterValue?: ChatMessageCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = chatMessageCollectionResponseParameterValue?.additionalData ? {} : chatMessageCollectionResponseParameterValue?.additionalData!
+        this.additionalData = chatMessageCollectionResponseParameterValue?.additionalData ? chatMessageCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = chatMessageCollectionResponseParameterValue?.nextLink ;
         this.value = chatMessageCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class ChatMessageCollectionResponseImpl implements AdditionalDataHolder, 
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: ChatMessageImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ChatMessageImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: ChatMessageImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ChatMessageImpl(element));});
         writer.writeCollectionOfObjectValues<ChatMessageImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

@@ -3,16 +3,15 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class TimeZoneBaseImpl implements AdditionalDataHolder, Parsable, TimeZoneBase {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The name of a time zone. It can be a standard time zone name such as 'Hawaii-Aleutian Standard Time', or 'Customized Time Zone' for a custom time zone. */
-    name?: string | undefined;
+    public name?: string | undefined;
     /**
      * Instantiates a new timeZoneBase and sets the default values.
      * @param timeZoneBaseParameterValue 
      */
     public constructor(timeZoneBaseParameterValue?: TimeZoneBase | undefined) {
-        this.additionalData = {};
-        this.additionalData = timeZoneBaseParameterValue?.additionalData ? {} : timeZoneBaseParameterValue?.additionalData!
+        this.additionalData = timeZoneBaseParameterValue?.additionalData ? timeZoneBaseParameterValue?.additionalData! : {}
         this.name = timeZoneBaseParameterValue?.name ;
     };
     /**
@@ -31,7 +30,6 @@ export class TimeZoneBaseImpl implements AdditionalDataHolder, Parsable, TimeZon
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.name){
-        if(this.name)
         writer.writeStringValue("name", this.name);
         }
         writer.writeAdditionalData(this.additionalData);

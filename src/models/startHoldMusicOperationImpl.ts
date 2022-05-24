@@ -2,6 +2,7 @@ import {CommsOperationImpl} from './index';
 import {StartHoldMusicOperation} from './startHoldMusicOperation';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to call the startHoldMusic method. */
 export class StartHoldMusicOperationImpl extends CommsOperationImpl implements Parsable, StartHoldMusicOperation {
     /**
      * Instantiates a new startHoldMusicOperation and sets the default values.

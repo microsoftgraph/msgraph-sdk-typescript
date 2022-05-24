@@ -17,57 +17,58 @@ import {ProvisionedPlan} from './provisionedPlan';
 import {VerifiedDomain} from './verifiedDomain';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the collection of organization entities. */
 export class OrganizationImpl extends DirectoryObjectImpl implements Organization, Parsable {
     /** The collection of service plans associated with the tenant. Not nullable. */
-    assignedPlans?: AssignedPlan[] | undefined;
+    public assignedPlans?: AssignedPlan[] | undefined;
     /** The branding property */
-    branding?: OrganizationalBranding | undefined;
+    public branding?: OrganizationalBranding | undefined;
     /** Telephone number for the organization. Although this is a string collection, only one number can be set for this property. */
-    businessPhones?: string[] | undefined;
+    public businessPhones?: string[] | undefined;
     /** Navigation property to manage certificate-based authentication configuration. Only a single instance of certificateBasedAuthConfiguration can be created in the collection. */
-    certificateBasedAuthConfiguration?: CertificateBasedAuthConfiguration[] | undefined;
+    public certificateBasedAuthConfiguration?: CertificateBasedAuthConfiguration[] | undefined;
     /** City name of the address for the organization. */
-    city?: string | undefined;
+    public city?: string | undefined;
     /** Country/region name of the address for the organization. */
-    country?: string | undefined;
+    public country?: string | undefined;
     /** Country or region abbreviation for the organization in ISO 3166-2 format. */
-    countryLetterCode?: string | undefined;
+    public countryLetterCode?: string | undefined;
     /** Timestamp of when the organization was created. The value cannot be modified and is automatically populated when the organization is created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. */
-    createdDateTime?: Date | undefined;
+    public createdDateTime?: Date | undefined;
     /** The display name for the tenant. */
-    displayName?: string | undefined;
+    public displayName?: string | undefined;
     /** The collection of open extensions defined for the organization resource. Nullable. */
-    extensions?: Extension[] | undefined;
+    public extensions?: Extension[] | undefined;
     /** Not nullable. */
-    marketingNotificationEmails?: string[] | undefined;
+    public marketingNotificationEmails?: string[] | undefined;
     /** Mobile device management authority. Possible values are: unknown, intune, sccm, office365. */
-    mobileDeviceManagementAuthority?: MdmAuthority | undefined;
+    public mobileDeviceManagementAuthority?: MdmAuthority | undefined;
     /** The time and date at which the tenant was last synced with the on-premises directory. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
-    onPremisesLastSyncDateTime?: Date | undefined;
+    public onPremisesLastSyncDateTime?: Date | undefined;
     /** true if this object is synced from an on-premises directory; false if this object was originally synced from an on-premises directory but is no longer synced; Nullable. null if this object has never been synced from an on-premises directory (default). */
-    onPremisesSyncEnabled?: boolean | undefined;
+    public onPremisesSyncEnabled?: boolean | undefined;
     /** Postal code of the address for the organization. */
-    postalCode?: string | undefined;
+    public postalCode?: string | undefined;
     /** The preferred language for the organization. Should follow ISO 639-1 Code; for example en. */
-    preferredLanguage?: string | undefined;
+    public preferredLanguage?: string | undefined;
     /** The privacy profile of an organization. */
-    privacyProfile?: PrivacyProfile | undefined;
+    public privacyProfile?: PrivacyProfile | undefined;
     /** Not nullable. */
-    provisionedPlans?: ProvisionedPlan[] | undefined;
+    public provisionedPlans?: ProvisionedPlan[] | undefined;
     /** The securityComplianceNotificationMails property */
-    securityComplianceNotificationMails?: string[] | undefined;
+    public securityComplianceNotificationMails?: string[] | undefined;
     /** The securityComplianceNotificationPhones property */
-    securityComplianceNotificationPhones?: string[] | undefined;
+    public securityComplianceNotificationPhones?: string[] | undefined;
     /** State name of the address for the organization. */
-    state?: string | undefined;
+    public state?: string | undefined;
     /** Street name of the address for organization. */
-    street?: string | undefined;
+    public street?: string | undefined;
     /** Not nullable. */
-    technicalNotificationMails?: string[] | undefined;
+    public technicalNotificationMails?: string[] | undefined;
     /** The tenantType property */
-    tenantType?: string | undefined;
+    public tenantType?: string | undefined;
     /** The collection of domains associated with this tenant. Not nullable. */
-    verifiedDomains?: VerifiedDomain[] | undefined;
+    public verifiedDomains?: VerifiedDomain[] | undefined;
     /**
      * Instantiates a new organization and sets the default values.
      * @param organizationParameterValue 
@@ -140,104 +141,79 @@ export class OrganizationImpl extends DirectoryObjectImpl implements Organizatio
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.assignedPlans){
-        const assignedPlansArrValue: AssignedPlanImpl[] = []; this.assignedPlans?.forEach(element => {assignedPlansArrValue.push(new AssignedPlanImpl(element));});
+        if(this.assignedPlans && this.assignedPlans.length != 0){        const assignedPlansArrValue: AssignedPlanImpl[] = []; this.assignedPlans?.forEach(element => {assignedPlansArrValue.push(new AssignedPlanImpl(element));});
         writer.writeCollectionOfObjectValues<AssignedPlanImpl>("assignedPlans", assignedPlansArrValue);
         }
         if(this.branding){
-        if(this.branding)
         writer.writeObjectValue<OrganizationalBrandingImpl>("branding", new OrganizationalBrandingImpl(this.branding));
         }
         if(this.businessPhones){
-        if(this.businessPhones)
         writer.writeCollectionOfPrimitiveValues<string>("businessPhones", this.businessPhones);
         }
-        if(this.certificateBasedAuthConfiguration){
-        const certificateBasedAuthConfigurationArrValue: CertificateBasedAuthConfigurationImpl[] = []; this.certificateBasedAuthConfiguration?.forEach(element => {certificateBasedAuthConfigurationArrValue.push(new CertificateBasedAuthConfigurationImpl(element));});
+        if(this.certificateBasedAuthConfiguration && this.certificateBasedAuthConfiguration.length != 0){        const certificateBasedAuthConfigurationArrValue: CertificateBasedAuthConfigurationImpl[] = []; this.certificateBasedAuthConfiguration?.forEach(element => {certificateBasedAuthConfigurationArrValue.push(new CertificateBasedAuthConfigurationImpl(element));});
         writer.writeCollectionOfObjectValues<CertificateBasedAuthConfigurationImpl>("certificateBasedAuthConfiguration", certificateBasedAuthConfigurationArrValue);
         }
         if(this.city){
-        if(this.city)
         writer.writeStringValue("city", this.city);
         }
         if(this.country){
-        if(this.country)
         writer.writeStringValue("country", this.country);
         }
         if(this.countryLetterCode){
-        if(this.countryLetterCode)
         writer.writeStringValue("countryLetterCode", this.countryLetterCode);
         }
         if(this.createdDateTime){
-        if(this.createdDateTime)
         writer.writeDateValue("createdDateTime", this.createdDateTime);
         }
         if(this.displayName){
-        if(this.displayName)
         writer.writeStringValue("displayName", this.displayName);
         }
-        if(this.extensions){
-        const extensionsArrValue: ExtensionImpl[] = []; this.extensions?.forEach(element => {extensionsArrValue.push(new ExtensionImpl(element));});
+        if(this.extensions && this.extensions.length != 0){        const extensionsArrValue: ExtensionImpl[] = []; this.extensions?.forEach(element => {extensionsArrValue.push(new ExtensionImpl(element));});
         writer.writeCollectionOfObjectValues<ExtensionImpl>("extensions", extensionsArrValue);
         }
         if(this.marketingNotificationEmails){
-        if(this.marketingNotificationEmails)
         writer.writeCollectionOfPrimitiveValues<string>("marketingNotificationEmails", this.marketingNotificationEmails);
         }
         if(this.mobileDeviceManagementAuthority){
-        if(this.mobileDeviceManagementAuthority)
         writer.writeEnumValue<MdmAuthority>("mobileDeviceManagementAuthority", this.mobileDeviceManagementAuthority);
         }
         if(this.onPremisesLastSyncDateTime){
-        if(this.onPremisesLastSyncDateTime)
         writer.writeDateValue("onPremisesLastSyncDateTime", this.onPremisesLastSyncDateTime);
         }
         if(this.onPremisesSyncEnabled){
-        if(this.onPremisesSyncEnabled)
         writer.writeBooleanValue("onPremisesSyncEnabled", this.onPremisesSyncEnabled);
         }
         if(this.postalCode){
-        if(this.postalCode)
         writer.writeStringValue("postalCode", this.postalCode);
         }
         if(this.preferredLanguage){
-        if(this.preferredLanguage)
         writer.writeStringValue("preferredLanguage", this.preferredLanguage);
         }
         if(this.privacyProfile){
-        if(this.privacyProfile)
         writer.writeObjectValue<PrivacyProfileImpl>("privacyProfile", new PrivacyProfileImpl(this.privacyProfile));
         }
-        if(this.provisionedPlans){
-        const provisionedPlansArrValue: ProvisionedPlanImpl[] = []; this.provisionedPlans?.forEach(element => {provisionedPlansArrValue.push(new ProvisionedPlanImpl(element));});
+        if(this.provisionedPlans && this.provisionedPlans.length != 0){        const provisionedPlansArrValue: ProvisionedPlanImpl[] = []; this.provisionedPlans?.forEach(element => {provisionedPlansArrValue.push(new ProvisionedPlanImpl(element));});
         writer.writeCollectionOfObjectValues<ProvisionedPlanImpl>("provisionedPlans", provisionedPlansArrValue);
         }
         if(this.securityComplianceNotificationMails){
-        if(this.securityComplianceNotificationMails)
         writer.writeCollectionOfPrimitiveValues<string>("securityComplianceNotificationMails", this.securityComplianceNotificationMails);
         }
         if(this.securityComplianceNotificationPhones){
-        if(this.securityComplianceNotificationPhones)
         writer.writeCollectionOfPrimitiveValues<string>("securityComplianceNotificationPhones", this.securityComplianceNotificationPhones);
         }
         if(this.state){
-        if(this.state)
         writer.writeStringValue("state", this.state);
         }
         if(this.street){
-        if(this.street)
         writer.writeStringValue("street", this.street);
         }
         if(this.technicalNotificationMails){
-        if(this.technicalNotificationMails)
         writer.writeCollectionOfPrimitiveValues<string>("technicalNotificationMails", this.technicalNotificationMails);
         }
         if(this.tenantType){
-        if(this.tenantType)
         writer.writeStringValue("tenantType", this.tenantType);
         }
-        if(this.verifiedDomains){
-        const verifiedDomainsArrValue: VerifiedDomainImpl[] = []; this.verifiedDomains?.forEach(element => {verifiedDomainsArrValue.push(new VerifiedDomainImpl(element));});
+        if(this.verifiedDomains && this.verifiedDomains.length != 0){        const verifiedDomainsArrValue: VerifiedDomainImpl[] = []; this.verifiedDomains?.forEach(element => {verifiedDomainsArrValue.push(new VerifiedDomainImpl(element));});
         writer.writeCollectionOfObjectValues<VerifiedDomainImpl>("verifiedDomains", verifiedDomainsArrValue);
         }
     };

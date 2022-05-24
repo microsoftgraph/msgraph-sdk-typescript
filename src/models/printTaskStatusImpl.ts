@@ -4,18 +4,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class PrintTaskStatusImpl implements AdditionalDataHolder, Parsable, PrintTaskStatus {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** A human-readable description of the current processing state of the printTask. */
-    description?: string | undefined;
+    public description?: string | undefined;
     /** The current processing state of the printTask. Valid values are described in the following table. */
-    state?: PrintTaskProcessingState | undefined;
+    public state?: PrintTaskProcessingState | undefined;
     /**
      * Instantiates a new printTaskStatus and sets the default values.
      * @param printTaskStatusParameterValue 
      */
     public constructor(printTaskStatusParameterValue?: PrintTaskStatus | undefined) {
-        this.additionalData = {};
-        this.additionalData = printTaskStatusParameterValue?.additionalData ? {} : printTaskStatusParameterValue?.additionalData!
+        this.additionalData = printTaskStatusParameterValue?.additionalData ? printTaskStatusParameterValue?.additionalData! : {}
         this.description = printTaskStatusParameterValue?.description ;
         this.state = printTaskStatusParameterValue?.state ;
     };
@@ -36,11 +35,9 @@ export class PrintTaskStatusImpl implements AdditionalDataHolder, Parsable, Prin
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.description){
-        if(this.description)
         writer.writeStringValue("description", this.description);
         }
         if(this.state){
-        if(this.state)
         writer.writeEnumValue<PrintTaskProcessingState>("state", this.state);
         }
         writer.writeAdditionalData(this.additionalData);

@@ -1,5 +1,4 @@
 import {ManagedAppClipboardSharingLevel} from './managedAppClipboardSharingLevel';
-import {ManagedAppDataStorageLocation} from './managedAppDataStorageLocation';
 import {ManagedAppDataTransferLevel} from './managedAppDataTransferLevel';
 import {ManagedAppPinCharacterSet} from './managedAppPinCharacterSet';
 import {ManagedAppPolicy} from './managedAppPolicy';
@@ -8,57 +7,57 @@ import {Duration} from '@microsoft/kiota-abstractions';
 
 export interface ManagedAppProtection extends ManagedAppPolicy{
     /** Data storage locations where a user may store managed data. */
-    allowedDataStorageLocations?: ManagedAppDataStorageLocation[] | undefined;
+    allowedDataStorageLocations?:string[] | undefined;
     /** Sources from which data is allowed to be transferred. Possible values are: allApps, managedApps, none. */
-    allowedInboundDataTransferSources?: ManagedAppDataTransferLevel | undefined;
+    allowedInboundDataTransferSources?:ManagedAppDataTransferLevel | undefined;
     /** The level to which the clipboard may be shared between apps on the managed device. Possible values are: allApps, managedAppsWithPasteIn, managedApps, blocked. */
-    allowedOutboundClipboardSharingLevel?: ManagedAppClipboardSharingLevel | undefined;
+    allowedOutboundClipboardSharingLevel?:ManagedAppClipboardSharingLevel | undefined;
     /** Destinations to which data is allowed to be transferred. Possible values are: allApps, managedApps, none. */
-    allowedOutboundDataTransferDestinations?: ManagedAppDataTransferLevel | undefined;
+    allowedOutboundDataTransferDestinations?:ManagedAppDataTransferLevel | undefined;
     /** Indicates whether contacts can be synced to the user's device. */
-    contactSyncBlocked?: boolean | undefined;
+    contactSyncBlocked?:boolean | undefined;
     /** Indicates whether the backup of a managed app's data is blocked. */
-    dataBackupBlocked?: boolean | undefined;
+    dataBackupBlocked?:boolean | undefined;
     /** Indicates whether device compliance is required. */
-    deviceComplianceRequired?: boolean | undefined;
+    deviceComplianceRequired?:boolean | undefined;
     /** Indicates whether use of the app pin is required if the device pin is set. */
-    disableAppPinIfDevicePinIsSet?: boolean | undefined;
+    disableAppPinIfDevicePinIsSet?:boolean | undefined;
     /** Indicates whether use of the fingerprint reader is allowed in place of a pin if PinRequired is set to True. */
-    fingerprintBlocked?: boolean | undefined;
+    fingerprintBlocked?:boolean | undefined;
     /** Indicates in which managed browser(s) that internet links should be opened. When this property is configured, ManagedBrowserToOpenLinksRequired should be true. Possible values are: notConfigured, microsoftEdge. */
-    managedBrowser?: ManagedBrowserType | undefined;
+    managedBrowser?:ManagedBrowserType | undefined;
     /** Indicates whether internet links should be opened in the managed browser app, or any custom browser specified by CustomBrowserProtocol (for iOS) or CustomBrowserPackageId/CustomBrowserDisplayName (for Android) */
-    managedBrowserToOpenLinksRequired?: boolean | undefined;
+    managedBrowserToOpenLinksRequired?:boolean | undefined;
     /** Maximum number of incorrect pin retry attempts before the managed app is either blocked or wiped. */
-    maximumPinRetries?: number | undefined;
+    maximumPinRetries?:number | undefined;
     /** Minimum pin length required for an app-level pin if PinRequired is set to True */
-    minimumPinLength?: number | undefined;
+    minimumPinLength?:number | undefined;
     /** Versions less than the specified version will block the managed app from accessing company data. */
-    minimumRequiredAppVersion?: string | undefined;
+    minimumRequiredAppVersion?:string | undefined;
     /** Versions less than the specified version will block the managed app from accessing company data. */
-    minimumRequiredOsVersion?: string | undefined;
+    minimumRequiredOsVersion?:string | undefined;
     /** Versions less than the specified version will result in warning message on the managed app. */
-    minimumWarningAppVersion?: string | undefined;
+    minimumWarningAppVersion?:string | undefined;
     /** Versions less than the specified version will result in warning message on the managed app from accessing company data. */
-    minimumWarningOsVersion?: string | undefined;
+    minimumWarningOsVersion?:string | undefined;
     /** Indicates whether organizational credentials are required for app use. */
-    organizationalCredentialsRequired?: boolean | undefined;
+    organizationalCredentialsRequired?:boolean | undefined;
     /** TimePeriod before the all-level pin must be reset if PinRequired is set to True. */
-    periodBeforePinReset?: Duration | undefined;
+    periodBeforePinReset?:Duration | undefined;
     /** The period after which access is checked when the device is not connected to the internet. */
-    periodOfflineBeforeAccessCheck?: Duration | undefined;
+    periodOfflineBeforeAccessCheck?:Duration | undefined;
     /** The amount of time an app is allowed to remain disconnected from the internet before all managed data it is wiped. */
-    periodOfflineBeforeWipeIsEnforced?: Duration | undefined;
+    periodOfflineBeforeWipeIsEnforced?:Duration | undefined;
     /** The period after which access is checked when the device is connected to the internet. */
-    periodOnlineBeforeAccessCheck?: Duration | undefined;
+    periodOnlineBeforeAccessCheck?:Duration | undefined;
     /** Character set which may be used for an app-level pin if PinRequired is set to True. Possible values are: numeric, alphanumericAndSymbol. */
-    pinCharacterSet?: ManagedAppPinCharacterSet | undefined;
+    pinCharacterSet?:ManagedAppPinCharacterSet | undefined;
     /** Indicates whether an app-level pin is required. */
-    pinRequired?: boolean | undefined;
+    pinRequired?:boolean | undefined;
     /** Indicates whether printing is allowed from managed apps. */
-    printBlocked?: boolean | undefined;
+    printBlocked?:boolean | undefined;
     /** Indicates whether users may use the 'Save As' menu item to save a copy of protected files. */
-    saveAsBlocked?: boolean | undefined;
+    saveAsBlocked?:boolean | undefined;
     /** Indicates whether simplePin is blocked. */
-    simplePinBlocked?: boolean | undefined;
+    simplePinBlocked?:boolean | undefined;
 }

@@ -1,3 +1,3 @@
-export * from './windowsDefenderScanRequestBodyImpl'
-export * from './windowsDefenderScanRequestBody'
+export * from './windowsDefenderScanPostRequestBodyImpl'
+export * from './windowsDefenderScanPostRequestBody'
 export * from './windowsDefenderScanRequestBuilderPostRequestConfiguration'

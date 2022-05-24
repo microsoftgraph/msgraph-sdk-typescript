@@ -3,48 +3,47 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class PrinterLocationImpl implements AdditionalDataHolder, Parsable, PrinterLocation {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The altitude, in meters, that the printer is located at. */
-    altitudeInMeters?: number | undefined;
+    public altitudeInMeters?: number | undefined;
     /** The building that the printer is located in. */
-    building?: string | undefined;
+    public building?: string | undefined;
     /** The city that the printer is located in. */
-    city?: string | undefined;
+    public city?: string | undefined;
     /** The country or region that the printer is located in. */
-    countryOrRegion?: string | undefined;
+    public countryOrRegion?: string | undefined;
     /** The floor that the printer is located on. Only numerical values are supported right now. */
-    floor?: string | undefined;
+    public floor?: string | undefined;
     /** The description of the floor that the printer is located on. */
-    floorDescription?: string | undefined;
+    public floorDescription?: string | undefined;
     /** The latitude that the printer is located at. */
-    latitude?: number | undefined;
+    public latitude?: number | undefined;
     /** The longitude that the printer is located at. */
-    longitude?: number | undefined;
+    public longitude?: number | undefined;
     /** The organizational hierarchy that the printer belongs to. The elements should be in hierarchical order. */
-    organization?: string[] | undefined;
+    public organization?: string[] | undefined;
     /** The postal code that the printer is located in. */
-    postalCode?: string | undefined;
+    public postalCode?: string | undefined;
     /** The description of the room that the printer is located in. */
-    roomDescription?: string | undefined;
+    public roomDescription?: string | undefined;
     /** The room that the printer is located in. Only numerical values are supported right now. */
-    roomName?: string | undefined;
+    public roomName?: string | undefined;
     /** The site that the printer is located in. */
-    site?: string | undefined;
+    public site?: string | undefined;
     /** The state or province that the printer is located in. */
-    stateOrProvince?: string | undefined;
+    public stateOrProvince?: string | undefined;
     /** The street address where the printer is located. */
-    streetAddress?: string | undefined;
+    public streetAddress?: string | undefined;
     /** The subdivision that the printer is located in. The elements should be in hierarchical order. */
-    subdivision?: string[] | undefined;
+    public subdivision?: string[] | undefined;
     /** The subunit property */
-    subunit?: string[] | undefined;
+    public subunit?: string[] | undefined;
     /**
      * Instantiates a new printerLocation and sets the default values.
      * @param printerLocationParameterValue 
      */
     public constructor(printerLocationParameterValue?: PrinterLocation | undefined) {
-        this.additionalData = {};
-        this.additionalData = printerLocationParameterValue?.additionalData ? {} : printerLocationParameterValue?.additionalData!
+        this.additionalData = printerLocationParameterValue?.additionalData ? printerLocationParameterValue?.additionalData! : {}
         this.altitudeInMeters = printerLocationParameterValue?.altitudeInMeters ;
         this.building = printerLocationParameterValue?.building ;
         this.city = printerLocationParameterValue?.city ;
@@ -95,71 +94,54 @@ export class PrinterLocationImpl implements AdditionalDataHolder, Parsable, Prin
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.altitudeInMeters){
-        if(this.altitudeInMeters)
         writer.writeNumberValue("altitudeInMeters", this.altitudeInMeters);
         }
         if(this.building){
-        if(this.building)
         writer.writeStringValue("building", this.building);
         }
         if(this.city){
-        if(this.city)
         writer.writeStringValue("city", this.city);
         }
         if(this.countryOrRegion){
-        if(this.countryOrRegion)
         writer.writeStringValue("countryOrRegion", this.countryOrRegion);
         }
         if(this.floor){
-        if(this.floor)
         writer.writeStringValue("floor", this.floor);
         }
         if(this.floorDescription){
-        if(this.floorDescription)
         writer.writeStringValue("floorDescription", this.floorDescription);
         }
         if(this.latitude){
-        if(this.latitude)
         writer.writeNumberValue("latitude", this.latitude);
         }
         if(this.longitude){
-        if(this.longitude)
         writer.writeNumberValue("longitude", this.longitude);
         }
         if(this.organization){
-        if(this.organization)
         writer.writeCollectionOfPrimitiveValues<string>("organization", this.organization);
         }
         if(this.postalCode){
-        if(this.postalCode)
         writer.writeStringValue("postalCode", this.postalCode);
         }
         if(this.roomDescription){
-        if(this.roomDescription)
         writer.writeStringValue("roomDescription", this.roomDescription);
         }
         if(this.roomName){
-        if(this.roomName)
         writer.writeStringValue("roomName", this.roomName);
         }
         if(this.site){
-        if(this.site)
         writer.writeStringValue("site", this.site);
         }
         if(this.stateOrProvince){
-        if(this.stateOrProvince)
         writer.writeStringValue("stateOrProvince", this.stateOrProvince);
         }
         if(this.streetAddress){
-        if(this.streetAddress)
         writer.writeStringValue("streetAddress", this.streetAddress);
         }
         if(this.subdivision){
-        if(this.subdivision)
         writer.writeCollectionOfPrimitiveValues<string>("subdivision", this.subdivision);
         }
         if(this.subunit){
-        if(this.subunit)
         writer.writeCollectionOfPrimitiveValues<string>("subunit", this.subunit);
         }
         writer.writeAdditionalData(this.additionalData);

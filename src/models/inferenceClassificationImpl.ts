@@ -4,9 +4,10 @@ import {InferenceClassification} from './inferenceClassification';
 import {InferenceClassificationOverride} from './inferenceClassificationOverride';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to user. */
 export class InferenceClassificationImpl extends EntityImpl implements InferenceClassification, Parsable {
     /** A set of overrides for a user to always classify messages from specific senders in certain ways: focused, or other. Read-only. Nullable. */
-    overrides?: InferenceClassificationOverride[] | undefined;
+    public overrides?: InferenceClassificationOverride[] | undefined;
     /**
      * Instantiates a new inferenceClassification and sets the default values.
      * @param inferenceClassificationParameterValue 
@@ -31,8 +32,7 @@ export class InferenceClassificationImpl extends EntityImpl implements Inference
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.overrides){
-        const overridesArrValue: InferenceClassificationOverrideImpl[] = []; this.overrides?.forEach(element => {overridesArrValue.push(new InferenceClassificationOverrideImpl(element));});
+        if(this.overrides && this.overrides.length != 0){        const overridesArrValue: InferenceClassificationOverrideImpl[] = []; this.overrides?.forEach(element => {overridesArrValue.push(new InferenceClassificationOverrideImpl(element));});
         writer.writeCollectionOfObjectValues<InferenceClassificationOverrideImpl>("overrides", overridesArrValue);
         }
     };

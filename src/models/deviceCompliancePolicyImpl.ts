@@ -16,31 +16,32 @@ import {DeviceComplianceDeviceOverviewImpl, DeviceComplianceDeviceStatusImpl, De
 import {SettingStateDeviceSummary} from './settingStateDeviceSummary';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** This is the base class for Compliance policy. Compliance policies are platform specific and individual per-platform compliance policies inherit from here.  */
 export class DeviceCompliancePolicyImpl extends EntityImpl implements DeviceCompliancePolicy, Parsable {
     /** The collection of assignments for this compliance policy. */
-    assignments?: DeviceCompliancePolicyAssignment[] | undefined;
+    public assignments?: DeviceCompliancePolicyAssignment[] | undefined;
     /** DateTime the object was created. */
-    createdDateTime?: Date | undefined;
+    public createdDateTime?: Date | undefined;
     /** Admin provided description of the Device Configuration. */
-    description?: string | undefined;
+    public description?: string | undefined;
     /** Compliance Setting State Device Summary */
-    deviceSettingStateSummaries?: SettingStateDeviceSummary[] | undefined;
+    public deviceSettingStateSummaries?: SettingStateDeviceSummary[] | undefined;
     /** List of DeviceComplianceDeviceStatus. */
-    deviceStatuses?: DeviceComplianceDeviceStatus[] | undefined;
+    public deviceStatuses?: DeviceComplianceDeviceStatus[] | undefined;
     /** Device compliance devices status overview */
-    deviceStatusOverview?: DeviceComplianceDeviceOverview | undefined;
+    public deviceStatusOverview?: DeviceComplianceDeviceOverview | undefined;
     /** Admin provided name of the device configuration. */
-    displayName?: string | undefined;
+    public displayName?: string | undefined;
     /** DateTime the object was last modified. */
-    lastModifiedDateTime?: Date | undefined;
+    public lastModifiedDateTime?: Date | undefined;
     /** The list of scheduled action for this rule */
-    scheduledActionsForRule?: DeviceComplianceScheduledActionForRule[] | undefined;
+    public scheduledActionsForRule?: DeviceComplianceScheduledActionForRule[] | undefined;
     /** List of DeviceComplianceUserStatus. */
-    userStatuses?: DeviceComplianceUserStatus[] | undefined;
+    public userStatuses?: DeviceComplianceUserStatus[] | undefined;
     /** Device compliance users status overview */
-    userStatusOverview?: DeviceComplianceUserOverview | undefined;
+    public userStatusOverview?: DeviceComplianceUserOverview | undefined;
     /** Version of the device configuration. */
-    version?: number | undefined;
+    public version?: number | undefined;
     /**
      * Instantiates a new deviceCompliancePolicy and sets the default values.
      * @param deviceCompliancePolicyParameterValue 
@@ -87,52 +88,40 @@ export class DeviceCompliancePolicyImpl extends EntityImpl implements DeviceComp
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.assignments){
-        const assignmentsArrValue: DeviceCompliancePolicyAssignmentImpl[] = []; this.assignments?.forEach(element => {assignmentsArrValue.push(new DeviceCompliancePolicyAssignmentImpl(element));});
+        if(this.assignments && this.assignments.length != 0){        const assignmentsArrValue: DeviceCompliancePolicyAssignmentImpl[] = []; this.assignments?.forEach(element => {assignmentsArrValue.push(new DeviceCompliancePolicyAssignmentImpl(element));});
         writer.writeCollectionOfObjectValues<DeviceCompliancePolicyAssignmentImpl>("assignments", assignmentsArrValue);
         }
         if(this.createdDateTime){
-        if(this.createdDateTime)
         writer.writeDateValue("createdDateTime", this.createdDateTime);
         }
         if(this.description){
-        if(this.description)
         writer.writeStringValue("description", this.description);
         }
-        if(this.deviceSettingStateSummaries){
-        const deviceSettingStateSummariesArrValue: SettingStateDeviceSummaryImpl[] = []; this.deviceSettingStateSummaries?.forEach(element => {deviceSettingStateSummariesArrValue.push(new SettingStateDeviceSummaryImpl(element));});
+        if(this.deviceSettingStateSummaries && this.deviceSettingStateSummaries.length != 0){        const deviceSettingStateSummariesArrValue: SettingStateDeviceSummaryImpl[] = []; this.deviceSettingStateSummaries?.forEach(element => {deviceSettingStateSummariesArrValue.push(new SettingStateDeviceSummaryImpl(element));});
         writer.writeCollectionOfObjectValues<SettingStateDeviceSummaryImpl>("deviceSettingStateSummaries", deviceSettingStateSummariesArrValue);
         }
-        if(this.deviceStatuses){
-        const deviceStatusesArrValue: DeviceComplianceDeviceStatusImpl[] = []; this.deviceStatuses?.forEach(element => {deviceStatusesArrValue.push(new DeviceComplianceDeviceStatusImpl(element));});
+        if(this.deviceStatuses && this.deviceStatuses.length != 0){        const deviceStatusesArrValue: DeviceComplianceDeviceStatusImpl[] = []; this.deviceStatuses?.forEach(element => {deviceStatusesArrValue.push(new DeviceComplianceDeviceStatusImpl(element));});
         writer.writeCollectionOfObjectValues<DeviceComplianceDeviceStatusImpl>("deviceStatuses", deviceStatusesArrValue);
         }
         if(this.deviceStatusOverview){
-        if(this.deviceStatusOverview)
         writer.writeObjectValue<DeviceComplianceDeviceOverviewImpl>("deviceStatusOverview", new DeviceComplianceDeviceOverviewImpl(this.deviceStatusOverview));
         }
         if(this.displayName){
-        if(this.displayName)
         writer.writeStringValue("displayName", this.displayName);
         }
         if(this.lastModifiedDateTime){
-        if(this.lastModifiedDateTime)
         writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
         }
-        if(this.scheduledActionsForRule){
-        const scheduledActionsForRuleArrValue: DeviceComplianceScheduledActionForRuleImpl[] = []; this.scheduledActionsForRule?.forEach(element => {scheduledActionsForRuleArrValue.push(new DeviceComplianceScheduledActionForRuleImpl(element));});
+        if(this.scheduledActionsForRule && this.scheduledActionsForRule.length != 0){        const scheduledActionsForRuleArrValue: DeviceComplianceScheduledActionForRuleImpl[] = []; this.scheduledActionsForRule?.forEach(element => {scheduledActionsForRuleArrValue.push(new DeviceComplianceScheduledActionForRuleImpl(element));});
         writer.writeCollectionOfObjectValues<DeviceComplianceScheduledActionForRuleImpl>("scheduledActionsForRule", scheduledActionsForRuleArrValue);
         }
-        if(this.userStatuses){
-        const userStatusesArrValue: DeviceComplianceUserStatusImpl[] = []; this.userStatuses?.forEach(element => {userStatusesArrValue.push(new DeviceComplianceUserStatusImpl(element));});
+        if(this.userStatuses && this.userStatuses.length != 0){        const userStatusesArrValue: DeviceComplianceUserStatusImpl[] = []; this.userStatuses?.forEach(element => {userStatusesArrValue.push(new DeviceComplianceUserStatusImpl(element));});
         writer.writeCollectionOfObjectValues<DeviceComplianceUserStatusImpl>("userStatuses", userStatusesArrValue);
         }
         if(this.userStatusOverview){
-        if(this.userStatusOverview)
         writer.writeObjectValue<DeviceComplianceUserOverviewImpl>("userStatusOverview", new DeviceComplianceUserOverviewImpl(this.userStatusOverview));
         }
         if(this.version){
-        if(this.version)
         writer.writeNumberValue("version", this.version);
         }
     };

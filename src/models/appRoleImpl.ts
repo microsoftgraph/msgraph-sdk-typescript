@@ -3,28 +3,27 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class AppRoleImpl implements AdditionalDataHolder, AppRole, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** Specifies whether this app role can be assigned to users and groups (by setting to ['User']), to other application's (by setting to ['Application'], or both (by setting to ['User', 'Application']). App roles supporting assignment to other applications' service principals are also known as application permissions. The 'Application' value is only supported for app roles defined on application entities. */
-    allowedMemberTypes?: string[] | undefined;
+    public allowedMemberTypes?: string[] | undefined;
     /** The description for the app role. This is displayed when the app role is being assigned and, if the app role functions as an application permission, during  consent experiences. */
-    description?: string | undefined;
+    public description?: string | undefined;
     /** Display name for the permission that appears in the app role assignment and consent experiences. */
-    displayName?: string | undefined;
+    public displayName?: string | undefined;
     /** Unique role identifier inside the appRoles collection. When creating a new app role, a new GUID identifier must be provided. */
-    id?: string | undefined;
+    public id?: string | undefined;
     /** When creating or updating an app role, this must be set to true (which is the default). To delete a role, this must first be set to false.  At that point, in a subsequent call, this role may be removed. */
-    isEnabled?: boolean | undefined;
+    public isEnabled?: boolean | undefined;
     /** Specifies if the app role is defined on the application object or on the servicePrincipal entity. Must not be included in any POST or PATCH requests. Read-only. */
-    origin?: string | undefined;
+    public origin?: string | undefined;
     /** Specifies the value to include in the roles claim in ID tokens and access tokens authenticating an assigned user or service principal. Must not exceed 120 characters in length. Allowed characters are : ! # $ % & ' ( ) * + , - . / : ;  =  ? @ [ ] ^ + _  {  } ~, as well as characters in the ranges 0-9, A-Z and a-z. Any other character, including the space character, are not allowed. May not begin with .. */
-    value?: string | undefined;
+    public value?: string | undefined;
     /**
      * Instantiates a new appRole and sets the default values.
      * @param appRoleParameterValue 
      */
     public constructor(appRoleParameterValue?: AppRole | undefined) {
-        this.additionalData = {};
-        this.additionalData = appRoleParameterValue?.additionalData ? {} : appRoleParameterValue?.additionalData!
+        this.additionalData = appRoleParameterValue?.additionalData ? appRoleParameterValue?.additionalData! : {}
         this.allowedMemberTypes = appRoleParameterValue?.allowedMemberTypes ;
         this.description = appRoleParameterValue?.description ;
         this.displayName = appRoleParameterValue?.displayName ;
@@ -55,31 +54,24 @@ export class AppRoleImpl implements AdditionalDataHolder, AppRole, Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.allowedMemberTypes){
-        if(this.allowedMemberTypes)
         writer.writeCollectionOfPrimitiveValues<string>("allowedMemberTypes", this.allowedMemberTypes);
         }
         if(this.description){
-        if(this.description)
         writer.writeStringValue("description", this.description);
         }
         if(this.displayName){
-        if(this.displayName)
         writer.writeStringValue("displayName", this.displayName);
         }
         if(this.id){
-        if(this.id)
         writer.writeStringValue("id", this.id);
         }
         if(this.isEnabled){
-        if(this.isEnabled)
         writer.writeBooleanValue("isEnabled", this.isEnabled);
         }
         if(this.origin){
-        if(this.origin)
         writer.writeStringValue("origin", this.origin);
         }
         if(this.value){
-        if(this.value)
         writer.writeStringValue("value", this.value);
         }
         writer.writeAdditionalData(this.additionalData);

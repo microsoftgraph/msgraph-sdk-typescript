@@ -4,15 +4,16 @@ import {PlannerBucket} from './plannerBucket';
 import {PlannerTask} from './plannerTask';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to user. */
 export class PlannerBucketImpl extends EntityImpl implements Parsable, PlannerBucket {
     /** Name of the bucket. */
-    name?: string | undefined;
+    public name?: string | undefined;
     /** Hint used to order items of this type in a list view. The format is defined as outlined here. */
-    orderHint?: string | undefined;
+    public orderHint?: string | undefined;
     /** Plan ID to which the bucket belongs. */
-    planId?: string | undefined;
+    public planId?: string | undefined;
     /** Read-only. Nullable. The collection of tasks in the bucket. */
-    tasks?: PlannerTask[] | undefined;
+    public tasks?: PlannerTask[] | undefined;
     /**
      * Instantiates a new plannerBucket and sets the default values.
      * @param plannerBucketParameterValue 
@@ -44,19 +45,15 @@ export class PlannerBucketImpl extends EntityImpl implements Parsable, PlannerBu
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.name){
-        if(this.name)
         writer.writeStringValue("name", this.name);
         }
         if(this.orderHint){
-        if(this.orderHint)
         writer.writeStringValue("orderHint", this.orderHint);
         }
         if(this.planId){
-        if(this.planId)
         writer.writeStringValue("planId", this.planId);
         }
-        if(this.tasks){
-        const tasksArrValue: PlannerTaskImpl[] = []; this.tasks?.forEach(element => {tasksArrValue.push(new PlannerTaskImpl(element));});
+        if(this.tasks && this.tasks.length != 0){        const tasksArrValue: PlannerTaskImpl[] = []; this.tasks?.forEach(element => {tasksArrValue.push(new PlannerTaskImpl(element));});
         writer.writeCollectionOfObjectValues<PlannerTaskImpl>("tasks", tasksArrValue);
         }
     };

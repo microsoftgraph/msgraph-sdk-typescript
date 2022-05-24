@@ -1,6 +1,5 @@
 import {AccessReviewHistoryInstanceCollectionResponseImpl, AccessReviewHistoryInstanceImpl} from '../../../../../models/';
 import {AccessReviewHistoryInstance} from '../../../../../models/accessReviewHistoryInstance';
-import {AccessReviewHistoryInstanceCollectionResponse} from '../../../../../models/accessReviewHistoryInstanceCollectionResponse';
 import {createAccessReviewHistoryInstanceCollectionResponseFromDiscriminatorValue} from '../../../../../models/createAccessReviewHistoryInstanceCollectionResponseFromDiscriminatorValue';
 import {createAccessReviewHistoryInstanceFromDiscriminatorValue} from '../../../../../models/createAccessReviewHistoryInstanceFromDiscriminatorValue';
 import {ODataErrorImpl} from '../../../../../models/oDataErrors/';
@@ -68,8 +67,8 @@ export class InstancesRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        const bodyParsable = new AccessReviewHistoryInstanceImpl(body)
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", bodyParsable);
+        const parsableBody = new AccessReviewHistoryInstanceImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -78,7 +77,7 @@ export class InstancesRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AccessReviewHistoryInstanceCollectionResponse
      */
-    public get(requestConfiguration?: InstancesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AccessReviewHistoryInstanceCollectionResponse | undefined> {
+    public get(requestConfiguration?: InstancesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AccessReviewHistoryInstanceCollectionResponseImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -95,7 +94,7 @@ export class InstancesRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AccessReviewHistoryInstance
      */
-    public post(body: AccessReviewHistoryInstance | undefined, requestConfiguration?: InstancesRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AccessReviewHistoryInstance | undefined> {
+    public post(body: AccessReviewHistoryInstance | undefined, requestConfiguration?: InstancesRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AccessReviewHistoryInstanceImpl | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration

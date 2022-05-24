@@ -3,26 +3,25 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class PhysicalOfficeAddressImpl implements AdditionalDataHolder, Parsable, PhysicalOfficeAddress {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The city. */
-    city?: string | undefined;
+    public city?: string | undefined;
     /** The country or region. It's a free-format string value, for example, 'United States'. */
-    countryOrRegion?: string | undefined;
+    public countryOrRegion?: string | undefined;
     /** Office location such as building and office number for an organizational contact. */
-    officeLocation?: string | undefined;
+    public officeLocation?: string | undefined;
     /** The postal code. */
-    postalCode?: string | undefined;
+    public postalCode?: string | undefined;
     /** The state. */
-    state?: string | undefined;
+    public state?: string | undefined;
     /** The street. */
-    street?: string | undefined;
+    public street?: string | undefined;
     /**
      * Instantiates a new physicalOfficeAddress and sets the default values.
      * @param physicalOfficeAddressParameterValue 
      */
     public constructor(physicalOfficeAddressParameterValue?: PhysicalOfficeAddress | undefined) {
-        this.additionalData = {};
-        this.additionalData = physicalOfficeAddressParameterValue?.additionalData ? {} : physicalOfficeAddressParameterValue?.additionalData!
+        this.additionalData = physicalOfficeAddressParameterValue?.additionalData ? physicalOfficeAddressParameterValue?.additionalData! : {}
         this.city = physicalOfficeAddressParameterValue?.city ;
         this.countryOrRegion = physicalOfficeAddressParameterValue?.countryOrRegion ;
         this.officeLocation = physicalOfficeAddressParameterValue?.officeLocation ;
@@ -51,27 +50,21 @@ export class PhysicalOfficeAddressImpl implements AdditionalDataHolder, Parsable
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.city){
-        if(this.city)
         writer.writeStringValue("city", this.city);
         }
         if(this.countryOrRegion){
-        if(this.countryOrRegion)
         writer.writeStringValue("countryOrRegion", this.countryOrRegion);
         }
         if(this.officeLocation){
-        if(this.officeLocation)
         writer.writeStringValue("officeLocation", this.officeLocation);
         }
         if(this.postalCode){
-        if(this.postalCode)
         writer.writeStringValue("postalCode", this.postalCode);
         }
         if(this.state){
-        if(this.state)
         writer.writeStringValue("state", this.state);
         }
         if(this.street){
-        if(this.street)
         writer.writeStringValue("street", this.street);
         }
         writer.writeAdditionalData(this.additionalData);

@@ -4,25 +4,25 @@ import {PolicyPlatformType} from './policyPlatformType';
 
 export interface DeviceCompliancePolicySettingStateSummary extends Entity{
     /** Number of compliant devices */
-    compliantDeviceCount?: number | undefined;
+    compliantDeviceCount?:number | undefined;
     /** Number of conflict devices */
-    conflictDeviceCount?: number | undefined;
+    conflictDeviceCount?:number | undefined;
     /** Not yet documented */
-    deviceComplianceSettingStates?: DeviceComplianceSettingState[] | undefined;
+    deviceComplianceSettingStates?:DeviceComplianceSettingState[] | undefined;
     /** Number of error devices */
-    errorDeviceCount?: number | undefined;
+    errorDeviceCount?:number | undefined;
     /** Number of NonCompliant devices */
-    nonCompliantDeviceCount?: number | undefined;
+    nonCompliantDeviceCount?:number | undefined;
     /** Number of not applicable devices */
-    notApplicableDeviceCount?: number | undefined;
+    notApplicableDeviceCount?:number | undefined;
     /** Setting platform. Possible values are: android, androidForWork, iOS, macOS, windowsPhone81, windows81AndLater, windows10AndLater, androidWorkProfile, windows10XProfile, androidAOSP, all. */
-    platformType?: PolicyPlatformType | undefined;
+    platformType?:PolicyPlatformType | undefined;
     /** Number of remediated devices */
-    remediatedDeviceCount?: number | undefined;
+    remediatedDeviceCount?:number | undefined;
     /** The setting class name and property name. */
-    setting?: string | undefined;
+    setting?:string | undefined;
     /** Name of the setting. */
-    settingName?: string | undefined;
+    settingName?:string | undefined;
     /** Number of unknown devices */
-    unknownDeviceCount?: number | undefined;
+    unknownDeviceCount?:number | undefined;
 }

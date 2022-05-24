@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class Fido2AuthenticationMethodCollectionResponseImpl implements AdditionalDataHolder, Fido2AuthenticationMethodCollectionResponse, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: Fido2AuthenticationMethod[] | undefined;
+    public value?: Fido2AuthenticationMethod[] | undefined;
     /**
      * Instantiates a new Fido2AuthenticationMethodCollectionResponse and sets the default values.
      * @param fido2AuthenticationMethodCollectionResponseParameterValue 
      */
     public constructor(fido2AuthenticationMethodCollectionResponseParameterValue?: Fido2AuthenticationMethodCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = fido2AuthenticationMethodCollectionResponseParameterValue?.additionalData ? {} : fido2AuthenticationMethodCollectionResponseParameterValue?.additionalData!
+        this.additionalData = fido2AuthenticationMethodCollectionResponseParameterValue?.additionalData ? fido2AuthenticationMethodCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = fido2AuthenticationMethodCollectionResponseParameterValue?.nextLink ;
         this.value = fido2AuthenticationMethodCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class Fido2AuthenticationMethodCollectionResponseImpl implements Addition
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: Fido2AuthenticationMethodImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new Fido2AuthenticationMethodImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: Fido2AuthenticationMethodImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new Fido2AuthenticationMethodImpl(element));});
         writer.writeCollectionOfObjectValues<Fido2AuthenticationMethodImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

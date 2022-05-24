@@ -1,8 +1,6 @@
-import {createGetPolicyNonComplianceMetadataResponseFromDiscriminatorValue} from './createGetPolicyNonComplianceMetadataResponseFromDiscriminatorValue';
-import {GetPolicyNonComplianceMetadataRequestBody} from './getPolicyNonComplianceMetadataRequestBody';
+import {GetPolicyNonComplianceMetadataPostRequestBody} from './getPolicyNonComplianceMetadataPostRequestBody';
 import {GetPolicyNonComplianceMetadataRequestBuilderPostRequestConfiguration} from './getPolicyNonComplianceMetadataRequestBuilderPostRequestConfiguration';
-import {GetPolicyNonComplianceMetadataResponse} from './getPolicyNonComplianceMetadataResponse';
-import {GetPolicyNonComplianceMetadataRequestBodyImpl, GetPolicyNonComplianceMetadataResponseImpl} from './index';
+import {GetPolicyNonComplianceMetadataPostRequestBodyImpl} from './index';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the getPolicyNonComplianceMetadata method. */
@@ -32,7 +30,7 @@ export class GetPolicyNonComplianceMetadataRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public createPostRequestInformation(body: GetPolicyNonComplianceMetadataRequestBody | undefined, requestConfiguration?: GetPolicyNonComplianceMetadataRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public createPostRequestInformation(body: GetPolicyNonComplianceMetadataPostRequestBody | undefined, requestConfiguration?: GetPolicyNonComplianceMetadataRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -42,8 +40,8 @@ export class GetPolicyNonComplianceMetadataRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        const bodyParsable = new GetPolicyNonComplianceMetadataRequestBodyImpl(body)
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", bodyParsable);
+        const parsableBody = new GetPolicyNonComplianceMetadataPostRequestBodyImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -51,13 +49,13 @@ export class GetPolicyNonComplianceMetadataRequestBuilder {
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of GetPolicyNonComplianceMetadataResponse
+     * @returns a Promise of ArrayBuffer
      */
-    public post(body: GetPolicyNonComplianceMetadataRequestBody | undefined, requestConfiguration?: GetPolicyNonComplianceMetadataRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<GetPolicyNonComplianceMetadataResponse | undefined> {
+    public post(body: GetPolicyNonComplianceMetadataPostRequestBody | undefined, requestConfiguration?: GetPolicyNonComplianceMetadataRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ArrayBuffer | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration
         );
-        return this.requestAdapter?.sendAsync<GetPolicyNonComplianceMetadataResponseImpl>(requestInfo, createGetPolicyNonComplianceMetadataResponseFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendPrimitiveAsync<ArrayBuffer>(requestInfo, "ArrayBuffer", responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }

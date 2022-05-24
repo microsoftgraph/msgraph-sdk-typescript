@@ -7,26 +7,25 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class ParticipantInfoImpl implements AdditionalDataHolder, Parsable, ParticipantInfo {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The ISO 3166-1 Alpha-2 country code of the participant's best estimated physical location at the start of the call. Read-only. */
-    countryCode?: string | undefined;
+    public countryCode?: string | undefined;
     /** The type of endpoint the participant is using. Possible values are: default, skypeForBusiness, or skypeForBusinessVoipPhone. Read-only. */
-    endpointType?: EndpointType | undefined;
+    public endpointType?: EndpointType | undefined;
     /** The identity property */
-    identity?: IdentitySet | undefined;
+    public identity?: IdentitySet | undefined;
     /** The language culture string. Read-only. */
-    languageId?: string | undefined;
+    public languageId?: string | undefined;
     /** The participant ID of the participant. Read-only. */
-    participantId?: string | undefined;
+    public participantId?: string | undefined;
     /** The home region of the participant. This can be a country, a continent, or a larger geographic region. This does not change based on the participant's current physical location, unlike countryCode. Read-only. */
-    region?: string | undefined;
+    public region?: string | undefined;
     /**
      * Instantiates a new participantInfo and sets the default values.
      * @param participantInfoParameterValue 
      */
     public constructor(participantInfoParameterValue?: ParticipantInfo | undefined) {
-        this.additionalData = {};
-        this.additionalData = participantInfoParameterValue?.additionalData ? {} : participantInfoParameterValue?.additionalData!
+        this.additionalData = participantInfoParameterValue?.additionalData ? participantInfoParameterValue?.additionalData! : {}
         this.countryCode = participantInfoParameterValue?.countryCode ;
         this.endpointType = participantInfoParameterValue?.endpointType ;
         this.identity = participantInfoParameterValue?.identity ;
@@ -55,27 +54,21 @@ export class ParticipantInfoImpl implements AdditionalDataHolder, Parsable, Part
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.countryCode){
-        if(this.countryCode)
         writer.writeStringValue("countryCode", this.countryCode);
         }
         if(this.endpointType){
-        if(this.endpointType)
         writer.writeEnumValue<EndpointType>("endpointType", this.endpointType);
         }
         if(this.identity){
-        if(this.identity)
         writer.writeObjectValue<IdentitySetImpl>("identity", new IdentitySetImpl(this.identity));
         }
         if(this.languageId){
-        if(this.languageId)
         writer.writeStringValue("languageId", this.languageId);
         }
         if(this.participantId){
-        if(this.participantId)
         writer.writeStringValue("participantId", this.participantId);
         }
         if(this.region){
-        if(this.region)
         writer.writeStringValue("region", this.region);
         }
         writer.writeAdditionalData(this.additionalData);

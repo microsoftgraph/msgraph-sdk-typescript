@@ -3,13 +3,13 @@ import {FollowupFlagStatus} from './followupFlagStatus';
 
 export interface FollowupFlag{
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    additionalData?:Record<string, unknown>;
     /** The date and time that the follow-up was finished. */
-    completedDateTime?: DateTimeTimeZone | undefined;
+    completedDateTime?:DateTimeTimeZone | undefined;
     /** The date and time that the follow up is to be finished. Note: To set the due date, you must also specify the startDateTime; otherwise, you will get a 400 Bad Request response. */
-    dueDateTime?: DateTimeTimeZone | undefined;
+    dueDateTime?:DateTimeTimeZone | undefined;
     /** The status for follow-up for an item. Possible values are notFlagged, complete, and flagged. */
-    flagStatus?: FollowupFlagStatus | undefined;
+    flagStatus?:FollowupFlagStatus | undefined;
     /** The date and time that the follow-up is to begin. */
-    startDateTime?: DateTimeTimeZone | undefined;
+    startDateTime?:DateTimeTimeZone | undefined;
 }

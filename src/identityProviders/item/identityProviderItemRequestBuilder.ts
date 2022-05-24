@@ -30,7 +30,7 @@ export class IdentityProviderItemRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Delete identityProvider (deprecated)
+     * Delete an [identityProvider](../resources/identityprovider.md).
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -46,7 +46,7 @@ export class IdentityProviderItemRequestBuilder {
         return requestInfo;
     };
     /**
-     * Get identityProvider (deprecated)
+     * Retrieve the properties and relationships of an [identityProvider](../resources/identityprovider.md).
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -78,12 +78,12 @@ export class IdentityProviderItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        const bodyParsable = new IdentityProviderImpl(body)
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", bodyParsable);
+        const parsableBody = new IdentityProviderImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
-     * Delete identityProvider (deprecated)
+     * Delete an [identityProvider](../resources/identityprovider.md).
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
@@ -98,12 +98,12 @@ export class IdentityProviderItemRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Get identityProvider (deprecated)
+     * Retrieve the properties and relationships of an [identityProvider](../resources/identityprovider.md).
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of IdentityProvider
      */
-    public get(requestConfiguration?: IdentityProviderItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<IdentityProvider | undefined> {
+    public get(requestConfiguration?: IdentityProviderItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<IdentityProviderImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );

@@ -2,15 +2,16 @@ import {EntityImpl} from './index';
 import {PrintUsage} from './printUsage';
 import {DateOnly, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the reportRoot singleton. */
 export class PrintUsageImpl extends EntityImpl implements Parsable, PrintUsage {
     /** The completedBlackAndWhiteJobCount property */
-    completedBlackAndWhiteJobCount?: number | undefined;
+    public completedBlackAndWhiteJobCount?: number | undefined;
     /** The completedColorJobCount property */
-    completedColorJobCount?: number | undefined;
+    public completedColorJobCount?: number | undefined;
     /** The incompleteJobCount property */
-    incompleteJobCount?: number | undefined;
+    public incompleteJobCount?: number | undefined;
     /** The usageDate property */
-    usageDate?: DateOnly | undefined;
+    public usageDate?: DateOnly | undefined;
     /**
      * Instantiates a new printUsage and sets the default values.
      * @param printUsageParameterValue 
@@ -42,19 +43,15 @@ export class PrintUsageImpl extends EntityImpl implements Parsable, PrintUsage {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.completedBlackAndWhiteJobCount){
-        if(this.completedBlackAndWhiteJobCount)
         writer.writeNumberValue("completedBlackAndWhiteJobCount", this.completedBlackAndWhiteJobCount);
         }
         if(this.completedColorJobCount){
-        if(this.completedColorJobCount)
         writer.writeNumberValue("completedColorJobCount", this.completedColorJobCount);
         }
         if(this.incompleteJobCount){
-        if(this.incompleteJobCount)
         writer.writeNumberValue("incompleteJobCount", this.incompleteJobCount);
         }
         if(this.usageDate){
-        if(this.usageDate)
         writer.writeDateOnlyValue("usageDate", this.usageDate);
         }
     };

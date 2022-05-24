@@ -6,28 +6,27 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class RecurrencePatternImpl implements AdditionalDataHolder, Parsable, RecurrencePattern {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The day of the month on which the event occurs. Required if type is absoluteMonthly or absoluteYearly. */
-    dayOfMonth?: number | undefined;
+    public dayOfMonth?: number | undefined;
     /** A collection of the days of the week on which the event occurs. The possible values are: sunday, monday, tuesday, wednesday, thursday, friday, saturday. If type is relativeMonthly or relativeYearly, and daysOfWeek specifies more than one day, the event falls on the first day that satisfies the pattern.  Required if type is weekly, relativeMonthly, or relativeYearly. */
-    daysOfWeek?: DayOfWeek[] | undefined;
+    public daysOfWeek?: string[] | undefined;
     /** The first day of the week. The possible values are: sunday, monday, tuesday, wednesday, thursday, friday, saturday. Default is sunday. Required if type is weekly. */
-    firstDayOfWeek?: DayOfWeek | undefined;
+    public firstDayOfWeek?: DayOfWeek | undefined;
     /** Specifies on which instance of the allowed days specified in daysOfWeek the event occurs, counted from the first instance in the month. The possible values are: first, second, third, fourth, last. Default is first. Optional and used if type is relativeMonthly or relativeYearly. */
-    index?: WeekIndex | undefined;
+    public index?: WeekIndex | undefined;
     /** The number of units between occurrences, where units can be in days, weeks, months, or years, depending on the type. Required. */
-    interval?: number | undefined;
+    public interval?: number | undefined;
     /** The month in which the event occurs.  This is a number from 1 to 12. */
-    month?: number | undefined;
+    public month?: number | undefined;
     /** The recurrence pattern type: daily, weekly, absoluteMonthly, relativeMonthly, absoluteYearly, relativeYearly. Required. For more information, see values of type property. */
-    type?: RecurrencePatternType | undefined;
+    public type?: RecurrencePatternType | undefined;
     /**
      * Instantiates a new recurrencePattern and sets the default values.
      * @param recurrencePatternParameterValue 
      */
     public constructor(recurrencePatternParameterValue?: RecurrencePattern | undefined) {
-        this.additionalData = {};
-        this.additionalData = recurrencePatternParameterValue?.additionalData ? {} : recurrencePatternParameterValue?.additionalData!
+        this.additionalData = recurrencePatternParameterValue?.additionalData ? recurrencePatternParameterValue?.additionalData! : {}
         this.dayOfMonth = recurrencePatternParameterValue?.dayOfMonth ;
         this.daysOfWeek = recurrencePatternParameterValue?.daysOfWeek ;
         this.firstDayOfWeek = recurrencePatternParameterValue?.firstDayOfWeek ;
@@ -43,7 +42,7 @@ export class RecurrencePatternImpl implements AdditionalDataHolder, Parsable, Re
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
             "dayOfMonth": n => { this.dayOfMonth = n.getNumberValue(); },
-            "daysOfWeek": n => { this.daysOfWeek = n.getEnumValues<DayOfWeek>(DayOfWeek); },
+            "daysOfWeek": n => { this.daysOfWeek = n.getCollectionOfPrimitiveValues<string>(); },
             "firstDayOfWeek": n => { this.firstDayOfWeek = n.getEnumValue<DayOfWeek>(DayOfWeek); },
             "index": n => { this.index = n.getEnumValue<WeekIndex>(WeekIndex); },
             "interval": n => { this.interval = n.getNumberValue(); },
@@ -58,31 +57,24 @@ export class RecurrencePatternImpl implements AdditionalDataHolder, Parsable, Re
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.dayOfMonth){
-        if(this.dayOfMonth)
         writer.writeNumberValue("dayOfMonth", this.dayOfMonth);
         }
         if(this.daysOfWeek){
-        if(this.daysOfWeek)
-        this.daysOfWeek && writer.writeEnumValue<DayOfWeek>("daysOfWeek", ...this.daysOfWeek);
+        writer.writeCollectionOfPrimitiveValues<string>("daysOfWeek", this.daysOfWeek);
         }
         if(this.firstDayOfWeek){
-        if(this.firstDayOfWeek)
         writer.writeEnumValue<DayOfWeek>("firstDayOfWeek", this.firstDayOfWeek);
         }
         if(this.index){
-        if(this.index)
         writer.writeEnumValue<WeekIndex>("index", this.index);
         }
         if(this.interval){
-        if(this.interval)
         writer.writeNumberValue("interval", this.interval);
         }
         if(this.month){
-        if(this.month)
         writer.writeNumberValue("month", this.month);
         }
         if(this.type){
-        if(this.type)
         writer.writeEnumValue<RecurrencePatternType>("type", this.type);
         }
         writer.writeAdditionalData(this.additionalData);

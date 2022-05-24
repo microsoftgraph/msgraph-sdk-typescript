@@ -1,3 +1,3 @@
-export * from './inviteRequestBodyImpl'
-export * from './inviteRequestBody'
+export * from './invitePostRequestBodyImpl'
 export * from './inviteRequestBuilderPostRequestConfiguration'
+export * from './invitePostRequestBody'

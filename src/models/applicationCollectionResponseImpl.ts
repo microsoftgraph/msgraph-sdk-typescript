@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class ApplicationCollectionResponseImpl implements AdditionalDataHolder, ApplicationCollectionResponse, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: Application[] | undefined;
+    public value?: Application[] | undefined;
     /**
      * Instantiates a new ApplicationCollectionResponse and sets the default values.
      * @param applicationCollectionResponseParameterValue 
      */
     public constructor(applicationCollectionResponseParameterValue?: ApplicationCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = applicationCollectionResponseParameterValue?.additionalData ? {} : applicationCollectionResponseParameterValue?.additionalData!
+        this.additionalData = applicationCollectionResponseParameterValue?.additionalData ? applicationCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = applicationCollectionResponseParameterValue?.nextLink ;
         this.value = applicationCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class ApplicationCollectionResponseImpl implements AdditionalDataHolder, 
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: ApplicationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ApplicationImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: ApplicationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ApplicationImpl(element));});
         writer.writeCollectionOfObjectValues<ApplicationImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

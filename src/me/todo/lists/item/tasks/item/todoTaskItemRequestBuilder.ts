@@ -3,6 +3,8 @@ import {createTodoTaskFromDiscriminatorValue} from '../../../../../../models/cre
 import {ODataErrorImpl} from '../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {TodoTask} from '../../../../../../models/todoTask';
+import {ChecklistItemsRequestBuilder} from './checklistItems/checklistItemsRequestBuilder';
+import {ChecklistItemItemRequestBuilder} from './checklistItems/item/checklistItemItemRequestBuilder';
 import {ExtensionsRequestBuilder} from './extensions/extensionsRequestBuilder';
 import {ExtensionItemRequestBuilder} from './extensions/item/extensionItemRequestBuilder';
 import {LinkedResourceItemRequestBuilder} from './linkedResources/item/linkedResourceItemRequestBuilder';
@@ -14,6 +16,10 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
 
 /** Provides operations to manage the tasks property of the microsoft.graph.todoTaskList entity. */
 export class TodoTaskItemRequestBuilder {
+    /** The checklistItems property */
+    public get checklistItems(): ChecklistItemsRequestBuilder {
+        return new ChecklistItemsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** The extensions property */
     public get extensions(): ExtensionsRequestBuilder {
         return new ExtensionsRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -28,6 +34,17 @@ export class TodoTaskItemRequestBuilder {
     private readonly requestAdapter: RequestAdapter;
     /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
+    /**
+     * Gets an item from the MicrosoftGraph.me.todo.lists.item.tasks.item.checklistItems.item collection
+     * @param id Unique identifier of the item
+     * @returns a checklistItemItemRequestBuilder
+     */
+    public checklistItemsById(id: string) : ChecklistItemItemRequestBuilder {
+        if(!id) throw new Error("id cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["checklistItem%2Did"] = id
+        return new ChecklistItemItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new TodoTaskItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
@@ -90,8 +107,8 @@ export class TodoTaskItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        const bodyParsable = new TodoTaskImpl(body)
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", bodyParsable);
+        const parsableBody = new TodoTaskImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -126,7 +143,7 @@ export class TodoTaskItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of TodoTask
      */
-    public get(requestConfiguration?: TodoTaskItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<TodoTask | undefined> {
+    public get(requestConfiguration?: TodoTaskItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<TodoTaskImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );

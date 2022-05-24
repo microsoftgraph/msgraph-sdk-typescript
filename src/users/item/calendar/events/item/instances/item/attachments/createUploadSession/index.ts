@@ -1,3 +1,3 @@
-export * from './createUploadSessionRequestBodyImpl'
-export * from './createUploadSessionRequestBody'
+export * from './createUploadSessionPostRequestBodyImpl'
 export * from './createUploadSessionRequestBuilderPostRequestConfiguration'
+export * from './createUploadSessionPostRequestBody'

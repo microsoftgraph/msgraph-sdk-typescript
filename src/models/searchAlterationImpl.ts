@@ -6,20 +6,19 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class SearchAlterationImpl implements AdditionalDataHolder, Parsable, SearchAlteration {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** Defines the altered highlighted query string with spelling correction. The annotation around the corrected segment is (/ue000, /ue001) */
-    alteredHighlightedQueryString?: string | undefined;
+    public alteredHighlightedQueryString?: string | undefined;
     /** Defines the altered query string with spelling correction. */
-    alteredQueryString?: string | undefined;
+    public alteredQueryString?: string | undefined;
     /** Represents changed segments with respect to original query. */
-    alteredQueryTokens?: AlteredQueryToken[] | undefined;
+    public alteredQueryTokens?: AlteredQueryToken[] | undefined;
     /**
      * Instantiates a new searchAlteration and sets the default values.
      * @param searchAlterationParameterValue 
      */
     public constructor(searchAlterationParameterValue?: SearchAlteration | undefined) {
-        this.additionalData = {};
-        this.additionalData = searchAlterationParameterValue?.additionalData ? {} : searchAlterationParameterValue?.additionalData!
+        this.additionalData = searchAlterationParameterValue?.additionalData ? searchAlterationParameterValue?.additionalData! : {}
         this.alteredHighlightedQueryString = searchAlterationParameterValue?.alteredHighlightedQueryString ;
         this.alteredQueryString = searchAlterationParameterValue?.alteredQueryString ;
         this.alteredQueryTokens = searchAlterationParameterValue?.alteredQueryTokens ;
@@ -42,15 +41,12 @@ export class SearchAlterationImpl implements AdditionalDataHolder, Parsable, Sea
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.alteredHighlightedQueryString){
-        if(this.alteredHighlightedQueryString)
         writer.writeStringValue("alteredHighlightedQueryString", this.alteredHighlightedQueryString);
         }
         if(this.alteredQueryString){
-        if(this.alteredQueryString)
         writer.writeStringValue("alteredQueryString", this.alteredQueryString);
         }
-        if(this.alteredQueryTokens){
-        const alteredQueryTokensArrValue: AlteredQueryTokenImpl[] = []; this.alteredQueryTokens?.forEach(element => {alteredQueryTokensArrValue.push(new AlteredQueryTokenImpl(element));});
+        if(this.alteredQueryTokens && this.alteredQueryTokens.length != 0){        const alteredQueryTokensArrValue: AlteredQueryTokenImpl[] = []; this.alteredQueryTokens?.forEach(element => {alteredQueryTokensArrValue.push(new AlteredQueryTokenImpl(element));});
         writer.writeCollectionOfObjectValues<AlteredQueryTokenImpl>("alteredQueryTokens", alteredQueryTokensArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

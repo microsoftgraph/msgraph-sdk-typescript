@@ -1,11 +1,11 @@
 
 export interface AttendanceInterval{
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    additionalData?:Record<string, unknown>;
     /** Duration of the meeting interval in seconds; that is, the difference between joinDateTime and leaveDateTime. */
-    durationInSeconds?: number | undefined;
+    durationInSeconds?:number | undefined;
     /** The time the attendee joined in UTC. */
-    joinDateTime?: Date | undefined;
+    joinDateTime?:Date | undefined;
     /** The time the attendee left in UTC. */
-    leaveDateTime?: Date | undefined;
+    leaveDateTime?:Date | undefined;
 }

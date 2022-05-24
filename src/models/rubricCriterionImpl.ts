@@ -6,16 +6,15 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class RubricCriterionImpl implements AdditionalDataHolder, Parsable, RubricCriterion {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The description of this criterion. */
-    description?: EducationItemBody | undefined;
+    public description?: EducationItemBody | undefined;
     /**
      * Instantiates a new rubricCriterion and sets the default values.
      * @param rubricCriterionParameterValue 
      */
     public constructor(rubricCriterionParameterValue?: RubricCriterion | undefined) {
-        this.additionalData = {};
-        this.additionalData = rubricCriterionParameterValue?.additionalData ? {} : rubricCriterionParameterValue?.additionalData!
+        this.additionalData = rubricCriterionParameterValue?.additionalData ? rubricCriterionParameterValue?.additionalData! : {}
         this.description = rubricCriterionParameterValue?.description ;
     };
     /**
@@ -34,7 +33,6 @@ export class RubricCriterionImpl implements AdditionalDataHolder, Parsable, Rubr
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.description){
-        if(this.description)
         writer.writeObjectValue<EducationItemBodyImpl>("description", new EducationItemBodyImpl(this.description));
         }
         writer.writeAdditionalData(this.additionalData);

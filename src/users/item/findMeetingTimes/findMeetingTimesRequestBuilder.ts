@@ -1,9 +1,8 @@
 import {MeetingTimeSuggestionsResultImpl} from '../../../models/';
 import {createMeetingTimeSuggestionsResultFromDiscriminatorValue} from '../../../models/createMeetingTimeSuggestionsResultFromDiscriminatorValue';
-import {MeetingTimeSuggestionsResult} from '../../../models/meetingTimeSuggestionsResult';
-import {FindMeetingTimesRequestBody} from './findMeetingTimesRequestBody';
+import {FindMeetingTimesPostRequestBody} from './findMeetingTimesPostRequestBody';
 import {FindMeetingTimesRequestBuilderPostRequestConfiguration} from './findMeetingTimesRequestBuilderPostRequestConfiguration';
-import {FindMeetingTimesRequestBodyImpl} from './index';
+import {FindMeetingTimesPostRequestBodyImpl} from './index';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the findMeetingTimes method. */
@@ -33,7 +32,7 @@ export class FindMeetingTimesRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public createPostRequestInformation(body: FindMeetingTimesRequestBody | undefined, requestConfiguration?: FindMeetingTimesRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public createPostRequestInformation(body: FindMeetingTimesPostRequestBody | undefined, requestConfiguration?: FindMeetingTimesRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -43,8 +42,8 @@ export class FindMeetingTimesRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        const bodyParsable = new FindMeetingTimesRequestBodyImpl(body)
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", bodyParsable);
+        const parsableBody = new FindMeetingTimesPostRequestBodyImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -54,7 +53,7 @@ export class FindMeetingTimesRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of MeetingTimeSuggestionsResult
      */
-    public post(body: FindMeetingTimesRequestBody | undefined, requestConfiguration?: FindMeetingTimesRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<MeetingTimeSuggestionsResult | undefined> {
+    public post(body: FindMeetingTimesPostRequestBody | undefined, requestConfiguration?: FindMeetingTimesRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<MeetingTimeSuggestionsResultImpl | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration

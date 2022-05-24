@@ -3,13 +3,13 @@ import {Term} from './termStore/term';
 
 export interface TermColumn{
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    additionalData?:Record<string, unknown>;
     /** Specifies whether the column will allow more than one value */
-    allowMultipleValues?: boolean | undefined;
+    allowMultipleValues?:boolean | undefined;
     /** The parentTerm property */
-    parentTerm?: Term | undefined;
+    parentTerm?:Term | undefined;
     /** Specifies whether to display the entire term path or only the term label. */
-    showFullyQualifiedName?: boolean | undefined;
+    showFullyQualifiedName?:boolean | undefined;
     /** The termSet property */
-    termSet?: Set | undefined;
+    termSet?:Set | undefined;
 }

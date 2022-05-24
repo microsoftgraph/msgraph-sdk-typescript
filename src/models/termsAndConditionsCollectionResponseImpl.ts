@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class TermsAndConditionsCollectionResponseImpl implements AdditionalDataHolder, Parsable, TermsAndConditionsCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: TermsAndConditions[] | undefined;
+    public value?: TermsAndConditions[] | undefined;
     /**
      * Instantiates a new TermsAndConditionsCollectionResponse and sets the default values.
      * @param termsAndConditionsCollectionResponseParameterValue 
      */
     public constructor(termsAndConditionsCollectionResponseParameterValue?: TermsAndConditionsCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = termsAndConditionsCollectionResponseParameterValue?.additionalData ? {} : termsAndConditionsCollectionResponseParameterValue?.additionalData!
+        this.additionalData = termsAndConditionsCollectionResponseParameterValue?.additionalData ? termsAndConditionsCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = termsAndConditionsCollectionResponseParameterValue?.nextLink ;
         this.value = termsAndConditionsCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class TermsAndConditionsCollectionResponseImpl implements AdditionalDataH
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: TermsAndConditionsImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new TermsAndConditionsImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: TermsAndConditionsImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new TermsAndConditionsImpl(element));});
         writer.writeCollectionOfObjectValues<TermsAndConditionsImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

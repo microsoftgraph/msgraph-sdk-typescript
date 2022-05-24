@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class ActivityHistoryItemCollectionResponseImpl implements ActivityHistoryItemCollectionResponse, AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: ActivityHistoryItem[] | undefined;
+    public value?: ActivityHistoryItem[] | undefined;
     /**
      * Instantiates a new ActivityHistoryItemCollectionResponse and sets the default values.
      * @param activityHistoryItemCollectionResponseParameterValue 
      */
     public constructor(activityHistoryItemCollectionResponseParameterValue?: ActivityHistoryItemCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = activityHistoryItemCollectionResponseParameterValue?.additionalData ? {} : activityHistoryItemCollectionResponseParameterValue?.additionalData!
+        this.additionalData = activityHistoryItemCollectionResponseParameterValue?.additionalData ? activityHistoryItemCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = activityHistoryItemCollectionResponseParameterValue?.nextLink ;
         this.value = activityHistoryItemCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class ActivityHistoryItemCollectionResponseImpl implements ActivityHistor
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: ActivityHistoryItemImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ActivityHistoryItemImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: ActivityHistoryItemImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ActivityHistoryItemImpl(element));});
         writer.writeCollectionOfObjectValues<ActivityHistoryItemImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

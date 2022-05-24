@@ -10,30 +10,29 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class LocationImpl implements AdditionalDataHolder, Location, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The street address of the location. */
-    address?: PhysicalAddress | undefined;
+    public address?: PhysicalAddress | undefined;
     /** The geographic coordinates and elevation of the location. */
-    coordinates?: OutlookGeoCoordinates | undefined;
+    public coordinates?: OutlookGeoCoordinates | undefined;
     /** The name associated with the location. */
-    displayName?: string | undefined;
+    public displayName?: string | undefined;
     /** Optional email address of the location. */
-    locationEmailAddress?: string | undefined;
+    public locationEmailAddress?: string | undefined;
     /** The type of location. Possible values are: default, conferenceRoom, homeAddress, businessAddress,geoCoordinates, streetAddress, hotel, restaurant, localBusiness, postalAddress. Read-only. */
-    locationType?: LocationType | undefined;
+    public locationType?: LocationType | undefined;
     /** Optional URI representing the location. */
-    locationUri?: string | undefined;
+    public locationUri?: string | undefined;
     /** For internal use only. */
-    uniqueId?: string | undefined;
+    public uniqueId?: string | undefined;
     /** For internal use only. */
-    uniqueIdType?: LocationUniqueIdType | undefined;
+    public uniqueIdType?: LocationUniqueIdType | undefined;
     /**
      * Instantiates a new location and sets the default values.
      * @param locationParameterValue 
      */
     public constructor(locationParameterValue?: Location | undefined) {
-        this.additionalData = {};
-        this.additionalData = locationParameterValue?.additionalData ? {} : locationParameterValue?.additionalData!
+        this.additionalData = locationParameterValue?.additionalData ? locationParameterValue?.additionalData! : {}
         this.address = locationParameterValue?.address ;
         this.coordinates = locationParameterValue?.coordinates ;
         this.displayName = locationParameterValue?.displayName ;
@@ -66,35 +65,27 @@ export class LocationImpl implements AdditionalDataHolder, Location, Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.address){
-        if(this.address)
         writer.writeObjectValue<PhysicalAddressImpl>("address", new PhysicalAddressImpl(this.address));
         }
         if(this.coordinates){
-        if(this.coordinates)
         writer.writeObjectValue<OutlookGeoCoordinatesImpl>("coordinates", new OutlookGeoCoordinatesImpl(this.coordinates));
         }
         if(this.displayName){
-        if(this.displayName)
         writer.writeStringValue("displayName", this.displayName);
         }
         if(this.locationEmailAddress){
-        if(this.locationEmailAddress)
         writer.writeStringValue("locationEmailAddress", this.locationEmailAddress);
         }
         if(this.locationType){
-        if(this.locationType)
         writer.writeEnumValue<LocationType>("locationType", this.locationType);
         }
         if(this.locationUri){
-        if(this.locationUri)
         writer.writeStringValue("locationUri", this.locationUri);
         }
         if(this.uniqueId){
-        if(this.uniqueId)
         writer.writeStringValue("uniqueId", this.uniqueId);
         }
         if(this.uniqueIdType){
-        if(this.uniqueIdType)
         writer.writeEnumValue<LocationUniqueIdType>("uniqueIdType", this.uniqueIdType);
         }
         writer.writeAdditionalData(this.additionalData);

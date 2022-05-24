@@ -10,45 +10,46 @@ import {SignInLocation} from './signInLocation';
 import {TokenIssuerType} from './tokenIssuerType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the identityProtectionRoot singleton. */
 export class RiskDetectionImpl extends EntityImpl implements Parsable, RiskDetection {
     /** Indicates the activity type the detected risk is linked to. The possible values are signin, user, unknownFutureValue. */
-    activity?: ActivityType | undefined;
+    public activity?: ActivityType | undefined;
     /** Date and time that the risky activity occurred. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
-    activityDateTime?: Date | undefined;
+    public activityDateTime?: Date | undefined;
     /** Additional information associated with the risk detection in JSON format. */
-    additionalInfo?: string | undefined;
+    public additionalInfo?: string | undefined;
     /** Correlation ID of the sign-in associated with the risk detection. This property is null if the risk detection is not associated with a sign-in. */
-    correlationId?: string | undefined;
+    public correlationId?: string | undefined;
     /** Date and time that the risk was detected. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
-    detectedDateTime?: Date | undefined;
+    public detectedDateTime?: Date | undefined;
     /** Timing of the detected risk (real-time/offline). The possible values are notDefined, realtime, nearRealtime, offline, unknownFutureValue. */
-    detectionTimingType?: RiskDetectionTimingType | undefined;
+    public detectionTimingType?: RiskDetectionTimingType | undefined;
     /** Provides the IP address of the client from where the risk occurred. */
-    ipAddress?: string | undefined;
+    public ipAddress?: string | undefined;
     /** Date and time that the risk detection was last updated. */
-    lastUpdatedDateTime?: Date | undefined;
+    public lastUpdatedDateTime?: Date | undefined;
     /** Location of the sign-in. */
-    location?: SignInLocation | undefined;
+    public location?: SignInLocation | undefined;
     /** Request ID of the sign-in associated with the risk detection. This property is null if the risk detection is not associated with a sign-in. */
-    requestId?: string | undefined;
+    public requestId?: string | undefined;
     /** Details of the detected risk. The possible values are none, adminGeneratedTemporaryPassword, userPerformedSecuredPasswordChange, userPerformedSecuredPasswordReset, adminConfirmedSigninSafe, aiConfirmedSigninSafe, userPassedMFADrivenByRiskBasedPolicy, adminDismissedAllRiskForUser, adminConfirmedSigninCompromised, hidden, adminConfirmedUserCompromised, unknownFutureValue. Note: Details for this property are only available for Azure AD Premium P2 customers. P1 customers will be returned hidden. */
-    riskDetail?: RiskDetail | undefined;
+    public riskDetail?: RiskDetail | undefined;
     /** The type of risk event detected. The possible values are unlikelyTravel, anonymizedIPAddress, maliciousIPAddress, unfamiliarFeatures, malwareInfectedIPAddress, suspiciousIPAddress, leakedCredentials, investigationsThreatIntelligence, generic,adminConfirmedUserCompromised, mcasImpossibleTravel, mcasSuspiciousInboxManipulationRules, investigationsThreatIntelligenceSigninLinked, maliciousIPAddressValidCredentialsBlockedIP, and unknownFutureValue.  For more information about each value, see riskEventType values. */
-    riskEventType?: string | undefined;
+    public riskEventType?: string | undefined;
     /** Level of the detected risk. The possible values are low, medium, high, hidden, none, unknownFutureValue. Note: Details for this property are only available for Azure AD Premium P2 customers. P1 customers will be returned hidden. */
-    riskLevel?: RiskLevel | undefined;
+    public riskLevel?: RiskLevel | undefined;
     /** The state of a detected risky user or sign-in. The possible values are none, confirmedSafe, remediated, dismissed, atRisk, confirmedCompromised, and unknownFutureValue. */
-    riskState?: RiskState | undefined;
+    public riskState?: RiskState | undefined;
     /** Source of the risk detection. For example, activeDirectory. */
-    source?: string | undefined;
+    public source?: string | undefined;
     /** Indicates the type of token issuer for the detected sign-in risk. The possible values are AzureAD, ADFederationServices, and unknownFutureValue. */
-    tokenIssuerType?: TokenIssuerType | undefined;
+    public tokenIssuerType?: TokenIssuerType | undefined;
     /** Name of the user. */
-    userDisplayName?: string | undefined;
+    public userDisplayName?: string | undefined;
     /** Unique ID of the user.  The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
-    userId?: string | undefined;
+    public userId?: string | undefined;
     /** The user principal name (UPN) of the user. */
-    userPrincipalName?: string | undefined;
+    public userPrincipalName?: string | undefined;
     /**
      * Instantiates a new riskDetection and sets the default values.
      * @param riskDetectionParameterValue 
@@ -110,79 +111,60 @@ export class RiskDetectionImpl extends EntityImpl implements Parsable, RiskDetec
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.activity){
-        if(this.activity)
         writer.writeEnumValue<ActivityType>("activity", this.activity);
         }
         if(this.activityDateTime){
-        if(this.activityDateTime)
         writer.writeDateValue("activityDateTime", this.activityDateTime);
         }
         if(this.additionalInfo){
-        if(this.additionalInfo)
         writer.writeStringValue("additionalInfo", this.additionalInfo);
         }
         if(this.correlationId){
-        if(this.correlationId)
         writer.writeStringValue("correlationId", this.correlationId);
         }
         if(this.detectedDateTime){
-        if(this.detectedDateTime)
         writer.writeDateValue("detectedDateTime", this.detectedDateTime);
         }
         if(this.detectionTimingType){
-        if(this.detectionTimingType)
         writer.writeEnumValue<RiskDetectionTimingType>("detectionTimingType", this.detectionTimingType);
         }
         if(this.ipAddress){
-        if(this.ipAddress)
         writer.writeStringValue("ipAddress", this.ipAddress);
         }
         if(this.lastUpdatedDateTime){
-        if(this.lastUpdatedDateTime)
         writer.writeDateValue("lastUpdatedDateTime", this.lastUpdatedDateTime);
         }
         if(this.location){
-        if(this.location)
         writer.writeObjectValue<SignInLocationImpl>("location", new SignInLocationImpl(this.location));
         }
         if(this.requestId){
-        if(this.requestId)
         writer.writeStringValue("requestId", this.requestId);
         }
         if(this.riskDetail){
-        if(this.riskDetail)
         writer.writeEnumValue<RiskDetail>("riskDetail", this.riskDetail);
         }
         if(this.riskEventType){
-        if(this.riskEventType)
         writer.writeStringValue("riskEventType", this.riskEventType);
         }
         if(this.riskLevel){
-        if(this.riskLevel)
         writer.writeEnumValue<RiskLevel>("riskLevel", this.riskLevel);
         }
         if(this.riskState){
-        if(this.riskState)
         writer.writeEnumValue<RiskState>("riskState", this.riskState);
         }
         if(this.source){
-        if(this.source)
         writer.writeStringValue("source", this.source);
         }
         if(this.tokenIssuerType){
-        if(this.tokenIssuerType)
         writer.writeEnumValue<TokenIssuerType>("tokenIssuerType", this.tokenIssuerType);
         }
         if(this.userDisplayName){
-        if(this.userDisplayName)
         writer.writeStringValue("userDisplayName", this.userDisplayName);
         }
         if(this.userId){
-        if(this.userId)
         writer.writeStringValue("userId", this.userId);
         }
         if(this.userPrincipalName){
-        if(this.userPrincipalName)
         writer.writeStringValue("userPrincipalName", this.userPrincipalName);
         }
     };

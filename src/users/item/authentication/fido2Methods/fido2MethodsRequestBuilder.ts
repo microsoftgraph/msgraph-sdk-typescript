@@ -2,7 +2,6 @@ import {Fido2AuthenticationMethodCollectionResponseImpl, Fido2AuthenticationMeth
 import {createFido2AuthenticationMethodCollectionResponseFromDiscriminatorValue} from '../../../../models/createFido2AuthenticationMethodCollectionResponseFromDiscriminatorValue';
 import {createFido2AuthenticationMethodFromDiscriminatorValue} from '../../../../models/createFido2AuthenticationMethodFromDiscriminatorValue';
 import {Fido2AuthenticationMethod} from '../../../../models/fido2AuthenticationMethod';
-import {Fido2AuthenticationMethodCollectionResponse} from '../../../../models/fido2AuthenticationMethodCollectionResponse';
 import {ODataErrorImpl} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
@@ -68,8 +67,8 @@ export class Fido2MethodsRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        const bodyParsable = new Fido2AuthenticationMethodImpl(body)
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", bodyParsable);
+        const parsableBody = new Fido2AuthenticationMethodImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -78,7 +77,7 @@ export class Fido2MethodsRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Fido2AuthenticationMethodCollectionResponse
      */
-    public get(requestConfiguration?: Fido2MethodsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Fido2AuthenticationMethodCollectionResponse | undefined> {
+    public get(requestConfiguration?: Fido2MethodsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Fido2AuthenticationMethodCollectionResponseImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -95,7 +94,7 @@ export class Fido2MethodsRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Fido2AuthenticationMethod
      */
-    public post(body: Fido2AuthenticationMethod | undefined, requestConfiguration?: Fido2MethodsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Fido2AuthenticationMethod | undefined> {
+    public post(body: Fido2AuthenticationMethod | undefined, requestConfiguration?: Fido2MethodsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Fido2AuthenticationMethodImpl | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration

@@ -2,6 +2,7 @@ import {CancelMediaProcessingOperation} from './cancelMediaProcessingOperation';
 import {CommsOperationImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to call the cancelMediaProcessing method. */
 export class CancelMediaProcessingOperationImpl extends CommsOperationImpl implements CancelMediaProcessingOperation, Parsable {
     /**
      * Instantiates a new cancelMediaProcessingOperation and sets the default values.

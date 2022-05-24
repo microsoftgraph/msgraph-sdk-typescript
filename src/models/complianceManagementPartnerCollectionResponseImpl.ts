@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class ComplianceManagementPartnerCollectionResponseImpl implements AdditionalDataHolder, ComplianceManagementPartnerCollectionResponse, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: ComplianceManagementPartner[] | undefined;
+    public value?: ComplianceManagementPartner[] | undefined;
     /**
      * Instantiates a new ComplianceManagementPartnerCollectionResponse and sets the default values.
      * @param complianceManagementPartnerCollectionResponseParameterValue 
      */
     public constructor(complianceManagementPartnerCollectionResponseParameterValue?: ComplianceManagementPartnerCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = complianceManagementPartnerCollectionResponseParameterValue?.additionalData ? {} : complianceManagementPartnerCollectionResponseParameterValue?.additionalData!
+        this.additionalData = complianceManagementPartnerCollectionResponseParameterValue?.additionalData ? complianceManagementPartnerCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = complianceManagementPartnerCollectionResponseParameterValue?.nextLink ;
         this.value = complianceManagementPartnerCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class ComplianceManagementPartnerCollectionResponseImpl implements Additi
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: ComplianceManagementPartnerImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ComplianceManagementPartnerImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: ComplianceManagementPartnerImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ComplianceManagementPartnerImpl(element));});
         writer.writeCollectionOfObjectValues<ComplianceManagementPartnerImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class TermsAndConditionsAcceptanceStatusCollectionResponseImpl implements AdditionalDataHolder, Parsable, TermsAndConditionsAcceptanceStatusCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: TermsAndConditionsAcceptanceStatus[] | undefined;
+    public value?: TermsAndConditionsAcceptanceStatus[] | undefined;
     /**
      * Instantiates a new TermsAndConditionsAcceptanceStatusCollectionResponse and sets the default values.
      * @param termsAndConditionsAcceptanceStatusCollectionResponseParameterValue 
      */
     public constructor(termsAndConditionsAcceptanceStatusCollectionResponseParameterValue?: TermsAndConditionsAcceptanceStatusCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = termsAndConditionsAcceptanceStatusCollectionResponseParameterValue?.additionalData ? {} : termsAndConditionsAcceptanceStatusCollectionResponseParameterValue?.additionalData!
+        this.additionalData = termsAndConditionsAcceptanceStatusCollectionResponseParameterValue?.additionalData ? termsAndConditionsAcceptanceStatusCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = termsAndConditionsAcceptanceStatusCollectionResponseParameterValue?.nextLink ;
         this.value = termsAndConditionsAcceptanceStatusCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class TermsAndConditionsAcceptanceStatusCollectionResponseImpl implements
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: TermsAndConditionsAcceptanceStatusImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new TermsAndConditionsAcceptanceStatusImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: TermsAndConditionsAcceptanceStatusImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new TermsAndConditionsAcceptanceStatusImpl(element));});
         writer.writeCollectionOfObjectValues<TermsAndConditionsAcceptanceStatusImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

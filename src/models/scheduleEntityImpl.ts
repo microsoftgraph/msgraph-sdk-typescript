@@ -4,20 +4,19 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class ScheduleEntityImpl implements AdditionalDataHolder, Parsable, ScheduleEntity {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The endDateTime property */
-    endDateTime?: Date | undefined;
+    public endDateTime?: Date | undefined;
     /** The startDateTime property */
-    startDateTime?: Date | undefined;
+    public startDateTime?: Date | undefined;
     /** The theme property */
-    theme?: ScheduleEntityTheme | undefined;
+    public theme?: ScheduleEntityTheme | undefined;
     /**
      * Instantiates a new scheduleEntity and sets the default values.
      * @param scheduleEntityParameterValue 
      */
     public constructor(scheduleEntityParameterValue?: ScheduleEntity | undefined) {
-        this.additionalData = {};
-        this.additionalData = scheduleEntityParameterValue?.additionalData ? {} : scheduleEntityParameterValue?.additionalData!
+        this.additionalData = scheduleEntityParameterValue?.additionalData ? scheduleEntityParameterValue?.additionalData! : {}
         this.endDateTime = scheduleEntityParameterValue?.endDateTime ;
         this.startDateTime = scheduleEntityParameterValue?.startDateTime ;
         this.theme = scheduleEntityParameterValue?.theme ;
@@ -40,15 +39,12 @@ export class ScheduleEntityImpl implements AdditionalDataHolder, Parsable, Sched
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.endDateTime){
-        if(this.endDateTime)
         writer.writeDateValue("endDateTime", this.endDateTime);
         }
         if(this.startDateTime){
-        if(this.startDateTime)
         writer.writeDateValue("startDateTime", this.startDateTime);
         }
         if(this.theme){
-        if(this.theme)
         writer.writeEnumValue<ScheduleEntityTheme>("theme", this.theme);
         }
         writer.writeAdditionalData(this.additionalData);

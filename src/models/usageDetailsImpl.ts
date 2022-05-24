@@ -3,18 +3,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class UsageDetailsImpl implements AdditionalDataHolder, Parsable, UsageDetails {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The date and time the resource was last accessed by the user. The timestamp represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. */
-    lastAccessedDateTime?: Date | undefined;
+    public lastAccessedDateTime?: Date | undefined;
     /** The date and time the resource was last modified by the user. The timestamp represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. */
-    lastModifiedDateTime?: Date | undefined;
+    public lastModifiedDateTime?: Date | undefined;
     /**
      * Instantiates a new usageDetails and sets the default values.
      * @param usageDetailsParameterValue 
      */
     public constructor(usageDetailsParameterValue?: UsageDetails | undefined) {
-        this.additionalData = {};
-        this.additionalData = usageDetailsParameterValue?.additionalData ? {} : usageDetailsParameterValue?.additionalData!
+        this.additionalData = usageDetailsParameterValue?.additionalData ? usageDetailsParameterValue?.additionalData! : {}
         this.lastAccessedDateTime = usageDetailsParameterValue?.lastAccessedDateTime ;
         this.lastModifiedDateTime = usageDetailsParameterValue?.lastModifiedDateTime ;
     };
@@ -35,11 +34,9 @@ export class UsageDetailsImpl implements AdditionalDataHolder, Parsable, UsageDe
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.lastAccessedDateTime){
-        if(this.lastAccessedDateTime)
         writer.writeDateValue("lastAccessedDateTime", this.lastAccessedDateTime);
         }
         if(this.lastModifiedDateTime){
-        if(this.lastModifiedDateTime)
         writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
         }
         writer.writeAdditionalData(this.additionalData);

@@ -1,5 +1,3 @@
-export * from './getDeviceNonComplianceReportResponseImpl'
-export * from './getDeviceNonComplianceReportRequestBodyImpl'
+export * from './getDeviceNonComplianceReportPostRequestBodyImpl'
+export * from './getDeviceNonComplianceReportPostRequestBody'
 export * from './getDeviceNonComplianceReportRequestBuilderPostRequestConfiguration'
-export * from './getDeviceNonComplianceReportRequestBody'
-export * from './getDeviceNonComplianceReportResponse'

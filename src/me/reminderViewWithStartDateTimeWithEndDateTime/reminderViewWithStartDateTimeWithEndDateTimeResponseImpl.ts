@@ -7,16 +7,15 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Provides operations to call the reminderView method. */
 export class ReminderViewWithStartDateTimeWithEndDateTimeResponseImpl implements AdditionalDataHolder, Parsable, ReminderViewWithStartDateTimeWithEndDateTimeResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The value property */
-    value?: Reminder[] | undefined;
+    public value?: Reminder[] | undefined;
     /**
      * Instantiates a new reminderViewWithStartDateTimeWithEndDateTimeResponse and sets the default values.
      * @param reminderViewWithStartDateTimeWithEndDateTimeResponseParameterValue 
      */
     public constructor(reminderViewWithStartDateTimeWithEndDateTimeResponseParameterValue?: ReminderViewWithStartDateTimeWithEndDateTimeResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = reminderViewWithStartDateTimeWithEndDateTimeResponseParameterValue?.additionalData ? {} : reminderViewWithStartDateTimeWithEndDateTimeResponseParameterValue?.additionalData!
+        this.additionalData = reminderViewWithStartDateTimeWithEndDateTimeResponseParameterValue?.additionalData ? reminderViewWithStartDateTimeWithEndDateTimeResponseParameterValue?.additionalData! : {}
         this.value = reminderViewWithStartDateTimeWithEndDateTimeResponseParameterValue?.value ;
     };
     /**
@@ -34,8 +33,7 @@ export class ReminderViewWithStartDateTimeWithEndDateTimeResponseImpl implements
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        if(this.value){
-        const valueArrValue: ReminderImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ReminderImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: ReminderImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ReminderImpl(element));});
         writer.writeCollectionOfObjectValues<ReminderImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

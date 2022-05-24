@@ -3,16 +3,15 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class LicenseProcessingStateImpl implements AdditionalDataHolder, LicenseProcessingState, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The state property */
-    state?: string | undefined;
+    public state?: string | undefined;
     /**
      * Instantiates a new licenseProcessingState and sets the default values.
      * @param licenseProcessingStateParameterValue 
      */
     public constructor(licenseProcessingStateParameterValue?: LicenseProcessingState | undefined) {
-        this.additionalData = {};
-        this.additionalData = licenseProcessingStateParameterValue?.additionalData ? {} : licenseProcessingStateParameterValue?.additionalData!
+        this.additionalData = licenseProcessingStateParameterValue?.additionalData ? licenseProcessingStateParameterValue?.additionalData! : {}
         this.state = licenseProcessingStateParameterValue?.state ;
     };
     /**
@@ -31,7 +30,6 @@ export class LicenseProcessingStateImpl implements AdditionalDataHolder, License
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.state){
-        if(this.state)
         writer.writeStringValue("state", this.state);
         }
         writer.writeAdditionalData(this.additionalData);

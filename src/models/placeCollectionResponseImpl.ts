@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class PlaceCollectionResponseImpl implements AdditionalDataHolder, Parsable, PlaceCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: Place[] | undefined;
+    public value?: Place[] | undefined;
     /**
      * Instantiates a new PlaceCollectionResponse and sets the default values.
      * @param placeCollectionResponseParameterValue 
      */
     public constructor(placeCollectionResponseParameterValue?: PlaceCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = placeCollectionResponseParameterValue?.additionalData ? {} : placeCollectionResponseParameterValue?.additionalData!
+        this.additionalData = placeCollectionResponseParameterValue?.additionalData ? placeCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = placeCollectionResponseParameterValue?.nextLink ;
         this.value = placeCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class PlaceCollectionResponseImpl implements AdditionalDataHolder, Parsab
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: PlaceImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new PlaceImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: PlaceImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new PlaceImpl(element));});
         writer.writeCollectionOfObjectValues<PlaceImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

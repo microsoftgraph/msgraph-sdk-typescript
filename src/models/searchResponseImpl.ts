@@ -10,22 +10,21 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class SearchResponseImpl implements AdditionalDataHolder, Parsable, SearchResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** A collection of search results. */
-    hitsContainers?: SearchHitsContainer[] | undefined;
+    public hitsContainers?: SearchHitsContainer[] | undefined;
     /** Provides details of query alteration response for spelling correction. */
-    queryAlterationResponse?: AlterationResponse | undefined;
+    public queryAlterationResponse?: AlterationResponse | undefined;
     /** A dictionary of resultTemplateIds and associated values, which include the name and JSON schema of the result templates. */
-    resultTemplates?: ResultTemplateDictionary | undefined;
+    public resultTemplates?: ResultTemplateDictionary | undefined;
     /** Contains the search terms sent in the initial search query. */
-    searchTerms?: string[] | undefined;
+    public searchTerms?: string[] | undefined;
     /**
      * Instantiates a new searchResponse and sets the default values.
      * @param searchResponseParameterValue 
      */
     public constructor(searchResponseParameterValue?: SearchResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = searchResponseParameterValue?.additionalData ? {} : searchResponseParameterValue?.additionalData!
+        this.additionalData = searchResponseParameterValue?.additionalData ? searchResponseParameterValue?.additionalData! : {}
         this.hitsContainers = searchResponseParameterValue?.hitsContainers ;
         this.queryAlterationResponse = searchResponseParameterValue?.queryAlterationResponse ;
         this.resultTemplates = searchResponseParameterValue?.resultTemplates ;
@@ -49,20 +48,16 @@ export class SearchResponseImpl implements AdditionalDataHolder, Parsable, Searc
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        if(this.hitsContainers){
-        const hitsContainersArrValue: SearchHitsContainerImpl[] = []; this.hitsContainers?.forEach(element => {hitsContainersArrValue.push(new SearchHitsContainerImpl(element));});
+        if(this.hitsContainers && this.hitsContainers.length != 0){        const hitsContainersArrValue: SearchHitsContainerImpl[] = []; this.hitsContainers?.forEach(element => {hitsContainersArrValue.push(new SearchHitsContainerImpl(element));});
         writer.writeCollectionOfObjectValues<SearchHitsContainerImpl>("hitsContainers", hitsContainersArrValue);
         }
         if(this.queryAlterationResponse){
-        if(this.queryAlterationResponse)
         writer.writeObjectValue<AlterationResponseImpl>("queryAlterationResponse", new AlterationResponseImpl(this.queryAlterationResponse));
         }
         if(this.resultTemplates){
-        if(this.resultTemplates)
         writer.writeObjectValue<ResultTemplateDictionaryImpl>("resultTemplates", new ResultTemplateDictionaryImpl(this.resultTemplates));
         }
         if(this.searchTerms){
-        if(this.searchTerms)
         writer.writeCollectionOfPrimitiveValues<string>("searchTerms", this.searchTerms);
         }
         writer.writeAdditionalData(this.additionalData);

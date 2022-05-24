@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class FeatureRolloutPolicyCollectionResponseImpl implements AdditionalDataHolder, FeatureRolloutPolicyCollectionResponse, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: FeatureRolloutPolicy[] | undefined;
+    public value?: FeatureRolloutPolicy[] | undefined;
     /**
      * Instantiates a new FeatureRolloutPolicyCollectionResponse and sets the default values.
      * @param featureRolloutPolicyCollectionResponseParameterValue 
      */
     public constructor(featureRolloutPolicyCollectionResponseParameterValue?: FeatureRolloutPolicyCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = featureRolloutPolicyCollectionResponseParameterValue?.additionalData ? {} : featureRolloutPolicyCollectionResponseParameterValue?.additionalData!
+        this.additionalData = featureRolloutPolicyCollectionResponseParameterValue?.additionalData ? featureRolloutPolicyCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = featureRolloutPolicyCollectionResponseParameterValue?.nextLink ;
         this.value = featureRolloutPolicyCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class FeatureRolloutPolicyCollectionResponseImpl implements AdditionalDat
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: FeatureRolloutPolicyImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new FeatureRolloutPolicyImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: FeatureRolloutPolicyImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new FeatureRolloutPolicyImpl(element));});
         writer.writeCollectionOfObjectValues<FeatureRolloutPolicyImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

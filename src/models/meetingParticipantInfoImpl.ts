@@ -7,20 +7,19 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class MeetingParticipantInfoImpl implements AdditionalDataHolder, MeetingParticipantInfo, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** Identity information of the participant. */
-    identity?: IdentitySet | undefined;
+    public identity?: IdentitySet | undefined;
     /** Specifies the participant's role in the meeting. */
-    role?: OnlineMeetingRole | undefined;
+    public role?: OnlineMeetingRole | undefined;
     /** User principal name of the participant. */
-    upn?: string | undefined;
+    public upn?: string | undefined;
     /**
      * Instantiates a new meetingParticipantInfo and sets the default values.
      * @param meetingParticipantInfoParameterValue 
      */
     public constructor(meetingParticipantInfoParameterValue?: MeetingParticipantInfo | undefined) {
-        this.additionalData = {};
-        this.additionalData = meetingParticipantInfoParameterValue?.additionalData ? {} : meetingParticipantInfoParameterValue?.additionalData!
+        this.additionalData = meetingParticipantInfoParameterValue?.additionalData ? meetingParticipantInfoParameterValue?.additionalData! : {}
         this.identity = meetingParticipantInfoParameterValue?.identity ;
         this.role = meetingParticipantInfoParameterValue?.role ;
         this.upn = meetingParticipantInfoParameterValue?.upn ;
@@ -43,15 +42,12 @@ export class MeetingParticipantInfoImpl implements AdditionalDataHolder, Meeting
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.identity){
-        if(this.identity)
         writer.writeObjectValue<IdentitySetImpl>("identity", new IdentitySetImpl(this.identity));
         }
         if(this.role){
-        if(this.role)
         writer.writeEnumValue<OnlineMeetingRole>("role", this.role);
         }
         if(this.upn){
-        if(this.upn)
         writer.writeStringValue("upn", this.upn);
         }
         writer.writeAdditionalData(this.additionalData);

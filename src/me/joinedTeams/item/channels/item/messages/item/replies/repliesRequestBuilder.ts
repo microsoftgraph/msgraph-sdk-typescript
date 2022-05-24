@@ -1,6 +1,5 @@
 import {ChatMessageCollectionResponseImpl, ChatMessageImpl} from '../../../../../../../../models/';
 import {ChatMessage} from '../../../../../../../../models/chatMessage';
-import {ChatMessageCollectionResponse} from '../../../../../../../../models/chatMessageCollectionResponse';
 import {createChatMessageCollectionResponseFromDiscriminatorValue} from '../../../../../../../../models/createChatMessageCollectionResponseFromDiscriminatorValue';
 import {createChatMessageFromDiscriminatorValue} from '../../../../../../../../models/createChatMessageFromDiscriminatorValue';
 import {ODataErrorImpl} from '../../../../../../../../models/oDataErrors/';
@@ -69,8 +68,8 @@ export class RepliesRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        const bodyParsable = new ChatMessageImpl(body)
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", bodyParsable);
+        const parsableBody = new ChatMessageImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -86,7 +85,7 @@ export class RepliesRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ChatMessageCollectionResponse
      */
-    public get(requestConfiguration?: RepliesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ChatMessageCollectionResponse | undefined> {
+    public get(requestConfiguration?: RepliesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ChatMessageCollectionResponseImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -103,7 +102,7 @@ export class RepliesRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ChatMessage
      */
-    public post(body: ChatMessage | undefined, requestConfiguration?: RepliesRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ChatMessage | undefined> {
+    public post(body: ChatMessage | undefined, requestConfiguration?: RepliesRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ChatMessageImpl | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration

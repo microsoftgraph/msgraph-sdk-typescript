@@ -12,24 +12,23 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class ConditionalAccessSessionControlsImpl implements AdditionalDataHolder, ConditionalAccessSessionControls, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** Session control to enforce application restrictions. Only Exchange Online and Sharepoint Online support this session control. */
-    applicationEnforcedRestrictions?: ApplicationEnforcedRestrictionsSessionControl | undefined;
+    public applicationEnforcedRestrictions?: ApplicationEnforcedRestrictionsSessionControl | undefined;
     /** Session control to apply cloud app security. */
-    cloudAppSecurity?: CloudAppSecuritySessionControl | undefined;
+    public cloudAppSecurity?: CloudAppSecuritySessionControl | undefined;
     /** Session control that determines whether it is acceptable for Azure AD to extend existing sessions based on information collected prior to an outage or not. */
-    disableResilienceDefaults?: boolean | undefined;
+    public disableResilienceDefaults?: boolean | undefined;
     /** Session control to define whether to persist cookies or not. All apps should be selected for this session control to work correctly. */
-    persistentBrowser?: PersistentBrowserSessionControl | undefined;
+    public persistentBrowser?: PersistentBrowserSessionControl | undefined;
     /** Session control to enforce signin frequency. */
-    signInFrequency?: SignInFrequencySessionControl | undefined;
+    public signInFrequency?: SignInFrequencySessionControl | undefined;
     /**
      * Instantiates a new conditionalAccessSessionControls and sets the default values.
      * @param conditionalAccessSessionControlsParameterValue 
      */
     public constructor(conditionalAccessSessionControlsParameterValue?: ConditionalAccessSessionControls | undefined) {
-        this.additionalData = {};
-        this.additionalData = conditionalAccessSessionControlsParameterValue?.additionalData ? {} : conditionalAccessSessionControlsParameterValue?.additionalData!
+        this.additionalData = conditionalAccessSessionControlsParameterValue?.additionalData ? conditionalAccessSessionControlsParameterValue?.additionalData! : {}
         this.applicationEnforcedRestrictions = conditionalAccessSessionControlsParameterValue?.applicationEnforcedRestrictions ;
         this.cloudAppSecurity = conditionalAccessSessionControlsParameterValue?.cloudAppSecurity ;
         this.disableResilienceDefaults = conditionalAccessSessionControlsParameterValue?.disableResilienceDefaults ;
@@ -56,23 +55,18 @@ export class ConditionalAccessSessionControlsImpl implements AdditionalDataHolde
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.applicationEnforcedRestrictions){
-        if(this.applicationEnforcedRestrictions)
         writer.writeObjectValue<ApplicationEnforcedRestrictionsSessionControlImpl>("applicationEnforcedRestrictions", new ApplicationEnforcedRestrictionsSessionControlImpl(this.applicationEnforcedRestrictions));
         }
         if(this.cloudAppSecurity){
-        if(this.cloudAppSecurity)
         writer.writeObjectValue<CloudAppSecuritySessionControlImpl>("cloudAppSecurity", new CloudAppSecuritySessionControlImpl(this.cloudAppSecurity));
         }
         if(this.disableResilienceDefaults){
-        if(this.disableResilienceDefaults)
         writer.writeBooleanValue("disableResilienceDefaults", this.disableResilienceDefaults);
         }
         if(this.persistentBrowser){
-        if(this.persistentBrowser)
         writer.writeObjectValue<PersistentBrowserSessionControlImpl>("persistentBrowser", new PersistentBrowserSessionControlImpl(this.persistentBrowser));
         }
         if(this.signInFrequency){
-        if(this.signInFrequency)
         writer.writeObjectValue<SignInFrequencySessionControlImpl>("signInFrequency", new SignInFrequencySessionControlImpl(this.signInFrequency));
         }
         writer.writeAdditionalData(this.additionalData);

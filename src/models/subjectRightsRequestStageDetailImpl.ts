@@ -8,20 +8,19 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class SubjectRightsRequestStageDetailImpl implements AdditionalDataHolder, Parsable, SubjectRightsRequestStageDetail {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** Describes the error, if any, for the current stage. */
-    error_escaped?: PublicError | undefined;
+    public error_escaped?: PublicError | undefined;
     /** The stage of the subject rights request. Possible values are: contentRetrieval, contentReview, generateReport, contentDeletion, caseResolved, unknownFutureValue. */
-    stage?: SubjectRightsRequestStage | undefined;
+    public stage?: SubjectRightsRequestStage | undefined;
     /** Status of the current stage. Possible values are: notStarted, current, completed, failed, unknownFutureValue. */
-    status?: SubjectRightsRequestStageStatus | undefined;
+    public status?: SubjectRightsRequestStageStatus | undefined;
     /**
      * Instantiates a new subjectRightsRequestStageDetail and sets the default values.
      * @param subjectRightsRequestStageDetailParameterValue 
      */
     public constructor(subjectRightsRequestStageDetailParameterValue?: SubjectRightsRequestStageDetail | undefined) {
-        this.additionalData = {};
-        this.additionalData = subjectRightsRequestStageDetailParameterValue?.additionalData ? {} : subjectRightsRequestStageDetailParameterValue?.additionalData!
+        this.additionalData = subjectRightsRequestStageDetailParameterValue?.additionalData ? subjectRightsRequestStageDetailParameterValue?.additionalData! : {}
         this.error_escaped = subjectRightsRequestStageDetailParameterValue?.error_escaped ;
         this.stage = subjectRightsRequestStageDetailParameterValue?.stage ;
         this.status = subjectRightsRequestStageDetailParameterValue?.status ;
@@ -44,15 +43,12 @@ export class SubjectRightsRequestStageDetailImpl implements AdditionalDataHolder
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.error_escaped){
-        if(this.error_escaped)
         writer.writeObjectValue<PublicErrorImpl>("error", new PublicErrorImpl(this.error_escaped));
         }
         if(this.stage){
-        if(this.stage)
         writer.writeEnumValue<SubjectRightsRequestStage>("stage", this.stage);
         }
         if(this.status){
-        if(this.status)
         writer.writeEnumValue<SubjectRightsRequestStageStatus>("status", this.status);
         }
         writer.writeAdditionalData(this.additionalData);

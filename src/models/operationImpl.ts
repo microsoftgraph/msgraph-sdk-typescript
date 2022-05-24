@@ -3,13 +3,14 @@ import {Operation} from './operation';
 import {OperationStatus} from './operationStatus';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to group. */
 export class OperationImpl extends EntityImpl implements Operation, Parsable {
     /** The start time of the operation. */
-    createdDateTime?: Date | undefined;
+    public createdDateTime?: Date | undefined;
     /** The time of the last action of the operation. */
-    lastActionDateTime?: Date | undefined;
+    public lastActionDateTime?: Date | undefined;
     /** Possible values are: notStarted, running, completed, failed. Read-only. */
-    status?: OperationStatus | undefined;
+    public status?: OperationStatus | undefined;
     /**
      * Instantiates a new operation and sets the default values.
      * @param operationParameterValue 
@@ -39,15 +40,12 @@ export class OperationImpl extends EntityImpl implements Operation, Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.createdDateTime){
-        if(this.createdDateTime)
         writer.writeDateValue("createdDateTime", this.createdDateTime);
         }
         if(this.lastActionDateTime){
-        if(this.lastActionDateTime)
         writer.writeDateValue("lastActionDateTime", this.lastActionDateTime);
         }
         if(this.status){
-        if(this.status)
         writer.writeEnumValue<OperationStatus>("status", this.status);
         }
     };

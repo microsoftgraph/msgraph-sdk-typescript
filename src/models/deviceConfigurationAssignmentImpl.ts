@@ -4,9 +4,10 @@ import {DeviceConfigurationAssignment} from './deviceConfigurationAssignment';
 import {DeviceAndAppManagementAssignmentTargetImpl, EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** The device configuration assignment entity assigns an AAD group to a specific device configuration. */
 export class DeviceConfigurationAssignmentImpl extends EntityImpl implements DeviceConfigurationAssignment, Parsable {
     /** The assignment target for the device configuration. */
-    target?: DeviceAndAppManagementAssignmentTarget | undefined;
+    public target?: DeviceAndAppManagementAssignmentTarget | undefined;
     /**
      * Instantiates a new deviceConfigurationAssignment and sets the default values.
      * @param deviceConfigurationAssignmentParameterValue 
@@ -32,7 +33,6 @@ export class DeviceConfigurationAssignmentImpl extends EntityImpl implements Dev
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.target){
-        if(this.target)
         writer.writeObjectValue<DeviceAndAppManagementAssignmentTargetImpl>("target", new DeviceAndAppManagementAssignmentTargetImpl(this.target));
         }
     };

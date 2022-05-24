@@ -7,13 +7,14 @@ import {MobileAppAssignment} from './mobileAppAssignment';
 import {MobileAppAssignmentSettings} from './mobileAppAssignmentSettings';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** A class containing the properties used for Group Assignment of a Mobile App. */
 export class MobileAppAssignmentImpl extends EntityImpl implements MobileAppAssignment, Parsable {
     /** The install intent defined by the admin. Possible values are: available, required, uninstall, availableWithoutEnrollment. */
-    intent?: InstallIntent | undefined;
+    public intent?: InstallIntent | undefined;
     /** The settings for target assignment defined by the admin. */
-    settings?: MobileAppAssignmentSettings | undefined;
+    public settings?: MobileAppAssignmentSettings | undefined;
     /** The target group assignment defined by the admin. */
-    target?: DeviceAndAppManagementAssignmentTarget | undefined;
+    public target?: DeviceAndAppManagementAssignmentTarget | undefined;
     /**
      * Instantiates a new mobileAppAssignment and sets the default values.
      * @param mobileAppAssignmentParameterValue 
@@ -43,15 +44,12 @@ export class MobileAppAssignmentImpl extends EntityImpl implements MobileAppAssi
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.intent){
-        if(this.intent)
         writer.writeEnumValue<InstallIntent>("intent", this.intent);
         }
         if(this.settings){
-        if(this.settings)
         writer.writeObjectValue<MobileAppAssignmentSettingsImpl>("settings", new MobileAppAssignmentSettingsImpl(this.settings));
         }
         if(this.target){
-        if(this.target)
         writer.writeObjectValue<DeviceAndAppManagementAssignmentTargetImpl>("target", new DeviceAndAppManagementAssignmentTargetImpl(this.target));
         }
     };

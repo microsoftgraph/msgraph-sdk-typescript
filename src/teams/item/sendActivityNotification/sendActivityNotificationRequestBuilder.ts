@@ -1,5 +1,5 @@
-import {SendActivityNotificationRequestBodyImpl} from './index';
-import {SendActivityNotificationRequestBody} from './sendActivityNotificationRequestBody';
+import {SendActivityNotificationPostRequestBodyImpl} from './index';
+import {SendActivityNotificationPostRequestBody} from './sendActivityNotificationPostRequestBody';
 import {SendActivityNotificationRequestBuilderPostRequestConfiguration} from './sendActivityNotificationRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
@@ -30,7 +30,7 @@ export class SendActivityNotificationRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public createPostRequestInformation(body: SendActivityNotificationRequestBody | undefined, requestConfiguration?: SendActivityNotificationRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public createPostRequestInformation(body: SendActivityNotificationPostRequestBody | undefined, requestConfiguration?: SendActivityNotificationRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -40,8 +40,8 @@ export class SendActivityNotificationRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        const bodyParsable = new SendActivityNotificationRequestBodyImpl(body)
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", bodyParsable);
+        const parsableBody = new SendActivityNotificationPostRequestBodyImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -50,7 +50,7 @@ export class SendActivityNotificationRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public post(body: SendActivityNotificationRequestBody | undefined, requestConfiguration?: SendActivityNotificationRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public post(body: SendActivityNotificationPostRequestBody | undefined, requestConfiguration?: SendActivityNotificationRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration

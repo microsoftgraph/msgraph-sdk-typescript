@@ -3,21 +3,22 @@ import {AccessReviewHistoryStatus} from './accessReviewHistoryStatus';
 import {EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the identityGovernance singleton. */
 export class AccessReviewHistoryInstanceImpl extends EntityImpl implements AccessReviewHistoryInstance, Parsable {
     /** Uri which can be used to retrieve review history data. This URI will be active for 24 hours after being generated. Required. */
-    downloadUri?: string | undefined;
+    public downloadUri?: string | undefined;
     /** Timestamp when this instance and associated data expires and the history is deleted. Required. */
-    expirationDateTime?: Date | undefined;
+    public expirationDateTime?: Date | undefined;
     /** Timestamp when all of the available data for this instance was collected. This will be set after this instance's status is set to done. Required. */
-    fulfilledDateTime?: Date | undefined;
+    public fulfilledDateTime?: Date | undefined;
     /** Timestamp, reviews ending on or before this date will be included in the fetched history data. */
-    reviewHistoryPeriodEndDateTime?: Date | undefined;
+    public reviewHistoryPeriodEndDateTime?: Date | undefined;
     /** Timestamp, reviews starting on or after this date will be included in the fetched history data. */
-    reviewHistoryPeriodStartDateTime?: Date | undefined;
+    public reviewHistoryPeriodStartDateTime?: Date | undefined;
     /** Timestamp when the instance's history data is scheduled to be generated. */
-    runDateTime?: Date | undefined;
+    public runDateTime?: Date | undefined;
     /** Represents the status of the review history data collection. The possible values are: done, inProgress, error, requested, unknownFutureValue. Once the status has been marked as done, a link can be generated to retrieve the instance's data by calling generateDownloadUri method. */
-    status?: AccessReviewHistoryStatus | undefined;
+    public status?: AccessReviewHistoryStatus | undefined;
     /**
      * Instantiates a new accessReviewHistoryInstance and sets the default values.
      * @param accessReviewHistoryInstanceParameterValue 
@@ -55,31 +56,24 @@ export class AccessReviewHistoryInstanceImpl extends EntityImpl implements Acces
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.downloadUri){
-        if(this.downloadUri)
         writer.writeStringValue("downloadUri", this.downloadUri);
         }
         if(this.expirationDateTime){
-        if(this.expirationDateTime)
         writer.writeDateValue("expirationDateTime", this.expirationDateTime);
         }
         if(this.fulfilledDateTime){
-        if(this.fulfilledDateTime)
         writer.writeDateValue("fulfilledDateTime", this.fulfilledDateTime);
         }
         if(this.reviewHistoryPeriodEndDateTime){
-        if(this.reviewHistoryPeriodEndDateTime)
         writer.writeDateValue("reviewHistoryPeriodEndDateTime", this.reviewHistoryPeriodEndDateTime);
         }
         if(this.reviewHistoryPeriodStartDateTime){
-        if(this.reviewHistoryPeriodStartDateTime)
         writer.writeDateValue("reviewHistoryPeriodStartDateTime", this.reviewHistoryPeriodStartDateTime);
         }
         if(this.runDateTime){
-        if(this.runDateTime)
         writer.writeDateValue("runDateTime", this.runDateTime);
         }
         if(this.status){
-        if(this.status)
         writer.writeEnumValue<AccessReviewHistoryStatus>("status", this.status);
         }
     };

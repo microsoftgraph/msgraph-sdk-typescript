@@ -3,14 +3,13 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class EventMessageDetailImpl implements AdditionalDataHolder, EventMessageDetail, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /**
      * Instantiates a new eventMessageDetail and sets the default values.
      * @param eventMessageDetailParameterValue 
      */
     public constructor(eventMessageDetailParameterValue?: EventMessageDetail | undefined) {
-        this.additionalData = {};
-        this.additionalData = eventMessageDetailParameterValue?.additionalData ? {} : eventMessageDetailParameterValue?.additionalData!
+        this.additionalData = eventMessageDetailParameterValue?.additionalData ? eventMessageDetailParameterValue?.additionalData! : {}
     };
     /**
      * The deserialization information for the current model

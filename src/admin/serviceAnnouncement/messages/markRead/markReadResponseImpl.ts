@@ -4,16 +4,15 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Provides operations to call the markRead method. */
 export class MarkReadResponseImpl implements AdditionalDataHolder, MarkReadResponse, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The value property */
-    value?: boolean | undefined;
+    public value?: boolean | undefined;
     /**
      * Instantiates a new markReadResponse and sets the default values.
      * @param markReadResponseParameterValue 
      */
     public constructor(markReadResponseParameterValue?: MarkReadResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = markReadResponseParameterValue?.additionalData ? {} : markReadResponseParameterValue?.additionalData!
+        this.additionalData = markReadResponseParameterValue?.additionalData ? markReadResponseParameterValue?.additionalData! : {}
         this.value = markReadResponseParameterValue?.value ;
     };
     /**
@@ -32,7 +31,6 @@ export class MarkReadResponseImpl implements AdditionalDataHolder, MarkReadRespo
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.value){
-        if(this.value)
         writer.writeBooleanValue("value", this.value);
         }
         writer.writeAdditionalData(this.additionalData);

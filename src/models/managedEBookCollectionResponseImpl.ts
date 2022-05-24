@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class ManagedEBookCollectionResponseImpl implements AdditionalDataHolder, ManagedEBookCollectionResponse, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: ManagedEBook[] | undefined;
+    public value?: ManagedEBook[] | undefined;
     /**
      * Instantiates a new ManagedEBookCollectionResponse and sets the default values.
      * @param managedEBookCollectionResponseParameterValue 
      */
     public constructor(managedEBookCollectionResponseParameterValue?: ManagedEBookCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = managedEBookCollectionResponseParameterValue?.additionalData ? {} : managedEBookCollectionResponseParameterValue?.additionalData!
+        this.additionalData = managedEBookCollectionResponseParameterValue?.additionalData ? managedEBookCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = managedEBookCollectionResponseParameterValue?.nextLink ;
         this.value = managedEBookCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class ManagedEBookCollectionResponseImpl implements AdditionalDataHolder,
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: ManagedEBookImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ManagedEBookImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: ManagedEBookImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ManagedEBookImpl(element));});
         writer.writeCollectionOfObjectValues<ManagedEBookImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

@@ -8,18 +8,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** This type represents the set of working hours in a single day of the week. */
 export class BookingWorkHoursImpl implements AdditionalDataHolder, BookingWorkHours, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The day of the week represented by this instance. Possible values are: sunday, monday, tuesday, wednesday, thursday, friday, saturday. */
-    day?: DayOfWeek | undefined;
+    public day?: DayOfWeek | undefined;
     /** A list of start/end times during a day. */
-    timeSlots?: BookingWorkTimeSlot[] | undefined;
+    public timeSlots?: BookingWorkTimeSlot[] | undefined;
     /**
      * Instantiates a new bookingWorkHours and sets the default values.
      * @param bookingWorkHoursParameterValue 
      */
     public constructor(bookingWorkHoursParameterValue?: BookingWorkHours | undefined) {
-        this.additionalData = {};
-        this.additionalData = bookingWorkHoursParameterValue?.additionalData ? {} : bookingWorkHoursParameterValue?.additionalData!
+        this.additionalData = bookingWorkHoursParameterValue?.additionalData ? bookingWorkHoursParameterValue?.additionalData! : {}
         this.day = bookingWorkHoursParameterValue?.day ;
         this.timeSlots = bookingWorkHoursParameterValue?.timeSlots ;
     };
@@ -40,11 +39,9 @@ export class BookingWorkHoursImpl implements AdditionalDataHolder, BookingWorkHo
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.day){
-        if(this.day)
         writer.writeEnumValue<DayOfWeek>("day", this.day);
         }
-        if(this.timeSlots){
-        const timeSlotsArrValue: BookingWorkTimeSlotImpl[] = []; this.timeSlots?.forEach(element => {timeSlotsArrValue.push(new BookingWorkTimeSlotImpl(element));});
+        if(this.timeSlots && this.timeSlots.length != 0){        const timeSlotsArrValue: BookingWorkTimeSlotImpl[] = []; this.timeSlots?.forEach(element => {timeSlotsArrValue.push(new BookingWorkTimeSlotImpl(element));});
         writer.writeCollectionOfObjectValues<BookingWorkTimeSlotImpl>("timeSlots", timeSlotsArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

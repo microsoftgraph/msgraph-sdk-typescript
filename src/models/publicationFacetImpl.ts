@@ -3,18 +3,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class PublicationFacetImpl implements AdditionalDataHolder, Parsable, PublicationFacet {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The state of publication for this document. Either published or checkout. Read-only. */
-    level?: string | undefined;
+    public level?: string | undefined;
     /** The unique identifier for the version that is visible to the current caller. Read-only. */
-    versionId?: string | undefined;
+    public versionId?: string | undefined;
     /**
      * Instantiates a new publicationFacet and sets the default values.
      * @param publicationFacetParameterValue 
      */
     public constructor(publicationFacetParameterValue?: PublicationFacet | undefined) {
-        this.additionalData = {};
-        this.additionalData = publicationFacetParameterValue?.additionalData ? {} : publicationFacetParameterValue?.additionalData!
+        this.additionalData = publicationFacetParameterValue?.additionalData ? publicationFacetParameterValue?.additionalData! : {}
         this.level = publicationFacetParameterValue?.level ;
         this.versionId = publicationFacetParameterValue?.versionId ;
     };
@@ -35,11 +34,9 @@ export class PublicationFacetImpl implements AdditionalDataHolder, Parsable, Pub
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.level){
-        if(this.level)
         writer.writeStringValue("level", this.level);
         }
         if(this.versionId){
-        if(this.versionId)
         writer.writeStringValue("versionId", this.versionId);
         }
         writer.writeAdditionalData(this.additionalData);

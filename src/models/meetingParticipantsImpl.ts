@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class MeetingParticipantsImpl implements AdditionalDataHolder, MeetingParticipants, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** Information of the meeting attendees. */
-    attendees?: MeetingParticipantInfo[] | undefined;
+    public attendees?: MeetingParticipantInfo[] | undefined;
     /** Information of the meeting organizer. */
-    organizer?: MeetingParticipantInfo | undefined;
+    public organizer?: MeetingParticipantInfo | undefined;
     /**
      * Instantiates a new meetingParticipants and sets the default values.
      * @param meetingParticipantsParameterValue 
      */
     public constructor(meetingParticipantsParameterValue?: MeetingParticipants | undefined) {
-        this.additionalData = {};
-        this.additionalData = meetingParticipantsParameterValue?.additionalData ? {} : meetingParticipantsParameterValue?.additionalData!
+        this.additionalData = meetingParticipantsParameterValue?.additionalData ? meetingParticipantsParameterValue?.additionalData! : {}
         this.attendees = meetingParticipantsParameterValue?.attendees ;
         this.organizer = meetingParticipantsParameterValue?.organizer ;
     };
@@ -37,12 +36,10 @@ export class MeetingParticipantsImpl implements AdditionalDataHolder, MeetingPar
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        if(this.attendees){
-        const attendeesArrValue: MeetingParticipantInfoImpl[] = []; this.attendees?.forEach(element => {attendeesArrValue.push(new MeetingParticipantInfoImpl(element));});
+        if(this.attendees && this.attendees.length != 0){        const attendeesArrValue: MeetingParticipantInfoImpl[] = []; this.attendees?.forEach(element => {attendeesArrValue.push(new MeetingParticipantInfoImpl(element));});
         writer.writeCollectionOfObjectValues<MeetingParticipantInfoImpl>("attendees", attendeesArrValue);
         }
         if(this.organizer){
-        if(this.organizer)
         writer.writeObjectValue<MeetingParticipantInfoImpl>("organizer", new MeetingParticipantInfoImpl(this.organizer));
         }
         writer.writeAdditionalData(this.additionalData);

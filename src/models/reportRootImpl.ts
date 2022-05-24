@@ -9,13 +9,13 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** The resource that represents an instance of Enrollment Failure Reports. */
 export class ReportRootImpl extends EntityImpl implements Parsable, ReportRoot {
     /** The dailyPrintUsageByPrinter property */
-    dailyPrintUsageByPrinter?: PrintUsageByPrinter[] | undefined;
+    public dailyPrintUsageByPrinter?: PrintUsageByPrinter[] | undefined;
     /** The dailyPrintUsageByUser property */
-    dailyPrintUsageByUser?: PrintUsageByUser[] | undefined;
+    public dailyPrintUsageByUser?: PrintUsageByUser[] | undefined;
     /** The monthlyPrintUsageByPrinter property */
-    monthlyPrintUsageByPrinter?: PrintUsageByPrinter[] | undefined;
+    public monthlyPrintUsageByPrinter?: PrintUsageByPrinter[] | undefined;
     /** The monthlyPrintUsageByUser property */
-    monthlyPrintUsageByUser?: PrintUsageByUser[] | undefined;
+    public monthlyPrintUsageByUser?: PrintUsageByUser[] | undefined;
     /**
      * Instantiates a new reportRoot and sets the default values.
      * @param reportRootParameterValue 
@@ -46,20 +46,16 @@ export class ReportRootImpl extends EntityImpl implements Parsable, ReportRoot {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.dailyPrintUsageByPrinter){
-        const dailyPrintUsageByPrinterArrValue: PrintUsageByPrinterImpl[] = []; this.dailyPrintUsageByPrinter?.forEach(element => {dailyPrintUsageByPrinterArrValue.push(new PrintUsageByPrinterImpl(element));});
+        if(this.dailyPrintUsageByPrinter && this.dailyPrintUsageByPrinter.length != 0){        const dailyPrintUsageByPrinterArrValue: PrintUsageByPrinterImpl[] = []; this.dailyPrintUsageByPrinter?.forEach(element => {dailyPrintUsageByPrinterArrValue.push(new PrintUsageByPrinterImpl(element));});
         writer.writeCollectionOfObjectValues<PrintUsageByPrinterImpl>("dailyPrintUsageByPrinter", dailyPrintUsageByPrinterArrValue);
         }
-        if(this.dailyPrintUsageByUser){
-        const dailyPrintUsageByUserArrValue: PrintUsageByUserImpl[] = []; this.dailyPrintUsageByUser?.forEach(element => {dailyPrintUsageByUserArrValue.push(new PrintUsageByUserImpl(element));});
+        if(this.dailyPrintUsageByUser && this.dailyPrintUsageByUser.length != 0){        const dailyPrintUsageByUserArrValue: PrintUsageByUserImpl[] = []; this.dailyPrintUsageByUser?.forEach(element => {dailyPrintUsageByUserArrValue.push(new PrintUsageByUserImpl(element));});
         writer.writeCollectionOfObjectValues<PrintUsageByUserImpl>("dailyPrintUsageByUser", dailyPrintUsageByUserArrValue);
         }
-        if(this.monthlyPrintUsageByPrinter){
-        const monthlyPrintUsageByPrinterArrValue: PrintUsageByPrinterImpl[] = []; this.monthlyPrintUsageByPrinter?.forEach(element => {monthlyPrintUsageByPrinterArrValue.push(new PrintUsageByPrinterImpl(element));});
+        if(this.monthlyPrintUsageByPrinter && this.monthlyPrintUsageByPrinter.length != 0){        const monthlyPrintUsageByPrinterArrValue: PrintUsageByPrinterImpl[] = []; this.monthlyPrintUsageByPrinter?.forEach(element => {monthlyPrintUsageByPrinterArrValue.push(new PrintUsageByPrinterImpl(element));});
         writer.writeCollectionOfObjectValues<PrintUsageByPrinterImpl>("monthlyPrintUsageByPrinter", monthlyPrintUsageByPrinterArrValue);
         }
-        if(this.monthlyPrintUsageByUser){
-        const monthlyPrintUsageByUserArrValue: PrintUsageByUserImpl[] = []; this.monthlyPrintUsageByUser?.forEach(element => {monthlyPrintUsageByUserArrValue.push(new PrintUsageByUserImpl(element));});
+        if(this.monthlyPrintUsageByUser && this.monthlyPrintUsageByUser.length != 0){        const monthlyPrintUsageByUserArrValue: PrintUsageByUserImpl[] = []; this.monthlyPrintUsageByUser?.forEach(element => {monthlyPrintUsageByUserArrValue.push(new PrintUsageByUserImpl(element));});
         writer.writeCollectionOfObjectValues<PrintUsageByUserImpl>("monthlyPrintUsageByUser", monthlyPrintUsageByUserArrValue);
         }
     };

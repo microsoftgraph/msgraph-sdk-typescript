@@ -1,4 +1,3 @@
-import {AccessReviewHistoryDecisionFilter} from './accessReviewHistoryDecisionFilter';
 import {AccessReviewHistoryDefinition} from './accessReviewHistoryDefinition';
 import {AccessReviewHistoryInstance} from './accessReviewHistoryInstance';
 import {AccessReviewHistoryScheduleSettings} from './accessReviewHistoryScheduleSettings';
@@ -12,27 +11,28 @@ import {AccessReviewHistoryInstanceImpl, AccessReviewHistoryScheduleSettingsImpl
 import {UserIdentity} from './userIdentity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the identityGovernance singleton. */
 export class AccessReviewHistoryDefinitionImpl extends EntityImpl implements AccessReviewHistoryDefinition, Parsable {
     /** The createdBy property */
-    createdBy?: UserIdentity | undefined;
+    public createdBy?: UserIdentity | undefined;
     /** Timestamp when the access review definition was created. */
-    createdDateTime?: Date | undefined;
+    public createdDateTime?: Date | undefined;
     /** Determines which review decisions will be included in the fetched review history data if specified. Optional on create. All decisions will be included by default if no decisions are provided on create. Possible values are: approve, deny, dontKnow, notReviewed, and notNotified. */
-    decisions?: AccessReviewHistoryDecisionFilter[] | undefined;
+    public decisions?: string[] | undefined;
     /** Name for the access review history data collection. Required. */
-    displayName?: string | undefined;
+    public displayName?: string | undefined;
     /** If the accessReviewHistoryDefinition is a recurring definition, instances represent each recurrence. A definition that does not recur will have exactly one instance. */
-    instances?: AccessReviewHistoryInstance[] | undefined;
+    public instances?: AccessReviewHistoryInstance[] | undefined;
     /** A timestamp. Reviews ending on or before this date will be included in the fetched history data. Only required if scheduleSettings is not defined. */
-    reviewHistoryPeriodEndDateTime?: Date | undefined;
+    public reviewHistoryPeriodEndDateTime?: Date | undefined;
     /** A timestamp. Reviews starting on or before this date will be included in the fetched history data. Only required if scheduleSettings is not defined. */
-    reviewHistoryPeriodStartDateTime?: Date | undefined;
+    public reviewHistoryPeriodStartDateTime?: Date | undefined;
     /** The settings for a recurring access review history definition series. Only required if reviewHistoryPeriodStartDateTime or reviewHistoryPeriodEndDateTime are not defined. Not supported yet. */
-    scheduleSettings?: AccessReviewHistoryScheduleSettings | undefined;
+    public scheduleSettings?: AccessReviewHistoryScheduleSettings | undefined;
     /** Used to scope what reviews are included in the fetched history data. Fetches reviews whose scope matches with this provided scope. Required. */
-    scopes?: AccessReviewScope[] | undefined;
+    public scopes?: AccessReviewScope[] | undefined;
     /** Represents the status of the review history data collection. The possible values are: done, inProgress, error, requested, unknownFutureValue. */
-    status?: AccessReviewHistoryStatus | undefined;
+    public status?: AccessReviewHistoryStatus | undefined;
     /**
      * Instantiates a new accessReviewHistoryDefinition and sets the default values.
      * @param accessReviewHistoryDefinitionParameterValue 
@@ -58,7 +58,7 @@ export class AccessReviewHistoryDefinitionImpl extends EntityImpl implements Acc
         return {...super.getFieldDeserializers(),
             "createdBy": n => { this.createdBy = n.getObjectValue<UserIdentityImpl>(createUserIdentityFromDiscriminatorValue); },
             "createdDateTime": n => { this.createdDateTime = n.getDateValue(); },
-            "decisions": n => { this.decisions = n.getEnumValues<AccessReviewHistoryDecisionFilter>(AccessReviewHistoryDecisionFilter); },
+            "decisions": n => { this.decisions = n.getCollectionOfPrimitiveValues<string>(); },
             "displayName": n => { this.displayName = n.getStringValue(); },
             "instances": n => { this.instances = n.getCollectionOfObjectValues<AccessReviewHistoryInstanceImpl>(createAccessReviewHistoryInstanceFromDiscriminatorValue); },
             "reviewHistoryPeriodEndDateTime": n => { this.reviewHistoryPeriodEndDateTime = n.getDateValue(); },
@@ -76,43 +76,33 @@ export class AccessReviewHistoryDefinitionImpl extends EntityImpl implements Acc
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.createdBy){
-        if(this.createdBy)
         writer.writeObjectValue<UserIdentityImpl>("createdBy", new UserIdentityImpl(this.createdBy));
         }
         if(this.createdDateTime){
-        if(this.createdDateTime)
         writer.writeDateValue("createdDateTime", this.createdDateTime);
         }
         if(this.decisions){
-        if(this.decisions)
-        this.decisions && writer.writeEnumValue<AccessReviewHistoryDecisionFilter>("decisions", ...this.decisions);
+        writer.writeCollectionOfPrimitiveValues<string>("decisions", this.decisions);
         }
         if(this.displayName){
-        if(this.displayName)
         writer.writeStringValue("displayName", this.displayName);
         }
-        if(this.instances){
-        const instancesArrValue: AccessReviewHistoryInstanceImpl[] = []; this.instances?.forEach(element => {instancesArrValue.push(new AccessReviewHistoryInstanceImpl(element));});
+        if(this.instances && this.instances.length != 0){        const instancesArrValue: AccessReviewHistoryInstanceImpl[] = []; this.instances?.forEach(element => {instancesArrValue.push(new AccessReviewHistoryInstanceImpl(element));});
         writer.writeCollectionOfObjectValues<AccessReviewHistoryInstanceImpl>("instances", instancesArrValue);
         }
         if(this.reviewHistoryPeriodEndDateTime){
-        if(this.reviewHistoryPeriodEndDateTime)
         writer.writeDateValue("reviewHistoryPeriodEndDateTime", this.reviewHistoryPeriodEndDateTime);
         }
         if(this.reviewHistoryPeriodStartDateTime){
-        if(this.reviewHistoryPeriodStartDateTime)
         writer.writeDateValue("reviewHistoryPeriodStartDateTime", this.reviewHistoryPeriodStartDateTime);
         }
         if(this.scheduleSettings){
-        if(this.scheduleSettings)
         writer.writeObjectValue<AccessReviewHistoryScheduleSettingsImpl>("scheduleSettings", new AccessReviewHistoryScheduleSettingsImpl(this.scheduleSettings));
         }
-        if(this.scopes){
-        const scopesArrValue: AccessReviewScopeImpl[] = []; this.scopes?.forEach(element => {scopesArrValue.push(new AccessReviewScopeImpl(element));});
+        if(this.scopes && this.scopes.length != 0){        const scopesArrValue: AccessReviewScopeImpl[] = []; this.scopes?.forEach(element => {scopesArrValue.push(new AccessReviewScopeImpl(element));});
         writer.writeCollectionOfObjectValues<AccessReviewScopeImpl>("scopes", scopesArrValue);
         }
         if(this.status){
-        if(this.status)
         writer.writeEnumValue<AccessReviewHistoryStatus>("status", this.status);
         }
     };

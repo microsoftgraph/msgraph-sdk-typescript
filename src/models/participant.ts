@@ -5,15 +5,15 @@ import {RecordingInfo} from './recordingInfo';
 
 export interface Participant extends Entity{
     /** The info property */
-    info?: ParticipantInfo | undefined;
+    info?:ParticipantInfo | undefined;
     /** true if the participant is in lobby. */
-    isInLobby?: boolean | undefined;
+    isInLobby?:boolean | undefined;
     /** true if the participant is muted (client or server muted). */
-    isMuted?: boolean | undefined;
+    isMuted?:boolean | undefined;
     /** The list of media streams. */
-    mediaStreams?: MediaStream[] | undefined;
+    mediaStreams?:MediaStream[] | undefined;
     /** A blob of data provided by the participant in the roster. */
-    metadata?: string | undefined;
+    metadata?:string | undefined;
     /** Information on whether the participant has recording capability. */
-    recordingInfo?: RecordingInfo | undefined;
+    recordingInfo?:RecordingInfo | undefined;
 }

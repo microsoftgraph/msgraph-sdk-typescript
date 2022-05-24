@@ -6,17 +6,18 @@ import {DeviceExchangeAccessStateSummaryImpl, DeviceOperatingSystemSummaryImpl, 
 import {ManagedDeviceOverview} from './managedDeviceOverview';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Summary data for managed devices */
 export class ManagedDeviceOverviewImpl extends EntityImpl implements ManagedDeviceOverview, Parsable {
     /** Distribution of Exchange Access State in Intune */
-    deviceExchangeAccessStateSummary?: DeviceExchangeAccessStateSummary | undefined;
+    public deviceExchangeAccessStateSummary?: DeviceExchangeAccessStateSummary | undefined;
     /** Device operating system summary. */
-    deviceOperatingSystemSummary?: DeviceOperatingSystemSummary | undefined;
+    public deviceOperatingSystemSummary?: DeviceOperatingSystemSummary | undefined;
     /** The number of devices enrolled in both MDM and EAS */
-    dualEnrolledDeviceCount?: number | undefined;
+    public dualEnrolledDeviceCount?: number | undefined;
     /** Total enrolled device count. Does not include PC devices managed via Intune PC Agent */
-    enrolledDeviceCount?: number | undefined;
+    public enrolledDeviceCount?: number | undefined;
     /** The number of devices enrolled in MDM */
-    mdmEnrolledCount?: number | undefined;
+    public mdmEnrolledCount?: number | undefined;
     /**
      * Instantiates a new managedDeviceOverview and sets the default values.
      * @param managedDeviceOverviewParameterValue 
@@ -50,23 +51,18 @@ export class ManagedDeviceOverviewImpl extends EntityImpl implements ManagedDevi
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.deviceExchangeAccessStateSummary){
-        if(this.deviceExchangeAccessStateSummary)
         writer.writeObjectValue<DeviceExchangeAccessStateSummaryImpl>("deviceExchangeAccessStateSummary", new DeviceExchangeAccessStateSummaryImpl(this.deviceExchangeAccessStateSummary));
         }
         if(this.deviceOperatingSystemSummary){
-        if(this.deviceOperatingSystemSummary)
         writer.writeObjectValue<DeviceOperatingSystemSummaryImpl>("deviceOperatingSystemSummary", new DeviceOperatingSystemSummaryImpl(this.deviceOperatingSystemSummary));
         }
         if(this.dualEnrolledDeviceCount){
-        if(this.dualEnrolledDeviceCount)
         writer.writeNumberValue("dualEnrolledDeviceCount", this.dualEnrolledDeviceCount);
         }
         if(this.enrolledDeviceCount){
-        if(this.enrolledDeviceCount)
         writer.writeNumberValue("enrolledDeviceCount", this.enrolledDeviceCount);
         }
         if(this.mdmEnrolledCount){
-        if(this.mdmEnrolledCount)
         writer.writeNumberValue("mdmEnrolledCount", this.mdmEnrolledCount);
         }
     };

@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class WindowsInformationProtectionPolicyCollectionResponseImpl implements AdditionalDataHolder, Parsable, WindowsInformationProtectionPolicyCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: WindowsInformationProtectionPolicy[] | undefined;
+    public value?: WindowsInformationProtectionPolicy[] | undefined;
     /**
      * Instantiates a new WindowsInformationProtectionPolicyCollectionResponse and sets the default values.
      * @param windowsInformationProtectionPolicyCollectionResponseParameterValue 
      */
     public constructor(windowsInformationProtectionPolicyCollectionResponseParameterValue?: WindowsInformationProtectionPolicyCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = windowsInformationProtectionPolicyCollectionResponseParameterValue?.additionalData ? {} : windowsInformationProtectionPolicyCollectionResponseParameterValue?.additionalData!
+        this.additionalData = windowsInformationProtectionPolicyCollectionResponseParameterValue?.additionalData ? windowsInformationProtectionPolicyCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = windowsInformationProtectionPolicyCollectionResponseParameterValue?.nextLink ;
         this.value = windowsInformationProtectionPolicyCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class WindowsInformationProtectionPolicyCollectionResponseImpl implements
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: WindowsInformationProtectionPolicyImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new WindowsInformationProtectionPolicyImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: WindowsInformationProtectionPolicyImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new WindowsInformationProtectionPolicyImpl(element));});
         writer.writeCollectionOfObjectValues<WindowsInformationProtectionPolicyImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

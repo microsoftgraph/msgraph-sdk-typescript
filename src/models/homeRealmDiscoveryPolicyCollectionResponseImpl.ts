@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class HomeRealmDiscoveryPolicyCollectionResponseImpl implements AdditionalDataHolder, HomeRealmDiscoveryPolicyCollectionResponse, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: HomeRealmDiscoveryPolicy[] | undefined;
+    public value?: HomeRealmDiscoveryPolicy[] | undefined;
     /**
      * Instantiates a new HomeRealmDiscoveryPolicyCollectionResponse and sets the default values.
      * @param homeRealmDiscoveryPolicyCollectionResponseParameterValue 
      */
     public constructor(homeRealmDiscoveryPolicyCollectionResponseParameterValue?: HomeRealmDiscoveryPolicyCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = homeRealmDiscoveryPolicyCollectionResponseParameterValue?.additionalData ? {} : homeRealmDiscoveryPolicyCollectionResponseParameterValue?.additionalData!
+        this.additionalData = homeRealmDiscoveryPolicyCollectionResponseParameterValue?.additionalData ? homeRealmDiscoveryPolicyCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = homeRealmDiscoveryPolicyCollectionResponseParameterValue?.nextLink ;
         this.value = homeRealmDiscoveryPolicyCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class HomeRealmDiscoveryPolicyCollectionResponseImpl implements Additiona
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: HomeRealmDiscoveryPolicyImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new HomeRealmDiscoveryPolicyImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: HomeRealmDiscoveryPolicyImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new HomeRealmDiscoveryPolicyImpl(element));});
         writer.writeCollectionOfObjectValues<HomeRealmDiscoveryPolicyImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

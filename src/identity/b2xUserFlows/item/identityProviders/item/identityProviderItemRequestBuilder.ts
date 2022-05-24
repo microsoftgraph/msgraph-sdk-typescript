@@ -1,6 +1,5 @@
 import {IdentityProviderImpl} from '../../../../../models/';
 import {createIdentityProviderFromDiscriminatorValue} from '../../../../../models/createIdentityProviderFromDiscriminatorValue';
-import {IdentityProvider} from '../../../../../models/identityProvider';
 import {ODataErrorImpl} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {IdentityProviderItemRequestBuilderGetRequestConfiguration} from './identityProviderItemRequestBuilderGetRequestConfiguration';
@@ -50,7 +49,7 @@ export class IdentityProviderItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of IdentityProvider
      */
-    public get(requestConfiguration?: IdentityProviderItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<IdentityProvider | undefined> {
+    public get(requestConfiguration?: IdentityProviderItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<IdentityProviderImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );

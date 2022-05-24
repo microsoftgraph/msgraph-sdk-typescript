@@ -4,23 +4,24 @@ import {ScheduleChangeRequestActor} from './scheduleChangeRequestActor';
 import {ScheduleChangeState} from './scheduleChangeState';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to group. */
 export class ScheduleChangeRequestImpl extends ChangeTrackedEntityImpl implements Parsable, ScheduleChangeRequest {
     /** The assignedTo property */
-    assignedTo?: ScheduleChangeRequestActor | undefined;
+    public assignedTo?: ScheduleChangeRequestActor | undefined;
     /** The managerActionDateTime property */
-    managerActionDateTime?: Date | undefined;
+    public managerActionDateTime?: Date | undefined;
     /** The managerActionMessage property */
-    managerActionMessage?: string | undefined;
+    public managerActionMessage?: string | undefined;
     /** The managerUserId property */
-    managerUserId?: string | undefined;
+    public managerUserId?: string | undefined;
     /** The senderDateTime property */
-    senderDateTime?: Date | undefined;
+    public senderDateTime?: Date | undefined;
     /** The senderMessage property */
-    senderMessage?: string | undefined;
+    public senderMessage?: string | undefined;
     /** The senderUserId property */
-    senderUserId?: string | undefined;
+    public senderUserId?: string | undefined;
     /** The state property */
-    state?: ScheduleChangeState | undefined;
+    public state?: ScheduleChangeState | undefined;
     /**
      * Instantiates a new scheduleChangeRequest and sets the default values.
      * @param scheduleChangeRequestParameterValue 
@@ -60,35 +61,27 @@ export class ScheduleChangeRequestImpl extends ChangeTrackedEntityImpl implement
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.assignedTo){
-        if(this.assignedTo)
         writer.writeEnumValue<ScheduleChangeRequestActor>("assignedTo", this.assignedTo);
         }
         if(this.managerActionDateTime){
-        if(this.managerActionDateTime)
         writer.writeDateValue("managerActionDateTime", this.managerActionDateTime);
         }
         if(this.managerActionMessage){
-        if(this.managerActionMessage)
         writer.writeStringValue("managerActionMessage", this.managerActionMessage);
         }
         if(this.managerUserId){
-        if(this.managerUserId)
         writer.writeStringValue("managerUserId", this.managerUserId);
         }
         if(this.senderDateTime){
-        if(this.senderDateTime)
         writer.writeDateValue("senderDateTime", this.senderDateTime);
         }
         if(this.senderMessage){
-        if(this.senderMessage)
         writer.writeStringValue("senderMessage", this.senderMessage);
         }
         if(this.senderUserId){
-        if(this.senderUserId)
         writer.writeStringValue("senderUserId", this.senderUserId);
         }
         if(this.state){
-        if(this.state)
         writer.writeEnumValue<ScheduleChangeState>("state", this.state);
         }
     };

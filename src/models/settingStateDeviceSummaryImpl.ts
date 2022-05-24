@@ -2,25 +2,26 @@ import {EntityImpl} from './index';
 import {SettingStateDeviceSummary} from './settingStateDeviceSummary';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Device Compilance Policy and Configuration for a Setting State summary */
 export class SettingStateDeviceSummaryImpl extends EntityImpl implements Parsable, SettingStateDeviceSummary {
     /** Device Compliant count for the setting */
-    compliantDeviceCount?: number | undefined;
+    public compliantDeviceCount?: number | undefined;
     /** Device conflict error count for the setting */
-    conflictDeviceCount?: number | undefined;
+    public conflictDeviceCount?: number | undefined;
     /** Device error count for the setting */
-    errorDeviceCount?: number | undefined;
+    public errorDeviceCount?: number | undefined;
     /** Name of the InstancePath for the setting */
-    instancePath?: string | undefined;
+    public instancePath?: string | undefined;
     /** Device NonCompliant count for the setting */
-    nonCompliantDeviceCount?: number | undefined;
+    public nonCompliantDeviceCount?: number | undefined;
     /** Device Not Applicable count for the setting */
-    notApplicableDeviceCount?: number | undefined;
+    public notApplicableDeviceCount?: number | undefined;
     /** Device Compliant count for the setting */
-    remediatedDeviceCount?: number | undefined;
+    public remediatedDeviceCount?: number | undefined;
     /** Name of the setting */
-    settingName?: string | undefined;
+    public settingName?: string | undefined;
     /** Device Unkown count for the setting */
-    unknownDeviceCount?: number | undefined;
+    public unknownDeviceCount?: number | undefined;
     /**
      * Instantiates a new settingStateDeviceSummary and sets the default values.
      * @param settingStateDeviceSummaryParameterValue 
@@ -62,39 +63,30 @@ export class SettingStateDeviceSummaryImpl extends EntityImpl implements Parsabl
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.compliantDeviceCount){
-        if(this.compliantDeviceCount)
         writer.writeNumberValue("compliantDeviceCount", this.compliantDeviceCount);
         }
         if(this.conflictDeviceCount){
-        if(this.conflictDeviceCount)
         writer.writeNumberValue("conflictDeviceCount", this.conflictDeviceCount);
         }
         if(this.errorDeviceCount){
-        if(this.errorDeviceCount)
         writer.writeNumberValue("errorDeviceCount", this.errorDeviceCount);
         }
         if(this.instancePath){
-        if(this.instancePath)
         writer.writeStringValue("instancePath", this.instancePath);
         }
         if(this.nonCompliantDeviceCount){
-        if(this.nonCompliantDeviceCount)
         writer.writeNumberValue("nonCompliantDeviceCount", this.nonCompliantDeviceCount);
         }
         if(this.notApplicableDeviceCount){
-        if(this.notApplicableDeviceCount)
         writer.writeNumberValue("notApplicableDeviceCount", this.notApplicableDeviceCount);
         }
         if(this.remediatedDeviceCount){
-        if(this.remediatedDeviceCount)
         writer.writeNumberValue("remediatedDeviceCount", this.remediatedDeviceCount);
         }
         if(this.settingName){
-        if(this.settingName)
         writer.writeStringValue("settingName", this.settingName);
         }
         if(this.unknownDeviceCount){
-        if(this.unknownDeviceCount)
         writer.writeNumberValue("unknownDeviceCount", this.unknownDeviceCount);
         }
     };

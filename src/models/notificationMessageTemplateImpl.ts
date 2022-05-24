@@ -5,17 +5,18 @@ import {NotificationMessageTemplate} from './notificationMessageTemplate';
 import {NotificationTemplateBrandingOptions} from './notificationTemplateBrandingOptions';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Notification messages are messages that are sent to end users who are determined to be not-compliant with the compliance policies defined by the administrator. Administrators choose notifications and configure them in the Intune Admin Console using the compliance policy creation page under the “Actions for non-compliance” section. Use the notificationMessageTemplate object to create your own custom notifications for administrators to choose while configuring actions for non-compliance. */
 export class NotificationMessageTemplateImpl extends EntityImpl implements NotificationMessageTemplate, Parsable {
     /** The Message Template Branding Options. Branding is defined in the Intune Admin Console. Possible values are: none, includeCompanyLogo, includeCompanyName, includeContactInformation, includeCompanyPortalLink. */
-    brandingOptions?: NotificationTemplateBrandingOptions | undefined;
+    public brandingOptions?: NotificationTemplateBrandingOptions | undefined;
     /** The default locale to fallback onto when the requested locale is not available. */
-    defaultLocale?: string | undefined;
+    public defaultLocale?: string | undefined;
     /** Display name for the Notification Message Template. */
-    displayName?: string | undefined;
+    public displayName?: string | undefined;
     /** DateTime the object was last modified. */
-    lastModifiedDateTime?: Date | undefined;
+    public lastModifiedDateTime?: Date | undefined;
     /** The list of localized messages for this Notification Message Template. */
-    localizedNotificationMessages?: LocalizedNotificationMessage[] | undefined;
+    public localizedNotificationMessages?: LocalizedNotificationMessage[] | undefined;
     /**
      * Instantiates a new notificationMessageTemplate and sets the default values.
      * @param notificationMessageTemplateParameterValue 
@@ -49,23 +50,18 @@ export class NotificationMessageTemplateImpl extends EntityImpl implements Notif
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.brandingOptions){
-        if(this.brandingOptions)
         writer.writeEnumValue<NotificationTemplateBrandingOptions>("brandingOptions", this.brandingOptions);
         }
         if(this.defaultLocale){
-        if(this.defaultLocale)
         writer.writeStringValue("defaultLocale", this.defaultLocale);
         }
         if(this.displayName){
-        if(this.displayName)
         writer.writeStringValue("displayName", this.displayName);
         }
         if(this.lastModifiedDateTime){
-        if(this.lastModifiedDateTime)
         writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
         }
-        if(this.localizedNotificationMessages){
-        const localizedNotificationMessagesArrValue: LocalizedNotificationMessageImpl[] = []; this.localizedNotificationMessages?.forEach(element => {localizedNotificationMessagesArrValue.push(new LocalizedNotificationMessageImpl(element));});
+        if(this.localizedNotificationMessages && this.localizedNotificationMessages.length != 0){        const localizedNotificationMessagesArrValue: LocalizedNotificationMessageImpl[] = []; this.localizedNotificationMessages?.forEach(element => {localizedNotificationMessagesArrValue.push(new LocalizedNotificationMessageImpl(element));});
         writer.writeCollectionOfObjectValues<LocalizedNotificationMessageImpl>("localizedNotificationMessages", localizedNotificationMessagesArrValue);
         }
     };

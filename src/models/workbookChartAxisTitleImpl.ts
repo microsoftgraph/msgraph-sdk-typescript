@@ -4,13 +4,14 @@ import {WorkbookChartAxisTitle} from './workbookChartAxisTitle';
 import {WorkbookChartAxisTitleFormat} from './workbookChartAxisTitleFormat';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to user. */
 export class WorkbookChartAxisTitleImpl extends EntityImpl implements Parsable, WorkbookChartAxisTitle {
     /** Represents the formatting of chart axis title. Read-only. */
-    format?: WorkbookChartAxisTitleFormat | undefined;
+    public format?: WorkbookChartAxisTitleFormat | undefined;
     /** Represents the axis title. */
-    text?: string | undefined;
+    public text?: string | undefined;
     /** A boolean that specifies the visibility of an axis title. */
-    visible?: boolean | undefined;
+    public visible?: boolean | undefined;
     /**
      * Instantiates a new workbookChartAxisTitle and sets the default values.
      * @param workbookChartAxisTitleParameterValue 
@@ -40,15 +41,12 @@ export class WorkbookChartAxisTitleImpl extends EntityImpl implements Parsable, 
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.format){
-        if(this.format)
         writer.writeObjectValue<WorkbookChartAxisTitleFormatImpl>("format", new WorkbookChartAxisTitleFormatImpl(this.format));
         }
         if(this.text){
-        if(this.text)
         writer.writeStringValue("text", this.text);
         }
         if(this.visible){
-        if(this.visible)
         writer.writeBooleanValue("visible", this.visible);
         }
     };

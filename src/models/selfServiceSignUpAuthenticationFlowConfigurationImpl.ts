@@ -3,16 +3,15 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class SelfServiceSignUpAuthenticationFlowConfigurationImpl implements AdditionalDataHolder, Parsable, SelfServiceSignUpAuthenticationFlowConfiguration {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** Indicates whether self-service sign-up flow is enabled or disabled. The default value is false. This property is not a key. Required. */
-    isEnabled?: boolean | undefined;
+    public isEnabled?: boolean | undefined;
     /**
      * Instantiates a new selfServiceSignUpAuthenticationFlowConfiguration and sets the default values.
      * @param selfServiceSignUpAuthenticationFlowConfigurationParameterValue 
      */
     public constructor(selfServiceSignUpAuthenticationFlowConfigurationParameterValue?: SelfServiceSignUpAuthenticationFlowConfiguration | undefined) {
-        this.additionalData = {};
-        this.additionalData = selfServiceSignUpAuthenticationFlowConfigurationParameterValue?.additionalData ? {} : selfServiceSignUpAuthenticationFlowConfigurationParameterValue?.additionalData!
+        this.additionalData = selfServiceSignUpAuthenticationFlowConfigurationParameterValue?.additionalData ? selfServiceSignUpAuthenticationFlowConfigurationParameterValue?.additionalData! : {}
         this.isEnabled = selfServiceSignUpAuthenticationFlowConfigurationParameterValue?.isEnabled ;
     };
     /**
@@ -31,7 +30,6 @@ export class SelfServiceSignUpAuthenticationFlowConfigurationImpl implements Add
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.isEnabled){
-        if(this.isEnabled)
         writer.writeBooleanValue("isEnabled", this.isEnabled);
         }
         writer.writeAdditionalData(this.additionalData);

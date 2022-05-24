@@ -1,6 +1,5 @@
 import {CalendarGroupCollectionResponseImpl, CalendarGroupImpl} from '../../models/';
 import {CalendarGroup} from '../../models/calendarGroup';
-import {CalendarGroupCollectionResponse} from '../../models/calendarGroupCollectionResponse';
 import {createCalendarGroupCollectionResponseFromDiscriminatorValue} from '../../models/createCalendarGroupCollectionResponseFromDiscriminatorValue';
 import {createCalendarGroupFromDiscriminatorValue} from '../../models/createCalendarGroupFromDiscriminatorValue';
 import {ODataErrorImpl} from '../../models/oDataErrors/';
@@ -68,8 +67,8 @@ export class CalendarGroupsRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        const bodyParsable = new CalendarGroupImpl(body)
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", bodyParsable);
+        const parsableBody = new CalendarGroupImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -78,7 +77,7 @@ export class CalendarGroupsRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of CalendarGroupCollectionResponse
      */
-    public get(requestConfiguration?: CalendarGroupsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<CalendarGroupCollectionResponse | undefined> {
+    public get(requestConfiguration?: CalendarGroupsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<CalendarGroupCollectionResponseImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -95,7 +94,7 @@ export class CalendarGroupsRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of CalendarGroup
      */
-    public post(body: CalendarGroup | undefined, requestConfiguration?: CalendarGroupsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<CalendarGroup | undefined> {
+    public post(body: CalendarGroup | undefined, requestConfiguration?: CalendarGroupsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<CalendarGroupImpl | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration

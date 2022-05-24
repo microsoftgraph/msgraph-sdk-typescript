@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class MobileAppAssignmentCollectionResponseImpl implements AdditionalDataHolder, MobileAppAssignmentCollectionResponse, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: MobileAppAssignment[] | undefined;
+    public value?: MobileAppAssignment[] | undefined;
     /**
      * Instantiates a new MobileAppAssignmentCollectionResponse and sets the default values.
      * @param mobileAppAssignmentCollectionResponseParameterValue 
      */
     public constructor(mobileAppAssignmentCollectionResponseParameterValue?: MobileAppAssignmentCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = mobileAppAssignmentCollectionResponseParameterValue?.additionalData ? {} : mobileAppAssignmentCollectionResponseParameterValue?.additionalData!
+        this.additionalData = mobileAppAssignmentCollectionResponseParameterValue?.additionalData ? mobileAppAssignmentCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = mobileAppAssignmentCollectionResponseParameterValue?.nextLink ;
         this.value = mobileAppAssignmentCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class MobileAppAssignmentCollectionResponseImpl implements AdditionalData
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: MobileAppAssignmentImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new MobileAppAssignmentImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: MobileAppAssignmentImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new MobileAppAssignmentImpl(element));});
         writer.writeCollectionOfObjectValues<MobileAppAssignmentImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

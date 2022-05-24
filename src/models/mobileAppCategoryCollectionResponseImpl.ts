@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class MobileAppCategoryCollectionResponseImpl implements AdditionalDataHolder, MobileAppCategoryCollectionResponse, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: MobileAppCategory[] | undefined;
+    public value?: MobileAppCategory[] | undefined;
     /**
      * Instantiates a new MobileAppCategoryCollectionResponse and sets the default values.
      * @param mobileAppCategoryCollectionResponseParameterValue 
      */
     public constructor(mobileAppCategoryCollectionResponseParameterValue?: MobileAppCategoryCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = mobileAppCategoryCollectionResponseParameterValue?.additionalData ? {} : mobileAppCategoryCollectionResponseParameterValue?.additionalData!
+        this.additionalData = mobileAppCategoryCollectionResponseParameterValue?.additionalData ? mobileAppCategoryCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = mobileAppCategoryCollectionResponseParameterValue?.nextLink ;
         this.value = mobileAppCategoryCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class MobileAppCategoryCollectionResponseImpl implements AdditionalDataHo
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: MobileAppCategoryImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new MobileAppCategoryImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: MobileAppCategoryImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new MobileAppCategoryImpl(element));});
         writer.writeCollectionOfObjectValues<MobileAppCategoryImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

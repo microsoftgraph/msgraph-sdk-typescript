@@ -2,6 +2,7 @@ import {StsPolicyImpl} from './index';
 import {TokenIssuancePolicy} from './tokenIssuancePolicy';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the collection of application entities. */
 export class TokenIssuancePolicyImpl extends StsPolicyImpl implements Parsable, TokenIssuancePolicy {
     /**
      * Instantiates a new tokenIssuancePolicy and sets the default values.

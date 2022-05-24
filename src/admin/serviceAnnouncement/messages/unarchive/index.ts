@@ -1,5 +1,5 @@
-export * from './unarchiveRequestBodyImpl'
+export * from './unarchivePostRequestBodyImpl'
 export * from './unarchiveResponseImpl'
+export * from './unarchivePostRequestBody'
 export * from './unarchiveRequestBuilderPostRequestConfiguration'
-export * from './unarchiveRequestBody'
 export * from './unarchiveResponse'

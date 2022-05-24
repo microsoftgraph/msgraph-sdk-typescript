@@ -1,5 +1,5 @@
-import {UpdateDevicePropertiesRequestBodyImpl} from './index';
-import {UpdateDevicePropertiesRequestBody} from './updateDevicePropertiesRequestBody';
+import {UpdateDevicePropertiesPostRequestBodyImpl} from './index';
+import {UpdateDevicePropertiesPostRequestBody} from './updateDevicePropertiesPostRequestBody';
 import {UpdateDevicePropertiesRequestBuilderPostRequestConfiguration} from './updateDevicePropertiesRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
@@ -30,7 +30,7 @@ export class UpdateDevicePropertiesRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public createPostRequestInformation(body: UpdateDevicePropertiesRequestBody | undefined, requestConfiguration?: UpdateDevicePropertiesRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public createPostRequestInformation(body: UpdateDevicePropertiesPostRequestBody | undefined, requestConfiguration?: UpdateDevicePropertiesRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -40,8 +40,8 @@ export class UpdateDevicePropertiesRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        const bodyParsable = new UpdateDevicePropertiesRequestBodyImpl(body)
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", bodyParsable);
+        const parsableBody = new UpdateDevicePropertiesPostRequestBodyImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -50,7 +50,7 @@ export class UpdateDevicePropertiesRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public post(body: UpdateDevicePropertiesRequestBody | undefined, requestConfiguration?: UpdateDevicePropertiesRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public post(body: UpdateDevicePropertiesPostRequestBody | undefined, requestConfiguration?: UpdateDevicePropertiesRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration

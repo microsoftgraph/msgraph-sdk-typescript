@@ -4,7 +4,6 @@ import {createScopedRoleMembershipFromDiscriminatorValue} from '../../../models/
 import {ODataErrorImpl} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {ScopedRoleMembership} from '../../../models/scopedRoleMembership';
-import {ScopedRoleMembershipCollectionResponse} from '../../../models/scopedRoleMembershipCollectionResponse';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {ScopedMembersRequestBuilderGetRequestConfiguration} from './scopedMembersRequestBuilderGetRequestConfiguration';
 import {ScopedMembersRequestBuilderPostRequestConfiguration} from './scopedMembersRequestBuilderPostRequestConfiguration';
@@ -68,8 +67,8 @@ export class ScopedMembersRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        const bodyParsable = new ScopedRoleMembershipImpl(body)
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", bodyParsable);
+        const parsableBody = new ScopedRoleMembershipImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -78,7 +77,7 @@ export class ScopedMembersRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ScopedRoleMembershipCollectionResponse
      */
-    public get(requestConfiguration?: ScopedMembersRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ScopedRoleMembershipCollectionResponse | undefined> {
+    public get(requestConfiguration?: ScopedMembersRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ScopedRoleMembershipCollectionResponseImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -95,7 +94,7 @@ export class ScopedMembersRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ScopedRoleMembership
      */
-    public post(body: ScopedRoleMembership | undefined, requestConfiguration?: ScopedMembersRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ScopedRoleMembership | undefined> {
+    public post(body: ScopedRoleMembership | undefined, requestConfiguration?: ScopedMembersRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ScopedRoleMembershipImpl | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration

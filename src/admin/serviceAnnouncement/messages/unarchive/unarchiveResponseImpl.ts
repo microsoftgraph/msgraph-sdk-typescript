@@ -4,16 +4,15 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Provides operations to call the unarchive method. */
 export class UnarchiveResponseImpl implements AdditionalDataHolder, Parsable, UnarchiveResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The value property */
-    value?: boolean | undefined;
+    public value?: boolean | undefined;
     /**
      * Instantiates a new unarchiveResponse and sets the default values.
      * @param unarchiveResponseParameterValue 
      */
     public constructor(unarchiveResponseParameterValue?: UnarchiveResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = unarchiveResponseParameterValue?.additionalData ? {} : unarchiveResponseParameterValue?.additionalData!
+        this.additionalData = unarchiveResponseParameterValue?.additionalData ? unarchiveResponseParameterValue?.additionalData! : {}
         this.value = unarchiveResponseParameterValue?.value ;
     };
     /**
@@ -32,7 +31,6 @@ export class UnarchiveResponseImpl implements AdditionalDataHolder, Parsable, Un
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.value){
-        if(this.value)
         writer.writeBooleanValue("value", this.value);
         }
         writer.writeAdditionalData(this.additionalData);

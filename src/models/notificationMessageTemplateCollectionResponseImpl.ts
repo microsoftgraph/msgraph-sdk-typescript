@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class NotificationMessageTemplateCollectionResponseImpl implements AdditionalDataHolder, NotificationMessageTemplateCollectionResponse, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: NotificationMessageTemplate[] | undefined;
+    public value?: NotificationMessageTemplate[] | undefined;
     /**
      * Instantiates a new NotificationMessageTemplateCollectionResponse and sets the default values.
      * @param notificationMessageTemplateCollectionResponseParameterValue 
      */
     public constructor(notificationMessageTemplateCollectionResponseParameterValue?: NotificationMessageTemplateCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = notificationMessageTemplateCollectionResponseParameterValue?.additionalData ? {} : notificationMessageTemplateCollectionResponseParameterValue?.additionalData!
+        this.additionalData = notificationMessageTemplateCollectionResponseParameterValue?.additionalData ? notificationMessageTemplateCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = notificationMessageTemplateCollectionResponseParameterValue?.nextLink ;
         this.value = notificationMessageTemplateCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class NotificationMessageTemplateCollectionResponseImpl implements Additi
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: NotificationMessageTemplateImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new NotificationMessageTemplateImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: NotificationMessageTemplateImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new NotificationMessageTemplateImpl(element));});
         writer.writeCollectionOfObjectValues<NotificationMessageTemplateImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class NotebookCollectionResponseImpl implements AdditionalDataHolder, NotebookCollectionResponse, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: Notebook[] | undefined;
+    public value?: Notebook[] | undefined;
     /**
      * Instantiates a new NotebookCollectionResponse and sets the default values.
      * @param notebookCollectionResponseParameterValue 
      */
     public constructor(notebookCollectionResponseParameterValue?: NotebookCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = notebookCollectionResponseParameterValue?.additionalData ? {} : notebookCollectionResponseParameterValue?.additionalData!
+        this.additionalData = notebookCollectionResponseParameterValue?.additionalData ? notebookCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = notebookCollectionResponseParameterValue?.nextLink ;
         this.value = notebookCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class NotebookCollectionResponseImpl implements AdditionalDataHolder, Not
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: NotebookImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new NotebookImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: NotebookImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new NotebookImpl(element));});
         writer.writeCollectionOfObjectValues<NotebookImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

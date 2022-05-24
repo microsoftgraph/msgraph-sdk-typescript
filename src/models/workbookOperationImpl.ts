@@ -5,13 +5,14 @@ import {WorkbookOperationError} from './workbookOperationError';
 import {WorkbookOperationStatus} from './workbookOperationStatus';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to user. */
 export class WorkbookOperationImpl extends EntityImpl implements Parsable, WorkbookOperation {
     /** The error returned by the operation. */
-    error_escaped?: WorkbookOperationError | undefined;
+    public error_escaped?: WorkbookOperationError | undefined;
     /** The resource URI for the result. */
-    resourceLocation?: string | undefined;
+    public resourceLocation?: string | undefined;
     /** The current status of the operation. Possible values are: notStarted, running, succeeded, failed. */
-    status?: WorkbookOperationStatus | undefined;
+    public status?: WorkbookOperationStatus | undefined;
     /**
      * Instantiates a new workbookOperation and sets the default values.
      * @param workbookOperationParameterValue 
@@ -41,15 +42,12 @@ export class WorkbookOperationImpl extends EntityImpl implements Parsable, Workb
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.error_escaped){
-        if(this.error_escaped)
         writer.writeObjectValue<WorkbookOperationErrorImpl>("error", new WorkbookOperationErrorImpl(this.error_escaped));
         }
         if(this.resourceLocation){
-        if(this.resourceLocation)
         writer.writeStringValue("resourceLocation", this.resourceLocation);
         }
         if(this.status){
-        if(this.status)
         writer.writeEnumValue<WorkbookOperationStatus>("status", this.status);
         }
     };

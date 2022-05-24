@@ -6,26 +6,25 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class UpdateWindowsDeviceAccountActionParameterImpl implements AdditionalDataHolder, Parsable, UpdateWindowsDeviceAccountActionParameter {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** Not yet documented */
-    calendarSyncEnabled?: boolean | undefined;
+    public calendarSyncEnabled?: boolean | undefined;
     /** Not yet documented */
-    deviceAccount?: WindowsDeviceAccount | undefined;
+    public deviceAccount?: WindowsDeviceAccount | undefined;
     /** Not yet documented */
-    deviceAccountEmail?: string | undefined;
+    public deviceAccountEmail?: string | undefined;
     /** Not yet documented */
-    exchangeServer?: string | undefined;
+    public exchangeServer?: string | undefined;
     /** Not yet documented */
-    passwordRotationEnabled?: boolean | undefined;
+    public passwordRotationEnabled?: boolean | undefined;
     /** Not yet documented */
-    sessionInitiationProtocalAddress?: string | undefined;
+    public sessionInitiationProtocalAddress?: string | undefined;
     /**
      * Instantiates a new updateWindowsDeviceAccountActionParameter and sets the default values.
      * @param updateWindowsDeviceAccountActionParameterParameterValue 
      */
     public constructor(updateWindowsDeviceAccountActionParameterParameterValue?: UpdateWindowsDeviceAccountActionParameter | undefined) {
-        this.additionalData = {};
-        this.additionalData = updateWindowsDeviceAccountActionParameterParameterValue?.additionalData ? {} : updateWindowsDeviceAccountActionParameterParameterValue?.additionalData!
+        this.additionalData = updateWindowsDeviceAccountActionParameterParameterValue?.additionalData ? updateWindowsDeviceAccountActionParameterParameterValue?.additionalData! : {}
         this.calendarSyncEnabled = updateWindowsDeviceAccountActionParameterParameterValue?.calendarSyncEnabled ;
         this.deviceAccount = updateWindowsDeviceAccountActionParameterParameterValue?.deviceAccount ;
         this.deviceAccountEmail = updateWindowsDeviceAccountActionParameterParameterValue?.deviceAccountEmail ;
@@ -54,27 +53,21 @@ export class UpdateWindowsDeviceAccountActionParameterImpl implements Additional
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.calendarSyncEnabled){
-        if(this.calendarSyncEnabled)
         writer.writeBooleanValue("calendarSyncEnabled", this.calendarSyncEnabled);
         }
         if(this.deviceAccount){
-        if(this.deviceAccount)
         writer.writeObjectValue<WindowsDeviceAccountImpl>("deviceAccount", new WindowsDeviceAccountImpl(this.deviceAccount));
         }
         if(this.deviceAccountEmail){
-        if(this.deviceAccountEmail)
         writer.writeStringValue("deviceAccountEmail", this.deviceAccountEmail);
         }
         if(this.exchangeServer){
-        if(this.exchangeServer)
         writer.writeStringValue("exchangeServer", this.exchangeServer);
         }
         if(this.passwordRotationEnabled){
-        if(this.passwordRotationEnabled)
         writer.writeBooleanValue("passwordRotationEnabled", this.passwordRotationEnabled);
         }
         if(this.sessionInitiationProtocalAddress){
-        if(this.sessionInitiationProtocalAddress)
         writer.writeStringValue("sessionInitiationProtocalAddress", this.sessionInitiationProtocalAddress);
         }
         writer.writeAdditionalData(this.additionalData);

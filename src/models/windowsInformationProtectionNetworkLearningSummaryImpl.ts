@@ -2,11 +2,12 @@ import {EntityImpl} from './index';
 import {WindowsInformationProtectionNetworkLearningSummary} from './windowsInformationProtectionNetworkLearningSummary';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Windows Information Protection Network learning Summary entity. */
 export class WindowsInformationProtectionNetworkLearningSummaryImpl extends EntityImpl implements Parsable, WindowsInformationProtectionNetworkLearningSummary {
     /** Device Count */
-    deviceCount?: number | undefined;
+    public deviceCount?: number | undefined;
     /** Website url */
-    url?: string | undefined;
+    public url?: string | undefined;
     /**
      * Instantiates a new windowsInformationProtectionNetworkLearningSummary and sets the default values.
      * @param windowsInformationProtectionNetworkLearningSummaryParameterValue 
@@ -34,11 +35,9 @@ export class WindowsInformationProtectionNetworkLearningSummaryImpl extends Enti
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.deviceCount){
-        if(this.deviceCount)
         writer.writeNumberValue("deviceCount", this.deviceCount);
         }
         if(this.url){
-        if(this.url)
         writer.writeStringValue("url", this.url);
         }
     };

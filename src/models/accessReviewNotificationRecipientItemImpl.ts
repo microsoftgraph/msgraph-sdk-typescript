@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class AccessReviewNotificationRecipientItemImpl implements AccessReviewNotificationRecipientItem, AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** Determines the recipient of the notification email. */
-    notificationRecipientScope?: AccessReviewNotificationRecipientScope | undefined;
+    public notificationRecipientScope?: AccessReviewNotificationRecipientScope | undefined;
     /** Indicates the type of access review email to be sent. Supported template type is CompletedAdditionalRecipients which sends review completion notifications to the recipients. */
-    notificationTemplateType?: string | undefined;
+    public notificationTemplateType?: string | undefined;
     /**
      * Instantiates a new accessReviewNotificationRecipientItem and sets the default values.
      * @param accessReviewNotificationRecipientItemParameterValue 
      */
     public constructor(accessReviewNotificationRecipientItemParameterValue?: AccessReviewNotificationRecipientItem | undefined) {
-        this.additionalData = {};
-        this.additionalData = accessReviewNotificationRecipientItemParameterValue?.additionalData ? {} : accessReviewNotificationRecipientItemParameterValue?.additionalData!
+        this.additionalData = accessReviewNotificationRecipientItemParameterValue?.additionalData ? accessReviewNotificationRecipientItemParameterValue?.additionalData! : {}
         this.notificationRecipientScope = accessReviewNotificationRecipientItemParameterValue?.notificationRecipientScope ;
         this.notificationTemplateType = accessReviewNotificationRecipientItemParameterValue?.notificationTemplateType ;
     };
@@ -38,11 +37,9 @@ export class AccessReviewNotificationRecipientItemImpl implements AccessReviewNo
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.notificationRecipientScope){
-        if(this.notificationRecipientScope)
         writer.writeObjectValue<AccessReviewNotificationRecipientScopeImpl>("notificationRecipientScope", new AccessReviewNotificationRecipientScopeImpl(this.notificationRecipientScope));
         }
         if(this.notificationTemplateType){
-        if(this.notificationTemplateType)
         writer.writeStringValue("notificationTemplateType", this.notificationTemplateType);
         }
         writer.writeAdditionalData(this.additionalData);

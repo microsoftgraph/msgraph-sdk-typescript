@@ -1,6 +1,5 @@
 import {BitlockerRecoveryKeyCollectionResponseImpl, BitlockerRecoveryKeyImpl} from '../../../models/';
 import {BitlockerRecoveryKey} from '../../../models/bitlockerRecoveryKey';
-import {BitlockerRecoveryKeyCollectionResponse} from '../../../models/bitlockerRecoveryKeyCollectionResponse';
 import {createBitlockerRecoveryKeyCollectionResponseFromDiscriminatorValue} from '../../../models/createBitlockerRecoveryKeyCollectionResponseFromDiscriminatorValue';
 import {createBitlockerRecoveryKeyFromDiscriminatorValue} from '../../../models/createBitlockerRecoveryKeyFromDiscriminatorValue';
 import {ODataErrorImpl} from '../../../models/oDataErrors/';
@@ -68,8 +67,8 @@ export class RecoveryKeysRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        const bodyParsable = new BitlockerRecoveryKeyImpl(body)
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", bodyParsable);
+        const parsableBody = new BitlockerRecoveryKeyImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -78,7 +77,7 @@ export class RecoveryKeysRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of BitlockerRecoveryKeyCollectionResponse
      */
-    public get(requestConfiguration?: RecoveryKeysRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<BitlockerRecoveryKeyCollectionResponse | undefined> {
+    public get(requestConfiguration?: RecoveryKeysRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<BitlockerRecoveryKeyCollectionResponseImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -95,7 +94,7 @@ export class RecoveryKeysRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of BitlockerRecoveryKey
      */
-    public post(body: BitlockerRecoveryKey | undefined, requestConfiguration?: RecoveryKeysRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<BitlockerRecoveryKey | undefined> {
+    public post(body: BitlockerRecoveryKey | undefined, requestConfiguration?: RecoveryKeysRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<BitlockerRecoveryKeyImpl | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration

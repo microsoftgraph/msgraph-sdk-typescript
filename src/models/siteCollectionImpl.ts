@@ -6,20 +6,19 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class SiteCollectionImpl implements AdditionalDataHolder, Parsable, SiteCollection {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The geographic region code for where this site collection resides. Read-only. */
-    dataLocationCode?: string | undefined;
+    public dataLocationCode?: string | undefined;
     /** The hostname for the site collection. Read-only. */
-    hostname?: string | undefined;
+    public hostname?: string | undefined;
     /** If present, indicates that this is a root site collection in SharePoint. Read-only. */
-    root?: Root | undefined;
+    public root?: Root | undefined;
     /**
      * Instantiates a new siteCollection and sets the default values.
      * @param siteCollectionParameterValue 
      */
     public constructor(siteCollectionParameterValue?: SiteCollection | undefined) {
-        this.additionalData = {};
-        this.additionalData = siteCollectionParameterValue?.additionalData ? {} : siteCollectionParameterValue?.additionalData!
+        this.additionalData = siteCollectionParameterValue?.additionalData ? siteCollectionParameterValue?.additionalData! : {}
         this.dataLocationCode = siteCollectionParameterValue?.dataLocationCode ;
         this.hostname = siteCollectionParameterValue?.hostname ;
         this.root = siteCollectionParameterValue?.root ;
@@ -42,15 +41,12 @@ export class SiteCollectionImpl implements AdditionalDataHolder, Parsable, SiteC
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.dataLocationCode){
-        if(this.dataLocationCode)
         writer.writeStringValue("dataLocationCode", this.dataLocationCode);
         }
         if(this.hostname){
-        if(this.hostname)
         writer.writeStringValue("hostname", this.hostname);
         }
         if(this.root){
-        if(this.root)
         writer.writeObjectValue<RootImpl>("root", new RootImpl(this.root));
         }
         writer.writeAdditionalData(this.additionalData);

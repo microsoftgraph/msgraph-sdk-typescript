@@ -2,15 +2,15 @@ import {BroadcastMeetingAudience} from './broadcastMeetingAudience';
 
 export interface BroadcastMeetingSettings{
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    additionalData?:Record<string, unknown>;
     /** Defines who can join the Teams live event. Possible values are listed in the following table. */
-    allowedAudience?: BroadcastMeetingAudience | undefined;
+    allowedAudience?:BroadcastMeetingAudience | undefined;
     /** Indicates whether attendee report is enabled for this Teams live event. Default value is false. */
-    isAttendeeReportEnabled?: boolean | undefined;
+    isAttendeeReportEnabled?:boolean | undefined;
     /** Indicates whether Q&A is enabled for this Teams live event. Default value is false. */
-    isQuestionAndAnswerEnabled?: boolean | undefined;
+    isQuestionAndAnswerEnabled?:boolean | undefined;
     /** Indicates whether recording is enabled for this Teams live event. Default value is false. */
-    isRecordingEnabled?: boolean | undefined;
+    isRecordingEnabled?:boolean | undefined;
     /** Indicates whether video on demand is enabled for this Teams live event. Default value is false. */
-    isVideoOnDemandEnabled?: boolean | undefined;
+    isVideoOnDemandEnabled?:boolean | undefined;
 }

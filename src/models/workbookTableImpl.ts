@@ -10,35 +10,36 @@ import {WorkbookTableSort} from './workbookTableSort';
 import {WorkbookWorksheet} from './workbookWorksheet';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to user. */
 export class WorkbookTableImpl extends EntityImpl implements Parsable, WorkbookTable {
     /** Represents a collection of all the columns in the table. Read-only. */
-    columns?: WorkbookTableColumn[] | undefined;
+    public columns?: WorkbookTableColumn[] | undefined;
     /** Indicates whether the first column contains special formatting. */
-    highlightFirstColumn?: boolean | undefined;
+    public highlightFirstColumn?: boolean | undefined;
     /** Indicates whether the last column contains special formatting. */
-    highlightLastColumn?: boolean | undefined;
+    public highlightLastColumn?: boolean | undefined;
     /** Legacy Id used in older Excle clients. The value of the identifier remains the same even when the table is renamed. This property should be interpreted as an opaque string value and should not be parsed to any other type. Read-only. */
-    legacyId?: string | undefined;
+    public legacyId?: string | undefined;
     /** Name of the table. */
-    name?: string | undefined;
+    public name?: string | undefined;
     /** Represents a collection of all the rows in the table. Read-only. */
-    rows?: WorkbookTableRow[] | undefined;
+    public rows?: WorkbookTableRow[] | undefined;
     /** Indicates whether the columns show banded formatting in which odd columns are highlighted differently from even ones to make reading the table easier. */
-    showBandedColumns?: boolean | undefined;
+    public showBandedColumns?: boolean | undefined;
     /** Indicates whether the rows show banded formatting in which odd rows are highlighted differently from even ones to make reading the table easier. */
-    showBandedRows?: boolean | undefined;
+    public showBandedRows?: boolean | undefined;
     /** Indicates whether the filter buttons are visible at the top of each column header. Setting this is only allowed if the table contains a header row. */
-    showFilterButton?: boolean | undefined;
+    public showFilterButton?: boolean | undefined;
     /** Indicates whether the header row is visible or not. This value can be set to show or remove the header row. */
-    showHeaders?: boolean | undefined;
+    public showHeaders?: boolean | undefined;
     /** Indicates whether the total row is visible or not. This value can be set to show or remove the total row. */
-    showTotals?: boolean | undefined;
+    public showTotals?: boolean | undefined;
     /** Represents the sorting for the table. Read-only. */
-    sort?: WorkbookTableSort | undefined;
+    public sort?: WorkbookTableSort | undefined;
     /** Constant value that represents the Table style. Possible values are: TableStyleLight1 thru TableStyleLight21, TableStyleMedium1 thru TableStyleMedium28, TableStyleStyleDark1 thru TableStyleStyleDark11. A custom user-defined style present in the workbook can also be specified. */
-    style?: string | undefined;
+    public style?: string | undefined;
     /** The worksheet containing the current table. Read-only. */
-    worksheet?: WorkbookWorksheet | undefined;
+    public worksheet?: WorkbookWorksheet | undefined;
     /**
      * Instantiates a new workbookTable and sets the default values.
      * @param workbookTableParameterValue 
@@ -89,60 +90,46 @@ export class WorkbookTableImpl extends EntityImpl implements Parsable, WorkbookT
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.columns){
-        const columnsArrValue: WorkbookTableColumnImpl[] = []; this.columns?.forEach(element => {columnsArrValue.push(new WorkbookTableColumnImpl(element));});
+        if(this.columns && this.columns.length != 0){        const columnsArrValue: WorkbookTableColumnImpl[] = []; this.columns?.forEach(element => {columnsArrValue.push(new WorkbookTableColumnImpl(element));});
         writer.writeCollectionOfObjectValues<WorkbookTableColumnImpl>("columns", columnsArrValue);
         }
         if(this.highlightFirstColumn){
-        if(this.highlightFirstColumn)
         writer.writeBooleanValue("highlightFirstColumn", this.highlightFirstColumn);
         }
         if(this.highlightLastColumn){
-        if(this.highlightLastColumn)
         writer.writeBooleanValue("highlightLastColumn", this.highlightLastColumn);
         }
         if(this.legacyId){
-        if(this.legacyId)
         writer.writeStringValue("legacyId", this.legacyId);
         }
         if(this.name){
-        if(this.name)
         writer.writeStringValue("name", this.name);
         }
-        if(this.rows){
-        const rowsArrValue: WorkbookTableRowImpl[] = []; this.rows?.forEach(element => {rowsArrValue.push(new WorkbookTableRowImpl(element));});
+        if(this.rows && this.rows.length != 0){        const rowsArrValue: WorkbookTableRowImpl[] = []; this.rows?.forEach(element => {rowsArrValue.push(new WorkbookTableRowImpl(element));});
         writer.writeCollectionOfObjectValues<WorkbookTableRowImpl>("rows", rowsArrValue);
         }
         if(this.showBandedColumns){
-        if(this.showBandedColumns)
         writer.writeBooleanValue("showBandedColumns", this.showBandedColumns);
         }
         if(this.showBandedRows){
-        if(this.showBandedRows)
         writer.writeBooleanValue("showBandedRows", this.showBandedRows);
         }
         if(this.showFilterButton){
-        if(this.showFilterButton)
         writer.writeBooleanValue("showFilterButton", this.showFilterButton);
         }
         if(this.showHeaders){
-        if(this.showHeaders)
         writer.writeBooleanValue("showHeaders", this.showHeaders);
         }
         if(this.showTotals){
-        if(this.showTotals)
         writer.writeBooleanValue("showTotals", this.showTotals);
         }
         if(this.sort){
-        if(this.sort)
         writer.writeObjectValue<WorkbookTableSortImpl>("sort", new WorkbookTableSortImpl(this.sort));
         }
         if(this.style){
-        if(this.style)
         writer.writeStringValue("style", this.style);
         }
         if(this.worksheet){
-        if(this.worksheet)
         writer.writeObjectValue<WorkbookWorksheetImpl>("worksheet", new WorkbookWorksheetImpl(this.worksheet));
         }
     };

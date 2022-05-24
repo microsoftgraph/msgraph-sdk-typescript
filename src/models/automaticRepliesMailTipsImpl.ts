@@ -8,22 +8,21 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class AutomaticRepliesMailTipsImpl implements AdditionalDataHolder, AutomaticRepliesMailTips, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The automatic reply message. */
-    message?: string | undefined;
+    public message?: string | undefined;
     /** The language that the automatic reply message is in. */
-    messageLanguage?: LocaleInfo | undefined;
+    public messageLanguage?: LocaleInfo | undefined;
     /** The date and time that automatic replies are set to end. */
-    scheduledEndTime?: DateTimeTimeZone | undefined;
+    public scheduledEndTime?: DateTimeTimeZone | undefined;
     /** The date and time that automatic replies are set to begin. */
-    scheduledStartTime?: DateTimeTimeZone | undefined;
+    public scheduledStartTime?: DateTimeTimeZone | undefined;
     /**
      * Instantiates a new automaticRepliesMailTips and sets the default values.
      * @param automaticRepliesMailTipsParameterValue 
      */
     public constructor(automaticRepliesMailTipsParameterValue?: AutomaticRepliesMailTips | undefined) {
-        this.additionalData = {};
-        this.additionalData = automaticRepliesMailTipsParameterValue?.additionalData ? {} : automaticRepliesMailTipsParameterValue?.additionalData!
+        this.additionalData = automaticRepliesMailTipsParameterValue?.additionalData ? automaticRepliesMailTipsParameterValue?.additionalData! : {}
         this.message = automaticRepliesMailTipsParameterValue?.message ;
         this.messageLanguage = automaticRepliesMailTipsParameterValue?.messageLanguage ;
         this.scheduledEndTime = automaticRepliesMailTipsParameterValue?.scheduledEndTime ;
@@ -48,19 +47,15 @@ export class AutomaticRepliesMailTipsImpl implements AdditionalDataHolder, Autom
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.message){
-        if(this.message)
         writer.writeStringValue("message", this.message);
         }
         if(this.messageLanguage){
-        if(this.messageLanguage)
         writer.writeObjectValue<LocaleInfoImpl>("messageLanguage", new LocaleInfoImpl(this.messageLanguage));
         }
         if(this.scheduledEndTime){
-        if(this.scheduledEndTime)
         writer.writeObjectValue<DateTimeTimeZoneImpl>("scheduledEndTime", new DateTimeTimeZoneImpl(this.scheduledEndTime));
         }
         if(this.scheduledStartTime){
-        if(this.scheduledStartTime)
         writer.writeObjectValue<DateTimeTimeZoneImpl>("scheduledStartTime", new DateTimeTimeZoneImpl(this.scheduledStartTime));
         }
         writer.writeAdditionalData(this.additionalData);

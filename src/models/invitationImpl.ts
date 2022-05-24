@@ -6,25 +6,26 @@ import {InvitedUserMessageInfo} from './invitedUserMessageInfo';
 import {User} from './user';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the collection of invitation entities. */
 export class InvitationImpl extends EntityImpl implements Invitation, Parsable {
     /** The user created as part of the invitation creation. Read-Only */
-    invitedUser?: User | undefined;
+    public invitedUser?: User | undefined;
     /** The display name of the user being invited. */
-    invitedUserDisplayName?: string | undefined;
+    public invitedUserDisplayName?: string | undefined;
     /** The email address of the user being invited. Required. The following special characters are not permitted in the email address:Tilde (~)Exclamation point (!)At sign (@)Number sign (#)Dollar sign ($)Percent (%)Circumflex (^)Ampersand (&)Asterisk (*)Parentheses (( ))Hyphen (-)Plus sign (+)Equal sign (=)Brackets ([ ])Braces ({ })Backslash (/)Slash mark (/)Pipe (` */
-    invitedUserEmailAddress?: string | undefined;
+    public invitedUserEmailAddress?: string | undefined;
     /** Additional configuration for the message being sent to the invited user, including customizing message text, language and cc recipient list. */
-    invitedUserMessageInfo?: InvitedUserMessageInfo | undefined;
+    public invitedUserMessageInfo?: InvitedUserMessageInfo | undefined;
     /** The userType of the user being invited. By default, this is Guest. You can invite as Member if you're are company administrator. The default is false. */
-    invitedUserType?: string | undefined;
+    public invitedUserType?: string | undefined;
     /** The URL the user can use to redeem their invitation. Read-only. */
-    inviteRedeemUrl?: string | undefined;
+    public inviteRedeemUrl?: string | undefined;
     /** The URL user should be redirected to once the invitation is redeemed. Required. */
-    inviteRedirectUrl?: string | undefined;
+    public inviteRedirectUrl?: string | undefined;
     /** Indicates whether an email should be sent to the user being invited. The default is false. */
-    sendInvitationMessage?: boolean | undefined;
+    public sendInvitationMessage?: boolean | undefined;
     /** The status of the invitation. Possible values: PendingAcceptance, Completed, InProgress, and Error */
-    status?: string | undefined;
+    public status?: string | undefined;
     /**
      * Instantiates a new invitation and sets the default values.
      * @param invitationParameterValue 
@@ -66,39 +67,30 @@ export class InvitationImpl extends EntityImpl implements Invitation, Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.invitedUser){
-        if(this.invitedUser)
         writer.writeObjectValue<UserImpl>("invitedUser", new UserImpl(this.invitedUser));
         }
         if(this.invitedUserDisplayName){
-        if(this.invitedUserDisplayName)
         writer.writeStringValue("invitedUserDisplayName", this.invitedUserDisplayName);
         }
         if(this.invitedUserEmailAddress){
-        if(this.invitedUserEmailAddress)
         writer.writeStringValue("invitedUserEmailAddress", this.invitedUserEmailAddress);
         }
         if(this.invitedUserMessageInfo){
-        if(this.invitedUserMessageInfo)
         writer.writeObjectValue<InvitedUserMessageInfoImpl>("invitedUserMessageInfo", new InvitedUserMessageInfoImpl(this.invitedUserMessageInfo));
         }
         if(this.invitedUserType){
-        if(this.invitedUserType)
         writer.writeStringValue("invitedUserType", this.invitedUserType);
         }
         if(this.inviteRedeemUrl){
-        if(this.inviteRedeemUrl)
         writer.writeStringValue("inviteRedeemUrl", this.inviteRedeemUrl);
         }
         if(this.inviteRedirectUrl){
-        if(this.inviteRedirectUrl)
         writer.writeStringValue("inviteRedirectUrl", this.inviteRedirectUrl);
         }
         if(this.sendInvitationMessage){
-        if(this.sendInvitationMessage)
         writer.writeBooleanValue("sendInvitationMessage", this.sendInvitationMessage);
         }
         if(this.status){
-        if(this.status)
         writer.writeStringValue("status", this.status);
         }
     };

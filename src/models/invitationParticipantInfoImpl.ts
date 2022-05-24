@@ -6,24 +6,23 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class InvitationParticipantInfoImpl implements AdditionalDataHolder, InvitationParticipantInfo, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The hidden property */
-    hidden?: boolean | undefined;
+    public hidden?: boolean | undefined;
     /** The identity property */
-    identity?: IdentitySet | undefined;
+    public identity?: IdentitySet | undefined;
     /** Optional. The ID of the target participant. */
-    participantId?: string | undefined;
+    public participantId?: string | undefined;
     /** The removeFromDefaultAudioRoutingGroup property */
-    removeFromDefaultAudioRoutingGroup?: boolean | undefined;
+    public removeFromDefaultAudioRoutingGroup?: boolean | undefined;
     /** Optional. The call which the target identity is currently a part of. For peer-to-peer case, the call will be dropped once the participant is added successfully. */
-    replacesCallId?: string | undefined;
+    public replacesCallId?: string | undefined;
     /**
      * Instantiates a new invitationParticipantInfo and sets the default values.
      * @param invitationParticipantInfoParameterValue 
      */
     public constructor(invitationParticipantInfoParameterValue?: InvitationParticipantInfo | undefined) {
-        this.additionalData = {};
-        this.additionalData = invitationParticipantInfoParameterValue?.additionalData ? {} : invitationParticipantInfoParameterValue?.additionalData!
+        this.additionalData = invitationParticipantInfoParameterValue?.additionalData ? invitationParticipantInfoParameterValue?.additionalData! : {}
         this.hidden = invitationParticipantInfoParameterValue?.hidden ;
         this.identity = invitationParticipantInfoParameterValue?.identity ;
         this.participantId = invitationParticipantInfoParameterValue?.participantId ;
@@ -50,23 +49,18 @@ export class InvitationParticipantInfoImpl implements AdditionalDataHolder, Invi
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.hidden){
-        if(this.hidden)
         writer.writeBooleanValue("hidden", this.hidden);
         }
         if(this.identity){
-        if(this.identity)
         writer.writeObjectValue<IdentitySetImpl>("identity", new IdentitySetImpl(this.identity));
         }
         if(this.participantId){
-        if(this.participantId)
         writer.writeStringValue("participantId", this.participantId);
         }
         if(this.removeFromDefaultAudioRoutingGroup){
-        if(this.removeFromDefaultAudioRoutingGroup)
         writer.writeBooleanValue("removeFromDefaultAudioRoutingGroup", this.removeFromDefaultAudioRoutingGroup);
         }
         if(this.replacesCallId){
-        if(this.replacesCallId)
         writer.writeStringValue("replacesCallId", this.replacesCallId);
         }
         writer.writeAdditionalData(this.additionalData);

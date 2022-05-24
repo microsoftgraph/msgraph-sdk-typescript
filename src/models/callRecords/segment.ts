@@ -5,15 +5,15 @@ import {Media} from './media';
 
 export interface Segment extends Entity{
     /** Endpoint that answered this segment. */
-    callee?: Endpoint | undefined;
+    callee?:Endpoint | undefined;
     /** Endpoint that initiated this segment. */
-    caller?: Endpoint | undefined;
+    caller?:Endpoint | undefined;
     /** UTC time when the segment ended. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
-    endDateTime?: Date | undefined;
+    endDateTime?:Date | undefined;
     /** Failure information associated with the segment if it failed. */
-    failureInfo?: FailureInfo | undefined;
+    failureInfo?:FailureInfo | undefined;
     /** Media associated with this segment. */
-    media?: Media[] | undefined;
+    media?:Media[] | undefined;
     /** UTC time when the segment started. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
-    startDateTime?: Date | undefined;
+    startDateTime?:Date | undefined;
 }

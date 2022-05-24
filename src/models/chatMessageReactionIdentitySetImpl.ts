@@ -2,6 +2,7 @@ import {ChatMessageReactionIdentitySet} from './chatMessageReactionIdentitySet';
 import {IdentitySetImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the collection of chat entities. */
 export class ChatMessageReactionIdentitySetImpl extends IdentitySetImpl implements ChatMessageReactionIdentitySet, Parsable {
     /**
      * Instantiates a new chatMessageReactionIdentitySet and sets the default values.

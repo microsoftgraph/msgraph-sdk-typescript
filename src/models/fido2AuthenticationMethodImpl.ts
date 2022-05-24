@@ -3,19 +3,20 @@ import {Fido2AuthenticationMethod} from './fido2AuthenticationMethod';
 import {AuthenticationMethodImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to user. */
 export class Fido2AuthenticationMethodImpl extends AuthenticationMethodImpl implements Fido2AuthenticationMethod, Parsable {
     /** Authenticator Attestation GUID, an identifier that indicates the type (e.g. make and model) of the authenticator. */
-    aaGuid?: string | undefined;
+    public aaGuid?: string | undefined;
     /** The attestation certificate(s) attached to this security key. */
-    attestationCertificates?: string[] | undefined;
+    public attestationCertificates?: string[] | undefined;
     /** The attestation level of this FIDO2 security key. Possible values are: attested, notAttested, unknownFutureValue. */
-    attestationLevel?: AttestationLevel | undefined;
+    public attestationLevel?: AttestationLevel | undefined;
     /** The timestamp when this key was registered to the user. */
-    createdDateTime?: Date | undefined;
+    public createdDateTime?: Date | undefined;
     /** The display name of the key as given by the user. */
-    displayName?: string | undefined;
+    public displayName?: string | undefined;
     /** The manufacturer-assigned model of the FIDO2 security key. */
-    model?: string | undefined;
+    public model?: string | undefined;
     /**
      * Instantiates a new fido2AuthenticationMethod and sets the default values.
      * @param fido2AuthenticationMethodParameterValue 
@@ -51,27 +52,21 @@ export class Fido2AuthenticationMethodImpl extends AuthenticationMethodImpl impl
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.aaGuid){
-        if(this.aaGuid)
         writer.writeStringValue("aaGuid", this.aaGuid);
         }
         if(this.attestationCertificates){
-        if(this.attestationCertificates)
         writer.writeCollectionOfPrimitiveValues<string>("attestationCertificates", this.attestationCertificates);
         }
         if(this.attestationLevel){
-        if(this.attestationLevel)
         writer.writeEnumValue<AttestationLevel>("attestationLevel", this.attestationLevel);
         }
         if(this.createdDateTime){
-        if(this.createdDateTime)
         writer.writeDateValue("createdDateTime", this.createdDateTime);
         }
         if(this.displayName){
-        if(this.displayName)
         writer.writeStringValue("displayName", this.displayName);
         }
         if(this.model){
-        if(this.model)
         writer.writeStringValue("model", this.model);
         }
     };

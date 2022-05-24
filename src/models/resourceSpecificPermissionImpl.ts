@@ -3,24 +3,23 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class ResourceSpecificPermissionImpl implements AdditionalDataHolder, Parsable, ResourceSpecificPermission {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** Describes the level of access that the resource-specific permission represents. */
-    description?: string | undefined;
+    public description?: string | undefined;
     /** The display name for the resource-specific permission. */
-    displayName?: string | undefined;
+    public displayName?: string | undefined;
     /** The unique identifier for the resource-specific application permission. */
-    id?: string | undefined;
+    public id?: string | undefined;
     /** Indicates whether the permission is enabled. */
-    isEnabled?: boolean | undefined;
+    public isEnabled?: boolean | undefined;
     /** The value of the permission. */
-    value?: string | undefined;
+    public value?: string | undefined;
     /**
      * Instantiates a new resourceSpecificPermission and sets the default values.
      * @param resourceSpecificPermissionParameterValue 
      */
     public constructor(resourceSpecificPermissionParameterValue?: ResourceSpecificPermission | undefined) {
-        this.additionalData = {};
-        this.additionalData = resourceSpecificPermissionParameterValue?.additionalData ? {} : resourceSpecificPermissionParameterValue?.additionalData!
+        this.additionalData = resourceSpecificPermissionParameterValue?.additionalData ? resourceSpecificPermissionParameterValue?.additionalData! : {}
         this.description = resourceSpecificPermissionParameterValue?.description ;
         this.displayName = resourceSpecificPermissionParameterValue?.displayName ;
         this.id = resourceSpecificPermissionParameterValue?.id ;
@@ -47,23 +46,18 @@ export class ResourceSpecificPermissionImpl implements AdditionalDataHolder, Par
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.description){
-        if(this.description)
         writer.writeStringValue("description", this.description);
         }
         if(this.displayName){
-        if(this.displayName)
         writer.writeStringValue("displayName", this.displayName);
         }
         if(this.id){
-        if(this.id)
         writer.writeStringValue("id", this.id);
         }
         if(this.isEnabled){
-        if(this.isEnabled)
         writer.writeBooleanValue("isEnabled", this.isEnabled);
         }
         if(this.value){
-        if(this.value)
         writer.writeStringValue("value", this.value);
         }
         writer.writeAdditionalData(this.additionalData);

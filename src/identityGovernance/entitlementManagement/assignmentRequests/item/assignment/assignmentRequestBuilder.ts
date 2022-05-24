@@ -1,5 +1,4 @@
 import {AccessPackageAssignmentImpl} from '../../../../../models/';
-import {AccessPackageAssignment} from '../../../../../models/accessPackageAssignment';
 import {createAccessPackageAssignmentFromDiscriminatorValue} from '../../../../../models/createAccessPackageAssignmentFromDiscriminatorValue';
 import {ODataErrorImpl} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
@@ -50,7 +49,7 @@ export class AssignmentRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AccessPackageAssignment
      */
-    public get(requestConfiguration?: AssignmentRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AccessPackageAssignment | undefined> {
+    public get(requestConfiguration?: AssignmentRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AccessPackageAssignmentImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );

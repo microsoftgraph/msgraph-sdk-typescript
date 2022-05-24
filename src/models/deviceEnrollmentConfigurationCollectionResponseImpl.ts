@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class DeviceEnrollmentConfigurationCollectionResponseImpl implements AdditionalDataHolder, DeviceEnrollmentConfigurationCollectionResponse, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: DeviceEnrollmentConfiguration[] | undefined;
+    public value?: DeviceEnrollmentConfiguration[] | undefined;
     /**
      * Instantiates a new DeviceEnrollmentConfigurationCollectionResponse and sets the default values.
      * @param deviceEnrollmentConfigurationCollectionResponseParameterValue 
      */
     public constructor(deviceEnrollmentConfigurationCollectionResponseParameterValue?: DeviceEnrollmentConfigurationCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = deviceEnrollmentConfigurationCollectionResponseParameterValue?.additionalData ? {} : deviceEnrollmentConfigurationCollectionResponseParameterValue?.additionalData!
+        this.additionalData = deviceEnrollmentConfigurationCollectionResponseParameterValue?.additionalData ? deviceEnrollmentConfigurationCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = deviceEnrollmentConfigurationCollectionResponseParameterValue?.nextLink ;
         this.value = deviceEnrollmentConfigurationCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class DeviceEnrollmentConfigurationCollectionResponseImpl implements Addi
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: DeviceEnrollmentConfigurationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new DeviceEnrollmentConfigurationImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: DeviceEnrollmentConfigurationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new DeviceEnrollmentConfigurationImpl(element));});
         writer.writeCollectionOfObjectValues<DeviceEnrollmentConfigurationImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

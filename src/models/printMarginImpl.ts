@@ -3,22 +3,21 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class PrintMarginImpl implements AdditionalDataHolder, Parsable, PrintMargin {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The margin in microns from the bottom edge. */
-    bottom?: number | undefined;
+    public bottom?: number | undefined;
     /** The margin in microns from the left edge. */
-    left?: number | undefined;
+    public left?: number | undefined;
     /** The margin in microns from the right edge. */
-    right?: number | undefined;
+    public right?: number | undefined;
     /** The margin in microns from the top edge. */
-    top?: number | undefined;
+    public top?: number | undefined;
     /**
      * Instantiates a new printMargin and sets the default values.
      * @param printMarginParameterValue 
      */
     public constructor(printMarginParameterValue?: PrintMargin | undefined) {
-        this.additionalData = {};
-        this.additionalData = printMarginParameterValue?.additionalData ? {} : printMarginParameterValue?.additionalData!
+        this.additionalData = printMarginParameterValue?.additionalData ? printMarginParameterValue?.additionalData! : {}
         this.bottom = printMarginParameterValue?.bottom ;
         this.left = printMarginParameterValue?.left ;
         this.right = printMarginParameterValue?.right ;
@@ -43,19 +42,15 @@ export class PrintMarginImpl implements AdditionalDataHolder, Parsable, PrintMar
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.bottom){
-        if(this.bottom)
         writer.writeNumberValue("bottom", this.bottom);
         }
         if(this.left){
-        if(this.left)
         writer.writeNumberValue("left", this.left);
         }
         if(this.right){
-        if(this.right)
         writer.writeNumberValue("right", this.right);
         }
         if(this.top){
-        if(this.top)
         writer.writeNumberValue("top", this.top);
         }
         writer.writeAdditionalData(this.additionalData);

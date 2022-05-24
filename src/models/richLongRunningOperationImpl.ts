@@ -4,15 +4,16 @@ import {PublicError} from './publicError';
 import {RichLongRunningOperation} from './richLongRunningOperation';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to group. */
 export class RichLongRunningOperationImpl extends LongRunningOperationImpl implements Parsable, RichLongRunningOperation {
     /** Error due to which the operation failed. */
-    error_escaped?: PublicError | undefined;
+    public error_escaped?: PublicError | undefined;
     /** A value between 0 and 100 that indicates the progress of the operation. */
-    percentageComplete?: number | undefined;
+    public percentageComplete?: number | undefined;
     /** A unique identifier for the result. */
-    resourceId?: string | undefined;
+    public resourceId?: string | undefined;
     /** Type of the operation. */
-    type?: string | undefined;
+    public type?: string | undefined;
     /**
      * Instantiates a new richLongRunningOperation and sets the default values.
      * @param richLongRunningOperationParameterValue 
@@ -44,19 +45,15 @@ export class RichLongRunningOperationImpl extends LongRunningOperationImpl imple
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.error_escaped){
-        if(this.error_escaped)
         writer.writeObjectValue<PublicErrorImpl>("error", new PublicErrorImpl(this.error_escaped));
         }
         if(this.percentageComplete){
-        if(this.percentageComplete)
         writer.writeNumberValue("percentageComplete", this.percentageComplete);
         }
         if(this.resourceId){
-        if(this.resourceId)
         writer.writeStringValue("resourceId", this.resourceId);
         }
         if(this.type){
-        if(this.type)
         writer.writeStringValue("type", this.type);
         }
     };

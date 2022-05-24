@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class AccessReviewReviewerCollectionResponseImpl implements AccessReviewReviewerCollectionResponse, AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: AccessReviewReviewer[] | undefined;
+    public value?: AccessReviewReviewer[] | undefined;
     /**
      * Instantiates a new AccessReviewReviewerCollectionResponse and sets the default values.
      * @param accessReviewReviewerCollectionResponseParameterValue 
      */
     public constructor(accessReviewReviewerCollectionResponseParameterValue?: AccessReviewReviewerCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = accessReviewReviewerCollectionResponseParameterValue?.additionalData ? {} : accessReviewReviewerCollectionResponseParameterValue?.additionalData!
+        this.additionalData = accessReviewReviewerCollectionResponseParameterValue?.additionalData ? accessReviewReviewerCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = accessReviewReviewerCollectionResponseParameterValue?.nextLink ;
         this.value = accessReviewReviewerCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class AccessReviewReviewerCollectionResponseImpl implements AccessReviewR
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: AccessReviewReviewerImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new AccessReviewReviewerImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: AccessReviewReviewerImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new AccessReviewReviewerImpl(element));});
         writer.writeCollectionOfObjectValues<AccessReviewReviewerImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

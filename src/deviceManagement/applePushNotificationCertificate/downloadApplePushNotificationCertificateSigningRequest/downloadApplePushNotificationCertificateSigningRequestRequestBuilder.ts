@@ -1,6 +1,5 @@
 import {createDownloadApplePushNotificationCertificateSigningRequestResponseFromDiscriminatorValue} from './createDownloadApplePushNotificationCertificateSigningRequestResponseFromDiscriminatorValue';
 import {DownloadApplePushNotificationCertificateSigningRequestRequestBuilderGetRequestConfiguration} from './downloadApplePushNotificationCertificateSigningRequestRequestBuilderGetRequestConfiguration';
-import {DownloadApplePushNotificationCertificateSigningRequestResponse} from './downloadApplePushNotificationCertificateSigningRequestResponse';
 import {DownloadApplePushNotificationCertificateSigningRequestResponseImpl} from './index';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
@@ -47,7 +46,7 @@ export class DownloadApplePushNotificationCertificateSigningRequestRequestBuilde
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DownloadApplePushNotificationCertificateSigningRequestResponse
      */
-    public get(requestConfiguration?: DownloadApplePushNotificationCertificateSigningRequestRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DownloadApplePushNotificationCertificateSigningRequestResponse | undefined> {
+    public get(requestConfiguration?: DownloadApplePushNotificationCertificateSigningRequestRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DownloadApplePushNotificationCertificateSigningRequestResponseImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );

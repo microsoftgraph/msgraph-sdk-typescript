@@ -3,14 +3,13 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class ComplianceImpl implements AdditionalDataHolder, Compliance, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /**
      * Instantiates a new Compliance and sets the default values.
      * @param complianceParameterValue 
      */
     public constructor(complianceParameterValue?: Compliance | undefined) {
-        this.additionalData = {};
-        this.additionalData = complianceParameterValue?.additionalData ? {} : complianceParameterValue?.additionalData!
+        this.additionalData = complianceParameterValue?.additionalData ? complianceParameterValue?.additionalData! : {}
     };
     /**
      * The deserialization information for the current model

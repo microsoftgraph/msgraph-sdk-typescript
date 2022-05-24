@@ -3,20 +3,19 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class AccessReviewInstanceDecisionItemResourceImpl implements AccessReviewInstanceDecisionItemResource, AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** Display name of the resource */
-    displayName?: string | undefined;
+    public displayName?: string | undefined;
     /** Resource ID */
-    id?: string | undefined;
+    public id?: string | undefined;
     /** Type of resource. Types include: Group, ServicePrincipal, DirectoryRole, AzureRole, AccessPackageAssignmentPolicy. */
-    type?: string | undefined;
+    public type?: string | undefined;
     /**
      * Instantiates a new accessReviewInstanceDecisionItemResource and sets the default values.
      * @param accessReviewInstanceDecisionItemResourceParameterValue 
      */
     public constructor(accessReviewInstanceDecisionItemResourceParameterValue?: AccessReviewInstanceDecisionItemResource | undefined) {
-        this.additionalData = {};
-        this.additionalData = accessReviewInstanceDecisionItemResourceParameterValue?.additionalData ? {} : accessReviewInstanceDecisionItemResourceParameterValue?.additionalData!
+        this.additionalData = accessReviewInstanceDecisionItemResourceParameterValue?.additionalData ? accessReviewInstanceDecisionItemResourceParameterValue?.additionalData! : {}
         this.displayName = accessReviewInstanceDecisionItemResourceParameterValue?.displayName ;
         this.id = accessReviewInstanceDecisionItemResourceParameterValue?.id ;
         this.type = accessReviewInstanceDecisionItemResourceParameterValue?.type ;
@@ -39,15 +38,12 @@ export class AccessReviewInstanceDecisionItemResourceImpl implements AccessRevie
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.displayName){
-        if(this.displayName)
         writer.writeStringValue("displayName", this.displayName);
         }
         if(this.id){
-        if(this.id)
         writer.writeStringValue("id", this.id);
         }
         if(this.type){
-        if(this.type)
         writer.writeStringValue("type", this.type);
         }
         writer.writeAdditionalData(this.additionalData);

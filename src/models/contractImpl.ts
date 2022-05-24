@@ -2,15 +2,16 @@ import {Contract} from './contract';
 import {DirectoryObjectImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the collection of contract entities. */
 export class ContractImpl extends DirectoryObjectImpl implements Contract, Parsable {
     /** Type of contract. Possible values are:  SyndicationPartner, BreadthPartner, ResellerPartner. See more in the table below. */
-    contractType?: string | undefined;
+    public contractType?: string | undefined;
     /** The unique identifier for the customer tenant referenced by this partnership. Corresponds to the id property of the customer tenant's organization resource. */
-    customerId?: string | undefined;
+    public customerId?: string | undefined;
     /** A copy of the customer tenant's default domain name. The copy is made when the partnership with the customer is established. It is not automatically updated if the customer tenant's default domain name changes. */
-    defaultDomainName?: string | undefined;
+    public defaultDomainName?: string | undefined;
     /** A copy of the customer tenant's display name. The copy is made when the partnership with the customer is established. It is not automatically updated if the customer tenant's display name changes. */
-    displayName?: string | undefined;
+    public displayName?: string | undefined;
     /**
      * Instantiates a new contract and sets the default values.
      * @param contractParameterValue 
@@ -42,19 +43,15 @@ export class ContractImpl extends DirectoryObjectImpl implements Contract, Parsa
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.contractType){
-        if(this.contractType)
         writer.writeStringValue("contractType", this.contractType);
         }
         if(this.customerId){
-        if(this.customerId)
         writer.writeStringValue("customerId", this.customerId);
         }
         if(this.defaultDomainName){
-        if(this.defaultDomainName)
         writer.writeStringValue("defaultDomainName", this.defaultDomainName);
         }
         if(this.displayName){
-        if(this.displayName)
         writer.writeStringValue("displayName", this.displayName);
         }
     };

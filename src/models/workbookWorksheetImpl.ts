@@ -12,23 +12,24 @@ import {WorkbookWorksheet} from './workbookWorksheet';
 import {WorkbookWorksheetProtection} from './workbookWorksheetProtection';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to user. */
 export class WorkbookWorksheetImpl extends EntityImpl implements Parsable, WorkbookWorksheet {
     /** Returns collection of charts that are part of the worksheet. Read-only. */
-    charts?: WorkbookChart[] | undefined;
+    public charts?: WorkbookChart[] | undefined;
     /** The display name of the worksheet. */
-    name?: string | undefined;
+    public name?: string | undefined;
     /** Returns collection of names that are associated with the worksheet. Read-only. */
-    names?: WorkbookNamedItem[] | undefined;
+    public names?: WorkbookNamedItem[] | undefined;
     /** Collection of PivotTables that are part of the worksheet. */
-    pivotTables?: WorkbookPivotTable[] | undefined;
+    public pivotTables?: WorkbookPivotTable[] | undefined;
     /** The zero-based position of the worksheet within the workbook. */
-    position?: number | undefined;
+    public position?: number | undefined;
     /** Returns sheet protection object for a worksheet. Read-only. */
-    protection?: WorkbookWorksheetProtection | undefined;
+    public protection?: WorkbookWorksheetProtection | undefined;
     /** Collection of tables that are part of the worksheet. Read-only. */
-    tables?: WorkbookTable[] | undefined;
+    public tables?: WorkbookTable[] | undefined;
     /** The Visibility of the worksheet. The possible values are: Visible, Hidden, VeryHidden. */
-    visibility?: string | undefined;
+    public visibility?: string | undefined;
     /**
      * Instantiates a new workbookWorksheet and sets the default values.
      * @param workbookWorksheetParameterValue 
@@ -67,36 +68,28 @@ export class WorkbookWorksheetImpl extends EntityImpl implements Parsable, Workb
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.charts){
-        const chartsArrValue: WorkbookChartImpl[] = []; this.charts?.forEach(element => {chartsArrValue.push(new WorkbookChartImpl(element));});
+        if(this.charts && this.charts.length != 0){        const chartsArrValue: WorkbookChartImpl[] = []; this.charts?.forEach(element => {chartsArrValue.push(new WorkbookChartImpl(element));});
         writer.writeCollectionOfObjectValues<WorkbookChartImpl>("charts", chartsArrValue);
         }
         if(this.name){
-        if(this.name)
         writer.writeStringValue("name", this.name);
         }
-        if(this.names){
-        const namesArrValue: WorkbookNamedItemImpl[] = []; this.names?.forEach(element => {namesArrValue.push(new WorkbookNamedItemImpl(element));});
+        if(this.names && this.names.length != 0){        const namesArrValue: WorkbookNamedItemImpl[] = []; this.names?.forEach(element => {namesArrValue.push(new WorkbookNamedItemImpl(element));});
         writer.writeCollectionOfObjectValues<WorkbookNamedItemImpl>("names", namesArrValue);
         }
-        if(this.pivotTables){
-        const pivotTablesArrValue: WorkbookPivotTableImpl[] = []; this.pivotTables?.forEach(element => {pivotTablesArrValue.push(new WorkbookPivotTableImpl(element));});
+        if(this.pivotTables && this.pivotTables.length != 0){        const pivotTablesArrValue: WorkbookPivotTableImpl[] = []; this.pivotTables?.forEach(element => {pivotTablesArrValue.push(new WorkbookPivotTableImpl(element));});
         writer.writeCollectionOfObjectValues<WorkbookPivotTableImpl>("pivotTables", pivotTablesArrValue);
         }
         if(this.position){
-        if(this.position)
         writer.writeNumberValue("position", this.position);
         }
         if(this.protection){
-        if(this.protection)
         writer.writeObjectValue<WorkbookWorksheetProtectionImpl>("protection", new WorkbookWorksheetProtectionImpl(this.protection));
         }
-        if(this.tables){
-        const tablesArrValue: WorkbookTableImpl[] = []; this.tables?.forEach(element => {tablesArrValue.push(new WorkbookTableImpl(element));});
+        if(this.tables && this.tables.length != 0){        const tablesArrValue: WorkbookTableImpl[] = []; this.tables?.forEach(element => {tablesArrValue.push(new WorkbookTableImpl(element));});
         writer.writeCollectionOfObjectValues<WorkbookTableImpl>("tables", tablesArrValue);
         }
         if(this.visibility){
-        if(this.visibility)
         writer.writeStringValue("visibility", this.visibility);
         }
     };

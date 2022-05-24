@@ -6,21 +6,22 @@ import {createAccessPackageCatalogFromDiscriminatorValue} from './createAccessPa
 import {AccessPackageAssignmentPolicyImpl, AccessPackageCatalogImpl, EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the identityGovernance singleton. */
 export class AccessPackageImpl extends EntityImpl implements AccessPackage, Parsable {
     /** Read-only. Nullable. */
-    assignmentPolicies?: AccessPackageAssignmentPolicy[] | undefined;
+    public assignmentPolicies?: AccessPackageAssignmentPolicy[] | undefined;
     /** Read-only. Nullable. */
-    catalog?: AccessPackageCatalog | undefined;
+    public catalog?: AccessPackageCatalog | undefined;
     /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. */
-    createdDateTime?: Date | undefined;
+    public createdDateTime?: Date | undefined;
     /** The description of the access package. */
-    description?: string | undefined;
+    public description?: string | undefined;
     /** The display name of the access package. Supports $filter (eq, contains). */
-    displayName?: string | undefined;
+    public displayName?: string | undefined;
     /** Whether the access package is hidden from the requestor. */
-    isHidden?: boolean | undefined;
+    public isHidden?: boolean | undefined;
     /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. */
-    modifiedDateTime?: Date | undefined;
+    public modifiedDateTime?: Date | undefined;
     /**
      * Instantiates a new accessPackage and sets the default values.
      * @param accessPackageParameterValue 
@@ -57,32 +58,25 @@ export class AccessPackageImpl extends EntityImpl implements AccessPackage, Pars
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.assignmentPolicies){
-        const assignmentPoliciesArrValue: AccessPackageAssignmentPolicyImpl[] = []; this.assignmentPolicies?.forEach(element => {assignmentPoliciesArrValue.push(new AccessPackageAssignmentPolicyImpl(element));});
+        if(this.assignmentPolicies && this.assignmentPolicies.length != 0){        const assignmentPoliciesArrValue: AccessPackageAssignmentPolicyImpl[] = []; this.assignmentPolicies?.forEach(element => {assignmentPoliciesArrValue.push(new AccessPackageAssignmentPolicyImpl(element));});
         writer.writeCollectionOfObjectValues<AccessPackageAssignmentPolicyImpl>("assignmentPolicies", assignmentPoliciesArrValue);
         }
         if(this.catalog){
-        if(this.catalog)
         writer.writeObjectValue<AccessPackageCatalogImpl>("catalog", new AccessPackageCatalogImpl(this.catalog));
         }
         if(this.createdDateTime){
-        if(this.createdDateTime)
         writer.writeDateValue("createdDateTime", this.createdDateTime);
         }
         if(this.description){
-        if(this.description)
         writer.writeStringValue("description", this.description);
         }
         if(this.displayName){
-        if(this.displayName)
         writer.writeStringValue("displayName", this.displayName);
         }
         if(this.isHidden){
-        if(this.isHidden)
         writer.writeBooleanValue("isHidden", this.isHidden);
         }
         if(this.modifiedDateTime){
-        if(this.modifiedDateTime)
         writer.writeDateValue("modifiedDateTime", this.modifiedDateTime);
         }
     };

@@ -4,20 +4,19 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class PlannerPlanContainerImpl implements AdditionalDataHolder, Parsable, PlannerPlanContainer {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The identifier of the resource that contains the plan. */
-    containerId?: string | undefined;
+    public containerId?: string | undefined;
     /** The type of the resource that contains the plan. See the previous table for supported types. Possible values are: group, unknownFutureValue, roster. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value in this evolvable enum: roster. */
-    type?: PlannerContainerType | undefined;
+    public type?: PlannerContainerType | undefined;
     /** The full canonical URL of the container. */
-    url?: string | undefined;
+    public url?: string | undefined;
     /**
      * Instantiates a new plannerPlanContainer and sets the default values.
      * @param plannerPlanContainerParameterValue 
      */
     public constructor(plannerPlanContainerParameterValue?: PlannerPlanContainer | undefined) {
-        this.additionalData = {};
-        this.additionalData = plannerPlanContainerParameterValue?.additionalData ? {} : plannerPlanContainerParameterValue?.additionalData!
+        this.additionalData = plannerPlanContainerParameterValue?.additionalData ? plannerPlanContainerParameterValue?.additionalData! : {}
         this.containerId = plannerPlanContainerParameterValue?.containerId ;
         this.type = plannerPlanContainerParameterValue?.type ;
         this.url = plannerPlanContainerParameterValue?.url ;
@@ -40,15 +39,12 @@ export class PlannerPlanContainerImpl implements AdditionalDataHolder, Parsable,
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.containerId){
-        if(this.containerId)
         writer.writeStringValue("containerId", this.containerId);
         }
         if(this.type){
-        if(this.type)
         writer.writeEnumValue<PlannerContainerType>("type", this.type);
         }
         if(this.url){
-        if(this.url)
         writer.writeStringValue("url", this.url);
         }
         writer.writeAdditionalData(this.additionalData);

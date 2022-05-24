@@ -1,3 +1,3 @@
-export * from './cancelMediaProcessingRequestBodyImpl'
+export * from './cancelMediaProcessingPostRequestBodyImpl'
 export * from './cancelMediaProcessingRequestBuilderPostRequestConfiguration'
-export * from './cancelMediaProcessingRequestBody'
+export * from './cancelMediaProcessingPostRequestBody'

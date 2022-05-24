@@ -1,6 +1,5 @@
 import {ManagedDeviceCollectionResponseImpl} from '../../../../models/';
 import {createManagedDeviceCollectionResponseFromDiscriminatorValue} from '../../../../models/createManagedDeviceCollectionResponseFromDiscriminatorValue';
-import {ManagedDeviceCollectionResponse} from '../../../../models/managedDeviceCollectionResponse';
 import {ODataErrorImpl} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
@@ -55,7 +54,7 @@ export class ManagedDevicesRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ManagedDeviceCollectionResponse
      */
-    public get(requestConfiguration?: ManagedDevicesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ManagedDeviceCollectionResponse | undefined> {
+    public get(requestConfiguration?: ManagedDevicesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ManagedDeviceCollectionResponseImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );

@@ -3,35 +3,35 @@ import {Entity} from './entity';
 
 export interface WindowsAutopilotDeviceIdentity extends Entity{
     /** Addressable user name. */
-    addressableUserName?: string | undefined;
+    addressableUserName?:string | undefined;
     /** AAD Device ID - to be deprecated */
-    azureActiveDirectoryDeviceId?: string | undefined;
+    azureActiveDirectoryDeviceId?:string | undefined;
     /** Display Name */
-    displayName?: string | undefined;
+    displayName?:string | undefined;
     /** Intune enrollment state of the Windows autopilot device. Possible values are: unknown, enrolled, pendingReset, failed, notContacted, blocked. */
-    enrollmentState?: EnrollmentState | undefined;
+    enrollmentState?:EnrollmentState | undefined;
     /** Group Tag of the Windows autopilot device. */
-    groupTag?: string | undefined;
+    groupTag?:string | undefined;
     /** Intune Last Contacted Date Time of the Windows autopilot device. */
-    lastContactedDateTime?: Date | undefined;
+    lastContactedDateTime?:Date | undefined;
     /** Managed Device ID */
-    managedDeviceId?: string | undefined;
+    managedDeviceId?:string | undefined;
     /** Oem manufacturer of the Windows autopilot device. */
-    manufacturer?: string | undefined;
+    manufacturer?:string | undefined;
     /** Model name of the Windows autopilot device. */
-    model?: string | undefined;
+    model?:string | undefined;
     /** Product Key of the Windows autopilot device. */
-    productKey?: string | undefined;
+    productKey?:string | undefined;
     /** Purchase Order Identifier of the Windows autopilot device. */
-    purchaseOrderIdentifier?: string | undefined;
+    purchaseOrderIdentifier?:string | undefined;
     /** Resource Name. */
-    resourceName?: string | undefined;
+    resourceName?:string | undefined;
     /** Serial number of the Windows autopilot device. */
-    serialNumber?: string | undefined;
+    serialNumber?:string | undefined;
     /** SKU Number */
-    skuNumber?: string | undefined;
+    skuNumber?:string | undefined;
     /** System Family */
-    systemFamily?: string | undefined;
+    systemFamily?:string | undefined;
     /** User Principal Name. */
-    userPrincipalName?: string | undefined;
+    userPrincipalName?:string | undefined;
 }

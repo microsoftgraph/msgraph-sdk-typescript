@@ -1,6 +1,5 @@
 import {SiteImpl} from '../../../models/';
 import {createSiteFromDiscriminatorValue} from '../../../models/createSiteFromDiscriminatorValue';
-import {Site} from '../../../models/site';
 import {GetByPathWithPathRequestBuilderGetRequestConfiguration} from './getByPathWithPathRequestBuilderGetRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
@@ -49,7 +48,7 @@ export class GetByPathWithPathRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Site
      */
-    public get(requestConfiguration?: GetByPathWithPathRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Site | undefined> {
+    public get(requestConfiguration?: GetByPathWithPathRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<SiteImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );

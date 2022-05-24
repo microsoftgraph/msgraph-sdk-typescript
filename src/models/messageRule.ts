@@ -4,19 +4,19 @@ import {MessageRulePredicates} from './messageRulePredicates';
 
 export interface MessageRule extends Entity{
     /** Actions to be taken on a message when the corresponding conditions are fulfilled. */
-    actions?: MessageRuleActions | undefined;
+    actions?:MessageRuleActions | undefined;
     /** Conditions that when fulfilled, will trigger the corresponding actions for that rule. */
-    conditions?: MessageRulePredicates | undefined;
+    conditions?:MessageRulePredicates | undefined;
     /** The display name of the rule. */
-    displayName?: string | undefined;
+    displayName?:string | undefined;
     /** Exception conditions for the rule. */
-    exceptions?: MessageRulePredicates | undefined;
+    exceptions?:MessageRulePredicates | undefined;
     /** Indicates whether the rule is in an error condition. Read-only. */
-    hasError?: boolean | undefined;
+    hasError?:boolean | undefined;
     /** Indicates whether the rule is enabled to be applied to messages. */
-    isEnabled?: boolean | undefined;
+    isEnabled?:boolean | undefined;
     /** Indicates if the rule is read-only and cannot be modified or deleted by the rules REST API. */
-    isReadOnly?: boolean | undefined;
+    isReadOnly?:boolean | undefined;
     /** Indicates the order in which the rule is executed, among other rules. */
-    sequence?: number | undefined;
+    sequence?:number | undefined;
 }

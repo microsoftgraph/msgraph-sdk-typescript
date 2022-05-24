@@ -5,11 +5,12 @@ import {Property} from './property';
 import {Schema} from './schema';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the collection of externalConnection entities. */
 export class SchemaImpl extends EntityImpl implements Parsable, Schema {
     /** Must be set to microsoft.graph.externalItem. Required. */
-    baseType?: string | undefined;
+    public baseType?: string | undefined;
     /** The properties defined for the items in the connection. The minimum number of properties is one, the maximum is 128. */
-    properties?: Property[] | undefined;
+    public properties?: Property[] | undefined;
     /**
      * Instantiates a new schema and sets the default values.
      * @param schemaParameterValue 
@@ -37,11 +38,9 @@ export class SchemaImpl extends EntityImpl implements Parsable, Schema {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.baseType){
-        if(this.baseType)
         writer.writeStringValue("baseType", this.baseType);
         }
-        if(this.properties){
-        const propertiesArrValue: PropertyImpl[] = []; this.properties?.forEach(element => {propertiesArrValue.push(new PropertyImpl(element));});
+        if(this.properties && this.properties.length != 0){        const propertiesArrValue: PropertyImpl[] = []; this.properties?.forEach(element => {propertiesArrValue.push(new PropertyImpl(element));});
         writer.writeCollectionOfObjectValues<PropertyImpl>("properties", propertiesArrValue);
         }
     };

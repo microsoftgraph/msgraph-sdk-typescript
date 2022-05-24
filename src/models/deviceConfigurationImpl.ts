@@ -14,29 +14,30 @@ import {DeviceConfigurationAssignmentImpl, DeviceConfigurationDeviceOverviewImpl
 import {SettingStateDeviceSummary} from './settingStateDeviceSummary';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Device Configuration. */
 export class DeviceConfigurationImpl extends EntityImpl implements DeviceConfiguration, Parsable {
     /** The list of assignments for the device configuration profile. */
-    assignments?: DeviceConfigurationAssignment[] | undefined;
+    public assignments?: DeviceConfigurationAssignment[] | undefined;
     /** DateTime the object was created. */
-    createdDateTime?: Date | undefined;
+    public createdDateTime?: Date | undefined;
     /** Admin provided description of the Device Configuration. */
-    description?: string | undefined;
+    public description?: string | undefined;
     /** Device Configuration Setting State Device Summary */
-    deviceSettingStateSummaries?: SettingStateDeviceSummary[] | undefined;
+    public deviceSettingStateSummaries?: SettingStateDeviceSummary[] | undefined;
     /** Device configuration installation status by device. */
-    deviceStatuses?: DeviceConfigurationDeviceStatus[] | undefined;
+    public deviceStatuses?: DeviceConfigurationDeviceStatus[] | undefined;
     /** Device Configuration devices status overview */
-    deviceStatusOverview?: DeviceConfigurationDeviceOverview | undefined;
+    public deviceStatusOverview?: DeviceConfigurationDeviceOverview | undefined;
     /** Admin provided name of the device configuration. */
-    displayName?: string | undefined;
+    public displayName?: string | undefined;
     /** DateTime the object was last modified. */
-    lastModifiedDateTime?: Date | undefined;
+    public lastModifiedDateTime?: Date | undefined;
     /** Device configuration installation status by user. */
-    userStatuses?: DeviceConfigurationUserStatus[] | undefined;
+    public userStatuses?: DeviceConfigurationUserStatus[] | undefined;
     /** Device Configuration users status overview */
-    userStatusOverview?: DeviceConfigurationUserOverview | undefined;
+    public userStatusOverview?: DeviceConfigurationUserOverview | undefined;
     /** Version of the device configuration. */
-    version?: number | undefined;
+    public version?: number | undefined;
     /**
      * Instantiates a new deviceConfiguration and sets the default values.
      * @param deviceConfigurationParameterValue 
@@ -81,48 +82,37 @@ export class DeviceConfigurationImpl extends EntityImpl implements DeviceConfigu
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.assignments){
-        const assignmentsArrValue: DeviceConfigurationAssignmentImpl[] = []; this.assignments?.forEach(element => {assignmentsArrValue.push(new DeviceConfigurationAssignmentImpl(element));});
+        if(this.assignments && this.assignments.length != 0){        const assignmentsArrValue: DeviceConfigurationAssignmentImpl[] = []; this.assignments?.forEach(element => {assignmentsArrValue.push(new DeviceConfigurationAssignmentImpl(element));});
         writer.writeCollectionOfObjectValues<DeviceConfigurationAssignmentImpl>("assignments", assignmentsArrValue);
         }
         if(this.createdDateTime){
-        if(this.createdDateTime)
         writer.writeDateValue("createdDateTime", this.createdDateTime);
         }
         if(this.description){
-        if(this.description)
         writer.writeStringValue("description", this.description);
         }
-        if(this.deviceSettingStateSummaries){
-        const deviceSettingStateSummariesArrValue: SettingStateDeviceSummaryImpl[] = []; this.deviceSettingStateSummaries?.forEach(element => {deviceSettingStateSummariesArrValue.push(new SettingStateDeviceSummaryImpl(element));});
+        if(this.deviceSettingStateSummaries && this.deviceSettingStateSummaries.length != 0){        const deviceSettingStateSummariesArrValue: SettingStateDeviceSummaryImpl[] = []; this.deviceSettingStateSummaries?.forEach(element => {deviceSettingStateSummariesArrValue.push(new SettingStateDeviceSummaryImpl(element));});
         writer.writeCollectionOfObjectValues<SettingStateDeviceSummaryImpl>("deviceSettingStateSummaries", deviceSettingStateSummariesArrValue);
         }
-        if(this.deviceStatuses){
-        const deviceStatusesArrValue: DeviceConfigurationDeviceStatusImpl[] = []; this.deviceStatuses?.forEach(element => {deviceStatusesArrValue.push(new DeviceConfigurationDeviceStatusImpl(element));});
+        if(this.deviceStatuses && this.deviceStatuses.length != 0){        const deviceStatusesArrValue: DeviceConfigurationDeviceStatusImpl[] = []; this.deviceStatuses?.forEach(element => {deviceStatusesArrValue.push(new DeviceConfigurationDeviceStatusImpl(element));});
         writer.writeCollectionOfObjectValues<DeviceConfigurationDeviceStatusImpl>("deviceStatuses", deviceStatusesArrValue);
         }
         if(this.deviceStatusOverview){
-        if(this.deviceStatusOverview)
         writer.writeObjectValue<DeviceConfigurationDeviceOverviewImpl>("deviceStatusOverview", new DeviceConfigurationDeviceOverviewImpl(this.deviceStatusOverview));
         }
         if(this.displayName){
-        if(this.displayName)
         writer.writeStringValue("displayName", this.displayName);
         }
         if(this.lastModifiedDateTime){
-        if(this.lastModifiedDateTime)
         writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
         }
-        if(this.userStatuses){
-        const userStatusesArrValue: DeviceConfigurationUserStatusImpl[] = []; this.userStatuses?.forEach(element => {userStatusesArrValue.push(new DeviceConfigurationUserStatusImpl(element));});
+        if(this.userStatuses && this.userStatuses.length != 0){        const userStatusesArrValue: DeviceConfigurationUserStatusImpl[] = []; this.userStatuses?.forEach(element => {userStatusesArrValue.push(new DeviceConfigurationUserStatusImpl(element));});
         writer.writeCollectionOfObjectValues<DeviceConfigurationUserStatusImpl>("userStatuses", userStatusesArrValue);
         }
         if(this.userStatusOverview){
-        if(this.userStatusOverview)
         writer.writeObjectValue<DeviceConfigurationUserOverviewImpl>("userStatusOverview", new DeviceConfigurationUserOverviewImpl(this.userStatusOverview));
         }
         if(this.version){
-        if(this.version)
         writer.writeNumberValue("version", this.version);
         }
     };

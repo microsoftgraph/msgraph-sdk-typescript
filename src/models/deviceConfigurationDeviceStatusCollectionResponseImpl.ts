@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class DeviceConfigurationDeviceStatusCollectionResponseImpl implements AdditionalDataHolder, DeviceConfigurationDeviceStatusCollectionResponse, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: DeviceConfigurationDeviceStatus[] | undefined;
+    public value?: DeviceConfigurationDeviceStatus[] | undefined;
     /**
      * Instantiates a new DeviceConfigurationDeviceStatusCollectionResponse and sets the default values.
      * @param deviceConfigurationDeviceStatusCollectionResponseParameterValue 
      */
     public constructor(deviceConfigurationDeviceStatusCollectionResponseParameterValue?: DeviceConfigurationDeviceStatusCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = deviceConfigurationDeviceStatusCollectionResponseParameterValue?.additionalData ? {} : deviceConfigurationDeviceStatusCollectionResponseParameterValue?.additionalData!
+        this.additionalData = deviceConfigurationDeviceStatusCollectionResponseParameterValue?.additionalData ? deviceConfigurationDeviceStatusCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = deviceConfigurationDeviceStatusCollectionResponseParameterValue?.nextLink ;
         this.value = deviceConfigurationDeviceStatusCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class DeviceConfigurationDeviceStatusCollectionResponseImpl implements Ad
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: DeviceConfigurationDeviceStatusImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new DeviceConfigurationDeviceStatusImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: DeviceConfigurationDeviceStatusImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new DeviceConfigurationDeviceStatusImpl(element));});
         writer.writeCollectionOfObjectValues<DeviceConfigurationDeviceStatusImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

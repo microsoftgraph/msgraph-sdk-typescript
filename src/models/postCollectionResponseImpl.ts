@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class PostCollectionResponseImpl implements AdditionalDataHolder, Parsable, PostCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: Post[] | undefined;
+    public value?: Post[] | undefined;
     /**
      * Instantiates a new PostCollectionResponse and sets the default values.
      * @param postCollectionResponseParameterValue 
      */
     public constructor(postCollectionResponseParameterValue?: PostCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = postCollectionResponseParameterValue?.additionalData ? {} : postCollectionResponseParameterValue?.additionalData!
+        this.additionalData = postCollectionResponseParameterValue?.additionalData ? postCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = postCollectionResponseParameterValue?.nextLink ;
         this.value = postCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class PostCollectionResponseImpl implements AdditionalDataHolder, Parsabl
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: PostImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new PostImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: PostImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new PostImpl(element));});
         writer.writeCollectionOfObjectValues<PostImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

@@ -3,22 +3,21 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class ConditionalAccessApplicationsImpl implements AdditionalDataHolder, ConditionalAccessApplications, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The list of application IDs explicitly excluded from the policy. */
-    excludeApplications?: string[] | undefined;
+    public excludeApplications?: string[] | undefined;
     /** The list of application IDs the policy applies to, unless explicitly excluded (in excludeApplications). Can also be set to All. */
-    includeApplications?: string[] | undefined;
+    public includeApplications?: string[] | undefined;
     /** Authentication context class references include. Supported values are c1 through c25. */
-    includeAuthenticationContextClassReferences?: string[] | undefined;
+    public includeAuthenticationContextClassReferences?: string[] | undefined;
     /** User actions to include. Supported values are urn:user:registersecurityinfo and urn:user:registerdevice */
-    includeUserActions?: string[] | undefined;
+    public includeUserActions?: string[] | undefined;
     /**
      * Instantiates a new conditionalAccessApplications and sets the default values.
      * @param conditionalAccessApplicationsParameterValue 
      */
     public constructor(conditionalAccessApplicationsParameterValue?: ConditionalAccessApplications | undefined) {
-        this.additionalData = {};
-        this.additionalData = conditionalAccessApplicationsParameterValue?.additionalData ? {} : conditionalAccessApplicationsParameterValue?.additionalData!
+        this.additionalData = conditionalAccessApplicationsParameterValue?.additionalData ? conditionalAccessApplicationsParameterValue?.additionalData! : {}
         this.excludeApplications = conditionalAccessApplicationsParameterValue?.excludeApplications ;
         this.includeApplications = conditionalAccessApplicationsParameterValue?.includeApplications ;
         this.includeAuthenticationContextClassReferences = conditionalAccessApplicationsParameterValue?.includeAuthenticationContextClassReferences ;
@@ -43,19 +42,15 @@ export class ConditionalAccessApplicationsImpl implements AdditionalDataHolder, 
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.excludeApplications){
-        if(this.excludeApplications)
         writer.writeCollectionOfPrimitiveValues<string>("excludeApplications", this.excludeApplications);
         }
         if(this.includeApplications){
-        if(this.includeApplications)
         writer.writeCollectionOfPrimitiveValues<string>("includeApplications", this.includeApplications);
         }
         if(this.includeAuthenticationContextClassReferences){
-        if(this.includeAuthenticationContextClassReferences)
         writer.writeCollectionOfPrimitiveValues<string>("includeAuthenticationContextClassReferences", this.includeAuthenticationContextClassReferences);
         }
         if(this.includeUserActions){
-        if(this.includeUserActions)
         writer.writeCollectionOfPrimitiveValues<string>("includeUserActions", this.includeUserActions);
         }
         writer.writeAdditionalData(this.additionalData);

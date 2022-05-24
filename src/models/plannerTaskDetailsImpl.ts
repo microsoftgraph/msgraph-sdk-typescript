@@ -7,15 +7,16 @@ import {PlannerPreviewType} from './plannerPreviewType';
 import {PlannerTaskDetails} from './plannerTaskDetails';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to user. */
 export class PlannerTaskDetailsImpl extends EntityImpl implements Parsable, PlannerTaskDetails {
     /** The collection of checklist items on the task. */
-    checklist?: PlannerChecklistItems | undefined;
+    public checklist?: PlannerChecklistItems | undefined;
     /** Description of the task. */
-    description?: string | undefined;
+    public description?: string | undefined;
     /** This sets the type of preview that shows up on the task. Possible values are: automatic, noPreview, checklist, description, reference. When set to automatic the displayed preview is chosen by the app viewing the task. */
-    previewType?: PlannerPreviewType | undefined;
+    public previewType?: PlannerPreviewType | undefined;
     /** The collection of references on the task. */
-    references?: PlannerExternalReferences | undefined;
+    public references?: PlannerExternalReferences | undefined;
     /**
      * Instantiates a new plannerTaskDetails and sets the default values.
      * @param plannerTaskDetailsParameterValue 
@@ -47,19 +48,15 @@ export class PlannerTaskDetailsImpl extends EntityImpl implements Parsable, Plan
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.checklist){
-        if(this.checklist)
         writer.writeObjectValue<PlannerChecklistItemsImpl>("checklist", new PlannerChecklistItemsImpl(this.checklist));
         }
         if(this.description){
-        if(this.description)
         writer.writeStringValue("description", this.description);
         }
         if(this.previewType){
-        if(this.previewType)
         writer.writeEnumValue<PlannerPreviewType>("previewType", this.previewType);
         }
         if(this.references){
-        if(this.references)
         writer.writeObjectValue<PlannerExternalReferencesImpl>("references", new PlannerExternalReferencesImpl(this.references));
         }
     };

@@ -7,25 +7,25 @@ import {TeamsTab} from './teamsTab';
 
 export interface Channel extends Entity{
     /** Read only. Timestamp at which the channel was created. */
-    createdDateTime?: Date | undefined;
+    createdDateTime?:Date | undefined;
     /** Optional textual description for the channel. */
-    description?: string | undefined;
+    description?:string | undefined;
     /** Channel name as it will appear to the user in Microsoft Teams. */
-    displayName?: string | undefined;
+    displayName?:string | undefined;
     /** The email address for sending messages to the channel. Read-only. */
-    email?: string | undefined;
+    email?:string | undefined;
     /** Metadata for the location where the channel's files are stored. */
-    filesFolder?: DriveItem | undefined;
+    filesFolder?:DriveItem | undefined;
     /** Indicates whether the channel should automatically be marked 'favorite' for all members of the team. Can only be set programmatically with Create team. Default: false. */
-    isFavoriteByDefault?: boolean | undefined;
+    isFavoriteByDefault?:boolean | undefined;
     /** A collection of membership records associated with the channel. */
-    members?: ConversationMember[] | undefined;
+    members?:ConversationMember[] | undefined;
     /** The type of the channel. Can be set during creation and can't be changed. The possible values are: standard, private, unknownFutureValue, shared. The default value is standard. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value in this evolvable enum: shared. */
-    membershipType?: ChannelMembershipType | undefined;
+    membershipType?:ChannelMembershipType | undefined;
     /** A collection of all the messages in the channel. A navigation property. Nullable. */
-    messages?: ChatMessage[] | undefined;
+    messages?:ChatMessage[] | undefined;
     /** A collection of all the tabs in the channel. A navigation property. */
-    tabs?: TeamsTab[] | undefined;
+    tabs?:TeamsTab[] | undefined;
     /** A hyperlink that will go to the channel in Microsoft Teams. This is the URL that you get when you right-click a channel in Microsoft Teams and select Get link to channel. This URL should be treated as an opaque blob, and not parsed. Read-only. */
-    webUrl?: string | undefined;
+    webUrl?:string | undefined;
 }

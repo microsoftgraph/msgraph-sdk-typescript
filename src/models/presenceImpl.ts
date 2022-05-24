@@ -2,11 +2,12 @@ import {EntityImpl} from './index';
 import {Presence} from './presence';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the cloudCommunications singleton. */
 export class PresenceImpl extends EntityImpl implements Parsable, Presence {
     /** The supplemental information to a user's availability. Possible values are Available, Away, BeRightBack, Busy, DoNotDisturb, InACall, InAConferenceCall, Inactive,InAMeeting, Offline, OffWork,OutOfOffice, PresenceUnknown,Presenting, UrgentInterruptionsOnly. */
-    activity?: string | undefined;
+    public activity?: string | undefined;
     /** The base presence information for a user. Possible values are Available, AvailableIdle,  Away, BeRightBack, Busy, BusyIdle, DoNotDisturb, Offline, PresenceUnknown */
-    availability?: string | undefined;
+    public availability?: string | undefined;
     /**
      * Instantiates a new presence and sets the default values.
      * @param presenceParameterValue 
@@ -34,11 +35,9 @@ export class PresenceImpl extends EntityImpl implements Parsable, Presence {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.activity){
-        if(this.activity)
         writer.writeStringValue("activity", this.activity);
         }
         if(this.availability){
-        if(this.availability)
         writer.writeStringValue("availability", this.availability);
         }
     };

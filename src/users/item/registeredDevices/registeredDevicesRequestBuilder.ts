@@ -1,17 +1,31 @@
 import {DirectoryObjectCollectionResponseImpl} from '../../../models/';
 import {createDirectoryObjectCollectionResponseFromDiscriminatorValue} from '../../../models/createDirectoryObjectCollectionResponseFromDiscriminatorValue';
-import {DirectoryObjectCollectionResponse} from '../../../models/directoryObjectCollectionResponse';
 import {ODataErrorImpl} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {AppRoleAssignmentRequestBuilder} from './appRoleAssignment/appRoleAssignmentRequestBuilder';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {DeviceRequestBuilder} from './device/deviceRequestBuilder';
+import {EndpointRequestBuilder} from './endpoint/endpointRequestBuilder';
 import {RegisteredDevicesRequestBuilderGetRequestConfiguration} from './registeredDevicesRequestBuilderGetRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the registeredDevices property of the microsoft.graph.user entity. */
 export class RegisteredDevicesRequestBuilder {
+    /** The appRoleAssignment property */
+    public get appRoleAssignment(): AppRoleAssignmentRequestBuilder {
+        return new AppRoleAssignmentRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** The count property */
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** The device property */
+    public get device(): DeviceRequestBuilder {
+        return new DeviceRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** The endpoint property */
+    public get endpoint(): EndpointRequestBuilder {
+        return new EndpointRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
@@ -55,7 +69,7 @@ export class RegisteredDevicesRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DirectoryObjectCollectionResponse
      */
-    public get(requestConfiguration?: RegisteredDevicesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DirectoryObjectCollectionResponse | undefined> {
+    public get(requestConfiguration?: RegisteredDevicesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DirectoryObjectCollectionResponseImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );

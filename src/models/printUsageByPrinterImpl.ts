@@ -2,9 +2,10 @@ import {PrintUsageImpl} from './index';
 import {PrintUsageByPrinter} from './printUsageByPrinter';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the reportRoot singleton. */
 export class PrintUsageByPrinterImpl extends PrintUsageImpl implements Parsable, PrintUsageByPrinter {
     /** The printerId property */
-    printerId?: string | undefined;
+    public printerId?: string | undefined;
     /**
      * Instantiates a new printUsageByPrinter and sets the default values.
      * @param printUsageByPrinterParameterValue 
@@ -30,7 +31,6 @@ export class PrintUsageByPrinterImpl extends PrintUsageImpl implements Parsable,
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.printerId){
-        if(this.printerId)
         writer.writeStringValue("printerId", this.printerId);
         }
     };

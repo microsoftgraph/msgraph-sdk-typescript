@@ -3,33 +3,34 @@ import {AgreementAcceptanceState} from './agreementAcceptanceState';
 import {EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the collection of agreementAcceptance entities. */
 export class AgreementAcceptanceImpl extends EntityImpl implements AgreementAcceptance, Parsable {
     /** ID of the agreement file accepted by the user. */
-    agreementFileId?: string | undefined;
+    public agreementFileId?: string | undefined;
     /** ID of the agreement. */
-    agreementId?: string | undefined;
+    public agreementId?: string | undefined;
     /** The display name of the device used for accepting the agreement. */
-    deviceDisplayName?: string | undefined;
+    public deviceDisplayName?: string | undefined;
     /** The unique identifier of the device used for accepting the agreement. */
-    deviceId?: string | undefined;
+    public deviceId?: string | undefined;
     /** The operating system used for accepting the agreement. */
-    deviceOSType?: string | undefined;
+    public deviceOSType?: string | undefined;
     /** The operating system version of the device used for accepting the agreement. */
-    deviceOSVersion?: string | undefined;
+    public deviceOSVersion?: string | undefined;
     /** The expiration date time of the acceptance. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
-    expirationDateTime?: Date | undefined;
+    public expirationDateTime?: Date | undefined;
     /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
-    recordedDateTime?: Date | undefined;
+    public recordedDateTime?: Date | undefined;
     /** Possible values are: accepted, declined. Supports $filter (eq). */
-    state?: AgreementAcceptanceState | undefined;
+    public state?: AgreementAcceptanceState | undefined;
     /** Display name of the user when the acceptance was recorded. */
-    userDisplayName?: string | undefined;
+    public userDisplayName?: string | undefined;
     /** Email of the user when the acceptance was recorded. */
-    userEmail?: string | undefined;
+    public userEmail?: string | undefined;
     /** ID of the user who accepted the agreement. */
-    userId?: string | undefined;
+    public userId?: string | undefined;
     /** UPN of the user when the acceptance was recorded. */
-    userPrincipalName?: string | undefined;
+    public userPrincipalName?: string | undefined;
     /**
      * Instantiates a new agreementAcceptance and sets the default values.
      * @param agreementAcceptanceParameterValue 
@@ -79,55 +80,42 @@ export class AgreementAcceptanceImpl extends EntityImpl implements AgreementAcce
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.agreementFileId){
-        if(this.agreementFileId)
         writer.writeStringValue("agreementFileId", this.agreementFileId);
         }
         if(this.agreementId){
-        if(this.agreementId)
         writer.writeStringValue("agreementId", this.agreementId);
         }
         if(this.deviceDisplayName){
-        if(this.deviceDisplayName)
         writer.writeStringValue("deviceDisplayName", this.deviceDisplayName);
         }
         if(this.deviceId){
-        if(this.deviceId)
         writer.writeStringValue("deviceId", this.deviceId);
         }
         if(this.deviceOSType){
-        if(this.deviceOSType)
         writer.writeStringValue("deviceOSType", this.deviceOSType);
         }
         if(this.deviceOSVersion){
-        if(this.deviceOSVersion)
         writer.writeStringValue("deviceOSVersion", this.deviceOSVersion);
         }
         if(this.expirationDateTime){
-        if(this.expirationDateTime)
         writer.writeDateValue("expirationDateTime", this.expirationDateTime);
         }
         if(this.recordedDateTime){
-        if(this.recordedDateTime)
         writer.writeDateValue("recordedDateTime", this.recordedDateTime);
         }
         if(this.state){
-        if(this.state)
         writer.writeEnumValue<AgreementAcceptanceState>("state", this.state);
         }
         if(this.userDisplayName){
-        if(this.userDisplayName)
         writer.writeStringValue("userDisplayName", this.userDisplayName);
         }
         if(this.userEmail){
-        if(this.userEmail)
         writer.writeStringValue("userEmail", this.userEmail);
         }
         if(this.userId){
-        if(this.userId)
         writer.writeStringValue("userId", this.userId);
         }
         if(this.userPrincipalName){
-        if(this.userPrincipalName)
         writer.writeStringValue("userPrincipalName", this.userPrincipalName);
         }
     };

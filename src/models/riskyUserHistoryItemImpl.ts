@@ -4,13 +4,14 @@ import {RiskUserActivity} from './riskUserActivity';
 import {RiskyUserHistoryItem} from './riskyUserHistoryItem';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the identityProtectionRoot singleton. */
 export class RiskyUserHistoryItemImpl extends RiskyUserImpl implements Parsable, RiskyUserHistoryItem {
     /** The activity related to user risk level change. */
-    activity?: RiskUserActivity | undefined;
+    public activity?: RiskUserActivity | undefined;
     /** The id of actor that does the operation. */
-    initiatedBy?: string | undefined;
+    public initiatedBy?: string | undefined;
     /** The id of the user. */
-    userId?: string | undefined;
+    public userId?: string | undefined;
     /**
      * Instantiates a new riskyUserHistoryItem and sets the default values.
      * @param riskyUserHistoryItemParameterValue 
@@ -40,15 +41,12 @@ export class RiskyUserHistoryItemImpl extends RiskyUserImpl implements Parsable,
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.activity){
-        if(this.activity)
         writer.writeObjectValue<RiskUserActivityImpl>("activity", new RiskUserActivityImpl(this.activity));
         }
         if(this.initiatedBy){
-        if(this.initiatedBy)
         writer.writeStringValue("initiatedBy", this.initiatedBy);
         }
         if(this.userId){
-        if(this.userId)
         writer.writeStringValue("userId", this.userId);
         }
     };

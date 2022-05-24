@@ -4,13 +4,14 @@ import {WorkbookComment} from './workbookComment';
 import {WorkbookCommentReply} from './workbookCommentReply';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to user. */
 export class WorkbookCommentImpl extends EntityImpl implements Parsable, WorkbookComment {
     /** The content of the comment. */
-    content?: string | undefined;
+    public content?: string | undefined;
     /** Indicates the type for the comment. */
-    contentType?: string | undefined;
+    public contentType?: string | undefined;
     /** Read-only. Nullable. */
-    replies?: WorkbookCommentReply[] | undefined;
+    public replies?: WorkbookCommentReply[] | undefined;
     /**
      * Instantiates a new workbookComment and sets the default values.
      * @param workbookCommentParameterValue 
@@ -40,15 +41,12 @@ export class WorkbookCommentImpl extends EntityImpl implements Parsable, Workboo
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.content){
-        if(this.content)
         writer.writeStringValue("content", this.content);
         }
         if(this.contentType){
-        if(this.contentType)
         writer.writeStringValue("contentType", this.contentType);
         }
-        if(this.replies){
-        const repliesArrValue: WorkbookCommentReplyImpl[] = []; this.replies?.forEach(element => {repliesArrValue.push(new WorkbookCommentReplyImpl(element));});
+        if(this.replies && this.replies.length != 0){        const repliesArrValue: WorkbookCommentReplyImpl[] = []; this.replies?.forEach(element => {repliesArrValue.push(new WorkbookCommentReplyImpl(element));});
         writer.writeCollectionOfObjectValues<WorkbookCommentReplyImpl>("replies", repliesArrValue);
         }
     };

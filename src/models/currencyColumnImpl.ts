@@ -3,16 +3,15 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class CurrencyColumnImpl implements AdditionalDataHolder, CurrencyColumn, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** Specifies the locale from which to infer the currency symbol. */
-    locale?: string | undefined;
+    public locale?: string | undefined;
     /**
      * Instantiates a new currencyColumn and sets the default values.
      * @param currencyColumnParameterValue 
      */
     public constructor(currencyColumnParameterValue?: CurrencyColumn | undefined) {
-        this.additionalData = {};
-        this.additionalData = currencyColumnParameterValue?.additionalData ? {} : currencyColumnParameterValue?.additionalData!
+        this.additionalData = currencyColumnParameterValue?.additionalData ? currencyColumnParameterValue?.additionalData! : {}
         this.locale = currencyColumnParameterValue?.locale ;
     };
     /**
@@ -31,7 +30,6 @@ export class CurrencyColumnImpl implements AdditionalDataHolder, CurrencyColumn,
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.locale){
-        if(this.locale)
         writer.writeStringValue("locale", this.locale);
         }
         writer.writeAdditionalData(this.additionalData);

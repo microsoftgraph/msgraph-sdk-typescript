@@ -2,9 +2,10 @@ import {EntityImpl} from './index';
 import {WorkbookChartLineFormat} from './workbookChartLineFormat';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to user. */
 export class WorkbookChartLineFormatImpl extends EntityImpl implements Parsable, WorkbookChartLineFormat {
     /** HTML color code representing the color of lines in the chart. */
-    color?: string | undefined;
+    public color?: string | undefined;
     /**
      * Instantiates a new workbookChartLineFormat and sets the default values.
      * @param workbookChartLineFormatParameterValue 
@@ -30,7 +31,6 @@ export class WorkbookChartLineFormatImpl extends EntityImpl implements Parsable,
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.color){
-        if(this.color)
         writer.writeStringValue("color", this.color);
         }
     };

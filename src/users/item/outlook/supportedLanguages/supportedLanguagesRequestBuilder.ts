@@ -1,7 +1,6 @@
 import {createSupportedLanguagesResponseFromDiscriminatorValue} from './createSupportedLanguagesResponseFromDiscriminatorValue';
 import {SupportedLanguagesResponseImpl} from './index';
 import {SupportedLanguagesRequestBuilderGetRequestConfiguration} from './supportedLanguagesRequestBuilderGetRequestConfiguration';
-import {SupportedLanguagesResponse} from './supportedLanguagesResponse';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the supportedLanguages method. */
@@ -47,7 +46,7 @@ export class SupportedLanguagesRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of SupportedLanguagesResponse
      */
-    public get(requestConfiguration?: SupportedLanguagesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<SupportedLanguagesResponse | undefined> {
+    public get(requestConfiguration?: SupportedLanguagesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<SupportedLanguagesResponseImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );

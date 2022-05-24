@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class SubscriptionCollectionResponseImpl implements AdditionalDataHolder, Parsable, SubscriptionCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: Subscription[] | undefined;
+    public value?: Subscription[] | undefined;
     /**
      * Instantiates a new SubscriptionCollectionResponse and sets the default values.
      * @param subscriptionCollectionResponseParameterValue 
      */
     public constructor(subscriptionCollectionResponseParameterValue?: SubscriptionCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = subscriptionCollectionResponseParameterValue?.additionalData ? {} : subscriptionCollectionResponseParameterValue?.additionalData!
+        this.additionalData = subscriptionCollectionResponseParameterValue?.additionalData ? subscriptionCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = subscriptionCollectionResponseParameterValue?.nextLink ;
         this.value = subscriptionCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class SubscriptionCollectionResponseImpl implements AdditionalDataHolder,
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: SubscriptionImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new SubscriptionImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: SubscriptionImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new SubscriptionImpl(element));});
         writer.writeCollectionOfObjectValues<SubscriptionImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

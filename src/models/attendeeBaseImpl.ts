@@ -3,9 +3,10 @@ import {AttendeeType} from './attendeeType';
 import {RecipientImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to user. */
 export class AttendeeBaseImpl extends RecipientImpl implements AttendeeBase, Parsable {
     /** The type of attendee. Possible values are: required, optional, resource. Currently if the attendee is a person, findMeetingTimes always considers the person is of the Required type. */
-    type?: AttendeeType | undefined;
+    public type?: AttendeeType | undefined;
     /**
      * Instantiates a new attendeeBase and sets the default values.
      * @param attendeeBaseParameterValue 
@@ -31,7 +32,6 @@ export class AttendeeBaseImpl extends RecipientImpl implements AttendeeBase, Par
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.type){
-        if(this.type)
         writer.writeEnumValue<AttendeeType>("type", this.type);
         }
     };

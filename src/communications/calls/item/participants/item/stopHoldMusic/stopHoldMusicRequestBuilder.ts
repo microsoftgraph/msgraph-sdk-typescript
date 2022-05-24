@@ -1,8 +1,7 @@
 import {StopHoldMusicOperationImpl} from '../../../../../../models/';
 import {createStopHoldMusicOperationFromDiscriminatorValue} from '../../../../../../models/createStopHoldMusicOperationFromDiscriminatorValue';
-import {StopHoldMusicOperation} from '../../../../../../models/stopHoldMusicOperation';
-import {StopHoldMusicRequestBodyImpl} from './index';
-import {StopHoldMusicRequestBody} from './stopHoldMusicRequestBody';
+import {StopHoldMusicPostRequestBodyImpl} from './index';
+import {StopHoldMusicPostRequestBody} from './stopHoldMusicPostRequestBody';
 import {StopHoldMusicRequestBuilderPostRequestConfiguration} from './stopHoldMusicRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
@@ -33,7 +32,7 @@ export class StopHoldMusicRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public createPostRequestInformation(body: StopHoldMusicRequestBody | undefined, requestConfiguration?: StopHoldMusicRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public createPostRequestInformation(body: StopHoldMusicPostRequestBody | undefined, requestConfiguration?: StopHoldMusicRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -43,8 +42,8 @@ export class StopHoldMusicRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        const bodyParsable = new StopHoldMusicRequestBodyImpl(body)
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", bodyParsable);
+        const parsableBody = new StopHoldMusicPostRequestBodyImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -54,7 +53,7 @@ export class StopHoldMusicRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of StopHoldMusicOperation
      */
-    public post(body: StopHoldMusicRequestBody | undefined, requestConfiguration?: StopHoldMusicRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<StopHoldMusicOperation | undefined> {
+    public post(body: StopHoldMusicPostRequestBody | undefined, requestConfiguration?: StopHoldMusicRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<StopHoldMusicOperationImpl | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration

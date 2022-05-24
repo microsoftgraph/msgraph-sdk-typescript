@@ -3,46 +3,45 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class AudioImpl implements AdditionalDataHolder, Audio, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The title of the album for this audio file. */
-    album?: string | undefined;
+    public album?: string | undefined;
     /** The artist named on the album for the audio file. */
-    albumArtist?: string | undefined;
+    public albumArtist?: string | undefined;
     /** The performing artist for the audio file. */
-    artist?: string | undefined;
+    public artist?: string | undefined;
     /** Bitrate expressed in kbps. */
-    bitrate?: number | undefined;
+    public bitrate?: number | undefined;
     /** The name of the composer of the audio file. */
-    composers?: string | undefined;
+    public composers?: string | undefined;
     /** Copyright information for the audio file. */
-    copyright?: string | undefined;
+    public copyright?: string | undefined;
     /** The number of the disc this audio file came from. */
-    disc?: number | undefined;
+    public disc?: number | undefined;
     /** The total number of discs in this album. */
-    discCount?: number | undefined;
+    public discCount?: number | undefined;
     /** Duration of the audio file, expressed in milliseconds */
-    duration?: number | undefined;
+    public duration?: number | undefined;
     /** The genre of this audio file. */
-    genre?: string | undefined;
+    public genre?: string | undefined;
     /** Indicates if the file is protected with digital rights management. */
-    hasDrm?: boolean | undefined;
+    public hasDrm?: boolean | undefined;
     /** Indicates if the file is encoded with a variable bitrate. */
-    isVariableBitrate?: boolean | undefined;
+    public isVariableBitrate?: boolean | undefined;
     /** The title of the audio file. */
-    title?: string | undefined;
+    public title?: string | undefined;
     /** The number of the track on the original disc for this audio file. */
-    track?: number | undefined;
+    public track?: number | undefined;
     /** The total number of tracks on the original disc for this audio file. */
-    trackCount?: number | undefined;
+    public trackCount?: number | undefined;
     /** The year the audio file was recorded. */
-    year?: number | undefined;
+    public year?: number | undefined;
     /**
      * Instantiates a new audio and sets the default values.
      * @param audioParameterValue 
      */
     public constructor(audioParameterValue?: Audio | undefined) {
-        this.additionalData = {};
-        this.additionalData = audioParameterValue?.additionalData ? {} : audioParameterValue?.additionalData!
+        this.additionalData = audioParameterValue?.additionalData ? audioParameterValue?.additionalData! : {}
         this.album = audioParameterValue?.album ;
         this.albumArtist = audioParameterValue?.albumArtist ;
         this.artist = audioParameterValue?.artist ;
@@ -91,67 +90,51 @@ export class AudioImpl implements AdditionalDataHolder, Audio, Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.album){
-        if(this.album)
         writer.writeStringValue("album", this.album);
         }
         if(this.albumArtist){
-        if(this.albumArtist)
         writer.writeStringValue("albumArtist", this.albumArtist);
         }
         if(this.artist){
-        if(this.artist)
         writer.writeStringValue("artist", this.artist);
         }
         if(this.bitrate){
-        if(this.bitrate)
         writer.writeNumberValue("bitrate", this.bitrate);
         }
         if(this.composers){
-        if(this.composers)
         writer.writeStringValue("composers", this.composers);
         }
         if(this.copyright){
-        if(this.copyright)
         writer.writeStringValue("copyright", this.copyright);
         }
         if(this.disc){
-        if(this.disc)
         writer.writeNumberValue("disc", this.disc);
         }
         if(this.discCount){
-        if(this.discCount)
         writer.writeNumberValue("discCount", this.discCount);
         }
         if(this.duration){
-        if(this.duration)
         writer.writeNumberValue("duration", this.duration);
         }
         if(this.genre){
-        if(this.genre)
         writer.writeStringValue("genre", this.genre);
         }
         if(this.hasDrm){
-        if(this.hasDrm)
         writer.writeBooleanValue("hasDrm", this.hasDrm);
         }
         if(this.isVariableBitrate){
-        if(this.isVariableBitrate)
         writer.writeBooleanValue("isVariableBitrate", this.isVariableBitrate);
         }
         if(this.title){
-        if(this.title)
         writer.writeStringValue("title", this.title);
         }
         if(this.track){
-        if(this.track)
         writer.writeNumberValue("track", this.track);
         }
         if(this.trackCount){
-        if(this.trackCount)
         writer.writeNumberValue("trackCount", this.trackCount);
         }
         if(this.year){
-        if(this.year)
         writer.writeNumberValue("year", this.year);
         }
         writer.writeAdditionalData(this.additionalData);

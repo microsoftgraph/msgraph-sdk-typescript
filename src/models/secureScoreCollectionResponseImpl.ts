@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class SecureScoreCollectionResponseImpl implements AdditionalDataHolder, Parsable, SecureScoreCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: SecureScore[] | undefined;
+    public value?: SecureScore[] | undefined;
     /**
      * Instantiates a new SecureScoreCollectionResponse and sets the default values.
      * @param secureScoreCollectionResponseParameterValue 
      */
     public constructor(secureScoreCollectionResponseParameterValue?: SecureScoreCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = secureScoreCollectionResponseParameterValue?.additionalData ? {} : secureScoreCollectionResponseParameterValue?.additionalData!
+        this.additionalData = secureScoreCollectionResponseParameterValue?.additionalData ? secureScoreCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = secureScoreCollectionResponseParameterValue?.nextLink ;
         this.value = secureScoreCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class SecureScoreCollectionResponseImpl implements AdditionalDataHolder, 
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: SecureScoreImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new SecureScoreImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: SecureScoreImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new SecureScoreImpl(element));});
         writer.writeCollectionOfObjectValues<SecureScoreImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

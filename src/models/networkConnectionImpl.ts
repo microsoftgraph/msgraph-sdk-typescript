@@ -6,54 +6,53 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class NetworkConnectionImpl implements AdditionalDataHolder, NetworkConnection, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** Name of the application managing the network connection (for example, Facebook, SMTP, etc.). */
-    applicationName?: string | undefined;
+    public applicationName?: string | undefined;
     /** Destination IP address (of the network connection). */
-    destinationAddress?: string | undefined;
+    public destinationAddress?: string | undefined;
     /** Destination domain portion of the destination URL. (for example 'www.contoso.com'). */
-    destinationDomain?: string | undefined;
+    public destinationDomain?: string | undefined;
     /** Location (by IP address mapping) associated with the destination of a network connection. */
-    destinationLocation?: string | undefined;
+    public destinationLocation?: string | undefined;
     /** Destination port (of the network connection). */
-    destinationPort?: string | undefined;
+    public destinationPort?: string | undefined;
     /** Network connection URL/URI string - excluding parameters. (for example 'www.contoso.com/products/default.html') */
-    destinationUrl?: string | undefined;
+    public destinationUrl?: string | undefined;
     /** Network connection direction. Possible values are: unknown, inbound, outbound. */
-    direction?: ConnectionDirection | undefined;
+    public direction?: ConnectionDirection | undefined;
     /** Date when the destination domain was registered. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
-    domainRegisteredDateTime?: Date | undefined;
+    public domainRegisteredDateTime?: Date | undefined;
     /** The local DNS name resolution as it appears in the host's local DNS cache (for example, in case the 'hosts' file was tampered with). */
-    localDnsName?: string | undefined;
+    public localDnsName?: string | undefined;
     /** Network Address Translation destination IP address. */
-    natDestinationAddress?: string | undefined;
+    public natDestinationAddress?: string | undefined;
     /** Network Address Translation destination port. */
-    natDestinationPort?: string | undefined;
+    public natDestinationPort?: string | undefined;
     /** Network Address Translation source IP address. */
-    natSourceAddress?: string | undefined;
+    public natSourceAddress?: string | undefined;
     /** Network Address Translation source port. */
-    natSourcePort?: string | undefined;
+    public natSourcePort?: string | undefined;
     /** Network protocol. Possible values are: unknown, ip, icmp, igmp, ggp, ipv4, tcp, pup, udp, idp, ipv6, ipv6RoutingHeader, ipv6FragmentHeader, ipSecEncapsulatingSecurityPayload, ipSecAuthenticationHeader, icmpV6, ipv6NoNextHeader, ipv6DestinationOptions, nd, raw, ipx, spx, spxII. */
-    protocol?: SecurityNetworkProtocol | undefined;
+    public protocol?: SecurityNetworkProtocol | undefined;
     /** Provider generated/calculated risk score of the network connection. Recommended value range of 0-1, which equates to a percentage. */
-    riskScore?: string | undefined;
+    public riskScore?: string | undefined;
     /** Source (i.e. origin) IP address (of the network connection). */
-    sourceAddress?: string | undefined;
+    public sourceAddress?: string | undefined;
     /** Location (by IP address mapping) associated with the source of a network connection. */
-    sourceLocation?: string | undefined;
+    public sourceLocation?: string | undefined;
     /** Source (i.e. origin) IP port (of the network connection). */
-    sourcePort?: string | undefined;
+    public sourcePort?: string | undefined;
     /** Network connection status. Possible values are: unknown, attempted, succeeded, blocked, failed. */
-    status?: ConnectionStatus | undefined;
+    public status?: ConnectionStatus | undefined;
     /** Parameters (suffix) of the destination URL. */
-    urlParameters?: string | undefined;
+    public urlParameters?: string | undefined;
     /**
      * Instantiates a new networkConnection and sets the default values.
      * @param networkConnectionParameterValue 
      */
     public constructor(networkConnectionParameterValue?: NetworkConnection | undefined) {
-        this.additionalData = {};
-        this.additionalData = networkConnectionParameterValue?.additionalData ? {} : networkConnectionParameterValue?.additionalData!
+        this.additionalData = networkConnectionParameterValue?.additionalData ? networkConnectionParameterValue?.additionalData! : {}
         this.applicationName = networkConnectionParameterValue?.applicationName ;
         this.destinationAddress = networkConnectionParameterValue?.destinationAddress ;
         this.destinationDomain = networkConnectionParameterValue?.destinationDomain ;
@@ -110,83 +109,63 @@ export class NetworkConnectionImpl implements AdditionalDataHolder, NetworkConne
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.applicationName){
-        if(this.applicationName)
         writer.writeStringValue("applicationName", this.applicationName);
         }
         if(this.destinationAddress){
-        if(this.destinationAddress)
         writer.writeStringValue("destinationAddress", this.destinationAddress);
         }
         if(this.destinationDomain){
-        if(this.destinationDomain)
         writer.writeStringValue("destinationDomain", this.destinationDomain);
         }
         if(this.destinationLocation){
-        if(this.destinationLocation)
         writer.writeStringValue("destinationLocation", this.destinationLocation);
         }
         if(this.destinationPort){
-        if(this.destinationPort)
         writer.writeStringValue("destinationPort", this.destinationPort);
         }
         if(this.destinationUrl){
-        if(this.destinationUrl)
         writer.writeStringValue("destinationUrl", this.destinationUrl);
         }
         if(this.direction){
-        if(this.direction)
         writer.writeEnumValue<ConnectionDirection>("direction", this.direction);
         }
         if(this.domainRegisteredDateTime){
-        if(this.domainRegisteredDateTime)
         writer.writeDateValue("domainRegisteredDateTime", this.domainRegisteredDateTime);
         }
         if(this.localDnsName){
-        if(this.localDnsName)
         writer.writeStringValue("localDnsName", this.localDnsName);
         }
         if(this.natDestinationAddress){
-        if(this.natDestinationAddress)
         writer.writeStringValue("natDestinationAddress", this.natDestinationAddress);
         }
         if(this.natDestinationPort){
-        if(this.natDestinationPort)
         writer.writeStringValue("natDestinationPort", this.natDestinationPort);
         }
         if(this.natSourceAddress){
-        if(this.natSourceAddress)
         writer.writeStringValue("natSourceAddress", this.natSourceAddress);
         }
         if(this.natSourcePort){
-        if(this.natSourcePort)
         writer.writeStringValue("natSourcePort", this.natSourcePort);
         }
         if(this.protocol){
-        if(this.protocol)
         writer.writeEnumValue<SecurityNetworkProtocol>("protocol", this.protocol);
         }
         if(this.riskScore){
-        if(this.riskScore)
         writer.writeStringValue("riskScore", this.riskScore);
         }
         if(this.sourceAddress){
-        if(this.sourceAddress)
         writer.writeStringValue("sourceAddress", this.sourceAddress);
         }
         if(this.sourceLocation){
-        if(this.sourceLocation)
         writer.writeStringValue("sourceLocation", this.sourceLocation);
         }
         if(this.sourcePort){
-        if(this.sourcePort)
         writer.writeStringValue("sourcePort", this.sourcePort);
         }
         if(this.status){
-        if(this.status)
         writer.writeEnumValue<ConnectionStatus>("status", this.status);
         }
         if(this.urlParameters){
-        if(this.urlParameters)
         writer.writeStringValue("urlParameters", this.urlParameters);
         }
         writer.writeAdditionalData(this.additionalData);

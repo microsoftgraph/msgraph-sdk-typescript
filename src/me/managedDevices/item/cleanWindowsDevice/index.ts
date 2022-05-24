@@ -1,3 +1,3 @@
-export * from './cleanWindowsDeviceRequestBodyImpl'
-export * from './cleanWindowsDeviceRequestBody'
+export * from './cleanWindowsDevicePostRequestBodyImpl'
+export * from './cleanWindowsDevicePostRequestBody'
 export * from './cleanWindowsDeviceRequestBuilderPostRequestConfiguration'

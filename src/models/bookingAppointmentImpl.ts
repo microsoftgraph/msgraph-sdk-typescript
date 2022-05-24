@@ -11,53 +11,54 @@ import {BookingCustomerInformationBaseImpl, BookingReminderImpl, DateTimeTimeZon
 import {Location} from './location';
 import {Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Represents a booked appointment of a service by a customer in a business. */
 export class BookingAppointmentImpl extends EntityImpl implements BookingAppointment, Parsable {
     /** Additional information that is sent to the customer when an appointment is confirmed. */
-    additionalInformation?: string | undefined;
+    public additionalInformation?: string | undefined;
     /** It lists down the customer properties for an appointment. An appointment will contain a list of customer information and each unit will indicate the properties of a customer who is part of that appointment. Optional. */
-    customers?: BookingCustomerInformationBase[] | undefined;
+    public customers?: BookingCustomerInformationBase[] | undefined;
     /** The time zone of the customer. For a list of possible values, see dateTimeTimeZone. */
-    customerTimeZone?: string | undefined;
+    public customerTimeZone?: string | undefined;
     /** The length of the appointment, denoted in ISO8601 format. */
-    duration?: Duration | undefined;
+    public duration?: Duration | undefined;
     /** The endDateTime property */
-    endDateTime?: DateTimeTimeZone | undefined;
+    public endDateTime?: DateTimeTimeZone | undefined;
     /** The current number of customers in the appointment. */
-    filledAttendeesCount?: number | undefined;
+    public filledAttendeesCount?: number | undefined;
     /** True indicates that the appointment will be held online. Default value is false. */
-    isLocationOnline?: boolean | undefined;
+    public isLocationOnline?: boolean | undefined;
     /** The URL of the online meeting for the appointment. */
-    joinWebUrl?: string | undefined;
+    public joinWebUrl?: string | undefined;
     /** The maximum number of customers allowed in an appointment. If maximumAttendeesCount of the service is greater than 1, pass valid customer IDs while creating or updating an appointment. To create a customer, use the Create bookingCustomer operation. */
-    maximumAttendeesCount?: number | undefined;
+    public maximumAttendeesCount?: number | undefined;
     /** True indicates that the bookingCustomer for this appointment does not wish to receive a confirmation for this appointment. */
-    optOutOfCustomerEmail?: boolean | undefined;
+    public optOutOfCustomerEmail?: boolean | undefined;
     /** The amount of time to reserve after the appointment ends, for cleaning up, as an example. The value is expressed in ISO8601 format. */
-    postBuffer?: Duration | undefined;
+    public postBuffer?: Duration | undefined;
     /** The amount of time to reserve before the appointment begins, for preparation, as an example. The value is expressed in ISO8601 format. */
-    preBuffer?: Duration | undefined;
+    public preBuffer?: Duration | undefined;
     /** The regular price for an appointment for the specified bookingService. */
-    price?: number | undefined;
+    public price?: number | undefined;
     /** A setting to provide flexibility for the pricing structure of services. Possible values are: undefined, fixedPrice, startingAt, hourly, free, priceVaries, callUs, notSet, unknownFutureValue. */
-    priceType?: BookingPriceType | undefined;
+    public priceType?: BookingPriceType | undefined;
     /** The collection of customer reminders sent for this appointment. The value of this property is available only when reading this bookingAppointment by its ID. */
-    reminders?: BookingReminder[] | undefined;
+    public reminders?: BookingReminder[] | undefined;
     /** An additional tracking ID for the appointment, if the appointment has been created directly by the customer on the scheduling page, as opposed to by a staff member on the behalf of the customer. */
-    selfServiceAppointmentId?: string | undefined;
+    public selfServiceAppointmentId?: string | undefined;
     /** The ID of the bookingService associated with this appointment. */
-    serviceId?: string | undefined;
+    public serviceId?: string | undefined;
     /** The location where the service is delivered. */
-    serviceLocation?: Location | undefined;
+    public serviceLocation?: Location | undefined;
     /** The name of the bookingService associated with this appointment.This property is optional when creating a new appointment. If not specified, it is computed from the service associated with the appointment by the serviceId property. */
-    serviceName?: string | undefined;
+    public serviceName?: string | undefined;
     /** Notes from a bookingStaffMember. The value of this property is available only when reading this bookingAppointment by its ID. */
-    serviceNotes?: string | undefined;
+    public serviceNotes?: string | undefined;
     /** True indicates SMS notifications will be sent to the customers for the appointment. Default value is false. */
-    smsNotificationsEnabled?: boolean | undefined;
+    public smsNotificationsEnabled?: boolean | undefined;
     /** The ID of each bookingStaffMember who is scheduled in this appointment. */
-    staffMemberIds?: string[] | undefined;
+    public staffMemberIds?: string[] | undefined;
     /** The startDateTime property */
-    startDateTime?: DateTimeTimeZone | undefined;
+    public startDateTime?: DateTimeTimeZone | undefined;
     /**
      * Instantiates a new bookingAppointment and sets the default values.
      * @param bookingAppointmentParameterValue 
@@ -127,95 +128,72 @@ export class BookingAppointmentImpl extends EntityImpl implements BookingAppoint
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.additionalInformation){
-        if(this.additionalInformation)
         writer.writeStringValue("additionalInformation", this.additionalInformation);
         }
-        if(this.customers){
-        const customersArrValue: BookingCustomerInformationBaseImpl[] = []; this.customers?.forEach(element => {customersArrValue.push(new BookingCustomerInformationBaseImpl(element));});
+        if(this.customers && this.customers.length != 0){        const customersArrValue: BookingCustomerInformationBaseImpl[] = []; this.customers?.forEach(element => {customersArrValue.push(new BookingCustomerInformationBaseImpl(element));});
         writer.writeCollectionOfObjectValues<BookingCustomerInformationBaseImpl>("customers", customersArrValue);
         }
         if(this.customerTimeZone){
-        if(this.customerTimeZone)
         writer.writeStringValue("customerTimeZone", this.customerTimeZone);
         }
         if(this.duration){
-        if(this.duration)
         writer.writeDurationValue("duration", this.duration);
         }
         if(this.endDateTime){
-        if(this.endDateTime)
         writer.writeObjectValue<DateTimeTimeZoneImpl>("endDateTime", new DateTimeTimeZoneImpl(this.endDateTime));
         }
         if(this.filledAttendeesCount){
-        if(this.filledAttendeesCount)
         writer.writeNumberValue("filledAttendeesCount", this.filledAttendeesCount);
         }
         if(this.isLocationOnline){
-        if(this.isLocationOnline)
         writer.writeBooleanValue("isLocationOnline", this.isLocationOnline);
         }
         if(this.joinWebUrl){
-        if(this.joinWebUrl)
         writer.writeStringValue("joinWebUrl", this.joinWebUrl);
         }
         if(this.maximumAttendeesCount){
-        if(this.maximumAttendeesCount)
         writer.writeNumberValue("maximumAttendeesCount", this.maximumAttendeesCount);
         }
         if(this.optOutOfCustomerEmail){
-        if(this.optOutOfCustomerEmail)
         writer.writeBooleanValue("optOutOfCustomerEmail", this.optOutOfCustomerEmail);
         }
         if(this.postBuffer){
-        if(this.postBuffer)
         writer.writeDurationValue("postBuffer", this.postBuffer);
         }
         if(this.preBuffer){
-        if(this.preBuffer)
         writer.writeDurationValue("preBuffer", this.preBuffer);
         }
         if(this.price){
-        if(this.price)
         writer.writeNumberValue("price", this.price);
         }
         if(this.priceType){
-        if(this.priceType)
         writer.writeEnumValue<BookingPriceType>("priceType", this.priceType);
         }
-        if(this.reminders){
-        const remindersArrValue: BookingReminderImpl[] = []; this.reminders?.forEach(element => {remindersArrValue.push(new BookingReminderImpl(element));});
+        if(this.reminders && this.reminders.length != 0){        const remindersArrValue: BookingReminderImpl[] = []; this.reminders?.forEach(element => {remindersArrValue.push(new BookingReminderImpl(element));});
         writer.writeCollectionOfObjectValues<BookingReminderImpl>("reminders", remindersArrValue);
         }
         if(this.selfServiceAppointmentId){
-        if(this.selfServiceAppointmentId)
         writer.writeStringValue("selfServiceAppointmentId", this.selfServiceAppointmentId);
         }
         if(this.serviceId){
-        if(this.serviceId)
         writer.writeStringValue("serviceId", this.serviceId);
         }
         if(this.serviceLocation){
-        if(this.serviceLocation)
         writer.writeObjectValue<LocationImpl>("serviceLocation", new LocationImpl(this.serviceLocation));
         }
         if(this.serviceName){
-        if(this.serviceName)
         writer.writeStringValue("serviceName", this.serviceName);
         }
         if(this.serviceNotes){
-        if(this.serviceNotes)
         writer.writeStringValue("serviceNotes", this.serviceNotes);
         }
         if(this.smsNotificationsEnabled){
-        if(this.smsNotificationsEnabled)
         writer.writeBooleanValue("smsNotificationsEnabled", this.smsNotificationsEnabled);
         }
         if(this.staffMemberIds){
-        if(this.staffMemberIds)
         writer.writeCollectionOfPrimitiveValues<string>("staffMemberIds", this.staffMemberIds);
         }
         if(this.startDateTime){
-        if(this.startDateTime)
         writer.writeObjectValue<DateTimeTimeZoneImpl>("startDateTime", new DateTimeTimeZoneImpl(this.startDateTime));
         }
     };

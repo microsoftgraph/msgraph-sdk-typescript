@@ -1,8 +1,7 @@
 import {ItemPreviewInfoImpl} from '../../../models/';
 import {createItemPreviewInfoFromDiscriminatorValue} from '../../../models/createItemPreviewInfoFromDiscriminatorValue';
-import {ItemPreviewInfo} from '../../../models/itemPreviewInfo';
-import {PreviewRequestBodyImpl} from './index';
-import {PreviewRequestBody} from './previewRequestBody';
+import {PreviewPostRequestBodyImpl} from './index';
+import {PreviewPostRequestBody} from './previewPostRequestBody';
 import {PreviewRequestBuilderPostRequestConfiguration} from './previewRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
@@ -33,7 +32,7 @@ export class PreviewRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public createPostRequestInformation(body: PreviewRequestBody | undefined, requestConfiguration?: PreviewRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public createPostRequestInformation(body: PreviewPostRequestBody | undefined, requestConfiguration?: PreviewRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -43,8 +42,8 @@ export class PreviewRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        const bodyParsable = new PreviewRequestBodyImpl(body)
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", bodyParsable);
+        const parsableBody = new PreviewPostRequestBodyImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -54,7 +53,7 @@ export class PreviewRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ItemPreviewInfo
      */
-    public post(body: PreviewRequestBody | undefined, requestConfiguration?: PreviewRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ItemPreviewInfo | undefined> {
+    public post(body: PreviewPostRequestBody | undefined, requestConfiguration?: PreviewRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ItemPreviewInfoImpl | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration

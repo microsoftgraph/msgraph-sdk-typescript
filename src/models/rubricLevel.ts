@@ -3,13 +3,13 @@ import {EducationItemBody} from './educationItemBody';
 
 export interface RubricLevel{
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    additionalData?:Record<string, unknown>;
     /** The description of this rubric level. */
-    description?: EducationItemBody | undefined;
+    description?:EducationItemBody | undefined;
     /** The name of this rubric level. */
-    displayName?: string | undefined;
+    displayName?:string | undefined;
     /** Null if this is a no-points rubric; educationAssignmentPointsGradeType if it is a points rubric. */
-    grading?: EducationAssignmentGradeType | undefined;
+    grading?:EducationAssignmentGradeType | undefined;
     /** The ID of this resource. */
-    levelId?: string | undefined;
+    levelId?:string | undefined;
 }

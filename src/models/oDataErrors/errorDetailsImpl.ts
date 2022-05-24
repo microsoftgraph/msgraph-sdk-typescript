@@ -3,20 +3,19 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class ErrorDetailsImpl implements AdditionalDataHolder, ErrorDetails, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The code property */
-    code?: string | undefined;
+    public code?: string | undefined;
     /** The message property */
-    message?: string | undefined;
+    public message?: string | undefined;
     /** The target property */
-    target?: string | undefined;
+    public target?: string | undefined;
     /**
      * Instantiates a new ErrorDetails and sets the default values.
      * @param errorDetailsParameterValue 
      */
     public constructor(errorDetailsParameterValue?: ErrorDetails | undefined) {
-        this.additionalData = {};
-        this.additionalData = errorDetailsParameterValue?.additionalData ? {} : errorDetailsParameterValue?.additionalData!
+        this.additionalData = errorDetailsParameterValue?.additionalData ? errorDetailsParameterValue?.additionalData! : {}
         this.code = errorDetailsParameterValue?.code ;
         this.message = errorDetailsParameterValue?.message ;
         this.target = errorDetailsParameterValue?.target ;
@@ -39,15 +38,12 @@ export class ErrorDetailsImpl implements AdditionalDataHolder, ErrorDetails, Par
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.code){
-        if(this.code)
         writer.writeStringValue("code", this.code);
         }
         if(this.message){
-        if(this.message)
         writer.writeStringValue("message", this.message);
         }
         if(this.target){
-        if(this.target)
         writer.writeStringValue("target", this.target);
         }
         writer.writeAdditionalData(this.additionalData);

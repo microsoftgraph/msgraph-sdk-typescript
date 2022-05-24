@@ -7,16 +7,15 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Provides operations to call the add method. */
 export class AddResponseImpl implements AdditionalDataHolder, AddResponse, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The value property */
-    value?: Site[] | undefined;
+    public value?: Site[] | undefined;
     /**
      * Instantiates a new addResponse and sets the default values.
      * @param addResponseParameterValue 
      */
     public constructor(addResponseParameterValue?: AddResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = addResponseParameterValue?.additionalData ? {} : addResponseParameterValue?.additionalData!
+        this.additionalData = addResponseParameterValue?.additionalData ? addResponseParameterValue?.additionalData! : {}
         this.value = addResponseParameterValue?.value ;
     };
     /**
@@ -34,8 +33,7 @@ export class AddResponseImpl implements AdditionalDataHolder, AddResponse, Parsa
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        if(this.value){
-        const valueArrValue: SiteImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new SiteImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: SiteImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new SiteImpl(element));});
         writer.writeCollectionOfObjectValues<SiteImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

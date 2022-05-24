@@ -3,15 +3,15 @@ import {AuthenticationMethod} from './authenticationMethod';
 
 export interface Fido2AuthenticationMethod extends AuthenticationMethod{
     /** Authenticator Attestation GUID, an identifier that indicates the type (e.g. make and model) of the authenticator. */
-    aaGuid?: string | undefined;
+    aaGuid?:string | undefined;
     /** The attestation certificate(s) attached to this security key. */
-    attestationCertificates?: string[] | undefined;
+    attestationCertificates?:string[] | undefined;
     /** The attestation level of this FIDO2 security key. Possible values are: attested, notAttested, unknownFutureValue. */
-    attestationLevel?: AttestationLevel | undefined;
+    attestationLevel?:AttestationLevel | undefined;
     /** The timestamp when this key was registered to the user. */
-    createdDateTime?: Date | undefined;
+    createdDateTime?:Date | undefined;
     /** The display name of the key as given by the user. */
-    displayName?: string | undefined;
+    displayName?:string | undefined;
     /** The manufacturer-assigned model of the FIDO2 security key. */
-    model?: string | undefined;
+    model?:string | undefined;
 }

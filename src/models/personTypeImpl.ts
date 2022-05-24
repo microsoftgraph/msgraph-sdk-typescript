@@ -3,18 +3,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class PersonTypeImpl implements AdditionalDataHolder, Parsable, PersonType {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The type of data source, such as Person. */
-    class_escaped?: string | undefined;
+    public class_escaped?: string | undefined;
     /** The secondary type of data source, such as OrganizationUser. */
-    subclass?: string | undefined;
+    public subclass?: string | undefined;
     /**
      * Instantiates a new personType and sets the default values.
      * @param personTypeParameterValue 
      */
     public constructor(personTypeParameterValue?: PersonType | undefined) {
-        this.additionalData = {};
-        this.additionalData = personTypeParameterValue?.additionalData ? {} : personTypeParameterValue?.additionalData!
+        this.additionalData = personTypeParameterValue?.additionalData ? personTypeParameterValue?.additionalData! : {}
         this.class_escaped = personTypeParameterValue?.class_escaped ;
         this.subclass = personTypeParameterValue?.subclass ;
     };
@@ -35,11 +34,9 @@ export class PersonTypeImpl implements AdditionalDataHolder, Parsable, PersonTyp
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.class_escaped){
-        if(this.class_escaped)
         writer.writeStringValue("class", this.class_escaped);
         }
         if(this.subclass){
-        if(this.subclass)
         writer.writeStringValue("subclass", this.subclass);
         }
         writer.writeAdditionalData(this.additionalData);

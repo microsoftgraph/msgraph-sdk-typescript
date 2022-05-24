@@ -1,7 +1,4 @@
-import {createGetTeamsUserActivityUserCountsWithPeriodResponseFromDiscriminatorValue} from './createGetTeamsUserActivityUserCountsWithPeriodResponseFromDiscriminatorValue';
 import {GetTeamsUserActivityUserCountsWithPeriodRequestBuilderGetRequestConfiguration} from './getTeamsUserActivityUserCountsWithPeriodRequestBuilderGetRequestConfiguration';
-import {GetTeamsUserActivityUserCountsWithPeriodResponse} from './getTeamsUserActivityUserCountsWithPeriodResponse';
-import {GetTeamsUserActivityUserCountsWithPeriodResponseImpl} from './index';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the getTeamsUserActivityUserCounts method. */
@@ -47,12 +44,12 @@ export class GetTeamsUserActivityUserCountsWithPeriodRequestBuilder {
      * Invoke function getTeamsUserActivityUserCounts
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of GetTeamsUserActivityUserCountsWithPeriodResponse
+     * @returns a Promise of ArrayBuffer
      */
-    public get(requestConfiguration?: GetTeamsUserActivityUserCountsWithPeriodRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<GetTeamsUserActivityUserCountsWithPeriodResponse | undefined> {
+    public get(requestConfiguration?: GetTeamsUserActivityUserCountsWithPeriodRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ArrayBuffer | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
-        return this.requestAdapter?.sendAsync<GetTeamsUserActivityUserCountsWithPeriodResponseImpl>(requestInfo, createGetTeamsUserActivityUserCountsWithPeriodResponseFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendPrimitiveAsync<ArrayBuffer>(requestInfo, "ArrayBuffer", responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }

@@ -3,5 +3,5 @@ import {PlannerPlan} from './plannerPlan';
 
 export interface PlannerGroup extends Entity{
     /** Read-only. Nullable. Returns the plannerPlans owned by the group. */
-    plans?: PlannerPlan[] | undefined;
+    plans?:PlannerPlan[] | undefined;
 }

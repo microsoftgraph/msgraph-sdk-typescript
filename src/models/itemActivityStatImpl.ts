@@ -8,27 +8,28 @@ import {ItemActivity} from './itemActivity';
 import {ItemActivityStat} from './itemActivityStat';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to group. */
 export class ItemActivityStatImpl extends EntityImpl implements ItemActivityStat, Parsable {
     /** Statistics about the access actions in this interval. Read-only. */
-    access?: ItemActionStat | undefined;
+    public access?: ItemActionStat | undefined;
     /** Exposes the itemActivities represented in this itemActivityStat resource. */
-    activities?: ItemActivity[] | undefined;
+    public activities?: ItemActivity[] | undefined;
     /** Statistics about the create actions in this interval. Read-only. */
-    create?: ItemActionStat | undefined;
+    public create?: ItemActionStat | undefined;
     /** Statistics about the delete actions in this interval. Read-only. */
-    delete?: ItemActionStat | undefined;
+    public delete?: ItemActionStat | undefined;
     /** Statistics about the edit actions in this interval. Read-only. */
-    edit?: ItemActionStat | undefined;
+    public edit?: ItemActionStat | undefined;
     /** When the interval ends. Read-only. */
-    endDateTime?: Date | undefined;
+    public endDateTime?: Date | undefined;
     /** Indicates that the statistics in this interval are based on incomplete data. Read-only. */
-    incompleteData?: IncompleteData | undefined;
+    public incompleteData?: IncompleteData | undefined;
     /** Indicates whether the item is 'trending.' Read-only. */
-    isTrending?: boolean | undefined;
+    public isTrending?: boolean | undefined;
     /** Statistics about the move actions in this interval. Read-only. */
-    move?: ItemActionStat | undefined;
+    public move?: ItemActionStat | undefined;
     /** When the interval starts. Read-only. */
-    startDateTime?: Date | undefined;
+    public startDateTime?: Date | undefined;
     /**
      * Instantiates a new itemActivityStat and sets the default values.
      * @param itemActivityStatParameterValue 
@@ -72,43 +73,33 @@ export class ItemActivityStatImpl extends EntityImpl implements ItemActivityStat
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.access){
-        if(this.access)
         writer.writeObjectValue<ItemActionStatImpl>("access", new ItemActionStatImpl(this.access));
         }
-        if(this.activities){
-        const activitiesArrValue: ItemActivityImpl[] = []; this.activities?.forEach(element => {activitiesArrValue.push(new ItemActivityImpl(element));});
+        if(this.activities && this.activities.length != 0){        const activitiesArrValue: ItemActivityImpl[] = []; this.activities?.forEach(element => {activitiesArrValue.push(new ItemActivityImpl(element));});
         writer.writeCollectionOfObjectValues<ItemActivityImpl>("activities", activitiesArrValue);
         }
         if(this.create){
-        if(this.create)
         writer.writeObjectValue<ItemActionStatImpl>("create", new ItemActionStatImpl(this.create));
         }
         if(this.delete){
-        if(this.delete)
         writer.writeObjectValue<ItemActionStatImpl>("delete", new ItemActionStatImpl(this.delete));
         }
         if(this.edit){
-        if(this.edit)
         writer.writeObjectValue<ItemActionStatImpl>("edit", new ItemActionStatImpl(this.edit));
         }
         if(this.endDateTime){
-        if(this.endDateTime)
         writer.writeDateValue("endDateTime", this.endDateTime);
         }
         if(this.incompleteData){
-        if(this.incompleteData)
         writer.writeObjectValue<IncompleteDataImpl>("incompleteData", new IncompleteDataImpl(this.incompleteData));
         }
         if(this.isTrending){
-        if(this.isTrending)
         writer.writeBooleanValue("isTrending", this.isTrending);
         }
         if(this.move){
-        if(this.move)
         writer.writeObjectValue<ItemActionStatImpl>("move", new ItemActionStatImpl(this.move));
         }
         if(this.startDateTime){
-        if(this.startDateTime)
         writer.writeDateValue("startDateTime", this.startDateTime);
         }
     };

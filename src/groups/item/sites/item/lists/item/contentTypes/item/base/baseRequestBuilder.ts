@@ -1,5 +1,4 @@
 import {ContentTypeImpl} from '../../../../../../../../../models/';
-import {ContentType} from '../../../../../../../../../models/contentType';
 import {createContentTypeFromDiscriminatorValue} from '../../../../../../../../../models/createContentTypeFromDiscriminatorValue';
 import {ODataErrorImpl} from '../../../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
@@ -50,7 +49,7 @@ export class BaseRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ContentType
      */
-    public get(requestConfiguration?: BaseRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ContentType | undefined> {
+    public get(requestConfiguration?: BaseRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ContentTypeImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );

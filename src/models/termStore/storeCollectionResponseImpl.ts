@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class StoreCollectionResponseImpl implements AdditionalDataHolder, Parsable, StoreCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: Store[] | undefined;
+    public value?: Store[] | undefined;
     /**
      * Instantiates a new StoreCollectionResponse and sets the default values.
      * @param storeCollectionResponseParameterValue 
      */
     public constructor(storeCollectionResponseParameterValue?: StoreCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = storeCollectionResponseParameterValue?.additionalData ? {} : storeCollectionResponseParameterValue?.additionalData!
+        this.additionalData = storeCollectionResponseParameterValue?.additionalData ? storeCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = storeCollectionResponseParameterValue?.nextLink ;
         this.value = storeCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class StoreCollectionResponseImpl implements AdditionalDataHolder, Parsab
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: StoreImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new StoreImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: StoreImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new StoreImpl(element));});
         writer.writeCollectionOfObjectValues<StoreImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

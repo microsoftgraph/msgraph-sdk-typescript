@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class ManagedAppOperationCollectionResponseImpl implements AdditionalDataHolder, ManagedAppOperationCollectionResponse, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: ManagedAppOperation[] | undefined;
+    public value?: ManagedAppOperation[] | undefined;
     /**
      * Instantiates a new ManagedAppOperationCollectionResponse and sets the default values.
      * @param managedAppOperationCollectionResponseParameterValue 
      */
     public constructor(managedAppOperationCollectionResponseParameterValue?: ManagedAppOperationCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = managedAppOperationCollectionResponseParameterValue?.additionalData ? {} : managedAppOperationCollectionResponseParameterValue?.additionalData!
+        this.additionalData = managedAppOperationCollectionResponseParameterValue?.additionalData ? managedAppOperationCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = managedAppOperationCollectionResponseParameterValue?.nextLink ;
         this.value = managedAppOperationCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class ManagedAppOperationCollectionResponseImpl implements AdditionalData
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: ManagedAppOperationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ManagedAppOperationImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: ManagedAppOperationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ManagedAppOperationImpl(element));});
         writer.writeCollectionOfObjectValues<ManagedAppOperationImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

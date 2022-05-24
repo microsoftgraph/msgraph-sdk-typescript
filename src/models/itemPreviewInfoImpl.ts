@@ -3,20 +3,19 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class ItemPreviewInfoImpl implements AdditionalDataHolder, ItemPreviewInfo, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The getUrl property */
-    getUrl?: string | undefined;
+    public getUrl?: string | undefined;
     /** The postParameters property */
-    postParameters?: string | undefined;
+    public postParameters?: string | undefined;
     /** The postUrl property */
-    postUrl?: string | undefined;
+    public postUrl?: string | undefined;
     /**
-     * Instantiates a new itemPreviewInfo and sets the default values.
+     * Instantiates a new ItemPreviewInfo and sets the default values.
      * @param itemPreviewInfoParameterValue 
      */
     public constructor(itemPreviewInfoParameterValue?: ItemPreviewInfo | undefined) {
-        this.additionalData = {};
-        this.additionalData = itemPreviewInfoParameterValue?.additionalData ? {} : itemPreviewInfoParameterValue?.additionalData!
+        this.additionalData = itemPreviewInfoParameterValue?.additionalData ? itemPreviewInfoParameterValue?.additionalData! : {}
         this.getUrl = itemPreviewInfoParameterValue?.getUrl ;
         this.postParameters = itemPreviewInfoParameterValue?.postParameters ;
         this.postUrl = itemPreviewInfoParameterValue?.postUrl ;
@@ -39,15 +38,12 @@ export class ItemPreviewInfoImpl implements AdditionalDataHolder, ItemPreviewInf
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.getUrl){
-        if(this.getUrl)
         writer.writeStringValue("getUrl", this.getUrl);
         }
         if(this.postParameters){
-        if(this.postParameters)
         writer.writeStringValue("postParameters", this.postParameters);
         }
         if(this.postUrl){
-        if(this.postUrl)
         writer.writeStringValue("postUrl", this.postUrl);
         }
         writer.writeAdditionalData(this.additionalData);

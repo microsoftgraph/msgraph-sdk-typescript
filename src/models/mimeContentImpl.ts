@@ -4,18 +4,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Contains properties for a generic mime content. */
 export class MimeContentImpl implements AdditionalDataHolder, MimeContent, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** Indicates the content mime type. */
-    type?: string | undefined;
+    public type?: string | undefined;
     /** The byte array that contains the actual content. */
-    value?: string | undefined;
+    public value?: string | undefined;
     /**
      * Instantiates a new mimeContent and sets the default values.
      * @param mimeContentParameterValue 
      */
     public constructor(mimeContentParameterValue?: MimeContent | undefined) {
-        this.additionalData = {};
-        this.additionalData = mimeContentParameterValue?.additionalData ? {} : mimeContentParameterValue?.additionalData!
+        this.additionalData = mimeContentParameterValue?.additionalData ? mimeContentParameterValue?.additionalData! : {}
         this.type = mimeContentParameterValue?.type ;
         this.value = mimeContentParameterValue?.value ;
     };
@@ -36,11 +35,9 @@ export class MimeContentImpl implements AdditionalDataHolder, MimeContent, Parsa
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.type){
-        if(this.type)
         writer.writeStringValue("type", this.type);
         }
         if(this.value){
-        if(this.value)
         writer.writeStringValue("value", this.value);
         }
         writer.writeAdditionalData(this.additionalData);

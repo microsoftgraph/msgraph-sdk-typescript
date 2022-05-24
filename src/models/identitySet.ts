@@ -2,11 +2,11 @@ import {Identity} from './identity';
 
 export interface IdentitySet{
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
-    /** Optional. The application associated with this action. */
-    application?: Identity | undefined;
-    /** Optional. The device associated with this action. */
-    device?: Identity | undefined;
-    /** Optional. The user associated with this action. */
-    user?: Identity | undefined;
+    additionalData?:Record<string, unknown>;
+    /** The Identity of the Application. This property is read-only. */
+    application?:Identity | undefined;
+    /** The Identity of the Device. This property is read-only. */
+    device?:Identity | undefined;
+    /** The Identity of the User. This property is read-only. */
+    user?:Identity | undefined;
 }

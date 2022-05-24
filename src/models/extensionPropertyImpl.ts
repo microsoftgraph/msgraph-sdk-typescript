@@ -2,17 +2,18 @@ import {ExtensionProperty} from './extensionProperty';
 import {DirectoryObjectImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the collection of application entities. */
 export class ExtensionPropertyImpl extends DirectoryObjectImpl implements ExtensionProperty, Parsable {
     /** Display name of the application object on which this extension property is defined. Read-only. */
-    appDisplayName?: string | undefined;
+    public appDisplayName?: string | undefined;
     /** Specifies the data type of the value the extension property can hold. Following values are supported. Not nullable. Binary - 256 bytes maximumBooleanDateTime - Must be specified in ISO 8601 format. Will be stored in UTC.Integer - 32-bit value.LargeInteger - 64-bit value.String - 256 characters maximum */
-    dataType?: string | undefined;
+    public dataType?: string | undefined;
     /** Indicates if this extension property was synced from on-premises active directory using Azure AD Connect. Read-only. */
-    isSyncedFromOnPremises?: boolean | undefined;
+    public isSyncedFromOnPremises?: boolean | undefined;
     /** Name of the extension property. Not nullable. */
-    name?: string | undefined;
+    public name?: string | undefined;
     /** Following values are supported. Not nullable. UserGroupOrganizationDeviceApplication */
-    targetObjects?: string[] | undefined;
+    public targetObjects?: string[] | undefined;
     /**
      * Instantiates a new extensionProperty and sets the default values.
      * @param extensionPropertyParameterValue 
@@ -46,23 +47,18 @@ export class ExtensionPropertyImpl extends DirectoryObjectImpl implements Extens
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.appDisplayName){
-        if(this.appDisplayName)
         writer.writeStringValue("appDisplayName", this.appDisplayName);
         }
         if(this.dataType){
-        if(this.dataType)
         writer.writeStringValue("dataType", this.dataType);
         }
         if(this.isSyncedFromOnPremises){
-        if(this.isSyncedFromOnPremises)
         writer.writeBooleanValue("isSyncedFromOnPremises", this.isSyncedFromOnPremises);
         }
         if(this.name){
-        if(this.name)
         writer.writeStringValue("name", this.name);
         }
         if(this.targetObjects){
-        if(this.targetObjects)
         writer.writeCollectionOfPrimitiveValues<string>("targetObjects", this.targetObjects);
         }
     };

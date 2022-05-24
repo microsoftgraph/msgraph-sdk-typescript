@@ -1,6 +1,5 @@
 import {createGetActivitiesByIntervalResponseFromDiscriminatorValue} from './createGetActivitiesByIntervalResponseFromDiscriminatorValue';
 import {GetActivitiesByIntervalRequestBuilderGetRequestConfiguration} from './getActivitiesByIntervalRequestBuilderGetRequestConfiguration';
-import {GetActivitiesByIntervalResponse} from './getActivitiesByIntervalResponse';
 import {GetActivitiesByIntervalResponseImpl} from './index';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
@@ -47,7 +46,7 @@ export class GetActivitiesByIntervalRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of GetActivitiesByIntervalResponse
      */
-    public get(requestConfiguration?: GetActivitiesByIntervalRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<GetActivitiesByIntervalResponse | undefined> {
+    public get(requestConfiguration?: GetActivitiesByIntervalRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<GetActivitiesByIntervalResponseImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );

@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class ComplianceInformationImpl implements AdditionalDataHolder, ComplianceInformation, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** Collection of the certification controls associated with certification */
-    certificationControls?: CertificationControl[] | undefined;
+    public certificationControls?: CertificationControl[] | undefined;
     /** Compliance certification name (for example, ISO 27018:2014, GDPR, FedRAMP, NIST 800-171) */
-    certificationName?: string | undefined;
+    public certificationName?: string | undefined;
     /**
      * Instantiates a new complianceInformation and sets the default values.
      * @param complianceInformationParameterValue 
      */
     public constructor(complianceInformationParameterValue?: ComplianceInformation | undefined) {
-        this.additionalData = {};
-        this.additionalData = complianceInformationParameterValue?.additionalData ? {} : complianceInformationParameterValue?.additionalData!
+        this.additionalData = complianceInformationParameterValue?.additionalData ? complianceInformationParameterValue?.additionalData! : {}
         this.certificationControls = complianceInformationParameterValue?.certificationControls ;
         this.certificationName = complianceInformationParameterValue?.certificationName ;
     };
@@ -37,12 +36,10 @@ export class ComplianceInformationImpl implements AdditionalDataHolder, Complian
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        if(this.certificationControls){
-        const certificationControlsArrValue: CertificationControlImpl[] = []; this.certificationControls?.forEach(element => {certificationControlsArrValue.push(new CertificationControlImpl(element));});
+        if(this.certificationControls && this.certificationControls.length != 0){        const certificationControlsArrValue: CertificationControlImpl[] = []; this.certificationControls?.forEach(element => {certificationControlsArrValue.push(new CertificationControlImpl(element));});
         writer.writeCollectionOfObjectValues<CertificationControlImpl>("certificationControls", certificationControlsArrValue);
         }
         if(this.certificationName){
-        if(this.certificationName)
         writer.writeStringValue("certificationName", this.certificationName);
         }
         writer.writeAdditionalData(this.additionalData);

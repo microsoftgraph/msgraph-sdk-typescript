@@ -4,13 +4,14 @@ import {WorkbookChartAxes} from './workbookChartAxes';
 import {WorkbookChartAxis} from './workbookChartAxis';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to user. */
 export class WorkbookChartAxesImpl extends EntityImpl implements Parsable, WorkbookChartAxes {
     /** Represents the category axis in a chart. Read-only. */
-    categoryAxis?: WorkbookChartAxis | undefined;
+    public categoryAxis?: WorkbookChartAxis | undefined;
     /** Represents the series axis of a 3-dimensional chart. Read-only. */
-    seriesAxis?: WorkbookChartAxis | undefined;
+    public seriesAxis?: WorkbookChartAxis | undefined;
     /** Represents the value axis in an axis. Read-only. */
-    valueAxis?: WorkbookChartAxis | undefined;
+    public valueAxis?: WorkbookChartAxis | undefined;
     /**
      * Instantiates a new workbookChartAxes and sets the default values.
      * @param workbookChartAxesParameterValue 
@@ -40,15 +41,12 @@ export class WorkbookChartAxesImpl extends EntityImpl implements Parsable, Workb
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.categoryAxis){
-        if(this.categoryAxis)
         writer.writeObjectValue<WorkbookChartAxisImpl>("categoryAxis", new WorkbookChartAxisImpl(this.categoryAxis));
         }
         if(this.seriesAxis){
-        if(this.seriesAxis)
         writer.writeObjectValue<WorkbookChartAxisImpl>("seriesAxis", new WorkbookChartAxisImpl(this.seriesAxis));
         }
         if(this.valueAxis){
-        if(this.valueAxis)
         writer.writeObjectValue<WorkbookChartAxisImpl>("valueAxis", new WorkbookChartAxisImpl(this.valueAxis));
         }
     };

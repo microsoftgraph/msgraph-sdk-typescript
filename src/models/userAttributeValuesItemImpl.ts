@@ -3,20 +3,19 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class UserAttributeValuesItemImpl implements AdditionalDataHolder, Parsable, UserAttributeValuesItem {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** Used to set the value as the default. */
-    isDefault?: boolean | undefined;
+    public isDefault?: boolean | undefined;
     /** The display name of the property displayed to the end user in the user flow. */
-    name?: string | undefined;
+    public name?: string | undefined;
     /** The value that is set when this item is selected. */
-    value?: string | undefined;
+    public value?: string | undefined;
     /**
      * Instantiates a new userAttributeValuesItem and sets the default values.
      * @param userAttributeValuesItemParameterValue 
      */
     public constructor(userAttributeValuesItemParameterValue?: UserAttributeValuesItem | undefined) {
-        this.additionalData = {};
-        this.additionalData = userAttributeValuesItemParameterValue?.additionalData ? {} : userAttributeValuesItemParameterValue?.additionalData!
+        this.additionalData = userAttributeValuesItemParameterValue?.additionalData ? userAttributeValuesItemParameterValue?.additionalData! : {}
         this.isDefault = userAttributeValuesItemParameterValue?.isDefault ;
         this.name = userAttributeValuesItemParameterValue?.name ;
         this.value = userAttributeValuesItemParameterValue?.value ;
@@ -39,15 +38,12 @@ export class UserAttributeValuesItemImpl implements AdditionalDataHolder, Parsab
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.isDefault){
-        if(this.isDefault)
         writer.writeBooleanValue("isDefault", this.isDefault);
         }
         if(this.name){
-        if(this.name)
         writer.writeStringValue("name", this.name);
         }
         if(this.value){
-        if(this.value)
         writer.writeStringValue("value", this.value);
         }
         writer.writeAdditionalData(this.additionalData);

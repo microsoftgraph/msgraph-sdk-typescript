@@ -6,16 +6,15 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class OnenotePagePreviewLinksImpl implements AdditionalDataHolder, OnenotePagePreviewLinks, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The previewImageUrl property */
-    previewImageUrl?: ExternalLink | undefined;
+    public previewImageUrl?: ExternalLink | undefined;
     /**
      * Instantiates a new onenotePagePreviewLinks and sets the default values.
      * @param onenotePagePreviewLinksParameterValue 
      */
     public constructor(onenotePagePreviewLinksParameterValue?: OnenotePagePreviewLinks | undefined) {
-        this.additionalData = {};
-        this.additionalData = onenotePagePreviewLinksParameterValue?.additionalData ? {} : onenotePagePreviewLinksParameterValue?.additionalData!
+        this.additionalData = onenotePagePreviewLinksParameterValue?.additionalData ? onenotePagePreviewLinksParameterValue?.additionalData! : {}
         this.previewImageUrl = onenotePagePreviewLinksParameterValue?.previewImageUrl ;
     };
     /**
@@ -34,7 +33,6 @@ export class OnenotePagePreviewLinksImpl implements AdditionalDataHolder, Onenot
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.previewImageUrl){
-        if(this.previewImageUrl)
         writer.writeObjectValue<ExternalLinkImpl>("previewImageUrl", new ExternalLinkImpl(this.previewImageUrl));
         }
         writer.writeAdditionalData(this.additionalData);

@@ -3,16 +3,15 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class ExternalLinkImpl implements AdditionalDataHolder, ExternalLink, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The url of the link. */
-    href?: string | undefined;
+    public href?: string | undefined;
     /**
      * Instantiates a new externalLink and sets the default values.
      * @param externalLinkParameterValue 
      */
     public constructor(externalLinkParameterValue?: ExternalLink | undefined) {
-        this.additionalData = {};
-        this.additionalData = externalLinkParameterValue?.additionalData ? {} : externalLinkParameterValue?.additionalData!
+        this.additionalData = externalLinkParameterValue?.additionalData ? externalLinkParameterValue?.additionalData! : {}
         this.href = externalLinkParameterValue?.href ;
     };
     /**
@@ -31,7 +30,6 @@ export class ExternalLinkImpl implements AdditionalDataHolder, ExternalLink, Par
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.href){
-        if(this.href)
         writer.writeStringValue("href", this.href);
         }
         writer.writeAdditionalData(this.additionalData);

@@ -5,19 +5,20 @@ import {WorkforceIntegrationEncryption} from './workforceIntegrationEncryption';
 import {WorkforceIntegrationSupportedEntities} from './workforceIntegrationSupportedEntities';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the teamwork singleton. */
 export class WorkforceIntegrationImpl extends ChangeTrackedEntityImpl implements Parsable, WorkforceIntegration {
     /** API version for the call back URL. Start with 1. */
-    apiVersion?: number | undefined;
+    public apiVersion?: number | undefined;
     /** Name of the workforce integration. */
-    displayName?: string | undefined;
+    public displayName?: string | undefined;
     /** The workforce integration encryption resource. */
-    encryption?: WorkforceIntegrationEncryption | undefined;
+    public encryption?: WorkforceIntegrationEncryption | undefined;
     /** Indicates whether this workforce integration is currently active and available. */
-    isActive?: boolean | undefined;
+    public isActive?: boolean | undefined;
     /** This property has replaced supports in v1.0. We recommend that you use this property instead of supports. The supports property is still supported in beta for the time being. The possible values are: none, shift, swapRequest, openshift, openShiftRequest, userShiftPreferences, offerShiftRequest, unknownFutureValue, timeCard, timeOffReason, timeOff, timeOffRequest. Note that you must use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: timeCard, timeOffReason, timeOff, timeOffRequest. If selecting more than one value, all values must start with the first letter in uppercase. */
-    supportedEntities?: WorkforceIntegrationSupportedEntities | undefined;
+    public supportedEntities?: WorkforceIntegrationSupportedEntities | undefined;
     /** Workforce Integration URL for callbacks from the Shifts service. */
-    url?: string | undefined;
+    public url?: string | undefined;
     /**
      * Instantiates a new workforceIntegration and sets the default values.
      * @param workforceIntegrationParameterValue 
@@ -53,27 +54,21 @@ export class WorkforceIntegrationImpl extends ChangeTrackedEntityImpl implements
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.apiVersion){
-        if(this.apiVersion)
         writer.writeNumberValue("apiVersion", this.apiVersion);
         }
         if(this.displayName){
-        if(this.displayName)
         writer.writeStringValue("displayName", this.displayName);
         }
         if(this.encryption){
-        if(this.encryption)
         writer.writeObjectValue<WorkforceIntegrationEncryptionImpl>("encryption", new WorkforceIntegrationEncryptionImpl(this.encryption));
         }
         if(this.isActive){
-        if(this.isActive)
         writer.writeBooleanValue("isActive", this.isActive);
         }
         if(this.supportedEntities){
-        if(this.supportedEntities)
         writer.writeEnumValue<WorkforceIntegrationSupportedEntities>("supportedEntities", this.supportedEntities);
         }
         if(this.url){
-        if(this.url)
         writer.writeStringValue("url", this.url);
         }
     };

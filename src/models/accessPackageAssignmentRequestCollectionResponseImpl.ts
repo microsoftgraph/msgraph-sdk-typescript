@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class AccessPackageAssignmentRequestCollectionResponseImpl implements AccessPackageAssignmentRequestCollectionResponse, AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: AccessPackageAssignmentRequest[] | undefined;
+    public value?: AccessPackageAssignmentRequest[] | undefined;
     /**
      * Instantiates a new AccessPackageAssignmentRequestCollectionResponse and sets the default values.
      * @param accessPackageAssignmentRequestCollectionResponseParameterValue 
      */
     public constructor(accessPackageAssignmentRequestCollectionResponseParameterValue?: AccessPackageAssignmentRequestCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = accessPackageAssignmentRequestCollectionResponseParameterValue?.additionalData ? {} : accessPackageAssignmentRequestCollectionResponseParameterValue?.additionalData!
+        this.additionalData = accessPackageAssignmentRequestCollectionResponseParameterValue?.additionalData ? accessPackageAssignmentRequestCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = accessPackageAssignmentRequestCollectionResponseParameterValue?.nextLink ;
         this.value = accessPackageAssignmentRequestCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class AccessPackageAssignmentRequestCollectionResponseImpl implements Acc
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: AccessPackageAssignmentRequestImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new AccessPackageAssignmentRequestImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: AccessPackageAssignmentRequestImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new AccessPackageAssignmentRequestImpl(element));});
         writer.writeCollectionOfObjectValues<AccessPackageAssignmentRequestImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

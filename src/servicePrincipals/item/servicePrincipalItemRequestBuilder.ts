@@ -197,7 +197,7 @@ export class ServicePrincipalItemRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Delete servicePrincipal
+     * Delete a [servicePrincipal](../resources/serviceprincipal.md) object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -224,7 +224,7 @@ export class ServicePrincipalItemRequestBuilder {
         return new id0f419ba2af0eea378feefad8f5b20198c7344f82ac59b6fd8fbafacb7581cc6(urlTplParams, this.requestAdapter);
     };
     /**
-     * Get servicePrincipal
+     * Retrieve the properties and relationships of a [servicePrincipal](../resources/serviceprincipal.md) object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -241,7 +241,7 @@ export class ServicePrincipalItemRequestBuilder {
         return requestInfo;
     };
     /**
-     * Assign, update, or remove custom security attributes using the Microsoft Graph API (Preview)
+     * This article provides examples of how to assign, update, or remove different types of custom security attributes for users and applications (service principals). Custom security attributes can be assigned or updated only through a `PATCH` operation in an [Update user](/graph/api/user-update?view=graph-rest-beta&preserve-view=true) or [Update servicePrincipal](/graph/api/serviceprincipal-update?view=graph-rest-beta&preserve-view=true) request.
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -256,8 +256,8 @@ export class ServicePrincipalItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        const bodyParsable = new ServicePrincipalImpl(body)
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", bodyParsable);
+        const parsableBody = new ServicePrincipalImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -272,7 +272,7 @@ export class ServicePrincipalItemRequestBuilder {
         return new DelegatedPermissionClassificationItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Delete servicePrincipal
+     * Delete a [servicePrincipal](../resources/serviceprincipal.md) object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
@@ -298,12 +298,12 @@ export class ServicePrincipalItemRequestBuilder {
         return new EndpointItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Get servicePrincipal
+     * Retrieve the properties and relationships of a [servicePrincipal](../resources/serviceprincipal.md) object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ServicePrincipal
      */
-    public get(requestConfiguration?: ServicePrincipalItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ServicePrincipal | undefined> {
+    public get(requestConfiguration?: ServicePrincipalItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ServicePrincipalImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -369,7 +369,7 @@ export class ServicePrincipalItemRequestBuilder {
         return new i9966bb709202f5d6bbde5c99f7c9562165ad440a5ae3d0e79c9517577de7fd48(urlTplParams, this.requestAdapter);
     };
     /**
-     * Assign, update, or remove custom security attributes using the Microsoft Graph API (Preview)
+     * This article provides examples of how to assign, update, or remove different types of custom security attributes for users and applications (service principals). Custom security attributes can be assigned or updated only through a `PATCH` operation in an [Update user](/graph/api/user-update?view=graph-rest-beta&preserve-view=true) or [Update servicePrincipal](/graph/api/serviceprincipal-update?view=graph-rest-beta&preserve-view=true) request.
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service

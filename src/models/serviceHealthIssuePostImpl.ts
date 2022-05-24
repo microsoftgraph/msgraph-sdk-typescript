@@ -7,20 +7,19 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class ServiceHealthIssuePostImpl implements AdditionalDataHolder, Parsable, ServiceHealthIssuePost {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The published time of the post. */
-    createdDateTime?: Date | undefined;
+    public createdDateTime?: Date | undefined;
     /** The content of the service issue post. */
-    description?: ItemBody | undefined;
+    public description?: ItemBody | undefined;
     /** The post type of the service issue historical post. Possible values are: regular, quick, strategic, unknownFutureValue. */
-    postType?: PostType | undefined;
+    public postType?: PostType | undefined;
     /**
      * Instantiates a new serviceHealthIssuePost and sets the default values.
      * @param serviceHealthIssuePostParameterValue 
      */
     public constructor(serviceHealthIssuePostParameterValue?: ServiceHealthIssuePost | undefined) {
-        this.additionalData = {};
-        this.additionalData = serviceHealthIssuePostParameterValue?.additionalData ? {} : serviceHealthIssuePostParameterValue?.additionalData!
+        this.additionalData = serviceHealthIssuePostParameterValue?.additionalData ? serviceHealthIssuePostParameterValue?.additionalData! : {}
         this.createdDateTime = serviceHealthIssuePostParameterValue?.createdDateTime ;
         this.description = serviceHealthIssuePostParameterValue?.description ;
         this.postType = serviceHealthIssuePostParameterValue?.postType ;
@@ -43,15 +42,12 @@ export class ServiceHealthIssuePostImpl implements AdditionalDataHolder, Parsabl
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.createdDateTime){
-        if(this.createdDateTime)
         writer.writeDateValue("createdDateTime", this.createdDateTime);
         }
         if(this.description){
-        if(this.description)
         writer.writeObjectValue<ItemBodyImpl>("description", new ItemBodyImpl(this.description));
         }
         if(this.postType){
-        if(this.postType)
         writer.writeEnumValue<PostType>("postType", this.postType);
         }
         writer.writeAdditionalData(this.additionalData);

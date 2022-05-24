@@ -6,16 +6,15 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class ConditionalAccessDevicesImpl implements AdditionalDataHolder, ConditionalAccessDevices, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** Filter that defines the dynamic-device-syntax rule to include/exclude devices. A filter can use device properties (such as extension attributes) to include/exclude them. Cannot be set if includeDevices or excludeDevices is set. */
-    deviceFilter?: ConditionalAccessFilter | undefined;
+    public deviceFilter?: ConditionalAccessFilter | undefined;
     /**
      * Instantiates a new conditionalAccessDevices and sets the default values.
      * @param conditionalAccessDevicesParameterValue 
      */
     public constructor(conditionalAccessDevicesParameterValue?: ConditionalAccessDevices | undefined) {
-        this.additionalData = {};
-        this.additionalData = conditionalAccessDevicesParameterValue?.additionalData ? {} : conditionalAccessDevicesParameterValue?.additionalData!
+        this.additionalData = conditionalAccessDevicesParameterValue?.additionalData ? conditionalAccessDevicesParameterValue?.additionalData! : {}
         this.deviceFilter = conditionalAccessDevicesParameterValue?.deviceFilter ;
     };
     /**
@@ -34,7 +33,6 @@ export class ConditionalAccessDevicesImpl implements AdditionalDataHolder, Condi
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.deviceFilter){
-        if(this.deviceFilter)
         writer.writeObjectValue<ConditionalAccessFilterImpl>("deviceFilter", new ConditionalAccessFilterImpl(this.deviceFilter));
         }
         writer.writeAdditionalData(this.additionalData);

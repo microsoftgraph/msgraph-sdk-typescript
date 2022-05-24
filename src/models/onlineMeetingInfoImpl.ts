@@ -6,26 +6,25 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class OnlineMeetingInfoImpl implements AdditionalDataHolder, OnlineMeetingInfo, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The ID of the conference. */
-    conferenceId?: string | undefined;
+    public conferenceId?: string | undefined;
     /** The external link that launches the online meeting. This is a URL that clients will launch into a browser and will redirect the user to join the meeting. */
-    joinUrl?: string | undefined;
+    public joinUrl?: string | undefined;
     /** All of the phone numbers associated with this conference. */
-    phones?: Phone[] | undefined;
+    public phones?: Phone[] | undefined;
     /** The pre-formatted quickdial for this call. */
-    quickDial?: string | undefined;
+    public quickDial?: string | undefined;
     /** The toll free numbers that can be used to join the conference. */
-    tollFreeNumbers?: string[] | undefined;
+    public tollFreeNumbers?: string[] | undefined;
     /** The toll number that can be used to join the conference. */
-    tollNumber?: string | undefined;
+    public tollNumber?: string | undefined;
     /**
      * Instantiates a new onlineMeetingInfo and sets the default values.
      * @param onlineMeetingInfoParameterValue 
      */
     public constructor(onlineMeetingInfoParameterValue?: OnlineMeetingInfo | undefined) {
-        this.additionalData = {};
-        this.additionalData = onlineMeetingInfoParameterValue?.additionalData ? {} : onlineMeetingInfoParameterValue?.additionalData!
+        this.additionalData = onlineMeetingInfoParameterValue?.additionalData ? onlineMeetingInfoParameterValue?.additionalData! : {}
         this.conferenceId = onlineMeetingInfoParameterValue?.conferenceId ;
         this.joinUrl = onlineMeetingInfoParameterValue?.joinUrl ;
         this.phones = onlineMeetingInfoParameterValue?.phones ;
@@ -54,27 +53,21 @@ export class OnlineMeetingInfoImpl implements AdditionalDataHolder, OnlineMeetin
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.conferenceId){
-        if(this.conferenceId)
         writer.writeStringValue("conferenceId", this.conferenceId);
         }
         if(this.joinUrl){
-        if(this.joinUrl)
         writer.writeStringValue("joinUrl", this.joinUrl);
         }
-        if(this.phones){
-        const phonesArrValue: PhoneImpl[] = []; this.phones?.forEach(element => {phonesArrValue.push(new PhoneImpl(element));});
+        if(this.phones && this.phones.length != 0){        const phonesArrValue: PhoneImpl[] = []; this.phones?.forEach(element => {phonesArrValue.push(new PhoneImpl(element));});
         writer.writeCollectionOfObjectValues<PhoneImpl>("phones", phonesArrValue);
         }
         if(this.quickDial){
-        if(this.quickDial)
         writer.writeStringValue("quickDial", this.quickDial);
         }
         if(this.tollFreeNumbers){
-        if(this.tollFreeNumbers)
         writer.writeCollectionOfPrimitiveValues<string>("tollFreeNumbers", this.tollFreeNumbers);
         }
         if(this.tollNumber){
-        if(this.tollNumber)
         writer.writeStringValue("tollNumber", this.tollNumber);
         }
         writer.writeAdditionalData(this.additionalData);

@@ -2,13 +2,14 @@ import {GroupLifecyclePolicy} from './groupLifecyclePolicy';
 import {EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to group. */
 export class GroupLifecyclePolicyImpl extends EntityImpl implements GroupLifecyclePolicy, Parsable {
     /** List of email address to send notifications for groups without owners. Multiple email address can be defined by separating email address with a semicolon. */
-    alternateNotificationEmails?: string | undefined;
+    public alternateNotificationEmails?: string | undefined;
     /** Number of days before a group expires and needs to be renewed. Once renewed, the group expiration is extended by the number of days defined. */
-    groupLifetimeInDays?: number | undefined;
+    public groupLifetimeInDays?: number | undefined;
     /** The group type for which the expiration policy applies. Possible values are All, Selected or None. */
-    managedGroupTypes?: string | undefined;
+    public managedGroupTypes?: string | undefined;
     /**
      * Instantiates a new groupLifecyclePolicy and sets the default values.
      * @param groupLifecyclePolicyParameterValue 
@@ -38,15 +39,12 @@ export class GroupLifecyclePolicyImpl extends EntityImpl implements GroupLifecyc
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.alternateNotificationEmails){
-        if(this.alternateNotificationEmails)
         writer.writeStringValue("alternateNotificationEmails", this.alternateNotificationEmails);
         }
         if(this.groupLifetimeInDays){
-        if(this.groupLifetimeInDays)
         writer.writeNumberValue("groupLifetimeInDays", this.groupLifetimeInDays);
         }
         if(this.managedGroupTypes){
-        if(this.managedGroupTypes)
         writer.writeStringValue("managedGroupTypes", this.managedGroupTypes);
         }
     };

@@ -10,41 +10,42 @@ import {DirectoryObjectImpl, DomainDnsRecordImpl, DomainStateImpl, EntityImpl, I
 import {InternalDomainFederation} from './internalDomainFederation';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the collection of domain entities. */
 export class DomainImpl extends EntityImpl implements Domain, Parsable {
     /** Indicates the configured authentication type for the domain. The value is either Managed or Federated. Managed indicates a cloud managed domain where Azure AD performs user authentication. Federated indicates authentication is federated with an identity provider such as the tenant's on-premises Active Directory via Active Directory Federation Services. This property is read-only and is not nullable. */
-    authenticationType?: string | undefined;
+    public authenticationType?: string | undefined;
     /** This property is always null except when the verify action is used. When the verify action is used, a domain entity is returned in the response. The availabilityStatus property of the domain entity in the response is either AvailableImmediately or EmailVerifiedDomainTakeoverScheduled. */
-    availabilityStatus?: string | undefined;
+    public availabilityStatus?: string | undefined;
     /** The objects such as users and groups that reference the domain ID. Read-only, Nullable. Supports $expand and $filter by the OData type of objects returned. For example /domains/{domainId}/domainNameReferences/microsoft.graph.user and /domains/{domainId}/domainNameReferences/microsoft.graph.group. */
-    domainNameReferences?: DirectoryObject[] | undefined;
+    public domainNameReferences?: DirectoryObject[] | undefined;
     /** Domain settings configured by customer when federated with Azure AD. Supports $expand. */
-    federationConfiguration?: InternalDomainFederation[] | undefined;
+    public federationConfiguration?: InternalDomainFederation[] | undefined;
     /** The value of the property is false if the DNS record management of the domain has been delegated to Microsoft 365. Otherwise, the value is true. Not nullable */
-    isAdminManaged?: boolean | undefined;
+    public isAdminManaged?: boolean | undefined;
     /** true if this is the default domain that is used for user creation. There is only one default domain per company. Not nullable */
-    isDefault?: boolean | undefined;
+    public isDefault?: boolean | undefined;
     /** true if this is the initial domain created by Microsoft Online Services (companyname.onmicrosoft.com). There is only one initial domain per company. Not nullable */
-    isInitial?: boolean | undefined;
+    public isInitial?: boolean | undefined;
     /** true if the domain is a verified root domain. Otherwise, false if the domain is a subdomain or unverified. Not nullable */
-    isRoot?: boolean | undefined;
+    public isRoot?: boolean | undefined;
     /** true if the domain has completed domain ownership verification. Not nullable */
-    isVerified?: boolean | undefined;
+    public isVerified?: boolean | undefined;
     /** The manufacturer property */
-    manufacturer?: string | undefined;
+    public manufacturer?: string | undefined;
     /** The model property */
-    model?: string | undefined;
+    public model?: string | undefined;
     /** Specifies the number of days before a user receives notification that their password will expire. If the property is not set, a default value of 14 days will be used. */
-    passwordNotificationWindowInDays?: number | undefined;
+    public passwordNotificationWindowInDays?: number | undefined;
     /** Specifies the length of time that a password is valid before it must be changed. If the property is not set, a default value of 90 days will be used. */
-    passwordValidityPeriodInDays?: number | undefined;
+    public passwordValidityPeriodInDays?: number | undefined;
     /** DNS records the customer adds to the DNS zone file of the domain before the domain can be used by Microsoft Online services. Read-only, Nullable. Supports $expand. */
-    serviceConfigurationRecords?: DomainDnsRecord[] | undefined;
+    public serviceConfigurationRecords?: DomainDnsRecord[] | undefined;
     /** Status of asynchronous operations scheduled for the domain. */
-    state?: DomainState | undefined;
+    public state?: DomainState | undefined;
     /** The capabilities assigned to the domain. Can include 0, 1 or more of following values: Email, Sharepoint, EmailInternalRelayOnly, OfficeCommunicationsOnline,SharePointDefaultDomain, FullRedelegation, SharePointPublic, OrgIdAuthentication, Yammer, Intune. The values which you can add/remove using Graph API include: Email, OfficeCommunicationsOnline, Yammer. Not nullable. */
-    supportedServices?: string[] | undefined;
+    public supportedServices?: string[] | undefined;
     /** DNS records that the customer adds to the DNS zone file of the domain before the customer can complete domain ownership verification with Azure AD. Read-only, Nullable. Supports $expand. */
-    verificationDnsRecords?: DomainDnsRecord[] | undefined;
+    public verificationDnsRecords?: DomainDnsRecord[] | undefined;
     /**
      * Instantiates a new domain and sets the default values.
      * @param domainParameterValue 
@@ -102,71 +103,54 @@ export class DomainImpl extends EntityImpl implements Domain, Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.authenticationType){
-        if(this.authenticationType)
         writer.writeStringValue("authenticationType", this.authenticationType);
         }
         if(this.availabilityStatus){
-        if(this.availabilityStatus)
         writer.writeStringValue("availabilityStatus", this.availabilityStatus);
         }
-        if(this.domainNameReferences){
-        const domainNameReferencesArrValue: DirectoryObjectImpl[] = []; this.domainNameReferences?.forEach(element => {domainNameReferencesArrValue.push(new DirectoryObjectImpl(element));});
+        if(this.domainNameReferences && this.domainNameReferences.length != 0){        const domainNameReferencesArrValue: DirectoryObjectImpl[] = []; this.domainNameReferences?.forEach(element => {domainNameReferencesArrValue.push(new DirectoryObjectImpl(element));});
         writer.writeCollectionOfObjectValues<DirectoryObjectImpl>("domainNameReferences", domainNameReferencesArrValue);
         }
-        if(this.federationConfiguration){
-        const federationConfigurationArrValue: InternalDomainFederationImpl[] = []; this.federationConfiguration?.forEach(element => {federationConfigurationArrValue.push(new InternalDomainFederationImpl(element));});
+        if(this.federationConfiguration && this.federationConfiguration.length != 0){        const federationConfigurationArrValue: InternalDomainFederationImpl[] = []; this.federationConfiguration?.forEach(element => {federationConfigurationArrValue.push(new InternalDomainFederationImpl(element));});
         writer.writeCollectionOfObjectValues<InternalDomainFederationImpl>("federationConfiguration", federationConfigurationArrValue);
         }
         if(this.isAdminManaged){
-        if(this.isAdminManaged)
         writer.writeBooleanValue("isAdminManaged", this.isAdminManaged);
         }
         if(this.isDefault){
-        if(this.isDefault)
         writer.writeBooleanValue("isDefault", this.isDefault);
         }
         if(this.isInitial){
-        if(this.isInitial)
         writer.writeBooleanValue("isInitial", this.isInitial);
         }
         if(this.isRoot){
-        if(this.isRoot)
         writer.writeBooleanValue("isRoot", this.isRoot);
         }
         if(this.isVerified){
-        if(this.isVerified)
         writer.writeBooleanValue("isVerified", this.isVerified);
         }
         if(this.manufacturer){
-        if(this.manufacturer)
         writer.writeStringValue("manufacturer", this.manufacturer);
         }
         if(this.model){
-        if(this.model)
         writer.writeStringValue("model", this.model);
         }
         if(this.passwordNotificationWindowInDays){
-        if(this.passwordNotificationWindowInDays)
         writer.writeNumberValue("passwordNotificationWindowInDays", this.passwordNotificationWindowInDays);
         }
         if(this.passwordValidityPeriodInDays){
-        if(this.passwordValidityPeriodInDays)
         writer.writeNumberValue("passwordValidityPeriodInDays", this.passwordValidityPeriodInDays);
         }
-        if(this.serviceConfigurationRecords){
-        const serviceConfigurationRecordsArrValue: DomainDnsRecordImpl[] = []; this.serviceConfigurationRecords?.forEach(element => {serviceConfigurationRecordsArrValue.push(new DomainDnsRecordImpl(element));});
+        if(this.serviceConfigurationRecords && this.serviceConfigurationRecords.length != 0){        const serviceConfigurationRecordsArrValue: DomainDnsRecordImpl[] = []; this.serviceConfigurationRecords?.forEach(element => {serviceConfigurationRecordsArrValue.push(new DomainDnsRecordImpl(element));});
         writer.writeCollectionOfObjectValues<DomainDnsRecordImpl>("serviceConfigurationRecords", serviceConfigurationRecordsArrValue);
         }
         if(this.state){
-        if(this.state)
         writer.writeObjectValue<DomainStateImpl>("state", new DomainStateImpl(this.state));
         }
         if(this.supportedServices){
-        if(this.supportedServices)
         writer.writeCollectionOfPrimitiveValues<string>("supportedServices", this.supportedServices);
         }
-        if(this.verificationDnsRecords){
-        const verificationDnsRecordsArrValue: DomainDnsRecordImpl[] = []; this.verificationDnsRecords?.forEach(element => {verificationDnsRecordsArrValue.push(new DomainDnsRecordImpl(element));});
+        if(this.verificationDnsRecords && this.verificationDnsRecords.length != 0){        const verificationDnsRecordsArrValue: DomainDnsRecordImpl[] = []; this.verificationDnsRecords?.forEach(element => {verificationDnsRecordsArrValue.push(new DomainDnsRecordImpl(element));});
         writer.writeCollectionOfObjectValues<DomainDnsRecordImpl>("verificationDnsRecords", verificationDnsRecordsArrValue);
         }
     };

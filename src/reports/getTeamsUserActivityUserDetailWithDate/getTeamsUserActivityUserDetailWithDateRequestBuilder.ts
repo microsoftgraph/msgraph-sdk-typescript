@@ -1,7 +1,4 @@
-import {createGetTeamsUserActivityUserDetailWithDateResponseFromDiscriminatorValue} from './createGetTeamsUserActivityUserDetailWithDateResponseFromDiscriminatorValue';
 import {GetTeamsUserActivityUserDetailWithDateRequestBuilderGetRequestConfiguration} from './getTeamsUserActivityUserDetailWithDateRequestBuilderGetRequestConfiguration';
-import {GetTeamsUserActivityUserDetailWithDateResponse} from './getTeamsUserActivityUserDetailWithDateResponse';
-import {GetTeamsUserActivityUserDetailWithDateResponseImpl} from './index';
 import {DateOnly, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the getTeamsUserActivityUserDetail method. */
@@ -47,12 +44,12 @@ export class GetTeamsUserActivityUserDetailWithDateRequestBuilder {
      * Invoke function getTeamsUserActivityUserDetail
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of GetTeamsUserActivityUserDetailWithDateResponse
+     * @returns a Promise of ArrayBuffer
      */
-    public get(requestConfiguration?: GetTeamsUserActivityUserDetailWithDateRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<GetTeamsUserActivityUserDetailWithDateResponse | undefined> {
+    public get(requestConfiguration?: GetTeamsUserActivityUserDetailWithDateRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ArrayBuffer | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
-        return this.requestAdapter?.sendAsync<GetTeamsUserActivityUserDetailWithDateResponseImpl>(requestInfo, createGetTeamsUserActivityUserDetailWithDateResponseFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendPrimitiveAsync<ArrayBuffer>(requestInfo, "ArrayBuffer", responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }

@@ -3,18 +3,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class AssignedLabelImpl implements AdditionalDataHolder, AssignedLabel, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The display name of the label. Read-only. */
-    displayName?: string | undefined;
+    public displayName?: string | undefined;
     /** The unique identifier of the label. */
-    labelId?: string | undefined;
+    public labelId?: string | undefined;
     /**
      * Instantiates a new assignedLabel and sets the default values.
      * @param assignedLabelParameterValue 
      */
     public constructor(assignedLabelParameterValue?: AssignedLabel | undefined) {
-        this.additionalData = {};
-        this.additionalData = assignedLabelParameterValue?.additionalData ? {} : assignedLabelParameterValue?.additionalData!
+        this.additionalData = assignedLabelParameterValue?.additionalData ? assignedLabelParameterValue?.additionalData! : {}
         this.displayName = assignedLabelParameterValue?.displayName ;
         this.labelId = assignedLabelParameterValue?.labelId ;
     };
@@ -35,11 +34,9 @@ export class AssignedLabelImpl implements AdditionalDataHolder, AssignedLabel, P
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.displayName){
-        if(this.displayName)
         writer.writeStringValue("displayName", this.displayName);
         }
         if(this.labelId){
-        if(this.labelId)
         writer.writeStringValue("labelId", this.labelId);
         }
         writer.writeAdditionalData(this.additionalData);

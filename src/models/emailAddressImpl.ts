@@ -3,18 +3,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class EmailAddressImpl implements AdditionalDataHolder, EmailAddress, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The email address of an entity instance. */
-    address?: string | undefined;
+    public address?: string | undefined;
     /** The display name of an entity instance. */
-    name?: string | undefined;
+    public name?: string | undefined;
     /**
      * Instantiates a new emailAddress and sets the default values.
      * @param emailAddressParameterValue 
      */
     public constructor(emailAddressParameterValue?: EmailAddress | undefined) {
-        this.additionalData = {};
-        this.additionalData = emailAddressParameterValue?.additionalData ? {} : emailAddressParameterValue?.additionalData!
+        this.additionalData = emailAddressParameterValue?.additionalData ? emailAddressParameterValue?.additionalData! : {}
         this.address = emailAddressParameterValue?.address ;
         this.name = emailAddressParameterValue?.name ;
     };
@@ -35,11 +34,9 @@ export class EmailAddressImpl implements AdditionalDataHolder, EmailAddress, Par
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.address){
-        if(this.address)
         writer.writeStringValue("address", this.address);
         }
         if(this.name){
-        if(this.name)
         writer.writeStringValue("name", this.name);
         }
         writer.writeAdditionalData(this.additionalData);

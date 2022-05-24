@@ -3,14 +3,13 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class PlannerAssignmentsImpl implements AdditionalDataHolder, Parsable, PlannerAssignments {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /**
      * Instantiates a new plannerAssignments and sets the default values.
      * @param plannerAssignmentsParameterValue 
      */
     public constructor(plannerAssignmentsParameterValue?: PlannerAssignments | undefined) {
-        this.additionalData = {};
-        this.additionalData = plannerAssignmentsParameterValue?.additionalData ? {} : plannerAssignmentsParameterValue?.additionalData!
+        this.additionalData = plannerAssignmentsParameterValue?.additionalData ? plannerAssignmentsParameterValue?.additionalData! : {}
     };
     /**
      * The deserialization information for the current model

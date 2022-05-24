@@ -93,11 +93,6 @@ export class DriveItemRequestBuilder {
         }
         return requestInfo;
     };
-    /**
-     * Helpers (examples that aren't included in the docs)
-     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
-     */
     public createGetRequestInformation(requestConfiguration?: DriveItemRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -126,8 +121,8 @@ export class DriveItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        const bodyParsable = new DriveImpl(body)
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", bodyParsable);
+        const parsableBody = new DriveImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -156,13 +151,7 @@ export class DriveItemRequestBuilder {
         urlTplParams["driveItem%2Did"] = id
         return new i49e32039fa79106ad863406f26a6bc8331c06381f7330fa7f68654553e19e091(urlTplParams, this.requestAdapter);
     };
-    /**
-     * Helpers (examples that aren't included in the docs)
-     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of Drive
-     */
-    public get(requestConfiguration?: DriveItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Drive | undefined> {
+    public get(requestConfiguration?: DriveItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DriveImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );

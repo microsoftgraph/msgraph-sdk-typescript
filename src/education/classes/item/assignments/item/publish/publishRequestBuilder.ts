@@ -1,6 +1,5 @@
 import {EducationAssignmentImpl} from '../../../../../../models/';
 import {createEducationAssignmentFromDiscriminatorValue} from '../../../../../../models/createEducationAssignmentFromDiscriminatorValue';
-import {EducationAssignment} from '../../../../../../models/educationAssignment';
 import {PublishRequestBuilderPostRequestConfiguration} from './publishRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
@@ -47,7 +46,7 @@ export class PublishRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of EducationAssignment
      */
-    public post(requestConfiguration?: PublishRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EducationAssignment | undefined> {
+    public post(requestConfiguration?: PublishRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EducationAssignmentImpl | undefined> {
         const requestInfo = this.createPostRequestInformation(
             requestConfiguration
         );

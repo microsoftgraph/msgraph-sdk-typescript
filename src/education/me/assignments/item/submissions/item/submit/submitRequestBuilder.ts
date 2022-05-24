@@ -1,6 +1,5 @@
 import {EducationSubmissionImpl} from '../../../../../../../models/';
 import {createEducationSubmissionFromDiscriminatorValue} from '../../../../../../../models/createEducationSubmissionFromDiscriminatorValue';
-import {EducationSubmission} from '../../../../../../../models/educationSubmission';
 import {SubmitRequestBuilderPostRequestConfiguration} from './submitRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
@@ -47,7 +46,7 @@ export class SubmitRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of EducationSubmission
      */
-    public post(requestConfiguration?: SubmitRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EducationSubmission | undefined> {
+    public post(requestConfiguration?: SubmitRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EducationSubmissionImpl | undefined> {
         const requestInfo = this.createPostRequestInformation(
             requestConfiguration
         );

@@ -3,18 +3,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class PrivacyProfileImpl implements AdditionalDataHolder, Parsable, PrivacyProfile {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** A valid smtp email address for the privacy statement contact. Not required. */
-    contactEmail?: string | undefined;
+    public contactEmail?: string | undefined;
     /** A valid URL format that begins with http:// or https://. Maximum length is 255 characters. The URL that directs to the company's privacy statement. Not required. */
-    statementUrl?: string | undefined;
+    public statementUrl?: string | undefined;
     /**
      * Instantiates a new privacyProfile and sets the default values.
      * @param privacyProfileParameterValue 
      */
     public constructor(privacyProfileParameterValue?: PrivacyProfile | undefined) {
-        this.additionalData = {};
-        this.additionalData = privacyProfileParameterValue?.additionalData ? {} : privacyProfileParameterValue?.additionalData!
+        this.additionalData = privacyProfileParameterValue?.additionalData ? privacyProfileParameterValue?.additionalData! : {}
         this.contactEmail = privacyProfileParameterValue?.contactEmail ;
         this.statementUrl = privacyProfileParameterValue?.statementUrl ;
     };
@@ -35,11 +34,9 @@ export class PrivacyProfileImpl implements AdditionalDataHolder, Parsable, Priva
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.contactEmail){
-        if(this.contactEmail)
         writer.writeStringValue("contactEmail", this.contactEmail);
         }
         if(this.statementUrl){
-        if(this.statementUrl)
         writer.writeStringValue("statementUrl", this.statementUrl);
         }
         writer.writeAdditionalData(this.additionalData);

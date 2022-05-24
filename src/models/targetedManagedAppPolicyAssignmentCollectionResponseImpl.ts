@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class TargetedManagedAppPolicyAssignmentCollectionResponseImpl implements AdditionalDataHolder, Parsable, TargetedManagedAppPolicyAssignmentCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: TargetedManagedAppPolicyAssignment[] | undefined;
+    public value?: TargetedManagedAppPolicyAssignment[] | undefined;
     /**
      * Instantiates a new TargetedManagedAppPolicyAssignmentCollectionResponse and sets the default values.
      * @param targetedManagedAppPolicyAssignmentCollectionResponseParameterValue 
      */
     public constructor(targetedManagedAppPolicyAssignmentCollectionResponseParameterValue?: TargetedManagedAppPolicyAssignmentCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = targetedManagedAppPolicyAssignmentCollectionResponseParameterValue?.additionalData ? {} : targetedManagedAppPolicyAssignmentCollectionResponseParameterValue?.additionalData!
+        this.additionalData = targetedManagedAppPolicyAssignmentCollectionResponseParameterValue?.additionalData ? targetedManagedAppPolicyAssignmentCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = targetedManagedAppPolicyAssignmentCollectionResponseParameterValue?.nextLink ;
         this.value = targetedManagedAppPolicyAssignmentCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class TargetedManagedAppPolicyAssignmentCollectionResponseImpl implements
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: TargetedManagedAppPolicyAssignmentImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new TargetedManagedAppPolicyAssignmentImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: TargetedManagedAppPolicyAssignmentImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new TargetedManagedAppPolicyAssignmentImpl(element));});
         writer.writeCollectionOfObjectValues<TargetedManagedAppPolicyAssignmentImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

@@ -4,20 +4,19 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class WebsiteImpl implements AdditionalDataHolder, Parsable, Website {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The URL of the website. */
-    address?: string | undefined;
+    public address?: string | undefined;
     /** The display name of the web site. */
-    displayName?: string | undefined;
+    public displayName?: string | undefined;
     /** Possible values are: other, home, work, blog, profile. */
-    type?: WebsiteType | undefined;
+    public type?: WebsiteType | undefined;
     /**
      * Instantiates a new website and sets the default values.
      * @param websiteParameterValue 
      */
     public constructor(websiteParameterValue?: Website | undefined) {
-        this.additionalData = {};
-        this.additionalData = websiteParameterValue?.additionalData ? {} : websiteParameterValue?.additionalData!
+        this.additionalData = websiteParameterValue?.additionalData ? websiteParameterValue?.additionalData! : {}
         this.address = websiteParameterValue?.address ;
         this.displayName = websiteParameterValue?.displayName ;
         this.type = websiteParameterValue?.type ;
@@ -40,15 +39,12 @@ export class WebsiteImpl implements AdditionalDataHolder, Parsable, Website {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.address){
-        if(this.address)
         writer.writeStringValue("address", this.address);
         }
         if(this.displayName){
-        if(this.displayName)
         writer.writeStringValue("displayName", this.displayName);
         }
         if(this.type){
-        if(this.type)
         writer.writeEnumValue<WebsiteType>("type", this.type);
         }
         writer.writeAdditionalData(this.additionalData);

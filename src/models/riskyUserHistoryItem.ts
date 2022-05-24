@@ -3,9 +3,9 @@ import {RiskyUser} from './riskyUser';
 
 export interface RiskyUserHistoryItem extends RiskyUser{
     /** The activity related to user risk level change. */
-    activity?: RiskUserActivity | undefined;
+    activity?:RiskUserActivity | undefined;
     /** The id of actor that does the operation. */
-    initiatedBy?: string | undefined;
+    initiatedBy?:string | undefined;
     /** The id of the user. */
-    userId?: string | undefined;
+    userId?:string | undefined;
 }

@@ -6,13 +6,14 @@ import {EntityImpl, IdentityImpl, ItemBodyImpl} from './index';
 import {ItemBody} from './itemBody';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the privacy singleton. */
 export class AuthoredNoteImpl extends EntityImpl implements AuthoredNote, Parsable {
     /** Identity information about the note's author. */
-    author?: Identity | undefined;
+    public author?: Identity | undefined;
     /** The content of the note. */
-    content?: ItemBody | undefined;
+    public content?: ItemBody | undefined;
     /** The date and time when the entity was created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
-    createdDateTime?: Date | undefined;
+    public createdDateTime?: Date | undefined;
     /**
      * Instantiates a new authoredNote and sets the default values.
      * @param authoredNoteParameterValue 
@@ -42,15 +43,12 @@ export class AuthoredNoteImpl extends EntityImpl implements AuthoredNote, Parsab
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.author){
-        if(this.author)
         writer.writeObjectValue<IdentityImpl>("author", new IdentityImpl(this.author));
         }
         if(this.content){
-        if(this.content)
         writer.writeObjectValue<ItemBodyImpl>("content", new ItemBodyImpl(this.content));
         }
         if(this.createdDateTime){
-        if(this.createdDateTime)
         writer.writeDateValue("createdDateTime", this.createdDateTime);
         }
     };

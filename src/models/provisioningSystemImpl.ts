@@ -4,9 +4,10 @@ import {DetailsInfoImpl, IdentityImpl} from './index';
 import {ProvisioningSystem} from './provisioningSystem';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the auditLogRoot singleton. */
 export class ProvisioningSystemImpl extends IdentityImpl implements Parsable, ProvisioningSystem {
     /** Details of the system. */
-    details?: DetailsInfo | undefined;
+    public details?: DetailsInfo | undefined;
     /**
      * Instantiates a new provisioningSystem and sets the default values.
      * @param provisioningSystemParameterValue 
@@ -32,7 +33,6 @@ export class ProvisioningSystemImpl extends IdentityImpl implements Parsable, Pr
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.details){
-        if(this.details)
         writer.writeObjectValue<DetailsInfoImpl>("details", new DetailsInfoImpl(this.details));
         }
     };

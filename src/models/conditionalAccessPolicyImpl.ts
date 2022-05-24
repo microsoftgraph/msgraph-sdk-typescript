@@ -9,23 +9,24 @@ import {createConditionalAccessSessionControlsFromDiscriminatorValue} from './cr
 import {ConditionalAccessConditionSetImpl, ConditionalAccessGrantControlsImpl, ConditionalAccessSessionControlsImpl, EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the identityContainer singleton. */
 export class ConditionalAccessPolicyImpl extends EntityImpl implements ConditionalAccessPolicy, Parsable {
     /** The conditions property */
-    conditions?: ConditionalAccessConditionSet | undefined;
+    public conditions?: ConditionalAccessConditionSet | undefined;
     /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Readonly. */
-    createdDateTime?: Date | undefined;
+    public createdDateTime?: Date | undefined;
     /** Not used. */
-    description?: string | undefined;
+    public description?: string | undefined;
     /** Specifies a display name for the conditionalAccessPolicy object. */
-    displayName?: string | undefined;
+    public displayName?: string | undefined;
     /** Specifies the grant controls that must be fulfilled to pass the policy. */
-    grantControls?: ConditionalAccessGrantControls | undefined;
+    public grantControls?: ConditionalAccessGrantControls | undefined;
     /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Readonly. */
-    modifiedDateTime?: Date | undefined;
+    public modifiedDateTime?: Date | undefined;
     /** Specifies the session controls that are enforced after sign-in. */
-    sessionControls?: ConditionalAccessSessionControls | undefined;
+    public sessionControls?: ConditionalAccessSessionControls | undefined;
     /** Specifies the state of the conditionalAccessPolicy object. Possible values are: enabled, disabled, enabledForReportingButNotEnforced. Required. */
-    state?: ConditionalAccessPolicyState | undefined;
+    public state?: ConditionalAccessPolicyState | undefined;
     /**
      * Instantiates a new conditionalAccessPolicy and sets the default values.
      * @param conditionalAccessPolicyParameterValue 
@@ -65,35 +66,27 @@ export class ConditionalAccessPolicyImpl extends EntityImpl implements Condition
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.conditions){
-        if(this.conditions)
         writer.writeObjectValue<ConditionalAccessConditionSetImpl>("conditions", new ConditionalAccessConditionSetImpl(this.conditions));
         }
         if(this.createdDateTime){
-        if(this.createdDateTime)
         writer.writeDateValue("createdDateTime", this.createdDateTime);
         }
         if(this.description){
-        if(this.description)
         writer.writeStringValue("description", this.description);
         }
         if(this.displayName){
-        if(this.displayName)
         writer.writeStringValue("displayName", this.displayName);
         }
         if(this.grantControls){
-        if(this.grantControls)
         writer.writeObjectValue<ConditionalAccessGrantControlsImpl>("grantControls", new ConditionalAccessGrantControlsImpl(this.grantControls));
         }
         if(this.modifiedDateTime){
-        if(this.modifiedDateTime)
         writer.writeDateValue("modifiedDateTime", this.modifiedDateTime);
         }
         if(this.sessionControls){
-        if(this.sessionControls)
         writer.writeObjectValue<ConditionalAccessSessionControlsImpl>("sessionControls", new ConditionalAccessSessionControlsImpl(this.sessionControls));
         }
         if(this.state){
-        if(this.state)
         writer.writeEnumValue<ConditionalAccessPolicyState>("state", this.state);
         }
     };

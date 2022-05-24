@@ -1,5 +1,4 @@
 import {ColumnDefinitionCollectionResponseImpl} from '../../../../../../../../models/';
-import {ColumnDefinitionCollectionResponse} from '../../../../../../../../models/columnDefinitionCollectionResponse';
 import {createColumnDefinitionCollectionResponseFromDiscriminatorValue} from '../../../../../../../../models/createColumnDefinitionCollectionResponseFromDiscriminatorValue';
 import {ODataErrorImpl} from '../../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
@@ -55,7 +54,7 @@ export class ColumnPositionsRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ColumnDefinitionCollectionResponse
      */
-    public get(requestConfiguration?: ColumnPositionsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ColumnDefinitionCollectionResponse | undefined> {
+    public get(requestConfiguration?: ColumnPositionsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ColumnDefinitionCollectionResponseImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );

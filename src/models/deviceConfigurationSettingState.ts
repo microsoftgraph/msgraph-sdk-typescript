@@ -3,29 +3,29 @@ import {SettingSource} from './settingSource';
 
 export interface DeviceConfigurationSettingState{
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    additionalData?:Record<string, unknown>;
     /** Current value of setting on device */
-    currentValue?: string | undefined;
+    currentValue?:string | undefined;
     /** Error code for the setting */
-    errorCode?: number | undefined;
+    errorCode?:number | undefined;
     /** Error description */
-    errorDescription?: string | undefined;
+    errorDescription?:string | undefined;
     /** Name of setting instance that is being reported. */
-    instanceDisplayName?: string | undefined;
+    instanceDisplayName?:string | undefined;
     /** The setting that is being reported */
-    setting?: string | undefined;
+    setting?:string | undefined;
     /** Localized/user friendly setting name that is being reported */
-    settingName?: string | undefined;
+    settingName?:string | undefined;
     /** Contributing policies */
-    sources?: SettingSource[] | undefined;
+    sources?:SettingSource[] | undefined;
     /** The compliance state of the setting. Possible values are: unknown, notApplicable, compliant, remediated, nonCompliant, error, conflict, notAssigned. */
-    state?: ComplianceStatus | undefined;
+    state?:ComplianceStatus | undefined;
     /** UserEmail */
-    userEmail?: string | undefined;
+    userEmail?:string | undefined;
     /** UserId */
-    userId?: string | undefined;
+    userId?:string | undefined;
     /** UserName */
-    userName?: string | undefined;
+    userName?:string | undefined;
     /** UserPrincipalName. */
-    userPrincipalName?: string | undefined;
+    userPrincipalName?:string | undefined;
 }

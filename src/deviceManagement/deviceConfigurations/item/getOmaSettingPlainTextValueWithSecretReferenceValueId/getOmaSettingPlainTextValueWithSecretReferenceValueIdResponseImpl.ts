@@ -4,16 +4,15 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Provides operations to call the getOmaSettingPlainTextValue method. */
 export class GetOmaSettingPlainTextValueWithSecretReferenceValueIdResponseImpl implements AdditionalDataHolder, GetOmaSettingPlainTextValueWithSecretReferenceValueIdResponse, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The value property */
-    value?: string | undefined;
+    public value?: string | undefined;
     /**
      * Instantiates a new getOmaSettingPlainTextValueWithSecretReferenceValueIdResponse and sets the default values.
      * @param getOmaSettingPlainTextValueWithSecretReferenceValueIdResponseParameterValue 
      */
     public constructor(getOmaSettingPlainTextValueWithSecretReferenceValueIdResponseParameterValue?: GetOmaSettingPlainTextValueWithSecretReferenceValueIdResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = getOmaSettingPlainTextValueWithSecretReferenceValueIdResponseParameterValue?.additionalData ? {} : getOmaSettingPlainTextValueWithSecretReferenceValueIdResponseParameterValue?.additionalData!
+        this.additionalData = getOmaSettingPlainTextValueWithSecretReferenceValueIdResponseParameterValue?.additionalData ? getOmaSettingPlainTextValueWithSecretReferenceValueIdResponseParameterValue?.additionalData! : {}
         this.value = getOmaSettingPlainTextValueWithSecretReferenceValueIdResponseParameterValue?.value ;
     };
     /**
@@ -32,7 +31,6 @@ export class GetOmaSettingPlainTextValueWithSecretReferenceValueIdResponseImpl i
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.value){
-        if(this.value)
         writer.writeStringValue("value", this.value);
         }
         writer.writeAdditionalData(this.additionalData);

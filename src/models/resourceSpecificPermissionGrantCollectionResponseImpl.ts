@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class ResourceSpecificPermissionGrantCollectionResponseImpl implements AdditionalDataHolder, Parsable, ResourceSpecificPermissionGrantCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: ResourceSpecificPermissionGrant[] | undefined;
+    public value?: ResourceSpecificPermissionGrant[] | undefined;
     /**
      * Instantiates a new ResourceSpecificPermissionGrantCollectionResponse and sets the default values.
      * @param resourceSpecificPermissionGrantCollectionResponseParameterValue 
      */
     public constructor(resourceSpecificPermissionGrantCollectionResponseParameterValue?: ResourceSpecificPermissionGrantCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = resourceSpecificPermissionGrantCollectionResponseParameterValue?.additionalData ? {} : resourceSpecificPermissionGrantCollectionResponseParameterValue?.additionalData!
+        this.additionalData = resourceSpecificPermissionGrantCollectionResponseParameterValue?.additionalData ? resourceSpecificPermissionGrantCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = resourceSpecificPermissionGrantCollectionResponseParameterValue?.nextLink ;
         this.value = resourceSpecificPermissionGrantCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class ResourceSpecificPermissionGrantCollectionResponseImpl implements Ad
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: ResourceSpecificPermissionGrantImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ResourceSpecificPermissionGrantImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: ResourceSpecificPermissionGrantImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ResourceSpecificPermissionGrantImpl(element));});
         writer.writeCollectionOfObjectValues<ResourceSpecificPermissionGrantImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

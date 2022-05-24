@@ -7,16 +7,15 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Provides operations to call the getPresencesByUserId method. */
 export class GetPresencesByUserIdResponseImpl implements AdditionalDataHolder, GetPresencesByUserIdResponse, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The value property */
-    value?: Presence[] | undefined;
+    public value?: Presence[] | undefined;
     /**
      * Instantiates a new getPresencesByUserIdResponse and sets the default values.
      * @param getPresencesByUserIdResponseParameterValue 
      */
     public constructor(getPresencesByUserIdResponseParameterValue?: GetPresencesByUserIdResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = getPresencesByUserIdResponseParameterValue?.additionalData ? {} : getPresencesByUserIdResponseParameterValue?.additionalData!
+        this.additionalData = getPresencesByUserIdResponseParameterValue?.additionalData ? getPresencesByUserIdResponseParameterValue?.additionalData! : {}
         this.value = getPresencesByUserIdResponseParameterValue?.value ;
     };
     /**
@@ -34,8 +33,7 @@ export class GetPresencesByUserIdResponseImpl implements AdditionalDataHolder, G
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        if(this.value){
-        const valueArrValue: PresenceImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new PresenceImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: PresenceImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new PresenceImpl(element));});
         writer.writeCollectionOfObjectValues<PresenceImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

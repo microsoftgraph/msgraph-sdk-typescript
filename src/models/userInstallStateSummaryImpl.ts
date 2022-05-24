@@ -4,17 +4,18 @@ import {DeviceInstallStateImpl, EntityImpl} from './index';
 import {UserInstallStateSummary} from './userInstallStateSummary';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Contains properties for the installation state summary for a user. */
 export class UserInstallStateSummaryImpl extends EntityImpl implements Parsable, UserInstallStateSummary {
     /** The install state of the eBook. */
-    deviceStates?: DeviceInstallState[] | undefined;
+    public deviceStates?: DeviceInstallState[] | undefined;
     /** Failed Device Count. */
-    failedDeviceCount?: number | undefined;
+    public failedDeviceCount?: number | undefined;
     /** Installed Device Count. */
-    installedDeviceCount?: number | undefined;
+    public installedDeviceCount?: number | undefined;
     /** Not installed device count. */
-    notInstalledDeviceCount?: number | undefined;
+    public notInstalledDeviceCount?: number | undefined;
     /** User name. */
-    userName?: string | undefined;
+    public userName?: string | undefined;
     /**
      * Instantiates a new userInstallStateSummary and sets the default values.
      * @param userInstallStateSummaryParameterValue 
@@ -47,24 +48,19 @@ export class UserInstallStateSummaryImpl extends EntityImpl implements Parsable,
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.deviceStates){
-        const deviceStatesArrValue: DeviceInstallStateImpl[] = []; this.deviceStates?.forEach(element => {deviceStatesArrValue.push(new DeviceInstallStateImpl(element));});
+        if(this.deviceStates && this.deviceStates.length != 0){        const deviceStatesArrValue: DeviceInstallStateImpl[] = []; this.deviceStates?.forEach(element => {deviceStatesArrValue.push(new DeviceInstallStateImpl(element));});
         writer.writeCollectionOfObjectValues<DeviceInstallStateImpl>("deviceStates", deviceStatesArrValue);
         }
         if(this.failedDeviceCount){
-        if(this.failedDeviceCount)
         writer.writeNumberValue("failedDeviceCount", this.failedDeviceCount);
         }
         if(this.installedDeviceCount){
-        if(this.installedDeviceCount)
         writer.writeNumberValue("installedDeviceCount", this.installedDeviceCount);
         }
         if(this.notInstalledDeviceCount){
-        if(this.notInstalledDeviceCount)
         writer.writeNumberValue("notInstalledDeviceCount", this.notInstalledDeviceCount);
         }
         if(this.userName){
-        if(this.userName)
         writer.writeStringValue("userName", this.userName);
         }
     };

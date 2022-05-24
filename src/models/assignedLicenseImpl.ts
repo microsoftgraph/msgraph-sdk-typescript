@@ -3,18 +3,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class AssignedLicenseImpl implements AdditionalDataHolder, AssignedLicense, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** A collection of the unique identifiers for plans that have been disabled. */
-    disabledPlans?: string[] | undefined;
+    public disabledPlans?: string[] | undefined;
     /** The unique identifier for the SKU. */
-    skuId?: string | undefined;
+    public skuId?: string | undefined;
     /**
      * Instantiates a new assignedLicense and sets the default values.
      * @param assignedLicenseParameterValue 
      */
     public constructor(assignedLicenseParameterValue?: AssignedLicense | undefined) {
-        this.additionalData = {};
-        this.additionalData = assignedLicenseParameterValue?.additionalData ? {} : assignedLicenseParameterValue?.additionalData!
+        this.additionalData = assignedLicenseParameterValue?.additionalData ? assignedLicenseParameterValue?.additionalData! : {}
         this.disabledPlans = assignedLicenseParameterValue?.disabledPlans ;
         this.skuId = assignedLicenseParameterValue?.skuId ;
     };
@@ -35,11 +34,9 @@ export class AssignedLicenseImpl implements AdditionalDataHolder, AssignedLicens
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.disabledPlans){
-        if(this.disabledPlans)
         writer.writeCollectionOfPrimitiveValues<string>("disabledPlans", this.disabledPlans);
         }
         if(this.skuId){
-        if(this.skuId)
         writer.writeStringValue("skuId", this.skuId);
         }
         writer.writeAdditionalData(this.additionalData);

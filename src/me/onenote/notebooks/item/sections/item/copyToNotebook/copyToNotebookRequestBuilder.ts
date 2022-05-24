@@ -1,9 +1,8 @@
 import {OnenoteOperationImpl} from '../../../../../../../models/';
 import {createOnenoteOperationFromDiscriminatorValue} from '../../../../../../../models/createOnenoteOperationFromDiscriminatorValue';
-import {OnenoteOperation} from '../../../../../../../models/onenoteOperation';
-import {CopyToNotebookRequestBody} from './copyToNotebookRequestBody';
+import {CopyToNotebookPostRequestBody} from './copyToNotebookPostRequestBody';
 import {CopyToNotebookRequestBuilderPostRequestConfiguration} from './copyToNotebookRequestBuilderPostRequestConfiguration';
-import {CopyToNotebookRequestBodyImpl} from './index';
+import {CopyToNotebookPostRequestBodyImpl} from './index';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the copyToNotebook method. */
@@ -33,7 +32,7 @@ export class CopyToNotebookRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public createPostRequestInformation(body: CopyToNotebookRequestBody | undefined, requestConfiguration?: CopyToNotebookRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public createPostRequestInformation(body: CopyToNotebookPostRequestBody | undefined, requestConfiguration?: CopyToNotebookRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -43,8 +42,8 @@ export class CopyToNotebookRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        const bodyParsable = new CopyToNotebookRequestBodyImpl(body)
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", bodyParsable);
+        const parsableBody = new CopyToNotebookPostRequestBodyImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -54,7 +53,7 @@ export class CopyToNotebookRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of OnenoteOperation
      */
-    public post(body: CopyToNotebookRequestBody | undefined, requestConfiguration?: CopyToNotebookRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<OnenoteOperation | undefined> {
+    public post(body: CopyToNotebookPostRequestBody | undefined, requestConfiguration?: CopyToNotebookRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<OnenoteOperationImpl | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration

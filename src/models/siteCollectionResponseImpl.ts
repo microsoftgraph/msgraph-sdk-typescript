@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class SiteCollectionResponseImpl implements AdditionalDataHolder, Parsable, SiteCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: Site[] | undefined;
+    public value?: Site[] | undefined;
     /**
      * Instantiates a new SiteCollectionResponse and sets the default values.
      * @param siteCollectionResponseParameterValue 
      */
     public constructor(siteCollectionResponseParameterValue?: SiteCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = siteCollectionResponseParameterValue?.additionalData ? {} : siteCollectionResponseParameterValue?.additionalData!
+        this.additionalData = siteCollectionResponseParameterValue?.additionalData ? siteCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = siteCollectionResponseParameterValue?.nextLink ;
         this.value = siteCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class SiteCollectionResponseImpl implements AdditionalDataHolder, Parsabl
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: SiteImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new SiteImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: SiteImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new SiteImpl(element));});
         writer.writeCollectionOfObjectValues<SiteImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

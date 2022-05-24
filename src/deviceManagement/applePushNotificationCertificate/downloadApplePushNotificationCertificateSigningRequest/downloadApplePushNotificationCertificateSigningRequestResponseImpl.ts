@@ -4,16 +4,15 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Provides operations to call the downloadApplePushNotificationCertificateSigningRequest method. */
 export class DownloadApplePushNotificationCertificateSigningRequestResponseImpl implements AdditionalDataHolder, DownloadApplePushNotificationCertificateSigningRequestResponse, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The value property */
-    value?: string | undefined;
+    public value?: string | undefined;
     /**
      * Instantiates a new downloadApplePushNotificationCertificateSigningRequestResponse and sets the default values.
      * @param downloadApplePushNotificationCertificateSigningRequestResponseParameterValue 
      */
     public constructor(downloadApplePushNotificationCertificateSigningRequestResponseParameterValue?: DownloadApplePushNotificationCertificateSigningRequestResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = downloadApplePushNotificationCertificateSigningRequestResponseParameterValue?.additionalData ? {} : downloadApplePushNotificationCertificateSigningRequestResponseParameterValue?.additionalData!
+        this.additionalData = downloadApplePushNotificationCertificateSigningRequestResponseParameterValue?.additionalData ? downloadApplePushNotificationCertificateSigningRequestResponseParameterValue?.additionalData! : {}
         this.value = downloadApplePushNotificationCertificateSigningRequestResponseParameterValue?.value ;
     };
     /**
@@ -32,7 +31,6 @@ export class DownloadApplePushNotificationCertificateSigningRequestResponseImpl 
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.value){
-        if(this.value)
         writer.writeStringValue("value", this.value);
         }
         writer.writeAdditionalData(this.additionalData);

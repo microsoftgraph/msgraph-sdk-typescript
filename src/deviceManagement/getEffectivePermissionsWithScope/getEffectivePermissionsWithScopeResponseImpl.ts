@@ -7,16 +7,15 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Provides operations to call the getEffectivePermissions method. */
 export class GetEffectivePermissionsWithScopeResponseImpl implements AdditionalDataHolder, GetEffectivePermissionsWithScopeResponse, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The value property */
-    value?: RolePermission[] | undefined;
+    public value?: RolePermission[] | undefined;
     /**
      * Instantiates a new getEffectivePermissionsWithScopeResponse and sets the default values.
      * @param getEffectivePermissionsWithScopeResponseParameterValue 
      */
     public constructor(getEffectivePermissionsWithScopeResponseParameterValue?: GetEffectivePermissionsWithScopeResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = getEffectivePermissionsWithScopeResponseParameterValue?.additionalData ? {} : getEffectivePermissionsWithScopeResponseParameterValue?.additionalData!
+        this.additionalData = getEffectivePermissionsWithScopeResponseParameterValue?.additionalData ? getEffectivePermissionsWithScopeResponseParameterValue?.additionalData! : {}
         this.value = getEffectivePermissionsWithScopeResponseParameterValue?.value ;
     };
     /**
@@ -34,8 +33,7 @@ export class GetEffectivePermissionsWithScopeResponseImpl implements AdditionalD
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        if(this.value){
-        const valueArrValue: RolePermissionImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new RolePermissionImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: RolePermissionImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new RolePermissionImpl(element));});
         writer.writeCollectionOfObjectValues<RolePermissionImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

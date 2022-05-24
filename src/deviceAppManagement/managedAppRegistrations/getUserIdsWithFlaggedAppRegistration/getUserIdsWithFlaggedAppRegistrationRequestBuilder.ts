@@ -1,6 +1,5 @@
 import {createGetUserIdsWithFlaggedAppRegistrationResponseFromDiscriminatorValue} from './createGetUserIdsWithFlaggedAppRegistrationResponseFromDiscriminatorValue';
 import {GetUserIdsWithFlaggedAppRegistrationRequestBuilderGetRequestConfiguration} from './getUserIdsWithFlaggedAppRegistrationRequestBuilderGetRequestConfiguration';
-import {GetUserIdsWithFlaggedAppRegistrationResponse} from './getUserIdsWithFlaggedAppRegistrationResponse';
 import {GetUserIdsWithFlaggedAppRegistrationResponseImpl} from './index';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
@@ -47,7 +46,7 @@ export class GetUserIdsWithFlaggedAppRegistrationRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of GetUserIdsWithFlaggedAppRegistrationResponse
      */
-    public get(requestConfiguration?: GetUserIdsWithFlaggedAppRegistrationRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<GetUserIdsWithFlaggedAppRegistrationResponse | undefined> {
+    public get(requestConfiguration?: GetUserIdsWithFlaggedAppRegistrationRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<GetUserIdsWithFlaggedAppRegistrationResponseImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );

@@ -2,17 +2,17 @@ import {WorkbookIcon} from './workbookIcon';
 
 export interface WorkbookSortField{
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    additionalData?:Record<string, unknown>;
     /** Represents whether the sorting is done in an ascending fashion. */
-    ascending?: boolean | undefined;
+    ascending?:boolean | undefined;
     /** Represents the color that is the target of the condition if the sorting is on font or cell color. */
-    color?: string | undefined;
+    color?:string | undefined;
     /** Represents additional sorting options for this field. Possible values are: Normal, TextAsNumber. */
-    dataOption?: string | undefined;
+    dataOption?:string | undefined;
     /** Represents the icon that is the target of the condition if the sorting is on the cell's icon. */
-    icon?: WorkbookIcon | undefined;
+    icon?:WorkbookIcon | undefined;
     /** Represents the column (or row, depending on the sort orientation) that the condition is on. Represented as an offset from the first column (or row). */
-    key?: number | undefined;
+    key?:number | undefined;
     /** Represents the type of sorting of this condition. Possible values are: Value, CellColor, FontColor, Icon. */
-    sortOn?: string | undefined;
+    sortOn?:string | undefined;
 }

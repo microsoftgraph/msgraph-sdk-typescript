@@ -8,45 +8,46 @@ import {SecureScoreControlStateUpdate} from './secureScoreControlStateUpdate';
 import {SecurityVendorInformation} from './securityVendorInformation';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the security singleton. */
 export class SecureScoreControlProfileImpl extends EntityImpl implements Parsable, SecureScoreControlProfile {
     /** Control action type (Config, Review, Behavior). */
-    actionType?: string | undefined;
+    public actionType?: string | undefined;
     /** URL to where the control can be actioned. */
-    actionUrl?: string | undefined;
+    public actionUrl?: string | undefined;
     /** GUID string for tenant ID. */
-    azureTenantId?: string | undefined;
+    public azureTenantId?: string | undefined;
     /** The collection of compliance information associated with secure score control */
-    complianceInformation?: ComplianceInformation[] | undefined;
+    public complianceInformation?: ComplianceInformation[] | undefined;
     /** Control action category (Account, Data, Device, Apps, Infrastructure). */
-    controlCategory?: string | undefined;
+    public controlCategory?: string | undefined;
     /** Flag to indicate where the tenant has marked a control (ignore, thirdParty, reviewed) (supports update). */
-    controlStateUpdates?: SecureScoreControlStateUpdate[] | undefined;
+    public controlStateUpdates?: SecureScoreControlStateUpdate[] | undefined;
     /** Flag to indicate if a control is depreciated. */
-    deprecated?: boolean | undefined;
+    public deprecated?: boolean | undefined;
     /** Resource cost of implemmentating control (low, moderate, high). */
-    implementationCost?: string | undefined;
+    public implementationCost?: string | undefined;
     /** Time at which the control profile entity was last modified. The Timestamp type represents date and time */
-    lastModifiedDateTime?: Date | undefined;
+    public lastModifiedDateTime?: Date | undefined;
     /** Current obtained max score on specified date. */
-    maxScore?: number | undefined;
+    public maxScore?: number | undefined;
     /** Microsoft's stack ranking of control. */
-    rank?: number | undefined;
+    public rank?: number | undefined;
     /** Description of what the control will help remediate. */
-    remediation?: string | undefined;
+    public remediation?: string | undefined;
     /** Description of the impact on users of the remediation. */
-    remediationImpact?: string | undefined;
+    public remediationImpact?: string | undefined;
     /** Service that owns the control (Exchange, Sharepoint, Azure AD). */
-    service?: string | undefined;
+    public service?: string | undefined;
     /** List of threats the control mitigates (accountBreach,dataDeletion,dataExfiltration,dataSpillage,elevationOfPrivilege,maliciousInsider,passwordCracking,phishingOrWhaling,spoofing). */
-    threats?: string[] | undefined;
+    public threats?: string[] | undefined;
     /** Control tier (Core, Defense in Depth, Advanced.) */
-    tier?: string | undefined;
+    public tier?: string | undefined;
     /** Title of the control. */
-    title?: string | undefined;
+    public title?: string | undefined;
     /** User impact of implementing control (low, moderate, high). */
-    userImpact?: string | undefined;
+    public userImpact?: string | undefined;
     /** The vendorInformation property */
-    vendorInformation?: SecurityVendorInformation | undefined;
+    public vendorInformation?: SecurityVendorInformation | undefined;
     /**
      * Instantiates a new secureScoreControlProfile and sets the default values.
      * @param secureScoreControlProfileParameterValue 
@@ -108,79 +109,60 @@ export class SecureScoreControlProfileImpl extends EntityImpl implements Parsabl
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.actionType){
-        if(this.actionType)
         writer.writeStringValue("actionType", this.actionType);
         }
         if(this.actionUrl){
-        if(this.actionUrl)
         writer.writeStringValue("actionUrl", this.actionUrl);
         }
         if(this.azureTenantId){
-        if(this.azureTenantId)
         writer.writeStringValue("azureTenantId", this.azureTenantId);
         }
-        if(this.complianceInformation){
-        const complianceInformationArrValue: ComplianceInformationImpl[] = []; this.complianceInformation?.forEach(element => {complianceInformationArrValue.push(new ComplianceInformationImpl(element));});
+        if(this.complianceInformation && this.complianceInformation.length != 0){        const complianceInformationArrValue: ComplianceInformationImpl[] = []; this.complianceInformation?.forEach(element => {complianceInformationArrValue.push(new ComplianceInformationImpl(element));});
         writer.writeCollectionOfObjectValues<ComplianceInformationImpl>("complianceInformation", complianceInformationArrValue);
         }
         if(this.controlCategory){
-        if(this.controlCategory)
         writer.writeStringValue("controlCategory", this.controlCategory);
         }
-        if(this.controlStateUpdates){
-        const controlStateUpdatesArrValue: SecureScoreControlStateUpdateImpl[] = []; this.controlStateUpdates?.forEach(element => {controlStateUpdatesArrValue.push(new SecureScoreControlStateUpdateImpl(element));});
+        if(this.controlStateUpdates && this.controlStateUpdates.length != 0){        const controlStateUpdatesArrValue: SecureScoreControlStateUpdateImpl[] = []; this.controlStateUpdates?.forEach(element => {controlStateUpdatesArrValue.push(new SecureScoreControlStateUpdateImpl(element));});
         writer.writeCollectionOfObjectValues<SecureScoreControlStateUpdateImpl>("controlStateUpdates", controlStateUpdatesArrValue);
         }
         if(this.deprecated){
-        if(this.deprecated)
         writer.writeBooleanValue("deprecated", this.deprecated);
         }
         if(this.implementationCost){
-        if(this.implementationCost)
         writer.writeStringValue("implementationCost", this.implementationCost);
         }
         if(this.lastModifiedDateTime){
-        if(this.lastModifiedDateTime)
         writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
         }
         if(this.maxScore){
-        if(this.maxScore)
         writer.writeNumberValue("maxScore", this.maxScore);
         }
         if(this.rank){
-        if(this.rank)
         writer.writeNumberValue("rank", this.rank);
         }
         if(this.remediation){
-        if(this.remediation)
         writer.writeStringValue("remediation", this.remediation);
         }
         if(this.remediationImpact){
-        if(this.remediationImpact)
         writer.writeStringValue("remediationImpact", this.remediationImpact);
         }
         if(this.service){
-        if(this.service)
         writer.writeStringValue("service", this.service);
         }
         if(this.threats){
-        if(this.threats)
         writer.writeCollectionOfPrimitiveValues<string>("threats", this.threats);
         }
         if(this.tier){
-        if(this.tier)
         writer.writeStringValue("tier", this.tier);
         }
         if(this.title){
-        if(this.title)
         writer.writeStringValue("title", this.title);
         }
         if(this.userImpact){
-        if(this.userImpact)
         writer.writeStringValue("userImpact", this.userImpact);
         }
         if(this.vendorInformation){
-        if(this.vendorInformation)
         writer.writeObjectValue<SecurityVendorInformationImpl>("vendorInformation", new SecurityVendorInformationImpl(this.vendorInformation));
         }
     };

@@ -14,19 +14,20 @@ import {ListItemVersion} from './listItemVersion';
 import {SharepointIds} from './sharepointIds';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to user. */
 export class ListItemImpl extends BaseItemImpl implements ListItem, Parsable {
     /** Analytics about the view activities that took place on this item. */
-    analytics?: ItemAnalytics | undefined;
+    public analytics?: ItemAnalytics | undefined;
     /** The content type of this list item */
-    contentType?: ContentTypeInfo | undefined;
+    public contentType?: ContentTypeInfo | undefined;
     /** For document libraries, the driveItem relationship exposes the listItem as a [driveItem][] */
-    driveItem?: DriveItem | undefined;
+    public driveItem?: DriveItem | undefined;
     /** The values of the columns set on this list item. */
-    fields?: FieldValueSet | undefined;
+    public fields?: FieldValueSet | undefined;
     /** Returns identifiers useful for SharePoint REST compatibility. Read-only. */
-    sharepointIds?: SharepointIds | undefined;
+    public sharepointIds?: SharepointIds | undefined;
     /** The list of previous versions of the list item. */
-    versions?: ListItemVersion[] | undefined;
+    public versions?: ListItemVersion[] | undefined;
     /**
      * Instantiates a new listItem and sets the default values.
      * @param listItemParameterValue 
@@ -62,27 +63,21 @@ export class ListItemImpl extends BaseItemImpl implements ListItem, Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.analytics){
-        if(this.analytics)
         writer.writeObjectValue<ItemAnalyticsImpl>("analytics", new ItemAnalyticsImpl(this.analytics));
         }
         if(this.contentType){
-        if(this.contentType)
         writer.writeObjectValue<ContentTypeInfoImpl>("contentType", new ContentTypeInfoImpl(this.contentType));
         }
         if(this.driveItem){
-        if(this.driveItem)
         writer.writeObjectValue<DriveItemImpl>("driveItem", new DriveItemImpl(this.driveItem));
         }
         if(this.fields){
-        if(this.fields)
         writer.writeObjectValue<FieldValueSetImpl>("fields", new FieldValueSetImpl(this.fields));
         }
         if(this.sharepointIds){
-        if(this.sharepointIds)
         writer.writeObjectValue<SharepointIdsImpl>("sharepointIds", new SharepointIdsImpl(this.sharepointIds));
         }
-        if(this.versions){
-        const versionsArrValue: ListItemVersionImpl[] = []; this.versions?.forEach(element => {versionsArrValue.push(new ListItemVersionImpl(element));});
+        if(this.versions && this.versions.length != 0){        const versionsArrValue: ListItemVersionImpl[] = []; this.versions?.forEach(element => {versionsArrValue.push(new ListItemVersionImpl(element));});
         writer.writeCollectionOfObjectValues<ListItemVersionImpl>("versions", versionsArrValue);
         }
     };

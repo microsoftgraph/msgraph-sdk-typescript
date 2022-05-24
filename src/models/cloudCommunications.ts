@@ -6,11 +6,11 @@ import {Presence} from './presence';
 
 export interface CloudCommunications extends Entity{
     /** The callRecords property */
-    callRecords?: CallRecord[] | undefined;
+    callRecords?:CallRecord[] | undefined;
     /** The calls property */
-    calls?: Call[] | undefined;
+    calls?:Call[] | undefined;
     /** The onlineMeetings property */
-    onlineMeetings?: OnlineMeeting[] | undefined;
+    onlineMeetings?:OnlineMeeting[] | undefined;
     /** The presences property */
-    presences?: Presence[] | undefined;
+    presences?:Presence[] | undefined;
 }

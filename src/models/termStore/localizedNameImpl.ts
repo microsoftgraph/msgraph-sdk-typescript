@@ -3,18 +3,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class LocalizedNameImpl implements AdditionalDataHolder, LocalizedName, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The language tag for the label. */
-    languageTag?: string | undefined;
+    public languageTag?: string | undefined;
     /** The name in the localized language. */
-    name?: string | undefined;
+    public name?: string | undefined;
     /**
      * Instantiates a new localizedName and sets the default values.
      * @param localizedNameParameterValue 
      */
     public constructor(localizedNameParameterValue?: LocalizedName | undefined) {
-        this.additionalData = {};
-        this.additionalData = localizedNameParameterValue?.additionalData ? {} : localizedNameParameterValue?.additionalData!
+        this.additionalData = localizedNameParameterValue?.additionalData ? localizedNameParameterValue?.additionalData! : {}
         this.languageTag = localizedNameParameterValue?.languageTag ;
         this.name = localizedNameParameterValue?.name ;
     };
@@ -35,11 +34,9 @@ export class LocalizedNameImpl implements AdditionalDataHolder, LocalizedName, P
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.languageTag){
-        if(this.languageTag)
         writer.writeStringValue("languageTag", this.languageTag);
         }
         if(this.name){
-        if(this.name)
         writer.writeStringValue("name", this.name);
         }
         writer.writeAdditionalData(this.additionalData);

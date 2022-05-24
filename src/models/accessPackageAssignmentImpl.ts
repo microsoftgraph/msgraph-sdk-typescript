@@ -11,21 +11,22 @@ import {EntitlementManagementSchedule} from './entitlementManagementSchedule';
 import {AccessPackageAssignmentPolicyImpl, AccessPackageImpl, AccessPackageSubjectImpl, EntitlementManagementScheduleImpl, EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the identityGovernance singleton. */
 export class AccessPackageAssignmentImpl extends EntityImpl implements AccessPackageAssignment, Parsable {
     /** Read-only. Nullable. Supports $filter (eq) on the id property and $expand query parameters. */
-    accessPackage?: AccessPackage | undefined;
+    public accessPackage?: AccessPackage | undefined;
     /** Read-only. Supports $filter (eq) on the id property and $expand query parameters. */
-    assignmentPolicy?: AccessPackageAssignmentPolicy | undefined;
+    public assignmentPolicy?: AccessPackageAssignmentPolicy | undefined;
     /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
-    expiredDateTime?: Date | undefined;
+    public expiredDateTime?: Date | undefined;
     /** When the access assignment is to be in place. Read-only. */
-    schedule?: EntitlementManagementSchedule | undefined;
+    public schedule?: EntitlementManagementSchedule | undefined;
     /** The state of the access package assignment. The possible values are: delivering, partiallyDelivered, delivered, expired, deliveryFailed, unknownFutureValue. Read-only. Supports $filter (eq). */
-    state?: AccessPackageAssignmentState | undefined;
+    public state?: AccessPackageAssignmentState | undefined;
     /** More information about the assignment lifecycle.  Possible values include Delivering, Delivered, NearExpiry1DayNotificationTriggered, or ExpiredNotificationTriggered.  Read-only. */
-    status?: string | undefined;
+    public status?: string | undefined;
     /** The subject of the access package assignment. Read-only. Nullable. Supports $expand. Supports $filter (eq) on objectId. */
-    target?: AccessPackageSubject | undefined;
+    public target?: AccessPackageSubject | undefined;
     /**
      * Instantiates a new accessPackageAssignment and sets the default values.
      * @param accessPackageAssignmentParameterValue 
@@ -63,31 +64,24 @@ export class AccessPackageAssignmentImpl extends EntityImpl implements AccessPac
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.accessPackage){
-        if(this.accessPackage)
         writer.writeObjectValue<AccessPackageImpl>("accessPackage", new AccessPackageImpl(this.accessPackage));
         }
         if(this.assignmentPolicy){
-        if(this.assignmentPolicy)
         writer.writeObjectValue<AccessPackageAssignmentPolicyImpl>("assignmentPolicy", new AccessPackageAssignmentPolicyImpl(this.assignmentPolicy));
         }
         if(this.expiredDateTime){
-        if(this.expiredDateTime)
         writer.writeDateValue("expiredDateTime", this.expiredDateTime);
         }
         if(this.schedule){
-        if(this.schedule)
         writer.writeObjectValue<EntitlementManagementScheduleImpl>("schedule", new EntitlementManagementScheduleImpl(this.schedule));
         }
         if(this.state){
-        if(this.state)
         writer.writeEnumValue<AccessPackageAssignmentState>("state", this.state);
         }
         if(this.status){
-        if(this.status)
         writer.writeStringValue("status", this.status);
         }
         if(this.target){
-        if(this.target)
         writer.writeObjectValue<AccessPackageSubjectImpl>("target", new AccessPackageSubjectImpl(this.target));
         }
     };

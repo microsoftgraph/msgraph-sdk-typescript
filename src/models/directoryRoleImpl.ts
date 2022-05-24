@@ -6,17 +6,18 @@ import {DirectoryObjectImpl, ScopedRoleMembershipImpl} from './index';
 import {ScopedRoleMembership} from './scopedRoleMembership';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the collection of directoryRole entities. */
 export class DirectoryRoleImpl extends DirectoryObjectImpl implements DirectoryRole, Parsable {
     /** The description for the directory role. Read-only. Supports $filter (eq), $search, $select. */
-    description?: string | undefined;
+    public description?: string | undefined;
     /** The display name for the directory role. Read-only. Supports $filter (eq), $search, $select. */
-    displayName?: string | undefined;
+    public displayName?: string | undefined;
     /** Users that are members of this directory role. HTTP Methods: GET, POST, DELETE. Read-only. Nullable. Supports $expand. */
-    members?: DirectoryObject[] | undefined;
+    public members?: DirectoryObject[] | undefined;
     /** The id of the directoryRoleTemplate that this role is based on. The property must be specified when activating a directory role in a tenant with a POST operation. After the directory role has been activated, the property is read only. Supports $filter (eq), $select. */
-    roleTemplateId?: string | undefined;
+    public roleTemplateId?: string | undefined;
     /** Members of this directory role that are scoped to administrative units. Read-only. Nullable. */
-    scopedMembers?: ScopedRoleMembership[] | undefined;
+    public scopedMembers?: ScopedRoleMembership[] | undefined;
     /**
      * Instantiates a new directoryRole and sets the default values.
      * @param directoryRoleParameterValue 
@@ -50,23 +51,18 @@ export class DirectoryRoleImpl extends DirectoryObjectImpl implements DirectoryR
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.description){
-        if(this.description)
         writer.writeStringValue("description", this.description);
         }
         if(this.displayName){
-        if(this.displayName)
         writer.writeStringValue("displayName", this.displayName);
         }
-        if(this.members){
-        const membersArrValue: DirectoryObjectImpl[] = []; this.members?.forEach(element => {membersArrValue.push(new DirectoryObjectImpl(element));});
+        if(this.members && this.members.length != 0){        const membersArrValue: DirectoryObjectImpl[] = []; this.members?.forEach(element => {membersArrValue.push(new DirectoryObjectImpl(element));});
         writer.writeCollectionOfObjectValues<DirectoryObjectImpl>("members", membersArrValue);
         }
         if(this.roleTemplateId){
-        if(this.roleTemplateId)
         writer.writeStringValue("roleTemplateId", this.roleTemplateId);
         }
-        if(this.scopedMembers){
-        const scopedMembersArrValue: ScopedRoleMembershipImpl[] = []; this.scopedMembers?.forEach(element => {scopedMembersArrValue.push(new ScopedRoleMembershipImpl(element));});
+        if(this.scopedMembers && this.scopedMembers.length != 0){        const scopedMembersArrValue: ScopedRoleMembershipImpl[] = []; this.scopedMembers?.forEach(element => {scopedMembersArrValue.push(new ScopedRoleMembershipImpl(element));});
         writer.writeCollectionOfObjectValues<ScopedRoleMembershipImpl>("scopedMembers", scopedMembersArrValue);
         }
     };

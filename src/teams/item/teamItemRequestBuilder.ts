@@ -126,7 +126,7 @@ export class TeamItemRequestBuilder {
         return requestInfo;
     };
     /**
-     * Get team
+     * Retrieve the properties and relationships of the specified [team](../resources/team.md).
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -143,7 +143,7 @@ export class TeamItemRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update team
+     * Update the properties of the specified [team](../resources/team.md).
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -158,8 +158,8 @@ export class TeamItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        const bodyParsable = new TeamImpl(body)
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", bodyParsable);
+        const parsableBody = new TeamImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -178,12 +178,12 @@ export class TeamItemRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Get team
+     * Retrieve the properties and relationships of the specified [team](../resources/team.md).
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Team
      */
-    public get(requestConfiguration?: TeamItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Team | undefined> {
+    public get(requestConfiguration?: TeamItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<TeamImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -227,7 +227,7 @@ export class TeamItemRequestBuilder {
         return new TeamsAsyncOperationItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Update team
+     * Update the properties of the specified [team](../resources/team.md).
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service

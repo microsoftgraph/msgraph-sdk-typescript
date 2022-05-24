@@ -2,7 +2,6 @@ import {GroupLifecyclePolicyCollectionResponseImpl, GroupLifecyclePolicyImpl} fr
 import {createGroupLifecyclePolicyCollectionResponseFromDiscriminatorValue} from '../models/createGroupLifecyclePolicyCollectionResponseFromDiscriminatorValue';
 import {createGroupLifecyclePolicyFromDiscriminatorValue} from '../models/createGroupLifecyclePolicyFromDiscriminatorValue';
 import {GroupLifecyclePolicy} from '../models/groupLifecyclePolicy';
-import {GroupLifecyclePolicyCollectionResponse} from '../models/groupLifecyclePolicyCollectionResponse';
 import {ODataErrorImpl} from '../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
@@ -36,7 +35,7 @@ export class GroupLifecyclePoliciesRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * List groupLifecyclePolicies
+     * List all the [groupLifecyclePolicies](../resources/grouplifecyclepolicy.md).
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -53,7 +52,7 @@ export class GroupLifecyclePoliciesRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create groupLifecyclePolicy
+     * Creates a new [groupLifecyclePolicy](../resources/grouplifecyclepolicy.md).
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -68,17 +67,17 @@ export class GroupLifecyclePoliciesRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        const bodyParsable = new GroupLifecyclePolicyImpl(body)
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", bodyParsable);
+        const parsableBody = new GroupLifecyclePolicyImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
-     * List groupLifecyclePolicies
+     * List all the [groupLifecyclePolicies](../resources/grouplifecyclepolicy.md).
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of GroupLifecyclePolicyCollectionResponse
      */
-    public get(requestConfiguration?: GroupLifecyclePoliciesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<GroupLifecyclePolicyCollectionResponse | undefined> {
+    public get(requestConfiguration?: GroupLifecyclePoliciesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<GroupLifecyclePolicyCollectionResponseImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -89,13 +88,13 @@ export class GroupLifecyclePoliciesRequestBuilder {
         return this.requestAdapter?.sendAsync<GroupLifecyclePolicyCollectionResponseImpl>(requestInfo, createGroupLifecyclePolicyCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Create groupLifecyclePolicy
+     * Creates a new [groupLifecyclePolicy](../resources/grouplifecyclepolicy.md).
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of GroupLifecyclePolicy
      */
-    public post(body: GroupLifecyclePolicy | undefined, requestConfiguration?: GroupLifecyclePoliciesRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<GroupLifecyclePolicy | undefined> {
+    public post(body: GroupLifecyclePolicy | undefined, requestConfiguration?: GroupLifecyclePoliciesRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<GroupLifecyclePolicyImpl | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration

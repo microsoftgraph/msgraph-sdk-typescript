@@ -1,5 +1,5 @@
-import {WipeManagedAppRegistrationsByDeviceTagRequestBodyImpl} from './index';
-import {WipeManagedAppRegistrationsByDeviceTagRequestBody} from './wipeManagedAppRegistrationsByDeviceTagRequestBody';
+import {WipeManagedAppRegistrationsByDeviceTagPostRequestBodyImpl} from './index';
+import {WipeManagedAppRegistrationsByDeviceTagPostRequestBody} from './wipeManagedAppRegistrationsByDeviceTagPostRequestBody';
 import {WipeManagedAppRegistrationsByDeviceTagRequestBuilderPostRequestConfiguration} from './wipeManagedAppRegistrationsByDeviceTagRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
@@ -30,7 +30,7 @@ export class WipeManagedAppRegistrationsByDeviceTagRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public createPostRequestInformation(body: WipeManagedAppRegistrationsByDeviceTagRequestBody | undefined, requestConfiguration?: WipeManagedAppRegistrationsByDeviceTagRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public createPostRequestInformation(body: WipeManagedAppRegistrationsByDeviceTagPostRequestBody | undefined, requestConfiguration?: WipeManagedAppRegistrationsByDeviceTagRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -40,8 +40,8 @@ export class WipeManagedAppRegistrationsByDeviceTagRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        const bodyParsable = new WipeManagedAppRegistrationsByDeviceTagRequestBodyImpl(body)
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", bodyParsable);
+        const parsableBody = new WipeManagedAppRegistrationsByDeviceTagPostRequestBodyImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -50,7 +50,7 @@ export class WipeManagedAppRegistrationsByDeviceTagRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public post(body: WipeManagedAppRegistrationsByDeviceTagRequestBody | undefined, requestConfiguration?: WipeManagedAppRegistrationsByDeviceTagRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public post(body: WipeManagedAppRegistrationsByDeviceTagPostRequestBody | undefined, requestConfiguration?: WipeManagedAppRegistrationsByDeviceTagRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration

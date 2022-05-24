@@ -32,45 +32,46 @@ import {createStoreFromDiscriminatorValue} from './termStore/createStoreFromDisc
 import {Store} from './termStore/store';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to group. */
 export class SiteImpl extends BaseItemImpl implements Parsable, Site {
     /** Analytics about the view activities that took place in this site. */
-    analytics?: ItemAnalytics | undefined;
+    public analytics?: ItemAnalytics | undefined;
     /** The collection of column definitions reusable across lists under this site. */
-    columns?: ColumnDefinition[] | undefined;
+    public columns?: ColumnDefinition[] | undefined;
     /** The collection of content types defined for this site. */
-    contentTypes?: ContentType[] | undefined;
+    public contentTypes?: ContentType[] | undefined;
     /** The full title for the site. Read-only. */
-    displayName?: string | undefined;
+    public displayName?: string | undefined;
     /** The default drive (document library) for this site. */
-    drive?: Drive | undefined;
+    public drive?: Drive | undefined;
     /** The collection of drives (document libraries) under this site. */
-    drives?: Drive[] | undefined;
+    public drives?: Drive[] | undefined;
     /** The error property */
-    error_escaped?: PublicError | undefined;
+    public error_escaped?: PublicError | undefined;
     /** The collection of column definitions available in the site that are referenced from the sites in the parent hierarchy of the current site. */
-    externalColumns?: ColumnDefinition[] | undefined;
+    public externalColumns?: ColumnDefinition[] | undefined;
     /** Used to address any item contained in this site. This collection cannot be enumerated. */
-    items?: BaseItem[] | undefined;
+    public items?: BaseItem[] | undefined;
     /** The collection of lists under this site. */
-    lists?: List[] | undefined;
+    public lists?: List[] | undefined;
     /** Calls the OneNote service for notebook related operations. */
-    onenote?: Onenote | undefined;
+    public onenote?: Onenote | undefined;
     /** The collection of long running operations for the site. */
-    operations?: RichLongRunningOperation[] | undefined;
+    public operations?: RichLongRunningOperation[] | undefined;
     /** The permissions associated with the site. Nullable. */
-    permissions?: Permission[] | undefined;
+    public permissions?: Permission[] | undefined;
     /** If present, indicates that this is the root site in the site collection. Read-only. */
-    root?: Root | undefined;
+    public root?: Root | undefined;
     /** Returns identifiers useful for SharePoint REST compatibility. Read-only. */
-    sharepointIds?: SharepointIds | undefined;
+    public sharepointIds?: SharepointIds | undefined;
     /** Provides details about the site's site collection. Available only on the root site. Read-only. */
-    siteCollection?: SiteCollection | undefined;
+    public siteCollection?: SiteCollection | undefined;
     /** The collection of the sub-sites under this site. */
-    sites?: Site[] | undefined;
+    public sites?: Site[] | undefined;
     /** The termStore under this site. */
-    termStore?: Store | undefined;
+    public termStore?: Store | undefined;
     /** The collection of termStores under this site. */
-    termStores?: Store[] | undefined;
+    public termStores?: Store[] | undefined;
     /**
      * Instantiates a new site and sets the default values.
      * @param siteParameterValue 
@@ -132,79 +133,60 @@ export class SiteImpl extends BaseItemImpl implements Parsable, Site {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.analytics){
-        if(this.analytics)
         writer.writeObjectValue<ItemAnalyticsImpl>("analytics", new ItemAnalyticsImpl(this.analytics));
         }
-        if(this.columns){
-        const columnsArrValue: ColumnDefinitionImpl[] = []; this.columns?.forEach(element => {columnsArrValue.push(new ColumnDefinitionImpl(element));});
+        if(this.columns && this.columns.length != 0){        const columnsArrValue: ColumnDefinitionImpl[] = []; this.columns?.forEach(element => {columnsArrValue.push(new ColumnDefinitionImpl(element));});
         writer.writeCollectionOfObjectValues<ColumnDefinitionImpl>("columns", columnsArrValue);
         }
-        if(this.contentTypes){
-        const contentTypesArrValue: ContentTypeImpl[] = []; this.contentTypes?.forEach(element => {contentTypesArrValue.push(new ContentTypeImpl(element));});
+        if(this.contentTypes && this.contentTypes.length != 0){        const contentTypesArrValue: ContentTypeImpl[] = []; this.contentTypes?.forEach(element => {contentTypesArrValue.push(new ContentTypeImpl(element));});
         writer.writeCollectionOfObjectValues<ContentTypeImpl>("contentTypes", contentTypesArrValue);
         }
         if(this.displayName){
-        if(this.displayName)
         writer.writeStringValue("displayName", this.displayName);
         }
         if(this.drive){
-        if(this.drive)
         writer.writeObjectValue<DriveImpl>("drive", new DriveImpl(this.drive));
         }
-        if(this.drives){
-        const drivesArrValue: DriveImpl[] = []; this.drives?.forEach(element => {drivesArrValue.push(new DriveImpl(element));});
+        if(this.drives && this.drives.length != 0){        const drivesArrValue: DriveImpl[] = []; this.drives?.forEach(element => {drivesArrValue.push(new DriveImpl(element));});
         writer.writeCollectionOfObjectValues<DriveImpl>("drives", drivesArrValue);
         }
         if(this.error_escaped){
-        if(this.error_escaped)
         writer.writeObjectValue<PublicErrorImpl>("error", new PublicErrorImpl(this.error_escaped));
         }
-        if(this.externalColumns){
-        const externalColumnsArrValue: ColumnDefinitionImpl[] = []; this.externalColumns?.forEach(element => {externalColumnsArrValue.push(new ColumnDefinitionImpl(element));});
+        if(this.externalColumns && this.externalColumns.length != 0){        const externalColumnsArrValue: ColumnDefinitionImpl[] = []; this.externalColumns?.forEach(element => {externalColumnsArrValue.push(new ColumnDefinitionImpl(element));});
         writer.writeCollectionOfObjectValues<ColumnDefinitionImpl>("externalColumns", externalColumnsArrValue);
         }
-        if(this.items){
-        const itemsArrValue: BaseItemImpl[] = []; this.items?.forEach(element => {itemsArrValue.push(new BaseItemImpl(element));});
+        if(this.items && this.items.length != 0){        const itemsArrValue: BaseItemImpl[] = []; this.items?.forEach(element => {itemsArrValue.push(new BaseItemImpl(element));});
         writer.writeCollectionOfObjectValues<BaseItemImpl>("items", itemsArrValue);
         }
-        if(this.lists){
-        const listsArrValue: ListImpl[] = []; this.lists?.forEach(element => {listsArrValue.push(new ListImpl(element));});
+        if(this.lists && this.lists.length != 0){        const listsArrValue: ListImpl[] = []; this.lists?.forEach(element => {listsArrValue.push(new ListImpl(element));});
         writer.writeCollectionOfObjectValues<ListImpl>("lists", listsArrValue);
         }
         if(this.onenote){
-        if(this.onenote)
         writer.writeObjectValue<OnenoteImpl>("onenote", new OnenoteImpl(this.onenote));
         }
-        if(this.operations){
-        const operationsArrValue: RichLongRunningOperationImpl[] = []; this.operations?.forEach(element => {operationsArrValue.push(new RichLongRunningOperationImpl(element));});
+        if(this.operations && this.operations.length != 0){        const operationsArrValue: RichLongRunningOperationImpl[] = []; this.operations?.forEach(element => {operationsArrValue.push(new RichLongRunningOperationImpl(element));});
         writer.writeCollectionOfObjectValues<RichLongRunningOperationImpl>("operations", operationsArrValue);
         }
-        if(this.permissions){
-        const permissionsArrValue: PermissionImpl[] = []; this.permissions?.forEach(element => {permissionsArrValue.push(new PermissionImpl(element));});
+        if(this.permissions && this.permissions.length != 0){        const permissionsArrValue: PermissionImpl[] = []; this.permissions?.forEach(element => {permissionsArrValue.push(new PermissionImpl(element));});
         writer.writeCollectionOfObjectValues<PermissionImpl>("permissions", permissionsArrValue);
         }
         if(this.root){
-        if(this.root)
         writer.writeObjectValue<RootImpl>("root", new RootImpl(this.root));
         }
         if(this.sharepointIds){
-        if(this.sharepointIds)
         writer.writeObjectValue<SharepointIdsImpl>("sharepointIds", new SharepointIdsImpl(this.sharepointIds));
         }
         if(this.siteCollection){
-        if(this.siteCollection)
         writer.writeObjectValue<SiteCollectionImpl>("siteCollection", new SiteCollectionImpl(this.siteCollection));
         }
-        if(this.sites){
-        const sitesArrValue: SiteImpl[] = []; this.sites?.forEach(element => {sitesArrValue.push(new SiteImpl(element));});
+        if(this.sites && this.sites.length != 0){        const sitesArrValue: SiteImpl[] = []; this.sites?.forEach(element => {sitesArrValue.push(new SiteImpl(element));});
         writer.writeCollectionOfObjectValues<SiteImpl>("sites", sitesArrValue);
         }
         if(this.termStore){
-        if(this.termStore)
         writer.writeObjectValue<StoreImpl>("termStore", new StoreImpl(this.termStore));
         }
-        if(this.termStores){
-        const termStoresArrValue: StoreImpl[] = []; this.termStores?.forEach(element => {termStoresArrValue.push(new StoreImpl(element));});
+        if(this.termStores && this.termStores.length != 0){        const termStoresArrValue: StoreImpl[] = []; this.termStores?.forEach(element => {termStoresArrValue.push(new StoreImpl(element));});
         writer.writeCollectionOfObjectValues<StoreImpl>("termStores", termStoresArrValue);
         }
     };

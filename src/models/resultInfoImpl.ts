@@ -3,20 +3,19 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class ResultInfoImpl implements AdditionalDataHolder, Parsable, ResultInfo {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The result code. */
-    code?: number | undefined;
+    public code?: number | undefined;
     /** The message. */
-    message?: string | undefined;
+    public message?: string | undefined;
     /** The result sub-code. */
-    subcode?: number | undefined;
+    public subcode?: number | undefined;
     /**
      * Instantiates a new resultInfo and sets the default values.
      * @param resultInfoParameterValue 
      */
     public constructor(resultInfoParameterValue?: ResultInfo | undefined) {
-        this.additionalData = {};
-        this.additionalData = resultInfoParameterValue?.additionalData ? {} : resultInfoParameterValue?.additionalData!
+        this.additionalData = resultInfoParameterValue?.additionalData ? resultInfoParameterValue?.additionalData! : {}
         this.code = resultInfoParameterValue?.code ;
         this.message = resultInfoParameterValue?.message ;
         this.subcode = resultInfoParameterValue?.subcode ;
@@ -39,15 +38,12 @@ export class ResultInfoImpl implements AdditionalDataHolder, Parsable, ResultInf
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.code){
-        if(this.code)
         writer.writeNumberValue("code", this.code);
         }
         if(this.message){
-        if(this.message)
         writer.writeStringValue("message", this.message);
         }
         if(this.subcode){
-        if(this.subcode)
         writer.writeNumberValue("subcode", this.subcode);
         }
         writer.writeAdditionalData(this.additionalData);

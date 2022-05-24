@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class TimeSlotImpl implements AdditionalDataHolder, Parsable, TimeSlot {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The end property */
-    end?: DateTimeTimeZone | undefined;
+    public end?: DateTimeTimeZone | undefined;
     /** The start property */
-    start?: DateTimeTimeZone | undefined;
+    public start?: DateTimeTimeZone | undefined;
     /**
      * Instantiates a new timeSlot and sets the default values.
      * @param timeSlotParameterValue 
      */
     public constructor(timeSlotParameterValue?: TimeSlot | undefined) {
-        this.additionalData = {};
-        this.additionalData = timeSlotParameterValue?.additionalData ? {} : timeSlotParameterValue?.additionalData!
+        this.additionalData = timeSlotParameterValue?.additionalData ? timeSlotParameterValue?.additionalData! : {}
         this.end = timeSlotParameterValue?.end ;
         this.start = timeSlotParameterValue?.start ;
     };
@@ -38,11 +37,9 @@ export class TimeSlotImpl implements AdditionalDataHolder, Parsable, TimeSlot {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.end){
-        if(this.end)
         writer.writeObjectValue<DateTimeTimeZoneImpl>("end", new DateTimeTimeZoneImpl(this.end));
         }
         if(this.start){
-        if(this.start)
         writer.writeObjectValue<DateTimeTimeZoneImpl>("start", new DateTimeTimeZoneImpl(this.start));
         }
         writer.writeAdditionalData(this.additionalData);

@@ -7,20 +7,19 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class AlterationResponseImpl implements AdditionalDataHolder, AlterationResponse, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** Defines the original user query string. */
-    originalQueryString?: string | undefined;
+    public originalQueryString?: string | undefined;
     /** Defines the details of alteration information for the spelling correction. */
-    queryAlteration?: SearchAlteration | undefined;
+    public queryAlteration?: SearchAlteration | undefined;
     /** Defines the type of the spelling correction. Possible values are suggestion, modification. */
-    queryAlterationType?: SearchAlterationType | undefined;
+    public queryAlterationType?: SearchAlterationType | undefined;
     /**
      * Instantiates a new alterationResponse and sets the default values.
      * @param alterationResponseParameterValue 
      */
     public constructor(alterationResponseParameterValue?: AlterationResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = alterationResponseParameterValue?.additionalData ? {} : alterationResponseParameterValue?.additionalData!
+        this.additionalData = alterationResponseParameterValue?.additionalData ? alterationResponseParameterValue?.additionalData! : {}
         this.originalQueryString = alterationResponseParameterValue?.originalQueryString ;
         this.queryAlteration = alterationResponseParameterValue?.queryAlteration ;
         this.queryAlterationType = alterationResponseParameterValue?.queryAlterationType ;
@@ -43,15 +42,12 @@ export class AlterationResponseImpl implements AdditionalDataHolder, AlterationR
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.originalQueryString){
-        if(this.originalQueryString)
         writer.writeStringValue("originalQueryString", this.originalQueryString);
         }
         if(this.queryAlteration){
-        if(this.queryAlteration)
         writer.writeObjectValue<SearchAlterationImpl>("queryAlteration", new SearchAlterationImpl(this.queryAlteration));
         }
         if(this.queryAlterationType){
-        if(this.queryAlterationType)
         writer.writeEnumValue<SearchAlterationType>("queryAlterationType", this.queryAlterationType);
         }
         writer.writeAdditionalData(this.additionalData);

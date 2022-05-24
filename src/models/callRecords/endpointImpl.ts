@@ -6,16 +6,15 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class EndpointImpl implements AdditionalDataHolder, Endpoint, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** User-agent reported by this endpoint. */
-    userAgent?: UserAgent | undefined;
+    public userAgent?: UserAgent | undefined;
     /**
      * Instantiates a new endpoint and sets the default values.
      * @param endpointParameterValue 
      */
     public constructor(endpointParameterValue?: Endpoint | undefined) {
-        this.additionalData = {};
-        this.additionalData = endpointParameterValue?.additionalData ? {} : endpointParameterValue?.additionalData!
+        this.additionalData = endpointParameterValue?.additionalData ? endpointParameterValue?.additionalData! : {}
         this.userAgent = endpointParameterValue?.userAgent ;
     };
     /**
@@ -34,7 +33,6 @@ export class EndpointImpl implements AdditionalDataHolder, Endpoint, Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.userAgent){
-        if(this.userAgent)
         writer.writeObjectValue<UserAgentImpl>("userAgent", new UserAgentImpl(this.userAgent));
         }
         writer.writeAdditionalData(this.additionalData);

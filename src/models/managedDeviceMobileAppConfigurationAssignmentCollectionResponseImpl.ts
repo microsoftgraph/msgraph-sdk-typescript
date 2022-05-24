@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class ManagedDeviceMobileAppConfigurationAssignmentCollectionResponseImpl implements AdditionalDataHolder, ManagedDeviceMobileAppConfigurationAssignmentCollectionResponse, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: ManagedDeviceMobileAppConfigurationAssignment[] | undefined;
+    public value?: ManagedDeviceMobileAppConfigurationAssignment[] | undefined;
     /**
      * Instantiates a new ManagedDeviceMobileAppConfigurationAssignmentCollectionResponse and sets the default values.
      * @param managedDeviceMobileAppConfigurationAssignmentCollectionResponseParameterValue 
      */
     public constructor(managedDeviceMobileAppConfigurationAssignmentCollectionResponseParameterValue?: ManagedDeviceMobileAppConfigurationAssignmentCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = managedDeviceMobileAppConfigurationAssignmentCollectionResponseParameterValue?.additionalData ? {} : managedDeviceMobileAppConfigurationAssignmentCollectionResponseParameterValue?.additionalData!
+        this.additionalData = managedDeviceMobileAppConfigurationAssignmentCollectionResponseParameterValue?.additionalData ? managedDeviceMobileAppConfigurationAssignmentCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = managedDeviceMobileAppConfigurationAssignmentCollectionResponseParameterValue?.nextLink ;
         this.value = managedDeviceMobileAppConfigurationAssignmentCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class ManagedDeviceMobileAppConfigurationAssignmentCollectionResponseImpl
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: ManagedDeviceMobileAppConfigurationAssignmentImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ManagedDeviceMobileAppConfigurationAssignmentImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: ManagedDeviceMobileAppConfigurationAssignmentImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ManagedDeviceMobileAppConfigurationAssignmentImpl(element));});
         writer.writeCollectionOfObjectValues<ManagedDeviceMobileAppConfigurationAssignmentImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

@@ -14,29 +14,30 @@ import {SharepointIds} from './sharepointIds';
 import {SystemFacet} from './systemFacet';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to user. */
 export class DriveImpl extends BaseItemImpl implements Drive, Parsable {
     /** Collection of [bundles][bundle] (albums and multi-select-shared sets of items). Only in personal OneDrive. */
-    bundles?: DriveItem[] | undefined;
+    public bundles?: DriveItem[] | undefined;
     /** Describes the type of drive represented by this resource. OneDrive personal drives will return personal. OneDrive for Business will return business. SharePoint document libraries will return documentLibrary. Read-only. */
-    driveType?: string | undefined;
+    public driveType?: string | undefined;
     /** The list of items the user is following. Only in OneDrive for Business. */
-    following?: DriveItem[] | undefined;
+    public following?: DriveItem[] | undefined;
     /** All items contained in the drive. Read-only. Nullable. */
-    items?: DriveItem[] | undefined;
+    public items?: DriveItem[] | undefined;
     /** For drives in SharePoint, the underlying document library list. Read-only. Nullable. */
-    list?: List | undefined;
+    public list?: List | undefined;
     /** Optional. The user account that owns the drive. Read-only. */
-    owner?: IdentitySet | undefined;
+    public owner?: IdentitySet | undefined;
     /** Optional. Information about the drive's storage space quota. Read-only. */
-    quota?: Quota | undefined;
+    public quota?: Quota | undefined;
     /** The root folder of the drive. Read-only. */
-    root?: DriveItem | undefined;
+    public root?: DriveItem | undefined;
     /** The sharePointIds property */
-    sharePointIds?: SharepointIds | undefined;
+    public sharePointIds?: SharepointIds | undefined;
     /** Collection of common folders available in OneDrive. Read-only. Nullable. */
-    special?: DriveItem[] | undefined;
+    public special?: DriveItem[] | undefined;
     /** If present, indicates that this is a system-managed drive. Read-only. */
-    system?: SystemFacet | undefined;
+    public system?: SystemFacet | undefined;
     /**
      * Instantiates a new drive and sets the default values.
      * @param driveParameterValue 
@@ -81,48 +82,37 @@ export class DriveImpl extends BaseItemImpl implements Drive, Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.bundles){
-        const bundlesArrValue: DriveItemImpl[] = []; this.bundles?.forEach(element => {bundlesArrValue.push(new DriveItemImpl(element));});
+        if(this.bundles && this.bundles.length != 0){        const bundlesArrValue: DriveItemImpl[] = []; this.bundles?.forEach(element => {bundlesArrValue.push(new DriveItemImpl(element));});
         writer.writeCollectionOfObjectValues<DriveItemImpl>("bundles", bundlesArrValue);
         }
         if(this.driveType){
-        if(this.driveType)
         writer.writeStringValue("driveType", this.driveType);
         }
-        if(this.following){
-        const followingArrValue: DriveItemImpl[] = []; this.following?.forEach(element => {followingArrValue.push(new DriveItemImpl(element));});
+        if(this.following && this.following.length != 0){        const followingArrValue: DriveItemImpl[] = []; this.following?.forEach(element => {followingArrValue.push(new DriveItemImpl(element));});
         writer.writeCollectionOfObjectValues<DriveItemImpl>("following", followingArrValue);
         }
-        if(this.items){
-        const itemsArrValue: DriveItemImpl[] = []; this.items?.forEach(element => {itemsArrValue.push(new DriveItemImpl(element));});
+        if(this.items && this.items.length != 0){        const itemsArrValue: DriveItemImpl[] = []; this.items?.forEach(element => {itemsArrValue.push(new DriveItemImpl(element));});
         writer.writeCollectionOfObjectValues<DriveItemImpl>("items", itemsArrValue);
         }
         if(this.list){
-        if(this.list)
         writer.writeObjectValue<ListImpl>("list", new ListImpl(this.list));
         }
         if(this.owner){
-        if(this.owner)
         writer.writeObjectValue<IdentitySetImpl>("owner", new IdentitySetImpl(this.owner));
         }
         if(this.quota){
-        if(this.quota)
         writer.writeObjectValue<QuotaImpl>("quota", new QuotaImpl(this.quota));
         }
         if(this.root){
-        if(this.root)
         writer.writeObjectValue<DriveItemImpl>("root", new DriveItemImpl(this.root));
         }
         if(this.sharePointIds){
-        if(this.sharePointIds)
         writer.writeObjectValue<SharepointIdsImpl>("sharePointIds", new SharepointIdsImpl(this.sharePointIds));
         }
-        if(this.special){
-        const specialArrValue: DriveItemImpl[] = []; this.special?.forEach(element => {specialArrValue.push(new DriveItemImpl(element));});
+        if(this.special && this.special.length != 0){        const specialArrValue: DriveItemImpl[] = []; this.special?.forEach(element => {specialArrValue.push(new DriveItemImpl(element));});
         writer.writeCollectionOfObjectValues<DriveItemImpl>("special", specialArrValue);
         }
         if(this.system){
-        if(this.system)
         writer.writeObjectValue<SystemFacetImpl>("system", new SystemFacetImpl(this.system));
         }
     };

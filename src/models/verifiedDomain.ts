@@ -1,15 +1,15 @@
 
 export interface VerifiedDomain{
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    additionalData?:Record<string, unknown>;
     /** For example, Email, OfficeCommunicationsOnline. */
-    capabilities?: string | undefined;
+    capabilities?:string | undefined;
     /** true if this is the default domain associated with the tenant; otherwise, false. */
-    isDefault?: boolean | undefined;
+    isDefault?:boolean | undefined;
     /** true if this is the initial domain associated with the tenant; otherwise, false. */
-    isInitial?: boolean | undefined;
+    isInitial?:boolean | undefined;
     /** The domain name; for example, contoso.onmicrosoft.com. */
-    name?: string | undefined;
+    name?:string | undefined;
     /** For example, Managed. */
-    type?: string | undefined;
+    type?:string | undefined;
 }

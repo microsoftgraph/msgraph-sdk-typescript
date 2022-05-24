@@ -2,6 +2,7 @@ import {EntityImpl} from './index';
 import {UserFlowLanguagePage} from './userFlowLanguagePage';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the identityContainer singleton. */
 export class UserFlowLanguagePageImpl extends EntityImpl implements Parsable, UserFlowLanguagePage {
     /**
      * Instantiates a new userFlowLanguagePage and sets the default values.

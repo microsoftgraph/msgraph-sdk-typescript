@@ -1,6 +1,5 @@
 import {ApprovalStageCollectionResponseImpl, ApprovalStageImpl} from '../../../../../../../../models/';
 import {ApprovalStage} from '../../../../../../../../models/approvalStage';
-import {ApprovalStageCollectionResponse} from '../../../../../../../../models/approvalStageCollectionResponse';
 import {createApprovalStageCollectionResponseFromDiscriminatorValue} from '../../../../../../../../models/createApprovalStageCollectionResponseFromDiscriminatorValue';
 import {createApprovalStageFromDiscriminatorValue} from '../../../../../../../../models/createApprovalStageFromDiscriminatorValue';
 import {ODataErrorImpl} from '../../../../../../../../models/oDataErrors/';
@@ -68,8 +67,8 @@ export class StagesRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        const bodyParsable = new ApprovalStageImpl(body)
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", bodyParsable);
+        const parsableBody = new ApprovalStageImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -78,7 +77,7 @@ export class StagesRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ApprovalStageCollectionResponse
      */
-    public get(requestConfiguration?: StagesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ApprovalStageCollectionResponse | undefined> {
+    public get(requestConfiguration?: StagesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ApprovalStageCollectionResponseImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -95,7 +94,7 @@ export class StagesRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ApprovalStage
      */
-    public post(body: ApprovalStage | undefined, requestConfiguration?: StagesRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ApprovalStage | undefined> {
+    public post(body: ApprovalStage | undefined, requestConfiguration?: StagesRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ApprovalStageImpl | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration

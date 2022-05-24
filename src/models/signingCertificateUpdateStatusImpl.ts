@@ -3,18 +3,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class SigningCertificateUpdateStatusImpl implements AdditionalDataHolder, Parsable, SigningCertificateUpdateStatus {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** Status of the last certificate update. Read-only. For a list of statuses, see certificateUpdateResult status. */
-    certificateUpdateResult?: string | undefined;
+    public certificateUpdateResult?: string | undefined;
     /** Date and time in ISO 8601 format and in UTC time when the certificate was last updated. Read-only. */
-    lastRunDateTime?: Date | undefined;
+    public lastRunDateTime?: Date | undefined;
     /**
      * Instantiates a new signingCertificateUpdateStatus and sets the default values.
      * @param signingCertificateUpdateStatusParameterValue 
      */
     public constructor(signingCertificateUpdateStatusParameterValue?: SigningCertificateUpdateStatus | undefined) {
-        this.additionalData = {};
-        this.additionalData = signingCertificateUpdateStatusParameterValue?.additionalData ? {} : signingCertificateUpdateStatusParameterValue?.additionalData!
+        this.additionalData = signingCertificateUpdateStatusParameterValue?.additionalData ? signingCertificateUpdateStatusParameterValue?.additionalData! : {}
         this.certificateUpdateResult = signingCertificateUpdateStatusParameterValue?.certificateUpdateResult ;
         this.lastRunDateTime = signingCertificateUpdateStatusParameterValue?.lastRunDateTime ;
     };
@@ -35,11 +34,9 @@ export class SigningCertificateUpdateStatusImpl implements AdditionalDataHolder,
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.certificateUpdateResult){
-        if(this.certificateUpdateResult)
         writer.writeStringValue("certificateUpdateResult", this.certificateUpdateResult);
         }
         if(this.lastRunDateTime){
-        if(this.lastRunDateTime)
         writer.writeDateValue("lastRunDateTime", this.lastRunDateTime);
         }
         writer.writeAdditionalData(this.additionalData);

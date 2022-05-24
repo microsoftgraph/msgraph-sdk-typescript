@@ -2,15 +2,16 @@ import {EntityImpl} from './index';
 import {LinkedResource} from './linkedResource';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to user. */
 export class LinkedResourceImpl extends EntityImpl implements LinkedResource, Parsable {
     /** Field indicating the app name of the source that is sending the linkedResource. */
-    applicationName?: string | undefined;
+    public applicationName?: string | undefined;
     /** Field indicating the title of the linkedResource. */
-    displayName?: string | undefined;
+    public displayName?: string | undefined;
     /** Id of the object that is associated with this task on the third-party/partner system. */
-    externalId?: string | undefined;
+    public externalId?: string | undefined;
     /** Deep link to the linkedResource. */
-    webUrl?: string | undefined;
+    public webUrl?: string | undefined;
     /**
      * Instantiates a new linkedResource and sets the default values.
      * @param linkedResourceParameterValue 
@@ -42,19 +43,15 @@ export class LinkedResourceImpl extends EntityImpl implements LinkedResource, Pa
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.applicationName){
-        if(this.applicationName)
         writer.writeStringValue("applicationName", this.applicationName);
         }
         if(this.displayName){
-        if(this.displayName)
         writer.writeStringValue("displayName", this.displayName);
         }
         if(this.externalId){
-        if(this.externalId)
         writer.writeStringValue("externalId", this.externalId);
         }
         if(this.webUrl){
-        if(this.webUrl)
         writer.writeStringValue("webUrl", this.webUrl);
         }
     };

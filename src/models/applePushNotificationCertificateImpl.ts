@@ -2,19 +2,20 @@ import {ApplePushNotificationCertificate} from './applePushNotificationCertifica
 import {EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Apple push notification certificate. */
 export class ApplePushNotificationCertificateImpl extends EntityImpl implements ApplePushNotificationCertificate, Parsable {
     /** Apple Id of the account used to create the MDM push certificate. */
-    appleIdentifier?: string | undefined;
+    public appleIdentifier?: string | undefined;
     /** Not yet documented */
-    certificate?: string | undefined;
+    public certificate?: string | undefined;
     /** Certificate serial number. This property is read-only. */
-    certificateSerialNumber?: string | undefined;
+    public certificateSerialNumber?: string | undefined;
     /** The expiration date and time for Apple push notification certificate. */
-    expirationDateTime?: Date | undefined;
+    public expirationDateTime?: Date | undefined;
     /** Last modified date and time for Apple push notification certificate. */
-    lastModifiedDateTime?: Date | undefined;
+    public lastModifiedDateTime?: Date | undefined;
     /** Topic Id. */
-    topicIdentifier?: string | undefined;
+    public topicIdentifier?: string | undefined;
     /**
      * Instantiates a new applePushNotificationCertificate and sets the default values.
      * @param applePushNotificationCertificateParameterValue 
@@ -50,27 +51,21 @@ export class ApplePushNotificationCertificateImpl extends EntityImpl implements 
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.appleIdentifier){
-        if(this.appleIdentifier)
         writer.writeStringValue("appleIdentifier", this.appleIdentifier);
         }
         if(this.certificate){
-        if(this.certificate)
         writer.writeStringValue("certificate", this.certificate);
         }
         if(this.certificateSerialNumber){
-        if(this.certificateSerialNumber)
         writer.writeStringValue("certificateSerialNumber", this.certificateSerialNumber);
         }
         if(this.expirationDateTime){
-        if(this.expirationDateTime)
         writer.writeDateValue("expirationDateTime", this.expirationDateTime);
         }
         if(this.lastModifiedDateTime){
-        if(this.lastModifiedDateTime)
         writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
         }
         if(this.topicIdentifier){
-        if(this.topicIdentifier)
         writer.writeStringValue("topicIdentifier", this.topicIdentifier);
         }
     };

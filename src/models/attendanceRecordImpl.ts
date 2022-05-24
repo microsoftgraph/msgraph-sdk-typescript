@@ -6,17 +6,18 @@ import {Identity} from './identity';
 import {AttendanceIntervalImpl, EntityImpl, IdentityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the cloudCommunications singleton. */
 export class AttendanceRecordImpl extends EntityImpl implements AttendanceRecord, Parsable {
     /** List of time periods between joining and leaving a meeting. */
-    attendanceIntervals?: AttendanceInterval[] | undefined;
+    public attendanceIntervals?: AttendanceInterval[] | undefined;
     /** Email address of the user associated with this atttendance record. */
-    emailAddress?: string | undefined;
+    public emailAddress?: string | undefined;
     /** Identity of the user associated with this atttendance record. */
-    identity?: Identity | undefined;
+    public identity?: Identity | undefined;
     /** Role of the attendee. Possible values are: None, Attendee, Presenter, and Organizer. */
-    role?: string | undefined;
+    public role?: string | undefined;
     /** Total duration of the attendances in seconds. */
-    totalAttendanceInSeconds?: number | undefined;
+    public totalAttendanceInSeconds?: number | undefined;
     /**
      * Instantiates a new attendanceRecord and sets the default values.
      * @param attendanceRecordParameterValue 
@@ -49,24 +50,19 @@ export class AttendanceRecordImpl extends EntityImpl implements AttendanceRecord
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.attendanceIntervals){
-        const attendanceIntervalsArrValue: AttendanceIntervalImpl[] = []; this.attendanceIntervals?.forEach(element => {attendanceIntervalsArrValue.push(new AttendanceIntervalImpl(element));});
+        if(this.attendanceIntervals && this.attendanceIntervals.length != 0){        const attendanceIntervalsArrValue: AttendanceIntervalImpl[] = []; this.attendanceIntervals?.forEach(element => {attendanceIntervalsArrValue.push(new AttendanceIntervalImpl(element));});
         writer.writeCollectionOfObjectValues<AttendanceIntervalImpl>("attendanceIntervals", attendanceIntervalsArrValue);
         }
         if(this.emailAddress){
-        if(this.emailAddress)
         writer.writeStringValue("emailAddress", this.emailAddress);
         }
         if(this.identity){
-        if(this.identity)
         writer.writeObjectValue<IdentityImpl>("identity", new IdentityImpl(this.identity));
         }
         if(this.role){
-        if(this.role)
         writer.writeStringValue("role", this.role);
         }
         if(this.totalAttendanceInSeconds){
-        if(this.totalAttendanceInSeconds)
         writer.writeNumberValue("totalAttendanceInSeconds", this.totalAttendanceInSeconds);
         }
     };

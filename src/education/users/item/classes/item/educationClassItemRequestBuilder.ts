@@ -1,6 +1,5 @@
 import {EducationClassImpl} from '../../../../../models/';
 import {createEducationClassFromDiscriminatorValue} from '../../../../../models/createEducationClassFromDiscriminatorValue';
-import {EducationClass} from '../../../../../models/educationClass';
 import {ODataErrorImpl} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {EducationClassItemRequestBuilderGetRequestConfiguration} from './educationClassItemRequestBuilderGetRequestConfiguration';
@@ -50,7 +49,7 @@ export class EducationClassItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of EducationClass
      */
-    public get(requestConfiguration?: EducationClassItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EducationClass | undefined> {
+    public get(requestConfiguration?: EducationClassItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EducationClassImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );

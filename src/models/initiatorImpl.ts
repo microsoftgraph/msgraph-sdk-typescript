@@ -3,9 +3,10 @@ import {Initiator} from './initiator';
 import {InitiatorType} from './initiatorType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the auditLogRoot singleton. */
 export class InitiatorImpl extends IdentityImpl implements Initiator, Parsable {
     /** Type of initiator. Possible values are: user, application, system, unknownFutureValue. */
-    initiatorType?: InitiatorType | undefined;
+    public initiatorType?: InitiatorType | undefined;
     /**
      * Instantiates a new initiator and sets the default values.
      * @param initiatorParameterValue 
@@ -31,7 +32,6 @@ export class InitiatorImpl extends IdentityImpl implements Initiator, Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.initiatorType){
-        if(this.initiatorType)
         writer.writeEnumValue<InitiatorType>("initiatorType", this.initiatorType);
         }
     };

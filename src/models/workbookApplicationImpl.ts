@@ -2,9 +2,10 @@ import {EntityImpl} from './index';
 import {WorkbookApplication} from './workbookApplication';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to user. */
 export class WorkbookApplicationImpl extends EntityImpl implements Parsable, WorkbookApplication {
     /** Returns the calculation mode used in the workbook. Possible values are: Automatic, AutomaticExceptTables, Manual. */
-    calculationMode?: string | undefined;
+    public calculationMode?: string | undefined;
     /**
      * Instantiates a new workbookApplication and sets the default values.
      * @param workbookApplicationParameterValue 
@@ -30,7 +31,6 @@ export class WorkbookApplicationImpl extends EntityImpl implements Parsable, Wor
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.calculationMode){
-        if(this.calculationMode)
         writer.writeStringValue("calculationMode", this.calculationMode);
         }
     };

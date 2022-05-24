@@ -1,8 +1,7 @@
 import {createMarkReadResponseFromDiscriminatorValue} from './createMarkReadResponseFromDiscriminatorValue';
-import {MarkReadRequestBodyImpl, MarkReadResponseImpl} from './index';
-import {MarkReadRequestBody} from './markReadRequestBody';
+import {MarkReadPostRequestBodyImpl, MarkReadResponseImpl} from './index';
+import {MarkReadPostRequestBody} from './markReadPostRequestBody';
 import {MarkReadRequestBuilderPostRequestConfiguration} from './markReadRequestBuilderPostRequestConfiguration';
-import {MarkReadResponse} from './markReadResponse';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the markRead method. */
@@ -32,7 +31,7 @@ export class MarkReadRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public createPostRequestInformation(body: MarkReadRequestBody | undefined, requestConfiguration?: MarkReadRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public createPostRequestInformation(body: MarkReadPostRequestBody | undefined, requestConfiguration?: MarkReadRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -42,8 +41,8 @@ export class MarkReadRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        const bodyParsable = new MarkReadRequestBodyImpl(body)
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", bodyParsable);
+        const parsableBody = new MarkReadPostRequestBodyImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -53,7 +52,7 @@ export class MarkReadRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of MarkReadResponse
      */
-    public post(body: MarkReadRequestBody | undefined, requestConfiguration?: MarkReadRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<MarkReadResponse | undefined> {
+    public post(body: MarkReadPostRequestBody | undefined, requestConfiguration?: MarkReadRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<MarkReadResponseImpl | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration

@@ -2,9 +2,10 @@ import {EducationCategory} from './educationCategory';
 import {EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the educationRoot singleton. */
 export class EducationCategoryImpl extends EntityImpl implements EducationCategory, Parsable {
     /** Unique identifier for the category. */
-    displayName?: string | undefined;
+    public displayName?: string | undefined;
     /**
      * Instantiates a new educationCategory and sets the default values.
      * @param educationCategoryParameterValue 
@@ -30,7 +31,6 @@ export class EducationCategoryImpl extends EntityImpl implements EducationCatego
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.displayName){
-        if(this.displayName)
         writer.writeStringValue("displayName", this.displayName);
         }
     };

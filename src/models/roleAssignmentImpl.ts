@@ -4,15 +4,16 @@ import {RoleAssignment} from './roleAssignment';
 import {RoleDefinition} from './roleDefinition';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** The Role Assignment resource. Role assignments tie together a role definition with members and scopes. There can be one or more role assignments per role. This applies to custom and built-in roles. */
 export class RoleAssignmentImpl extends EntityImpl implements Parsable, RoleAssignment {
     /** Description of the Role Assignment. */
-    description?: string | undefined;
+    public description?: string | undefined;
     /** The display or friendly name of the role Assignment. */
-    displayName?: string | undefined;
+    public displayName?: string | undefined;
     /** List of ids of role scope member security groups.  These are IDs from Azure Active Directory. */
-    resourceScopes?: string[] | undefined;
+    public resourceScopes?: string[] | undefined;
     /** Role definition this assignment is part of. */
-    roleDefinition?: RoleDefinition | undefined;
+    public roleDefinition?: RoleDefinition | undefined;
     /**
      * Instantiates a new roleAssignment and sets the default values.
      * @param roleAssignmentParameterValue 
@@ -44,19 +45,15 @@ export class RoleAssignmentImpl extends EntityImpl implements Parsable, RoleAssi
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.description){
-        if(this.description)
         writer.writeStringValue("description", this.description);
         }
         if(this.displayName){
-        if(this.displayName)
         writer.writeStringValue("displayName", this.displayName);
         }
         if(this.resourceScopes){
-        if(this.resourceScopes)
         writer.writeCollectionOfPrimitiveValues<string>("resourceScopes", this.resourceScopes);
         }
         if(this.roleDefinition){
-        if(this.roleDefinition)
         writer.writeObjectValue<RoleDefinitionImpl>("roleDefinition", new RoleDefinitionImpl(this.roleDefinition));
         }
     };

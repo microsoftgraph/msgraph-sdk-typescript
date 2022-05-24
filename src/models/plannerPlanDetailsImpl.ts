@@ -6,11 +6,12 @@ import {PlannerPlanDetails} from './plannerPlanDetails';
 import {PlannerUserIds} from './plannerUserIds';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to user. */
 export class PlannerPlanDetailsImpl extends EntityImpl implements Parsable, PlannerPlanDetails {
     /** An object that specifies the descriptions of the 25 categories that can be associated with tasks in the plan */
-    categoryDescriptions?: PlannerCategoryDescriptions | undefined;
+    public categoryDescriptions?: PlannerCategoryDescriptions | undefined;
     /** The set of user IDs that this plan is shared with. If you are using Microsoft 365 groups, use the groups API to manage group membership to share the group's plan. You can also add existing members of the group to this collection, although it is not required in order for them to access the plan owned by the group. */
-    sharedWith?: PlannerUserIds | undefined;
+    public sharedWith?: PlannerUserIds | undefined;
     /**
      * Instantiates a new plannerPlanDetails and sets the default values.
      * @param plannerPlanDetailsParameterValue 
@@ -38,11 +39,9 @@ export class PlannerPlanDetailsImpl extends EntityImpl implements Parsable, Plan
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.categoryDescriptions){
-        if(this.categoryDescriptions)
         writer.writeObjectValue<PlannerCategoryDescriptionsImpl>("categoryDescriptions", new PlannerCategoryDescriptionsImpl(this.categoryDescriptions));
         }
         if(this.sharedWith){
-        if(this.sharedWith)
         writer.writeObjectValue<PlannerUserIdsImpl>("sharedWith", new PlannerUserIdsImpl(this.sharedWith));
         }
     };

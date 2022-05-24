@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class TeamsAppInstallationCollectionResponseImpl implements AdditionalDataHolder, Parsable, TeamsAppInstallationCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: TeamsAppInstallation[] | undefined;
+    public value?: TeamsAppInstallation[] | undefined;
     /**
      * Instantiates a new TeamsAppInstallationCollectionResponse and sets the default values.
      * @param teamsAppInstallationCollectionResponseParameterValue 
      */
     public constructor(teamsAppInstallationCollectionResponseParameterValue?: TeamsAppInstallationCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = teamsAppInstallationCollectionResponseParameterValue?.additionalData ? {} : teamsAppInstallationCollectionResponseParameterValue?.additionalData!
+        this.additionalData = teamsAppInstallationCollectionResponseParameterValue?.additionalData ? teamsAppInstallationCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = teamsAppInstallationCollectionResponseParameterValue?.nextLink ;
         this.value = teamsAppInstallationCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class TeamsAppInstallationCollectionResponseImpl implements AdditionalDat
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: TeamsAppInstallationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new TeamsAppInstallationImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: TeamsAppInstallationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new TeamsAppInstallationImpl(element));});
         writer.writeCollectionOfObjectValues<TeamsAppInstallationImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

@@ -4,13 +4,14 @@ import {EntityImpl, SettingValueImpl} from './index';
 import {SettingValue} from './settingValue';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to group. */
 export class GroupSettingImpl extends EntityImpl implements GroupSetting, Parsable {
     /** Display name of this group of settings, which comes from the associated template. */
-    displayName?: string | undefined;
+    public displayName?: string | undefined;
     /** Unique identifier for the tenant-level groupSettingTemplates object that's been customized for this group-level settings object. Read-only. */
-    templateId?: string | undefined;
+    public templateId?: string | undefined;
     /** Collection of name-value pairs corresponding to the name and defaultValue properties in the referenced groupSettingTemplates object. */
-    values?: SettingValue[] | undefined;
+    public values?: SettingValue[] | undefined;
     /**
      * Instantiates a new groupSetting and sets the default values.
      * @param groupSettingParameterValue 
@@ -40,15 +41,12 @@ export class GroupSettingImpl extends EntityImpl implements GroupSetting, Parsab
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.displayName){
-        if(this.displayName)
         writer.writeStringValue("displayName", this.displayName);
         }
         if(this.templateId){
-        if(this.templateId)
         writer.writeStringValue("templateId", this.templateId);
         }
-        if(this.values){
-        const valuesArrValue: SettingValueImpl[] = []; this.values?.forEach(element => {valuesArrValue.push(new SettingValueImpl(element));});
+        if(this.values && this.values.length != 0){        const valuesArrValue: SettingValueImpl[] = []; this.values?.forEach(element => {valuesArrValue.push(new SettingValueImpl(element));});
         writer.writeCollectionOfObjectValues<SettingValueImpl>("values", valuesArrValue);
         }
     };

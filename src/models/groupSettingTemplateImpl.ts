@@ -4,13 +4,14 @@ import {DirectoryObjectImpl, SettingTemplateValueImpl} from './index';
 import {SettingTemplateValue} from './settingTemplateValue';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the collection of groupSettingTemplate entities. */
 export class GroupSettingTemplateImpl extends DirectoryObjectImpl implements GroupSettingTemplate, Parsable {
     /** Description of the template. */
-    description?: string | undefined;
+    public description?: string | undefined;
     /** Display name of the template. The template named Group.Unified can be used to configure tenant-wide Microsoft 365 group settings, while the template named Group.Unified.Guest can be used to configure group-specific settings. */
-    displayName?: string | undefined;
+    public displayName?: string | undefined;
     /** Collection of settingTemplateValues that list the set of available settings, defaults and types that make up this template. */
-    values?: SettingTemplateValue[] | undefined;
+    public values?: SettingTemplateValue[] | undefined;
     /**
      * Instantiates a new groupSettingTemplate and sets the default values.
      * @param groupSettingTemplateParameterValue 
@@ -40,15 +41,12 @@ export class GroupSettingTemplateImpl extends DirectoryObjectImpl implements Gro
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.description){
-        if(this.description)
         writer.writeStringValue("description", this.description);
         }
         if(this.displayName){
-        if(this.displayName)
         writer.writeStringValue("displayName", this.displayName);
         }
-        if(this.values){
-        const valuesArrValue: SettingTemplateValueImpl[] = []; this.values?.forEach(element => {valuesArrValue.push(new SettingTemplateValueImpl(element));});
+        if(this.values && this.values.length != 0){        const valuesArrValue: SettingTemplateValueImpl[] = []; this.values?.forEach(element => {valuesArrValue.push(new SettingTemplateValueImpl(element));});
         writer.writeCollectionOfObjectValues<SettingTemplateValueImpl>("values", valuesArrValue);
         }
     };

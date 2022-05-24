@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class OrgContactCollectionResponseImpl implements AdditionalDataHolder, OrgContactCollectionResponse, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: OrgContact[] | undefined;
+    public value?: OrgContact[] | undefined;
     /**
      * Instantiates a new OrgContactCollectionResponse and sets the default values.
      * @param orgContactCollectionResponseParameterValue 
      */
     public constructor(orgContactCollectionResponseParameterValue?: OrgContactCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = orgContactCollectionResponseParameterValue?.additionalData ? {} : orgContactCollectionResponseParameterValue?.additionalData!
+        this.additionalData = orgContactCollectionResponseParameterValue?.additionalData ? orgContactCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = orgContactCollectionResponseParameterValue?.nextLink ;
         this.value = orgContactCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class OrgContactCollectionResponseImpl implements AdditionalDataHolder, O
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: OrgContactImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new OrgContactImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: OrgContactImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new OrgContactImpl(element));});
         writer.writeCollectionOfObjectValues<OrgContactImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

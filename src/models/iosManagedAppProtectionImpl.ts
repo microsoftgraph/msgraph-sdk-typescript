@@ -7,21 +7,22 @@ import {ManagedAppPolicyDeploymentSummary} from './managedAppPolicyDeploymentSum
 import {ManagedMobileApp} from './managedMobileApp';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Policy used to configure detailed management settings targeted to specific security groups and for a specified set of apps on an iOS device */
 export class IosManagedAppProtectionImpl extends TargetedManagedAppProtectionImpl implements IosManagedAppProtection, Parsable {
     /** Type of encryption which should be used for data in a managed app. Possible values are: useDeviceSettings, afterDeviceRestart, whenDeviceLockedExceptOpenFiles, whenDeviceLocked. */
-    appDataEncryptionType?: ManagedAppDataEncryptionType | undefined;
+    public appDataEncryptionType?: ManagedAppDataEncryptionType | undefined;
     /** List of apps to which the policy is deployed. */
-    apps?: ManagedMobileApp[] | undefined;
+    public apps?: ManagedMobileApp[] | undefined;
     /** A custom browser protocol to open weblink on iOS. */
-    customBrowserProtocol?: string | undefined;
+    public customBrowserProtocol?: string | undefined;
     /** Count of apps to which the current policy is deployed. */
-    deployedAppCount?: number | undefined;
+    public deployedAppCount?: number | undefined;
     /** Navigation property to deployment summary of the configuration. */
-    deploymentSummary?: ManagedAppPolicyDeploymentSummary | undefined;
+    public deploymentSummary?: ManagedAppPolicyDeploymentSummary | undefined;
     /** Indicates whether use of the FaceID is allowed in place of a pin if PinRequired is set to True. */
-    faceIdBlocked?: boolean | undefined;
+    public faceIdBlocked?: boolean | undefined;
     /** Versions less than the specified version will block the managed app from accessing company data. */
-    minimumRequiredSdkVersion?: string | undefined;
+    public minimumRequiredSdkVersion?: string | undefined;
     /**
      * Instantiates a new iosManagedAppProtection and sets the default values.
      * @param iosManagedAppProtectionParameterValue 
@@ -59,31 +60,24 @@ export class IosManagedAppProtectionImpl extends TargetedManagedAppProtectionImp
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.appDataEncryptionType){
-        if(this.appDataEncryptionType)
         writer.writeEnumValue<ManagedAppDataEncryptionType>("appDataEncryptionType", this.appDataEncryptionType);
         }
-        if(this.apps){
-        const appsArrValue: ManagedMobileAppImpl[] = []; this.apps?.forEach(element => {appsArrValue.push(new ManagedMobileAppImpl(element));});
+        if(this.apps && this.apps.length != 0){        const appsArrValue: ManagedMobileAppImpl[] = []; this.apps?.forEach(element => {appsArrValue.push(new ManagedMobileAppImpl(element));});
         writer.writeCollectionOfObjectValues<ManagedMobileAppImpl>("apps", appsArrValue);
         }
         if(this.customBrowserProtocol){
-        if(this.customBrowserProtocol)
         writer.writeStringValue("customBrowserProtocol", this.customBrowserProtocol);
         }
         if(this.deployedAppCount){
-        if(this.deployedAppCount)
         writer.writeNumberValue("deployedAppCount", this.deployedAppCount);
         }
         if(this.deploymentSummary){
-        if(this.deploymentSummary)
         writer.writeObjectValue<ManagedAppPolicyDeploymentSummaryImpl>("deploymentSummary", new ManagedAppPolicyDeploymentSummaryImpl(this.deploymentSummary));
         }
         if(this.faceIdBlocked){
-        if(this.faceIdBlocked)
         writer.writeBooleanValue("faceIdBlocked", this.faceIdBlocked);
         }
         if(this.minimumRequiredSdkVersion){
-        if(this.minimumRequiredSdkVersion)
         writer.writeStringValue("minimumRequiredSdkVersion", this.minimumRequiredSdkVersion);
         }
     };

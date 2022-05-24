@@ -1,3 +1,3 @@
-export * from './clearPresenceRequestBodyImpl'
+export * from './clearPresencePostRequestBodyImpl'
+export * from './clearPresencePostRequestBody'
 export * from './clearPresenceRequestBuilderPostRequestConfiguration'
-export * from './clearPresenceRequestBody'

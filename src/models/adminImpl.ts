@@ -6,16 +6,15 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class AdminImpl implements AdditionalDataHolder, Admin, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** A container for service communications resources. Read-only. */
-    serviceAnnouncement?: ServiceAnnouncement | undefined;
+    public serviceAnnouncement?: ServiceAnnouncement | undefined;
     /**
      * Instantiates a new Admin and sets the default values.
      * @param adminParameterValue 
      */
     public constructor(adminParameterValue?: Admin | undefined) {
-        this.additionalData = {};
-        this.additionalData = adminParameterValue?.additionalData ? {} : adminParameterValue?.additionalData!
+        this.additionalData = adminParameterValue?.additionalData ? adminParameterValue?.additionalData! : {}
         this.serviceAnnouncement = adminParameterValue?.serviceAnnouncement ;
     };
     /**
@@ -34,7 +33,6 @@ export class AdminImpl implements AdditionalDataHolder, Admin, Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.serviceAnnouncement){
-        if(this.serviceAnnouncement)
         writer.writeObjectValue<ServiceAnnouncementImpl>("serviceAnnouncement", new ServiceAnnouncementImpl(this.serviceAnnouncement));
         }
         writer.writeAdditionalData(this.additionalData);

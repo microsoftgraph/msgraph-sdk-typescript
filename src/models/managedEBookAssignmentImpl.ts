@@ -5,11 +5,12 @@ import {InstallIntent} from './installIntent';
 import {ManagedEBookAssignment} from './managedEBookAssignment';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Contains properties used to assign a eBook to a group. */
 export class ManagedEBookAssignmentImpl extends EntityImpl implements ManagedEBookAssignment, Parsable {
     /** The install intent for eBook. Possible values are: available, required, uninstall, availableWithoutEnrollment. */
-    installIntent?: InstallIntent | undefined;
+    public installIntent?: InstallIntent | undefined;
     /** The assignment target for eBook. */
-    target?: DeviceAndAppManagementAssignmentTarget | undefined;
+    public target?: DeviceAndAppManagementAssignmentTarget | undefined;
     /**
      * Instantiates a new managedEBookAssignment and sets the default values.
      * @param managedEBookAssignmentParameterValue 
@@ -37,11 +38,9 @@ export class ManagedEBookAssignmentImpl extends EntityImpl implements ManagedEBo
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.installIntent){
-        if(this.installIntent)
         writer.writeEnumValue<InstallIntent>("installIntent", this.installIntent);
         }
         if(this.target){
-        if(this.target)
         writer.writeObjectValue<DeviceAndAppManagementAssignmentTargetImpl>("target", new DeviceAndAppManagementAssignmentTargetImpl(this.target));
         }
     };

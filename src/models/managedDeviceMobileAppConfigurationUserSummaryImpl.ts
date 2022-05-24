@@ -2,21 +2,22 @@ import {EntityImpl} from './index';
 import {ManagedDeviceMobileAppConfigurationUserSummary} from './managedDeviceMobileAppConfigurationUserSummary';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Contains properties, inherited properties and actions for an MDM mobile app configuration user status summary. */
 export class ManagedDeviceMobileAppConfigurationUserSummaryImpl extends EntityImpl implements ManagedDeviceMobileAppConfigurationUserSummary, Parsable {
     /** Version of the policy for that overview */
-    configurationVersion?: number | undefined;
+    public configurationVersion?: number | undefined;
     /** Number of error Users */
-    errorCount?: number | undefined;
+    public errorCount?: number | undefined;
     /** Number of failed Users */
-    failedCount?: number | undefined;
+    public failedCount?: number | undefined;
     /** Last update time */
-    lastUpdateDateTime?: Date | undefined;
+    public lastUpdateDateTime?: Date | undefined;
     /** Number of not applicable users */
-    notApplicableCount?: number | undefined;
+    public notApplicableCount?: number | undefined;
     /** Number of pending Users */
-    pendingCount?: number | undefined;
+    public pendingCount?: number | undefined;
     /** Number of succeeded Users */
-    successCount?: number | undefined;
+    public successCount?: number | undefined;
     /**
      * Instantiates a new managedDeviceMobileAppConfigurationUserSummary and sets the default values.
      * @param managedDeviceMobileAppConfigurationUserSummaryParameterValue 
@@ -54,31 +55,24 @@ export class ManagedDeviceMobileAppConfigurationUserSummaryImpl extends EntityIm
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.configurationVersion){
-        if(this.configurationVersion)
         writer.writeNumberValue("configurationVersion", this.configurationVersion);
         }
         if(this.errorCount){
-        if(this.errorCount)
         writer.writeNumberValue("errorCount", this.errorCount);
         }
         if(this.failedCount){
-        if(this.failedCount)
         writer.writeNumberValue("failedCount", this.failedCount);
         }
         if(this.lastUpdateDateTime){
-        if(this.lastUpdateDateTime)
         writer.writeDateValue("lastUpdateDateTime", this.lastUpdateDateTime);
         }
         if(this.notApplicableCount){
-        if(this.notApplicableCount)
         writer.writeNumberValue("notApplicableCount", this.notApplicableCount);
         }
         if(this.pendingCount){
-        if(this.pendingCount)
         writer.writeNumberValue("pendingCount", this.pendingCount);
         }
         if(this.successCount){
-        if(this.successCount)
         writer.writeNumberValue("successCount", this.successCount);
         }
     };

@@ -1,5 +1,4 @@
 import {AccessPackageCatalogImpl} from '../../../../../models/';
-import {AccessPackageCatalog} from '../../../../../models/accessPackageCatalog';
 import {createAccessPackageCatalogFromDiscriminatorValue} from '../../../../../models/createAccessPackageCatalogFromDiscriminatorValue';
 import {ODataErrorImpl} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
@@ -50,7 +49,7 @@ export class CatalogRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AccessPackageCatalog
      */
-    public get(requestConfiguration?: CatalogRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AccessPackageCatalog | undefined> {
+    public get(requestConfiguration?: CatalogRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AccessPackageCatalogImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );

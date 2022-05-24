@@ -6,24 +6,23 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class EducationResourceImpl implements AdditionalDataHolder, EducationResource, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** Who created the resource. */
-    createdBy?: IdentitySet | undefined;
+    public createdBy?: IdentitySet | undefined;
     /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
-    createdDateTime?: Date | undefined;
+    public createdDateTime?: Date | undefined;
     /** Display name of resource. */
-    displayName?: string | undefined;
+    public displayName?: string | undefined;
     /** Who was the last user to modify the resource. */
-    lastModifiedBy?: IdentitySet | undefined;
+    public lastModifiedBy?: IdentitySet | undefined;
     /** Moment in time when the resource was last modified.  The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
-    lastModifiedDateTime?: Date | undefined;
+    public lastModifiedDateTime?: Date | undefined;
     /**
      * Instantiates a new educationResource and sets the default values.
      * @param educationResourceParameterValue 
      */
     public constructor(educationResourceParameterValue?: EducationResource | undefined) {
-        this.additionalData = {};
-        this.additionalData = educationResourceParameterValue?.additionalData ? {} : educationResourceParameterValue?.additionalData!
+        this.additionalData = educationResourceParameterValue?.additionalData ? educationResourceParameterValue?.additionalData! : {}
         this.createdBy = educationResourceParameterValue?.createdBy ;
         this.createdDateTime = educationResourceParameterValue?.createdDateTime ;
         this.displayName = educationResourceParameterValue?.displayName ;
@@ -50,23 +49,18 @@ export class EducationResourceImpl implements AdditionalDataHolder, EducationRes
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.createdBy){
-        if(this.createdBy)
         writer.writeObjectValue<IdentitySetImpl>("createdBy", new IdentitySetImpl(this.createdBy));
         }
         if(this.createdDateTime){
-        if(this.createdDateTime)
         writer.writeDateValue("createdDateTime", this.createdDateTime);
         }
         if(this.displayName){
-        if(this.displayName)
         writer.writeStringValue("displayName", this.displayName);
         }
         if(this.lastModifiedBy){
-        if(this.lastModifiedBy)
         writer.writeObjectValue<IdentitySetImpl>("lastModifiedBy", new IdentitySetImpl(this.lastModifiedBy));
         }
         if(this.lastModifiedDateTime){
-        if(this.lastModifiedDateTime)
         writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
         }
         writer.writeAdditionalData(this.additionalData);

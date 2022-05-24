@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class AccessReviewInstanceCollectionResponseImpl implements AccessReviewInstanceCollectionResponse, AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: AccessReviewInstance[] | undefined;
+    public value?: AccessReviewInstance[] | undefined;
     /**
      * Instantiates a new AccessReviewInstanceCollectionResponse and sets the default values.
      * @param accessReviewInstanceCollectionResponseParameterValue 
      */
     public constructor(accessReviewInstanceCollectionResponseParameterValue?: AccessReviewInstanceCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = accessReviewInstanceCollectionResponseParameterValue?.additionalData ? {} : accessReviewInstanceCollectionResponseParameterValue?.additionalData!
+        this.additionalData = accessReviewInstanceCollectionResponseParameterValue?.additionalData ? accessReviewInstanceCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = accessReviewInstanceCollectionResponseParameterValue?.nextLink ;
         this.value = accessReviewInstanceCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class AccessReviewInstanceCollectionResponseImpl implements AccessReviewI
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: AccessReviewInstanceImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new AccessReviewInstanceImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: AccessReviewInstanceImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new AccessReviewInstanceImpl(element));});
         writer.writeCollectionOfObjectValues<AccessReviewInstanceImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

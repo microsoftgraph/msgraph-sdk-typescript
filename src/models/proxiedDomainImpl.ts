@@ -4,18 +4,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Proxied Domain */
 export class ProxiedDomainImpl implements AdditionalDataHolder, Parsable, ProxiedDomain {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The IP address or FQDN */
-    ipAddressOrFQDN?: string | undefined;
+    public ipAddressOrFQDN?: string | undefined;
     /** Proxy IP or FQDN */
-    proxy?: string | undefined;
+    public proxy?: string | undefined;
     /**
      * Instantiates a new proxiedDomain and sets the default values.
      * @param proxiedDomainParameterValue 
      */
     public constructor(proxiedDomainParameterValue?: ProxiedDomain | undefined) {
-        this.additionalData = {};
-        this.additionalData = proxiedDomainParameterValue?.additionalData ? {} : proxiedDomainParameterValue?.additionalData!
+        this.additionalData = proxiedDomainParameterValue?.additionalData ? proxiedDomainParameterValue?.additionalData! : {}
         this.ipAddressOrFQDN = proxiedDomainParameterValue?.ipAddressOrFQDN ;
         this.proxy = proxiedDomainParameterValue?.proxy ;
     };
@@ -36,11 +35,9 @@ export class ProxiedDomainImpl implements AdditionalDataHolder, Parsable, Proxie
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.ipAddressOrFQDN){
-        if(this.ipAddressOrFQDN)
         writer.writeStringValue("ipAddressOrFQDN", this.ipAddressOrFQDN);
         }
         if(this.proxy){
-        if(this.proxy)
         writer.writeStringValue("proxy", this.proxy);
         }
         writer.writeAdditionalData(this.additionalData);

@@ -3,17 +3,17 @@ import {ModifiedProperty} from './modifiedProperty';
 
 export interface TargetResource{
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    additionalData?:Record<string, unknown>;
     /** Indicates the visible name defined for the resource. Typically specified when the resource is created. */
-    displayName?: string | undefined;
+    displayName?:string | undefined;
     /** When type is set to Group, this indicates the group type.  Possible values are: unifiedGroups, azureAD, and unknownFutureValue */
-    groupType?: GroupType | undefined;
+    groupType?:GroupType | undefined;
     /** Indicates the unique ID of the resource. */
-    id?: string | undefined;
+    id?:string | undefined;
     /** Indicates name, old value and new value of each attribute that changed. Property values depend on the operation type. */
-    modifiedProperties?: ModifiedProperty[] | undefined;
+    modifiedProperties?:ModifiedProperty[] | undefined;
     /** Describes the resource type.  Example values include Application, Group, ServicePrincipal, and User. */
-    type?: string | undefined;
+    type?:string | undefined;
     /** When type is set to User, this includes the user name that initiated the action; null for other types. */
-    userPrincipalName?: string | undefined;
+    userPrincipalName?:string | undefined;
 }

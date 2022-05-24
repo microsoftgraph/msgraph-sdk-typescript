@@ -6,23 +6,24 @@ import {TeamsAsyncOperationStatus} from './teamsAsyncOperationStatus';
 import {TeamsAsyncOperationType} from './teamsAsyncOperationType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to group. */
 export class TeamsAsyncOperationImpl extends EntityImpl implements Parsable, TeamsAsyncOperation {
     /** Number of times the operation was attempted before being marked successful or failed. */
-    attemptsCount?: number | undefined;
+    public attemptsCount?: number | undefined;
     /** Time when the operation was created. */
-    createdDateTime?: Date | undefined;
+    public createdDateTime?: Date | undefined;
     /** Any error that causes the async operation to fail. */
-    error_escaped?: OperationError | undefined;
+    public error_escaped?: OperationError | undefined;
     /** Time when the async operation was last updated. */
-    lastActionDateTime?: Date | undefined;
+    public lastActionDateTime?: Date | undefined;
     /** Denotes the type of operation being described. */
-    operationType?: TeamsAsyncOperationType | undefined;
+    public operationType?: TeamsAsyncOperationType | undefined;
     /** Operation status. */
-    status?: TeamsAsyncOperationStatus | undefined;
+    public status?: TeamsAsyncOperationStatus | undefined;
     /** The ID of the object that's created or modified as result of this async operation, typically a team. */
-    targetResourceId?: string | undefined;
+    public targetResourceId?: string | undefined;
     /** The location of the object that's created or modified as result of this async operation. This URL should be treated as an opaque value and not parsed into its component paths. */
-    targetResourceLocation?: string | undefined;
+    public targetResourceLocation?: string | undefined;
     /**
      * Instantiates a new teamsAsyncOperation and sets the default values.
      * @param teamsAsyncOperationParameterValue 
@@ -62,35 +63,27 @@ export class TeamsAsyncOperationImpl extends EntityImpl implements Parsable, Tea
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.attemptsCount){
-        if(this.attemptsCount)
         writer.writeNumberValue("attemptsCount", this.attemptsCount);
         }
         if(this.createdDateTime){
-        if(this.createdDateTime)
         writer.writeDateValue("createdDateTime", this.createdDateTime);
         }
         if(this.error_escaped){
-        if(this.error_escaped)
         writer.writeObjectValue<OperationErrorImpl>("error", new OperationErrorImpl(this.error_escaped));
         }
         if(this.lastActionDateTime){
-        if(this.lastActionDateTime)
         writer.writeDateValue("lastActionDateTime", this.lastActionDateTime);
         }
         if(this.operationType){
-        if(this.operationType)
         writer.writeEnumValue<TeamsAsyncOperationType>("operationType", this.operationType);
         }
         if(this.status){
-        if(this.status)
         writer.writeEnumValue<TeamsAsyncOperationStatus>("status", this.status);
         }
         if(this.targetResourceId){
-        if(this.targetResourceId)
         writer.writeStringValue("targetResourceId", this.targetResourceId);
         }
         if(this.targetResourceLocation){
-        if(this.targetResourceLocation)
         writer.writeStringValue("targetResourceLocation", this.targetResourceLocation);
         }
     };

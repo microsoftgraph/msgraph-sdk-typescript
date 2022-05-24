@@ -3,26 +3,25 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class TeamMemberSettingsImpl implements AdditionalDataHolder, Parsable, TeamMemberSettings {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** If set to true, members can add and remove apps. */
-    allowAddRemoveApps?: boolean | undefined;
+    public allowAddRemoveApps?: boolean | undefined;
     /** If set to true, members can add and update private channels. */
-    allowCreatePrivateChannels?: boolean | undefined;
+    public allowCreatePrivateChannels?: boolean | undefined;
     /** If set to true, members can add and update any channels. */
-    allowCreateUpdateChannels?: boolean | undefined;
+    public allowCreateUpdateChannels?: boolean | undefined;
     /** If set to true, members can add, update, and remove connectors. */
-    allowCreateUpdateRemoveConnectors?: boolean | undefined;
+    public allowCreateUpdateRemoveConnectors?: boolean | undefined;
     /** If set to true, members can add, update, and remove tabs. */
-    allowCreateUpdateRemoveTabs?: boolean | undefined;
+    public allowCreateUpdateRemoveTabs?: boolean | undefined;
     /** If set to true, members can delete channels. */
-    allowDeleteChannels?: boolean | undefined;
+    public allowDeleteChannels?: boolean | undefined;
     /**
      * Instantiates a new teamMemberSettings and sets the default values.
      * @param teamMemberSettingsParameterValue 
      */
     public constructor(teamMemberSettingsParameterValue?: TeamMemberSettings | undefined) {
-        this.additionalData = {};
-        this.additionalData = teamMemberSettingsParameterValue?.additionalData ? {} : teamMemberSettingsParameterValue?.additionalData!
+        this.additionalData = teamMemberSettingsParameterValue?.additionalData ? teamMemberSettingsParameterValue?.additionalData! : {}
         this.allowAddRemoveApps = teamMemberSettingsParameterValue?.allowAddRemoveApps ;
         this.allowCreatePrivateChannels = teamMemberSettingsParameterValue?.allowCreatePrivateChannels ;
         this.allowCreateUpdateChannels = teamMemberSettingsParameterValue?.allowCreateUpdateChannels ;
@@ -51,27 +50,21 @@ export class TeamMemberSettingsImpl implements AdditionalDataHolder, Parsable, T
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.allowAddRemoveApps){
-        if(this.allowAddRemoveApps)
         writer.writeBooleanValue("allowAddRemoveApps", this.allowAddRemoveApps);
         }
         if(this.allowCreatePrivateChannels){
-        if(this.allowCreatePrivateChannels)
         writer.writeBooleanValue("allowCreatePrivateChannels", this.allowCreatePrivateChannels);
         }
         if(this.allowCreateUpdateChannels){
-        if(this.allowCreateUpdateChannels)
         writer.writeBooleanValue("allowCreateUpdateChannels", this.allowCreateUpdateChannels);
         }
         if(this.allowCreateUpdateRemoveConnectors){
-        if(this.allowCreateUpdateRemoveConnectors)
         writer.writeBooleanValue("allowCreateUpdateRemoveConnectors", this.allowCreateUpdateRemoveConnectors);
         }
         if(this.allowCreateUpdateRemoveTabs){
-        if(this.allowCreateUpdateRemoveTabs)
         writer.writeBooleanValue("allowCreateUpdateRemoveTabs", this.allowCreateUpdateRemoveTabs);
         }
         if(this.allowDeleteChannels){
-        if(this.allowDeleteChannels)
         writer.writeBooleanValue("allowDeleteChannels", this.allowDeleteChannels);
         }
         writer.writeAdditionalData(this.additionalData);

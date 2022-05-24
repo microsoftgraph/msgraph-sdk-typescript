@@ -1,25 +1,23 @@
-import {ConditionalAccessGrantControl} from './conditionalAccessGrantControl';
 import {ConditionalAccessGrantControls} from './conditionalAccessGrantControls';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ConditionalAccessGrantControlsImpl implements AdditionalDataHolder, ConditionalAccessGrantControls, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** List of values of built-in controls required by the policy. Possible values: block, mfa, compliantDevice, domainJoinedDevice, approvedApplication, compliantApplication, passwordChange, unknownFutureValue. */
-    builtInControls?: ConditionalAccessGrantControl[] | undefined;
+    public builtInControls?: string[] | undefined;
     /** List of custom controls IDs required by the policy. To learn more about custom control, see Custom controls (preview). */
-    customAuthenticationFactors?: string[] | undefined;
+    public customAuthenticationFactors?: string[] | undefined;
     /** Defines the relationship of the grant controls. Possible values: AND, OR. */
-    operator?: string | undefined;
+    public operator?: string | undefined;
     /** List of terms of use IDs required by the policy. */
-    termsOfUse?: string[] | undefined;
+    public termsOfUse?: string[] | undefined;
     /**
      * Instantiates a new conditionalAccessGrantControls and sets the default values.
      * @param conditionalAccessGrantControlsParameterValue 
      */
     public constructor(conditionalAccessGrantControlsParameterValue?: ConditionalAccessGrantControls | undefined) {
-        this.additionalData = {};
-        this.additionalData = conditionalAccessGrantControlsParameterValue?.additionalData ? {} : conditionalAccessGrantControlsParameterValue?.additionalData!
+        this.additionalData = conditionalAccessGrantControlsParameterValue?.additionalData ? conditionalAccessGrantControlsParameterValue?.additionalData! : {}
         this.builtInControls = conditionalAccessGrantControlsParameterValue?.builtInControls ;
         this.customAuthenticationFactors = conditionalAccessGrantControlsParameterValue?.customAuthenticationFactors ;
         this.operator = conditionalAccessGrantControlsParameterValue?.operator ;
@@ -31,7 +29,7 @@ export class ConditionalAccessGrantControlsImpl implements AdditionalDataHolder,
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
-            "builtInControls": n => { this.builtInControls = n.getEnumValues<ConditionalAccessGrantControl>(ConditionalAccessGrantControl); },
+            "builtInControls": n => { this.builtInControls = n.getCollectionOfPrimitiveValues<string>(); },
             "customAuthenticationFactors": n => { this.customAuthenticationFactors = n.getCollectionOfPrimitiveValues<string>(); },
             "operator": n => { this.operator = n.getStringValue(); },
             "termsOfUse": n => { this.termsOfUse = n.getCollectionOfPrimitiveValues<string>(); },
@@ -44,19 +42,15 @@ export class ConditionalAccessGrantControlsImpl implements AdditionalDataHolder,
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.builtInControls){
-        if(this.builtInControls)
-        this.builtInControls && writer.writeEnumValue<ConditionalAccessGrantControl>("builtInControls", ...this.builtInControls);
+        writer.writeCollectionOfPrimitiveValues<string>("builtInControls", this.builtInControls);
         }
         if(this.customAuthenticationFactors){
-        if(this.customAuthenticationFactors)
         writer.writeCollectionOfPrimitiveValues<string>("customAuthenticationFactors", this.customAuthenticationFactors);
         }
         if(this.operator){
-        if(this.operator)
         writer.writeStringValue("operator", this.operator);
         }
         if(this.termsOfUse){
-        if(this.termsOfUse)
         writer.writeCollectionOfPrimitiveValues<string>("termsOfUse", this.termsOfUse);
         }
         writer.writeAdditionalData(this.additionalData);

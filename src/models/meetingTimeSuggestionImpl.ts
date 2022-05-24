@@ -11,28 +11,27 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class MeetingTimeSuggestionImpl implements AdditionalDataHolder, MeetingTimeSuggestion, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** An array that shows the availability status of each attendee for this meeting suggestion. */
-    attendeeAvailability?: AttendeeAvailability[] | undefined;
+    public attendeeAvailability?: AttendeeAvailability[] | undefined;
     /** A percentage that represents the likelhood of all the attendees attending. */
-    confidence?: number | undefined;
+    public confidence?: number | undefined;
     /** An array that specifies the name and geographic location of each meeting location for this meeting suggestion. */
-    locations?: Location[] | undefined;
+    public locations?: Location[] | undefined;
     /** A time period suggested for the meeting. */
-    meetingTimeSlot?: TimeSlot | undefined;
+    public meetingTimeSlot?: TimeSlot | undefined;
     /** Order of meeting time suggestions sorted by their computed confidence value from high to low, then by chronology if there are suggestions with the same confidence. */
-    order?: number | undefined;
+    public order?: number | undefined;
     /** Availability of the meeting organizer for this meeting suggestion. Possible values are: free, tentative, busy, oof, workingElsewhere, unknown. */
-    organizerAvailability?: FreeBusyStatus | undefined;
+    public organizerAvailability?: FreeBusyStatus | undefined;
     /** Reason for suggesting the meeting time. */
-    suggestionReason?: string | undefined;
+    public suggestionReason?: string | undefined;
     /**
      * Instantiates a new meetingTimeSuggestion and sets the default values.
      * @param meetingTimeSuggestionParameterValue 
      */
     public constructor(meetingTimeSuggestionParameterValue?: MeetingTimeSuggestion | undefined) {
-        this.additionalData = {};
-        this.additionalData = meetingTimeSuggestionParameterValue?.additionalData ? {} : meetingTimeSuggestionParameterValue?.additionalData!
+        this.additionalData = meetingTimeSuggestionParameterValue?.additionalData ? meetingTimeSuggestionParameterValue?.additionalData! : {}
         this.attendeeAvailability = meetingTimeSuggestionParameterValue?.attendeeAvailability ;
         this.confidence = meetingTimeSuggestionParameterValue?.confidence ;
         this.locations = meetingTimeSuggestionParameterValue?.locations ;
@@ -62,32 +61,25 @@ export class MeetingTimeSuggestionImpl implements AdditionalDataHolder, MeetingT
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        if(this.attendeeAvailability){
-        const attendeeAvailabilityArrValue: AttendeeAvailabilityImpl[] = []; this.attendeeAvailability?.forEach(element => {attendeeAvailabilityArrValue.push(new AttendeeAvailabilityImpl(element));});
+        if(this.attendeeAvailability && this.attendeeAvailability.length != 0){        const attendeeAvailabilityArrValue: AttendeeAvailabilityImpl[] = []; this.attendeeAvailability?.forEach(element => {attendeeAvailabilityArrValue.push(new AttendeeAvailabilityImpl(element));});
         writer.writeCollectionOfObjectValues<AttendeeAvailabilityImpl>("attendeeAvailability", attendeeAvailabilityArrValue);
         }
         if(this.confidence){
-        if(this.confidence)
         writer.writeNumberValue("confidence", this.confidence);
         }
-        if(this.locations){
-        const locationsArrValue: LocationImpl[] = []; this.locations?.forEach(element => {locationsArrValue.push(new LocationImpl(element));});
+        if(this.locations && this.locations.length != 0){        const locationsArrValue: LocationImpl[] = []; this.locations?.forEach(element => {locationsArrValue.push(new LocationImpl(element));});
         writer.writeCollectionOfObjectValues<LocationImpl>("locations", locationsArrValue);
         }
         if(this.meetingTimeSlot){
-        if(this.meetingTimeSlot)
         writer.writeObjectValue<TimeSlotImpl>("meetingTimeSlot", new TimeSlotImpl(this.meetingTimeSlot));
         }
         if(this.order){
-        if(this.order)
         writer.writeNumberValue("order", this.order);
         }
         if(this.organizerAvailability){
-        if(this.organizerAvailability)
         writer.writeEnumValue<FreeBusyStatus>("organizerAvailability", this.organizerAvailability);
         }
         if(this.suggestionReason){
-        if(this.suggestionReason)
         writer.writeStringValue("suggestionReason", this.suggestionReason);
         }
         writer.writeAdditionalData(this.additionalData);

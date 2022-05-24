@@ -4,9 +4,10 @@ import {OutlookCategory} from './outlookCategory';
 import {OutlookUser} from './outlookUser';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to user. */
 export class OutlookUserImpl extends EntityImpl implements OutlookUser, Parsable {
     /** A list of categories defined for the user. */
-    masterCategories?: OutlookCategory[] | undefined;
+    public masterCategories?: OutlookCategory[] | undefined;
     /**
      * Instantiates a new outlookUser and sets the default values.
      * @param outlookUserParameterValue 
@@ -31,8 +32,7 @@ export class OutlookUserImpl extends EntityImpl implements OutlookUser, Parsable
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.masterCategories){
-        const masterCategoriesArrValue: OutlookCategoryImpl[] = []; this.masterCategories?.forEach(element => {masterCategoriesArrValue.push(new OutlookCategoryImpl(element));});
+        if(this.masterCategories && this.masterCategories.length != 0){        const masterCategoriesArrValue: OutlookCategoryImpl[] = []; this.masterCategories?.forEach(element => {masterCategoriesArrValue.push(new OutlookCategoryImpl(element));});
         writer.writeCollectionOfObjectValues<OutlookCategoryImpl>("masterCategories", masterCategoriesArrValue);
         }
     };

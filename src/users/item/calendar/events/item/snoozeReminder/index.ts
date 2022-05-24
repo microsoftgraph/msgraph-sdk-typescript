@@ -1,3 +1,3 @@
-export * from './snoozeReminderRequestBodyImpl'
+export * from './snoozeReminderPostRequestBodyImpl'
 export * from './snoozeReminderRequestBuilderPostRequestConfiguration'
-export * from './snoozeReminderRequestBody'
+export * from './snoozeReminderPostRequestBody'

@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class RichLongRunningOperationCollectionResponseImpl implements AdditionalDataHolder, Parsable, RichLongRunningOperationCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: RichLongRunningOperation[] | undefined;
+    public value?: RichLongRunningOperation[] | undefined;
     /**
      * Instantiates a new RichLongRunningOperationCollectionResponse and sets the default values.
      * @param richLongRunningOperationCollectionResponseParameterValue 
      */
     public constructor(richLongRunningOperationCollectionResponseParameterValue?: RichLongRunningOperationCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = richLongRunningOperationCollectionResponseParameterValue?.additionalData ? {} : richLongRunningOperationCollectionResponseParameterValue?.additionalData!
+        this.additionalData = richLongRunningOperationCollectionResponseParameterValue?.additionalData ? richLongRunningOperationCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = richLongRunningOperationCollectionResponseParameterValue?.nextLink ;
         this.value = richLongRunningOperationCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class RichLongRunningOperationCollectionResponseImpl implements Additiona
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: RichLongRunningOperationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new RichLongRunningOperationImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: RichLongRunningOperationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new RichLongRunningOperationImpl(element));});
         writer.writeCollectionOfObjectValues<RichLongRunningOperationImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

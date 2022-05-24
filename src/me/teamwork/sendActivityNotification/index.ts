@@ -1,3 +1,3 @@
-export * from './sendActivityNotificationRequestBodyImpl'
+export * from './sendActivityNotificationPostRequestBodyImpl'
 export * from './sendActivityNotificationRequestBuilderPostRequestConfiguration'
-export * from './sendActivityNotificationRequestBody'
+export * from './sendActivityNotificationPostRequestBody'

@@ -3,14 +3,13 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class PromptImpl implements AdditionalDataHolder, Parsable, Prompt {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /**
      * Instantiates a new prompt and sets the default values.
      * @param promptParameterValue 
      */
     public constructor(promptParameterValue?: Prompt | undefined) {
-        this.additionalData = {};
-        this.additionalData = promptParameterValue?.additionalData ? {} : promptParameterValue?.additionalData!
+        this.additionalData = promptParameterValue?.additionalData ? promptParameterValue?.additionalData! : {}
     };
     /**
      * The deserialization information for the current model

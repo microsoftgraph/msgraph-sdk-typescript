@@ -1,9 +1,8 @@
 import {ContentTypeImpl} from '../../../../../models/';
-import {ContentType} from '../../../../../models/contentType';
 import {createContentTypeFromDiscriminatorValue} from '../../../../../models/createContentTypeFromDiscriminatorValue';
-import {AddCopyFromContentTypeHubRequestBody} from './addCopyFromContentTypeHubRequestBody';
+import {AddCopyFromContentTypeHubPostRequestBody} from './addCopyFromContentTypeHubPostRequestBody';
 import {AddCopyFromContentTypeHubRequestBuilderPostRequestConfiguration} from './addCopyFromContentTypeHubRequestBuilderPostRequestConfiguration';
-import {AddCopyFromContentTypeHubRequestBodyImpl} from './index';
+import {AddCopyFromContentTypeHubPostRequestBodyImpl} from './index';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the addCopyFromContentTypeHub method. */
@@ -33,7 +32,7 @@ export class AddCopyFromContentTypeHubRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public createPostRequestInformation(body: AddCopyFromContentTypeHubRequestBody | undefined, requestConfiguration?: AddCopyFromContentTypeHubRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public createPostRequestInformation(body: AddCopyFromContentTypeHubPostRequestBody | undefined, requestConfiguration?: AddCopyFromContentTypeHubRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -43,8 +42,8 @@ export class AddCopyFromContentTypeHubRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        const bodyParsable = new AddCopyFromContentTypeHubRequestBodyImpl(body)
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", bodyParsable);
+        const parsableBody = new AddCopyFromContentTypeHubPostRequestBodyImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -54,7 +53,7 @@ export class AddCopyFromContentTypeHubRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ContentType
      */
-    public post(body: AddCopyFromContentTypeHubRequestBody | undefined, requestConfiguration?: AddCopyFromContentTypeHubRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ContentType | undefined> {
+    public post(body: AddCopyFromContentTypeHubPostRequestBody | undefined, requestConfiguration?: AddCopyFromContentTypeHubRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ContentTypeImpl | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration

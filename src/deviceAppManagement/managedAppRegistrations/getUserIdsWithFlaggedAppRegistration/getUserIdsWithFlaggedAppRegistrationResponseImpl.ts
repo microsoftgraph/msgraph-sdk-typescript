@@ -4,16 +4,15 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Provides operations to call the getUserIdsWithFlaggedAppRegistration method. */
 export class GetUserIdsWithFlaggedAppRegistrationResponseImpl implements AdditionalDataHolder, GetUserIdsWithFlaggedAppRegistrationResponse, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The value property */
-    value?: string[] | undefined;
+    public value?: string[] | undefined;
     /**
      * Instantiates a new getUserIdsWithFlaggedAppRegistrationResponse and sets the default values.
      * @param getUserIdsWithFlaggedAppRegistrationResponseParameterValue 
      */
     public constructor(getUserIdsWithFlaggedAppRegistrationResponseParameterValue?: GetUserIdsWithFlaggedAppRegistrationResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = getUserIdsWithFlaggedAppRegistrationResponseParameterValue?.additionalData ? {} : getUserIdsWithFlaggedAppRegistrationResponseParameterValue?.additionalData!
+        this.additionalData = getUserIdsWithFlaggedAppRegistrationResponseParameterValue?.additionalData ? getUserIdsWithFlaggedAppRegistrationResponseParameterValue?.additionalData! : {}
         this.value = getUserIdsWithFlaggedAppRegistrationResponseParameterValue?.value ;
     };
     /**
@@ -32,7 +31,6 @@ export class GetUserIdsWithFlaggedAppRegistrationResponseImpl implements Additio
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.value){
-        if(this.value)
         writer.writeCollectionOfPrimitiveValues<string>("value", this.value);
         }
         writer.writeAdditionalData(this.additionalData);

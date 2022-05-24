@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class UserFlowLanguageConfigurationCollectionResponseImpl implements AdditionalDataHolder, Parsable, UserFlowLanguageConfigurationCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: UserFlowLanguageConfiguration[] | undefined;
+    public value?: UserFlowLanguageConfiguration[] | undefined;
     /**
      * Instantiates a new UserFlowLanguageConfigurationCollectionResponse and sets the default values.
      * @param userFlowLanguageConfigurationCollectionResponseParameterValue 
      */
     public constructor(userFlowLanguageConfigurationCollectionResponseParameterValue?: UserFlowLanguageConfigurationCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = userFlowLanguageConfigurationCollectionResponseParameterValue?.additionalData ? {} : userFlowLanguageConfigurationCollectionResponseParameterValue?.additionalData!
+        this.additionalData = userFlowLanguageConfigurationCollectionResponseParameterValue?.additionalData ? userFlowLanguageConfigurationCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = userFlowLanguageConfigurationCollectionResponseParameterValue?.nextLink ;
         this.value = userFlowLanguageConfigurationCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class UserFlowLanguageConfigurationCollectionResponseImpl implements Addi
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: UserFlowLanguageConfigurationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new UserFlowLanguageConfigurationImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: UserFlowLanguageConfigurationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new UserFlowLanguageConfigurationImpl(element));});
         writer.writeCollectionOfObjectValues<UserFlowLanguageConfigurationImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

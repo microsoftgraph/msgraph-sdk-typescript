@@ -1,3 +1,3 @@
-export * from './dismissRequestBodyImpl'
-export * from './dismissRequestBody'
+export * from './dismissPostRequestBodyImpl'
+export * from './dismissPostRequestBody'
 export * from './dismissRequestBuilderPostRequestConfiguration'

@@ -6,16 +6,15 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class ActionResultPartImpl implements ActionResultPart, AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The error that occurred, if any, during the course of the bulk operation. */
-    error_escaped?: PublicError | undefined;
+    public error_escaped?: PublicError | undefined;
     /**
      * Instantiates a new actionResultPart and sets the default values.
      * @param actionResultPartParameterValue 
      */
     public constructor(actionResultPartParameterValue?: ActionResultPart | undefined) {
-        this.additionalData = {};
-        this.additionalData = actionResultPartParameterValue?.additionalData ? {} : actionResultPartParameterValue?.additionalData!
+        this.additionalData = actionResultPartParameterValue?.additionalData ? actionResultPartParameterValue?.additionalData! : {}
         this.error_escaped = actionResultPartParameterValue?.error_escaped ;
     };
     /**
@@ -34,7 +33,6 @@ export class ActionResultPartImpl implements ActionResultPart, AdditionalDataHol
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.error_escaped){
-        if(this.error_escaped)
         writer.writeObjectValue<PublicErrorImpl>("error", new PublicErrorImpl(this.error_escaped));
         }
         writer.writeAdditionalData(this.additionalData);

@@ -8,13 +8,14 @@ import {ServiceHealthIssue} from './serviceHealthIssue';
 import {ServiceUpdateMessage} from './serviceUpdateMessage';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the admin singleton. */
 export class ServiceAnnouncementImpl extends EntityImpl implements Parsable, ServiceAnnouncement {
     /** A collection of service health information for tenant. This property is a contained navigation property, it is nullable and readonly. */
-    healthOverviews?: ServiceHealth[] | undefined;
+    public healthOverviews?: ServiceHealth[] | undefined;
     /** A collection of service issues for tenant. This property is a contained navigation property, it is nullable and readonly. */
-    issues?: ServiceHealthIssue[] | undefined;
+    public issues?: ServiceHealthIssue[] | undefined;
     /** A collection of service messages for tenant. This property is a contained navigation property, it is nullable and readonly. */
-    messages?: ServiceUpdateMessage[] | undefined;
+    public messages?: ServiceUpdateMessage[] | undefined;
     /**
      * Instantiates a new serviceAnnouncement and sets the default values.
      * @param serviceAnnouncementParameterValue 
@@ -43,16 +44,13 @@ export class ServiceAnnouncementImpl extends EntityImpl implements Parsable, Ser
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.healthOverviews){
-        const healthOverviewsArrValue: ServiceHealthImpl[] = []; this.healthOverviews?.forEach(element => {healthOverviewsArrValue.push(new ServiceHealthImpl(element));});
+        if(this.healthOverviews && this.healthOverviews.length != 0){        const healthOverviewsArrValue: ServiceHealthImpl[] = []; this.healthOverviews?.forEach(element => {healthOverviewsArrValue.push(new ServiceHealthImpl(element));});
         writer.writeCollectionOfObjectValues<ServiceHealthImpl>("healthOverviews", healthOverviewsArrValue);
         }
-        if(this.issues){
-        const issuesArrValue: ServiceHealthIssueImpl[] = []; this.issues?.forEach(element => {issuesArrValue.push(new ServiceHealthIssueImpl(element));});
+        if(this.issues && this.issues.length != 0){        const issuesArrValue: ServiceHealthIssueImpl[] = []; this.issues?.forEach(element => {issuesArrValue.push(new ServiceHealthIssueImpl(element));});
         writer.writeCollectionOfObjectValues<ServiceHealthIssueImpl>("issues", issuesArrValue);
         }
-        if(this.messages){
-        const messagesArrValue: ServiceUpdateMessageImpl[] = []; this.messages?.forEach(element => {messagesArrValue.push(new ServiceUpdateMessageImpl(element));});
+        if(this.messages && this.messages.length != 0){        const messagesArrValue: ServiceUpdateMessageImpl[] = []; this.messages?.forEach(element => {messagesArrValue.push(new ServiceUpdateMessageImpl(element));});
         writer.writeCollectionOfObjectValues<ServiceUpdateMessageImpl>("messages", messagesArrValue);
         }
     };

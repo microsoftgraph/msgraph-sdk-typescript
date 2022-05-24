@@ -1,13 +1,13 @@
 
 export interface ControlScore{
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    additionalData?:Record<string, unknown>;
     /** Control action category (Identity, Data, Device, Apps, Infrastructure). */
-    controlCategory?: string | undefined;
+    controlCategory?:string | undefined;
     /** Control unique name. */
-    controlName?: string | undefined;
+    controlName?:string | undefined;
     /** Description of the control. */
-    description?: string | undefined;
+    description?:string | undefined;
     /** Tenant achieved score for the control (it varies day by day depending on tenant operations on the control). */
-    score?: number | undefined;
+    score?:number | undefined;
 }

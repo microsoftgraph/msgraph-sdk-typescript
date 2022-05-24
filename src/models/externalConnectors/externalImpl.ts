@@ -6,16 +6,15 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class ExternalImpl implements AdditionalDataHolder, External, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The connections property */
-    connections?: ExternalConnection[] | undefined;
+    public connections?: ExternalConnection[] | undefined;
     /**
      * Instantiates a new External and sets the default values.
      * @param externalParameterValue 
      */
     public constructor(externalParameterValue?: External | undefined) {
-        this.additionalData = {};
-        this.additionalData = externalParameterValue?.additionalData ? {} : externalParameterValue?.additionalData!
+        this.additionalData = externalParameterValue?.additionalData ? externalParameterValue?.additionalData! : {}
         this.connections = externalParameterValue?.connections ;
     };
     /**
@@ -33,8 +32,7 @@ export class ExternalImpl implements AdditionalDataHolder, External, Parsable {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        if(this.connections){
-        const connectionsArrValue: ExternalConnectionImpl[] = []; this.connections?.forEach(element => {connectionsArrValue.push(new ExternalConnectionImpl(element));});
+        if(this.connections && this.connections.length != 0){        const connectionsArrValue: ExternalConnectionImpl[] = []; this.connections?.forEach(element => {connectionsArrValue.push(new ExternalConnectionImpl(element));});
         writer.writeCollectionOfObjectValues<ExternalConnectionImpl>("connections", connectionsArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

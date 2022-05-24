@@ -3,18 +3,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class DateTimeTimeZoneImpl implements AdditionalDataHolder, DateTimeTimeZone, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** A single point of time in a combined date and time representation ({date}T{time}). For example, '2019-04-16T09:00:00'. */
-    dateTime?: string | undefined;
+    public dateTime?: string | undefined;
     /** Represents a time zone, for example, 'Pacific Standard Time'. See below for possible values. */
-    timeZone?: string | undefined;
+    public timeZone?: string | undefined;
     /**
      * Instantiates a new dateTimeTimeZone and sets the default values.
      * @param dateTimeTimeZoneParameterValue 
      */
     public constructor(dateTimeTimeZoneParameterValue?: DateTimeTimeZone | undefined) {
-        this.additionalData = {};
-        this.additionalData = dateTimeTimeZoneParameterValue?.additionalData ? {} : dateTimeTimeZoneParameterValue?.additionalData!
+        this.additionalData = dateTimeTimeZoneParameterValue?.additionalData ? dateTimeTimeZoneParameterValue?.additionalData! : {}
         this.dateTime = dateTimeTimeZoneParameterValue?.dateTime ;
         this.timeZone = dateTimeTimeZoneParameterValue?.timeZone ;
     };
@@ -35,11 +34,9 @@ export class DateTimeTimeZoneImpl implements AdditionalDataHolder, DateTimeTimeZ
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.dateTime){
-        if(this.dateTime)
         writer.writeStringValue("dateTime", this.dateTime);
         }
         if(this.timeZone){
-        if(this.timeZone)
         writer.writeStringValue("timeZone", this.timeZone);
         }
         writer.writeAdditionalData(this.additionalData);

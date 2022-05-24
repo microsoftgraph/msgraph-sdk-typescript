@@ -4,20 +4,19 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Represents diagnostics status. */
 export class ManagedAppDiagnosticStatusImpl implements AdditionalDataHolder, ManagedAppDiagnosticStatus, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** Instruction on how to mitigate a failed validation */
-    mitigationInstruction?: string | undefined;
+    public mitigationInstruction?: string | undefined;
     /** The state of the operation */
-    state?: string | undefined;
+    public state?: string | undefined;
     /** The validation friendly name */
-    validationName?: string | undefined;
+    public validationName?: string | undefined;
     /**
      * Instantiates a new managedAppDiagnosticStatus and sets the default values.
      * @param managedAppDiagnosticStatusParameterValue 
      */
     public constructor(managedAppDiagnosticStatusParameterValue?: ManagedAppDiagnosticStatus | undefined) {
-        this.additionalData = {};
-        this.additionalData = managedAppDiagnosticStatusParameterValue?.additionalData ? {} : managedAppDiagnosticStatusParameterValue?.additionalData!
+        this.additionalData = managedAppDiagnosticStatusParameterValue?.additionalData ? managedAppDiagnosticStatusParameterValue?.additionalData! : {}
         this.mitigationInstruction = managedAppDiagnosticStatusParameterValue?.mitigationInstruction ;
         this.state = managedAppDiagnosticStatusParameterValue?.state ;
         this.validationName = managedAppDiagnosticStatusParameterValue?.validationName ;
@@ -40,15 +39,12 @@ export class ManagedAppDiagnosticStatusImpl implements AdditionalDataHolder, Man
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.mitigationInstruction){
-        if(this.mitigationInstruction)
         writer.writeStringValue("mitigationInstruction", this.mitigationInstruction);
         }
         if(this.state){
-        if(this.state)
         writer.writeStringValue("state", this.state);
         }
         if(this.validationName){
-        if(this.validationName)
         writer.writeStringValue("validationName", this.validationName);
         }
         writer.writeAdditionalData(this.additionalData);

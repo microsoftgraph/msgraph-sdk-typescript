@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class AccessReviewInstanceDecisionItemCollectionResponseImpl implements AccessReviewInstanceDecisionItemCollectionResponse, AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: AccessReviewInstanceDecisionItem[] | undefined;
+    public value?: AccessReviewInstanceDecisionItem[] | undefined;
     /**
      * Instantiates a new AccessReviewInstanceDecisionItemCollectionResponse and sets the default values.
      * @param accessReviewInstanceDecisionItemCollectionResponseParameterValue 
      */
     public constructor(accessReviewInstanceDecisionItemCollectionResponseParameterValue?: AccessReviewInstanceDecisionItemCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = accessReviewInstanceDecisionItemCollectionResponseParameterValue?.additionalData ? {} : accessReviewInstanceDecisionItemCollectionResponseParameterValue?.additionalData!
+        this.additionalData = accessReviewInstanceDecisionItemCollectionResponseParameterValue?.additionalData ? accessReviewInstanceDecisionItemCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = accessReviewInstanceDecisionItemCollectionResponseParameterValue?.nextLink ;
         this.value = accessReviewInstanceDecisionItemCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class AccessReviewInstanceDecisionItemCollectionResponseImpl implements A
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: AccessReviewInstanceDecisionItemImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new AccessReviewInstanceDecisionItemImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: AccessReviewInstanceDecisionItemImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new AccessReviewInstanceDecisionItemImpl(element));});
         writer.writeCollectionOfObjectValues<AccessReviewInstanceDecisionItemImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

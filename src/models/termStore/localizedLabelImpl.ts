@@ -3,20 +3,19 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class LocalizedLabelImpl implements AdditionalDataHolder, LocalizedLabel, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** Indicates whether the label is the default label. */
-    isDefault?: boolean | undefined;
+    public isDefault?: boolean | undefined;
     /** The language tag for the label. */
-    languageTag?: string | undefined;
+    public languageTag?: string | undefined;
     /** The name of the label. */
-    name?: string | undefined;
+    public name?: string | undefined;
     /**
      * Instantiates a new localizedLabel and sets the default values.
      * @param localizedLabelParameterValue 
      */
     public constructor(localizedLabelParameterValue?: LocalizedLabel | undefined) {
-        this.additionalData = {};
-        this.additionalData = localizedLabelParameterValue?.additionalData ? {} : localizedLabelParameterValue?.additionalData!
+        this.additionalData = localizedLabelParameterValue?.additionalData ? localizedLabelParameterValue?.additionalData! : {}
         this.isDefault = localizedLabelParameterValue?.isDefault ;
         this.languageTag = localizedLabelParameterValue?.languageTag ;
         this.name = localizedLabelParameterValue?.name ;
@@ -39,15 +38,12 @@ export class LocalizedLabelImpl implements AdditionalDataHolder, LocalizedLabel,
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.isDefault){
-        if(this.isDefault)
         writer.writeBooleanValue("isDefault", this.isDefault);
         }
         if(this.languageTag){
-        if(this.languageTag)
         writer.writeStringValue("languageTag", this.languageTag);
         }
         if(this.name){
-        if(this.name)
         writer.writeStringValue("name", this.name);
         }
         writer.writeAdditionalData(this.additionalData);

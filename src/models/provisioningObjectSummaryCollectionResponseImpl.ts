@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class ProvisioningObjectSummaryCollectionResponseImpl implements AdditionalDataHolder, Parsable, ProvisioningObjectSummaryCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: ProvisioningObjectSummary[] | undefined;
+    public value?: ProvisioningObjectSummary[] | undefined;
     /**
      * Instantiates a new ProvisioningObjectSummaryCollectionResponse and sets the default values.
      * @param provisioningObjectSummaryCollectionResponseParameterValue 
      */
     public constructor(provisioningObjectSummaryCollectionResponseParameterValue?: ProvisioningObjectSummaryCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = provisioningObjectSummaryCollectionResponseParameterValue?.additionalData ? {} : provisioningObjectSummaryCollectionResponseParameterValue?.additionalData!
+        this.additionalData = provisioningObjectSummaryCollectionResponseParameterValue?.additionalData ? provisioningObjectSummaryCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = provisioningObjectSummaryCollectionResponseParameterValue?.nextLink ;
         this.value = provisioningObjectSummaryCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class ProvisioningObjectSummaryCollectionResponseImpl implements Addition
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: ProvisioningObjectSummaryImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ProvisioningObjectSummaryImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: ProvisioningObjectSummaryImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ProvisioningObjectSummaryImpl(element));});
         writer.writeCollectionOfObjectValues<ProvisioningObjectSummaryImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

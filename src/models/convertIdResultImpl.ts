@@ -6,20 +6,19 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class ConvertIdResultImpl implements AdditionalDataHolder, ConvertIdResult, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** An error object indicating the reason for the conversion failure. This value is not present if the conversion succeeded. */
-    errorDetails?: GenericError | undefined;
+    public errorDetails?: GenericError | undefined;
     /** The identifier that was converted. This value is the original, un-converted identifier. */
-    sourceId?: string | undefined;
+    public sourceId?: string | undefined;
     /** The converted identifier. This value is not present if the conversion failed. */
-    targetId?: string | undefined;
+    public targetId?: string | undefined;
     /**
      * Instantiates a new convertIdResult and sets the default values.
      * @param convertIdResultParameterValue 
      */
     public constructor(convertIdResultParameterValue?: ConvertIdResult | undefined) {
-        this.additionalData = {};
-        this.additionalData = convertIdResultParameterValue?.additionalData ? {} : convertIdResultParameterValue?.additionalData!
+        this.additionalData = convertIdResultParameterValue?.additionalData ? convertIdResultParameterValue?.additionalData! : {}
         this.errorDetails = convertIdResultParameterValue?.errorDetails ;
         this.sourceId = convertIdResultParameterValue?.sourceId ;
         this.targetId = convertIdResultParameterValue?.targetId ;
@@ -42,15 +41,12 @@ export class ConvertIdResultImpl implements AdditionalDataHolder, ConvertIdResul
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.errorDetails){
-        if(this.errorDetails)
         writer.writeObjectValue<GenericErrorImpl>("errorDetails", new GenericErrorImpl(this.errorDetails));
         }
         if(this.sourceId){
-        if(this.sourceId)
         writer.writeStringValue("sourceId", this.sourceId);
         }
         if(this.targetId){
-        if(this.targetId)
         writer.writeStringValue("targetId", this.targetId);
         }
         writer.writeAdditionalData(this.additionalData);

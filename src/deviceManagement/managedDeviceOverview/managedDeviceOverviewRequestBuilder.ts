@@ -1,6 +1,5 @@
 import {ManagedDeviceOverviewImpl} from '../../models/';
 import {createManagedDeviceOverviewFromDiscriminatorValue} from '../../models/createManagedDeviceOverviewFromDiscriminatorValue';
-import {ManagedDeviceOverview} from '../../models/managedDeviceOverview';
 import {ODataErrorImpl} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {ManagedDeviceOverviewRequestBuilderGetRequestConfiguration} from './managedDeviceOverviewRequestBuilderGetRequestConfiguration';
@@ -50,7 +49,7 @@ export class ManagedDeviceOverviewRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ManagedDeviceOverview
      */
-    public get(requestConfiguration?: ManagedDeviceOverviewRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ManagedDeviceOverview | undefined> {
+    public get(requestConfiguration?: ManagedDeviceOverviewRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ManagedDeviceOverviewImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );

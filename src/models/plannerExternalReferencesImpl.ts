@@ -3,14 +3,13 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class PlannerExternalReferencesImpl implements AdditionalDataHolder, Parsable, PlannerExternalReferences {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /**
      * Instantiates a new plannerExternalReferences and sets the default values.
      * @param plannerExternalReferencesParameterValue 
      */
     public constructor(plannerExternalReferencesParameterValue?: PlannerExternalReferences | undefined) {
-        this.additionalData = {};
-        this.additionalData = plannerExternalReferencesParameterValue?.additionalData ? {} : plannerExternalReferencesParameterValue?.additionalData!
+        this.additionalData = plannerExternalReferencesParameterValue?.additionalData ? plannerExternalReferencesParameterValue?.additionalData! : {}
     };
     /**
      * The deserialization information for the current model

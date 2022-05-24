@@ -5,13 +5,14 @@ import {OperationStatus} from './operationStatus';
 import {ResultInfo} from './resultInfo';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the cloudCommunications singleton. */
 export class CommsOperationImpl extends EntityImpl implements CommsOperation, Parsable {
     /** Unique Client Context string. Max limit is 256 chars. */
-    clientContext?: string | undefined;
+    public clientContext?: string | undefined;
     /** The result information. Read-only. */
-    resultInfo?: ResultInfo | undefined;
+    public resultInfo?: ResultInfo | undefined;
     /** Possible values are: notStarted, running, completed, failed. Read-only. */
-    status?: OperationStatus | undefined;
+    public status?: OperationStatus | undefined;
     /**
      * Instantiates a new commsOperation and sets the default values.
      * @param commsOperationParameterValue 
@@ -41,15 +42,12 @@ export class CommsOperationImpl extends EntityImpl implements CommsOperation, Pa
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.clientContext){
-        if(this.clientContext)
         writer.writeStringValue("clientContext", this.clientContext);
         }
         if(this.resultInfo){
-        if(this.resultInfo)
         writer.writeObjectValue<ResultInfoImpl>("resultInfo", new ResultInfoImpl(this.resultInfo));
         }
         if(this.status){
-        if(this.status)
         writer.writeEnumValue<OperationStatus>("status", this.status);
         }
     };

@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class TimeOffCollectionResponseImpl implements AdditionalDataHolder, Parsable, TimeOffCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: TimeOff[] | undefined;
+    public value?: TimeOff[] | undefined;
     /**
      * Instantiates a new TimeOffCollectionResponse and sets the default values.
      * @param timeOffCollectionResponseParameterValue 
      */
     public constructor(timeOffCollectionResponseParameterValue?: TimeOffCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = timeOffCollectionResponseParameterValue?.additionalData ? {} : timeOffCollectionResponseParameterValue?.additionalData!
+        this.additionalData = timeOffCollectionResponseParameterValue?.additionalData ? timeOffCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = timeOffCollectionResponseParameterValue?.nextLink ;
         this.value = timeOffCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class TimeOffCollectionResponseImpl implements AdditionalDataHolder, Pars
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: TimeOffImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new TimeOffImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: TimeOffImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new TimeOffImpl(element));});
         writer.writeCollectionOfObjectValues<TimeOffImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

@@ -3,16 +3,15 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class PackageImpl implements AdditionalDataHolder, Package, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** A string indicating the type of package. While oneNote is the only currently defined value, you should expect other package types to be returned and handle them accordingly. */
-    type?: string | undefined;
+    public type?: string | undefined;
     /**
      * Instantiates a new package and sets the default values.
      * @param packageParameterValue 
      */
     public constructor(packageParameterValue?: Package | undefined) {
-        this.additionalData = {};
-        this.additionalData = packageParameterValue?.additionalData ? {} : packageParameterValue?.additionalData!
+        this.additionalData = packageParameterValue?.additionalData ? packageParameterValue?.additionalData! : {}
         this.type = packageParameterValue?.type ;
     };
     /**
@@ -31,7 +30,6 @@ export class PackageImpl implements AdditionalDataHolder, Package, Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.type){
-        if(this.type)
         writer.writeStringValue("type", this.type);
         }
         writer.writeAdditionalData(this.additionalData);

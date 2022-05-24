@@ -6,11 +6,12 @@ import {PlannerTask} from './plannerTask';
 import {PlannerUser} from './plannerUser';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to user. */
 export class PlannerUserImpl extends EntityImpl implements Parsable, PlannerUser {
     /** Read-only. Nullable. Returns the plannerTasks assigned to the user. */
-    plans?: PlannerPlan[] | undefined;
+    public plans?: PlannerPlan[] | undefined;
     /** Read-only. Nullable. Returns the plannerTasks assigned to the user. */
-    tasks?: PlannerTask[] | undefined;
+    public tasks?: PlannerTask[] | undefined;
     /**
      * Instantiates a new plannerUser and sets the default values.
      * @param plannerUserParameterValue 
@@ -37,12 +38,10 @@ export class PlannerUserImpl extends EntityImpl implements Parsable, PlannerUser
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.plans){
-        const plansArrValue: PlannerPlanImpl[] = []; this.plans?.forEach(element => {plansArrValue.push(new PlannerPlanImpl(element));});
+        if(this.plans && this.plans.length != 0){        const plansArrValue: PlannerPlanImpl[] = []; this.plans?.forEach(element => {plansArrValue.push(new PlannerPlanImpl(element));});
         writer.writeCollectionOfObjectValues<PlannerPlanImpl>("plans", plansArrValue);
         }
-        if(this.tasks){
-        const tasksArrValue: PlannerTaskImpl[] = []; this.tasks?.forEach(element => {tasksArrValue.push(new PlannerTaskImpl(element));});
+        if(this.tasks && this.tasks.length != 0){        const tasksArrValue: PlannerTaskImpl[] = []; this.tasks?.forEach(element => {tasksArrValue.push(new PlannerTaskImpl(element));});
         writer.writeCollectionOfObjectValues<PlannerTaskImpl>("tasks", tasksArrValue);
         }
     };

@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class UserScopeTeamsAppInstallationCollectionResponseImpl implements AdditionalDataHolder, Parsable, UserScopeTeamsAppInstallationCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: UserScopeTeamsAppInstallation[] | undefined;
+    public value?: UserScopeTeamsAppInstallation[] | undefined;
     /**
      * Instantiates a new UserScopeTeamsAppInstallationCollectionResponse and sets the default values.
      * @param userScopeTeamsAppInstallationCollectionResponseParameterValue 
      */
     public constructor(userScopeTeamsAppInstallationCollectionResponseParameterValue?: UserScopeTeamsAppInstallationCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = userScopeTeamsAppInstallationCollectionResponseParameterValue?.additionalData ? {} : userScopeTeamsAppInstallationCollectionResponseParameterValue?.additionalData!
+        this.additionalData = userScopeTeamsAppInstallationCollectionResponseParameterValue?.additionalData ? userScopeTeamsAppInstallationCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = userScopeTeamsAppInstallationCollectionResponseParameterValue?.nextLink ;
         this.value = userScopeTeamsAppInstallationCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class UserScopeTeamsAppInstallationCollectionResponseImpl implements Addi
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: UserScopeTeamsAppInstallationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new UserScopeTeamsAppInstallationImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: UserScopeTeamsAppInstallationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new UserScopeTeamsAppInstallationImpl(element));});
         writer.writeCollectionOfObjectValues<UserScopeTeamsAppInstallationImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

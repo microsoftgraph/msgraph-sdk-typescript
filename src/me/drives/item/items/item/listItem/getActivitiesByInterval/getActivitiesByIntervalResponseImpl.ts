@@ -7,16 +7,15 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Provides operations to call the getActivitiesByInterval method. */
 export class GetActivitiesByIntervalResponseImpl implements AdditionalDataHolder, GetActivitiesByIntervalResponse, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The value property */
-    value?: ItemActivityStat[] | undefined;
+    public value?: ItemActivityStat[] | undefined;
     /**
      * Instantiates a new getActivitiesByIntervalResponse and sets the default values.
      * @param getActivitiesByIntervalResponseParameterValue 
      */
     public constructor(getActivitiesByIntervalResponseParameterValue?: GetActivitiesByIntervalResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = getActivitiesByIntervalResponseParameterValue?.additionalData ? {} : getActivitiesByIntervalResponseParameterValue?.additionalData!
+        this.additionalData = getActivitiesByIntervalResponseParameterValue?.additionalData ? getActivitiesByIntervalResponseParameterValue?.additionalData! : {}
         this.value = getActivitiesByIntervalResponseParameterValue?.value ;
     };
     /**
@@ -34,8 +33,7 @@ export class GetActivitiesByIntervalResponseImpl implements AdditionalDataHolder
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        if(this.value){
-        const valueArrValue: ItemActivityStatImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ItemActivityStatImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: ItemActivityStatImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ItemActivityStatImpl(element));});
         writer.writeCollectionOfObjectValues<ItemActivityStatImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

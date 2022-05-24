@@ -2,19 +2,20 @@ import {EBookInstallSummary} from './eBookInstallSummary';
 import {EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Contains properties for the installation summary of a book for a device. */
 export class EBookInstallSummaryImpl extends EntityImpl implements EBookInstallSummary, Parsable {
     /** Number of Devices that have failed to install this book. */
-    failedDeviceCount?: number | undefined;
+    public failedDeviceCount?: number | undefined;
     /** Number of Users that have 1 or more device that failed to install this book. */
-    failedUserCount?: number | undefined;
+    public failedUserCount?: number | undefined;
     /** Number of Devices that have successfully installed this book. */
-    installedDeviceCount?: number | undefined;
+    public installedDeviceCount?: number | undefined;
     /** Number of Users whose devices have all succeeded to install this book. */
-    installedUserCount?: number | undefined;
+    public installedUserCount?: number | undefined;
     /** Number of Devices that does not have this book installed. */
-    notInstalledDeviceCount?: number | undefined;
+    public notInstalledDeviceCount?: number | undefined;
     /** Number of Users that did not install this book. */
-    notInstalledUserCount?: number | undefined;
+    public notInstalledUserCount?: number | undefined;
     /**
      * Instantiates a new eBookInstallSummary and sets the default values.
      * @param eBookInstallSummaryParameterValue 
@@ -50,27 +51,21 @@ export class EBookInstallSummaryImpl extends EntityImpl implements EBookInstallS
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.failedDeviceCount){
-        if(this.failedDeviceCount)
         writer.writeNumberValue("failedDeviceCount", this.failedDeviceCount);
         }
         if(this.failedUserCount){
-        if(this.failedUserCount)
         writer.writeNumberValue("failedUserCount", this.failedUserCount);
         }
         if(this.installedDeviceCount){
-        if(this.installedDeviceCount)
         writer.writeNumberValue("installedDeviceCount", this.installedDeviceCount);
         }
         if(this.installedUserCount){
-        if(this.installedUserCount)
         writer.writeNumberValue("installedUserCount", this.installedUserCount);
         }
         if(this.notInstalledDeviceCount){
-        if(this.notInstalledDeviceCount)
         writer.writeNumberValue("notInstalledDeviceCount", this.notInstalledDeviceCount);
         }
         if(this.notInstalledUserCount){
-        if(this.notInstalledUserCount)
         writer.writeNumberValue("notInstalledUserCount", this.notInstalledUserCount);
         }
     };

@@ -6,13 +6,14 @@ import {EntityImpl, IdentitySetImpl, PublicationFacetImpl} from './index';
 import {PublicationFacet} from './publicationFacet';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to user. */
 export class BaseItemVersionImpl extends EntityImpl implements BaseItemVersion, Parsable {
     /** Identity of the user which last modified the version. Read-only. */
-    lastModifiedBy?: IdentitySet | undefined;
+    public lastModifiedBy?: IdentitySet | undefined;
     /** Date and time the version was last modified. Read-only. */
-    lastModifiedDateTime?: Date | undefined;
+    public lastModifiedDateTime?: Date | undefined;
     /** Indicates the publication status of this particular version. Read-only. */
-    publication?: PublicationFacet | undefined;
+    public publication?: PublicationFacet | undefined;
     /**
      * Instantiates a new baseItemVersion and sets the default values.
      * @param baseItemVersionParameterValue 
@@ -42,15 +43,12 @@ export class BaseItemVersionImpl extends EntityImpl implements BaseItemVersion, 
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.lastModifiedBy){
-        if(this.lastModifiedBy)
         writer.writeObjectValue<IdentitySetImpl>("lastModifiedBy", new IdentitySetImpl(this.lastModifiedBy));
         }
         if(this.lastModifiedDateTime){
-        if(this.lastModifiedDateTime)
         writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
         }
         if(this.publication){
-        if(this.publication)
         writer.writeObjectValue<PublicationFacetImpl>("publication", new PublicationFacetImpl(this.publication));
         }
     };

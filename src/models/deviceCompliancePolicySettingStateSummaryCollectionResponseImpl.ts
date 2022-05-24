@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class DeviceCompliancePolicySettingStateSummaryCollectionResponseImpl implements AdditionalDataHolder, DeviceCompliancePolicySettingStateSummaryCollectionResponse, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: DeviceCompliancePolicySettingStateSummary[] | undefined;
+    public value?: DeviceCompliancePolicySettingStateSummary[] | undefined;
     /**
      * Instantiates a new DeviceCompliancePolicySettingStateSummaryCollectionResponse and sets the default values.
      * @param deviceCompliancePolicySettingStateSummaryCollectionResponseParameterValue 
      */
     public constructor(deviceCompliancePolicySettingStateSummaryCollectionResponseParameterValue?: DeviceCompliancePolicySettingStateSummaryCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = deviceCompliancePolicySettingStateSummaryCollectionResponseParameterValue?.additionalData ? {} : deviceCompliancePolicySettingStateSummaryCollectionResponseParameterValue?.additionalData!
+        this.additionalData = deviceCompliancePolicySettingStateSummaryCollectionResponseParameterValue?.additionalData ? deviceCompliancePolicySettingStateSummaryCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = deviceCompliancePolicySettingStateSummaryCollectionResponseParameterValue?.nextLink ;
         this.value = deviceCompliancePolicySettingStateSummaryCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class DeviceCompliancePolicySettingStateSummaryCollectionResponseImpl imp
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: DeviceCompliancePolicySettingStateSummaryImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new DeviceCompliancePolicySettingStateSummaryImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: DeviceCompliancePolicySettingStateSummaryImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new DeviceCompliancePolicySettingStateSummaryImpl(element));});
         writer.writeCollectionOfObjectValues<DeviceCompliancePolicySettingStateSummaryImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

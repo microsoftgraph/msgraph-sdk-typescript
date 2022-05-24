@@ -3,24 +3,23 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class ThumbnailImpl implements AdditionalDataHolder, Parsable, Thumbnail {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The content stream for the thumbnail. */
-    content?: string | undefined;
+    public content?: string | undefined;
     /** The height of the thumbnail, in pixels. */
-    height?: number | undefined;
+    public height?: number | undefined;
     /** The unique identifier of the item that provided the thumbnail. This is only available when a folder thumbnail is requested. */
-    sourceItemId?: string | undefined;
+    public sourceItemId?: string | undefined;
     /** The URL used to fetch the thumbnail content. */
-    url?: string | undefined;
+    public url?: string | undefined;
     /** The width of the thumbnail, in pixels. */
-    width?: number | undefined;
+    public width?: number | undefined;
     /**
      * Instantiates a new thumbnail and sets the default values.
      * @param thumbnailParameterValue 
      */
     public constructor(thumbnailParameterValue?: Thumbnail | undefined) {
-        this.additionalData = {};
-        this.additionalData = thumbnailParameterValue?.additionalData ? {} : thumbnailParameterValue?.additionalData!
+        this.additionalData = thumbnailParameterValue?.additionalData ? thumbnailParameterValue?.additionalData! : {}
         this.content = thumbnailParameterValue?.content ;
         this.height = thumbnailParameterValue?.height ;
         this.sourceItemId = thumbnailParameterValue?.sourceItemId ;
@@ -47,23 +46,18 @@ export class ThumbnailImpl implements AdditionalDataHolder, Parsable, Thumbnail 
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.content){
-        if(this.content)
         writer.writeStringValue("content", this.content);
         }
         if(this.height){
-        if(this.height)
         writer.writeNumberValue("height", this.height);
         }
         if(this.sourceItemId){
-        if(this.sourceItemId)
         writer.writeStringValue("sourceItemId", this.sourceItemId);
         }
         if(this.url){
-        if(this.url)
         writer.writeStringValue("url", this.url);
         }
         if(this.width){
-        if(this.width)
         writer.writeNumberValue("width", this.width);
         }
         writer.writeAdditionalData(this.additionalData);

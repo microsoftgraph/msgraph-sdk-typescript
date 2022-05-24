@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class PersonCollectionResponseImpl implements AdditionalDataHolder, Parsable, PersonCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: Person[] | undefined;
+    public value?: Person[] | undefined;
     /**
      * Instantiates a new PersonCollectionResponse and sets the default values.
      * @param personCollectionResponseParameterValue 
      */
     public constructor(personCollectionResponseParameterValue?: PersonCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = personCollectionResponseParameterValue?.additionalData ? {} : personCollectionResponseParameterValue?.additionalData!
+        this.additionalData = personCollectionResponseParameterValue?.additionalData ? personCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = personCollectionResponseParameterValue?.nextLink ;
         this.value = personCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class PersonCollectionResponseImpl implements AdditionalDataHolder, Parsa
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: PersonImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new PersonImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: PersonImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new PersonImpl(element));});
         writer.writeCollectionOfObjectValues<PersonImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

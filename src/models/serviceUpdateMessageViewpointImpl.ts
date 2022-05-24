@@ -3,20 +3,19 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class ServiceUpdateMessageViewpointImpl implements AdditionalDataHolder, Parsable, ServiceUpdateMessageViewpoint {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** Indicates whether the user archived the message. */
-    isArchived?: boolean | undefined;
+    public isArchived?: boolean | undefined;
     /** Indicates whether the user marked the message as favorite. */
-    isFavorited?: boolean | undefined;
+    public isFavorited?: boolean | undefined;
     /** Indicates whether the user read the message. */
-    isRead?: boolean | undefined;
+    public isRead?: boolean | undefined;
     /**
      * Instantiates a new serviceUpdateMessageViewpoint and sets the default values.
      * @param serviceUpdateMessageViewpointParameterValue 
      */
     public constructor(serviceUpdateMessageViewpointParameterValue?: ServiceUpdateMessageViewpoint | undefined) {
-        this.additionalData = {};
-        this.additionalData = serviceUpdateMessageViewpointParameterValue?.additionalData ? {} : serviceUpdateMessageViewpointParameterValue?.additionalData!
+        this.additionalData = serviceUpdateMessageViewpointParameterValue?.additionalData ? serviceUpdateMessageViewpointParameterValue?.additionalData! : {}
         this.isArchived = serviceUpdateMessageViewpointParameterValue?.isArchived ;
         this.isFavorited = serviceUpdateMessageViewpointParameterValue?.isFavorited ;
         this.isRead = serviceUpdateMessageViewpointParameterValue?.isRead ;
@@ -39,15 +38,12 @@ export class ServiceUpdateMessageViewpointImpl implements AdditionalDataHolder, 
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.isArchived){
-        if(this.isArchived)
         writer.writeBooleanValue("isArchived", this.isArchived);
         }
         if(this.isFavorited){
-        if(this.isFavorited)
         writer.writeBooleanValue("isFavorited", this.isFavorited);
         }
         if(this.isRead){
-        if(this.isRead)
         writer.writeBooleanValue("isRead", this.isRead);
         }
         writer.writeAdditionalData(this.additionalData);

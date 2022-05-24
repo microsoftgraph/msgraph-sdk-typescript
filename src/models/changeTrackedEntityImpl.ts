@@ -4,13 +4,14 @@ import {IdentitySet} from './identitySet';
 import {EntityImpl, IdentitySetImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to user. */
 export class ChangeTrackedEntityImpl extends EntityImpl implements ChangeTrackedEntity, Parsable {
     /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
-    createdDateTime?: Date | undefined;
+    public createdDateTime?: Date | undefined;
     /** Identity of the person who last modified the entity. */
-    lastModifiedBy?: IdentitySet | undefined;
+    public lastModifiedBy?: IdentitySet | undefined;
     /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
-    lastModifiedDateTime?: Date | undefined;
+    public lastModifiedDateTime?: Date | undefined;
     /**
      * Instantiates a new changeTrackedEntity and sets the default values.
      * @param changeTrackedEntityParameterValue 
@@ -40,15 +41,12 @@ export class ChangeTrackedEntityImpl extends EntityImpl implements ChangeTracked
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.createdDateTime){
-        if(this.createdDateTime)
         writer.writeDateValue("createdDateTime", this.createdDateTime);
         }
         if(this.lastModifiedBy){
-        if(this.lastModifiedBy)
         writer.writeObjectValue<IdentitySetImpl>("lastModifiedBy", new IdentitySetImpl(this.lastModifiedBy));
         }
         if(this.lastModifiedDateTime){
-        if(this.lastModifiedDateTime)
         writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
         }
     };

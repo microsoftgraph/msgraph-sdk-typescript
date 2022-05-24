@@ -1,3 +1,3 @@
-export * from './confirmCompromisedRequestBodyImpl'
-export * from './confirmCompromisedRequestBody'
+export * from './confirmCompromisedPostRequestBodyImpl'
 export * from './confirmCompromisedRequestBuilderPostRequestConfiguration'
+export * from './confirmCompromisedPostRequestBody'

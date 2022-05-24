@@ -3,32 +3,31 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class SelfSignedCertificateImpl implements AdditionalDataHolder, Parsable, SelfSignedCertificate {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** Custom key identifier. */
-    customKeyIdentifier?: string | undefined;
+    public customKeyIdentifier?: string | undefined;
     /** The friendly name for the key. */
-    displayName?: string | undefined;
+    public displayName?: string | undefined;
     /** The date and time at which the credential expires. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
-    endDateTime?: Date | undefined;
+    public endDateTime?: Date | undefined;
     /** The value for the key credential. Should be a base-64 encoded value. */
-    key?: string | undefined;
+    public key?: string | undefined;
     /** The unique identifier (GUID) for the key. */
-    keyId?: string | undefined;
+    public keyId?: string | undefined;
     /** The date and time at which the credential becomes valid. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
-    startDateTime?: Date | undefined;
+    public startDateTime?: Date | undefined;
     /** The thumbprint value for the key. */
-    thumbprint?: string | undefined;
+    public thumbprint?: string | undefined;
     /** The type of key credential. 'AsymmetricX509Cert'. */
-    type?: string | undefined;
+    public type?: string | undefined;
     /** A string that describes the purpose for which the key can be used. For example, 'Verify'. */
-    usage?: string | undefined;
+    public usage?: string | undefined;
     /**
      * Instantiates a new SelfSignedCertificate and sets the default values.
      * @param selfSignedCertificateParameterValue 
      */
     public constructor(selfSignedCertificateParameterValue?: SelfSignedCertificate | undefined) {
-        this.additionalData = {};
-        this.additionalData = selfSignedCertificateParameterValue?.additionalData ? {} : selfSignedCertificateParameterValue?.additionalData!
+        this.additionalData = selfSignedCertificateParameterValue?.additionalData ? selfSignedCertificateParameterValue?.additionalData! : {}
         this.customKeyIdentifier = selfSignedCertificateParameterValue?.customKeyIdentifier ;
         this.displayName = selfSignedCertificateParameterValue?.displayName ;
         this.endDateTime = selfSignedCertificateParameterValue?.endDateTime ;
@@ -63,39 +62,30 @@ export class SelfSignedCertificateImpl implements AdditionalDataHolder, Parsable
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.customKeyIdentifier){
-        if(this.customKeyIdentifier)
         writer.writeStringValue("customKeyIdentifier", this.customKeyIdentifier);
         }
         if(this.displayName){
-        if(this.displayName)
         writer.writeStringValue("displayName", this.displayName);
         }
         if(this.endDateTime){
-        if(this.endDateTime)
         writer.writeDateValue("endDateTime", this.endDateTime);
         }
         if(this.key){
-        if(this.key)
         writer.writeStringValue("key", this.key);
         }
         if(this.keyId){
-        if(this.keyId)
         writer.writeStringValue("keyId", this.keyId);
         }
         if(this.startDateTime){
-        if(this.startDateTime)
         writer.writeDateValue("startDateTime", this.startDateTime);
         }
         if(this.thumbprint){
-        if(this.thumbprint)
         writer.writeStringValue("thumbprint", this.thumbprint);
         }
         if(this.type){
-        if(this.type)
         writer.writeStringValue("type", this.type);
         }
         if(this.usage){
-        if(this.usage)
         writer.writeStringValue("usage", this.usage);
         }
         writer.writeAdditionalData(this.additionalData);

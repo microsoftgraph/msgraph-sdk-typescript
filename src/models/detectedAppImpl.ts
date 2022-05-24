@@ -4,17 +4,18 @@ import {EntityImpl, ManagedDeviceImpl} from './index';
 import {ManagedDevice} from './managedDevice';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** A managed or unmanaged app that is installed on a managed device. Unmanaged apps will only appear for devices marked as corporate owned. */
 export class DetectedAppImpl extends EntityImpl implements DetectedApp, Parsable {
     /** The number of devices that have installed this application */
-    deviceCount?: number | undefined;
+    public deviceCount?: number | undefined;
     /** Name of the discovered application. Read-only */
-    displayName?: string | undefined;
+    public displayName?: string | undefined;
     /** The devices that have the discovered application installed */
-    managedDevices?: ManagedDevice[] | undefined;
+    public managedDevices?: ManagedDevice[] | undefined;
     /** Discovered application size in bytes. Read-only */
-    sizeInByte?: number | undefined;
+    public sizeInByte?: number | undefined;
     /** Version of the discovered application. Read-only */
-    version?: string | undefined;
+    public version?: string | undefined;
     /**
      * Instantiates a new detectedApp and sets the default values.
      * @param detectedAppParameterValue 
@@ -48,23 +49,18 @@ export class DetectedAppImpl extends EntityImpl implements DetectedApp, Parsable
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.deviceCount){
-        if(this.deviceCount)
         writer.writeNumberValue("deviceCount", this.deviceCount);
         }
         if(this.displayName){
-        if(this.displayName)
         writer.writeStringValue("displayName", this.displayName);
         }
-        if(this.managedDevices){
-        const managedDevicesArrValue: ManagedDeviceImpl[] = []; this.managedDevices?.forEach(element => {managedDevicesArrValue.push(new ManagedDeviceImpl(element));});
+        if(this.managedDevices && this.managedDevices.length != 0){        const managedDevicesArrValue: ManagedDeviceImpl[] = []; this.managedDevices?.forEach(element => {managedDevicesArrValue.push(new ManagedDeviceImpl(element));});
         writer.writeCollectionOfObjectValues<ManagedDeviceImpl>("managedDevices", managedDevicesArrValue);
         }
         if(this.sizeInByte){
-        if(this.sizeInByte)
         writer.writeNumberValue("sizeInByte", this.sizeInByte);
         }
         if(this.version){
-        if(this.version)
         writer.writeStringValue("version", this.version);
         }
     };

@@ -4,24 +4,23 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Device Exchange Access State summary */
 export class DeviceExchangeAccessStateSummaryImpl implements AdditionalDataHolder, DeviceExchangeAccessStateSummary, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** Total count of devices with Exchange Access State: Allowed. */
-    allowedDeviceCount?: number | undefined;
+    public allowedDeviceCount?: number | undefined;
     /** Total count of devices with Exchange Access State: Blocked. */
-    blockedDeviceCount?: number | undefined;
+    public blockedDeviceCount?: number | undefined;
     /** Total count of devices with Exchange Access State: Quarantined. */
-    quarantinedDeviceCount?: number | undefined;
+    public quarantinedDeviceCount?: number | undefined;
     /** Total count of devices for which no Exchange Access State could be found. */
-    unavailableDeviceCount?: number | undefined;
+    public unavailableDeviceCount?: number | undefined;
     /** Total count of devices with Exchange Access State: Unknown. */
-    unknownDeviceCount?: number | undefined;
+    public unknownDeviceCount?: number | undefined;
     /**
      * Instantiates a new deviceExchangeAccessStateSummary and sets the default values.
      * @param deviceExchangeAccessStateSummaryParameterValue 
      */
     public constructor(deviceExchangeAccessStateSummaryParameterValue?: DeviceExchangeAccessStateSummary | undefined) {
-        this.additionalData = {};
-        this.additionalData = deviceExchangeAccessStateSummaryParameterValue?.additionalData ? {} : deviceExchangeAccessStateSummaryParameterValue?.additionalData!
+        this.additionalData = deviceExchangeAccessStateSummaryParameterValue?.additionalData ? deviceExchangeAccessStateSummaryParameterValue?.additionalData! : {}
         this.allowedDeviceCount = deviceExchangeAccessStateSummaryParameterValue?.allowedDeviceCount ;
         this.blockedDeviceCount = deviceExchangeAccessStateSummaryParameterValue?.blockedDeviceCount ;
         this.quarantinedDeviceCount = deviceExchangeAccessStateSummaryParameterValue?.quarantinedDeviceCount ;
@@ -48,23 +47,18 @@ export class DeviceExchangeAccessStateSummaryImpl implements AdditionalDataHolde
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.allowedDeviceCount){
-        if(this.allowedDeviceCount)
         writer.writeNumberValue("allowedDeviceCount", this.allowedDeviceCount);
         }
         if(this.blockedDeviceCount){
-        if(this.blockedDeviceCount)
         writer.writeNumberValue("blockedDeviceCount", this.blockedDeviceCount);
         }
         if(this.quarantinedDeviceCount){
-        if(this.quarantinedDeviceCount)
         writer.writeNumberValue("quarantinedDeviceCount", this.quarantinedDeviceCount);
         }
         if(this.unavailableDeviceCount){
-        if(this.unavailableDeviceCount)
         writer.writeNumberValue("unavailableDeviceCount", this.unavailableDeviceCount);
         }
         if(this.unknownDeviceCount){
-        if(this.unknownDeviceCount)
         writer.writeNumberValue("unknownDeviceCount", this.unknownDeviceCount);
         }
         writer.writeAdditionalData(this.additionalData);

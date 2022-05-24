@@ -2,7 +2,7 @@ import {Entity} from './entity';
 
 export interface ManagedAppStatus extends Entity{
     /** Friendly name of the status report. */
-    displayName?: string | undefined;
+    displayName?:string | undefined;
     /** Version of the entity. */
-    version?: string | undefined;
+    version?:string | undefined;
 }

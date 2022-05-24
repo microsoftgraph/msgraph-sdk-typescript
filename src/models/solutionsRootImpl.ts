@@ -8,18 +8,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class SolutionsRootImpl implements AdditionalDataHolder, Parsable, SolutionsRoot {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The bookingBusinesses property */
-    bookingBusinesses?: BookingBusiness[] | undefined;
+    public bookingBusinesses?: BookingBusiness[] | undefined;
     /** The bookingCurrencies property */
-    bookingCurrencies?: BookingCurrency[] | undefined;
+    public bookingCurrencies?: BookingCurrency[] | undefined;
     /**
      * Instantiates a new SolutionsRoot and sets the default values.
      * @param solutionsRootParameterValue 
      */
     public constructor(solutionsRootParameterValue?: SolutionsRoot | undefined) {
-        this.additionalData = {};
-        this.additionalData = solutionsRootParameterValue?.additionalData ? {} : solutionsRootParameterValue?.additionalData!
+        this.additionalData = solutionsRootParameterValue?.additionalData ? solutionsRootParameterValue?.additionalData! : {}
         this.bookingBusinesses = solutionsRootParameterValue?.bookingBusinesses ;
         this.bookingCurrencies = solutionsRootParameterValue?.bookingCurrencies ;
     };
@@ -39,12 +38,10 @@ export class SolutionsRootImpl implements AdditionalDataHolder, Parsable, Soluti
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        if(this.bookingBusinesses){
-        const bookingBusinessesArrValue: BookingBusinessImpl[] = []; this.bookingBusinesses?.forEach(element => {bookingBusinessesArrValue.push(new BookingBusinessImpl(element));});
+        if(this.bookingBusinesses && this.bookingBusinesses.length != 0){        const bookingBusinessesArrValue: BookingBusinessImpl[] = []; this.bookingBusinesses?.forEach(element => {bookingBusinessesArrValue.push(new BookingBusinessImpl(element));});
         writer.writeCollectionOfObjectValues<BookingBusinessImpl>("bookingBusinesses", bookingBusinessesArrValue);
         }
-        if(this.bookingCurrencies){
-        const bookingCurrenciesArrValue: BookingCurrencyImpl[] = []; this.bookingCurrencies?.forEach(element => {bookingCurrenciesArrValue.push(new BookingCurrencyImpl(element));});
+        if(this.bookingCurrencies && this.bookingCurrencies.length != 0){        const bookingCurrenciesArrValue: BookingCurrencyImpl[] = []; this.bookingCurrencies?.forEach(element => {bookingCurrenciesArrValue.push(new BookingCurrencyImpl(element));});
         writer.writeCollectionOfObjectValues<BookingCurrencyImpl>("bookingCurrencies", bookingCurrenciesArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

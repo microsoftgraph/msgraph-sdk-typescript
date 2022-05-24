@@ -12,32 +12,31 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class MailboxSettingsImpl implements AdditionalDataHolder, MailboxSettings, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** Folder ID of an archive folder for the user. Read only. */
-    archiveFolder?: string | undefined;
+    public archiveFolder?: string | undefined;
     /** Configuration settings to automatically notify the sender of an incoming email with a message from the signed-in user. */
-    automaticRepliesSetting?: AutomaticRepliesSetting | undefined;
+    public automaticRepliesSetting?: AutomaticRepliesSetting | undefined;
     /** The date format for the user's mailbox. */
-    dateFormat?: string | undefined;
+    public dateFormat?: string | undefined;
     /** If the user has a calendar delegate, this specifies whether the delegate, mailbox owner, or both receive meeting messages and meeting responses. Possible values are: sendToDelegateAndInformationToPrincipal, sendToDelegateAndPrincipal, sendToDelegateOnly. The default is sendToDelegateOnly. */
-    delegateMeetingMessageDeliveryOptions?: DelegateMeetingMessageDeliveryOptions | undefined;
+    public delegateMeetingMessageDeliveryOptions?: DelegateMeetingMessageDeliveryOptions | undefined;
     /** The locale information for the user, including the preferred language and country/region. */
-    language?: LocaleInfo | undefined;
+    public language?: LocaleInfo | undefined;
     /** The time format for the user's mailbox. */
-    timeFormat?: string | undefined;
+    public timeFormat?: string | undefined;
     /** The default time zone for the user's mailbox. */
-    timeZone?: string | undefined;
+    public timeZone?: string | undefined;
     /** The purpose of the mailbox. Used to differentiate a mailbox for a single user from a shared mailbox and equipment mailbox in Exchange Online. Read only. */
-    userPurpose?: UserPurpose | undefined;
+    public userPurpose?: UserPurpose | undefined;
     /** The days of the week and hours in a specific time zone that the user works. */
-    workingHours?: WorkingHours | undefined;
+    public workingHours?: WorkingHours | undefined;
     /**
      * Instantiates a new mailboxSettings and sets the default values.
      * @param mailboxSettingsParameterValue 
      */
     public constructor(mailboxSettingsParameterValue?: MailboxSettings | undefined) {
-        this.additionalData = {};
-        this.additionalData = mailboxSettingsParameterValue?.additionalData ? {} : mailboxSettingsParameterValue?.additionalData!
+        this.additionalData = mailboxSettingsParameterValue?.additionalData ? mailboxSettingsParameterValue?.additionalData! : {}
         this.archiveFolder = mailboxSettingsParameterValue?.archiveFolder ;
         this.automaticRepliesSetting = mailboxSettingsParameterValue?.automaticRepliesSetting ;
         this.dateFormat = mailboxSettingsParameterValue?.dateFormat ;
@@ -72,39 +71,30 @@ export class MailboxSettingsImpl implements AdditionalDataHolder, MailboxSetting
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.archiveFolder){
-        if(this.archiveFolder)
         writer.writeStringValue("archiveFolder", this.archiveFolder);
         }
         if(this.automaticRepliesSetting){
-        if(this.automaticRepliesSetting)
         writer.writeObjectValue<AutomaticRepliesSettingImpl>("automaticRepliesSetting", new AutomaticRepliesSettingImpl(this.automaticRepliesSetting));
         }
         if(this.dateFormat){
-        if(this.dateFormat)
         writer.writeStringValue("dateFormat", this.dateFormat);
         }
         if(this.delegateMeetingMessageDeliveryOptions){
-        if(this.delegateMeetingMessageDeliveryOptions)
         writer.writeEnumValue<DelegateMeetingMessageDeliveryOptions>("delegateMeetingMessageDeliveryOptions", this.delegateMeetingMessageDeliveryOptions);
         }
         if(this.language){
-        if(this.language)
         writer.writeObjectValue<LocaleInfoImpl>("language", new LocaleInfoImpl(this.language));
         }
         if(this.timeFormat){
-        if(this.timeFormat)
         writer.writeStringValue("timeFormat", this.timeFormat);
         }
         if(this.timeZone){
-        if(this.timeZone)
         writer.writeStringValue("timeZone", this.timeZone);
         }
         if(this.userPurpose){
-        if(this.userPurpose)
         writer.writeEnumValue<UserPurpose>("userPurpose", this.userPurpose);
         }
         if(this.workingHours){
-        if(this.workingHours)
         writer.writeObjectValue<WorkingHoursImpl>("workingHours", new WorkingHoursImpl(this.workingHours));
         }
         writer.writeAdditionalData(this.additionalData);

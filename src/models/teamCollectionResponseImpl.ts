@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class TeamCollectionResponseImpl implements AdditionalDataHolder, Parsable, TeamCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: Team[] | undefined;
+    public value?: Team[] | undefined;
     /**
      * Instantiates a new TeamCollectionResponse and sets the default values.
      * @param teamCollectionResponseParameterValue 
      */
     public constructor(teamCollectionResponseParameterValue?: TeamCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = teamCollectionResponseParameterValue?.additionalData ? {} : teamCollectionResponseParameterValue?.additionalData!
+        this.additionalData = teamCollectionResponseParameterValue?.additionalData ? teamCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = teamCollectionResponseParameterValue?.nextLink ;
         this.value = teamCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class TeamCollectionResponseImpl implements AdditionalDataHolder, Parsabl
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: TeamImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new TeamImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: TeamImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new TeamImpl(element));});
         writer.writeCollectionOfObjectValues<TeamImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

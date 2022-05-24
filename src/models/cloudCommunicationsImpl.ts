@@ -14,13 +14,13 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Provides operations to manage the cloudCommunications singleton. */
 export class CloudCommunicationsImpl extends EntityImpl implements CloudCommunications, Parsable {
     /** The callRecords property */
-    callRecords?: CallRecord[] | undefined;
+    public callRecords?: CallRecord[] | undefined;
     /** The calls property */
-    calls?: Call[] | undefined;
+    public calls?: Call[] | undefined;
     /** The onlineMeetings property */
-    onlineMeetings?: OnlineMeeting[] | undefined;
+    public onlineMeetings?: OnlineMeeting[] | undefined;
     /** The presences property */
-    presences?: Presence[] | undefined;
+    public presences?: Presence[] | undefined;
     /**
      * Instantiates a new cloudCommunications and sets the default values.
      * @param cloudCommunicationsParameterValue 
@@ -51,20 +51,16 @@ export class CloudCommunicationsImpl extends EntityImpl implements CloudCommunic
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.callRecords){
-        const callRecordsArrValue: CallRecordImpl[] = []; this.callRecords?.forEach(element => {callRecordsArrValue.push(new CallRecordImpl(element));});
+        if(this.callRecords && this.callRecords.length != 0){        const callRecordsArrValue: CallRecordImpl[] = []; this.callRecords?.forEach(element => {callRecordsArrValue.push(new CallRecordImpl(element));});
         writer.writeCollectionOfObjectValues<CallRecordImpl>("callRecords", callRecordsArrValue);
         }
-        if(this.calls){
-        const callsArrValue: CallImpl[] = []; this.calls?.forEach(element => {callsArrValue.push(new CallImpl(element));});
+        if(this.calls && this.calls.length != 0){        const callsArrValue: CallImpl[] = []; this.calls?.forEach(element => {callsArrValue.push(new CallImpl(element));});
         writer.writeCollectionOfObjectValues<CallImpl>("calls", callsArrValue);
         }
-        if(this.onlineMeetings){
-        const onlineMeetingsArrValue: OnlineMeetingImpl[] = []; this.onlineMeetings?.forEach(element => {onlineMeetingsArrValue.push(new OnlineMeetingImpl(element));});
+        if(this.onlineMeetings && this.onlineMeetings.length != 0){        const onlineMeetingsArrValue: OnlineMeetingImpl[] = []; this.onlineMeetings?.forEach(element => {onlineMeetingsArrValue.push(new OnlineMeetingImpl(element));});
         writer.writeCollectionOfObjectValues<OnlineMeetingImpl>("onlineMeetings", onlineMeetingsArrValue);
         }
-        if(this.presences){
-        const presencesArrValue: PresenceImpl[] = []; this.presences?.forEach(element => {presencesArrValue.push(new PresenceImpl(element));});
+        if(this.presences && this.presences.length != 0){        const presencesArrValue: PresenceImpl[] = []; this.presences?.forEach(element => {presencesArrValue.push(new PresenceImpl(element));});
         writer.writeCollectionOfObjectValues<PresenceImpl>("presences", presencesArrValue);
         }
     };

@@ -2,9 +2,9 @@ import {DataPolicyOperation} from './dataPolicyOperation';
 
 export interface DataPolicyOperationCollectionResponse{
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    additionalData?:Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    nextLink?:string | undefined;
     /** The value property */
-    value?: DataPolicyOperation[] | undefined;
+    value?:DataPolicyOperation[] | undefined;
 }

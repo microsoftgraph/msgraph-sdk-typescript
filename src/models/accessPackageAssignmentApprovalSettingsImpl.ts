@@ -6,20 +6,19 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class AccessPackageAssignmentApprovalSettingsImpl implements AccessPackageAssignmentApprovalSettings, AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** If false, then approval is not required for new requests in this policy. */
-    isApprovalRequiredForAdd?: boolean | undefined;
+    public isApprovalRequiredForAdd?: boolean | undefined;
     /** If false, then approval is not required for updates to requests in this policy. */
-    isApprovalRequiredForUpdate?: boolean | undefined;
+    public isApprovalRequiredForUpdate?: boolean | undefined;
     /** If approval is required, the one, two or three elements of this collection define each of the stages of approval. An empty array is present if no approval is required. */
-    stages?: AccessPackageApprovalStage[] | undefined;
+    public stages?: AccessPackageApprovalStage[] | undefined;
     /**
      * Instantiates a new accessPackageAssignmentApprovalSettings and sets the default values.
      * @param accessPackageAssignmentApprovalSettingsParameterValue 
      */
     public constructor(accessPackageAssignmentApprovalSettingsParameterValue?: AccessPackageAssignmentApprovalSettings | undefined) {
-        this.additionalData = {};
-        this.additionalData = accessPackageAssignmentApprovalSettingsParameterValue?.additionalData ? {} : accessPackageAssignmentApprovalSettingsParameterValue?.additionalData!
+        this.additionalData = accessPackageAssignmentApprovalSettingsParameterValue?.additionalData ? accessPackageAssignmentApprovalSettingsParameterValue?.additionalData! : {}
         this.isApprovalRequiredForAdd = accessPackageAssignmentApprovalSettingsParameterValue?.isApprovalRequiredForAdd ;
         this.isApprovalRequiredForUpdate = accessPackageAssignmentApprovalSettingsParameterValue?.isApprovalRequiredForUpdate ;
         this.stages = accessPackageAssignmentApprovalSettingsParameterValue?.stages ;
@@ -42,15 +41,12 @@ export class AccessPackageAssignmentApprovalSettingsImpl implements AccessPackag
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.isApprovalRequiredForAdd){
-        if(this.isApprovalRequiredForAdd)
         writer.writeBooleanValue("isApprovalRequiredForAdd", this.isApprovalRequiredForAdd);
         }
         if(this.isApprovalRequiredForUpdate){
-        if(this.isApprovalRequiredForUpdate)
         writer.writeBooleanValue("isApprovalRequiredForUpdate", this.isApprovalRequiredForUpdate);
         }
-        if(this.stages){
-        const stagesArrValue: AccessPackageApprovalStageImpl[] = []; this.stages?.forEach(element => {stagesArrValue.push(new AccessPackageApprovalStageImpl(element));});
+        if(this.stages && this.stages.length != 0){        const stagesArrValue: AccessPackageApprovalStageImpl[] = []; this.stages?.forEach(element => {stagesArrValue.push(new AccessPackageApprovalStageImpl(element));});
         writer.writeCollectionOfObjectValues<AccessPackageApprovalStageImpl>("stages", stagesArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

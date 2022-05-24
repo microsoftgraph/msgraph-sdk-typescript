@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class UnifiedRoleDefinitionCollectionResponseImpl implements AdditionalDataHolder, Parsable, UnifiedRoleDefinitionCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: UnifiedRoleDefinition[] | undefined;
+    public value?: UnifiedRoleDefinition[] | undefined;
     /**
      * Instantiates a new UnifiedRoleDefinitionCollectionResponse and sets the default values.
      * @param unifiedRoleDefinitionCollectionResponseParameterValue 
      */
     public constructor(unifiedRoleDefinitionCollectionResponseParameterValue?: UnifiedRoleDefinitionCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = unifiedRoleDefinitionCollectionResponseParameterValue?.additionalData ? {} : unifiedRoleDefinitionCollectionResponseParameterValue?.additionalData!
+        this.additionalData = unifiedRoleDefinitionCollectionResponseParameterValue?.additionalData ? unifiedRoleDefinitionCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = unifiedRoleDefinitionCollectionResponseParameterValue?.nextLink ;
         this.value = unifiedRoleDefinitionCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class UnifiedRoleDefinitionCollectionResponseImpl implements AdditionalDa
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: UnifiedRoleDefinitionImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new UnifiedRoleDefinitionImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: UnifiedRoleDefinitionImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new UnifiedRoleDefinitionImpl(element));});
         writer.writeCollectionOfObjectValues<UnifiedRoleDefinitionImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

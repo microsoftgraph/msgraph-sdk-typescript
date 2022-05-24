@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class AgreementFileLocalizationCollectionResponseImpl implements AdditionalDataHolder, AgreementFileLocalizationCollectionResponse, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: AgreementFileLocalization[] | undefined;
+    public value?: AgreementFileLocalization[] | undefined;
     /**
      * Instantiates a new AgreementFileLocalizationCollectionResponse and sets the default values.
      * @param agreementFileLocalizationCollectionResponseParameterValue 
      */
     public constructor(agreementFileLocalizationCollectionResponseParameterValue?: AgreementFileLocalizationCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = agreementFileLocalizationCollectionResponseParameterValue?.additionalData ? {} : agreementFileLocalizationCollectionResponseParameterValue?.additionalData!
+        this.additionalData = agreementFileLocalizationCollectionResponseParameterValue?.additionalData ? agreementFileLocalizationCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = agreementFileLocalizationCollectionResponseParameterValue?.nextLink ;
         this.value = agreementFileLocalizationCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class AgreementFileLocalizationCollectionResponseImpl implements Addition
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: AgreementFileLocalizationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new AgreementFileLocalizationImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: AgreementFileLocalizationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new AgreementFileLocalizationImpl(element));});
         writer.writeCollectionOfObjectValues<AgreementFileLocalizationImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

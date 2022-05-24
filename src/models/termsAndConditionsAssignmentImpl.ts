@@ -4,9 +4,10 @@ import {DeviceAndAppManagementAssignmentTargetImpl, EntityImpl} from './index';
 import {TermsAndConditionsAssignment} from './termsAndConditionsAssignment';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** A termsAndConditionsAssignment entity represents the assignment of a given Terms and Conditions (T&C) policy to a given group. Users in the group will be required to accept the terms in order to have devices enrolled into Intune. */
 export class TermsAndConditionsAssignmentImpl extends EntityImpl implements Parsable, TermsAndConditionsAssignment {
     /** Assignment target that the T&C policy is assigned to. */
-    target?: DeviceAndAppManagementAssignmentTarget | undefined;
+    public target?: DeviceAndAppManagementAssignmentTarget | undefined;
     /**
      * Instantiates a new termsAndConditionsAssignment and sets the default values.
      * @param termsAndConditionsAssignmentParameterValue 
@@ -32,7 +33,6 @@ export class TermsAndConditionsAssignmentImpl extends EntityImpl implements Pars
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.target){
-        if(this.target)
         writer.writeObjectValue<DeviceAndAppManagementAssignmentTargetImpl>("target", new DeviceAndAppManagementAssignmentTargetImpl(this.target));
         }
     };

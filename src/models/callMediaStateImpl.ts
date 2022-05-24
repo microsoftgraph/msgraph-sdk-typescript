@@ -4,16 +4,15 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class CallMediaStateImpl implements AdditionalDataHolder, CallMediaState, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The audio media state. Possible values are: active, inactive, unknownFutureValue. */
-    audio?: MediaState | undefined;
+    public audio?: MediaState | undefined;
     /**
      * Instantiates a new callMediaState and sets the default values.
      * @param callMediaStateParameterValue 
      */
     public constructor(callMediaStateParameterValue?: CallMediaState | undefined) {
-        this.additionalData = {};
-        this.additionalData = callMediaStateParameterValue?.additionalData ? {} : callMediaStateParameterValue?.additionalData!
+        this.additionalData = callMediaStateParameterValue?.additionalData ? callMediaStateParameterValue?.additionalData! : {}
         this.audio = callMediaStateParameterValue?.audio ;
     };
     /**
@@ -32,7 +31,6 @@ export class CallMediaStateImpl implements AdditionalDataHolder, CallMediaState,
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.audio){
-        if(this.audio)
         writer.writeEnumValue<MediaState>("audio", this.audio);
         }
         writer.writeAdditionalData(this.additionalData);

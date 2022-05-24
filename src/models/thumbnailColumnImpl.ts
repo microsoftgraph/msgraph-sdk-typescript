@@ -3,14 +3,13 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class ThumbnailColumnImpl implements AdditionalDataHolder, Parsable, ThumbnailColumn {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /**
      * Instantiates a new thumbnailColumn and sets the default values.
      * @param thumbnailColumnParameterValue 
      */
     public constructor(thumbnailColumnParameterValue?: ThumbnailColumn | undefined) {
-        this.additionalData = {};
-        this.additionalData = thumbnailColumnParameterValue?.additionalData ? {} : thumbnailColumnParameterValue?.additionalData!
+        this.additionalData = thumbnailColumnParameterValue?.additionalData ? thumbnailColumnParameterValue?.additionalData! : {}
     };
     /**
      * The deserialization information for the current model

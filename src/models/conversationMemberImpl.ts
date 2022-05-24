@@ -2,13 +2,14 @@ import {ConversationMember} from './conversationMember';
 import {EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the collection of chat entities. */
 export class ConversationMemberImpl extends EntityImpl implements ConversationMember, Parsable {
     /** The display name of the user. */
-    displayName?: string | undefined;
+    public displayName?: string | undefined;
     /** The roles for that user. */
-    roles?: string[] | undefined;
+    public roles?: string[] | undefined;
     /** The timestamp denoting how far back a conversation's history is shared with the conversation member. This property is settable only for members of a chat. */
-    visibleHistoryStartDateTime?: Date | undefined;
+    public visibleHistoryStartDateTime?: Date | undefined;
     /**
      * Instantiates a new conversationMember and sets the default values.
      * @param conversationMemberParameterValue 
@@ -38,15 +39,12 @@ export class ConversationMemberImpl extends EntityImpl implements ConversationMe
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.displayName){
-        if(this.displayName)
         writer.writeStringValue("displayName", this.displayName);
         }
         if(this.roles){
-        if(this.roles)
         writer.writeCollectionOfPrimitiveValues<string>("roles", this.roles);
         }
         if(this.visibleHistoryStartDateTime){
-        if(this.visibleHistoryStartDateTime)
         writer.writeDateValue("visibleHistoryStartDateTime", this.visibleHistoryStartDateTime);
         }
     };

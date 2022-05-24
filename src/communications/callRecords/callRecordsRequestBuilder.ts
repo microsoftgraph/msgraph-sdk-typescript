@@ -1,6 +1,5 @@
 import {CallRecordCollectionResponseImpl, CallRecordImpl} from '../../models/callRecords/';
 import {CallRecord} from '../../models/callRecords/callRecord';
-import {CallRecordCollectionResponse} from '../../models/callRecords/callRecordCollectionResponse';
 import {createCallRecordCollectionResponseFromDiscriminatorValue} from '../../models/callRecords/createCallRecordCollectionResponseFromDiscriminatorValue';
 import {createCallRecordFromDiscriminatorValue} from '../../models/callRecords/createCallRecordFromDiscriminatorValue';
 import {ODataErrorImpl} from '../../models/oDataErrors/';
@@ -8,6 +7,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/c
 import {CallRecordsRequestBuilderGetRequestConfiguration} from './callRecordsRequestBuilderGetRequestConfiguration';
 import {CallRecordsRequestBuilderPostRequestConfiguration} from './callRecordsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {GetDirectRoutingCallsWithFromDateTimeWithToDateTimeRequestBuilder} from './getDirectRoutingCallsWithFromDateTimeWithToDateTime/getDirectRoutingCallsWithFromDateTimeWithToDateTimeRequestBuilder';
+import {GetPstnCallsWithFromDateTimeWithToDateTimeRequestBuilder} from './getPstnCallsWithFromDateTimeWithToDateTime/getPstnCallsWithFromDateTimeWithToDateTimeRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the callRecords property of the microsoft.graph.cloudCommunications entity. */
@@ -68,8 +69,8 @@ export class CallRecordsRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        const bodyParsable = new CallRecordImpl(body)
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", bodyParsable);
+        const parsableBody = new CallRecordImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -78,7 +79,7 @@ export class CallRecordsRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of CallRecordCollectionResponse
      */
-    public get(requestConfiguration?: CallRecordsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<CallRecordCollectionResponse | undefined> {
+    public get(requestConfiguration?: CallRecordsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<CallRecordCollectionResponseImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -89,13 +90,35 @@ export class CallRecordsRequestBuilder {
         return this.requestAdapter?.sendAsync<CallRecordCollectionResponseImpl>(requestInfo, createCallRecordCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
+     * Provides operations to call the getDirectRoutingCalls method.
+     * @param fromDateTime Usage: fromDateTime='{fromDateTime}'
+     * @param toDateTime Usage: toDateTime='{toDateTime}'
+     * @returns a getDirectRoutingCallsWithFromDateTimeWithToDateTimeRequestBuilder
+     */
+    public getDirectRoutingCallsWithFromDateTimeWithToDateTime(fromDateTime: Date | undefined, toDateTime: Date | undefined) : GetDirectRoutingCallsWithFromDateTimeWithToDateTimeRequestBuilder {
+        if(!fromDateTime) throw new Error("fromDateTime cannot be undefined");
+        if(!toDateTime) throw new Error("toDateTime cannot be undefined");
+        return new GetDirectRoutingCallsWithFromDateTimeWithToDateTimeRequestBuilder(this.pathParameters, this.requestAdapter, fromDateTime, toDateTime);
+    };
+    /**
+     * Provides operations to call the getPstnCalls method.
+     * @param fromDateTime Usage: fromDateTime='{fromDateTime}'
+     * @param toDateTime Usage: toDateTime='{toDateTime}'
+     * @returns a getPstnCallsWithFromDateTimeWithToDateTimeRequestBuilder
+     */
+    public getPstnCallsWithFromDateTimeWithToDateTime(fromDateTime: Date | undefined, toDateTime: Date | undefined) : GetPstnCallsWithFromDateTimeWithToDateTimeRequestBuilder {
+        if(!fromDateTime) throw new Error("fromDateTime cannot be undefined");
+        if(!toDateTime) throw new Error("toDateTime cannot be undefined");
+        return new GetPstnCallsWithFromDateTimeWithToDateTimeRequestBuilder(this.pathParameters, this.requestAdapter, fromDateTime, toDateTime);
+    };
+    /**
      * Create new navigation property to callRecords for communications
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of CallRecord
      */
-    public post(body: CallRecord | undefined, requestConfiguration?: CallRecordsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<CallRecord | undefined> {
+    public post(body: CallRecord | undefined, requestConfiguration?: CallRecordsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<CallRecordImpl | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration

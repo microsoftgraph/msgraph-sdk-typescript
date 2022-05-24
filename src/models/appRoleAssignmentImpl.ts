@@ -2,21 +2,22 @@ import {AppRoleAssignment} from './appRoleAssignment';
 import {DirectoryObjectImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to call the instantiate method. */
 export class AppRoleAssignmentImpl extends DirectoryObjectImpl implements AppRoleAssignment, Parsable {
     /** The identifier (id) for the app role which is assigned to the principal. This app role must be exposed in the appRoles property on the resource application's service principal (resourceId). If the resource application has not declared any app roles, a default app role ID of 00000000-0000-0000-0000-000000000000 can be specified to signal that the principal is assigned to the resource app without any specific app roles. Required on create. */
-    appRoleId?: string | undefined;
+    public appRoleId?: string | undefined;
     /** The time when the app role assignment was created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. */
-    createdDateTime?: Date | undefined;
+    public createdDateTime?: Date | undefined;
     /** The display name of the user, group, or service principal that was granted the app role assignment. Read-only. Supports $filter (eq and startswith). */
-    principalDisplayName?: string | undefined;
+    public principalDisplayName?: string | undefined;
     /** The unique identifier (id) for the user, group, or service principal being granted the app role. Required on create. */
-    principalId?: string | undefined;
+    public principalId?: string | undefined;
     /** The type of the assigned principal. This can either be User, Group, or ServicePrincipal. Read-only. */
-    principalType?: string | undefined;
+    public principalType?: string | undefined;
     /** The display name of the resource app's service principal to which the assignment is made. */
-    resourceDisplayName?: string | undefined;
+    public resourceDisplayName?: string | undefined;
     /** The unique identifier (id) for the resource service principal for which the assignment is made. Required on create. Supports $filter (eq only). */
-    resourceId?: string | undefined;
+    public resourceId?: string | undefined;
     /**
      * Instantiates a new appRoleAssignment and sets the default values.
      * @param appRoleAssignmentParameterValue 
@@ -54,31 +55,24 @@ export class AppRoleAssignmentImpl extends DirectoryObjectImpl implements AppRol
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.appRoleId){
-        if(this.appRoleId)
         writer.writeStringValue("appRoleId", this.appRoleId);
         }
         if(this.createdDateTime){
-        if(this.createdDateTime)
         writer.writeDateValue("createdDateTime", this.createdDateTime);
         }
         if(this.principalDisplayName){
-        if(this.principalDisplayName)
         writer.writeStringValue("principalDisplayName", this.principalDisplayName);
         }
         if(this.principalId){
-        if(this.principalId)
         writer.writeStringValue("principalId", this.principalId);
         }
         if(this.principalType){
-        if(this.principalType)
         writer.writeStringValue("principalType", this.principalType);
         }
         if(this.resourceDisplayName){
-        if(this.resourceDisplayName)
         writer.writeStringValue("resourceDisplayName", this.resourceDisplayName);
         }
         if(this.resourceId){
-        if(this.resourceId)
         writer.writeStringValue("resourceId", this.resourceId);
         }
     };

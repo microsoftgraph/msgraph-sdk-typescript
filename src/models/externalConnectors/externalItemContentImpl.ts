@@ -4,18 +4,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class ExternalItemContentImpl implements AdditionalDataHolder, ExternalItemContent, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The type of content in the value property. Possible values are text and html. These are the content types that the indexer supports, and not the file extension types allowed. Required. */
-    type?: ExternalItemContentType | undefined;
+    public type?: ExternalItemContentType | undefined;
     /** The content for the externalItem. Required. */
-    value?: string | undefined;
+    public value?: string | undefined;
     /**
      * Instantiates a new externalItemContent and sets the default values.
      * @param externalItemContentParameterValue 
      */
     public constructor(externalItemContentParameterValue?: ExternalItemContent | undefined) {
-        this.additionalData = {};
-        this.additionalData = externalItemContentParameterValue?.additionalData ? {} : externalItemContentParameterValue?.additionalData!
+        this.additionalData = externalItemContentParameterValue?.additionalData ? externalItemContentParameterValue?.additionalData! : {}
         this.type = externalItemContentParameterValue?.type ;
         this.value = externalItemContentParameterValue?.value ;
     };
@@ -36,11 +35,9 @@ export class ExternalItemContentImpl implements AdditionalDataHolder, ExternalIt
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.type){
-        if(this.type)
         writer.writeEnumValue<ExternalItemContentType>("type", this.type);
         }
         if(this.value){
-        if(this.value)
         writer.writeStringValue("value", this.value);
         }
         writer.writeAdditionalData(this.additionalData);

@@ -3,5 +3,5 @@ import {Identity} from './identity';
 
 export interface ProvisioningSystem extends Identity{
     /** Details of the system. */
-    details?: DetailsInfo | undefined;
+    details?:DetailsInfo | undefined;
 }

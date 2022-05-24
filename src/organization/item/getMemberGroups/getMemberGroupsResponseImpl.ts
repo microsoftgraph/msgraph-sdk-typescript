@@ -4,16 +4,15 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Provides operations to call the getMemberGroups method. */
 export class GetMemberGroupsResponseImpl implements AdditionalDataHolder, GetMemberGroupsResponse, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The value property */
-    value?: string[] | undefined;
+    public value?: string[] | undefined;
     /**
      * Instantiates a new getMemberGroupsResponse and sets the default values.
      * @param getMemberGroupsResponseParameterValue 
      */
     public constructor(getMemberGroupsResponseParameterValue?: GetMemberGroupsResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = getMemberGroupsResponseParameterValue?.additionalData ? {} : getMemberGroupsResponseParameterValue?.additionalData!
+        this.additionalData = getMemberGroupsResponseParameterValue?.additionalData ? getMemberGroupsResponseParameterValue?.additionalData! : {}
         this.value = getMemberGroupsResponseParameterValue?.value ;
     };
     /**
@@ -32,7 +31,6 @@ export class GetMemberGroupsResponseImpl implements AdditionalDataHolder, GetMem
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.value){
-        if(this.value)
         writer.writeCollectionOfPrimitiveValues<string>("value", this.value);
         }
         writer.writeAdditionalData(this.additionalData);

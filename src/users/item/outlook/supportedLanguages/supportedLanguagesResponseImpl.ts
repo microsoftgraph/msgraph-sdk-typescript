@@ -7,16 +7,15 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Provides operations to call the supportedLanguages method. */
 export class SupportedLanguagesResponseImpl implements AdditionalDataHolder, Parsable, SupportedLanguagesResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The value property */
-    value?: LocaleInfo[] | undefined;
+    public value?: LocaleInfo[] | undefined;
     /**
      * Instantiates a new supportedLanguagesResponse and sets the default values.
      * @param supportedLanguagesResponseParameterValue 
      */
     public constructor(supportedLanguagesResponseParameterValue?: SupportedLanguagesResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = supportedLanguagesResponseParameterValue?.additionalData ? {} : supportedLanguagesResponseParameterValue?.additionalData!
+        this.additionalData = supportedLanguagesResponseParameterValue?.additionalData ? supportedLanguagesResponseParameterValue?.additionalData! : {}
         this.value = supportedLanguagesResponseParameterValue?.value ;
     };
     /**
@@ -34,8 +33,7 @@ export class SupportedLanguagesResponseImpl implements AdditionalDataHolder, Par
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        if(this.value){
-        const valueArrValue: LocaleInfoImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new LocaleInfoImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: LocaleInfoImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new LocaleInfoImpl(element));});
         writer.writeCollectionOfObjectValues<LocaleInfoImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

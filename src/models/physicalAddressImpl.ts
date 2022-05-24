@@ -3,24 +3,23 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class PhysicalAddressImpl implements AdditionalDataHolder, Parsable, PhysicalAddress {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The city. */
-    city?: string | undefined;
+    public city?: string | undefined;
     /** The country or region. It's a free-format string value, for example, 'United States'. */
-    countryOrRegion?: string | undefined;
+    public countryOrRegion?: string | undefined;
     /** The postal code. */
-    postalCode?: string | undefined;
+    public postalCode?: string | undefined;
     /** The state. */
-    state?: string | undefined;
+    public state?: string | undefined;
     /** The street. */
-    street?: string | undefined;
+    public street?: string | undefined;
     /**
      * Instantiates a new physicalAddress and sets the default values.
      * @param physicalAddressParameterValue 
      */
     public constructor(physicalAddressParameterValue?: PhysicalAddress | undefined) {
-        this.additionalData = {};
-        this.additionalData = physicalAddressParameterValue?.additionalData ? {} : physicalAddressParameterValue?.additionalData!
+        this.additionalData = physicalAddressParameterValue?.additionalData ? physicalAddressParameterValue?.additionalData! : {}
         this.city = physicalAddressParameterValue?.city ;
         this.countryOrRegion = physicalAddressParameterValue?.countryOrRegion ;
         this.postalCode = physicalAddressParameterValue?.postalCode ;
@@ -47,23 +46,18 @@ export class PhysicalAddressImpl implements AdditionalDataHolder, Parsable, Phys
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.city){
-        if(this.city)
         writer.writeStringValue("city", this.city);
         }
         if(this.countryOrRegion){
-        if(this.countryOrRegion)
         writer.writeStringValue("countryOrRegion", this.countryOrRegion);
         }
         if(this.postalCode){
-        if(this.postalCode)
         writer.writeStringValue("postalCode", this.postalCode);
         }
         if(this.state){
-        if(this.state)
         writer.writeStringValue("state", this.state);
         }
         if(this.street){
-        if(this.street)
         writer.writeStringValue("street", this.street);
         }
         writer.writeAdditionalData(this.additionalData);

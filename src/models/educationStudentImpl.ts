@@ -4,26 +4,25 @@ import {AdditionalDataHolder, DateOnly, Parsable, ParseNode, SerializationWriter
 
 export class EducationStudentImpl implements AdditionalDataHolder, EducationStudent, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** Birth date of the student. */
-    birthDate?: DateOnly | undefined;
+    public birthDate?: DateOnly | undefined;
     /** ID of the student in the source system. */
-    externalId?: string | undefined;
+    public externalId?: string | undefined;
     /** Possible values are: female, male, other. */
-    gender?: EducationGender | undefined;
+    public gender?: EducationGender | undefined;
     /** Current grade level of the student. */
-    grade?: string | undefined;
+    public grade?: string | undefined;
     /** Year the student is graduating from the school. */
-    graduationYear?: string | undefined;
+    public graduationYear?: string | undefined;
     /** Student Number. */
-    studentNumber?: string | undefined;
+    public studentNumber?: string | undefined;
     /**
      * Instantiates a new educationStudent and sets the default values.
      * @param educationStudentParameterValue 
      */
     public constructor(educationStudentParameterValue?: EducationStudent | undefined) {
-        this.additionalData = {};
-        this.additionalData = educationStudentParameterValue?.additionalData ? {} : educationStudentParameterValue?.additionalData!
+        this.additionalData = educationStudentParameterValue?.additionalData ? educationStudentParameterValue?.additionalData! : {}
         this.birthDate = educationStudentParameterValue?.birthDate ;
         this.externalId = educationStudentParameterValue?.externalId ;
         this.gender = educationStudentParameterValue?.gender ;
@@ -52,27 +51,21 @@ export class EducationStudentImpl implements AdditionalDataHolder, EducationStud
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.birthDate){
-        if(this.birthDate)
         writer.writeDateOnlyValue("birthDate", this.birthDate);
         }
         if(this.externalId){
-        if(this.externalId)
         writer.writeStringValue("externalId", this.externalId);
         }
         if(this.gender){
-        if(this.gender)
         writer.writeEnumValue<EducationGender>("gender", this.gender);
         }
         if(this.grade){
-        if(this.grade)
         writer.writeStringValue("grade", this.grade);
         }
         if(this.graduationYear){
-        if(this.graduationYear)
         writer.writeStringValue("graduationYear", this.graduationYear);
         }
         if(this.studentNumber){
-        if(this.studentNumber)
         writer.writeStringValue("studentNumber", this.studentNumber);
         }
         writer.writeAdditionalData(this.additionalData);

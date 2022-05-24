@@ -4,9 +4,10 @@ import {DeviceManagementReports} from './deviceManagementReports';
 import {DeviceManagementExportJobImpl, EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Singleton entity that acts as a container for all reports functionality. */
 export class DeviceManagementReportsImpl extends EntityImpl implements DeviceManagementReports, Parsable {
     /** Entity representing a job to export a report */
-    exportJobs?: DeviceManagementExportJob[] | undefined;
+    public exportJobs?: DeviceManagementExportJob[] | undefined;
     /**
      * Instantiates a new deviceManagementReports and sets the default values.
      * @param deviceManagementReportsParameterValue 
@@ -31,8 +32,7 @@ export class DeviceManagementReportsImpl extends EntityImpl implements DeviceMan
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.exportJobs){
-        const exportJobsArrValue: DeviceManagementExportJobImpl[] = []; this.exportJobs?.forEach(element => {exportJobsArrValue.push(new DeviceManagementExportJobImpl(element));});
+        if(this.exportJobs && this.exportJobs.length != 0){        const exportJobsArrValue: DeviceManagementExportJobImpl[] = []; this.exportJobs?.forEach(element => {exportJobsArrValue.push(new DeviceManagementExportJobImpl(element));});
         writer.writeCollectionOfObjectValues<DeviceManagementExportJobImpl>("exportJobs", exportJobsArrValue);
         }
     };

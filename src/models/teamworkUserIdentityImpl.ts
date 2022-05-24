@@ -3,9 +3,10 @@ import {TeamworkUserIdentity} from './teamworkUserIdentity';
 import {TeamworkUserIdentityType} from './teamworkUserIdentityType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the collection of chat entities. */
 export class TeamworkUserIdentityImpl extends IdentityImpl implements Parsable, TeamworkUserIdentity {
     /** Type of user. Possible values are: aadUser, onPremiseAadUser, anonymousGuest, federatedUser, personalMicrosoftAccountUser, skypeUser, phoneUser, and emailUser. */
-    userIdentityType?: TeamworkUserIdentityType | undefined;
+    public userIdentityType?: TeamworkUserIdentityType | undefined;
     /**
      * Instantiates a new teamworkUserIdentity and sets the default values.
      * @param teamworkUserIdentityParameterValue 
@@ -31,7 +32,6 @@ export class TeamworkUserIdentityImpl extends IdentityImpl implements Parsable, 
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.userIdentityType){
-        if(this.userIdentityType)
         writer.writeEnumValue<TeamworkUserIdentityType>("userIdentityType", this.userIdentityType);
         }
     };

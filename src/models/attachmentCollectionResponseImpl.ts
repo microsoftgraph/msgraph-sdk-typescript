@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class AttachmentCollectionResponseImpl implements AdditionalDataHolder, AttachmentCollectionResponse, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: Attachment[] | undefined;
+    public value?: Attachment[] | undefined;
     /**
      * Instantiates a new AttachmentCollectionResponse and sets the default values.
      * @param attachmentCollectionResponseParameterValue 
      */
     public constructor(attachmentCollectionResponseParameterValue?: AttachmentCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = attachmentCollectionResponseParameterValue?.additionalData ? {} : attachmentCollectionResponseParameterValue?.additionalData!
+        this.additionalData = attachmentCollectionResponseParameterValue?.additionalData ? attachmentCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = attachmentCollectionResponseParameterValue?.nextLink ;
         this.value = attachmentCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class AttachmentCollectionResponseImpl implements AdditionalDataHolder, A
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: AttachmentImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new AttachmentImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: AttachmentImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new AttachmentImpl(element));});
         writer.writeCollectionOfObjectValues<AttachmentImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

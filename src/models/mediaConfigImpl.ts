@@ -3,14 +3,13 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class MediaConfigImpl implements AdditionalDataHolder, MediaConfig, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /**
      * Instantiates a new mediaConfig and sets the default values.
      * @param mediaConfigParameterValue 
      */
     public constructor(mediaConfigParameterValue?: MediaConfig | undefined) {
-        this.additionalData = {};
-        this.additionalData = mediaConfigParameterValue?.additionalData ? {} : mediaConfigParameterValue?.additionalData!
+        this.additionalData = mediaConfigParameterValue?.additionalData ? mediaConfigParameterValue?.additionalData! : {}
     };
     /**
      * The deserialization information for the current model

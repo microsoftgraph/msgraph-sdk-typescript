@@ -8,15 +8,16 @@ import {Set} from './set';
 import {Term} from './term';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to group. */
 export class RelationImpl extends EntityImpl implements Parsable, Relation {
     /** The from [term] of the relation. The term from which the relationship is defined. A null value would indicate the relation is directly with the [set]. */
-    fromTerm?: Term | undefined;
+    public fromTerm?: Term | undefined;
     /** The type of relation. Possible values are: pin, reuse. */
-    relationship?: RelationType | undefined;
+    public relationship?: RelationType | undefined;
     /** The [set] in which the relation is relevant. */
-    set?: Set | undefined;
+    public set?: Set | undefined;
     /** The to [term] of the relation. The term to which the relationship is defined. */
-    toTerm?: Term | undefined;
+    public toTerm?: Term | undefined;
     /**
      * Instantiates a new relation and sets the default values.
      * @param relationParameterValue 
@@ -48,19 +49,15 @@ export class RelationImpl extends EntityImpl implements Parsable, Relation {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.fromTerm){
-        if(this.fromTerm)
         writer.writeObjectValue<TermImpl>("fromTerm", new TermImpl(this.fromTerm));
         }
         if(this.relationship){
-        if(this.relationship)
         writer.writeEnumValue<RelationType>("relationship", this.relationship);
         }
         if(this.set){
-        if(this.set)
         writer.writeObjectValue<SetImpl>("set", new SetImpl(this.set));
         }
         if(this.toTerm){
-        if(this.toTerm)
         writer.writeObjectValue<TermImpl>("toTerm", new TermImpl(this.toTerm));
         }
     };

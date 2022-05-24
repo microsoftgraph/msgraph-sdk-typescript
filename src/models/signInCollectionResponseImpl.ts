@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class SignInCollectionResponseImpl implements AdditionalDataHolder, Parsable, SignInCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: SignIn[] | undefined;
+    public value?: SignIn[] | undefined;
     /**
      * Instantiates a new SignInCollectionResponse and sets the default values.
      * @param signInCollectionResponseParameterValue 
      */
     public constructor(signInCollectionResponseParameterValue?: SignInCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = signInCollectionResponseParameterValue?.additionalData ? {} : signInCollectionResponseParameterValue?.additionalData!
+        this.additionalData = signInCollectionResponseParameterValue?.additionalData ? signInCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = signInCollectionResponseParameterValue?.nextLink ;
         this.value = signInCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class SignInCollectionResponseImpl implements AdditionalDataHolder, Parsa
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: SignInImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new SignInImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: SignInImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new SignInImpl(element));});
         writer.writeCollectionOfObjectValues<SignInImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

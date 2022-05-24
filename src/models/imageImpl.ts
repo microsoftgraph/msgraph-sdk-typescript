@@ -3,18 +3,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class ImageImpl implements AdditionalDataHolder, Image, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** Optional. Height of the image, in pixels. Read-only. */
-    height?: number | undefined;
+    public height?: number | undefined;
     /** Optional. Width of the image, in pixels. Read-only. */
-    width?: number | undefined;
+    public width?: number | undefined;
     /**
      * Instantiates a new image and sets the default values.
      * @param imageParameterValue 
      */
     public constructor(imageParameterValue?: Image | undefined) {
-        this.additionalData = {};
-        this.additionalData = imageParameterValue?.additionalData ? {} : imageParameterValue?.additionalData!
+        this.additionalData = imageParameterValue?.additionalData ? imageParameterValue?.additionalData! : {}
         this.height = imageParameterValue?.height ;
         this.width = imageParameterValue?.width ;
     };
@@ -35,11 +34,9 @@ export class ImageImpl implements AdditionalDataHolder, Image, Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.height){
-        if(this.height)
         writer.writeNumberValue("height", this.height);
         }
         if(this.width){
-        if(this.width)
         writer.writeNumberValue("width", this.width);
         }
         writer.writeAdditionalData(this.additionalData);

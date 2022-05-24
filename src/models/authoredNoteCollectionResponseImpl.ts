@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class AuthoredNoteCollectionResponseImpl implements AdditionalDataHolder, AuthoredNoteCollectionResponse, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: AuthoredNote[] | undefined;
+    public value?: AuthoredNote[] | undefined;
     /**
      * Instantiates a new AuthoredNoteCollectionResponse and sets the default values.
      * @param authoredNoteCollectionResponseParameterValue 
      */
     public constructor(authoredNoteCollectionResponseParameterValue?: AuthoredNoteCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = authoredNoteCollectionResponseParameterValue?.additionalData ? {} : authoredNoteCollectionResponseParameterValue?.additionalData!
+        this.additionalData = authoredNoteCollectionResponseParameterValue?.additionalData ? authoredNoteCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = authoredNoteCollectionResponseParameterValue?.nextLink ;
         this.value = authoredNoteCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class AuthoredNoteCollectionResponseImpl implements AdditionalDataHolder,
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: AuthoredNoteImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new AuthoredNoteImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: AuthoredNoteImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new AuthoredNoteImpl(element));});
         writer.writeCollectionOfObjectValues<AuthoredNoteImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

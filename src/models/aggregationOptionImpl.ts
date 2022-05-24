@@ -6,20 +6,19 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class AggregationOptionImpl implements AdditionalDataHolder, AggregationOption, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The bucketDefinition property */
-    bucketDefinition?: BucketAggregationDefinition | undefined;
+    public bucketDefinition?: BucketAggregationDefinition | undefined;
     /** Computes aggregation on the field while the field exists in current entity type. Required. */
-    field?: string | undefined;
+    public field?: string | undefined;
     /** The number of searchBucket resources to be returned. This is not required when the range is provided manually in the search request. Optional. */
-    size?: number | undefined;
+    public size?: number | undefined;
     /**
      * Instantiates a new aggregationOption and sets the default values.
      * @param aggregationOptionParameterValue 
      */
     public constructor(aggregationOptionParameterValue?: AggregationOption | undefined) {
-        this.additionalData = {};
-        this.additionalData = aggregationOptionParameterValue?.additionalData ? {} : aggregationOptionParameterValue?.additionalData!
+        this.additionalData = aggregationOptionParameterValue?.additionalData ? aggregationOptionParameterValue?.additionalData! : {}
         this.bucketDefinition = aggregationOptionParameterValue?.bucketDefinition ;
         this.field = aggregationOptionParameterValue?.field ;
         this.size = aggregationOptionParameterValue?.size ;
@@ -42,15 +41,12 @@ export class AggregationOptionImpl implements AdditionalDataHolder, AggregationO
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.bucketDefinition){
-        if(this.bucketDefinition)
         writer.writeObjectValue<BucketAggregationDefinitionImpl>("bucketDefinition", new BucketAggregationDefinitionImpl(this.bucketDefinition));
         }
         if(this.field){
-        if(this.field)
         writer.writeStringValue("field", this.field);
         }
         if(this.size){
-        if(this.size)
         writer.writeNumberValue("size", this.size);
         }
         writer.writeAdditionalData(this.additionalData);

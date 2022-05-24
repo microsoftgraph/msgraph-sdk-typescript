@@ -4,16 +4,15 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Device Configuration profile History reports. */
 export class ReportImpl implements AdditionalDataHolder, Parsable, Report {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** Report content; details vary by report type. */
-    content?: string | undefined;
+    public content?: string | undefined;
     /**
-     * Instantiates a new report and sets the default values.
+     * Instantiates a new Report and sets the default values.
      * @param reportParameterValue 
      */
     public constructor(reportParameterValue?: Report | undefined) {
-        this.additionalData = {};
-        this.additionalData = reportParameterValue?.additionalData ? {} : reportParameterValue?.additionalData!
+        this.additionalData = reportParameterValue?.additionalData ? reportParameterValue?.additionalData! : {}
         this.content = reportParameterValue?.content ;
     };
     /**
@@ -32,7 +31,6 @@ export class ReportImpl implements AdditionalDataHolder, Parsable, Report {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.content){
-        if(this.content)
         writer.writeStringValue("content", this.content);
         }
         writer.writeAdditionalData(this.additionalData);

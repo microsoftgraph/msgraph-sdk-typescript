@@ -3,34 +3,33 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class VideoImpl implements AdditionalDataHolder, Parsable, Video {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** Number of audio bits per sample. */
-    audioBitsPerSample?: number | undefined;
+    public audioBitsPerSample?: number | undefined;
     /** Number of audio channels. */
-    audioChannels?: number | undefined;
+    public audioChannels?: number | undefined;
     /** Name of the audio format (AAC, MP3, etc.). */
-    audioFormat?: string | undefined;
+    public audioFormat?: string | undefined;
     /** Number of audio samples per second. */
-    audioSamplesPerSecond?: number | undefined;
+    public audioSamplesPerSecond?: number | undefined;
     /** Bit rate of the video in bits per second. */
-    bitrate?: number | undefined;
+    public bitrate?: number | undefined;
     /** Duration of the file in milliseconds. */
-    duration?: number | undefined;
+    public duration?: number | undefined;
     /** 'Four character code' name of the video format. */
-    fourCC?: string | undefined;
+    public fourCC?: string | undefined;
     /** Frame rate of the video. */
-    frameRate?: number | undefined;
+    public frameRate?: number | undefined;
     /** Height of the video, in pixels. */
-    height?: number | undefined;
+    public height?: number | undefined;
     /** Width of the video, in pixels. */
-    width?: number | undefined;
+    public width?: number | undefined;
     /**
      * Instantiates a new video and sets the default values.
      * @param videoParameterValue 
      */
     public constructor(videoParameterValue?: Video | undefined) {
-        this.additionalData = {};
-        this.additionalData = videoParameterValue?.additionalData ? {} : videoParameterValue?.additionalData!
+        this.additionalData = videoParameterValue?.additionalData ? videoParameterValue?.additionalData! : {}
         this.audioBitsPerSample = videoParameterValue?.audioBitsPerSample ;
         this.audioChannels = videoParameterValue?.audioChannels ;
         this.audioFormat = videoParameterValue?.audioFormat ;
@@ -67,43 +66,33 @@ export class VideoImpl implements AdditionalDataHolder, Parsable, Video {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.audioBitsPerSample){
-        if(this.audioBitsPerSample)
         writer.writeNumberValue("audioBitsPerSample", this.audioBitsPerSample);
         }
         if(this.audioChannels){
-        if(this.audioChannels)
         writer.writeNumberValue("audioChannels", this.audioChannels);
         }
         if(this.audioFormat){
-        if(this.audioFormat)
         writer.writeStringValue("audioFormat", this.audioFormat);
         }
         if(this.audioSamplesPerSecond){
-        if(this.audioSamplesPerSecond)
         writer.writeNumberValue("audioSamplesPerSecond", this.audioSamplesPerSecond);
         }
         if(this.bitrate){
-        if(this.bitrate)
         writer.writeNumberValue("bitrate", this.bitrate);
         }
         if(this.duration){
-        if(this.duration)
         writer.writeNumberValue("duration", this.duration);
         }
         if(this.fourCC){
-        if(this.fourCC)
         writer.writeStringValue("fourCC", this.fourCC);
         }
         if(this.frameRate){
-        if(this.frameRate)
         writer.writeNumberValue("frameRate", this.frameRate);
         }
         if(this.height){
-        if(this.height)
         writer.writeNumberValue("height", this.height);
         }
         if(this.width){
-        if(this.width)
         writer.writeNumberValue("width", this.width);
         }
         writer.writeAdditionalData(this.additionalData);

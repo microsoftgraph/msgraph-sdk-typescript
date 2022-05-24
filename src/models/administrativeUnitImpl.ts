@@ -8,19 +8,20 @@ import {DirectoryObjectImpl, ExtensionImpl, ScopedRoleMembershipImpl} from './in
 import {ScopedRoleMembership} from './scopedRoleMembership';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the educationRoot singleton. */
 export class AdministrativeUnitImpl extends DirectoryObjectImpl implements AdministrativeUnit, Parsable {
     /** An optional description for the administrative unit. Supports $filter (eq, ne, in, startsWith), $search. */
-    description?: string | undefined;
+    public description?: string | undefined;
     /** Display name for the administrative unit. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values), $search, and $orderBy. */
-    displayName?: string | undefined;
+    public displayName?: string | undefined;
     /** The collection of open extensions defined for this administrative unit. Nullable. */
-    extensions?: Extension[] | undefined;
+    public extensions?: Extension[] | undefined;
     /** Users and groups that are members of this administrative unit. Supports $expand. */
-    members?: DirectoryObject[] | undefined;
+    public members?: DirectoryObject[] | undefined;
     /** Scoped-role members of this administrative unit. */
-    scopedRoleMembers?: ScopedRoleMembership[] | undefined;
+    public scopedRoleMembers?: ScopedRoleMembership[] | undefined;
     /** Controls whether the administrative unit and its members are hidden or public. Can be set to HiddenMembership. If not set (value is null), the default behavior is public. When set to HiddenMembership, only members of the administrative unit can list other members of the administrative unit. */
-    visibility?: string | undefined;
+    public visibility?: string | undefined;
     /**
      * Instantiates a new administrativeUnit and sets the default values.
      * @param administrativeUnitParameterValue 
@@ -56,27 +57,21 @@ export class AdministrativeUnitImpl extends DirectoryObjectImpl implements Admin
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.description){
-        if(this.description)
         writer.writeStringValue("description", this.description);
         }
         if(this.displayName){
-        if(this.displayName)
         writer.writeStringValue("displayName", this.displayName);
         }
-        if(this.extensions){
-        const extensionsArrValue: ExtensionImpl[] = []; this.extensions?.forEach(element => {extensionsArrValue.push(new ExtensionImpl(element));});
+        if(this.extensions && this.extensions.length != 0){        const extensionsArrValue: ExtensionImpl[] = []; this.extensions?.forEach(element => {extensionsArrValue.push(new ExtensionImpl(element));});
         writer.writeCollectionOfObjectValues<ExtensionImpl>("extensions", extensionsArrValue);
         }
-        if(this.members){
-        const membersArrValue: DirectoryObjectImpl[] = []; this.members?.forEach(element => {membersArrValue.push(new DirectoryObjectImpl(element));});
+        if(this.members && this.members.length != 0){        const membersArrValue: DirectoryObjectImpl[] = []; this.members?.forEach(element => {membersArrValue.push(new DirectoryObjectImpl(element));});
         writer.writeCollectionOfObjectValues<DirectoryObjectImpl>("members", membersArrValue);
         }
-        if(this.scopedRoleMembers){
-        const scopedRoleMembersArrValue: ScopedRoleMembershipImpl[] = []; this.scopedRoleMembers?.forEach(element => {scopedRoleMembersArrValue.push(new ScopedRoleMembershipImpl(element));});
+        if(this.scopedRoleMembers && this.scopedRoleMembers.length != 0){        const scopedRoleMembersArrValue: ScopedRoleMembershipImpl[] = []; this.scopedRoleMembers?.forEach(element => {scopedRoleMembersArrValue.push(new ScopedRoleMembershipImpl(element));});
         writer.writeCollectionOfObjectValues<ScopedRoleMembershipImpl>("scopedRoleMembers", scopedRoleMembersArrValue);
         }
         if(this.visibility){
-        if(this.visibility)
         writer.writeStringValue("visibility", this.visibility);
         }
     };

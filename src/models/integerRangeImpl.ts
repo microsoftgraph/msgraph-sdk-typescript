@@ -3,18 +3,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class IntegerRangeImpl implements AdditionalDataHolder, IntegerRange, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The inclusive upper bound of the integer range. */
-    end?: number | undefined;
+    public end?: number | undefined;
     /** The inclusive lower bound of the integer range. */
-    start?: number | undefined;
+    public start?: number | undefined;
     /**
      * Instantiates a new integerRange and sets the default values.
      * @param integerRangeParameterValue 
      */
     public constructor(integerRangeParameterValue?: IntegerRange | undefined) {
-        this.additionalData = {};
-        this.additionalData = integerRangeParameterValue?.additionalData ? {} : integerRangeParameterValue?.additionalData!
+        this.additionalData = integerRangeParameterValue?.additionalData ? integerRangeParameterValue?.additionalData! : {}
         this.end = integerRangeParameterValue?.end ;
         this.start = integerRangeParameterValue?.start ;
     };
@@ -35,11 +34,9 @@ export class IntegerRangeImpl implements AdditionalDataHolder, IntegerRange, Par
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.end){
-        if(this.end)
         writer.writeNumberValue("end", this.end);
         }
         if(this.start){
-        if(this.start)
         writer.writeNumberValue("start", this.start);
         }
         writer.writeAdditionalData(this.additionalData);

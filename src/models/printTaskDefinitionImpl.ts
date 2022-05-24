@@ -6,13 +6,14 @@ import {PrintTask} from './printTask';
 import {PrintTaskDefinition} from './printTaskDefinition';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the print singleton. */
 export class PrintTaskDefinitionImpl extends EntityImpl implements Parsable, PrintTaskDefinition {
     /** The createdBy property */
-    createdBy?: AppIdentity | undefined;
+    public createdBy?: AppIdentity | undefined;
     /** The name of the printTaskDefinition. */
-    displayName?: string | undefined;
+    public displayName?: string | undefined;
     /** A list of tasks that have been created based on this definition. The list includes currently running tasks and recently completed tasks. Read-only. */
-    tasks?: PrintTask[] | undefined;
+    public tasks?: PrintTask[] | undefined;
     /**
      * Instantiates a new printTaskDefinition and sets the default values.
      * @param printTaskDefinitionParameterValue 
@@ -42,15 +43,12 @@ export class PrintTaskDefinitionImpl extends EntityImpl implements Parsable, Pri
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.createdBy){
-        if(this.createdBy)
         writer.writeObjectValue<AppIdentityImpl>("createdBy", new AppIdentityImpl(this.createdBy));
         }
         if(this.displayName){
-        if(this.displayName)
         writer.writeStringValue("displayName", this.displayName);
         }
-        if(this.tasks){
-        const tasksArrValue: PrintTaskImpl[] = []; this.tasks?.forEach(element => {tasksArrValue.push(new PrintTaskImpl(element));});
+        if(this.tasks && this.tasks.length != 0){        const tasksArrValue: PrintTaskImpl[] = []; this.tasks?.forEach(element => {tasksArrValue.push(new PrintTaskImpl(element));});
         writer.writeCollectionOfObjectValues<PrintTaskImpl>("tasks", tasksArrValue);
         }
     };

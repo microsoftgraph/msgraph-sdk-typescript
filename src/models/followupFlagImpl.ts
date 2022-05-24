@@ -7,22 +7,21 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class FollowupFlagImpl implements AdditionalDataHolder, FollowupFlag, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The date and time that the follow-up was finished. */
-    completedDateTime?: DateTimeTimeZone | undefined;
+    public completedDateTime?: DateTimeTimeZone | undefined;
     /** The date and time that the follow up is to be finished. Note: To set the due date, you must also specify the startDateTime; otherwise, you will get a 400 Bad Request response. */
-    dueDateTime?: DateTimeTimeZone | undefined;
+    public dueDateTime?: DateTimeTimeZone | undefined;
     /** The status for follow-up for an item. Possible values are notFlagged, complete, and flagged. */
-    flagStatus?: FollowupFlagStatus | undefined;
+    public flagStatus?: FollowupFlagStatus | undefined;
     /** The date and time that the follow-up is to begin. */
-    startDateTime?: DateTimeTimeZone | undefined;
+    public startDateTime?: DateTimeTimeZone | undefined;
     /**
      * Instantiates a new followupFlag and sets the default values.
      * @param followupFlagParameterValue 
      */
     public constructor(followupFlagParameterValue?: FollowupFlag | undefined) {
-        this.additionalData = {};
-        this.additionalData = followupFlagParameterValue?.additionalData ? {} : followupFlagParameterValue?.additionalData!
+        this.additionalData = followupFlagParameterValue?.additionalData ? followupFlagParameterValue?.additionalData! : {}
         this.completedDateTime = followupFlagParameterValue?.completedDateTime ;
         this.dueDateTime = followupFlagParameterValue?.dueDateTime ;
         this.flagStatus = followupFlagParameterValue?.flagStatus ;
@@ -47,19 +46,15 @@ export class FollowupFlagImpl implements AdditionalDataHolder, FollowupFlag, Par
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.completedDateTime){
-        if(this.completedDateTime)
         writer.writeObjectValue<DateTimeTimeZoneImpl>("completedDateTime", new DateTimeTimeZoneImpl(this.completedDateTime));
         }
         if(this.dueDateTime){
-        if(this.dueDateTime)
         writer.writeObjectValue<DateTimeTimeZoneImpl>("dueDateTime", new DateTimeTimeZoneImpl(this.dueDateTime));
         }
         if(this.flagStatus){
-        if(this.flagStatus)
         writer.writeEnumValue<FollowupFlagStatus>("flagStatus", this.flagStatus);
         }
         if(this.startDateTime){
-        if(this.startDateTime)
         writer.writeObjectValue<DateTimeTimeZoneImpl>("startDateTime", new DateTimeTimeZoneImpl(this.startDateTime));
         }
         writer.writeAdditionalData(this.additionalData);

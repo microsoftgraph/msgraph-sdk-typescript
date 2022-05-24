@@ -4,15 +4,16 @@ import {OnenoteOperation} from './onenoteOperation';
 import {OnenoteOperationError} from './onenoteOperationError';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to group. */
 export class OnenoteOperationImpl extends OperationImpl implements OnenoteOperation, Parsable {
     /** The error returned by the operation. */
-    error_escaped?: OnenoteOperationError | undefined;
+    public error_escaped?: OnenoteOperationError | undefined;
     /** The operation percent complete if the operation is still in running status. */
-    percentComplete?: string | undefined;
+    public percentComplete?: string | undefined;
     /** The resource id. */
-    resourceId?: string | undefined;
+    public resourceId?: string | undefined;
     /** The resource URI for the object. For example, the resource URI for a copied page or section. */
-    resourceLocation?: string | undefined;
+    public resourceLocation?: string | undefined;
     /**
      * Instantiates a new onenoteOperation and sets the default values.
      * @param onenoteOperationParameterValue 
@@ -44,19 +45,15 @@ export class OnenoteOperationImpl extends OperationImpl implements OnenoteOperat
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.error_escaped){
-        if(this.error_escaped)
         writer.writeObjectValue<OnenoteOperationErrorImpl>("error", new OnenoteOperationErrorImpl(this.error_escaped));
         }
         if(this.percentComplete){
-        if(this.percentComplete)
         writer.writeStringValue("percentComplete", this.percentComplete);
         }
         if(this.resourceId){
-        if(this.resourceId)
         writer.writeStringValue("resourceId", this.resourceId);
         }
         if(this.resourceLocation){
-        if(this.resourceLocation)
         writer.writeStringValue("resourceLocation", this.resourceLocation);
         }
     };

@@ -1,3 +1,3 @@
-export * from './updateWindowsDeviceAccountRequestBodyImpl'
-export * from './updateWindowsDeviceAccountRequestBody'
+export * from './updateWindowsDeviceAccountPostRequestBodyImpl'
 export * from './updateWindowsDeviceAccountRequestBuilderPostRequestConfiguration'
+export * from './updateWindowsDeviceAccountPostRequestBody'

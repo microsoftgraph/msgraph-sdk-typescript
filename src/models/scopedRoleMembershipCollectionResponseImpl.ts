@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class ScopedRoleMembershipCollectionResponseImpl implements AdditionalDataHolder, Parsable, ScopedRoleMembershipCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: ScopedRoleMembership[] | undefined;
+    public value?: ScopedRoleMembership[] | undefined;
     /**
      * Instantiates a new ScopedRoleMembershipCollectionResponse and sets the default values.
      * @param scopedRoleMembershipCollectionResponseParameterValue 
      */
     public constructor(scopedRoleMembershipCollectionResponseParameterValue?: ScopedRoleMembershipCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = scopedRoleMembershipCollectionResponseParameterValue?.additionalData ? {} : scopedRoleMembershipCollectionResponseParameterValue?.additionalData!
+        this.additionalData = scopedRoleMembershipCollectionResponseParameterValue?.additionalData ? scopedRoleMembershipCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = scopedRoleMembershipCollectionResponseParameterValue?.nextLink ;
         this.value = scopedRoleMembershipCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class ScopedRoleMembershipCollectionResponseImpl implements AdditionalDat
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: ScopedRoleMembershipImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ScopedRoleMembershipImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: ScopedRoleMembershipImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ScopedRoleMembershipImpl(element));});
         writer.writeCollectionOfObjectValues<ScopedRoleMembershipImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

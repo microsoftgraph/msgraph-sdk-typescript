@@ -1,5 +1,4 @@
 import {createTimeZoneBaseFromDiscriminatorValue} from './createTimeZoneBaseFromDiscriminatorValue';
-import {DayOfWeek} from './dayOfWeek';
 import {TimeZoneBaseImpl} from './index';
 import {TimeZoneBase} from './timeZoneBase';
 import {WorkingHours} from './workingHours';
@@ -7,22 +6,21 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter, TimeOnly
 
 export class WorkingHoursImpl implements AdditionalDataHolder, Parsable, WorkingHours {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The days of the week on which the user works. */
-    daysOfWeek?: DayOfWeek[] | undefined;
+    public daysOfWeek?: string[] | undefined;
     /** The time of the day that the user stops working. */
-    endTime?: TimeOnly | undefined;
+    public endTime?: TimeOnly | undefined;
     /** The time of the day that the user starts working. */
-    startTime?: TimeOnly | undefined;
+    public startTime?: TimeOnly | undefined;
     /** The time zone to which the working hours apply. */
-    timeZone?: TimeZoneBase | undefined;
+    public timeZone?: TimeZoneBase | undefined;
     /**
      * Instantiates a new workingHours and sets the default values.
      * @param workingHoursParameterValue 
      */
     public constructor(workingHoursParameterValue?: WorkingHours | undefined) {
-        this.additionalData = {};
-        this.additionalData = workingHoursParameterValue?.additionalData ? {} : workingHoursParameterValue?.additionalData!
+        this.additionalData = workingHoursParameterValue?.additionalData ? workingHoursParameterValue?.additionalData! : {}
         this.daysOfWeek = workingHoursParameterValue?.daysOfWeek ;
         this.endTime = workingHoursParameterValue?.endTime ;
         this.startTime = workingHoursParameterValue?.startTime ;
@@ -34,7 +32,7 @@ export class WorkingHoursImpl implements AdditionalDataHolder, Parsable, Working
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
-            "daysOfWeek": n => { this.daysOfWeek = n.getEnumValues<DayOfWeek>(DayOfWeek); },
+            "daysOfWeek": n => { this.daysOfWeek = n.getCollectionOfPrimitiveValues<string>(); },
             "endTime": n => { this.endTime = n.getTimeOnlyValue(); },
             "startTime": n => { this.startTime = n.getTimeOnlyValue(); },
             "timeZone": n => { this.timeZone = n.getObjectValue<TimeZoneBaseImpl>(createTimeZoneBaseFromDiscriminatorValue); },
@@ -47,19 +45,15 @@ export class WorkingHoursImpl implements AdditionalDataHolder, Parsable, Working
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.daysOfWeek){
-        if(this.daysOfWeek)
-        this.daysOfWeek && writer.writeEnumValue<DayOfWeek>("daysOfWeek", ...this.daysOfWeek);
+        writer.writeCollectionOfPrimitiveValues<string>("daysOfWeek", this.daysOfWeek);
         }
         if(this.endTime){
-        if(this.endTime)
         writer.writeTimeOnlyValue("endTime", this.endTime);
         }
         if(this.startTime){
-        if(this.startTime)
         writer.writeTimeOnlyValue("startTime", this.startTime);
         }
         if(this.timeZone){
-        if(this.timeZone)
         writer.writeObjectValue<TimeZoneBaseImpl>("timeZone", new TimeZoneBaseImpl(this.timeZone));
         }
         writer.writeAdditionalData(this.additionalData);

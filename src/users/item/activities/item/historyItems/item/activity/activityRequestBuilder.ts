@@ -2,7 +2,6 @@ import {UserActivityImpl} from '../../../../../../../models/';
 import {createUserActivityFromDiscriminatorValue} from '../../../../../../../models/createUserActivityFromDiscriminatorValue';
 import {ODataErrorImpl} from '../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {UserActivity} from '../../../../../../../models/userActivity';
 import {ActivityRequestBuilderGetRequestConfiguration} from './activityRequestBuilderGetRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
@@ -50,7 +49,7 @@ export class ActivityRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of UserActivity
      */
-    public get(requestConfiguration?: ActivityRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<UserActivity | undefined> {
+    public get(requestConfiguration?: ActivityRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<UserActivityImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );

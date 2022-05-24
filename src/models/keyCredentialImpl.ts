@@ -3,30 +3,29 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class KeyCredentialImpl implements AdditionalDataHolder, KeyCredential, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** Custom key identifier */
-    customKeyIdentifier?: string | undefined;
+    public customKeyIdentifier?: string | undefined;
     /** Friendly name for the key. Optional. */
-    displayName?: string | undefined;
+    public displayName?: string | undefined;
     /** The date and time at which the credential expires. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
-    endDateTime?: Date | undefined;
+    public endDateTime?: Date | undefined;
     /** Value for the key credential. Should be a Base64 encoded value. Returned only on $select for a single object, that is, GET applications/{applicationId}?$select=keyCredentials or GET servicePrincipals/{servicePrincipalId}?$select=keyCredentials; otherwise, it is always null. */
-    key?: string | undefined;
+    public key?: string | undefined;
     /** The unique identifier for the key. */
-    keyId?: string | undefined;
+    public keyId?: string | undefined;
     /** The date and time at which the credential becomes valid.The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
-    startDateTime?: Date | undefined;
+    public startDateTime?: Date | undefined;
     /** The type of key credential; for example, Symmetric, AsymmetricX509Cert. */
-    type?: string | undefined;
+    public type?: string | undefined;
     /** A string that describes the purpose for which the key can be used; for example, Verify. */
-    usage?: string | undefined;
+    public usage?: string | undefined;
     /**
      * Instantiates a new keyCredential and sets the default values.
      * @param keyCredentialParameterValue 
      */
     public constructor(keyCredentialParameterValue?: KeyCredential | undefined) {
-        this.additionalData = {};
-        this.additionalData = keyCredentialParameterValue?.additionalData ? {} : keyCredentialParameterValue?.additionalData!
+        this.additionalData = keyCredentialParameterValue?.additionalData ? keyCredentialParameterValue?.additionalData! : {}
         this.customKeyIdentifier = keyCredentialParameterValue?.customKeyIdentifier ;
         this.displayName = keyCredentialParameterValue?.displayName ;
         this.endDateTime = keyCredentialParameterValue?.endDateTime ;
@@ -59,35 +58,27 @@ export class KeyCredentialImpl implements AdditionalDataHolder, KeyCredential, P
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.customKeyIdentifier){
-        if(this.customKeyIdentifier)
         writer.writeStringValue("customKeyIdentifier", this.customKeyIdentifier);
         }
         if(this.displayName){
-        if(this.displayName)
         writer.writeStringValue("displayName", this.displayName);
         }
         if(this.endDateTime){
-        if(this.endDateTime)
         writer.writeDateValue("endDateTime", this.endDateTime);
         }
         if(this.key){
-        if(this.key)
         writer.writeStringValue("key", this.key);
         }
         if(this.keyId){
-        if(this.keyId)
         writer.writeStringValue("keyId", this.keyId);
         }
         if(this.startDateTime){
-        if(this.startDateTime)
         writer.writeDateValue("startDateTime", this.startDateTime);
         }
         if(this.type){
-        if(this.type)
         writer.writeStringValue("type", this.type);
         }
         if(this.usage){
-        if(this.usage)
         writer.writeStringValue("usage", this.usage);
         }
         writer.writeAdditionalData(this.additionalData);

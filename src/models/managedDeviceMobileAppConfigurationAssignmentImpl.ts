@@ -4,9 +4,10 @@ import {DeviceAndAppManagementAssignmentTargetImpl, EntityImpl} from './index';
 import {ManagedDeviceMobileAppConfigurationAssignment} from './managedDeviceMobileAppConfigurationAssignment';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Contains the properties used to assign an MDM app configuration to a group. */
 export class ManagedDeviceMobileAppConfigurationAssignmentImpl extends EntityImpl implements ManagedDeviceMobileAppConfigurationAssignment, Parsable {
     /** Assignment target that the T&C policy is assigned to. */
-    target?: DeviceAndAppManagementAssignmentTarget | undefined;
+    public target?: DeviceAndAppManagementAssignmentTarget | undefined;
     /**
      * Instantiates a new managedDeviceMobileAppConfigurationAssignment and sets the default values.
      * @param managedDeviceMobileAppConfigurationAssignmentParameterValue 
@@ -32,7 +33,6 @@ export class ManagedDeviceMobileAppConfigurationAssignmentImpl extends EntityImp
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.target){
-        if(this.target)
         writer.writeObjectValue<DeviceAndAppManagementAssignmentTargetImpl>("target", new DeviceAndAppManagementAssignmentTargetImpl(this.target));
         }
     };

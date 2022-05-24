@@ -1,5 +1,3 @@
-export * from './getReportFiltersResponseImpl'
-export * from './getReportFiltersRequestBodyImpl'
-export * from './getReportFiltersResponse'
+export * from './getReportFiltersPostRequestBodyImpl'
 export * from './getReportFiltersRequestBuilderPostRequestConfiguration'
-export * from './getReportFiltersRequestBody'
+export * from './getReportFiltersPostRequestBody'

@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class ServiceAnnouncementAttachmentCollectionResponseImpl implements AdditionalDataHolder, Parsable, ServiceAnnouncementAttachmentCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: ServiceAnnouncementAttachment[] | undefined;
+    public value?: ServiceAnnouncementAttachment[] | undefined;
     /**
      * Instantiates a new ServiceAnnouncementAttachmentCollectionResponse and sets the default values.
      * @param serviceAnnouncementAttachmentCollectionResponseParameterValue 
      */
     public constructor(serviceAnnouncementAttachmentCollectionResponseParameterValue?: ServiceAnnouncementAttachmentCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = serviceAnnouncementAttachmentCollectionResponseParameterValue?.additionalData ? {} : serviceAnnouncementAttachmentCollectionResponseParameterValue?.additionalData!
+        this.additionalData = serviceAnnouncementAttachmentCollectionResponseParameterValue?.additionalData ? serviceAnnouncementAttachmentCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = serviceAnnouncementAttachmentCollectionResponseParameterValue?.nextLink ;
         this.value = serviceAnnouncementAttachmentCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class ServiceAnnouncementAttachmentCollectionResponseImpl implements Addi
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: ServiceAnnouncementAttachmentImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ServiceAnnouncementAttachmentImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: ServiceAnnouncementAttachmentImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ServiceAnnouncementAttachmentImpl(element));});
         writer.writeCollectionOfObjectValues<ServiceAnnouncementAttachmentImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

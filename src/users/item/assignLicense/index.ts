@@ -1,3 +1,3 @@
-export * from './assignLicenseRequestBodyImpl'
-export * from './assignLicenseRequestBody'
+export * from './assignLicensePostRequestBodyImpl'
+export * from './assignLicensePostRequestBody'
 export * from './assignLicenseRequestBuilderPostRequestConfiguration'

@@ -3,13 +3,13 @@ import {ManagedAppPolicyDeploymentSummaryPerApp} from './managedAppPolicyDeploym
 
 export interface ManagedAppPolicyDeploymentSummary extends Entity{
     /** Not yet documented */
-    configurationDeployedUserCount?: number | undefined;
+    configurationDeployedUserCount?:number | undefined;
     /** Not yet documented */
-    configurationDeploymentSummaryPerApp?: ManagedAppPolicyDeploymentSummaryPerApp[] | undefined;
+    configurationDeploymentSummaryPerApp?:ManagedAppPolicyDeploymentSummaryPerApp[] | undefined;
     /** Not yet documented */
-    displayName?: string | undefined;
+    displayName?:string | undefined;
     /** Not yet documented */
-    lastRefreshTime?: Date | undefined;
+    lastRefreshTime?:Date | undefined;
     /** Version of the entity. */
-    version?: string | undefined;
+    version?:string | undefined;
 }

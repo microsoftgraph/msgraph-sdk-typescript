@@ -3,24 +3,23 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class TeamMessagingSettingsImpl implements AdditionalDataHolder, Parsable, TeamMessagingSettings {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** If set to true, @channel mentions are allowed. */
-    allowChannelMentions?: boolean | undefined;
+    public allowChannelMentions?: boolean | undefined;
     /** If set to true, owners can delete any message. */
-    allowOwnerDeleteMessages?: boolean | undefined;
+    public allowOwnerDeleteMessages?: boolean | undefined;
     /** If set to true, @team mentions are allowed. */
-    allowTeamMentions?: boolean | undefined;
+    public allowTeamMentions?: boolean | undefined;
     /** If set to true, users can delete their messages. */
-    allowUserDeleteMessages?: boolean | undefined;
+    public allowUserDeleteMessages?: boolean | undefined;
     /** If set to true, users can edit their messages. */
-    allowUserEditMessages?: boolean | undefined;
+    public allowUserEditMessages?: boolean | undefined;
     /**
      * Instantiates a new teamMessagingSettings and sets the default values.
      * @param teamMessagingSettingsParameterValue 
      */
     public constructor(teamMessagingSettingsParameterValue?: TeamMessagingSettings | undefined) {
-        this.additionalData = {};
-        this.additionalData = teamMessagingSettingsParameterValue?.additionalData ? {} : teamMessagingSettingsParameterValue?.additionalData!
+        this.additionalData = teamMessagingSettingsParameterValue?.additionalData ? teamMessagingSettingsParameterValue?.additionalData! : {}
         this.allowChannelMentions = teamMessagingSettingsParameterValue?.allowChannelMentions ;
         this.allowOwnerDeleteMessages = teamMessagingSettingsParameterValue?.allowOwnerDeleteMessages ;
         this.allowTeamMentions = teamMessagingSettingsParameterValue?.allowTeamMentions ;
@@ -47,23 +46,18 @@ export class TeamMessagingSettingsImpl implements AdditionalDataHolder, Parsable
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.allowChannelMentions){
-        if(this.allowChannelMentions)
         writer.writeBooleanValue("allowChannelMentions", this.allowChannelMentions);
         }
         if(this.allowOwnerDeleteMessages){
-        if(this.allowOwnerDeleteMessages)
         writer.writeBooleanValue("allowOwnerDeleteMessages", this.allowOwnerDeleteMessages);
         }
         if(this.allowTeamMentions){
-        if(this.allowTeamMentions)
         writer.writeBooleanValue("allowTeamMentions", this.allowTeamMentions);
         }
         if(this.allowUserDeleteMessages){
-        if(this.allowUserDeleteMessages)
         writer.writeBooleanValue("allowUserDeleteMessages", this.allowUserDeleteMessages);
         }
         if(this.allowUserEditMessages){
-        if(this.allowUserEditMessages)
         writer.writeBooleanValue("allowUserEditMessages", this.allowUserEditMessages);
         }
         writer.writeAdditionalData(this.additionalData);

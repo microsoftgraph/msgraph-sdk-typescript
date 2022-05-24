@@ -3,13 +3,14 @@ import {BookingCustomQuestion} from './bookingCustomQuestion';
 import {EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Represents a custom question of the business. */
 export class BookingCustomQuestionImpl extends EntityImpl implements BookingCustomQuestion, Parsable {
     /** The expected answer type. The possible values are: text, radioButton, unknownFutureValue. */
-    answerInputType?: AnswerInputType | undefined;
+    public answerInputType?: AnswerInputType | undefined;
     /** List of possible answer values. */
-    answerOptions?: string[] | undefined;
+    public answerOptions?: string[] | undefined;
     /** Display name of this entity. */
-    displayName?: string | undefined;
+    public displayName?: string | undefined;
     /**
      * Instantiates a new bookingCustomQuestion and sets the default values.
      * @param bookingCustomQuestionParameterValue 
@@ -39,15 +40,12 @@ export class BookingCustomQuestionImpl extends EntityImpl implements BookingCust
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.answerInputType){
-        if(this.answerInputType)
         writer.writeEnumValue<AnswerInputType>("answerInputType", this.answerInputType);
         }
         if(this.answerOptions){
-        if(this.answerOptions)
         writer.writeCollectionOfPrimitiveValues<string>("answerOptions", this.answerOptions);
         }
         if(this.displayName){
-        if(this.displayName)
         writer.writeStringValue("displayName", this.displayName);
         }
     };

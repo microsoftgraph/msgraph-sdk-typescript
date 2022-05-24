@@ -3,18 +3,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class DefaultColumnValueImpl implements AdditionalDataHolder, DefaultColumnValue, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The formula used to compute the default value for this column. */
-    formula?: string | undefined;
+    public formula?: string | undefined;
     /** The direct value to use as the default value for this column. */
-    value?: string | undefined;
+    public value?: string | undefined;
     /**
      * Instantiates a new defaultColumnValue and sets the default values.
      * @param defaultColumnValueParameterValue 
      */
     public constructor(defaultColumnValueParameterValue?: DefaultColumnValue | undefined) {
-        this.additionalData = {};
-        this.additionalData = defaultColumnValueParameterValue?.additionalData ? {} : defaultColumnValueParameterValue?.additionalData!
+        this.additionalData = defaultColumnValueParameterValue?.additionalData ? defaultColumnValueParameterValue?.additionalData! : {}
         this.formula = defaultColumnValueParameterValue?.formula ;
         this.value = defaultColumnValueParameterValue?.value ;
     };
@@ -35,11 +34,9 @@ export class DefaultColumnValueImpl implements AdditionalDataHolder, DefaultColu
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.formula){
-        if(this.formula)
         writer.writeStringValue("formula", this.formula);
         }
         if(this.value){
-        if(this.value)
         writer.writeStringValue("value", this.value);
         }
         writer.writeAdditionalData(this.additionalData);

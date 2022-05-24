@@ -1,8 +1,7 @@
 import {createFavoriteResponseFromDiscriminatorValue} from './createFavoriteResponseFromDiscriminatorValue';
-import {FavoriteRequestBody} from './favoriteRequestBody';
+import {FavoritePostRequestBody} from './favoritePostRequestBody';
 import {FavoriteRequestBuilderPostRequestConfiguration} from './favoriteRequestBuilderPostRequestConfiguration';
-import {FavoriteResponse} from './favoriteResponse';
-import {FavoriteRequestBodyImpl, FavoriteResponseImpl} from './index';
+import {FavoritePostRequestBodyImpl, FavoriteResponseImpl} from './index';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the favorite method. */
@@ -32,7 +31,7 @@ export class FavoriteRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public createPostRequestInformation(body: FavoriteRequestBody | undefined, requestConfiguration?: FavoriteRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public createPostRequestInformation(body: FavoritePostRequestBody | undefined, requestConfiguration?: FavoriteRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -42,8 +41,8 @@ export class FavoriteRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        const bodyParsable = new FavoriteRequestBodyImpl(body)
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", bodyParsable);
+        const parsableBody = new FavoritePostRequestBodyImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -53,7 +52,7 @@ export class FavoriteRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of FavoriteResponse
      */
-    public post(body: FavoriteRequestBody | undefined, requestConfiguration?: FavoriteRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<FavoriteResponse | undefined> {
+    public post(body: FavoritePostRequestBody | undefined, requestConfiguration?: FavoriteRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<FavoriteResponseImpl | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration

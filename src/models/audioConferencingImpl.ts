@@ -3,26 +3,25 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class AudioConferencingImpl implements AdditionalDataHolder, AudioConferencing, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The conference id of the online meeting. */
-    conferenceId?: string | undefined;
+    public conferenceId?: string | undefined;
     /** A URL to the externally-accessible web page that contains dial-in information. */
-    dialinUrl?: string | undefined;
+    public dialinUrl?: string | undefined;
     /** The tollFreeNumber property */
-    tollFreeNumber?: string | undefined;
+    public tollFreeNumber?: string | undefined;
     /** List of toll-free numbers that are displayed in the meeting invite. */
-    tollFreeNumbers?: string[] | undefined;
+    public tollFreeNumbers?: string[] | undefined;
     /** The tollNumber property */
-    tollNumber?: string | undefined;
+    public tollNumber?: string | undefined;
     /** List of toll numbers that are displayed in the meeting invite. */
-    tollNumbers?: string[] | undefined;
+    public tollNumbers?: string[] | undefined;
     /**
      * Instantiates a new audioConferencing and sets the default values.
      * @param audioConferencingParameterValue 
      */
     public constructor(audioConferencingParameterValue?: AudioConferencing | undefined) {
-        this.additionalData = {};
-        this.additionalData = audioConferencingParameterValue?.additionalData ? {} : audioConferencingParameterValue?.additionalData!
+        this.additionalData = audioConferencingParameterValue?.additionalData ? audioConferencingParameterValue?.additionalData! : {}
         this.conferenceId = audioConferencingParameterValue?.conferenceId ;
         this.dialinUrl = audioConferencingParameterValue?.dialinUrl ;
         this.tollFreeNumber = audioConferencingParameterValue?.tollFreeNumber ;
@@ -51,27 +50,21 @@ export class AudioConferencingImpl implements AdditionalDataHolder, AudioConfere
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.conferenceId){
-        if(this.conferenceId)
         writer.writeStringValue("conferenceId", this.conferenceId);
         }
         if(this.dialinUrl){
-        if(this.dialinUrl)
         writer.writeStringValue("dialinUrl", this.dialinUrl);
         }
         if(this.tollFreeNumber){
-        if(this.tollFreeNumber)
         writer.writeStringValue("tollFreeNumber", this.tollFreeNumber);
         }
         if(this.tollFreeNumbers){
-        if(this.tollFreeNumbers)
         writer.writeCollectionOfPrimitiveValues<string>("tollFreeNumbers", this.tollFreeNumbers);
         }
         if(this.tollNumber){
-        if(this.tollNumber)
         writer.writeStringValue("tollNumber", this.tollNumber);
         }
         if(this.tollNumbers){
-        if(this.tollNumbers)
         writer.writeCollectionOfPrimitiveValues<string>("tollNumbers", this.tollNumbers);
         }
         writer.writeAdditionalData(this.additionalData);

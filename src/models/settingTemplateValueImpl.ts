@@ -3,22 +3,21 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class SettingTemplateValueImpl implements AdditionalDataHolder, Parsable, SettingTemplateValue {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** Default value for the setting. Read-only. */
-    defaultValue?: string | undefined;
+    public defaultValue?: string | undefined;
     /** Description of the setting. Read-only. */
-    description?: string | undefined;
+    public description?: string | undefined;
     /** Name of the setting. Read-only. */
-    name?: string | undefined;
+    public name?: string | undefined;
     /** Type of the setting. Read-only. */
-    type?: string | undefined;
+    public type?: string | undefined;
     /**
      * Instantiates a new settingTemplateValue and sets the default values.
      * @param settingTemplateValueParameterValue 
      */
     public constructor(settingTemplateValueParameterValue?: SettingTemplateValue | undefined) {
-        this.additionalData = {};
-        this.additionalData = settingTemplateValueParameterValue?.additionalData ? {} : settingTemplateValueParameterValue?.additionalData!
+        this.additionalData = settingTemplateValueParameterValue?.additionalData ? settingTemplateValueParameterValue?.additionalData! : {}
         this.defaultValue = settingTemplateValueParameterValue?.defaultValue ;
         this.description = settingTemplateValueParameterValue?.description ;
         this.name = settingTemplateValueParameterValue?.name ;
@@ -43,19 +42,15 @@ export class SettingTemplateValueImpl implements AdditionalDataHolder, Parsable,
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.defaultValue){
-        if(this.defaultValue)
         writer.writeStringValue("defaultValue", this.defaultValue);
         }
         if(this.description){
-        if(this.description)
         writer.writeStringValue("description", this.description);
         }
         if(this.name){
-        if(this.name)
         writer.writeStringValue("name", this.name);
         }
         if(this.type){
-        if(this.type)
         writer.writeStringValue("type", this.type);
         }
         writer.writeAdditionalData(this.additionalData);

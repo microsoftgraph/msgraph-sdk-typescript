@@ -53,7 +53,7 @@ export class AuditLogsRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * auditLogRoot resource type
+     * Contains different types of audit logs. This resources returns a singleton auditLog resource. It doesn't contain any usable properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -85,8 +85,8 @@ export class AuditLogsRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        const bodyParsable = new AuditLogRootImpl(body)
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", bodyParsable);
+        const parsableBody = new AuditLogRootImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -101,12 +101,12 @@ export class AuditLogsRequestBuilder {
         return new DirectoryAuditItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * auditLogRoot resource type
+     * Contains different types of audit logs. This resources returns a singleton auditLog resource. It doesn't contain any usable properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AuditLogRoot
      */
-    public get(requestConfiguration?: AuditLogsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AuditLogRoot | undefined> {
+    public get(requestConfiguration?: AuditLogsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AuditLogRootImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );

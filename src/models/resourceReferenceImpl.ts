@@ -3,20 +3,19 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class ResourceReferenceImpl implements AdditionalDataHolder, Parsable, ResourceReference {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The item's unique identifier. */
-    id?: string | undefined;
+    public id?: string | undefined;
     /** A string value that can be used to classify the item, such as 'microsoft.graph.driveItem' */
-    type?: string | undefined;
+    public type?: string | undefined;
     /** A URL leading to the referenced item. */
-    webUrl?: string | undefined;
+    public webUrl?: string | undefined;
     /**
      * Instantiates a new resourceReference and sets the default values.
      * @param resourceReferenceParameterValue 
      */
     public constructor(resourceReferenceParameterValue?: ResourceReference | undefined) {
-        this.additionalData = {};
-        this.additionalData = resourceReferenceParameterValue?.additionalData ? {} : resourceReferenceParameterValue?.additionalData!
+        this.additionalData = resourceReferenceParameterValue?.additionalData ? resourceReferenceParameterValue?.additionalData! : {}
         this.id = resourceReferenceParameterValue?.id ;
         this.type = resourceReferenceParameterValue?.type ;
         this.webUrl = resourceReferenceParameterValue?.webUrl ;
@@ -39,15 +38,12 @@ export class ResourceReferenceImpl implements AdditionalDataHolder, Parsable, Re
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.id){
-        if(this.id)
         writer.writeStringValue("id", this.id);
         }
         if(this.type){
-        if(this.type)
         writer.writeStringValue("type", this.type);
         }
         if(this.webUrl){
-        if(this.webUrl)
         writer.writeStringValue("webUrl", this.webUrl);
         }
         writer.writeAdditionalData(this.additionalData);

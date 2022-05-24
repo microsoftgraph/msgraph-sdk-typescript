@@ -2,7 +2,6 @@ import {ODataErrorImpl} from '../../../../../../../../../../../../../../../../mo
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {TermImpl} from '../../../../../../../../../../../../../../../../models/termStore/';
 import {createTermFromDiscriminatorValue} from '../../../../../../../../../../../../../../../../models/termStore/createTermFromDiscriminatorValue';
-import {Term} from '../../../../../../../../../../../../../../../../models/termStore/term';
 import {ToTermRequestBuilderGetRequestConfiguration} from './toTermRequestBuilderGetRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
@@ -50,7 +49,7 @@ export class ToTermRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Term
      */
-    public get(requestConfiguration?: ToTermRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Term | undefined> {
+    public get(requestConfiguration?: ToTermRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<TermImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );

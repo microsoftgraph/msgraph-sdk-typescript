@@ -2,9 +2,10 @@ import {BookingCurrency} from './bookingCurrency';
 import {EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the solutionsRoot singleton. */
 export class BookingCurrencyImpl extends EntityImpl implements BookingCurrency, Parsable {
     /** The currency symbol. For example, the currency symbol for the US dollar and for the Australian dollar is $. */
-    symbol?: string | undefined;
+    public symbol?: string | undefined;
     /**
      * Instantiates a new bookingCurrency and sets the default values.
      * @param bookingCurrencyParameterValue 
@@ -30,7 +31,6 @@ export class BookingCurrencyImpl extends EntityImpl implements BookingCurrency, 
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.symbol){
-        if(this.symbol)
         writer.writeStringValue("symbol", this.symbol);
         }
     };

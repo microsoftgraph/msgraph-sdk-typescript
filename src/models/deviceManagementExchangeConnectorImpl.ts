@@ -4,25 +4,26 @@ import {DeviceManagementExchangeConnectorType} from './deviceManagementExchangeC
 import {EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Entity which represents a connection to an Exchange environment. */
 export class DeviceManagementExchangeConnectorImpl extends EntityImpl implements DeviceManagementExchangeConnector, Parsable {
     /** The name of the server hosting the Exchange Connector. */
-    connectorServerName?: string | undefined;
+    public connectorServerName?: string | undefined;
     /** An alias assigned to the Exchange server */
-    exchangeAlias?: string | undefined;
+    public exchangeAlias?: string | undefined;
     /** The type of Exchange Connector Configured. Possible values are: onPremises, hosted, serviceToService, dedicated. */
-    exchangeConnectorType?: DeviceManagementExchangeConnectorType | undefined;
+    public exchangeConnectorType?: DeviceManagementExchangeConnectorType | undefined;
     /** Exchange Organization to the Exchange server */
-    exchangeOrganization?: string | undefined;
+    public exchangeOrganization?: string | undefined;
     /** Last sync time for the Exchange Connector */
-    lastSyncDateTime?: Date | undefined;
+    public lastSyncDateTime?: Date | undefined;
     /** Email address used to configure the Service To Service Exchange Connector. */
-    primarySmtpAddress?: string | undefined;
+    public primarySmtpAddress?: string | undefined;
     /** The name of the Exchange server. */
-    serverName?: string | undefined;
+    public serverName?: string | undefined;
     /** Exchange Connector Status. Possible values are: none, connectionPending, connected, disconnected. */
-    status?: DeviceManagementExchangeConnectorStatus | undefined;
+    public status?: DeviceManagementExchangeConnectorStatus | undefined;
     /** The version of the ExchangeConnectorAgent */
-    version?: string | undefined;
+    public version?: string | undefined;
     /**
      * Instantiates a new deviceManagementExchangeConnector and sets the default values.
      * @param deviceManagementExchangeConnectorParameterValue 
@@ -64,39 +65,30 @@ export class DeviceManagementExchangeConnectorImpl extends EntityImpl implements
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.connectorServerName){
-        if(this.connectorServerName)
         writer.writeStringValue("connectorServerName", this.connectorServerName);
         }
         if(this.exchangeAlias){
-        if(this.exchangeAlias)
         writer.writeStringValue("exchangeAlias", this.exchangeAlias);
         }
         if(this.exchangeConnectorType){
-        if(this.exchangeConnectorType)
         writer.writeEnumValue<DeviceManagementExchangeConnectorType>("exchangeConnectorType", this.exchangeConnectorType);
         }
         if(this.exchangeOrganization){
-        if(this.exchangeOrganization)
         writer.writeStringValue("exchangeOrganization", this.exchangeOrganization);
         }
         if(this.lastSyncDateTime){
-        if(this.lastSyncDateTime)
         writer.writeDateValue("lastSyncDateTime", this.lastSyncDateTime);
         }
         if(this.primarySmtpAddress){
-        if(this.primarySmtpAddress)
         writer.writeStringValue("primarySmtpAddress", this.primarySmtpAddress);
         }
         if(this.serverName){
-        if(this.serverName)
         writer.writeStringValue("serverName", this.serverName);
         }
         if(this.status){
-        if(this.status)
         writer.writeEnumValue<DeviceManagementExchangeConnectorStatus>("status", this.status);
         }
         if(this.version){
-        if(this.version)
         writer.writeStringValue("version", this.version);
         }
     };

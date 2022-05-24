@@ -2,7 +2,6 @@ import {ManagedDeviceCollectionResponseImpl, ManagedDeviceImpl} from '../../mode
 import {createManagedDeviceCollectionResponseFromDiscriminatorValue} from '../../models/createManagedDeviceCollectionResponseFromDiscriminatorValue';
 import {createManagedDeviceFromDiscriminatorValue} from '../../models/createManagedDeviceFromDiscriminatorValue';
 import {ManagedDevice} from '../../models/managedDevice';
-import {ManagedDeviceCollectionResponse} from '../../models/managedDeviceCollectionResponse';
 import {ODataErrorImpl} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
@@ -68,8 +67,8 @@ export class ManagedDevicesRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        const bodyParsable = new ManagedDeviceImpl(body)
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", bodyParsable);
+        const parsableBody = new ManagedDeviceImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -78,7 +77,7 @@ export class ManagedDevicesRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ManagedDeviceCollectionResponse
      */
-    public get(requestConfiguration?: ManagedDevicesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ManagedDeviceCollectionResponse | undefined> {
+    public get(requestConfiguration?: ManagedDevicesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ManagedDeviceCollectionResponseImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -95,7 +94,7 @@ export class ManagedDevicesRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ManagedDevice
      */
-    public post(body: ManagedDevice | undefined, requestConfiguration?: ManagedDevicesRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ManagedDevice | undefined> {
+    public post(body: ManagedDevice | undefined, requestConfiguration?: ManagedDevicesRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ManagedDeviceImpl | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration

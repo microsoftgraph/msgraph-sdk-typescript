@@ -9,19 +9,20 @@ import {MultiValueLegacyExtendedProperty} from './multiValueLegacyExtendedProper
 import {SingleValueLegacyExtendedProperty} from './singleValueLegacyExtendedProperty';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to user. */
 export class ContactFolderImpl extends EntityImpl implements ContactFolder, Parsable {
     /** The collection of child folders in the folder. Navigation property. Read-only. Nullable. */
-    childFolders?: ContactFolder[] | undefined;
+    public childFolders?: ContactFolder[] | undefined;
     /** The contacts in the folder. Navigation property. Read-only. Nullable. */
-    contacts?: Contact[] | undefined;
+    public contacts?: Contact[] | undefined;
     /** The folder's display name. */
-    displayName?: string | undefined;
+    public displayName?: string | undefined;
     /** The collection of multi-value extended properties defined for the contactFolder. Read-only. Nullable. */
-    multiValueExtendedProperties?: MultiValueLegacyExtendedProperty[] | undefined;
+    public multiValueExtendedProperties?: MultiValueLegacyExtendedProperty[] | undefined;
     /** The ID of the folder's parent folder. */
-    parentFolderId?: string | undefined;
+    public parentFolderId?: string | undefined;
     /** The collection of single-value extended properties defined for the contactFolder. Read-only. Nullable. */
-    singleValueExtendedProperties?: SingleValueLegacyExtendedProperty[] | undefined;
+    public singleValueExtendedProperties?: SingleValueLegacyExtendedProperty[] | undefined;
     /**
      * Instantiates a new contactFolder and sets the default values.
      * @param contactFolderParameterValue 
@@ -56,28 +57,22 @@ export class ContactFolderImpl extends EntityImpl implements ContactFolder, Pars
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.childFolders){
-        const childFoldersArrValue: ContactFolderImpl[] = []; this.childFolders?.forEach(element => {childFoldersArrValue.push(new ContactFolderImpl(element));});
+        if(this.childFolders && this.childFolders.length != 0){        const childFoldersArrValue: ContactFolderImpl[] = []; this.childFolders?.forEach(element => {childFoldersArrValue.push(new ContactFolderImpl(element));});
         writer.writeCollectionOfObjectValues<ContactFolderImpl>("childFolders", childFoldersArrValue);
         }
-        if(this.contacts){
-        const contactsArrValue: ContactImpl[] = []; this.contacts?.forEach(element => {contactsArrValue.push(new ContactImpl(element));});
+        if(this.contacts && this.contacts.length != 0){        const contactsArrValue: ContactImpl[] = []; this.contacts?.forEach(element => {contactsArrValue.push(new ContactImpl(element));});
         writer.writeCollectionOfObjectValues<ContactImpl>("contacts", contactsArrValue);
         }
         if(this.displayName){
-        if(this.displayName)
         writer.writeStringValue("displayName", this.displayName);
         }
-        if(this.multiValueExtendedProperties){
-        const multiValueExtendedPropertiesArrValue: MultiValueLegacyExtendedPropertyImpl[] = []; this.multiValueExtendedProperties?.forEach(element => {multiValueExtendedPropertiesArrValue.push(new MultiValueLegacyExtendedPropertyImpl(element));});
+        if(this.multiValueExtendedProperties && this.multiValueExtendedProperties.length != 0){        const multiValueExtendedPropertiesArrValue: MultiValueLegacyExtendedPropertyImpl[] = []; this.multiValueExtendedProperties?.forEach(element => {multiValueExtendedPropertiesArrValue.push(new MultiValueLegacyExtendedPropertyImpl(element));});
         writer.writeCollectionOfObjectValues<MultiValueLegacyExtendedPropertyImpl>("multiValueExtendedProperties", multiValueExtendedPropertiesArrValue);
         }
         if(this.parentFolderId){
-        if(this.parentFolderId)
         writer.writeStringValue("parentFolderId", this.parentFolderId);
         }
-        if(this.singleValueExtendedProperties){
-        const singleValueExtendedPropertiesArrValue: SingleValueLegacyExtendedPropertyImpl[] = []; this.singleValueExtendedProperties?.forEach(element => {singleValueExtendedPropertiesArrValue.push(new SingleValueLegacyExtendedPropertyImpl(element));});
+        if(this.singleValueExtendedProperties && this.singleValueExtendedProperties.length != 0){        const singleValueExtendedPropertiesArrValue: SingleValueLegacyExtendedPropertyImpl[] = []; this.singleValueExtendedProperties?.forEach(element => {singleValueExtendedPropertiesArrValue.push(new SingleValueLegacyExtendedPropertyImpl(element));});
         writer.writeCollectionOfObjectValues<SingleValueLegacyExtendedPropertyImpl>("singleValueExtendedProperties", singleValueExtendedPropertiesArrValue);
         }
     };

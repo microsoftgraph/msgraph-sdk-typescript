@@ -3,16 +3,15 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class AssignmentOrderImpl implements AdditionalDataHolder, AssignmentOrder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** A list of identityUserFlowAttribute IDs provided to determine the order in which attributes should be collected within a user flow. */
-    order?: string[] | undefined;
+    public order?: string[] | undefined;
     /**
-     * Instantiates a new assignmentOrder and sets the default values.
+     * Instantiates a new AssignmentOrder and sets the default values.
      * @param assignmentOrderParameterValue 
      */
     public constructor(assignmentOrderParameterValue?: AssignmentOrder | undefined) {
-        this.additionalData = {};
-        this.additionalData = assignmentOrderParameterValue?.additionalData ? {} : assignmentOrderParameterValue?.additionalData!
+        this.additionalData = assignmentOrderParameterValue?.additionalData ? assignmentOrderParameterValue?.additionalData! : {}
         this.order = assignmentOrderParameterValue?.order ;
     };
     /**
@@ -31,7 +30,6 @@ export class AssignmentOrderImpl implements AdditionalDataHolder, AssignmentOrde
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.order){
-        if(this.order)
         writer.writeCollectionOfPrimitiveValues<string>("order", this.order);
         }
         writer.writeAdditionalData(this.additionalData);

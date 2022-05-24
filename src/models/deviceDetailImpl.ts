@@ -3,28 +3,27 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class DeviceDetailImpl implements AdditionalDataHolder, DeviceDetail, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** Indicates the browser information of the used for signing-in. */
-    browser?: string | undefined;
+    public browser?: string | undefined;
     /** Refers to the UniqueID of the device used for signing-in. */
-    deviceId?: string | undefined;
+    public deviceId?: string | undefined;
     /** Refers to the name of the device used for signing-in. */
-    displayName?: string | undefined;
+    public displayName?: string | undefined;
     /** Indicates whether the device is compliant or not. */
-    isCompliant?: boolean | undefined;
+    public isCompliant?: boolean | undefined;
     /** Indicates if the device is managed or not. */
-    isManaged?: boolean | undefined;
+    public isManaged?: boolean | undefined;
     /** Indicates the OS name and version used for signing-in. */
-    operatingSystem?: string | undefined;
+    public operatingSystem?: string | undefined;
     /** Indicates information on whether the signed-in device is Workplace Joined, AzureAD Joined, Domain Joined. */
-    trustType?: string | undefined;
+    public trustType?: string | undefined;
     /**
      * Instantiates a new deviceDetail and sets the default values.
      * @param deviceDetailParameterValue 
      */
     public constructor(deviceDetailParameterValue?: DeviceDetail | undefined) {
-        this.additionalData = {};
-        this.additionalData = deviceDetailParameterValue?.additionalData ? {} : deviceDetailParameterValue?.additionalData!
+        this.additionalData = deviceDetailParameterValue?.additionalData ? deviceDetailParameterValue?.additionalData! : {}
         this.browser = deviceDetailParameterValue?.browser ;
         this.deviceId = deviceDetailParameterValue?.deviceId ;
         this.displayName = deviceDetailParameterValue?.displayName ;
@@ -55,31 +54,24 @@ export class DeviceDetailImpl implements AdditionalDataHolder, DeviceDetail, Par
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.browser){
-        if(this.browser)
         writer.writeStringValue("browser", this.browser);
         }
         if(this.deviceId){
-        if(this.deviceId)
         writer.writeStringValue("deviceId", this.deviceId);
         }
         if(this.displayName){
-        if(this.displayName)
         writer.writeStringValue("displayName", this.displayName);
         }
         if(this.isCompliant){
-        if(this.isCompliant)
         writer.writeBooleanValue("isCompliant", this.isCompliant);
         }
         if(this.isManaged){
-        if(this.isManaged)
         writer.writeBooleanValue("isManaged", this.isManaged);
         }
         if(this.operatingSystem){
-        if(this.operatingSystem)
         writer.writeStringValue("operatingSystem", this.operatingSystem);
         }
         if(this.trustType){
-        if(this.trustType)
         writer.writeStringValue("trustType", this.trustType);
         }
         writer.writeAdditionalData(this.additionalData);

@@ -3,13 +3,14 @@ import {EntityImpl} from './index';
 import {RoutingMode} from './routingMode';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the cloudCommunications singleton. */
 export class AudioRoutingGroupImpl extends EntityImpl implements AudioRoutingGroup, Parsable {
     /** List of receiving participant ids. */
-    receivers?: string[] | undefined;
+    public receivers?: string[] | undefined;
     /** Routing group mode.  Possible values are: oneToOne, multicast. */
-    routingMode?: RoutingMode | undefined;
+    public routingMode?: RoutingMode | undefined;
     /** List of source participant ids. */
-    sources?: string[] | undefined;
+    public sources?: string[] | undefined;
     /**
      * Instantiates a new audioRoutingGroup and sets the default values.
      * @param audioRoutingGroupParameterValue 
@@ -39,15 +40,12 @@ export class AudioRoutingGroupImpl extends EntityImpl implements AudioRoutingGro
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.receivers){
-        if(this.receivers)
         writer.writeCollectionOfPrimitiveValues<string>("receivers", this.receivers);
         }
         if(this.routingMode){
-        if(this.routingMode)
         writer.writeEnumValue<RoutingMode>("routingMode", this.routingMode);
         }
         if(this.sources){
-        if(this.sources)
         writer.writeCollectionOfPrimitiveValues<string>("sources", this.sources);
         }
     };

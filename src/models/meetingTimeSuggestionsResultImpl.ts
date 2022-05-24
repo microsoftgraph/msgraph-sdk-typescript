@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class MeetingTimeSuggestionsResultImpl implements AdditionalDataHolder, MeetingTimeSuggestionsResult, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** A reason for not returning any meeting suggestions. Possible values are: attendeesUnavailable, attendeesUnavailableOrUnknown, locationsUnavailable, organizerUnavailable, or unknown. This property is an empty string if the meetingTimeSuggestions property does include any meeting suggestions. */
-    emptySuggestionsReason?: string | undefined;
+    public emptySuggestionsReason?: string | undefined;
     /** An array of meeting suggestions. */
-    meetingTimeSuggestions?: MeetingTimeSuggestion[] | undefined;
+    public meetingTimeSuggestions?: MeetingTimeSuggestion[] | undefined;
     /**
-     * Instantiates a new meetingTimeSuggestionsResult and sets the default values.
+     * Instantiates a new MeetingTimeSuggestionsResult and sets the default values.
      * @param meetingTimeSuggestionsResultParameterValue 
      */
     public constructor(meetingTimeSuggestionsResultParameterValue?: MeetingTimeSuggestionsResult | undefined) {
-        this.additionalData = {};
-        this.additionalData = meetingTimeSuggestionsResultParameterValue?.additionalData ? {} : meetingTimeSuggestionsResultParameterValue?.additionalData!
+        this.additionalData = meetingTimeSuggestionsResultParameterValue?.additionalData ? meetingTimeSuggestionsResultParameterValue?.additionalData! : {}
         this.emptySuggestionsReason = meetingTimeSuggestionsResultParameterValue?.emptySuggestionsReason ;
         this.meetingTimeSuggestions = meetingTimeSuggestionsResultParameterValue?.meetingTimeSuggestions ;
     };
@@ -38,11 +37,9 @@ export class MeetingTimeSuggestionsResultImpl implements AdditionalDataHolder, M
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.emptySuggestionsReason){
-        if(this.emptySuggestionsReason)
         writer.writeStringValue("emptySuggestionsReason", this.emptySuggestionsReason);
         }
-        if(this.meetingTimeSuggestions){
-        const meetingTimeSuggestionsArrValue: MeetingTimeSuggestionImpl[] = []; this.meetingTimeSuggestions?.forEach(element => {meetingTimeSuggestionsArrValue.push(new MeetingTimeSuggestionImpl(element));});
+        if(this.meetingTimeSuggestions && this.meetingTimeSuggestions.length != 0){        const meetingTimeSuggestionsArrValue: MeetingTimeSuggestionImpl[] = []; this.meetingTimeSuggestions?.forEach(element => {meetingTimeSuggestionsArrValue.push(new MeetingTimeSuggestionImpl(element));});
         writer.writeCollectionOfObjectValues<MeetingTimeSuggestionImpl>("meetingTimeSuggestions", meetingTimeSuggestionsArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

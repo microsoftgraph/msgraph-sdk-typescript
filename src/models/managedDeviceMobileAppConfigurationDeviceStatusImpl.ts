@@ -3,21 +3,22 @@ import {EntityImpl} from './index';
 import {ManagedDeviceMobileAppConfigurationDeviceStatus} from './managedDeviceMobileAppConfigurationDeviceStatus';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Contains properties, inherited properties and actions for an MDM mobile app configuration status for a device. */
 export class ManagedDeviceMobileAppConfigurationDeviceStatusImpl extends EntityImpl implements ManagedDeviceMobileAppConfigurationDeviceStatus, Parsable {
     /** The DateTime when device compliance grace period expires */
-    complianceGracePeriodExpirationDateTime?: Date | undefined;
+    public complianceGracePeriodExpirationDateTime?: Date | undefined;
     /** Device name of the DevicePolicyStatus. */
-    deviceDisplayName?: string | undefined;
+    public deviceDisplayName?: string | undefined;
     /** The device model that is being reported */
-    deviceModel?: string | undefined;
+    public deviceModel?: string | undefined;
     /** Last modified date time of the policy report. */
-    lastReportedDateTime?: Date | undefined;
+    public lastReportedDateTime?: Date | undefined;
     /** Compliance status of the policy report. Possible values are: unknown, notApplicable, compliant, remediated, nonCompliant, error, conflict, notAssigned. */
-    status?: ComplianceStatus | undefined;
+    public status?: ComplianceStatus | undefined;
     /** The User Name that is being reported */
-    userName?: string | undefined;
+    public userName?: string | undefined;
     /** UserPrincipalName. */
-    userPrincipalName?: string | undefined;
+    public userPrincipalName?: string | undefined;
     /**
      * Instantiates a new managedDeviceMobileAppConfigurationDeviceStatus and sets the default values.
      * @param managedDeviceMobileAppConfigurationDeviceStatusParameterValue 
@@ -55,31 +56,24 @@ export class ManagedDeviceMobileAppConfigurationDeviceStatusImpl extends EntityI
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.complianceGracePeriodExpirationDateTime){
-        if(this.complianceGracePeriodExpirationDateTime)
         writer.writeDateValue("complianceGracePeriodExpirationDateTime", this.complianceGracePeriodExpirationDateTime);
         }
         if(this.deviceDisplayName){
-        if(this.deviceDisplayName)
         writer.writeStringValue("deviceDisplayName", this.deviceDisplayName);
         }
         if(this.deviceModel){
-        if(this.deviceModel)
         writer.writeStringValue("deviceModel", this.deviceModel);
         }
         if(this.lastReportedDateTime){
-        if(this.lastReportedDateTime)
         writer.writeDateValue("lastReportedDateTime", this.lastReportedDateTime);
         }
         if(this.status){
-        if(this.status)
         writer.writeEnumValue<ComplianceStatus>("status", this.status);
         }
         if(this.userName){
-        if(this.userName)
         writer.writeStringValue("userName", this.userName);
         }
         if(this.userPrincipalName){
-        if(this.userPrincipalName)
         writer.writeStringValue("userPrincipalName", this.userPrincipalName);
         }
     };

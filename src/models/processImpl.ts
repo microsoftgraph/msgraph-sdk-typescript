@@ -7,39 +7,38 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class ProcessImpl implements AdditionalDataHolder, Parsable, Process {
     /** User account identifier (user account context the process ran under) for example, AccountName, SID, and so on. */
-    accountName?: string | undefined;
+    public accountName?: string | undefined;
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The full process invocation commandline including all parameters. */
-    commandLine?: string | undefined;
+    public commandLine?: string | undefined;
     /** Time at which the process was started. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
-    createdDateTime?: Date | undefined;
+    public createdDateTime?: Date | undefined;
     /** Complex type containing file hashes (cryptographic and location-sensitive). */
-    fileHash?: FileHash | undefined;
+    public fileHash?: FileHash | undefined;
     /** The integrity level of the process. Possible values are: unknown, untrusted, low, medium, high, system. */
-    integrityLevel?: ProcessIntegrityLevel | undefined;
+    public integrityLevel?: ProcessIntegrityLevel | undefined;
     /** True if the process is elevated. */
-    isElevated?: boolean | undefined;
+    public isElevated?: boolean | undefined;
     /** The name of the process' Image file. */
-    name?: string | undefined;
+    public name?: string | undefined;
     /** DateTime at which the parent process was started. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
-    parentProcessCreatedDateTime?: Date | undefined;
+    public parentProcessCreatedDateTime?: Date | undefined;
     /** The Process ID (PID) of the parent process. */
-    parentProcessId?: number | undefined;
+    public parentProcessId?: number | undefined;
     /** The name of the image file of the parent process. */
-    parentProcessName?: string | undefined;
+    public parentProcessName?: string | undefined;
     /** Full path, including filename. */
-    path?: string | undefined;
+    public path?: string | undefined;
     /** The Process ID (PID) of the process. */
-    processId?: number | undefined;
+    public processId?: number | undefined;
     /**
      * Instantiates a new process and sets the default values.
      * @param processParameterValue 
      */
     public constructor(processParameterValue?: Process | undefined) {
-        this.additionalData = {};
         this.accountName = processParameterValue?.accountName ;
-        this.additionalData = processParameterValue?.additionalData ? {} : processParameterValue?.additionalData!
+        this.additionalData = processParameterValue?.additionalData ? processParameterValue?.additionalData! : {}
         this.commandLine = processParameterValue?.commandLine ;
         this.createdDateTime = processParameterValue?.createdDateTime ;
         this.fileHash = processParameterValue?.fileHash ;
@@ -79,51 +78,39 @@ export class ProcessImpl implements AdditionalDataHolder, Parsable, Process {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.accountName){
-        if(this.accountName)
         writer.writeStringValue("accountName", this.accountName);
         }
         if(this.commandLine){
-        if(this.commandLine)
         writer.writeStringValue("commandLine", this.commandLine);
         }
         if(this.createdDateTime){
-        if(this.createdDateTime)
         writer.writeDateValue("createdDateTime", this.createdDateTime);
         }
         if(this.fileHash){
-        if(this.fileHash)
         writer.writeObjectValue<FileHashImpl>("fileHash", new FileHashImpl(this.fileHash));
         }
         if(this.integrityLevel){
-        if(this.integrityLevel)
         writer.writeEnumValue<ProcessIntegrityLevel>("integrityLevel", this.integrityLevel);
         }
         if(this.isElevated){
-        if(this.isElevated)
         writer.writeBooleanValue("isElevated", this.isElevated);
         }
         if(this.name){
-        if(this.name)
         writer.writeStringValue("name", this.name);
         }
         if(this.parentProcessCreatedDateTime){
-        if(this.parentProcessCreatedDateTime)
         writer.writeDateValue("parentProcessCreatedDateTime", this.parentProcessCreatedDateTime);
         }
         if(this.parentProcessId){
-        if(this.parentProcessId)
         writer.writeNumberValue("parentProcessId", this.parentProcessId);
         }
         if(this.parentProcessName){
-        if(this.parentProcessName)
         writer.writeStringValue("parentProcessName", this.parentProcessName);
         }
         if(this.path){
-        if(this.path)
         writer.writeStringValue("path", this.path);
         }
         if(this.processId){
-        if(this.processId)
         writer.writeNumberValue("processId", this.processId);
         }
         writer.writeAdditionalData(this.additionalData);

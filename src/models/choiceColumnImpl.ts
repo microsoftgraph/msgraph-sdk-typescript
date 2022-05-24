@@ -3,20 +3,19 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class ChoiceColumnImpl implements AdditionalDataHolder, ChoiceColumn, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** If true, allows custom values that aren't in the configured choices. */
-    allowTextEntry?: boolean | undefined;
+    public allowTextEntry?: boolean | undefined;
     /** The list of values available for this column. */
-    choices?: string[] | undefined;
+    public choices?: string[] | undefined;
     /** How the choices are to be presented in the UX. Must be one of checkBoxes, dropDownMenu, or radioButtons */
-    displayAs?: string | undefined;
+    public displayAs?: string | undefined;
     /**
      * Instantiates a new choiceColumn and sets the default values.
      * @param choiceColumnParameterValue 
      */
     public constructor(choiceColumnParameterValue?: ChoiceColumn | undefined) {
-        this.additionalData = {};
-        this.additionalData = choiceColumnParameterValue?.additionalData ? {} : choiceColumnParameterValue?.additionalData!
+        this.additionalData = choiceColumnParameterValue?.additionalData ? choiceColumnParameterValue?.additionalData! : {}
         this.allowTextEntry = choiceColumnParameterValue?.allowTextEntry ;
         this.choices = choiceColumnParameterValue?.choices ;
         this.displayAs = choiceColumnParameterValue?.displayAs ;
@@ -39,15 +38,12 @@ export class ChoiceColumnImpl implements AdditionalDataHolder, ChoiceColumn, Par
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.allowTextEntry){
-        if(this.allowTextEntry)
         writer.writeBooleanValue("allowTextEntry", this.allowTextEntry);
         }
         if(this.choices){
-        if(this.choices)
         writer.writeCollectionOfPrimitiveValues<string>("choices", this.choices);
         }
         if(this.displayAs){
-        if(this.displayAs)
         writer.writeStringValue("displayAs", this.displayAs);
         }
         writer.writeAdditionalData(this.additionalData);

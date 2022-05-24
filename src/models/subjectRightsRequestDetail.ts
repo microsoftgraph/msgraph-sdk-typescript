@@ -2,19 +2,19 @@ import {KeyValuePair} from './keyValuePair';
 
 export interface SubjectRightsRequestDetail{
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    additionalData?:Record<string, unknown>;
     /** Count of items that are excluded from the request. */
-    excludedItemCount?: number | undefined;
+    excludedItemCount?:number | undefined;
     /** Count of items per insight. */
-    insightCounts?: KeyValuePair[] | undefined;
+    insightCounts?:KeyValuePair[] | undefined;
     /** Count of items found. */
-    itemCount?: number | undefined;
+    itemCount?:number | undefined;
     /** Count of item that need review. */
-    itemNeedReview?: number | undefined;
+    itemNeedReview?:number | undefined;
     /** Count of items per product, such as Exchange, SharePoint, OneDrive, and Teams. */
-    productItemCounts?: KeyValuePair[] | undefined;
+    productItemCounts?:KeyValuePair[] | undefined;
     /** Count of items signed off by the administrator. */
-    signedOffItemCount?: number | undefined;
+    signedOffItemCount?:number | undefined;
     /** Total item size in bytes. */
-    totalItemSize?: number | undefined;
+    totalItemSize?:number | undefined;
 }

@@ -6,11 +6,12 @@ import {AgreementAcceptanceImpl, AgreementImpl, EntityImpl} from './index';
 import {TermsOfUseContainer} from './termsOfUseContainer';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the identityGovernance singleton. */
 export class TermsOfUseContainerImpl extends EntityImpl implements Parsable, TermsOfUseContainer {
     /** Represents the current status of a user's response to a company's customizable terms of use agreement. */
-    agreementAcceptances?: AgreementAcceptance[] | undefined;
+    public agreementAcceptances?: AgreementAcceptance[] | undefined;
     /** Represents a tenant's customizable terms of use agreement that's created and managed with Azure Active Directory (Azure AD). */
-    agreements?: Agreement[] | undefined;
+    public agreements?: Agreement[] | undefined;
     /**
      * Instantiates a new termsOfUseContainer and sets the default values.
      * @param termsOfUseContainerParameterValue 
@@ -37,12 +38,10 @@ export class TermsOfUseContainerImpl extends EntityImpl implements Parsable, Ter
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.agreementAcceptances){
-        const agreementAcceptancesArrValue: AgreementAcceptanceImpl[] = []; this.agreementAcceptances?.forEach(element => {agreementAcceptancesArrValue.push(new AgreementAcceptanceImpl(element));});
+        if(this.agreementAcceptances && this.agreementAcceptances.length != 0){        const agreementAcceptancesArrValue: AgreementAcceptanceImpl[] = []; this.agreementAcceptances?.forEach(element => {agreementAcceptancesArrValue.push(new AgreementAcceptanceImpl(element));});
         writer.writeCollectionOfObjectValues<AgreementAcceptanceImpl>("agreementAcceptances", agreementAcceptancesArrValue);
         }
-        if(this.agreements){
-        const agreementsArrValue: AgreementImpl[] = []; this.agreements?.forEach(element => {agreementsArrValue.push(new AgreementImpl(element));});
+        if(this.agreements && this.agreements.length != 0){        const agreementsArrValue: AgreementImpl[] = []; this.agreements?.forEach(element => {agreementsArrValue.push(new AgreementImpl(element));});
         writer.writeCollectionOfObjectValues<AgreementImpl>("agreements", agreementsArrValue);
         }
     };

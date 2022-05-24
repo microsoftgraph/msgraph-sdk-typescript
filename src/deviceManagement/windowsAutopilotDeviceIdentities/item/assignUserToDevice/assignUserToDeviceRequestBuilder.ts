@@ -1,6 +1,6 @@
-import {AssignUserToDeviceRequestBody} from './assignUserToDeviceRequestBody';
+import {AssignUserToDevicePostRequestBody} from './assignUserToDevicePostRequestBody';
 import {AssignUserToDeviceRequestBuilderPostRequestConfiguration} from './assignUserToDeviceRequestBuilderPostRequestConfiguration';
-import {AssignUserToDeviceRequestBodyImpl} from './index';
+import {AssignUserToDevicePostRequestBodyImpl} from './index';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the assignUserToDevice method. */
@@ -30,7 +30,7 @@ export class AssignUserToDeviceRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public createPostRequestInformation(body: AssignUserToDeviceRequestBody | undefined, requestConfiguration?: AssignUserToDeviceRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public createPostRequestInformation(body: AssignUserToDevicePostRequestBody | undefined, requestConfiguration?: AssignUserToDeviceRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -40,8 +40,8 @@ export class AssignUserToDeviceRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        const bodyParsable = new AssignUserToDeviceRequestBodyImpl(body)
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", bodyParsable);
+        const parsableBody = new AssignUserToDevicePostRequestBodyImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -50,7 +50,7 @@ export class AssignUserToDeviceRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public post(body: AssignUserToDeviceRequestBody | undefined, requestConfiguration?: AssignUserToDeviceRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public post(body: AssignUserToDevicePostRequestBody | undefined, requestConfiguration?: AssignUserToDeviceRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration

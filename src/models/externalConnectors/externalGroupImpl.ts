@@ -5,13 +5,14 @@ import {Identity} from './identity';
 import {IdentityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the collection of externalConnection entities. */
 export class ExternalGroupImpl extends EntityImpl implements ExternalGroup, Parsable {
     /** The description of the external group. Optional. */
-    description?: string | undefined;
+    public description?: string | undefined;
     /** The friendly name of the external group. Optional. */
-    displayName?: string | undefined;
+    public displayName?: string | undefined;
     /** A member added to an externalGroup. You can add Azure Active Directory users, Azure Active Directory groups, or other externalGroups as members. */
-    members?: Identity[] | undefined;
+    public members?: Identity[] | undefined;
     /**
      * Instantiates a new externalGroup and sets the default values.
      * @param externalGroupParameterValue 
@@ -41,15 +42,12 @@ export class ExternalGroupImpl extends EntityImpl implements ExternalGroup, Pars
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.description){
-        if(this.description)
         writer.writeStringValue("description", this.description);
         }
         if(this.displayName){
-        if(this.displayName)
         writer.writeStringValue("displayName", this.displayName);
         }
-        if(this.members){
-        const membersArrValue: IdentityImpl[] = []; this.members?.forEach(element => {membersArrValue.push(new IdentityImpl(element));});
+        if(this.members && this.members.length != 0){        const membersArrValue: IdentityImpl[] = []; this.members?.forEach(element => {membersArrValue.push(new IdentityImpl(element));});
         writer.writeCollectionOfObjectValues<IdentityImpl>("members", membersArrValue);
         }
     };

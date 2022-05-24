@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class ManagedAppRegistrationCollectionResponseImpl implements AdditionalDataHolder, ManagedAppRegistrationCollectionResponse, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: ManagedAppRegistration[] | undefined;
+    public value?: ManagedAppRegistration[] | undefined;
     /**
      * Instantiates a new ManagedAppRegistrationCollectionResponse and sets the default values.
      * @param managedAppRegistrationCollectionResponseParameterValue 
      */
     public constructor(managedAppRegistrationCollectionResponseParameterValue?: ManagedAppRegistrationCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = managedAppRegistrationCollectionResponseParameterValue?.additionalData ? {} : managedAppRegistrationCollectionResponseParameterValue?.additionalData!
+        this.additionalData = managedAppRegistrationCollectionResponseParameterValue?.additionalData ? managedAppRegistrationCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = managedAppRegistrationCollectionResponseParameterValue?.nextLink ;
         this.value = managedAppRegistrationCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class ManagedAppRegistrationCollectionResponseImpl implements AdditionalD
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: ManagedAppRegistrationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ManagedAppRegistrationImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: ManagedAppRegistrationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ManagedAppRegistrationImpl(element));});
         writer.writeCollectionOfObjectValues<ManagedAppRegistrationImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

@@ -3,24 +3,23 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class VerifiedDomainImpl implements AdditionalDataHolder, Parsable, VerifiedDomain {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** For example, Email, OfficeCommunicationsOnline. */
-    capabilities?: string | undefined;
+    public capabilities?: string | undefined;
     /** true if this is the default domain associated with the tenant; otherwise, false. */
-    isDefault?: boolean | undefined;
+    public isDefault?: boolean | undefined;
     /** true if this is the initial domain associated with the tenant; otherwise, false. */
-    isInitial?: boolean | undefined;
+    public isInitial?: boolean | undefined;
     /** The domain name; for example, contoso.onmicrosoft.com. */
-    name?: string | undefined;
+    public name?: string | undefined;
     /** For example, Managed. */
-    type?: string | undefined;
+    public type?: string | undefined;
     /**
      * Instantiates a new verifiedDomain and sets the default values.
      * @param verifiedDomainParameterValue 
      */
     public constructor(verifiedDomainParameterValue?: VerifiedDomain | undefined) {
-        this.additionalData = {};
-        this.additionalData = verifiedDomainParameterValue?.additionalData ? {} : verifiedDomainParameterValue?.additionalData!
+        this.additionalData = verifiedDomainParameterValue?.additionalData ? verifiedDomainParameterValue?.additionalData! : {}
         this.capabilities = verifiedDomainParameterValue?.capabilities ;
         this.isDefault = verifiedDomainParameterValue?.isDefault ;
         this.isInitial = verifiedDomainParameterValue?.isInitial ;
@@ -47,23 +46,18 @@ export class VerifiedDomainImpl implements AdditionalDataHolder, Parsable, Verif
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.capabilities){
-        if(this.capabilities)
         writer.writeStringValue("capabilities", this.capabilities);
         }
         if(this.isDefault){
-        if(this.isDefault)
         writer.writeBooleanValue("isDefault", this.isDefault);
         }
         if(this.isInitial){
-        if(this.isInitial)
         writer.writeBooleanValue("isInitial", this.isInitial);
         }
         if(this.name){
-        if(this.name)
         writer.writeStringValue("name", this.name);
         }
         if(this.type){
-        if(this.type)
         writer.writeStringValue("type", this.type);
         }
         writer.writeAdditionalData(this.additionalData);

@@ -2,13 +2,13 @@ import {PhoneType} from './phoneType';
 
 export interface Phone{
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    additionalData?:Record<string, unknown>;
     /** The language property */
-    language?: string | undefined;
+    language?:string | undefined;
     /** The phone number. */
-    number?: string | undefined;
+    number?:string | undefined;
     /** The region property */
-    region?: string | undefined;
+    region?:string | undefined;
     /** The type of phone number. Possible values are: home, business, mobile, other, assistant, homeFax, businessFax, otherFax, pager, radio. */
-    type?: PhoneType | undefined;
+    type?:PhoneType | undefined;
 }

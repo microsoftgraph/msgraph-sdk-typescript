@@ -3,18 +3,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class InvestigationSecurityStateImpl implements AdditionalDataHolder, InvestigationSecurityState, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The name property */
-    name?: string | undefined;
+    public name?: string | undefined;
     /** The status property */
-    status?: string | undefined;
+    public status?: string | undefined;
     /**
      * Instantiates a new investigationSecurityState and sets the default values.
      * @param investigationSecurityStateParameterValue 
      */
     public constructor(investigationSecurityStateParameterValue?: InvestigationSecurityState | undefined) {
-        this.additionalData = {};
-        this.additionalData = investigationSecurityStateParameterValue?.additionalData ? {} : investigationSecurityStateParameterValue?.additionalData!
+        this.additionalData = investigationSecurityStateParameterValue?.additionalData ? investigationSecurityStateParameterValue?.additionalData! : {}
         this.name = investigationSecurityStateParameterValue?.name ;
         this.status = investigationSecurityStateParameterValue?.status ;
     };
@@ -35,11 +34,9 @@ export class InvestigationSecurityStateImpl implements AdditionalDataHolder, Inv
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.name){
-        if(this.name)
         writer.writeStringValue("name", this.name);
         }
         if(this.status){
-        if(this.status)
         writer.writeStringValue("status", this.status);
         }
         writer.writeAdditionalData(this.additionalData);

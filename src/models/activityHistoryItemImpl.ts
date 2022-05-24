@@ -5,25 +5,26 @@ import {Status} from './status';
 import {UserActivity} from './userActivity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to user. */
 export class ActivityHistoryItemImpl extends EntityImpl implements ActivityHistoryItem, Parsable {
     /** Optional. The duration of active user engagement. if not supplied, this is calculated from the startedDateTime and lastActiveDateTime. */
-    activeDurationSeconds?: number | undefined;
+    public activeDurationSeconds?: number | undefined;
     /** The activity property */
-    activity?: UserActivity | undefined;
+    public activity?: UserActivity | undefined;
     /** Set by the server. DateTime in UTC when the object was created on the server. */
-    createdDateTime?: Date | undefined;
+    public createdDateTime?: Date | undefined;
     /** Optional. UTC DateTime when the historyItem will undergo hard-delete. Can be set by the client. */
-    expirationDateTime?: Date | undefined;
+    public expirationDateTime?: Date | undefined;
     /** Optional. UTC DateTime when the historyItem (activity session) was last understood as active or finished - if null, historyItem status should be Ongoing. */
-    lastActiveDateTime?: Date | undefined;
+    public lastActiveDateTime?: Date | undefined;
     /** Set by the server. DateTime in UTC when the object was modified on the server. */
-    lastModifiedDateTime?: Date | undefined;
+    public lastModifiedDateTime?: Date | undefined;
     /** Required. UTC DateTime when the historyItem (activity session) was started. Required for timeline history. */
-    startedDateTime?: Date | undefined;
+    public startedDateTime?: Date | undefined;
     /** Set by the server. A status code used to identify valid objects. Values: active, updated, deleted, ignored. */
-    status?: Status | undefined;
+    public status?: Status | undefined;
     /** Optional. The timezone in which the user's device used to generate the activity was located at activity creation time. Values supplied as Olson IDs in order to support cross-platform representation. */
-    userTimezone?: string | undefined;
+    public userTimezone?: string | undefined;
     /**
      * Instantiates a new activityHistoryItem and sets the default values.
      * @param activityHistoryItemParameterValue 
@@ -65,39 +66,30 @@ export class ActivityHistoryItemImpl extends EntityImpl implements ActivityHisto
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.activeDurationSeconds){
-        if(this.activeDurationSeconds)
         writer.writeNumberValue("activeDurationSeconds", this.activeDurationSeconds);
         }
         if(this.activity){
-        if(this.activity)
         writer.writeObjectValue<UserActivityImpl>("activity", new UserActivityImpl(this.activity));
         }
         if(this.createdDateTime){
-        if(this.createdDateTime)
         writer.writeDateValue("createdDateTime", this.createdDateTime);
         }
         if(this.expirationDateTime){
-        if(this.expirationDateTime)
         writer.writeDateValue("expirationDateTime", this.expirationDateTime);
         }
         if(this.lastActiveDateTime){
-        if(this.lastActiveDateTime)
         writer.writeDateValue("lastActiveDateTime", this.lastActiveDateTime);
         }
         if(this.lastModifiedDateTime){
-        if(this.lastModifiedDateTime)
         writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
         }
         if(this.startedDateTime){
-        if(this.startedDateTime)
         writer.writeDateValue("startedDateTime", this.startedDateTime);
         }
         if(this.status){
-        if(this.status)
         writer.writeEnumValue<Status>("status", this.status);
         }
         if(this.userTimezone){
-        if(this.userTimezone)
         writer.writeStringValue("userTimezone", this.userTimezone);
         }
     };

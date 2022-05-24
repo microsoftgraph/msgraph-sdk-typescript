@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class GroupSettingTemplateCollectionResponseImpl implements AdditionalDataHolder, GroupSettingTemplateCollectionResponse, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: GroupSettingTemplate[] | undefined;
+    public value?: GroupSettingTemplate[] | undefined;
     /**
      * Instantiates a new GroupSettingTemplateCollectionResponse and sets the default values.
      * @param groupSettingTemplateCollectionResponseParameterValue 
      */
     public constructor(groupSettingTemplateCollectionResponseParameterValue?: GroupSettingTemplateCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = groupSettingTemplateCollectionResponseParameterValue?.additionalData ? {} : groupSettingTemplateCollectionResponseParameterValue?.additionalData!
+        this.additionalData = groupSettingTemplateCollectionResponseParameterValue?.additionalData ? groupSettingTemplateCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = groupSettingTemplateCollectionResponseParameterValue?.nextLink ;
         this.value = groupSettingTemplateCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class GroupSettingTemplateCollectionResponseImpl implements AdditionalDat
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: GroupSettingTemplateImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new GroupSettingTemplateImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: GroupSettingTemplateImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new GroupSettingTemplateImpl(element));});
         writer.writeCollectionOfObjectValues<GroupSettingTemplateImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

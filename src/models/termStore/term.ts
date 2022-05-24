@@ -7,19 +7,19 @@ import {Set} from './set';
 
 export interface Term extends Entity{
     /** Children of current term. */
-    children?: Term[] | undefined;
+    children?:Term[] | undefined;
     /** Date and time of term creation. Read-only. */
-    createdDateTime?: Date | undefined;
+    createdDateTime?:Date | undefined;
     /** Description about term that is dependent on the languageTag. */
-    descriptions?: LocalizedDescription[] | undefined;
+    descriptions?:LocalizedDescription[] | undefined;
     /** Label metadata for a term. */
-    labels?: LocalizedLabel[] | undefined;
+    labels?:LocalizedLabel[] | undefined;
     /** Last date and time of term modification. Read-only. */
-    lastModifiedDateTime?: Date | undefined;
+    lastModifiedDateTime?:Date | undefined;
     /** Collection of properties on the term. */
-    properties?: KeyValue[] | undefined;
+    properties?:KeyValue[] | undefined;
     /** To indicate which terms are related to the current term as either pinned or reused. */
-    relations?: Relation[] | undefined;
+    relations?:Relation[] | undefined;
     /** The [set] in which the term is created. */
-    set?: Set | undefined;
+    set?:Set | undefined;
 }

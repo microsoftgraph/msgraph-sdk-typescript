@@ -3,20 +3,19 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class ProvisionedPlanImpl implements AdditionalDataHolder, Parsable, ProvisionedPlan {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** For example, 'Enabled'. */
-    capabilityStatus?: string | undefined;
+    public capabilityStatus?: string | undefined;
     /** For example, 'Success'. */
-    provisioningStatus?: string | undefined;
+    public provisioningStatus?: string | undefined;
     /** The name of the service; for example, 'AccessControlS2S' */
-    service?: string | undefined;
+    public service?: string | undefined;
     /**
      * Instantiates a new provisionedPlan and sets the default values.
      * @param provisionedPlanParameterValue 
      */
     public constructor(provisionedPlanParameterValue?: ProvisionedPlan | undefined) {
-        this.additionalData = {};
-        this.additionalData = provisionedPlanParameterValue?.additionalData ? {} : provisionedPlanParameterValue?.additionalData!
+        this.additionalData = provisionedPlanParameterValue?.additionalData ? provisionedPlanParameterValue?.additionalData! : {}
         this.capabilityStatus = provisionedPlanParameterValue?.capabilityStatus ;
         this.provisioningStatus = provisionedPlanParameterValue?.provisioningStatus ;
         this.service = provisionedPlanParameterValue?.service ;
@@ -39,15 +38,12 @@ export class ProvisionedPlanImpl implements AdditionalDataHolder, Parsable, Prov
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.capabilityStatus){
-        if(this.capabilityStatus)
         writer.writeStringValue("capabilityStatus", this.capabilityStatus);
         }
         if(this.provisioningStatus){
-        if(this.provisioningStatus)
         writer.writeStringValue("provisioningStatus", this.provisioningStatus);
         }
         if(this.service){
-        if(this.service)
         writer.writeStringValue("service", this.service);
         }
         writer.writeAdditionalData(this.additionalData);

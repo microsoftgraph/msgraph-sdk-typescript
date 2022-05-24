@@ -1,3 +1,3 @@
-export * from './assignRequestBodyImpl'
-export * from './assignRequestBody'
+export * from './assignPostRequestBodyImpl'
+export * from './assignPostRequestBody'
 export * from './assignRequestBuilderPostRequestConfiguration'

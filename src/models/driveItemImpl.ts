@@ -57,71 +57,72 @@ import {Video} from './video';
 import {Workbook} from './workbook';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to user. */
 export class DriveItemImpl extends BaseItemImpl implements DriveItem, Parsable {
     /** Analytics about the view activities that took place on this item. */
-    analytics?: ItemAnalytics | undefined;
+    public analytics?: ItemAnalytics | undefined;
     /** Audio metadata, if the item is an audio file. Read-only. Only on OneDrive Personal. */
-    audio?: Audio | undefined;
+    public audio?: Audio | undefined;
     /** Bundle metadata, if the item is a bundle. Read-only. */
-    bundle?: Bundle | undefined;
+    public bundle?: Bundle | undefined;
     /** Collection containing Item objects for the immediate children of Item. Only items representing folders have children. Read-only. Nullable. */
-    children?: DriveItem[] | undefined;
+    public children?: DriveItem[] | undefined;
     /** The content stream, if the item represents a file. */
-    content?: string | undefined;
+    public content?: string | undefined;
     /** An eTag for the content of the item. This eTag is not changed if only the metadata is changed. Note This property is not returned if the item is a folder. Read-only. */
-    cTag?: string | undefined;
+    public cTag?: string | undefined;
     /** Information about the deleted state of the item. Read-only. */
-    deleted?: Deleted | undefined;
+    public deleted?: Deleted | undefined;
     /** File metadata, if the item is a file. Read-only. */
-    file?: File | undefined;
+    public file?: File | undefined;
     /** File system information on client. Read-write. */
-    fileSystemInfo?: FileSystemInfo | undefined;
+    public fileSystemInfo?: FileSystemInfo | undefined;
     /** Folder metadata, if the item is a folder. Read-only. */
-    folder?: Folder | undefined;
+    public folder?: Folder | undefined;
     /** Image metadata, if the item is an image. Read-only. */
-    image?: Image | undefined;
+    public image?: Image | undefined;
     /** For drives in SharePoint, the associated document library list item. Read-only. Nullable. */
-    listItem?: ListItem | undefined;
+    public listItem?: ListItem | undefined;
     /** Location metadata, if the item has location data. Read-only. */
-    location?: GeoCoordinates | undefined;
+    public location?: GeoCoordinates | undefined;
     /** Malware metadata, if the item was detected to contain malware. Read-only. */
-    malware?: Malware | undefined;
+    public malware?: Malware | undefined;
     /** If present, indicates that this item is a package instead of a folder or file. Packages are treated like files in some contexts and folders in others. Read-only. */
-    package?: Package | undefined;
+    public package?: Package | undefined;
     /** If present, indicates that indicates that one or more operations that may affect the state of the driveItem are pending completion. Read-only. */
-    pendingOperations?: PendingOperations | undefined;
+    public pendingOperations?: PendingOperations | undefined;
     /** The set of permissions for the item. Read-only. Nullable. */
-    permissions?: Permission[] | undefined;
+    public permissions?: Permission[] | undefined;
     /** Photo metadata, if the item is a photo. Read-only. */
-    photo?: Photo | undefined;
+    public photo?: Photo | undefined;
     /** Provides information about the published or checked-out state of an item, in locations that support such actions. This property is not returned by default. Read-only. */
-    publication?: PublicationFacet | undefined;
+    public publication?: PublicationFacet | undefined;
     /** Remote item data, if the item is shared from a drive other than the one being accessed. Read-only. */
-    remoteItem?: RemoteItem | undefined;
+    public remoteItem?: RemoteItem | undefined;
     /** If this property is non-null, it indicates that the driveItem is the top-most driveItem in the drive. */
-    root?: Root | undefined;
+    public root?: Root | undefined;
     /** Search metadata, if the item is from a search result. Read-only. */
-    searchResult?: SearchResult | undefined;
+    public searchResult?: SearchResult | undefined;
     /** Indicates that the item has been shared with others and provides information about the shared state of the item. Read-only. */
-    shared?: Shared | undefined;
+    public shared?: Shared | undefined;
     /** Returns identifiers useful for SharePoint REST compatibility. Read-only. */
-    sharepointIds?: SharepointIds | undefined;
+    public sharepointIds?: SharepointIds | undefined;
     /** Size of the item in bytes. Read-only. */
-    size?: number | undefined;
+    public size?: number | undefined;
     /** If the current item is also available as a special folder, this facet is returned. Read-only. */
-    specialFolder?: SpecialFolder | undefined;
+    public specialFolder?: SpecialFolder | undefined;
     /** The set of subscriptions on the item. Only supported on the root of a drive. */
-    subscriptions?: Subscription[] | undefined;
+    public subscriptions?: Subscription[] | undefined;
     /** Collection containing [ThumbnailSet][] objects associated with the item. For more info, see [getting thumbnails][]. Read-only. Nullable. */
-    thumbnails?: ThumbnailSet[] | undefined;
+    public thumbnails?: ThumbnailSet[] | undefined;
     /** The list of previous versions of the item. For more info, see [getting previous versions][]. Read-only. Nullable. */
-    versions?: DriveItemVersion[] | undefined;
+    public versions?: DriveItemVersion[] | undefined;
     /** Video metadata, if the item is a video. Read-only. */
-    video?: Video | undefined;
+    public video?: Video | undefined;
     /** WebDAV compatible URL for the item. */
-    webDavUrl?: string | undefined;
+    public webDavUrl?: string | undefined;
     /** For files that are Excel spreadsheets, accesses the workbook API to work with the spreadsheet's contents. Nullable. */
-    workbook?: Workbook | undefined;
+    public workbook?: Workbook | undefined;
     /**
      * Instantiates a new driveItem and sets the default values.
      * @param driveItemParameterValue 
@@ -209,131 +210,99 @@ export class DriveItemImpl extends BaseItemImpl implements DriveItem, Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.analytics){
-        if(this.analytics)
         writer.writeObjectValue<ItemAnalyticsImpl>("analytics", new ItemAnalyticsImpl(this.analytics));
         }
         if(this.audio){
-        if(this.audio)
         writer.writeObjectValue<AudioImpl>("audio", new AudioImpl(this.audio));
         }
         if(this.bundle){
-        if(this.bundle)
         writer.writeObjectValue<BundleImpl>("bundle", new BundleImpl(this.bundle));
         }
-        if(this.children){
-        const childrenArrValue: DriveItemImpl[] = []; this.children?.forEach(element => {childrenArrValue.push(new DriveItemImpl(element));});
+        if(this.children && this.children.length != 0){        const childrenArrValue: DriveItemImpl[] = []; this.children?.forEach(element => {childrenArrValue.push(new DriveItemImpl(element));});
         writer.writeCollectionOfObjectValues<DriveItemImpl>("children", childrenArrValue);
         }
         if(this.content){
-        if(this.content)
         writer.writeStringValue("content", this.content);
         }
         if(this.cTag){
-        if(this.cTag)
         writer.writeStringValue("cTag", this.cTag);
         }
         if(this.deleted){
-        if(this.deleted)
         writer.writeObjectValue<DeletedImpl>("deleted", new DeletedImpl(this.deleted));
         }
         if(this.file){
-        if(this.file)
         writer.writeObjectValue<FileImpl>("file", new FileImpl(this.file));
         }
         if(this.fileSystemInfo){
-        if(this.fileSystemInfo)
         writer.writeObjectValue<FileSystemInfoImpl>("fileSystemInfo", new FileSystemInfoImpl(this.fileSystemInfo));
         }
         if(this.folder){
-        if(this.folder)
         writer.writeObjectValue<FolderImpl>("folder", new FolderImpl(this.folder));
         }
         if(this.image){
-        if(this.image)
         writer.writeObjectValue<ImageImpl>("image", new ImageImpl(this.image));
         }
         if(this.listItem){
-        if(this.listItem)
         writer.writeObjectValue<ListItemImpl>("listItem", new ListItemImpl(this.listItem));
         }
         if(this.location){
-        if(this.location)
         writer.writeObjectValue<GeoCoordinatesImpl>("location", new GeoCoordinatesImpl(this.location));
         }
         if(this.malware){
-        if(this.malware)
         writer.writeObjectValue<MalwareImpl>("malware", new MalwareImpl(this.malware));
         }
         if(this.package){
-        if(this.package)
         writer.writeObjectValue<PackageImpl>("package", new PackageImpl(this.package));
         }
         if(this.pendingOperations){
-        if(this.pendingOperations)
         writer.writeObjectValue<PendingOperationsImpl>("pendingOperations", new PendingOperationsImpl(this.pendingOperations));
         }
-        if(this.permissions){
-        const permissionsArrValue: PermissionImpl[] = []; this.permissions?.forEach(element => {permissionsArrValue.push(new PermissionImpl(element));});
+        if(this.permissions && this.permissions.length != 0){        const permissionsArrValue: PermissionImpl[] = []; this.permissions?.forEach(element => {permissionsArrValue.push(new PermissionImpl(element));});
         writer.writeCollectionOfObjectValues<PermissionImpl>("permissions", permissionsArrValue);
         }
         if(this.photo){
-        if(this.photo)
         writer.writeObjectValue<PhotoImpl>("photo", new PhotoImpl(this.photo));
         }
         if(this.publication){
-        if(this.publication)
         writer.writeObjectValue<PublicationFacetImpl>("publication", new PublicationFacetImpl(this.publication));
         }
         if(this.remoteItem){
-        if(this.remoteItem)
         writer.writeObjectValue<RemoteItemImpl>("remoteItem", new RemoteItemImpl(this.remoteItem));
         }
         if(this.root){
-        if(this.root)
         writer.writeObjectValue<RootImpl>("root", new RootImpl(this.root));
         }
         if(this.searchResult){
-        if(this.searchResult)
         writer.writeObjectValue<SearchResultImpl>("searchResult", new SearchResultImpl(this.searchResult));
         }
         if(this.shared){
-        if(this.shared)
         writer.writeObjectValue<SharedImpl>("shared", new SharedImpl(this.shared));
         }
         if(this.sharepointIds){
-        if(this.sharepointIds)
         writer.writeObjectValue<SharepointIdsImpl>("sharepointIds", new SharepointIdsImpl(this.sharepointIds));
         }
         if(this.size){
-        if(this.size)
         writer.writeNumberValue("size", this.size);
         }
         if(this.specialFolder){
-        if(this.specialFolder)
         writer.writeObjectValue<SpecialFolderImpl>("specialFolder", new SpecialFolderImpl(this.specialFolder));
         }
-        if(this.subscriptions){
-        const subscriptionsArrValue: SubscriptionImpl[] = []; this.subscriptions?.forEach(element => {subscriptionsArrValue.push(new SubscriptionImpl(element));});
+        if(this.subscriptions && this.subscriptions.length != 0){        const subscriptionsArrValue: SubscriptionImpl[] = []; this.subscriptions?.forEach(element => {subscriptionsArrValue.push(new SubscriptionImpl(element));});
         writer.writeCollectionOfObjectValues<SubscriptionImpl>("subscriptions", subscriptionsArrValue);
         }
-        if(this.thumbnails){
-        const thumbnailsArrValue: ThumbnailSetImpl[] = []; this.thumbnails?.forEach(element => {thumbnailsArrValue.push(new ThumbnailSetImpl(element));});
+        if(this.thumbnails && this.thumbnails.length != 0){        const thumbnailsArrValue: ThumbnailSetImpl[] = []; this.thumbnails?.forEach(element => {thumbnailsArrValue.push(new ThumbnailSetImpl(element));});
         writer.writeCollectionOfObjectValues<ThumbnailSetImpl>("thumbnails", thumbnailsArrValue);
         }
-        if(this.versions){
-        const versionsArrValue: DriveItemVersionImpl[] = []; this.versions?.forEach(element => {versionsArrValue.push(new DriveItemVersionImpl(element));});
+        if(this.versions && this.versions.length != 0){        const versionsArrValue: DriveItemVersionImpl[] = []; this.versions?.forEach(element => {versionsArrValue.push(new DriveItemVersionImpl(element));});
         writer.writeCollectionOfObjectValues<DriveItemVersionImpl>("versions", versionsArrValue);
         }
         if(this.video){
-        if(this.video)
         writer.writeObjectValue<VideoImpl>("video", new VideoImpl(this.video));
         }
         if(this.webDavUrl){
-        if(this.webDavUrl)
         writer.writeStringValue("webDavUrl", this.webDavUrl);
         }
         if(this.workbook){
-        if(this.workbook)
         writer.writeObjectValue<WorkbookImpl>("workbook", new WorkbookImpl(this.workbook));
         }
     };

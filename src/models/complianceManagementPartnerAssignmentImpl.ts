@@ -7,16 +7,15 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** User group targeting for Compliance Management Partner */
 export class ComplianceManagementPartnerAssignmentImpl implements AdditionalDataHolder, ComplianceManagementPartnerAssignment, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** Group assignment target. */
-    target?: DeviceAndAppManagementAssignmentTarget | undefined;
+    public target?: DeviceAndAppManagementAssignmentTarget | undefined;
     /**
      * Instantiates a new complianceManagementPartnerAssignment and sets the default values.
      * @param complianceManagementPartnerAssignmentParameterValue 
      */
     public constructor(complianceManagementPartnerAssignmentParameterValue?: ComplianceManagementPartnerAssignment | undefined) {
-        this.additionalData = {};
-        this.additionalData = complianceManagementPartnerAssignmentParameterValue?.additionalData ? {} : complianceManagementPartnerAssignmentParameterValue?.additionalData!
+        this.additionalData = complianceManagementPartnerAssignmentParameterValue?.additionalData ? complianceManagementPartnerAssignmentParameterValue?.additionalData! : {}
         this.target = complianceManagementPartnerAssignmentParameterValue?.target ;
     };
     /**
@@ -35,7 +34,6 @@ export class ComplianceManagementPartnerAssignmentImpl implements AdditionalData
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.target){
-        if(this.target)
         writer.writeObjectValue<DeviceAndAppManagementAssignmentTargetImpl>("target", new DeviceAndAppManagementAssignmentTargetImpl(this.target));
         }
         writer.writeAdditionalData(this.additionalData);

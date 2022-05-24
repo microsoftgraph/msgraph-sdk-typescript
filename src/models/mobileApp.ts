@@ -6,33 +6,33 @@ import {MobileAppPublishingState} from './mobileAppPublishingState';
 
 export interface MobileApp extends Entity{
     /** The list of group assignments for this mobile app. */
-    assignments?: MobileAppAssignment[] | undefined;
+    assignments?:MobileAppAssignment[] | undefined;
     /** The list of categories for this app. */
-    categories?: MobileAppCategory[] | undefined;
+    categories?:MobileAppCategory[] | undefined;
     /** The date and time the app was created. */
-    createdDateTime?: Date | undefined;
+    createdDateTime?:Date | undefined;
     /** The description of the app. */
-    description?: string | undefined;
+    description?:string | undefined;
     /** The developer of the app. */
-    developer?: string | undefined;
+    developer?:string | undefined;
     /** The admin provided or imported title of the app. */
-    displayName?: string | undefined;
+    displayName?:string | undefined;
     /** The more information Url. */
-    informationUrl?: string | undefined;
+    informationUrl?:string | undefined;
     /** The value indicating whether the app is marked as featured by the admin. */
-    isFeatured?: boolean | undefined;
+    isFeatured?:boolean | undefined;
     /** The large icon, to be displayed in the app details and used for upload of the icon. */
-    largeIcon?: MimeContent | undefined;
+    largeIcon?:MimeContent | undefined;
     /** The date and time the app was last modified. */
-    lastModifiedDateTime?: Date | undefined;
+    lastModifiedDateTime?:Date | undefined;
     /** Notes for the app. */
-    notes?: string | undefined;
+    notes?:string | undefined;
     /** The owner of the app. */
-    owner?: string | undefined;
+    owner?:string | undefined;
     /** The privacy statement Url. */
-    privacyInformationUrl?: string | undefined;
+    privacyInformationUrl?:string | undefined;
     /** The publisher of the app. */
-    publisher?: string | undefined;
+    publisher?:string | undefined;
     /** The publishing state for the app. The app cannot be assigned unless the app is published. Possible values are: notPublished, processing, published. */
-    publishingState?: MobileAppPublishingState | undefined;
+    publishingState?:MobileAppPublishingState | undefined;
 }

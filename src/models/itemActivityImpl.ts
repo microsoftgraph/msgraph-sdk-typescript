@@ -8,15 +8,16 @@ import {AccessActionImpl, DriveItemImpl, EntityImpl, IdentitySetImpl} from './in
 import {ItemActivity} from './itemActivity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to group. */
 export class ItemActivityImpl extends EntityImpl implements ItemActivity, Parsable {
     /** An item was accessed. */
-    access?: AccessAction | undefined;
+    public access?: AccessAction | undefined;
     /** Details about when the activity took place. Read-only. */
-    activityDateTime?: Date | undefined;
+    public activityDateTime?: Date | undefined;
     /** Identity of who performed the action. Read-only. */
-    actor?: IdentitySet | undefined;
+    public actor?: IdentitySet | undefined;
     /** Exposes the driveItem that was the target of this activity. */
-    driveItem?: DriveItem | undefined;
+    public driveItem?: DriveItem | undefined;
     /**
      * Instantiates a new itemActivity and sets the default values.
      * @param itemActivityParameterValue 
@@ -48,19 +49,15 @@ export class ItemActivityImpl extends EntityImpl implements ItemActivity, Parsab
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.access){
-        if(this.access)
         writer.writeObjectValue<AccessActionImpl>("access", new AccessActionImpl(this.access));
         }
         if(this.activityDateTime){
-        if(this.activityDateTime)
         writer.writeDateValue("activityDateTime", this.activityDateTime);
         }
         if(this.actor){
-        if(this.actor)
         writer.writeObjectValue<IdentitySetImpl>("actor", new IdentitySetImpl(this.actor));
         }
         if(this.driveItem){
-        if(this.driveItem)
         writer.writeObjectValue<DriveItemImpl>("driveItem", new DriveItemImpl(this.driveItem));
         }
     };

@@ -4,53 +4,53 @@ import {WifiRadioType} from './wifiRadioType';
 
 export interface NetworkInfo{
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    additionalData?:Record<string, unknown>;
     /** Fraction of the call that the media endpoint detected the available bandwidth or bandwidth policy was low enough to cause poor quality of the audio sent. */
-    bandwidthLowEventRatio?: number | undefined;
+    bandwidthLowEventRatio?:number | undefined;
     /** The wireless LAN basic service set identifier of the media endpoint used to connect to the network. */
-    basicServiceSetIdentifier?: string | undefined;
+    basicServiceSetIdentifier?:string | undefined;
     /** Type of network used by the media endpoint. Possible values are: unknown, wired, wifi, mobile, tunnel, unknownFutureValue. */
-    connectionType?: NetworkConnectionType | undefined;
+    connectionType?:NetworkConnectionType | undefined;
     /** Fraction of the call that the media endpoint detected the network delay was significant enough to impact the ability to have real-time two-way communication. */
-    delayEventRatio?: number | undefined;
+    delayEventRatio?:number | undefined;
     /** DNS suffix associated with the network adapter of the media endpoint. */
-    dnsSuffix?: string | undefined;
+    dnsSuffix?:string | undefined;
     /** IP address of the media endpoint. */
-    ipAddress?: string | undefined;
+    ipAddress?:string | undefined;
     /** Link speed in bits per second reported by the network adapter used by the media endpoint. */
-    linkSpeed?: number | undefined;
+    linkSpeed?:number | undefined;
     /** The media access control (MAC) address of the media endpoint's network device. */
-    macAddress?: string | undefined;
+    macAddress?:string | undefined;
     /** Network port number used by media endpoint. */
-    port?: number | undefined;
+    port?:number | undefined;
     /** Fraction of the call that the media endpoint detected the network was causing poor quality of the audio received. */
-    receivedQualityEventRatio?: number | undefined;
+    receivedQualityEventRatio?:number | undefined;
     /** IP address of the media endpoint as seen by the media relay server. This is typically the public internet IP address associated to the endpoint. */
-    reflexiveIPAddress?: string | undefined;
+    reflexiveIPAddress?:string | undefined;
     /** IP address of the media relay server allocated by the media endpoint. */
-    relayIPAddress?: string | undefined;
+    relayIPAddress?:string | undefined;
     /** Network port number allocated on the media relay server by the media endpoint. */
-    relayPort?: number | undefined;
+    relayPort?:number | undefined;
     /** Fraction of the call that the media endpoint detected the network was causing poor quality of the audio sent. */
-    sentQualityEventRatio?: number | undefined;
+    sentQualityEventRatio?:number | undefined;
     /** Subnet used for media stream by the media endpoint. */
-    subnet?: string | undefined;
+    subnet?:string | undefined;
     /** WiFi band used by the media endpoint. Possible values are: unknown, frequency24GHz, frequency50GHz, frequency60GHz, unknownFutureValue. */
-    wifiBand?: WifiBand | undefined;
+    wifiBand?:WifiBand | undefined;
     /** Estimated remaining battery charge in percentage reported by the media endpoint. */
-    wifiBatteryCharge?: number | undefined;
+    wifiBatteryCharge?:number | undefined;
     /** WiFi channel used by the media endpoint. */
-    wifiChannel?: number | undefined;
+    wifiChannel?:number | undefined;
     /** Name of the Microsoft WiFi driver used by the media endpoint. Value may be localized based on the language used by endpoint. */
-    wifiMicrosoftDriver?: string | undefined;
+    wifiMicrosoftDriver?:string | undefined;
     /** Version of the Microsoft WiFi driver used by the media endpoint. */
-    wifiMicrosoftDriverVersion?: string | undefined;
+    wifiMicrosoftDriverVersion?:string | undefined;
     /** Type of WiFi radio used by the media endpoint. Possible values are: unknown, wifi80211a, wifi80211b, wifi80211g, wifi80211n, wifi80211ac, wifi80211ax, unknownFutureValue. */
-    wifiRadioType?: WifiRadioType | undefined;
+    wifiRadioType?:WifiRadioType | undefined;
     /** WiFi signal strength in percentage reported by the media endpoint. */
-    wifiSignalStrength?: number | undefined;
+    wifiSignalStrength?:number | undefined;
     /** Name of the WiFi driver used by the media endpoint. Value may be localized based on the language used by endpoint. */
-    wifiVendorDriver?: string | undefined;
+    wifiVendorDriver?:string | undefined;
     /** Version of the WiFi driver used by the media endpoint. */
-    wifiVendorDriverVersion?: string | undefined;
+    wifiVendorDriverVersion?:string | undefined;
 }

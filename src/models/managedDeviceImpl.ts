@@ -22,115 +22,116 @@ import {ManagedDevicePartnerReportedHealthState} from './managedDevicePartnerRep
 import {ManagementAgentType} from './managementAgentType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Devices that are managed or pre-enrolled through Intune */
 export class ManagedDeviceImpl extends EntityImpl implements ManagedDevice, Parsable {
     /** Code that allows the Activation Lock on a device to be bypassed. This property is read-only. */
-    activationLockBypassCode?: string | undefined;
+    public activationLockBypassCode?: string | undefined;
     /** Android security patch level. This property is read-only. */
-    androidSecurityPatchLevel?: string | undefined;
+    public androidSecurityPatchLevel?: string | undefined;
     /** The unique identifier for the Azure Active Directory device. Read only. This property is read-only. */
-    azureADDeviceId?: string | undefined;
+    public azureADDeviceId?: string | undefined;
     /** Whether the device is Azure Active Directory registered. This property is read-only. */
-    azureADRegistered?: boolean | undefined;
+    public azureADRegistered?: boolean | undefined;
     /** The DateTime when device compliance grace period expires. This property is read-only. */
-    complianceGracePeriodExpirationDateTime?: Date | undefined;
+    public complianceGracePeriodExpirationDateTime?: Date | undefined;
     /** Compliance state of the device. This property is read-only. Possible values are: unknown, compliant, noncompliant, conflict, error, inGracePeriod, configManager. */
-    complianceState?: ComplianceState | undefined;
+    public complianceState?: ComplianceState | undefined;
     /** ConfigrMgr client enabled features. This property is read-only. */
-    configurationManagerClientEnabledFeatures?: ConfigurationManagerClientEnabledFeatures | undefined;
+    public configurationManagerClientEnabledFeatures?: ConfigurationManagerClientEnabledFeatures | undefined;
     /** List of ComplexType deviceActionResult objects. This property is read-only. */
-    deviceActionResults?: DeviceActionResult[] | undefined;
+    public deviceActionResults?: DeviceActionResult[] | undefined;
     /** Device category */
-    deviceCategory?: DeviceCategory | undefined;
+    public deviceCategory?: DeviceCategory | undefined;
     /** Device category display name. This property is read-only. */
-    deviceCategoryDisplayName?: string | undefined;
+    public deviceCategoryDisplayName?: string | undefined;
     /** Device compliance policy states for this device. */
-    deviceCompliancePolicyStates?: DeviceCompliancePolicyState[] | undefined;
+    public deviceCompliancePolicyStates?: DeviceCompliancePolicyState[] | undefined;
     /** Device configuration states for this device. */
-    deviceConfigurationStates?: DeviceConfigurationState[] | undefined;
+    public deviceConfigurationStates?: DeviceConfigurationState[] | undefined;
     /** Enrollment type of the device. This property is read-only. Possible values are: unknown, userEnrollment, deviceEnrollmentManager, appleBulkWithUser, appleBulkWithoutUser, windowsAzureADJoin, windowsBulkUserless, windowsAutoEnrollment, windowsBulkAzureDomainJoin, windowsCoManagement, windowsAzureADJoinUsingDeviceAuth, appleUserEnrollment, appleUserEnrollmentWithServiceAccount, azureAdJoinUsingAzureVmExtension, androidEnterpriseDedicatedDevice, androidEnterpriseFullyManaged, androidEnterpriseCorporateWorkProfile. */
-    deviceEnrollmentType?: DeviceEnrollmentType | undefined;
+    public deviceEnrollmentType?: DeviceEnrollmentType | undefined;
     /** The device health attestation state. This property is read-only. */
-    deviceHealthAttestationState?: DeviceHealthAttestationState | undefined;
+    public deviceHealthAttestationState?: DeviceHealthAttestationState | undefined;
     /** Name of the device. This property is read-only. */
-    deviceName?: string | undefined;
+    public deviceName?: string | undefined;
     /** Device registration state. This property is read-only. Possible values are: notRegistered, registered, revoked, keyConflict, approvalPending, certificateReset, notRegisteredPendingEnrollment, unknown. */
-    deviceRegistrationState?: DeviceRegistrationState | undefined;
+    public deviceRegistrationState?: DeviceRegistrationState | undefined;
     /** Whether the device is Exchange ActiveSync activated. This property is read-only. */
-    easActivated?: boolean | undefined;
+    public easActivated?: boolean | undefined;
     /** Exchange ActivationSync activation time of the device. This property is read-only. */
-    easActivationDateTime?: Date | undefined;
+    public easActivationDateTime?: Date | undefined;
     /** Exchange ActiveSync Id of the device. This property is read-only. */
-    easDeviceId?: string | undefined;
+    public easDeviceId?: string | undefined;
     /** Email(s) for the user associated with the device. This property is read-only. */
-    emailAddress?: string | undefined;
+    public emailAddress?: string | undefined;
     /** Enrollment time of the device. This property is read-only. */
-    enrolledDateTime?: Date | undefined;
+    public enrolledDateTime?: Date | undefined;
     /** Ethernet MAC. This property is read-only. */
-    ethernetMacAddress?: string | undefined;
+    public ethernetMacAddress?: string | undefined;
     /** The Access State of the device in Exchange. This property is read-only. Possible values are: none, unknown, allowed, blocked, quarantined. */
-    exchangeAccessState?: DeviceManagementExchangeAccessState | undefined;
+    public exchangeAccessState?: DeviceManagementExchangeAccessState | undefined;
     /** The reason for the device's access state in Exchange. This property is read-only. Possible values are: none, unknown, exchangeGlobalRule, exchangeIndividualRule, exchangeDeviceRule, exchangeUpgrade, exchangeMailboxPolicy, other, compliant, notCompliant, notEnrolled, unknownLocation, mfaRequired, azureADBlockDueToAccessPolicy, compromisedPassword, deviceNotKnownWithManagedApp. */
-    exchangeAccessStateReason?: DeviceManagementExchangeAccessStateReason | undefined;
+    public exchangeAccessStateReason?: DeviceManagementExchangeAccessStateReason | undefined;
     /** Last time the device contacted Exchange. This property is read-only. */
-    exchangeLastSuccessfulSyncDateTime?: Date | undefined;
+    public exchangeLastSuccessfulSyncDateTime?: Date | undefined;
     /** Free Storage in Bytes. This property is read-only. */
-    freeStorageSpaceInBytes?: number | undefined;
+    public freeStorageSpaceInBytes?: number | undefined;
     /** Integrated Circuit Card Identifier, it is A SIM card's unique identification number. This property is read-only. */
-    iccid?: string | undefined;
+    public iccid?: string | undefined;
     /** IMEI. This property is read-only. */
-    imei?: string | undefined;
+    public imei?: string | undefined;
     /** Device encryption status. This property is read-only. */
-    isEncrypted?: boolean | undefined;
+    public isEncrypted?: boolean | undefined;
     /** Device supervised status. This property is read-only. */
-    isSupervised?: boolean | undefined;
+    public isSupervised?: boolean | undefined;
     /** whether the device is jail broken or rooted. This property is read-only. */
-    jailBroken?: string | undefined;
+    public jailBroken?: string | undefined;
     /** The date and time that the device last completed a successful sync with Intune. This property is read-only. */
-    lastSyncDateTime?: Date | undefined;
+    public lastSyncDateTime?: Date | undefined;
     /** Automatically generated name to identify a device. Can be overwritten to a user friendly name. */
-    managedDeviceName?: string | undefined;
+    public managedDeviceName?: string | undefined;
     /** Ownership of the device. Can be 'company' or 'personal'. Possible values are: unknown, company, personal. */
-    managedDeviceOwnerType?: ManagedDeviceOwnerType | undefined;
+    public managedDeviceOwnerType?: ManagedDeviceOwnerType | undefined;
     /** Management channel of the device. Intune, EAS, etc. This property is read-only. Possible values are: eas, mdm, easMdm, intuneClient, easIntuneClient, configurationManagerClient, configurationManagerClientMdm, configurationManagerClientMdmEas, unknown, jamf, googleCloudDevicePolicyController, microsoft365ManagedMdm, msSense, intuneAosp. */
-    managementAgent?: ManagementAgentType | undefined;
+    public managementAgent?: ManagementAgentType | undefined;
     /** Manufacturer of the device. This property is read-only. */
-    manufacturer?: string | undefined;
+    public manufacturer?: string | undefined;
     /** MEID. This property is read-only. */
-    meid?: string | undefined;
+    public meid?: string | undefined;
     /** Model of the device. This property is read-only. */
-    model?: string | undefined;
+    public model?: string | undefined;
     /** Notes on the device created by IT Admin */
-    notes?: string | undefined;
+    public notes?: string | undefined;
     /** Operating system of the device. Windows, iOS, etc. This property is read-only. */
-    operatingSystem?: string | undefined;
+    public operatingSystem?: string | undefined;
     /** Operating system version of the device. This property is read-only. */
-    osVersion?: string | undefined;
+    public osVersion?: string | undefined;
     /** Indicates the threat state of a device when a Mobile Threat Defense partner is in use by the account and device. Read Only. This property is read-only. Possible values are: unknown, activated, deactivated, secured, lowSeverity, mediumSeverity, highSeverity, unresponsive, compromised, misconfigured. */
-    partnerReportedThreatState?: ManagedDevicePartnerReportedHealthState | undefined;
+    public partnerReportedThreatState?: ManagedDevicePartnerReportedHealthState | undefined;
     /** Phone number of the device. This property is read-only. */
-    phoneNumber?: string | undefined;
+    public phoneNumber?: string | undefined;
     /** Total Memory in Bytes. This property is read-only. */
-    physicalMemoryInBytes?: number | undefined;
+    public physicalMemoryInBytes?: number | undefined;
     /** An error string that identifies issues when creating Remote Assistance session objects. This property is read-only. */
-    remoteAssistanceSessionErrorDetails?: string | undefined;
+    public remoteAssistanceSessionErrorDetails?: string | undefined;
     /** Url that allows a Remote Assistance session to be established with the device. This property is read-only. */
-    remoteAssistanceSessionUrl?: string | undefined;
+    public remoteAssistanceSessionUrl?: string | undefined;
     /** SerialNumber. This property is read-only. */
-    serialNumber?: string | undefined;
+    public serialNumber?: string | undefined;
     /** Subscriber Carrier. This property is read-only. */
-    subscriberCarrier?: string | undefined;
+    public subscriberCarrier?: string | undefined;
     /** Total Storage in Bytes. This property is read-only. */
-    totalStorageSpaceInBytes?: number | undefined;
+    public totalStorageSpaceInBytes?: number | undefined;
     /** Unique Device Identifier for iOS and macOS devices. This property is read-only. */
-    udid?: string | undefined;
+    public udid?: string | undefined;
     /** User display name. This property is read-only. */
-    userDisplayName?: string | undefined;
+    public userDisplayName?: string | undefined;
     /** Unique Identifier for the user associated with the device. This property is read-only. */
-    userId?: string | undefined;
+    public userId?: string | undefined;
     /** Device user principal name. This property is read-only. */
-    userPrincipalName?: string | undefined;
+    public userPrincipalName?: string | undefined;
     /** Wi-Fi MAC. This property is read-only. */
-    wiFiMacAddress?: string | undefined;
+    public wiFiMacAddress?: string | undefined;
     /**
      * Instantiates a new managedDevice and sets the default values.
      * @param managedDeviceParameterValue 
@@ -262,219 +263,165 @@ export class ManagedDeviceImpl extends EntityImpl implements ManagedDevice, Pars
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.activationLockBypassCode){
-        if(this.activationLockBypassCode)
         writer.writeStringValue("activationLockBypassCode", this.activationLockBypassCode);
         }
         if(this.androidSecurityPatchLevel){
-        if(this.androidSecurityPatchLevel)
         writer.writeStringValue("androidSecurityPatchLevel", this.androidSecurityPatchLevel);
         }
         if(this.azureADDeviceId){
-        if(this.azureADDeviceId)
         writer.writeStringValue("azureADDeviceId", this.azureADDeviceId);
         }
         if(this.azureADRegistered){
-        if(this.azureADRegistered)
         writer.writeBooleanValue("azureADRegistered", this.azureADRegistered);
         }
         if(this.complianceGracePeriodExpirationDateTime){
-        if(this.complianceGracePeriodExpirationDateTime)
         writer.writeDateValue("complianceGracePeriodExpirationDateTime", this.complianceGracePeriodExpirationDateTime);
         }
         if(this.complianceState){
-        if(this.complianceState)
         writer.writeEnumValue<ComplianceState>("complianceState", this.complianceState);
         }
         if(this.configurationManagerClientEnabledFeatures){
-        if(this.configurationManagerClientEnabledFeatures)
         writer.writeObjectValue<ConfigurationManagerClientEnabledFeaturesImpl>("configurationManagerClientEnabledFeatures", new ConfigurationManagerClientEnabledFeaturesImpl(this.configurationManagerClientEnabledFeatures));
         }
-        if(this.deviceActionResults){
-        const deviceActionResultsArrValue: DeviceActionResultImpl[] = []; this.deviceActionResults?.forEach(element => {deviceActionResultsArrValue.push(new DeviceActionResultImpl(element));});
+        if(this.deviceActionResults && this.deviceActionResults.length != 0){        const deviceActionResultsArrValue: DeviceActionResultImpl[] = []; this.deviceActionResults?.forEach(element => {deviceActionResultsArrValue.push(new DeviceActionResultImpl(element));});
         writer.writeCollectionOfObjectValues<DeviceActionResultImpl>("deviceActionResults", deviceActionResultsArrValue);
         }
         if(this.deviceCategory){
-        if(this.deviceCategory)
         writer.writeObjectValue<DeviceCategoryImpl>("deviceCategory", new DeviceCategoryImpl(this.deviceCategory));
         }
         if(this.deviceCategoryDisplayName){
-        if(this.deviceCategoryDisplayName)
         writer.writeStringValue("deviceCategoryDisplayName", this.deviceCategoryDisplayName);
         }
-        if(this.deviceCompliancePolicyStates){
-        const deviceCompliancePolicyStatesArrValue: DeviceCompliancePolicyStateImpl[] = []; this.deviceCompliancePolicyStates?.forEach(element => {deviceCompliancePolicyStatesArrValue.push(new DeviceCompliancePolicyStateImpl(element));});
+        if(this.deviceCompliancePolicyStates && this.deviceCompliancePolicyStates.length != 0){        const deviceCompliancePolicyStatesArrValue: DeviceCompliancePolicyStateImpl[] = []; this.deviceCompliancePolicyStates?.forEach(element => {deviceCompliancePolicyStatesArrValue.push(new DeviceCompliancePolicyStateImpl(element));});
         writer.writeCollectionOfObjectValues<DeviceCompliancePolicyStateImpl>("deviceCompliancePolicyStates", deviceCompliancePolicyStatesArrValue);
         }
-        if(this.deviceConfigurationStates){
-        const deviceConfigurationStatesArrValue: DeviceConfigurationStateImpl[] = []; this.deviceConfigurationStates?.forEach(element => {deviceConfigurationStatesArrValue.push(new DeviceConfigurationStateImpl(element));});
+        if(this.deviceConfigurationStates && this.deviceConfigurationStates.length != 0){        const deviceConfigurationStatesArrValue: DeviceConfigurationStateImpl[] = []; this.deviceConfigurationStates?.forEach(element => {deviceConfigurationStatesArrValue.push(new DeviceConfigurationStateImpl(element));});
         writer.writeCollectionOfObjectValues<DeviceConfigurationStateImpl>("deviceConfigurationStates", deviceConfigurationStatesArrValue);
         }
         if(this.deviceEnrollmentType){
-        if(this.deviceEnrollmentType)
         writer.writeEnumValue<DeviceEnrollmentType>("deviceEnrollmentType", this.deviceEnrollmentType);
         }
         if(this.deviceHealthAttestationState){
-        if(this.deviceHealthAttestationState)
         writer.writeObjectValue<DeviceHealthAttestationStateImpl>("deviceHealthAttestationState", new DeviceHealthAttestationStateImpl(this.deviceHealthAttestationState));
         }
         if(this.deviceName){
-        if(this.deviceName)
         writer.writeStringValue("deviceName", this.deviceName);
         }
         if(this.deviceRegistrationState){
-        if(this.deviceRegistrationState)
         writer.writeEnumValue<DeviceRegistrationState>("deviceRegistrationState", this.deviceRegistrationState);
         }
         if(this.easActivated){
-        if(this.easActivated)
         writer.writeBooleanValue("easActivated", this.easActivated);
         }
         if(this.easActivationDateTime){
-        if(this.easActivationDateTime)
         writer.writeDateValue("easActivationDateTime", this.easActivationDateTime);
         }
         if(this.easDeviceId){
-        if(this.easDeviceId)
         writer.writeStringValue("easDeviceId", this.easDeviceId);
         }
         if(this.emailAddress){
-        if(this.emailAddress)
         writer.writeStringValue("emailAddress", this.emailAddress);
         }
         if(this.enrolledDateTime){
-        if(this.enrolledDateTime)
         writer.writeDateValue("enrolledDateTime", this.enrolledDateTime);
         }
         if(this.ethernetMacAddress){
-        if(this.ethernetMacAddress)
         writer.writeStringValue("ethernetMacAddress", this.ethernetMacAddress);
         }
         if(this.exchangeAccessState){
-        if(this.exchangeAccessState)
         writer.writeEnumValue<DeviceManagementExchangeAccessState>("exchangeAccessState", this.exchangeAccessState);
         }
         if(this.exchangeAccessStateReason){
-        if(this.exchangeAccessStateReason)
         writer.writeEnumValue<DeviceManagementExchangeAccessStateReason>("exchangeAccessStateReason", this.exchangeAccessStateReason);
         }
         if(this.exchangeLastSuccessfulSyncDateTime){
-        if(this.exchangeLastSuccessfulSyncDateTime)
         writer.writeDateValue("exchangeLastSuccessfulSyncDateTime", this.exchangeLastSuccessfulSyncDateTime);
         }
         if(this.freeStorageSpaceInBytes){
-        if(this.freeStorageSpaceInBytes)
         writer.writeNumberValue("freeStorageSpaceInBytes", this.freeStorageSpaceInBytes);
         }
         if(this.iccid){
-        if(this.iccid)
         writer.writeStringValue("iccid", this.iccid);
         }
         if(this.imei){
-        if(this.imei)
         writer.writeStringValue("imei", this.imei);
         }
         if(this.isEncrypted){
-        if(this.isEncrypted)
         writer.writeBooleanValue("isEncrypted", this.isEncrypted);
         }
         if(this.isSupervised){
-        if(this.isSupervised)
         writer.writeBooleanValue("isSupervised", this.isSupervised);
         }
         if(this.jailBroken){
-        if(this.jailBroken)
         writer.writeStringValue("jailBroken", this.jailBroken);
         }
         if(this.lastSyncDateTime){
-        if(this.lastSyncDateTime)
         writer.writeDateValue("lastSyncDateTime", this.lastSyncDateTime);
         }
         if(this.managedDeviceName){
-        if(this.managedDeviceName)
         writer.writeStringValue("managedDeviceName", this.managedDeviceName);
         }
         if(this.managedDeviceOwnerType){
-        if(this.managedDeviceOwnerType)
         writer.writeEnumValue<ManagedDeviceOwnerType>("managedDeviceOwnerType", this.managedDeviceOwnerType);
         }
         if(this.managementAgent){
-        if(this.managementAgent)
         writer.writeEnumValue<ManagementAgentType>("managementAgent", this.managementAgent);
         }
         if(this.manufacturer){
-        if(this.manufacturer)
         writer.writeStringValue("manufacturer", this.manufacturer);
         }
         if(this.meid){
-        if(this.meid)
         writer.writeStringValue("meid", this.meid);
         }
         if(this.model){
-        if(this.model)
         writer.writeStringValue("model", this.model);
         }
         if(this.notes){
-        if(this.notes)
         writer.writeStringValue("notes", this.notes);
         }
         if(this.operatingSystem){
-        if(this.operatingSystem)
         writer.writeStringValue("operatingSystem", this.operatingSystem);
         }
         if(this.osVersion){
-        if(this.osVersion)
         writer.writeStringValue("osVersion", this.osVersion);
         }
         if(this.partnerReportedThreatState){
-        if(this.partnerReportedThreatState)
         writer.writeEnumValue<ManagedDevicePartnerReportedHealthState>("partnerReportedThreatState", this.partnerReportedThreatState);
         }
         if(this.phoneNumber){
-        if(this.phoneNumber)
         writer.writeStringValue("phoneNumber", this.phoneNumber);
         }
         if(this.physicalMemoryInBytes){
-        if(this.physicalMemoryInBytes)
         writer.writeNumberValue("physicalMemoryInBytes", this.physicalMemoryInBytes);
         }
         if(this.remoteAssistanceSessionErrorDetails){
-        if(this.remoteAssistanceSessionErrorDetails)
         writer.writeStringValue("remoteAssistanceSessionErrorDetails", this.remoteAssistanceSessionErrorDetails);
         }
         if(this.remoteAssistanceSessionUrl){
-        if(this.remoteAssistanceSessionUrl)
         writer.writeStringValue("remoteAssistanceSessionUrl", this.remoteAssistanceSessionUrl);
         }
         if(this.serialNumber){
-        if(this.serialNumber)
         writer.writeStringValue("serialNumber", this.serialNumber);
         }
         if(this.subscriberCarrier){
-        if(this.subscriberCarrier)
         writer.writeStringValue("subscriberCarrier", this.subscriberCarrier);
         }
         if(this.totalStorageSpaceInBytes){
-        if(this.totalStorageSpaceInBytes)
         writer.writeNumberValue("totalStorageSpaceInBytes", this.totalStorageSpaceInBytes);
         }
         if(this.udid){
-        if(this.udid)
         writer.writeStringValue("udid", this.udid);
         }
         if(this.userDisplayName){
-        if(this.userDisplayName)
         writer.writeStringValue("userDisplayName", this.userDisplayName);
         }
         if(this.userId){
-        if(this.userId)
         writer.writeStringValue("userId", this.userId);
         }
         if(this.userPrincipalName){
-        if(this.userPrincipalName)
         writer.writeStringValue("userPrincipalName", this.userPrincipalName);
         }
         if(this.wiFiMacAddress){
-        if(this.wiFiMacAddress)
         writer.writeStringValue("wiFiMacAddress", this.wiFiMacAddress);
         }
     };

@@ -17,31 +17,32 @@ import {AccessPackageAssignmentApprovalSettingsImpl, AccessPackageAssignmentRequ
 import {SubjectSet} from './subjectSet';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the identityGovernance singleton. */
 export class AccessPackageAssignmentPolicyImpl extends EntityImpl implements AccessPackageAssignmentPolicy, Parsable {
     /** The access package with this policy. Read-only. Nullable. Supports $expand. */
-    accessPackage?: AccessPackage | undefined;
+    public accessPackage?: AccessPackage | undefined;
     /** Principals that can be assigned the access package through this policy. The possible values are: notSpecified, specificDirectoryUsers, specificConnectedOrganizationUsers, specificDirectoryServicePrincipals, allMemberUsers, allDirectoryUsers, allDirectoryServicePrincipals, allConfiguredConnectedOrganizationUsers, allExternalUsers, unknownFutureValue. */
-    allowedTargetScope?: AllowedTargetScope | undefined;
+    public allowedTargetScope?: AllowedTargetScope | undefined;
     /** Catalog of the access package containing this policy. Read-only. */
-    catalog?: AccessPackageCatalog | undefined;
+    public catalog?: AccessPackageCatalog | undefined;
     /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
-    createdDateTime?: Date | undefined;
+    public createdDateTime?: Date | undefined;
     /** The description of the policy. */
-    description?: string | undefined;
+    public description?: string | undefined;
     /** The display name of the policy. Supports $filter (eq). */
-    displayName?: string | undefined;
+    public displayName?: string | undefined;
     /** The expiration date for assignments created in this policy. */
-    expiration?: ExpirationPattern | undefined;
+    public expiration?: ExpirationPattern | undefined;
     /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
-    modifiedDateTime?: Date | undefined;
+    public modifiedDateTime?: Date | undefined;
     /** Who must approve requests for access package in this policy. */
-    requestApprovalSettings?: AccessPackageAssignmentApprovalSettings | undefined;
+    public requestApprovalSettings?: AccessPackageAssignmentApprovalSettings | undefined;
     /** Who can request this access package from this policy. */
-    requestorSettings?: AccessPackageAssignmentRequestorSettings | undefined;
+    public requestorSettings?: AccessPackageAssignmentRequestorSettings | undefined;
     /** Settings for access reviews of assignments through this policy. */
-    reviewSettings?: AccessPackageAssignmentReviewSettings | undefined;
+    public reviewSettings?: AccessPackageAssignmentReviewSettings | undefined;
     /** The principals that can be assigned access from an access package through this policy. */
-    specificAllowedTargets?: SubjectSet[] | undefined;
+    public specificAllowedTargets?: SubjectSet[] | undefined;
     /**
      * Instantiates a new accessPackageAssignmentPolicy and sets the default values.
      * @param accessPackageAssignmentPolicyParameterValue 
@@ -89,51 +90,39 @@ export class AccessPackageAssignmentPolicyImpl extends EntityImpl implements Acc
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.accessPackage){
-        if(this.accessPackage)
         writer.writeObjectValue<AccessPackageImpl>("accessPackage", new AccessPackageImpl(this.accessPackage));
         }
         if(this.allowedTargetScope){
-        if(this.allowedTargetScope)
         writer.writeEnumValue<AllowedTargetScope>("allowedTargetScope", this.allowedTargetScope);
         }
         if(this.catalog){
-        if(this.catalog)
         writer.writeObjectValue<AccessPackageCatalogImpl>("catalog", new AccessPackageCatalogImpl(this.catalog));
         }
         if(this.createdDateTime){
-        if(this.createdDateTime)
         writer.writeDateValue("createdDateTime", this.createdDateTime);
         }
         if(this.description){
-        if(this.description)
         writer.writeStringValue("description", this.description);
         }
         if(this.displayName){
-        if(this.displayName)
         writer.writeStringValue("displayName", this.displayName);
         }
         if(this.expiration){
-        if(this.expiration)
         writer.writeObjectValue<ExpirationPatternImpl>("expiration", new ExpirationPatternImpl(this.expiration));
         }
         if(this.modifiedDateTime){
-        if(this.modifiedDateTime)
         writer.writeDateValue("modifiedDateTime", this.modifiedDateTime);
         }
         if(this.requestApprovalSettings){
-        if(this.requestApprovalSettings)
         writer.writeObjectValue<AccessPackageAssignmentApprovalSettingsImpl>("requestApprovalSettings", new AccessPackageAssignmentApprovalSettingsImpl(this.requestApprovalSettings));
         }
         if(this.requestorSettings){
-        if(this.requestorSettings)
         writer.writeObjectValue<AccessPackageAssignmentRequestorSettingsImpl>("requestorSettings", new AccessPackageAssignmentRequestorSettingsImpl(this.requestorSettings));
         }
         if(this.reviewSettings){
-        if(this.reviewSettings)
         writer.writeObjectValue<AccessPackageAssignmentReviewSettingsImpl>("reviewSettings", new AccessPackageAssignmentReviewSettingsImpl(this.reviewSettings));
         }
-        if(this.specificAllowedTargets){
-        const specificAllowedTargetsArrValue: SubjectSetImpl[] = []; this.specificAllowedTargets?.forEach(element => {specificAllowedTargetsArrValue.push(new SubjectSetImpl(element));});
+        if(this.specificAllowedTargets && this.specificAllowedTargets.length != 0){        const specificAllowedTargetsArrValue: SubjectSetImpl[] = []; this.specificAllowedTargets?.forEach(element => {specificAllowedTargetsArrValue.push(new SubjectSetImpl(element));});
         writer.writeCollectionOfObjectValues<SubjectSetImpl>("specificAllowedTargets", specificAllowedTargetsArrValue);
         }
     };

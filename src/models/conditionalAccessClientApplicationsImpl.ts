@@ -3,18 +3,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class ConditionalAccessClientApplicationsImpl implements AdditionalDataHolder, ConditionalAccessClientApplications, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** Service principal IDs excluded from the policy scope. */
-    excludeServicePrincipals?: string[] | undefined;
+    public excludeServicePrincipals?: string[] | undefined;
     /** Service principal IDs included in the policy scope, or ServicePrincipalsInMyTenant. */
-    includeServicePrincipals?: string[] | undefined;
+    public includeServicePrincipals?: string[] | undefined;
     /**
      * Instantiates a new conditionalAccessClientApplications and sets the default values.
      * @param conditionalAccessClientApplicationsParameterValue 
      */
     public constructor(conditionalAccessClientApplicationsParameterValue?: ConditionalAccessClientApplications | undefined) {
-        this.additionalData = {};
-        this.additionalData = conditionalAccessClientApplicationsParameterValue?.additionalData ? {} : conditionalAccessClientApplicationsParameterValue?.additionalData!
+        this.additionalData = conditionalAccessClientApplicationsParameterValue?.additionalData ? conditionalAccessClientApplicationsParameterValue?.additionalData! : {}
         this.excludeServicePrincipals = conditionalAccessClientApplicationsParameterValue?.excludeServicePrincipals ;
         this.includeServicePrincipals = conditionalAccessClientApplicationsParameterValue?.includeServicePrincipals ;
     };
@@ -35,11 +34,9 @@ export class ConditionalAccessClientApplicationsImpl implements AdditionalDataHo
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.excludeServicePrincipals){
-        if(this.excludeServicePrincipals)
         writer.writeCollectionOfPrimitiveValues<string>("excludeServicePrincipals", this.excludeServicePrincipals);
         }
         if(this.includeServicePrincipals){
-        if(this.includeServicePrincipals)
         writer.writeCollectionOfPrimitiveValues<string>("includeServicePrincipals", this.includeServicePrincipals);
         }
         writer.writeAdditionalData(this.additionalData);

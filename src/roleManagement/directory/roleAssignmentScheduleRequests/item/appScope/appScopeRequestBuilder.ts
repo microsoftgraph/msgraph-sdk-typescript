@@ -1,5 +1,4 @@
 import {AppScopeImpl} from '../../../../../models/';
-import {AppScope} from '../../../../../models/appScope';
 import {createAppScopeFromDiscriminatorValue} from '../../../../../models/createAppScopeFromDiscriminatorValue';
 import {ODataErrorImpl} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
@@ -50,7 +49,7 @@ export class AppScopeRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AppScope
      */
-    public get(requestConfiguration?: AppScopeRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AppScope | undefined> {
+    public get(requestConfiguration?: AppScopeRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AppScopeImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );

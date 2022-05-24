@@ -3,14 +3,13 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class BookingCustomerInformationBaseImpl implements AdditionalDataHolder, BookingCustomerInformationBase, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /**
      * Instantiates a new bookingCustomerInformationBase and sets the default values.
      * @param bookingCustomerInformationBaseParameterValue 
      */
     public constructor(bookingCustomerInformationBaseParameterValue?: BookingCustomerInformationBase | undefined) {
-        this.additionalData = {};
-        this.additionalData = bookingCustomerInformationBaseParameterValue?.additionalData ? {} : bookingCustomerInformationBaseParameterValue?.additionalData!
+        this.additionalData = bookingCustomerInformationBaseParameterValue?.additionalData ? bookingCustomerInformationBaseParameterValue?.additionalData! : {}
     };
     /**
      * The deserialization information for the current model

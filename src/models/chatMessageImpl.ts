@@ -23,53 +23,54 @@ import {ChannelIdentityImpl, ChatMessageAttachmentImpl, ChatMessageFromIdentityS
 import {ItemBody} from './itemBody';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the collection of chat entities. */
 export class ChatMessageImpl extends EntityImpl implements ChatMessage, Parsable {
     /** References to attached objects like files, tabs, meetings etc. */
-    attachments?: ChatMessageAttachment[] | undefined;
+    public attachments?: ChatMessageAttachment[] | undefined;
     /** The body property */
-    body?: ItemBody | undefined;
+    public body?: ItemBody | undefined;
     /** If the message was sent in a channel, represents identity of the channel. */
-    channelIdentity?: ChannelIdentity | undefined;
+    public channelIdentity?: ChannelIdentity | undefined;
     /** If the message was sent in a chat, represents the identity of the chat. */
-    chatId?: string | undefined;
+    public chatId?: string | undefined;
     /** Timestamp of when the chat message was created. */
-    createdDateTime?: Date | undefined;
+    public createdDateTime?: Date | undefined;
     /** Read only. Timestamp at which the chat message was deleted, or null if not deleted. */
-    deletedDateTime?: Date | undefined;
+    public deletedDateTime?: Date | undefined;
     /** Read-only. Version number of the chat message. */
-    etag?: string | undefined;
+    public etag?: string | undefined;
     /** Read-only.  If present, represents details of an event that happened in a chat, a channel, or a team, for example, adding new members. For event messages, the messageType property will be set to systemEventMessage. */
-    eventDetail?: EventMessageDetail | undefined;
+    public eventDetail?: EventMessageDetail | undefined;
     /** Details of the sender of the chat message. Can only be set during migration. */
-    from?: ChatMessageFromIdentitySet | undefined;
+    public from?: ChatMessageFromIdentitySet | undefined;
     /** Content in a message hosted by Microsoft Teams - for example, images or code snippets. */
-    hostedContents?: ChatMessageHostedContent[] | undefined;
+    public hostedContents?: ChatMessageHostedContent[] | undefined;
     /** The importance of the chat message. The possible values are: normal, high, urgent. */
-    importance?: ChatMessageImportance | undefined;
+    public importance?: ChatMessageImportance | undefined;
     /** Read only. Timestamp when edits to the chat message were made. Triggers an 'Edited' flag in the Teams UI. If no edits are made the value is null. */
-    lastEditedDateTime?: Date | undefined;
+    public lastEditedDateTime?: Date | undefined;
     /** Read only. Timestamp when the chat message is created (initial setting) or modified, including when a reaction is added or removed. */
-    lastModifiedDateTime?: Date | undefined;
+    public lastModifiedDateTime?: Date | undefined;
     /** Locale of the chat message set by the client. Always set to en-us. */
-    locale?: string | undefined;
+    public locale?: string | undefined;
     /** List of entities mentioned in the chat message. Supported entities are: user, bot, team, channel, and tag. */
-    mentions?: ChatMessageMention[] | undefined;
+    public mentions?: ChatMessageMention[] | undefined;
     /** The type of chat message. The possible values are: message, chatEvent, typing, unknownFutureValue, systemEventMessage. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value in this evolvable enum: systemEventMessage. */
-    messageType?: ChatMessageType | undefined;
+    public messageType?: ChatMessageType | undefined;
     /** Defines the properties of a policy violation set by a data loss prevention (DLP) application. */
-    policyViolation?: ChatMessagePolicyViolation | undefined;
+    public policyViolation?: ChatMessagePolicyViolation | undefined;
     /** Reactions for this chat message (for example, Like). */
-    reactions?: ChatMessageReaction[] | undefined;
+    public reactions?: ChatMessageReaction[] | undefined;
     /** Replies for a specified message. Supports $expand for channel messages. */
-    replies?: ChatMessage[] | undefined;
+    public replies?: ChatMessage[] | undefined;
     /** Read-only. ID of the parent chat message or root chat message of the thread. (Only applies to chat messages in channels, not chats.) */
-    replyToId?: string | undefined;
+    public replyToId?: string | undefined;
     /** The subject of the chat message, in plaintext. */
-    subject?: string | undefined;
+    public subject?: string | undefined;
     /** Summary text of the chat message that could be used for push notifications and summary views or fall back views. Only applies to channel chat messages, not chat messages in a chat. */
-    summary?: string | undefined;
+    public summary?: string | undefined;
     /** Read-only. Link to the message in Microsoft Teams. */
-    webUrl?: string | undefined;
+    public webUrl?: string | undefined;
     /**
      * Instantiates a new chatMessage and sets the default values.
      * @param chatMessageParameterValue 
@@ -138,96 +139,73 @@ export class ChatMessageImpl extends EntityImpl implements ChatMessage, Parsable
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.attachments){
-        const attachmentsArrValue: ChatMessageAttachmentImpl[] = []; this.attachments?.forEach(element => {attachmentsArrValue.push(new ChatMessageAttachmentImpl(element));});
+        if(this.attachments && this.attachments.length != 0){        const attachmentsArrValue: ChatMessageAttachmentImpl[] = []; this.attachments?.forEach(element => {attachmentsArrValue.push(new ChatMessageAttachmentImpl(element));});
         writer.writeCollectionOfObjectValues<ChatMessageAttachmentImpl>("attachments", attachmentsArrValue);
         }
         if(this.body){
-        if(this.body)
         writer.writeObjectValue<ItemBodyImpl>("body", new ItemBodyImpl(this.body));
         }
         if(this.channelIdentity){
-        if(this.channelIdentity)
         writer.writeObjectValue<ChannelIdentityImpl>("channelIdentity", new ChannelIdentityImpl(this.channelIdentity));
         }
         if(this.chatId){
-        if(this.chatId)
         writer.writeStringValue("chatId", this.chatId);
         }
         if(this.createdDateTime){
-        if(this.createdDateTime)
         writer.writeDateValue("createdDateTime", this.createdDateTime);
         }
         if(this.deletedDateTime){
-        if(this.deletedDateTime)
         writer.writeDateValue("deletedDateTime", this.deletedDateTime);
         }
         if(this.etag){
-        if(this.etag)
         writer.writeStringValue("etag", this.etag);
         }
         if(this.eventDetail){
-        if(this.eventDetail)
         writer.writeObjectValue<EventMessageDetailImpl>("eventDetail", new EventMessageDetailImpl(this.eventDetail));
         }
         if(this.from){
-        if(this.from)
         writer.writeObjectValue<ChatMessageFromIdentitySetImpl>("from", new ChatMessageFromIdentitySetImpl(this.from));
         }
-        if(this.hostedContents){
-        const hostedContentsArrValue: ChatMessageHostedContentImpl[] = []; this.hostedContents?.forEach(element => {hostedContentsArrValue.push(new ChatMessageHostedContentImpl(element));});
+        if(this.hostedContents && this.hostedContents.length != 0){        const hostedContentsArrValue: ChatMessageHostedContentImpl[] = []; this.hostedContents?.forEach(element => {hostedContentsArrValue.push(new ChatMessageHostedContentImpl(element));});
         writer.writeCollectionOfObjectValues<ChatMessageHostedContentImpl>("hostedContents", hostedContentsArrValue);
         }
         if(this.importance){
-        if(this.importance)
         writer.writeEnumValue<ChatMessageImportance>("importance", this.importance);
         }
         if(this.lastEditedDateTime){
-        if(this.lastEditedDateTime)
         writer.writeDateValue("lastEditedDateTime", this.lastEditedDateTime);
         }
         if(this.lastModifiedDateTime){
-        if(this.lastModifiedDateTime)
         writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
         }
         if(this.locale){
-        if(this.locale)
         writer.writeStringValue("locale", this.locale);
         }
-        if(this.mentions){
-        const mentionsArrValue: ChatMessageMentionImpl[] = []; this.mentions?.forEach(element => {mentionsArrValue.push(new ChatMessageMentionImpl(element));});
+        if(this.mentions && this.mentions.length != 0){        const mentionsArrValue: ChatMessageMentionImpl[] = []; this.mentions?.forEach(element => {mentionsArrValue.push(new ChatMessageMentionImpl(element));});
         writer.writeCollectionOfObjectValues<ChatMessageMentionImpl>("mentions", mentionsArrValue);
         }
         if(this.messageType){
-        if(this.messageType)
         writer.writeEnumValue<ChatMessageType>("messageType", this.messageType);
         }
         if(this.policyViolation){
-        if(this.policyViolation)
         writer.writeObjectValue<ChatMessagePolicyViolationImpl>("policyViolation", new ChatMessagePolicyViolationImpl(this.policyViolation));
         }
-        if(this.reactions){
-        const reactionsArrValue: ChatMessageReactionImpl[] = []; this.reactions?.forEach(element => {reactionsArrValue.push(new ChatMessageReactionImpl(element));});
+        if(this.reactions && this.reactions.length != 0){        const reactionsArrValue: ChatMessageReactionImpl[] = []; this.reactions?.forEach(element => {reactionsArrValue.push(new ChatMessageReactionImpl(element));});
         writer.writeCollectionOfObjectValues<ChatMessageReactionImpl>("reactions", reactionsArrValue);
         }
-        if(this.replies){
-        const repliesArrValue: ChatMessageImpl[] = []; this.replies?.forEach(element => {repliesArrValue.push(new ChatMessageImpl(element));});
+        if(this.replies && this.replies.length != 0){        const repliesArrValue: ChatMessageImpl[] = []; this.replies?.forEach(element => {repliesArrValue.push(new ChatMessageImpl(element));});
         writer.writeCollectionOfObjectValues<ChatMessageImpl>("replies", repliesArrValue);
         }
         if(this.replyToId){
-        if(this.replyToId)
         writer.writeStringValue("replyToId", this.replyToId);
         }
         if(this.subject){
-        if(this.subject)
         writer.writeStringValue("subject", this.subject);
         }
         if(this.summary){
-        if(this.summary)
         writer.writeStringValue("summary", this.summary);
         }
         if(this.webUrl){
-        if(this.webUrl)
         writer.writeStringValue("webUrl", this.webUrl);
         }
     };

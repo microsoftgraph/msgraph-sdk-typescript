@@ -3,14 +3,13 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class EducationAssignmentGradeTypeImpl implements AdditionalDataHolder, EducationAssignmentGradeType, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /**
      * Instantiates a new educationAssignmentGradeType and sets the default values.
      * @param educationAssignmentGradeTypeParameterValue 
      */
     public constructor(educationAssignmentGradeTypeParameterValue?: EducationAssignmentGradeType | undefined) {
-        this.additionalData = {};
-        this.additionalData = educationAssignmentGradeTypeParameterValue?.additionalData ? {} : educationAssignmentGradeTypeParameterValue?.additionalData!
+        this.additionalData = educationAssignmentGradeTypeParameterValue?.additionalData ? educationAssignmentGradeTypeParameterValue?.additionalData! : {}
     };
     /**
      * The deserialization information for the current model

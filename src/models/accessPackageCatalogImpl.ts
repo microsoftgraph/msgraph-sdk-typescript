@@ -6,23 +6,24 @@ import {createAccessPackageFromDiscriminatorValue} from './createAccessPackageFr
 import {AccessPackageImpl, EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the identityGovernance singleton. */
 export class AccessPackageCatalogImpl extends EntityImpl implements AccessPackageCatalog, Parsable {
     /** The access packages in this catalog. Read-only. Nullable. Supports $expand. */
-    accessPackages?: AccessPackage[] | undefined;
+    public accessPackages?: AccessPackage[] | undefined;
     /** One of UserManaged or ServiceDefault. */
-    catalogType?: AccessPackageCatalogType | undefined;
+    public catalogType?: AccessPackageCatalogType | undefined;
     /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. */
-    createdDateTime?: Date | undefined;
+    public createdDateTime?: Date | undefined;
     /** The description of the access package catalog. */
-    description?: string | undefined;
+    public description?: string | undefined;
     /** The display name of the access package catalog. Supports $filter (eq, contains). */
-    displayName?: string | undefined;
+    public displayName?: string | undefined;
     /** Whether the access packages in this catalog can be requested by users outside of the tenant. */
-    isExternallyVisible?: boolean | undefined;
+    public isExternallyVisible?: boolean | undefined;
     /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. */
-    modifiedDateTime?: Date | undefined;
+    public modifiedDateTime?: Date | undefined;
     /** Has the value published if the access packages are available for management. The possible values are: unpublished, published, unknownFutureValue. */
-    state?: AccessPackageCatalogState | undefined;
+    public state?: AccessPackageCatalogState | undefined;
     /**
      * Instantiates a new accessPackageCatalog and sets the default values.
      * @param accessPackageCatalogParameterValue 
@@ -61,36 +62,28 @@ export class AccessPackageCatalogImpl extends EntityImpl implements AccessPackag
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.accessPackages){
-        const accessPackagesArrValue: AccessPackageImpl[] = []; this.accessPackages?.forEach(element => {accessPackagesArrValue.push(new AccessPackageImpl(element));});
+        if(this.accessPackages && this.accessPackages.length != 0){        const accessPackagesArrValue: AccessPackageImpl[] = []; this.accessPackages?.forEach(element => {accessPackagesArrValue.push(new AccessPackageImpl(element));});
         writer.writeCollectionOfObjectValues<AccessPackageImpl>("accessPackages", accessPackagesArrValue);
         }
         if(this.catalogType){
-        if(this.catalogType)
         writer.writeEnumValue<AccessPackageCatalogType>("catalogType", this.catalogType);
         }
         if(this.createdDateTime){
-        if(this.createdDateTime)
         writer.writeDateValue("createdDateTime", this.createdDateTime);
         }
         if(this.description){
-        if(this.description)
         writer.writeStringValue("description", this.description);
         }
         if(this.displayName){
-        if(this.displayName)
         writer.writeStringValue("displayName", this.displayName);
         }
         if(this.isExternallyVisible){
-        if(this.isExternallyVisible)
         writer.writeBooleanValue("isExternallyVisible", this.isExternallyVisible);
         }
         if(this.modifiedDateTime){
-        if(this.modifiedDateTime)
         writer.writeDateValue("modifiedDateTime", this.modifiedDateTime);
         }
         if(this.state){
-        if(this.state)
         writer.writeEnumValue<AccessPackageCatalogState>("state", this.state);
         }
     };

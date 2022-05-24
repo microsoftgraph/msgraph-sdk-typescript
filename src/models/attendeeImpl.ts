@@ -6,11 +6,12 @@ import {ResponseStatus} from './responseStatus';
 import {TimeSlot} from './timeSlot';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to user. */
 export class AttendeeImpl extends AttendeeBaseImpl implements Attendee, Parsable {
     /** An alternate date/time proposed by the attendee for a meeting request to start and end. If the attendee hasn't proposed another time, then this property is not included in a response of a GET event. */
-    proposedNewTime?: TimeSlot | undefined;
+    public proposedNewTime?: TimeSlot | undefined;
     /** The attendee's response (none, accepted, declined, etc.) for the event and date-time that the response was sent. */
-    status?: ResponseStatus | undefined;
+    public status?: ResponseStatus | undefined;
     /**
      * Instantiates a new attendee and sets the default values.
      * @param attendeeParameterValue 
@@ -38,11 +39,9 @@ export class AttendeeImpl extends AttendeeBaseImpl implements Attendee, Parsable
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.proposedNewTime){
-        if(this.proposedNewTime)
         writer.writeObjectValue<TimeSlotImpl>("proposedNewTime", new TimeSlotImpl(this.proposedNewTime));
         }
         if(this.status){
-        if(this.status)
         writer.writeObjectValue<ResponseStatusImpl>("status", new ResponseStatusImpl(this.status));
         }
     };

@@ -1,3 +1,3 @@
-export * from './setPriorityRequestBodyImpl'
-export * from './setPriorityRequestBody'
+export * from './setPriorityPostRequestBodyImpl'
+export * from './setPriorityPostRequestBody'
 export * from './setPriorityRequestBuilderPostRequestConfiguration'

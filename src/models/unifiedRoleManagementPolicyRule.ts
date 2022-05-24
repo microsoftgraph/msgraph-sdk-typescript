@@ -3,5 +3,5 @@ import {UnifiedRoleManagementPolicyRuleTarget} from './unifiedRoleManagementPoli
 
 export interface UnifiedRoleManagementPolicyRule extends Entity{
     /** The target for the policy rule. */
-    target?: UnifiedRoleManagementPolicyRuleTarget | undefined;
+    target?:UnifiedRoleManagementPolicyRuleTarget | undefined;
 }

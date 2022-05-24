@@ -1,6 +1,6 @@
-import {IdentityImpl} from '../../../../../../../models/';
-import {createIdentityFromDiscriminatorValue} from '../../../../../../../models/createIdentityFromDiscriminatorValue';
-import {Identity} from '../../../../../../../models/identity';
+import {IdentityImpl} from '../../../../../../../models/externalConnectors/';
+import {createIdentityFromDiscriminatorValue} from '../../../../../../../models/externalConnectors/createIdentityFromDiscriminatorValue';
+import {Identity} from '../../../../../../../models/externalConnectors/identity';
 import {ODataErrorImpl} from '../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {IdentityItemRequestBuilderDeleteRequestConfiguration} from './identityItemRequestBuilderDeleteRequestConfiguration';
@@ -78,8 +78,8 @@ export class IdentityItemRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        const bodyParsable = new IdentityImpl(body)
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", bodyParsable);
+        const parsableBody = new IdentityImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -103,7 +103,7 @@ export class IdentityItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Identity
      */
-    public get(requestConfiguration?: IdentityItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Identity | undefined> {
+    public get(requestConfiguration?: IdentityItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<IdentityImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );

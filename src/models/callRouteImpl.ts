@@ -7,20 +7,19 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class CallRouteImpl implements AdditionalDataHolder, CallRoute, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The final property */
-    final?: IdentitySet | undefined;
+    public final?: IdentitySet | undefined;
     /** The original property */
-    original?: IdentitySet | undefined;
+    public original?: IdentitySet | undefined;
     /** Possible values are: forwarded, lookup, selfFork. */
-    routingType?: RoutingType | undefined;
+    public routingType?: RoutingType | undefined;
     /**
      * Instantiates a new callRoute and sets the default values.
      * @param callRouteParameterValue 
      */
     public constructor(callRouteParameterValue?: CallRoute | undefined) {
-        this.additionalData = {};
-        this.additionalData = callRouteParameterValue?.additionalData ? {} : callRouteParameterValue?.additionalData!
+        this.additionalData = callRouteParameterValue?.additionalData ? callRouteParameterValue?.additionalData! : {}
         this.final = callRouteParameterValue?.final ;
         this.original = callRouteParameterValue?.original ;
         this.routingType = callRouteParameterValue?.routingType ;
@@ -43,15 +42,12 @@ export class CallRouteImpl implements AdditionalDataHolder, CallRoute, Parsable 
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.final){
-        if(this.final)
         writer.writeObjectValue<IdentitySetImpl>("final", new IdentitySetImpl(this.final));
         }
         if(this.original){
-        if(this.original)
         writer.writeObjectValue<IdentitySetImpl>("original", new IdentitySetImpl(this.original));
         }
         if(this.routingType){
-        if(this.routingType)
         writer.writeEnumValue<RoutingType>("routingType", this.routingType);
         }
         writer.writeAdditionalData(this.additionalData);

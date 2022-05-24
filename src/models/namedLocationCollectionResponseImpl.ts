@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class NamedLocationCollectionResponseImpl implements AdditionalDataHolder, NamedLocationCollectionResponse, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: NamedLocation[] | undefined;
+    public value?: NamedLocation[] | undefined;
     /**
      * Instantiates a new NamedLocationCollectionResponse and sets the default values.
      * @param namedLocationCollectionResponseParameterValue 
      */
     public constructor(namedLocationCollectionResponseParameterValue?: NamedLocationCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = namedLocationCollectionResponseParameterValue?.additionalData ? {} : namedLocationCollectionResponseParameterValue?.additionalData!
+        this.additionalData = namedLocationCollectionResponseParameterValue?.additionalData ? namedLocationCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = namedLocationCollectionResponseParameterValue?.nextLink ;
         this.value = namedLocationCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class NamedLocationCollectionResponseImpl implements AdditionalDataHolder
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: NamedLocationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new NamedLocationImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: NamedLocationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new NamedLocationImpl(element));});
         writer.writeCollectionOfObjectValues<NamedLocationImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

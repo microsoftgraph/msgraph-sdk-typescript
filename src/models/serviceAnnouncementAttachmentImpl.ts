@@ -2,17 +2,18 @@ import {EntityImpl} from './index';
 import {ServiceAnnouncementAttachment} from './serviceAnnouncementAttachment';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the admin singleton. */
 export class ServiceAnnouncementAttachmentImpl extends EntityImpl implements Parsable, ServiceAnnouncementAttachment {
     /** The attachment content. */
-    content?: string | undefined;
+    public content?: string | undefined;
     /** The contentType property */
-    contentType?: string | undefined;
+    public contentType?: string | undefined;
     /** The lastModifiedDateTime property */
-    lastModifiedDateTime?: Date | undefined;
+    public lastModifiedDateTime?: Date | undefined;
     /** The name property */
-    name?: string | undefined;
+    public name?: string | undefined;
     /** The size property */
-    size?: number | undefined;
+    public size?: number | undefined;
     /**
      * Instantiates a new serviceAnnouncementAttachment and sets the default values.
      * @param serviceAnnouncementAttachmentParameterValue 
@@ -46,23 +47,18 @@ export class ServiceAnnouncementAttachmentImpl extends EntityImpl implements Par
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.content){
-        if(this.content)
         writer.writeStringValue("content", this.content);
         }
         if(this.contentType){
-        if(this.contentType)
         writer.writeStringValue("contentType", this.contentType);
         }
         if(this.lastModifiedDateTime){
-        if(this.lastModifiedDateTime)
         writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
         }
         if(this.name){
-        if(this.name)
         writer.writeStringValue("name", this.name);
         }
         if(this.size){
-        if(this.size)
         writer.writeNumberValue("size", this.size);
         }
     };

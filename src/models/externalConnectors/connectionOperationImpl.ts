@@ -5,11 +5,12 @@ import {ConnectionOperation} from './connectionOperation';
 import {ConnectionOperationStatus} from './connectionOperationStatus';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the collection of externalConnection entities. */
 export class ConnectionOperationImpl extends EntityImpl implements ConnectionOperation, Parsable {
     /** If status is failed, provides more information about the error that caused the failure. */
-    error_escaped?: PublicError | undefined;
+    public error_escaped?: PublicError | undefined;
     /** Indicates the status of the asynchronous operation. Possible values are: unspecified, inprogress, completed, failed. */
-    status?: ConnectionOperationStatus | undefined;
+    public status?: ConnectionOperationStatus | undefined;
     /**
      * Instantiates a new connectionOperation and sets the default values.
      * @param connectionOperationParameterValue 
@@ -37,11 +38,9 @@ export class ConnectionOperationImpl extends EntityImpl implements ConnectionOpe
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.error_escaped){
-        if(this.error_escaped)
         writer.writeObjectValue<PublicErrorImpl>("error", new PublicErrorImpl(this.error_escaped));
         }
         if(this.status){
-        if(this.status)
         writer.writeEnumValue<ConnectionOperationStatus>("status", this.status);
         }
     };

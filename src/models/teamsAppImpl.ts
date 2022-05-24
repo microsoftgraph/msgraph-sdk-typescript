@@ -5,15 +5,16 @@ import {TeamsAppDefinition} from './teamsAppDefinition';
 import {TeamsAppDistributionMethod} from './teamsAppDistributionMethod';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the appCatalogs singleton. */
 export class TeamsAppImpl extends EntityImpl implements Parsable, TeamsApp {
     /** The details for each version of the app. */
-    appDefinitions?: TeamsAppDefinition[] | undefined;
+    public appDefinitions?: TeamsAppDefinition[] | undefined;
     /** The name of the catalog app provided by the app developer in the Microsoft Teams zip app package. */
-    displayName?: string | undefined;
+    public displayName?: string | undefined;
     /** The method of distribution for the app. Read-only. */
-    distributionMethod?: TeamsAppDistributionMethod | undefined;
+    public distributionMethod?: TeamsAppDistributionMethod | undefined;
     /** The ID of the catalog provided by the app developer in the Microsoft Teams zip app package. */
-    externalId?: string | undefined;
+    public externalId?: string | undefined;
     /**
      * Instantiates a new teamsApp and sets the default values.
      * @param teamsAppParameterValue 
@@ -44,20 +45,16 @@ export class TeamsAppImpl extends EntityImpl implements Parsable, TeamsApp {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.appDefinitions){
-        const appDefinitionsArrValue: TeamsAppDefinitionImpl[] = []; this.appDefinitions?.forEach(element => {appDefinitionsArrValue.push(new TeamsAppDefinitionImpl(element));});
+        if(this.appDefinitions && this.appDefinitions.length != 0){        const appDefinitionsArrValue: TeamsAppDefinitionImpl[] = []; this.appDefinitions?.forEach(element => {appDefinitionsArrValue.push(new TeamsAppDefinitionImpl(element));});
         writer.writeCollectionOfObjectValues<TeamsAppDefinitionImpl>("appDefinitions", appDefinitionsArrValue);
         }
         if(this.displayName){
-        if(this.displayName)
         writer.writeStringValue("displayName", this.displayName);
         }
         if(this.distributionMethod){
-        if(this.distributionMethod)
         writer.writeEnumValue<TeamsAppDistributionMethod>("distributionMethod", this.distributionMethod);
         }
         if(this.externalId){
-        if(this.externalId)
         writer.writeStringValue("externalId", this.externalId);
         }
     };

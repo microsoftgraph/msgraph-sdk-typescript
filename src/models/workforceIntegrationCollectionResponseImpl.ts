@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class WorkforceIntegrationCollectionResponseImpl implements AdditionalDataHolder, Parsable, WorkforceIntegrationCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: WorkforceIntegration[] | undefined;
+    public value?: WorkforceIntegration[] | undefined;
     /**
      * Instantiates a new WorkforceIntegrationCollectionResponse and sets the default values.
      * @param workforceIntegrationCollectionResponseParameterValue 
      */
     public constructor(workforceIntegrationCollectionResponseParameterValue?: WorkforceIntegrationCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = workforceIntegrationCollectionResponseParameterValue?.additionalData ? {} : workforceIntegrationCollectionResponseParameterValue?.additionalData!
+        this.additionalData = workforceIntegrationCollectionResponseParameterValue?.additionalData ? workforceIntegrationCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = workforceIntegrationCollectionResponseParameterValue?.nextLink ;
         this.value = workforceIntegrationCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class WorkforceIntegrationCollectionResponseImpl implements AdditionalDat
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: WorkforceIntegrationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new WorkforceIntegrationImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: WorkforceIntegrationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new WorkforceIntegrationImpl(element));});
         writer.writeCollectionOfObjectValues<WorkforceIntegrationImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

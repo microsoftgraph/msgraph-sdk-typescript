@@ -9,44 +9,43 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class CopyNotebookModelImpl implements AdditionalDataHolder, CopyNotebookModel, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The createdBy property */
-    createdBy?: string | undefined;
+    public createdBy?: string | undefined;
     /** The createdByIdentity property */
-    createdByIdentity?: IdentitySet | undefined;
+    public createdByIdentity?: IdentitySet | undefined;
     /** The createdTime property */
-    createdTime?: Date | undefined;
+    public createdTime?: Date | undefined;
     /** The id property */
-    id?: string | undefined;
+    public id?: string | undefined;
     /** The isDefault property */
-    isDefault?: boolean | undefined;
+    public isDefault?: boolean | undefined;
     /** The isShared property */
-    isShared?: boolean | undefined;
+    public isShared?: boolean | undefined;
     /** The lastModifiedBy property */
-    lastModifiedBy?: string | undefined;
+    public lastModifiedBy?: string | undefined;
     /** The lastModifiedByIdentity property */
-    lastModifiedByIdentity?: IdentitySet | undefined;
+    public lastModifiedByIdentity?: IdentitySet | undefined;
     /** The lastModifiedTime property */
-    lastModifiedTime?: Date | undefined;
+    public lastModifiedTime?: Date | undefined;
     /** The links property */
-    links?: NotebookLinks | undefined;
+    public links?: NotebookLinks | undefined;
     /** The name property */
-    name?: string | undefined;
+    public name?: string | undefined;
     /** The sectionGroupsUrl property */
-    sectionGroupsUrl?: string | undefined;
+    public sectionGroupsUrl?: string | undefined;
     /** The sectionsUrl property */
-    sectionsUrl?: string | undefined;
+    public sectionsUrl?: string | undefined;
     /** The self property */
-    self?: string | undefined;
+    public self?: string | undefined;
     /** The userRole property */
-    userRole?: OnenoteUserRole | undefined;
+    public userRole?: OnenoteUserRole | undefined;
     /**
      * Instantiates a new CopyNotebookModel and sets the default values.
      * @param copyNotebookModelParameterValue 
      */
     public constructor(copyNotebookModelParameterValue?: CopyNotebookModel | undefined) {
-        this.additionalData = {};
-        this.additionalData = copyNotebookModelParameterValue?.additionalData ? {} : copyNotebookModelParameterValue?.additionalData!
+        this.additionalData = copyNotebookModelParameterValue?.additionalData ? copyNotebookModelParameterValue?.additionalData! : {}
         this.createdBy = copyNotebookModelParameterValue?.createdBy ;
         this.createdByIdentity = copyNotebookModelParameterValue?.createdByIdentity ;
         this.createdTime = copyNotebookModelParameterValue?.createdTime ;
@@ -93,63 +92,48 @@ export class CopyNotebookModelImpl implements AdditionalDataHolder, CopyNotebook
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.createdBy){
-        if(this.createdBy)
         writer.writeStringValue("createdBy", this.createdBy);
         }
         if(this.createdByIdentity){
-        if(this.createdByIdentity)
         writer.writeObjectValue<IdentitySetImpl>("createdByIdentity", new IdentitySetImpl(this.createdByIdentity));
         }
         if(this.createdTime){
-        if(this.createdTime)
         writer.writeDateValue("createdTime", this.createdTime);
         }
         if(this.id){
-        if(this.id)
         writer.writeStringValue("id", this.id);
         }
         if(this.isDefault){
-        if(this.isDefault)
         writer.writeBooleanValue("isDefault", this.isDefault);
         }
         if(this.isShared){
-        if(this.isShared)
         writer.writeBooleanValue("isShared", this.isShared);
         }
         if(this.lastModifiedBy){
-        if(this.lastModifiedBy)
         writer.writeStringValue("lastModifiedBy", this.lastModifiedBy);
         }
         if(this.lastModifiedByIdentity){
-        if(this.lastModifiedByIdentity)
         writer.writeObjectValue<IdentitySetImpl>("lastModifiedByIdentity", new IdentitySetImpl(this.lastModifiedByIdentity));
         }
         if(this.lastModifiedTime){
-        if(this.lastModifiedTime)
         writer.writeDateValue("lastModifiedTime", this.lastModifiedTime);
         }
         if(this.links){
-        if(this.links)
         writer.writeObjectValue<NotebookLinksImpl>("links", new NotebookLinksImpl(this.links));
         }
         if(this.name){
-        if(this.name)
         writer.writeStringValue("name", this.name);
         }
         if(this.sectionGroupsUrl){
-        if(this.sectionGroupsUrl)
         writer.writeStringValue("sectionGroupsUrl", this.sectionGroupsUrl);
         }
         if(this.sectionsUrl){
-        if(this.sectionsUrl)
         writer.writeStringValue("sectionsUrl", this.sectionsUrl);
         }
         if(this.self){
-        if(this.self)
         writer.writeStringValue("self", this.self);
         }
         if(this.userRole){
-        if(this.userRole)
         writer.writeEnumValue<OnenoteUserRole>("userRole", this.userRole);
         }
         writer.writeAdditionalData(this.additionalData);

@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class ContactCollectionResponseImpl implements AdditionalDataHolder, ContactCollectionResponse, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: Contact[] | undefined;
+    public value?: Contact[] | undefined;
     /**
      * Instantiates a new ContactCollectionResponse and sets the default values.
      * @param contactCollectionResponseParameterValue 
      */
     public constructor(contactCollectionResponseParameterValue?: ContactCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = contactCollectionResponseParameterValue?.additionalData ? {} : contactCollectionResponseParameterValue?.additionalData!
+        this.additionalData = contactCollectionResponseParameterValue?.additionalData ? contactCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = contactCollectionResponseParameterValue?.nextLink ;
         this.value = contactCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class ContactCollectionResponseImpl implements AdditionalDataHolder, Cont
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: ContactImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ContactImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: ContactImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ContactImpl(element));});
         writer.writeCollectionOfObjectValues<ContactImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

@@ -4,9 +4,10 @@ import {WorkbookChartGridlinesFormat} from './workbookChartGridlinesFormat';
 import {WorkbookChartLineFormat} from './workbookChartLineFormat';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to user. */
 export class WorkbookChartGridlinesFormatImpl extends EntityImpl implements Parsable, WorkbookChartGridlinesFormat {
     /** Represents chart line formatting. Read-only. */
-    line?: WorkbookChartLineFormat | undefined;
+    public line?: WorkbookChartLineFormat | undefined;
     /**
      * Instantiates a new workbookChartGridlinesFormat and sets the default values.
      * @param workbookChartGridlinesFormatParameterValue 
@@ -32,7 +33,6 @@ export class WorkbookChartGridlinesFormatImpl extends EntityImpl implements Pars
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.line){
-        if(this.line)
         writer.writeObjectValue<WorkbookChartLineFormatImpl>("line", new WorkbookChartLineFormatImpl(this.line));
         }
     };

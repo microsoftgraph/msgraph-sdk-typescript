@@ -1,3 +1,3 @@
-export * from './recordResponseRequestBodyImpl'
-export * from './recordResponseRequestBody'
+export * from './recordResponsePostRequestBodyImpl'
+export * from './recordResponsePostRequestBody'
 export * from './recordResponseRequestBuilderPostRequestConfiguration'

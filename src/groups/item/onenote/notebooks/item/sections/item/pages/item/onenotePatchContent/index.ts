@@ -1,3 +1,3 @@
-export * from './onenotePatchContentRequestBodyImpl'
+export * from './onenotePatchContentPostRequestBodyImpl'
 export * from './onenotePatchContentRequestBuilderPostRequestConfiguration'
-export * from './onenotePatchContentRequestBody'
+export * from './onenotePatchContentPostRequestBody'

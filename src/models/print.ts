@@ -8,19 +8,19 @@ import {PrintTaskDefinition} from './printTaskDefinition';
 
 export interface Print{
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    additionalData?:Record<string, unknown>;
     /** The list of available print connectors. */
-    connectors?: PrintConnector[] | undefined;
+    connectors?:PrintConnector[] | undefined;
     /** The list of print long running operations. */
-    operations?: PrintOperation[] | undefined;
+    operations?:PrintOperation[] | undefined;
     /** The list of printers registered in the tenant. */
-    printers?: Printer[] | undefined;
+    printers?:Printer[] | undefined;
     /** The list of available Universal Print service endpoints. */
-    services?: PrintService[] | undefined;
+    services?:PrintService[] | undefined;
     /** Tenant-wide settings for the Universal Print service. */
-    settings?: PrintSettings | undefined;
+    settings?:PrintSettings | undefined;
     /** The list of printer shares registered in the tenant. */
-    shares?: PrinterShare[] | undefined;
+    shares?:PrinterShare[] | undefined;
     /** List of abstract definition for a task that can be triggered when various events occur within Universal Print. */
-    taskDefinitions?: PrintTaskDefinition[] | undefined;
+    taskDefinitions?:PrintTaskDefinition[] | undefined;
 }

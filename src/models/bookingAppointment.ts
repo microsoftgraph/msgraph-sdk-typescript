@@ -8,49 +8,49 @@ import {Duration} from '@microsoft/kiota-abstractions';
 
 export interface BookingAppointment extends Entity{
     /** Additional information that is sent to the customer when an appointment is confirmed. */
-    additionalInformation?: string | undefined;
+    additionalInformation?:string | undefined;
     /** It lists down the customer properties for an appointment. An appointment will contain a list of customer information and each unit will indicate the properties of a customer who is part of that appointment. Optional. */
-    customers?: BookingCustomerInformationBase[] | undefined;
+    customers?:BookingCustomerInformationBase[] | undefined;
     /** The time zone of the customer. For a list of possible values, see dateTimeTimeZone. */
-    customerTimeZone?: string | undefined;
+    customerTimeZone?:string | undefined;
     /** The length of the appointment, denoted in ISO8601 format. */
-    duration?: Duration | undefined;
+    duration?:Duration | undefined;
     /** The endDateTime property */
-    endDateTime?: DateTimeTimeZone | undefined;
+    endDateTime?:DateTimeTimeZone | undefined;
     /** The current number of customers in the appointment. */
-    filledAttendeesCount?: number | undefined;
+    filledAttendeesCount?:number | undefined;
     /** True indicates that the appointment will be held online. Default value is false. */
-    isLocationOnline?: boolean | undefined;
+    isLocationOnline?:boolean | undefined;
     /** The URL of the online meeting for the appointment. */
-    joinWebUrl?: string | undefined;
+    joinWebUrl?:string | undefined;
     /** The maximum number of customers allowed in an appointment. If maximumAttendeesCount of the service is greater than 1, pass valid customer IDs while creating or updating an appointment. To create a customer, use the Create bookingCustomer operation. */
-    maximumAttendeesCount?: number | undefined;
+    maximumAttendeesCount?:number | undefined;
     /** True indicates that the bookingCustomer for this appointment does not wish to receive a confirmation for this appointment. */
-    optOutOfCustomerEmail?: boolean | undefined;
+    optOutOfCustomerEmail?:boolean | undefined;
     /** The amount of time to reserve after the appointment ends, for cleaning up, as an example. The value is expressed in ISO8601 format. */
-    postBuffer?: Duration | undefined;
+    postBuffer?:Duration | undefined;
     /** The amount of time to reserve before the appointment begins, for preparation, as an example. The value is expressed in ISO8601 format. */
-    preBuffer?: Duration | undefined;
+    preBuffer?:Duration | undefined;
     /** The regular price for an appointment for the specified bookingService. */
-    price?: number | undefined;
+    price?:number | undefined;
     /** A setting to provide flexibility for the pricing structure of services. Possible values are: undefined, fixedPrice, startingAt, hourly, free, priceVaries, callUs, notSet, unknownFutureValue. */
-    priceType?: BookingPriceType | undefined;
+    priceType?:BookingPriceType | undefined;
     /** The collection of customer reminders sent for this appointment. The value of this property is available only when reading this bookingAppointment by its ID. */
-    reminders?: BookingReminder[] | undefined;
+    reminders?:BookingReminder[] | undefined;
     /** An additional tracking ID for the appointment, if the appointment has been created directly by the customer on the scheduling page, as opposed to by a staff member on the behalf of the customer. */
-    selfServiceAppointmentId?: string | undefined;
+    selfServiceAppointmentId?:string | undefined;
     /** The ID of the bookingService associated with this appointment. */
-    serviceId?: string | undefined;
+    serviceId?:string | undefined;
     /** The location where the service is delivered. */
-    serviceLocation?: Location | undefined;
+    serviceLocation?:Location | undefined;
     /** The name of the bookingService associated with this appointment.This property is optional when creating a new appointment. If not specified, it is computed from the service associated with the appointment by the serviceId property. */
-    serviceName?: string | undefined;
+    serviceName?:string | undefined;
     /** Notes from a bookingStaffMember. The value of this property is available only when reading this bookingAppointment by its ID. */
-    serviceNotes?: string | undefined;
+    serviceNotes?:string | undefined;
     /** True indicates SMS notifications will be sent to the customers for the appointment. Default value is false. */
-    smsNotificationsEnabled?: boolean | undefined;
+    smsNotificationsEnabled?:boolean | undefined;
     /** The ID of each bookingStaffMember who is scheduled in this appointment. */
-    staffMemberIds?: string[] | undefined;
+    staffMemberIds?:string[] | undefined;
     /** The startDateTime property */
-    startDateTime?: DateTimeTimeZone | undefined;
+    startDateTime?:DateTimeTimeZone | undefined;
 }

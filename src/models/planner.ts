@@ -5,9 +5,9 @@ import {PlannerTask} from './plannerTask';
 
 export interface Planner extends Entity{
     /** Read-only. Nullable. Returns a collection of the specified buckets */
-    buckets?: PlannerBucket[] | undefined;
+    buckets?:PlannerBucket[] | undefined;
     /** Read-only. Nullable. Returns a collection of the specified plans */
-    plans?: PlannerPlan[] | undefined;
+    plans?:PlannerPlan[] | undefined;
     /** Read-only. Nullable. Returns a collection of the specified tasks */
-    tasks?: PlannerTask[] | undefined;
+    tasks?:PlannerTask[] | undefined;
 }

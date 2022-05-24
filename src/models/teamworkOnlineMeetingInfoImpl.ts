@@ -6,20 +6,19 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class TeamworkOnlineMeetingInfoImpl implements AdditionalDataHolder, Parsable, TeamworkOnlineMeetingInfo {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The identifier of the calendar event associated with the meeting. */
-    calendarEventId?: string | undefined;
+    public calendarEventId?: string | undefined;
     /** The URL which can be clicked on to join or uniquely identify the meeting. */
-    joinWebUrl?: string | undefined;
+    public joinWebUrl?: string | undefined;
     /** The organizer of the meeting. */
-    organizer?: TeamworkUserIdentity | undefined;
+    public organizer?: TeamworkUserIdentity | undefined;
     /**
      * Instantiates a new teamworkOnlineMeetingInfo and sets the default values.
      * @param teamworkOnlineMeetingInfoParameterValue 
      */
     public constructor(teamworkOnlineMeetingInfoParameterValue?: TeamworkOnlineMeetingInfo | undefined) {
-        this.additionalData = {};
-        this.additionalData = teamworkOnlineMeetingInfoParameterValue?.additionalData ? {} : teamworkOnlineMeetingInfoParameterValue?.additionalData!
+        this.additionalData = teamworkOnlineMeetingInfoParameterValue?.additionalData ? teamworkOnlineMeetingInfoParameterValue?.additionalData! : {}
         this.calendarEventId = teamworkOnlineMeetingInfoParameterValue?.calendarEventId ;
         this.joinWebUrl = teamworkOnlineMeetingInfoParameterValue?.joinWebUrl ;
         this.organizer = teamworkOnlineMeetingInfoParameterValue?.organizer ;
@@ -42,15 +41,12 @@ export class TeamworkOnlineMeetingInfoImpl implements AdditionalDataHolder, Pars
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.calendarEventId){
-        if(this.calendarEventId)
         writer.writeStringValue("calendarEventId", this.calendarEventId);
         }
         if(this.joinWebUrl){
-        if(this.joinWebUrl)
         writer.writeStringValue("joinWebUrl", this.joinWebUrl);
         }
         if(this.organizer){
-        if(this.organizer)
         writer.writeObjectValue<TeamworkUserIdentityImpl>("organizer", new TeamworkUserIdentityImpl(this.organizer));
         }
         writer.writeAdditionalData(this.additionalData);

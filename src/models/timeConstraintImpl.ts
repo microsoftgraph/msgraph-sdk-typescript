@@ -7,19 +7,18 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class TimeConstraintImpl implements AdditionalDataHolder, Parsable, TimeConstraint {
     /** The nature of the activity, optional. Possible values are: work, personal, unrestricted, or unknown. */
-    activityDomain?: ActivityDomain | undefined;
+    public activityDomain?: ActivityDomain | undefined;
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The timeSlots property */
-    timeSlots?: TimeSlot[] | undefined;
+    public timeSlots?: TimeSlot[] | undefined;
     /**
      * Instantiates a new timeConstraint and sets the default values.
      * @param timeConstraintParameterValue 
      */
     public constructor(timeConstraintParameterValue?: TimeConstraint | undefined) {
-        this.additionalData = {};
         this.activityDomain = timeConstraintParameterValue?.activityDomain ;
-        this.additionalData = timeConstraintParameterValue?.additionalData ? {} : timeConstraintParameterValue?.additionalData!
+        this.additionalData = timeConstraintParameterValue?.additionalData ? timeConstraintParameterValue?.additionalData! : {}
         this.timeSlots = timeConstraintParameterValue?.timeSlots ;
     };
     /**
@@ -39,11 +38,9 @@ export class TimeConstraintImpl implements AdditionalDataHolder, Parsable, TimeC
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.activityDomain){
-        if(this.activityDomain)
         writer.writeEnumValue<ActivityDomain>("activityDomain", this.activityDomain);
         }
-        if(this.timeSlots){
-        const timeSlotsArrValue: TimeSlotImpl[] = []; this.timeSlots?.forEach(element => {timeSlotsArrValue.push(new TimeSlotImpl(element));});
+        if(this.timeSlots && this.timeSlots.length != 0){        const timeSlotsArrValue: TimeSlotImpl[] = []; this.timeSlots?.forEach(element => {timeSlotsArrValue.push(new TimeSlotImpl(element));});
         writer.writeCollectionOfObjectValues<TimeSlotImpl>("timeSlots", timeSlotsArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

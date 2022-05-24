@@ -2,13 +2,14 @@ import {ChangeTrackedEntityImpl} from './index';
 import {SchedulingGroup} from './schedulingGroup';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to group. */
 export class SchedulingGroupImpl extends ChangeTrackedEntityImpl implements Parsable, SchedulingGroup {
     /** The display name for the schedulingGroup. Required. */
-    displayName?: string | undefined;
+    public displayName?: string | undefined;
     /** Indicates whether the schedulingGroup can be used when creating new entities or updating existing ones. Required. */
-    isActive?: boolean | undefined;
+    public isActive?: boolean | undefined;
     /** The list of user IDs that are a member of the schedulingGroup. Required. */
-    userIds?: string[] | undefined;
+    public userIds?: string[] | undefined;
     /**
      * Instantiates a new schedulingGroup and sets the default values.
      * @param schedulingGroupParameterValue 
@@ -38,15 +39,12 @@ export class SchedulingGroupImpl extends ChangeTrackedEntityImpl implements Pars
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.displayName){
-        if(this.displayName)
         writer.writeStringValue("displayName", this.displayName);
         }
         if(this.isActive){
-        if(this.isActive)
         writer.writeBooleanValue("isActive", this.isActive);
         }
         if(this.userIds){
-        if(this.userIds)
         writer.writeCollectionOfPrimitiveValues<string>("userIds", this.userIds);
         }
     };

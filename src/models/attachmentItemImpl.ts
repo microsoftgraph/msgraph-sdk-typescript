@@ -4,26 +4,25 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class AttachmentItemImpl implements AdditionalDataHolder, AttachmentItem, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The type of attachment. Possible values are: file, item, reference. Required. */
-    attachmentType?: AttachmentType | undefined;
+    public attachmentType?: AttachmentType | undefined;
     /** The CID or Content-Id of the attachment for referencing in case of in-line attachments using <img src='cid:contentId'> tag in HTML messages. Optional. */
-    contentId?: string | undefined;
+    public contentId?: string | undefined;
     /** The nature of the data in the attachment. Optional. */
-    contentType?: string | undefined;
+    public contentType?: string | undefined;
     /** true if the attachment is an inline attachment; otherwise, false. Optional. */
-    isInline?: boolean | undefined;
+    public isInline?: boolean | undefined;
     /** The display name of the attachment. This can be a descriptive string and does not have to be the actual file name. Required. */
-    name?: string | undefined;
+    public name?: string | undefined;
     /** The length of the attachment in bytes. Required. */
-    size?: number | undefined;
+    public size?: number | undefined;
     /**
      * Instantiates a new attachmentItem and sets the default values.
      * @param attachmentItemParameterValue 
      */
     public constructor(attachmentItemParameterValue?: AttachmentItem | undefined) {
-        this.additionalData = {};
-        this.additionalData = attachmentItemParameterValue?.additionalData ? {} : attachmentItemParameterValue?.additionalData!
+        this.additionalData = attachmentItemParameterValue?.additionalData ? attachmentItemParameterValue?.additionalData! : {}
         this.attachmentType = attachmentItemParameterValue?.attachmentType ;
         this.contentId = attachmentItemParameterValue?.contentId ;
         this.contentType = attachmentItemParameterValue?.contentType ;
@@ -52,27 +51,21 @@ export class AttachmentItemImpl implements AdditionalDataHolder, AttachmentItem,
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.attachmentType){
-        if(this.attachmentType)
         writer.writeEnumValue<AttachmentType>("attachmentType", this.attachmentType);
         }
         if(this.contentId){
-        if(this.contentId)
         writer.writeStringValue("contentId", this.contentId);
         }
         if(this.contentType){
-        if(this.contentType)
         writer.writeStringValue("contentType", this.contentType);
         }
         if(this.isInline){
-        if(this.isInline)
         writer.writeBooleanValue("isInline", this.isInline);
         }
         if(this.name){
-        if(this.name)
         writer.writeStringValue("name", this.name);
         }
         if(this.size){
-        if(this.size)
         writer.writeNumberValue("size", this.size);
         }
         writer.writeAdditionalData(this.additionalData);

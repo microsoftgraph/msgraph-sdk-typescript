@@ -1,8 +1,6 @@
-import {createGetReportFiltersResponseFromDiscriminatorValue} from './createGetReportFiltersResponseFromDiscriminatorValue';
-import {GetReportFiltersRequestBody} from './getReportFiltersRequestBody';
+import {GetReportFiltersPostRequestBody} from './getReportFiltersPostRequestBody';
 import {GetReportFiltersRequestBuilderPostRequestConfiguration} from './getReportFiltersRequestBuilderPostRequestConfiguration';
-import {GetReportFiltersResponse} from './getReportFiltersResponse';
-import {GetReportFiltersRequestBodyImpl, GetReportFiltersResponseImpl} from './index';
+import {GetReportFiltersPostRequestBodyImpl} from './index';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the getReportFilters method. */
@@ -32,7 +30,7 @@ export class GetReportFiltersRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public createPostRequestInformation(body: GetReportFiltersRequestBody | undefined, requestConfiguration?: GetReportFiltersRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public createPostRequestInformation(body: GetReportFiltersPostRequestBody | undefined, requestConfiguration?: GetReportFiltersRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -42,8 +40,8 @@ export class GetReportFiltersRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        const bodyParsable = new GetReportFiltersRequestBodyImpl(body)
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", bodyParsable);
+        const parsableBody = new GetReportFiltersPostRequestBodyImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -51,13 +49,13 @@ export class GetReportFiltersRequestBuilder {
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of GetReportFiltersResponse
+     * @returns a Promise of ArrayBuffer
      */
-    public post(body: GetReportFiltersRequestBody | undefined, requestConfiguration?: GetReportFiltersRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<GetReportFiltersResponse | undefined> {
+    public post(body: GetReportFiltersPostRequestBody | undefined, requestConfiguration?: GetReportFiltersRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ArrayBuffer | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration
         );
-        return this.requestAdapter?.sendAsync<GetReportFiltersResponseImpl>(requestInfo, createGetReportFiltersResponseFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendPrimitiveAsync<ArrayBuffer>(requestInfo, "ArrayBuffer", responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }

@@ -92,239 +92,240 @@ import {UserSettings} from './userSettings';
 import {UserTeamwork} from './userTeamwork';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to user. */
 export class UserImpl extends DirectoryObjectImpl implements Parsable, User {
     /** A freeform text entry field for the user to describe themselves. Returned only on $select. */
-    aboutMe?: string | undefined;
+    public aboutMe?: string | undefined;
     /** true if the account is enabled; otherwise, false. This property is required when a user is created. Supports $filter (eq, ne, not, and in). */
-    accountEnabled?: boolean | undefined;
+    public accountEnabled?: boolean | undefined;
     /** The user's activities across devices. Read-only. Nullable. */
-    activities?: UserActivity[] | undefined;
+    public activities?: UserActivity[] | undefined;
     /** Sets the age group of the user. Allowed values: null, Minor, NotAdult and Adult. Refer to the legal age group property definitions for further information. Supports $filter (eq, ne, not, and in). */
-    ageGroup?: string | undefined;
+    public ageGroup?: string | undefined;
     /** The user's terms of use acceptance statuses. Read-only. Nullable. */
-    agreementAcceptances?: AgreementAcceptance[] | undefined;
+    public agreementAcceptances?: AgreementAcceptance[] | undefined;
     /** Represents the app roles a user has been granted for an application. Supports $expand. */
-    appRoleAssignments?: AppRoleAssignment[] | undefined;
-    /** The licenses that are assigned to the user, including inherited (group-based) licenses. Not nullable. Supports $filter (eq and not). */
-    assignedLicenses?: AssignedLicense[] | undefined;
+    public appRoleAssignments?: AppRoleAssignment[] | undefined;
+    /** The licenses that are assigned to the user, including inherited (group-based) licenses. Not nullable. Supports $filter (eq, not, and counting empty collections). */
+    public assignedLicenses?: AssignedLicense[] | undefined;
     /** The plans that are assigned to the user. Read-only. Not nullable.Supports $filter (eq and not). */
-    assignedPlans?: AssignedPlan[] | undefined;
+    public assignedPlans?: AssignedPlan[] | undefined;
     /** TODO: Add Description */
-    authentication?: Authentication | undefined;
+    public authentication?: Authentication | undefined;
     /** The birthday of the user. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z Returned only on $select. */
-    birthday?: Date | undefined;
+    public birthday?: Date | undefined;
     /** The telephone numbers for the user. Only one number can be set for this property. Read-only for users synced from on-premises directory. Supports $filter (eq, not, ge, le, startsWith). */
-    businessPhones?: string[] | undefined;
+    public businessPhones?: string[] | undefined;
     /** The user's primary calendar. Read-only. */
-    calendar?: Calendar | undefined;
+    public calendar?: Calendar | undefined;
     /** The user's calendar groups. Read-only. Nullable. */
-    calendarGroups?: CalendarGroup[] | undefined;
+    public calendarGroups?: CalendarGroup[] | undefined;
     /** The user's calendars. Read-only. Nullable. */
-    calendars?: Calendar[] | undefined;
+    public calendars?: Calendar[] | undefined;
     /** The calendar view for the calendar. Read-only. Nullable. */
-    calendarView?: Event[] | undefined;
+    public calendarView?: Event[] | undefined;
     /** The chats property */
-    chats?: Chat[] | undefined;
+    public chats?: Chat[] | undefined;
     /** The city in which the user is located. Maximum length is 128 characters. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values). */
-    city?: string | undefined;
+    public city?: string | undefined;
     /** The company name which the user is associated. This property can be useful for describing the company that an external user comes from. The maximum length is 64 characters.Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values). */
-    companyName?: string | undefined;
+    public companyName?: string | undefined;
     /** Sets whether consent has been obtained for minors. Allowed values: null, Granted, Denied and NotRequired. Refer to the legal age group property definitions for further information. Supports $filter (eq, ne, not, and in). */
-    consentProvidedForMinor?: string | undefined;
+    public consentProvidedForMinor?: string | undefined;
     /** The user's contacts folders. Read-only. Nullable. */
-    contactFolders?: ContactFolder[] | undefined;
+    public contactFolders?: ContactFolder[] | undefined;
     /** The user's contacts. Read-only. Nullable. */
-    contacts?: Contact[] | undefined;
+    public contacts?: Contact[] | undefined;
     /** The country/region in which the user is located; for example, US or UK. Maximum length is 128 characters. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values). */
-    country?: string | undefined;
+    public country?: string | undefined;
     /** The date and time the user was created. The value cannot be modified and is automatically populated when the entity is created. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. Property is nullable. A null value indicates that an accurate creation time couldn't be determined for the user. Read-only. Supports $filter (eq, ne, not , ge, le, in). */
-    createdDateTime?: Date | undefined;
+    public createdDateTime?: Date | undefined;
     /** Directory objects that were created by the user. Read-only. Nullable. */
-    createdObjects?: DirectoryObject[] | undefined;
+    public createdObjects?: DirectoryObject[] | undefined;
     /** Indicates whether the user account was created through one of the following methods:  As a regular school or work account (null). As an external account (Invitation). As a local account for an Azure Active Directory B2C tenant (LocalAccount). Through self-service sign-up by an internal user using email verification (EmailVerified). Through self-service sign-up by an external user signing up through a link that is part of a user flow (SelfServiceSignUp).  Read-only.Supports $filter (eq, ne, not, and in). */
-    creationType?: string | undefined;
+    public creationType?: string | undefined;
     /** The name for the department in which the user works. Maximum length is 64 characters.Supports $filter (eq, ne, not , ge, le, in, and eq on null values). */
-    department?: string | undefined;
+    public department?: string | undefined;
     /** The limit on the maximum number of devices that the user is permitted to enroll. Allowed values are 5 or 1000. */
-    deviceEnrollmentLimit?: number | undefined;
+    public deviceEnrollmentLimit?: number | undefined;
     /** The list of troubleshooting events for this user. */
-    deviceManagementTroubleshootingEvents?: DeviceManagementTroubleshootingEvent[] | undefined;
+    public deviceManagementTroubleshootingEvents?: DeviceManagementTroubleshootingEvent[] | undefined;
     /** The users and contacts that report to the user. (The users and contacts that have their manager property set to this user.) Read-only. Nullable. Supports $expand. */
-    directReports?: DirectoryObject[] | undefined;
+    public directReports?: DirectoryObject[] | undefined;
     /** The name displayed in the address book for the user. This value is usually the combination of the user's first name, middle initial, and last name. This property is required when a user is created and it cannot be cleared during updates. Maximum length is 256 characters. Supports $filter (eq, ne, not , ge, le, in, startsWith, and eq on null values), $orderBy, and $search. */
-    displayName?: string | undefined;
+    public displayName?: string | undefined;
     /** The user's OneDrive. Read-only. */
-    drive?: Drive | undefined;
+    public drive?: Drive | undefined;
     /** A collection of drives available for this user. Read-only. */
-    drives?: Drive[] | undefined;
+    public drives?: Drive[] | undefined;
     /** The date and time when the user was hired or will start work in case of a future hire. Supports $filter (eq, ne, not , ge, le, in). */
-    employeeHireDate?: Date | undefined;
+    public employeeHireDate?: Date | undefined;
     /** The employee identifier assigned to the user by the organization. The maximum length is 16 characters.Supports $filter (eq, ne, not , ge, le, in, startsWith, and eq on null values). */
-    employeeId?: string | undefined;
+    public employeeId?: string | undefined;
     /** Represents organization data (e.g. division and costCenter) associated with a user. Supports $filter (eq, ne, not , ge, le, in). */
-    employeeOrgData?: EmployeeOrgData | undefined;
+    public employeeOrgData?: EmployeeOrgData | undefined;
     /** Captures enterprise worker type. For example, Employee, Contractor, Consultant, or Vendor. Supports $filter (eq, ne, not , ge, le, in, startsWith). */
-    employeeType?: string | undefined;
+    public employeeType?: string | undefined;
     /** The user's events. Default is to show events under the Default Calendar. Read-only. Nullable. */
-    events?: Event[] | undefined;
+    public events?: Event[] | undefined;
     /** The collection of open extensions defined for the user. Nullable. */
-    extensions?: Extension[] | undefined;
+    public extensions?: Extension[] | undefined;
     /** For an external user invited to the tenant using the invitation API, this property represents the invited user's invitation status. For invited users, the state can be PendingAcceptance or Accepted, or null for all other users. Supports $filter (eq, ne, not , in). */
-    externalUserState?: string | undefined;
+    public externalUserState?: string | undefined;
     /** Shows the timestamp for the latest change to the externalUserState property. Supports $filter (eq, ne, not , in). */
-    externalUserStateChangeDateTime?: Date | undefined;
+    public externalUserStateChangeDateTime?: Date | undefined;
     /** The fax number of the user. Supports $filter (eq, ne, not , ge, le, in, startsWith, and eq on null values). */
-    faxNumber?: string | undefined;
+    public faxNumber?: string | undefined;
     /** The followedSites property */
-    followedSites?: Site[] | undefined;
+    public followedSites?: Site[] | undefined;
     /** The given name (first name) of the user. Maximum length is 64 characters. Supports $filter (eq, ne, not , ge, le, in, startsWith, and eq on null values). */
-    givenName?: string | undefined;
+    public givenName?: string | undefined;
     /** The hire date of the user. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.  Returned only on $select.  Note: This property is specific to SharePoint Online. We recommend using the native employeeHireDate property to set and update hire date values using Microsoft Graph APIs. */
-    hireDate?: Date | undefined;
+    public hireDate?: Date | undefined;
     /** Represents the identities that can be used to sign in to this user account. An identity can be provided by Microsoft (also known as a local account), by organizations, or by social identity providers such as Facebook, Google, and Microsoft, and tied to a user account. May contain multiple items with the same signInType value. Supports $filter (eq) including on null values, only where the signInType is not userPrincipalName. */
-    identities?: ObjectIdentity[] | undefined;
+    public identities?: ObjectIdentity[] | undefined;
     /** The instant message voice over IP (VOIP) session initiation protocol (SIP) addresses for the user. Read-only. Supports $filter (eq, not, ge, le, startsWith). */
-    imAddresses?: string[] | undefined;
+    public imAddresses?: string[] | undefined;
     /** Relevance classification of the user's messages based on explicit designations which override inferred relevance or importance. */
-    inferenceClassification?: InferenceClassification | undefined;
+    public inferenceClassification?: InferenceClassification | undefined;
     /** Read-only. Nullable. */
-    insights?: OfficeGraphInsights | undefined;
+    public insights?: OfficeGraphInsights | undefined;
     /** A list for the user to describe their interests. Returned only on $select. */
-    interests?: string[] | undefined;
+    public interests?: string[] | undefined;
     /** Do not use – reserved for future use. */
-    isResourceAccount?: boolean | undefined;
+    public isResourceAccount?: boolean | undefined;
     /** The user's job title. Maximum length is 128 characters. Supports $filter (eq, ne, not , ge, le, in, startsWith, and eq on null values). */
-    jobTitle?: string | undefined;
+    public jobTitle?: string | undefined;
     /** The Microsoft Teams teams that the user is a member of. Read-only. Nullable. */
-    joinedTeams?: Team[] | undefined;
+    public joinedTeams?: Team[] | undefined;
     /** The time when this Azure AD user last changed their password or when their password was created, , whichever date the latest action was performed. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. Returned only on $select. */
-    lastPasswordChangeDateTime?: Date | undefined;
+    public lastPasswordChangeDateTime?: Date | undefined;
     /** Used by enterprise applications to determine the legal age group of the user. This property is read-only and calculated based on ageGroup and consentProvidedForMinor properties. Allowed values: null, MinorWithOutParentalConsent, MinorWithParentalConsent, MinorNoParentalConsentRequired, NotAdult and Adult. Refer to the legal age group property definitions for further information. Returned only on $select. */
-    legalAgeGroupClassification?: string | undefined;
+    public legalAgeGroupClassification?: string | undefined;
     /** State of license assignments for this user. Read-only. Returned only on $select. */
-    licenseAssignmentStates?: LicenseAssignmentState[] | undefined;
+    public licenseAssignmentStates?: LicenseAssignmentState[] | undefined;
     /** A collection of this user's license details. Read-only. */
-    licenseDetails?: LicenseDetails[] | undefined;
+    public licenseDetails?: LicenseDetails[] | undefined;
     /** The SMTP address for the user, for example, admin@contoso.com. Changes to this property will also update the user's proxyAddresses collection to include the value as an SMTP address. For Azure AD B2C accounts, this property can be updated up to only ten times with unique SMTP addresses. This property cannot contain accent characters.  Supports $filter (eq, ne, not, ge, le, in, startsWith, endsWith, and eq on null values). */
-    mail?: string | undefined;
+    public mail?: string | undefined;
     /** Settings for the primary mailbox of the signed-in user. You can get or update settings for sending automatic replies to incoming messages, locale, and time zone. For more information, see User preferences for languages and regional formats. Returned only on $select. */
-    mailboxSettings?: MailboxSettings | undefined;
+    public mailboxSettings?: MailboxSettings | undefined;
     /** The user's mail folders. Read-only. Nullable. */
-    mailFolders?: MailFolder[] | undefined;
+    public mailFolders?: MailFolder[] | undefined;
     /** The mail alias for the user. This property must be specified when a user is created. Maximum length is 64 characters. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values). */
-    mailNickname?: string | undefined;
+    public mailNickname?: string | undefined;
     /** Zero or more managed app registrations that belong to the user. */
-    managedAppRegistrations?: ManagedAppRegistration[] | undefined;
+    public managedAppRegistrations?: ManagedAppRegistration[] | undefined;
     /** The managed devices associated with the user. */
-    managedDevices?: ManagedDevice[] | undefined;
+    public managedDevices?: ManagedDevice[] | undefined;
     /** The user or contact that is this user's manager. Read-only. (HTTP Methods: GET, PUT, DELETE.). Supports $expand. */
-    manager?: DirectoryObject | undefined;
+    public manager?: DirectoryObject | undefined;
     /** The groups, directory roles and administrative units that the user is a member of. Read-only. Nullable. Supports $expand. */
-    memberOf?: DirectoryObject[] | undefined;
+    public memberOf?: DirectoryObject[] | undefined;
     /** The messages in a mailbox or folder. Read-only. Nullable. */
-    messages?: Message[] | undefined;
+    public messages?: Message[] | undefined;
     /** The primary cellular telephone number for the user. Read-only for users synced from on-premises directory.  Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values). */
-    mobilePhone?: string | undefined;
+    public mobilePhone?: string | undefined;
     /** The URL for the user's personal site. Returned only on $select. */
-    mySite?: string | undefined;
+    public mySite?: string | undefined;
     /** The oauth2PermissionGrants property */
-    oauth2PermissionGrants?: OAuth2PermissionGrant[] | undefined;
+    public oauth2PermissionGrants?: OAuth2PermissionGrant[] | undefined;
     /** The office location in the user's place of business. Maximum length is 128 characters. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values). */
-    officeLocation?: string | undefined;
+    public officeLocation?: string | undefined;
     /** Read-only. */
-    onenote?: Onenote | undefined;
+    public onenote?: Onenote | undefined;
     /** The onlineMeetings property */
-    onlineMeetings?: OnlineMeeting[] | undefined;
+    public onlineMeetings?: OnlineMeeting[] | undefined;
     /** Contains the on-premises Active Directory distinguished name or DN. The property is only populated for customers who are synchronizing their on-premises directory to Azure Active Directory via Azure AD Connect. Read-only. */
-    onPremisesDistinguishedName?: string | undefined;
+    public onPremisesDistinguishedName?: string | undefined;
     /** Contains the on-premises domainFQDN, also called dnsDomainName synchronized from the on-premises directory. The property is only populated for customers who are synchronizing their on-premises directory to Azure Active Directory via Azure AD Connect. Read-only. */
-    onPremisesDomainName?: string | undefined;
+    public onPremisesDomainName?: string | undefined;
     /** Contains extensionAttributes1-15 for the user. The individual extension attributes are neither selectable nor filterable. For an onPremisesSyncEnabled user, the source of authority for this set of properties is the on-premises and is read-only. For a cloud-only user (where onPremisesSyncEnabled is false), these properties can be set during creation or update of a user object.  For a cloud-only user previously synced from on-premises Active Directory, these properties are read-only in Microsoft Graph but can be fully managed through the Exchange Admin Center or the Exchange Online V2 module in PowerShell. These extension attributes are also known as Exchange custom attributes 1-15. Returned only on $select. */
-    onPremisesExtensionAttributes?: OnPremisesExtensionAttributes | undefined;
+    public onPremisesExtensionAttributes?: OnPremisesExtensionAttributes | undefined;
     /** This property is used to associate an on-premises Active Directory user account to their Azure AD user object. This property must be specified when creating a new user account in the Graph if you are using a federated domain for the user's userPrincipalName (UPN) property. Note: The $ and _ characters cannot be used when specifying this property. Supports $filter (eq, ne, not, ge, le, in). */
-    onPremisesImmutableId?: string | undefined;
+    public onPremisesImmutableId?: string | undefined;
     /** Indicates the last time at which the object was synced with the on-premises directory; for example: '2013-02-16T03:04:54Z'. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. Supports $filter (eq, ne, not, ge, le, in). */
-    onPremisesLastSyncDateTime?: Date | undefined;
+    public onPremisesLastSyncDateTime?: Date | undefined;
     /** Errors when using Microsoft synchronization product during provisioning.  Supports $filter (eq, not, ge, le). */
-    onPremisesProvisioningErrors?: OnPremisesProvisioningError[] | undefined;
+    public onPremisesProvisioningErrors?: OnPremisesProvisioningError[] | undefined;
     /** Contains the on-premises sAMAccountName synchronized from the on-premises directory. The property is only populated for customers who are synchronizing their on-premises directory to Azure Active Directory via Azure AD Connect. Read-only. Supports $filter (eq, ne, not, ge, le, in, startsWith). */
-    onPremisesSamAccountName?: string | undefined;
+    public onPremisesSamAccountName?: string | undefined;
     /** Contains the on-premises security identifier (SID) for the user that was synchronized from on-premises to the cloud. Read-only. Supports $filter (eq including on null values). */
-    onPremisesSecurityIdentifier?: string | undefined;
+    public onPremisesSecurityIdentifier?: string | undefined;
     /** true if this object is synced from an on-premises directory; false if this object was originally synced from an on-premises directory but is no longer synced; null if this object has never been synced from an on-premises directory (default). Read-only. Supports $filter (eq, ne, not, in, and eq on null values). */
-    onPremisesSyncEnabled?: boolean | undefined;
+    public onPremisesSyncEnabled?: boolean | undefined;
     /** Contains the on-premises userPrincipalName synchronized from the on-premises directory. The property is only populated for customers who are synchronizing their on-premises directory to Azure Active Directory via Azure AD Connect. Read-only. Supports $filter (eq, ne, not, ge, le, in, startsWith). */
-    onPremisesUserPrincipalName?: string | undefined;
-    /** A list of additional email addresses for the user; for example: ['bob@contoso.com', 'Robert@fabrikam.com'].NOTE: This property cannot contain accent characters.Supports $filter (eq, not, ge, le, in, startsWith). */
-    otherMails?: string[] | undefined;
+    public onPremisesUserPrincipalName?: string | undefined;
+    /** A list of additional email addresses for the user; for example: ['bob@contoso.com', 'Robert@fabrikam.com'].NOTE: This property cannot contain accent characters.Supports $filter (eq, not, ge, le, in, startsWith, and counting empty collections). */
+    public otherMails?: string[] | undefined;
     /** Selective Outlook services available to the user. Read-only. Nullable. */
-    outlook?: OutlookUser | undefined;
+    public outlook?: OutlookUser | undefined;
     /** Devices that are owned by the user. Read-only. Nullable. Supports $expand. */
-    ownedDevices?: DirectoryObject[] | undefined;
+    public ownedDevices?: DirectoryObject[] | undefined;
     /** Directory objects that are owned by the user. Read-only. Nullable. Supports $expand. */
-    ownedObjects?: DirectoryObject[] | undefined;
+    public ownedObjects?: DirectoryObject[] | undefined;
     /** Specifies password policies for the user. This value is an enumeration with one possible value being DisableStrongPassword, which allows weaker passwords than the default policy to be specified. DisablePasswordExpiration can also be specified. The two may be specified together; for example: DisablePasswordExpiration, DisableStrongPassword. For more information on the default password policies, see Azure AD pasword policies. Supports $filter (ne, not, and eq on null values). */
-    passwordPolicies?: string | undefined;
+    public passwordPolicies?: string | undefined;
     /** Specifies the password profile for the user. The profile contains the user's password. This property is required when a user is created. The password in the profile must satisfy minimum requirements as specified by the passwordPolicies property. By default, a strong password is required. NOTE: For Azure B2C tenants, the forceChangePasswordNextSignIn property should be set to false and instead use custom policies and user flows to force password reset at first logon. See Force password reset at first logon. Supports $filter (eq, ne, not, in, and eq on null values). */
-    passwordProfile?: PasswordProfile | undefined;
+    public passwordProfile?: PasswordProfile | undefined;
     /** A list for the user to enumerate their past projects. Returned only on $select. */
-    pastProjects?: string[] | undefined;
+    public pastProjects?: string[] | undefined;
     /** Read-only. The most relevant people to the user. The collection is ordered by their relevance to the user, which is determined by the user's communication, collaboration and business relationships. A person is an aggregation of information from across mail, contacts and social networks. */
-    people?: Person[] | undefined;
+    public people?: Person[] | undefined;
     /** The user's profile photo. Read-only. */
-    photo?: ProfilePhoto | undefined;
+    public photo?: ProfilePhoto | undefined;
     /** Read-only. Nullable. */
-    photos?: ProfilePhoto[] | undefined;
+    public photos?: ProfilePhoto[] | undefined;
     /** Selective Planner services available to the user. Read-only. Nullable. */
-    planner?: PlannerUser | undefined;
+    public planner?: PlannerUser | undefined;
     /** The postal code for the user's postal address. The postal code is specific to the user's country/region. In the United States of America, this attribute contains the ZIP code. Maximum length is 40 characters. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values). */
-    postalCode?: string | undefined;
+    public postalCode?: string | undefined;
     /** The preferred data location for the user. For more information, see OneDrive Online Multi-Geo. */
-    preferredDataLocation?: string | undefined;
+    public preferredDataLocation?: string | undefined;
     /** The preferred language for the user. Should follow ISO 639-1 Code; for example en-US. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values). */
-    preferredLanguage?: string | undefined;
+    public preferredLanguage?: string | undefined;
     /** The preferred name for the user. Returned only on $select. */
-    preferredName?: string | undefined;
+    public preferredName?: string | undefined;
     /** The presence property */
-    presence?: Presence | undefined;
+    public presence?: Presence | undefined;
     /** The plans that are provisioned for the user. Read-only. Not nullable. Supports $filter (eq, not, ge, le). */
-    provisionedPlans?: ProvisionedPlan[] | undefined;
-    /** For example: ['SMTP: bob@contoso.com', 'smtp: bob@sales.contoso.com']. Changes to the mail property will also update this collection to include the value as an SMTP address. For more information, see mail and proxyAddresses properties. The proxy address prefixed with SMTP (capitalized) is the primary proxy address while those prefixed with smtp are the secondary proxy addresses. For Azure AD B2C accounts, this property has a limit of ten unique addresses. Read-only in Microsoft Graph; you can update this property only through the Microsoft 365 admin center. Not nullable. Supports $filter (eq, not, ge, le, startsWith). */
-    proxyAddresses?: string[] | undefined;
+    public provisionedPlans?: ProvisionedPlan[] | undefined;
+    /** For example: ['SMTP: bob@contoso.com', 'smtp: bob@sales.contoso.com']. Changes to the mail property will also update this collection to include the value as an SMTP address. For more information, see mail and proxyAddresses properties. The proxy address prefixed with SMTP (capitalized) is the primary proxy address while those prefixed with smtp are the secondary proxy addresses. For Azure AD B2C accounts, this property has a limit of ten unique addresses. Read-only in Microsoft Graph; you can update this property only through the Microsoft 365 admin center. Not nullable. Supports $filter (eq, not, ge, le, startsWith, endsWith, and counting empty collections). */
+    public proxyAddresses?: string[] | undefined;
     /** Devices that are registered for the user. Read-only. Nullable. Supports $expand. */
-    registeredDevices?: DirectoryObject[] | undefined;
+    public registeredDevices?: DirectoryObject[] | undefined;
     /** A list for the user to enumerate their responsibilities. Returned only on $select. */
-    responsibilities?: string[] | undefined;
+    public responsibilities?: string[] | undefined;
     /** A list for the user to enumerate the schools they have attended. Returned only on $select. */
-    schools?: string[] | undefined;
+    public schools?: string[] | undefined;
     /** The scoped-role administrative unit memberships for this user. Read-only. Nullable. */
-    scopedRoleMemberOf?: ScopedRoleMembership[] | undefined;
+    public scopedRoleMemberOf?: ScopedRoleMembership[] | undefined;
     /** Read-only. Nullable. */
-    settings?: UserSettings | undefined;
+    public settings?: UserSettings | undefined;
     /** true if the Outlook global address list should contain this user, otherwise false. If not set, this will be treated as true. For users invited through the invitation manager, this property will be set to false. Supports $filter (eq, ne, not, in). */
-    showInAddressList?: boolean | undefined;
+    public showInAddressList?: boolean | undefined;
     /** Any refresh tokens or sessions tokens (session cookies) issued before this time are invalid, and applications will get an error when using an invalid refresh or sessions token to acquire a delegated access token (to access APIs such as Microsoft Graph).  If this happens, the application will need to acquire a new refresh token by making a request to the authorize endpoint. Read-only. Use revokeSignInSessions to reset. */
-    signInSessionsValidFromDateTime?: Date | undefined;
+    public signInSessionsValidFromDateTime?: Date | undefined;
     /** A list for the user to enumerate their skills. Returned only on $select. */
-    skills?: string[] | undefined;
+    public skills?: string[] | undefined;
     /** The state or province in the user's address. Maximum length is 128 characters. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values). */
-    state?: string | undefined;
+    public state?: string | undefined;
     /** The street address of the user's place of business. Maximum length is 1024 characters. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values). */
-    streetAddress?: string | undefined;
+    public streetAddress?: string | undefined;
     /** The user's surname (family name or last name). Maximum length is 64 characters. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values). */
-    surname?: string | undefined;
+    public surname?: string | undefined;
     /** A container for Microsoft Teams features available for the user. Read-only. Nullable. */
-    teamwork?: UserTeamwork | undefined;
+    public teamwork?: UserTeamwork | undefined;
     /** Represents the To Do services available to a user. */
-    todo?: Todo | undefined;
+    public todo?: Todo | undefined;
     /** The transitiveMemberOf property */
-    transitiveMemberOf?: DirectoryObject[] | undefined;
+    public transitiveMemberOf?: DirectoryObject[] | undefined;
     /** A two letter country code (ISO standard 3166). Required for users that will be assigned licenses due to legal requirement to check for availability of services in countries.  Examples include: US, JP, and GB. Not nullable. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values). */
-    usageLocation?: string | undefined;
+    public usageLocation?: string | undefined;
     /** The user principal name (UPN) of the user. The UPN is an Internet-style login name for the user based on the Internet standard RFC 822. By convention, this should map to the user's email name. The general format is alias@domain, where domain must be present in the tenant's collection of verified domains. This property is required when a user is created. The verified domains for the tenant can be accessed from the verifiedDomains property of organization.NOTE: This property cannot contain accent characters. Only the following characters are allowed A - Z, a - z, 0 - 9, ' . - _ ! # ^ ~. For the complete list of allowed characters, see username policies. Supports $filter (eq, ne, not, ge, le, in, startsWith, endsWith) and $orderBy. */
-    userPrincipalName?: string | undefined;
+    public userPrincipalName?: string | undefined;
     /** A String value that can be used to classify user types in your directory, such as Member and Guest. Supports $filter (eq, ne, not, in, and eq on null values). NOTE: For more information about the permissions for member and guest users, see What are the default user permissions in Azure Active Directory? */
-    userType?: string | undefined;
+    public userType?: string | undefined;
     /**
      * Instantiates a new user and sets the default values.
      * @param userParameterValue 
@@ -580,467 +581,351 @@ export class UserImpl extends DirectoryObjectImpl implements Parsable, User {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.aboutMe){
-        if(this.aboutMe)
         writer.writeStringValue("aboutMe", this.aboutMe);
         }
         if(this.accountEnabled){
-        if(this.accountEnabled)
         writer.writeBooleanValue("accountEnabled", this.accountEnabled);
         }
-        if(this.activities){
-        const activitiesArrValue: UserActivityImpl[] = []; this.activities?.forEach(element => {activitiesArrValue.push(new UserActivityImpl(element));});
+        if(this.activities && this.activities.length != 0){        const activitiesArrValue: UserActivityImpl[] = []; this.activities?.forEach(element => {activitiesArrValue.push(new UserActivityImpl(element));});
         writer.writeCollectionOfObjectValues<UserActivityImpl>("activities", activitiesArrValue);
         }
         if(this.ageGroup){
-        if(this.ageGroup)
         writer.writeStringValue("ageGroup", this.ageGroup);
         }
-        if(this.agreementAcceptances){
-        const agreementAcceptancesArrValue: AgreementAcceptanceImpl[] = []; this.agreementAcceptances?.forEach(element => {agreementAcceptancesArrValue.push(new AgreementAcceptanceImpl(element));});
+        if(this.agreementAcceptances && this.agreementAcceptances.length != 0){        const agreementAcceptancesArrValue: AgreementAcceptanceImpl[] = []; this.agreementAcceptances?.forEach(element => {agreementAcceptancesArrValue.push(new AgreementAcceptanceImpl(element));});
         writer.writeCollectionOfObjectValues<AgreementAcceptanceImpl>("agreementAcceptances", agreementAcceptancesArrValue);
         }
-        if(this.appRoleAssignments){
-        const appRoleAssignmentsArrValue: AppRoleAssignmentImpl[] = []; this.appRoleAssignments?.forEach(element => {appRoleAssignmentsArrValue.push(new AppRoleAssignmentImpl(element));});
+        if(this.appRoleAssignments && this.appRoleAssignments.length != 0){        const appRoleAssignmentsArrValue: AppRoleAssignmentImpl[] = []; this.appRoleAssignments?.forEach(element => {appRoleAssignmentsArrValue.push(new AppRoleAssignmentImpl(element));});
         writer.writeCollectionOfObjectValues<AppRoleAssignmentImpl>("appRoleAssignments", appRoleAssignmentsArrValue);
         }
-        if(this.assignedLicenses){
-        const assignedLicensesArrValue: AssignedLicenseImpl[] = []; this.assignedLicenses?.forEach(element => {assignedLicensesArrValue.push(new AssignedLicenseImpl(element));});
+        if(this.assignedLicenses && this.assignedLicenses.length != 0){        const assignedLicensesArrValue: AssignedLicenseImpl[] = []; this.assignedLicenses?.forEach(element => {assignedLicensesArrValue.push(new AssignedLicenseImpl(element));});
         writer.writeCollectionOfObjectValues<AssignedLicenseImpl>("assignedLicenses", assignedLicensesArrValue);
         }
-        if(this.assignedPlans){
-        const assignedPlansArrValue: AssignedPlanImpl[] = []; this.assignedPlans?.forEach(element => {assignedPlansArrValue.push(new AssignedPlanImpl(element));});
+        if(this.assignedPlans && this.assignedPlans.length != 0){        const assignedPlansArrValue: AssignedPlanImpl[] = []; this.assignedPlans?.forEach(element => {assignedPlansArrValue.push(new AssignedPlanImpl(element));});
         writer.writeCollectionOfObjectValues<AssignedPlanImpl>("assignedPlans", assignedPlansArrValue);
         }
         if(this.authentication){
-        if(this.authentication)
         writer.writeObjectValue<AuthenticationImpl>("authentication", new AuthenticationImpl(this.authentication));
         }
         if(this.birthday){
-        if(this.birthday)
         writer.writeDateValue("birthday", this.birthday);
         }
         if(this.businessPhones){
-        if(this.businessPhones)
         writer.writeCollectionOfPrimitiveValues<string>("businessPhones", this.businessPhones);
         }
         if(this.calendar){
-        if(this.calendar)
         writer.writeObjectValue<CalendarImpl>("calendar", new CalendarImpl(this.calendar));
         }
-        if(this.calendarGroups){
-        const calendarGroupsArrValue: CalendarGroupImpl[] = []; this.calendarGroups?.forEach(element => {calendarGroupsArrValue.push(new CalendarGroupImpl(element));});
+        if(this.calendarGroups && this.calendarGroups.length != 0){        const calendarGroupsArrValue: CalendarGroupImpl[] = []; this.calendarGroups?.forEach(element => {calendarGroupsArrValue.push(new CalendarGroupImpl(element));});
         writer.writeCollectionOfObjectValues<CalendarGroupImpl>("calendarGroups", calendarGroupsArrValue);
         }
-        if(this.calendars){
-        const calendarsArrValue: CalendarImpl[] = []; this.calendars?.forEach(element => {calendarsArrValue.push(new CalendarImpl(element));});
+        if(this.calendars && this.calendars.length != 0){        const calendarsArrValue: CalendarImpl[] = []; this.calendars?.forEach(element => {calendarsArrValue.push(new CalendarImpl(element));});
         writer.writeCollectionOfObjectValues<CalendarImpl>("calendars", calendarsArrValue);
         }
-        if(this.calendarView){
-        const calendarViewArrValue: EventImpl[] = []; this.calendarView?.forEach(element => {calendarViewArrValue.push(new EventImpl(element));});
+        if(this.calendarView && this.calendarView.length != 0){        const calendarViewArrValue: EventImpl[] = []; this.calendarView?.forEach(element => {calendarViewArrValue.push(new EventImpl(element));});
         writer.writeCollectionOfObjectValues<EventImpl>("calendarView", calendarViewArrValue);
         }
-        if(this.chats){
-        const chatsArrValue: ChatImpl[] = []; this.chats?.forEach(element => {chatsArrValue.push(new ChatImpl(element));});
+        if(this.chats && this.chats.length != 0){        const chatsArrValue: ChatImpl[] = []; this.chats?.forEach(element => {chatsArrValue.push(new ChatImpl(element));});
         writer.writeCollectionOfObjectValues<ChatImpl>("chats", chatsArrValue);
         }
         if(this.city){
-        if(this.city)
         writer.writeStringValue("city", this.city);
         }
         if(this.companyName){
-        if(this.companyName)
         writer.writeStringValue("companyName", this.companyName);
         }
         if(this.consentProvidedForMinor){
-        if(this.consentProvidedForMinor)
         writer.writeStringValue("consentProvidedForMinor", this.consentProvidedForMinor);
         }
-        if(this.contactFolders){
-        const contactFoldersArrValue: ContactFolderImpl[] = []; this.contactFolders?.forEach(element => {contactFoldersArrValue.push(new ContactFolderImpl(element));});
+        if(this.contactFolders && this.contactFolders.length != 0){        const contactFoldersArrValue: ContactFolderImpl[] = []; this.contactFolders?.forEach(element => {contactFoldersArrValue.push(new ContactFolderImpl(element));});
         writer.writeCollectionOfObjectValues<ContactFolderImpl>("contactFolders", contactFoldersArrValue);
         }
-        if(this.contacts){
-        const contactsArrValue: ContactImpl[] = []; this.contacts?.forEach(element => {contactsArrValue.push(new ContactImpl(element));});
+        if(this.contacts && this.contacts.length != 0){        const contactsArrValue: ContactImpl[] = []; this.contacts?.forEach(element => {contactsArrValue.push(new ContactImpl(element));});
         writer.writeCollectionOfObjectValues<ContactImpl>("contacts", contactsArrValue);
         }
         if(this.country){
-        if(this.country)
         writer.writeStringValue("country", this.country);
         }
         if(this.createdDateTime){
-        if(this.createdDateTime)
         writer.writeDateValue("createdDateTime", this.createdDateTime);
         }
-        if(this.createdObjects){
-        const createdObjectsArrValue: DirectoryObjectImpl[] = []; this.createdObjects?.forEach(element => {createdObjectsArrValue.push(new DirectoryObjectImpl(element));});
+        if(this.createdObjects && this.createdObjects.length != 0){        const createdObjectsArrValue: DirectoryObjectImpl[] = []; this.createdObjects?.forEach(element => {createdObjectsArrValue.push(new DirectoryObjectImpl(element));});
         writer.writeCollectionOfObjectValues<DirectoryObjectImpl>("createdObjects", createdObjectsArrValue);
         }
         if(this.creationType){
-        if(this.creationType)
         writer.writeStringValue("creationType", this.creationType);
         }
         if(this.department){
-        if(this.department)
         writer.writeStringValue("department", this.department);
         }
         if(this.deviceEnrollmentLimit){
-        if(this.deviceEnrollmentLimit)
         writer.writeNumberValue("deviceEnrollmentLimit", this.deviceEnrollmentLimit);
         }
-        if(this.deviceManagementTroubleshootingEvents){
-        const deviceManagementTroubleshootingEventsArrValue: DeviceManagementTroubleshootingEventImpl[] = []; this.deviceManagementTroubleshootingEvents?.forEach(element => {deviceManagementTroubleshootingEventsArrValue.push(new DeviceManagementTroubleshootingEventImpl(element));});
+        if(this.deviceManagementTroubleshootingEvents && this.deviceManagementTroubleshootingEvents.length != 0){        const deviceManagementTroubleshootingEventsArrValue: DeviceManagementTroubleshootingEventImpl[] = []; this.deviceManagementTroubleshootingEvents?.forEach(element => {deviceManagementTroubleshootingEventsArrValue.push(new DeviceManagementTroubleshootingEventImpl(element));});
         writer.writeCollectionOfObjectValues<DeviceManagementTroubleshootingEventImpl>("deviceManagementTroubleshootingEvents", deviceManagementTroubleshootingEventsArrValue);
         }
-        if(this.directReports){
-        const directReportsArrValue: DirectoryObjectImpl[] = []; this.directReports?.forEach(element => {directReportsArrValue.push(new DirectoryObjectImpl(element));});
+        if(this.directReports && this.directReports.length != 0){        const directReportsArrValue: DirectoryObjectImpl[] = []; this.directReports?.forEach(element => {directReportsArrValue.push(new DirectoryObjectImpl(element));});
         writer.writeCollectionOfObjectValues<DirectoryObjectImpl>("directReports", directReportsArrValue);
         }
         if(this.displayName){
-        if(this.displayName)
         writer.writeStringValue("displayName", this.displayName);
         }
         if(this.drive){
-        if(this.drive)
         writer.writeObjectValue<DriveImpl>("drive", new DriveImpl(this.drive));
         }
-        if(this.drives){
-        const drivesArrValue: DriveImpl[] = []; this.drives?.forEach(element => {drivesArrValue.push(new DriveImpl(element));});
+        if(this.drives && this.drives.length != 0){        const drivesArrValue: DriveImpl[] = []; this.drives?.forEach(element => {drivesArrValue.push(new DriveImpl(element));});
         writer.writeCollectionOfObjectValues<DriveImpl>("drives", drivesArrValue);
         }
         if(this.employeeHireDate){
-        if(this.employeeHireDate)
         writer.writeDateValue("employeeHireDate", this.employeeHireDate);
         }
         if(this.employeeId){
-        if(this.employeeId)
         writer.writeStringValue("employeeId", this.employeeId);
         }
         if(this.employeeOrgData){
-        if(this.employeeOrgData)
         writer.writeObjectValue<EmployeeOrgDataImpl>("employeeOrgData", new EmployeeOrgDataImpl(this.employeeOrgData));
         }
         if(this.employeeType){
-        if(this.employeeType)
         writer.writeStringValue("employeeType", this.employeeType);
         }
-        if(this.events){
-        const eventsArrValue: EventImpl[] = []; this.events?.forEach(element => {eventsArrValue.push(new EventImpl(element));});
+        if(this.events && this.events.length != 0){        const eventsArrValue: EventImpl[] = []; this.events?.forEach(element => {eventsArrValue.push(new EventImpl(element));});
         writer.writeCollectionOfObjectValues<EventImpl>("events", eventsArrValue);
         }
-        if(this.extensions){
-        const extensionsArrValue: ExtensionImpl[] = []; this.extensions?.forEach(element => {extensionsArrValue.push(new ExtensionImpl(element));});
+        if(this.extensions && this.extensions.length != 0){        const extensionsArrValue: ExtensionImpl[] = []; this.extensions?.forEach(element => {extensionsArrValue.push(new ExtensionImpl(element));});
         writer.writeCollectionOfObjectValues<ExtensionImpl>("extensions", extensionsArrValue);
         }
         if(this.externalUserState){
-        if(this.externalUserState)
         writer.writeStringValue("externalUserState", this.externalUserState);
         }
         if(this.externalUserStateChangeDateTime){
-        if(this.externalUserStateChangeDateTime)
         writer.writeDateValue("externalUserStateChangeDateTime", this.externalUserStateChangeDateTime);
         }
         if(this.faxNumber){
-        if(this.faxNumber)
         writer.writeStringValue("faxNumber", this.faxNumber);
         }
-        if(this.followedSites){
-        const followedSitesArrValue: SiteImpl[] = []; this.followedSites?.forEach(element => {followedSitesArrValue.push(new SiteImpl(element));});
+        if(this.followedSites && this.followedSites.length != 0){        const followedSitesArrValue: SiteImpl[] = []; this.followedSites?.forEach(element => {followedSitesArrValue.push(new SiteImpl(element));});
         writer.writeCollectionOfObjectValues<SiteImpl>("followedSites", followedSitesArrValue);
         }
         if(this.givenName){
-        if(this.givenName)
         writer.writeStringValue("givenName", this.givenName);
         }
         if(this.hireDate){
-        if(this.hireDate)
         writer.writeDateValue("hireDate", this.hireDate);
         }
-        if(this.identities){
-        const identitiesArrValue: ObjectIdentityImpl[] = []; this.identities?.forEach(element => {identitiesArrValue.push(new ObjectIdentityImpl(element));});
+        if(this.identities && this.identities.length != 0){        const identitiesArrValue: ObjectIdentityImpl[] = []; this.identities?.forEach(element => {identitiesArrValue.push(new ObjectIdentityImpl(element));});
         writer.writeCollectionOfObjectValues<ObjectIdentityImpl>("identities", identitiesArrValue);
         }
         if(this.imAddresses){
-        if(this.imAddresses)
         writer.writeCollectionOfPrimitiveValues<string>("imAddresses", this.imAddresses);
         }
         if(this.inferenceClassification){
-        if(this.inferenceClassification)
         writer.writeObjectValue<InferenceClassificationImpl>("inferenceClassification", new InferenceClassificationImpl(this.inferenceClassification));
         }
         if(this.insights){
-        if(this.insights)
         writer.writeObjectValue<OfficeGraphInsightsImpl>("insights", new OfficeGraphInsightsImpl(this.insights));
         }
         if(this.interests){
-        if(this.interests)
         writer.writeCollectionOfPrimitiveValues<string>("interests", this.interests);
         }
         if(this.isResourceAccount){
-        if(this.isResourceAccount)
         writer.writeBooleanValue("isResourceAccount", this.isResourceAccount);
         }
         if(this.jobTitle){
-        if(this.jobTitle)
         writer.writeStringValue("jobTitle", this.jobTitle);
         }
-        if(this.joinedTeams){
-        const joinedTeamsArrValue: TeamImpl[] = []; this.joinedTeams?.forEach(element => {joinedTeamsArrValue.push(new TeamImpl(element));});
+        if(this.joinedTeams && this.joinedTeams.length != 0){        const joinedTeamsArrValue: TeamImpl[] = []; this.joinedTeams?.forEach(element => {joinedTeamsArrValue.push(new TeamImpl(element));});
         writer.writeCollectionOfObjectValues<TeamImpl>("joinedTeams", joinedTeamsArrValue);
         }
         if(this.lastPasswordChangeDateTime){
-        if(this.lastPasswordChangeDateTime)
         writer.writeDateValue("lastPasswordChangeDateTime", this.lastPasswordChangeDateTime);
         }
         if(this.legalAgeGroupClassification){
-        if(this.legalAgeGroupClassification)
         writer.writeStringValue("legalAgeGroupClassification", this.legalAgeGroupClassification);
         }
-        if(this.licenseAssignmentStates){
-        const licenseAssignmentStatesArrValue: LicenseAssignmentStateImpl[] = []; this.licenseAssignmentStates?.forEach(element => {licenseAssignmentStatesArrValue.push(new LicenseAssignmentStateImpl(element));});
+        if(this.licenseAssignmentStates && this.licenseAssignmentStates.length != 0){        const licenseAssignmentStatesArrValue: LicenseAssignmentStateImpl[] = []; this.licenseAssignmentStates?.forEach(element => {licenseAssignmentStatesArrValue.push(new LicenseAssignmentStateImpl(element));});
         writer.writeCollectionOfObjectValues<LicenseAssignmentStateImpl>("licenseAssignmentStates", licenseAssignmentStatesArrValue);
         }
-        if(this.licenseDetails){
-        const licenseDetailsArrValue: LicenseDetailsImpl[] = []; this.licenseDetails?.forEach(element => {licenseDetailsArrValue.push(new LicenseDetailsImpl(element));});
+        if(this.licenseDetails && this.licenseDetails.length != 0){        const licenseDetailsArrValue: LicenseDetailsImpl[] = []; this.licenseDetails?.forEach(element => {licenseDetailsArrValue.push(new LicenseDetailsImpl(element));});
         writer.writeCollectionOfObjectValues<LicenseDetailsImpl>("licenseDetails", licenseDetailsArrValue);
         }
         if(this.mail){
-        if(this.mail)
         writer.writeStringValue("mail", this.mail);
         }
         if(this.mailboxSettings){
-        if(this.mailboxSettings)
         writer.writeObjectValue<MailboxSettingsImpl>("mailboxSettings", new MailboxSettingsImpl(this.mailboxSettings));
         }
-        if(this.mailFolders){
-        const mailFoldersArrValue: MailFolderImpl[] = []; this.mailFolders?.forEach(element => {mailFoldersArrValue.push(new MailFolderImpl(element));});
+        if(this.mailFolders && this.mailFolders.length != 0){        const mailFoldersArrValue: MailFolderImpl[] = []; this.mailFolders?.forEach(element => {mailFoldersArrValue.push(new MailFolderImpl(element));});
         writer.writeCollectionOfObjectValues<MailFolderImpl>("mailFolders", mailFoldersArrValue);
         }
         if(this.mailNickname){
-        if(this.mailNickname)
         writer.writeStringValue("mailNickname", this.mailNickname);
         }
-        if(this.managedAppRegistrations){
-        const managedAppRegistrationsArrValue: ManagedAppRegistrationImpl[] = []; this.managedAppRegistrations?.forEach(element => {managedAppRegistrationsArrValue.push(new ManagedAppRegistrationImpl(element));});
+        if(this.managedAppRegistrations && this.managedAppRegistrations.length != 0){        const managedAppRegistrationsArrValue: ManagedAppRegistrationImpl[] = []; this.managedAppRegistrations?.forEach(element => {managedAppRegistrationsArrValue.push(new ManagedAppRegistrationImpl(element));});
         writer.writeCollectionOfObjectValues<ManagedAppRegistrationImpl>("managedAppRegistrations", managedAppRegistrationsArrValue);
         }
-        if(this.managedDevices){
-        const managedDevicesArrValue: ManagedDeviceImpl[] = []; this.managedDevices?.forEach(element => {managedDevicesArrValue.push(new ManagedDeviceImpl(element));});
+        if(this.managedDevices && this.managedDevices.length != 0){        const managedDevicesArrValue: ManagedDeviceImpl[] = []; this.managedDevices?.forEach(element => {managedDevicesArrValue.push(new ManagedDeviceImpl(element));});
         writer.writeCollectionOfObjectValues<ManagedDeviceImpl>("managedDevices", managedDevicesArrValue);
         }
         if(this.manager){
-        if(this.manager)
         writer.writeObjectValue<DirectoryObjectImpl>("manager", new DirectoryObjectImpl(this.manager));
         }
-        if(this.memberOf){
-        const memberOfArrValue: DirectoryObjectImpl[] = []; this.memberOf?.forEach(element => {memberOfArrValue.push(new DirectoryObjectImpl(element));});
+        if(this.memberOf && this.memberOf.length != 0){        const memberOfArrValue: DirectoryObjectImpl[] = []; this.memberOf?.forEach(element => {memberOfArrValue.push(new DirectoryObjectImpl(element));});
         writer.writeCollectionOfObjectValues<DirectoryObjectImpl>("memberOf", memberOfArrValue);
         }
-        if(this.messages){
-        const messagesArrValue: MessageImpl[] = []; this.messages?.forEach(element => {messagesArrValue.push(new MessageImpl(element));});
+        if(this.messages && this.messages.length != 0){        const messagesArrValue: MessageImpl[] = []; this.messages?.forEach(element => {messagesArrValue.push(new MessageImpl(element));});
         writer.writeCollectionOfObjectValues<MessageImpl>("messages", messagesArrValue);
         }
         if(this.mobilePhone){
-        if(this.mobilePhone)
         writer.writeStringValue("mobilePhone", this.mobilePhone);
         }
         if(this.mySite){
-        if(this.mySite)
         writer.writeStringValue("mySite", this.mySite);
         }
-        if(this.oauth2PermissionGrants){
-        const oauth2PermissionGrantsArrValue: OAuth2PermissionGrantImpl[] = []; this.oauth2PermissionGrants?.forEach(element => {oauth2PermissionGrantsArrValue.push(new OAuth2PermissionGrantImpl(element));});
+        if(this.oauth2PermissionGrants && this.oauth2PermissionGrants.length != 0){        const oauth2PermissionGrantsArrValue: OAuth2PermissionGrantImpl[] = []; this.oauth2PermissionGrants?.forEach(element => {oauth2PermissionGrantsArrValue.push(new OAuth2PermissionGrantImpl(element));});
         writer.writeCollectionOfObjectValues<OAuth2PermissionGrantImpl>("oauth2PermissionGrants", oauth2PermissionGrantsArrValue);
         }
         if(this.officeLocation){
-        if(this.officeLocation)
         writer.writeStringValue("officeLocation", this.officeLocation);
         }
         if(this.onenote){
-        if(this.onenote)
         writer.writeObjectValue<OnenoteImpl>("onenote", new OnenoteImpl(this.onenote));
         }
-        if(this.onlineMeetings){
-        const onlineMeetingsArrValue: OnlineMeetingImpl[] = []; this.onlineMeetings?.forEach(element => {onlineMeetingsArrValue.push(new OnlineMeetingImpl(element));});
+        if(this.onlineMeetings && this.onlineMeetings.length != 0){        const onlineMeetingsArrValue: OnlineMeetingImpl[] = []; this.onlineMeetings?.forEach(element => {onlineMeetingsArrValue.push(new OnlineMeetingImpl(element));});
         writer.writeCollectionOfObjectValues<OnlineMeetingImpl>("onlineMeetings", onlineMeetingsArrValue);
         }
         if(this.onPremisesDistinguishedName){
-        if(this.onPremisesDistinguishedName)
         writer.writeStringValue("onPremisesDistinguishedName", this.onPremisesDistinguishedName);
         }
         if(this.onPremisesDomainName){
-        if(this.onPremisesDomainName)
         writer.writeStringValue("onPremisesDomainName", this.onPremisesDomainName);
         }
         if(this.onPremisesExtensionAttributes){
-        if(this.onPremisesExtensionAttributes)
         writer.writeObjectValue<OnPremisesExtensionAttributesImpl>("onPremisesExtensionAttributes", new OnPremisesExtensionAttributesImpl(this.onPremisesExtensionAttributes));
         }
         if(this.onPremisesImmutableId){
-        if(this.onPremisesImmutableId)
         writer.writeStringValue("onPremisesImmutableId", this.onPremisesImmutableId);
         }
         if(this.onPremisesLastSyncDateTime){
-        if(this.onPremisesLastSyncDateTime)
         writer.writeDateValue("onPremisesLastSyncDateTime", this.onPremisesLastSyncDateTime);
         }
-        if(this.onPremisesProvisioningErrors){
-        const onPremisesProvisioningErrorsArrValue: OnPremisesProvisioningErrorImpl[] = []; this.onPremisesProvisioningErrors?.forEach(element => {onPremisesProvisioningErrorsArrValue.push(new OnPremisesProvisioningErrorImpl(element));});
+        if(this.onPremisesProvisioningErrors && this.onPremisesProvisioningErrors.length != 0){        const onPremisesProvisioningErrorsArrValue: OnPremisesProvisioningErrorImpl[] = []; this.onPremisesProvisioningErrors?.forEach(element => {onPremisesProvisioningErrorsArrValue.push(new OnPremisesProvisioningErrorImpl(element));});
         writer.writeCollectionOfObjectValues<OnPremisesProvisioningErrorImpl>("onPremisesProvisioningErrors", onPremisesProvisioningErrorsArrValue);
         }
         if(this.onPremisesSamAccountName){
-        if(this.onPremisesSamAccountName)
         writer.writeStringValue("onPremisesSamAccountName", this.onPremisesSamAccountName);
         }
         if(this.onPremisesSecurityIdentifier){
-        if(this.onPremisesSecurityIdentifier)
         writer.writeStringValue("onPremisesSecurityIdentifier", this.onPremisesSecurityIdentifier);
         }
         if(this.onPremisesSyncEnabled){
-        if(this.onPremisesSyncEnabled)
         writer.writeBooleanValue("onPremisesSyncEnabled", this.onPremisesSyncEnabled);
         }
         if(this.onPremisesUserPrincipalName){
-        if(this.onPremisesUserPrincipalName)
         writer.writeStringValue("onPremisesUserPrincipalName", this.onPremisesUserPrincipalName);
         }
         if(this.otherMails){
-        if(this.otherMails)
         writer.writeCollectionOfPrimitiveValues<string>("otherMails", this.otherMails);
         }
         if(this.outlook){
-        if(this.outlook)
         writer.writeObjectValue<OutlookUserImpl>("outlook", new OutlookUserImpl(this.outlook));
         }
-        if(this.ownedDevices){
-        const ownedDevicesArrValue: DirectoryObjectImpl[] = []; this.ownedDevices?.forEach(element => {ownedDevicesArrValue.push(new DirectoryObjectImpl(element));});
+        if(this.ownedDevices && this.ownedDevices.length != 0){        const ownedDevicesArrValue: DirectoryObjectImpl[] = []; this.ownedDevices?.forEach(element => {ownedDevicesArrValue.push(new DirectoryObjectImpl(element));});
         writer.writeCollectionOfObjectValues<DirectoryObjectImpl>("ownedDevices", ownedDevicesArrValue);
         }
-        if(this.ownedObjects){
-        const ownedObjectsArrValue: DirectoryObjectImpl[] = []; this.ownedObjects?.forEach(element => {ownedObjectsArrValue.push(new DirectoryObjectImpl(element));});
+        if(this.ownedObjects && this.ownedObjects.length != 0){        const ownedObjectsArrValue: DirectoryObjectImpl[] = []; this.ownedObjects?.forEach(element => {ownedObjectsArrValue.push(new DirectoryObjectImpl(element));});
         writer.writeCollectionOfObjectValues<DirectoryObjectImpl>("ownedObjects", ownedObjectsArrValue);
         }
         if(this.passwordPolicies){
-        if(this.passwordPolicies)
         writer.writeStringValue("passwordPolicies", this.passwordPolicies);
         }
         if(this.passwordProfile){
-        if(this.passwordProfile)
         writer.writeObjectValue<PasswordProfileImpl>("passwordProfile", new PasswordProfileImpl(this.passwordProfile));
         }
         if(this.pastProjects){
-        if(this.pastProjects)
         writer.writeCollectionOfPrimitiveValues<string>("pastProjects", this.pastProjects);
         }
-        if(this.people){
-        const peopleArrValue: PersonImpl[] = []; this.people?.forEach(element => {peopleArrValue.push(new PersonImpl(element));});
+        if(this.people && this.people.length != 0){        const peopleArrValue: PersonImpl[] = []; this.people?.forEach(element => {peopleArrValue.push(new PersonImpl(element));});
         writer.writeCollectionOfObjectValues<PersonImpl>("people", peopleArrValue);
         }
         if(this.photo){
-        if(this.photo)
         writer.writeObjectValue<ProfilePhotoImpl>("photo", new ProfilePhotoImpl(this.photo));
         }
-        if(this.photos){
-        const photosArrValue: ProfilePhotoImpl[] = []; this.photos?.forEach(element => {photosArrValue.push(new ProfilePhotoImpl(element));});
+        if(this.photos && this.photos.length != 0){        const photosArrValue: ProfilePhotoImpl[] = []; this.photos?.forEach(element => {photosArrValue.push(new ProfilePhotoImpl(element));});
         writer.writeCollectionOfObjectValues<ProfilePhotoImpl>("photos", photosArrValue);
         }
         if(this.planner){
-        if(this.planner)
         writer.writeObjectValue<PlannerUserImpl>("planner", new PlannerUserImpl(this.planner));
         }
         if(this.postalCode){
-        if(this.postalCode)
         writer.writeStringValue("postalCode", this.postalCode);
         }
         if(this.preferredDataLocation){
-        if(this.preferredDataLocation)
         writer.writeStringValue("preferredDataLocation", this.preferredDataLocation);
         }
         if(this.preferredLanguage){
-        if(this.preferredLanguage)
         writer.writeStringValue("preferredLanguage", this.preferredLanguage);
         }
         if(this.preferredName){
-        if(this.preferredName)
         writer.writeStringValue("preferredName", this.preferredName);
         }
         if(this.presence){
-        if(this.presence)
         writer.writeObjectValue<PresenceImpl>("presence", new PresenceImpl(this.presence));
         }
-        if(this.provisionedPlans){
-        const provisionedPlansArrValue: ProvisionedPlanImpl[] = []; this.provisionedPlans?.forEach(element => {provisionedPlansArrValue.push(new ProvisionedPlanImpl(element));});
+        if(this.provisionedPlans && this.provisionedPlans.length != 0){        const provisionedPlansArrValue: ProvisionedPlanImpl[] = []; this.provisionedPlans?.forEach(element => {provisionedPlansArrValue.push(new ProvisionedPlanImpl(element));});
         writer.writeCollectionOfObjectValues<ProvisionedPlanImpl>("provisionedPlans", provisionedPlansArrValue);
         }
         if(this.proxyAddresses){
-        if(this.proxyAddresses)
         writer.writeCollectionOfPrimitiveValues<string>("proxyAddresses", this.proxyAddresses);
         }
-        if(this.registeredDevices){
-        const registeredDevicesArrValue: DirectoryObjectImpl[] = []; this.registeredDevices?.forEach(element => {registeredDevicesArrValue.push(new DirectoryObjectImpl(element));});
+        if(this.registeredDevices && this.registeredDevices.length != 0){        const registeredDevicesArrValue: DirectoryObjectImpl[] = []; this.registeredDevices?.forEach(element => {registeredDevicesArrValue.push(new DirectoryObjectImpl(element));});
         writer.writeCollectionOfObjectValues<DirectoryObjectImpl>("registeredDevices", registeredDevicesArrValue);
         }
         if(this.responsibilities){
-        if(this.responsibilities)
         writer.writeCollectionOfPrimitiveValues<string>("responsibilities", this.responsibilities);
         }
         if(this.schools){
-        if(this.schools)
         writer.writeCollectionOfPrimitiveValues<string>("schools", this.schools);
         }
-        if(this.scopedRoleMemberOf){
-        const scopedRoleMemberOfArrValue: ScopedRoleMembershipImpl[] = []; this.scopedRoleMemberOf?.forEach(element => {scopedRoleMemberOfArrValue.push(new ScopedRoleMembershipImpl(element));});
+        if(this.scopedRoleMemberOf && this.scopedRoleMemberOf.length != 0){        const scopedRoleMemberOfArrValue: ScopedRoleMembershipImpl[] = []; this.scopedRoleMemberOf?.forEach(element => {scopedRoleMemberOfArrValue.push(new ScopedRoleMembershipImpl(element));});
         writer.writeCollectionOfObjectValues<ScopedRoleMembershipImpl>("scopedRoleMemberOf", scopedRoleMemberOfArrValue);
         }
         if(this.settings){
-        if(this.settings)
         writer.writeObjectValue<UserSettingsImpl>("settings", new UserSettingsImpl(this.settings));
         }
         if(this.showInAddressList){
-        if(this.showInAddressList)
         writer.writeBooleanValue("showInAddressList", this.showInAddressList);
         }
         if(this.signInSessionsValidFromDateTime){
-        if(this.signInSessionsValidFromDateTime)
         writer.writeDateValue("signInSessionsValidFromDateTime", this.signInSessionsValidFromDateTime);
         }
         if(this.skills){
-        if(this.skills)
         writer.writeCollectionOfPrimitiveValues<string>("skills", this.skills);
         }
         if(this.state){
-        if(this.state)
         writer.writeStringValue("state", this.state);
         }
         if(this.streetAddress){
-        if(this.streetAddress)
         writer.writeStringValue("streetAddress", this.streetAddress);
         }
         if(this.surname){
-        if(this.surname)
         writer.writeStringValue("surname", this.surname);
         }
         if(this.teamwork){
-        if(this.teamwork)
         writer.writeObjectValue<UserTeamworkImpl>("teamwork", new UserTeamworkImpl(this.teamwork));
         }
         if(this.todo){
-        if(this.todo)
         writer.writeObjectValue<TodoImpl>("todo", new TodoImpl(this.todo));
         }
-        if(this.transitiveMemberOf){
-        const transitiveMemberOfArrValue: DirectoryObjectImpl[] = []; this.transitiveMemberOf?.forEach(element => {transitiveMemberOfArrValue.push(new DirectoryObjectImpl(element));});
+        if(this.transitiveMemberOf && this.transitiveMemberOf.length != 0){        const transitiveMemberOfArrValue: DirectoryObjectImpl[] = []; this.transitiveMemberOf?.forEach(element => {transitiveMemberOfArrValue.push(new DirectoryObjectImpl(element));});
         writer.writeCollectionOfObjectValues<DirectoryObjectImpl>("transitiveMemberOf", transitiveMemberOfArrValue);
         }
         if(this.usageLocation){
-        if(this.usageLocation)
         writer.writeStringValue("usageLocation", this.usageLocation);
         }
         if(this.userPrincipalName){
-        if(this.userPrincipalName)
         writer.writeStringValue("userPrincipalName", this.userPrincipalName);
         }
         if(this.userType){
-        if(this.userType)
         writer.writeStringValue("userType", this.userType);
         }
     };

@@ -28,60 +28,60 @@ import {AudioRoutingGroupImpl, CallMediaStateImpl, CallOptionsImpl, CallRouteImp
 import {InvitationParticipantInfo} from './invitationParticipantInfo';
 import {MediaConfig} from './mediaConfig';
 import {MeetingInfo} from './meetingInfo';
-import {Modality} from './modality';
 import {Participant} from './participant';
 import {ParticipantInfo} from './participantInfo';
 import {ResultInfo} from './resultInfo';
 import {ToneInfo} from './toneInfo';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the cloudCommunications singleton. */
 export class CallImpl extends EntityImpl implements Call, Parsable {
     /** Read-only. Nullable. */
-    audioRoutingGroups?: AudioRoutingGroup[] | undefined;
+    public audioRoutingGroups?: AudioRoutingGroup[] | undefined;
     /** The callback URL on which callbacks will be delivered. Must be https. */
-    callbackUri?: string | undefined;
+    public callbackUri?: string | undefined;
     /** A unique identifier for all the participant calls in a conference or a unique identifier for two participant calls in a P2P call.  This needs to be copied over from Microsoft.Graph.Call.CallChainId. */
-    callChainId?: string | undefined;
+    public callChainId?: string | undefined;
     /** Contains the optional features for the call. */
-    callOptions?: CallOptions | undefined;
+    public callOptions?: CallOptions | undefined;
     /** The routing information on how the call was retargeted. Read-only. */
-    callRoutes?: CallRoute[] | undefined;
+    public callRoutes?: CallRoute[] | undefined;
     /** The chat information. Required information for meeting scenarios. */
-    chatInfo?: ChatInfo | undefined;
+    public chatInfo?: ChatInfo | undefined;
     /** The direction of the call. The possible value are incoming or outgoing. Read-only. */
-    direction?: CallDirection | undefined;
+    public direction?: CallDirection | undefined;
     /** The context associated with an incoming call. Read-only. Server generated. */
-    incomingContext?: IncomingContext | undefined;
+    public incomingContext?: IncomingContext | undefined;
     /** The media configuration. Required information for creating peer to peer calls or joining meetings. */
-    mediaConfig?: MediaConfig | undefined;
+    public mediaConfig?: MediaConfig | undefined;
     /** Read-only. The call media state. */
-    mediaState?: CallMediaState | undefined;
+    public mediaState?: CallMediaState | undefined;
     /** The meeting information. Required information for meeting scenarios. */
-    meetingInfo?: MeetingInfo | undefined;
+    public meetingInfo?: MeetingInfo | undefined;
     /** The myParticipantId property */
-    myParticipantId?: string | undefined;
+    public myParticipantId?: string | undefined;
     /** Read-only. Nullable. */
-    operations?: CommsOperation[] | undefined;
+    public operations?: CommsOperation[] | undefined;
     /** Read-only. Nullable. */
-    participants?: Participant[] | undefined;
+    public participants?: Participant[] | undefined;
     /** The requestedModalities property */
-    requestedModalities?: Modality[] | undefined;
+    public requestedModalities?: string[] | undefined;
     /** The resultInfo property */
-    resultInfo?: ResultInfo | undefined;
+    public resultInfo?: ResultInfo | undefined;
     /** The source property */
-    source?: ParticipantInfo | undefined;
+    public source?: ParticipantInfo | undefined;
     /** The state property */
-    state?: CallState | undefined;
+    public state?: CallState | undefined;
     /** The subject property */
-    subject?: string | undefined;
+    public subject?: string | undefined;
     /** The targets property */
-    targets?: InvitationParticipantInfo[] | undefined;
+    public targets?: InvitationParticipantInfo[] | undefined;
     /** The tenantId property */
-    tenantId?: string | undefined;
+    public tenantId?: string | undefined;
     /** The toneInfo property */
-    toneInfo?: ToneInfo | undefined;
+    public toneInfo?: ToneInfo | undefined;
     /** The transcription information for the call. Read-only. */
-    transcription?: CallTranscriptionInfo | undefined;
+    public transcription?: CallTranscriptionInfo | undefined;
     /**
      * Instantiates a new call and sets the default values.
      * @param callParameterValue 
@@ -132,7 +132,7 @@ export class CallImpl extends EntityImpl implements Call, Parsable {
             "myParticipantId": n => { this.myParticipantId = n.getStringValue(); },
             "operations": n => { this.operations = n.getCollectionOfObjectValues<CommsOperationImpl>(createCommsOperationFromDiscriminatorValue); },
             "participants": n => { this.participants = n.getCollectionOfObjectValues<ParticipantImpl>(createParticipantFromDiscriminatorValue); },
-            "requestedModalities": n => { this.requestedModalities = n.getEnumValues<Modality>(Modality); },
+            "requestedModalities": n => { this.requestedModalities = n.getCollectionOfPrimitiveValues<string>(); },
             "resultInfo": n => { this.resultInfo = n.getObjectValue<ResultInfoImpl>(createResultInfoFromDiscriminatorValue); },
             "source": n => { this.source = n.getObjectValue<ParticipantInfoImpl>(createParticipantInfoFromDiscriminatorValue); },
             "state": n => { this.state = n.getEnumValue<CallState>(CallState); },
@@ -150,96 +150,73 @@ export class CallImpl extends EntityImpl implements Call, Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.audioRoutingGroups){
-        const audioRoutingGroupsArrValue: AudioRoutingGroupImpl[] = []; this.audioRoutingGroups?.forEach(element => {audioRoutingGroupsArrValue.push(new AudioRoutingGroupImpl(element));});
+        if(this.audioRoutingGroups && this.audioRoutingGroups.length != 0){        const audioRoutingGroupsArrValue: AudioRoutingGroupImpl[] = []; this.audioRoutingGroups?.forEach(element => {audioRoutingGroupsArrValue.push(new AudioRoutingGroupImpl(element));});
         writer.writeCollectionOfObjectValues<AudioRoutingGroupImpl>("audioRoutingGroups", audioRoutingGroupsArrValue);
         }
         if(this.callbackUri){
-        if(this.callbackUri)
         writer.writeStringValue("callbackUri", this.callbackUri);
         }
         if(this.callChainId){
-        if(this.callChainId)
         writer.writeStringValue("callChainId", this.callChainId);
         }
         if(this.callOptions){
-        if(this.callOptions)
         writer.writeObjectValue<CallOptionsImpl>("callOptions", new CallOptionsImpl(this.callOptions));
         }
-        if(this.callRoutes){
-        const callRoutesArrValue: CallRouteImpl[] = []; this.callRoutes?.forEach(element => {callRoutesArrValue.push(new CallRouteImpl(element));});
+        if(this.callRoutes && this.callRoutes.length != 0){        const callRoutesArrValue: CallRouteImpl[] = []; this.callRoutes?.forEach(element => {callRoutesArrValue.push(new CallRouteImpl(element));});
         writer.writeCollectionOfObjectValues<CallRouteImpl>("callRoutes", callRoutesArrValue);
         }
         if(this.chatInfo){
-        if(this.chatInfo)
         writer.writeObjectValue<ChatInfoImpl>("chatInfo", new ChatInfoImpl(this.chatInfo));
         }
         if(this.direction){
-        if(this.direction)
         writer.writeEnumValue<CallDirection>("direction", this.direction);
         }
         if(this.incomingContext){
-        if(this.incomingContext)
         writer.writeObjectValue<IncomingContextImpl>("incomingContext", new IncomingContextImpl(this.incomingContext));
         }
         if(this.mediaConfig){
-        if(this.mediaConfig)
         writer.writeObjectValue<MediaConfigImpl>("mediaConfig", new MediaConfigImpl(this.mediaConfig));
         }
         if(this.mediaState){
-        if(this.mediaState)
         writer.writeObjectValue<CallMediaStateImpl>("mediaState", new CallMediaStateImpl(this.mediaState));
         }
         if(this.meetingInfo){
-        if(this.meetingInfo)
         writer.writeObjectValue<MeetingInfoImpl>("meetingInfo", new MeetingInfoImpl(this.meetingInfo));
         }
         if(this.myParticipantId){
-        if(this.myParticipantId)
         writer.writeStringValue("myParticipantId", this.myParticipantId);
         }
-        if(this.operations){
-        const operationsArrValue: CommsOperationImpl[] = []; this.operations?.forEach(element => {operationsArrValue.push(new CommsOperationImpl(element));});
+        if(this.operations && this.operations.length != 0){        const operationsArrValue: CommsOperationImpl[] = []; this.operations?.forEach(element => {operationsArrValue.push(new CommsOperationImpl(element));});
         writer.writeCollectionOfObjectValues<CommsOperationImpl>("operations", operationsArrValue);
         }
-        if(this.participants){
-        const participantsArrValue: ParticipantImpl[] = []; this.participants?.forEach(element => {participantsArrValue.push(new ParticipantImpl(element));});
+        if(this.participants && this.participants.length != 0){        const participantsArrValue: ParticipantImpl[] = []; this.participants?.forEach(element => {participantsArrValue.push(new ParticipantImpl(element));});
         writer.writeCollectionOfObjectValues<ParticipantImpl>("participants", participantsArrValue);
         }
         if(this.requestedModalities){
-        if(this.requestedModalities)
-        this.requestedModalities && writer.writeEnumValue<Modality>("requestedModalities", ...this.requestedModalities);
+        writer.writeCollectionOfPrimitiveValues<string>("requestedModalities", this.requestedModalities);
         }
         if(this.resultInfo){
-        if(this.resultInfo)
         writer.writeObjectValue<ResultInfoImpl>("resultInfo", new ResultInfoImpl(this.resultInfo));
         }
         if(this.source){
-        if(this.source)
         writer.writeObjectValue<ParticipantInfoImpl>("source", new ParticipantInfoImpl(this.source));
         }
         if(this.state){
-        if(this.state)
         writer.writeEnumValue<CallState>("state", this.state);
         }
         if(this.subject){
-        if(this.subject)
         writer.writeStringValue("subject", this.subject);
         }
-        if(this.targets){
-        const targetsArrValue: InvitationParticipantInfoImpl[] = []; this.targets?.forEach(element => {targetsArrValue.push(new InvitationParticipantInfoImpl(element));});
+        if(this.targets && this.targets.length != 0){        const targetsArrValue: InvitationParticipantInfoImpl[] = []; this.targets?.forEach(element => {targetsArrValue.push(new InvitationParticipantInfoImpl(element));});
         writer.writeCollectionOfObjectValues<InvitationParticipantInfoImpl>("targets", targetsArrValue);
         }
         if(this.tenantId){
-        if(this.tenantId)
         writer.writeStringValue("tenantId", this.tenantId);
         }
         if(this.toneInfo){
-        if(this.toneInfo)
         writer.writeObjectValue<ToneInfoImpl>("toneInfo", new ToneInfoImpl(this.toneInfo));
         }
         if(this.transcription){
-        if(this.transcription)
         writer.writeObjectValue<CallTranscriptionInfoImpl>("transcription", new CallTranscriptionInfoImpl(this.transcription));
         }
     };

@@ -3,18 +3,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class ContentTypeInfoImpl implements AdditionalDataHolder, ContentTypeInfo, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The id of the content type. */
-    id?: string | undefined;
+    public id?: string | undefined;
     /** The name of the content type. */
-    name?: string | undefined;
+    public name?: string | undefined;
     /**
      * Instantiates a new contentTypeInfo and sets the default values.
      * @param contentTypeInfoParameterValue 
      */
     public constructor(contentTypeInfoParameterValue?: ContentTypeInfo | undefined) {
-        this.additionalData = {};
-        this.additionalData = contentTypeInfoParameterValue?.additionalData ? {} : contentTypeInfoParameterValue?.additionalData!
+        this.additionalData = contentTypeInfoParameterValue?.additionalData ? contentTypeInfoParameterValue?.additionalData! : {}
         this.id = contentTypeInfoParameterValue?.id ;
         this.name = contentTypeInfoParameterValue?.name ;
     };
@@ -35,11 +34,9 @@ export class ContentTypeInfoImpl implements AdditionalDataHolder, ContentTypeInf
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.id){
-        if(this.id)
         writer.writeStringValue("id", this.id);
         }
         if(this.name){
-        if(this.name)
         writer.writeStringValue("name", this.name);
         }
         writer.writeAdditionalData(this.additionalData);

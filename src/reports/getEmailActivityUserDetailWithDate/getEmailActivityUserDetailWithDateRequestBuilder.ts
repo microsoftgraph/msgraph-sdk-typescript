@@ -1,7 +1,4 @@
-import {createGetEmailActivityUserDetailWithDateResponseFromDiscriminatorValue} from './createGetEmailActivityUserDetailWithDateResponseFromDiscriminatorValue';
 import {GetEmailActivityUserDetailWithDateRequestBuilderGetRequestConfiguration} from './getEmailActivityUserDetailWithDateRequestBuilderGetRequestConfiguration';
-import {GetEmailActivityUserDetailWithDateResponse} from './getEmailActivityUserDetailWithDateResponse';
-import {GetEmailActivityUserDetailWithDateResponseImpl} from './index';
 import {DateOnly, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the getEmailActivityUserDetail method. */
@@ -47,12 +44,12 @@ export class GetEmailActivityUserDetailWithDateRequestBuilder {
      * Invoke function getEmailActivityUserDetail
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of GetEmailActivityUserDetailWithDateResponse
+     * @returns a Promise of ArrayBuffer
      */
-    public get(requestConfiguration?: GetEmailActivityUserDetailWithDateRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<GetEmailActivityUserDetailWithDateResponse | undefined> {
+    public get(requestConfiguration?: GetEmailActivityUserDetailWithDateRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ArrayBuffer | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
-        return this.requestAdapter?.sendAsync<GetEmailActivityUserDetailWithDateResponseImpl>(requestInfo, createGetEmailActivityUserDetailWithDateResponseFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendPrimitiveAsync<ArrayBuffer>(requestInfo, "ArrayBuffer", responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }

@@ -4,9 +4,10 @@ import {DeviceCompliancePolicyAssignment} from './deviceCompliancePolicyAssignme
 import {DeviceAndAppManagementAssignmentTargetImpl, EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Device compliance policy assignment. */
 export class DeviceCompliancePolicyAssignmentImpl extends EntityImpl implements DeviceCompliancePolicyAssignment, Parsable {
     /** Target for the compliance policy assignment. */
-    target?: DeviceAndAppManagementAssignmentTarget | undefined;
+    public target?: DeviceAndAppManagementAssignmentTarget | undefined;
     /**
      * Instantiates a new deviceCompliancePolicyAssignment and sets the default values.
      * @param deviceCompliancePolicyAssignmentParameterValue 
@@ -32,7 +33,6 @@ export class DeviceCompliancePolicyAssignmentImpl extends EntityImpl implements 
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.target){
-        if(this.target)
         writer.writeObjectValue<DeviceAndAppManagementAssignmentTargetImpl>("target", new DeviceAndAppManagementAssignmentTargetImpl(this.target));
         }
     };

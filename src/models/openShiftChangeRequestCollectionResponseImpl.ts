@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class OpenShiftChangeRequestCollectionResponseImpl implements AdditionalDataHolder, OpenShiftChangeRequestCollectionResponse, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: OpenShiftChangeRequest[] | undefined;
+    public value?: OpenShiftChangeRequest[] | undefined;
     /**
      * Instantiates a new OpenShiftChangeRequestCollectionResponse and sets the default values.
      * @param openShiftChangeRequestCollectionResponseParameterValue 
      */
     public constructor(openShiftChangeRequestCollectionResponseParameterValue?: OpenShiftChangeRequestCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = openShiftChangeRequestCollectionResponseParameterValue?.additionalData ? {} : openShiftChangeRequestCollectionResponseParameterValue?.additionalData!
+        this.additionalData = openShiftChangeRequestCollectionResponseParameterValue?.additionalData ? openShiftChangeRequestCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = openShiftChangeRequestCollectionResponseParameterValue?.nextLink ;
         this.value = openShiftChangeRequestCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class OpenShiftChangeRequestCollectionResponseImpl implements AdditionalD
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: OpenShiftChangeRequestImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new OpenShiftChangeRequestImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: OpenShiftChangeRequestImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new OpenShiftChangeRequestImpl(element));});
         writer.writeCollectionOfObjectValues<OpenShiftChangeRequestImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

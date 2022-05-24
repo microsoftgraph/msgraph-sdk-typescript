@@ -3,9 +3,9 @@ import {Entity} from './entity';
 
 export interface WindowsInformationProtectionAppLearningSummary extends Entity{
     /** Application Name */
-    applicationName?: string | undefined;
+    applicationName?:string | undefined;
     /** Application Type. Possible values are: universal, desktop. */
-    applicationType?: ApplicationType | undefined;
+    applicationType?:ApplicationType | undefined;
     /** Device Count */
-    deviceCount?: number | undefined;
+    deviceCount?:number | undefined;
 }

@@ -3,11 +3,12 @@ import {SignInFrequencySessionControl} from './signInFrequencySessionControl';
 import {SigninFrequencyType} from './signinFrequencyType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the identityContainer singleton. */
 export class SignInFrequencySessionControlImpl extends ConditionalAccessSessionControlImpl implements Parsable, SignInFrequencySessionControl {
     /** Possible values are: days, hours. */
-    type?: SigninFrequencyType | undefined;
+    public type?: SigninFrequencyType | undefined;
     /** The number of days or hours. */
-    value?: number | undefined;
+    public value?: number | undefined;
     /**
      * Instantiates a new signInFrequencySessionControl and sets the default values.
      * @param signInFrequencySessionControlParameterValue 
@@ -35,11 +36,9 @@ export class SignInFrequencySessionControlImpl extends ConditionalAccessSessionC
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.type){
-        if(this.type)
         writer.writeEnumValue<SigninFrequencyType>("type", this.type);
         }
         if(this.value){
-        if(this.value)
         writer.writeNumberValue("value", this.value);
         }
     };

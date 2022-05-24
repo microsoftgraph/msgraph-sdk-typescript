@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class ServicePrincipalCollectionResponseImpl implements AdditionalDataHolder, Parsable, ServicePrincipalCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: ServicePrincipal[] | undefined;
+    public value?: ServicePrincipal[] | undefined;
     /**
      * Instantiates a new ServicePrincipalCollectionResponse and sets the default values.
      * @param servicePrincipalCollectionResponseParameterValue 
      */
     public constructor(servicePrincipalCollectionResponseParameterValue?: ServicePrincipalCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = servicePrincipalCollectionResponseParameterValue?.additionalData ? {} : servicePrincipalCollectionResponseParameterValue?.additionalData!
+        this.additionalData = servicePrincipalCollectionResponseParameterValue?.additionalData ? servicePrincipalCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = servicePrincipalCollectionResponseParameterValue?.nextLink ;
         this.value = servicePrincipalCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class ServicePrincipalCollectionResponseImpl implements AdditionalDataHol
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: ServicePrincipalImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ServicePrincipalImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: ServicePrincipalImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ServicePrincipalImpl(element));});
         writer.writeCollectionOfObjectValues<ServicePrincipalImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

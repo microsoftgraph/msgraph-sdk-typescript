@@ -3,14 +3,13 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class DictionaryImpl implements AdditionalDataHolder, Dictionary, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /**
      * Instantiates a new Dictionary and sets the default values.
      * @param dictionaryParameterValue 
      */
     public constructor(dictionaryParameterValue?: Dictionary | undefined) {
-        this.additionalData = {};
-        this.additionalData = dictionaryParameterValue?.additionalData ? {} : dictionaryParameterValue?.additionalData!
+        this.additionalData = dictionaryParameterValue?.additionalData ? dictionaryParameterValue?.additionalData! : {}
     };
     /**
      * The deserialization information for the current model

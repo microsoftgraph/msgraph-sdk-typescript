@@ -6,20 +6,19 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class IdentitySetImpl implements AdditionalDataHolder, IdentitySet, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
-    /** Optional. The application associated with this action. */
-    application?: Identity | undefined;
-    /** Optional. The device associated with this action. */
-    device?: Identity | undefined;
-    /** Optional. The user associated with this action. */
-    user?: Identity | undefined;
+    public additionalData: Record<string, unknown>;
+    /** The Identity of the Application. This property is read-only. */
+    public application?: Identity | undefined;
+    /** The Identity of the Device. This property is read-only. */
+    public device?: Identity | undefined;
+    /** The Identity of the User. This property is read-only. */
+    public user?: Identity | undefined;
     /**
      * Instantiates a new identitySet and sets the default values.
      * @param identitySetParameterValue 
      */
     public constructor(identitySetParameterValue?: IdentitySet | undefined) {
-        this.additionalData = {};
-        this.additionalData = identitySetParameterValue?.additionalData ? {} : identitySetParameterValue?.additionalData!
+        this.additionalData = identitySetParameterValue?.additionalData ? identitySetParameterValue?.additionalData! : {}
         this.application = identitySetParameterValue?.application ;
         this.device = identitySetParameterValue?.device ;
         this.user = identitySetParameterValue?.user ;
@@ -42,15 +41,12 @@ export class IdentitySetImpl implements AdditionalDataHolder, IdentitySet, Parsa
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.application){
-        if(this.application)
         writer.writeObjectValue<IdentityImpl>("application", new IdentityImpl(this.application));
         }
         if(this.device){
-        if(this.device)
         writer.writeObjectValue<IdentityImpl>("device", new IdentityImpl(this.device));
         }
         if(this.user){
-        if(this.user)
         writer.writeObjectValue<IdentityImpl>("user", new IdentityImpl(this.user));
         }
         writer.writeAdditionalData(this.additionalData);

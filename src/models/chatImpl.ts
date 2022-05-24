@@ -13,29 +13,30 @@ import {TeamsTab} from './teamsTab';
 import {TeamworkOnlineMeetingInfo} from './teamworkOnlineMeetingInfo';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the collection of chat entities. */
 export class ChatImpl extends EntityImpl implements Chat, Parsable {
     /** Specifies the type of chat. Possible values are: group, oneOnOne, meeting, unknownFutureValue. */
-    chatType?: ChatType | undefined;
+    public chatType?: ChatType | undefined;
     /** Date and time at which the chat was created. Read-only. */
-    createdDateTime?: Date | undefined;
+    public createdDateTime?: Date | undefined;
     /** A collection of all the apps in the chat. Nullable. */
-    installedApps?: TeamsAppInstallation[] | undefined;
+    public installedApps?: TeamsAppInstallation[] | undefined;
     /** Date and time at which the chat was renamed or list of members were last changed. Read-only. */
-    lastUpdatedDateTime?: Date | undefined;
+    public lastUpdatedDateTime?: Date | undefined;
     /** A collection of all the members in the chat. Nullable. */
-    members?: ConversationMember[] | undefined;
+    public members?: ConversationMember[] | undefined;
     /** A collection of all the messages in the chat. Nullable. */
-    messages?: ChatMessage[] | undefined;
+    public messages?: ChatMessage[] | undefined;
     /** Represents details about an online meeting. If the chat isn't associated with an online meeting, the property is empty. Read-only. */
-    onlineMeetingInfo?: TeamworkOnlineMeetingInfo | undefined;
+    public onlineMeetingInfo?: TeamworkOnlineMeetingInfo | undefined;
     /** A collection of all the tabs in the chat. Nullable. */
-    tabs?: TeamsTab[] | undefined;
+    public tabs?: TeamsTab[] | undefined;
     /** The identifier of the tenant in which the chat was created. Read-only. */
-    tenantId?: string | undefined;
+    public tenantId?: string | undefined;
     /** (Optional) Subject or topic for the chat. Only available for group chats. */
-    topic?: string | undefined;
+    public topic?: string | undefined;
     /** The URL for the chat in Microsoft Teams. The URL should be treated as an opaque blob, and not parsed. Read-only. */
-    webUrl?: string | undefined;
+    public webUrl?: string | undefined;
     /**
      * Instantiates a new chat and sets the default values.
      * @param chatParameterValue 
@@ -81,47 +82,36 @@ export class ChatImpl extends EntityImpl implements Chat, Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.chatType){
-        if(this.chatType)
         writer.writeEnumValue<ChatType>("chatType", this.chatType);
         }
         if(this.createdDateTime){
-        if(this.createdDateTime)
         writer.writeDateValue("createdDateTime", this.createdDateTime);
         }
-        if(this.installedApps){
-        const installedAppsArrValue: TeamsAppInstallationImpl[] = []; this.installedApps?.forEach(element => {installedAppsArrValue.push(new TeamsAppInstallationImpl(element));});
+        if(this.installedApps && this.installedApps.length != 0){        const installedAppsArrValue: TeamsAppInstallationImpl[] = []; this.installedApps?.forEach(element => {installedAppsArrValue.push(new TeamsAppInstallationImpl(element));});
         writer.writeCollectionOfObjectValues<TeamsAppInstallationImpl>("installedApps", installedAppsArrValue);
         }
         if(this.lastUpdatedDateTime){
-        if(this.lastUpdatedDateTime)
         writer.writeDateValue("lastUpdatedDateTime", this.lastUpdatedDateTime);
         }
-        if(this.members){
-        const membersArrValue: ConversationMemberImpl[] = []; this.members?.forEach(element => {membersArrValue.push(new ConversationMemberImpl(element));});
+        if(this.members && this.members.length != 0){        const membersArrValue: ConversationMemberImpl[] = []; this.members?.forEach(element => {membersArrValue.push(new ConversationMemberImpl(element));});
         writer.writeCollectionOfObjectValues<ConversationMemberImpl>("members", membersArrValue);
         }
-        if(this.messages){
-        const messagesArrValue: ChatMessageImpl[] = []; this.messages?.forEach(element => {messagesArrValue.push(new ChatMessageImpl(element));});
+        if(this.messages && this.messages.length != 0){        const messagesArrValue: ChatMessageImpl[] = []; this.messages?.forEach(element => {messagesArrValue.push(new ChatMessageImpl(element));});
         writer.writeCollectionOfObjectValues<ChatMessageImpl>("messages", messagesArrValue);
         }
         if(this.onlineMeetingInfo){
-        if(this.onlineMeetingInfo)
         writer.writeObjectValue<TeamworkOnlineMeetingInfoImpl>("onlineMeetingInfo", new TeamworkOnlineMeetingInfoImpl(this.onlineMeetingInfo));
         }
-        if(this.tabs){
-        const tabsArrValue: TeamsTabImpl[] = []; this.tabs?.forEach(element => {tabsArrValue.push(new TeamsTabImpl(element));});
+        if(this.tabs && this.tabs.length != 0){        const tabsArrValue: TeamsTabImpl[] = []; this.tabs?.forEach(element => {tabsArrValue.push(new TeamsTabImpl(element));});
         writer.writeCollectionOfObjectValues<TeamsTabImpl>("tabs", tabsArrValue);
         }
         if(this.tenantId){
-        if(this.tenantId)
         writer.writeStringValue("tenantId", this.tenantId);
         }
         if(this.topic){
-        if(this.topic)
         writer.writeStringValue("topic", this.topic);
         }
         if(this.webUrl){
-        if(this.webUrl)
         writer.writeStringValue("webUrl", this.webUrl);
         }
     };

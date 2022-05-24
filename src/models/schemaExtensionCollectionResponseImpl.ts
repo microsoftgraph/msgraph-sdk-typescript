@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class SchemaExtensionCollectionResponseImpl implements AdditionalDataHolder, Parsable, SchemaExtensionCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: SchemaExtension[] | undefined;
+    public value?: SchemaExtension[] | undefined;
     /**
      * Instantiates a new SchemaExtensionCollectionResponse and sets the default values.
      * @param schemaExtensionCollectionResponseParameterValue 
      */
     public constructor(schemaExtensionCollectionResponseParameterValue?: SchemaExtensionCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = schemaExtensionCollectionResponseParameterValue?.additionalData ? {} : schemaExtensionCollectionResponseParameterValue?.additionalData!
+        this.additionalData = schemaExtensionCollectionResponseParameterValue?.additionalData ? schemaExtensionCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = schemaExtensionCollectionResponseParameterValue?.nextLink ;
         this.value = schemaExtensionCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class SchemaExtensionCollectionResponseImpl implements AdditionalDataHold
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: SchemaExtensionImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new SchemaExtensionImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: SchemaExtensionImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new SchemaExtensionImpl(element));});
         writer.writeCollectionOfObjectValues<SchemaExtensionImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

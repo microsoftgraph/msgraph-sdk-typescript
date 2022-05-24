@@ -2,11 +2,12 @@ import {DeviceManagementTroubleshootingEvent} from './deviceManagementTroublesho
 import {EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Event representing an general failure. */
 export class DeviceManagementTroubleshootingEventImpl extends EntityImpl implements DeviceManagementTroubleshootingEvent, Parsable {
     /** Id used for tracing the failure in the service. */
-    correlationId?: string | undefined;
+    public correlationId?: string | undefined;
     /** Time when the event occurred . */
-    eventDateTime?: Date | undefined;
+    public eventDateTime?: Date | undefined;
     /**
      * Instantiates a new deviceManagementTroubleshootingEvent and sets the default values.
      * @param deviceManagementTroubleshootingEventParameterValue 
@@ -34,11 +35,9 @@ export class DeviceManagementTroubleshootingEventImpl extends EntityImpl impleme
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.correlationId){
-        if(this.correlationId)
         writer.writeStringValue("correlationId", this.correlationId);
         }
         if(this.eventDateTime){
-        if(this.eventDateTime)
         writer.writeDateValue("eventDateTime", this.eventDateTime);
         }
     };

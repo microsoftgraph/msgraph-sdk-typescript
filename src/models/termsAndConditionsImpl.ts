@@ -6,27 +6,28 @@ import {TermsAndConditionsAcceptanceStatus} from './termsAndConditionsAcceptance
 import {TermsAndConditionsAssignment} from './termsAndConditionsAssignment';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** A termsAndConditions entity represents the metadata and contents of a given Terms and Conditions (T&C) policy. T&C policies’ contents are presented to users upon their first attempt to enroll into Intune and subsequently upon edits where an administrator has required re-acceptance. They enable administrators to communicate the provisions to which a user must agree in order to have devices enrolled into Intune. */
 export class TermsAndConditionsImpl extends EntityImpl implements Parsable, TermsAndConditions {
     /** Administrator-supplied explanation of the terms and conditions, typically describing what it means to accept the terms and conditions set out in the T&C policy. This is shown to the user on prompts to accept the T&C policy. */
-    acceptanceStatement?: string | undefined;
+    public acceptanceStatement?: string | undefined;
     /** The list of acceptance statuses for this T&C policy. */
-    acceptanceStatuses?: TermsAndConditionsAcceptanceStatus[] | undefined;
+    public acceptanceStatuses?: TermsAndConditionsAcceptanceStatus[] | undefined;
     /** The list of assignments for this T&C policy. */
-    assignments?: TermsAndConditionsAssignment[] | undefined;
+    public assignments?: TermsAndConditionsAssignment[] | undefined;
     /** Administrator-supplied body text of the terms and conditions, typically the terms themselves. This is shown to the user on prompts to accept the T&C policy. */
-    bodyText?: string | undefined;
+    public bodyText?: string | undefined;
     /** DateTime the object was created. */
-    createdDateTime?: Date | undefined;
+    public createdDateTime?: Date | undefined;
     /** Administrator-supplied description of the T&C policy. */
-    description?: string | undefined;
+    public description?: string | undefined;
     /** Administrator-supplied name for the T&C policy. */
-    displayName?: string | undefined;
+    public displayName?: string | undefined;
     /** DateTime the object was last modified. */
-    lastModifiedDateTime?: Date | undefined;
+    public lastModifiedDateTime?: Date | undefined;
     /** Administrator-supplied title of the terms and conditions. This is shown to the user on prompts to accept the T&C policy. */
-    title?: string | undefined;
+    public title?: string | undefined;
     /** Integer indicating the current version of the terms. Incremented when an administrator makes a change to the terms and wishes to require users to re-accept the modified T&C policy. */
-    version?: number | undefined;
+    public version?: number | undefined;
     /**
      * Instantiates a new termsAndConditions and sets the default values.
      * @param termsAndConditionsParameterValue 
@@ -70,43 +71,33 @@ export class TermsAndConditionsImpl extends EntityImpl implements Parsable, Term
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.acceptanceStatement){
-        if(this.acceptanceStatement)
         writer.writeStringValue("acceptanceStatement", this.acceptanceStatement);
         }
-        if(this.acceptanceStatuses){
-        const acceptanceStatusesArrValue: TermsAndConditionsAcceptanceStatusImpl[] = []; this.acceptanceStatuses?.forEach(element => {acceptanceStatusesArrValue.push(new TermsAndConditionsAcceptanceStatusImpl(element));});
+        if(this.acceptanceStatuses && this.acceptanceStatuses.length != 0){        const acceptanceStatusesArrValue: TermsAndConditionsAcceptanceStatusImpl[] = []; this.acceptanceStatuses?.forEach(element => {acceptanceStatusesArrValue.push(new TermsAndConditionsAcceptanceStatusImpl(element));});
         writer.writeCollectionOfObjectValues<TermsAndConditionsAcceptanceStatusImpl>("acceptanceStatuses", acceptanceStatusesArrValue);
         }
-        if(this.assignments){
-        const assignmentsArrValue: TermsAndConditionsAssignmentImpl[] = []; this.assignments?.forEach(element => {assignmentsArrValue.push(new TermsAndConditionsAssignmentImpl(element));});
+        if(this.assignments && this.assignments.length != 0){        const assignmentsArrValue: TermsAndConditionsAssignmentImpl[] = []; this.assignments?.forEach(element => {assignmentsArrValue.push(new TermsAndConditionsAssignmentImpl(element));});
         writer.writeCollectionOfObjectValues<TermsAndConditionsAssignmentImpl>("assignments", assignmentsArrValue);
         }
         if(this.bodyText){
-        if(this.bodyText)
         writer.writeStringValue("bodyText", this.bodyText);
         }
         if(this.createdDateTime){
-        if(this.createdDateTime)
         writer.writeDateValue("createdDateTime", this.createdDateTime);
         }
         if(this.description){
-        if(this.description)
         writer.writeStringValue("description", this.description);
         }
         if(this.displayName){
-        if(this.displayName)
         writer.writeStringValue("displayName", this.displayName);
         }
         if(this.lastModifiedDateTime){
-        if(this.lastModifiedDateTime)
         writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
         }
         if(this.title){
-        if(this.title)
         writer.writeStringValue("title", this.title);
         }
         if(this.version){
-        if(this.version)
         writer.writeNumberValue("version", this.version);
         }
     };

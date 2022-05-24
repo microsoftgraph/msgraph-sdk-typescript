@@ -3,20 +3,19 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class InsightIdentityImpl implements AdditionalDataHolder, InsightIdentity, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The email address of the user who shared the item. */
-    address?: string | undefined;
+    public address?: string | undefined;
     /** The display name of the user who shared the item. */
-    displayName?: string | undefined;
+    public displayName?: string | undefined;
     /** The id of the user who shared the item. */
-    id?: string | undefined;
+    public id?: string | undefined;
     /**
      * Instantiates a new insightIdentity and sets the default values.
      * @param insightIdentityParameterValue 
      */
     public constructor(insightIdentityParameterValue?: InsightIdentity | undefined) {
-        this.additionalData = {};
-        this.additionalData = insightIdentityParameterValue?.additionalData ? {} : insightIdentityParameterValue?.additionalData!
+        this.additionalData = insightIdentityParameterValue?.additionalData ? insightIdentityParameterValue?.additionalData! : {}
         this.address = insightIdentityParameterValue?.address ;
         this.displayName = insightIdentityParameterValue?.displayName ;
         this.id = insightIdentityParameterValue?.id ;
@@ -39,15 +38,12 @@ export class InsightIdentityImpl implements AdditionalDataHolder, InsightIdentit
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.address){
-        if(this.address)
         writer.writeStringValue("address", this.address);
         }
         if(this.displayName){
-        if(this.displayName)
         writer.writeStringValue("displayName", this.displayName);
         }
         if(this.id){
-        if(this.id)
         writer.writeStringValue("id", this.id);
         }
         writer.writeAdditionalData(this.additionalData);

@@ -3,20 +3,19 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class AlternativeSecurityIdImpl implements AdditionalDataHolder, AlternativeSecurityId, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** For internal use only */
-    identityProvider?: string | undefined;
+    public identityProvider?: string | undefined;
     /** For internal use only */
-    key?: string | undefined;
+    public key?: string | undefined;
     /** For internal use only */
-    type?: number | undefined;
+    public type?: number | undefined;
     /**
      * Instantiates a new alternativeSecurityId and sets the default values.
      * @param alternativeSecurityIdParameterValue 
      */
     public constructor(alternativeSecurityIdParameterValue?: AlternativeSecurityId | undefined) {
-        this.additionalData = {};
-        this.additionalData = alternativeSecurityIdParameterValue?.additionalData ? {} : alternativeSecurityIdParameterValue?.additionalData!
+        this.additionalData = alternativeSecurityIdParameterValue?.additionalData ? alternativeSecurityIdParameterValue?.additionalData! : {}
         this.identityProvider = alternativeSecurityIdParameterValue?.identityProvider ;
         this.key = alternativeSecurityIdParameterValue?.key ;
         this.type = alternativeSecurityIdParameterValue?.type ;
@@ -39,15 +38,12 @@ export class AlternativeSecurityIdImpl implements AdditionalDataHolder, Alternat
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.identityProvider){
-        if(this.identityProvider)
         writer.writeStringValue("identityProvider", this.identityProvider);
         }
         if(this.key){
-        if(this.key)
         writer.writeStringValue("key", this.key);
         }
         if(this.type){
-        if(this.type)
         writer.writeNumberValue("type", this.type);
         }
         writer.writeAdditionalData(this.additionalData);

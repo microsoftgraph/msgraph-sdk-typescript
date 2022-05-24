@@ -1,4 +1,4 @@
-/** Provides operations to manage the collection of drive entities. */
+/** Casts the previous resource to user. */
 export enum LocationType {
     Default_escaped = "default",
     ConferenceRoom = "conferenceRoom",

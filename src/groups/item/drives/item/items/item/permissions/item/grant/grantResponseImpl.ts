@@ -7,16 +7,15 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Provides operations to call the grant method. */
 export class GrantResponseImpl implements AdditionalDataHolder, GrantResponse, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The value property */
-    value?: Permission[] | undefined;
+    public value?: Permission[] | undefined;
     /**
      * Instantiates a new grantResponse and sets the default values.
      * @param grantResponseParameterValue 
      */
     public constructor(grantResponseParameterValue?: GrantResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = grantResponseParameterValue?.additionalData ? {} : grantResponseParameterValue?.additionalData!
+        this.additionalData = grantResponseParameterValue?.additionalData ? grantResponseParameterValue?.additionalData! : {}
         this.value = grantResponseParameterValue?.value ;
     };
     /**
@@ -34,8 +33,7 @@ export class GrantResponseImpl implements AdditionalDataHolder, GrantResponse, P
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        if(this.value){
-        const valueArrValue: PermissionImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new PermissionImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: PermissionImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new PermissionImpl(element));});
         writer.writeCollectionOfObjectValues<PermissionImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

@@ -3,26 +3,25 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class CertificateAuthorityImpl implements AdditionalDataHolder, CertificateAuthority, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** Required. The base64 encoded string representing the public certificate. */
-    certificate?: string | undefined;
+    public certificate?: string | undefined;
     /** The URL of the certificate revocation list. */
-    certificateRevocationListUrl?: string | undefined;
+    public certificateRevocationListUrl?: string | undefined;
     /** The URL contains the list of all revoked certificates since the last time a full certificate revocaton list was created. */
-    deltaCertificateRevocationListUrl?: string | undefined;
+    public deltaCertificateRevocationListUrl?: string | undefined;
     /** Required. true if the trusted certificate is a root authority, false if the trusted certificate is an intermediate authority. */
-    isRootAuthority?: boolean | undefined;
+    public isRootAuthority?: boolean | undefined;
     /** The issuer of the certificate, calculated from the certificate value. Read-only. */
-    issuer?: string | undefined;
+    public issuer?: string | undefined;
     /** The subject key identifier of the certificate, calculated from the certificate value. Read-only. */
-    issuerSki?: string | undefined;
+    public issuerSki?: string | undefined;
     /**
      * Instantiates a new certificateAuthority and sets the default values.
      * @param certificateAuthorityParameterValue 
      */
     public constructor(certificateAuthorityParameterValue?: CertificateAuthority | undefined) {
-        this.additionalData = {};
-        this.additionalData = certificateAuthorityParameterValue?.additionalData ? {} : certificateAuthorityParameterValue?.additionalData!
+        this.additionalData = certificateAuthorityParameterValue?.additionalData ? certificateAuthorityParameterValue?.additionalData! : {}
         this.certificate = certificateAuthorityParameterValue?.certificate ;
         this.certificateRevocationListUrl = certificateAuthorityParameterValue?.certificateRevocationListUrl ;
         this.deltaCertificateRevocationListUrl = certificateAuthorityParameterValue?.deltaCertificateRevocationListUrl ;
@@ -51,27 +50,21 @@ export class CertificateAuthorityImpl implements AdditionalDataHolder, Certifica
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.certificate){
-        if(this.certificate)
         writer.writeStringValue("certificate", this.certificate);
         }
         if(this.certificateRevocationListUrl){
-        if(this.certificateRevocationListUrl)
         writer.writeStringValue("certificateRevocationListUrl", this.certificateRevocationListUrl);
         }
         if(this.deltaCertificateRevocationListUrl){
-        if(this.deltaCertificateRevocationListUrl)
         writer.writeStringValue("deltaCertificateRevocationListUrl", this.deltaCertificateRevocationListUrl);
         }
         if(this.isRootAuthority){
-        if(this.isRootAuthority)
         writer.writeBooleanValue("isRootAuthority", this.isRootAuthority);
         }
         if(this.issuer){
-        if(this.issuer)
         writer.writeStringValue("issuer", this.issuer);
         }
         if(this.issuerSki){
-        if(this.issuerSki)
         writer.writeStringValue("issuerSki", this.issuerSki);
         }
         writer.writeAdditionalData(this.additionalData);

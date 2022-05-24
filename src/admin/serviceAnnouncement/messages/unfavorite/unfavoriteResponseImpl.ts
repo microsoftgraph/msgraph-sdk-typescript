@@ -4,16 +4,15 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Provides operations to call the unfavorite method. */
 export class UnfavoriteResponseImpl implements AdditionalDataHolder, Parsable, UnfavoriteResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The value property */
-    value?: boolean | undefined;
+    public value?: boolean | undefined;
     /**
      * Instantiates a new unfavoriteResponse and sets the default values.
      * @param unfavoriteResponseParameterValue 
      */
     public constructor(unfavoriteResponseParameterValue?: UnfavoriteResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = unfavoriteResponseParameterValue?.additionalData ? {} : unfavoriteResponseParameterValue?.additionalData!
+        this.additionalData = unfavoriteResponseParameterValue?.additionalData ? unfavoriteResponseParameterValue?.additionalData! : {}
         this.value = unfavoriteResponseParameterValue?.value ;
     };
     /**
@@ -32,7 +31,6 @@ export class UnfavoriteResponseImpl implements AdditionalDataHolder, Parsable, U
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.value){
-        if(this.value)
         writer.writeBooleanValue("value", this.value);
         }
         writer.writeAdditionalData(this.additionalData);

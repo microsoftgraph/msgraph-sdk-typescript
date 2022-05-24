@@ -5,29 +5,30 @@ import {VppTokenState} from './vppTokenState';
 import {VppTokenSyncStatus} from './vppTokenSyncStatus';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** You purchase multiple licenses for iOS apps through the Apple Volume Purchase Program for Business or Education. This involves setting up an Apple VPP account from the Apple website and uploading the Apple VPP Business or Education token to Intune. You can then synchronize your volume purchase information with Intune and track your volume-purchased app use. You can upload multiple Apple VPP Business or Education tokens. */
 export class VppTokenImpl extends EntityImpl implements Parsable, VppToken {
     /** The apple Id associated with the given Apple Volume Purchase Program Token. */
-    appleId?: string | undefined;
+    public appleId?: string | undefined;
     /** Whether or not apps for the VPP token will be automatically updated. */
-    automaticallyUpdateApps?: boolean | undefined;
+    public automaticallyUpdateApps?: boolean | undefined;
     /** Whether or not apps for the VPP token will be automatically updated. */
-    countryOrRegion?: string | undefined;
+    public countryOrRegion?: string | undefined;
     /** The expiration date time of the Apple Volume Purchase Program Token. */
-    expirationDateTime?: Date | undefined;
+    public expirationDateTime?: Date | undefined;
     /** Last modification date time associated with the Apple Volume Purchase Program Token. */
-    lastModifiedDateTime?: Date | undefined;
+    public lastModifiedDateTime?: Date | undefined;
     /** The last time when an application sync was done with the Apple volume purchase program service using the the Apple Volume Purchase Program Token. */
-    lastSyncDateTime?: Date | undefined;
+    public lastSyncDateTime?: Date | undefined;
     /** Current sync status of the last application sync which was triggered using the Apple Volume Purchase Program Token. Possible values are: none, inProgress, completed, failed. Possible values are: none, inProgress, completed, failed. */
-    lastSyncStatus?: VppTokenSyncStatus | undefined;
+    public lastSyncStatus?: VppTokenSyncStatus | undefined;
     /** The organization associated with the Apple Volume Purchase Program Token */
-    organizationName?: string | undefined;
+    public organizationName?: string | undefined;
     /** Current state of the Apple Volume Purchase Program Token. Possible values are: unknown, valid, expired, invalid, assignedToExternalMDM. Possible values are: unknown, valid, expired, invalid, assignedToExternalMDM, duplicateLocationId. */
-    state?: VppTokenState | undefined;
+    public state?: VppTokenState | undefined;
     /** The Apple Volume Purchase Program Token string downloaded from the Apple Volume Purchase Program. */
-    token?: string | undefined;
+    public token?: string | undefined;
     /** The type of volume purchase program which the given Apple Volume Purchase Program Token is associated with. Possible values are: business, education. Possible values are: business, education. */
-    vppTokenAccountType?: VppTokenAccountType | undefined;
+    public vppTokenAccountType?: VppTokenAccountType | undefined;
     /**
      * Instantiates a new vppToken and sets the default values.
      * @param vppTokenParameterValue 
@@ -73,47 +74,36 @@ export class VppTokenImpl extends EntityImpl implements Parsable, VppToken {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.appleId){
-        if(this.appleId)
         writer.writeStringValue("appleId", this.appleId);
         }
         if(this.automaticallyUpdateApps){
-        if(this.automaticallyUpdateApps)
         writer.writeBooleanValue("automaticallyUpdateApps", this.automaticallyUpdateApps);
         }
         if(this.countryOrRegion){
-        if(this.countryOrRegion)
         writer.writeStringValue("countryOrRegion", this.countryOrRegion);
         }
         if(this.expirationDateTime){
-        if(this.expirationDateTime)
         writer.writeDateValue("expirationDateTime", this.expirationDateTime);
         }
         if(this.lastModifiedDateTime){
-        if(this.lastModifiedDateTime)
         writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
         }
         if(this.lastSyncDateTime){
-        if(this.lastSyncDateTime)
         writer.writeDateValue("lastSyncDateTime", this.lastSyncDateTime);
         }
         if(this.lastSyncStatus){
-        if(this.lastSyncStatus)
         writer.writeEnumValue<VppTokenSyncStatus>("lastSyncStatus", this.lastSyncStatus);
         }
         if(this.organizationName){
-        if(this.organizationName)
         writer.writeStringValue("organizationName", this.organizationName);
         }
         if(this.state){
-        if(this.state)
         writer.writeEnumValue<VppTokenState>("state", this.state);
         }
         if(this.token){
-        if(this.token)
         writer.writeStringValue("token", this.token);
         }
         if(this.vppTokenAccountType){
-        if(this.vppTokenAccountType)
         writer.writeEnumValue<VppTokenAccountType>("vppTokenAccountType", this.vppTokenAccountType);
         }
     };

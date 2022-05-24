@@ -8,29 +8,30 @@ import {OnenoteSection} from './onenoteSection';
 import {PageLinks} from './pageLinks';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to group. */
 export class OnenotePageImpl extends OnenoteEntitySchemaObjectModelImpl implements OnenotePage, Parsable {
     /** The page's HTML content. */
-    content?: string | undefined;
+    public content?: string | undefined;
     /** The URL for the page's HTML content.  Read-only. */
-    contentUrl?: string | undefined;
+    public contentUrl?: string | undefined;
     /** The unique identifier of the application that created the page. Read-only. */
-    createdByAppId?: string | undefined;
+    public createdByAppId?: string | undefined;
     /** The date and time when the page was last modified. The timestamp represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. */
-    lastModifiedDateTime?: Date | undefined;
+    public lastModifiedDateTime?: Date | undefined;
     /** The indentation level of the page. Read-only. */
-    level?: number | undefined;
+    public level?: number | undefined;
     /** Links for opening the page. The oneNoteClientURL link opens the page in the OneNote native client if it 's installed. The oneNoteWebUrl link opens the page in OneNote on the web. Read-only. */
-    links?: PageLinks | undefined;
+    public links?: PageLinks | undefined;
     /** The order of the page within its parent section. Read-only. */
-    order?: number | undefined;
+    public order?: number | undefined;
     /** The notebook that contains the page.  Read-only. */
-    parentNotebook?: Notebook | undefined;
+    public parentNotebook?: Notebook | undefined;
     /** The section that contains the page. Read-only. */
-    parentSection?: OnenoteSection | undefined;
+    public parentSection?: OnenoteSection | undefined;
     /** The title of the page. */
-    title?: string | undefined;
+    public title?: string | undefined;
     /** The userTags property */
-    userTags?: string[] | undefined;
+    public userTags?: string[] | undefined;
     /**
      * Instantiates a new onenotePage and sets the default values.
      * @param onenotePageParameterValue 
@@ -76,47 +77,36 @@ export class OnenotePageImpl extends OnenoteEntitySchemaObjectModelImpl implemen
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.content){
-        if(this.content)
         writer.writeStringValue("content", this.content);
         }
         if(this.contentUrl){
-        if(this.contentUrl)
         writer.writeStringValue("contentUrl", this.contentUrl);
         }
         if(this.createdByAppId){
-        if(this.createdByAppId)
         writer.writeStringValue("createdByAppId", this.createdByAppId);
         }
         if(this.lastModifiedDateTime){
-        if(this.lastModifiedDateTime)
         writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
         }
         if(this.level){
-        if(this.level)
         writer.writeNumberValue("level", this.level);
         }
         if(this.links){
-        if(this.links)
         writer.writeObjectValue<PageLinksImpl>("links", new PageLinksImpl(this.links));
         }
         if(this.order){
-        if(this.order)
         writer.writeNumberValue("order", this.order);
         }
         if(this.parentNotebook){
-        if(this.parentNotebook)
         writer.writeObjectValue<NotebookImpl>("parentNotebook", new NotebookImpl(this.parentNotebook));
         }
         if(this.parentSection){
-        if(this.parentSection)
         writer.writeObjectValue<OnenoteSectionImpl>("parentSection", new OnenoteSectionImpl(this.parentSection));
         }
         if(this.title){
-        if(this.title)
         writer.writeStringValue("title", this.title);
         }
         if(this.userTags){
-        if(this.userTags)
         writer.writeCollectionOfPrimitiveValues<string>("userTags", this.userTags);
         }
     };

@@ -8,20 +8,19 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class ShiftAvailabilityImpl implements AdditionalDataHolder, Parsable, ShiftAvailability {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** Specifies the pattern for recurrence */
-    recurrence?: PatternedRecurrence | undefined;
+    public recurrence?: PatternedRecurrence | undefined;
     /** The time slot(s) preferred by the user. */
-    timeSlots?: TimeRange[] | undefined;
+    public timeSlots?: TimeRange[] | undefined;
     /** Specifies the time zone for the indicated time. */
-    timeZone?: string | undefined;
+    public timeZone?: string | undefined;
     /**
      * Instantiates a new shiftAvailability and sets the default values.
      * @param shiftAvailabilityParameterValue 
      */
     public constructor(shiftAvailabilityParameterValue?: ShiftAvailability | undefined) {
-        this.additionalData = {};
-        this.additionalData = shiftAvailabilityParameterValue?.additionalData ? {} : shiftAvailabilityParameterValue?.additionalData!
+        this.additionalData = shiftAvailabilityParameterValue?.additionalData ? shiftAvailabilityParameterValue?.additionalData! : {}
         this.recurrence = shiftAvailabilityParameterValue?.recurrence ;
         this.timeSlots = shiftAvailabilityParameterValue?.timeSlots ;
         this.timeZone = shiftAvailabilityParameterValue?.timeZone ;
@@ -44,15 +43,12 @@ export class ShiftAvailabilityImpl implements AdditionalDataHolder, Parsable, Sh
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.recurrence){
-        if(this.recurrence)
         writer.writeObjectValue<PatternedRecurrenceImpl>("recurrence", new PatternedRecurrenceImpl(this.recurrence));
         }
-        if(this.timeSlots){
-        const timeSlotsArrValue: TimeRangeImpl[] = []; this.timeSlots?.forEach(element => {timeSlotsArrValue.push(new TimeRangeImpl(element));});
+        if(this.timeSlots && this.timeSlots.length != 0){        const timeSlotsArrValue: TimeRangeImpl[] = []; this.timeSlots?.forEach(element => {timeSlotsArrValue.push(new TimeRangeImpl(element));});
         writer.writeCollectionOfObjectValues<TimeRangeImpl>("timeSlots", timeSlotsArrValue);
         }
         if(this.timeZone){
-        if(this.timeZone)
         writer.writeStringValue("timeZone", this.timeZone);
         }
         writer.writeAdditionalData(this.additionalData);

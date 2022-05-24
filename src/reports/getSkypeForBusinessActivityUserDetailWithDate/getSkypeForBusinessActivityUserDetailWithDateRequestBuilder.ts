@@ -1,6 +1,5 @@
 import {ReportImpl} from '../../models/';
 import {createReportFromDiscriminatorValue} from '../../models/createReportFromDiscriminatorValue';
-import {Report} from '../../models/report';
 import {GetSkypeForBusinessActivityUserDetailWithDateRequestBuilderGetRequestConfiguration} from './getSkypeForBusinessActivityUserDetailWithDateRequestBuilderGetRequestConfiguration';
 import {DateOnly, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
@@ -49,7 +48,7 @@ export class GetSkypeForBusinessActivityUserDetailWithDateRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Report
      */
-    public get(requestConfiguration?: GetSkypeForBusinessActivityUserDetailWithDateRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Report | undefined> {
+    public get(requestConfiguration?: GetSkypeForBusinessActivityUserDetailWithDateRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ReportImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );

@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class LocalizedNotificationMessageCollectionResponseImpl implements AdditionalDataHolder, LocalizedNotificationMessageCollectionResponse, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: LocalizedNotificationMessage[] | undefined;
+    public value?: LocalizedNotificationMessage[] | undefined;
     /**
      * Instantiates a new LocalizedNotificationMessageCollectionResponse and sets the default values.
      * @param localizedNotificationMessageCollectionResponseParameterValue 
      */
     public constructor(localizedNotificationMessageCollectionResponseParameterValue?: LocalizedNotificationMessageCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = localizedNotificationMessageCollectionResponseParameterValue?.additionalData ? {} : localizedNotificationMessageCollectionResponseParameterValue?.additionalData!
+        this.additionalData = localizedNotificationMessageCollectionResponseParameterValue?.additionalData ? localizedNotificationMessageCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = localizedNotificationMessageCollectionResponseParameterValue?.nextLink ;
         this.value = localizedNotificationMessageCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class LocalizedNotificationMessageCollectionResponseImpl implements Addit
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: LocalizedNotificationMessageImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new LocalizedNotificationMessageImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: LocalizedNotificationMessageImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new LocalizedNotificationMessageImpl(element));});
         writer.writeCollectionOfObjectValues<LocalizedNotificationMessageImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

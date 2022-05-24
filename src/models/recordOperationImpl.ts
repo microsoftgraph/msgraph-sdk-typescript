@@ -2,11 +2,12 @@ import {CommsOperationImpl} from './index';
 import {RecordOperation} from './recordOperation';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to call the recordResponse method. */
 export class RecordOperationImpl extends CommsOperationImpl implements Parsable, RecordOperation {
     /** The access token required to retrieve the recording. */
-    recordingAccessToken?: string | undefined;
+    public recordingAccessToken?: string | undefined;
     /** The location where the recording is located. */
-    recordingLocation?: string | undefined;
+    public recordingLocation?: string | undefined;
     /**
      * Instantiates a new recordOperation and sets the default values.
      * @param recordOperationParameterValue 
@@ -34,11 +35,9 @@ export class RecordOperationImpl extends CommsOperationImpl implements Parsable,
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.recordingAccessToken){
-        if(this.recordingAccessToken)
         writer.writeStringValue("recordingAccessToken", this.recordingAccessToken);
         }
         if(this.recordingLocation){
-        if(this.recordingLocation)
         writer.writeStringValue("recordingLocation", this.recordingLocation);
         }
     };

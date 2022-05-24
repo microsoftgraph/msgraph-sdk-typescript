@@ -8,29 +8,30 @@ import {ItemReference} from './itemReference';
 import {User} from './user';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to user. */
 export class BaseItemImpl extends EntityImpl implements BaseItem, Parsable {
     /** Identity of the user, device, or application which created the item. Read-only. */
-    createdBy?: IdentitySet | undefined;
+    public createdBy?: IdentitySet | undefined;
     /** Identity of the user who created the item. Read-only. */
-    createdByUser?: User | undefined;
+    public createdByUser?: User | undefined;
     /** Date and time of item creation. Read-only. */
-    createdDateTime?: Date | undefined;
+    public createdDateTime?: Date | undefined;
     /** Provides a user-visible description of the item. Optional. */
-    description?: string | undefined;
+    public description?: string | undefined;
     /** ETag for the item. Read-only. */
-    eTag?: string | undefined;
+    public eTag?: string | undefined;
     /** Identity of the user, device, and application which last modified the item. Read-only. */
-    lastModifiedBy?: IdentitySet | undefined;
+    public lastModifiedBy?: IdentitySet | undefined;
     /** Identity of the user who last modified the item. Read-only. */
-    lastModifiedByUser?: User | undefined;
+    public lastModifiedByUser?: User | undefined;
     /** Date and time the item was last modified. Read-only. */
-    lastModifiedDateTime?: Date | undefined;
+    public lastModifiedDateTime?: Date | undefined;
     /** The name of the item. Read-write. */
-    name?: string | undefined;
+    public name?: string | undefined;
     /** Parent information, if the item has a parent. Read-write. */
-    parentReference?: ItemReference | undefined;
+    public parentReference?: ItemReference | undefined;
     /** URL that displays the resource in the browser. Read-only. */
-    webUrl?: string | undefined;
+    public webUrl?: string | undefined;
     /**
      * Instantiates a new baseItem and sets the default values.
      * @param baseItemParameterValue 
@@ -76,47 +77,36 @@ export class BaseItemImpl extends EntityImpl implements BaseItem, Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.createdBy){
-        if(this.createdBy)
         writer.writeObjectValue<IdentitySetImpl>("createdBy", new IdentitySetImpl(this.createdBy));
         }
         if(this.createdByUser){
-        if(this.createdByUser)
         writer.writeObjectValue<UserImpl>("createdByUser", new UserImpl(this.createdByUser));
         }
         if(this.createdDateTime){
-        if(this.createdDateTime)
         writer.writeDateValue("createdDateTime", this.createdDateTime);
         }
         if(this.description){
-        if(this.description)
         writer.writeStringValue("description", this.description);
         }
         if(this.eTag){
-        if(this.eTag)
         writer.writeStringValue("eTag", this.eTag);
         }
         if(this.lastModifiedBy){
-        if(this.lastModifiedBy)
         writer.writeObjectValue<IdentitySetImpl>("lastModifiedBy", new IdentitySetImpl(this.lastModifiedBy));
         }
         if(this.lastModifiedByUser){
-        if(this.lastModifiedByUser)
         writer.writeObjectValue<UserImpl>("lastModifiedByUser", new UserImpl(this.lastModifiedByUser));
         }
         if(this.lastModifiedDateTime){
-        if(this.lastModifiedDateTime)
         writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
         }
         if(this.name){
-        if(this.name)
         writer.writeStringValue("name", this.name);
         }
         if(this.parentReference){
-        if(this.parentReference)
         writer.writeObjectValue<ItemReferenceImpl>("parentReference", new ItemReferenceImpl(this.parentReference));
         }
         if(this.webUrl){
-        if(this.webUrl)
         writer.writeStringValue("webUrl", this.webUrl);
         }
     };

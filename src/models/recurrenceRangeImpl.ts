@@ -4,24 +4,23 @@ import {AdditionalDataHolder, DateOnly, Parsable, ParseNode, SerializationWriter
 
 export class RecurrenceRangeImpl implements AdditionalDataHolder, Parsable, RecurrenceRange {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The date to stop applying the recurrence pattern. Depending on the recurrence pattern of the event, the last occurrence of the meeting may not be this date. Required if type is endDate. */
-    endDate?: DateOnly | undefined;
+    public endDate?: DateOnly | undefined;
     /** The number of times to repeat the event. Required and must be positive if type is numbered. */
-    numberOfOccurrences?: number | undefined;
+    public numberOfOccurrences?: number | undefined;
     /** Time zone for the startDate and endDate properties. Optional. If not specified, the time zone of the event is used. */
-    recurrenceTimeZone?: string | undefined;
+    public recurrenceTimeZone?: string | undefined;
     /** The date to start applying the recurrence pattern. The first occurrence of the meeting may be this date or later, depending on the recurrence pattern of the event. Must be the same value as the start property of the recurring event. Required. */
-    startDate?: DateOnly | undefined;
+    public startDate?: DateOnly | undefined;
     /** The recurrence range. Possible values are: endDate, noEnd, numbered. Required. */
-    type?: RecurrenceRangeType | undefined;
+    public type?: RecurrenceRangeType | undefined;
     /**
      * Instantiates a new recurrenceRange and sets the default values.
      * @param recurrenceRangeParameterValue 
      */
     public constructor(recurrenceRangeParameterValue?: RecurrenceRange | undefined) {
-        this.additionalData = {};
-        this.additionalData = recurrenceRangeParameterValue?.additionalData ? {} : recurrenceRangeParameterValue?.additionalData!
+        this.additionalData = recurrenceRangeParameterValue?.additionalData ? recurrenceRangeParameterValue?.additionalData! : {}
         this.endDate = recurrenceRangeParameterValue?.endDate ;
         this.numberOfOccurrences = recurrenceRangeParameterValue?.numberOfOccurrences ;
         this.recurrenceTimeZone = recurrenceRangeParameterValue?.recurrenceTimeZone ;
@@ -48,23 +47,18 @@ export class RecurrenceRangeImpl implements AdditionalDataHolder, Parsable, Recu
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.endDate){
-        if(this.endDate)
         writer.writeDateOnlyValue("endDate", this.endDate);
         }
         if(this.numberOfOccurrences){
-        if(this.numberOfOccurrences)
         writer.writeNumberValue("numberOfOccurrences", this.numberOfOccurrences);
         }
         if(this.recurrenceTimeZone){
-        if(this.recurrenceTimeZone)
         writer.writeStringValue("recurrenceTimeZone", this.recurrenceTimeZone);
         }
         if(this.startDate){
-        if(this.startDate)
         writer.writeDateOnlyValue("startDate", this.startDate);
         }
         if(this.type){
-        if(this.type)
         writer.writeEnumValue<RecurrenceRangeType>("type", this.type);
         }
         writer.writeAdditionalData(this.additionalData);

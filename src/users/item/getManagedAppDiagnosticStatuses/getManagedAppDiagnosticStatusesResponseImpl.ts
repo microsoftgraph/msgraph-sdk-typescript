@@ -7,16 +7,15 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Provides operations to call the getManagedAppDiagnosticStatuses method. */
 export class GetManagedAppDiagnosticStatusesResponseImpl implements AdditionalDataHolder, GetManagedAppDiagnosticStatusesResponse, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The value property */
-    value?: ManagedAppDiagnosticStatus[] | undefined;
+    public value?: ManagedAppDiagnosticStatus[] | undefined;
     /**
      * Instantiates a new getManagedAppDiagnosticStatusesResponse and sets the default values.
      * @param getManagedAppDiagnosticStatusesResponseParameterValue 
      */
     public constructor(getManagedAppDiagnosticStatusesResponseParameterValue?: GetManagedAppDiagnosticStatusesResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = getManagedAppDiagnosticStatusesResponseParameterValue?.additionalData ? {} : getManagedAppDiagnosticStatusesResponseParameterValue?.additionalData!
+        this.additionalData = getManagedAppDiagnosticStatusesResponseParameterValue?.additionalData ? getManagedAppDiagnosticStatusesResponseParameterValue?.additionalData! : {}
         this.value = getManagedAppDiagnosticStatusesResponseParameterValue?.value ;
     };
     /**
@@ -34,8 +33,7 @@ export class GetManagedAppDiagnosticStatusesResponseImpl implements AdditionalDa
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        if(this.value){
-        const valueArrValue: ManagedAppDiagnosticStatusImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ManagedAppDiagnosticStatusImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: ManagedAppDiagnosticStatusImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ManagedAppDiagnosticStatusImpl(element));});
         writer.writeCollectionOfObjectValues<ManagedAppDiagnosticStatusImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

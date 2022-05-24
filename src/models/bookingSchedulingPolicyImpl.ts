@@ -4,24 +4,23 @@ import {AdditionalDataHolder, Duration, Parsable, ParseNode, SerializationWriter
 /** This type represents the set of policies that dictate how bookings can be created in a Booking Calendar. */
 export class BookingSchedulingPolicyImpl implements AdditionalDataHolder, BookingSchedulingPolicy, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** True if to allow customers to choose a specific person for the booking. */
-    allowStaffSelection?: boolean | undefined;
+    public allowStaffSelection?: boolean | undefined;
     /** Maximum number of days in advance that a booking can be made. It follows the ISO 8601 format. */
-    maximumAdvance?: Duration | undefined;
+    public maximumAdvance?: Duration | undefined;
     /** The minimum amount of time before which bookings and cancellations must be made. It follows the ISO 8601 format. */
-    minimumLeadTime?: Duration | undefined;
+    public minimumLeadTime?: Duration | undefined;
     /** True to notify the business via email when a booking is created or changed. Use the email address specified in the email property of the bookingBusiness entity for the business. */
-    sendConfirmationsToOwner?: boolean | undefined;
+    public sendConfirmationsToOwner?: boolean | undefined;
     /** Duration of each time slot, denoted in ISO 8601 format. */
-    timeSlotInterval?: Duration | undefined;
+    public timeSlotInterval?: Duration | undefined;
     /**
      * Instantiates a new bookingSchedulingPolicy and sets the default values.
      * @param bookingSchedulingPolicyParameterValue 
      */
     public constructor(bookingSchedulingPolicyParameterValue?: BookingSchedulingPolicy | undefined) {
-        this.additionalData = {};
-        this.additionalData = bookingSchedulingPolicyParameterValue?.additionalData ? {} : bookingSchedulingPolicyParameterValue?.additionalData!
+        this.additionalData = bookingSchedulingPolicyParameterValue?.additionalData ? bookingSchedulingPolicyParameterValue?.additionalData! : {}
         this.allowStaffSelection = bookingSchedulingPolicyParameterValue?.allowStaffSelection ;
         this.maximumAdvance = bookingSchedulingPolicyParameterValue?.maximumAdvance ;
         this.minimumLeadTime = bookingSchedulingPolicyParameterValue?.minimumLeadTime ;
@@ -48,23 +47,18 @@ export class BookingSchedulingPolicyImpl implements AdditionalDataHolder, Bookin
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.allowStaffSelection){
-        if(this.allowStaffSelection)
         writer.writeBooleanValue("allowStaffSelection", this.allowStaffSelection);
         }
         if(this.maximumAdvance){
-        if(this.maximumAdvance)
         writer.writeDurationValue("maximumAdvance", this.maximumAdvance);
         }
         if(this.minimumLeadTime){
-        if(this.minimumLeadTime)
         writer.writeDurationValue("minimumLeadTime", this.minimumLeadTime);
         }
         if(this.sendConfirmationsToOwner){
-        if(this.sendConfirmationsToOwner)
         writer.writeBooleanValue("sendConfirmationsToOwner", this.sendConfirmationsToOwner);
         }
         if(this.timeSlotInterval){
-        if(this.timeSlotInterval)
         writer.writeDurationValue("timeSlotInterval", this.timeSlotInterval);
         }
         writer.writeAdditionalData(this.additionalData);

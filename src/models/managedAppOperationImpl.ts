@@ -2,15 +2,16 @@ import {EntityImpl} from './index';
 import {ManagedAppOperation} from './managedAppOperation';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Represents an operation applied against an app registration. */
 export class ManagedAppOperationImpl extends EntityImpl implements ManagedAppOperation, Parsable {
     /** The operation name. */
-    displayName?: string | undefined;
+    public displayName?: string | undefined;
     /** The last time the app operation was modified. */
-    lastModifiedDateTime?: Date | undefined;
+    public lastModifiedDateTime?: Date | undefined;
     /** The current state of the operation */
-    state?: string | undefined;
+    public state?: string | undefined;
     /** Version of the entity. */
-    version?: string | undefined;
+    public version?: string | undefined;
     /**
      * Instantiates a new managedAppOperation and sets the default values.
      * @param managedAppOperationParameterValue 
@@ -42,19 +43,15 @@ export class ManagedAppOperationImpl extends EntityImpl implements ManagedAppOpe
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.displayName){
-        if(this.displayName)
         writer.writeStringValue("displayName", this.displayName);
         }
         if(this.lastModifiedDateTime){
-        if(this.lastModifiedDateTime)
         writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
         }
         if(this.state){
-        if(this.state)
         writer.writeStringValue("state", this.state);
         }
         if(this.version){
-        if(this.version)
         writer.writeStringValue("version", this.version);
         }
     };

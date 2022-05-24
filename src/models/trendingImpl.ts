@@ -8,17 +8,18 @@ import {ResourceVisualization} from './resourceVisualization';
 import {Trending} from './trending';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to user. */
 export class TrendingImpl extends EntityImpl implements Parsable, Trending {
     /** The lastModifiedDateTime property */
-    lastModifiedDateTime?: Date | undefined;
+    public lastModifiedDateTime?: Date | undefined;
     /** Used for navigating to the trending document. */
-    resource?: Entity | undefined;
+    public resource?: Entity | undefined;
     /** Reference properties of the trending document, such as the url and type of the document. */
-    resourceReference?: ResourceReference | undefined;
+    public resourceReference?: ResourceReference | undefined;
     /** Properties that you can use to visualize the document in your experience. */
-    resourceVisualization?: ResourceVisualization | undefined;
+    public resourceVisualization?: ResourceVisualization | undefined;
     /** Value indicating how much the document is currently trending. The larger the number, the more the document is currently trending around the user (the more relevant it is). Returned documents are sorted by this value. */
-    weight?: number | undefined;
+    public weight?: number | undefined;
     /**
      * Instantiates a new trending and sets the default values.
      * @param trendingParameterValue 
@@ -52,23 +53,18 @@ export class TrendingImpl extends EntityImpl implements Parsable, Trending {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.lastModifiedDateTime){
-        if(this.lastModifiedDateTime)
         writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
         }
         if(this.resource){
-        if(this.resource)
         writer.writeObjectValue<EntityImpl>("resource", new EntityImpl(this.resource));
         }
         if(this.resourceReference){
-        if(this.resourceReference)
         writer.writeObjectValue<ResourceReferenceImpl>("resourceReference", new ResourceReferenceImpl(this.resourceReference));
         }
         if(this.resourceVisualization){
-        if(this.resourceVisualization)
         writer.writeObjectValue<ResourceVisualizationImpl>("resourceVisualization", new ResourceVisualizationImpl(this.resourceVisualization));
         }
         if(this.weight){
-        if(this.weight)
         writer.writeNumberValue("weight", this.weight);
         }
     };

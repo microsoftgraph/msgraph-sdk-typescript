@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class AccessReviewScheduleDefinitionCollectionResponseImpl implements AccessReviewScheduleDefinitionCollectionResponse, AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: AccessReviewScheduleDefinition[] | undefined;
+    public value?: AccessReviewScheduleDefinition[] | undefined;
     /**
      * Instantiates a new AccessReviewScheduleDefinitionCollectionResponse and sets the default values.
      * @param accessReviewScheduleDefinitionCollectionResponseParameterValue 
      */
     public constructor(accessReviewScheduleDefinitionCollectionResponseParameterValue?: AccessReviewScheduleDefinitionCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = accessReviewScheduleDefinitionCollectionResponseParameterValue?.additionalData ? {} : accessReviewScheduleDefinitionCollectionResponseParameterValue?.additionalData!
+        this.additionalData = accessReviewScheduleDefinitionCollectionResponseParameterValue?.additionalData ? accessReviewScheduleDefinitionCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = accessReviewScheduleDefinitionCollectionResponseParameterValue?.nextLink ;
         this.value = accessReviewScheduleDefinitionCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class AccessReviewScheduleDefinitionCollectionResponseImpl implements Acc
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: AccessReviewScheduleDefinitionImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new AccessReviewScheduleDefinitionImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: AccessReviewScheduleDefinitionImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new AccessReviewScheduleDefinitionImpl(element));});
         writer.writeCollectionOfObjectValues<AccessReviewScheduleDefinitionImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class TermCollectionResponseImpl implements AdditionalDataHolder, Parsable, TermCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: Term[] | undefined;
+    public value?: Term[] | undefined;
     /**
      * Instantiates a new TermCollectionResponse and sets the default values.
      * @param termCollectionResponseParameterValue 
      */
     public constructor(termCollectionResponseParameterValue?: TermCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = termCollectionResponseParameterValue?.additionalData ? {} : termCollectionResponseParameterValue?.additionalData!
+        this.additionalData = termCollectionResponseParameterValue?.additionalData ? termCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = termCollectionResponseParameterValue?.nextLink ;
         this.value = termCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class TermCollectionResponseImpl implements AdditionalDataHolder, Parsabl
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: TermImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new TermImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: TermImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new TermImpl(element));});
         writer.writeCollectionOfObjectValues<TermImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

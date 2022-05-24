@@ -4,23 +4,24 @@ import {DeviceManagementPartnerTenantState} from './deviceManagementPartnerTenan
 import {EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Entity which represents a connection to device management partner. */
 export class DeviceManagementPartnerImpl extends EntityImpl implements DeviceManagementPartner, Parsable {
     /** Partner display name */
-    displayName?: string | undefined;
+    public displayName?: string | undefined;
     /** Whether device management partner is configured or not */
-    isConfigured?: boolean | undefined;
+    public isConfigured?: boolean | undefined;
     /** Timestamp of last heartbeat after admin enabled option Connect to Device management Partner */
-    lastHeartbeatDateTime?: Date | undefined;
+    public lastHeartbeatDateTime?: Date | undefined;
     /** Partner App type. Possible values are: unknown, singleTenantApp, multiTenantApp. */
-    partnerAppType?: DeviceManagementPartnerAppType | undefined;
+    public partnerAppType?: DeviceManagementPartnerAppType | undefined;
     /** Partner state of this tenant. Possible values are: unknown, unavailable, enabled, terminated, rejected, unresponsive. */
-    partnerState?: DeviceManagementPartnerTenantState | undefined;
+    public partnerState?: DeviceManagementPartnerTenantState | undefined;
     /** Partner Single tenant App id */
-    singleTenantAppId?: string | undefined;
+    public singleTenantAppId?: string | undefined;
     /** DateTime in UTC when PartnerDevices will be marked as NonCompliant */
-    whenPartnerDevicesWillBeMarkedAsNonCompliantDateTime?: Date | undefined;
+    public whenPartnerDevicesWillBeMarkedAsNonCompliantDateTime?: Date | undefined;
     /** DateTime in UTC when PartnerDevices will be removed */
-    whenPartnerDevicesWillBeRemovedDateTime?: Date | undefined;
+    public whenPartnerDevicesWillBeRemovedDateTime?: Date | undefined;
     /**
      * Instantiates a new deviceManagementPartner and sets the default values.
      * @param deviceManagementPartnerParameterValue 
@@ -60,35 +61,27 @@ export class DeviceManagementPartnerImpl extends EntityImpl implements DeviceMan
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.displayName){
-        if(this.displayName)
         writer.writeStringValue("displayName", this.displayName);
         }
         if(this.isConfigured){
-        if(this.isConfigured)
         writer.writeBooleanValue("isConfigured", this.isConfigured);
         }
         if(this.lastHeartbeatDateTime){
-        if(this.lastHeartbeatDateTime)
         writer.writeDateValue("lastHeartbeatDateTime", this.lastHeartbeatDateTime);
         }
         if(this.partnerAppType){
-        if(this.partnerAppType)
         writer.writeEnumValue<DeviceManagementPartnerAppType>("partnerAppType", this.partnerAppType);
         }
         if(this.partnerState){
-        if(this.partnerState)
         writer.writeEnumValue<DeviceManagementPartnerTenantState>("partnerState", this.partnerState);
         }
         if(this.singleTenantAppId){
-        if(this.singleTenantAppId)
         writer.writeStringValue("singleTenantAppId", this.singleTenantAppId);
         }
         if(this.whenPartnerDevicesWillBeMarkedAsNonCompliantDateTime){
-        if(this.whenPartnerDevicesWillBeMarkedAsNonCompliantDateTime)
         writer.writeDateValue("whenPartnerDevicesWillBeMarkedAsNonCompliantDateTime", this.whenPartnerDevicesWillBeMarkedAsNonCompliantDateTime);
         }
         if(this.whenPartnerDevicesWillBeRemovedDateTime){
-        if(this.whenPartnerDevicesWillBeRemovedDateTime)
         writer.writeDateValue("whenPartnerDevicesWillBeRemovedDateTime", this.whenPartnerDevicesWillBeRemovedDateTime);
         }
     };

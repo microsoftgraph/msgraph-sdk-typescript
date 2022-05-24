@@ -3,20 +3,19 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class AlertDetectionImpl implements AdditionalDataHolder, AlertDetection, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The detectionType property */
-    detectionType?: string | undefined;
+    public detectionType?: string | undefined;
     /** The method property */
-    method?: string | undefined;
+    public method?: string | undefined;
     /** The name property */
-    name?: string | undefined;
+    public name?: string | undefined;
     /**
      * Instantiates a new alertDetection and sets the default values.
      * @param alertDetectionParameterValue 
      */
     public constructor(alertDetectionParameterValue?: AlertDetection | undefined) {
-        this.additionalData = {};
-        this.additionalData = alertDetectionParameterValue?.additionalData ? {} : alertDetectionParameterValue?.additionalData!
+        this.additionalData = alertDetectionParameterValue?.additionalData ? alertDetectionParameterValue?.additionalData! : {}
         this.detectionType = alertDetectionParameterValue?.detectionType ;
         this.method = alertDetectionParameterValue?.method ;
         this.name = alertDetectionParameterValue?.name ;
@@ -39,15 +38,12 @@ export class AlertDetectionImpl implements AdditionalDataHolder, AlertDetection,
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.detectionType){
-        if(this.detectionType)
         writer.writeStringValue("detectionType", this.detectionType);
         }
         if(this.method){
-        if(this.method)
         writer.writeStringValue("method", this.method);
         }
         if(this.name){
-        if(this.name)
         writer.writeStringValue("name", this.name);
         }
         writer.writeAdditionalData(this.additionalData);

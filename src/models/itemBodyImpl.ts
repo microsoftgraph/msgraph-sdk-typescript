@@ -4,18 +4,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class ItemBodyImpl implements AdditionalDataHolder, ItemBody, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The content of the item. */
-    content?: string | undefined;
+    public content?: string | undefined;
     /** The type of the content. Possible values are text and html. */
-    contentType?: BodyType | undefined;
+    public contentType?: BodyType | undefined;
     /**
      * Instantiates a new itemBody and sets the default values.
      * @param itemBodyParameterValue 
      */
     public constructor(itemBodyParameterValue?: ItemBody | undefined) {
-        this.additionalData = {};
-        this.additionalData = itemBodyParameterValue?.additionalData ? {} : itemBodyParameterValue?.additionalData!
+        this.additionalData = itemBodyParameterValue?.additionalData ? itemBodyParameterValue?.additionalData! : {}
         this.content = itemBodyParameterValue?.content ;
         this.contentType = itemBodyParameterValue?.contentType ;
     };
@@ -36,11 +35,9 @@ export class ItemBodyImpl implements AdditionalDataHolder, ItemBody, Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.content){
-        if(this.content)
         writer.writeStringValue("content", this.content);
         }
         if(this.contentType){
-        if(this.contentType)
         writer.writeEnumValue<BodyType>("contentType", this.contentType);
         }
         writer.writeAdditionalData(this.additionalData);

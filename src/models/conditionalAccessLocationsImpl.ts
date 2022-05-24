@@ -3,18 +3,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class ConditionalAccessLocationsImpl implements AdditionalDataHolder, ConditionalAccessLocations, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** Location IDs excluded from scope of policy. */
-    excludeLocations?: string[] | undefined;
+    public excludeLocations?: string[] | undefined;
     /** Location IDs in scope of policy unless explicitly excluded, All, or AllTrusted. */
-    includeLocations?: string[] | undefined;
+    public includeLocations?: string[] | undefined;
     /**
      * Instantiates a new conditionalAccessLocations and sets the default values.
      * @param conditionalAccessLocationsParameterValue 
      */
     public constructor(conditionalAccessLocationsParameterValue?: ConditionalAccessLocations | undefined) {
-        this.additionalData = {};
-        this.additionalData = conditionalAccessLocationsParameterValue?.additionalData ? {} : conditionalAccessLocationsParameterValue?.additionalData!
+        this.additionalData = conditionalAccessLocationsParameterValue?.additionalData ? conditionalAccessLocationsParameterValue?.additionalData! : {}
         this.excludeLocations = conditionalAccessLocationsParameterValue?.excludeLocations ;
         this.includeLocations = conditionalAccessLocationsParameterValue?.includeLocations ;
     };
@@ -35,11 +34,9 @@ export class ConditionalAccessLocationsImpl implements AdditionalDataHolder, Con
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.excludeLocations){
-        if(this.excludeLocations)
         writer.writeCollectionOfPrimitiveValues<string>("excludeLocations", this.excludeLocations);
         }
         if(this.includeLocations){
-        if(this.includeLocations)
         writer.writeCollectionOfPrimitiveValues<string>("includeLocations", this.includeLocations);
         }
         writer.writeAdditionalData(this.additionalData);

@@ -2,9 +2,10 @@ import {ScheduleEntityImpl} from './index';
 import {TimeOffItem} from './timeOffItem';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to group. */
 export class TimeOffItemImpl extends ScheduleEntityImpl implements Parsable, TimeOffItem {
     /** ID of the timeOffReason for this timeOffItem. Required. */
-    timeOffReasonId?: string | undefined;
+    public timeOffReasonId?: string | undefined;
     /**
      * Instantiates a new timeOffItem and sets the default values.
      * @param timeOffItemParameterValue 
@@ -30,7 +31,6 @@ export class TimeOffItemImpl extends ScheduleEntityImpl implements Parsable, Tim
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.timeOffReasonId){
-        if(this.timeOffReasonId)
         writer.writeStringValue("timeOffReasonId", this.timeOffReasonId);
         }
     };

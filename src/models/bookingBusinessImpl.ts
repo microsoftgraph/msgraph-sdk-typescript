@@ -18,41 +18,42 @@ import {BookingAppointmentImpl, BookingCustomerBaseImpl, BookingCustomQuestionIm
 import {PhysicalAddress} from './physicalAddress';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Represents a Microsot Bookings Business. */
 export class BookingBusinessImpl extends EntityImpl implements BookingBusiness, Parsable {
     /** The street address of the business. The address property, together with phone and webSiteUrl, appear in the footer of a business scheduling page. */
-    address?: PhysicalAddress | undefined;
+    public address?: PhysicalAddress | undefined;
     /** All the appointments of this business. Read-only. Nullable. */
-    appointments?: BookingAppointment[] | undefined;
+    public appointments?: BookingAppointment[] | undefined;
     /** The hours of operation for the business. */
-    businessHours?: BookingWorkHours[] | undefined;
+    public businessHours?: BookingWorkHours[] | undefined;
     /** The type of business. */
-    businessType?: string | undefined;
+    public businessType?: string | undefined;
     /** The set of appointments of this business in a specified date range. Read-only. Nullable. */
-    calendarView?: BookingAppointment[] | undefined;
+    public calendarView?: BookingAppointment[] | undefined;
     /** All the customers of this business. Read-only. Nullable. */
-    customers?: BookingCustomerBase[] | undefined;
+    public customers?: BookingCustomerBase[] | undefined;
     /** All the custom questions of this business. Read-only. Nullable. */
-    customQuestions?: BookingCustomQuestion[] | undefined;
+    public customQuestions?: BookingCustomQuestion[] | undefined;
     /** The code for the currency that the business operates in on Microsoft Bookings. */
-    defaultCurrencyIso?: string | undefined;
+    public defaultCurrencyIso?: string | undefined;
     /** The name of the business, which interfaces with customers. This name appears at the top of the business scheduling page. */
-    displayName?: string | undefined;
+    public displayName?: string | undefined;
     /** The email address for the business. */
-    email?: string | undefined;
+    public email?: string | undefined;
     /** The scheduling page has been made available to external customers. Use the publish and unpublish actions to set this property. Read-only. */
-    isPublished?: boolean | undefined;
+    public isPublished?: boolean | undefined;
     /** The telephone number for the business. The phone property, together with address and webSiteUrl, appear in the footer of a business scheduling page. */
-    phone?: string | undefined;
+    public phone?: string | undefined;
     /** The URL for the scheduling page, which is set after you publish or unpublish the page. Read-only. */
-    publicUrl?: string | undefined;
+    public publicUrl?: string | undefined;
     /** Specifies how bookings can be created for this business. */
-    schedulingPolicy?: BookingSchedulingPolicy | undefined;
+    public schedulingPolicy?: BookingSchedulingPolicy | undefined;
     /** All the services offered by this business. Read-only. Nullable. */
-    services?: BookingService[] | undefined;
+    public services?: BookingService[] | undefined;
     /** All the staff members that provide services in this business. Read-only. Nullable. */
-    staffMembers?: BookingStaffMemberBase[] | undefined;
+    public staffMembers?: BookingStaffMemberBase[] | undefined;
     /** The URL of the business web site. The webSiteUrl property, together with address, phone, appear in the footer of a business scheduling page. */
-    webSiteUrl?: string | undefined;
+    public webSiteUrl?: string | undefined;
     /**
      * Instantiates a new bookingBusiness and sets the default values.
      * @param bookingBusinessParameterValue 
@@ -110,71 +111,54 @@ export class BookingBusinessImpl extends EntityImpl implements BookingBusiness, 
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.address){
-        if(this.address)
         writer.writeObjectValue<PhysicalAddressImpl>("address", new PhysicalAddressImpl(this.address));
         }
-        if(this.appointments){
-        const appointmentsArrValue: BookingAppointmentImpl[] = []; this.appointments?.forEach(element => {appointmentsArrValue.push(new BookingAppointmentImpl(element));});
+        if(this.appointments && this.appointments.length != 0){        const appointmentsArrValue: BookingAppointmentImpl[] = []; this.appointments?.forEach(element => {appointmentsArrValue.push(new BookingAppointmentImpl(element));});
         writer.writeCollectionOfObjectValues<BookingAppointmentImpl>("appointments", appointmentsArrValue);
         }
-        if(this.businessHours){
-        const businessHoursArrValue: BookingWorkHoursImpl[] = []; this.businessHours?.forEach(element => {businessHoursArrValue.push(new BookingWorkHoursImpl(element));});
+        if(this.businessHours && this.businessHours.length != 0){        const businessHoursArrValue: BookingWorkHoursImpl[] = []; this.businessHours?.forEach(element => {businessHoursArrValue.push(new BookingWorkHoursImpl(element));});
         writer.writeCollectionOfObjectValues<BookingWorkHoursImpl>("businessHours", businessHoursArrValue);
         }
         if(this.businessType){
-        if(this.businessType)
         writer.writeStringValue("businessType", this.businessType);
         }
-        if(this.calendarView){
-        const calendarViewArrValue: BookingAppointmentImpl[] = []; this.calendarView?.forEach(element => {calendarViewArrValue.push(new BookingAppointmentImpl(element));});
+        if(this.calendarView && this.calendarView.length != 0){        const calendarViewArrValue: BookingAppointmentImpl[] = []; this.calendarView?.forEach(element => {calendarViewArrValue.push(new BookingAppointmentImpl(element));});
         writer.writeCollectionOfObjectValues<BookingAppointmentImpl>("calendarView", calendarViewArrValue);
         }
-        if(this.customers){
-        const customersArrValue: BookingCustomerBaseImpl[] = []; this.customers?.forEach(element => {customersArrValue.push(new BookingCustomerBaseImpl(element));});
+        if(this.customers && this.customers.length != 0){        const customersArrValue: BookingCustomerBaseImpl[] = []; this.customers?.forEach(element => {customersArrValue.push(new BookingCustomerBaseImpl(element));});
         writer.writeCollectionOfObjectValues<BookingCustomerBaseImpl>("customers", customersArrValue);
         }
-        if(this.customQuestions){
-        const customQuestionsArrValue: BookingCustomQuestionImpl[] = []; this.customQuestions?.forEach(element => {customQuestionsArrValue.push(new BookingCustomQuestionImpl(element));});
+        if(this.customQuestions && this.customQuestions.length != 0){        const customQuestionsArrValue: BookingCustomQuestionImpl[] = []; this.customQuestions?.forEach(element => {customQuestionsArrValue.push(new BookingCustomQuestionImpl(element));});
         writer.writeCollectionOfObjectValues<BookingCustomQuestionImpl>("customQuestions", customQuestionsArrValue);
         }
         if(this.defaultCurrencyIso){
-        if(this.defaultCurrencyIso)
         writer.writeStringValue("defaultCurrencyIso", this.defaultCurrencyIso);
         }
         if(this.displayName){
-        if(this.displayName)
         writer.writeStringValue("displayName", this.displayName);
         }
         if(this.email){
-        if(this.email)
         writer.writeStringValue("email", this.email);
         }
         if(this.isPublished){
-        if(this.isPublished)
         writer.writeBooleanValue("isPublished", this.isPublished);
         }
         if(this.phone){
-        if(this.phone)
         writer.writeStringValue("phone", this.phone);
         }
         if(this.publicUrl){
-        if(this.publicUrl)
         writer.writeStringValue("publicUrl", this.publicUrl);
         }
         if(this.schedulingPolicy){
-        if(this.schedulingPolicy)
         writer.writeObjectValue<BookingSchedulingPolicyImpl>("schedulingPolicy", new BookingSchedulingPolicyImpl(this.schedulingPolicy));
         }
-        if(this.services){
-        const servicesArrValue: BookingServiceImpl[] = []; this.services?.forEach(element => {servicesArrValue.push(new BookingServiceImpl(element));});
+        if(this.services && this.services.length != 0){        const servicesArrValue: BookingServiceImpl[] = []; this.services?.forEach(element => {servicesArrValue.push(new BookingServiceImpl(element));});
         writer.writeCollectionOfObjectValues<BookingServiceImpl>("services", servicesArrValue);
         }
-        if(this.staffMembers){
-        const staffMembersArrValue: BookingStaffMemberBaseImpl[] = []; this.staffMembers?.forEach(element => {staffMembersArrValue.push(new BookingStaffMemberBaseImpl(element));});
+        if(this.staffMembers && this.staffMembers.length != 0){        const staffMembersArrValue: BookingStaffMemberBaseImpl[] = []; this.staffMembers?.forEach(element => {staffMembersArrValue.push(new BookingStaffMemberBaseImpl(element));});
         writer.writeCollectionOfObjectValues<BookingStaffMemberBaseImpl>("staffMembers", staffMembersArrValue);
         }
         if(this.webSiteUrl){
-        if(this.webSiteUrl)
         writer.writeStringValue("webSiteUrl", this.webSiteUrl);
         }
     };

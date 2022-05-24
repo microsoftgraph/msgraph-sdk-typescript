@@ -3,14 +3,13 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class EducationSubmissionRecipientImpl implements AdditionalDataHolder, EducationSubmissionRecipient, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /**
      * Instantiates a new educationSubmissionRecipient and sets the default values.
      * @param educationSubmissionRecipientParameterValue 
      */
     public constructor(educationSubmissionRecipientParameterValue?: EducationSubmissionRecipient | undefined) {
-        this.additionalData = {};
-        this.additionalData = educationSubmissionRecipientParameterValue?.additionalData ? {} : educationSubmissionRecipientParameterValue?.additionalData!
+        this.additionalData = educationSubmissionRecipientParameterValue?.additionalData ? educationSubmissionRecipientParameterValue?.additionalData! : {}
     };
     /**
      * The deserialization information for the current model

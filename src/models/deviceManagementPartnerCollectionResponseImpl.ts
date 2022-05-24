@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class DeviceManagementPartnerCollectionResponseImpl implements AdditionalDataHolder, DeviceManagementPartnerCollectionResponse, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: DeviceManagementPartner[] | undefined;
+    public value?: DeviceManagementPartner[] | undefined;
     /**
      * Instantiates a new DeviceManagementPartnerCollectionResponse and sets the default values.
      * @param deviceManagementPartnerCollectionResponseParameterValue 
      */
     public constructor(deviceManagementPartnerCollectionResponseParameterValue?: DeviceManagementPartnerCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = deviceManagementPartnerCollectionResponseParameterValue?.additionalData ? {} : deviceManagementPartnerCollectionResponseParameterValue?.additionalData!
+        this.additionalData = deviceManagementPartnerCollectionResponseParameterValue?.additionalData ? deviceManagementPartnerCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = deviceManagementPartnerCollectionResponseParameterValue?.nextLink ;
         this.value = deviceManagementPartnerCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class DeviceManagementPartnerCollectionResponseImpl implements Additional
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: DeviceManagementPartnerImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new DeviceManagementPartnerImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: DeviceManagementPartnerImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new DeviceManagementPartnerImpl(element));});
         writer.writeCollectionOfObjectValues<DeviceManagementPartnerImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

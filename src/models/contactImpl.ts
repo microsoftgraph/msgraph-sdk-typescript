@@ -14,81 +14,82 @@ import {ProfilePhoto} from './profilePhoto';
 import {SingleValueLegacyExtendedProperty} from './singleValueLegacyExtendedProperty';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to user. */
 export class ContactImpl extends OutlookItemImpl implements Contact, Parsable {
     /** The name of the contact's assistant. */
-    assistantName?: string | undefined;
+    public assistantName?: string | undefined;
     /** The contact's birthday. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
-    birthday?: Date | undefined;
+    public birthday?: Date | undefined;
     /** The contact's business address. */
-    businessAddress?: PhysicalAddress | undefined;
+    public businessAddress?: PhysicalAddress | undefined;
     /** The business home page of the contact. */
-    businessHomePage?: string | undefined;
+    public businessHomePage?: string | undefined;
     /** The contact's business phone numbers. */
-    businessPhones?: string[] | undefined;
+    public businessPhones?: string[] | undefined;
     /** The names of the contact's children. */
-    children?: string[] | undefined;
+    public children?: string[] | undefined;
     /** The name of the contact's company. */
-    companyName?: string | undefined;
+    public companyName?: string | undefined;
     /** The contact's department. */
-    department?: string | undefined;
+    public department?: string | undefined;
     /** The contact's display name. You can specify the display name in a create or update operation. Note that later updates to other properties may cause an automatically generated value to overwrite the displayName value you have specified. To preserve a pre-existing value, always include it as displayName in an update operation. */
-    displayName?: string | undefined;
+    public displayName?: string | undefined;
     /** The contact's email addresses. */
-    emailAddresses?: EmailAddress[] | undefined;
+    public emailAddresses?: EmailAddress[] | undefined;
     /** The collection of open extensions defined for the contact. Nullable. */
-    extensions?: Extension[] | undefined;
+    public extensions?: Extension[] | undefined;
     /** The name the contact is filed under. */
-    fileAs?: string | undefined;
+    public fileAs?: string | undefined;
     /** The contact's generation. */
-    generation?: string | undefined;
+    public generation?: string | undefined;
     /** The contact's given name. */
-    givenName?: string | undefined;
+    public givenName?: string | undefined;
     /** The contact's home address. */
-    homeAddress?: PhysicalAddress | undefined;
+    public homeAddress?: PhysicalAddress | undefined;
     /** The contact's home phone numbers. */
-    homePhones?: string[] | undefined;
+    public homePhones?: string[] | undefined;
     /** The imAddresses property */
-    imAddresses?: string[] | undefined;
+    public imAddresses?: string[] | undefined;
     /** The initials property */
-    initials?: string | undefined;
+    public initials?: string | undefined;
     /** The jobTitle property */
-    jobTitle?: string | undefined;
+    public jobTitle?: string | undefined;
     /** The manager property */
-    manager?: string | undefined;
+    public manager?: string | undefined;
     /** The middleName property */
-    middleName?: string | undefined;
+    public middleName?: string | undefined;
     /** The mobilePhone property */
-    mobilePhone?: string | undefined;
+    public mobilePhone?: string | undefined;
     /** The collection of multi-value extended properties defined for the contact. Read-only. Nullable. */
-    multiValueExtendedProperties?: MultiValueLegacyExtendedProperty[] | undefined;
+    public multiValueExtendedProperties?: MultiValueLegacyExtendedProperty[] | undefined;
     /** The nickName property */
-    nickName?: string | undefined;
+    public nickName?: string | undefined;
     /** The officeLocation property */
-    officeLocation?: string | undefined;
+    public officeLocation?: string | undefined;
     /** The otherAddress property */
-    otherAddress?: PhysicalAddress | undefined;
+    public otherAddress?: PhysicalAddress | undefined;
     /** The parentFolderId property */
-    parentFolderId?: string | undefined;
+    public parentFolderId?: string | undefined;
     /** The personalNotes property */
-    personalNotes?: string | undefined;
+    public personalNotes?: string | undefined;
     /** Optional contact picture. You can get or set a photo for a contact. */
-    photo?: ProfilePhoto | undefined;
+    public photo?: ProfilePhoto | undefined;
     /** The profession property */
-    profession?: string | undefined;
+    public profession?: string | undefined;
     /** The collection of single-value extended properties defined for the contact. Read-only. Nullable. */
-    singleValueExtendedProperties?: SingleValueLegacyExtendedProperty[] | undefined;
+    public singleValueExtendedProperties?: SingleValueLegacyExtendedProperty[] | undefined;
     /** The spouseName property */
-    spouseName?: string | undefined;
+    public spouseName?: string | undefined;
     /** The surname property */
-    surname?: string | undefined;
+    public surname?: string | undefined;
     /** The title property */
-    title?: string | undefined;
+    public title?: string | undefined;
     /** The yomiCompanyName property */
-    yomiCompanyName?: string | undefined;
+    public yomiCompanyName?: string | undefined;
     /** The yomiGivenName property */
-    yomiGivenName?: string | undefined;
+    public yomiGivenName?: string | undefined;
     /** The yomiSurname property */
-    yomiSurname?: string | undefined;
+    public yomiSurname?: string | undefined;
     /**
      * Instantiates a new contact and sets the default values.
      * @param contactParameterValue 
@@ -186,151 +187,114 @@ export class ContactImpl extends OutlookItemImpl implements Contact, Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.assistantName){
-        if(this.assistantName)
         writer.writeStringValue("assistantName", this.assistantName);
         }
         if(this.birthday){
-        if(this.birthday)
         writer.writeDateValue("birthday", this.birthday);
         }
         if(this.businessAddress){
-        if(this.businessAddress)
         writer.writeObjectValue<PhysicalAddressImpl>("businessAddress", new PhysicalAddressImpl(this.businessAddress));
         }
         if(this.businessHomePage){
-        if(this.businessHomePage)
         writer.writeStringValue("businessHomePage", this.businessHomePage);
         }
         if(this.businessPhones){
-        if(this.businessPhones)
         writer.writeCollectionOfPrimitiveValues<string>("businessPhones", this.businessPhones);
         }
         if(this.children){
-        if(this.children)
         writer.writeCollectionOfPrimitiveValues<string>("children", this.children);
         }
         if(this.companyName){
-        if(this.companyName)
         writer.writeStringValue("companyName", this.companyName);
         }
         if(this.department){
-        if(this.department)
         writer.writeStringValue("department", this.department);
         }
         if(this.displayName){
-        if(this.displayName)
         writer.writeStringValue("displayName", this.displayName);
         }
-        if(this.emailAddresses){
-        const emailAddressesArrValue: EmailAddressImpl[] = []; this.emailAddresses?.forEach(element => {emailAddressesArrValue.push(new EmailAddressImpl(element));});
+        if(this.emailAddresses && this.emailAddresses.length != 0){        const emailAddressesArrValue: EmailAddressImpl[] = []; this.emailAddresses?.forEach(element => {emailAddressesArrValue.push(new EmailAddressImpl(element));});
         writer.writeCollectionOfObjectValues<EmailAddressImpl>("emailAddresses", emailAddressesArrValue);
         }
-        if(this.extensions){
-        const extensionsArrValue: ExtensionImpl[] = []; this.extensions?.forEach(element => {extensionsArrValue.push(new ExtensionImpl(element));});
+        if(this.extensions && this.extensions.length != 0){        const extensionsArrValue: ExtensionImpl[] = []; this.extensions?.forEach(element => {extensionsArrValue.push(new ExtensionImpl(element));});
         writer.writeCollectionOfObjectValues<ExtensionImpl>("extensions", extensionsArrValue);
         }
         if(this.fileAs){
-        if(this.fileAs)
         writer.writeStringValue("fileAs", this.fileAs);
         }
         if(this.generation){
-        if(this.generation)
         writer.writeStringValue("generation", this.generation);
         }
         if(this.givenName){
-        if(this.givenName)
         writer.writeStringValue("givenName", this.givenName);
         }
         if(this.homeAddress){
-        if(this.homeAddress)
         writer.writeObjectValue<PhysicalAddressImpl>("homeAddress", new PhysicalAddressImpl(this.homeAddress));
         }
         if(this.homePhones){
-        if(this.homePhones)
         writer.writeCollectionOfPrimitiveValues<string>("homePhones", this.homePhones);
         }
         if(this.imAddresses){
-        if(this.imAddresses)
         writer.writeCollectionOfPrimitiveValues<string>("imAddresses", this.imAddresses);
         }
         if(this.initials){
-        if(this.initials)
         writer.writeStringValue("initials", this.initials);
         }
         if(this.jobTitle){
-        if(this.jobTitle)
         writer.writeStringValue("jobTitle", this.jobTitle);
         }
         if(this.manager){
-        if(this.manager)
         writer.writeStringValue("manager", this.manager);
         }
         if(this.middleName){
-        if(this.middleName)
         writer.writeStringValue("middleName", this.middleName);
         }
         if(this.mobilePhone){
-        if(this.mobilePhone)
         writer.writeStringValue("mobilePhone", this.mobilePhone);
         }
-        if(this.multiValueExtendedProperties){
-        const multiValueExtendedPropertiesArrValue: MultiValueLegacyExtendedPropertyImpl[] = []; this.multiValueExtendedProperties?.forEach(element => {multiValueExtendedPropertiesArrValue.push(new MultiValueLegacyExtendedPropertyImpl(element));});
+        if(this.multiValueExtendedProperties && this.multiValueExtendedProperties.length != 0){        const multiValueExtendedPropertiesArrValue: MultiValueLegacyExtendedPropertyImpl[] = []; this.multiValueExtendedProperties?.forEach(element => {multiValueExtendedPropertiesArrValue.push(new MultiValueLegacyExtendedPropertyImpl(element));});
         writer.writeCollectionOfObjectValues<MultiValueLegacyExtendedPropertyImpl>("multiValueExtendedProperties", multiValueExtendedPropertiesArrValue);
         }
         if(this.nickName){
-        if(this.nickName)
         writer.writeStringValue("nickName", this.nickName);
         }
         if(this.officeLocation){
-        if(this.officeLocation)
         writer.writeStringValue("officeLocation", this.officeLocation);
         }
         if(this.otherAddress){
-        if(this.otherAddress)
         writer.writeObjectValue<PhysicalAddressImpl>("otherAddress", new PhysicalAddressImpl(this.otherAddress));
         }
         if(this.parentFolderId){
-        if(this.parentFolderId)
         writer.writeStringValue("parentFolderId", this.parentFolderId);
         }
         if(this.personalNotes){
-        if(this.personalNotes)
         writer.writeStringValue("personalNotes", this.personalNotes);
         }
         if(this.photo){
-        if(this.photo)
         writer.writeObjectValue<ProfilePhotoImpl>("photo", new ProfilePhotoImpl(this.photo));
         }
         if(this.profession){
-        if(this.profession)
         writer.writeStringValue("profession", this.profession);
         }
-        if(this.singleValueExtendedProperties){
-        const singleValueExtendedPropertiesArrValue: SingleValueLegacyExtendedPropertyImpl[] = []; this.singleValueExtendedProperties?.forEach(element => {singleValueExtendedPropertiesArrValue.push(new SingleValueLegacyExtendedPropertyImpl(element));});
+        if(this.singleValueExtendedProperties && this.singleValueExtendedProperties.length != 0){        const singleValueExtendedPropertiesArrValue: SingleValueLegacyExtendedPropertyImpl[] = []; this.singleValueExtendedProperties?.forEach(element => {singleValueExtendedPropertiesArrValue.push(new SingleValueLegacyExtendedPropertyImpl(element));});
         writer.writeCollectionOfObjectValues<SingleValueLegacyExtendedPropertyImpl>("singleValueExtendedProperties", singleValueExtendedPropertiesArrValue);
         }
         if(this.spouseName){
-        if(this.spouseName)
         writer.writeStringValue("spouseName", this.spouseName);
         }
         if(this.surname){
-        if(this.surname)
         writer.writeStringValue("surname", this.surname);
         }
         if(this.title){
-        if(this.title)
         writer.writeStringValue("title", this.title);
         }
         if(this.yomiCompanyName){
-        if(this.yomiCompanyName)
         writer.writeStringValue("yomiCompanyName", this.yomiCompanyName);
         }
         if(this.yomiGivenName){
-        if(this.yomiGivenName)
         writer.writeStringValue("yomiGivenName", this.yomiGivenName);
         }
         if(this.yomiSurname){
-        if(this.yomiSurname)
         writer.writeStringValue("yomiSurname", this.yomiSurname);
         }
     };

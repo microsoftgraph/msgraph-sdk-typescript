@@ -6,26 +6,25 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class SharingLinkImpl implements AdditionalDataHolder, Parsable, SharingLink {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The app the link is associated with. */
-    application?: Identity | undefined;
+    public application?: Identity | undefined;
     /** If true then the user can only use this link to view the item on the web, and cannot use it to download the contents of the item. Only for OneDrive for Business and SharePoint. */
-    preventsDownload?: boolean | undefined;
+    public preventsDownload?: boolean | undefined;
     /** The scope of the link represented by this permission. Value anonymous indicates the link is usable by anyone, organization indicates the link is only usable for users signed into the same tenant. */
-    scope?: string | undefined;
+    public scope?: string | undefined;
     /** The type of the link created. */
-    type?: string | undefined;
+    public type?: string | undefined;
     /** For embed links, this property contains the HTML code for an <iframe> element that will embed the item in a webpage. */
-    webHtml?: string | undefined;
+    public webHtml?: string | undefined;
     /** A URL that opens the item in the browser on the OneDrive website. */
-    webUrl?: string | undefined;
+    public webUrl?: string | undefined;
     /**
      * Instantiates a new sharingLink and sets the default values.
      * @param sharingLinkParameterValue 
      */
     public constructor(sharingLinkParameterValue?: SharingLink | undefined) {
-        this.additionalData = {};
-        this.additionalData = sharingLinkParameterValue?.additionalData ? {} : sharingLinkParameterValue?.additionalData!
+        this.additionalData = sharingLinkParameterValue?.additionalData ? sharingLinkParameterValue?.additionalData! : {}
         this.application = sharingLinkParameterValue?.application ;
         this.preventsDownload = sharingLinkParameterValue?.preventsDownload ;
         this.scope = sharingLinkParameterValue?.scope ;
@@ -54,27 +53,21 @@ export class SharingLinkImpl implements AdditionalDataHolder, Parsable, SharingL
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.application){
-        if(this.application)
         writer.writeObjectValue<IdentityImpl>("application", new IdentityImpl(this.application));
         }
         if(this.preventsDownload){
-        if(this.preventsDownload)
         writer.writeBooleanValue("preventsDownload", this.preventsDownload);
         }
         if(this.scope){
-        if(this.scope)
         writer.writeStringValue("scope", this.scope);
         }
         if(this.type){
-        if(this.type)
         writer.writeStringValue("type", this.type);
         }
         if(this.webHtml){
-        if(this.webHtml)
         writer.writeStringValue("webHtml", this.webHtml);
         }
         if(this.webUrl){
-        if(this.webUrl)
         writer.writeStringValue("webUrl", this.webUrl);
         }
         writer.writeAdditionalData(this.additionalData);

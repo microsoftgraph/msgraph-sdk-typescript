@@ -9,19 +9,19 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Provides operations to manage the authenticationMethodsPolicy singleton. */
 export class AuthenticationMethodsPolicyImpl extends EntityImpl implements AuthenticationMethodsPolicy, Parsable {
     /** Represents the settings for each authentication method. Automatically expanded on GET /policies/authenticationMethodsPolicy. */
-    authenticationMethodConfigurations?: AuthenticationMethodConfiguration[] | undefined;
+    public authenticationMethodConfigurations?: AuthenticationMethodConfiguration[] | undefined;
     /** A description of the policy. */
-    description?: string | undefined;
+    public description?: string | undefined;
     /** The name of the policy. */
-    displayName?: string | undefined;
+    public displayName?: string | undefined;
     /** The date and time of the last update to the policy. */
-    lastModifiedDateTime?: Date | undefined;
+    public lastModifiedDateTime?: Date | undefined;
     /** The version of the policy in use. */
-    policyVersion?: string | undefined;
+    public policyVersion?: string | undefined;
     /** The reconfirmationInDays property */
-    reconfirmationInDays?: number | undefined;
+    public reconfirmationInDays?: number | undefined;
     /** Enforce registration at sign-in time. This property can be used to remind users to set up targeted authentication methods. */
-    registrationEnforcement?: RegistrationEnforcement | undefined;
+    public registrationEnforcement?: RegistrationEnforcement | undefined;
     /**
      * Instantiates a new authenticationMethodsPolicy and sets the default values.
      * @param authenticationMethodsPolicyParameterValue 
@@ -58,32 +58,25 @@ export class AuthenticationMethodsPolicyImpl extends EntityImpl implements Authe
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.authenticationMethodConfigurations){
-        const authenticationMethodConfigurationsArrValue: AuthenticationMethodConfigurationImpl[] = []; this.authenticationMethodConfigurations?.forEach(element => {authenticationMethodConfigurationsArrValue.push(new AuthenticationMethodConfigurationImpl(element));});
+        if(this.authenticationMethodConfigurations && this.authenticationMethodConfigurations.length != 0){        const authenticationMethodConfigurationsArrValue: AuthenticationMethodConfigurationImpl[] = []; this.authenticationMethodConfigurations?.forEach(element => {authenticationMethodConfigurationsArrValue.push(new AuthenticationMethodConfigurationImpl(element));});
         writer.writeCollectionOfObjectValues<AuthenticationMethodConfigurationImpl>("authenticationMethodConfigurations", authenticationMethodConfigurationsArrValue);
         }
         if(this.description){
-        if(this.description)
         writer.writeStringValue("description", this.description);
         }
         if(this.displayName){
-        if(this.displayName)
         writer.writeStringValue("displayName", this.displayName);
         }
         if(this.lastModifiedDateTime){
-        if(this.lastModifiedDateTime)
         writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
         }
         if(this.policyVersion){
-        if(this.policyVersion)
         writer.writeStringValue("policyVersion", this.policyVersion);
         }
         if(this.reconfirmationInDays){
-        if(this.reconfirmationInDays)
         writer.writeNumberValue("reconfirmationInDays", this.reconfirmationInDays);
         }
         if(this.registrationEnforcement){
-        if(this.registrationEnforcement)
         writer.writeObjectValue<RegistrationEnforcementImpl>("registrationEnforcement", new RegistrationEnforcementImpl(this.registrationEnforcement));
         }
     };

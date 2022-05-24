@@ -4,15 +4,16 @@ import {Thumbnail} from './thumbnail';
 import {ThumbnailSet} from './thumbnailSet';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to user. */
 export class ThumbnailSetImpl extends EntityImpl implements Parsable, ThumbnailSet {
     /** A 1920x1920 scaled thumbnail. */
-    large?: Thumbnail | undefined;
+    public large?: Thumbnail | undefined;
     /** A 176x176 scaled thumbnail. */
-    medium?: Thumbnail | undefined;
+    public medium?: Thumbnail | undefined;
     /** A 48x48 cropped thumbnail. */
-    small?: Thumbnail | undefined;
+    public small?: Thumbnail | undefined;
     /** A custom thumbnail image or the original image used to generate other thumbnails. */
-    source?: Thumbnail | undefined;
+    public source?: Thumbnail | undefined;
     /**
      * Instantiates a new thumbnailSet and sets the default values.
      * @param thumbnailSetParameterValue 
@@ -44,19 +45,15 @@ export class ThumbnailSetImpl extends EntityImpl implements Parsable, ThumbnailS
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.large){
-        if(this.large)
         writer.writeObjectValue<ThumbnailImpl>("large", new ThumbnailImpl(this.large));
         }
         if(this.medium){
-        if(this.medium)
         writer.writeObjectValue<ThumbnailImpl>("medium", new ThumbnailImpl(this.medium));
         }
         if(this.small){
-        if(this.small)
         writer.writeObjectValue<ThumbnailImpl>("small", new ThumbnailImpl(this.small));
         }
         if(this.source){
-        if(this.source)
         writer.writeObjectValue<ThumbnailImpl>("source", new ThumbnailImpl(this.source));
         }
     };

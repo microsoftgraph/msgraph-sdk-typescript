@@ -1,5 +1,4 @@
 import {BaseItemImpl} from '../../../../../../models/';
-import {BaseItem} from '../../../../../../models/baseItem';
 import {createBaseItemFromDiscriminatorValue} from '../../../../../../models/createBaseItemFromDiscriminatorValue';
 import {ODataErrorImpl} from '../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
@@ -50,7 +49,7 @@ export class BaseItemItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of BaseItem
      */
-    public get(requestConfiguration?: BaseItemItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<BaseItem | undefined> {
+    public get(requestConfiguration?: BaseItemItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<BaseItemImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );

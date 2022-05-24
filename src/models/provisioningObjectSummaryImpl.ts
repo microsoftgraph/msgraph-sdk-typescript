@@ -17,39 +17,40 @@ import {ProvisioningStep} from './provisioningStep';
 import {ProvisioningSystem} from './provisioningSystem';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the auditLogRoot singleton. */
 export class ProvisioningObjectSummaryImpl extends EntityImpl implements Parsable, ProvisioningObjectSummary {
     /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
-    activityDateTime?: Date | undefined;
+    public activityDateTime?: Date | undefined;
     /** Unique ID of this change in this cycle. */
-    changeId?: string | undefined;
+    public changeId?: string | undefined;
     /** Unique ID per job iteration. */
-    cycleId?: string | undefined;
+    public cycleId?: string | undefined;
     /** Indicates how long this provisioning action took to finish. Measured in milliseconds. */
-    durationInMilliseconds?: number | undefined;
+    public durationInMilliseconds?: number | undefined;
     /** Details of who initiated this provisioning. */
-    initiatedBy?: Initiator | undefined;
+    public initiatedBy?: Initiator | undefined;
     /** The unique ID for the whole provisioning job. */
-    jobId?: string | undefined;
+    public jobId?: string | undefined;
     /** Details of each property that was modified in this provisioning action on this object. */
-    modifiedProperties?: ModifiedProperty[] | undefined;
+    public modifiedProperties?: ModifiedProperty[] | undefined;
     /** Indicates the activity name or the operation name. Possible values are: create, update, delete, stageddelete, disable, other and unknownFutureValue. For a list of activities logged, refer to Azure AD activity list. */
-    provisioningAction?: ProvisioningAction | undefined;
+    public provisioningAction?: ProvisioningAction | undefined;
     /** Details of provisioning status. */
-    provisioningStatusInfo?: ProvisioningStatusInfo | undefined;
+    public provisioningStatusInfo?: ProvisioningStatusInfo | undefined;
     /** Details of each step in provisioning. */
-    provisioningSteps?: ProvisioningStep[] | undefined;
+    public provisioningSteps?: ProvisioningStep[] | undefined;
     /** Represents the service principal used for provisioning. */
-    servicePrincipal?: ProvisioningServicePrincipal | undefined;
+    public servicePrincipal?: ProvisioningServicePrincipal | undefined;
     /** Details of source object being provisioned. */
-    sourceIdentity?: ProvisionedIdentity | undefined;
+    public sourceIdentity?: ProvisionedIdentity | undefined;
     /** Details of source system of the object being provisioned. */
-    sourceSystem?: ProvisioningSystem | undefined;
+    public sourceSystem?: ProvisioningSystem | undefined;
     /** Details of target object being provisioned. */
-    targetIdentity?: ProvisionedIdentity | undefined;
+    public targetIdentity?: ProvisionedIdentity | undefined;
     /** Details of target system of the object being provisioned. */
-    targetSystem?: ProvisioningSystem | undefined;
+    public targetSystem?: ProvisioningSystem | undefined;
     /** Unique Azure AD tenant ID. */
-    tenantId?: string | undefined;
+    public tenantId?: string | undefined;
     /**
      * Instantiates a new provisioningObjectSummary and sets the default values.
      * @param provisioningObjectSummaryParameterValue 
@@ -105,67 +106,51 @@ export class ProvisioningObjectSummaryImpl extends EntityImpl implements Parsabl
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.activityDateTime){
-        if(this.activityDateTime)
         writer.writeDateValue("activityDateTime", this.activityDateTime);
         }
         if(this.changeId){
-        if(this.changeId)
         writer.writeStringValue("changeId", this.changeId);
         }
         if(this.cycleId){
-        if(this.cycleId)
         writer.writeStringValue("cycleId", this.cycleId);
         }
         if(this.durationInMilliseconds){
-        if(this.durationInMilliseconds)
         writer.writeNumberValue("durationInMilliseconds", this.durationInMilliseconds);
         }
         if(this.initiatedBy){
-        if(this.initiatedBy)
         writer.writeObjectValue<InitiatorImpl>("initiatedBy", new InitiatorImpl(this.initiatedBy));
         }
         if(this.jobId){
-        if(this.jobId)
         writer.writeStringValue("jobId", this.jobId);
         }
-        if(this.modifiedProperties){
-        const modifiedPropertiesArrValue: ModifiedPropertyImpl[] = []; this.modifiedProperties?.forEach(element => {modifiedPropertiesArrValue.push(new ModifiedPropertyImpl(element));});
+        if(this.modifiedProperties && this.modifiedProperties.length != 0){        const modifiedPropertiesArrValue: ModifiedPropertyImpl[] = []; this.modifiedProperties?.forEach(element => {modifiedPropertiesArrValue.push(new ModifiedPropertyImpl(element));});
         writer.writeCollectionOfObjectValues<ModifiedPropertyImpl>("modifiedProperties", modifiedPropertiesArrValue);
         }
         if(this.provisioningAction){
-        if(this.provisioningAction)
         writer.writeEnumValue<ProvisioningAction>("provisioningAction", this.provisioningAction);
         }
         if(this.provisioningStatusInfo){
-        if(this.provisioningStatusInfo)
         writer.writeObjectValue<ProvisioningStatusInfoImpl>("provisioningStatusInfo", new ProvisioningStatusInfoImpl(this.provisioningStatusInfo));
         }
-        if(this.provisioningSteps){
-        const provisioningStepsArrValue: ProvisioningStepImpl[] = []; this.provisioningSteps?.forEach(element => {provisioningStepsArrValue.push(new ProvisioningStepImpl(element));});
+        if(this.provisioningSteps && this.provisioningSteps.length != 0){        const provisioningStepsArrValue: ProvisioningStepImpl[] = []; this.provisioningSteps?.forEach(element => {provisioningStepsArrValue.push(new ProvisioningStepImpl(element));});
         writer.writeCollectionOfObjectValues<ProvisioningStepImpl>("provisioningSteps", provisioningStepsArrValue);
         }
         if(this.servicePrincipal){
-        if(this.servicePrincipal)
         writer.writeObjectValue<ProvisioningServicePrincipalImpl>("servicePrincipal", new ProvisioningServicePrincipalImpl(this.servicePrincipal));
         }
         if(this.sourceIdentity){
-        if(this.sourceIdentity)
         writer.writeObjectValue<ProvisionedIdentityImpl>("sourceIdentity", new ProvisionedIdentityImpl(this.sourceIdentity));
         }
         if(this.sourceSystem){
-        if(this.sourceSystem)
         writer.writeObjectValue<ProvisioningSystemImpl>("sourceSystem", new ProvisioningSystemImpl(this.sourceSystem));
         }
         if(this.targetIdentity){
-        if(this.targetIdentity)
         writer.writeObjectValue<ProvisionedIdentityImpl>("targetIdentity", new ProvisionedIdentityImpl(this.targetIdentity));
         }
         if(this.targetSystem){
-        if(this.targetSystem)
         writer.writeObjectValue<ProvisioningSystemImpl>("targetSystem", new ProvisioningSystemImpl(this.targetSystem));
         }
         if(this.tenantId){
-        if(this.tenantId)
         writer.writeStringValue("tenantId", this.tenantId);
         }
     };

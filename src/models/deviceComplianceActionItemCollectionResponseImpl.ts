@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class DeviceComplianceActionItemCollectionResponseImpl implements AdditionalDataHolder, DeviceComplianceActionItemCollectionResponse, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: DeviceComplianceActionItem[] | undefined;
+    public value?: DeviceComplianceActionItem[] | undefined;
     /**
      * Instantiates a new DeviceComplianceActionItemCollectionResponse and sets the default values.
      * @param deviceComplianceActionItemCollectionResponseParameterValue 
      */
     public constructor(deviceComplianceActionItemCollectionResponseParameterValue?: DeviceComplianceActionItemCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = deviceComplianceActionItemCollectionResponseParameterValue?.additionalData ? {} : deviceComplianceActionItemCollectionResponseParameterValue?.additionalData!
+        this.additionalData = deviceComplianceActionItemCollectionResponseParameterValue?.additionalData ? deviceComplianceActionItemCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = deviceComplianceActionItemCollectionResponseParameterValue?.nextLink ;
         this.value = deviceComplianceActionItemCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class DeviceComplianceActionItemCollectionResponseImpl implements Additio
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: DeviceComplianceActionItemImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new DeviceComplianceActionItemImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: DeviceComplianceActionItemImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new DeviceComplianceActionItemImpl(element));});
         writer.writeCollectionOfObjectValues<DeviceComplianceActionItemImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

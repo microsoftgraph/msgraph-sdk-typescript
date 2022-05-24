@@ -3,13 +3,14 @@ import {EntityImpl} from './index';
 import {WindowsInformationProtectionAppLearningSummary} from './windowsInformationProtectionAppLearningSummary';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Windows Information Protection AppLearning Summary entity. */
 export class WindowsInformationProtectionAppLearningSummaryImpl extends EntityImpl implements Parsable, WindowsInformationProtectionAppLearningSummary {
     /** Application Name */
-    applicationName?: string | undefined;
+    public applicationName?: string | undefined;
     /** Application Type. Possible values are: universal, desktop. */
-    applicationType?: ApplicationType | undefined;
+    public applicationType?: ApplicationType | undefined;
     /** Device Count */
-    deviceCount?: number | undefined;
+    public deviceCount?: number | undefined;
     /**
      * Instantiates a new windowsInformationProtectionAppLearningSummary and sets the default values.
      * @param windowsInformationProtectionAppLearningSummaryParameterValue 
@@ -39,15 +40,12 @@ export class WindowsInformationProtectionAppLearningSummaryImpl extends EntityIm
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.applicationName){
-        if(this.applicationName)
         writer.writeStringValue("applicationName", this.applicationName);
         }
         if(this.applicationType){
-        if(this.applicationType)
         writer.writeEnumValue<ApplicationType>("applicationType", this.applicationType);
         }
         if(this.deviceCount){
-        if(this.deviceCount)
         writer.writeNumberValue("deviceCount", this.deviceCount);
         }
     };

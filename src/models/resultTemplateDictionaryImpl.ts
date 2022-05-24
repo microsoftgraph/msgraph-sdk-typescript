@@ -2,6 +2,7 @@ import {DictionaryImpl} from './index';
 import {ResultTemplateDictionary} from './resultTemplateDictionary';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to call the query method. */
 export class ResultTemplateDictionaryImpl extends DictionaryImpl implements Parsable, ResultTemplateDictionary {
     /**
      * Instantiates a new resultTemplateDictionary and sets the default values.

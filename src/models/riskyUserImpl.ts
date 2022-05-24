@@ -7,25 +7,26 @@ import {RiskyUser} from './riskyUser';
 import {RiskyUserHistoryItem} from './riskyUserHistoryItem';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the identityProtectionRoot singleton. */
 export class RiskyUserImpl extends EntityImpl implements Parsable, RiskyUser {
     /** The activity related to user risk level change */
-    history?: RiskyUserHistoryItem[] | undefined;
+    public history?: RiskyUserHistoryItem[] | undefined;
     /** Indicates whether the user is deleted. Possible values are: true, false. */
-    isDeleted?: boolean | undefined;
+    public isDeleted?: boolean | undefined;
     /** Indicates whether a user's risky state is being processed by the backend. */
-    isProcessing?: boolean | undefined;
+    public isProcessing?: boolean | undefined;
     /** The possible values are none, adminGeneratedTemporaryPassword, userPerformedSecuredPasswordChange, userPerformedSecuredPasswordReset, adminConfirmedSigninSafe, aiConfirmedSigninSafe, userPassedMFADrivenByRiskBasedPolicy, adminDismissedAllRiskForUser, adminConfirmedSigninCompromised, hidden, adminConfirmedUserCompromised, unknownFutureValue. */
-    riskDetail?: RiskDetail | undefined;
+    public riskDetail?: RiskDetail | undefined;
     /** The date and time that the risky user was last updated.  The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
-    riskLastUpdatedDateTime?: Date | undefined;
+    public riskLastUpdatedDateTime?: Date | undefined;
     /** Level of the detected risky user. The possible values are low, medium, high, hidden, none, unknownFutureValue. */
-    riskLevel?: RiskLevel | undefined;
+    public riskLevel?: RiskLevel | undefined;
     /** State of the user's risk. Possible values are: none, confirmedSafe, remediated, dismissed, atRisk, confirmedCompromised, unknownFutureValue. */
-    riskState?: RiskState | undefined;
+    public riskState?: RiskState | undefined;
     /** Risky user display name. */
-    userDisplayName?: string | undefined;
+    public userDisplayName?: string | undefined;
     /** Risky user principal name. */
-    userPrincipalName?: string | undefined;
+    public userPrincipalName?: string | undefined;
     /**
      * Instantiates a new riskyUser and sets the default values.
      * @param riskyUserParameterValue 
@@ -66,40 +67,31 @@ export class RiskyUserImpl extends EntityImpl implements Parsable, RiskyUser {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.history){
-        const historyArrValue: RiskyUserHistoryItemImpl[] = []; this.history?.forEach(element => {historyArrValue.push(new RiskyUserHistoryItemImpl(element));});
+        if(this.history && this.history.length != 0){        const historyArrValue: RiskyUserHistoryItemImpl[] = []; this.history?.forEach(element => {historyArrValue.push(new RiskyUserHistoryItemImpl(element));});
         writer.writeCollectionOfObjectValues<RiskyUserHistoryItemImpl>("history", historyArrValue);
         }
         if(this.isDeleted){
-        if(this.isDeleted)
         writer.writeBooleanValue("isDeleted", this.isDeleted);
         }
         if(this.isProcessing){
-        if(this.isProcessing)
         writer.writeBooleanValue("isProcessing", this.isProcessing);
         }
         if(this.riskDetail){
-        if(this.riskDetail)
         writer.writeEnumValue<RiskDetail>("riskDetail", this.riskDetail);
         }
         if(this.riskLastUpdatedDateTime){
-        if(this.riskLastUpdatedDateTime)
         writer.writeDateValue("riskLastUpdatedDateTime", this.riskLastUpdatedDateTime);
         }
         if(this.riskLevel){
-        if(this.riskLevel)
         writer.writeEnumValue<RiskLevel>("riskLevel", this.riskLevel);
         }
         if(this.riskState){
-        if(this.riskState)
         writer.writeEnumValue<RiskState>("riskState", this.riskState);
         }
         if(this.userDisplayName){
-        if(this.userDisplayName)
         writer.writeStringValue("userDisplayName", this.userDisplayName);
         }
         if(this.userPrincipalName){
-        if(this.userPrincipalName)
         writer.writeStringValue("userPrincipalName", this.userPrincipalName);
         }
     };

@@ -1,8 +1,6 @@
-import {createGetDeviceManagementIntentSettingsReportResponseFromDiscriminatorValue} from './createGetDeviceManagementIntentSettingsReportResponseFromDiscriminatorValue';
-import {GetDeviceManagementIntentSettingsReportRequestBody} from './getDeviceManagementIntentSettingsReportRequestBody';
+import {GetDeviceManagementIntentSettingsReportPostRequestBody} from './getDeviceManagementIntentSettingsReportPostRequestBody';
 import {GetDeviceManagementIntentSettingsReportRequestBuilderPostRequestConfiguration} from './getDeviceManagementIntentSettingsReportRequestBuilderPostRequestConfiguration';
-import {GetDeviceManagementIntentSettingsReportResponse} from './getDeviceManagementIntentSettingsReportResponse';
-import {GetDeviceManagementIntentSettingsReportRequestBodyImpl, GetDeviceManagementIntentSettingsReportResponseImpl} from './index';
+import {GetDeviceManagementIntentSettingsReportPostRequestBodyImpl} from './index';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the getDeviceManagementIntentSettingsReport method. */
@@ -32,7 +30,7 @@ export class GetDeviceManagementIntentSettingsReportRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public createPostRequestInformation(body: GetDeviceManagementIntentSettingsReportRequestBody | undefined, requestConfiguration?: GetDeviceManagementIntentSettingsReportRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public createPostRequestInformation(body: GetDeviceManagementIntentSettingsReportPostRequestBody | undefined, requestConfiguration?: GetDeviceManagementIntentSettingsReportRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -42,8 +40,8 @@ export class GetDeviceManagementIntentSettingsReportRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        const bodyParsable = new GetDeviceManagementIntentSettingsReportRequestBodyImpl(body)
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", bodyParsable);
+        const parsableBody = new GetDeviceManagementIntentSettingsReportPostRequestBodyImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -51,13 +49,13 @@ export class GetDeviceManagementIntentSettingsReportRequestBuilder {
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of GetDeviceManagementIntentSettingsReportResponse
+     * @returns a Promise of ArrayBuffer
      */
-    public post(body: GetDeviceManagementIntentSettingsReportRequestBody | undefined, requestConfiguration?: GetDeviceManagementIntentSettingsReportRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<GetDeviceManagementIntentSettingsReportResponse | undefined> {
+    public post(body: GetDeviceManagementIntentSettingsReportPostRequestBody | undefined, requestConfiguration?: GetDeviceManagementIntentSettingsReportRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ArrayBuffer | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration
         );
-        return this.requestAdapter?.sendAsync<GetDeviceManagementIntentSettingsReportResponseImpl>(requestInfo, createGetDeviceManagementIntentSettingsReportResponseFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendPrimitiveAsync<ArrayBuffer>(requestInfo, "ArrayBuffer", responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }

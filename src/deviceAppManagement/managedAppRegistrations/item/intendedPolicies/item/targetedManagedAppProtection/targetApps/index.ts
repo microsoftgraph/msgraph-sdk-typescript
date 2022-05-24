@@ -1,3 +1,3 @@
-export * from './targetAppsRequestBodyImpl'
+export * from './targetAppsPostRequestBodyImpl'
 export * from './targetAppsRequestBuilderPostRequestConfiguration'
-export * from './targetAppsRequestBody'
+export * from './targetAppsPostRequestBody'

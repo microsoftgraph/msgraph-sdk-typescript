@@ -9,22 +9,21 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class AuthenticationMethodsRegistrationCampaignImpl implements AdditionalDataHolder, AuthenticationMethodsRegistrationCampaign, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** Users and groups of users that are excluded from being prompted to set up the authentication method. */
-    excludeTargets?: ExcludeTarget[] | undefined;
+    public excludeTargets?: ExcludeTarget[] | undefined;
     /** Users and groups of users that are prompted to set up the authentication method. */
-    includeTargets?: AuthenticationMethodsRegistrationCampaignIncludeTarget[] | undefined;
+    public includeTargets?: AuthenticationMethodsRegistrationCampaignIncludeTarget[] | undefined;
     /** Specifies the number of days that the user sees a prompt again if they select 'Not now' and snoozes the prompt. Minimum 0 days. Maximum: 14 days. If the value is '0' – The user is prompted during every MFA attempt. */
-    snoozeDurationInDays?: number | undefined;
+    public snoozeDurationInDays?: number | undefined;
     /** Enable or disable the feature. Possible values are: default, enabled, disabled, unknownFutureValue. The default value is used when the configuration hasn't been explicitly set and uses the default behavior of Azure AD for the setting. The default value is disabled. */
-    state?: AdvancedConfigState | undefined;
+    public state?: AdvancedConfigState | undefined;
     /**
      * Instantiates a new authenticationMethodsRegistrationCampaign and sets the default values.
      * @param authenticationMethodsRegistrationCampaignParameterValue 
      */
     public constructor(authenticationMethodsRegistrationCampaignParameterValue?: AuthenticationMethodsRegistrationCampaign | undefined) {
-        this.additionalData = {};
-        this.additionalData = authenticationMethodsRegistrationCampaignParameterValue?.additionalData ? {} : authenticationMethodsRegistrationCampaignParameterValue?.additionalData!
+        this.additionalData = authenticationMethodsRegistrationCampaignParameterValue?.additionalData ? authenticationMethodsRegistrationCampaignParameterValue?.additionalData! : {}
         this.excludeTargets = authenticationMethodsRegistrationCampaignParameterValue?.excludeTargets ;
         this.includeTargets = authenticationMethodsRegistrationCampaignParameterValue?.includeTargets ;
         this.snoozeDurationInDays = authenticationMethodsRegistrationCampaignParameterValue?.snoozeDurationInDays ;
@@ -48,20 +47,16 @@ export class AuthenticationMethodsRegistrationCampaignImpl implements Additional
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        if(this.excludeTargets){
-        const excludeTargetsArrValue: ExcludeTargetImpl[] = []; this.excludeTargets?.forEach(element => {excludeTargetsArrValue.push(new ExcludeTargetImpl(element));});
+        if(this.excludeTargets && this.excludeTargets.length != 0){        const excludeTargetsArrValue: ExcludeTargetImpl[] = []; this.excludeTargets?.forEach(element => {excludeTargetsArrValue.push(new ExcludeTargetImpl(element));});
         writer.writeCollectionOfObjectValues<ExcludeTargetImpl>("excludeTargets", excludeTargetsArrValue);
         }
-        if(this.includeTargets){
-        const includeTargetsArrValue: AuthenticationMethodsRegistrationCampaignIncludeTargetImpl[] = []; this.includeTargets?.forEach(element => {includeTargetsArrValue.push(new AuthenticationMethodsRegistrationCampaignIncludeTargetImpl(element));});
+        if(this.includeTargets && this.includeTargets.length != 0){        const includeTargetsArrValue: AuthenticationMethodsRegistrationCampaignIncludeTargetImpl[] = []; this.includeTargets?.forEach(element => {includeTargetsArrValue.push(new AuthenticationMethodsRegistrationCampaignIncludeTargetImpl(element));});
         writer.writeCollectionOfObjectValues<AuthenticationMethodsRegistrationCampaignIncludeTargetImpl>("includeTargets", includeTargetsArrValue);
         }
         if(this.snoozeDurationInDays){
-        if(this.snoozeDurationInDays)
         writer.writeNumberValue("snoozeDurationInDays", this.snoozeDurationInDays);
         }
         if(this.state){
-        if(this.state)
         writer.writeEnumValue<AdvancedConfigState>("state", this.state);
         }
         writer.writeAdditionalData(this.additionalData);

@@ -4,11 +4,12 @@ import {TargetedManagedAppPolicyAssignment} from './targetedManagedAppPolicyAssi
 import {TargetedManagedAppProtection} from './targetedManagedAppProtection';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Policy used to configure detailed management settings targeted to specific security groups */
 export class TargetedManagedAppProtectionImpl extends ManagedAppProtectionImpl implements Parsable, TargetedManagedAppProtection {
     /** Navigation property to list of inclusion and exclusion groups to which the policy is deployed. */
-    assignments?: TargetedManagedAppPolicyAssignment[] | undefined;
+    public assignments?: TargetedManagedAppPolicyAssignment[] | undefined;
     /** Indicates if the policy is deployed to any inclusion groups or not. */
-    isAssigned?: boolean | undefined;
+    public isAssigned?: boolean | undefined;
     /**
      * Instantiates a new targetedManagedAppProtection and sets the default values.
      * @param targetedManagedAppProtectionParameterValue 
@@ -35,12 +36,10 @@ export class TargetedManagedAppProtectionImpl extends ManagedAppProtectionImpl i
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.assignments){
-        const assignmentsArrValue: TargetedManagedAppPolicyAssignmentImpl[] = []; this.assignments?.forEach(element => {assignmentsArrValue.push(new TargetedManagedAppPolicyAssignmentImpl(element));});
+        if(this.assignments && this.assignments.length != 0){        const assignmentsArrValue: TargetedManagedAppPolicyAssignmentImpl[] = []; this.assignments?.forEach(element => {assignmentsArrValue.push(new TargetedManagedAppPolicyAssignmentImpl(element));});
         writer.writeCollectionOfObjectValues<TargetedManagedAppPolicyAssignmentImpl>("assignments", assignmentsArrValue);
         }
         if(this.isAssigned){
-        if(this.isAssigned)
         writer.writeBooleanValue("isAssigned", this.isAssigned);
         }
     };

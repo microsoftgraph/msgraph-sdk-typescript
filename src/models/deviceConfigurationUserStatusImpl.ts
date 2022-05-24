@@ -3,17 +3,18 @@ import {DeviceConfigurationUserStatus} from './deviceConfigurationUserStatus';
 import {EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the deviceManagement singleton. */
 export class DeviceConfigurationUserStatusImpl extends EntityImpl implements DeviceConfigurationUserStatus, Parsable {
     /** Devices count for that user. */
-    devicesCount?: number | undefined;
+    public devicesCount?: number | undefined;
     /** Last modified date time of the policy report. */
-    lastReportedDateTime?: Date | undefined;
+    public lastReportedDateTime?: Date | undefined;
     /** Compliance status of the policy report. Possible values are: unknown, notApplicable, compliant, remediated, nonCompliant, error, conflict, notAssigned. */
-    status?: ComplianceStatus | undefined;
+    public status?: ComplianceStatus | undefined;
     /** User name of the DevicePolicyStatus. */
-    userDisplayName?: string | undefined;
+    public userDisplayName?: string | undefined;
     /** UserPrincipalName. */
-    userPrincipalName?: string | undefined;
+    public userPrincipalName?: string | undefined;
     /**
      * Instantiates a new deviceConfigurationUserStatus and sets the default values.
      * @param deviceConfigurationUserStatusParameterValue 
@@ -47,23 +48,18 @@ export class DeviceConfigurationUserStatusImpl extends EntityImpl implements Dev
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.devicesCount){
-        if(this.devicesCount)
         writer.writeNumberValue("devicesCount", this.devicesCount);
         }
         if(this.lastReportedDateTime){
-        if(this.lastReportedDateTime)
         writer.writeDateValue("lastReportedDateTime", this.lastReportedDateTime);
         }
         if(this.status){
-        if(this.status)
         writer.writeEnumValue<ComplianceStatus>("status", this.status);
         }
         if(this.userDisplayName){
-        if(this.userDisplayName)
         writer.writeStringValue("userDisplayName", this.userDisplayName);
         }
         if(this.userPrincipalName){
-        if(this.userPrincipalName)
         writer.writeStringValue("userPrincipalName", this.userPrincipalName);
         }
     };

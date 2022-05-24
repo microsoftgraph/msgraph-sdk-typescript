@@ -3,16 +3,15 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class HyperlinkOrPictureColumnImpl implements AdditionalDataHolder, HyperlinkOrPictureColumn, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** Specifies whether the display format used for URL columns is an image or a hyperlink. */
-    isPicture?: boolean | undefined;
+    public isPicture?: boolean | undefined;
     /**
      * Instantiates a new hyperlinkOrPictureColumn and sets the default values.
      * @param hyperlinkOrPictureColumnParameterValue 
      */
     public constructor(hyperlinkOrPictureColumnParameterValue?: HyperlinkOrPictureColumn | undefined) {
-        this.additionalData = {};
-        this.additionalData = hyperlinkOrPictureColumnParameterValue?.additionalData ? {} : hyperlinkOrPictureColumnParameterValue?.additionalData!
+        this.additionalData = hyperlinkOrPictureColumnParameterValue?.additionalData ? hyperlinkOrPictureColumnParameterValue?.additionalData! : {}
         this.isPicture = hyperlinkOrPictureColumnParameterValue?.isPicture ;
     };
     /**
@@ -31,7 +30,6 @@ export class HyperlinkOrPictureColumnImpl implements AdditionalDataHolder, Hyper
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.isPicture){
-        if(this.isPicture)
         writer.writeBooleanValue("isPicture", this.isPicture);
         }
         writer.writeAdditionalData(this.additionalData);

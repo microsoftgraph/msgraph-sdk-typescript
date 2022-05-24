@@ -3,24 +3,23 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class LookupColumnImpl implements AdditionalDataHolder, LookupColumn, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** Indicates whether multiple values can be selected from the source. */
-    allowMultipleValues?: boolean | undefined;
+    public allowMultipleValues?: boolean | undefined;
     /** Indicates whether values in the column should be able to exceed the standard limit of 255 characters. */
-    allowUnlimitedLength?: boolean | undefined;
+    public allowUnlimitedLength?: boolean | undefined;
     /** The name of the lookup source column. */
-    columnName?: string | undefined;
+    public columnName?: string | undefined;
     /** The unique identifier of the lookup source list. */
-    listId?: string | undefined;
+    public listId?: string | undefined;
     /** If specified, this column is a secondary lookup, pulling an additional field from the list item looked up by the primary lookup. Use the list item looked up by the primary as the source for the column named here. */
-    primaryLookupColumnId?: string | undefined;
+    public primaryLookupColumnId?: string | undefined;
     /**
      * Instantiates a new lookupColumn and sets the default values.
      * @param lookupColumnParameterValue 
      */
     public constructor(lookupColumnParameterValue?: LookupColumn | undefined) {
-        this.additionalData = {};
-        this.additionalData = lookupColumnParameterValue?.additionalData ? {} : lookupColumnParameterValue?.additionalData!
+        this.additionalData = lookupColumnParameterValue?.additionalData ? lookupColumnParameterValue?.additionalData! : {}
         this.allowMultipleValues = lookupColumnParameterValue?.allowMultipleValues ;
         this.allowUnlimitedLength = lookupColumnParameterValue?.allowUnlimitedLength ;
         this.columnName = lookupColumnParameterValue?.columnName ;
@@ -47,23 +46,18 @@ export class LookupColumnImpl implements AdditionalDataHolder, LookupColumn, Par
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.allowMultipleValues){
-        if(this.allowMultipleValues)
         writer.writeBooleanValue("allowMultipleValues", this.allowMultipleValues);
         }
         if(this.allowUnlimitedLength){
-        if(this.allowUnlimitedLength)
         writer.writeBooleanValue("allowUnlimitedLength", this.allowUnlimitedLength);
         }
         if(this.columnName){
-        if(this.columnName)
         writer.writeStringValue("columnName", this.columnName);
         }
         if(this.listId){
-        if(this.listId)
         writer.writeStringValue("listId", this.listId);
         }
         if(this.primaryLookupColumnId){
-        if(this.primaryLookupColumnId)
         writer.writeStringValue("primaryLookupColumnId", this.primaryLookupColumnId);
         }
         writer.writeAdditionalData(this.additionalData);

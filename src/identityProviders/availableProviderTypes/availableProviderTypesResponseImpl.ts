@@ -4,16 +4,15 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Provides operations to call the availableProviderTypes method. */
 export class AvailableProviderTypesResponseImpl implements AdditionalDataHolder, AvailableProviderTypesResponse, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The value property */
-    value?: string[] | undefined;
+    public value?: string[] | undefined;
     /**
      * Instantiates a new availableProviderTypesResponse and sets the default values.
      * @param availableProviderTypesResponseParameterValue 
      */
     public constructor(availableProviderTypesResponseParameterValue?: AvailableProviderTypesResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = availableProviderTypesResponseParameterValue?.additionalData ? {} : availableProviderTypesResponseParameterValue?.additionalData!
+        this.additionalData = availableProviderTypesResponseParameterValue?.additionalData ? availableProviderTypesResponseParameterValue?.additionalData! : {}
         this.value = availableProviderTypesResponseParameterValue?.value ;
     };
     /**
@@ -32,7 +31,6 @@ export class AvailableProviderTypesResponseImpl implements AdditionalDataHolder,
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.value){
-        if(this.value)
         writer.writeCollectionOfPrimitiveValues<string>("value", this.value);
         }
         writer.writeAdditionalData(this.additionalData);

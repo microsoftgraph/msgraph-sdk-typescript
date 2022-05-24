@@ -3,18 +3,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class IncompleteDataImpl implements AdditionalDataHolder, IncompleteData, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The service does not have source data before the specified time. */
-    missingDataBeforeDateTime?: Date | undefined;
+    public missingDataBeforeDateTime?: Date | undefined;
     /** Some data was not recorded due to excessive activity. */
-    wasThrottled?: boolean | undefined;
+    public wasThrottled?: boolean | undefined;
     /**
      * Instantiates a new incompleteData and sets the default values.
      * @param incompleteDataParameterValue 
      */
     public constructor(incompleteDataParameterValue?: IncompleteData | undefined) {
-        this.additionalData = {};
-        this.additionalData = incompleteDataParameterValue?.additionalData ? {} : incompleteDataParameterValue?.additionalData!
+        this.additionalData = incompleteDataParameterValue?.additionalData ? incompleteDataParameterValue?.additionalData! : {}
         this.missingDataBeforeDateTime = incompleteDataParameterValue?.missingDataBeforeDateTime ;
         this.wasThrottled = incompleteDataParameterValue?.wasThrottled ;
     };
@@ -35,11 +34,9 @@ export class IncompleteDataImpl implements AdditionalDataHolder, IncompleteData,
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.missingDataBeforeDateTime){
-        if(this.missingDataBeforeDateTime)
         writer.writeDateValue("missingDataBeforeDateTime", this.missingDataBeforeDateTime);
         }
         if(this.wasThrottled){
-        if(this.wasThrottled)
         writer.writeBooleanValue("wasThrottled", this.wasThrottled);
         }
         writer.writeAdditionalData(this.additionalData);

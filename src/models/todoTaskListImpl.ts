@@ -7,19 +7,20 @@ import {TodoTaskList} from './todoTaskList';
 import {WellknownListName} from './wellknownListName';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to user. */
 export class TodoTaskListImpl extends EntityImpl implements Parsable, TodoTaskList {
     /** The name of the task list. */
-    displayName?: string | undefined;
+    public displayName?: string | undefined;
     /** The collection of open extensions defined for the task list. Nullable. */
-    extensions?: Extension[] | undefined;
+    public extensions?: Extension[] | undefined;
     /** True if the user is owner of the given task list. */
-    isOwner?: boolean | undefined;
+    public isOwner?: boolean | undefined;
     /** True if the task list is shared with other users */
-    isShared?: boolean | undefined;
+    public isShared?: boolean | undefined;
     /** The tasks in this task list. Read-only. Nullable. */
-    tasks?: TodoTask[] | undefined;
+    public tasks?: TodoTask[] | undefined;
     /** Property indicating the list name if the given list is a well-known list. Possible values are: none, defaultList, flaggedEmails, unknownFutureValue. */
-    wellknownListName?: WellknownListName | undefined;
+    public wellknownListName?: WellknownListName | undefined;
     /**
      * Instantiates a new todoTaskList and sets the default values.
      * @param todoTaskListParameterValue 
@@ -55,27 +56,21 @@ export class TodoTaskListImpl extends EntityImpl implements Parsable, TodoTaskLi
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.displayName){
-        if(this.displayName)
         writer.writeStringValue("displayName", this.displayName);
         }
-        if(this.extensions){
-        const extensionsArrValue: ExtensionImpl[] = []; this.extensions?.forEach(element => {extensionsArrValue.push(new ExtensionImpl(element));});
+        if(this.extensions && this.extensions.length != 0){        const extensionsArrValue: ExtensionImpl[] = []; this.extensions?.forEach(element => {extensionsArrValue.push(new ExtensionImpl(element));});
         writer.writeCollectionOfObjectValues<ExtensionImpl>("extensions", extensionsArrValue);
         }
         if(this.isOwner){
-        if(this.isOwner)
         writer.writeBooleanValue("isOwner", this.isOwner);
         }
         if(this.isShared){
-        if(this.isShared)
         writer.writeBooleanValue("isShared", this.isShared);
         }
-        if(this.tasks){
-        const tasksArrValue: TodoTaskImpl[] = []; this.tasks?.forEach(element => {tasksArrValue.push(new TodoTaskImpl(element));});
+        if(this.tasks && this.tasks.length != 0){        const tasksArrValue: TodoTaskImpl[] = []; this.tasks?.forEach(element => {tasksArrValue.push(new TodoTaskImpl(element));});
         writer.writeCollectionOfObjectValues<TodoTaskImpl>("tasks", tasksArrValue);
         }
         if(this.wellknownListName){
-        if(this.wellknownListName)
         writer.writeEnumValue<WellknownListName>("wellknownListName", this.wellknownListName);
         }
     };

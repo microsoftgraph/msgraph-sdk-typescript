@@ -4,15 +4,16 @@ import {WorkbookChartLegend} from './workbookChartLegend';
 import {WorkbookChartLegendFormat} from './workbookChartLegendFormat';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to user. */
 export class WorkbookChartLegendImpl extends EntityImpl implements Parsable, WorkbookChartLegend {
     /** Represents the formatting of a chart legend, which includes fill and font formatting. Read-only. */
-    format?: WorkbookChartLegendFormat | undefined;
+    public format?: WorkbookChartLegendFormat | undefined;
     /** Boolean value for whether the chart legend should overlap with the main body of the chart. */
-    overlay?: boolean | undefined;
+    public overlay?: boolean | undefined;
     /** Represents the position of the legend on the chart. The possible values are: Top, Bottom, Left, Right, Corner, Custom. */
-    position?: string | undefined;
+    public position?: string | undefined;
     /** A boolean value the represents the visibility of a ChartLegend object. */
-    visible?: boolean | undefined;
+    public visible?: boolean | undefined;
     /**
      * Instantiates a new workbookChartLegend and sets the default values.
      * @param workbookChartLegendParameterValue 
@@ -44,19 +45,15 @@ export class WorkbookChartLegendImpl extends EntityImpl implements Parsable, Wor
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.format){
-        if(this.format)
         writer.writeObjectValue<WorkbookChartLegendFormatImpl>("format", new WorkbookChartLegendFormatImpl(this.format));
         }
         if(this.overlay){
-        if(this.overlay)
         writer.writeBooleanValue("overlay", this.overlay);
         }
         if(this.position){
-        if(this.position)
         writer.writeStringValue("position", this.position);
         }
         if(this.visible){
-        if(this.visible)
         writer.writeBooleanValue("visible", this.visible);
         }
     };

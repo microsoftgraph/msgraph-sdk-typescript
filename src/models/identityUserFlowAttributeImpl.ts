@@ -4,15 +4,16 @@ import {IdentityUserFlowAttributeType} from './identityUserFlowAttributeType';
 import {EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the identityContainer singleton. */
 export class IdentityUserFlowAttributeImpl extends EntityImpl implements IdentityUserFlowAttribute, Parsable {
     /** The data type of the user flow attribute. This cannot be modified after the custom user flow attribute is created. The supported values for dataType are: string , boolean , int64 , stringCollection , dateTime. */
-    dataType?: IdentityUserFlowAttributeDataType | undefined;
+    public dataType?: IdentityUserFlowAttributeDataType | undefined;
     /** The description of the user flow attribute that's shown to the user at the time of sign-up. */
-    description?: string | undefined;
+    public description?: string | undefined;
     /** The display name of the user flow attribute. */
-    displayName?: string | undefined;
+    public displayName?: string | undefined;
     /** The type of the user flow attribute. This is a read-only attribute that is automatically set. Depending on the type of attribute, the values for this property will be builtIn, custom, or required. */
-    userFlowAttributeType?: IdentityUserFlowAttributeType | undefined;
+    public userFlowAttributeType?: IdentityUserFlowAttributeType | undefined;
     /**
      * Instantiates a new identityUserFlowAttribute and sets the default values.
      * @param identityUserFlowAttributeParameterValue 
@@ -44,19 +45,15 @@ export class IdentityUserFlowAttributeImpl extends EntityImpl implements Identit
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.dataType){
-        if(this.dataType)
         writer.writeEnumValue<IdentityUserFlowAttributeDataType>("dataType", this.dataType);
         }
         if(this.description){
-        if(this.description)
         writer.writeStringValue("description", this.description);
         }
         if(this.displayName){
-        if(this.displayName)
         writer.writeStringValue("displayName", this.displayName);
         }
         if(this.userFlowAttributeType){
-        if(this.userFlowAttributeType)
         writer.writeEnumValue<IdentityUserFlowAttributeType>("userFlowAttributeType", this.userFlowAttributeType);
         }
     };

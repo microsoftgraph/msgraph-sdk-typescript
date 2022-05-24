@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class RiskyUserCollectionResponseImpl implements AdditionalDataHolder, Parsable, RiskyUserCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: RiskyUser[] | undefined;
+    public value?: RiskyUser[] | undefined;
     /**
      * Instantiates a new RiskyUserCollectionResponse and sets the default values.
      * @param riskyUserCollectionResponseParameterValue 
      */
     public constructor(riskyUserCollectionResponseParameterValue?: RiskyUserCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = riskyUserCollectionResponseParameterValue?.additionalData ? {} : riskyUserCollectionResponseParameterValue?.additionalData!
+        this.additionalData = riskyUserCollectionResponseParameterValue?.additionalData ? riskyUserCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = riskyUserCollectionResponseParameterValue?.nextLink ;
         this.value = riskyUserCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class RiskyUserCollectionResponseImpl implements AdditionalDataHolder, Pa
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: RiskyUserImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new RiskyUserImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: RiskyUserImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new RiskyUserImpl(element));});
         writer.writeCollectionOfObjectValues<RiskyUserImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

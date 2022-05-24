@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class UserCollectionResponseImpl implements AdditionalDataHolder, Parsable, UserCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: User[] | undefined;
+    public value?: User[] | undefined;
     /**
      * Instantiates a new UserCollectionResponse and sets the default values.
      * @param userCollectionResponseParameterValue 
      */
     public constructor(userCollectionResponseParameterValue?: UserCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = userCollectionResponseParameterValue?.additionalData ? {} : userCollectionResponseParameterValue?.additionalData!
+        this.additionalData = userCollectionResponseParameterValue?.additionalData ? userCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = userCollectionResponseParameterValue?.nextLink ;
         this.value = userCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class UserCollectionResponseImpl implements AdditionalDataHolder, Parsabl
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: UserImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new UserImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: UserImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new UserImpl(element));});
         writer.writeCollectionOfObjectValues<UserImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

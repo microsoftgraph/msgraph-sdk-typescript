@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class ResourceOperationCollectionResponseImpl implements AdditionalDataHolder, Parsable, ResourceOperationCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: ResourceOperation[] | undefined;
+    public value?: ResourceOperation[] | undefined;
     /**
      * Instantiates a new ResourceOperationCollectionResponse and sets the default values.
      * @param resourceOperationCollectionResponseParameterValue 
      */
     public constructor(resourceOperationCollectionResponseParameterValue?: ResourceOperationCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = resourceOperationCollectionResponseParameterValue?.additionalData ? {} : resourceOperationCollectionResponseParameterValue?.additionalData!
+        this.additionalData = resourceOperationCollectionResponseParameterValue?.additionalData ? resourceOperationCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = resourceOperationCollectionResponseParameterValue?.nextLink ;
         this.value = resourceOperationCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class ResourceOperationCollectionResponseImpl implements AdditionalDataHo
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: ResourceOperationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ResourceOperationImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: ResourceOperationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ResourceOperationImpl(element));});
         writer.writeCollectionOfObjectValues<ResourceOperationImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

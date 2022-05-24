@@ -1,3 +1,3 @@
-export * from './declineRequestBodyImpl'
+export * from './declinePostRequestBodyImpl'
 export * from './declineRequestBuilderPostRequestConfiguration'
-export * from './declineRequestBody'
+export * from './declinePostRequestBody'

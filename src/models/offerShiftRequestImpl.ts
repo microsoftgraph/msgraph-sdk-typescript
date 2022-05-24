@@ -2,15 +2,16 @@ import {ScheduleChangeRequestImpl} from './index';
 import {OfferShiftRequest} from './offerShiftRequest';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to group. */
 export class OfferShiftRequestImpl extends ScheduleChangeRequestImpl implements OfferShiftRequest, Parsable {
     /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
-    recipientActionDateTime?: Date | undefined;
+    public recipientActionDateTime?: Date | undefined;
     /** Custom message sent by recipient of the offer shift request. */
-    recipientActionMessage?: string | undefined;
+    public recipientActionMessage?: string | undefined;
     /** User id of the recipient of the offer shift request. */
-    recipientUserId?: string | undefined;
+    public recipientUserId?: string | undefined;
     /** User id of the sender of the offer shift request. */
-    senderShiftId?: string | undefined;
+    public senderShiftId?: string | undefined;
     /**
      * Instantiates a new offerShiftRequest and sets the default values.
      * @param offerShiftRequestParameterValue 
@@ -42,19 +43,15 @@ export class OfferShiftRequestImpl extends ScheduleChangeRequestImpl implements 
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.recipientActionDateTime){
-        if(this.recipientActionDateTime)
         writer.writeDateValue("recipientActionDateTime", this.recipientActionDateTime);
         }
         if(this.recipientActionMessage){
-        if(this.recipientActionMessage)
         writer.writeStringValue("recipientActionMessage", this.recipientActionMessage);
         }
         if(this.recipientUserId){
-        if(this.recipientUserId)
         writer.writeStringValue("recipientUserId", this.recipientUserId);
         }
         if(this.senderShiftId){
-        if(this.senderShiftId)
         writer.writeStringValue("senderShiftId", this.senderShiftId);
         }
     };

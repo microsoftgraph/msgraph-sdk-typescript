@@ -3,9 +3,9 @@ import {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface ParentNotebookRequestBuilderGetRequestConfiguration{
     /** Request headers */
-    headers?: Record<string, string> | undefined;
+    headers?:Record<string, string> | undefined;
     /** Request options */
-    options?: RequestOption[] | undefined;
+    options?:RequestOption[] | undefined;
     /** Request query parameters */
-    queryParameters?: ParentNotebookRequestBuilderGetQueryParameters | undefined;
+    queryParameters?:ParentNotebookRequestBuilderGetQueryParameters | undefined;
 }

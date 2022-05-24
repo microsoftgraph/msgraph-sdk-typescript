@@ -4,9 +4,10 @@ import {DeviceAndAppManagementAssignmentTargetImpl, EntityImpl} from './index';
 import {TargetedManagedAppPolicyAssignment} from './targetedManagedAppPolicyAssignment';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** The type for deployment of groups or apps. */
 export class TargetedManagedAppPolicyAssignmentImpl extends EntityImpl implements Parsable, TargetedManagedAppPolicyAssignment {
     /** Identifier for deployment to a group or app */
-    target?: DeviceAndAppManagementAssignmentTarget | undefined;
+    public target?: DeviceAndAppManagementAssignmentTarget | undefined;
     /**
      * Instantiates a new targetedManagedAppPolicyAssignment and sets the default values.
      * @param targetedManagedAppPolicyAssignmentParameterValue 
@@ -32,7 +33,6 @@ export class TargetedManagedAppPolicyAssignmentImpl extends EntityImpl implement
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.target){
-        if(this.target)
         writer.writeObjectValue<DeviceAndAppManagementAssignmentTargetImpl>("target", new DeviceAndAppManagementAssignmentTargetImpl(this.target));
         }
     };

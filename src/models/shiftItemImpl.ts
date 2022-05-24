@@ -4,13 +4,14 @@ import {ShiftActivity} from './shiftActivity';
 import {ShiftItem} from './shiftItem';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to group. */
 export class ShiftItemImpl extends ScheduleEntityImpl implements Parsable, ShiftItem {
     /** An incremental part of a shift which can cover details of when and where an employee is during their shift. For example, an assignment or a scheduled break or lunch. Required. */
-    activities?: ShiftActivity[] | undefined;
+    public activities?: ShiftActivity[] | undefined;
     /** The shift label of the shiftItem. */
-    displayName?: string | undefined;
+    public displayName?: string | undefined;
     /** The shift notes for the shiftItem. */
-    notes?: string | undefined;
+    public notes?: string | undefined;
     /**
      * Instantiates a new shiftItem and sets the default values.
      * @param shiftItemParameterValue 
@@ -39,16 +40,13 @@ export class ShiftItemImpl extends ScheduleEntityImpl implements Parsable, Shift
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.activities){
-        const activitiesArrValue: ShiftActivityImpl[] = []; this.activities?.forEach(element => {activitiesArrValue.push(new ShiftActivityImpl(element));});
+        if(this.activities && this.activities.length != 0){        const activitiesArrValue: ShiftActivityImpl[] = []; this.activities?.forEach(element => {activitiesArrValue.push(new ShiftActivityImpl(element));});
         writer.writeCollectionOfObjectValues<ShiftActivityImpl>("activities", activitiesArrValue);
         }
         if(this.displayName){
-        if(this.displayName)
         writer.writeStringValue("displayName", this.displayName);
         }
         if(this.notes){
-        if(this.notes)
         writer.writeStringValue("notes", this.notes);
         }
     };

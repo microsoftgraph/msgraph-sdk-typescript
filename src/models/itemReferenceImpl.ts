@@ -6,30 +6,29 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class ItemReferenceImpl implements AdditionalDataHolder, ItemReference, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** Unique identifier of the drive instance that contains the item. Read-only. */
-    driveId?: string | undefined;
+    public driveId?: string | undefined;
     /** Identifies the type of drive. See [drive][] resource for values. */
-    driveType?: string | undefined;
+    public driveType?: string | undefined;
     /** Unique identifier of the item in the drive. Read-only. */
-    id?: string | undefined;
+    public id?: string | undefined;
     /** The name of the item being referenced. Read-only. */
-    name?: string | undefined;
+    public name?: string | undefined;
     /** Path that can be used to navigate to the item. Read-only. */
-    path?: string | undefined;
+    public path?: string | undefined;
     /** A unique identifier for a shared resource that can be accessed via the [Shares][] API. */
-    shareId?: string | undefined;
+    public shareId?: string | undefined;
     /** Returns identifiers useful for SharePoint REST compatibility. Read-only. */
-    sharepointIds?: SharepointIds | undefined;
+    public sharepointIds?: SharepointIds | undefined;
     /** For OneDrive for Business and SharePoint, this property represents the ID of the site that contains the parent document library of the driveItem resource. The value is the same as the id property of that [site][] resource. It is an opaque string that consists of three identifiers of the site. For OneDrive, this property is not populated. */
-    siteId?: string | undefined;
+    public siteId?: string | undefined;
     /**
      * Instantiates a new itemReference and sets the default values.
      * @param itemReferenceParameterValue 
      */
     public constructor(itemReferenceParameterValue?: ItemReference | undefined) {
-        this.additionalData = {};
-        this.additionalData = itemReferenceParameterValue?.additionalData ? {} : itemReferenceParameterValue?.additionalData!
+        this.additionalData = itemReferenceParameterValue?.additionalData ? itemReferenceParameterValue?.additionalData! : {}
         this.driveId = itemReferenceParameterValue?.driveId ;
         this.driveType = itemReferenceParameterValue?.driveType ;
         this.id = itemReferenceParameterValue?.id ;
@@ -62,35 +61,27 @@ export class ItemReferenceImpl implements AdditionalDataHolder, ItemReference, P
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.driveId){
-        if(this.driveId)
         writer.writeStringValue("driveId", this.driveId);
         }
         if(this.driveType){
-        if(this.driveType)
         writer.writeStringValue("driveType", this.driveType);
         }
         if(this.id){
-        if(this.id)
         writer.writeStringValue("id", this.id);
         }
         if(this.name){
-        if(this.name)
         writer.writeStringValue("name", this.name);
         }
         if(this.path){
-        if(this.path)
         writer.writeStringValue("path", this.path);
         }
         if(this.shareId){
-        if(this.shareId)
         writer.writeStringValue("shareId", this.shareId);
         }
         if(this.sharepointIds){
-        if(this.sharepointIds)
         writer.writeObjectValue<SharepointIdsImpl>("sharepointIds", new SharepointIdsImpl(this.sharepointIds));
         }
         if(this.siteId){
-        if(this.siteId)
         writer.writeStringValue("siteId", this.siteId);
         }
         writer.writeAdditionalData(this.additionalData);

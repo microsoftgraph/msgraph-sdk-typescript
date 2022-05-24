@@ -6,20 +6,19 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class FileImpl implements AdditionalDataHolder, File, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** Hashes of the file's binary content, if available. Read-only. */
-    hashes?: Hashes | undefined;
+    public hashes?: Hashes | undefined;
     /** The MIME type for the file. This is determined by logic on the server and might not be the value provided when the file was uploaded. Read-only. */
-    mimeType?: string | undefined;
+    public mimeType?: string | undefined;
     /** The processingMetadata property */
-    processingMetadata?: boolean | undefined;
+    public processingMetadata?: boolean | undefined;
     /**
      * Instantiates a new file and sets the default values.
      * @param fileParameterValue 
      */
     public constructor(fileParameterValue?: File | undefined) {
-        this.additionalData = {};
-        this.additionalData = fileParameterValue?.additionalData ? {} : fileParameterValue?.additionalData!
+        this.additionalData = fileParameterValue?.additionalData ? fileParameterValue?.additionalData! : {}
         this.hashes = fileParameterValue?.hashes ;
         this.mimeType = fileParameterValue?.mimeType ;
         this.processingMetadata = fileParameterValue?.processingMetadata ;
@@ -42,15 +41,12 @@ export class FileImpl implements AdditionalDataHolder, File, Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.hashes){
-        if(this.hashes)
         writer.writeObjectValue<HashesImpl>("hashes", new HashesImpl(this.hashes));
         }
         if(this.mimeType){
-        if(this.mimeType)
         writer.writeStringValue("mimeType", this.mimeType);
         }
         if(this.processingMetadata){
-        if(this.processingMetadata)
         writer.writeBooleanValue("processingMetadata", this.processingMetadata);
         }
         writer.writeAdditionalData(this.additionalData);

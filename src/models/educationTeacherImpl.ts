@@ -3,18 +3,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class EducationTeacherImpl implements AdditionalDataHolder, EducationTeacher, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** Id of the Teacher in external source system. */
-    externalId?: string | undefined;
+    public externalId?: string | undefined;
     /** Teacher number. */
-    teacherNumber?: string | undefined;
+    public teacherNumber?: string | undefined;
     /**
      * Instantiates a new educationTeacher and sets the default values.
      * @param educationTeacherParameterValue 
      */
     public constructor(educationTeacherParameterValue?: EducationTeacher | undefined) {
-        this.additionalData = {};
-        this.additionalData = educationTeacherParameterValue?.additionalData ? {} : educationTeacherParameterValue?.additionalData!
+        this.additionalData = educationTeacherParameterValue?.additionalData ? educationTeacherParameterValue?.additionalData! : {}
         this.externalId = educationTeacherParameterValue?.externalId ;
         this.teacherNumber = educationTeacherParameterValue?.teacherNumber ;
     };
@@ -35,11 +34,9 @@ export class EducationTeacherImpl implements AdditionalDataHolder, EducationTeac
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.externalId){
-        if(this.externalId)
         writer.writeStringValue("externalId", this.externalId);
         }
         if(this.teacherNumber){
-        if(this.teacherNumber)
         writer.writeStringValue("teacherNumber", this.teacherNumber);
         }
         writer.writeAdditionalData(this.additionalData);

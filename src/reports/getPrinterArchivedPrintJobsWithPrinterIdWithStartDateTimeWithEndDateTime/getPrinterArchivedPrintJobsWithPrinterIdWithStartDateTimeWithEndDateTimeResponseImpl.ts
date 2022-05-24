@@ -7,16 +7,15 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Provides operations to call the getPrinterArchivedPrintJobs method. */
 export class GetPrinterArchivedPrintJobsWithPrinterIdWithStartDateTimeWithEndDateTimeResponseImpl implements AdditionalDataHolder, GetPrinterArchivedPrintJobsWithPrinterIdWithStartDateTimeWithEndDateTimeResponse, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The value property */
-    value?: ArchivedPrintJob[] | undefined;
+    public value?: ArchivedPrintJob[] | undefined;
     /**
      * Instantiates a new getPrinterArchivedPrintJobsWithPrinterIdWithStartDateTimeWithEndDateTimeResponse and sets the default values.
      * @param getPrinterArchivedPrintJobsWithPrinterIdWithStartDateTimeWithEndDateTimeResponseParameterValue 
      */
     public constructor(getPrinterArchivedPrintJobsWithPrinterIdWithStartDateTimeWithEndDateTimeResponseParameterValue?: GetPrinterArchivedPrintJobsWithPrinterIdWithStartDateTimeWithEndDateTimeResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = getPrinterArchivedPrintJobsWithPrinterIdWithStartDateTimeWithEndDateTimeResponseParameterValue?.additionalData ? {} : getPrinterArchivedPrintJobsWithPrinterIdWithStartDateTimeWithEndDateTimeResponseParameterValue?.additionalData!
+        this.additionalData = getPrinterArchivedPrintJobsWithPrinterIdWithStartDateTimeWithEndDateTimeResponseParameterValue?.additionalData ? getPrinterArchivedPrintJobsWithPrinterIdWithStartDateTimeWithEndDateTimeResponseParameterValue?.additionalData! : {}
         this.value = getPrinterArchivedPrintJobsWithPrinterIdWithStartDateTimeWithEndDateTimeResponseParameterValue?.value ;
     };
     /**
@@ -34,8 +33,7 @@ export class GetPrinterArchivedPrintJobsWithPrinterIdWithStartDateTimeWithEndDat
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        if(this.value){
-        const valueArrValue: ArchivedPrintJobImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ArchivedPrintJobImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: ArchivedPrintJobImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ArchivedPrintJobImpl(element));});
         writer.writeCollectionOfObjectValues<ArchivedPrintJobImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

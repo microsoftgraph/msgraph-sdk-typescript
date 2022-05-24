@@ -6,15 +6,16 @@ import {TeamsTab} from './teamsTab';
 import {TeamsTabConfiguration} from './teamsTabConfiguration';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the collection of chat entities. */
 export class TeamsTabImpl extends EntityImpl implements Parsable, TeamsTab {
     /** Container for custom settings applied to a tab. The tab is considered configured only once this property is set. */
-    configuration?: TeamsTabConfiguration | undefined;
+    public configuration?: TeamsTabConfiguration | undefined;
     /** Name of the tab. */
-    displayName?: string | undefined;
+    public displayName?: string | undefined;
     /** The application that is linked to the tab. */
-    teamsApp?: TeamsApp | undefined;
+    public teamsApp?: TeamsApp | undefined;
     /** Deep link URL of the tab instance. Read only. */
-    webUrl?: string | undefined;
+    public webUrl?: string | undefined;
     /**
      * Instantiates a new teamsTab and sets the default values.
      * @param teamsTabParameterValue 
@@ -46,19 +47,15 @@ export class TeamsTabImpl extends EntityImpl implements Parsable, TeamsTab {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.configuration){
-        if(this.configuration)
         writer.writeObjectValue<TeamsTabConfigurationImpl>("configuration", new TeamsTabConfigurationImpl(this.configuration));
         }
         if(this.displayName){
-        if(this.displayName)
         writer.writeStringValue("displayName", this.displayName);
         }
         if(this.teamsApp){
-        if(this.teamsApp)
         writer.writeObjectValue<TeamsAppImpl>("teamsApp", new TeamsAppImpl(this.teamsApp));
         }
         if(this.webUrl){
-        if(this.webUrl)
         writer.writeStringValue("webUrl", this.webUrl);
         }
     };

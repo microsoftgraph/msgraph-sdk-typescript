@@ -4,11 +4,11 @@ import {Set} from './set';
 
 export interface Store extends Entity{
     /** Default language of the term store. */
-    defaultLanguageTag?: string | undefined;
+    defaultLanguageTag?:string | undefined;
     /** Collection of all groups available in the term store. */
-    groups?: Group[] | undefined;
+    groups?:Group[] | undefined;
     /** List of languages for the term store. */
-    languageTags?: string[] | undefined;
+    languageTags?:string[] | undefined;
     /** Collection of all sets available in the term store. */
-    sets?: Set[] | undefined;
+    sets?:Set[] | undefined;
 }

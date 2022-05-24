@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class AccessPackageAssignmentCollectionResponseImpl implements AccessPackageAssignmentCollectionResponse, AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: AccessPackageAssignment[] | undefined;
+    public value?: AccessPackageAssignment[] | undefined;
     /**
      * Instantiates a new AccessPackageAssignmentCollectionResponse and sets the default values.
      * @param accessPackageAssignmentCollectionResponseParameterValue 
      */
     public constructor(accessPackageAssignmentCollectionResponseParameterValue?: AccessPackageAssignmentCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = accessPackageAssignmentCollectionResponseParameterValue?.additionalData ? {} : accessPackageAssignmentCollectionResponseParameterValue?.additionalData!
+        this.additionalData = accessPackageAssignmentCollectionResponseParameterValue?.additionalData ? accessPackageAssignmentCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = accessPackageAssignmentCollectionResponseParameterValue?.nextLink ;
         this.value = accessPackageAssignmentCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class AccessPackageAssignmentCollectionResponseImpl implements AccessPack
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: AccessPackageAssignmentImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new AccessPackageAssignmentImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: AccessPackageAssignmentImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new AccessPackageAssignmentImpl(element));});
         writer.writeCollectionOfObjectValues<AccessPackageAssignmentImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

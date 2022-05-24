@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class TelecomExpenseManagementPartnerCollectionResponseImpl implements AdditionalDataHolder, Parsable, TelecomExpenseManagementPartnerCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: TelecomExpenseManagementPartner[] | undefined;
+    public value?: TelecomExpenseManagementPartner[] | undefined;
     /**
      * Instantiates a new TelecomExpenseManagementPartnerCollectionResponse and sets the default values.
      * @param telecomExpenseManagementPartnerCollectionResponseParameterValue 
      */
     public constructor(telecomExpenseManagementPartnerCollectionResponseParameterValue?: TelecomExpenseManagementPartnerCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = telecomExpenseManagementPartnerCollectionResponseParameterValue?.additionalData ? {} : telecomExpenseManagementPartnerCollectionResponseParameterValue?.additionalData!
+        this.additionalData = telecomExpenseManagementPartnerCollectionResponseParameterValue?.additionalData ? telecomExpenseManagementPartnerCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = telecomExpenseManagementPartnerCollectionResponseParameterValue?.nextLink ;
         this.value = telecomExpenseManagementPartnerCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class TelecomExpenseManagementPartnerCollectionResponseImpl implements Ad
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: TelecomExpenseManagementPartnerImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new TelecomExpenseManagementPartnerImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: TelecomExpenseManagementPartnerImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new TelecomExpenseManagementPartnerImpl(element));});
         writer.writeCollectionOfObjectValues<TelecomExpenseManagementPartnerImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

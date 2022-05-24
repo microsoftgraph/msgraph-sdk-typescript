@@ -3,18 +3,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class PreAuthorizedApplicationImpl implements AdditionalDataHolder, Parsable, PreAuthorizedApplication {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The unique identifier for the application. */
-    appId?: string | undefined;
+    public appId?: string | undefined;
     /** The unique identifier for the oauth2PermissionScopes the application requires. */
-    delegatedPermissionIds?: string[] | undefined;
+    public delegatedPermissionIds?: string[] | undefined;
     /**
      * Instantiates a new preAuthorizedApplication and sets the default values.
      * @param preAuthorizedApplicationParameterValue 
      */
     public constructor(preAuthorizedApplicationParameterValue?: PreAuthorizedApplication | undefined) {
-        this.additionalData = {};
-        this.additionalData = preAuthorizedApplicationParameterValue?.additionalData ? {} : preAuthorizedApplicationParameterValue?.additionalData!
+        this.additionalData = preAuthorizedApplicationParameterValue?.additionalData ? preAuthorizedApplicationParameterValue?.additionalData! : {}
         this.appId = preAuthorizedApplicationParameterValue?.appId ;
         this.delegatedPermissionIds = preAuthorizedApplicationParameterValue?.delegatedPermissionIds ;
     };
@@ -35,11 +34,9 @@ export class PreAuthorizedApplicationImpl implements AdditionalDataHolder, Parsa
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.appId){
-        if(this.appId)
         writer.writeStringValue("appId", this.appId);
         }
         if(this.delegatedPermissionIds){
-        if(this.delegatedPermissionIds)
         writer.writeCollectionOfPrimitiveValues<string>("delegatedPermissionIds", this.delegatedPermissionIds);
         }
         writer.writeAdditionalData(this.additionalData);

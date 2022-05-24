@@ -6,11 +6,12 @@ import {WorkbookChartFont} from './workbookChartFont';
 import {WorkbookChartTitleFormat} from './workbookChartTitleFormat';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to user. */
 export class WorkbookChartTitleFormatImpl extends EntityImpl implements Parsable, WorkbookChartTitleFormat {
     /** Represents the fill format of an object, which includes background formatting information. Read-only. */
-    fill?: WorkbookChartFill | undefined;
+    public fill?: WorkbookChartFill | undefined;
     /** Represents the font attributes (font name, font size, color, etc.) for the current object. Read-only. */
-    font?: WorkbookChartFont | undefined;
+    public font?: WorkbookChartFont | undefined;
     /**
      * Instantiates a new workbookChartTitleFormat and sets the default values.
      * @param workbookChartTitleFormatParameterValue 
@@ -38,11 +39,9 @@ export class WorkbookChartTitleFormatImpl extends EntityImpl implements Parsable
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.fill){
-        if(this.fill)
         writer.writeObjectValue<WorkbookChartFillImpl>("fill", new WorkbookChartFillImpl(this.fill));
         }
         if(this.font){
-        if(this.font)
         writer.writeObjectValue<WorkbookChartFontImpl>("font", new WorkbookChartFontImpl(this.font));
         }
     };

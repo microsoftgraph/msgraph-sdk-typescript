@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class UserActivityCollectionResponseImpl implements AdditionalDataHolder, Parsable, UserActivityCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: UserActivity[] | undefined;
+    public value?: UserActivity[] | undefined;
     /**
      * Instantiates a new UserActivityCollectionResponse and sets the default values.
      * @param userActivityCollectionResponseParameterValue 
      */
     public constructor(userActivityCollectionResponseParameterValue?: UserActivityCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = userActivityCollectionResponseParameterValue?.additionalData ? {} : userActivityCollectionResponseParameterValue?.additionalData!
+        this.additionalData = userActivityCollectionResponseParameterValue?.additionalData ? userActivityCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = userActivityCollectionResponseParameterValue?.nextLink ;
         this.value = userActivityCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class UserActivityCollectionResponseImpl implements AdditionalDataHolder,
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: UserActivityImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new UserActivityImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: UserActivityImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new UserActivityImpl(element));});
         writer.writeCollectionOfObjectValues<UserActivityImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

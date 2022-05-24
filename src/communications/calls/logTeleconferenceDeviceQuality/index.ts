@@ -1,3 +1,3 @@
-export * from './logTeleconferenceDeviceQualityRequestBodyImpl'
-export * from './logTeleconferenceDeviceQualityRequestBody'
+export * from './logTeleconferenceDeviceQualityPostRequestBodyImpl'
 export * from './logTeleconferenceDeviceQualityRequestBuilderPostRequestConfiguration'
+export * from './logTeleconferenceDeviceQualityPostRequestBody'

@@ -1,6 +1,5 @@
 import {NotebookImpl} from '../../../../../../../models/';
 import {createNotebookFromDiscriminatorValue} from '../../../../../../../models/createNotebookFromDiscriminatorValue';
-import {Notebook} from '../../../../../../../models/notebook';
 import {ODataErrorImpl} from '../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {ParentNotebookRequestBuilderGetRequestConfiguration} from './parentNotebookRequestBuilderGetRequestConfiguration';
@@ -50,7 +49,7 @@ export class ParentNotebookRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Notebook
      */
-    public get(requestConfiguration?: ParentNotebookRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Notebook | undefined> {
+    public get(requestConfiguration?: ParentNotebookRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<NotebookImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );

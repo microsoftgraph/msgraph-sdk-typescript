@@ -1,3 +1,3 @@
-export * from './forceDeleteRequestBodyImpl'
-export * from './forceDeleteRequestBody'
+export * from './forceDeletePostRequestBodyImpl'
+export * from './forceDeletePostRequestBody'
 export * from './forceDeleteRequestBuilderPostRequestConfiguration'

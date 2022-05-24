@@ -6,22 +6,21 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class IncomingContextImpl implements AdditionalDataHolder, IncomingContext, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The id of the participant that is under observation. Read-only. */
-    observedParticipantId?: string | undefined;
+    public observedParticipantId?: string | undefined;
     /** The identity that the call is happening on behalf of. */
-    onBehalfOf?: IdentitySet | undefined;
+    public onBehalfOf?: IdentitySet | undefined;
     /** The id of the participant that triggered the incoming call. Read-only. */
-    sourceParticipantId?: string | undefined;
+    public sourceParticipantId?: string | undefined;
     /** The identity that transferred the call. */
-    transferor?: IdentitySet | undefined;
+    public transferor?: IdentitySet | undefined;
     /**
      * Instantiates a new incomingContext and sets the default values.
      * @param incomingContextParameterValue 
      */
     public constructor(incomingContextParameterValue?: IncomingContext | undefined) {
-        this.additionalData = {};
-        this.additionalData = incomingContextParameterValue?.additionalData ? {} : incomingContextParameterValue?.additionalData!
+        this.additionalData = incomingContextParameterValue?.additionalData ? incomingContextParameterValue?.additionalData! : {}
         this.observedParticipantId = incomingContextParameterValue?.observedParticipantId ;
         this.onBehalfOf = incomingContextParameterValue?.onBehalfOf ;
         this.sourceParticipantId = incomingContextParameterValue?.sourceParticipantId ;
@@ -46,19 +45,15 @@ export class IncomingContextImpl implements AdditionalDataHolder, IncomingContex
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.observedParticipantId){
-        if(this.observedParticipantId)
         writer.writeStringValue("observedParticipantId", this.observedParticipantId);
         }
         if(this.onBehalfOf){
-        if(this.onBehalfOf)
         writer.writeObjectValue<IdentitySetImpl>("onBehalfOf", new IdentitySetImpl(this.onBehalfOf));
         }
         if(this.sourceParticipantId){
-        if(this.sourceParticipantId)
         writer.writeStringValue("sourceParticipantId", this.sourceParticipantId);
         }
         if(this.transferor){
-        if(this.transferor)
         writer.writeObjectValue<IdentitySetImpl>("transferor", new IdentitySetImpl(this.transferor));
         }
         writer.writeAdditionalData(this.additionalData);

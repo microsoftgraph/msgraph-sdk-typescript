@@ -3,16 +3,15 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class WindowsDeviceAccountImpl implements AdditionalDataHolder, Parsable, WindowsDeviceAccount {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** Not yet documented */
-    password?: string | undefined;
+    public password?: string | undefined;
     /**
      * Instantiates a new windowsDeviceAccount and sets the default values.
      * @param windowsDeviceAccountParameterValue 
      */
     public constructor(windowsDeviceAccountParameterValue?: WindowsDeviceAccount | undefined) {
-        this.additionalData = {};
-        this.additionalData = windowsDeviceAccountParameterValue?.additionalData ? {} : windowsDeviceAccountParameterValue?.additionalData!
+        this.additionalData = windowsDeviceAccountParameterValue?.additionalData ? windowsDeviceAccountParameterValue?.additionalData! : {}
         this.password = windowsDeviceAccountParameterValue?.password ;
     };
     /**
@@ -31,7 +30,6 @@ export class WindowsDeviceAccountImpl implements AdditionalDataHolder, Parsable,
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.password){
-        if(this.password)
         writer.writeStringValue("password", this.password);
         }
         writer.writeAdditionalData(this.additionalData);

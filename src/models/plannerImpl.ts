@@ -11,11 +11,11 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Provides operations to manage the planner singleton. */
 export class PlannerImpl extends EntityImpl implements Parsable, Planner {
     /** Read-only. Nullable. Returns a collection of the specified buckets */
-    buckets?: PlannerBucket[] | undefined;
+    public buckets?: PlannerBucket[] | undefined;
     /** Read-only. Nullable. Returns a collection of the specified plans */
-    plans?: PlannerPlan[] | undefined;
+    public plans?: PlannerPlan[] | undefined;
     /** Read-only. Nullable. Returns a collection of the specified tasks */
-    tasks?: PlannerTask[] | undefined;
+    public tasks?: PlannerTask[] | undefined;
     /**
      * Instantiates a new planner and sets the default values.
      * @param plannerParameterValue 
@@ -44,16 +44,13 @@ export class PlannerImpl extends EntityImpl implements Parsable, Planner {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.buckets){
-        const bucketsArrValue: PlannerBucketImpl[] = []; this.buckets?.forEach(element => {bucketsArrValue.push(new PlannerBucketImpl(element));});
+        if(this.buckets && this.buckets.length != 0){        const bucketsArrValue: PlannerBucketImpl[] = []; this.buckets?.forEach(element => {bucketsArrValue.push(new PlannerBucketImpl(element));});
         writer.writeCollectionOfObjectValues<PlannerBucketImpl>("buckets", bucketsArrValue);
         }
-        if(this.plans){
-        const plansArrValue: PlannerPlanImpl[] = []; this.plans?.forEach(element => {plansArrValue.push(new PlannerPlanImpl(element));});
+        if(this.plans && this.plans.length != 0){        const plansArrValue: PlannerPlanImpl[] = []; this.plans?.forEach(element => {plansArrValue.push(new PlannerPlanImpl(element));});
         writer.writeCollectionOfObjectValues<PlannerPlanImpl>("plans", plansArrValue);
         }
-        if(this.tasks){
-        const tasksArrValue: PlannerTaskImpl[] = []; this.tasks?.forEach(element => {tasksArrValue.push(new PlannerTaskImpl(element));});
+        if(this.tasks && this.tasks.length != 0){        const tasksArrValue: PlannerTaskImpl[] = []; this.tasks?.forEach(element => {tasksArrValue.push(new PlannerTaskImpl(element));});
         writer.writeCollectionOfObjectValues<PlannerTaskImpl>("tasks", tasksArrValue);
         }
     };

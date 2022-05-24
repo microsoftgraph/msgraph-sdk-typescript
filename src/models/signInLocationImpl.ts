@@ -6,22 +6,21 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class SignInLocationImpl implements AdditionalDataHolder, Parsable, SignInLocation {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** Provides the city where the sign-in originated. This is calculated using latitude/longitude information from the sign-in activity. */
-    city?: string | undefined;
+    public city?: string | undefined;
     /** Provides the country code info (2 letter code) where the sign-in originated.  This is calculated using latitude/longitude information from the sign-in activity. */
-    countryOrRegion?: string | undefined;
+    public countryOrRegion?: string | undefined;
     /** Provides the latitude, longitude and altitude where the sign-in originated. */
-    geoCoordinates?: GeoCoordinates | undefined;
+    public geoCoordinates?: GeoCoordinates | undefined;
     /** Provides the State where the sign-in originated. This is calculated using latitude/longitude information from the sign-in activity. */
-    state?: string | undefined;
+    public state?: string | undefined;
     /**
      * Instantiates a new signInLocation and sets the default values.
      * @param signInLocationParameterValue 
      */
     public constructor(signInLocationParameterValue?: SignInLocation | undefined) {
-        this.additionalData = {};
-        this.additionalData = signInLocationParameterValue?.additionalData ? {} : signInLocationParameterValue?.additionalData!
+        this.additionalData = signInLocationParameterValue?.additionalData ? signInLocationParameterValue?.additionalData! : {}
         this.city = signInLocationParameterValue?.city ;
         this.countryOrRegion = signInLocationParameterValue?.countryOrRegion ;
         this.geoCoordinates = signInLocationParameterValue?.geoCoordinates ;
@@ -46,19 +45,15 @@ export class SignInLocationImpl implements AdditionalDataHolder, Parsable, SignI
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.city){
-        if(this.city)
         writer.writeStringValue("city", this.city);
         }
         if(this.countryOrRegion){
-        if(this.countryOrRegion)
         writer.writeStringValue("countryOrRegion", this.countryOrRegion);
         }
         if(this.geoCoordinates){
-        if(this.geoCoordinates)
         writer.writeObjectValue<GeoCoordinatesImpl>("geoCoordinates", new GeoCoordinatesImpl(this.geoCoordinates));
         }
         if(this.state){
-        if(this.state)
         writer.writeStringValue("state", this.state);
         }
         writer.writeAdditionalData(this.additionalData);

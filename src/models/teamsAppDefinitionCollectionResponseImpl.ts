@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class TeamsAppDefinitionCollectionResponseImpl implements AdditionalDataHolder, Parsable, TeamsAppDefinitionCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: TeamsAppDefinition[] | undefined;
+    public value?: TeamsAppDefinition[] | undefined;
     /**
      * Instantiates a new TeamsAppDefinitionCollectionResponse and sets the default values.
      * @param teamsAppDefinitionCollectionResponseParameterValue 
      */
     public constructor(teamsAppDefinitionCollectionResponseParameterValue?: TeamsAppDefinitionCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = teamsAppDefinitionCollectionResponseParameterValue?.additionalData ? {} : teamsAppDefinitionCollectionResponseParameterValue?.additionalData!
+        this.additionalData = teamsAppDefinitionCollectionResponseParameterValue?.additionalData ? teamsAppDefinitionCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = teamsAppDefinitionCollectionResponseParameterValue?.nextLink ;
         this.value = teamsAppDefinitionCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class TeamsAppDefinitionCollectionResponseImpl implements AdditionalDataH
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: TeamsAppDefinitionImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new TeamsAppDefinitionImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: TeamsAppDefinitionImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new TeamsAppDefinitionImpl(element));});
         writer.writeCollectionOfObjectValues<TeamsAppDefinitionImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

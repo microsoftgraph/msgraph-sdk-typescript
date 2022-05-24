@@ -3,5 +3,5 @@ import {TeamworkConversationIdentityType} from './teamworkConversationIdentityTy
 
 export interface TeamworkConversationIdentity extends Identity{
     /** Type of conversation. Possible values are: team, channel, and chat. */
-    conversationIdentityType?: TeamworkConversationIdentityType | undefined;
+    conversationIdentityType?:TeamworkConversationIdentityType | undefined;
 }

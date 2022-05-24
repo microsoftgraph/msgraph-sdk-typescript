@@ -3,15 +3,16 @@ import {EducationOrganization} from './educationOrganization';
 import {EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the educationRoot singleton. */
 export class EducationOrganizationImpl extends EntityImpl implements EducationOrganization, Parsable {
     /** Organization description. */
-    description?: string | undefined;
+    public description?: string | undefined;
     /** Organization display name. */
-    displayName?: string | undefined;
+    public displayName?: string | undefined;
     /** Where this user was created from. Possible values are: sis, lms, or manual. */
-    externalSource?: EducationExternalSource | undefined;
+    public externalSource?: EducationExternalSource | undefined;
     /** The name of the external source this resources was generated from. */
-    externalSourceDetail?: string | undefined;
+    public externalSourceDetail?: string | undefined;
     /**
      * Instantiates a new educationOrganization and sets the default values.
      * @param educationOrganizationParameterValue 
@@ -43,19 +44,15 @@ export class EducationOrganizationImpl extends EntityImpl implements EducationOr
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.description){
-        if(this.description)
         writer.writeStringValue("description", this.description);
         }
         if(this.displayName){
-        if(this.displayName)
         writer.writeStringValue("displayName", this.displayName);
         }
         if(this.externalSource){
-        if(this.externalSource)
         writer.writeEnumValue<EducationExternalSource>("externalSource", this.externalSource);
         }
         if(this.externalSourceDetail){
-        if(this.externalSourceDetail)
         writer.writeStringValue("externalSourceDetail", this.externalSourceDetail);
         }
     };

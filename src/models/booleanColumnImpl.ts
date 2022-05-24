@@ -3,14 +3,13 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class BooleanColumnImpl implements AdditionalDataHolder, BooleanColumn, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /**
      * Instantiates a new booleanColumn and sets the default values.
      * @param booleanColumnParameterValue 
      */
     public constructor(booleanColumnParameterValue?: BooleanColumn | undefined) {
-        this.additionalData = {};
-        this.additionalData = booleanColumnParameterValue?.additionalData ? {} : booleanColumnParameterValue?.additionalData!
+        this.additionalData = booleanColumnParameterValue?.additionalData ? booleanColumnParameterValue?.additionalData! : {}
     };
     /**
      * The deserialization information for the current model

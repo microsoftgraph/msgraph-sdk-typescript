@@ -1,15 +1,15 @@
 
 export interface PhysicalAddress{
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    additionalData?:Record<string, unknown>;
     /** The city. */
-    city?: string | undefined;
+    city?:string | undefined;
     /** The country or region. It's a free-format string value, for example, 'United States'. */
-    countryOrRegion?: string | undefined;
+    countryOrRegion?:string | undefined;
     /** The postal code. */
-    postalCode?: string | undefined;
+    postalCode?:string | undefined;
     /** The state. */
-    state?: string | undefined;
+    state?:string | undefined;
     /** The street. */
-    street?: string | undefined;
+    street?:string | undefined;
 }

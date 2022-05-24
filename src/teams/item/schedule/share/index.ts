@@ -1,3 +1,3 @@
-export * from './shareRequestBodyImpl'
+export * from './sharePostRequestBodyImpl'
 export * from './shareRequestBuilderPostRequestConfiguration'
-export * from './shareRequestBody'
+export * from './sharePostRequestBody'

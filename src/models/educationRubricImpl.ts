@@ -12,25 +12,26 @@ import {RubricLevel} from './rubricLevel';
 import {RubricQuality} from './rubricQuality';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the educationRoot singleton. */
 export class EducationRubricImpl extends EntityImpl implements EducationRubric, Parsable {
     /** The user who created this resource. */
-    createdBy?: IdentitySet | undefined;
+    public createdBy?: IdentitySet | undefined;
     /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
-    createdDateTime?: Date | undefined;
+    public createdDateTime?: Date | undefined;
     /** The description of this rubric. */
-    description?: EducationItemBody | undefined;
+    public description?: EducationItemBody | undefined;
     /** The name of this rubric. */
-    displayName?: string | undefined;
+    public displayName?: string | undefined;
     /** The grading type of this rubric -- null for a no-points rubric, or educationAssignmentPointsGradeType for a points rubric. */
-    grading?: EducationAssignmentGradeType | undefined;
+    public grading?: EducationAssignmentGradeType | undefined;
     /** The last user to modify the resource. */
-    lastModifiedBy?: IdentitySet | undefined;
+    public lastModifiedBy?: IdentitySet | undefined;
     /** Moment in time when the resource was last modified.  The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
-    lastModifiedDateTime?: Date | undefined;
+    public lastModifiedDateTime?: Date | undefined;
     /** The collection of levels making up this rubric. */
-    levels?: RubricLevel[] | undefined;
+    public levels?: RubricLevel[] | undefined;
     /** The collection of qualities making up this rubric. */
-    qualities?: RubricQuality[] | undefined;
+    public qualities?: RubricQuality[] | undefined;
     /**
      * Instantiates a new educationRubric and sets the default values.
      * @param educationRubricParameterValue 
@@ -72,39 +73,30 @@ export class EducationRubricImpl extends EntityImpl implements EducationRubric, 
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.createdBy){
-        if(this.createdBy)
         writer.writeObjectValue<IdentitySetImpl>("createdBy", new IdentitySetImpl(this.createdBy));
         }
         if(this.createdDateTime){
-        if(this.createdDateTime)
         writer.writeDateValue("createdDateTime", this.createdDateTime);
         }
         if(this.description){
-        if(this.description)
         writer.writeObjectValue<EducationItemBodyImpl>("description", new EducationItemBodyImpl(this.description));
         }
         if(this.displayName){
-        if(this.displayName)
         writer.writeStringValue("displayName", this.displayName);
         }
         if(this.grading){
-        if(this.grading)
         writer.writeObjectValue<EducationAssignmentGradeTypeImpl>("grading", new EducationAssignmentGradeTypeImpl(this.grading));
         }
         if(this.lastModifiedBy){
-        if(this.lastModifiedBy)
         writer.writeObjectValue<IdentitySetImpl>("lastModifiedBy", new IdentitySetImpl(this.lastModifiedBy));
         }
         if(this.lastModifiedDateTime){
-        if(this.lastModifiedDateTime)
         writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
         }
-        if(this.levels){
-        const levelsArrValue: RubricLevelImpl[] = []; this.levels?.forEach(element => {levelsArrValue.push(new RubricLevelImpl(element));});
+        if(this.levels && this.levels.length != 0){        const levelsArrValue: RubricLevelImpl[] = []; this.levels?.forEach(element => {levelsArrValue.push(new RubricLevelImpl(element));});
         writer.writeCollectionOfObjectValues<RubricLevelImpl>("levels", levelsArrValue);
         }
-        if(this.qualities){
-        const qualitiesArrValue: RubricQualityImpl[] = []; this.qualities?.forEach(element => {qualitiesArrValue.push(new RubricQualityImpl(element));});
+        if(this.qualities && this.qualities.length != 0){        const qualitiesArrValue: RubricQualityImpl[] = []; this.qualities?.forEach(element => {qualitiesArrValue.push(new RubricQualityImpl(element));});
         writer.writeCollectionOfObjectValues<RubricQualityImpl>("qualities", qualitiesArrValue);
         }
     };

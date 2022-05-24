@@ -3,20 +3,19 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class SearchBucketImpl implements AdditionalDataHolder, Parsable, SearchBucket {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** A token containing the encoded filter to aggregate search matches by the specific key value. To use the filter, pass the token as part of the aggregationFilter property in a searchRequest object, in the format '{field}:/'{aggregationFilterToken}/''. See an example. */
-    aggregationFilterToken?: string | undefined;
+    public aggregationFilterToken?: string | undefined;
     /** The approximate number of search matches that share the same value specified in the key property. Note that this number is not the exact number of matches. */
-    count?: number | undefined;
+    public count?: number | undefined;
     /** The discrete value of the field that an aggregation was computed on. */
-    key?: string | undefined;
+    public key?: string | undefined;
     /**
      * Instantiates a new searchBucket and sets the default values.
      * @param searchBucketParameterValue 
      */
     public constructor(searchBucketParameterValue?: SearchBucket | undefined) {
-        this.additionalData = {};
-        this.additionalData = searchBucketParameterValue?.additionalData ? {} : searchBucketParameterValue?.additionalData!
+        this.additionalData = searchBucketParameterValue?.additionalData ? searchBucketParameterValue?.additionalData! : {}
         this.aggregationFilterToken = searchBucketParameterValue?.aggregationFilterToken ;
         this.count = searchBucketParameterValue?.count ;
         this.key = searchBucketParameterValue?.key ;
@@ -39,15 +38,12 @@ export class SearchBucketImpl implements AdditionalDataHolder, Parsable, SearchB
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.aggregationFilterToken){
-        if(this.aggregationFilterToken)
         writer.writeStringValue("aggregationFilterToken", this.aggregationFilterToken);
         }
         if(this.count){
-        if(this.count)
         writer.writeNumberValue("count", this.count);
         }
         if(this.key){
-        if(this.key)
         writer.writeStringValue("key", this.key);
         }
         writer.writeAdditionalData(this.additionalData);

@@ -7,25 +7,26 @@ import {ServiceHealthOrigin} from './serviceHealthOrigin';
 import {ServiceHealthStatus} from './serviceHealthStatus';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the admin singleton. */
 export class ServiceHealthIssueImpl extends ServiceAnnouncementBaseImpl implements Parsable, ServiceHealthIssue {
     /** The type of service health issue. Possible values are: advisory, incident, unknownFutureValue. */
-    classification?: ServiceHealthClassificationType | undefined;
+    public classification?: ServiceHealthClassificationType | undefined;
     /** The feature name of the service issue. */
-    feature?: string | undefined;
+    public feature?: string | undefined;
     /** The feature group name of the service issue. */
-    featureGroup?: string | undefined;
+    public featureGroup?: string | undefined;
     /** The description of the service issue impact. */
-    impactDescription?: string | undefined;
+    public impactDescription?: string | undefined;
     /** Indicates whether the issue is resolved. */
-    isResolved?: boolean | undefined;
+    public isResolved?: boolean | undefined;
     /** Indicates the origin of the service issue. Possible values are: microsoft, thirdParty, customer, unknownFutureValue. */
-    origin?: ServiceHealthOrigin | undefined;
+    public origin?: ServiceHealthOrigin | undefined;
     /** Collection of historical posts for the service issue. */
-    posts?: ServiceHealthIssuePost[] | undefined;
+    public posts?: ServiceHealthIssuePost[] | undefined;
     /** Indicates the service affected by the issue. */
-    service?: string | undefined;
+    public service?: string | undefined;
     /** The status of the service issue. Possible values are: serviceOperational, investigating, restoringService, verifyingService, serviceRestored, postIncidentReviewPublished, serviceDegradation, serviceInterruption, extendedRecovery, falsePositive, investigationSuspended, resolved, mitigatedExternal, mitigated, resolvedExternal, confirmed, reported, unknownFutureValue. For more details, see serviceHealthStatus values. */
-    status?: ServiceHealthStatus | undefined;
+    public status?: ServiceHealthStatus | undefined;
     /**
      * Instantiates a new serviceHealthIssue and sets the default values.
      * @param serviceHealthIssueParameterValue 
@@ -67,39 +68,30 @@ export class ServiceHealthIssueImpl extends ServiceAnnouncementBaseImpl implemen
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.classification){
-        if(this.classification)
         writer.writeEnumValue<ServiceHealthClassificationType>("classification", this.classification);
         }
         if(this.feature){
-        if(this.feature)
         writer.writeStringValue("feature", this.feature);
         }
         if(this.featureGroup){
-        if(this.featureGroup)
         writer.writeStringValue("featureGroup", this.featureGroup);
         }
         if(this.impactDescription){
-        if(this.impactDescription)
         writer.writeStringValue("impactDescription", this.impactDescription);
         }
         if(this.isResolved){
-        if(this.isResolved)
         writer.writeBooleanValue("isResolved", this.isResolved);
         }
         if(this.origin){
-        if(this.origin)
         writer.writeEnumValue<ServiceHealthOrigin>("origin", this.origin);
         }
-        if(this.posts){
-        const postsArrValue: ServiceHealthIssuePostImpl[] = []; this.posts?.forEach(element => {postsArrValue.push(new ServiceHealthIssuePostImpl(element));});
+        if(this.posts && this.posts.length != 0){        const postsArrValue: ServiceHealthIssuePostImpl[] = []; this.posts?.forEach(element => {postsArrValue.push(new ServiceHealthIssuePostImpl(element));});
         writer.writeCollectionOfObjectValues<ServiceHealthIssuePostImpl>("posts", postsArrValue);
         }
         if(this.service){
-        if(this.service)
         writer.writeStringValue("service", this.service);
         }
         if(this.status){
-        if(this.status)
         writer.writeEnumValue<ServiceHealthStatus>("status", this.status);
         }
     };

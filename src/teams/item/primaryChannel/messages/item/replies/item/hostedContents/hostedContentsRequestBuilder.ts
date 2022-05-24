@@ -1,6 +1,5 @@
 import {ChatMessageHostedContentCollectionResponseImpl, ChatMessageHostedContentImpl} from '../../../../../../../../models/';
 import {ChatMessageHostedContent} from '../../../../../../../../models/chatMessageHostedContent';
-import {ChatMessageHostedContentCollectionResponse} from '../../../../../../../../models/chatMessageHostedContentCollectionResponse';
 import {createChatMessageHostedContentCollectionResponseFromDiscriminatorValue} from '../../../../../../../../models/createChatMessageHostedContentCollectionResponseFromDiscriminatorValue';
 import {createChatMessageHostedContentFromDiscriminatorValue} from '../../../../../../../../models/createChatMessageHostedContentFromDiscriminatorValue';
 import {ODataErrorImpl} from '../../../../../../../../models/oDataErrors/';
@@ -68,8 +67,8 @@ export class HostedContentsRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        const bodyParsable = new ChatMessageHostedContentImpl(body)
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", bodyParsable);
+        const parsableBody = new ChatMessageHostedContentImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -78,7 +77,7 @@ export class HostedContentsRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ChatMessageHostedContentCollectionResponse
      */
-    public get(requestConfiguration?: HostedContentsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ChatMessageHostedContentCollectionResponse | undefined> {
+    public get(requestConfiguration?: HostedContentsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ChatMessageHostedContentCollectionResponseImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -95,7 +94,7 @@ export class HostedContentsRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ChatMessageHostedContent
      */
-    public post(body: ChatMessageHostedContent | undefined, requestConfiguration?: HostedContentsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ChatMessageHostedContent | undefined> {
+    public post(body: ChatMessageHostedContent | undefined, requestConfiguration?: HostedContentsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ChatMessageHostedContentImpl | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration

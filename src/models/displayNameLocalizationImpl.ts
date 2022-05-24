@@ -3,18 +3,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class DisplayNameLocalizationImpl implements AdditionalDataHolder, DisplayNameLocalization, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** If present, the value of this field contains the displayName string that has been set for the language present in the languageTag field. */
-    displayName?: string | undefined;
+    public displayName?: string | undefined;
     /** Provides the language culture-code and friendly name of the language that the displayName field has been provided in. */
-    languageTag?: string | undefined;
+    public languageTag?: string | undefined;
     /**
      * Instantiates a new displayNameLocalization and sets the default values.
      * @param displayNameLocalizationParameterValue 
      */
     public constructor(displayNameLocalizationParameterValue?: DisplayNameLocalization | undefined) {
-        this.additionalData = {};
-        this.additionalData = displayNameLocalizationParameterValue?.additionalData ? {} : displayNameLocalizationParameterValue?.additionalData!
+        this.additionalData = displayNameLocalizationParameterValue?.additionalData ? displayNameLocalizationParameterValue?.additionalData! : {}
         this.displayName = displayNameLocalizationParameterValue?.displayName ;
         this.languageTag = displayNameLocalizationParameterValue?.languageTag ;
     };
@@ -35,11 +34,9 @@ export class DisplayNameLocalizationImpl implements AdditionalDataHolder, Displa
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.displayName){
-        if(this.displayName)
         writer.writeStringValue("displayName", this.displayName);
         }
         if(this.languageTag){
-        if(this.languageTag)
         writer.writeStringValue("languageTag", this.languageTag);
         }
         writer.writeAdditionalData(this.additionalData);

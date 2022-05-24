@@ -3,16 +3,15 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class ConditionalAccessSessionControlImpl implements AdditionalDataHolder, ConditionalAccessSessionControl, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** Specifies whether the session control is enabled. */
-    isEnabled?: boolean | undefined;
+    public isEnabled?: boolean | undefined;
     /**
      * Instantiates a new conditionalAccessSessionControl and sets the default values.
      * @param conditionalAccessSessionControlParameterValue 
      */
     public constructor(conditionalAccessSessionControlParameterValue?: ConditionalAccessSessionControl | undefined) {
-        this.additionalData = {};
-        this.additionalData = conditionalAccessSessionControlParameterValue?.additionalData ? {} : conditionalAccessSessionControlParameterValue?.additionalData!
+        this.additionalData = conditionalAccessSessionControlParameterValue?.additionalData ? conditionalAccessSessionControlParameterValue?.additionalData! : {}
         this.isEnabled = conditionalAccessSessionControlParameterValue?.isEnabled ;
     };
     /**
@@ -31,7 +30,6 @@ export class ConditionalAccessSessionControlImpl implements AdditionalDataHolder
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.isEnabled){
-        if(this.isEnabled)
         writer.writeBooleanValue("isEnabled", this.isEnabled);
         }
         writer.writeAdditionalData(this.additionalData);

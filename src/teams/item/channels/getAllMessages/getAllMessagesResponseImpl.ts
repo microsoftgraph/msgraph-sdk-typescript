@@ -7,16 +7,15 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Provides operations to call the getAllMessages method. */
 export class GetAllMessagesResponseImpl implements AdditionalDataHolder, GetAllMessagesResponse, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The value property */
-    value?: ChatMessage[] | undefined;
+    public value?: ChatMessage[] | undefined;
     /**
      * Instantiates a new getAllMessagesResponse and sets the default values.
      * @param getAllMessagesResponseParameterValue 
      */
     public constructor(getAllMessagesResponseParameterValue?: GetAllMessagesResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = getAllMessagesResponseParameterValue?.additionalData ? {} : getAllMessagesResponseParameterValue?.additionalData!
+        this.additionalData = getAllMessagesResponseParameterValue?.additionalData ? getAllMessagesResponseParameterValue?.additionalData! : {}
         this.value = getAllMessagesResponseParameterValue?.value ;
     };
     /**
@@ -34,8 +33,7 @@ export class GetAllMessagesResponseImpl implements AdditionalDataHolder, GetAllM
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        if(this.value){
-        const valueArrValue: ChatMessageImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ChatMessageImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: ChatMessageImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ChatMessageImpl(element));});
         writer.writeCollectionOfObjectValues<ChatMessageImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

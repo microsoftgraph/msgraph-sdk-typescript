@@ -3,22 +3,21 @@ import {AdditionalDataHolder, DateOnly, Parsable, ParseNode, SerializationWriter
 
 export class EducationTermImpl implements AdditionalDataHolder, EducationTerm, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** Display name of the term. */
-    displayName?: string | undefined;
+    public displayName?: string | undefined;
     /** End of the term. */
-    endDate?: DateOnly | undefined;
+    public endDate?: DateOnly | undefined;
     /** ID of term in the syncing system. */
-    externalId?: string | undefined;
+    public externalId?: string | undefined;
     /** Start of the term. */
-    startDate?: DateOnly | undefined;
+    public startDate?: DateOnly | undefined;
     /**
      * Instantiates a new educationTerm and sets the default values.
      * @param educationTermParameterValue 
      */
     public constructor(educationTermParameterValue?: EducationTerm | undefined) {
-        this.additionalData = {};
-        this.additionalData = educationTermParameterValue?.additionalData ? {} : educationTermParameterValue?.additionalData!
+        this.additionalData = educationTermParameterValue?.additionalData ? educationTermParameterValue?.additionalData! : {}
         this.displayName = educationTermParameterValue?.displayName ;
         this.endDate = educationTermParameterValue?.endDate ;
         this.externalId = educationTermParameterValue?.externalId ;
@@ -43,19 +42,15 @@ export class EducationTermImpl implements AdditionalDataHolder, EducationTerm, P
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.displayName){
-        if(this.displayName)
         writer.writeStringValue("displayName", this.displayName);
         }
         if(this.endDate){
-        if(this.endDate)
         writer.writeDateOnlyValue("endDate", this.endDate);
         }
         if(this.externalId){
-        if(this.externalId)
         writer.writeStringValue("externalId", this.externalId);
         }
         if(this.startDate){
-        if(this.startDate)
         writer.writeDateOnlyValue("startDate", this.startDate);
         }
         writer.writeAdditionalData(this.additionalData);

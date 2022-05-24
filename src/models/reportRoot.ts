@@ -4,11 +4,11 @@ import {PrintUsageByUser} from './printUsageByUser';
 
 export interface ReportRoot extends Entity{
     /** The dailyPrintUsageByPrinter property */
-    dailyPrintUsageByPrinter?: PrintUsageByPrinter[] | undefined;
+    dailyPrintUsageByPrinter?:PrintUsageByPrinter[] | undefined;
     /** The dailyPrintUsageByUser property */
-    dailyPrintUsageByUser?: PrintUsageByUser[] | undefined;
+    dailyPrintUsageByUser?:PrintUsageByUser[] | undefined;
     /** The monthlyPrintUsageByPrinter property */
-    monthlyPrintUsageByPrinter?: PrintUsageByPrinter[] | undefined;
+    monthlyPrintUsageByPrinter?:PrintUsageByPrinter[] | undefined;
     /** The monthlyPrintUsageByUser property */
-    monthlyPrintUsageByUser?: PrintUsageByUser[] | undefined;
+    monthlyPrintUsageByUser?:PrintUsageByUser[] | undefined;
 }

@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class SectionLinksImpl implements AdditionalDataHolder, Parsable, SectionLinks {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** Opens the section in the OneNote native client if it's installed. */
-    oneNoteClientUrl?: ExternalLink | undefined;
+    public oneNoteClientUrl?: ExternalLink | undefined;
     /** Opens the section in OneNote on the web. */
-    oneNoteWebUrl?: ExternalLink | undefined;
+    public oneNoteWebUrl?: ExternalLink | undefined;
     /**
      * Instantiates a new sectionLinks and sets the default values.
      * @param sectionLinksParameterValue 
      */
     public constructor(sectionLinksParameterValue?: SectionLinks | undefined) {
-        this.additionalData = {};
-        this.additionalData = sectionLinksParameterValue?.additionalData ? {} : sectionLinksParameterValue?.additionalData!
+        this.additionalData = sectionLinksParameterValue?.additionalData ? sectionLinksParameterValue?.additionalData! : {}
         this.oneNoteClientUrl = sectionLinksParameterValue?.oneNoteClientUrl ;
         this.oneNoteWebUrl = sectionLinksParameterValue?.oneNoteWebUrl ;
     };
@@ -38,11 +37,9 @@ export class SectionLinksImpl implements AdditionalDataHolder, Parsable, Section
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.oneNoteClientUrl){
-        if(this.oneNoteClientUrl)
         writer.writeObjectValue<ExternalLinkImpl>("oneNoteClientUrl", new ExternalLinkImpl(this.oneNoteClientUrl));
         }
         if(this.oneNoteWebUrl){
-        if(this.oneNoteWebUrl)
         writer.writeObjectValue<ExternalLinkImpl>("oneNoteWebUrl", new ExternalLinkImpl(this.oneNoteWebUrl));
         }
         writer.writeAdditionalData(this.additionalData);

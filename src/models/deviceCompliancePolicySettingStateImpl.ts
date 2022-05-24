@@ -8,38 +8,37 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Device Compilance Policy Setting State for a given device. */
 export class DeviceCompliancePolicySettingStateImpl implements AdditionalDataHolder, DeviceCompliancePolicySettingState, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** Current value of setting on device */
-    currentValue?: string | undefined;
+    public currentValue?: string | undefined;
     /** Error code for the setting */
-    errorCode?: number | undefined;
+    public errorCode?: number | undefined;
     /** Error description */
-    errorDescription?: string | undefined;
+    public errorDescription?: string | undefined;
     /** Name of setting instance that is being reported. */
-    instanceDisplayName?: string | undefined;
+    public instanceDisplayName?: string | undefined;
     /** The setting that is being reported */
-    setting?: string | undefined;
+    public setting?: string | undefined;
     /** Localized/user friendly setting name that is being reported */
-    settingName?: string | undefined;
+    public settingName?: string | undefined;
     /** Contributing policies */
-    sources?: SettingSource[] | undefined;
+    public sources?: SettingSource[] | undefined;
     /** The compliance state of the setting. Possible values are: unknown, notApplicable, compliant, remediated, nonCompliant, error, conflict, notAssigned. */
-    state?: ComplianceStatus | undefined;
+    public state?: ComplianceStatus | undefined;
     /** UserEmail */
-    userEmail?: string | undefined;
+    public userEmail?: string | undefined;
     /** UserId */
-    userId?: string | undefined;
+    public userId?: string | undefined;
     /** UserName */
-    userName?: string | undefined;
+    public userName?: string | undefined;
     /** UserPrincipalName. */
-    userPrincipalName?: string | undefined;
+    public userPrincipalName?: string | undefined;
     /**
      * Instantiates a new deviceCompliancePolicySettingState and sets the default values.
      * @param deviceCompliancePolicySettingStateParameterValue 
      */
     public constructor(deviceCompliancePolicySettingStateParameterValue?: DeviceCompliancePolicySettingState | undefined) {
-        this.additionalData = {};
-        this.additionalData = deviceCompliancePolicySettingStateParameterValue?.additionalData ? {} : deviceCompliancePolicySettingStateParameterValue?.additionalData!
+        this.additionalData = deviceCompliancePolicySettingStateParameterValue?.additionalData ? deviceCompliancePolicySettingStateParameterValue?.additionalData! : {}
         this.currentValue = deviceCompliancePolicySettingStateParameterValue?.currentValue ;
         this.errorCode = deviceCompliancePolicySettingStateParameterValue?.errorCode ;
         this.errorDescription = deviceCompliancePolicySettingStateParameterValue?.errorDescription ;
@@ -80,51 +79,39 @@ export class DeviceCompliancePolicySettingStateImpl implements AdditionalDataHol
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.currentValue){
-        if(this.currentValue)
         writer.writeStringValue("currentValue", this.currentValue);
         }
         if(this.errorCode){
-        if(this.errorCode)
         writer.writeNumberValue("errorCode", this.errorCode);
         }
         if(this.errorDescription){
-        if(this.errorDescription)
         writer.writeStringValue("errorDescription", this.errorDescription);
         }
         if(this.instanceDisplayName){
-        if(this.instanceDisplayName)
         writer.writeStringValue("instanceDisplayName", this.instanceDisplayName);
         }
         if(this.setting){
-        if(this.setting)
         writer.writeStringValue("setting", this.setting);
         }
         if(this.settingName){
-        if(this.settingName)
         writer.writeStringValue("settingName", this.settingName);
         }
-        if(this.sources){
-        const sourcesArrValue: SettingSourceImpl[] = []; this.sources?.forEach(element => {sourcesArrValue.push(new SettingSourceImpl(element));});
+        if(this.sources && this.sources.length != 0){        const sourcesArrValue: SettingSourceImpl[] = []; this.sources?.forEach(element => {sourcesArrValue.push(new SettingSourceImpl(element));});
         writer.writeCollectionOfObjectValues<SettingSourceImpl>("sources", sourcesArrValue);
         }
         if(this.state){
-        if(this.state)
         writer.writeEnumValue<ComplianceStatus>("state", this.state);
         }
         if(this.userEmail){
-        if(this.userEmail)
         writer.writeStringValue("userEmail", this.userEmail);
         }
         if(this.userId){
-        if(this.userId)
         writer.writeStringValue("userId", this.userId);
         }
         if(this.userName){
-        if(this.userName)
         writer.writeStringValue("userName", this.userName);
         }
         if(this.userPrincipalName){
-        if(this.userPrincipalName)
         writer.writeStringValue("userPrincipalName", this.userPrincipalName);
         }
         writer.writeAdditionalData(this.additionalData);

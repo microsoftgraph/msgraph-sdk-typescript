@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class IosManagedAppProtectionCollectionResponseImpl implements AdditionalDataHolder, IosManagedAppProtectionCollectionResponse, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: IosManagedAppProtection[] | undefined;
+    public value?: IosManagedAppProtection[] | undefined;
     /**
      * Instantiates a new IosManagedAppProtectionCollectionResponse and sets the default values.
      * @param iosManagedAppProtectionCollectionResponseParameterValue 
      */
     public constructor(iosManagedAppProtectionCollectionResponseParameterValue?: IosManagedAppProtectionCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = iosManagedAppProtectionCollectionResponseParameterValue?.additionalData ? {} : iosManagedAppProtectionCollectionResponseParameterValue?.additionalData!
+        this.additionalData = iosManagedAppProtectionCollectionResponseParameterValue?.additionalData ? iosManagedAppProtectionCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = iosManagedAppProtectionCollectionResponseParameterValue?.nextLink ;
         this.value = iosManagedAppProtectionCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class IosManagedAppProtectionCollectionResponseImpl implements Additional
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: IosManagedAppProtectionImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new IosManagedAppProtectionImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: IosManagedAppProtectionImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new IosManagedAppProtectionImpl(element));});
         writer.writeCollectionOfObjectValues<IosManagedAppProtectionImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

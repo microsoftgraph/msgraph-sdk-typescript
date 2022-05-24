@@ -3,16 +3,15 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class DeletedImpl implements AdditionalDataHolder, Deleted, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** Represents the state of the deleted item. */
-    state?: string | undefined;
+    public state?: string | undefined;
     /**
      * Instantiates a new deleted and sets the default values.
      * @param deletedParameterValue 
      */
     public constructor(deletedParameterValue?: Deleted | undefined) {
-        this.additionalData = {};
-        this.additionalData = deletedParameterValue?.additionalData ? {} : deletedParameterValue?.additionalData!
+        this.additionalData = deletedParameterValue?.additionalData ? deletedParameterValue?.additionalData! : {}
         this.state = deletedParameterValue?.state ;
     };
     /**
@@ -31,7 +30,6 @@ export class DeletedImpl implements AdditionalDataHolder, Deleted, Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.state){
-        if(this.state)
         writer.writeStringValue("state", this.state);
         }
         writer.writeAdditionalData(this.additionalData);

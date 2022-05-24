@@ -2,6 +2,7 @@ import {EntityImpl} from './index';
 import {TeamsTemplate} from './teamsTemplate';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to group. */
 export class TeamsTemplateImpl extends EntityImpl implements Parsable, TeamsTemplate {
     /**
      * Instantiates a new teamsTemplate and sets the default values.

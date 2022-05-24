@@ -3,9 +3,10 @@ import {TeamworkConversationIdentity} from './teamworkConversationIdentity';
 import {TeamworkConversationIdentityType} from './teamworkConversationIdentityType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the collection of chat entities. */
 export class TeamworkConversationIdentityImpl extends IdentityImpl implements Parsable, TeamworkConversationIdentity {
     /** Type of conversation. Possible values are: team, channel, and chat. */
-    conversationIdentityType?: TeamworkConversationIdentityType | undefined;
+    public conversationIdentityType?: TeamworkConversationIdentityType | undefined;
     /**
      * Instantiates a new teamworkConversationIdentity and sets the default values.
      * @param teamworkConversationIdentityParameterValue 
@@ -31,7 +32,6 @@ export class TeamworkConversationIdentityImpl extends IdentityImpl implements Pa
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.conversationIdentityType){
-        if(this.conversationIdentityType)
         writer.writeEnumValue<TeamworkConversationIdentityType>("conversationIdentityType", this.conversationIdentityType);
         }
     };

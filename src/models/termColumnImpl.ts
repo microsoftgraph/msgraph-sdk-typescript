@@ -8,22 +8,21 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class TermColumnImpl implements AdditionalDataHolder, Parsable, TermColumn {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** Specifies whether the column will allow more than one value */
-    allowMultipleValues?: boolean | undefined;
+    public allowMultipleValues?: boolean | undefined;
     /** The parentTerm property */
-    parentTerm?: Term | undefined;
+    public parentTerm?: Term | undefined;
     /** Specifies whether to display the entire term path or only the term label. */
-    showFullyQualifiedName?: boolean | undefined;
+    public showFullyQualifiedName?: boolean | undefined;
     /** The termSet property */
-    termSet?: Set | undefined;
+    public termSet?: Set | undefined;
     /**
      * Instantiates a new termColumn and sets the default values.
      * @param termColumnParameterValue 
      */
     public constructor(termColumnParameterValue?: TermColumn | undefined) {
-        this.additionalData = {};
-        this.additionalData = termColumnParameterValue?.additionalData ? {} : termColumnParameterValue?.additionalData!
+        this.additionalData = termColumnParameterValue?.additionalData ? termColumnParameterValue?.additionalData! : {}
         this.allowMultipleValues = termColumnParameterValue?.allowMultipleValues ;
         this.parentTerm = termColumnParameterValue?.parentTerm ;
         this.showFullyQualifiedName = termColumnParameterValue?.showFullyQualifiedName ;
@@ -48,19 +47,15 @@ export class TermColumnImpl implements AdditionalDataHolder, Parsable, TermColum
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.allowMultipleValues){
-        if(this.allowMultipleValues)
         writer.writeBooleanValue("allowMultipleValues", this.allowMultipleValues);
         }
         if(this.parentTerm){
-        if(this.parentTerm)
         writer.writeObjectValue<TermImpl>("parentTerm", new TermImpl(this.parentTerm));
         }
         if(this.showFullyQualifiedName){
-        if(this.showFullyQualifiedName)
         writer.writeBooleanValue("showFullyQualifiedName", this.showFullyQualifiedName);
         }
         if(this.termSet){
-        if(this.termSet)
         writer.writeObjectValue<SetImpl>("termSet", new SetImpl(this.termSet));
         }
         writer.writeAdditionalData(this.additionalData);

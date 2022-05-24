@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class TermsAndConditionsAssignmentCollectionResponseImpl implements AdditionalDataHolder, Parsable, TermsAndConditionsAssignmentCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: TermsAndConditionsAssignment[] | undefined;
+    public value?: TermsAndConditionsAssignment[] | undefined;
     /**
      * Instantiates a new TermsAndConditionsAssignmentCollectionResponse and sets the default values.
      * @param termsAndConditionsAssignmentCollectionResponseParameterValue 
      */
     public constructor(termsAndConditionsAssignmentCollectionResponseParameterValue?: TermsAndConditionsAssignmentCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = termsAndConditionsAssignmentCollectionResponseParameterValue?.additionalData ? {} : termsAndConditionsAssignmentCollectionResponseParameterValue?.additionalData!
+        this.additionalData = termsAndConditionsAssignmentCollectionResponseParameterValue?.additionalData ? termsAndConditionsAssignmentCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = termsAndConditionsAssignmentCollectionResponseParameterValue?.nextLink ;
         this.value = termsAndConditionsAssignmentCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class TermsAndConditionsAssignmentCollectionResponseImpl implements Addit
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: TermsAndConditionsAssignmentImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new TermsAndConditionsAssignmentImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: TermsAndConditionsAssignmentImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new TermsAndConditionsAssignmentImpl(element));});
         writer.writeCollectionOfObjectValues<TermsAndConditionsAssignmentImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

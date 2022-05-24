@@ -2,9 +2,10 @@ import {EntityImpl} from './index';
 import {SingleValueLegacyExtendedProperty} from './singleValueLegacyExtendedProperty';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to user. */
 export class SingleValueLegacyExtendedPropertyImpl extends EntityImpl implements Parsable, SingleValueLegacyExtendedProperty {
     /** A property value. */
-    value?: string | undefined;
+    public value?: string | undefined;
     /**
      * Instantiates a new singleValueLegacyExtendedProperty and sets the default values.
      * @param singleValueLegacyExtendedPropertyParameterValue 
@@ -30,7 +31,6 @@ export class SingleValueLegacyExtendedPropertyImpl extends EntityImpl implements
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.value){
-        if(this.value)
         writer.writeStringValue("value", this.value);
         }
     };

@@ -3,15 +3,16 @@ import {DeviceComplianceActionType} from './deviceComplianceActionType';
 import {EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Scheduled Action Configuration */
 export class DeviceComplianceActionItemImpl extends EntityImpl implements DeviceComplianceActionItem, Parsable {
     /** What action to take. Possible values are: noAction, notification, block, retire, wipe, removeResourceAccessProfiles, pushNotification, remoteLock. */
-    actionType?: DeviceComplianceActionType | undefined;
+    public actionType?: DeviceComplianceActionType | undefined;
     /** Number of hours to wait till the action will be enforced. Valid values 0 to 8760 */
-    gracePeriodHours?: number | undefined;
+    public gracePeriodHours?: number | undefined;
     /** A list of group IDs to speicify who to CC this notification message to. */
-    notificationMessageCCList?: string[] | undefined;
+    public notificationMessageCCList?: string[] | undefined;
     /** What notification Message template to use */
-    notificationTemplateId?: string | undefined;
+    public notificationTemplateId?: string | undefined;
     /**
      * Instantiates a new deviceComplianceActionItem and sets the default values.
      * @param deviceComplianceActionItemParameterValue 
@@ -43,19 +44,15 @@ export class DeviceComplianceActionItemImpl extends EntityImpl implements Device
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.actionType){
-        if(this.actionType)
         writer.writeEnumValue<DeviceComplianceActionType>("actionType", this.actionType);
         }
         if(this.gracePeriodHours){
-        if(this.gracePeriodHours)
         writer.writeNumberValue("gracePeriodHours", this.gracePeriodHours);
         }
         if(this.notificationMessageCCList){
-        if(this.notificationMessageCCList)
         writer.writeCollectionOfPrimitiveValues<string>("notificationMessageCCList", this.notificationMessageCCList);
         }
         if(this.notificationTemplateId){
-        if(this.notificationTemplateId)
         writer.writeStringValue("notificationTemplateId", this.notificationTemplateId);
         }
     };

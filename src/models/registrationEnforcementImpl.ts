@@ -6,16 +6,15 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class RegistrationEnforcementImpl implements AdditionalDataHolder, Parsable, RegistrationEnforcement {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** Run campaigns to remind users to setup targeted authentication methods. */
-    authenticationMethodsRegistrationCampaign?: AuthenticationMethodsRegistrationCampaign | undefined;
+    public authenticationMethodsRegistrationCampaign?: AuthenticationMethodsRegistrationCampaign | undefined;
     /**
      * Instantiates a new registrationEnforcement and sets the default values.
      * @param registrationEnforcementParameterValue 
      */
     public constructor(registrationEnforcementParameterValue?: RegistrationEnforcement | undefined) {
-        this.additionalData = {};
-        this.additionalData = registrationEnforcementParameterValue?.additionalData ? {} : registrationEnforcementParameterValue?.additionalData!
+        this.additionalData = registrationEnforcementParameterValue?.additionalData ? registrationEnforcementParameterValue?.additionalData! : {}
         this.authenticationMethodsRegistrationCampaign = registrationEnforcementParameterValue?.authenticationMethodsRegistrationCampaign ;
     };
     /**
@@ -34,7 +33,6 @@ export class RegistrationEnforcementImpl implements AdditionalDataHolder, Parsab
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.authenticationMethodsRegistrationCampaign){
-        if(this.authenticationMethodsRegistrationCampaign)
         writer.writeObjectValue<AuthenticationMethodsRegistrationCampaignImpl>("authenticationMethodsRegistrationCampaign", new AuthenticationMethodsRegistrationCampaignImpl(this.authenticationMethodsRegistrationCampaign));
         }
         writer.writeAdditionalData(this.additionalData);

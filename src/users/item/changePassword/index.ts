@@ -1,3 +1,3 @@
-export * from './changePasswordRequestBodyImpl'
+export * from './changePasswordPostRequestBodyImpl'
 export * from './changePasswordRequestBuilderPostRequestConfiguration'
-export * from './changePasswordRequestBody'
+export * from './changePasswordPostRequestBody'

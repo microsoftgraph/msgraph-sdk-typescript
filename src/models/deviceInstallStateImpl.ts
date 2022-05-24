@@ -3,23 +3,24 @@ import {EntityImpl} from './index';
 import {InstallState} from './installState';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Contains properties for the installation state for a device. */
 export class DeviceInstallStateImpl extends EntityImpl implements DeviceInstallState, Parsable {
     /** Device Id. */
-    deviceId?: string | undefined;
+    public deviceId?: string | undefined;
     /** Device name. */
-    deviceName?: string | undefined;
+    public deviceName?: string | undefined;
     /** The error code for install failures. */
-    errorCode?: string | undefined;
+    public errorCode?: string | undefined;
     /** The install state of the eBook. Possible values are: notApplicable, installed, failed, notInstalled, uninstallFailed, unknown. */
-    installState?: InstallState | undefined;
+    public installState?: InstallState | undefined;
     /** Last sync date and time. */
-    lastSyncDateTime?: Date | undefined;
+    public lastSyncDateTime?: Date | undefined;
     /** OS Description. */
-    osDescription?: string | undefined;
+    public osDescription?: string | undefined;
     /** OS Version. */
-    osVersion?: string | undefined;
+    public osVersion?: string | undefined;
     /** Device User Name. */
-    userName?: string | undefined;
+    public userName?: string | undefined;
     /**
      * Instantiates a new deviceInstallState and sets the default values.
      * @param deviceInstallStateParameterValue 
@@ -59,35 +60,27 @@ export class DeviceInstallStateImpl extends EntityImpl implements DeviceInstallS
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.deviceId){
-        if(this.deviceId)
         writer.writeStringValue("deviceId", this.deviceId);
         }
         if(this.deviceName){
-        if(this.deviceName)
         writer.writeStringValue("deviceName", this.deviceName);
         }
         if(this.errorCode){
-        if(this.errorCode)
         writer.writeStringValue("errorCode", this.errorCode);
         }
         if(this.installState){
-        if(this.installState)
         writer.writeEnumValue<InstallState>("installState", this.installState);
         }
         if(this.lastSyncDateTime){
-        if(this.lastSyncDateTime)
         writer.writeDateValue("lastSyncDateTime", this.lastSyncDateTime);
         }
         if(this.osDescription){
-        if(this.osDescription)
         writer.writeStringValue("osDescription", this.osDescription);
         }
         if(this.osVersion){
-        if(this.osVersion)
         writer.writeStringValue("osVersion", this.osVersion);
         }
         if(this.userName){
-        if(this.userName)
         writer.writeStringValue("userName", this.userName);
         }
     };

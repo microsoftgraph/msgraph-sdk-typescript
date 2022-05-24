@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class DomainDnsRecordCollectionResponseImpl implements AdditionalDataHolder, DomainDnsRecordCollectionResponse, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: DomainDnsRecord[] | undefined;
+    public value?: DomainDnsRecord[] | undefined;
     /**
      * Instantiates a new DomainDnsRecordCollectionResponse and sets the default values.
      * @param domainDnsRecordCollectionResponseParameterValue 
      */
     public constructor(domainDnsRecordCollectionResponseParameterValue?: DomainDnsRecordCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = domainDnsRecordCollectionResponseParameterValue?.additionalData ? {} : domainDnsRecordCollectionResponseParameterValue?.additionalData!
+        this.additionalData = domainDnsRecordCollectionResponseParameterValue?.additionalData ? domainDnsRecordCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = domainDnsRecordCollectionResponseParameterValue?.nextLink ;
         this.value = domainDnsRecordCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class DomainDnsRecordCollectionResponseImpl implements AdditionalDataHold
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: DomainDnsRecordImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new DomainDnsRecordImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: DomainDnsRecordImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new DomainDnsRecordImpl(element));});
         writer.writeCollectionOfObjectValues<DomainDnsRecordImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

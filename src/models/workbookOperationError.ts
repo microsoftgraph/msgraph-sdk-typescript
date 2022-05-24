@@ -1,11 +1,11 @@
 
 export interface WorkbookOperationError{
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    additionalData?:Record<string, unknown>;
     /** The error code. */
-    code?: string | undefined;
+    code?:string | undefined;
     /** The innerError property */
-    innerError?: WorkbookOperationError | undefined;
+    innerError?:WorkbookOperationError | undefined;
     /** The error message. */
-    message?: string | undefined;
+    message?:string | undefined;
 }

@@ -6,19 +6,20 @@ import {DeviceConfigurationSettingStateImpl, EntityImpl} from './index';
 import {PolicyPlatformType} from './policyPlatformType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Device Configuration State for a given device. */
 export class DeviceConfigurationStateImpl extends EntityImpl implements DeviceConfigurationState, Parsable {
     /** The name of the policy for this policyBase */
-    displayName?: string | undefined;
+    public displayName?: string | undefined;
     /** Platform type that the policy applies to */
-    platformType?: PolicyPlatformType | undefined;
+    public platformType?: PolicyPlatformType | undefined;
     /** Count of how many setting a policy holds */
-    settingCount?: number | undefined;
+    public settingCount?: number | undefined;
     /** The settingStates property */
-    settingStates?: DeviceConfigurationSettingState[] | undefined;
+    public settingStates?: DeviceConfigurationSettingState[] | undefined;
     /** The compliance state of the policy */
-    state?: ComplianceStatus | undefined;
+    public state?: ComplianceStatus | undefined;
     /** The version of the policy */
-    version?: number | undefined;
+    public version?: number | undefined;
     /**
      * Instantiates a new deviceConfigurationState and sets the default values.
      * @param deviceConfigurationStateParameterValue 
@@ -54,27 +55,21 @@ export class DeviceConfigurationStateImpl extends EntityImpl implements DeviceCo
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.displayName){
-        if(this.displayName)
         writer.writeStringValue("displayName", this.displayName);
         }
         if(this.platformType){
-        if(this.platformType)
         writer.writeEnumValue<PolicyPlatformType>("platformType", this.platformType);
         }
         if(this.settingCount){
-        if(this.settingCount)
         writer.writeNumberValue("settingCount", this.settingCount);
         }
-        if(this.settingStates){
-        const settingStatesArrValue: DeviceConfigurationSettingStateImpl[] = []; this.settingStates?.forEach(element => {settingStatesArrValue.push(new DeviceConfigurationSettingStateImpl(element));});
+        if(this.settingStates && this.settingStates.length != 0){        const settingStatesArrValue: DeviceConfigurationSettingStateImpl[] = []; this.settingStates?.forEach(element => {settingStatesArrValue.push(new DeviceConfigurationSettingStateImpl(element));});
         writer.writeCollectionOfObjectValues<DeviceConfigurationSettingStateImpl>("settingStates", settingStatesArrValue);
         }
         if(this.state){
-        if(this.state)
         writer.writeEnumValue<ComplianceStatus>("state", this.state);
         }
         if(this.version){
-        if(this.version)
         writer.writeNumberValue("version", this.version);
         }
     };

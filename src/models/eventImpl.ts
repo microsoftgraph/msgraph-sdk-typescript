@@ -34,91 +34,92 @@ import {Sensitivity} from './sensitivity';
 import {SingleValueLegacyExtendedProperty} from './singleValueLegacyExtendedProperty';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to user. */
 export class EventImpl extends OutlookItemImpl implements Event, Parsable {
     /** true if the meeting organizer allows invitees to propose a new time when responding; otherwise false. Optional. Default is true. */
-    allowNewTimeProposals?: boolean | undefined;
+    public allowNewTimeProposals?: boolean | undefined;
     /** The collection of FileAttachment, ItemAttachment, and referenceAttachment attachments for the event. Navigation property. Read-only. Nullable. */
-    attachments?: Attachment[] | undefined;
+    public attachments?: Attachment[] | undefined;
     /** The collection of attendees for the event. */
-    attendees?: Attendee[] | undefined;
+    public attendees?: Attendee[] | undefined;
     /** The body of the message associated with the event. It can be in HTML or text format. */
-    body?: ItemBody | undefined;
+    public body?: ItemBody | undefined;
     /** The preview of the message associated with the event. It is in text format. */
-    bodyPreview?: string | undefined;
+    public bodyPreview?: string | undefined;
     /** The calendar that contains the event. Navigation property. Read-only. */
-    calendar?: Calendar | undefined;
+    public calendar?: Calendar | undefined;
     /** The date, time, and time zone that the event ends. By default, the end time is in UTC. */
-    end?: DateTimeTimeZone | undefined;
+    public end?: DateTimeTimeZone | undefined;
     /** The collection of open extensions defined for the event. Nullable. */
-    extensions?: Extension[] | undefined;
+    public extensions?: Extension[] | undefined;
     /** Set to true if the event has attachments. */
-    hasAttachments?: boolean | undefined;
+    public hasAttachments?: boolean | undefined;
     /** When set to true, each attendee only sees themselves in the meeting request and meeting Tracking list. Default is false. */
-    hideAttendees?: boolean | undefined;
+    public hideAttendees?: boolean | undefined;
     /** A unique identifier for an event across calendars. This ID is different for each occurrence in a recurring series. Read-only. */
-    iCalUId?: string | undefined;
+    public iCalUId?: string | undefined;
     /** The importance property */
-    importance?: Importance | undefined;
+    public importance?: Importance | undefined;
     /** The occurrences of a recurring series, if the event is a series master. This property includes occurrences that are part of the recurrence pattern, and exceptions that have been modified, but does not include occurrences that have been cancelled from the series. Navigation property. Read-only. Nullable. */
-    instances?: Event[] | undefined;
+    public instances?: Event[] | undefined;
     /** The isAllDay property */
-    isAllDay?: boolean | undefined;
+    public isAllDay?: boolean | undefined;
     /** The isCancelled property */
-    isCancelled?: boolean | undefined;
+    public isCancelled?: boolean | undefined;
     /** The isDraft property */
-    isDraft?: boolean | undefined;
+    public isDraft?: boolean | undefined;
     /** The isOnlineMeeting property */
-    isOnlineMeeting?: boolean | undefined;
+    public isOnlineMeeting?: boolean | undefined;
     /** The isOrganizer property */
-    isOrganizer?: boolean | undefined;
+    public isOrganizer?: boolean | undefined;
     /** The isReminderOn property */
-    isReminderOn?: boolean | undefined;
+    public isReminderOn?: boolean | undefined;
     /** The location property */
-    location?: Location | undefined;
+    public location?: Location | undefined;
     /** The locations property */
-    locations?: Location[] | undefined;
+    public locations?: Location[] | undefined;
     /** The collection of multi-value extended properties defined for the event. Read-only. Nullable. */
-    multiValueExtendedProperties?: MultiValueLegacyExtendedProperty[] | undefined;
+    public multiValueExtendedProperties?: MultiValueLegacyExtendedProperty[] | undefined;
     /** The onlineMeeting property */
-    onlineMeeting?: OnlineMeetingInfo | undefined;
+    public onlineMeeting?: OnlineMeetingInfo | undefined;
     /** The onlineMeetingProvider property */
-    onlineMeetingProvider?: OnlineMeetingProviderType | undefined;
+    public onlineMeetingProvider?: OnlineMeetingProviderType | undefined;
     /** The onlineMeetingUrl property */
-    onlineMeetingUrl?: string | undefined;
+    public onlineMeetingUrl?: string | undefined;
     /** The organizer property */
-    organizer?: Recipient | undefined;
+    public organizer?: Recipient | undefined;
     /** The originalEndTimeZone property */
-    originalEndTimeZone?: string | undefined;
+    public originalEndTimeZone?: string | undefined;
     /** The originalStart property */
-    originalStart?: Date | undefined;
+    public originalStart?: Date | undefined;
     /** The originalStartTimeZone property */
-    originalStartTimeZone?: string | undefined;
+    public originalStartTimeZone?: string | undefined;
     /** The recurrence property */
-    recurrence?: PatternedRecurrence | undefined;
+    public recurrence?: PatternedRecurrence | undefined;
     /** The reminderMinutesBeforeStart property */
-    reminderMinutesBeforeStart?: number | undefined;
+    public reminderMinutesBeforeStart?: number | undefined;
     /** The responseRequested property */
-    responseRequested?: boolean | undefined;
+    public responseRequested?: boolean | undefined;
     /** The responseStatus property */
-    responseStatus?: ResponseStatus | undefined;
+    public responseStatus?: ResponseStatus | undefined;
     /** The sensitivity property */
-    sensitivity?: Sensitivity | undefined;
+    public sensitivity?: Sensitivity | undefined;
     /** The seriesMasterId property */
-    seriesMasterId?: string | undefined;
+    public seriesMasterId?: string | undefined;
     /** The showAs property */
-    showAs?: FreeBusyStatus | undefined;
+    public showAs?: FreeBusyStatus | undefined;
     /** The collection of single-value extended properties defined for the event. Read-only. Nullable. */
-    singleValueExtendedProperties?: SingleValueLegacyExtendedProperty[] | undefined;
+    public singleValueExtendedProperties?: SingleValueLegacyExtendedProperty[] | undefined;
     /** The start property */
-    start?: DateTimeTimeZone | undefined;
+    public start?: DateTimeTimeZone | undefined;
     /** The subject property */
-    subject?: string | undefined;
+    public subject?: string | undefined;
     /** The transactionId property */
-    transactionId?: string | undefined;
+    public transactionId?: string | undefined;
     /** The type property */
-    type?: EventType | undefined;
+    public type?: EventType | undefined;
     /** The webLink property */
-    webLink?: string | undefined;
+    public webLink?: string | undefined;
     /**
      * Instantiates a new event and sets the default values.
      * @param eventParameterValue 
@@ -226,171 +227,129 @@ export class EventImpl extends OutlookItemImpl implements Event, Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.allowNewTimeProposals){
-        if(this.allowNewTimeProposals)
         writer.writeBooleanValue("allowNewTimeProposals", this.allowNewTimeProposals);
         }
-        if(this.attachments){
-        const attachmentsArrValue: AttachmentImpl[] = []; this.attachments?.forEach(element => {attachmentsArrValue.push(new AttachmentImpl(element));});
+        if(this.attachments && this.attachments.length != 0){        const attachmentsArrValue: AttachmentImpl[] = []; this.attachments?.forEach(element => {attachmentsArrValue.push(new AttachmentImpl(element));});
         writer.writeCollectionOfObjectValues<AttachmentImpl>("attachments", attachmentsArrValue);
         }
-        if(this.attendees){
-        const attendeesArrValue: AttendeeImpl[] = []; this.attendees?.forEach(element => {attendeesArrValue.push(new AttendeeImpl(element));});
+        if(this.attendees && this.attendees.length != 0){        const attendeesArrValue: AttendeeImpl[] = []; this.attendees?.forEach(element => {attendeesArrValue.push(new AttendeeImpl(element));});
         writer.writeCollectionOfObjectValues<AttendeeImpl>("attendees", attendeesArrValue);
         }
         if(this.body){
-        if(this.body)
         writer.writeObjectValue<ItemBodyImpl>("body", new ItemBodyImpl(this.body));
         }
         if(this.bodyPreview){
-        if(this.bodyPreview)
         writer.writeStringValue("bodyPreview", this.bodyPreview);
         }
         if(this.calendar){
-        if(this.calendar)
         writer.writeObjectValue<CalendarImpl>("calendar", new CalendarImpl(this.calendar));
         }
         if(this.end){
-        if(this.end)
         writer.writeObjectValue<DateTimeTimeZoneImpl>("end", new DateTimeTimeZoneImpl(this.end));
         }
-        if(this.extensions){
-        const extensionsArrValue: ExtensionImpl[] = []; this.extensions?.forEach(element => {extensionsArrValue.push(new ExtensionImpl(element));});
+        if(this.extensions && this.extensions.length != 0){        const extensionsArrValue: ExtensionImpl[] = []; this.extensions?.forEach(element => {extensionsArrValue.push(new ExtensionImpl(element));});
         writer.writeCollectionOfObjectValues<ExtensionImpl>("extensions", extensionsArrValue);
         }
         if(this.hasAttachments){
-        if(this.hasAttachments)
         writer.writeBooleanValue("hasAttachments", this.hasAttachments);
         }
         if(this.hideAttendees){
-        if(this.hideAttendees)
         writer.writeBooleanValue("hideAttendees", this.hideAttendees);
         }
         if(this.iCalUId){
-        if(this.iCalUId)
         writer.writeStringValue("iCalUId", this.iCalUId);
         }
         if(this.importance){
-        if(this.importance)
         writer.writeEnumValue<Importance>("importance", this.importance);
         }
-        if(this.instances){
-        const instancesArrValue: EventImpl[] = []; this.instances?.forEach(element => {instancesArrValue.push(new EventImpl(element));});
+        if(this.instances && this.instances.length != 0){        const instancesArrValue: EventImpl[] = []; this.instances?.forEach(element => {instancesArrValue.push(new EventImpl(element));});
         writer.writeCollectionOfObjectValues<EventImpl>("instances", instancesArrValue);
         }
         if(this.isAllDay){
-        if(this.isAllDay)
         writer.writeBooleanValue("isAllDay", this.isAllDay);
         }
         if(this.isCancelled){
-        if(this.isCancelled)
         writer.writeBooleanValue("isCancelled", this.isCancelled);
         }
         if(this.isDraft){
-        if(this.isDraft)
         writer.writeBooleanValue("isDraft", this.isDraft);
         }
         if(this.isOnlineMeeting){
-        if(this.isOnlineMeeting)
         writer.writeBooleanValue("isOnlineMeeting", this.isOnlineMeeting);
         }
         if(this.isOrganizer){
-        if(this.isOrganizer)
         writer.writeBooleanValue("isOrganizer", this.isOrganizer);
         }
         if(this.isReminderOn){
-        if(this.isReminderOn)
         writer.writeBooleanValue("isReminderOn", this.isReminderOn);
         }
         if(this.location){
-        if(this.location)
         writer.writeObjectValue<LocationImpl>("location", new LocationImpl(this.location));
         }
-        if(this.locations){
-        const locationsArrValue: LocationImpl[] = []; this.locations?.forEach(element => {locationsArrValue.push(new LocationImpl(element));});
+        if(this.locations && this.locations.length != 0){        const locationsArrValue: LocationImpl[] = []; this.locations?.forEach(element => {locationsArrValue.push(new LocationImpl(element));});
         writer.writeCollectionOfObjectValues<LocationImpl>("locations", locationsArrValue);
         }
-        if(this.multiValueExtendedProperties){
-        const multiValueExtendedPropertiesArrValue: MultiValueLegacyExtendedPropertyImpl[] = []; this.multiValueExtendedProperties?.forEach(element => {multiValueExtendedPropertiesArrValue.push(new MultiValueLegacyExtendedPropertyImpl(element));});
+        if(this.multiValueExtendedProperties && this.multiValueExtendedProperties.length != 0){        const multiValueExtendedPropertiesArrValue: MultiValueLegacyExtendedPropertyImpl[] = []; this.multiValueExtendedProperties?.forEach(element => {multiValueExtendedPropertiesArrValue.push(new MultiValueLegacyExtendedPropertyImpl(element));});
         writer.writeCollectionOfObjectValues<MultiValueLegacyExtendedPropertyImpl>("multiValueExtendedProperties", multiValueExtendedPropertiesArrValue);
         }
         if(this.onlineMeeting){
-        if(this.onlineMeeting)
         writer.writeObjectValue<OnlineMeetingInfoImpl>("onlineMeeting", new OnlineMeetingInfoImpl(this.onlineMeeting));
         }
         if(this.onlineMeetingProvider){
-        if(this.onlineMeetingProvider)
         writer.writeEnumValue<OnlineMeetingProviderType>("onlineMeetingProvider", this.onlineMeetingProvider);
         }
         if(this.onlineMeetingUrl){
-        if(this.onlineMeetingUrl)
         writer.writeStringValue("onlineMeetingUrl", this.onlineMeetingUrl);
         }
         if(this.organizer){
-        if(this.organizer)
         writer.writeObjectValue<RecipientImpl>("organizer", new RecipientImpl(this.organizer));
         }
         if(this.originalEndTimeZone){
-        if(this.originalEndTimeZone)
         writer.writeStringValue("originalEndTimeZone", this.originalEndTimeZone);
         }
         if(this.originalStart){
-        if(this.originalStart)
         writer.writeDateValue("originalStart", this.originalStart);
         }
         if(this.originalStartTimeZone){
-        if(this.originalStartTimeZone)
         writer.writeStringValue("originalStartTimeZone", this.originalStartTimeZone);
         }
         if(this.recurrence){
-        if(this.recurrence)
         writer.writeObjectValue<PatternedRecurrenceImpl>("recurrence", new PatternedRecurrenceImpl(this.recurrence));
         }
         if(this.reminderMinutesBeforeStart){
-        if(this.reminderMinutesBeforeStart)
         writer.writeNumberValue("reminderMinutesBeforeStart", this.reminderMinutesBeforeStart);
         }
         if(this.responseRequested){
-        if(this.responseRequested)
         writer.writeBooleanValue("responseRequested", this.responseRequested);
         }
         if(this.responseStatus){
-        if(this.responseStatus)
         writer.writeObjectValue<ResponseStatusImpl>("responseStatus", new ResponseStatusImpl(this.responseStatus));
         }
         if(this.sensitivity){
-        if(this.sensitivity)
         writer.writeEnumValue<Sensitivity>("sensitivity", this.sensitivity);
         }
         if(this.seriesMasterId){
-        if(this.seriesMasterId)
         writer.writeStringValue("seriesMasterId", this.seriesMasterId);
         }
         if(this.showAs){
-        if(this.showAs)
         writer.writeEnumValue<FreeBusyStatus>("showAs", this.showAs);
         }
-        if(this.singleValueExtendedProperties){
-        const singleValueExtendedPropertiesArrValue: SingleValueLegacyExtendedPropertyImpl[] = []; this.singleValueExtendedProperties?.forEach(element => {singleValueExtendedPropertiesArrValue.push(new SingleValueLegacyExtendedPropertyImpl(element));});
+        if(this.singleValueExtendedProperties && this.singleValueExtendedProperties.length != 0){        const singleValueExtendedPropertiesArrValue: SingleValueLegacyExtendedPropertyImpl[] = []; this.singleValueExtendedProperties?.forEach(element => {singleValueExtendedPropertiesArrValue.push(new SingleValueLegacyExtendedPropertyImpl(element));});
         writer.writeCollectionOfObjectValues<SingleValueLegacyExtendedPropertyImpl>("singleValueExtendedProperties", singleValueExtendedPropertiesArrValue);
         }
         if(this.start){
-        if(this.start)
         writer.writeObjectValue<DateTimeTimeZoneImpl>("start", new DateTimeTimeZoneImpl(this.start));
         }
         if(this.subject){
-        if(this.subject)
         writer.writeStringValue("subject", this.subject);
         }
         if(this.transactionId){
-        if(this.transactionId)
         writer.writeStringValue("transactionId", this.transactionId);
         }
         if(this.type){
-        if(this.type)
         writer.writeEnumValue<EventType>("type", this.type);
         }
         if(this.webLink){
-        if(this.webLink)
         writer.writeStringValue("webLink", this.webLink);
         }
     };

@@ -5,7 +5,6 @@ import {IntegerRange} from './integerRange';
 import {PrintColorMode} from './printColorMode';
 import {PrintDuplexMode} from './printDuplexMode';
 import {PrinterFeedOrientation} from './printerFeedOrientation';
-import {PrintFinishing} from './printFinishing';
 import {PrintJobConfiguration} from './printJobConfiguration';
 import {PrintMargin} from './printMargin';
 import {PrintMultipageLayout} from './printMultipageLayout';
@@ -16,52 +15,51 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class PrintJobConfigurationImpl implements AdditionalDataHolder, Parsable, PrintJobConfiguration {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** Whether the printer should collate pages wehen printing multiple copies of a multi-page document. */
-    collate?: boolean | undefined;
+    public collate?: boolean | undefined;
     /** The color mode the printer should use to print the job. Valid values are described in the table below. Read-only. */
-    colorMode?: PrintColorMode | undefined;
+    public colorMode?: PrintColorMode | undefined;
     /** The number of copies that should be printed. Read-only. */
-    copies?: number | undefined;
+    public copies?: number | undefined;
     /** The resolution to use when printing the job, expressed in dots per inch (DPI). Read-only. */
-    dpi?: number | undefined;
+    public dpi?: number | undefined;
     /** The duplex mode the printer should use when printing the job. Valid values are described in the table below. Read-only. */
-    duplexMode?: PrintDuplexMode | undefined;
+    public duplexMode?: PrintDuplexMode | undefined;
     /** The orientation to use when feeding media into the printer. Valid values are described in the following table. Read-only. */
-    feedOrientation?: PrinterFeedOrientation | undefined;
+    public feedOrientation?: PrinterFeedOrientation | undefined;
     /** Finishing processes to use when printing. */
-    finishings?: PrintFinishing[] | undefined;
+    public finishings?: string[] | undefined;
     /** The fitPdfToPage property */
-    fitPdfToPage?: boolean | undefined;
+    public fitPdfToPage?: boolean | undefined;
     /** The input bin (tray) to use when printing. See the printer's capabilities for a list of supported input bins. */
-    inputBin?: string | undefined;
+    public inputBin?: string | undefined;
     /** The margin settings to use when printing. */
-    margin?: PrintMargin | undefined;
+    public margin?: PrintMargin | undefined;
     /** The media sizeto use when printing. Supports standard size names for ISO and ANSI media sizes. Valid values are listed in the printerCapabilities topic. */
-    mediaSize?: string | undefined;
+    public mediaSize?: string | undefined;
     /** The default media (such as paper) type to print the document on. */
-    mediaType?: string | undefined;
+    public mediaType?: string | undefined;
     /** The direction to lay out pages when multiple pages are being printed per sheet. Valid values are described in the following table. */
-    multipageLayout?: PrintMultipageLayout | undefined;
+    public multipageLayout?: PrintMultipageLayout | undefined;
     /** The orientation setting the printer should use when printing the job. Valid values are described in the following table. */
-    orientation?: PrintOrientation | undefined;
+    public orientation?: PrintOrientation | undefined;
     /** The output bin to place completed prints into. See the printer's capabilities for a list of supported output bins. */
-    outputBin?: string | undefined;
+    public outputBin?: string | undefined;
     /** The page ranges to print. Read-only. */
-    pageRanges?: IntegerRange[] | undefined;
+    public pageRanges?: IntegerRange[] | undefined;
     /** The number of document pages to print on each sheet. */
-    pagesPerSheet?: number | undefined;
+    public pagesPerSheet?: number | undefined;
     /** The print quality to use when printing the job. Valid values are described in the table below. Read-only. */
-    quality?: PrintQuality | undefined;
+    public quality?: PrintQuality | undefined;
     /** Specifies how the printer should scale the document data to fit the requested media. Valid values are described in the following table. */
-    scaling?: PrintScaling | undefined;
+    public scaling?: PrintScaling | undefined;
     /**
      * Instantiates a new printJobConfiguration and sets the default values.
      * @param printJobConfigurationParameterValue 
      */
     public constructor(printJobConfigurationParameterValue?: PrintJobConfiguration | undefined) {
-        this.additionalData = {};
-        this.additionalData = printJobConfigurationParameterValue?.additionalData ? {} : printJobConfigurationParameterValue?.additionalData!
+        this.additionalData = printJobConfigurationParameterValue?.additionalData ? printJobConfigurationParameterValue?.additionalData! : {}
         this.collate = printJobConfigurationParameterValue?.collate ;
         this.colorMode = printJobConfigurationParameterValue?.colorMode ;
         this.copies = printJobConfigurationParameterValue?.copies ;
@@ -94,7 +92,7 @@ export class PrintJobConfigurationImpl implements AdditionalDataHolder, Parsable
             "dpi": n => { this.dpi = n.getNumberValue(); },
             "duplexMode": n => { this.duplexMode = n.getEnumValue<PrintDuplexMode>(PrintDuplexMode); },
             "feedOrientation": n => { this.feedOrientation = n.getEnumValue<PrinterFeedOrientation>(PrinterFeedOrientation); },
-            "finishings": n => { this.finishings = n.getEnumValues<PrintFinishing>(PrintFinishing); },
+            "finishings": n => { this.finishings = n.getCollectionOfPrimitiveValues<string>(); },
             "fitPdfToPage": n => { this.fitPdfToPage = n.getBooleanValue(); },
             "inputBin": n => { this.inputBin = n.getStringValue(); },
             "margin": n => { this.margin = n.getObjectValue<PrintMarginImpl>(createPrintMarginFromDiscriminatorValue); },
@@ -116,79 +114,60 @@ export class PrintJobConfigurationImpl implements AdditionalDataHolder, Parsable
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.collate){
-        if(this.collate)
         writer.writeBooleanValue("collate", this.collate);
         }
         if(this.colorMode){
-        if(this.colorMode)
         writer.writeEnumValue<PrintColorMode>("colorMode", this.colorMode);
         }
         if(this.copies){
-        if(this.copies)
         writer.writeNumberValue("copies", this.copies);
         }
         if(this.dpi){
-        if(this.dpi)
         writer.writeNumberValue("dpi", this.dpi);
         }
         if(this.duplexMode){
-        if(this.duplexMode)
         writer.writeEnumValue<PrintDuplexMode>("duplexMode", this.duplexMode);
         }
         if(this.feedOrientation){
-        if(this.feedOrientation)
         writer.writeEnumValue<PrinterFeedOrientation>("feedOrientation", this.feedOrientation);
         }
         if(this.finishings){
-        if(this.finishings)
-        this.finishings && writer.writeEnumValue<PrintFinishing>("finishings", ...this.finishings);
+        writer.writeCollectionOfPrimitiveValues<string>("finishings", this.finishings);
         }
         if(this.fitPdfToPage){
-        if(this.fitPdfToPage)
         writer.writeBooleanValue("fitPdfToPage", this.fitPdfToPage);
         }
         if(this.inputBin){
-        if(this.inputBin)
         writer.writeStringValue("inputBin", this.inputBin);
         }
         if(this.margin){
-        if(this.margin)
         writer.writeObjectValue<PrintMarginImpl>("margin", new PrintMarginImpl(this.margin));
         }
         if(this.mediaSize){
-        if(this.mediaSize)
         writer.writeStringValue("mediaSize", this.mediaSize);
         }
         if(this.mediaType){
-        if(this.mediaType)
         writer.writeStringValue("mediaType", this.mediaType);
         }
         if(this.multipageLayout){
-        if(this.multipageLayout)
         writer.writeEnumValue<PrintMultipageLayout>("multipageLayout", this.multipageLayout);
         }
         if(this.orientation){
-        if(this.orientation)
         writer.writeEnumValue<PrintOrientation>("orientation", this.orientation);
         }
         if(this.outputBin){
-        if(this.outputBin)
         writer.writeStringValue("outputBin", this.outputBin);
         }
-        if(this.pageRanges){
-        const pageRangesArrValue: IntegerRangeImpl[] = []; this.pageRanges?.forEach(element => {pageRangesArrValue.push(new IntegerRangeImpl(element));});
+        if(this.pageRanges && this.pageRanges.length != 0){        const pageRangesArrValue: IntegerRangeImpl[] = []; this.pageRanges?.forEach(element => {pageRangesArrValue.push(new IntegerRangeImpl(element));});
         writer.writeCollectionOfObjectValues<IntegerRangeImpl>("pageRanges", pageRangesArrValue);
         }
         if(this.pagesPerSheet){
-        if(this.pagesPerSheet)
         writer.writeNumberValue("pagesPerSheet", this.pagesPerSheet);
         }
         if(this.quality){
-        if(this.quality)
         writer.writeEnumValue<PrintQuality>("quality", this.quality);
         }
         if(this.scaling){
-        if(this.scaling)
         writer.writeEnumValue<PrintScaling>("scaling", this.scaling);
         }
         writer.writeAdditionalData(this.additionalData);

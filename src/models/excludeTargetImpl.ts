@@ -4,18 +4,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class ExcludeTargetImpl implements AdditionalDataHolder, ExcludeTarget, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The object identifier of an Azure AD user or group. */
-    id?: string | undefined;
+    public id?: string | undefined;
     /** The type of the authentication method target. Possible values are: user, group, unknownFutureValue. */
-    targetType?: AuthenticationMethodTargetType | undefined;
+    public targetType?: AuthenticationMethodTargetType | undefined;
     /**
      * Instantiates a new excludeTarget and sets the default values.
      * @param excludeTargetParameterValue 
      */
     public constructor(excludeTargetParameterValue?: ExcludeTarget | undefined) {
-        this.additionalData = {};
-        this.additionalData = excludeTargetParameterValue?.additionalData ? {} : excludeTargetParameterValue?.additionalData!
+        this.additionalData = excludeTargetParameterValue?.additionalData ? excludeTargetParameterValue?.additionalData! : {}
         this.id = excludeTargetParameterValue?.id ;
         this.targetType = excludeTargetParameterValue?.targetType ;
     };
@@ -36,11 +35,9 @@ export class ExcludeTargetImpl implements AdditionalDataHolder, ExcludeTarget, P
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.id){
-        if(this.id)
         writer.writeStringValue("id", this.id);
         }
         if(this.targetType){
-        if(this.targetType)
         writer.writeEnumValue<AuthenticationMethodTargetType>("targetType", this.targetType);
         }
         writer.writeAdditionalData(this.additionalData);

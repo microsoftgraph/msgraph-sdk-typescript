@@ -6,16 +6,15 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class PendingOperationsImpl implements AdditionalDataHolder, Parsable, PendingOperations {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** A property that indicates that an operation that might update the binary content of a file is pending completion. */
-    pendingContentUpdate?: PendingContentUpdate | undefined;
+    public pendingContentUpdate?: PendingContentUpdate | undefined;
     /**
      * Instantiates a new pendingOperations and sets the default values.
      * @param pendingOperationsParameterValue 
      */
     public constructor(pendingOperationsParameterValue?: PendingOperations | undefined) {
-        this.additionalData = {};
-        this.additionalData = pendingOperationsParameterValue?.additionalData ? {} : pendingOperationsParameterValue?.additionalData!
+        this.additionalData = pendingOperationsParameterValue?.additionalData ? pendingOperationsParameterValue?.additionalData! : {}
         this.pendingContentUpdate = pendingOperationsParameterValue?.pendingContentUpdate ;
     };
     /**
@@ -34,7 +33,6 @@ export class PendingOperationsImpl implements AdditionalDataHolder, Parsable, Pe
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.pendingContentUpdate){
-        if(this.pendingContentUpdate)
         writer.writeObjectValue<PendingContentUpdateImpl>("pendingContentUpdate", new PendingContentUpdateImpl(this.pendingContentUpdate));
         }
         writer.writeAdditionalData(this.additionalData);

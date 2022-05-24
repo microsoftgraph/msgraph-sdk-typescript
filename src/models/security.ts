@@ -5,9 +5,9 @@ import {SecureScoreControlProfile} from './secureScoreControlProfile';
 
 export interface Security extends Entity{
     /** Notifications for suspicious or potential security issues in a customer’s tenant. */
-    alerts?: Alert[] | undefined;
+    alerts?:Alert[] | undefined;
     /** The secureScoreControlProfiles property */
-    secureScoreControlProfiles?: SecureScoreControlProfile[] | undefined;
+    secureScoreControlProfiles?:SecureScoreControlProfile[] | undefined;
     /** The secureScores property */
-    secureScores?: SecureScore[] | undefined;
+    secureScores?:SecureScore[] | undefined;
 }

@@ -6,20 +6,19 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class ChatMessageMentionImpl implements AdditionalDataHolder, ChatMessageMention, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** Index of an entity being mentioned in the specified chatMessage. Matches the {index} value in the corresponding <at id='{index}'> tag in the message body. */
-    id?: number | undefined;
+    public id?: number | undefined;
     /** The entity (user, application, team, or channel) that was @mentioned. */
-    mentioned?: ChatMessageMentionedIdentitySet | undefined;
+    public mentioned?: ChatMessageMentionedIdentitySet | undefined;
     /** String used to represent the mention. For example, a user's display name, a team name. */
-    mentionText?: string | undefined;
+    public mentionText?: string | undefined;
     /**
      * Instantiates a new chatMessageMention and sets the default values.
      * @param chatMessageMentionParameterValue 
      */
     public constructor(chatMessageMentionParameterValue?: ChatMessageMention | undefined) {
-        this.additionalData = {};
-        this.additionalData = chatMessageMentionParameterValue?.additionalData ? {} : chatMessageMentionParameterValue?.additionalData!
+        this.additionalData = chatMessageMentionParameterValue?.additionalData ? chatMessageMentionParameterValue?.additionalData! : {}
         this.id = chatMessageMentionParameterValue?.id ;
         this.mentioned = chatMessageMentionParameterValue?.mentioned ;
         this.mentionText = chatMessageMentionParameterValue?.mentionText ;
@@ -42,15 +41,12 @@ export class ChatMessageMentionImpl implements AdditionalDataHolder, ChatMessage
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.id){
-        if(this.id)
         writer.writeNumberValue("id", this.id);
         }
         if(this.mentioned){
-        if(this.mentioned)
         writer.writeObjectValue<ChatMessageMentionedIdentitySetImpl>("mentioned", new ChatMessageMentionedIdentitySetImpl(this.mentioned));
         }
         if(this.mentionText){
-        if(this.mentionText)
         writer.writeStringValue("mentionText", this.mentionText);
         }
         writer.writeAdditionalData(this.additionalData);

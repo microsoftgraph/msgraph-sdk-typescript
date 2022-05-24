@@ -3,18 +3,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class WorkbookIconImpl implements AdditionalDataHolder, Parsable, WorkbookIcon {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** Represents the index of the icon in the given set. */
-    index?: number | undefined;
+    public index?: number | undefined;
     /** Represents the set that the icon is part of. Possible values are: Invalid, ThreeArrows, ThreeArrowsGray, ThreeFlags, ThreeTrafficLights1, ThreeTrafficLights2, ThreeSigns, ThreeSymbols, ThreeSymbols2, FourArrows, FourArrowsGray, FourRedToBlack, FourRating, FourTrafficLights, FiveArrows, FiveArrowsGray, FiveRating, FiveQuarters, ThreeStars, ThreeTriangles, FiveBoxes. */
-    set?: string | undefined;
+    public set?: string | undefined;
     /**
      * Instantiates a new workbookIcon and sets the default values.
      * @param workbookIconParameterValue 
      */
     public constructor(workbookIconParameterValue?: WorkbookIcon | undefined) {
-        this.additionalData = {};
-        this.additionalData = workbookIconParameterValue?.additionalData ? {} : workbookIconParameterValue?.additionalData!
+        this.additionalData = workbookIconParameterValue?.additionalData ? workbookIconParameterValue?.additionalData! : {}
         this.index = workbookIconParameterValue?.index ;
         this.set = workbookIconParameterValue?.set ;
     };
@@ -35,11 +34,9 @@ export class WorkbookIconImpl implements AdditionalDataHolder, Parsable, Workboo
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.index){
-        if(this.index)
         writer.writeNumberValue("index", this.index);
         }
         if(this.set){
-        if(this.set)
         writer.writeStringValue("set", this.set);
         }
         writer.writeAdditionalData(this.additionalData);

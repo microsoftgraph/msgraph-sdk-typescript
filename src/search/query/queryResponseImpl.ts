@@ -7,16 +7,15 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Provides operations to call the query method. */
 export class QueryResponseImpl implements AdditionalDataHolder, Parsable, QueryResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The value property */
-    value?: SearchResponse[] | undefined;
+    public value?: SearchResponse[] | undefined;
     /**
      * Instantiates a new queryResponse and sets the default values.
      * @param queryResponseParameterValue 
      */
     public constructor(queryResponseParameterValue?: QueryResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = queryResponseParameterValue?.additionalData ? {} : queryResponseParameterValue?.additionalData!
+        this.additionalData = queryResponseParameterValue?.additionalData ? queryResponseParameterValue?.additionalData! : {}
         this.value = queryResponseParameterValue?.value ;
     };
     /**
@@ -34,8 +33,7 @@ export class QueryResponseImpl implements AdditionalDataHolder, Parsable, QueryR
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        if(this.value){
-        const valueArrValue: SearchResponseImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new SearchResponseImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: SearchResponseImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new SearchResponseImpl(element));});
         writer.writeCollectionOfObjectValues<SearchResponseImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

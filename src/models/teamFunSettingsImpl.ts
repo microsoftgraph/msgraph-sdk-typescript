@@ -4,22 +4,21 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class TeamFunSettingsImpl implements AdditionalDataHolder, Parsable, TeamFunSettings {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** If set to true, enables users to include custom memes. */
-    allowCustomMemes?: boolean | undefined;
+    public allowCustomMemes?: boolean | undefined;
     /** If set to true, enables Giphy use. */
-    allowGiphy?: boolean | undefined;
+    public allowGiphy?: boolean | undefined;
     /** If set to true, enables users to include stickers and memes. */
-    allowStickersAndMemes?: boolean | undefined;
+    public allowStickersAndMemes?: boolean | undefined;
     /** Giphy content rating. Possible values are: moderate, strict. */
-    giphyContentRating?: GiphyRatingType | undefined;
+    public giphyContentRating?: GiphyRatingType | undefined;
     /**
      * Instantiates a new teamFunSettings and sets the default values.
      * @param teamFunSettingsParameterValue 
      */
     public constructor(teamFunSettingsParameterValue?: TeamFunSettings | undefined) {
-        this.additionalData = {};
-        this.additionalData = teamFunSettingsParameterValue?.additionalData ? {} : teamFunSettingsParameterValue?.additionalData!
+        this.additionalData = teamFunSettingsParameterValue?.additionalData ? teamFunSettingsParameterValue?.additionalData! : {}
         this.allowCustomMemes = teamFunSettingsParameterValue?.allowCustomMemes ;
         this.allowGiphy = teamFunSettingsParameterValue?.allowGiphy ;
         this.allowStickersAndMemes = teamFunSettingsParameterValue?.allowStickersAndMemes ;
@@ -44,19 +43,15 @@ export class TeamFunSettingsImpl implements AdditionalDataHolder, Parsable, Team
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.allowCustomMemes){
-        if(this.allowCustomMemes)
         writer.writeBooleanValue("allowCustomMemes", this.allowCustomMemes);
         }
         if(this.allowGiphy){
-        if(this.allowGiphy)
         writer.writeBooleanValue("allowGiphy", this.allowGiphy);
         }
         if(this.allowStickersAndMemes){
-        if(this.allowStickersAndMemes)
         writer.writeBooleanValue("allowStickersAndMemes", this.allowStickersAndMemes);
         }
         if(this.giphyContentRating){
-        if(this.giphyContentRating)
         writer.writeEnumValue<GiphyRatingType>("giphyContentRating", this.giphyContentRating);
         }
         writer.writeAdditionalData(this.additionalData);

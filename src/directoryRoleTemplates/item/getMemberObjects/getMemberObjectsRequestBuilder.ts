@@ -1,8 +1,7 @@
 import {createGetMemberObjectsResponseFromDiscriminatorValue} from './createGetMemberObjectsResponseFromDiscriminatorValue';
-import {GetMemberObjectsRequestBody} from './getMemberObjectsRequestBody';
+import {GetMemberObjectsPostRequestBody} from './getMemberObjectsPostRequestBody';
 import {GetMemberObjectsRequestBuilderPostRequestConfiguration} from './getMemberObjectsRequestBuilderPostRequestConfiguration';
-import {GetMemberObjectsResponse} from './getMemberObjectsResponse';
-import {GetMemberObjectsRequestBodyImpl, GetMemberObjectsResponseImpl} from './index';
+import {GetMemberObjectsPostRequestBodyImpl, GetMemberObjectsResponseImpl} from './index';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the getMemberObjects method. */
@@ -32,7 +31,7 @@ export class GetMemberObjectsRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public createPostRequestInformation(body: GetMemberObjectsRequestBody | undefined, requestConfiguration?: GetMemberObjectsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public createPostRequestInformation(body: GetMemberObjectsPostRequestBody | undefined, requestConfiguration?: GetMemberObjectsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -42,8 +41,8 @@ export class GetMemberObjectsRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        const bodyParsable = new GetMemberObjectsRequestBodyImpl(body)
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", bodyParsable);
+        const parsableBody = new GetMemberObjectsPostRequestBodyImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -53,7 +52,7 @@ export class GetMemberObjectsRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of GetMemberObjectsResponse
      */
-    public post(body: GetMemberObjectsRequestBody | undefined, requestConfiguration?: GetMemberObjectsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<GetMemberObjectsResponse | undefined> {
+    public post(body: GetMemberObjectsPostRequestBody | undefined, requestConfiguration?: GetMemberObjectsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<GetMemberObjectsResponseImpl | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration

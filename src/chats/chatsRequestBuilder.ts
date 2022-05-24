@@ -1,6 +1,5 @@
 import {ChatCollectionResponseImpl, ChatImpl} from '../models/';
 import {Chat} from '../models/chat';
-import {ChatCollectionResponse} from '../models/chatCollectionResponse';
 import {createChatCollectionResponseFromDiscriminatorValue} from '../models/createChatCollectionResponseFromDiscriminatorValue';
 import {createChatFromDiscriminatorValue} from '../models/createChatFromDiscriminatorValue';
 import {ODataErrorImpl} from '../models/oDataErrors/';
@@ -37,7 +36,7 @@ export class ChatsRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * List chats
+     * Retrieve the list of [chats](../resources/chat.md) that the user is part of.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -54,7 +53,7 @@ export class ChatsRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create chat
+     * Create a new [chat](../resources/chat.md) object.
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -69,17 +68,17 @@ export class ChatsRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        const bodyParsable = new ChatImpl(body)
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", bodyParsable);
+        const parsableBody = new ChatImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
-     * List chats
+     * Retrieve the list of [chats](../resources/chat.md) that the user is part of.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ChatCollectionResponse
      */
-    public get(requestConfiguration?: ChatsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ChatCollectionResponse | undefined> {
+    public get(requestConfiguration?: ChatsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ChatCollectionResponseImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -97,13 +96,13 @@ export class ChatsRequestBuilder {
         return new GetAllMessagesRequestBuilder(this.pathParameters, this.requestAdapter);
     };
     /**
-     * Create chat
+     * Create a new [chat](../resources/chat.md) object.
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Chat
      */
-    public post(body: Chat | undefined, requestConfiguration?: ChatsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Chat | undefined> {
+    public post(body: Chat | undefined, requestConfiguration?: ChatsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ChatImpl | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration

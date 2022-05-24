@@ -6,11 +6,11 @@ import {SignIn} from './signIn';
 
 export interface AuditLogRoot extends Entity{
     /** Read-only. Nullable. */
-    directoryAudits?: DirectoryAudit[] | undefined;
+    directoryAudits?:DirectoryAudit[] | undefined;
     /** The provisioning property */
-    provisioning?: ProvisioningObjectSummary[] | undefined;
+    provisioning?:ProvisioningObjectSummary[] | undefined;
     /** The restrictedSignIns property */
-    restrictedSignIns?: RestrictedSignIn[] | undefined;
+    restrictedSignIns?:RestrictedSignIn[] | undefined;
     /** Read-only. Nullable. */
-    signIns?: SignIn[] | undefined;
+    signIns?:SignIn[] | undefined;
 }

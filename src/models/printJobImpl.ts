@@ -12,25 +12,26 @@ import {PrintTask} from './printTask';
 import {UserIdentity} from './userIdentity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the print singleton. */
 export class PrintJobImpl extends EntityImpl implements Parsable, PrintJob {
     /** The configuration property */
-    configuration?: PrintJobConfiguration | undefined;
+    public configuration?: PrintJobConfiguration | undefined;
     /** Read-only. Nullable. */
-    createdBy?: UserIdentity | undefined;
+    public createdBy?: UserIdentity | undefined;
     /** The DateTimeOffset when the job was created. Read-only. */
-    createdDateTime?: Date | undefined;
+    public createdDateTime?: Date | undefined;
     /** Read-only. */
-    documents?: PrintDocument[] | undefined;
+    public documents?: PrintDocument[] | undefined;
     /** If true, document can be fetched by printer. */
-    isFetchable?: boolean | undefined;
+    public isFetchable?: boolean | undefined;
     /** Contains the source job URL, if the job has been redirected from another printer. */
-    redirectedFrom?: string | undefined;
+    public redirectedFrom?: string | undefined;
     /** Contains the destination job URL, if the job has been redirected to another printer. */
-    redirectedTo?: string | undefined;
+    public redirectedTo?: string | undefined;
     /** The status property */
-    status?: PrintJobStatus | undefined;
+    public status?: PrintJobStatus | undefined;
     /** A list of printTasks that were triggered by this print job. */
-    tasks?: PrintTask[] | undefined;
+    public tasks?: PrintTask[] | undefined;
     /**
      * Instantiates a new printJob and sets the default values.
      * @param printJobParameterValue 
@@ -72,39 +73,30 @@ export class PrintJobImpl extends EntityImpl implements Parsable, PrintJob {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.configuration){
-        if(this.configuration)
         writer.writeObjectValue<PrintJobConfigurationImpl>("configuration", new PrintJobConfigurationImpl(this.configuration));
         }
         if(this.createdBy){
-        if(this.createdBy)
         writer.writeObjectValue<UserIdentityImpl>("createdBy", new UserIdentityImpl(this.createdBy));
         }
         if(this.createdDateTime){
-        if(this.createdDateTime)
         writer.writeDateValue("createdDateTime", this.createdDateTime);
         }
-        if(this.documents){
-        const documentsArrValue: PrintDocumentImpl[] = []; this.documents?.forEach(element => {documentsArrValue.push(new PrintDocumentImpl(element));});
+        if(this.documents && this.documents.length != 0){        const documentsArrValue: PrintDocumentImpl[] = []; this.documents?.forEach(element => {documentsArrValue.push(new PrintDocumentImpl(element));});
         writer.writeCollectionOfObjectValues<PrintDocumentImpl>("documents", documentsArrValue);
         }
         if(this.isFetchable){
-        if(this.isFetchable)
         writer.writeBooleanValue("isFetchable", this.isFetchable);
         }
         if(this.redirectedFrom){
-        if(this.redirectedFrom)
         writer.writeStringValue("redirectedFrom", this.redirectedFrom);
         }
         if(this.redirectedTo){
-        if(this.redirectedTo)
         writer.writeStringValue("redirectedTo", this.redirectedTo);
         }
         if(this.status){
-        if(this.status)
         writer.writeObjectValue<PrintJobStatusImpl>("status", new PrintJobStatusImpl(this.status));
         }
-        if(this.tasks){
-        const tasksArrValue: PrintTaskImpl[] = []; this.tasks?.forEach(element => {tasksArrValue.push(new PrintTaskImpl(element));});
+        if(this.tasks && this.tasks.length != 0){        const tasksArrValue: PrintTaskImpl[] = []; this.tasks?.forEach(element => {tasksArrValue.push(new PrintTaskImpl(element));});
         writer.writeCollectionOfObjectValues<PrintTaskImpl>("tasks", tasksArrValue);
         }
     };

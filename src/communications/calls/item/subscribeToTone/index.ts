@@ -1,3 +1,3 @@
-export * from './subscribeToToneRequestBodyImpl'
-export * from './subscribeToToneRequestBody'
+export * from './subscribeToTonePostRequestBodyImpl'
 export * from './subscribeToToneRequestBuilderPostRequestConfiguration'
+export * from './subscribeToTonePostRequestBody'

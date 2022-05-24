@@ -1,7 +1,4 @@
-import {createGetMailboxUsageQuotaStatusMailboxCountsWithPeriodResponseFromDiscriminatorValue} from './createGetMailboxUsageQuotaStatusMailboxCountsWithPeriodResponseFromDiscriminatorValue';
 import {GetMailboxUsageQuotaStatusMailboxCountsWithPeriodRequestBuilderGetRequestConfiguration} from './getMailboxUsageQuotaStatusMailboxCountsWithPeriodRequestBuilderGetRequestConfiguration';
-import {GetMailboxUsageQuotaStatusMailboxCountsWithPeriodResponse} from './getMailboxUsageQuotaStatusMailboxCountsWithPeriodResponse';
-import {GetMailboxUsageQuotaStatusMailboxCountsWithPeriodResponseImpl} from './index';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the getMailboxUsageQuotaStatusMailboxCounts method. */
@@ -47,12 +44,12 @@ export class GetMailboxUsageQuotaStatusMailboxCountsWithPeriodRequestBuilder {
      * Invoke function getMailboxUsageQuotaStatusMailboxCounts
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of GetMailboxUsageQuotaStatusMailboxCountsWithPeriodResponse
+     * @returns a Promise of ArrayBuffer
      */
-    public get(requestConfiguration?: GetMailboxUsageQuotaStatusMailboxCountsWithPeriodRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<GetMailboxUsageQuotaStatusMailboxCountsWithPeriodResponse | undefined> {
+    public get(requestConfiguration?: GetMailboxUsageQuotaStatusMailboxCountsWithPeriodRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ArrayBuffer | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
-        return this.requestAdapter?.sendAsync<GetMailboxUsageQuotaStatusMailboxCountsWithPeriodResponseImpl>(requestInfo, createGetMailboxUsageQuotaStatusMailboxCountsWithPeriodResponseFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendPrimitiveAsync<ArrayBuffer>(requestInfo, "ArrayBuffer", responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }

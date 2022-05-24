@@ -4,20 +4,19 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Color in RGB. */
 export class RgbColorImpl implements AdditionalDataHolder, Parsable, RgbColor {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** Blue value */
-    b?: number | undefined;
+    public b?: number | undefined;
     /** Green value */
-    g?: number | undefined;
+    public g?: number | undefined;
     /** Red value */
-    r?: number | undefined;
+    public r?: number | undefined;
     /**
      * Instantiates a new rgbColor and sets the default values.
      * @param rgbColorParameterValue 
      */
     public constructor(rgbColorParameterValue?: RgbColor | undefined) {
-        this.additionalData = {};
-        this.additionalData = rgbColorParameterValue?.additionalData ? {} : rgbColorParameterValue?.additionalData!
+        this.additionalData = rgbColorParameterValue?.additionalData ? rgbColorParameterValue?.additionalData! : {}
         this.b = rgbColorParameterValue?.b ;
         this.g = rgbColorParameterValue?.g ;
         this.r = rgbColorParameterValue?.r ;
@@ -40,15 +39,12 @@ export class RgbColorImpl implements AdditionalDataHolder, Parsable, RgbColor {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.b){
-        if(this.b)
         writer.writeNumberValue("b", this.b);
         }
         if(this.g){
-        if(this.g)
         writer.writeNumberValue("g", this.g);
         }
         if(this.r){
-        if(this.r)
         writer.writeNumberValue("r", this.r);
         }
         writer.writeAdditionalData(this.additionalData);

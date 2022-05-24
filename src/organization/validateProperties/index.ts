@@ -1,3 +1,3 @@
-export * from './validatePropertiesRequestBodyImpl'
-export * from './validatePropertiesRequestBody'
+export * from './validatePropertiesPostRequestBodyImpl'
+export * from './validatePropertiesPostRequestBody'
 export * from './validatePropertiesRequestBuilderPostRequestConfiguration'

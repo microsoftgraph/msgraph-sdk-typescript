@@ -11,11 +11,11 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Provides operations to manage the security singleton. */
 export class SecurityImpl extends EntityImpl implements Parsable, Security {
     /** Notifications for suspicious or potential security issues in a customer’s tenant. */
-    alerts?: Alert[] | undefined;
+    public alerts?: Alert[] | undefined;
     /** The secureScoreControlProfiles property */
-    secureScoreControlProfiles?: SecureScoreControlProfile[] | undefined;
+    public secureScoreControlProfiles?: SecureScoreControlProfile[] | undefined;
     /** The secureScores property */
-    secureScores?: SecureScore[] | undefined;
+    public secureScores?: SecureScore[] | undefined;
     /**
      * Instantiates a new security and sets the default values.
      * @param securityParameterValue 
@@ -44,16 +44,13 @@ export class SecurityImpl extends EntityImpl implements Parsable, Security {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.alerts){
-        const alertsArrValue: AlertImpl[] = []; this.alerts?.forEach(element => {alertsArrValue.push(new AlertImpl(element));});
+        if(this.alerts && this.alerts.length != 0){        const alertsArrValue: AlertImpl[] = []; this.alerts?.forEach(element => {alertsArrValue.push(new AlertImpl(element));});
         writer.writeCollectionOfObjectValues<AlertImpl>("alerts", alertsArrValue);
         }
-        if(this.secureScoreControlProfiles){
-        const secureScoreControlProfilesArrValue: SecureScoreControlProfileImpl[] = []; this.secureScoreControlProfiles?.forEach(element => {secureScoreControlProfilesArrValue.push(new SecureScoreControlProfileImpl(element));});
+        if(this.secureScoreControlProfiles && this.secureScoreControlProfiles.length != 0){        const secureScoreControlProfilesArrValue: SecureScoreControlProfileImpl[] = []; this.secureScoreControlProfiles?.forEach(element => {secureScoreControlProfilesArrValue.push(new SecureScoreControlProfileImpl(element));});
         writer.writeCollectionOfObjectValues<SecureScoreControlProfileImpl>("secureScoreControlProfiles", secureScoreControlProfilesArrValue);
         }
-        if(this.secureScores){
-        const secureScoresArrValue: SecureScoreImpl[] = []; this.secureScores?.forEach(element => {secureScoresArrValue.push(new SecureScoreImpl(element));});
+        if(this.secureScores && this.secureScores.length != 0){        const secureScoresArrValue: SecureScoreImpl[] = []; this.secureScores?.forEach(element => {secureScoresArrValue.push(new SecureScoreImpl(element));});
         writer.writeCollectionOfObjectValues<SecureScoreImpl>("secureScores", secureScoresArrValue);
         }
     };

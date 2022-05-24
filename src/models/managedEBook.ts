@@ -7,29 +7,29 @@ import {UserInstallStateSummary} from './userInstallStateSummary';
 
 export interface ManagedEBook extends Entity{
     /** The list of assignments for this eBook. */
-    assignments?: ManagedEBookAssignment[] | undefined;
+    assignments?:ManagedEBookAssignment[] | undefined;
     /** The date and time when the eBook file was created. */
-    createdDateTime?: Date | undefined;
+    createdDateTime?:Date | undefined;
     /** Description. */
-    description?: string | undefined;
+    description?:string | undefined;
     /** The list of installation states for this eBook. */
-    deviceStates?: DeviceInstallState[] | undefined;
+    deviceStates?:DeviceInstallState[] | undefined;
     /** Name of the eBook. */
-    displayName?: string | undefined;
+    displayName?:string | undefined;
     /** The more information Url. */
-    informationUrl?: string | undefined;
+    informationUrl?:string | undefined;
     /** Mobile App Install Summary. */
-    installSummary?: EBookInstallSummary | undefined;
+    installSummary?:EBookInstallSummary | undefined;
     /** Book cover. */
-    largeCover?: MimeContent | undefined;
+    largeCover?:MimeContent | undefined;
     /** The date and time when the eBook was last modified. */
-    lastModifiedDateTime?: Date | undefined;
+    lastModifiedDateTime?:Date | undefined;
     /** The privacy statement Url. */
-    privacyInformationUrl?: string | undefined;
+    privacyInformationUrl?:string | undefined;
     /** The date and time when the eBook was published. */
-    publishedDateTime?: Date | undefined;
+    publishedDateTime?:Date | undefined;
     /** Publisher. */
-    publisher?: string | undefined;
+    publisher?:string | undefined;
     /** The list of installation states for this eBook. */
-    userStateSummary?: UserInstallStateSummary[] | undefined;
+    userStateSummary?:UserInstallStateSummary[] | undefined;
 }

@@ -5,21 +5,20 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class AclImpl implements Acl, AdditionalDataHolder, Parsable {
     /** The access granted to the identity. Possible values are: grant, deny. */
-    accessType?: AccessType | undefined;
+    public accessType?: AccessType | undefined;
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The type of identity. Possible values are: user, group, everyone, everyoneExceptGuests if the identitySource is azureActiveDirectory and just group if the identitySource is external. */
-    type?: AclType | undefined;
+    public type?: AclType | undefined;
     /** The unique identifer of the identity. In case of Azure Active Directory identities, value is set to the object identifier of the user, group or tenant for types user, group and everyone (and everyoneExceptGuests) respectively. In case of external groups value is set to the ID of the externalGroup. */
-    value?: string | undefined;
+    public value?: string | undefined;
     /**
      * Instantiates a new acl and sets the default values.
      * @param aclParameterValue 
      */
     public constructor(aclParameterValue?: Acl | undefined) {
-        this.additionalData = {};
         this.accessType = aclParameterValue?.accessType ;
-        this.additionalData = aclParameterValue?.additionalData ? {} : aclParameterValue?.additionalData!
+        this.additionalData = aclParameterValue?.additionalData ? aclParameterValue?.additionalData! : {}
         this.type = aclParameterValue?.type ;
         this.value = aclParameterValue?.value ;
     };
@@ -41,15 +40,12 @@ export class AclImpl implements Acl, AdditionalDataHolder, Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.accessType){
-        if(this.accessType)
         writer.writeEnumValue<AccessType>("accessType", this.accessType);
         }
         if(this.type){
-        if(this.type)
         writer.writeEnumValue<AclType>("type", this.type);
         }
         if(this.value){
-        if(this.value)
         writer.writeStringValue("value", this.value);
         }
         writer.writeAdditionalData(this.additionalData);

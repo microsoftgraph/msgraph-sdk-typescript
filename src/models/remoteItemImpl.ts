@@ -26,52 +26,51 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class RemoteItemImpl implements AdditionalDataHolder, Parsable, RemoteItem {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** Identity of the user, device, and application which created the item. Read-only. */
-    createdBy?: IdentitySet | undefined;
+    public createdBy?: IdentitySet | undefined;
     /** Date and time of item creation. Read-only. */
-    createdDateTime?: Date | undefined;
+    public createdDateTime?: Date | undefined;
     /** Indicates that the remote item is a file. Read-only. */
-    file?: File | undefined;
+    public file?: File | undefined;
     /** Information about the remote item from the local file system. Read-only. */
-    fileSystemInfo?: FileSystemInfo | undefined;
+    public fileSystemInfo?: FileSystemInfo | undefined;
     /** Indicates that the remote item is a folder. Read-only. */
-    folder?: Folder | undefined;
+    public folder?: Folder | undefined;
     /** Unique identifier for the remote item in its drive. Read-only. */
-    id?: string | undefined;
+    public id?: string | undefined;
     /** Image metadata, if the item is an image. Read-only. */
-    image?: Image | undefined;
+    public image?: Image | undefined;
     /** Identity of the user, device, and application which last modified the item. Read-only. */
-    lastModifiedBy?: IdentitySet | undefined;
+    public lastModifiedBy?: IdentitySet | undefined;
     /** Date and time the item was last modified. Read-only. */
-    lastModifiedDateTime?: Date | undefined;
+    public lastModifiedDateTime?: Date | undefined;
     /** Optional. Filename of the remote item. Read-only. */
-    name?: string | undefined;
+    public name?: string | undefined;
     /** If present, indicates that this item is a package instead of a folder or file. Packages are treated like files in some contexts and folders in others. Read-only. */
-    package?: Package | undefined;
+    public package?: Package | undefined;
     /** Properties of the parent of the remote item. Read-only. */
-    parentReference?: ItemReference | undefined;
+    public parentReference?: ItemReference | undefined;
     /** Indicates that the item has been shared with others and provides information about the shared state of the item. Read-only. */
-    shared?: Shared | undefined;
+    public shared?: Shared | undefined;
     /** Provides interop between items in OneDrive for Business and SharePoint with the full set of item identifiers. Read-only. */
-    sharepointIds?: SharepointIds | undefined;
+    public sharepointIds?: SharepointIds | undefined;
     /** Size of the remote item. Read-only. */
-    size?: number | undefined;
+    public size?: number | undefined;
     /** If the current item is also available as a special folder, this facet is returned. Read-only. */
-    specialFolder?: SpecialFolder | undefined;
+    public specialFolder?: SpecialFolder | undefined;
     /** Video metadata, if the item is a video. Read-only. */
-    video?: Video | undefined;
+    public video?: Video | undefined;
     /** DAV compatible URL for the item. */
-    webDavUrl?: string | undefined;
+    public webDavUrl?: string | undefined;
     /** URL that displays the resource in the browser. Read-only. */
-    webUrl?: string | undefined;
+    public webUrl?: string | undefined;
     /**
      * Instantiates a new remoteItem and sets the default values.
      * @param remoteItemParameterValue 
      */
     public constructor(remoteItemParameterValue?: RemoteItem | undefined) {
-        this.additionalData = {};
-        this.additionalData = remoteItemParameterValue?.additionalData ? {} : remoteItemParameterValue?.additionalData!
+        this.additionalData = remoteItemParameterValue?.additionalData ? remoteItemParameterValue?.additionalData! : {}
         this.createdBy = remoteItemParameterValue?.createdBy ;
         this.createdDateTime = remoteItemParameterValue?.createdDateTime ;
         this.file = remoteItemParameterValue?.file ;
@@ -126,79 +125,60 @@ export class RemoteItemImpl implements AdditionalDataHolder, Parsable, RemoteIte
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.createdBy){
-        if(this.createdBy)
         writer.writeObjectValue<IdentitySetImpl>("createdBy", new IdentitySetImpl(this.createdBy));
         }
         if(this.createdDateTime){
-        if(this.createdDateTime)
         writer.writeDateValue("createdDateTime", this.createdDateTime);
         }
         if(this.file){
-        if(this.file)
         writer.writeObjectValue<FileImpl>("file", new FileImpl(this.file));
         }
         if(this.fileSystemInfo){
-        if(this.fileSystemInfo)
         writer.writeObjectValue<FileSystemInfoImpl>("fileSystemInfo", new FileSystemInfoImpl(this.fileSystemInfo));
         }
         if(this.folder){
-        if(this.folder)
         writer.writeObjectValue<FolderImpl>("folder", new FolderImpl(this.folder));
         }
         if(this.id){
-        if(this.id)
         writer.writeStringValue("id", this.id);
         }
         if(this.image){
-        if(this.image)
         writer.writeObjectValue<ImageImpl>("image", new ImageImpl(this.image));
         }
         if(this.lastModifiedBy){
-        if(this.lastModifiedBy)
         writer.writeObjectValue<IdentitySetImpl>("lastModifiedBy", new IdentitySetImpl(this.lastModifiedBy));
         }
         if(this.lastModifiedDateTime){
-        if(this.lastModifiedDateTime)
         writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
         }
         if(this.name){
-        if(this.name)
         writer.writeStringValue("name", this.name);
         }
         if(this.package){
-        if(this.package)
         writer.writeObjectValue<PackageImpl>("package", new PackageImpl(this.package));
         }
         if(this.parentReference){
-        if(this.parentReference)
         writer.writeObjectValue<ItemReferenceImpl>("parentReference", new ItemReferenceImpl(this.parentReference));
         }
         if(this.shared){
-        if(this.shared)
         writer.writeObjectValue<SharedImpl>("shared", new SharedImpl(this.shared));
         }
         if(this.sharepointIds){
-        if(this.sharepointIds)
         writer.writeObjectValue<SharepointIdsImpl>("sharepointIds", new SharepointIdsImpl(this.sharepointIds));
         }
         if(this.size){
-        if(this.size)
         writer.writeNumberValue("size", this.size);
         }
         if(this.specialFolder){
-        if(this.specialFolder)
         writer.writeObjectValue<SpecialFolderImpl>("specialFolder", new SpecialFolderImpl(this.specialFolder));
         }
         if(this.video){
-        if(this.video)
         writer.writeObjectValue<VideoImpl>("video", new VideoImpl(this.video));
         }
         if(this.webDavUrl){
-        if(this.webDavUrl)
         writer.writeStringValue("webDavUrl", this.webDavUrl);
         }
         if(this.webUrl){
-        if(this.webUrl)
         writer.writeStringValue("webUrl", this.webUrl);
         }
         writer.writeAdditionalData(this.additionalData);

@@ -3,9 +3,9 @@ import {WorkbookCommentReply} from './workbookCommentReply';
 
 export interface WorkbookComment extends Entity{
     /** The content of the comment. */
-    content?: string | undefined;
+    content?:string | undefined;
     /** Indicates the type for the comment. */
-    contentType?: string | undefined;
+    contentType?:string | undefined;
     /** Read-only. Nullable. */
-    replies?: WorkbookCommentReply[] | undefined;
+    replies?:WorkbookCommentReply[] | undefined;
 }

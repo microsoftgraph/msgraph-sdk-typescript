@@ -7,26 +7,25 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class TargetResourceImpl implements AdditionalDataHolder, Parsable, TargetResource {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** Indicates the visible name defined for the resource. Typically specified when the resource is created. */
-    displayName?: string | undefined;
+    public displayName?: string | undefined;
     /** When type is set to Group, this indicates the group type.  Possible values are: unifiedGroups, azureAD, and unknownFutureValue */
-    groupType?: GroupType | undefined;
+    public groupType?: GroupType | undefined;
     /** Indicates the unique ID of the resource. */
-    id?: string | undefined;
+    public id?: string | undefined;
     /** Indicates name, old value and new value of each attribute that changed. Property values depend on the operation type. */
-    modifiedProperties?: ModifiedProperty[] | undefined;
+    public modifiedProperties?: ModifiedProperty[] | undefined;
     /** Describes the resource type.  Example values include Application, Group, ServicePrincipal, and User. */
-    type?: string | undefined;
+    public type?: string | undefined;
     /** When type is set to User, this includes the user name that initiated the action; null for other types. */
-    userPrincipalName?: string | undefined;
+    public userPrincipalName?: string | undefined;
     /**
      * Instantiates a new targetResource and sets the default values.
      * @param targetResourceParameterValue 
      */
     public constructor(targetResourceParameterValue?: TargetResource | undefined) {
-        this.additionalData = {};
-        this.additionalData = targetResourceParameterValue?.additionalData ? {} : targetResourceParameterValue?.additionalData!
+        this.additionalData = targetResourceParameterValue?.additionalData ? targetResourceParameterValue?.additionalData! : {}
         this.displayName = targetResourceParameterValue?.displayName ;
         this.groupType = targetResourceParameterValue?.groupType ;
         this.id = targetResourceParameterValue?.id ;
@@ -55,27 +54,21 @@ export class TargetResourceImpl implements AdditionalDataHolder, Parsable, Targe
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.displayName){
-        if(this.displayName)
         writer.writeStringValue("displayName", this.displayName);
         }
         if(this.groupType){
-        if(this.groupType)
         writer.writeEnumValue<GroupType>("groupType", this.groupType);
         }
         if(this.id){
-        if(this.id)
         writer.writeStringValue("id", this.id);
         }
-        if(this.modifiedProperties){
-        const modifiedPropertiesArrValue: ModifiedPropertyImpl[] = []; this.modifiedProperties?.forEach(element => {modifiedPropertiesArrValue.push(new ModifiedPropertyImpl(element));});
+        if(this.modifiedProperties && this.modifiedProperties.length != 0){        const modifiedPropertiesArrValue: ModifiedPropertyImpl[] = []; this.modifiedProperties?.forEach(element => {modifiedPropertiesArrValue.push(new ModifiedPropertyImpl(element));});
         writer.writeCollectionOfObjectValues<ModifiedPropertyImpl>("modifiedProperties", modifiedPropertiesArrValue);
         }
         if(this.type){
-        if(this.type)
         writer.writeStringValue("type", this.type);
         }
         if(this.userPrincipalName){
-        if(this.userPrincipalName)
         writer.writeStringValue("userPrincipalName", this.userPrincipalName);
         }
         writer.writeAdditionalData(this.additionalData);

@@ -12,29 +12,30 @@ import {SharingInvitation} from './sharingInvitation';
 import {SharingLink} from './sharingLink';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to user. */
 export class PermissionImpl extends EntityImpl implements Parsable, Permission {
     /** A format of yyyy-MM-ddTHH:mm:ssZ of DateTimeOffset indicates the expiration time of the permission. DateTime.MinValue indicates there is no expiration set for this permission. Optional. */
-    expirationDateTime?: Date | undefined;
+    public expirationDateTime?: Date | undefined;
     /** The grantedTo property */
-    grantedTo?: IdentitySet | undefined;
+    public grantedTo?: IdentitySet | undefined;
     /** The grantedToIdentities property */
-    grantedToIdentities?: IdentitySet[] | undefined;
+    public grantedToIdentities?: IdentitySet[] | undefined;
     /** For link type permissions, the details of the users to whom permission was granted. Read-only. */
-    grantedToIdentitiesV2?: SharePointIdentitySet[] | undefined;
+    public grantedToIdentitiesV2?: SharePointIdentitySet[] | undefined;
     /** For user type permissions, the details of the users and applications for this permission. Read-only. */
-    grantedToV2?: SharePointIdentitySet | undefined;
+    public grantedToV2?: SharePointIdentitySet | undefined;
     /** Indicates whether the password is set for this permission. This property only appears in the response. Optional. Read-only. For OneDrive Personal only. */
-    hasPassword?: boolean | undefined;
+    public hasPassword?: boolean | undefined;
     /** Provides a reference to the ancestor of the current permission, if it is inherited from an ancestor. Read-only. */
-    inheritedFrom?: ItemReference | undefined;
+    public inheritedFrom?: ItemReference | undefined;
     /** Details of any associated sharing invitation for this permission. Read-only. */
-    invitation?: SharingInvitation | undefined;
+    public invitation?: SharingInvitation | undefined;
     /** Provides the link details of the current permission, if it is a link type permissions. Read-only. */
-    link?: SharingLink | undefined;
+    public link?: SharingLink | undefined;
     /** The type of permission, for example, read. See below for the full list of roles. Read-only. */
-    roles?: string[] | undefined;
+    public roles?: string[] | undefined;
     /** A unique token that can be used to access this shared item via the [shares API][]. Read-only. */
-    shareId?: string | undefined;
+    public shareId?: string | undefined;
     /**
      * Instantiates a new permission and sets the default values.
      * @param permissionParameterValue 
@@ -80,47 +81,36 @@ export class PermissionImpl extends EntityImpl implements Parsable, Permission {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.expirationDateTime){
-        if(this.expirationDateTime)
         writer.writeDateValue("expirationDateTime", this.expirationDateTime);
         }
         if(this.grantedTo){
-        if(this.grantedTo)
         writer.writeObjectValue<IdentitySetImpl>("grantedTo", new IdentitySetImpl(this.grantedTo));
         }
-        if(this.grantedToIdentities){
-        const grantedToIdentitiesArrValue: IdentitySetImpl[] = []; this.grantedToIdentities?.forEach(element => {grantedToIdentitiesArrValue.push(new IdentitySetImpl(element));});
+        if(this.grantedToIdentities && this.grantedToIdentities.length != 0){        const grantedToIdentitiesArrValue: IdentitySetImpl[] = []; this.grantedToIdentities?.forEach(element => {grantedToIdentitiesArrValue.push(new IdentitySetImpl(element));});
         writer.writeCollectionOfObjectValues<IdentitySetImpl>("grantedToIdentities", grantedToIdentitiesArrValue);
         }
-        if(this.grantedToIdentitiesV2){
-        const grantedToIdentitiesV2ArrValue: SharePointIdentitySetImpl[] = []; this.grantedToIdentitiesV2?.forEach(element => {grantedToIdentitiesV2ArrValue.push(new SharePointIdentitySetImpl(element));});
+        if(this.grantedToIdentitiesV2 && this.grantedToIdentitiesV2.length != 0){        const grantedToIdentitiesV2ArrValue: SharePointIdentitySetImpl[] = []; this.grantedToIdentitiesV2?.forEach(element => {grantedToIdentitiesV2ArrValue.push(new SharePointIdentitySetImpl(element));});
         writer.writeCollectionOfObjectValues<SharePointIdentitySetImpl>("grantedToIdentitiesV2", grantedToIdentitiesV2ArrValue);
         }
         if(this.grantedToV2){
-        if(this.grantedToV2)
         writer.writeObjectValue<SharePointIdentitySetImpl>("grantedToV2", new SharePointIdentitySetImpl(this.grantedToV2));
         }
         if(this.hasPassword){
-        if(this.hasPassword)
         writer.writeBooleanValue("hasPassword", this.hasPassword);
         }
         if(this.inheritedFrom){
-        if(this.inheritedFrom)
         writer.writeObjectValue<ItemReferenceImpl>("inheritedFrom", new ItemReferenceImpl(this.inheritedFrom));
         }
         if(this.invitation){
-        if(this.invitation)
         writer.writeObjectValue<SharingInvitationImpl>("invitation", new SharingInvitationImpl(this.invitation));
         }
         if(this.link){
-        if(this.link)
         writer.writeObjectValue<SharingLinkImpl>("link", new SharingLinkImpl(this.link));
         }
         if(this.roles){
-        if(this.roles)
         writer.writeCollectionOfPrimitiveValues<string>("roles", this.roles);
         }
         if(this.shareId){
-        if(this.shareId)
         writer.writeStringValue("shareId", this.shareId);
         }
     };

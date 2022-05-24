@@ -6,15 +6,16 @@ import {PhysicalAddress} from './physicalAddress';
 import {Place} from './place';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the collection of place entities. */
 export class PlaceImpl extends EntityImpl implements Parsable, Place {
     /** The street address of the place. */
-    address?: PhysicalAddress | undefined;
+    public address?: PhysicalAddress | undefined;
     /** The name associated with the place. */
-    displayName?: string | undefined;
+    public displayName?: string | undefined;
     /** Specifies the place location in latitude, longitude and (optionally) altitude coordinates. */
-    geoCoordinates?: OutlookGeoCoordinates | undefined;
+    public geoCoordinates?: OutlookGeoCoordinates | undefined;
     /** The phone number of the place. */
-    phone?: string | undefined;
+    public phone?: string | undefined;
     /**
      * Instantiates a new place and sets the default values.
      * @param placeParameterValue 
@@ -46,19 +47,15 @@ export class PlaceImpl extends EntityImpl implements Parsable, Place {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.address){
-        if(this.address)
         writer.writeObjectValue<PhysicalAddressImpl>("address", new PhysicalAddressImpl(this.address));
         }
         if(this.displayName){
-        if(this.displayName)
         writer.writeStringValue("displayName", this.displayName);
         }
         if(this.geoCoordinates){
-        if(this.geoCoordinates)
         writer.writeObjectValue<OutlookGeoCoordinatesImpl>("geoCoordinates", new OutlookGeoCoordinatesImpl(this.geoCoordinates));
         }
         if(this.phone){
-        if(this.phone)
         writer.writeStringValue("phone", this.phone);
         }
     };

@@ -4,11 +4,12 @@ import {ManagedMobileApp} from './managedMobileApp';
 import {MobileAppIdentifier} from './mobileAppIdentifier';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** The identifier for the deployment an app. */
 export class ManagedMobileAppImpl extends EntityImpl implements ManagedMobileApp, Parsable {
     /** The identifier for an app with it's operating system type. */
-    mobileAppIdentifier?: MobileAppIdentifier | undefined;
+    public mobileAppIdentifier?: MobileAppIdentifier | undefined;
     /** Version of the entity. */
-    version?: string | undefined;
+    public version?: string | undefined;
     /**
      * Instantiates a new managedMobileApp and sets the default values.
      * @param managedMobileAppParameterValue 
@@ -36,11 +37,9 @@ export class ManagedMobileAppImpl extends EntityImpl implements ManagedMobileApp
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.mobileAppIdentifier){
-        if(this.mobileAppIdentifier)
         writer.writeObjectValue<MobileAppIdentifierImpl>("mobileAppIdentifier", new MobileAppIdentifierImpl(this.mobileAppIdentifier));
         }
         if(this.version){
-        if(this.version)
         writer.writeStringValue("version", this.version);
         }
     };

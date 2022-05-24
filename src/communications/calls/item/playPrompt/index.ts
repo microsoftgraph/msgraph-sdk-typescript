@@ -1,3 +1,3 @@
-export * from './playPromptRequestBodyImpl'
-export * from './playPromptRequestBody'
+export * from './playPromptPostRequestBodyImpl'
 export * from './playPromptRequestBuilderPostRequestConfiguration'
+export * from './playPromptPostRequestBody'

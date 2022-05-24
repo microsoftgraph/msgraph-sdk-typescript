@@ -3,18 +3,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class LocalizedDescriptionImpl implements AdditionalDataHolder, LocalizedDescription, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The description in the localized language. */
-    description?: string | undefined;
+    public description?: string | undefined;
     /** The language tag for the label. */
-    languageTag?: string | undefined;
+    public languageTag?: string | undefined;
     /**
      * Instantiates a new localizedDescription and sets the default values.
      * @param localizedDescriptionParameterValue 
      */
     public constructor(localizedDescriptionParameterValue?: LocalizedDescription | undefined) {
-        this.additionalData = {};
-        this.additionalData = localizedDescriptionParameterValue?.additionalData ? {} : localizedDescriptionParameterValue?.additionalData!
+        this.additionalData = localizedDescriptionParameterValue?.additionalData ? localizedDescriptionParameterValue?.additionalData! : {}
         this.description = localizedDescriptionParameterValue?.description ;
         this.languageTag = localizedDescriptionParameterValue?.languageTag ;
     };
@@ -35,11 +34,9 @@ export class LocalizedDescriptionImpl implements AdditionalDataHolder, Localized
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.description){
-        if(this.description)
         writer.writeStringValue("description", this.description);
         }
         if(this.languageTag){
-        if(this.languageTag)
         writer.writeStringValue("languageTag", this.languageTag);
         }
         writer.writeAdditionalData(this.additionalData);

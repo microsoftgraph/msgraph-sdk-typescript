@@ -3,14 +3,13 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class RootImpl implements AdditionalDataHolder, Parsable, Root {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /**
      * Instantiates a new root and sets the default values.
      * @param rootParameterValue 
      */
     public constructor(rootParameterValue?: Root | undefined) {
-        this.additionalData = {};
-        this.additionalData = rootParameterValue?.additionalData ? {} : rootParameterValue?.additionalData!
+        this.additionalData = rootParameterValue?.additionalData ? rootParameterValue?.additionalData! : {}
     };
     /**
      * The deserialization information for the current model

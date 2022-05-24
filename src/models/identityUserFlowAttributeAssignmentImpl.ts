@@ -7,19 +7,20 @@ import {EntityImpl, IdentityUserFlowAttributeImpl, UserAttributeValuesItemImpl} 
 import {UserAttributeValuesItem} from './userAttributeValuesItem';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the identityContainer singleton. */
 export class IdentityUserFlowAttributeAssignmentImpl extends EntityImpl implements IdentityUserFlowAttributeAssignment, Parsable {
     /** The display name of the identityUserFlowAttribute within a user flow. */
-    displayName?: string | undefined;
+    public displayName?: string | undefined;
     /** Determines whether the identityUserFlowAttribute is optional. true means the user doesn't have to provide a value. false means the user cannot complete sign-up without providing a value. */
-    isOptional?: boolean | undefined;
+    public isOptional?: boolean | undefined;
     /** Determines whether the identityUserFlowAttribute requires verification. This is only used for verifying the user's phone number or email address. */
-    requiresVerification?: boolean | undefined;
+    public requiresVerification?: boolean | undefined;
     /** The user attribute that you want to add to your user flow. */
-    userAttribute?: IdentityUserFlowAttribute | undefined;
+    public userAttribute?: IdentityUserFlowAttribute | undefined;
     /** The input options for the user flow attribute. Only applicable when the userInputType is radioSingleSelect, dropdownSingleSelect, or checkboxMultiSelect. */
-    userAttributeValues?: UserAttributeValuesItem[] | undefined;
+    public userAttributeValues?: UserAttributeValuesItem[] | undefined;
     /** The input type of the user flow attribute. Possible values are: textBox, dateTimeDropdown, radioSingleSelect, dropdownSingleSelect, emailBox, checkboxMultiSelect. */
-    userInputType?: IdentityUserFlowAttributeInputType | undefined;
+    public userInputType?: IdentityUserFlowAttributeInputType | undefined;
     /**
      * Instantiates a new identityUserFlowAttributeAssignment and sets the default values.
      * @param identityUserFlowAttributeAssignmentParameterValue 
@@ -55,27 +56,21 @@ export class IdentityUserFlowAttributeAssignmentImpl extends EntityImpl implemen
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.displayName){
-        if(this.displayName)
         writer.writeStringValue("displayName", this.displayName);
         }
         if(this.isOptional){
-        if(this.isOptional)
         writer.writeBooleanValue("isOptional", this.isOptional);
         }
         if(this.requiresVerification){
-        if(this.requiresVerification)
         writer.writeBooleanValue("requiresVerification", this.requiresVerification);
         }
         if(this.userAttribute){
-        if(this.userAttribute)
         writer.writeObjectValue<IdentityUserFlowAttributeImpl>("userAttribute", new IdentityUserFlowAttributeImpl(this.userAttribute));
         }
-        if(this.userAttributeValues){
-        const userAttributeValuesArrValue: UserAttributeValuesItemImpl[] = []; this.userAttributeValues?.forEach(element => {userAttributeValuesArrValue.push(new UserAttributeValuesItemImpl(element));});
+        if(this.userAttributeValues && this.userAttributeValues.length != 0){        const userAttributeValuesArrValue: UserAttributeValuesItemImpl[] = []; this.userAttributeValues?.forEach(element => {userAttributeValuesArrValue.push(new UserAttributeValuesItemImpl(element));});
         writer.writeCollectionOfObjectValues<UserAttributeValuesItemImpl>("userAttributeValues", userAttributeValuesArrValue);
         }
         if(this.userInputType){
-        if(this.userInputType)
         writer.writeEnumValue<IdentityUserFlowAttributeInputType>("userInputType", this.userInputType);
         }
     };

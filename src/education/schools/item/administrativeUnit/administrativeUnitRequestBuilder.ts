@@ -1,5 +1,4 @@
 import {AdministrativeUnitImpl} from '../../../../models/';
-import {AdministrativeUnit} from '../../../../models/administrativeUnit';
 import {createAdministrativeUnitFromDiscriminatorValue} from '../../../../models/createAdministrativeUnitFromDiscriminatorValue';
 import {ODataErrorImpl} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
@@ -50,7 +49,7 @@ export class AdministrativeUnitRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AdministrativeUnit
      */
-    public get(requestConfiguration?: AdministrativeUnitRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AdministrativeUnit | undefined> {
+    public get(requestConfiguration?: AdministrativeUnitRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AdministrativeUnitImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );

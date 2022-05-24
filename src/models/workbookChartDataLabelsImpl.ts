@@ -4,25 +4,26 @@ import {WorkbookChartDataLabelFormat} from './workbookChartDataLabelFormat';
 import {WorkbookChartDataLabels} from './workbookChartDataLabels';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to user. */
 export class WorkbookChartDataLabelsImpl extends EntityImpl implements Parsable, WorkbookChartDataLabels {
     /** Represents the format of chart data labels, which includes fill and font formatting. Read-only. */
-    format?: WorkbookChartDataLabelFormat | undefined;
+    public format?: WorkbookChartDataLabelFormat | undefined;
     /** DataLabelPosition value that represents the position of the data label. The possible values are: None, Center, InsideEnd, InsideBase, OutsideEnd, Left, Right, Top, Bottom, BestFit, Callout. */
-    position?: string | undefined;
+    public position?: string | undefined;
     /** String representing the separator used for the data labels on a chart. */
-    separator?: string | undefined;
+    public separator?: string | undefined;
     /** Boolean value representing if the data label bubble size is visible or not. */
-    showBubbleSize?: boolean | undefined;
+    public showBubbleSize?: boolean | undefined;
     /** Boolean value representing if the data label category name is visible or not. */
-    showCategoryName?: boolean | undefined;
+    public showCategoryName?: boolean | undefined;
     /** Boolean value representing if the data label legend key is visible or not. */
-    showLegendKey?: boolean | undefined;
+    public showLegendKey?: boolean | undefined;
     /** Boolean value representing if the data label percentage is visible or not. */
-    showPercentage?: boolean | undefined;
+    public showPercentage?: boolean | undefined;
     /** Boolean value representing if the data label series name is visible or not. */
-    showSeriesName?: boolean | undefined;
+    public showSeriesName?: boolean | undefined;
     /** Boolean value representing if the data label value is visible or not. */
-    showValue?: boolean | undefined;
+    public showValue?: boolean | undefined;
     /**
      * Instantiates a new workbookChartDataLabels and sets the default values.
      * @param workbookChartDataLabelsParameterValue 
@@ -64,39 +65,30 @@ export class WorkbookChartDataLabelsImpl extends EntityImpl implements Parsable,
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.format){
-        if(this.format)
         writer.writeObjectValue<WorkbookChartDataLabelFormatImpl>("format", new WorkbookChartDataLabelFormatImpl(this.format));
         }
         if(this.position){
-        if(this.position)
         writer.writeStringValue("position", this.position);
         }
         if(this.separator){
-        if(this.separator)
         writer.writeStringValue("separator", this.separator);
         }
         if(this.showBubbleSize){
-        if(this.showBubbleSize)
         writer.writeBooleanValue("showBubbleSize", this.showBubbleSize);
         }
         if(this.showCategoryName){
-        if(this.showCategoryName)
         writer.writeBooleanValue("showCategoryName", this.showCategoryName);
         }
         if(this.showLegendKey){
-        if(this.showLegendKey)
         writer.writeBooleanValue("showLegendKey", this.showLegendKey);
         }
         if(this.showPercentage){
-        if(this.showPercentage)
         writer.writeBooleanValue("showPercentage", this.showPercentage);
         }
         if(this.showSeriesName){
-        if(this.showSeriesName)
         writer.writeBooleanValue("showSeriesName", this.showSeriesName);
         }
         if(this.showValue){
-        if(this.showValue)
         writer.writeBooleanValue("showValue", this.showValue);
         }
     };

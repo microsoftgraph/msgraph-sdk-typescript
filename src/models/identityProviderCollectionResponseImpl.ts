@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class IdentityProviderCollectionResponseImpl implements AdditionalDataHolder, IdentityProviderCollectionResponse, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: IdentityProvider[] | undefined;
+    public value?: IdentityProvider[] | undefined;
     /**
      * Instantiates a new IdentityProviderCollectionResponse and sets the default values.
      * @param identityProviderCollectionResponseParameterValue 
      */
     public constructor(identityProviderCollectionResponseParameterValue?: IdentityProviderCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = identityProviderCollectionResponseParameterValue?.additionalData ? {} : identityProviderCollectionResponseParameterValue?.additionalData!
+        this.additionalData = identityProviderCollectionResponseParameterValue?.additionalData ? identityProviderCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = identityProviderCollectionResponseParameterValue?.nextLink ;
         this.value = identityProviderCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class IdentityProviderCollectionResponseImpl implements AdditionalDataHol
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: IdentityProviderImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new IdentityProviderImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: IdentityProviderImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new IdentityProviderImpl(element));});
         writer.writeCollectionOfObjectValues<IdentityProviderImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

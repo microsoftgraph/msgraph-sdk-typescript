@@ -4,11 +4,12 @@ import {WorkbookWorksheetProtection} from './workbookWorksheetProtection';
 import {WorkbookWorksheetProtectionOptions} from './workbookWorksheetProtectionOptions';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to user. */
 export class WorkbookWorksheetProtectionImpl extends EntityImpl implements Parsable, WorkbookWorksheetProtection {
     /** Sheet protection options. Read-only. */
-    options?: WorkbookWorksheetProtectionOptions | undefined;
+    public options?: WorkbookWorksheetProtectionOptions | undefined;
     /** Indicates if the worksheet is protected.  Read-only. */
-    protected?: boolean | undefined;
+    public protected?: boolean | undefined;
     /**
      * Instantiates a new workbookWorksheetProtection and sets the default values.
      * @param workbookWorksheetProtectionParameterValue 
@@ -36,11 +37,9 @@ export class WorkbookWorksheetProtectionImpl extends EntityImpl implements Parsa
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.options){
-        if(this.options)
         writer.writeObjectValue<WorkbookWorksheetProtectionOptionsImpl>("options", new WorkbookWorksheetProtectionOptionsImpl(this.options));
         }
         if(this.protected){
-        if(this.protected)
         writer.writeBooleanValue("protected", this.protected);
         }
     };

@@ -7,16 +7,15 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Provides operations to call the getCompatibleHubContentTypes method. */
 export class GetCompatibleHubContentTypesResponseImpl implements AdditionalDataHolder, GetCompatibleHubContentTypesResponse, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The value property */
-    value?: ContentType[] | undefined;
+    public value?: ContentType[] | undefined;
     /**
      * Instantiates a new getCompatibleHubContentTypesResponse and sets the default values.
      * @param getCompatibleHubContentTypesResponseParameterValue 
      */
     public constructor(getCompatibleHubContentTypesResponseParameterValue?: GetCompatibleHubContentTypesResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = getCompatibleHubContentTypesResponseParameterValue?.additionalData ? {} : getCompatibleHubContentTypesResponseParameterValue?.additionalData!
+        this.additionalData = getCompatibleHubContentTypesResponseParameterValue?.additionalData ? getCompatibleHubContentTypesResponseParameterValue?.additionalData! : {}
         this.value = getCompatibleHubContentTypesResponseParameterValue?.value ;
     };
     /**
@@ -34,8 +33,7 @@ export class GetCompatibleHubContentTypesResponseImpl implements AdditionalDataH
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        if(this.value){
-        const valueArrValue: ContentTypeImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ContentTypeImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: ContentTypeImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ContentTypeImpl(element));});
         writer.writeCollectionOfObjectValues<ContentTypeImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

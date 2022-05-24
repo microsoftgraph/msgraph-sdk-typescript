@@ -3,14 +3,13 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class ApiAuthenticationConfigurationBaseImpl implements AdditionalDataHolder, ApiAuthenticationConfigurationBase, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /**
      * Instantiates a new apiAuthenticationConfigurationBase and sets the default values.
      * @param apiAuthenticationConfigurationBaseParameterValue 
      */
     public constructor(apiAuthenticationConfigurationBaseParameterValue?: ApiAuthenticationConfigurationBase | undefined) {
-        this.additionalData = {};
-        this.additionalData = apiAuthenticationConfigurationBaseParameterValue?.additionalData ? {} : apiAuthenticationConfigurationBaseParameterValue?.additionalData!
+        this.additionalData = apiAuthenticationConfigurationBaseParameterValue?.additionalData ? apiAuthenticationConfigurationBaseParameterValue?.additionalData! : {}
     };
     /**
      * The deserialization information for the current model

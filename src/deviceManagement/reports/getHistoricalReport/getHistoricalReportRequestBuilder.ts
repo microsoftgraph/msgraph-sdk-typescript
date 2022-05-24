@@ -1,8 +1,6 @@
-import {createGetHistoricalReportResponseFromDiscriminatorValue} from './createGetHistoricalReportResponseFromDiscriminatorValue';
-import {GetHistoricalReportRequestBody} from './getHistoricalReportRequestBody';
+import {GetHistoricalReportPostRequestBody} from './getHistoricalReportPostRequestBody';
 import {GetHistoricalReportRequestBuilderPostRequestConfiguration} from './getHistoricalReportRequestBuilderPostRequestConfiguration';
-import {GetHistoricalReportResponse} from './getHistoricalReportResponse';
-import {GetHistoricalReportRequestBodyImpl, GetHistoricalReportResponseImpl} from './index';
+import {GetHistoricalReportPostRequestBodyImpl} from './index';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the getHistoricalReport method. */
@@ -32,7 +30,7 @@ export class GetHistoricalReportRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public createPostRequestInformation(body: GetHistoricalReportRequestBody | undefined, requestConfiguration?: GetHistoricalReportRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public createPostRequestInformation(body: GetHistoricalReportPostRequestBody | undefined, requestConfiguration?: GetHistoricalReportRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -42,8 +40,8 @@ export class GetHistoricalReportRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        const bodyParsable = new GetHistoricalReportRequestBodyImpl(body)
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", bodyParsable);
+        const parsableBody = new GetHistoricalReportPostRequestBodyImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -51,13 +49,13 @@ export class GetHistoricalReportRequestBuilder {
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of GetHistoricalReportResponse
+     * @returns a Promise of ArrayBuffer
      */
-    public post(body: GetHistoricalReportRequestBody | undefined, requestConfiguration?: GetHistoricalReportRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<GetHistoricalReportResponse | undefined> {
+    public post(body: GetHistoricalReportPostRequestBody | undefined, requestConfiguration?: GetHistoricalReportRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ArrayBuffer | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration
         );
-        return this.requestAdapter?.sendAsync<GetHistoricalReportResponseImpl>(requestInfo, createGetHistoricalReportResponseFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendPrimitiveAsync<ArrayBuffer>(requestInfo, "ArrayBuffer", responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }

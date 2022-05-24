@@ -2,13 +2,14 @@ import {AccessReviewReviewer} from './accessReviewReviewer';
 import {EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the identityGovernance singleton. */
 export class AccessReviewReviewerImpl extends EntityImpl implements AccessReviewReviewer, Parsable {
     /** The date when the reviewer was added for the access review. */
-    createdDateTime?: Date | undefined;
+    public createdDateTime?: Date | undefined;
     /** Name of reviewer. */
-    displayName?: string | undefined;
+    public displayName?: string | undefined;
     /** User principal name of the user. */
-    userPrincipalName?: string | undefined;
+    public userPrincipalName?: string | undefined;
     /**
      * Instantiates a new accessReviewReviewer and sets the default values.
      * @param accessReviewReviewerParameterValue 
@@ -38,15 +39,12 @@ export class AccessReviewReviewerImpl extends EntityImpl implements AccessReview
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.createdDateTime){
-        if(this.createdDateTime)
         writer.writeDateValue("createdDateTime", this.createdDateTime);
         }
         if(this.displayName){
-        if(this.displayName)
         writer.writeStringValue("displayName", this.displayName);
         }
         if(this.userPrincipalName){
-        if(this.userPrincipalName)
         writer.writeStringValue("userPrincipalName", this.userPrincipalName);
         }
     };

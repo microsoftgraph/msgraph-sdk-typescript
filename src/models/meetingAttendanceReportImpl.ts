@@ -4,15 +4,16 @@ import {AttendanceRecordImpl, EntityImpl} from './index';
 import {MeetingAttendanceReport} from './meetingAttendanceReport';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the cloudCommunications singleton. */
 export class MeetingAttendanceReportImpl extends EntityImpl implements MeetingAttendanceReport, Parsable {
     /** List of attendance records of an attendance report. Read-only. */
-    attendanceRecords?: AttendanceRecord[] | undefined;
+    public attendanceRecords?: AttendanceRecord[] | undefined;
     /** UTC time when the meeting ended. Read-only. */
-    meetingEndDateTime?: Date | undefined;
+    public meetingEndDateTime?: Date | undefined;
     /** UTC time when the meeting started. Read-only. */
-    meetingStartDateTime?: Date | undefined;
+    public meetingStartDateTime?: Date | undefined;
     /** Total number of participants. Read-only. */
-    totalParticipantCount?: number | undefined;
+    public totalParticipantCount?: number | undefined;
     /**
      * Instantiates a new meetingAttendanceReport and sets the default values.
      * @param meetingAttendanceReportParameterValue 
@@ -43,20 +44,16 @@ export class MeetingAttendanceReportImpl extends EntityImpl implements MeetingAt
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.attendanceRecords){
-        const attendanceRecordsArrValue: AttendanceRecordImpl[] = []; this.attendanceRecords?.forEach(element => {attendanceRecordsArrValue.push(new AttendanceRecordImpl(element));});
+        if(this.attendanceRecords && this.attendanceRecords.length != 0){        const attendanceRecordsArrValue: AttendanceRecordImpl[] = []; this.attendanceRecords?.forEach(element => {attendanceRecordsArrValue.push(new AttendanceRecordImpl(element));});
         writer.writeCollectionOfObjectValues<AttendanceRecordImpl>("attendanceRecords", attendanceRecordsArrValue);
         }
         if(this.meetingEndDateTime){
-        if(this.meetingEndDateTime)
         writer.writeDateValue("meetingEndDateTime", this.meetingEndDateTime);
         }
         if(this.meetingStartDateTime){
-        if(this.meetingStartDateTime)
         writer.writeDateValue("meetingStartDateTime", this.meetingStartDateTime);
         }
         if(this.totalParticipantCount){
-        if(this.totalParticipantCount)
         writer.writeNumberValue("totalParticipantCount", this.totalParticipantCount);
         }
     };

@@ -8,24 +8,23 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class RubricQualityImpl implements AdditionalDataHolder, Parsable, RubricQuality {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The collection of criteria for this rubric quality. */
-    criteria?: RubricCriterion[] | undefined;
+    public criteria?: RubricCriterion[] | undefined;
     /** The description of this rubric quality. */
-    description?: EducationItemBody | undefined;
+    public description?: EducationItemBody | undefined;
     /** The name of this rubric quality. */
-    displayName?: string | undefined;
+    public displayName?: string | undefined;
     /** The ID of this resource. */
-    qualityId?: string | undefined;
+    public qualityId?: string | undefined;
     /** If present, a numerical weight for this quality.  Weights must add up to 100. */
-    weight?: number | undefined;
+    public weight?: number | undefined;
     /**
      * Instantiates a new rubricQuality and sets the default values.
      * @param rubricQualityParameterValue 
      */
     public constructor(rubricQualityParameterValue?: RubricQuality | undefined) {
-        this.additionalData = {};
-        this.additionalData = rubricQualityParameterValue?.additionalData ? {} : rubricQualityParameterValue?.additionalData!
+        this.additionalData = rubricQualityParameterValue?.additionalData ? rubricQualityParameterValue?.additionalData! : {}
         this.criteria = rubricQualityParameterValue?.criteria ;
         this.description = rubricQualityParameterValue?.description ;
         this.displayName = rubricQualityParameterValue?.displayName ;
@@ -51,24 +50,19 @@ export class RubricQualityImpl implements AdditionalDataHolder, Parsable, Rubric
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        if(this.criteria){
-        const criteriaArrValue: RubricCriterionImpl[] = []; this.criteria?.forEach(element => {criteriaArrValue.push(new RubricCriterionImpl(element));});
+        if(this.criteria && this.criteria.length != 0){        const criteriaArrValue: RubricCriterionImpl[] = []; this.criteria?.forEach(element => {criteriaArrValue.push(new RubricCriterionImpl(element));});
         writer.writeCollectionOfObjectValues<RubricCriterionImpl>("criteria", criteriaArrValue);
         }
         if(this.description){
-        if(this.description)
         writer.writeObjectValue<EducationItemBodyImpl>("description", new EducationItemBodyImpl(this.description));
         }
         if(this.displayName){
-        if(this.displayName)
         writer.writeStringValue("displayName", this.displayName);
         }
         if(this.qualityId){
-        if(this.qualityId)
         writer.writeStringValue("qualityId", this.qualityId);
         }
         if(this.weight){
-        if(this.weight)
         writer.writeNumberValue("weight", this.weight);
         }
         writer.writeAdditionalData(this.additionalData);

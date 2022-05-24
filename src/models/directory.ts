@@ -5,9 +5,9 @@ import {IdentityProviderBase} from './identityProviderBase';
 
 export interface Directory extends Entity{
     /** Conceptual container for user and group directory objects. */
-    administrativeUnits?: AdministrativeUnit[] | undefined;
+    administrativeUnits?:AdministrativeUnit[] | undefined;
     /** Recently deleted items. Read-only. Nullable. */
-    deletedItems?: DirectoryObject[] | undefined;
+    deletedItems?:DirectoryObject[] | undefined;
     /** Configure domain federation with organizations whose identity provider (IdP) supports either the SAML or WS-Fed protocol. */
-    federationConfigurations?: IdentityProviderBase[] | undefined;
+    federationConfigurations?:IdentityProviderBase[] | undefined;
 }

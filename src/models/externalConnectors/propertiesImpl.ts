@@ -3,14 +3,13 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class PropertiesImpl implements AdditionalDataHolder, Parsable, Properties {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /**
      * Instantiates a new properties and sets the default values.
      * @param propertiesParameterValue 
      */
     public constructor(propertiesParameterValue?: Properties | undefined) {
-        this.additionalData = {};
-        this.additionalData = propertiesParameterValue?.additionalData ? {} : propertiesParameterValue?.additionalData!
+        this.additionalData = propertiesParameterValue?.additionalData ? propertiesParameterValue?.additionalData! : {}
     };
     /**
      * The deserialization information for the current model

@@ -4,15 +4,16 @@ import {Shift} from './shift';
 import {ShiftItem} from './shiftItem';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to group. */
 export class ShiftImpl extends ChangeTrackedEntityImpl implements Parsable, Shift {
     /** The draft version of this shift that is viewable by managers. Required. */
-    draftShift?: ShiftItem | undefined;
+    public draftShift?: ShiftItem | undefined;
     /** ID of the scheduling group the shift is part of. Required. */
-    schedulingGroupId?: string | undefined;
+    public schedulingGroupId?: string | undefined;
     /** The shared version of this shift that is viewable by both employees and managers. Required. */
-    sharedShift?: ShiftItem | undefined;
+    public sharedShift?: ShiftItem | undefined;
     /** ID of the user assigned to the shift. Required. */
-    userId?: string | undefined;
+    public userId?: string | undefined;
     /**
      * Instantiates a new shift and sets the default values.
      * @param shiftParameterValue 
@@ -44,19 +45,15 @@ export class ShiftImpl extends ChangeTrackedEntityImpl implements Parsable, Shif
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.draftShift){
-        if(this.draftShift)
         writer.writeObjectValue<ShiftItemImpl>("draftShift", new ShiftItemImpl(this.draftShift));
         }
         if(this.schedulingGroupId){
-        if(this.schedulingGroupId)
         writer.writeStringValue("schedulingGroupId", this.schedulingGroupId);
         }
         if(this.sharedShift){
-        if(this.sharedShift)
         writer.writeObjectValue<ShiftItemImpl>("sharedShift", new ShiftItemImpl(this.sharedShift));
         }
         if(this.userId){
-        if(this.userId)
         writer.writeStringValue("userId", this.userId);
         }
     };

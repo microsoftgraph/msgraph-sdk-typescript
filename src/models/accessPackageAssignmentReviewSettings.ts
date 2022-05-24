@@ -4,21 +4,21 @@ import {SubjectSet} from './subjectSet';
 
 export interface AccessPackageAssignmentReviewSettings{
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    additionalData?:Record<string, unknown>;
     /** The default decision to apply if the access is not reviewed. The possible values are: keepAccess, removeAccess, acceptAccessRecommendation, unknownFutureValue. */
-    expirationBehavior?: AccessReviewExpirationBehavior | undefined;
+    expirationBehavior?:AccessReviewExpirationBehavior | undefined;
     /** This collection specifies the users who will be the fallback reviewers when the primary reviewers don't respond. */
-    fallbackReviewers?: SubjectSet[] | undefined;
+    fallbackReviewers?:SubjectSet[] | undefined;
     /** If true, access reviews are required for assignments through this policy. */
-    isEnabled?: boolean | undefined;
+    isEnabled?:boolean | undefined;
     /** Specifies whether to display recommendations to the reviewer. The default value is true. */
-    isRecommendationEnabled?: boolean | undefined;
+    isRecommendationEnabled?:boolean | undefined;
     /** Specifies whether the reviewer must provide justification for the approval. The default value is true. */
-    isReviewerJustificationRequired?: boolean | undefined;
+    isReviewerJustificationRequired?:boolean | undefined;
     /** Specifies whether the principals can review their own assignments. */
-    isSelfReview?: boolean | undefined;
+    isSelfReview?:boolean | undefined;
     /** This collection specifies the users or group of users who will review the access package assignments. */
-    primaryReviewers?: SubjectSet[] | undefined;
+    primaryReviewers?:SubjectSet[] | undefined;
     /** When the first review should start and how often it should recur. */
-    schedule?: EntitlementManagementSchedule | undefined;
+    schedule?:EntitlementManagementSchedule | undefined;
 }

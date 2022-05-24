@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class EventCollectionResponseImpl implements AdditionalDataHolder, EventCollectionResponse, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: Event[] | undefined;
+    public value?: Event[] | undefined;
     /**
      * Instantiates a new EventCollectionResponse and sets the default values.
      * @param eventCollectionResponseParameterValue 
      */
     public constructor(eventCollectionResponseParameterValue?: EventCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = eventCollectionResponseParameterValue?.additionalData ? {} : eventCollectionResponseParameterValue?.additionalData!
+        this.additionalData = eventCollectionResponseParameterValue?.additionalData ? eventCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = eventCollectionResponseParameterValue?.nextLink ;
         this.value = eventCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class EventCollectionResponseImpl implements AdditionalDataHolder, EventC
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: EventImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new EventImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: EventImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new EventImpl(element));});
         writer.writeCollectionOfObjectValues<EventImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

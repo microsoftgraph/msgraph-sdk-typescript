@@ -9,9 +9,9 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Provides operations to manage the informationProtection singleton. */
 export class InformationProtectionImpl extends EntityImpl implements InformationProtection, Parsable {
     /** The bitlocker property */
-    bitlocker?: Bitlocker | undefined;
+    public bitlocker?: Bitlocker | undefined;
     /** The threatAssessmentRequests property */
-    threatAssessmentRequests?: ThreatAssessmentRequest[] | undefined;
+    public threatAssessmentRequests?: ThreatAssessmentRequest[] | undefined;
     /**
      * Instantiates a new informationProtection and sets the default values.
      * @param informationProtectionParameterValue 
@@ -39,11 +39,9 @@ export class InformationProtectionImpl extends EntityImpl implements Information
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.bitlocker){
-        if(this.bitlocker)
         writer.writeObjectValue<BitlockerImpl>("bitlocker", new BitlockerImpl(this.bitlocker));
         }
-        if(this.threatAssessmentRequests){
-        const threatAssessmentRequestsArrValue: ThreatAssessmentRequestImpl[] = []; this.threatAssessmentRequests?.forEach(element => {threatAssessmentRequestsArrValue.push(new ThreatAssessmentRequestImpl(element));});
+        if(this.threatAssessmentRequests && this.threatAssessmentRequests.length != 0){        const threatAssessmentRequestsArrValue: ThreatAssessmentRequestImpl[] = []; this.threatAssessmentRequests?.forEach(element => {threatAssessmentRequestsArrValue.push(new ThreatAssessmentRequestImpl(element));});
         writer.writeCollectionOfObjectValues<ThreatAssessmentRequestImpl>("threatAssessmentRequests", threatAssessmentRequestsArrValue);
         }
     };

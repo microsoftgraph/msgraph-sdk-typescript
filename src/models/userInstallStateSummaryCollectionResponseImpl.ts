@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class UserInstallStateSummaryCollectionResponseImpl implements AdditionalDataHolder, Parsable, UserInstallStateSummaryCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: UserInstallStateSummary[] | undefined;
+    public value?: UserInstallStateSummary[] | undefined;
     /**
      * Instantiates a new UserInstallStateSummaryCollectionResponse and sets the default values.
      * @param userInstallStateSummaryCollectionResponseParameterValue 
      */
     public constructor(userInstallStateSummaryCollectionResponseParameterValue?: UserInstallStateSummaryCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = userInstallStateSummaryCollectionResponseParameterValue?.additionalData ? {} : userInstallStateSummaryCollectionResponseParameterValue?.additionalData!
+        this.additionalData = userInstallStateSummaryCollectionResponseParameterValue?.additionalData ? userInstallStateSummaryCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = userInstallStateSummaryCollectionResponseParameterValue?.nextLink ;
         this.value = userInstallStateSummaryCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class UserInstallStateSummaryCollectionResponseImpl implements Additional
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: UserInstallStateSummaryImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new UserInstallStateSummaryImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: UserInstallStateSummaryImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new UserInstallStateSummaryImpl(element));});
         writer.writeCollectionOfObjectValues<UserInstallStateSummaryImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

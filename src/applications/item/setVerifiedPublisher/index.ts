@@ -1,3 +1,3 @@
-export * from './setVerifiedPublisherRequestBodyImpl'
-export * from './setVerifiedPublisherRequestBody'
+export * from './setVerifiedPublisherPostRequestBodyImpl'
+export * from './setVerifiedPublisherPostRequestBody'
 export * from './setVerifiedPublisherRequestBuilderPostRequestConfiguration'

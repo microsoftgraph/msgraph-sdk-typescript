@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class UnifiedRoleManagementPolicyAssignmentCollectionResponseImpl implements AdditionalDataHolder, Parsable, UnifiedRoleManagementPolicyAssignmentCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: UnifiedRoleManagementPolicyAssignment[] | undefined;
+    public value?: UnifiedRoleManagementPolicyAssignment[] | undefined;
     /**
      * Instantiates a new UnifiedRoleManagementPolicyAssignmentCollectionResponse and sets the default values.
      * @param unifiedRoleManagementPolicyAssignmentCollectionResponseParameterValue 
      */
     public constructor(unifiedRoleManagementPolicyAssignmentCollectionResponseParameterValue?: UnifiedRoleManagementPolicyAssignmentCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = unifiedRoleManagementPolicyAssignmentCollectionResponseParameterValue?.additionalData ? {} : unifiedRoleManagementPolicyAssignmentCollectionResponseParameterValue?.additionalData!
+        this.additionalData = unifiedRoleManagementPolicyAssignmentCollectionResponseParameterValue?.additionalData ? unifiedRoleManagementPolicyAssignmentCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = unifiedRoleManagementPolicyAssignmentCollectionResponseParameterValue?.nextLink ;
         this.value = unifiedRoleManagementPolicyAssignmentCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class UnifiedRoleManagementPolicyAssignmentCollectionResponseImpl impleme
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: UnifiedRoleManagementPolicyAssignmentImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new UnifiedRoleManagementPolicyAssignmentImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: UnifiedRoleManagementPolicyAssignmentImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new UnifiedRoleManagementPolicyAssignmentImpl(element));});
         writer.writeCollectionOfObjectValues<UnifiedRoleManagementPolicyAssignmentImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

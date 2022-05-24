@@ -4,14 +4,13 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Abstract class to contain properties used to assign a mobile app to a group. */
 export class MobileAppAssignmentSettingsImpl implements AdditionalDataHolder, MobileAppAssignmentSettings, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /**
      * Instantiates a new mobileAppAssignmentSettings and sets the default values.
      * @param mobileAppAssignmentSettingsParameterValue 
      */
     public constructor(mobileAppAssignmentSettingsParameterValue?: MobileAppAssignmentSettings | undefined) {
-        this.additionalData = {};
-        this.additionalData = mobileAppAssignmentSettingsParameterValue?.additionalData ? {} : mobileAppAssignmentSettingsParameterValue?.additionalData!
+        this.additionalData = mobileAppAssignmentSettingsParameterValue?.additionalData ? mobileAppAssignmentSettingsParameterValue?.additionalData! : {}
     };
     /**
      * The deserialization information for the current model

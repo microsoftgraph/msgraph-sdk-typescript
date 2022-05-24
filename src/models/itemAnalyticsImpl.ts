@@ -4,13 +4,14 @@ import {ItemActivityStat} from './itemActivityStat';
 import {ItemAnalytics} from './itemAnalytics';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to group. */
 export class ItemAnalyticsImpl extends EntityImpl implements ItemAnalytics, Parsable {
     /** The allTime property */
-    allTime?: ItemActivityStat | undefined;
+    public allTime?: ItemActivityStat | undefined;
     /** The itemActivityStats property */
-    itemActivityStats?: ItemActivityStat[] | undefined;
+    public itemActivityStats?: ItemActivityStat[] | undefined;
     /** The lastSevenDays property */
-    lastSevenDays?: ItemActivityStat | undefined;
+    public lastSevenDays?: ItemActivityStat | undefined;
     /**
      * Instantiates a new itemAnalytics and sets the default values.
      * @param itemAnalyticsParameterValue 
@@ -40,15 +41,12 @@ export class ItemAnalyticsImpl extends EntityImpl implements ItemAnalytics, Pars
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.allTime){
-        if(this.allTime)
         writer.writeObjectValue<ItemActivityStatImpl>("allTime", new ItemActivityStatImpl(this.allTime));
         }
-        if(this.itemActivityStats){
-        const itemActivityStatsArrValue: ItemActivityStatImpl[] = []; this.itemActivityStats?.forEach(element => {itemActivityStatsArrValue.push(new ItemActivityStatImpl(element));});
+        if(this.itemActivityStats && this.itemActivityStats.length != 0){        const itemActivityStatsArrValue: ItemActivityStatImpl[] = []; this.itemActivityStats?.forEach(element => {itemActivityStatsArrValue.push(new ItemActivityStatImpl(element));});
         writer.writeCollectionOfObjectValues<ItemActivityStatImpl>("itemActivityStats", itemActivityStatsArrValue);
         }
         if(this.lastSevenDays){
-        if(this.lastSevenDays)
         writer.writeObjectValue<ItemActivityStatImpl>("lastSevenDays", new ItemActivityStatImpl(this.lastSevenDays));
         }
     };

@@ -2,6 +2,7 @@ import {FieldValueSet} from './fieldValueSet';
 import {EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to user. */
 export class FieldValueSetImpl extends EntityImpl implements FieldValueSet, Parsable {
     /**
      * Instantiates a new fieldValueSet and sets the default values.

@@ -6,17 +6,16 @@ import {AdditionalDataHolder, ApiError, Parsable, ParseNode, SerializationWriter
 
 export class ODataErrorImpl extends ApiError implements AdditionalDataHolder, ODataError, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The error property */
-    error_escaped?: MainError | undefined;
+    public error_escaped?: MainError | undefined;
     /**
      * Instantiates a new ODataError and sets the default values.
      * @param oDataErrorParameterValue 
      */
     public constructor(oDataErrorParameterValue?: ODataError | undefined) {
         super();
-        this.additionalData = {};
-        this.additionalData = oDataErrorParameterValue?.additionalData ? {} : oDataErrorParameterValue?.additionalData!
+        this.additionalData = oDataErrorParameterValue?.additionalData ? oDataErrorParameterValue?.additionalData! : {}
         this.error_escaped = oDataErrorParameterValue?.error_escaped ;
     };
     /**
@@ -35,7 +34,6 @@ export class ODataErrorImpl extends ApiError implements AdditionalDataHolder, OD
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.error_escaped){
-        if(this.error_escaped)
         writer.writeObjectValue<MainErrorImpl>("error", new MainErrorImpl(this.error_escaped));
         }
         writer.writeAdditionalData(this.additionalData);

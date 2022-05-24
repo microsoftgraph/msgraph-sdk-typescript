@@ -4,7 +4,7 @@ import {ThreatAssessmentRequest} from './threatAssessmentRequest';
 
 export interface InformationProtection extends Entity{
     /** The bitlocker property */
-    bitlocker?: Bitlocker | undefined;
+    bitlocker?:Bitlocker | undefined;
     /** The threatAssessmentRequests property */
-    threatAssessmentRequests?: ThreatAssessmentRequest[] | undefined;
+    threatAssessmentRequests?:ThreatAssessmentRequest[] | undefined;
 }

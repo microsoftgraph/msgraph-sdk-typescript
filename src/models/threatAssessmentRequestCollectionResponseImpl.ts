@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class ThreatAssessmentRequestCollectionResponseImpl implements AdditionalDataHolder, Parsable, ThreatAssessmentRequestCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: ThreatAssessmentRequest[] | undefined;
+    public value?: ThreatAssessmentRequest[] | undefined;
     /**
      * Instantiates a new ThreatAssessmentRequestCollectionResponse and sets the default values.
      * @param threatAssessmentRequestCollectionResponseParameterValue 
      */
     public constructor(threatAssessmentRequestCollectionResponseParameterValue?: ThreatAssessmentRequestCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = threatAssessmentRequestCollectionResponseParameterValue?.additionalData ? {} : threatAssessmentRequestCollectionResponseParameterValue?.additionalData!
+        this.additionalData = threatAssessmentRequestCollectionResponseParameterValue?.additionalData ? threatAssessmentRequestCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = threatAssessmentRequestCollectionResponseParameterValue?.nextLink ;
         this.value = threatAssessmentRequestCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class ThreatAssessmentRequestCollectionResponseImpl implements Additional
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: ThreatAssessmentRequestImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ThreatAssessmentRequestImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: ThreatAssessmentRequestImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ThreatAssessmentRequestImpl(element));});
         writer.writeCollectionOfObjectValues<ThreatAssessmentRequestImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

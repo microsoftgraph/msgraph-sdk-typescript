@@ -4,9 +4,10 @@ import {createAgreementFileVersionFromDiscriminatorValue} from './createAgreemen
 import {AgreementFilePropertiesImpl, AgreementFileVersionImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the collection of agreement entities. */
 export class AgreementFileLocalizationImpl extends AgreementFilePropertiesImpl implements AgreementFileLocalization, Parsable {
     /** Read-only. Customized versions of the terms of use agreement in the Azure AD tenant. */
-    versions?: AgreementFileVersion[] | undefined;
+    public versions?: AgreementFileVersion[] | undefined;
     /**
      * Instantiates a new agreementFileLocalization and sets the default values.
      * @param agreementFileLocalizationParameterValue 
@@ -31,8 +32,7 @@ export class AgreementFileLocalizationImpl extends AgreementFilePropertiesImpl i
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.versions){
-        const versionsArrValue: AgreementFileVersionImpl[] = []; this.versions?.forEach(element => {versionsArrValue.push(new AgreementFileVersionImpl(element));});
+        if(this.versions && this.versions.length != 0){        const versionsArrValue: AgreementFileVersionImpl[] = []; this.versions?.forEach(element => {versionsArrValue.push(new AgreementFileVersionImpl(element));});
         writer.writeCollectionOfObjectValues<AgreementFileVersionImpl>("versions", versionsArrValue);
         }
     };

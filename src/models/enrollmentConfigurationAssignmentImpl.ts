@@ -4,9 +4,10 @@ import {EnrollmentConfigurationAssignment} from './enrollmentConfigurationAssign
 import {DeviceAndAppManagementAssignmentTargetImpl, EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Enrollment Configuration Assignment */
 export class EnrollmentConfigurationAssignmentImpl extends EntityImpl implements EnrollmentConfigurationAssignment, Parsable {
     /** Represents an assignment to managed devices in the tenant */
-    target?: DeviceAndAppManagementAssignmentTarget | undefined;
+    public target?: DeviceAndAppManagementAssignmentTarget | undefined;
     /**
      * Instantiates a new enrollmentConfigurationAssignment and sets the default values.
      * @param enrollmentConfigurationAssignmentParameterValue 
@@ -32,7 +33,6 @@ export class EnrollmentConfigurationAssignmentImpl extends EntityImpl implements
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.target){
-        if(this.target)
         writer.writeObjectValue<DeviceAndAppManagementAssignmentTargetImpl>("target", new DeviceAndAppManagementAssignmentTargetImpl(this.target));
         }
     };

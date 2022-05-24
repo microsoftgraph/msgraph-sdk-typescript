@@ -3,16 +3,15 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class SpecialFolderImpl implements AdditionalDataHolder, Parsable, SpecialFolder {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The unique identifier for this item in the /drive/special collection */
-    name?: string | undefined;
+    public name?: string | undefined;
     /**
      * Instantiates a new specialFolder and sets the default values.
      * @param specialFolderParameterValue 
      */
     public constructor(specialFolderParameterValue?: SpecialFolder | undefined) {
-        this.additionalData = {};
-        this.additionalData = specialFolderParameterValue?.additionalData ? {} : specialFolderParameterValue?.additionalData!
+        this.additionalData = specialFolderParameterValue?.additionalData ? specialFolderParameterValue?.additionalData! : {}
         this.name = specialFolderParameterValue?.name ;
     };
     /**
@@ -31,7 +30,6 @@ export class SpecialFolderImpl implements AdditionalDataHolder, Parsable, Specia
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.name){
-        if(this.name)
         writer.writeStringValue("name", this.name);
         }
         writer.writeAdditionalData(this.additionalData);

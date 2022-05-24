@@ -1,3 +1,3 @@
-export * from './cloneRequestBodyImpl'
+export * from './clonePostRequestBodyImpl'
+export * from './clonePostRequestBody'
 export * from './cloneRequestBuilderPostRequestConfiguration'
-export * from './cloneRequestBody'

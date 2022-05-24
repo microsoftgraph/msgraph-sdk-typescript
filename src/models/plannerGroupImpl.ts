@@ -4,9 +4,10 @@ import {PlannerGroup} from './plannerGroup';
 import {PlannerPlan} from './plannerPlan';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to group. */
 export class PlannerGroupImpl extends EntityImpl implements Parsable, PlannerGroup {
     /** Read-only. Nullable. Returns the plannerPlans owned by the group. */
-    plans?: PlannerPlan[] | undefined;
+    public plans?: PlannerPlan[] | undefined;
     /**
      * Instantiates a new plannerGroup and sets the default values.
      * @param plannerGroupParameterValue 
@@ -31,8 +32,7 @@ export class PlannerGroupImpl extends EntityImpl implements Parsable, PlannerGro
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.plans){
-        const plansArrValue: PlannerPlanImpl[] = []; this.plans?.forEach(element => {plansArrValue.push(new PlannerPlanImpl(element));});
+        if(this.plans && this.plans.length != 0){        const plansArrValue: PlannerPlanImpl[] = []; this.plans?.forEach(element => {plansArrValue.push(new PlannerPlanImpl(element));});
         writer.writeCollectionOfObjectValues<PlannerPlanImpl>("plans", plansArrValue);
         }
     };

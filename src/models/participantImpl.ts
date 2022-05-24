@@ -8,19 +8,20 @@ import {ParticipantInfo} from './participantInfo';
 import {RecordingInfo} from './recordingInfo';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the cloudCommunications singleton. */
 export class ParticipantImpl extends EntityImpl implements Parsable, Participant {
     /** The info property */
-    info?: ParticipantInfo | undefined;
+    public info?: ParticipantInfo | undefined;
     /** true if the participant is in lobby. */
-    isInLobby?: boolean | undefined;
+    public isInLobby?: boolean | undefined;
     /** true if the participant is muted (client or server muted). */
-    isMuted?: boolean | undefined;
+    public isMuted?: boolean | undefined;
     /** The list of media streams. */
-    mediaStreams?: MediaStream[] | undefined;
+    public mediaStreams?: MediaStream[] | undefined;
     /** A blob of data provided by the participant in the roster. */
-    metadata?: string | undefined;
+    public metadata?: string | undefined;
     /** Information on whether the participant has recording capability. */
-    recordingInfo?: RecordingInfo | undefined;
+    public recordingInfo?: RecordingInfo | undefined;
     /**
      * Instantiates a new participant and sets the default values.
      * @param participantParameterValue 
@@ -56,27 +57,21 @@ export class ParticipantImpl extends EntityImpl implements Parsable, Participant
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.info){
-        if(this.info)
         writer.writeObjectValue<ParticipantInfoImpl>("info", new ParticipantInfoImpl(this.info));
         }
         if(this.isInLobby){
-        if(this.isInLobby)
         writer.writeBooleanValue("isInLobby", this.isInLobby);
         }
         if(this.isMuted){
-        if(this.isMuted)
         writer.writeBooleanValue("isMuted", this.isMuted);
         }
-        if(this.mediaStreams){
-        const mediaStreamsArrValue: MediaStreamImpl[] = []; this.mediaStreams?.forEach(element => {mediaStreamsArrValue.push(new MediaStreamImpl(element));});
+        if(this.mediaStreams && this.mediaStreams.length != 0){        const mediaStreamsArrValue: MediaStreamImpl[] = []; this.mediaStreams?.forEach(element => {mediaStreamsArrValue.push(new MediaStreamImpl(element));});
         writer.writeCollectionOfObjectValues<MediaStreamImpl>("mediaStreams", mediaStreamsArrValue);
         }
         if(this.metadata){
-        if(this.metadata)
         writer.writeStringValue("metadata", this.metadata);
         }
         if(this.recordingInfo){
-        if(this.recordingInfo)
         writer.writeObjectValue<RecordingInfoImpl>("recordingInfo", new RecordingInfoImpl(this.recordingInfo));
         }
     };

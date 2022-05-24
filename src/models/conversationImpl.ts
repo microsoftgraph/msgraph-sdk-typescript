@@ -4,19 +4,20 @@ import {createConversationThreadFromDiscriminatorValue} from './createConversati
 import {ConversationThreadImpl, EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to group. */
 export class ConversationImpl extends EntityImpl implements Conversation, Parsable {
     /** Indicates whether any of the posts within this Conversation has at least one attachment. Supports $filter (eq, ne) and $search. */
-    hasAttachments?: boolean | undefined;
+    public hasAttachments?: boolean | undefined;
     /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Supports $filter (eq, ne, le, ge). */
-    lastDeliveredDateTime?: Date | undefined;
+    public lastDeliveredDateTime?: Date | undefined;
     /** A short summary from the body of the latest post in this conversation. */
-    preview?: string | undefined;
+    public preview?: string | undefined;
     /** A collection of all the conversation threads in the conversation. A navigation property. Read-only. Nullable. */
-    threads?: ConversationThread[] | undefined;
+    public threads?: ConversationThread[] | undefined;
     /** The topic of the conversation. This property can be set when the conversation is created, but it cannot be updated. */
-    topic?: string | undefined;
+    public topic?: string | undefined;
     /** All the users that sent a message to this Conversation. */
-    uniqueSenders?: string[] | undefined;
+    public uniqueSenders?: string[] | undefined;
     /**
      * Instantiates a new conversation and sets the default values.
      * @param conversationParameterValue 
@@ -52,27 +53,21 @@ export class ConversationImpl extends EntityImpl implements Conversation, Parsab
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.hasAttachments){
-        if(this.hasAttachments)
         writer.writeBooleanValue("hasAttachments", this.hasAttachments);
         }
         if(this.lastDeliveredDateTime){
-        if(this.lastDeliveredDateTime)
         writer.writeDateValue("lastDeliveredDateTime", this.lastDeliveredDateTime);
         }
         if(this.preview){
-        if(this.preview)
         writer.writeStringValue("preview", this.preview);
         }
-        if(this.threads){
-        const threadsArrValue: ConversationThreadImpl[] = []; this.threads?.forEach(element => {threadsArrValue.push(new ConversationThreadImpl(element));});
+        if(this.threads && this.threads.length != 0){        const threadsArrValue: ConversationThreadImpl[] = []; this.threads?.forEach(element => {threadsArrValue.push(new ConversationThreadImpl(element));});
         writer.writeCollectionOfObjectValues<ConversationThreadImpl>("threads", threadsArrValue);
         }
         if(this.topic){
-        if(this.topic)
         writer.writeStringValue("topic", this.topic);
         }
         if(this.uniqueSenders){
-        if(this.uniqueSenders)
         writer.writeCollectionOfPrimitiveValues<string>("uniqueSenders", this.uniqueSenders);
         }
     };

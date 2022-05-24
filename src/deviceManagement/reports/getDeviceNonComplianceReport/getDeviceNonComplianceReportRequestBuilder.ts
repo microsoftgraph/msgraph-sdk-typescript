@@ -1,8 +1,6 @@
-import {createGetDeviceNonComplianceReportResponseFromDiscriminatorValue} from './createGetDeviceNonComplianceReportResponseFromDiscriminatorValue';
-import {GetDeviceNonComplianceReportRequestBody} from './getDeviceNonComplianceReportRequestBody';
+import {GetDeviceNonComplianceReportPostRequestBody} from './getDeviceNonComplianceReportPostRequestBody';
 import {GetDeviceNonComplianceReportRequestBuilderPostRequestConfiguration} from './getDeviceNonComplianceReportRequestBuilderPostRequestConfiguration';
-import {GetDeviceNonComplianceReportResponse} from './getDeviceNonComplianceReportResponse';
-import {GetDeviceNonComplianceReportRequestBodyImpl, GetDeviceNonComplianceReportResponseImpl} from './index';
+import {GetDeviceNonComplianceReportPostRequestBodyImpl} from './index';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the getDeviceNonComplianceReport method. */
@@ -32,7 +30,7 @@ export class GetDeviceNonComplianceReportRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public createPostRequestInformation(body: GetDeviceNonComplianceReportRequestBody | undefined, requestConfiguration?: GetDeviceNonComplianceReportRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public createPostRequestInformation(body: GetDeviceNonComplianceReportPostRequestBody | undefined, requestConfiguration?: GetDeviceNonComplianceReportRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -42,8 +40,8 @@ export class GetDeviceNonComplianceReportRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        const bodyParsable = new GetDeviceNonComplianceReportRequestBodyImpl(body)
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", bodyParsable);
+        const parsableBody = new GetDeviceNonComplianceReportPostRequestBodyImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -51,13 +49,13 @@ export class GetDeviceNonComplianceReportRequestBuilder {
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of GetDeviceNonComplianceReportResponse
+     * @returns a Promise of ArrayBuffer
      */
-    public post(body: GetDeviceNonComplianceReportRequestBody | undefined, requestConfiguration?: GetDeviceNonComplianceReportRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<GetDeviceNonComplianceReportResponse | undefined> {
+    public post(body: GetDeviceNonComplianceReportPostRequestBody | undefined, requestConfiguration?: GetDeviceNonComplianceReportRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ArrayBuffer | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration
         );
-        return this.requestAdapter?.sendAsync<GetDeviceNonComplianceReportResponseImpl>(requestInfo, createGetDeviceNonComplianceReportResponseFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendPrimitiveAsync<ArrayBuffer>(requestInfo, "ArrayBuffer", responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }

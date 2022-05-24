@@ -2,7 +2,6 @@ import {DeviceManagementTroubleshootingEventCollectionResponseImpl, DeviceManage
 import {createDeviceManagementTroubleshootingEventCollectionResponseFromDiscriminatorValue} from '../../models/createDeviceManagementTroubleshootingEventCollectionResponseFromDiscriminatorValue';
 import {createDeviceManagementTroubleshootingEventFromDiscriminatorValue} from '../../models/createDeviceManagementTroubleshootingEventFromDiscriminatorValue';
 import {DeviceManagementTroubleshootingEvent} from '../../models/deviceManagementTroubleshootingEvent';
-import {DeviceManagementTroubleshootingEventCollectionResponse} from '../../models/deviceManagementTroubleshootingEventCollectionResponse';
 import {ODataErrorImpl} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
@@ -68,8 +67,8 @@ export class TroubleshootingEventsRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        const bodyParsable = new DeviceManagementTroubleshootingEventImpl(body)
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", bodyParsable);
+        const parsableBody = new DeviceManagementTroubleshootingEventImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -78,7 +77,7 @@ export class TroubleshootingEventsRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DeviceManagementTroubleshootingEventCollectionResponse
      */
-    public get(requestConfiguration?: TroubleshootingEventsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DeviceManagementTroubleshootingEventCollectionResponse | undefined> {
+    public get(requestConfiguration?: TroubleshootingEventsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DeviceManagementTroubleshootingEventCollectionResponseImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -95,7 +94,7 @@ export class TroubleshootingEventsRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DeviceManagementTroubleshootingEvent
      */
-    public post(body: DeviceManagementTroubleshootingEvent | undefined, requestConfiguration?: TroubleshootingEventsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DeviceManagementTroubleshootingEvent | undefined> {
+    public post(body: DeviceManagementTroubleshootingEvent | undefined, requestConfiguration?: TroubleshootingEventsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DeviceManagementTroubleshootingEventImpl | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration

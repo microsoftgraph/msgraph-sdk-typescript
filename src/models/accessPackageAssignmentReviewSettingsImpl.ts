@@ -9,30 +9,29 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class AccessPackageAssignmentReviewSettingsImpl implements AccessPackageAssignmentReviewSettings, AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The default decision to apply if the access is not reviewed. The possible values are: keepAccess, removeAccess, acceptAccessRecommendation, unknownFutureValue. */
-    expirationBehavior?: AccessReviewExpirationBehavior | undefined;
+    public expirationBehavior?: AccessReviewExpirationBehavior | undefined;
     /** This collection specifies the users who will be the fallback reviewers when the primary reviewers don't respond. */
-    fallbackReviewers?: SubjectSet[] | undefined;
+    public fallbackReviewers?: SubjectSet[] | undefined;
     /** If true, access reviews are required for assignments through this policy. */
-    isEnabled?: boolean | undefined;
+    public isEnabled?: boolean | undefined;
     /** Specifies whether to display recommendations to the reviewer. The default value is true. */
-    isRecommendationEnabled?: boolean | undefined;
+    public isRecommendationEnabled?: boolean | undefined;
     /** Specifies whether the reviewer must provide justification for the approval. The default value is true. */
-    isReviewerJustificationRequired?: boolean | undefined;
+    public isReviewerJustificationRequired?: boolean | undefined;
     /** Specifies whether the principals can review their own assignments. */
-    isSelfReview?: boolean | undefined;
+    public isSelfReview?: boolean | undefined;
     /** This collection specifies the users or group of users who will review the access package assignments. */
-    primaryReviewers?: SubjectSet[] | undefined;
+    public primaryReviewers?: SubjectSet[] | undefined;
     /** When the first review should start and how often it should recur. */
-    schedule?: EntitlementManagementSchedule | undefined;
+    public schedule?: EntitlementManagementSchedule | undefined;
     /**
      * Instantiates a new accessPackageAssignmentReviewSettings and sets the default values.
      * @param accessPackageAssignmentReviewSettingsParameterValue 
      */
     public constructor(accessPackageAssignmentReviewSettingsParameterValue?: AccessPackageAssignmentReviewSettings | undefined) {
-        this.additionalData = {};
-        this.additionalData = accessPackageAssignmentReviewSettingsParameterValue?.additionalData ? {} : accessPackageAssignmentReviewSettingsParameterValue?.additionalData!
+        this.additionalData = accessPackageAssignmentReviewSettingsParameterValue?.additionalData ? accessPackageAssignmentReviewSettingsParameterValue?.additionalData! : {}
         this.expirationBehavior = accessPackageAssignmentReviewSettingsParameterValue?.expirationBehavior ;
         this.fallbackReviewers = accessPackageAssignmentReviewSettingsParameterValue?.fallbackReviewers ;
         this.isEnabled = accessPackageAssignmentReviewSettingsParameterValue?.isEnabled ;
@@ -65,35 +64,27 @@ export class AccessPackageAssignmentReviewSettingsImpl implements AccessPackageA
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.expirationBehavior){
-        if(this.expirationBehavior)
         writer.writeEnumValue<AccessReviewExpirationBehavior>("expirationBehavior", this.expirationBehavior);
         }
-        if(this.fallbackReviewers){
-        const fallbackReviewersArrValue: SubjectSetImpl[] = []; this.fallbackReviewers?.forEach(element => {fallbackReviewersArrValue.push(new SubjectSetImpl(element));});
+        if(this.fallbackReviewers && this.fallbackReviewers.length != 0){        const fallbackReviewersArrValue: SubjectSetImpl[] = []; this.fallbackReviewers?.forEach(element => {fallbackReviewersArrValue.push(new SubjectSetImpl(element));});
         writer.writeCollectionOfObjectValues<SubjectSetImpl>("fallbackReviewers", fallbackReviewersArrValue);
         }
         if(this.isEnabled){
-        if(this.isEnabled)
         writer.writeBooleanValue("isEnabled", this.isEnabled);
         }
         if(this.isRecommendationEnabled){
-        if(this.isRecommendationEnabled)
         writer.writeBooleanValue("isRecommendationEnabled", this.isRecommendationEnabled);
         }
         if(this.isReviewerJustificationRequired){
-        if(this.isReviewerJustificationRequired)
         writer.writeBooleanValue("isReviewerJustificationRequired", this.isReviewerJustificationRequired);
         }
         if(this.isSelfReview){
-        if(this.isSelfReview)
         writer.writeBooleanValue("isSelfReview", this.isSelfReview);
         }
-        if(this.primaryReviewers){
-        const primaryReviewersArrValue: SubjectSetImpl[] = []; this.primaryReviewers?.forEach(element => {primaryReviewersArrValue.push(new SubjectSetImpl(element));});
+        if(this.primaryReviewers && this.primaryReviewers.length != 0){        const primaryReviewersArrValue: SubjectSetImpl[] = []; this.primaryReviewers?.forEach(element => {primaryReviewersArrValue.push(new SubjectSetImpl(element));});
         writer.writeCollectionOfObjectValues<SubjectSetImpl>("primaryReviewers", primaryReviewersArrValue);
         }
         if(this.schedule){
-        if(this.schedule)
         writer.writeObjectValue<EntitlementManagementScheduleImpl>("schedule", new EntitlementManagementScheduleImpl(this.schedule));
         }
         writer.writeAdditionalData(this.additionalData);

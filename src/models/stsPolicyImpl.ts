@@ -4,13 +4,14 @@ import {DirectoryObjectImpl, PolicyBaseImpl} from './index';
 import {StsPolicy} from './stsPolicy';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the collection of application entities. */
 export class StsPolicyImpl extends PolicyBaseImpl implements Parsable, StsPolicy {
     /** The appliesTo property */
-    appliesTo?: DirectoryObject[] | undefined;
+    public appliesTo?: DirectoryObject[] | undefined;
     /** A string collection containing a JSON string that defines the rules and settings for a policy. The syntax for the definition differs for each derived policy type. Required. */
-    definition?: string[] | undefined;
+    public definition?: string[] | undefined;
     /** If set to true, activates this policy. There can be many policies for the same policy type, but only one can be activated as the organization default. Optional, default value is false. */
-    isOrganizationDefault?: boolean | undefined;
+    public isOrganizationDefault?: boolean | undefined;
     /**
      * Instantiates a new stsPolicy and sets the default values.
      * @param stsPolicyParameterValue 
@@ -39,16 +40,13 @@ export class StsPolicyImpl extends PolicyBaseImpl implements Parsable, StsPolicy
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.appliesTo){
-        const appliesToArrValue: DirectoryObjectImpl[] = []; this.appliesTo?.forEach(element => {appliesToArrValue.push(new DirectoryObjectImpl(element));});
+        if(this.appliesTo && this.appliesTo.length != 0){        const appliesToArrValue: DirectoryObjectImpl[] = []; this.appliesTo?.forEach(element => {appliesToArrValue.push(new DirectoryObjectImpl(element));});
         writer.writeCollectionOfObjectValues<DirectoryObjectImpl>("appliesTo", appliesToArrValue);
         }
         if(this.definition){
-        if(this.definition)
         writer.writeCollectionOfPrimitiveValues<string>("definition", this.definition);
         }
         if(this.isOrganizationDefault){
-        if(this.isOrganizationDefault)
         writer.writeBooleanValue("isOrganizationDefault", this.isOrganizationDefault);
         }
     };

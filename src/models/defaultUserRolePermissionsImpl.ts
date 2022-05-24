@@ -3,22 +3,21 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class DefaultUserRolePermissionsImpl implements AdditionalDataHolder, DefaultUserRolePermissions, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** Indicates whether the default user role can create applications. */
-    allowedToCreateApps?: boolean | undefined;
+    public allowedToCreateApps?: boolean | undefined;
     /** Indicates whether the default user role can create security groups. */
-    allowedToCreateSecurityGroups?: boolean | undefined;
+    public allowedToCreateSecurityGroups?: boolean | undefined;
     /** Indicates whether the default user role can read other users. */
-    allowedToReadOtherUsers?: boolean | undefined;
+    public allowedToReadOtherUsers?: boolean | undefined;
     /** Indicates if user consent to apps is allowed, and if it is, which permission to grant consent and which app consent policy (permissionGrantPolicy) govern the permission for users to grant consent. Value should be in the format managePermissionGrantsForSelf.{id}, where {id} is the id of a built-in or custom app consent policy. An empty list indicates user consent to apps is disabled. */
-    permissionGrantPoliciesAssigned?: string[] | undefined;
+    public permissionGrantPoliciesAssigned?: string[] | undefined;
     /**
      * Instantiates a new defaultUserRolePermissions and sets the default values.
      * @param defaultUserRolePermissionsParameterValue 
      */
     public constructor(defaultUserRolePermissionsParameterValue?: DefaultUserRolePermissions | undefined) {
-        this.additionalData = {};
-        this.additionalData = defaultUserRolePermissionsParameterValue?.additionalData ? {} : defaultUserRolePermissionsParameterValue?.additionalData!
+        this.additionalData = defaultUserRolePermissionsParameterValue?.additionalData ? defaultUserRolePermissionsParameterValue?.additionalData! : {}
         this.allowedToCreateApps = defaultUserRolePermissionsParameterValue?.allowedToCreateApps ;
         this.allowedToCreateSecurityGroups = defaultUserRolePermissionsParameterValue?.allowedToCreateSecurityGroups ;
         this.allowedToReadOtherUsers = defaultUserRolePermissionsParameterValue?.allowedToReadOtherUsers ;
@@ -43,19 +42,15 @@ export class DefaultUserRolePermissionsImpl implements AdditionalDataHolder, Def
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.allowedToCreateApps){
-        if(this.allowedToCreateApps)
         writer.writeBooleanValue("allowedToCreateApps", this.allowedToCreateApps);
         }
         if(this.allowedToCreateSecurityGroups){
-        if(this.allowedToCreateSecurityGroups)
         writer.writeBooleanValue("allowedToCreateSecurityGroups", this.allowedToCreateSecurityGroups);
         }
         if(this.allowedToReadOtherUsers){
-        if(this.allowedToReadOtherUsers)
         writer.writeBooleanValue("allowedToReadOtherUsers", this.allowedToReadOtherUsers);
         }
         if(this.permissionGrantPoliciesAssigned){
-        if(this.permissionGrantPoliciesAssigned)
         writer.writeCollectionOfPrimitiveValues<string>("permissionGrantPoliciesAssigned", this.permissionGrantPoliciesAssigned);
         }
         writer.writeAdditionalData(this.additionalData);

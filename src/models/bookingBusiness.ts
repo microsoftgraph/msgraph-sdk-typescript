@@ -10,37 +10,37 @@ import {PhysicalAddress} from './physicalAddress';
 
 export interface BookingBusiness extends Entity{
     /** The street address of the business. The address property, together with phone and webSiteUrl, appear in the footer of a business scheduling page. */
-    address?: PhysicalAddress | undefined;
+    address?:PhysicalAddress | undefined;
     /** All the appointments of this business. Read-only. Nullable. */
-    appointments?: BookingAppointment[] | undefined;
+    appointments?:BookingAppointment[] | undefined;
     /** The hours of operation for the business. */
-    businessHours?: BookingWorkHours[] | undefined;
+    businessHours?:BookingWorkHours[] | undefined;
     /** The type of business. */
-    businessType?: string | undefined;
+    businessType?:string | undefined;
     /** The set of appointments of this business in a specified date range. Read-only. Nullable. */
-    calendarView?: BookingAppointment[] | undefined;
+    calendarView?:BookingAppointment[] | undefined;
     /** All the customers of this business. Read-only. Nullable. */
-    customers?: BookingCustomerBase[] | undefined;
+    customers?:BookingCustomerBase[] | undefined;
     /** All the custom questions of this business. Read-only. Nullable. */
-    customQuestions?: BookingCustomQuestion[] | undefined;
+    customQuestions?:BookingCustomQuestion[] | undefined;
     /** The code for the currency that the business operates in on Microsoft Bookings. */
-    defaultCurrencyIso?: string | undefined;
+    defaultCurrencyIso?:string | undefined;
     /** The name of the business, which interfaces with customers. This name appears at the top of the business scheduling page. */
-    displayName?: string | undefined;
+    displayName?:string | undefined;
     /** The email address for the business. */
-    email?: string | undefined;
+    email?:string | undefined;
     /** The scheduling page has been made available to external customers. Use the publish and unpublish actions to set this property. Read-only. */
-    isPublished?: boolean | undefined;
+    isPublished?:boolean | undefined;
     /** The telephone number for the business. The phone property, together with address and webSiteUrl, appear in the footer of a business scheduling page. */
-    phone?: string | undefined;
+    phone?:string | undefined;
     /** The URL for the scheduling page, which is set after you publish or unpublish the page. Read-only. */
-    publicUrl?: string | undefined;
+    publicUrl?:string | undefined;
     /** Specifies how bookings can be created for this business. */
-    schedulingPolicy?: BookingSchedulingPolicy | undefined;
+    schedulingPolicy?:BookingSchedulingPolicy | undefined;
     /** All the services offered by this business. Read-only. Nullable. */
-    services?: BookingService[] | undefined;
+    services?:BookingService[] | undefined;
     /** All the staff members that provide services in this business. Read-only. Nullable. */
-    staffMembers?: BookingStaffMemberBase[] | undefined;
+    staffMembers?:BookingStaffMemberBase[] | undefined;
     /** The URL of the business web site. The webSiteUrl property, together with address, phone, appear in the footer of a business scheduling page. */
-    webSiteUrl?: string | undefined;
+    webSiteUrl?:string | undefined;
 }

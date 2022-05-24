@@ -4,20 +4,19 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class SettingSourceImpl implements AdditionalDataHolder, Parsable, SettingSource {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** Not yet documented */
-    displayName?: string | undefined;
+    public displayName?: string | undefined;
     /** Not yet documented */
-    id?: string | undefined;
+    public id?: string | undefined;
     /** Not yet documented. Possible values are: deviceConfiguration, deviceIntent. */
-    sourceType?: SettingSourceType | undefined;
+    public sourceType?: SettingSourceType | undefined;
     /**
      * Instantiates a new settingSource and sets the default values.
      * @param settingSourceParameterValue 
      */
     public constructor(settingSourceParameterValue?: SettingSource | undefined) {
-        this.additionalData = {};
-        this.additionalData = settingSourceParameterValue?.additionalData ? {} : settingSourceParameterValue?.additionalData!
+        this.additionalData = settingSourceParameterValue?.additionalData ? settingSourceParameterValue?.additionalData! : {}
         this.displayName = settingSourceParameterValue?.displayName ;
         this.id = settingSourceParameterValue?.id ;
         this.sourceType = settingSourceParameterValue?.sourceType ;
@@ -40,15 +39,12 @@ export class SettingSourceImpl implements AdditionalDataHolder, Parsable, Settin
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.displayName){
-        if(this.displayName)
         writer.writeStringValue("displayName", this.displayName);
         }
         if(this.id){
-        if(this.id)
         writer.writeStringValue("id", this.id);
         }
         if(this.sourceType){
-        if(this.sourceType)
         writer.writeEnumValue<SettingSourceType>("sourceType", this.sourceType);
         }
         writer.writeAdditionalData(this.additionalData);

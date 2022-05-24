@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class ThumbnailSetCollectionResponseImpl implements AdditionalDataHolder, Parsable, ThumbnailSetCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: ThumbnailSet[] | undefined;
+    public value?: ThumbnailSet[] | undefined;
     /**
      * Instantiates a new ThumbnailSetCollectionResponse and sets the default values.
      * @param thumbnailSetCollectionResponseParameterValue 
      */
     public constructor(thumbnailSetCollectionResponseParameterValue?: ThumbnailSetCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = thumbnailSetCollectionResponseParameterValue?.additionalData ? {} : thumbnailSetCollectionResponseParameterValue?.additionalData!
+        this.additionalData = thumbnailSetCollectionResponseParameterValue?.additionalData ? thumbnailSetCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = thumbnailSetCollectionResponseParameterValue?.nextLink ;
         this.value = thumbnailSetCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class ThumbnailSetCollectionResponseImpl implements AdditionalDataHolder,
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: ThumbnailSetImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ThumbnailSetImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: ThumbnailSetImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ThumbnailSetImpl(element));});
         writer.writeCollectionOfObjectValues<ThumbnailSetImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

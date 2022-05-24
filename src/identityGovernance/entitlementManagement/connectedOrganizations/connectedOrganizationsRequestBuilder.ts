@@ -1,6 +1,5 @@
 import {ConnectedOrganizationCollectionResponseImpl, ConnectedOrganizationImpl} from '../../../models/';
 import {ConnectedOrganization} from '../../../models/connectedOrganization';
-import {ConnectedOrganizationCollectionResponse} from '../../../models/connectedOrganizationCollectionResponse';
 import {createConnectedOrganizationCollectionResponseFromDiscriminatorValue} from '../../../models/createConnectedOrganizationCollectionResponseFromDiscriminatorValue';
 import {createConnectedOrganizationFromDiscriminatorValue} from '../../../models/createConnectedOrganizationFromDiscriminatorValue';
 import {ODataErrorImpl} from '../../../models/oDataErrors/';
@@ -68,8 +67,8 @@ export class ConnectedOrganizationsRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        const bodyParsable = new ConnectedOrganizationImpl(body)
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", bodyParsable);
+        const parsableBody = new ConnectedOrganizationImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -78,7 +77,7 @@ export class ConnectedOrganizationsRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ConnectedOrganizationCollectionResponse
      */
-    public get(requestConfiguration?: ConnectedOrganizationsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ConnectedOrganizationCollectionResponse | undefined> {
+    public get(requestConfiguration?: ConnectedOrganizationsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ConnectedOrganizationCollectionResponseImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -95,7 +94,7 @@ export class ConnectedOrganizationsRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ConnectedOrganization
      */
-    public post(body: ConnectedOrganization | undefined, requestConfiguration?: ConnectedOrganizationsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ConnectedOrganization | undefined> {
+    public post(body: ConnectedOrganization | undefined, requestConfiguration?: ConnectedOrganizationsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ConnectedOrganizationImpl | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration

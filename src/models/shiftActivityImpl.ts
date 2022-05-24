@@ -4,26 +4,25 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class ShiftActivityImpl implements AdditionalDataHolder, Parsable, ShiftActivity {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** Customer defined code for the shiftActivity. Required. */
-    code?: string | undefined;
+    public code?: string | undefined;
     /** The name of the shiftActivity. Required. */
-    displayName?: string | undefined;
+    public displayName?: string | undefined;
     /** The end date and time for the shiftActivity. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Required. */
-    endDateTime?: Date | undefined;
+    public endDateTime?: Date | undefined;
     /** Indicates whether the microsoft.graph.user should be paid for the activity during their shift. Required. */
-    isPaid?: boolean | undefined;
+    public isPaid?: boolean | undefined;
     /** The start date and time for the shiftActivity. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Required. */
-    startDateTime?: Date | undefined;
+    public startDateTime?: Date | undefined;
     /** The theme property */
-    theme?: ScheduleEntityTheme | undefined;
+    public theme?: ScheduleEntityTheme | undefined;
     /**
      * Instantiates a new shiftActivity and sets the default values.
      * @param shiftActivityParameterValue 
      */
     public constructor(shiftActivityParameterValue?: ShiftActivity | undefined) {
-        this.additionalData = {};
-        this.additionalData = shiftActivityParameterValue?.additionalData ? {} : shiftActivityParameterValue?.additionalData!
+        this.additionalData = shiftActivityParameterValue?.additionalData ? shiftActivityParameterValue?.additionalData! : {}
         this.code = shiftActivityParameterValue?.code ;
         this.displayName = shiftActivityParameterValue?.displayName ;
         this.endDateTime = shiftActivityParameterValue?.endDateTime ;
@@ -52,27 +51,21 @@ export class ShiftActivityImpl implements AdditionalDataHolder, Parsable, ShiftA
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.code){
-        if(this.code)
         writer.writeStringValue("code", this.code);
         }
         if(this.displayName){
-        if(this.displayName)
         writer.writeStringValue("displayName", this.displayName);
         }
         if(this.endDateTime){
-        if(this.endDateTime)
         writer.writeDateValue("endDateTime", this.endDateTime);
         }
         if(this.isPaid){
-        if(this.isPaid)
         writer.writeBooleanValue("isPaid", this.isPaid);
         }
         if(this.startDateTime){
-        if(this.startDateTime)
         writer.writeDateValue("startDateTime", this.startDateTime);
         }
         if(this.theme){
-        if(this.theme)
         writer.writeEnumValue<ScheduleEntityTheme>("theme", this.theme);
         }
         writer.writeAdditionalData(this.additionalData);

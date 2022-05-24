@@ -3,16 +3,15 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class SamlSingleSignOnSettingsImpl implements AdditionalDataHolder, Parsable, SamlSingleSignOnSettings {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The relative URI the service provider would redirect to after completion of the single sign-on flow. */
-    relayState?: string | undefined;
+    public relayState?: string | undefined;
     /**
      * Instantiates a new samlSingleSignOnSettings and sets the default values.
      * @param samlSingleSignOnSettingsParameterValue 
      */
     public constructor(samlSingleSignOnSettingsParameterValue?: SamlSingleSignOnSettings | undefined) {
-        this.additionalData = {};
-        this.additionalData = samlSingleSignOnSettingsParameterValue?.additionalData ? {} : samlSingleSignOnSettingsParameterValue?.additionalData!
+        this.additionalData = samlSingleSignOnSettingsParameterValue?.additionalData ? samlSingleSignOnSettingsParameterValue?.additionalData! : {}
         this.relayState = samlSingleSignOnSettingsParameterValue?.relayState ;
     };
     /**
@@ -31,7 +30,6 @@ export class SamlSingleSignOnSettingsImpl implements AdditionalDataHolder, Parsa
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.relayState){
-        if(this.relayState)
         writer.writeStringValue("relayState", this.relayState);
         }
         writer.writeAdditionalData(this.additionalData);

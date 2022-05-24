@@ -3,15 +3,16 @@ import {RemoteAssistanceOnboardingStatus} from './remoteAssistanceOnboardingStat
 import {RemoteAssistancePartner} from './remoteAssistancePartner';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** RemoteAssistPartner resources represent the metadata and status of a given Remote Assistance partner service. */
 export class RemoteAssistancePartnerImpl extends EntityImpl implements Parsable, RemoteAssistancePartner {
     /** Display name of the partner. */
-    displayName?: string | undefined;
+    public displayName?: string | undefined;
     /** Timestamp of the last request sent to Intune by the TEM partner. */
-    lastConnectionDateTime?: Date | undefined;
+    public lastConnectionDateTime?: Date | undefined;
     /** A friendly description of the current TeamViewer connector status. Possible values are: notOnboarded, onboarding, onboarded. */
-    onboardingStatus?: RemoteAssistanceOnboardingStatus | undefined;
+    public onboardingStatus?: RemoteAssistanceOnboardingStatus | undefined;
     /** URL of the partner's onboarding portal, where an administrator can configure their Remote Assistance service. */
-    onboardingUrl?: string | undefined;
+    public onboardingUrl?: string | undefined;
     /**
      * Instantiates a new remoteAssistancePartner and sets the default values.
      * @param remoteAssistancePartnerParameterValue 
@@ -43,19 +44,15 @@ export class RemoteAssistancePartnerImpl extends EntityImpl implements Parsable,
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.displayName){
-        if(this.displayName)
         writer.writeStringValue("displayName", this.displayName);
         }
         if(this.lastConnectionDateTime){
-        if(this.lastConnectionDateTime)
         writer.writeDateValue("lastConnectionDateTime", this.lastConnectionDateTime);
         }
         if(this.onboardingStatus){
-        if(this.onboardingStatus)
         writer.writeEnumValue<RemoteAssistanceOnboardingStatus>("onboardingStatus", this.onboardingStatus);
         }
         if(this.onboardingUrl){
-        if(this.onboardingUrl)
         writer.writeStringValue("onboardingUrl", this.onboardingUrl);
         }
     };

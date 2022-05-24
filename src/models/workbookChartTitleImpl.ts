@@ -4,15 +4,16 @@ import {WorkbookChartTitle} from './workbookChartTitle';
 import {WorkbookChartTitleFormat} from './workbookChartTitleFormat';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to user. */
 export class WorkbookChartTitleImpl extends EntityImpl implements Parsable, WorkbookChartTitle {
     /** Represents the formatting of a chart title, which includes fill and font formatting. Read-only. */
-    format?: WorkbookChartTitleFormat | undefined;
+    public format?: WorkbookChartTitleFormat | undefined;
     /** Boolean value representing if the chart title will overlay the chart or not. */
-    overlay?: boolean | undefined;
+    public overlay?: boolean | undefined;
     /** Represents the title text of a chart. */
-    text?: string | undefined;
+    public text?: string | undefined;
     /** A boolean value the represents the visibility of a chart title object. */
-    visible?: boolean | undefined;
+    public visible?: boolean | undefined;
     /**
      * Instantiates a new workbookChartTitle and sets the default values.
      * @param workbookChartTitleParameterValue 
@@ -44,19 +45,15 @@ export class WorkbookChartTitleImpl extends EntityImpl implements Parsable, Work
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.format){
-        if(this.format)
         writer.writeObjectValue<WorkbookChartTitleFormatImpl>("format", new WorkbookChartTitleFormatImpl(this.format));
         }
         if(this.overlay){
-        if(this.overlay)
         writer.writeBooleanValue("overlay", this.overlay);
         }
         if(this.text){
-        if(this.text)
         writer.writeStringValue("text", this.text);
         }
         if(this.visible){
-        if(this.visible)
         writer.writeBooleanValue("visible", this.visible);
         }
     };

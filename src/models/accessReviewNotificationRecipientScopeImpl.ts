@@ -3,14 +3,13 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class AccessReviewNotificationRecipientScopeImpl implements AccessReviewNotificationRecipientScope, AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /**
      * Instantiates a new accessReviewNotificationRecipientScope and sets the default values.
      * @param accessReviewNotificationRecipientScopeParameterValue 
      */
     public constructor(accessReviewNotificationRecipientScopeParameterValue?: AccessReviewNotificationRecipientScope | undefined) {
-        this.additionalData = {};
-        this.additionalData = accessReviewNotificationRecipientScopeParameterValue?.additionalData ? {} : accessReviewNotificationRecipientScopeParameterValue?.additionalData!
+        this.additionalData = accessReviewNotificationRecipientScopeParameterValue?.additionalData ? accessReviewNotificationRecipientScopeParameterValue?.additionalData! : {}
     };
     /**
      * The deserialization information for the current model

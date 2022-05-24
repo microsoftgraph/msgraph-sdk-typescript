@@ -3,78 +3,77 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class DeviceHealthAttestationStateImpl implements AdditionalDataHolder, DeviceHealthAttestationState, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** TWhen an Attestation Identity Key (AIK) is present on a device, it indicates that the device has an endorsement key (EK) certificate. */
-    attestationIdentityKey?: string | undefined;
+    public attestationIdentityKey?: string | undefined;
     /** On or Off of BitLocker Drive Encryption */
-    bitLockerStatus?: string | undefined;
+    public bitLockerStatus?: string | undefined;
     /** The security version number of the Boot Application */
-    bootAppSecurityVersion?: string | undefined;
+    public bootAppSecurityVersion?: string | undefined;
     /** When bootDebugging is enabled, the device is used in development and testing */
-    bootDebugging?: string | undefined;
+    public bootDebugging?: string | undefined;
     /** The security version number of the Boot Application */
-    bootManagerSecurityVersion?: string | undefined;
+    public bootManagerSecurityVersion?: string | undefined;
     /** The version of the Boot Manager */
-    bootManagerVersion?: string | undefined;
+    public bootManagerVersion?: string | undefined;
     /** The Boot Revision List that was loaded during initial boot on the attested device */
-    bootRevisionListInfo?: string | undefined;
+    public bootRevisionListInfo?: string | undefined;
     /** When code integrity is enabled, code execution is restricted to integrity verified code */
-    codeIntegrity?: string | undefined;
+    public codeIntegrity?: string | undefined;
     /** The version of the Boot Manager */
-    codeIntegrityCheckVersion?: string | undefined;
+    public codeIntegrityCheckVersion?: string | undefined;
     /** The Code Integrity policy that is controlling the security of the boot environment */
-    codeIntegrityPolicy?: string | undefined;
+    public codeIntegrityPolicy?: string | undefined;
     /** The DHA report version. (Namespace version) */
-    contentNamespaceUrl?: string | undefined;
+    public contentNamespaceUrl?: string | undefined;
     /** The HealthAttestation state schema version */
-    contentVersion?: string | undefined;
+    public contentVersion?: string | undefined;
     /** DEP Policy defines a set of hardware and software technologies that perform additional checks on memory */
-    dataExcutionPolicy?: string | undefined;
+    public dataExcutionPolicy?: string | undefined;
     /** The DHA report version. (Namespace version) */
-    deviceHealthAttestationStatus?: string | undefined;
+    public deviceHealthAttestationStatus?: string | undefined;
     /** ELAM provides protection for the computers in your network when they start up */
-    earlyLaunchAntiMalwareDriverProtection?: string | undefined;
+    public earlyLaunchAntiMalwareDriverProtection?: string | undefined;
     /** This attribute indicates if DHA is supported for the device */
-    healthAttestationSupportedStatus?: string | undefined;
+    public healthAttestationSupportedStatus?: string | undefined;
     /** This attribute appears if DHA-Service detects an integrity issue */
-    healthStatusMismatchInfo?: string | undefined;
+    public healthStatusMismatchInfo?: string | undefined;
     /** The DateTime when device was evaluated or issued to MDM */
-    issuedDateTime?: Date | undefined;
+    public issuedDateTime?: Date | undefined;
     /** The Timestamp of the last update. */
-    lastUpdateDateTime?: string | undefined;
+    public lastUpdateDateTime?: string | undefined;
     /** When operatingSystemKernelDebugging is enabled, the device is used in development and testing */
-    operatingSystemKernelDebugging?: string | undefined;
+    public operatingSystemKernelDebugging?: string | undefined;
     /** The Operating System Revision List that was loaded during initial boot on the attested device */
-    operatingSystemRevListInfo?: string | undefined;
+    public operatingSystemRevListInfo?: string | undefined;
     /** The measurement that is captured in PCR[0] */
-    pcr0?: string | undefined;
+    public pcr0?: string | undefined;
     /** Informational attribute that identifies the HASH algorithm that was used by TPM */
-    pcrHashAlgorithm?: string | undefined;
+    public pcrHashAlgorithm?: string | undefined;
     /** The number of times a PC device has hibernated or resumed */
-    resetCount?: number | undefined;
+    public resetCount?: number | undefined;
     /** The number of times a PC device has rebooted */
-    restartCount?: number | undefined;
+    public restartCount?: number | undefined;
     /** Safe mode is a troubleshooting option for Windows that starts your computer in a limited state */
-    safeMode?: string | undefined;
+    public safeMode?: string | undefined;
     /** When Secure Boot is enabled, the core components must have the correct cryptographic signatures */
-    secureBoot?: string | undefined;
+    public secureBoot?: string | undefined;
     /** Fingerprint of the Custom Secure Boot Configuration Policy */
-    secureBootConfigurationPolicyFingerPrint?: string | undefined;
+    public secureBootConfigurationPolicyFingerPrint?: string | undefined;
     /** When test signing is allowed, the device does not enforce signature validation during boot */
-    testSigning?: string | undefined;
+    public testSigning?: string | undefined;
     /** The security version number of the Boot Application */
-    tpmVersion?: string | undefined;
+    public tpmVersion?: string | undefined;
     /** VSM is a container that protects high value assets from a compromised kernel */
-    virtualSecureMode?: string | undefined;
+    public virtualSecureMode?: string | undefined;
     /** Operating system running with limited services that is used to prepare a computer for Windows */
-    windowsPE?: string | undefined;
+    public windowsPE?: string | undefined;
     /**
      * Instantiates a new deviceHealthAttestationState and sets the default values.
      * @param deviceHealthAttestationStateParameterValue 
      */
     public constructor(deviceHealthAttestationStateParameterValue?: DeviceHealthAttestationState | undefined) {
-        this.additionalData = {};
-        this.additionalData = deviceHealthAttestationStateParameterValue?.additionalData ? {} : deviceHealthAttestationStateParameterValue?.additionalData!
+        this.additionalData = deviceHealthAttestationStateParameterValue?.additionalData ? deviceHealthAttestationStateParameterValue?.additionalData! : {}
         this.attestationIdentityKey = deviceHealthAttestationStateParameterValue?.attestationIdentityKey ;
         this.bitLockerStatus = deviceHealthAttestationStateParameterValue?.bitLockerStatus ;
         this.bootAppSecurityVersion = deviceHealthAttestationStateParameterValue?.bootAppSecurityVersion ;
@@ -155,131 +154,99 @@ export class DeviceHealthAttestationStateImpl implements AdditionalDataHolder, D
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.attestationIdentityKey){
-        if(this.attestationIdentityKey)
         writer.writeStringValue("attestationIdentityKey", this.attestationIdentityKey);
         }
         if(this.bitLockerStatus){
-        if(this.bitLockerStatus)
         writer.writeStringValue("bitLockerStatus", this.bitLockerStatus);
         }
         if(this.bootAppSecurityVersion){
-        if(this.bootAppSecurityVersion)
         writer.writeStringValue("bootAppSecurityVersion", this.bootAppSecurityVersion);
         }
         if(this.bootDebugging){
-        if(this.bootDebugging)
         writer.writeStringValue("bootDebugging", this.bootDebugging);
         }
         if(this.bootManagerSecurityVersion){
-        if(this.bootManagerSecurityVersion)
         writer.writeStringValue("bootManagerSecurityVersion", this.bootManagerSecurityVersion);
         }
         if(this.bootManagerVersion){
-        if(this.bootManagerVersion)
         writer.writeStringValue("bootManagerVersion", this.bootManagerVersion);
         }
         if(this.bootRevisionListInfo){
-        if(this.bootRevisionListInfo)
         writer.writeStringValue("bootRevisionListInfo", this.bootRevisionListInfo);
         }
         if(this.codeIntegrity){
-        if(this.codeIntegrity)
         writer.writeStringValue("codeIntegrity", this.codeIntegrity);
         }
         if(this.codeIntegrityCheckVersion){
-        if(this.codeIntegrityCheckVersion)
         writer.writeStringValue("codeIntegrityCheckVersion", this.codeIntegrityCheckVersion);
         }
         if(this.codeIntegrityPolicy){
-        if(this.codeIntegrityPolicy)
         writer.writeStringValue("codeIntegrityPolicy", this.codeIntegrityPolicy);
         }
         if(this.contentNamespaceUrl){
-        if(this.contentNamespaceUrl)
         writer.writeStringValue("contentNamespaceUrl", this.contentNamespaceUrl);
         }
         if(this.contentVersion){
-        if(this.contentVersion)
         writer.writeStringValue("contentVersion", this.contentVersion);
         }
         if(this.dataExcutionPolicy){
-        if(this.dataExcutionPolicy)
         writer.writeStringValue("dataExcutionPolicy", this.dataExcutionPolicy);
         }
         if(this.deviceHealthAttestationStatus){
-        if(this.deviceHealthAttestationStatus)
         writer.writeStringValue("deviceHealthAttestationStatus", this.deviceHealthAttestationStatus);
         }
         if(this.earlyLaunchAntiMalwareDriverProtection){
-        if(this.earlyLaunchAntiMalwareDriverProtection)
         writer.writeStringValue("earlyLaunchAntiMalwareDriverProtection", this.earlyLaunchAntiMalwareDriverProtection);
         }
         if(this.healthAttestationSupportedStatus){
-        if(this.healthAttestationSupportedStatus)
         writer.writeStringValue("healthAttestationSupportedStatus", this.healthAttestationSupportedStatus);
         }
         if(this.healthStatusMismatchInfo){
-        if(this.healthStatusMismatchInfo)
         writer.writeStringValue("healthStatusMismatchInfo", this.healthStatusMismatchInfo);
         }
         if(this.issuedDateTime){
-        if(this.issuedDateTime)
         writer.writeDateValue("issuedDateTime", this.issuedDateTime);
         }
         if(this.lastUpdateDateTime){
-        if(this.lastUpdateDateTime)
         writer.writeStringValue("lastUpdateDateTime", this.lastUpdateDateTime);
         }
         if(this.operatingSystemKernelDebugging){
-        if(this.operatingSystemKernelDebugging)
         writer.writeStringValue("operatingSystemKernelDebugging", this.operatingSystemKernelDebugging);
         }
         if(this.operatingSystemRevListInfo){
-        if(this.operatingSystemRevListInfo)
         writer.writeStringValue("operatingSystemRevListInfo", this.operatingSystemRevListInfo);
         }
         if(this.pcr0){
-        if(this.pcr0)
         writer.writeStringValue("pcr0", this.pcr0);
         }
         if(this.pcrHashAlgorithm){
-        if(this.pcrHashAlgorithm)
         writer.writeStringValue("pcrHashAlgorithm", this.pcrHashAlgorithm);
         }
         if(this.resetCount){
-        if(this.resetCount)
         writer.writeNumberValue("resetCount", this.resetCount);
         }
         if(this.restartCount){
-        if(this.restartCount)
         writer.writeNumberValue("restartCount", this.restartCount);
         }
         if(this.safeMode){
-        if(this.safeMode)
         writer.writeStringValue("safeMode", this.safeMode);
         }
         if(this.secureBoot){
-        if(this.secureBoot)
         writer.writeStringValue("secureBoot", this.secureBoot);
         }
         if(this.secureBootConfigurationPolicyFingerPrint){
-        if(this.secureBootConfigurationPolicyFingerPrint)
         writer.writeStringValue("secureBootConfigurationPolicyFingerPrint", this.secureBootConfigurationPolicyFingerPrint);
         }
         if(this.testSigning){
-        if(this.testSigning)
         writer.writeStringValue("testSigning", this.testSigning);
         }
         if(this.tpmVersion){
-        if(this.tpmVersion)
         writer.writeStringValue("tpmVersion", this.tpmVersion);
         }
         if(this.virtualSecureMode){
-        if(this.virtualSecureMode)
         writer.writeStringValue("virtualSecureMode", this.virtualSecureMode);
         }
         if(this.windowsPE){
-        if(this.windowsPE)
         writer.writeStringValue("windowsPE", this.windowsPE);
         }
         writer.writeAdditionalData(this.additionalData);

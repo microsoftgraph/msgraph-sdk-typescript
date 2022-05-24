@@ -4,15 +4,15 @@ import {TermGroupScope} from './termGroupScope';
 
 export interface Group extends Entity{
     /** Date and time of the group creation. Read-only. */
-    createdDateTime?: Date | undefined;
+    createdDateTime?:Date | undefined;
     /** Description that gives details on the term usage. */
-    description?: string | undefined;
+    description?:string | undefined;
     /** Name of the group. */
-    displayName?: string | undefined;
+    displayName?:string | undefined;
     /** ID of the parent site of this group. */
-    parentSiteId?: string | undefined;
+    parentSiteId?:string | undefined;
     /** Returns the type of the group. Possible values are global, system, and siteCollection. */
-    scope?: TermGroupScope | undefined;
+    scope?:TermGroupScope | undefined;
     /** All sets under the group in a term [store]. */
-    sets?: Set[] | undefined;
+    sets?:Set[] | undefined;
 }

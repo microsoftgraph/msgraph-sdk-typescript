@@ -2,11 +2,12 @@ import {EntityImpl} from './index';
 import {ManagedAppStatus} from './managedAppStatus';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Represents app protection and configuration status for the organization. */
 export class ManagedAppStatusImpl extends EntityImpl implements ManagedAppStatus, Parsable {
     /** Friendly name of the status report. */
-    displayName?: string | undefined;
+    public displayName?: string | undefined;
     /** Version of the entity. */
-    version?: string | undefined;
+    public version?: string | undefined;
     /**
      * Instantiates a new managedAppStatus and sets the default values.
      * @param managedAppStatusParameterValue 
@@ -34,11 +35,9 @@ export class ManagedAppStatusImpl extends EntityImpl implements ManagedAppStatus
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.displayName){
-        if(this.displayName)
         writer.writeStringValue("displayName", this.displayName);
         }
         if(this.version){
-        if(this.version)
         writer.writeStringValue("version", this.version);
         }
     };

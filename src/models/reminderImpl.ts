@@ -8,30 +8,29 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class ReminderImpl implements AdditionalDataHolder, Parsable, Reminder {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** Identifies the version of the reminder. Every time the reminder is changed, changeKey changes as well. This allows Exchange to apply changes to the correct version of the object. */
-    changeKey?: string | undefined;
+    public changeKey?: string | undefined;
     /** The date, time and time zone that the event ends. */
-    eventEndTime?: DateTimeTimeZone | undefined;
+    public eventEndTime?: DateTimeTimeZone | undefined;
     /** The unique ID of the event. Read only. */
-    eventId?: string | undefined;
+    public eventId?: string | undefined;
     /** The location of the event. */
-    eventLocation?: Location | undefined;
+    public eventLocation?: Location | undefined;
     /** The date, time, and time zone that the event starts. */
-    eventStartTime?: DateTimeTimeZone | undefined;
+    public eventStartTime?: DateTimeTimeZone | undefined;
     /** The text of the event's subject line. */
-    eventSubject?: string | undefined;
+    public eventSubject?: string | undefined;
     /** The URL to open the event in Outlook on the web.The event will open in the browser if you are logged in to your mailbox via Outlook on the web. You will be prompted to login if you are not already logged in with the browser.This URL cannot be accessed from within an iFrame. */
-    eventWebLink?: string | undefined;
+    public eventWebLink?: string | undefined;
     /** The date, time, and time zone that the reminder is set to occur. */
-    reminderFireTime?: DateTimeTimeZone | undefined;
+    public reminderFireTime?: DateTimeTimeZone | undefined;
     /**
      * Instantiates a new reminder and sets the default values.
      * @param reminderParameterValue 
      */
     public constructor(reminderParameterValue?: Reminder | undefined) {
-        this.additionalData = {};
-        this.additionalData = reminderParameterValue?.additionalData ? {} : reminderParameterValue?.additionalData!
+        this.additionalData = reminderParameterValue?.additionalData ? reminderParameterValue?.additionalData! : {}
         this.changeKey = reminderParameterValue?.changeKey ;
         this.eventEndTime = reminderParameterValue?.eventEndTime ;
         this.eventId = reminderParameterValue?.eventId ;
@@ -64,35 +63,27 @@ export class ReminderImpl implements AdditionalDataHolder, Parsable, Reminder {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.changeKey){
-        if(this.changeKey)
         writer.writeStringValue("changeKey", this.changeKey);
         }
         if(this.eventEndTime){
-        if(this.eventEndTime)
         writer.writeObjectValue<DateTimeTimeZoneImpl>("eventEndTime", new DateTimeTimeZoneImpl(this.eventEndTime));
         }
         if(this.eventId){
-        if(this.eventId)
         writer.writeStringValue("eventId", this.eventId);
         }
         if(this.eventLocation){
-        if(this.eventLocation)
         writer.writeObjectValue<LocationImpl>("eventLocation", new LocationImpl(this.eventLocation));
         }
         if(this.eventStartTime){
-        if(this.eventStartTime)
         writer.writeObjectValue<DateTimeTimeZoneImpl>("eventStartTime", new DateTimeTimeZoneImpl(this.eventStartTime));
         }
         if(this.eventSubject){
-        if(this.eventSubject)
         writer.writeStringValue("eventSubject", this.eventSubject);
         }
         if(this.eventWebLink){
-        if(this.eventWebLink)
         writer.writeStringValue("eventWebLink", this.eventWebLink);
         }
         if(this.reminderFireTime){
-        if(this.reminderFireTime)
         writer.writeObjectValue<DateTimeTimeZoneImpl>("reminderFireTime", new DateTimeTimeZoneImpl(this.reminderFireTime));
         }
         writer.writeAdditionalData(this.additionalData);

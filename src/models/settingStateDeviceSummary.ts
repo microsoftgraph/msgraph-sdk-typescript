@@ -2,21 +2,21 @@ import {Entity} from './entity';
 
 export interface SettingStateDeviceSummary extends Entity{
     /** Device Compliant count for the setting */
-    compliantDeviceCount?: number | undefined;
+    compliantDeviceCount?:number | undefined;
     /** Device conflict error count for the setting */
-    conflictDeviceCount?: number | undefined;
+    conflictDeviceCount?:number | undefined;
     /** Device error count for the setting */
-    errorDeviceCount?: number | undefined;
+    errorDeviceCount?:number | undefined;
     /** Name of the InstancePath for the setting */
-    instancePath?: string | undefined;
+    instancePath?:string | undefined;
     /** Device NonCompliant count for the setting */
-    nonCompliantDeviceCount?: number | undefined;
+    nonCompliantDeviceCount?:number | undefined;
     /** Device Not Applicable count for the setting */
-    notApplicableDeviceCount?: number | undefined;
+    notApplicableDeviceCount?:number | undefined;
     /** Device Compliant count for the setting */
-    remediatedDeviceCount?: number | undefined;
+    remediatedDeviceCount?:number | undefined;
     /** Name of the setting */
-    settingName?: string | undefined;
+    settingName?:string | undefined;
     /** Device Unkown count for the setting */
-    unknownDeviceCount?: number | undefined;
+    unknownDeviceCount?:number | undefined;
 }

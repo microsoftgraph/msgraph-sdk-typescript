@@ -3,18 +3,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class TimeZoneInformationImpl implements AdditionalDataHolder, Parsable, TimeZoneInformation {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** An identifier for the time zone. */
-    alias?: string | undefined;
+    public alias?: string | undefined;
     /** A display string that represents the time zone. */
-    displayName?: string | undefined;
+    public displayName?: string | undefined;
     /**
      * Instantiates a new timeZoneInformation and sets the default values.
      * @param timeZoneInformationParameterValue 
      */
     public constructor(timeZoneInformationParameterValue?: TimeZoneInformation | undefined) {
-        this.additionalData = {};
-        this.additionalData = timeZoneInformationParameterValue?.additionalData ? {} : timeZoneInformationParameterValue?.additionalData!
+        this.additionalData = timeZoneInformationParameterValue?.additionalData ? timeZoneInformationParameterValue?.additionalData! : {}
         this.alias = timeZoneInformationParameterValue?.alias ;
         this.displayName = timeZoneInformationParameterValue?.displayName ;
     };
@@ -35,11 +34,9 @@ export class TimeZoneInformationImpl implements AdditionalDataHolder, Parsable, 
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.alias){
-        if(this.alias)
         writer.writeStringValue("alias", this.alias);
         }
         if(this.displayName){
-        if(this.displayName)
         writer.writeStringValue("displayName", this.displayName);
         }
         writer.writeAdditionalData(this.additionalData);

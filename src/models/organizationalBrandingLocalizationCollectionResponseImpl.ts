@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class OrganizationalBrandingLocalizationCollectionResponseImpl implements AdditionalDataHolder, OrganizationalBrandingLocalizationCollectionResponse, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: OrganizationalBrandingLocalization[] | undefined;
+    public value?: OrganizationalBrandingLocalization[] | undefined;
     /**
      * Instantiates a new OrganizationalBrandingLocalizationCollectionResponse and sets the default values.
      * @param organizationalBrandingLocalizationCollectionResponseParameterValue 
      */
     public constructor(organizationalBrandingLocalizationCollectionResponseParameterValue?: OrganizationalBrandingLocalizationCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = organizationalBrandingLocalizationCollectionResponseParameterValue?.additionalData ? {} : organizationalBrandingLocalizationCollectionResponseParameterValue?.additionalData!
+        this.additionalData = organizationalBrandingLocalizationCollectionResponseParameterValue?.additionalData ? organizationalBrandingLocalizationCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = organizationalBrandingLocalizationCollectionResponseParameterValue?.nextLink ;
         this.value = organizationalBrandingLocalizationCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class OrganizationalBrandingLocalizationCollectionResponseImpl implements
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: OrganizationalBrandingLocalizationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new OrganizationalBrandingLocalizationImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: OrganizationalBrandingLocalizationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new OrganizationalBrandingLocalizationImpl(element));});
         writer.writeCollectionOfObjectValues<OrganizationalBrandingLocalizationImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

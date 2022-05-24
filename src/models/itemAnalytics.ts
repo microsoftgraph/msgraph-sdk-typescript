@@ -3,9 +3,9 @@ import {ItemActivityStat} from './itemActivityStat';
 
 export interface ItemAnalytics extends Entity{
     /** The allTime property */
-    allTime?: ItemActivityStat | undefined;
+    allTime?:ItemActivityStat | undefined;
     /** The itemActivityStats property */
-    itemActivityStats?: ItemActivityStat[] | undefined;
+    itemActivityStats?:ItemActivityStat[] | undefined;
     /** The lastSevenDays property */
-    lastSevenDays?: ItemActivityStat | undefined;
+    lastSevenDays?:ItemActivityStat | undefined;
 }

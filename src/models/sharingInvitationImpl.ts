@@ -6,22 +6,21 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class SharingInvitationImpl implements AdditionalDataHolder, Parsable, SharingInvitation {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The email address provided for the recipient of the sharing invitation. Read-only. */
-    email?: string | undefined;
+    public email?: string | undefined;
     /** Provides information about who sent the invitation that created this permission, if that information is available. Read-only. */
-    invitedBy?: IdentitySet | undefined;
+    public invitedBy?: IdentitySet | undefined;
     /** The redeemedBy property */
-    redeemedBy?: string | undefined;
+    public redeemedBy?: string | undefined;
     /** If true the recipient of the invitation needs to sign in in order to access the shared item. Read-only. */
-    signInRequired?: boolean | undefined;
+    public signInRequired?: boolean | undefined;
     /**
      * Instantiates a new sharingInvitation and sets the default values.
      * @param sharingInvitationParameterValue 
      */
     public constructor(sharingInvitationParameterValue?: SharingInvitation | undefined) {
-        this.additionalData = {};
-        this.additionalData = sharingInvitationParameterValue?.additionalData ? {} : sharingInvitationParameterValue?.additionalData!
+        this.additionalData = sharingInvitationParameterValue?.additionalData ? sharingInvitationParameterValue?.additionalData! : {}
         this.email = sharingInvitationParameterValue?.email ;
         this.invitedBy = sharingInvitationParameterValue?.invitedBy ;
         this.redeemedBy = sharingInvitationParameterValue?.redeemedBy ;
@@ -46,19 +45,15 @@ export class SharingInvitationImpl implements AdditionalDataHolder, Parsable, Sh
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.email){
-        if(this.email)
         writer.writeStringValue("email", this.email);
         }
         if(this.invitedBy){
-        if(this.invitedBy)
         writer.writeObjectValue<IdentitySetImpl>("invitedBy", new IdentitySetImpl(this.invitedBy));
         }
         if(this.redeemedBy){
-        if(this.redeemedBy)
         writer.writeStringValue("redeemedBy", this.redeemedBy);
         }
         if(this.signInRequired){
-        if(this.signInRequired)
         writer.writeBooleanValue("signInRequired", this.signInRequired);
         }
         writer.writeAdditionalData(this.additionalData);

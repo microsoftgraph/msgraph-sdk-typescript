@@ -1,3 +1,3 @@
-export * from './stopHoldMusicRequestBodyImpl'
+export * from './stopHoldMusicPostRequestBodyImpl'
 export * from './stopHoldMusicRequestBuilderPostRequestConfiguration'
-export * from './stopHoldMusicRequestBody'
+export * from './stopHoldMusicPostRequestBody'

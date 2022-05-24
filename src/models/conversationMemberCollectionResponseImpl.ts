@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class ConversationMemberCollectionResponseImpl implements AdditionalDataHolder, ConversationMemberCollectionResponse, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: ConversationMember[] | undefined;
+    public value?: ConversationMember[] | undefined;
     /**
      * Instantiates a new ConversationMemberCollectionResponse and sets the default values.
      * @param conversationMemberCollectionResponseParameterValue 
      */
     public constructor(conversationMemberCollectionResponseParameterValue?: ConversationMemberCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = conversationMemberCollectionResponseParameterValue?.additionalData ? {} : conversationMemberCollectionResponseParameterValue?.additionalData!
+        this.additionalData = conversationMemberCollectionResponseParameterValue?.additionalData ? conversationMemberCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = conversationMemberCollectionResponseParameterValue?.nextLink ;
         this.value = conversationMemberCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class ConversationMemberCollectionResponseImpl implements AdditionalDataH
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: ConversationMemberImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ConversationMemberImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: ConversationMemberImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ConversationMemberImpl(element));});
         writer.writeCollectionOfObjectValues<ConversationMemberImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

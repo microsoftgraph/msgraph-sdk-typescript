@@ -3,20 +3,19 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class SignInStatusImpl implements AdditionalDataHolder, Parsable, SignInStatus {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** Provides additional details on the sign-in activity */
-    additionalDetails?: string | undefined;
+    public additionalDetails?: string | undefined;
     /** Provides the 5-6 digit error code that's generated during a sign-in failure. Check out the list of error codes and messages. */
-    errorCode?: number | undefined;
+    public errorCode?: number | undefined;
     /** Provides the error message or the reason for failure for the corresponding sign-in activity. Check out the list of error codes and messages. */
-    failureReason?: string | undefined;
+    public failureReason?: string | undefined;
     /**
      * Instantiates a new signInStatus and sets the default values.
      * @param signInStatusParameterValue 
      */
     public constructor(signInStatusParameterValue?: SignInStatus | undefined) {
-        this.additionalData = {};
-        this.additionalData = signInStatusParameterValue?.additionalData ? {} : signInStatusParameterValue?.additionalData!
+        this.additionalData = signInStatusParameterValue?.additionalData ? signInStatusParameterValue?.additionalData! : {}
         this.additionalDetails = signInStatusParameterValue?.additionalDetails ;
         this.errorCode = signInStatusParameterValue?.errorCode ;
         this.failureReason = signInStatusParameterValue?.failureReason ;
@@ -39,15 +38,12 @@ export class SignInStatusImpl implements AdditionalDataHolder, Parsable, SignInS
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.additionalDetails){
-        if(this.additionalDetails)
         writer.writeStringValue("additionalDetails", this.additionalDetails);
         }
         if(this.errorCode){
-        if(this.errorCode)
         writer.writeNumberValue("errorCode", this.errorCode);
         }
         if(this.failureReason){
-        if(this.failureReason)
         writer.writeStringValue("failureReason", this.failureReason);
         }
         writer.writeAdditionalData(this.additionalData);

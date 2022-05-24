@@ -1,6 +1,5 @@
 import {ApplicationTemplateCollectionResponseImpl, ApplicationTemplateImpl} from '../models/';
 import {ApplicationTemplate} from '../models/applicationTemplate';
-import {ApplicationTemplateCollectionResponse} from '../models/applicationTemplateCollectionResponse';
 import {createApplicationTemplateCollectionResponseFromDiscriminatorValue} from '../models/createApplicationTemplateCollectionResponseFromDiscriminatorValue';
 import {createApplicationTemplateFromDiscriminatorValue} from '../models/createApplicationTemplateFromDiscriminatorValue';
 import {ODataErrorImpl} from '../models/oDataErrors/';
@@ -36,7 +35,7 @@ export class ApplicationTemplatesRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * List applicationTemplates
+     * Retrieve a list of [applicationTemplate](../resources/applicationtemplate.md) objects from the Azure AD application gallery.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -68,17 +67,17 @@ export class ApplicationTemplatesRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        const bodyParsable = new ApplicationTemplateImpl(body)
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", bodyParsable);
+        const parsableBody = new ApplicationTemplateImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
-     * List applicationTemplates
+     * Retrieve a list of [applicationTemplate](../resources/applicationtemplate.md) objects from the Azure AD application gallery.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ApplicationTemplateCollectionResponse
      */
-    public get(requestConfiguration?: ApplicationTemplatesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ApplicationTemplateCollectionResponse | undefined> {
+    public get(requestConfiguration?: ApplicationTemplatesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ApplicationTemplateCollectionResponseImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -95,7 +94,7 @@ export class ApplicationTemplatesRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ApplicationTemplate
      */
-    public post(body: ApplicationTemplate | undefined, requestConfiguration?: ApplicationTemplatesRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ApplicationTemplate | undefined> {
+    public post(body: ApplicationTemplate | undefined, requestConfiguration?: ApplicationTemplatesRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ApplicationTemplateImpl | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration

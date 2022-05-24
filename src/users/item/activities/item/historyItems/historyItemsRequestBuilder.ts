@@ -1,6 +1,5 @@
 import {ActivityHistoryItemCollectionResponseImpl, ActivityHistoryItemImpl} from '../../../../../models/';
 import {ActivityHistoryItem} from '../../../../../models/activityHistoryItem';
-import {ActivityHistoryItemCollectionResponse} from '../../../../../models/activityHistoryItemCollectionResponse';
 import {createActivityHistoryItemCollectionResponseFromDiscriminatorValue} from '../../../../../models/createActivityHistoryItemCollectionResponseFromDiscriminatorValue';
 import {createActivityHistoryItemFromDiscriminatorValue} from '../../../../../models/createActivityHistoryItemFromDiscriminatorValue';
 import {ODataErrorImpl} from '../../../../../models/oDataErrors/';
@@ -68,8 +67,8 @@ export class HistoryItemsRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        const bodyParsable = new ActivityHistoryItemImpl(body)
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", bodyParsable);
+        const parsableBody = new ActivityHistoryItemImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -78,7 +77,7 @@ export class HistoryItemsRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ActivityHistoryItemCollectionResponse
      */
-    public get(requestConfiguration?: HistoryItemsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ActivityHistoryItemCollectionResponse | undefined> {
+    public get(requestConfiguration?: HistoryItemsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ActivityHistoryItemCollectionResponseImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -95,7 +94,7 @@ export class HistoryItemsRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ActivityHistoryItem
      */
-    public post(body: ActivityHistoryItem | undefined, requestConfiguration?: HistoryItemsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ActivityHistoryItem | undefined> {
+    public post(body: ActivityHistoryItem | undefined, requestConfiguration?: HistoryItemsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ActivityHistoryItemImpl | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration

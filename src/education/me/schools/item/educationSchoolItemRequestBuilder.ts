@@ -1,6 +1,5 @@
 import {EducationSchoolImpl} from '../../../../models/';
 import {createEducationSchoolFromDiscriminatorValue} from '../../../../models/createEducationSchoolFromDiscriminatorValue';
-import {EducationSchool} from '../../../../models/educationSchool';
 import {ODataErrorImpl} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {EducationSchoolItemRequestBuilderGetRequestConfiguration} from './educationSchoolItemRequestBuilderGetRequestConfiguration';
@@ -50,7 +49,7 @@ export class EducationSchoolItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of EducationSchool
      */
-    public get(requestConfiguration?: EducationSchoolItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EducationSchool | undefined> {
+    public get(requestConfiguration?: EducationSchoolItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EducationSchoolImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );

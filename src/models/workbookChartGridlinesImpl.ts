@@ -4,11 +4,12 @@ import {WorkbookChartGridlines} from './workbookChartGridlines';
 import {WorkbookChartGridlinesFormat} from './workbookChartGridlinesFormat';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to user. */
 export class WorkbookChartGridlinesImpl extends EntityImpl implements Parsable, WorkbookChartGridlines {
     /** Represents the formatting of chart gridlines. Read-only. */
-    format?: WorkbookChartGridlinesFormat | undefined;
+    public format?: WorkbookChartGridlinesFormat | undefined;
     /** Boolean value representing if the axis gridlines are visible or not. */
-    visible?: boolean | undefined;
+    public visible?: boolean | undefined;
     /**
      * Instantiates a new workbookChartGridlines and sets the default values.
      * @param workbookChartGridlinesParameterValue 
@@ -36,11 +37,9 @@ export class WorkbookChartGridlinesImpl extends EntityImpl implements Parsable, 
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.format){
-        if(this.format)
         writer.writeObjectValue<WorkbookChartGridlinesFormatImpl>("format", new WorkbookChartGridlinesFormatImpl(this.format));
         }
         if(this.visible){
-        if(this.visible)
         writer.writeBooleanValue("visible", this.visible);
         }
     };

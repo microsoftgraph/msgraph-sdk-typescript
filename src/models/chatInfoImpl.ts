@@ -3,20 +3,19 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class ChatInfoImpl implements AdditionalDataHolder, ChatInfo, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The unique identifier for a message in a Microsoft Teams channel. */
-    messageId?: string | undefined;
+    public messageId?: string | undefined;
     /** The ID of the reply message. */
-    replyChainMessageId?: string | undefined;
+    public replyChainMessageId?: string | undefined;
     /** The unique identifier for a thread in Microsoft Teams. */
-    threadId?: string | undefined;
+    public threadId?: string | undefined;
     /**
      * Instantiates a new chatInfo and sets the default values.
      * @param chatInfoParameterValue 
      */
     public constructor(chatInfoParameterValue?: ChatInfo | undefined) {
-        this.additionalData = {};
-        this.additionalData = chatInfoParameterValue?.additionalData ? {} : chatInfoParameterValue?.additionalData!
+        this.additionalData = chatInfoParameterValue?.additionalData ? chatInfoParameterValue?.additionalData! : {}
         this.messageId = chatInfoParameterValue?.messageId ;
         this.replyChainMessageId = chatInfoParameterValue?.replyChainMessageId ;
         this.threadId = chatInfoParameterValue?.threadId ;
@@ -39,15 +38,12 @@ export class ChatInfoImpl implements AdditionalDataHolder, ChatInfo, Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.messageId){
-        if(this.messageId)
         writer.writeStringValue("messageId", this.messageId);
         }
         if(this.replyChainMessageId){
-        if(this.replyChainMessageId)
         writer.writeStringValue("replyChainMessageId", this.replyChainMessageId);
         }
         if(this.threadId){
-        if(this.threadId)
         writer.writeStringValue("threadId", this.threadId);
         }
         writer.writeAdditionalData(this.additionalData);

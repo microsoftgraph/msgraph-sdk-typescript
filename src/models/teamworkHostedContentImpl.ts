@@ -2,11 +2,12 @@ import {EntityImpl} from './index';
 import {TeamworkHostedContent} from './teamworkHostedContent';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the collection of chat entities. */
 export class TeamworkHostedContentImpl extends EntityImpl implements Parsable, TeamworkHostedContent {
     /** Write only. Bytes for the hosted content (such as images). */
-    contentBytes?: string | undefined;
+    public contentBytes?: string | undefined;
     /** Write only. Content type, such as image/png, image/jpg. */
-    contentType?: string | undefined;
+    public contentType?: string | undefined;
     /**
      * Instantiates a new teamworkHostedContent and sets the default values.
      * @param teamworkHostedContentParameterValue 
@@ -34,11 +35,9 @@ export class TeamworkHostedContentImpl extends EntityImpl implements Parsable, T
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.contentBytes){
-        if(this.contentBytes)
         writer.writeStringValue("contentBytes", this.contentBytes);
         }
         if(this.contentType){
-        if(this.contentType)
         writer.writeStringValue("contentType", this.contentType);
         }
     };

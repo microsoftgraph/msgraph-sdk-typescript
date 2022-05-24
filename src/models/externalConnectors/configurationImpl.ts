@@ -3,16 +3,15 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class ConfigurationImpl implements AdditionalDataHolder, Configuration, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** A collection of application IDs for registered Azure Active Directory apps that are allowed to manage the externalConnection and to index content in the externalConnection. */
-    authorizedAppIds?: string[] | undefined;
+    public authorizedAppIds?: string[] | undefined;
     /**
      * Instantiates a new configuration and sets the default values.
      * @param configurationParameterValue 
      */
     public constructor(configurationParameterValue?: Configuration | undefined) {
-        this.additionalData = {};
-        this.additionalData = configurationParameterValue?.additionalData ? {} : configurationParameterValue?.additionalData!
+        this.additionalData = configurationParameterValue?.additionalData ? configurationParameterValue?.additionalData! : {}
         this.authorizedAppIds = configurationParameterValue?.authorizedAppIds ;
     };
     /**
@@ -31,7 +30,6 @@ export class ConfigurationImpl implements AdditionalDataHolder, Configuration, P
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.authorizedAppIds){
-        if(this.authorizedAppIds)
         writer.writeCollectionOfPrimitiveValues<string>("authorizedAppIds", this.authorizedAppIds);
         }
         writer.writeAdditionalData(this.additionalData);

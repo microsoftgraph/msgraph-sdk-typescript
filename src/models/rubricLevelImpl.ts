@@ -8,22 +8,21 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class RubricLevelImpl implements AdditionalDataHolder, Parsable, RubricLevel {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The description of this rubric level. */
-    description?: EducationItemBody | undefined;
+    public description?: EducationItemBody | undefined;
     /** The name of this rubric level. */
-    displayName?: string | undefined;
+    public displayName?: string | undefined;
     /** Null if this is a no-points rubric; educationAssignmentPointsGradeType if it is a points rubric. */
-    grading?: EducationAssignmentGradeType | undefined;
+    public grading?: EducationAssignmentGradeType | undefined;
     /** The ID of this resource. */
-    levelId?: string | undefined;
+    public levelId?: string | undefined;
     /**
      * Instantiates a new rubricLevel and sets the default values.
      * @param rubricLevelParameterValue 
      */
     public constructor(rubricLevelParameterValue?: RubricLevel | undefined) {
-        this.additionalData = {};
-        this.additionalData = rubricLevelParameterValue?.additionalData ? {} : rubricLevelParameterValue?.additionalData!
+        this.additionalData = rubricLevelParameterValue?.additionalData ? rubricLevelParameterValue?.additionalData! : {}
         this.description = rubricLevelParameterValue?.description ;
         this.displayName = rubricLevelParameterValue?.displayName ;
         this.grading = rubricLevelParameterValue?.grading ;
@@ -48,19 +47,15 @@ export class RubricLevelImpl implements AdditionalDataHolder, Parsable, RubricLe
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.description){
-        if(this.description)
         writer.writeObjectValue<EducationItemBodyImpl>("description", new EducationItemBodyImpl(this.description));
         }
         if(this.displayName){
-        if(this.displayName)
         writer.writeStringValue("displayName", this.displayName);
         }
         if(this.grading){
-        if(this.grading)
         writer.writeObjectValue<EducationAssignmentGradeTypeImpl>("grading", new EducationAssignmentGradeTypeImpl(this.grading));
         }
         if(this.levelId){
-        if(this.levelId)
         writer.writeStringValue("levelId", this.levelId);
         }
         writer.writeAdditionalData(this.additionalData);

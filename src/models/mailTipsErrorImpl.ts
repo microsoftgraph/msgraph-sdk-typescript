@@ -3,18 +3,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class MailTipsErrorImpl implements AdditionalDataHolder, MailTipsError, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The error code. */
-    code?: string | undefined;
+    public code?: string | undefined;
     /** The error message. */
-    message?: string | undefined;
+    public message?: string | undefined;
     /**
      * Instantiates a new mailTipsError and sets the default values.
      * @param mailTipsErrorParameterValue 
      */
     public constructor(mailTipsErrorParameterValue?: MailTipsError | undefined) {
-        this.additionalData = {};
-        this.additionalData = mailTipsErrorParameterValue?.additionalData ? {} : mailTipsErrorParameterValue?.additionalData!
+        this.additionalData = mailTipsErrorParameterValue?.additionalData ? mailTipsErrorParameterValue?.additionalData! : {}
         this.code = mailTipsErrorParameterValue?.code ;
         this.message = mailTipsErrorParameterValue?.message ;
     };
@@ -35,11 +34,9 @@ export class MailTipsErrorImpl implements AdditionalDataHolder, MailTipsError, P
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.code){
-        if(this.code)
         writer.writeStringValue("code", this.code);
         }
         if(this.message){
-        if(this.message)
         writer.writeStringValue("message", this.message);
         }
         writer.writeAdditionalData(this.additionalData);

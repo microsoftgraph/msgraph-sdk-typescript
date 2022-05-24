@@ -4,29 +4,30 @@ import {IosUpdateDeviceStatus} from './iosUpdateDeviceStatus';
 import {IosUpdatesInstallStatus} from './iosUpdatesInstallStatus';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the deviceManagement singleton. */
 export class IosUpdateDeviceStatusImpl extends EntityImpl implements IosUpdateDeviceStatus, Parsable {
     /** The DateTime when device compliance grace period expires */
-    complianceGracePeriodExpirationDateTime?: Date | undefined;
+    public complianceGracePeriodExpirationDateTime?: Date | undefined;
     /** Device name of the DevicePolicyStatus. */
-    deviceDisplayName?: string | undefined;
+    public deviceDisplayName?: string | undefined;
     /** The device id that is being reported. */
-    deviceId?: string | undefined;
+    public deviceId?: string | undefined;
     /** The device model that is being reported */
-    deviceModel?: string | undefined;
+    public deviceModel?: string | undefined;
     /** The installation status of the policy report. Possible values are: success, available, idle, unknown, mdmClientCrashed, timeout, downloading, downloadFailed, downloadRequiresComputer, downloadInsufficientSpace, downloadInsufficientPower, downloadInsufficientNetwork, installing, installInsufficientSpace, installInsufficientPower, installPhoneCallInProgress, installFailed, notSupportedOperation, sharedDeviceUserLoggedInError, updateError, deviceOsHigherThanDesiredOsVersion, updateScanFailed. */
-    installStatus?: IosUpdatesInstallStatus | undefined;
+    public installStatus?: IosUpdatesInstallStatus | undefined;
     /** Last modified date time of the policy report. */
-    lastReportedDateTime?: Date | undefined;
+    public lastReportedDateTime?: Date | undefined;
     /** The device version that is being reported. */
-    osVersion?: string | undefined;
+    public osVersion?: string | undefined;
     /** Compliance status of the policy report. Possible values are: unknown, notApplicable, compliant, remediated, nonCompliant, error, conflict, notAssigned. */
-    status?: ComplianceStatus | undefined;
+    public status?: ComplianceStatus | undefined;
     /** The User id that is being reported. */
-    userId?: string | undefined;
+    public userId?: string | undefined;
     /** The User Name that is being reported */
-    userName?: string | undefined;
+    public userName?: string | undefined;
     /** UserPrincipalName. */
-    userPrincipalName?: string | undefined;
+    public userPrincipalName?: string | undefined;
     /**
      * Instantiates a new iosUpdateDeviceStatus and sets the default values.
      * @param iosUpdateDeviceStatusParameterValue 
@@ -72,47 +73,36 @@ export class IosUpdateDeviceStatusImpl extends EntityImpl implements IosUpdateDe
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.complianceGracePeriodExpirationDateTime){
-        if(this.complianceGracePeriodExpirationDateTime)
         writer.writeDateValue("complianceGracePeriodExpirationDateTime", this.complianceGracePeriodExpirationDateTime);
         }
         if(this.deviceDisplayName){
-        if(this.deviceDisplayName)
         writer.writeStringValue("deviceDisplayName", this.deviceDisplayName);
         }
         if(this.deviceId){
-        if(this.deviceId)
         writer.writeStringValue("deviceId", this.deviceId);
         }
         if(this.deviceModel){
-        if(this.deviceModel)
         writer.writeStringValue("deviceModel", this.deviceModel);
         }
         if(this.installStatus){
-        if(this.installStatus)
         writer.writeEnumValue<IosUpdatesInstallStatus>("installStatus", this.installStatus);
         }
         if(this.lastReportedDateTime){
-        if(this.lastReportedDateTime)
         writer.writeDateValue("lastReportedDateTime", this.lastReportedDateTime);
         }
         if(this.osVersion){
-        if(this.osVersion)
         writer.writeStringValue("osVersion", this.osVersion);
         }
         if(this.status){
-        if(this.status)
         writer.writeEnumValue<ComplianceStatus>("status", this.status);
         }
         if(this.userId){
-        if(this.userId)
         writer.writeStringValue("userId", this.userId);
         }
         if(this.userName){
-        if(this.userName)
         writer.writeStringValue("userName", this.userName);
         }
         if(this.userPrincipalName){
-        if(this.userPrincipalName)
         writer.writeStringValue("userPrincipalName", this.userPrincipalName);
         }
     };

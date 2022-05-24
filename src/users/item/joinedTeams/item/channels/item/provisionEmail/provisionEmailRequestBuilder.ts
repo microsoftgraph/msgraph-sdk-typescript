@@ -1,6 +1,5 @@
 import {ProvisionChannelEmailResultImpl} from '../../../../../../../models/';
 import {createProvisionChannelEmailResultFromDiscriminatorValue} from '../../../../../../../models/createProvisionChannelEmailResultFromDiscriminatorValue';
-import {ProvisionChannelEmailResult} from '../../../../../../../models/provisionChannelEmailResult';
 import {ProvisionEmailRequestBuilderPostRequestConfiguration} from './provisionEmailRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
@@ -47,7 +46,7 @@ export class ProvisionEmailRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ProvisionChannelEmailResult
      */
-    public post(requestConfiguration?: ProvisionEmailRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ProvisionChannelEmailResult | undefined> {
+    public post(requestConfiguration?: ProvisionEmailRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ProvisionChannelEmailResultImpl | undefined> {
         const requestInfo = this.createPostRequestInformation(
             requestConfiguration
         );

@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class PlannerTaskCollectionResponseImpl implements AdditionalDataHolder, Parsable, PlannerTaskCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: PlannerTask[] | undefined;
+    public value?: PlannerTask[] | undefined;
     /**
      * Instantiates a new PlannerTaskCollectionResponse and sets the default values.
      * @param plannerTaskCollectionResponseParameterValue 
      */
     public constructor(plannerTaskCollectionResponseParameterValue?: PlannerTaskCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = plannerTaskCollectionResponseParameterValue?.additionalData ? {} : plannerTaskCollectionResponseParameterValue?.additionalData!
+        this.additionalData = plannerTaskCollectionResponseParameterValue?.additionalData ? plannerTaskCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = plannerTaskCollectionResponseParameterValue?.nextLink ;
         this.value = plannerTaskCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class PlannerTaskCollectionResponseImpl implements AdditionalDataHolder, 
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: PlannerTaskImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new PlannerTaskImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: PlannerTaskImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new PlannerTaskImpl(element));});
         writer.writeCollectionOfObjectValues<PlannerTaskImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

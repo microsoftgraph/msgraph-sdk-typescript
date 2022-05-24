@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class InternalDomainFederationCollectionResponseImpl implements AdditionalDataHolder, InternalDomainFederationCollectionResponse, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: InternalDomainFederation[] | undefined;
+    public value?: InternalDomainFederation[] | undefined;
     /**
      * Instantiates a new InternalDomainFederationCollectionResponse and sets the default values.
      * @param internalDomainFederationCollectionResponseParameterValue 
      */
     public constructor(internalDomainFederationCollectionResponseParameterValue?: InternalDomainFederationCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = internalDomainFederationCollectionResponseParameterValue?.additionalData ? {} : internalDomainFederationCollectionResponseParameterValue?.additionalData!
+        this.additionalData = internalDomainFederationCollectionResponseParameterValue?.additionalData ? internalDomainFederationCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = internalDomainFederationCollectionResponseParameterValue?.nextLink ;
         this.value = internalDomainFederationCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class InternalDomainFederationCollectionResponseImpl implements Additiona
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: InternalDomainFederationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new InternalDomainFederationImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: InternalDomainFederationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new InternalDomainFederationImpl(element));});
         writer.writeCollectionOfObjectValues<InternalDomainFederationImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

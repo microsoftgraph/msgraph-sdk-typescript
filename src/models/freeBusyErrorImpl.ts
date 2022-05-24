@@ -3,18 +3,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class FreeBusyErrorImpl implements AdditionalDataHolder, FreeBusyError, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** Describes the error. */
-    message?: string | undefined;
+    public message?: string | undefined;
     /** The response code from querying for the availability of the user, distribution list, or resource. */
-    responseCode?: string | undefined;
+    public responseCode?: string | undefined;
     /**
      * Instantiates a new freeBusyError and sets the default values.
      * @param freeBusyErrorParameterValue 
      */
     public constructor(freeBusyErrorParameterValue?: FreeBusyError | undefined) {
-        this.additionalData = {};
-        this.additionalData = freeBusyErrorParameterValue?.additionalData ? {} : freeBusyErrorParameterValue?.additionalData!
+        this.additionalData = freeBusyErrorParameterValue?.additionalData ? freeBusyErrorParameterValue?.additionalData! : {}
         this.message = freeBusyErrorParameterValue?.message ;
         this.responseCode = freeBusyErrorParameterValue?.responseCode ;
     };
@@ -35,11 +34,9 @@ export class FreeBusyErrorImpl implements AdditionalDataHolder, FreeBusyError, P
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.message){
-        if(this.message)
         writer.writeStringValue("message", this.message);
         }
         if(this.responseCode){
-        if(this.responseCode)
         writer.writeStringValue("responseCode", this.responseCode);
         }
         writer.writeAdditionalData(this.additionalData);

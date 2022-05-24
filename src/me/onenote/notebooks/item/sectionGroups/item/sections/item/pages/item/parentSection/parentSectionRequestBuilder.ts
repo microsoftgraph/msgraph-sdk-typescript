@@ -2,7 +2,6 @@ import {OnenoteSectionImpl} from '../../../../../../../../../../../models/';
 import {createOnenoteSectionFromDiscriminatorValue} from '../../../../../../../../../../../models/createOnenoteSectionFromDiscriminatorValue';
 import {ODataErrorImpl} from '../../../../../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {OnenoteSection} from '../../../../../../../../../../../models/onenoteSection';
 import {ParentSectionRequestBuilderGetRequestConfiguration} from './parentSectionRequestBuilderGetRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
@@ -50,7 +49,7 @@ export class ParentSectionRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of OnenoteSection
      */
-    public get(requestConfiguration?: ParentSectionRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<OnenoteSection | undefined> {
+    public get(requestConfiguration?: ParentSectionRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<OnenoteSectionImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );

@@ -4,17 +4,18 @@ import {ManagedAppPolicyDeploymentSummary} from './managedAppPolicyDeploymentSum
 import {ManagedAppPolicyDeploymentSummaryPerApp} from './managedAppPolicyDeploymentSummaryPerApp';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** The ManagedAppEntity is the base entity type for all other entity types under app management workflow. */
 export class ManagedAppPolicyDeploymentSummaryImpl extends EntityImpl implements ManagedAppPolicyDeploymentSummary, Parsable {
     /** Not yet documented */
-    configurationDeployedUserCount?: number | undefined;
+    public configurationDeployedUserCount?: number | undefined;
     /** Not yet documented */
-    configurationDeploymentSummaryPerApp?: ManagedAppPolicyDeploymentSummaryPerApp[] | undefined;
+    public configurationDeploymentSummaryPerApp?: ManagedAppPolicyDeploymentSummaryPerApp[] | undefined;
     /** Not yet documented */
-    displayName?: string | undefined;
+    public displayName?: string | undefined;
     /** Not yet documented */
-    lastRefreshTime?: Date | undefined;
+    public lastRefreshTime?: Date | undefined;
     /** Version of the entity. */
-    version?: string | undefined;
+    public version?: string | undefined;
     /**
      * Instantiates a new managedAppPolicyDeploymentSummary and sets the default values.
      * @param managedAppPolicyDeploymentSummaryParameterValue 
@@ -48,23 +49,18 @@ export class ManagedAppPolicyDeploymentSummaryImpl extends EntityImpl implements
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.configurationDeployedUserCount){
-        if(this.configurationDeployedUserCount)
         writer.writeNumberValue("configurationDeployedUserCount", this.configurationDeployedUserCount);
         }
-        if(this.configurationDeploymentSummaryPerApp){
-        const configurationDeploymentSummaryPerAppArrValue: ManagedAppPolicyDeploymentSummaryPerAppImpl[] = []; this.configurationDeploymentSummaryPerApp?.forEach(element => {configurationDeploymentSummaryPerAppArrValue.push(new ManagedAppPolicyDeploymentSummaryPerAppImpl(element));});
+        if(this.configurationDeploymentSummaryPerApp && this.configurationDeploymentSummaryPerApp.length != 0){        const configurationDeploymentSummaryPerAppArrValue: ManagedAppPolicyDeploymentSummaryPerAppImpl[] = []; this.configurationDeploymentSummaryPerApp?.forEach(element => {configurationDeploymentSummaryPerAppArrValue.push(new ManagedAppPolicyDeploymentSummaryPerAppImpl(element));});
         writer.writeCollectionOfObjectValues<ManagedAppPolicyDeploymentSummaryPerAppImpl>("configurationDeploymentSummaryPerApp", configurationDeploymentSummaryPerAppArrValue);
         }
         if(this.displayName){
-        if(this.displayName)
         writer.writeStringValue("displayName", this.displayName);
         }
         if(this.lastRefreshTime){
-        if(this.lastRefreshTime)
         writer.writeDateValue("lastRefreshTime", this.lastRefreshTime);
         }
         if(this.version){
-        if(this.version)
         writer.writeStringValue("version", this.version);
         }
     };

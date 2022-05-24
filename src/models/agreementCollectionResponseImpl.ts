@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class AgreementCollectionResponseImpl implements AdditionalDataHolder, AgreementCollectionResponse, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: Agreement[] | undefined;
+    public value?: Agreement[] | undefined;
     /**
      * Instantiates a new AgreementCollectionResponse and sets the default values.
      * @param agreementCollectionResponseParameterValue 
      */
     public constructor(agreementCollectionResponseParameterValue?: AgreementCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = agreementCollectionResponseParameterValue?.additionalData ? {} : agreementCollectionResponseParameterValue?.additionalData!
+        this.additionalData = agreementCollectionResponseParameterValue?.additionalData ? agreementCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = agreementCollectionResponseParameterValue?.nextLink ;
         this.value = agreementCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class AgreementCollectionResponseImpl implements AdditionalDataHolder, Ag
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: AgreementImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new AgreementImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: AgreementImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new AgreementImpl(element));});
         writer.writeCollectionOfObjectValues<AgreementImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

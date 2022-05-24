@@ -10,43 +10,44 @@ import {Phone} from './phone';
 import {PhysicalOfficeAddress} from './physicalOfficeAddress';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the collection of orgContact entities. */
 export class OrgContactImpl extends DirectoryObjectImpl implements OrgContact, Parsable {
     /** Postal addresses for this organizational contact. For now a contact can only have one physical address. */
-    addresses?: PhysicalOfficeAddress[] | undefined;
+    public addresses?: PhysicalOfficeAddress[] | undefined;
     /** Name of the company that this organizational contact belong to. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values). */
-    companyName?: string | undefined;
+    public companyName?: string | undefined;
     /** The name for the department in which the contact works. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values). */
-    department?: string | undefined;
+    public department?: string | undefined;
     /** The contact's direct reports. (The users and contacts that have their manager property set to this contact.) Read-only. Nullable. Supports $expand. */
-    directReports?: DirectoryObject[] | undefined;
+    public directReports?: DirectoryObject[] | undefined;
     /** Display name for this organizational contact. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values), $search, and $orderBy. */
-    displayName?: string | undefined;
+    public displayName?: string | undefined;
     /** First name for this organizational contact. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values). */
-    givenName?: string | undefined;
+    public givenName?: string | undefined;
     /** Job title for this organizational contact. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values). */
-    jobTitle?: string | undefined;
+    public jobTitle?: string | undefined;
     /** The SMTP address for the contact, for example, 'jeff@contoso.onmicrosoft.com'. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values). */
-    mail?: string | undefined;
+    public mail?: string | undefined;
     /** Email alias (portion of email address pre-pending the @ symbol) for this organizational contact. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values). */
-    mailNickname?: string | undefined;
+    public mailNickname?: string | undefined;
     /** The user or contact that is this contact's manager. Read-only. Supports $expand. */
-    manager?: DirectoryObject | undefined;
+    public manager?: DirectoryObject | undefined;
     /** Groups that this contact is a member of. Read-only. Nullable. Supports $expand. */
-    memberOf?: DirectoryObject[] | undefined;
+    public memberOf?: DirectoryObject[] | undefined;
     /** Date and time when this organizational contact was last synchronized from on-premises AD. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Supports $filter (eq, ne, not, ge, le, in). */
-    onPremisesLastSyncDateTime?: Date | undefined;
+    public onPremisesLastSyncDateTime?: Date | undefined;
     /** List of any synchronization provisioning errors for this organizational contact. Supports $filter (eq, not). */
-    onPremisesProvisioningErrors?: OnPremisesProvisioningError[] | undefined;
+    public onPremisesProvisioningErrors?: OnPremisesProvisioningError[] | undefined;
     /** true if this object is synced from an on-premises directory; false if this object was originally synced from an on-premises directory but is no longer synced and now mastered in Exchange; null if this object has never been synced from an on-premises directory (default).  Supports $filter (eq, ne, not, in, and eq on null values). */
-    onPremisesSyncEnabled?: boolean | undefined;
+    public onPremisesSyncEnabled?: boolean | undefined;
     /** List of phones for this organizational contact. Phone types can be mobile, business, and businessFax. Only one of each type can ever be present in the collection. Supports $filter (eq, ne, not, in). */
-    phones?: Phone[] | undefined;
-    /** For example: 'SMTP: bob@contoso.com', 'smtp: bob@sales.contoso.com'. The any operator is required for filter expressions on multi-valued properties. Supports $filter (eq, not, ge, le, startsWith). */
-    proxyAddresses?: string[] | undefined;
+    public phones?: Phone[] | undefined;
+    /** For example: 'SMTP: bob@contoso.com', 'smtp: bob@sales.contoso.com'. The any operator is required for filter expressions on multi-valued properties. Supports $filter (eq, not, ge, le, startsWith, and counting empty collections). */
+    public proxyAddresses?: string[] | undefined;
     /** Last name for this organizational contact. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values) */
-    surname?: string | undefined;
+    public surname?: string | undefined;
     /** The transitiveMemberOf property */
-    transitiveMemberOf?: DirectoryObject[] | undefined;
+    public transitiveMemberOf?: DirectoryObject[] | undefined;
     /**
      * Instantiates a new orgContact and sets the default values.
      * @param orgContactParameterValue 
@@ -105,76 +106,58 @@ export class OrgContactImpl extends DirectoryObjectImpl implements OrgContact, P
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.addresses){
-        const addressesArrValue: PhysicalOfficeAddressImpl[] = []; this.addresses?.forEach(element => {addressesArrValue.push(new PhysicalOfficeAddressImpl(element));});
+        if(this.addresses && this.addresses.length != 0){        const addressesArrValue: PhysicalOfficeAddressImpl[] = []; this.addresses?.forEach(element => {addressesArrValue.push(new PhysicalOfficeAddressImpl(element));});
         writer.writeCollectionOfObjectValues<PhysicalOfficeAddressImpl>("addresses", addressesArrValue);
         }
         if(this.companyName){
-        if(this.companyName)
         writer.writeStringValue("companyName", this.companyName);
         }
         if(this.department){
-        if(this.department)
         writer.writeStringValue("department", this.department);
         }
-        if(this.directReports){
-        const directReportsArrValue: DirectoryObjectImpl[] = []; this.directReports?.forEach(element => {directReportsArrValue.push(new DirectoryObjectImpl(element));});
+        if(this.directReports && this.directReports.length != 0){        const directReportsArrValue: DirectoryObjectImpl[] = []; this.directReports?.forEach(element => {directReportsArrValue.push(new DirectoryObjectImpl(element));});
         writer.writeCollectionOfObjectValues<DirectoryObjectImpl>("directReports", directReportsArrValue);
         }
         if(this.displayName){
-        if(this.displayName)
         writer.writeStringValue("displayName", this.displayName);
         }
         if(this.givenName){
-        if(this.givenName)
         writer.writeStringValue("givenName", this.givenName);
         }
         if(this.jobTitle){
-        if(this.jobTitle)
         writer.writeStringValue("jobTitle", this.jobTitle);
         }
         if(this.mail){
-        if(this.mail)
         writer.writeStringValue("mail", this.mail);
         }
         if(this.mailNickname){
-        if(this.mailNickname)
         writer.writeStringValue("mailNickname", this.mailNickname);
         }
         if(this.manager){
-        if(this.manager)
         writer.writeObjectValue<DirectoryObjectImpl>("manager", new DirectoryObjectImpl(this.manager));
         }
-        if(this.memberOf){
-        const memberOfArrValue: DirectoryObjectImpl[] = []; this.memberOf?.forEach(element => {memberOfArrValue.push(new DirectoryObjectImpl(element));});
+        if(this.memberOf && this.memberOf.length != 0){        const memberOfArrValue: DirectoryObjectImpl[] = []; this.memberOf?.forEach(element => {memberOfArrValue.push(new DirectoryObjectImpl(element));});
         writer.writeCollectionOfObjectValues<DirectoryObjectImpl>("memberOf", memberOfArrValue);
         }
         if(this.onPremisesLastSyncDateTime){
-        if(this.onPremisesLastSyncDateTime)
         writer.writeDateValue("onPremisesLastSyncDateTime", this.onPremisesLastSyncDateTime);
         }
-        if(this.onPremisesProvisioningErrors){
-        const onPremisesProvisioningErrorsArrValue: OnPremisesProvisioningErrorImpl[] = []; this.onPremisesProvisioningErrors?.forEach(element => {onPremisesProvisioningErrorsArrValue.push(new OnPremisesProvisioningErrorImpl(element));});
+        if(this.onPremisesProvisioningErrors && this.onPremisesProvisioningErrors.length != 0){        const onPremisesProvisioningErrorsArrValue: OnPremisesProvisioningErrorImpl[] = []; this.onPremisesProvisioningErrors?.forEach(element => {onPremisesProvisioningErrorsArrValue.push(new OnPremisesProvisioningErrorImpl(element));});
         writer.writeCollectionOfObjectValues<OnPremisesProvisioningErrorImpl>("onPremisesProvisioningErrors", onPremisesProvisioningErrorsArrValue);
         }
         if(this.onPremisesSyncEnabled){
-        if(this.onPremisesSyncEnabled)
         writer.writeBooleanValue("onPremisesSyncEnabled", this.onPremisesSyncEnabled);
         }
-        if(this.phones){
-        const phonesArrValue: PhoneImpl[] = []; this.phones?.forEach(element => {phonesArrValue.push(new PhoneImpl(element));});
+        if(this.phones && this.phones.length != 0){        const phonesArrValue: PhoneImpl[] = []; this.phones?.forEach(element => {phonesArrValue.push(new PhoneImpl(element));});
         writer.writeCollectionOfObjectValues<PhoneImpl>("phones", phonesArrValue);
         }
         if(this.proxyAddresses){
-        if(this.proxyAddresses)
         writer.writeCollectionOfPrimitiveValues<string>("proxyAddresses", this.proxyAddresses);
         }
         if(this.surname){
-        if(this.surname)
         writer.writeStringValue("surname", this.surname);
         }
-        if(this.transitiveMemberOf){
-        const transitiveMemberOfArrValue: DirectoryObjectImpl[] = []; this.transitiveMemberOf?.forEach(element => {transitiveMemberOfArrValue.push(new DirectoryObjectImpl(element));});
+        if(this.transitiveMemberOf && this.transitiveMemberOf.length != 0){        const transitiveMemberOfArrValue: DirectoryObjectImpl[] = []; this.transitiveMemberOf?.forEach(element => {transitiveMemberOfArrValue.push(new DirectoryObjectImpl(element));});
         writer.writeCollectionOfObjectValues<DirectoryObjectImpl>("transitiveMemberOf", transitiveMemberOfArrValue);
         }
     };

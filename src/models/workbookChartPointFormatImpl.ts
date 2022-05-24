@@ -4,9 +4,10 @@ import {WorkbookChartFill} from './workbookChartFill';
 import {WorkbookChartPointFormat} from './workbookChartPointFormat';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to user. */
 export class WorkbookChartPointFormatImpl extends EntityImpl implements Parsable, WorkbookChartPointFormat {
     /** Represents the fill format of a chart, which includes background formating information. Read-only. */
-    fill?: WorkbookChartFill | undefined;
+    public fill?: WorkbookChartFill | undefined;
     /**
      * Instantiates a new workbookChartPointFormat and sets the default values.
      * @param workbookChartPointFormatParameterValue 
@@ -32,7 +33,6 @@ export class WorkbookChartPointFormatImpl extends EntityImpl implements Parsable
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.fill){
-        if(this.fill)
         writer.writeObjectValue<WorkbookChartFillImpl>("fill", new WorkbookChartFillImpl(this.fill));
         }
     };

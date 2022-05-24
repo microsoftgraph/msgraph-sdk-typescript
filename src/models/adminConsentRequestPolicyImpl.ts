@@ -4,19 +4,20 @@ import {createAccessReviewReviewerScopeFromDiscriminatorValue} from './createAcc
 import {AccessReviewReviewerScopeImpl, EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the policyRoot singleton. */
 export class AdminConsentRequestPolicyImpl extends EntityImpl implements AdminConsentRequestPolicy, Parsable {
     /** Specifies whether the admin consent request feature is enabled or disabled. Required. */
-    isEnabled?: boolean | undefined;
+    public isEnabled?: boolean | undefined;
     /** Specifies whether reviewers will receive notifications. Required. */
-    notifyReviewers?: boolean | undefined;
+    public notifyReviewers?: boolean | undefined;
     /** Specifies whether reviewers will receive reminder emails. Required. */
-    remindersEnabled?: boolean | undefined;
+    public remindersEnabled?: boolean | undefined;
     /** Specifies the duration the request is active before it automatically expires if no decision is applied. */
-    requestDurationInDays?: number | undefined;
+    public requestDurationInDays?: number | undefined;
     /** Required. */
-    reviewers?: AccessReviewReviewerScope[] | undefined;
+    public reviewers?: AccessReviewReviewerScope[] | undefined;
     /** Specifies the version of this policy. When the policy is updated, this version is updated. Read-only. */
-    version?: number | undefined;
+    public version?: number | undefined;
     /**
      * Instantiates a new adminConsentRequestPolicy and sets the default values.
      * @param adminConsentRequestPolicyParameterValue 
@@ -52,27 +53,21 @@ export class AdminConsentRequestPolicyImpl extends EntityImpl implements AdminCo
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.isEnabled){
-        if(this.isEnabled)
         writer.writeBooleanValue("isEnabled", this.isEnabled);
         }
         if(this.notifyReviewers){
-        if(this.notifyReviewers)
         writer.writeBooleanValue("notifyReviewers", this.notifyReviewers);
         }
         if(this.remindersEnabled){
-        if(this.remindersEnabled)
         writer.writeBooleanValue("remindersEnabled", this.remindersEnabled);
         }
         if(this.requestDurationInDays){
-        if(this.requestDurationInDays)
         writer.writeNumberValue("requestDurationInDays", this.requestDurationInDays);
         }
-        if(this.reviewers){
-        const reviewersArrValue: AccessReviewReviewerScopeImpl[] = []; this.reviewers?.forEach(element => {reviewersArrValue.push(new AccessReviewReviewerScopeImpl(element));});
+        if(this.reviewers && this.reviewers.length != 0){        const reviewersArrValue: AccessReviewReviewerScopeImpl[] = []; this.reviewers?.forEach(element => {reviewersArrValue.push(new AccessReviewReviewerScopeImpl(element));});
         writer.writeCollectionOfObjectValues<AccessReviewReviewerScopeImpl>("reviewers", reviewersArrValue);
         }
         if(this.version){
-        if(this.version)
         writer.writeNumberValue("version", this.version);
         }
     };

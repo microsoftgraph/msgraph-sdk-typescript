@@ -2,9 +2,10 @@ import {EntityImpl} from './index';
 import {PlannerBucketTaskBoardTaskFormat} from './plannerBucketTaskBoardTaskFormat';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to user. */
 export class PlannerBucketTaskBoardTaskFormatImpl extends EntityImpl implements Parsable, PlannerBucketTaskBoardTaskFormat {
     /** Hint used to order tasks in the Bucket view of the Task Board. The format is defined as outlined here. */
-    orderHint?: string | undefined;
+    public orderHint?: string | undefined;
     /**
      * Instantiates a new plannerBucketTaskBoardTaskFormat and sets the default values.
      * @param plannerBucketTaskBoardTaskFormatParameterValue 
@@ -30,7 +31,6 @@ export class PlannerBucketTaskBoardTaskFormatImpl extends EntityImpl implements 
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.orderHint){
-        if(this.orderHint)
         writer.writeStringValue("orderHint", this.orderHint);
         }
     };

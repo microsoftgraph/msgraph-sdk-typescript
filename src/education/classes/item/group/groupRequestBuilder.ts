@@ -1,6 +1,5 @@
 import {GroupImpl} from '../../../../models/';
 import {createGroupFromDiscriminatorValue} from '../../../../models/createGroupFromDiscriminatorValue';
-import {Group} from '../../../../models/group';
 import {ODataErrorImpl} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {GroupRequestBuilderGetRequestConfiguration} from './groupRequestBuilderGetRequestConfiguration';
@@ -50,7 +49,7 @@ export class GroupRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Group
      */
-    public get(requestConfiguration?: GroupRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Group | undefined> {
+    public get(requestConfiguration?: GroupRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<GroupImpl | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );

@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class DeviceComplianceSettingStateCollectionResponseImpl implements AdditionalDataHolder, DeviceComplianceSettingStateCollectionResponse, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: DeviceComplianceSettingState[] | undefined;
+    public value?: DeviceComplianceSettingState[] | undefined;
     /**
      * Instantiates a new DeviceComplianceSettingStateCollectionResponse and sets the default values.
      * @param deviceComplianceSettingStateCollectionResponseParameterValue 
      */
     public constructor(deviceComplianceSettingStateCollectionResponseParameterValue?: DeviceComplianceSettingStateCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = deviceComplianceSettingStateCollectionResponseParameterValue?.additionalData ? {} : deviceComplianceSettingStateCollectionResponseParameterValue?.additionalData!
+        this.additionalData = deviceComplianceSettingStateCollectionResponseParameterValue?.additionalData ? deviceComplianceSettingStateCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = deviceComplianceSettingStateCollectionResponseParameterValue?.nextLink ;
         this.value = deviceComplianceSettingStateCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class DeviceComplianceSettingStateCollectionResponseImpl implements Addit
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: DeviceComplianceSettingStateImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new DeviceComplianceSettingStateImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: DeviceComplianceSettingStateImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new DeviceComplianceSettingStateImpl(element));});
         writer.writeCollectionOfObjectValues<DeviceComplianceSettingStateImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

@@ -3,14 +3,13 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class PlannerUserIdsImpl implements AdditionalDataHolder, Parsable, PlannerUserIds {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /**
      * Instantiates a new plannerUserIds and sets the default values.
      * @param plannerUserIdsParameterValue 
      */
     public constructor(plannerUserIdsParameterValue?: PlannerUserIds | undefined) {
-        this.additionalData = {};
-        this.additionalData = plannerUserIdsParameterValue?.additionalData ? {} : plannerUserIdsParameterValue?.additionalData!
+        this.additionalData = plannerUserIdsParameterValue?.additionalData ? plannerUserIdsParameterValue?.additionalData! : {}
     };
     /**
      * The deserialization information for the current model

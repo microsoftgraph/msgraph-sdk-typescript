@@ -6,18 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class DeviceCompliancePolicyCollectionResponseImpl implements AdditionalDataHolder, DeviceCompliancePolicyCollectionResponse, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?: string | undefined;
+    public nextLink?: string | undefined;
     /** The value property */
-    value?: DeviceCompliancePolicy[] | undefined;
+    public value?: DeviceCompliancePolicy[] | undefined;
     /**
      * Instantiates a new DeviceCompliancePolicyCollectionResponse and sets the default values.
      * @param deviceCompliancePolicyCollectionResponseParameterValue 
      */
     public constructor(deviceCompliancePolicyCollectionResponseParameterValue?: DeviceCompliancePolicyCollectionResponse | undefined) {
-        this.additionalData = {};
-        this.additionalData = deviceCompliancePolicyCollectionResponseParameterValue?.additionalData ? {} : deviceCompliancePolicyCollectionResponseParameterValue?.additionalData!
+        this.additionalData = deviceCompliancePolicyCollectionResponseParameterValue?.additionalData ? deviceCompliancePolicyCollectionResponseParameterValue?.additionalData! : {}
         this.nextLink = deviceCompliancePolicyCollectionResponseParameterValue?.nextLink ;
         this.value = deviceCompliancePolicyCollectionResponseParameterValue?.value ;
     };
@@ -38,11 +37,9 @@ export class DeviceCompliancePolicyCollectionResponseImpl implements AdditionalD
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        if(this.nextLink)
         writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value){
-        const valueArrValue: DeviceCompliancePolicyImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new DeviceCompliancePolicyImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: DeviceCompliancePolicyImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new DeviceCompliancePolicyImpl(element));});
         writer.writeCollectionOfObjectValues<DeviceCompliancePolicyImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

@@ -1,8 +1,7 @@
 import {createQueryResponseFromDiscriminatorValue} from './createQueryResponseFromDiscriminatorValue';
-import {QueryRequestBodyImpl, QueryResponseImpl} from './index';
-import {QueryRequestBody} from './queryRequestBody';
+import {QueryPostRequestBodyImpl, QueryResponseImpl} from './index';
+import {QueryPostRequestBody} from './queryPostRequestBody';
 import {QueryRequestBuilderPostRequestConfiguration} from './queryRequestBuilderPostRequestConfiguration';
-import {QueryResponse} from './queryResponse';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the query method. */
@@ -32,7 +31,7 @@ export class QueryRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public createPostRequestInformation(body: QueryRequestBody | undefined, requestConfiguration?: QueryRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public createPostRequestInformation(body: QueryPostRequestBody | undefined, requestConfiguration?: QueryRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -42,8 +41,8 @@ export class QueryRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        const bodyParsable = new QueryRequestBodyImpl(body)
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", bodyParsable);
+        const parsableBody = new QueryPostRequestBodyImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", parsableBody);
         return requestInfo;
     };
     /**
@@ -53,7 +52,7 @@ export class QueryRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of QueryResponse
      */
-    public post(body: QueryRequestBody | undefined, requestConfiguration?: QueryRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<QueryResponse | undefined> {
+    public post(body: QueryPostRequestBody | undefined, requestConfiguration?: QueryRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<QueryResponseImpl | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration

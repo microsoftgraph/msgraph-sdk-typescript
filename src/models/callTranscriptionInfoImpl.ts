@@ -4,18 +4,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class CallTranscriptionInfoImpl implements AdditionalDataHolder, CallTranscriptionInfo, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** The state modified time in UTC. */
-    lastModifiedDateTime?: Date | undefined;
+    public lastModifiedDateTime?: Date | undefined;
     /** Possible values are: notStarted, active, inactive. */
-    state?: CallTranscriptionState | undefined;
+    public state?: CallTranscriptionState | undefined;
     /**
      * Instantiates a new callTranscriptionInfo and sets the default values.
      * @param callTranscriptionInfoParameterValue 
      */
     public constructor(callTranscriptionInfoParameterValue?: CallTranscriptionInfo | undefined) {
-        this.additionalData = {};
-        this.additionalData = callTranscriptionInfoParameterValue?.additionalData ? {} : callTranscriptionInfoParameterValue?.additionalData!
+        this.additionalData = callTranscriptionInfoParameterValue?.additionalData ? callTranscriptionInfoParameterValue?.additionalData! : {}
         this.lastModifiedDateTime = callTranscriptionInfoParameterValue?.lastModifiedDateTime ;
         this.state = callTranscriptionInfoParameterValue?.state ;
     };
@@ -36,11 +35,9 @@ export class CallTranscriptionInfoImpl implements AdditionalDataHolder, CallTran
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.lastModifiedDateTime){
-        if(this.lastModifiedDateTime)
         writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
         }
         if(this.state){
-        if(this.state)
         writer.writeEnumValue<CallTranscriptionState>("state", this.state);
         }
         writer.writeAdditionalData(this.additionalData);

@@ -9,42 +9,41 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** intuneBrand contains data which is used in customizing the appearance of the Company Portal applications as well as the end user web portal. */
 export class IntuneBrandImpl implements AdditionalDataHolder, IntuneBrand, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData: Record<string, unknown>;
+    public additionalData: Record<string, unknown>;
     /** Email address of the person/organization responsible for IT support. */
-    contactITEmailAddress?: string | undefined;
+    public contactITEmailAddress?: string | undefined;
     /** Name of the person/organization responsible for IT support. */
-    contactITName?: string | undefined;
+    public contactITName?: string | undefined;
     /** Text comments regarding the person/organization responsible for IT support. */
-    contactITNotes?: string | undefined;
+    public contactITNotes?: string | undefined;
     /** Phone number of the person/organization responsible for IT support. */
-    contactITPhoneNumber?: string | undefined;
+    public contactITPhoneNumber?: string | undefined;
     /** Logo image displayed in Company Portal apps which have a dark background behind the logo. */
-    darkBackgroundLogo?: MimeContent | undefined;
+    public darkBackgroundLogo?: MimeContent | undefined;
     /** Company/organization name that is displayed to end users. */
-    displayName?: string | undefined;
+    public displayName?: string | undefined;
     /** Logo image displayed in Company Portal apps which have a light background behind the logo. */
-    lightBackgroundLogo?: MimeContent | undefined;
+    public lightBackgroundLogo?: MimeContent | undefined;
     /** Display name of the company/organization’s IT helpdesk site. */
-    onlineSupportSiteName?: string | undefined;
+    public onlineSupportSiteName?: string | undefined;
     /** URL to the company/organization’s IT helpdesk site. */
-    onlineSupportSiteUrl?: string | undefined;
+    public onlineSupportSiteUrl?: string | undefined;
     /** URL to the company/organization’s privacy policy. */
-    privacyUrl?: string | undefined;
+    public privacyUrl?: string | undefined;
     /** Boolean that represents whether the administrator-supplied display name will be shown next to the logo image. */
-    showDisplayNameNextToLogo?: boolean | undefined;
+    public showDisplayNameNextToLogo?: boolean | undefined;
     /** Boolean that represents whether the administrator-supplied logo images are shown or not shown. */
-    showLogo?: boolean | undefined;
+    public showLogo?: boolean | undefined;
     /** Boolean that represents whether the administrator-supplied display name will be shown next to the logo image. */
-    showNameNextToLogo?: boolean | undefined;
+    public showNameNextToLogo?: boolean | undefined;
     /** Primary theme color used in the Company Portal applications and web portal. */
-    themeColor?: RgbColor | undefined;
+    public themeColor?: RgbColor | undefined;
     /**
      * Instantiates a new intuneBrand and sets the default values.
      * @param intuneBrandParameterValue 
      */
     public constructor(intuneBrandParameterValue?: IntuneBrand | undefined) {
-        this.additionalData = {};
-        this.additionalData = intuneBrandParameterValue?.additionalData ? {} : intuneBrandParameterValue?.additionalData!
+        this.additionalData = intuneBrandParameterValue?.additionalData ? intuneBrandParameterValue?.additionalData! : {}
         this.contactITEmailAddress = intuneBrandParameterValue?.contactITEmailAddress ;
         this.contactITName = intuneBrandParameterValue?.contactITName ;
         this.contactITNotes = intuneBrandParameterValue?.contactITNotes ;
@@ -89,59 +88,45 @@ export class IntuneBrandImpl implements AdditionalDataHolder, IntuneBrand, Parsa
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.contactITEmailAddress){
-        if(this.contactITEmailAddress)
         writer.writeStringValue("contactITEmailAddress", this.contactITEmailAddress);
         }
         if(this.contactITName){
-        if(this.contactITName)
         writer.writeStringValue("contactITName", this.contactITName);
         }
         if(this.contactITNotes){
-        if(this.contactITNotes)
         writer.writeStringValue("contactITNotes", this.contactITNotes);
         }
         if(this.contactITPhoneNumber){
-        if(this.contactITPhoneNumber)
         writer.writeStringValue("contactITPhoneNumber", this.contactITPhoneNumber);
         }
         if(this.darkBackgroundLogo){
-        if(this.darkBackgroundLogo)
         writer.writeObjectValue<MimeContentImpl>("darkBackgroundLogo", new MimeContentImpl(this.darkBackgroundLogo));
         }
         if(this.displayName){
-        if(this.displayName)
         writer.writeStringValue("displayName", this.displayName);
         }
         if(this.lightBackgroundLogo){
-        if(this.lightBackgroundLogo)
         writer.writeObjectValue<MimeContentImpl>("lightBackgroundLogo", new MimeContentImpl(this.lightBackgroundLogo));
         }
         if(this.onlineSupportSiteName){
-        if(this.onlineSupportSiteName)
         writer.writeStringValue("onlineSupportSiteName", this.onlineSupportSiteName);
         }
         if(this.onlineSupportSiteUrl){
-        if(this.onlineSupportSiteUrl)
         writer.writeStringValue("onlineSupportSiteUrl", this.onlineSupportSiteUrl);
         }
         if(this.privacyUrl){
-        if(this.privacyUrl)
         writer.writeStringValue("privacyUrl", this.privacyUrl);
         }
         if(this.showDisplayNameNextToLogo){
-        if(this.showDisplayNameNextToLogo)
         writer.writeBooleanValue("showDisplayNameNextToLogo", this.showDisplayNameNextToLogo);
         }
         if(this.showLogo){
-        if(this.showLogo)
         writer.writeBooleanValue("showLogo", this.showLogo);
         }
         if(this.showNameNextToLogo){
-        if(this.showNameNextToLogo)
         writer.writeBooleanValue("showNameNextToLogo", this.showNameNextToLogo);
         }
         if(this.themeColor){
-        if(this.themeColor)
         writer.writeObjectValue<RgbColorImpl>("themeColor", new RgbColorImpl(this.themeColor));
         }
         writer.writeAdditionalData(this.additionalData);

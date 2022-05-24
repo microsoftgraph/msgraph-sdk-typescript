@@ -3,23 +3,24 @@ import {MobileThreatDefenseConnector} from './mobileThreatDefenseConnector';
 import {MobileThreatPartnerTenantState} from './mobileThreatPartnerTenantState';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Entity which represents a connection to Mobile threat defense partner. */
 export class MobileThreatDefenseConnectorImpl extends EntityImpl implements MobileThreatDefenseConnector, Parsable {
     /** For Android, set whether Intune must receive data from the data sync partner prior to marking a device compliant */
-    androidDeviceBlockedOnMissingPartnerData?: boolean | undefined;
+    public androidDeviceBlockedOnMissingPartnerData?: boolean | undefined;
     /** For Android, set whether data from the data sync partner should be used during compliance evaluations */
-    androidEnabled?: boolean | undefined;
+    public androidEnabled?: boolean | undefined;
     /** For IOS, set whether Intune must receive data from the data sync partner prior to marking a device compliant */
-    iosDeviceBlockedOnMissingPartnerData?: boolean | undefined;
+    public iosDeviceBlockedOnMissingPartnerData?: boolean | undefined;
     /** For IOS, get or set whether data from the data sync partner should be used during compliance evaluations */
-    iosEnabled?: boolean | undefined;
+    public iosEnabled?: boolean | undefined;
     /** DateTime of last Heartbeat recieved from the Data Sync Partner */
-    lastHeartbeatDateTime?: Date | undefined;
+    public lastHeartbeatDateTime?: Date | undefined;
     /** Data Sync Partner state for this account. Possible values are: unavailable, available, enabled, unresponsive. */
-    partnerState?: MobileThreatPartnerTenantState | undefined;
+    public partnerState?: MobileThreatPartnerTenantState | undefined;
     /** Get or Set days the per tenant tolerance to unresponsiveness for this partner integration */
-    partnerUnresponsivenessThresholdInDays?: number | undefined;
+    public partnerUnresponsivenessThresholdInDays?: number | undefined;
     /** Get or set whether to block devices on the enabled platforms that do not meet the minimum version requirements of the Data Sync Partner */
-    partnerUnsupportedOsVersionBlocked?: boolean | undefined;
+    public partnerUnsupportedOsVersionBlocked?: boolean | undefined;
     /**
      * Instantiates a new mobileThreatDefenseConnector and sets the default values.
      * @param mobileThreatDefenseConnectorParameterValue 
@@ -59,35 +60,27 @@ export class MobileThreatDefenseConnectorImpl extends EntityImpl implements Mobi
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.androidDeviceBlockedOnMissingPartnerData){
-        if(this.androidDeviceBlockedOnMissingPartnerData)
         writer.writeBooleanValue("androidDeviceBlockedOnMissingPartnerData", this.androidDeviceBlockedOnMissingPartnerData);
         }
         if(this.androidEnabled){
-        if(this.androidEnabled)
         writer.writeBooleanValue("androidEnabled", this.androidEnabled);
         }
         if(this.iosDeviceBlockedOnMissingPartnerData){
-        if(this.iosDeviceBlockedOnMissingPartnerData)
         writer.writeBooleanValue("iosDeviceBlockedOnMissingPartnerData", this.iosDeviceBlockedOnMissingPartnerData);
         }
         if(this.iosEnabled){
-        if(this.iosEnabled)
         writer.writeBooleanValue("iosEnabled", this.iosEnabled);
         }
         if(this.lastHeartbeatDateTime){
-        if(this.lastHeartbeatDateTime)
         writer.writeDateValue("lastHeartbeatDateTime", this.lastHeartbeatDateTime);
         }
         if(this.partnerState){
-        if(this.partnerState)
         writer.writeEnumValue<MobileThreatPartnerTenantState>("partnerState", this.partnerState);
         }
         if(this.partnerUnresponsivenessThresholdInDays){
-        if(this.partnerUnresponsivenessThresholdInDays)
         writer.writeNumberValue("partnerUnresponsivenessThresholdInDays", this.partnerUnresponsivenessThresholdInDays);
         }
         if(this.partnerUnsupportedOsVersionBlocked){
-        if(this.partnerUnsupportedOsVersionBlocked)
         writer.writeBooleanValue("partnerUnsupportedOsVersionBlocked", this.partnerUnsupportedOsVersionBlocked);
         }
     };
