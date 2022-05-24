@@ -256,7 +256,7 @@ export class User extends DirectoryObject implements Parsable {
     private _scopedRoleMemberOf?: ScopedRoleMembership[] | undefined;
     /** Read-only. Nullable. */
     private _settings?: UserSettings | undefined;
-    /** true if the Outlook global address list should contain this user, otherwise false. If not set, this will be treated as true. For users invited through the invitation manager, this property will be set to false. Supports $filter (eq, ne, not, in). */
+    /** Do not use in Microsoft Graph. Manage this property through the Microsoft 365 admin center instead. Represents whether the user should be included in the Outlook global address list. See Known issue. */
     private _showInAddressList?: boolean | undefined;
     /** Any refresh tokens or sessions tokens (session cookies) issued before this time are invalid, and applications will get an error when using an invalid refresh or sessions token to acquire a delegated access token (to access APIs such as Microsoft Graph).  If this happens, the application will need to acquire a new refresh token by making a request to the authorize endpoint. Read-only. Use revokeSignInSessions to reset. */
     private _signInSessionsValidFromDateTime?: Date | undefined;
@@ -1991,14 +1991,14 @@ export class User extends DirectoryObject implements Parsable {
         this._settings = value;
     };
     /**
-     * Gets the showInAddressList property value. true if the Outlook global address list should contain this user, otherwise false. If not set, this will be treated as true. For users invited through the invitation manager, this property will be set to false. Supports $filter (eq, ne, not, in).
+     * Gets the showInAddressList property value. Do not use in Microsoft Graph. Manage this property through the Microsoft 365 admin center instead. Represents whether the user should be included in the Outlook global address list. See Known issue.
      * @returns a boolean
      */
     public get showInAddressList() {
         return this._showInAddressList;
     };
     /**
-     * Sets the showInAddressList property value. true if the Outlook global address list should contain this user, otherwise false. If not set, this will be treated as true. For users invited through the invitation manager, this property will be set to false. Supports $filter (eq, ne, not, in).
+     * Sets the showInAddressList property value. Do not use in Microsoft Graph. Manage this property through the Microsoft 365 admin center instead. Represents whether the user should be included in the Outlook global address list. See Known issue.
      * @param value Value to set for the showInAddressList property.
      */
     public set showInAddressList(value: boolean | undefined) {

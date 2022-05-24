@@ -4,7 +4,7 @@ import {createScopedRoleMembershipFromDiscriminatorValue} from './createScopedRo
 import {DirectoryObject, Extension, ScopedRoleMembership} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the educationRoot singleton. */
+/** Provides operations to manage the directory singleton. */
 export class AdministrativeUnit extends DirectoryObject implements Parsable {
     /** An optional description for the administrative unit. Supports $filter (eq, ne, in, startsWith), $search. */
     private _description?: string | undefined;
