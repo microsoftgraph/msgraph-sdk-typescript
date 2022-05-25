@@ -13,7 +13,7 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 export class Organization extends DirectoryObject implements Parsable {
     /** The collection of service plans associated with the tenant. Not nullable. */
     private _assignedPlans?: AssignedPlan[] | undefined;
-    /** The branding property */
+    /** Resource to manage the default branding for the organization. Nullable. */
     private _branding?: OrganizationalBranding | undefined;
     /** Telephone number for the organization. Although this is a string collection, only one number can be set for this property. */
     private _businessPhones?: string[] | undefined;
@@ -76,14 +76,14 @@ export class Organization extends DirectoryObject implements Parsable {
         this._assignedPlans = value;
     };
     /**
-     * Gets the branding property value. The branding property
+     * Gets the branding property value. Resource to manage the default branding for the organization. Nullable.
      * @returns a organizationalBranding
      */
     public get branding() {
         return this._branding;
     };
     /**
-     * Sets the branding property value. The branding property
+     * Sets the branding property value. Resource to manage the default branding for the organization. Nullable.
      * @param value Value to set for the branding property.
      */
     public set branding(value: OrganizationalBranding | undefined) {

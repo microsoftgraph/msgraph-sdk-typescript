@@ -1,5 +1,5 @@
 
-/** Get branding from organization */
+/** Resource to manage the default branding for the organization. Nullable. */
 export class BrandingRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

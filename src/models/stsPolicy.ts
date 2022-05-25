@@ -2,7 +2,7 @@ import {createDirectoryObjectFromDiscriminatorValue} from './createDirectoryObje
 import {DirectoryObject, PolicyBase} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the instantiate method. */
+/** Provides operations to manage the collection of application entities. */
 export class StsPolicy extends PolicyBase implements Parsable {
     /** The appliesTo property */
     private _appliesTo?: DirectoryObject[] | undefined;
