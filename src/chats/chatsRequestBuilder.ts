@@ -35,7 +35,7 @@ export class ChatsRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Retrieve the list of [chats](../resources/chat.md) that the user is part of.
+     * Retrieve the list of chats that the user is part of.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -52,7 +52,7 @@ export class ChatsRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create a new [chat](../resources/chat.md) object.
+     * Create a new chat object.
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -71,7 +71,7 @@ export class ChatsRequestBuilder {
         return requestInfo;
     };
     /**
-     * Retrieve the list of [chats](../resources/chat.md) that the user is part of.
+     * Retrieve the list of chats that the user is part of.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ChatCollectionResponse
@@ -94,7 +94,7 @@ export class ChatsRequestBuilder {
         return new GetAllMessagesRequestBuilder(this.pathParameters, this.requestAdapter);
     };
     /**
-     * Create a new [chat](../resources/chat.md) object.
+     * Create a new chat object.
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service

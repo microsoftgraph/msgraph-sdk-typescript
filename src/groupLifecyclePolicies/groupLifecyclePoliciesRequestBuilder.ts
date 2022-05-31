@@ -34,7 +34,7 @@ export class GroupLifecyclePoliciesRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * List all the [groupLifecyclePolicies](../resources/grouplifecyclepolicy.md).
+     * List all the groupLifecyclePolicies.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -51,7 +51,7 @@ export class GroupLifecyclePoliciesRequestBuilder {
         return requestInfo;
     };
     /**
-     * Creates a new [groupLifecyclePolicy](../resources/grouplifecyclepolicy.md).
+     * Creates a new groupLifecyclePolicy.
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -70,7 +70,7 @@ export class GroupLifecyclePoliciesRequestBuilder {
         return requestInfo;
     };
     /**
-     * List all the [groupLifecyclePolicies](../resources/grouplifecyclepolicy.md).
+     * List all the groupLifecyclePolicies.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of GroupLifecyclePolicyCollectionResponse
@@ -86,7 +86,7 @@ export class GroupLifecyclePoliciesRequestBuilder {
         return this.requestAdapter?.sendAsync<GroupLifecyclePolicyCollectionResponse>(requestInfo, createGroupLifecyclePolicyCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Creates a new [groupLifecyclePolicy](../resources/grouplifecyclepolicy.md).
+     * Creates a new groupLifecyclePolicy.
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service

@@ -22,7 +22,7 @@ export class GetRecentNotebooksWithIncludePersonalNotebooksRequestBuilder {
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/me/onenote/notebooks/microsoft.graph.getRecentNotebooks(includePersonalNotebooks={includePersonalNotebooks})";
         const urlTplParams = getPathParameters(pathParameters);
-        urlTplParams[""] = includePersonalNotebooks
+        urlTplParams["includePersonalNotebooks"] = includePersonalNotebooks
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };

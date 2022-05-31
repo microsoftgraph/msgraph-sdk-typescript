@@ -125,7 +125,7 @@ export class TeamItemRequestBuilder {
         return requestInfo;
     };
     /**
-     * Retrieve the properties and relationships of the specified [team](../resources/team.md).
+     * Retrieve the properties and relationships of the specified team.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -142,7 +142,7 @@ export class TeamItemRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the properties of the specified [team](../resources/team.md).
+     * Update the properties of the specified team.
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -176,7 +176,7 @@ export class TeamItemRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Retrieve the properties and relationships of the specified [team](../resources/team.md).
+     * Retrieve the properties and relationships of the specified team.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Team
@@ -225,7 +225,7 @@ export class TeamItemRequestBuilder {
         return new TeamsAsyncOperationItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Update the properties of the specified [team](../resources/team.md).
+     * Update the properties of the specified team.
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service

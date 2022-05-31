@@ -35,7 +35,7 @@ export class AccessPackageAssignmentApprovalsRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Approval stages for assignment requests.
+     * Approval stages for decisions associated with access package assignment requests.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -80,7 +80,7 @@ export class AccessPackageAssignmentApprovalsRequestBuilder {
         return new FilterByCurrentUserWithOnRequestBuilder(this.pathParameters, this.requestAdapter, on);
     };
     /**
-     * Approval stages for assignment requests.
+     * Approval stages for decisions associated with access package assignment requests.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ApprovalCollectionResponse

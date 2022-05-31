@@ -24,9 +24,9 @@ export class GetGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTim
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/reports/microsoft.graph.getGroupArchivedPrintJobs(groupId='{groupId}',startDateTime='{startDateTime}',endDateTime='{endDateTime}')";
         const urlTplParams = getPathParameters(pathParameters);
-        urlTplParams[""] = endDateTime
-        urlTplParams[""] = groupId
-        urlTplParams[""] = startDateTime
+        urlTplParams["endDateTime"] = endDateTime
+        urlTplParams["groupId"] = groupId
+        urlTplParams["startDateTime"] = startDateTime
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };

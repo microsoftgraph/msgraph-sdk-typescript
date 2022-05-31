@@ -35,7 +35,7 @@ export class AssignmentRequestsRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Represents access package assignment requests created by or on behalf of a user.
+     * Access package assignment requests created by or on behalf of a subject.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -80,7 +80,7 @@ export class AssignmentRequestsRequestBuilder {
         return new FilterByCurrentUserWithOnRequestBuilder(this.pathParameters, this.requestAdapter, on);
     };
     /**
-     * Represents access package assignment requests created by or on behalf of a user.
+     * Access package assignment requests created by or on behalf of a subject.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AccessPackageAssignmentRequestCollectionResponse

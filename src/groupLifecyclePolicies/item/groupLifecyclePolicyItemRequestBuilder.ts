@@ -39,7 +39,7 @@ export class GroupLifecyclePolicyItemRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Delete a [groupLifecyclePolicy](../resources/grouplifecyclepolicy.md).
+     * Delete a groupLifecyclePolicy.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -55,7 +55,7 @@ export class GroupLifecyclePolicyItemRequestBuilder {
         return requestInfo;
     };
     /**
-     * Retrieve the properties and relationships of a [groupLifecyclePolicies](../resources/grouplifecyclepolicy.md) object.
+     * Retrieve the properties and relationships of a groupLifecyclePolicies object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -72,7 +72,7 @@ export class GroupLifecyclePolicyItemRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the properties of a groupLifecyclePolicy[groupLifecyclePolicy resource type](../resources/grouplifecyclepolicy.md) object.
+     * Update the properties of a groupLifecyclePolicygroupLifecyclePolicy resource type object.
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -91,7 +91,7 @@ export class GroupLifecyclePolicyItemRequestBuilder {
         return requestInfo;
     };
     /**
-     * Delete a [groupLifecyclePolicy](../resources/grouplifecyclepolicy.md).
+     * Delete a groupLifecyclePolicy.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
@@ -106,7 +106,7 @@ export class GroupLifecyclePolicyItemRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Retrieve the properties and relationships of a [groupLifecyclePolicies](../resources/grouplifecyclepolicy.md) object.
+     * Retrieve the properties and relationships of a groupLifecyclePolicies object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of GroupLifecyclePolicy
@@ -122,7 +122,7 @@ export class GroupLifecyclePolicyItemRequestBuilder {
         return this.requestAdapter?.sendAsync<GroupLifecyclePolicy>(requestInfo, createGroupLifecyclePolicyFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Update the properties of a groupLifecyclePolicy[groupLifecyclePolicy resource type](../resources/grouplifecyclepolicy.md) object.
+     * Update the properties of a groupLifecyclePolicygroupLifecyclePolicy resource type object.
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service

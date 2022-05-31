@@ -140,7 +140,7 @@ export class ApplicationItemRequestBuilder {
         return requestInfo;
     };
     /**
-     * Get the properties and relationships of an [application](../resources/application.md) object.
+     * Get the properties and relationships of an application object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -157,7 +157,7 @@ export class ApplicationItemRequestBuilder {
         return requestInfo;
     };
     /**
-     * However, your app might still temporarily require Azure AD Graph permissions to access resources. This article describes the following four methods for configuring required Azure AD Graph permissions for your app registration:
+     * Update the properties of an application object.
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -202,7 +202,7 @@ export class ApplicationItemRequestBuilder {
         return new ExtensionPropertyItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Get the properties and relationships of an [application](../resources/application.md) object.
+     * Get the properties and relationships of an application object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Application
@@ -240,7 +240,7 @@ export class ApplicationItemRequestBuilder {
         return new DirectoryObjectItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * However, your app might still temporarily require Azure AD Graph permissions to access resources. This article describes the following four methods for configuring required Azure AD Graph permissions for your app registration:
+     * Update the properties of an application object.
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service

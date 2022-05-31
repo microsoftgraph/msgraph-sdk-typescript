@@ -51,7 +51,7 @@ export class ApprovalItemRequestBuilder {
         return requestInfo;
     };
     /**
-     * Approval stages for assignment requests.
+     * Approval stages for decisions associated with access package assignment requests.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -102,7 +102,7 @@ export class ApprovalItemRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Approval stages for assignment requests.
+     * Approval stages for decisions associated with access package assignment requests.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Approval

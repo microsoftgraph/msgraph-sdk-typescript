@@ -51,7 +51,7 @@ export class InvitationsRequestBuilder {
         return requestInfo;
     };
     /**
-     * Let's assume that you've granted access to external users (also called *guest users*) to resources in your organization through Microsoft 365 groups. This tutorial will guide you to review their access to the Microsoft 365 groups in your tenant.
+     * Use this API to create a new invitation. Invitation adds an external user to the organization. When creating a new invitation you have several options available:
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -86,7 +86,7 @@ export class InvitationsRequestBuilder {
         return this.requestAdapter?.sendAsync<InvitationCollectionResponse>(requestInfo, createInvitationCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Let's assume that you've granted access to external users (also called *guest users*) to resources in your organization through Microsoft 365 groups. This tutorial will guide you to review their access to the Microsoft 365 groups in your tenant.
+     * Use this API to create a new invitation. Invitation adds an external user to the organization. When creating a new invitation you have several options available:
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service

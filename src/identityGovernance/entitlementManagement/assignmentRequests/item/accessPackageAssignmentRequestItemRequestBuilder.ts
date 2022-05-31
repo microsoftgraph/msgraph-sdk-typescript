@@ -70,7 +70,7 @@ export class AccessPackageAssignmentRequestItemRequestBuilder {
         return requestInfo;
     };
     /**
-     * Represents access package assignment requests created by or on behalf of a user.
+     * Access package assignment requests created by or on behalf of a subject.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -121,7 +121,7 @@ export class AccessPackageAssignmentRequestItemRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Represents access package assignment requests created by or on behalf of a user.
+     * Access package assignment requests created by or on behalf of a subject.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AccessPackageAssignmentRequest

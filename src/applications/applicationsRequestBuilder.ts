@@ -50,7 +50,7 @@ export class ApplicationsRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Get the list of [applications](../resources/application.md) in this organization.
+     * Get the list of applications in this organization.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -67,7 +67,7 @@ export class ApplicationsRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create a new [application](../resources/application.md) object.
+     * Create a new application object.
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -93,7 +93,7 @@ export class ApplicationsRequestBuilder {
         return new DeltaRequestBuilder(this.pathParameters, this.requestAdapter);
     };
     /**
-     * Get the list of [applications](../resources/application.md) in this organization.
+     * Get the list of applications in this organization.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ApplicationCollectionResponse
@@ -109,7 +109,7 @@ export class ApplicationsRequestBuilder {
         return this.requestAdapter?.sendAsync<ApplicationCollectionResponse>(requestInfo, createApplicationCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Create a new [application](../resources/application.md) object.
+     * Create a new application object.
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service

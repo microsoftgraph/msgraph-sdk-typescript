@@ -22,7 +22,7 @@ export class GetSkypeForBusinessActivityUserDetailWithDateRequestBuilder {
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/reports/microsoft.graph.getSkypeForBusinessActivityUserDetail(date={date})";
         const urlTplParams = getPathParameters(pathParameters);
-        urlTplParams[""] = date
+        urlTplParams["date"] = date
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };

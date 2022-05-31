@@ -57,7 +57,7 @@ export class SecurityRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * The security resource is the entry point for the Security object model. It returns a singleton security resource. It doesn't contain any usable properties.
+     * Get security
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -93,7 +93,7 @@ export class SecurityRequestBuilder {
         return requestInfo;
     };
     /**
-     * The security resource is the entry point for the Security object model. It returns a singleton security resource. It doesn't contain any usable properties.
+     * Get security
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Security

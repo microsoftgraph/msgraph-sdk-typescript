@@ -2,16 +2,28 @@ import {DirectoryObjectCollectionResponse} from '../../../../../../../models/';
 import {createDirectoryObjectCollectionResponseFromDiscriminatorValue} from '../../../../../../../models/createDirectoryObjectCollectionResponseFromDiscriminatorValue';
 import {ODataError} from '../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {AppRoleAssignmentRequestBuilder} from './appRoleAssignment/appRoleAssignmentRequestBuilder';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {EndpointRequestBuilder} from './endpoint/endpointRequestBuilder';
 import {RefRequestBuilder} from './ref/refRequestBuilder';
 import {RegisteredOwnersRequestBuilderGetRequestConfiguration} from './registeredOwnersRequestBuilderGetRequestConfiguration';
+import {ServicePrincipalRequestBuilder} from './servicePrincipal/servicePrincipalRequestBuilder';
+import {UserRequestBuilder} from './user/userRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the registeredOwners property of the microsoft.graph.device entity. */
 export class RegisteredOwnersRequestBuilder {
+    /** The appRoleAssignment property */
+    public get appRoleAssignment(): AppRoleAssignmentRequestBuilder {
+        return new AppRoleAssignmentRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** The count property */
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** The endpoint property */
+    public get endpoint(): EndpointRequestBuilder {
+        return new EndpointRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
@@ -21,8 +33,16 @@ export class RegisteredOwnersRequestBuilder {
     }
     /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
+    /** The servicePrincipal property */
+    public get servicePrincipal(): ServicePrincipalRequestBuilder {
+        return new ServicePrincipalRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
+    /** The user property */
+    public get user(): UserRequestBuilder {
+        return new UserRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /**
      * Instantiates a new RegisteredOwnersRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

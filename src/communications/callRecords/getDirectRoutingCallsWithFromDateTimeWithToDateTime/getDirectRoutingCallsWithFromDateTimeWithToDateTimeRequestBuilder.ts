@@ -23,8 +23,8 @@ export class GetDirectRoutingCallsWithFromDateTimeWithToDateTimeRequestBuilder {
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/communications/callRecords/microsoft.graph.callRecords.getDirectRoutingCalls(fromDateTime='{fromDateTime}',toDateTime='{toDateTime}')";
         const urlTplParams = getPathParameters(pathParameters);
-        urlTplParams[""] = fromDateTime
-        urlTplParams[""] = toDateTime
+        urlTplParams["fromDateTime"] = fromDateTime
+        urlTplParams["toDateTime"] = toDateTime
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };

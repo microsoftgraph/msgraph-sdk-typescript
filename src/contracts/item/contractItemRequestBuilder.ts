@@ -70,7 +70,7 @@ export class ContractItemRequestBuilder {
         return requestInfo;
     };
     /**
-     * Retrieve the properties and relationships of [contract](../resources/contract.md) object.
+     * Retrieve the properties and relationships of contract object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -121,7 +121,7 @@ export class ContractItemRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Retrieve the properties and relationships of [contract](../resources/contract.md) object.
+     * Retrieve the properties and relationships of contract object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Contract

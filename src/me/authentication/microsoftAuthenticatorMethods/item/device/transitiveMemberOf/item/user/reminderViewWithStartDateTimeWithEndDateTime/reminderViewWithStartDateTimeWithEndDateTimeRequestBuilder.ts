@@ -23,8 +23,8 @@ export class ReminderViewWithStartDateTimeWithEndDateTimeRequestBuilder {
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/me/authentication/microsoftAuthenticatorMethods/{microsoftAuthenticatorAuthenticationMethod%2Did}/device/transitiveMemberOf/{directoryObject%2Did}/microsoft.graph.user/microsoft.graph.reminderView(StartDateTime='{StartDateTime}',EndDateTime='{EndDateTime}')";
         const urlTplParams = getPathParameters(pathParameters);
-        urlTplParams[""] = endDateTime
-        urlTplParams[""] = startDateTime
+        urlTplParams["EndDateTime"] = endDateTime
+        urlTplParams["StartDateTime"] = startDateTime
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };

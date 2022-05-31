@@ -22,7 +22,7 @@ export class GetEffectivePermissionsWithScopeRequestBuilder {
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/deviceManagement/microsoft.graph.getEffectivePermissions(scope='{scope}')";
         const urlTplParams = getPathParameters(pathParameters);
-        urlTplParams[""] = scope
+        urlTplParams["scope"] = scope
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };

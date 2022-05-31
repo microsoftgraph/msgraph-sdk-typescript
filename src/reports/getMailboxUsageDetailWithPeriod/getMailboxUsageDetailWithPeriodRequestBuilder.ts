@@ -20,7 +20,7 @@ export class GetMailboxUsageDetailWithPeriodRequestBuilder {
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/reports/microsoft.graph.getMailboxUsageDetail(period='{period}')";
         const urlTplParams = getPathParameters(pathParameters);
-        urlTplParams[""] = period
+        urlTplParams["period"] = period
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };

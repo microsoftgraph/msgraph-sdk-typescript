@@ -49,7 +49,7 @@ export class ContractsRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Retrieve a list of [contract](../resources/contract.md) objects associated to a partner tenant.
+     * Retrieve a list of contract objects associated to a partner tenant.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -85,7 +85,7 @@ export class ContractsRequestBuilder {
         return requestInfo;
     };
     /**
-     * Retrieve a list of [contract](../resources/contract.md) objects associated to a partner tenant.
+     * Retrieve a list of contract objects associated to a partner tenant.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ContractCollectionResponse

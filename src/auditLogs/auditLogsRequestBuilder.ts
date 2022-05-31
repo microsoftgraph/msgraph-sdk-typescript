@@ -52,7 +52,7 @@ export class AuditLogsRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Contains different types of audit logs. This resources returns a singleton auditLog resource. It doesn't contain any usable properties.
+     * Get auditLogs
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -99,7 +99,7 @@ export class AuditLogsRequestBuilder {
         return new DirectoryAuditItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Contains different types of audit logs. This resources returns a singleton auditLog resource. It doesn't contain any usable properties.
+     * Get auditLogs
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AuditLogRoot

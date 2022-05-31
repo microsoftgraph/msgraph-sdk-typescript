@@ -24,9 +24,9 @@ export class GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInterval
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/me/drives/{drive%2Did}/root/listItem/microsoft.graph.getActivitiesByInterval(startDateTime='{startDateTime}',endDateTime='{endDateTime}',interval='{interval}')";
         const urlTplParams = getPathParameters(pathParameters);
-        urlTplParams[""] = endDateTime
-        urlTplParams[""] = interval
-        urlTplParams[""] = startDateTime
+        urlTplParams["endDateTime"] = endDateTime
+        urlTplParams["interval"] = interval
+        urlTplParams["startDateTime"] = startDateTime
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };
