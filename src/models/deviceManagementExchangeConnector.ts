@@ -1,24 +1,25 @@
 import {DeviceManagementExchangeConnectorStatus} from './deviceManagementExchangeConnectorStatus';
 import {DeviceManagementExchangeConnectorType} from './deviceManagementExchangeConnectorType';
 import {Entity} from './entity';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface DeviceManagementExchangeConnector extends Entity{
+export interface DeviceManagementExchangeConnector extends Entity, Partial<Parsable> {
     /** The name of the server hosting the Exchange Connector. */
-    connectorServerName?:string | undefined;
+    connectorServerName?: string | undefined;
     /** An alias assigned to the Exchange server */
-    exchangeAlias?:string | undefined;
+    exchangeAlias?: string | undefined;
     /** The type of Exchange Connector Configured. Possible values are: onPremises, hosted, serviceToService, dedicated. */
-    exchangeConnectorType?:DeviceManagementExchangeConnectorType | undefined;
+    exchangeConnectorType?: DeviceManagementExchangeConnectorType | undefined;
     /** Exchange Organization to the Exchange server */
-    exchangeOrganization?:string | undefined;
+    exchangeOrganization?: string | undefined;
     /** Last sync time for the Exchange Connector */
-    lastSyncDateTime?:Date | undefined;
+    lastSyncDateTime?: Date | undefined;
     /** Email address used to configure the Service To Service Exchange Connector. */
-    primarySmtpAddress?:string | undefined;
+    primarySmtpAddress?: string | undefined;
     /** The name of the Exchange server. */
-    serverName?:string | undefined;
+    serverName?: string | undefined;
     /** Exchange Connector Status. Possible values are: none, connectionPending, connected, disconnected. */
-    status?:DeviceManagementExchangeConnectorStatus | undefined;
+    status?: DeviceManagementExchangeConnectorStatus | undefined;
     /** The version of the ExchangeConnectorAgent */
-    version?:string | undefined;
+    version?: string | undefined;
 }

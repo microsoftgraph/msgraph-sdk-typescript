@@ -4,7 +4,7 @@ import {SubscribedSku} from './subscribedSku';
 import {SubscribedSkuCollectionResponse} from './subscribedSkuCollectionResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class SubscribedSkuCollectionResponseImpl implements AdditionalDataHolder, Parsable, SubscribedSkuCollectionResponse {
+export class SubscribedSkuCollectionResponseImpl implements SubscribedSkuCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class SubscribedSkuCollectionResponseImpl implements AdditionalDataHolder
      * @param subscribedSkuCollectionResponseParameterValue 
      */
     public constructor(subscribedSkuCollectionResponseParameterValue?: SubscribedSkuCollectionResponse | undefined) {
-        this.additionalData = subscribedSkuCollectionResponseParameterValue?.additionalData ? subscribedSkuCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = subscribedSkuCollectionResponseParameterValue?.nextLink ;
-        this.value = subscribedSkuCollectionResponseParameterValue?.value ;
+        this.additionalData = subscribedSkuCollectionResponseParameterValue?.additionalData ? subscribedSkuCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = subscribedSkuCollectionResponseParameterValue?.nextLink;
+        this.value = subscribedSkuCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class SubscribedSkuCollectionResponseImpl implements AdditionalDataHolder
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: SubscribedSkuImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new SubscribedSkuImpl(element));});
-        writer.writeCollectionOfObjectValues<SubscribedSkuImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<SubscribedSkuImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

@@ -19,18 +19,18 @@ import {AccessPackageAssignmentImpl, AccessPackageAssignmentPolicyImpl, AccessPa
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the identityGovernance singleton. */
-export class EntitlementManagementImpl extends EntityImpl implements EntitlementManagement, Parsable {
-    /** Approval stages for assignment requests. */
+export class EntitlementManagementImpl extends EntityImpl implements EntitlementManagement {
+    /** Approval stages for decisions associated with access package assignment requests. */
     public accessPackageAssignmentApprovals?: Approval[] | undefined;
     /** Represents access package objects. */
     public accessPackages?: AccessPackage[] | undefined;
-    /** Access package assignment policies. */
+    /** Access package assignment policies govern which subjects can request or be assigned an access package via an access package assignment. */
     public assignmentPolicies?: AccessPackageAssignmentPolicy[] | undefined;
-    /** Represents access package assignment requests created by or on behalf of a user. */
+    /** Access package assignment requests created by or on behalf of a subject. */
     public assignmentRequests?: AccessPackageAssignmentRequest[] | undefined;
-    /** Represents the grant of an access package to a subject (user or group). */
+    /** The assignment of an access package to a subject for a period of time. */
     public assignments?: AccessPackageAssignment[] | undefined;
-    /** Represents a collection of access packages. */
+    /** A container for access packages. */
     public catalogs?: AccessPackageCatalog[] | undefined;
     /** Represents references to a directory or domain of another organization whose users can request access. */
     public connectedOrganizations?: ConnectedOrganization[] | undefined;
@@ -41,15 +41,15 @@ export class EntitlementManagementImpl extends EntityImpl implements Entitlement
      * @param entitlementManagementParameterValue 
      */
     public constructor(entitlementManagementParameterValue?: EntitlementManagement | undefined) {
-        super();
-        this.accessPackageAssignmentApprovals = entitlementManagementParameterValue?.accessPackageAssignmentApprovals ;
-        this.accessPackages = entitlementManagementParameterValue?.accessPackages ;
-        this.assignmentPolicies = entitlementManagementParameterValue?.assignmentPolicies ;
-        this.assignmentRequests = entitlementManagementParameterValue?.assignmentRequests ;
-        this.assignments = entitlementManagementParameterValue?.assignments ;
-        this.catalogs = entitlementManagementParameterValue?.catalogs ;
-        this.connectedOrganizations = entitlementManagementParameterValue?.connectedOrganizations ;
-        this.settings = entitlementManagementParameterValue?.settings ;
+        super(entitlementManagementParameterValue);
+        this.accessPackageAssignmentApprovals = entitlementManagementParameterValue?.accessPackageAssignmentApprovals;
+        this.accessPackages = entitlementManagementParameterValue?.accessPackages;
+        this.assignmentPolicies = entitlementManagementParameterValue?.assignmentPolicies;
+        this.assignmentRequests = entitlementManagementParameterValue?.assignmentRequests;
+        this.assignments = entitlementManagementParameterValue?.assignments;
+        this.catalogs = entitlementManagementParameterValue?.catalogs;
+        this.connectedOrganizations = entitlementManagementParameterValue?.connectedOrganizations;
+        this.settings = entitlementManagementParameterValue?.settings;
     };
     /**
      * The deserialization information for the current model
@@ -75,28 +75,28 @@ export class EntitlementManagementImpl extends EntityImpl implements Entitlement
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.accessPackageAssignmentApprovals && this.accessPackageAssignmentApprovals.length != 0){        const accessPackageAssignmentApprovalsArrValue: ApprovalImpl[] = []; this.accessPackageAssignmentApprovals?.forEach(element => {accessPackageAssignmentApprovalsArrValue.push(new ApprovalImpl(element));});
-        writer.writeCollectionOfObjectValues<ApprovalImpl>("accessPackageAssignmentApprovals", accessPackageAssignmentApprovalsArrValue);
+            writer.writeCollectionOfObjectValues<ApprovalImpl>("accessPackageAssignmentApprovals", accessPackageAssignmentApprovalsArrValue);
         }
         if(this.accessPackages && this.accessPackages.length != 0){        const accessPackagesArrValue: AccessPackageImpl[] = []; this.accessPackages?.forEach(element => {accessPackagesArrValue.push(new AccessPackageImpl(element));});
-        writer.writeCollectionOfObjectValues<AccessPackageImpl>("accessPackages", accessPackagesArrValue);
+            writer.writeCollectionOfObjectValues<AccessPackageImpl>("accessPackages", accessPackagesArrValue);
         }
         if(this.assignmentPolicies && this.assignmentPolicies.length != 0){        const assignmentPoliciesArrValue: AccessPackageAssignmentPolicyImpl[] = []; this.assignmentPolicies?.forEach(element => {assignmentPoliciesArrValue.push(new AccessPackageAssignmentPolicyImpl(element));});
-        writer.writeCollectionOfObjectValues<AccessPackageAssignmentPolicyImpl>("assignmentPolicies", assignmentPoliciesArrValue);
+            writer.writeCollectionOfObjectValues<AccessPackageAssignmentPolicyImpl>("assignmentPolicies", assignmentPoliciesArrValue);
         }
         if(this.assignmentRequests && this.assignmentRequests.length != 0){        const assignmentRequestsArrValue: AccessPackageAssignmentRequestImpl[] = []; this.assignmentRequests?.forEach(element => {assignmentRequestsArrValue.push(new AccessPackageAssignmentRequestImpl(element));});
-        writer.writeCollectionOfObjectValues<AccessPackageAssignmentRequestImpl>("assignmentRequests", assignmentRequestsArrValue);
+            writer.writeCollectionOfObjectValues<AccessPackageAssignmentRequestImpl>("assignmentRequests", assignmentRequestsArrValue);
         }
         if(this.assignments && this.assignments.length != 0){        const assignmentsArrValue: AccessPackageAssignmentImpl[] = []; this.assignments?.forEach(element => {assignmentsArrValue.push(new AccessPackageAssignmentImpl(element));});
-        writer.writeCollectionOfObjectValues<AccessPackageAssignmentImpl>("assignments", assignmentsArrValue);
+            writer.writeCollectionOfObjectValues<AccessPackageAssignmentImpl>("assignments", assignmentsArrValue);
         }
         if(this.catalogs && this.catalogs.length != 0){        const catalogsArrValue: AccessPackageCatalogImpl[] = []; this.catalogs?.forEach(element => {catalogsArrValue.push(new AccessPackageCatalogImpl(element));});
-        writer.writeCollectionOfObjectValues<AccessPackageCatalogImpl>("catalogs", catalogsArrValue);
+            writer.writeCollectionOfObjectValues<AccessPackageCatalogImpl>("catalogs", catalogsArrValue);
         }
         if(this.connectedOrganizations && this.connectedOrganizations.length != 0){        const connectedOrganizationsArrValue: ConnectedOrganizationImpl[] = []; this.connectedOrganizations?.forEach(element => {connectedOrganizationsArrValue.push(new ConnectedOrganizationImpl(element));});
-        writer.writeCollectionOfObjectValues<ConnectedOrganizationImpl>("connectedOrganizations", connectedOrganizationsArrValue);
+            writer.writeCollectionOfObjectValues<ConnectedOrganizationImpl>("connectedOrganizations", connectedOrganizationsArrValue);
         }
         if(this.settings){
-        writer.writeObjectValue<EntitlementManagementSettingsImpl>("settings", new EntitlementManagementSettingsImpl(this.settings));
+            writer.writeObjectValue<EntitlementManagementSettingsImpl>("settings", new EntitlementManagementSettingsImpl(this.settings));
         }
     };
 }

@@ -1,7 +1,7 @@
 import {DirectRoutingLogRow} from './directRoutingLogRow';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class DirectRoutingLogRowImpl implements AdditionalDataHolder, DirectRoutingLogRow, Parsable {
+export class DirectRoutingLogRowImpl implements DirectRoutingLogRow {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Number of the user or bot who received the call. E.164 format, but may include additional data. */
@@ -51,28 +51,28 @@ export class DirectRoutingLogRowImpl implements AdditionalDataHolder, DirectRout
      * @param directRoutingLogRowParameterValue 
      */
     public constructor(directRoutingLogRowParameterValue?: DirectRoutingLogRow | undefined) {
-        this.additionalData = directRoutingLogRowParameterValue?.additionalData ? directRoutingLogRowParameterValue?.additionalData! : {}
-        this.calleeNumber = directRoutingLogRowParameterValue?.calleeNumber ;
-        this.callEndSubReason = directRoutingLogRowParameterValue?.callEndSubReason ;
-        this.callerNumber = directRoutingLogRowParameterValue?.callerNumber ;
-        this.callType = directRoutingLogRowParameterValue?.callType ;
-        this.correlationId = directRoutingLogRowParameterValue?.correlationId ;
-        this.duration = directRoutingLogRowParameterValue?.duration ;
-        this.endDateTime = directRoutingLogRowParameterValue?.endDateTime ;
-        this.failureDateTime = directRoutingLogRowParameterValue?.failureDateTime ;
-        this.finalSipCode = directRoutingLogRowParameterValue?.finalSipCode ;
-        this.finalSipCodePhrase = directRoutingLogRowParameterValue?.finalSipCodePhrase ;
-        this.id = directRoutingLogRowParameterValue?.id ;
-        this.inviteDateTime = directRoutingLogRowParameterValue?.inviteDateTime ;
-        this.mediaBypassEnabled = directRoutingLogRowParameterValue?.mediaBypassEnabled ;
-        this.mediaPathLocation = directRoutingLogRowParameterValue?.mediaPathLocation ;
-        this.signalingLocation = directRoutingLogRowParameterValue?.signalingLocation ;
-        this.startDateTime = directRoutingLogRowParameterValue?.startDateTime ;
-        this.successfulCall = directRoutingLogRowParameterValue?.successfulCall ;
-        this.trunkFullyQualifiedDomainName = directRoutingLogRowParameterValue?.trunkFullyQualifiedDomainName ;
-        this.userDisplayName = directRoutingLogRowParameterValue?.userDisplayName ;
-        this.userId = directRoutingLogRowParameterValue?.userId ;
-        this.userPrincipalName = directRoutingLogRowParameterValue?.userPrincipalName ;
+        this.additionalData = directRoutingLogRowParameterValue?.additionalData ? directRoutingLogRowParameterValue?.additionalData! : {};
+        this.calleeNumber = directRoutingLogRowParameterValue?.calleeNumber;
+        this.callEndSubReason = directRoutingLogRowParameterValue?.callEndSubReason;
+        this.callerNumber = directRoutingLogRowParameterValue?.callerNumber;
+        this.callType = directRoutingLogRowParameterValue?.callType;
+        this.correlationId = directRoutingLogRowParameterValue?.correlationId;
+        this.duration = directRoutingLogRowParameterValue?.duration;
+        this.endDateTime = directRoutingLogRowParameterValue?.endDateTime;
+        this.failureDateTime = directRoutingLogRowParameterValue?.failureDateTime;
+        this.finalSipCode = directRoutingLogRowParameterValue?.finalSipCode;
+        this.finalSipCodePhrase = directRoutingLogRowParameterValue?.finalSipCodePhrase;
+        this.id = directRoutingLogRowParameterValue?.id;
+        this.inviteDateTime = directRoutingLogRowParameterValue?.inviteDateTime;
+        this.mediaBypassEnabled = directRoutingLogRowParameterValue?.mediaBypassEnabled;
+        this.mediaPathLocation = directRoutingLogRowParameterValue?.mediaPathLocation;
+        this.signalingLocation = directRoutingLogRowParameterValue?.signalingLocation;
+        this.startDateTime = directRoutingLogRowParameterValue?.startDateTime;
+        this.successfulCall = directRoutingLogRowParameterValue?.successfulCall;
+        this.trunkFullyQualifiedDomainName = directRoutingLogRowParameterValue?.trunkFullyQualifiedDomainName;
+        this.userDisplayName = directRoutingLogRowParameterValue?.userDisplayName;
+        this.userId = directRoutingLogRowParameterValue?.userId;
+        this.userPrincipalName = directRoutingLogRowParameterValue?.userPrincipalName;
     };
     /**
      * The deserialization information for the current model
@@ -110,67 +110,67 @@ export class DirectRoutingLogRowImpl implements AdditionalDataHolder, DirectRout
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.calleeNumber){
-        writer.writeStringValue("calleeNumber", this.calleeNumber);
+            writer.writeStringValue("calleeNumber", this.calleeNumber);
         }
         if(this.callEndSubReason){
-        writer.writeNumberValue("callEndSubReason", this.callEndSubReason);
+            writer.writeNumberValue("callEndSubReason", this.callEndSubReason);
         }
         if(this.callerNumber){
-        writer.writeStringValue("callerNumber", this.callerNumber);
+            writer.writeStringValue("callerNumber", this.callerNumber);
         }
         if(this.callType){
-        writer.writeStringValue("callType", this.callType);
+            writer.writeStringValue("callType", this.callType);
         }
         if(this.correlationId){
-        writer.writeStringValue("correlationId", this.correlationId);
+            writer.writeStringValue("correlationId", this.correlationId);
         }
         if(this.duration){
-        writer.writeNumberValue("duration", this.duration);
+            writer.writeNumberValue("duration", this.duration);
         }
         if(this.endDateTime){
-        writer.writeDateValue("endDateTime", this.endDateTime);
+            writer.writeDateValue("endDateTime", this.endDateTime);
         }
         if(this.failureDateTime){
-        writer.writeDateValue("failureDateTime", this.failureDateTime);
+            writer.writeDateValue("failureDateTime", this.failureDateTime);
         }
         if(this.finalSipCode){
-        writer.writeNumberValue("finalSipCode", this.finalSipCode);
+            writer.writeNumberValue("finalSipCode", this.finalSipCode);
         }
         if(this.finalSipCodePhrase){
-        writer.writeStringValue("finalSipCodePhrase", this.finalSipCodePhrase);
+            writer.writeStringValue("finalSipCodePhrase", this.finalSipCodePhrase);
         }
         if(this.id){
-        writer.writeStringValue("id", this.id);
+            writer.writeStringValue("id", this.id);
         }
         if(this.inviteDateTime){
-        writer.writeDateValue("inviteDateTime", this.inviteDateTime);
+            writer.writeDateValue("inviteDateTime", this.inviteDateTime);
         }
         if(this.mediaBypassEnabled){
-        writer.writeBooleanValue("mediaBypassEnabled", this.mediaBypassEnabled);
+            writer.writeBooleanValue("mediaBypassEnabled", this.mediaBypassEnabled);
         }
         if(this.mediaPathLocation){
-        writer.writeStringValue("mediaPathLocation", this.mediaPathLocation);
+            writer.writeStringValue("mediaPathLocation", this.mediaPathLocation);
         }
         if(this.signalingLocation){
-        writer.writeStringValue("signalingLocation", this.signalingLocation);
+            writer.writeStringValue("signalingLocation", this.signalingLocation);
         }
         if(this.startDateTime){
-        writer.writeDateValue("startDateTime", this.startDateTime);
+            writer.writeDateValue("startDateTime", this.startDateTime);
         }
         if(this.successfulCall){
-        writer.writeBooleanValue("successfulCall", this.successfulCall);
+            writer.writeBooleanValue("successfulCall", this.successfulCall);
         }
         if(this.trunkFullyQualifiedDomainName){
-        writer.writeStringValue("trunkFullyQualifiedDomainName", this.trunkFullyQualifiedDomainName);
+            writer.writeStringValue("trunkFullyQualifiedDomainName", this.trunkFullyQualifiedDomainName);
         }
         if(this.userDisplayName){
-        writer.writeStringValue("userDisplayName", this.userDisplayName);
+            writer.writeStringValue("userDisplayName", this.userDisplayName);
         }
         if(this.userId){
-        writer.writeStringValue("userId", this.userId);
+            writer.writeStringValue("userId", this.userId);
         }
         if(this.userPrincipalName){
-        writer.writeStringValue("userPrincipalName", this.userPrincipalName);
+            writer.writeStringValue("userPrincipalName", this.userPrincipalName);
         }
         writer.writeAdditionalData(this.additionalData);
     };

@@ -6,7 +6,7 @@ import {PublicErrorDetail} from './publicErrorDetail';
 import {PublicInnerError} from './publicInnerError';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class PublicErrorImpl implements AdditionalDataHolder, Parsable, PublicError {
+export class PublicErrorImpl implements PublicError {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Represents the error code. */
@@ -24,12 +24,12 @@ export class PublicErrorImpl implements AdditionalDataHolder, Parsable, PublicEr
      * @param publicErrorParameterValue 
      */
     public constructor(publicErrorParameterValue?: PublicError | undefined) {
-        this.additionalData = publicErrorParameterValue?.additionalData ? publicErrorParameterValue?.additionalData! : {}
-        this.code = publicErrorParameterValue?.code ;
-        this.details = publicErrorParameterValue?.details ;
-        this.innerError = publicErrorParameterValue?.innerError ;
-        this.message = publicErrorParameterValue?.message ;
-        this.target = publicErrorParameterValue?.target ;
+        this.additionalData = publicErrorParameterValue?.additionalData ? publicErrorParameterValue?.additionalData! : {};
+        this.code = publicErrorParameterValue?.code;
+        this.details = publicErrorParameterValue?.details;
+        this.innerError = publicErrorParameterValue?.innerError;
+        this.message = publicErrorParameterValue?.message;
+        this.target = publicErrorParameterValue?.target;
     };
     /**
      * The deserialization information for the current model
@@ -51,19 +51,19 @@ export class PublicErrorImpl implements AdditionalDataHolder, Parsable, PublicEr
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.code){
-        writer.writeStringValue("code", this.code);
+            writer.writeStringValue("code", this.code);
         }
         if(this.details && this.details.length != 0){        const detailsArrValue: PublicErrorDetailImpl[] = []; this.details?.forEach(element => {detailsArrValue.push(new PublicErrorDetailImpl(element));});
-        writer.writeCollectionOfObjectValues<PublicErrorDetailImpl>("details", detailsArrValue);
+            writer.writeCollectionOfObjectValues<PublicErrorDetailImpl>("details", detailsArrValue);
         }
         if(this.innerError){
-        writer.writeObjectValue<PublicInnerErrorImpl>("innerError", new PublicInnerErrorImpl(this.innerError));
+            writer.writeObjectValue<PublicInnerErrorImpl>("innerError", new PublicInnerErrorImpl(this.innerError));
         }
         if(this.message){
-        writer.writeStringValue("message", this.message);
+            writer.writeStringValue("message", this.message);
         }
         if(this.target){
-        writer.writeStringValue("target", this.target);
+            writer.writeStringValue("target", this.target);
         }
         writer.writeAdditionalData(this.additionalData);
     };

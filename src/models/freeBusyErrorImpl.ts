@@ -1,7 +1,7 @@
 import {FreeBusyError} from './freeBusyError';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class FreeBusyErrorImpl implements AdditionalDataHolder, FreeBusyError, Parsable {
+export class FreeBusyErrorImpl implements FreeBusyError {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Describes the error. */
@@ -13,9 +13,9 @@ export class FreeBusyErrorImpl implements AdditionalDataHolder, FreeBusyError, P
      * @param freeBusyErrorParameterValue 
      */
     public constructor(freeBusyErrorParameterValue?: FreeBusyError | undefined) {
-        this.additionalData = freeBusyErrorParameterValue?.additionalData ? freeBusyErrorParameterValue?.additionalData! : {}
-        this.message = freeBusyErrorParameterValue?.message ;
-        this.responseCode = freeBusyErrorParameterValue?.responseCode ;
+        this.additionalData = freeBusyErrorParameterValue?.additionalData ? freeBusyErrorParameterValue?.additionalData! : {};
+        this.message = freeBusyErrorParameterValue?.message;
+        this.responseCode = freeBusyErrorParameterValue?.responseCode;
     };
     /**
      * The deserialization information for the current model
@@ -34,10 +34,10 @@ export class FreeBusyErrorImpl implements AdditionalDataHolder, FreeBusyError, P
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.message){
-        writer.writeStringValue("message", this.message);
+            writer.writeStringValue("message", this.message);
         }
         if(this.responseCode){
-        writer.writeStringValue("responseCode", this.responseCode);
+            writer.writeStringValue("responseCode", this.responseCode);
         }
         writer.writeAdditionalData(this.additionalData);
     };

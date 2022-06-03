@@ -1,11 +1,11 @@
 import {CalendarGroupItemRequestBuilderGetQueryParameters} from './calendarGroupItemRequestBuilderGetQueryParameters';
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
-export interface CalendarGroupItemRequestBuilderGetRequestConfiguration{
+export interface CalendarGroupItemRequestBuilderGetRequestConfiguration {
     /** Request headers */
-    headers?:Record<string, string> | undefined;
+    headers?: Record<string, string> | undefined;
     /** Request options */
-    options?:RequestOption[] | undefined;
+    options?: RequestOption[] | undefined;
     /** Request query parameters */
-    queryParameters?:CalendarGroupItemRequestBuilderGetQueryParameters | undefined;
+    queryParameters?: CalendarGroupItemRequestBuilderGetQueryParameters | undefined;
 }

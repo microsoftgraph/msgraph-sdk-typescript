@@ -1,7 +1,7 @@
 import {SubjectSet} from './subjectSet';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class SubjectSetImpl implements AdditionalDataHolder, Parsable, SubjectSet {
+export class SubjectSetImpl implements SubjectSet {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /**
@@ -9,7 +9,7 @@ export class SubjectSetImpl implements AdditionalDataHolder, Parsable, SubjectSe
      * @param subjectSetParameterValue 
      */
     public constructor(subjectSetParameterValue?: SubjectSet | undefined) {
-        this.additionalData = subjectSetParameterValue?.additionalData ? subjectSetParameterValue?.additionalData! : {}
+        this.additionalData = subjectSetParameterValue?.additionalData ? subjectSetParameterValue?.additionalData! : {};
     };
     /**
      * The deserialization information for the current model

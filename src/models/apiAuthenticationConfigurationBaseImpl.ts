@@ -1,7 +1,7 @@
 import {ApiAuthenticationConfigurationBase} from './apiAuthenticationConfigurationBase';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ApiAuthenticationConfigurationBaseImpl implements AdditionalDataHolder, ApiAuthenticationConfigurationBase, Parsable {
+export class ApiAuthenticationConfigurationBaseImpl implements ApiAuthenticationConfigurationBase {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /**
@@ -9,7 +9,7 @@ export class ApiAuthenticationConfigurationBaseImpl implements AdditionalDataHol
      * @param apiAuthenticationConfigurationBaseParameterValue 
      */
     public constructor(apiAuthenticationConfigurationBaseParameterValue?: ApiAuthenticationConfigurationBase | undefined) {
-        this.additionalData = apiAuthenticationConfigurationBaseParameterValue?.additionalData ? apiAuthenticationConfigurationBaseParameterValue?.additionalData! : {}
+        this.additionalData = apiAuthenticationConfigurationBaseParameterValue?.additionalData ? apiAuthenticationConfigurationBaseParameterValue?.additionalData! : {};
     };
     /**
      * The deserialization information for the current model

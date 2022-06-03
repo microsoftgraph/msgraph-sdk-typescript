@@ -22,7 +22,7 @@ export class FilterByCurrentUserWithOnRequestBuilder {
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/roleManagement/entitlementManagement/roleAssignmentSchedules/microsoft.graph.filterByCurrentUser(on='{on}')";
         const urlTplParams = getPathParameters(pathParameters);
-        urlTplParams[""] = on
+        urlTplParams["on"] = on
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };

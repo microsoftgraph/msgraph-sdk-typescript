@@ -17,7 +17,7 @@ import {TodoTask} from './todoTask';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Casts the previous resource to user. */
-export class TodoTaskImpl extends EntityImpl implements Parsable, TodoTask {
+export class TodoTaskImpl extends EntityImpl implements TodoTask {
     /** The task body that typically contains information about the task. */
     public body?: ItemBody | undefined;
     /** The date and time when the task was last modified. By default, it is in UTC. You can provide a custom time zone in the request header. The property value uses ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2020 would look like this: '2020-01-01T00:00:00Z'. */
@@ -55,23 +55,23 @@ export class TodoTaskImpl extends EntityImpl implements Parsable, TodoTask {
      * @param todoTaskParameterValue 
      */
     public constructor(todoTaskParameterValue?: TodoTask | undefined) {
-        super();
-        this.body = todoTaskParameterValue?.body ;
-        this.bodyLastModifiedDateTime = todoTaskParameterValue?.bodyLastModifiedDateTime ;
-        this.categories = todoTaskParameterValue?.categories ;
-        this.checklistItems = todoTaskParameterValue?.checklistItems ;
-        this.completedDateTime = todoTaskParameterValue?.completedDateTime ;
-        this.createdDateTime = todoTaskParameterValue?.createdDateTime ;
-        this.dueDateTime = todoTaskParameterValue?.dueDateTime ;
-        this.extensions = todoTaskParameterValue?.extensions ;
-        this.importance = todoTaskParameterValue?.importance ;
-        this.isReminderOn = todoTaskParameterValue?.isReminderOn ;
-        this.lastModifiedDateTime = todoTaskParameterValue?.lastModifiedDateTime ;
-        this.linkedResources = todoTaskParameterValue?.linkedResources ;
-        this.recurrence = todoTaskParameterValue?.recurrence ;
-        this.reminderDateTime = todoTaskParameterValue?.reminderDateTime ;
-        this.status = todoTaskParameterValue?.status ;
-        this.title = todoTaskParameterValue?.title ;
+        super(todoTaskParameterValue);
+        this.body = todoTaskParameterValue?.body;
+        this.bodyLastModifiedDateTime = todoTaskParameterValue?.bodyLastModifiedDateTime;
+        this.categories = todoTaskParameterValue?.categories;
+        this.checklistItems = todoTaskParameterValue?.checklistItems;
+        this.completedDateTime = todoTaskParameterValue?.completedDateTime;
+        this.createdDateTime = todoTaskParameterValue?.createdDateTime;
+        this.dueDateTime = todoTaskParameterValue?.dueDateTime;
+        this.extensions = todoTaskParameterValue?.extensions;
+        this.importance = todoTaskParameterValue?.importance;
+        this.isReminderOn = todoTaskParameterValue?.isReminderOn;
+        this.lastModifiedDateTime = todoTaskParameterValue?.lastModifiedDateTime;
+        this.linkedResources = todoTaskParameterValue?.linkedResources;
+        this.recurrence = todoTaskParameterValue?.recurrence;
+        this.reminderDateTime = todoTaskParameterValue?.reminderDateTime;
+        this.status = todoTaskParameterValue?.status;
+        this.title = todoTaskParameterValue?.title;
     };
     /**
      * The deserialization information for the current model
@@ -105,52 +105,52 @@ export class TodoTaskImpl extends EntityImpl implements Parsable, TodoTask {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.body){
-        writer.writeObjectValue<ItemBodyImpl>("body", new ItemBodyImpl(this.body));
+            writer.writeObjectValue<ItemBodyImpl>("body", new ItemBodyImpl(this.body));
         }
         if(this.bodyLastModifiedDateTime){
-        writer.writeDateValue("bodyLastModifiedDateTime", this.bodyLastModifiedDateTime);
+            writer.writeDateValue("bodyLastModifiedDateTime", this.bodyLastModifiedDateTime);
         }
         if(this.categories){
-        writer.writeCollectionOfPrimitiveValues<string>("categories", this.categories);
+            writer.writeCollectionOfPrimitiveValues<string>("categories", this.categories);
         }
         if(this.checklistItems && this.checklistItems.length != 0){        const checklistItemsArrValue: ChecklistItemImpl[] = []; this.checklistItems?.forEach(element => {checklistItemsArrValue.push(new ChecklistItemImpl(element));});
-        writer.writeCollectionOfObjectValues<ChecklistItemImpl>("checklistItems", checklistItemsArrValue);
+            writer.writeCollectionOfObjectValues<ChecklistItemImpl>("checklistItems", checklistItemsArrValue);
         }
         if(this.completedDateTime){
-        writer.writeObjectValue<DateTimeTimeZoneImpl>("completedDateTime", new DateTimeTimeZoneImpl(this.completedDateTime));
+            writer.writeObjectValue<DateTimeTimeZoneImpl>("completedDateTime", new DateTimeTimeZoneImpl(this.completedDateTime));
         }
         if(this.createdDateTime){
-        writer.writeDateValue("createdDateTime", this.createdDateTime);
+            writer.writeDateValue("createdDateTime", this.createdDateTime);
         }
         if(this.dueDateTime){
-        writer.writeObjectValue<DateTimeTimeZoneImpl>("dueDateTime", new DateTimeTimeZoneImpl(this.dueDateTime));
+            writer.writeObjectValue<DateTimeTimeZoneImpl>("dueDateTime", new DateTimeTimeZoneImpl(this.dueDateTime));
         }
         if(this.extensions && this.extensions.length != 0){        const extensionsArrValue: ExtensionImpl[] = []; this.extensions?.forEach(element => {extensionsArrValue.push(new ExtensionImpl(element));});
-        writer.writeCollectionOfObjectValues<ExtensionImpl>("extensions", extensionsArrValue);
+            writer.writeCollectionOfObjectValues<ExtensionImpl>("extensions", extensionsArrValue);
         }
         if(this.importance){
-        writer.writeEnumValue<Importance>("importance", this.importance);
+            writer.writeEnumValue<Importance>("importance", this.importance);
         }
         if(this.isReminderOn){
-        writer.writeBooleanValue("isReminderOn", this.isReminderOn);
+            writer.writeBooleanValue("isReminderOn", this.isReminderOn);
         }
         if(this.lastModifiedDateTime){
-        writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
+            writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
         }
         if(this.linkedResources && this.linkedResources.length != 0){        const linkedResourcesArrValue: LinkedResourceImpl[] = []; this.linkedResources?.forEach(element => {linkedResourcesArrValue.push(new LinkedResourceImpl(element));});
-        writer.writeCollectionOfObjectValues<LinkedResourceImpl>("linkedResources", linkedResourcesArrValue);
+            writer.writeCollectionOfObjectValues<LinkedResourceImpl>("linkedResources", linkedResourcesArrValue);
         }
         if(this.recurrence){
-        writer.writeObjectValue<PatternedRecurrenceImpl>("recurrence", new PatternedRecurrenceImpl(this.recurrence));
+            writer.writeObjectValue<PatternedRecurrenceImpl>("recurrence", new PatternedRecurrenceImpl(this.recurrence));
         }
         if(this.reminderDateTime){
-        writer.writeObjectValue<DateTimeTimeZoneImpl>("reminderDateTime", new DateTimeTimeZoneImpl(this.reminderDateTime));
+            writer.writeObjectValue<DateTimeTimeZoneImpl>("reminderDateTime", new DateTimeTimeZoneImpl(this.reminderDateTime));
         }
         if(this.status){
-        writer.writeEnumValue<TaskStatus>("status", this.status);
+            writer.writeEnumValue<TaskStatus>("status", this.status);
         }
         if(this.title){
-        writer.writeStringValue("title", this.title);
+            writer.writeStringValue("title", this.title);
         }
     };
 }

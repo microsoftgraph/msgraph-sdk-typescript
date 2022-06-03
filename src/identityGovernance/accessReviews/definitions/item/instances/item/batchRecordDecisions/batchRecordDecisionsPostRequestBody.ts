@@ -1,13 +1,14 @@
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface BatchRecordDecisionsPostRequestBody{
+export interface BatchRecordDecisionsPostRequestBody extends Partial<AdditionalDataHolder>, Partial<Parsable> {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?:Record<string, unknown>;
+    additionalData?: Record<string, unknown>;
     /** The decision property */
-    decision?:string | undefined;
+    decision?: string | undefined;
     /** The justification property */
-    justification?:string | undefined;
+    justification?: string | undefined;
     /** The principalId property */
-    principalId?:string | undefined;
+    principalId?: string | undefined;
     /** The resourceId property */
-    resourceId?:string | undefined;
+    resourceId?: string | undefined;
 }

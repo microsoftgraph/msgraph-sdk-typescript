@@ -1,11 +1,12 @@
 import {Entity} from './entity';
 import {WorkbookSortField} from './workbookSortField';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface WorkbookTableSort extends Entity{
+export interface WorkbookTableSort extends Entity, Partial<Parsable> {
     /** Represents the current conditions used to last sort the table. Read-only. */
-    fields?:WorkbookSortField[] | undefined;
+    fields?: WorkbookSortField[] | undefined;
     /** Represents whether the casing impacted the last sort of the table. Read-only. */
-    matchCase?:boolean | undefined;
+    matchCase?: boolean | undefined;
     /** Represents Chinese character ordering method last used to sort the table. Possible values are: PinYin, StrokeCount. Read-only. */
-    method?:string | undefined;
+    method?: string | undefined;
 }

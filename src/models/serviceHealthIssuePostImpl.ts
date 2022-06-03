@@ -5,7 +5,7 @@ import {PostType} from './postType';
 import {ServiceHealthIssuePost} from './serviceHealthIssuePost';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ServiceHealthIssuePostImpl implements AdditionalDataHolder, Parsable, ServiceHealthIssuePost {
+export class ServiceHealthIssuePostImpl implements ServiceHealthIssuePost {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The published time of the post. */
@@ -19,10 +19,10 @@ export class ServiceHealthIssuePostImpl implements AdditionalDataHolder, Parsabl
      * @param serviceHealthIssuePostParameterValue 
      */
     public constructor(serviceHealthIssuePostParameterValue?: ServiceHealthIssuePost | undefined) {
-        this.additionalData = serviceHealthIssuePostParameterValue?.additionalData ? serviceHealthIssuePostParameterValue?.additionalData! : {}
-        this.createdDateTime = serviceHealthIssuePostParameterValue?.createdDateTime ;
-        this.description = serviceHealthIssuePostParameterValue?.description ;
-        this.postType = serviceHealthIssuePostParameterValue?.postType ;
+        this.additionalData = serviceHealthIssuePostParameterValue?.additionalData ? serviceHealthIssuePostParameterValue?.additionalData! : {};
+        this.createdDateTime = serviceHealthIssuePostParameterValue?.createdDateTime;
+        this.description = serviceHealthIssuePostParameterValue?.description;
+        this.postType = serviceHealthIssuePostParameterValue?.postType;
     };
     /**
      * The deserialization information for the current model
@@ -42,13 +42,13 @@ export class ServiceHealthIssuePostImpl implements AdditionalDataHolder, Parsabl
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.createdDateTime){
-        writer.writeDateValue("createdDateTime", this.createdDateTime);
+            writer.writeDateValue("createdDateTime", this.createdDateTime);
         }
         if(this.description){
-        writer.writeObjectValue<ItemBodyImpl>("description", new ItemBodyImpl(this.description));
+            writer.writeObjectValue<ItemBodyImpl>("description", new ItemBodyImpl(this.description));
         }
         if(this.postType){
-        writer.writeEnumValue<PostType>("postType", this.postType);
+            writer.writeEnumValue<PostType>("postType", this.postType);
         }
         writer.writeAdditionalData(this.additionalData);
     };

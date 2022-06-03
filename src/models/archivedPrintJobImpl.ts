@@ -5,7 +5,7 @@ import {PrintJobProcessingState} from './printJobProcessingState';
 import {UserIdentity} from './userIdentity';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ArchivedPrintJobImpl implements AdditionalDataHolder, ArchivedPrintJob, Parsable {
+export class ArchivedPrintJobImpl implements ArchivedPrintJob {
     /** True if the job was acquired by a printer; false otherwise. Read-only. */
     public acquiredByPrinter?: boolean | undefined;
     /** The dateTimeOffset when the job was acquired by the printer, if any. Read-only. */
@@ -31,16 +31,16 @@ export class ArchivedPrintJobImpl implements AdditionalDataHolder, ArchivedPrint
      * @param archivedPrintJobParameterValue 
      */
     public constructor(archivedPrintJobParameterValue?: ArchivedPrintJob | undefined) {
-        this.acquiredByPrinter = archivedPrintJobParameterValue?.acquiredByPrinter ;
-        this.acquiredDateTime = archivedPrintJobParameterValue?.acquiredDateTime ;
-        this.additionalData = archivedPrintJobParameterValue?.additionalData ? archivedPrintJobParameterValue?.additionalData! : {}
-        this.completionDateTime = archivedPrintJobParameterValue?.completionDateTime ;
-        this.copiesPrinted = archivedPrintJobParameterValue?.copiesPrinted ;
-        this.createdBy = archivedPrintJobParameterValue?.createdBy ;
-        this.createdDateTime = archivedPrintJobParameterValue?.createdDateTime ;
-        this.id = archivedPrintJobParameterValue?.id ;
-        this.printerId = archivedPrintJobParameterValue?.printerId ;
-        this.processingState = archivedPrintJobParameterValue?.processingState ;
+        this.acquiredByPrinter = archivedPrintJobParameterValue?.acquiredByPrinter;
+        this.acquiredDateTime = archivedPrintJobParameterValue?.acquiredDateTime;
+        this.additionalData = archivedPrintJobParameterValue?.additionalData ? archivedPrintJobParameterValue?.additionalData! : {};
+        this.completionDateTime = archivedPrintJobParameterValue?.completionDateTime;
+        this.copiesPrinted = archivedPrintJobParameterValue?.copiesPrinted;
+        this.createdBy = archivedPrintJobParameterValue?.createdBy;
+        this.createdDateTime = archivedPrintJobParameterValue?.createdDateTime;
+        this.id = archivedPrintJobParameterValue?.id;
+        this.printerId = archivedPrintJobParameterValue?.printerId;
+        this.processingState = archivedPrintJobParameterValue?.processingState;
     };
     /**
      * The deserialization information for the current model
@@ -66,31 +66,31 @@ export class ArchivedPrintJobImpl implements AdditionalDataHolder, ArchivedPrint
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.acquiredByPrinter){
-        writer.writeBooleanValue("acquiredByPrinter", this.acquiredByPrinter);
+            writer.writeBooleanValue("acquiredByPrinter", this.acquiredByPrinter);
         }
         if(this.acquiredDateTime){
-        writer.writeDateValue("acquiredDateTime", this.acquiredDateTime);
+            writer.writeDateValue("acquiredDateTime", this.acquiredDateTime);
         }
         if(this.completionDateTime){
-        writer.writeDateValue("completionDateTime", this.completionDateTime);
+            writer.writeDateValue("completionDateTime", this.completionDateTime);
         }
         if(this.copiesPrinted){
-        writer.writeNumberValue("copiesPrinted", this.copiesPrinted);
+            writer.writeNumberValue("copiesPrinted", this.copiesPrinted);
         }
         if(this.createdBy){
-        writer.writeObjectValue<UserIdentityImpl>("createdBy", new UserIdentityImpl(this.createdBy));
+            writer.writeObjectValue<UserIdentityImpl>("createdBy", new UserIdentityImpl(this.createdBy));
         }
         if(this.createdDateTime){
-        writer.writeDateValue("createdDateTime", this.createdDateTime);
+            writer.writeDateValue("createdDateTime", this.createdDateTime);
         }
         if(this.id){
-        writer.writeStringValue("id", this.id);
+            writer.writeStringValue("id", this.id);
         }
         if(this.printerId){
-        writer.writeStringValue("printerId", this.printerId);
+            writer.writeStringValue("printerId", this.printerId);
         }
         if(this.processingState){
-        writer.writeEnumValue<PrintJobProcessingState>("processingState", this.processingState);
+            writer.writeEnumValue<PrintJobProcessingState>("processingState", this.processingState);
         }
         writer.writeAdditionalData(this.additionalData);
     };

@@ -1,7 +1,7 @@
 import {IntegerRange} from './integerRange';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class IntegerRangeImpl implements AdditionalDataHolder, IntegerRange, Parsable {
+export class IntegerRangeImpl implements IntegerRange {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The inclusive upper bound of the integer range. */
@@ -13,9 +13,9 @@ export class IntegerRangeImpl implements AdditionalDataHolder, IntegerRange, Par
      * @param integerRangeParameterValue 
      */
     public constructor(integerRangeParameterValue?: IntegerRange | undefined) {
-        this.additionalData = integerRangeParameterValue?.additionalData ? integerRangeParameterValue?.additionalData! : {}
-        this.end = integerRangeParameterValue?.end ;
-        this.start = integerRangeParameterValue?.start ;
+        this.additionalData = integerRangeParameterValue?.additionalData ? integerRangeParameterValue?.additionalData! : {};
+        this.end = integerRangeParameterValue?.end;
+        this.start = integerRangeParameterValue?.start;
     };
     /**
      * The deserialization information for the current model
@@ -34,10 +34,10 @@ export class IntegerRangeImpl implements AdditionalDataHolder, IntegerRange, Par
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.end){
-        writer.writeNumberValue("end", this.end);
+            writer.writeNumberValue("end", this.end);
         }
         if(this.start){
-        writer.writeNumberValue("start", this.start);
+            writer.writeNumberValue("start", this.start);
         }
         writer.writeAdditionalData(this.additionalData);
     };

@@ -4,7 +4,7 @@ import {ExternalLinkImpl} from './index';
 import {OnenotePagePreviewLinks} from './onenotePagePreviewLinks';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class OnenotePagePreviewLinksImpl implements AdditionalDataHolder, OnenotePagePreviewLinks, Parsable {
+export class OnenotePagePreviewLinksImpl implements OnenotePagePreviewLinks {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The previewImageUrl property */
@@ -14,8 +14,8 @@ export class OnenotePagePreviewLinksImpl implements AdditionalDataHolder, Onenot
      * @param onenotePagePreviewLinksParameterValue 
      */
     public constructor(onenotePagePreviewLinksParameterValue?: OnenotePagePreviewLinks | undefined) {
-        this.additionalData = onenotePagePreviewLinksParameterValue?.additionalData ? onenotePagePreviewLinksParameterValue?.additionalData! : {}
-        this.previewImageUrl = onenotePagePreviewLinksParameterValue?.previewImageUrl ;
+        this.additionalData = onenotePagePreviewLinksParameterValue?.additionalData ? onenotePagePreviewLinksParameterValue?.additionalData! : {};
+        this.previewImageUrl = onenotePagePreviewLinksParameterValue?.previewImageUrl;
     };
     /**
      * The deserialization information for the current model
@@ -33,7 +33,7 @@ export class OnenotePagePreviewLinksImpl implements AdditionalDataHolder, Onenot
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.previewImageUrl){
-        writer.writeObjectValue<ExternalLinkImpl>("previewImageUrl", new ExternalLinkImpl(this.previewImageUrl));
+            writer.writeObjectValue<ExternalLinkImpl>("previewImageUrl", new ExternalLinkImpl(this.previewImageUrl));
         }
         writer.writeAdditionalData(this.additionalData);
     };

@@ -13,7 +13,7 @@ import {ManagedDeviceMobileAppConfigurationUserSummary} from './managedDeviceMob
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** An abstract class for Mobile app configuration for enrolled devices. */
-export class ManagedDeviceMobileAppConfigurationImpl extends EntityImpl implements ManagedDeviceMobileAppConfiguration, Parsable {
+export class ManagedDeviceMobileAppConfigurationImpl extends EntityImpl implements ManagedDeviceMobileAppConfiguration {
     /** The list of group assignemenets for app configration. */
     public assignments?: ManagedDeviceMobileAppConfigurationAssignment[] | undefined;
     /** DateTime the object was created. */
@@ -41,18 +41,18 @@ export class ManagedDeviceMobileAppConfigurationImpl extends EntityImpl implemen
      * @param managedDeviceMobileAppConfigurationParameterValue 
      */
     public constructor(managedDeviceMobileAppConfigurationParameterValue?: ManagedDeviceMobileAppConfiguration | undefined) {
-        super();
-        this.assignments = managedDeviceMobileAppConfigurationParameterValue?.assignments ;
-        this.createdDateTime = managedDeviceMobileAppConfigurationParameterValue?.createdDateTime ;
-        this.description = managedDeviceMobileAppConfigurationParameterValue?.description ;
-        this.deviceStatuses = managedDeviceMobileAppConfigurationParameterValue?.deviceStatuses ;
-        this.deviceStatusSummary = managedDeviceMobileAppConfigurationParameterValue?.deviceStatusSummary ;
-        this.displayName = managedDeviceMobileAppConfigurationParameterValue?.displayName ;
-        this.lastModifiedDateTime = managedDeviceMobileAppConfigurationParameterValue?.lastModifiedDateTime ;
-        this.targetedMobileApps = managedDeviceMobileAppConfigurationParameterValue?.targetedMobileApps ;
-        this.userStatuses = managedDeviceMobileAppConfigurationParameterValue?.userStatuses ;
-        this.userStatusSummary = managedDeviceMobileAppConfigurationParameterValue?.userStatusSummary ;
-        this.version = managedDeviceMobileAppConfigurationParameterValue?.version ;
+        super(managedDeviceMobileAppConfigurationParameterValue);
+        this.assignments = managedDeviceMobileAppConfigurationParameterValue?.assignments;
+        this.createdDateTime = managedDeviceMobileAppConfigurationParameterValue?.createdDateTime;
+        this.description = managedDeviceMobileAppConfigurationParameterValue?.description;
+        this.deviceStatuses = managedDeviceMobileAppConfigurationParameterValue?.deviceStatuses;
+        this.deviceStatusSummary = managedDeviceMobileAppConfigurationParameterValue?.deviceStatusSummary;
+        this.displayName = managedDeviceMobileAppConfigurationParameterValue?.displayName;
+        this.lastModifiedDateTime = managedDeviceMobileAppConfigurationParameterValue?.lastModifiedDateTime;
+        this.targetedMobileApps = managedDeviceMobileAppConfigurationParameterValue?.targetedMobileApps;
+        this.userStatuses = managedDeviceMobileAppConfigurationParameterValue?.userStatuses;
+        this.userStatusSummary = managedDeviceMobileAppConfigurationParameterValue?.userStatusSummary;
+        this.version = managedDeviceMobileAppConfigurationParameterValue?.version;
     };
     /**
      * The deserialization information for the current model
@@ -81,37 +81,37 @@ export class ManagedDeviceMobileAppConfigurationImpl extends EntityImpl implemen
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.assignments && this.assignments.length != 0){        const assignmentsArrValue: ManagedDeviceMobileAppConfigurationAssignmentImpl[] = []; this.assignments?.forEach(element => {assignmentsArrValue.push(new ManagedDeviceMobileAppConfigurationAssignmentImpl(element));});
-        writer.writeCollectionOfObjectValues<ManagedDeviceMobileAppConfigurationAssignmentImpl>("assignments", assignmentsArrValue);
+            writer.writeCollectionOfObjectValues<ManagedDeviceMobileAppConfigurationAssignmentImpl>("assignments", assignmentsArrValue);
         }
         if(this.createdDateTime){
-        writer.writeDateValue("createdDateTime", this.createdDateTime);
+            writer.writeDateValue("createdDateTime", this.createdDateTime);
         }
         if(this.description){
-        writer.writeStringValue("description", this.description);
+            writer.writeStringValue("description", this.description);
         }
         if(this.deviceStatuses && this.deviceStatuses.length != 0){        const deviceStatusesArrValue: ManagedDeviceMobileAppConfigurationDeviceStatusImpl[] = []; this.deviceStatuses?.forEach(element => {deviceStatusesArrValue.push(new ManagedDeviceMobileAppConfigurationDeviceStatusImpl(element));});
-        writer.writeCollectionOfObjectValues<ManagedDeviceMobileAppConfigurationDeviceStatusImpl>("deviceStatuses", deviceStatusesArrValue);
+            writer.writeCollectionOfObjectValues<ManagedDeviceMobileAppConfigurationDeviceStatusImpl>("deviceStatuses", deviceStatusesArrValue);
         }
         if(this.deviceStatusSummary){
-        writer.writeObjectValue<ManagedDeviceMobileAppConfigurationDeviceSummaryImpl>("deviceStatusSummary", new ManagedDeviceMobileAppConfigurationDeviceSummaryImpl(this.deviceStatusSummary));
+            writer.writeObjectValue<ManagedDeviceMobileAppConfigurationDeviceSummaryImpl>("deviceStatusSummary", new ManagedDeviceMobileAppConfigurationDeviceSummaryImpl(this.deviceStatusSummary));
         }
         if(this.displayName){
-        writer.writeStringValue("displayName", this.displayName);
+            writer.writeStringValue("displayName", this.displayName);
         }
         if(this.lastModifiedDateTime){
-        writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
+            writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
         }
         if(this.targetedMobileApps){
-        writer.writeCollectionOfPrimitiveValues<string>("targetedMobileApps", this.targetedMobileApps);
+            writer.writeCollectionOfPrimitiveValues<string>("targetedMobileApps", this.targetedMobileApps);
         }
         if(this.userStatuses && this.userStatuses.length != 0){        const userStatusesArrValue: ManagedDeviceMobileAppConfigurationUserStatusImpl[] = []; this.userStatuses?.forEach(element => {userStatusesArrValue.push(new ManagedDeviceMobileAppConfigurationUserStatusImpl(element));});
-        writer.writeCollectionOfObjectValues<ManagedDeviceMobileAppConfigurationUserStatusImpl>("userStatuses", userStatusesArrValue);
+            writer.writeCollectionOfObjectValues<ManagedDeviceMobileAppConfigurationUserStatusImpl>("userStatuses", userStatusesArrValue);
         }
         if(this.userStatusSummary){
-        writer.writeObjectValue<ManagedDeviceMobileAppConfigurationUserSummaryImpl>("userStatusSummary", new ManagedDeviceMobileAppConfigurationUserSummaryImpl(this.userStatusSummary));
+            writer.writeObjectValue<ManagedDeviceMobileAppConfigurationUserSummaryImpl>("userStatusSummary", new ManagedDeviceMobileAppConfigurationUserSummaryImpl(this.userStatusSummary));
         }
         if(this.version){
-        writer.writeNumberValue("version", this.version);
+            writer.writeNumberValue("version", this.version);
         }
     };
 }

@@ -1,7 +1,7 @@
 import {PrivacyProfile} from './privacyProfile';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class PrivacyProfileImpl implements AdditionalDataHolder, Parsable, PrivacyProfile {
+export class PrivacyProfileImpl implements PrivacyProfile {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** A valid smtp email address for the privacy statement contact. Not required. */
@@ -13,9 +13,9 @@ export class PrivacyProfileImpl implements AdditionalDataHolder, Parsable, Priva
      * @param privacyProfileParameterValue 
      */
     public constructor(privacyProfileParameterValue?: PrivacyProfile | undefined) {
-        this.additionalData = privacyProfileParameterValue?.additionalData ? privacyProfileParameterValue?.additionalData! : {}
-        this.contactEmail = privacyProfileParameterValue?.contactEmail ;
-        this.statementUrl = privacyProfileParameterValue?.statementUrl ;
+        this.additionalData = privacyProfileParameterValue?.additionalData ? privacyProfileParameterValue?.additionalData! : {};
+        this.contactEmail = privacyProfileParameterValue?.contactEmail;
+        this.statementUrl = privacyProfileParameterValue?.statementUrl;
     };
     /**
      * The deserialization information for the current model
@@ -34,10 +34,10 @@ export class PrivacyProfileImpl implements AdditionalDataHolder, Parsable, Priva
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.contactEmail){
-        writer.writeStringValue("contactEmail", this.contactEmail);
+            writer.writeStringValue("contactEmail", this.contactEmail);
         }
         if(this.statementUrl){
-        writer.writeStringValue("statementUrl", this.statementUrl);
+            writer.writeStringValue("statementUrl", this.statementUrl);
         }
         writer.writeAdditionalData(this.additionalData);
     };

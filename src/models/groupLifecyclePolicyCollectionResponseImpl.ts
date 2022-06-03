@@ -4,7 +4,7 @@ import {GroupLifecyclePolicyCollectionResponse} from './groupLifecyclePolicyColl
 import {GroupLifecyclePolicyImpl} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class GroupLifecyclePolicyCollectionResponseImpl implements AdditionalDataHolder, GroupLifecyclePolicyCollectionResponse, Parsable {
+export class GroupLifecyclePolicyCollectionResponseImpl implements GroupLifecyclePolicyCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class GroupLifecyclePolicyCollectionResponseImpl implements AdditionalDat
      * @param groupLifecyclePolicyCollectionResponseParameterValue 
      */
     public constructor(groupLifecyclePolicyCollectionResponseParameterValue?: GroupLifecyclePolicyCollectionResponse | undefined) {
-        this.additionalData = groupLifecyclePolicyCollectionResponseParameterValue?.additionalData ? groupLifecyclePolicyCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = groupLifecyclePolicyCollectionResponseParameterValue?.nextLink ;
-        this.value = groupLifecyclePolicyCollectionResponseParameterValue?.value ;
+        this.additionalData = groupLifecyclePolicyCollectionResponseParameterValue?.additionalData ? groupLifecyclePolicyCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = groupLifecyclePolicyCollectionResponseParameterValue?.nextLink;
+        this.value = groupLifecyclePolicyCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class GroupLifecyclePolicyCollectionResponseImpl implements AdditionalDat
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: GroupLifecyclePolicyImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new GroupLifecyclePolicyImpl(element));});
-        writer.writeCollectionOfObjectValues<GroupLifecyclePolicyImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<GroupLifecyclePolicyImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

@@ -1,7 +1,7 @@
 import {Photo} from './photo';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class PhotoImpl implements AdditionalDataHolder, Parsable, Photo {
+export class PhotoImpl implements Photo {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Camera manufacturer. Read-only. */
@@ -27,16 +27,16 @@ export class PhotoImpl implements AdditionalDataHolder, Parsable, Photo {
      * @param photoParameterValue 
      */
     public constructor(photoParameterValue?: Photo | undefined) {
-        this.additionalData = photoParameterValue?.additionalData ? photoParameterValue?.additionalData! : {}
-        this.cameraMake = photoParameterValue?.cameraMake ;
-        this.cameraModel = photoParameterValue?.cameraModel ;
-        this.exposureDenominator = photoParameterValue?.exposureDenominator ;
-        this.exposureNumerator = photoParameterValue?.exposureNumerator ;
-        this.fNumber = photoParameterValue?.fNumber ;
-        this.focalLength = photoParameterValue?.focalLength ;
-        this.iso = photoParameterValue?.iso ;
-        this.orientation = photoParameterValue?.orientation ;
-        this.takenDateTime = photoParameterValue?.takenDateTime ;
+        this.additionalData = photoParameterValue?.additionalData ? photoParameterValue?.additionalData! : {};
+        this.cameraMake = photoParameterValue?.cameraMake;
+        this.cameraModel = photoParameterValue?.cameraModel;
+        this.exposureDenominator = photoParameterValue?.exposureDenominator;
+        this.exposureNumerator = photoParameterValue?.exposureNumerator;
+        this.fNumber = photoParameterValue?.fNumber;
+        this.focalLength = photoParameterValue?.focalLength;
+        this.iso = photoParameterValue?.iso;
+        this.orientation = photoParameterValue?.orientation;
+        this.takenDateTime = photoParameterValue?.takenDateTime;
     };
     /**
      * The deserialization information for the current model
@@ -62,31 +62,31 @@ export class PhotoImpl implements AdditionalDataHolder, Parsable, Photo {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.cameraMake){
-        writer.writeStringValue("cameraMake", this.cameraMake);
+            writer.writeStringValue("cameraMake", this.cameraMake);
         }
         if(this.cameraModel){
-        writer.writeStringValue("cameraModel", this.cameraModel);
+            writer.writeStringValue("cameraModel", this.cameraModel);
         }
         if(this.exposureDenominator){
-        writer.writeNumberValue("exposureDenominator", this.exposureDenominator);
+            writer.writeNumberValue("exposureDenominator", this.exposureDenominator);
         }
         if(this.exposureNumerator){
-        writer.writeNumberValue("exposureNumerator", this.exposureNumerator);
+            writer.writeNumberValue("exposureNumerator", this.exposureNumerator);
         }
         if(this.fNumber){
-        writer.writeNumberValue("fNumber", this.fNumber);
+            writer.writeNumberValue("fNumber", this.fNumber);
         }
         if(this.focalLength){
-        writer.writeNumberValue("focalLength", this.focalLength);
+            writer.writeNumberValue("focalLength", this.focalLength);
         }
         if(this.iso){
-        writer.writeNumberValue("iso", this.iso);
+            writer.writeNumberValue("iso", this.iso);
         }
         if(this.orientation){
-        writer.writeNumberValue("orientation", this.orientation);
+            writer.writeNumberValue("orientation", this.orientation);
         }
         if(this.takenDateTime){
-        writer.writeDateValue("takenDateTime", this.takenDateTime);
+            writer.writeDateValue("takenDateTime", this.takenDateTime);
         }
         writer.writeAdditionalData(this.additionalData);
     };

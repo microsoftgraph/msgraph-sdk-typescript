@@ -2,7 +2,7 @@ import {StopHoldMusicPostRequestBody} from './stopHoldMusicPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the stopHoldMusic method. */
-export class StopHoldMusicPostRequestBodyImpl implements AdditionalDataHolder, Parsable, StopHoldMusicPostRequestBody {
+export class StopHoldMusicPostRequestBodyImpl implements StopHoldMusicPostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The clientContext property */
@@ -12,8 +12,8 @@ export class StopHoldMusicPostRequestBodyImpl implements AdditionalDataHolder, P
      * @param stopHoldMusicPostRequestBodyParameterValue 
      */
     public constructor(stopHoldMusicPostRequestBodyParameterValue?: StopHoldMusicPostRequestBody | undefined) {
-        this.additionalData = stopHoldMusicPostRequestBodyParameterValue?.additionalData ? stopHoldMusicPostRequestBodyParameterValue?.additionalData! : {}
-        this.clientContext = stopHoldMusicPostRequestBodyParameterValue?.clientContext ;
+        this.additionalData = stopHoldMusicPostRequestBodyParameterValue?.additionalData ? stopHoldMusicPostRequestBodyParameterValue?.additionalData! : {};
+        this.clientContext = stopHoldMusicPostRequestBodyParameterValue?.clientContext;
     };
     /**
      * The deserialization information for the current model
@@ -31,7 +31,7 @@ export class StopHoldMusicPostRequestBodyImpl implements AdditionalDataHolder, P
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.clientContext){
-        writer.writeStringValue("clientContext", this.clientContext);
+            writer.writeStringValue("clientContext", this.clientContext);
         }
         writer.writeAdditionalData(this.additionalData);
     };

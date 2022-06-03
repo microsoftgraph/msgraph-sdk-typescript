@@ -3,7 +3,7 @@ import {UserIdentity} from './userIdentity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the auditLogRoot singleton. */
-export class UserIdentityImpl extends IdentityImpl implements Parsable, UserIdentity {
+export class UserIdentityImpl extends IdentityImpl implements UserIdentity {
     /** Indicates the client IP address used by user performing the activity (audit log only). */
     public ipAddress?: string | undefined;
     /** The userPrincipalName attribute of the user. */
@@ -13,9 +13,9 @@ export class UserIdentityImpl extends IdentityImpl implements Parsable, UserIden
      * @param userIdentityParameterValue 
      */
     public constructor(userIdentityParameterValue?: UserIdentity | undefined) {
-        super();
-        this.ipAddress = userIdentityParameterValue?.ipAddress ;
-        this.userPrincipalName = userIdentityParameterValue?.userPrincipalName ;
+        super(userIdentityParameterValue);
+        this.ipAddress = userIdentityParameterValue?.ipAddress;
+        this.userPrincipalName = userIdentityParameterValue?.userPrincipalName;
     };
     /**
      * The deserialization information for the current model
@@ -35,10 +35,10 @@ export class UserIdentityImpl extends IdentityImpl implements Parsable, UserIden
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.ipAddress){
-        writer.writeStringValue("ipAddress", this.ipAddress);
+            writer.writeStringValue("ipAddress", this.ipAddress);
         }
         if(this.userPrincipalName){
-        writer.writeStringValue("userPrincipalName", this.userPrincipalName);
+            writer.writeStringValue("userPrincipalName", this.userPrincipalName);
         }
     };
 }

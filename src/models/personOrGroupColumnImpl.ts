@@ -1,7 +1,7 @@
 import {PersonOrGroupColumn} from './personOrGroupColumn';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class PersonOrGroupColumnImpl implements AdditionalDataHolder, Parsable, PersonOrGroupColumn {
+export class PersonOrGroupColumnImpl implements PersonOrGroupColumn {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Indicates whether multiple values can be selected from the source. */
@@ -15,10 +15,10 @@ export class PersonOrGroupColumnImpl implements AdditionalDataHolder, Parsable, 
      * @param personOrGroupColumnParameterValue 
      */
     public constructor(personOrGroupColumnParameterValue?: PersonOrGroupColumn | undefined) {
-        this.additionalData = personOrGroupColumnParameterValue?.additionalData ? personOrGroupColumnParameterValue?.additionalData! : {}
-        this.allowMultipleSelection = personOrGroupColumnParameterValue?.allowMultipleSelection ;
-        this.chooseFromType = personOrGroupColumnParameterValue?.chooseFromType ;
-        this.displayAs = personOrGroupColumnParameterValue?.displayAs ;
+        this.additionalData = personOrGroupColumnParameterValue?.additionalData ? personOrGroupColumnParameterValue?.additionalData! : {};
+        this.allowMultipleSelection = personOrGroupColumnParameterValue?.allowMultipleSelection;
+        this.chooseFromType = personOrGroupColumnParameterValue?.chooseFromType;
+        this.displayAs = personOrGroupColumnParameterValue?.displayAs;
     };
     /**
      * The deserialization information for the current model
@@ -38,13 +38,13 @@ export class PersonOrGroupColumnImpl implements AdditionalDataHolder, Parsable, 
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.allowMultipleSelection){
-        writer.writeBooleanValue("allowMultipleSelection", this.allowMultipleSelection);
+            writer.writeBooleanValue("allowMultipleSelection", this.allowMultipleSelection);
         }
         if(this.chooseFromType){
-        writer.writeStringValue("chooseFromType", this.chooseFromType);
+            writer.writeStringValue("chooseFromType", this.chooseFromType);
         }
         if(this.displayAs){
-        writer.writeStringValue("displayAs", this.displayAs);
+            writer.writeStringValue("displayAs", this.displayAs);
         }
         writer.writeAdditionalData(this.additionalData);
     };

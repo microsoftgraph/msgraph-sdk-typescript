@@ -7,7 +7,7 @@ import {AccessReviewHistoryDefinitionImpl, AccessReviewScheduleDefinitionImpl, E
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the identityGovernance singleton. */
-export class AccessReviewSetImpl extends EntityImpl implements AccessReviewSet, Parsable {
+export class AccessReviewSetImpl extends EntityImpl implements AccessReviewSet {
     /** Represents the template and scheduling for an access review. */
     public definitions?: AccessReviewScheduleDefinition[] | undefined;
     /** Represents a collection of access review history data and the scopes used to collect that data. */
@@ -17,9 +17,9 @@ export class AccessReviewSetImpl extends EntityImpl implements AccessReviewSet, 
      * @param accessReviewSetParameterValue 
      */
     public constructor(accessReviewSetParameterValue?: AccessReviewSet | undefined) {
-        super();
-        this.definitions = accessReviewSetParameterValue?.definitions ;
-        this.historyDefinitions = accessReviewSetParameterValue?.historyDefinitions ;
+        super(accessReviewSetParameterValue);
+        this.definitions = accessReviewSetParameterValue?.definitions;
+        this.historyDefinitions = accessReviewSetParameterValue?.historyDefinitions;
     };
     /**
      * The deserialization information for the current model
@@ -39,10 +39,10 @@ export class AccessReviewSetImpl extends EntityImpl implements AccessReviewSet, 
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.definitions && this.definitions.length != 0){        const definitionsArrValue: AccessReviewScheduleDefinitionImpl[] = []; this.definitions?.forEach(element => {definitionsArrValue.push(new AccessReviewScheduleDefinitionImpl(element));});
-        writer.writeCollectionOfObjectValues<AccessReviewScheduleDefinitionImpl>("definitions", definitionsArrValue);
+            writer.writeCollectionOfObjectValues<AccessReviewScheduleDefinitionImpl>("definitions", definitionsArrValue);
         }
         if(this.historyDefinitions && this.historyDefinitions.length != 0){        const historyDefinitionsArrValue: AccessReviewHistoryDefinitionImpl[] = []; this.historyDefinitions?.forEach(element => {historyDefinitionsArrValue.push(new AccessReviewHistoryDefinitionImpl(element));});
-        writer.writeCollectionOfObjectValues<AccessReviewHistoryDefinitionImpl>("historyDefinitions", historyDefinitionsArrValue);
+            writer.writeCollectionOfObjectValues<AccessReviewHistoryDefinitionImpl>("historyDefinitions", historyDefinitionsArrValue);
         }
     };
 }

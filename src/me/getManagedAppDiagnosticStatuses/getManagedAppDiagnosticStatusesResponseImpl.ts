@@ -5,7 +5,7 @@ import {GetManagedAppDiagnosticStatusesResponse} from './getManagedAppDiagnostic
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the getManagedAppDiagnosticStatuses method. */
-export class GetManagedAppDiagnosticStatusesResponseImpl implements AdditionalDataHolder, GetManagedAppDiagnosticStatusesResponse, Parsable {
+export class GetManagedAppDiagnosticStatusesResponseImpl implements GetManagedAppDiagnosticStatusesResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The value property */
@@ -15,8 +15,8 @@ export class GetManagedAppDiagnosticStatusesResponseImpl implements AdditionalDa
      * @param getManagedAppDiagnosticStatusesResponseParameterValue 
      */
     public constructor(getManagedAppDiagnosticStatusesResponseParameterValue?: GetManagedAppDiagnosticStatusesResponse | undefined) {
-        this.additionalData = getManagedAppDiagnosticStatusesResponseParameterValue?.additionalData ? getManagedAppDiagnosticStatusesResponseParameterValue?.additionalData! : {}
-        this.value = getManagedAppDiagnosticStatusesResponseParameterValue?.value ;
+        this.additionalData = getManagedAppDiagnosticStatusesResponseParameterValue?.additionalData ? getManagedAppDiagnosticStatusesResponseParameterValue?.additionalData! : {};
+        this.value = getManagedAppDiagnosticStatusesResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -34,7 +34,7 @@ export class GetManagedAppDiagnosticStatusesResponseImpl implements AdditionalDa
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.value && this.value.length != 0){        const valueArrValue: ManagedAppDiagnosticStatusImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ManagedAppDiagnosticStatusImpl(element));});
-        writer.writeCollectionOfObjectValues<ManagedAppDiagnosticStatusImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<ManagedAppDiagnosticStatusImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

@@ -5,7 +5,7 @@ import {GetApplicablePolicyRequirementsResponse} from './getApplicablePolicyRequ
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the getApplicablePolicyRequirements method. */
-export class GetApplicablePolicyRequirementsResponseImpl implements AdditionalDataHolder, GetApplicablePolicyRequirementsResponse, Parsable {
+export class GetApplicablePolicyRequirementsResponseImpl implements GetApplicablePolicyRequirementsResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The value property */
@@ -15,8 +15,8 @@ export class GetApplicablePolicyRequirementsResponseImpl implements AdditionalDa
      * @param getApplicablePolicyRequirementsResponseParameterValue 
      */
     public constructor(getApplicablePolicyRequirementsResponseParameterValue?: GetApplicablePolicyRequirementsResponse | undefined) {
-        this.additionalData = getApplicablePolicyRequirementsResponseParameterValue?.additionalData ? getApplicablePolicyRequirementsResponseParameterValue?.additionalData! : {}
-        this.value = getApplicablePolicyRequirementsResponseParameterValue?.value ;
+        this.additionalData = getApplicablePolicyRequirementsResponseParameterValue?.additionalData ? getApplicablePolicyRequirementsResponseParameterValue?.additionalData! : {};
+        this.value = getApplicablePolicyRequirementsResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -34,7 +34,7 @@ export class GetApplicablePolicyRequirementsResponseImpl implements AdditionalDa
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.value && this.value.length != 0){        const valueArrValue: AccessPackageAssignmentRequestRequirementsImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new AccessPackageAssignmentRequestRequirementsImpl(element));});
-        writer.writeCollectionOfObjectValues<AccessPackageAssignmentRequestRequirementsImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<AccessPackageAssignmentRequestRequirementsImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

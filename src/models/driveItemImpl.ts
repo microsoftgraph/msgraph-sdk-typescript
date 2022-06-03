@@ -57,8 +57,8 @@ import {Video} from './video';
 import {Workbook} from './workbook';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
-export class DriveItemImpl extends BaseItemImpl implements DriveItem, Parsable {
+/** Casts the previous resource to group. */
+export class DriveItemImpl extends BaseItemImpl implements DriveItem {
     /** Analytics about the view activities that took place on this item. */
     public analytics?: ItemAnalytics | undefined;
     /** Audio metadata, if the item is an audio file. Read-only. Only on OneDrive Personal. */
@@ -128,39 +128,39 @@ export class DriveItemImpl extends BaseItemImpl implements DriveItem, Parsable {
      * @param driveItemParameterValue 
      */
     public constructor(driveItemParameterValue?: DriveItem | undefined) {
-        super();
-        this.analytics = driveItemParameterValue?.analytics ;
-        this.audio = driveItemParameterValue?.audio ;
-        this.bundle = driveItemParameterValue?.bundle ;
-        this.children = driveItemParameterValue?.children ;
-        this.content = driveItemParameterValue?.content ;
-        this.cTag = driveItemParameterValue?.cTag ;
-        this.deleted = driveItemParameterValue?.deleted ;
-        this.file = driveItemParameterValue?.file ;
-        this.fileSystemInfo = driveItemParameterValue?.fileSystemInfo ;
-        this.folder = driveItemParameterValue?.folder ;
-        this.image = driveItemParameterValue?.image ;
-        this.listItem = driveItemParameterValue?.listItem ;
-        this.location = driveItemParameterValue?.location ;
-        this.malware = driveItemParameterValue?.malware ;
-        this.package = driveItemParameterValue?.package ;
-        this.pendingOperations = driveItemParameterValue?.pendingOperations ;
-        this.permissions = driveItemParameterValue?.permissions ;
-        this.photo = driveItemParameterValue?.photo ;
-        this.publication = driveItemParameterValue?.publication ;
-        this.remoteItem = driveItemParameterValue?.remoteItem ;
-        this.root = driveItemParameterValue?.root ;
-        this.searchResult = driveItemParameterValue?.searchResult ;
-        this.shared = driveItemParameterValue?.shared ;
-        this.sharepointIds = driveItemParameterValue?.sharepointIds ;
-        this.size = driveItemParameterValue?.size ;
-        this.specialFolder = driveItemParameterValue?.specialFolder ;
-        this.subscriptions = driveItemParameterValue?.subscriptions ;
-        this.thumbnails = driveItemParameterValue?.thumbnails ;
-        this.versions = driveItemParameterValue?.versions ;
-        this.video = driveItemParameterValue?.video ;
-        this.webDavUrl = driveItemParameterValue?.webDavUrl ;
-        this.workbook = driveItemParameterValue?.workbook ;
+        super(driveItemParameterValue);
+        this.analytics = driveItemParameterValue?.analytics;
+        this.audio = driveItemParameterValue?.audio;
+        this.bundle = driveItemParameterValue?.bundle;
+        this.children = driveItemParameterValue?.children;
+        this.content = driveItemParameterValue?.content;
+        this.cTag = driveItemParameterValue?.cTag;
+        this.deleted = driveItemParameterValue?.deleted;
+        this.file = driveItemParameterValue?.file;
+        this.fileSystemInfo = driveItemParameterValue?.fileSystemInfo;
+        this.folder = driveItemParameterValue?.folder;
+        this.image = driveItemParameterValue?.image;
+        this.listItem = driveItemParameterValue?.listItem;
+        this.location = driveItemParameterValue?.location;
+        this.malware = driveItemParameterValue?.malware;
+        this.package = driveItemParameterValue?.package;
+        this.pendingOperations = driveItemParameterValue?.pendingOperations;
+        this.permissions = driveItemParameterValue?.permissions;
+        this.photo = driveItemParameterValue?.photo;
+        this.publication = driveItemParameterValue?.publication;
+        this.remoteItem = driveItemParameterValue?.remoteItem;
+        this.root = driveItemParameterValue?.root;
+        this.searchResult = driveItemParameterValue?.searchResult;
+        this.shared = driveItemParameterValue?.shared;
+        this.sharepointIds = driveItemParameterValue?.sharepointIds;
+        this.size = driveItemParameterValue?.size;
+        this.specialFolder = driveItemParameterValue?.specialFolder;
+        this.subscriptions = driveItemParameterValue?.subscriptions;
+        this.thumbnails = driveItemParameterValue?.thumbnails;
+        this.versions = driveItemParameterValue?.versions;
+        this.video = driveItemParameterValue?.video;
+        this.webDavUrl = driveItemParameterValue?.webDavUrl;
+        this.workbook = driveItemParameterValue?.workbook;
     };
     /**
      * The deserialization information for the current model
@@ -210,100 +210,100 @@ export class DriveItemImpl extends BaseItemImpl implements DriveItem, Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.analytics){
-        writer.writeObjectValue<ItemAnalyticsImpl>("analytics", new ItemAnalyticsImpl(this.analytics));
+            writer.writeObjectValue<ItemAnalyticsImpl>("analytics", new ItemAnalyticsImpl(this.analytics));
         }
         if(this.audio){
-        writer.writeObjectValue<AudioImpl>("audio", new AudioImpl(this.audio));
+            writer.writeObjectValue<AudioImpl>("audio", new AudioImpl(this.audio));
         }
         if(this.bundle){
-        writer.writeObjectValue<BundleImpl>("bundle", new BundleImpl(this.bundle));
+            writer.writeObjectValue<BundleImpl>("bundle", new BundleImpl(this.bundle));
         }
         if(this.children && this.children.length != 0){        const childrenArrValue: DriveItemImpl[] = []; this.children?.forEach(element => {childrenArrValue.push(new DriveItemImpl(element));});
-        writer.writeCollectionOfObjectValues<DriveItemImpl>("children", childrenArrValue);
+            writer.writeCollectionOfObjectValues<DriveItemImpl>("children", childrenArrValue);
         }
         if(this.content){
-        writer.writeStringValue("content", this.content);
+            writer.writeStringValue("content", this.content);
         }
         if(this.cTag){
-        writer.writeStringValue("cTag", this.cTag);
+            writer.writeStringValue("cTag", this.cTag);
         }
         if(this.deleted){
-        writer.writeObjectValue<DeletedImpl>("deleted", new DeletedImpl(this.deleted));
+            writer.writeObjectValue<DeletedImpl>("deleted", new DeletedImpl(this.deleted));
         }
         if(this.file){
-        writer.writeObjectValue<FileImpl>("file", new FileImpl(this.file));
+            writer.writeObjectValue<FileImpl>("file", new FileImpl(this.file));
         }
         if(this.fileSystemInfo){
-        writer.writeObjectValue<FileSystemInfoImpl>("fileSystemInfo", new FileSystemInfoImpl(this.fileSystemInfo));
+            writer.writeObjectValue<FileSystemInfoImpl>("fileSystemInfo", new FileSystemInfoImpl(this.fileSystemInfo));
         }
         if(this.folder){
-        writer.writeObjectValue<FolderImpl>("folder", new FolderImpl(this.folder));
+            writer.writeObjectValue<FolderImpl>("folder", new FolderImpl(this.folder));
         }
         if(this.image){
-        writer.writeObjectValue<ImageImpl>("image", new ImageImpl(this.image));
+            writer.writeObjectValue<ImageImpl>("image", new ImageImpl(this.image));
         }
         if(this.listItem){
-        writer.writeObjectValue<ListItemImpl>("listItem", new ListItemImpl(this.listItem));
+            writer.writeObjectValue<ListItemImpl>("listItem", new ListItemImpl(this.listItem));
         }
         if(this.location){
-        writer.writeObjectValue<GeoCoordinatesImpl>("location", new GeoCoordinatesImpl(this.location));
+            writer.writeObjectValue<GeoCoordinatesImpl>("location", new GeoCoordinatesImpl(this.location));
         }
         if(this.malware){
-        writer.writeObjectValue<MalwareImpl>("malware", new MalwareImpl(this.malware));
+            writer.writeObjectValue<MalwareImpl>("malware", new MalwareImpl(this.malware));
         }
         if(this.package){
-        writer.writeObjectValue<PackageImpl>("package", new PackageImpl(this.package));
+            writer.writeObjectValue<PackageImpl>("package", new PackageImpl(this.package));
         }
         if(this.pendingOperations){
-        writer.writeObjectValue<PendingOperationsImpl>("pendingOperations", new PendingOperationsImpl(this.pendingOperations));
+            writer.writeObjectValue<PendingOperationsImpl>("pendingOperations", new PendingOperationsImpl(this.pendingOperations));
         }
         if(this.permissions && this.permissions.length != 0){        const permissionsArrValue: PermissionImpl[] = []; this.permissions?.forEach(element => {permissionsArrValue.push(new PermissionImpl(element));});
-        writer.writeCollectionOfObjectValues<PermissionImpl>("permissions", permissionsArrValue);
+            writer.writeCollectionOfObjectValues<PermissionImpl>("permissions", permissionsArrValue);
         }
         if(this.photo){
-        writer.writeObjectValue<PhotoImpl>("photo", new PhotoImpl(this.photo));
+            writer.writeObjectValue<PhotoImpl>("photo", new PhotoImpl(this.photo));
         }
         if(this.publication){
-        writer.writeObjectValue<PublicationFacetImpl>("publication", new PublicationFacetImpl(this.publication));
+            writer.writeObjectValue<PublicationFacetImpl>("publication", new PublicationFacetImpl(this.publication));
         }
         if(this.remoteItem){
-        writer.writeObjectValue<RemoteItemImpl>("remoteItem", new RemoteItemImpl(this.remoteItem));
+            writer.writeObjectValue<RemoteItemImpl>("remoteItem", new RemoteItemImpl(this.remoteItem));
         }
         if(this.root){
-        writer.writeObjectValue<RootImpl>("root", new RootImpl(this.root));
+            writer.writeObjectValue<RootImpl>("root", new RootImpl(this.root));
         }
         if(this.searchResult){
-        writer.writeObjectValue<SearchResultImpl>("searchResult", new SearchResultImpl(this.searchResult));
+            writer.writeObjectValue<SearchResultImpl>("searchResult", new SearchResultImpl(this.searchResult));
         }
         if(this.shared){
-        writer.writeObjectValue<SharedImpl>("shared", new SharedImpl(this.shared));
+            writer.writeObjectValue<SharedImpl>("shared", new SharedImpl(this.shared));
         }
         if(this.sharepointIds){
-        writer.writeObjectValue<SharepointIdsImpl>("sharepointIds", new SharepointIdsImpl(this.sharepointIds));
+            writer.writeObjectValue<SharepointIdsImpl>("sharepointIds", new SharepointIdsImpl(this.sharepointIds));
         }
         if(this.size){
-        writer.writeNumberValue("size", this.size);
+            writer.writeNumberValue("size", this.size);
         }
         if(this.specialFolder){
-        writer.writeObjectValue<SpecialFolderImpl>("specialFolder", new SpecialFolderImpl(this.specialFolder));
+            writer.writeObjectValue<SpecialFolderImpl>("specialFolder", new SpecialFolderImpl(this.specialFolder));
         }
         if(this.subscriptions && this.subscriptions.length != 0){        const subscriptionsArrValue: SubscriptionImpl[] = []; this.subscriptions?.forEach(element => {subscriptionsArrValue.push(new SubscriptionImpl(element));});
-        writer.writeCollectionOfObjectValues<SubscriptionImpl>("subscriptions", subscriptionsArrValue);
+            writer.writeCollectionOfObjectValues<SubscriptionImpl>("subscriptions", subscriptionsArrValue);
         }
         if(this.thumbnails && this.thumbnails.length != 0){        const thumbnailsArrValue: ThumbnailSetImpl[] = []; this.thumbnails?.forEach(element => {thumbnailsArrValue.push(new ThumbnailSetImpl(element));});
-        writer.writeCollectionOfObjectValues<ThumbnailSetImpl>("thumbnails", thumbnailsArrValue);
+            writer.writeCollectionOfObjectValues<ThumbnailSetImpl>("thumbnails", thumbnailsArrValue);
         }
         if(this.versions && this.versions.length != 0){        const versionsArrValue: DriveItemVersionImpl[] = []; this.versions?.forEach(element => {versionsArrValue.push(new DriveItemVersionImpl(element));});
-        writer.writeCollectionOfObjectValues<DriveItemVersionImpl>("versions", versionsArrValue);
+            writer.writeCollectionOfObjectValues<DriveItemVersionImpl>("versions", versionsArrValue);
         }
         if(this.video){
-        writer.writeObjectValue<VideoImpl>("video", new VideoImpl(this.video));
+            writer.writeObjectValue<VideoImpl>("video", new VideoImpl(this.video));
         }
         if(this.webDavUrl){
-        writer.writeStringValue("webDavUrl", this.webDavUrl);
+            writer.writeStringValue("webDavUrl", this.webDavUrl);
         }
         if(this.workbook){
-        writer.writeObjectValue<WorkbookImpl>("workbook", new WorkbookImpl(this.workbook));
+            writer.writeObjectValue<WorkbookImpl>("workbook", new WorkbookImpl(this.workbook));
         }
     };
 }

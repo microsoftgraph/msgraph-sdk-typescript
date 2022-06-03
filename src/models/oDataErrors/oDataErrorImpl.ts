@@ -4,7 +4,7 @@ import {MainError} from './mainError';
 import {ODataError} from './oDataError';
 import {AdditionalDataHolder, ApiError, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ODataErrorImpl extends ApiError implements AdditionalDataHolder, ODataError, Parsable {
+export class ODataErrorImpl extends ApiError implements ODataError {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The error property */
@@ -15,8 +15,8 @@ export class ODataErrorImpl extends ApiError implements AdditionalDataHolder, OD
      */
     public constructor(oDataErrorParameterValue?: ODataError | undefined) {
         super();
-        this.additionalData = oDataErrorParameterValue?.additionalData ? oDataErrorParameterValue?.additionalData! : {}
-        this.error_escaped = oDataErrorParameterValue?.error_escaped ;
+        this.additionalData = oDataErrorParameterValue?.additionalData ? oDataErrorParameterValue?.additionalData! : {};
+        this.error_escaped = oDataErrorParameterValue?.error_escaped;
     };
     /**
      * The deserialization information for the current model
@@ -34,7 +34,7 @@ export class ODataErrorImpl extends ApiError implements AdditionalDataHolder, OD
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.error_escaped){
-        writer.writeObjectValue<MainErrorImpl>("error", new MainErrorImpl(this.error_escaped));
+            writer.writeObjectValue<MainErrorImpl>("error", new MainErrorImpl(this.error_escaped));
         }
         writer.writeAdditionalData(this.additionalData);
     };

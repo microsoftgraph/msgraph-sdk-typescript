@@ -1,11 +1,11 @@
 import {WindowsInformationProtectionNetworkLearningSummaryItemRequestBuilderGetQueryParameters} from './windowsInformationProtectionNetworkLearningSummaryItemRequestBuilderGetQueryParameters';
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
-export interface WindowsInformationProtectionNetworkLearningSummaryItemRequestBuilderGetRequestConfiguration{
+export interface WindowsInformationProtectionNetworkLearningSummaryItemRequestBuilderGetRequestConfiguration {
     /** Request headers */
-    headers?:Record<string, string> | undefined;
+    headers?: Record<string, string> | undefined;
     /** Request options */
-    options?:RequestOption[] | undefined;
+    options?: RequestOption[] | undefined;
     /** Request query parameters */
-    queryParameters?:WindowsInformationProtectionNetworkLearningSummaryItemRequestBuilderGetQueryParameters | undefined;
+    queryParameters?: WindowsInformationProtectionNetworkLearningSummaryItemRequestBuilderGetQueryParameters | undefined;
 }

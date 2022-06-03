@@ -4,7 +4,7 @@ import {WorkforceIntegration} from './workforceIntegration';
 import {WorkforceIntegrationCollectionResponse} from './workforceIntegrationCollectionResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class WorkforceIntegrationCollectionResponseImpl implements AdditionalDataHolder, Parsable, WorkforceIntegrationCollectionResponse {
+export class WorkforceIntegrationCollectionResponseImpl implements WorkforceIntegrationCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class WorkforceIntegrationCollectionResponseImpl implements AdditionalDat
      * @param workforceIntegrationCollectionResponseParameterValue 
      */
     public constructor(workforceIntegrationCollectionResponseParameterValue?: WorkforceIntegrationCollectionResponse | undefined) {
-        this.additionalData = workforceIntegrationCollectionResponseParameterValue?.additionalData ? workforceIntegrationCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = workforceIntegrationCollectionResponseParameterValue?.nextLink ;
-        this.value = workforceIntegrationCollectionResponseParameterValue?.value ;
+        this.additionalData = workforceIntegrationCollectionResponseParameterValue?.additionalData ? workforceIntegrationCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = workforceIntegrationCollectionResponseParameterValue?.nextLink;
+        this.value = workforceIntegrationCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class WorkforceIntegrationCollectionResponseImpl implements AdditionalDat
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: WorkforceIntegrationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new WorkforceIntegrationImpl(element));});
-        writer.writeCollectionOfObjectValues<WorkforceIntegrationImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<WorkforceIntegrationImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

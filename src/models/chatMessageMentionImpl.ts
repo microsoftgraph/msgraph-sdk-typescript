@@ -4,7 +4,7 @@ import {createChatMessageMentionedIdentitySetFromDiscriminatorValue} from './cre
 import {ChatMessageMentionedIdentitySetImpl} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ChatMessageMentionImpl implements AdditionalDataHolder, ChatMessageMention, Parsable {
+export class ChatMessageMentionImpl implements ChatMessageMention {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Index of an entity being mentioned in the specified chatMessage. Matches the {index} value in the corresponding <at id='{index}'> tag in the message body. */
@@ -18,10 +18,10 @@ export class ChatMessageMentionImpl implements AdditionalDataHolder, ChatMessage
      * @param chatMessageMentionParameterValue 
      */
     public constructor(chatMessageMentionParameterValue?: ChatMessageMention | undefined) {
-        this.additionalData = chatMessageMentionParameterValue?.additionalData ? chatMessageMentionParameterValue?.additionalData! : {}
-        this.id = chatMessageMentionParameterValue?.id ;
-        this.mentioned = chatMessageMentionParameterValue?.mentioned ;
-        this.mentionText = chatMessageMentionParameterValue?.mentionText ;
+        this.additionalData = chatMessageMentionParameterValue?.additionalData ? chatMessageMentionParameterValue?.additionalData! : {};
+        this.id = chatMessageMentionParameterValue?.id;
+        this.mentioned = chatMessageMentionParameterValue?.mentioned;
+        this.mentionText = chatMessageMentionParameterValue?.mentionText;
     };
     /**
      * The deserialization information for the current model
@@ -41,13 +41,13 @@ export class ChatMessageMentionImpl implements AdditionalDataHolder, ChatMessage
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.id){
-        writer.writeNumberValue("id", this.id);
+            writer.writeNumberValue("id", this.id);
         }
         if(this.mentioned){
-        writer.writeObjectValue<ChatMessageMentionedIdentitySetImpl>("mentioned", new ChatMessageMentionedIdentitySetImpl(this.mentioned));
+            writer.writeObjectValue<ChatMessageMentionedIdentitySetImpl>("mentioned", new ChatMessageMentionedIdentitySetImpl(this.mentioned));
         }
         if(this.mentionText){
-        writer.writeStringValue("mentionText", this.mentionText);
+            writer.writeStringValue("mentionText", this.mentionText);
         }
         writer.writeAdditionalData(this.additionalData);
     };

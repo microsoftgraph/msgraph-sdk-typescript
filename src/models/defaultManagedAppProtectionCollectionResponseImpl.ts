@@ -4,7 +4,7 @@ import {DefaultManagedAppProtectionCollectionResponse} from './defaultManagedApp
 import {DefaultManagedAppProtectionImpl} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class DefaultManagedAppProtectionCollectionResponseImpl implements AdditionalDataHolder, DefaultManagedAppProtectionCollectionResponse, Parsable {
+export class DefaultManagedAppProtectionCollectionResponseImpl implements DefaultManagedAppProtectionCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class DefaultManagedAppProtectionCollectionResponseImpl implements Additi
      * @param defaultManagedAppProtectionCollectionResponseParameterValue 
      */
     public constructor(defaultManagedAppProtectionCollectionResponseParameterValue?: DefaultManagedAppProtectionCollectionResponse | undefined) {
-        this.additionalData = defaultManagedAppProtectionCollectionResponseParameterValue?.additionalData ? defaultManagedAppProtectionCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = defaultManagedAppProtectionCollectionResponseParameterValue?.nextLink ;
-        this.value = defaultManagedAppProtectionCollectionResponseParameterValue?.value ;
+        this.additionalData = defaultManagedAppProtectionCollectionResponseParameterValue?.additionalData ? defaultManagedAppProtectionCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = defaultManagedAppProtectionCollectionResponseParameterValue?.nextLink;
+        this.value = defaultManagedAppProtectionCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class DefaultManagedAppProtectionCollectionResponseImpl implements Additi
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: DefaultManagedAppProtectionImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new DefaultManagedAppProtectionImpl(element));});
-        writer.writeCollectionOfObjectValues<DefaultManagedAppProtectionImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<DefaultManagedAppProtectionImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

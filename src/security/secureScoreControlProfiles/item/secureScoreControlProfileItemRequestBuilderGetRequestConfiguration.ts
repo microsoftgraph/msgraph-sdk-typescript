@@ -1,11 +1,11 @@
 import {SecureScoreControlProfileItemRequestBuilderGetQueryParameters} from './secureScoreControlProfileItemRequestBuilderGetQueryParameters';
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
-export interface SecureScoreControlProfileItemRequestBuilderGetRequestConfiguration{
+export interface SecureScoreControlProfileItemRequestBuilderGetRequestConfiguration {
     /** Request headers */
-    headers?:Record<string, string> | undefined;
+    headers?: Record<string, string> | undefined;
     /** Request options */
-    options?:RequestOption[] | undefined;
+    options?: RequestOption[] | undefined;
     /** Request query parameters */
-    queryParameters?:SecureScoreControlProfileItemRequestBuilderGetQueryParameters | undefined;
+    queryParameters?: SecureScoreControlProfileItemRequestBuilderGetQueryParameters | undefined;
 }

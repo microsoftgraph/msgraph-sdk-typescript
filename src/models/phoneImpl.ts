@@ -2,7 +2,7 @@ import {Phone} from './phone';
 import {PhoneType} from './phoneType';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class PhoneImpl implements AdditionalDataHolder, Parsable, Phone {
+export class PhoneImpl implements Phone {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The language property */
@@ -18,11 +18,11 @@ export class PhoneImpl implements AdditionalDataHolder, Parsable, Phone {
      * @param phoneParameterValue 
      */
     public constructor(phoneParameterValue?: Phone | undefined) {
-        this.additionalData = phoneParameterValue?.additionalData ? phoneParameterValue?.additionalData! : {}
-        this.language = phoneParameterValue?.language ;
-        this.number = phoneParameterValue?.number ;
-        this.region = phoneParameterValue?.region ;
-        this.type = phoneParameterValue?.type ;
+        this.additionalData = phoneParameterValue?.additionalData ? phoneParameterValue?.additionalData! : {};
+        this.language = phoneParameterValue?.language;
+        this.number = phoneParameterValue?.number;
+        this.region = phoneParameterValue?.region;
+        this.type = phoneParameterValue?.type;
     };
     /**
      * The deserialization information for the current model
@@ -43,16 +43,16 @@ export class PhoneImpl implements AdditionalDataHolder, Parsable, Phone {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.language){
-        writer.writeStringValue("language", this.language);
+            writer.writeStringValue("language", this.language);
         }
         if(this.number){
-        writer.writeStringValue("number", this.number);
+            writer.writeStringValue("number", this.number);
         }
         if(this.region){
-        writer.writeStringValue("region", this.region);
+            writer.writeStringValue("region", this.region);
         }
         if(this.type){
-        writer.writeEnumValue<PhoneType>("type", this.type);
+            writer.writeEnumValue<PhoneType>("type", this.type);
         }
         writer.writeAdditionalData(this.additionalData);
     };

@@ -5,7 +5,7 @@ import {EnrollmentConfigurationAssignmentImpl, EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** The Base Class of Device Enrollment Configuration */
-export class DeviceEnrollmentConfigurationImpl extends EntityImpl implements DeviceEnrollmentConfiguration, Parsable {
+export class DeviceEnrollmentConfigurationImpl extends EntityImpl implements DeviceEnrollmentConfiguration {
     /** The list of group assignments for the device configuration profile */
     public assignments?: EnrollmentConfigurationAssignment[] | undefined;
     /** Created date time in UTC of the device enrollment configuration */
@@ -25,14 +25,14 @@ export class DeviceEnrollmentConfigurationImpl extends EntityImpl implements Dev
      * @param deviceEnrollmentConfigurationParameterValue 
      */
     public constructor(deviceEnrollmentConfigurationParameterValue?: DeviceEnrollmentConfiguration | undefined) {
-        super();
-        this.assignments = deviceEnrollmentConfigurationParameterValue?.assignments ;
-        this.createdDateTime = deviceEnrollmentConfigurationParameterValue?.createdDateTime ;
-        this.description = deviceEnrollmentConfigurationParameterValue?.description ;
-        this.displayName = deviceEnrollmentConfigurationParameterValue?.displayName ;
-        this.lastModifiedDateTime = deviceEnrollmentConfigurationParameterValue?.lastModifiedDateTime ;
-        this.priority = deviceEnrollmentConfigurationParameterValue?.priority ;
-        this.version = deviceEnrollmentConfigurationParameterValue?.version ;
+        super(deviceEnrollmentConfigurationParameterValue);
+        this.assignments = deviceEnrollmentConfigurationParameterValue?.assignments;
+        this.createdDateTime = deviceEnrollmentConfigurationParameterValue?.createdDateTime;
+        this.description = deviceEnrollmentConfigurationParameterValue?.description;
+        this.displayName = deviceEnrollmentConfigurationParameterValue?.displayName;
+        this.lastModifiedDateTime = deviceEnrollmentConfigurationParameterValue?.lastModifiedDateTime;
+        this.priority = deviceEnrollmentConfigurationParameterValue?.priority;
+        this.version = deviceEnrollmentConfigurationParameterValue?.version;
     };
     /**
      * The deserialization information for the current model
@@ -57,25 +57,25 @@ export class DeviceEnrollmentConfigurationImpl extends EntityImpl implements Dev
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.assignments && this.assignments.length != 0){        const assignmentsArrValue: EnrollmentConfigurationAssignmentImpl[] = []; this.assignments?.forEach(element => {assignmentsArrValue.push(new EnrollmentConfigurationAssignmentImpl(element));});
-        writer.writeCollectionOfObjectValues<EnrollmentConfigurationAssignmentImpl>("assignments", assignmentsArrValue);
+            writer.writeCollectionOfObjectValues<EnrollmentConfigurationAssignmentImpl>("assignments", assignmentsArrValue);
         }
         if(this.createdDateTime){
-        writer.writeDateValue("createdDateTime", this.createdDateTime);
+            writer.writeDateValue("createdDateTime", this.createdDateTime);
         }
         if(this.description){
-        writer.writeStringValue("description", this.description);
+            writer.writeStringValue("description", this.description);
         }
         if(this.displayName){
-        writer.writeStringValue("displayName", this.displayName);
+            writer.writeStringValue("displayName", this.displayName);
         }
         if(this.lastModifiedDateTime){
-        writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
+            writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
         }
         if(this.priority){
-        writer.writeNumberValue("priority", this.priority);
+            writer.writeNumberValue("priority", this.priority);
         }
         if(this.version){
-        writer.writeNumberValue("version", this.version);
+            writer.writeNumberValue("version", this.version);
         }
     };
 }

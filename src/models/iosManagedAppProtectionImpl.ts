@@ -8,7 +8,7 @@ import {ManagedMobileApp} from './managedMobileApp';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Policy used to configure detailed management settings targeted to specific security groups and for a specified set of apps on an iOS device */
-export class IosManagedAppProtectionImpl extends TargetedManagedAppProtectionImpl implements IosManagedAppProtection, Parsable {
+export class IosManagedAppProtectionImpl extends TargetedManagedAppProtectionImpl implements IosManagedAppProtection {
     /** Type of encryption which should be used for data in a managed app. Possible values are: useDeviceSettings, afterDeviceRestart, whenDeviceLockedExceptOpenFiles, whenDeviceLocked. */
     public appDataEncryptionType?: ManagedAppDataEncryptionType | undefined;
     /** List of apps to which the policy is deployed. */
@@ -28,14 +28,14 @@ export class IosManagedAppProtectionImpl extends TargetedManagedAppProtectionImp
      * @param iosManagedAppProtectionParameterValue 
      */
     public constructor(iosManagedAppProtectionParameterValue?: IosManagedAppProtection | undefined) {
-        super();
-        this.appDataEncryptionType = iosManagedAppProtectionParameterValue?.appDataEncryptionType ;
-        this.apps = iosManagedAppProtectionParameterValue?.apps ;
-        this.customBrowserProtocol = iosManagedAppProtectionParameterValue?.customBrowserProtocol ;
-        this.deployedAppCount = iosManagedAppProtectionParameterValue?.deployedAppCount ;
-        this.deploymentSummary = iosManagedAppProtectionParameterValue?.deploymentSummary ;
-        this.faceIdBlocked = iosManagedAppProtectionParameterValue?.faceIdBlocked ;
-        this.minimumRequiredSdkVersion = iosManagedAppProtectionParameterValue?.minimumRequiredSdkVersion ;
+        super(iosManagedAppProtectionParameterValue);
+        this.appDataEncryptionType = iosManagedAppProtectionParameterValue?.appDataEncryptionType;
+        this.apps = iosManagedAppProtectionParameterValue?.apps;
+        this.customBrowserProtocol = iosManagedAppProtectionParameterValue?.customBrowserProtocol;
+        this.deployedAppCount = iosManagedAppProtectionParameterValue?.deployedAppCount;
+        this.deploymentSummary = iosManagedAppProtectionParameterValue?.deploymentSummary;
+        this.faceIdBlocked = iosManagedAppProtectionParameterValue?.faceIdBlocked;
+        this.minimumRequiredSdkVersion = iosManagedAppProtectionParameterValue?.minimumRequiredSdkVersion;
     };
     /**
      * The deserialization information for the current model
@@ -60,25 +60,25 @@ export class IosManagedAppProtectionImpl extends TargetedManagedAppProtectionImp
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.appDataEncryptionType){
-        writer.writeEnumValue<ManagedAppDataEncryptionType>("appDataEncryptionType", this.appDataEncryptionType);
+            writer.writeEnumValue<ManagedAppDataEncryptionType>("appDataEncryptionType", this.appDataEncryptionType);
         }
         if(this.apps && this.apps.length != 0){        const appsArrValue: ManagedMobileAppImpl[] = []; this.apps?.forEach(element => {appsArrValue.push(new ManagedMobileAppImpl(element));});
-        writer.writeCollectionOfObjectValues<ManagedMobileAppImpl>("apps", appsArrValue);
+            writer.writeCollectionOfObjectValues<ManagedMobileAppImpl>("apps", appsArrValue);
         }
         if(this.customBrowserProtocol){
-        writer.writeStringValue("customBrowserProtocol", this.customBrowserProtocol);
+            writer.writeStringValue("customBrowserProtocol", this.customBrowserProtocol);
         }
         if(this.deployedAppCount){
-        writer.writeNumberValue("deployedAppCount", this.deployedAppCount);
+            writer.writeNumberValue("deployedAppCount", this.deployedAppCount);
         }
         if(this.deploymentSummary){
-        writer.writeObjectValue<ManagedAppPolicyDeploymentSummaryImpl>("deploymentSummary", new ManagedAppPolicyDeploymentSummaryImpl(this.deploymentSummary));
+            writer.writeObjectValue<ManagedAppPolicyDeploymentSummaryImpl>("deploymentSummary", new ManagedAppPolicyDeploymentSummaryImpl(this.deploymentSummary));
         }
         if(this.faceIdBlocked){
-        writer.writeBooleanValue("faceIdBlocked", this.faceIdBlocked);
+            writer.writeBooleanValue("faceIdBlocked", this.faceIdBlocked);
         }
         if(this.minimumRequiredSdkVersion){
-        writer.writeStringValue("minimumRequiredSdkVersion", this.minimumRequiredSdkVersion);
+            writer.writeStringValue("minimumRequiredSdkVersion", this.minimumRequiredSdkVersion);
         }
     };
 }

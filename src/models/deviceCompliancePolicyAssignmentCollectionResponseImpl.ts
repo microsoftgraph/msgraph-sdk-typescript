@@ -4,7 +4,7 @@ import {DeviceCompliancePolicyAssignmentCollectionResponse} from './deviceCompli
 import {DeviceCompliancePolicyAssignmentImpl} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class DeviceCompliancePolicyAssignmentCollectionResponseImpl implements AdditionalDataHolder, DeviceCompliancePolicyAssignmentCollectionResponse, Parsable {
+export class DeviceCompliancePolicyAssignmentCollectionResponseImpl implements DeviceCompliancePolicyAssignmentCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class DeviceCompliancePolicyAssignmentCollectionResponseImpl implements A
      * @param deviceCompliancePolicyAssignmentCollectionResponseParameterValue 
      */
     public constructor(deviceCompliancePolicyAssignmentCollectionResponseParameterValue?: DeviceCompliancePolicyAssignmentCollectionResponse | undefined) {
-        this.additionalData = deviceCompliancePolicyAssignmentCollectionResponseParameterValue?.additionalData ? deviceCompliancePolicyAssignmentCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = deviceCompliancePolicyAssignmentCollectionResponseParameterValue?.nextLink ;
-        this.value = deviceCompliancePolicyAssignmentCollectionResponseParameterValue?.value ;
+        this.additionalData = deviceCompliancePolicyAssignmentCollectionResponseParameterValue?.additionalData ? deviceCompliancePolicyAssignmentCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = deviceCompliancePolicyAssignmentCollectionResponseParameterValue?.nextLink;
+        this.value = deviceCompliancePolicyAssignmentCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class DeviceCompliancePolicyAssignmentCollectionResponseImpl implements A
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: DeviceCompliancePolicyAssignmentImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new DeviceCompliancePolicyAssignmentImpl(element));});
-        writer.writeCollectionOfObjectValues<DeviceCompliancePolicyAssignmentImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<DeviceCompliancePolicyAssignmentImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

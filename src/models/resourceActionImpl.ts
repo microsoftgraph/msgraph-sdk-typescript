@@ -2,7 +2,7 @@ import {ResourceAction} from './resourceAction';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Set of allowed and not allowed actions for a resource. */
-export class ResourceActionImpl implements AdditionalDataHolder, Parsable, ResourceAction {
+export class ResourceActionImpl implements ResourceAction {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Allowed Actions */
@@ -14,9 +14,9 @@ export class ResourceActionImpl implements AdditionalDataHolder, Parsable, Resou
      * @param resourceActionParameterValue 
      */
     public constructor(resourceActionParameterValue?: ResourceAction | undefined) {
-        this.additionalData = resourceActionParameterValue?.additionalData ? resourceActionParameterValue?.additionalData! : {}
-        this.allowedResourceActions = resourceActionParameterValue?.allowedResourceActions ;
-        this.notAllowedResourceActions = resourceActionParameterValue?.notAllowedResourceActions ;
+        this.additionalData = resourceActionParameterValue?.additionalData ? resourceActionParameterValue?.additionalData! : {};
+        this.allowedResourceActions = resourceActionParameterValue?.allowedResourceActions;
+        this.notAllowedResourceActions = resourceActionParameterValue?.notAllowedResourceActions;
     };
     /**
      * The deserialization information for the current model
@@ -35,10 +35,10 @@ export class ResourceActionImpl implements AdditionalDataHolder, Parsable, Resou
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.allowedResourceActions){
-        writer.writeCollectionOfPrimitiveValues<string>("allowedResourceActions", this.allowedResourceActions);
+            writer.writeCollectionOfPrimitiveValues<string>("allowedResourceActions", this.allowedResourceActions);
         }
         if(this.notAllowedResourceActions){
-        writer.writeCollectionOfPrimitiveValues<string>("notAllowedResourceActions", this.notAllowedResourceActions);
+            writer.writeCollectionOfPrimitiveValues<string>("notAllowedResourceActions", this.notAllowedResourceActions);
         }
         writer.writeAdditionalData(this.additionalData);
     };

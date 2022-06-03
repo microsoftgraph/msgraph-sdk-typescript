@@ -4,7 +4,7 @@ import {EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the educationRoot singleton. */
-export class EducationOrganizationImpl extends EntityImpl implements EducationOrganization, Parsable {
+export class EducationOrganizationImpl extends EntityImpl implements EducationOrganization {
     /** Organization description. */
     public description?: string | undefined;
     /** Organization display name. */
@@ -18,11 +18,11 @@ export class EducationOrganizationImpl extends EntityImpl implements EducationOr
      * @param educationOrganizationParameterValue 
      */
     public constructor(educationOrganizationParameterValue?: EducationOrganization | undefined) {
-        super();
-        this.description = educationOrganizationParameterValue?.description ;
-        this.displayName = educationOrganizationParameterValue?.displayName ;
-        this.externalSource = educationOrganizationParameterValue?.externalSource ;
-        this.externalSourceDetail = educationOrganizationParameterValue?.externalSourceDetail ;
+        super(educationOrganizationParameterValue);
+        this.description = educationOrganizationParameterValue?.description;
+        this.displayName = educationOrganizationParameterValue?.displayName;
+        this.externalSource = educationOrganizationParameterValue?.externalSource;
+        this.externalSourceDetail = educationOrganizationParameterValue?.externalSourceDetail;
     };
     /**
      * The deserialization information for the current model
@@ -44,16 +44,16 @@ export class EducationOrganizationImpl extends EntityImpl implements EducationOr
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.description){
-        writer.writeStringValue("description", this.description);
+            writer.writeStringValue("description", this.description);
         }
         if(this.displayName){
-        writer.writeStringValue("displayName", this.displayName);
+            writer.writeStringValue("displayName", this.displayName);
         }
         if(this.externalSource){
-        writer.writeEnumValue<EducationExternalSource>("externalSource", this.externalSource);
+            writer.writeEnumValue<EducationExternalSource>("externalSource", this.externalSource);
         }
         if(this.externalSourceDetail){
-        writer.writeStringValue("externalSourceDetail", this.externalSourceDetail);
+            writer.writeStringValue("externalSourceDetail", this.externalSourceDetail);
         }
     };
 }

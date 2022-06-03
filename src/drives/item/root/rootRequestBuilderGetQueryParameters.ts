@@ -1,7 +1,7 @@
 
-export interface RootRequestBuilderGetQueryParameters{
+export interface RootRequestBuilderGetQueryParameters {
     /** Expand related entities */
-    expand?:string[] | undefined;
+    expand?: string[] | undefined;
     /** Select properties to be returned */
-    select?:string[] | undefined;
+    select?: string[] | undefined;
 }

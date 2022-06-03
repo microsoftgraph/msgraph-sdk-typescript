@@ -2,7 +2,7 @@ import {SecurityResource} from './securityResource';
 import {SecurityResourceType} from './securityResourceType';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class SecurityResourceImpl implements AdditionalDataHolder, Parsable, SecurityResource {
+export class SecurityResourceImpl implements SecurityResource {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Name of the resource that is related to current alert. Required. */
@@ -14,9 +14,9 @@ export class SecurityResourceImpl implements AdditionalDataHolder, Parsable, Sec
      * @param securityResourceParameterValue 
      */
     public constructor(securityResourceParameterValue?: SecurityResource | undefined) {
-        this.additionalData = securityResourceParameterValue?.additionalData ? securityResourceParameterValue?.additionalData! : {}
-        this.resource = securityResourceParameterValue?.resource ;
-        this.resourceType = securityResourceParameterValue?.resourceType ;
+        this.additionalData = securityResourceParameterValue?.additionalData ? securityResourceParameterValue?.additionalData! : {};
+        this.resource = securityResourceParameterValue?.resource;
+        this.resourceType = securityResourceParameterValue?.resourceType;
     };
     /**
      * The deserialization information for the current model
@@ -35,10 +35,10 @@ export class SecurityResourceImpl implements AdditionalDataHolder, Parsable, Sec
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.resource){
-        writer.writeStringValue("resource", this.resource);
+            writer.writeStringValue("resource", this.resource);
         }
         if(this.resourceType){
-        writer.writeEnumValue<SecurityResourceType>("resourceType", this.resourceType);
+            writer.writeEnumValue<SecurityResourceType>("resourceType", this.resourceType);
         }
         writer.writeAdditionalData(this.additionalData);
     };

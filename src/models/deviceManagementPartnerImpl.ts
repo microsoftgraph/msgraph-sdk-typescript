@@ -5,7 +5,7 @@ import {EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Entity which represents a connection to device management partner. */
-export class DeviceManagementPartnerImpl extends EntityImpl implements DeviceManagementPartner, Parsable {
+export class DeviceManagementPartnerImpl extends EntityImpl implements DeviceManagementPartner {
     /** Partner display name */
     public displayName?: string | undefined;
     /** Whether device management partner is configured or not */
@@ -27,15 +27,15 @@ export class DeviceManagementPartnerImpl extends EntityImpl implements DeviceMan
      * @param deviceManagementPartnerParameterValue 
      */
     public constructor(deviceManagementPartnerParameterValue?: DeviceManagementPartner | undefined) {
-        super();
-        this.displayName = deviceManagementPartnerParameterValue?.displayName ;
-        this.isConfigured = deviceManagementPartnerParameterValue?.isConfigured ;
-        this.lastHeartbeatDateTime = deviceManagementPartnerParameterValue?.lastHeartbeatDateTime ;
-        this.partnerAppType = deviceManagementPartnerParameterValue?.partnerAppType ;
-        this.partnerState = deviceManagementPartnerParameterValue?.partnerState ;
-        this.singleTenantAppId = deviceManagementPartnerParameterValue?.singleTenantAppId ;
-        this.whenPartnerDevicesWillBeMarkedAsNonCompliantDateTime = deviceManagementPartnerParameterValue?.whenPartnerDevicesWillBeMarkedAsNonCompliantDateTime ;
-        this.whenPartnerDevicesWillBeRemovedDateTime = deviceManagementPartnerParameterValue?.whenPartnerDevicesWillBeRemovedDateTime ;
+        super(deviceManagementPartnerParameterValue);
+        this.displayName = deviceManagementPartnerParameterValue?.displayName;
+        this.isConfigured = deviceManagementPartnerParameterValue?.isConfigured;
+        this.lastHeartbeatDateTime = deviceManagementPartnerParameterValue?.lastHeartbeatDateTime;
+        this.partnerAppType = deviceManagementPartnerParameterValue?.partnerAppType;
+        this.partnerState = deviceManagementPartnerParameterValue?.partnerState;
+        this.singleTenantAppId = deviceManagementPartnerParameterValue?.singleTenantAppId;
+        this.whenPartnerDevicesWillBeMarkedAsNonCompliantDateTime = deviceManagementPartnerParameterValue?.whenPartnerDevicesWillBeMarkedAsNonCompliantDateTime;
+        this.whenPartnerDevicesWillBeRemovedDateTime = deviceManagementPartnerParameterValue?.whenPartnerDevicesWillBeRemovedDateTime;
     };
     /**
      * The deserialization information for the current model
@@ -61,28 +61,28 @@ export class DeviceManagementPartnerImpl extends EntityImpl implements DeviceMan
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.displayName){
-        writer.writeStringValue("displayName", this.displayName);
+            writer.writeStringValue("displayName", this.displayName);
         }
         if(this.isConfigured){
-        writer.writeBooleanValue("isConfigured", this.isConfigured);
+            writer.writeBooleanValue("isConfigured", this.isConfigured);
         }
         if(this.lastHeartbeatDateTime){
-        writer.writeDateValue("lastHeartbeatDateTime", this.lastHeartbeatDateTime);
+            writer.writeDateValue("lastHeartbeatDateTime", this.lastHeartbeatDateTime);
         }
         if(this.partnerAppType){
-        writer.writeEnumValue<DeviceManagementPartnerAppType>("partnerAppType", this.partnerAppType);
+            writer.writeEnumValue<DeviceManagementPartnerAppType>("partnerAppType", this.partnerAppType);
         }
         if(this.partnerState){
-        writer.writeEnumValue<DeviceManagementPartnerTenantState>("partnerState", this.partnerState);
+            writer.writeEnumValue<DeviceManagementPartnerTenantState>("partnerState", this.partnerState);
         }
         if(this.singleTenantAppId){
-        writer.writeStringValue("singleTenantAppId", this.singleTenantAppId);
+            writer.writeStringValue("singleTenantAppId", this.singleTenantAppId);
         }
         if(this.whenPartnerDevicesWillBeMarkedAsNonCompliantDateTime){
-        writer.writeDateValue("whenPartnerDevicesWillBeMarkedAsNonCompliantDateTime", this.whenPartnerDevicesWillBeMarkedAsNonCompliantDateTime);
+            writer.writeDateValue("whenPartnerDevicesWillBeMarkedAsNonCompliantDateTime", this.whenPartnerDevicesWillBeMarkedAsNonCompliantDateTime);
         }
         if(this.whenPartnerDevicesWillBeRemovedDateTime){
-        writer.writeDateValue("whenPartnerDevicesWillBeRemovedDateTime", this.whenPartnerDevicesWillBeRemovedDateTime);
+            writer.writeDateValue("whenPartnerDevicesWillBeRemovedDateTime", this.whenPartnerDevicesWillBeRemovedDateTime);
         }
     };
 }

@@ -9,7 +9,7 @@ import {PrintTaskTrigger} from './printTaskTrigger';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the print singleton. */
-export class PrinterImpl extends PrinterBaseImpl implements Parsable, Printer {
+export class PrinterImpl extends PrinterBaseImpl implements Printer {
     /** The connectors that are associated with the printer. */
     public connectors?: PrintConnector[] | undefined;
     /** True if the printer has a physical device for printing. Read-only. */
@@ -29,14 +29,14 @@ export class PrinterImpl extends PrinterBaseImpl implements Parsable, Printer {
      * @param printerParameterValue 
      */
     public constructor(printerParameterValue?: Printer | undefined) {
-        super();
-        this.connectors = printerParameterValue?.connectors ;
-        this.hasPhysicalDevice = printerParameterValue?.hasPhysicalDevice ;
-        this.isShared = printerParameterValue?.isShared ;
-        this.lastSeenDateTime = printerParameterValue?.lastSeenDateTime ;
-        this.registeredDateTime = printerParameterValue?.registeredDateTime ;
-        this.shares = printerParameterValue?.shares ;
-        this.taskTriggers = printerParameterValue?.taskTriggers ;
+        super(printerParameterValue);
+        this.connectors = printerParameterValue?.connectors;
+        this.hasPhysicalDevice = printerParameterValue?.hasPhysicalDevice;
+        this.isShared = printerParameterValue?.isShared;
+        this.lastSeenDateTime = printerParameterValue?.lastSeenDateTime;
+        this.registeredDateTime = printerParameterValue?.registeredDateTime;
+        this.shares = printerParameterValue?.shares;
+        this.taskTriggers = printerParameterValue?.taskTriggers;
     };
     /**
      * The deserialization information for the current model
@@ -61,25 +61,25 @@ export class PrinterImpl extends PrinterBaseImpl implements Parsable, Printer {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.connectors && this.connectors.length != 0){        const connectorsArrValue: PrintConnectorImpl[] = []; this.connectors?.forEach(element => {connectorsArrValue.push(new PrintConnectorImpl(element));});
-        writer.writeCollectionOfObjectValues<PrintConnectorImpl>("connectors", connectorsArrValue);
+            writer.writeCollectionOfObjectValues<PrintConnectorImpl>("connectors", connectorsArrValue);
         }
         if(this.hasPhysicalDevice){
-        writer.writeBooleanValue("hasPhysicalDevice", this.hasPhysicalDevice);
+            writer.writeBooleanValue("hasPhysicalDevice", this.hasPhysicalDevice);
         }
         if(this.isShared){
-        writer.writeBooleanValue("isShared", this.isShared);
+            writer.writeBooleanValue("isShared", this.isShared);
         }
         if(this.lastSeenDateTime){
-        writer.writeDateValue("lastSeenDateTime", this.lastSeenDateTime);
+            writer.writeDateValue("lastSeenDateTime", this.lastSeenDateTime);
         }
         if(this.registeredDateTime){
-        writer.writeDateValue("registeredDateTime", this.registeredDateTime);
+            writer.writeDateValue("registeredDateTime", this.registeredDateTime);
         }
         if(this.shares && this.shares.length != 0){        const sharesArrValue: PrinterShareImpl[] = []; this.shares?.forEach(element => {sharesArrValue.push(new PrinterShareImpl(element));});
-        writer.writeCollectionOfObjectValues<PrinterShareImpl>("shares", sharesArrValue);
+            writer.writeCollectionOfObjectValues<PrinterShareImpl>("shares", sharesArrValue);
         }
         if(this.taskTriggers && this.taskTriggers.length != 0){        const taskTriggersArrValue: PrintTaskTriggerImpl[] = []; this.taskTriggers?.forEach(element => {taskTriggersArrValue.push(new PrintTaskTriggerImpl(element));});
-        writer.writeCollectionOfObjectValues<PrintTaskTriggerImpl>("taskTriggers", taskTriggersArrValue);
+            writer.writeCollectionOfObjectValues<PrintTaskTriggerImpl>("taskTriggers", taskTriggersArrValue);
         }
     };
 }

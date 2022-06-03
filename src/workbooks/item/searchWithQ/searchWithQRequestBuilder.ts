@@ -22,7 +22,7 @@ export class SearchWithQRequestBuilder {
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/workbooks/{driveItem%2Did}/microsoft.graph.search(q='{q}')";
         const urlTplParams = getPathParameters(pathParameters);
-        urlTplParams[""] = q
+        urlTplParams["q"] = q
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };

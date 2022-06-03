@@ -7,7 +7,7 @@ import {SigningCertificateUpdateStatus} from './signingCertificateUpdateStatus';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the collection of domain entities. */
-export class InternalDomainFederationImpl extends SamlOrWsFedProviderImpl implements InternalDomainFederation, Parsable {
+export class InternalDomainFederationImpl extends SamlOrWsFedProviderImpl implements InternalDomainFederation {
     /** URL of the endpoint used by active clients when authenticating with federated domains set up for single sign-on in Azure Active Directory (Azure AD). Corresponds to the ActiveLogOnUri property of the Set-MsolDomainFederationSettings MSOnline v1 PowerShell cmdlet. */
     public activeSignInUri?: string | undefined;
     /** Determines whether Azure AD accepts the MFA performed by the federated IdP when a federated user accesses an application that is governed by a conditional access policy that requires MFA. The possible values are: acceptIfMfaDoneByFederatedIdp, enforceMfaByFederatedIdp, rejectMfaByFederatedIdp, unknownFutureValue. For more information, see federatedIdpMfaBehavior values. */
@@ -27,14 +27,14 @@ export class InternalDomainFederationImpl extends SamlOrWsFedProviderImpl implem
      * @param internalDomainFederationParameterValue 
      */
     public constructor(internalDomainFederationParameterValue?: InternalDomainFederation | undefined) {
-        super();
-        this.activeSignInUri = internalDomainFederationParameterValue?.activeSignInUri ;
-        this.federatedIdpMfaBehavior = internalDomainFederationParameterValue?.federatedIdpMfaBehavior ;
-        this.isSignedAuthenticationRequestRequired = internalDomainFederationParameterValue?.isSignedAuthenticationRequestRequired ;
-        this.nextSigningCertificate = internalDomainFederationParameterValue?.nextSigningCertificate ;
-        this.promptLoginBehavior = internalDomainFederationParameterValue?.promptLoginBehavior ;
-        this.signingCertificateUpdateStatus = internalDomainFederationParameterValue?.signingCertificateUpdateStatus ;
-        this.signOutUri = internalDomainFederationParameterValue?.signOutUri ;
+        super(internalDomainFederationParameterValue);
+        this.activeSignInUri = internalDomainFederationParameterValue?.activeSignInUri;
+        this.federatedIdpMfaBehavior = internalDomainFederationParameterValue?.federatedIdpMfaBehavior;
+        this.isSignedAuthenticationRequestRequired = internalDomainFederationParameterValue?.isSignedAuthenticationRequestRequired;
+        this.nextSigningCertificate = internalDomainFederationParameterValue?.nextSigningCertificate;
+        this.promptLoginBehavior = internalDomainFederationParameterValue?.promptLoginBehavior;
+        this.signingCertificateUpdateStatus = internalDomainFederationParameterValue?.signingCertificateUpdateStatus;
+        this.signOutUri = internalDomainFederationParameterValue?.signOutUri;
     };
     /**
      * The deserialization information for the current model
@@ -59,25 +59,25 @@ export class InternalDomainFederationImpl extends SamlOrWsFedProviderImpl implem
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.activeSignInUri){
-        writer.writeStringValue("activeSignInUri", this.activeSignInUri);
+            writer.writeStringValue("activeSignInUri", this.activeSignInUri);
         }
         if(this.federatedIdpMfaBehavior){
-        writer.writeEnumValue<FederatedIdpMfaBehavior>("federatedIdpMfaBehavior", this.federatedIdpMfaBehavior);
+            writer.writeEnumValue<FederatedIdpMfaBehavior>("federatedIdpMfaBehavior", this.federatedIdpMfaBehavior);
         }
         if(this.isSignedAuthenticationRequestRequired){
-        writer.writeBooleanValue("isSignedAuthenticationRequestRequired", this.isSignedAuthenticationRequestRequired);
+            writer.writeBooleanValue("isSignedAuthenticationRequestRequired", this.isSignedAuthenticationRequestRequired);
         }
         if(this.nextSigningCertificate){
-        writer.writeStringValue("nextSigningCertificate", this.nextSigningCertificate);
+            writer.writeStringValue("nextSigningCertificate", this.nextSigningCertificate);
         }
         if(this.promptLoginBehavior){
-        writer.writeEnumValue<PromptLoginBehavior>("promptLoginBehavior", this.promptLoginBehavior);
+            writer.writeEnumValue<PromptLoginBehavior>("promptLoginBehavior", this.promptLoginBehavior);
         }
         if(this.signingCertificateUpdateStatus){
-        writer.writeObjectValue<SigningCertificateUpdateStatusImpl>("signingCertificateUpdateStatus", new SigningCertificateUpdateStatusImpl(this.signingCertificateUpdateStatus));
+            writer.writeObjectValue<SigningCertificateUpdateStatusImpl>("signingCertificateUpdateStatus", new SigningCertificateUpdateStatusImpl(this.signingCertificateUpdateStatus));
         }
         if(this.signOutUri){
-        writer.writeStringValue("signOutUri", this.signOutUri);
+            writer.writeStringValue("signOutUri", this.signOutUri);
         }
     };
 }

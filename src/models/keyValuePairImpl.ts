@@ -1,7 +1,7 @@
 import {KeyValuePair} from './keyValuePair';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class KeyValuePairImpl implements AdditionalDataHolder, KeyValuePair, Parsable {
+export class KeyValuePairImpl implements KeyValuePair {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Name for this key-value pair */
@@ -13,9 +13,9 @@ export class KeyValuePairImpl implements AdditionalDataHolder, KeyValuePair, Par
      * @param keyValuePairParameterValue 
      */
     public constructor(keyValuePairParameterValue?: KeyValuePair | undefined) {
-        this.additionalData = keyValuePairParameterValue?.additionalData ? keyValuePairParameterValue?.additionalData! : {}
-        this.name = keyValuePairParameterValue?.name ;
-        this.value = keyValuePairParameterValue?.value ;
+        this.additionalData = keyValuePairParameterValue?.additionalData ? keyValuePairParameterValue?.additionalData! : {};
+        this.name = keyValuePairParameterValue?.name;
+        this.value = keyValuePairParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -34,10 +34,10 @@ export class KeyValuePairImpl implements AdditionalDataHolder, KeyValuePair, Par
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.name){
-        writer.writeStringValue("name", this.name);
+            writer.writeStringValue("name", this.name);
         }
         if(this.value){
-        writer.writeStringValue("value", this.value);
+            writer.writeStringValue("value", this.value);
         }
         writer.writeAdditionalData(this.additionalData);
     };

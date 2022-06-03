@@ -7,7 +7,7 @@ import {TeamsTabConfiguration} from './teamsTabConfiguration';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the collection of chat entities. */
-export class TeamsTabImpl extends EntityImpl implements Parsable, TeamsTab {
+export class TeamsTabImpl extends EntityImpl implements TeamsTab {
     /** Container for custom settings applied to a tab. The tab is considered configured only once this property is set. */
     public configuration?: TeamsTabConfiguration | undefined;
     /** Name of the tab. */
@@ -21,11 +21,11 @@ export class TeamsTabImpl extends EntityImpl implements Parsable, TeamsTab {
      * @param teamsTabParameterValue 
      */
     public constructor(teamsTabParameterValue?: TeamsTab | undefined) {
-        super();
-        this.configuration = teamsTabParameterValue?.configuration ;
-        this.displayName = teamsTabParameterValue?.displayName ;
-        this.teamsApp = teamsTabParameterValue?.teamsApp ;
-        this.webUrl = teamsTabParameterValue?.webUrl ;
+        super(teamsTabParameterValue);
+        this.configuration = teamsTabParameterValue?.configuration;
+        this.displayName = teamsTabParameterValue?.displayName;
+        this.teamsApp = teamsTabParameterValue?.teamsApp;
+        this.webUrl = teamsTabParameterValue?.webUrl;
     };
     /**
      * The deserialization information for the current model
@@ -47,16 +47,16 @@ export class TeamsTabImpl extends EntityImpl implements Parsable, TeamsTab {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.configuration){
-        writer.writeObjectValue<TeamsTabConfigurationImpl>("configuration", new TeamsTabConfigurationImpl(this.configuration));
+            writer.writeObjectValue<TeamsTabConfigurationImpl>("configuration", new TeamsTabConfigurationImpl(this.configuration));
         }
         if(this.displayName){
-        writer.writeStringValue("displayName", this.displayName);
+            writer.writeStringValue("displayName", this.displayName);
         }
         if(this.teamsApp){
-        writer.writeObjectValue<TeamsAppImpl>("teamsApp", new TeamsAppImpl(this.teamsApp));
+            writer.writeObjectValue<TeamsAppImpl>("teamsApp", new TeamsAppImpl(this.teamsApp));
         }
         if(this.webUrl){
-        writer.writeStringValue("webUrl", this.webUrl);
+            writer.writeStringValue("webUrl", this.webUrl);
         }
     };
 }

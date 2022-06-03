@@ -1,7 +1,7 @@
 import {DomainState} from './domainState';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class DomainStateImpl implements AdditionalDataHolder, DomainState, Parsable {
+export class DomainStateImpl implements DomainState {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Timestamp for when the last activity occurred. The value is updated when an operation is scheduled, the asynchronous task starts, and when the operation completes. */
@@ -15,10 +15,10 @@ export class DomainStateImpl implements AdditionalDataHolder, DomainState, Parsa
      * @param domainStateParameterValue 
      */
     public constructor(domainStateParameterValue?: DomainState | undefined) {
-        this.additionalData = domainStateParameterValue?.additionalData ? domainStateParameterValue?.additionalData! : {}
-        this.lastActionDateTime = domainStateParameterValue?.lastActionDateTime ;
-        this.operation = domainStateParameterValue?.operation ;
-        this.status = domainStateParameterValue?.status ;
+        this.additionalData = domainStateParameterValue?.additionalData ? domainStateParameterValue?.additionalData! : {};
+        this.lastActionDateTime = domainStateParameterValue?.lastActionDateTime;
+        this.operation = domainStateParameterValue?.operation;
+        this.status = domainStateParameterValue?.status;
     };
     /**
      * The deserialization information for the current model
@@ -38,13 +38,13 @@ export class DomainStateImpl implements AdditionalDataHolder, DomainState, Parsa
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.lastActionDateTime){
-        writer.writeDateValue("lastActionDateTime", this.lastActionDateTime);
+            writer.writeDateValue("lastActionDateTime", this.lastActionDateTime);
         }
         if(this.operation){
-        writer.writeStringValue("operation", this.operation);
+            writer.writeStringValue("operation", this.operation);
         }
         if(this.status){
-        writer.writeStringValue("status", this.status);
+            writer.writeStringValue("status", this.status);
         }
         writer.writeAdditionalData(this.additionalData);
     };

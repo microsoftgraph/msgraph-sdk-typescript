@@ -3,7 +3,7 @@ import {SyncPostRequestBody} from './syncPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the sync method. */
-export class SyncPostRequestBodyImpl implements AdditionalDataHolder, Parsable, SyncPostRequestBody {
+export class SyncPostRequestBodyImpl implements SyncPostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The syncType property */
@@ -13,8 +13,8 @@ export class SyncPostRequestBodyImpl implements AdditionalDataHolder, Parsable, 
      * @param syncPostRequestBodyParameterValue 
      */
     public constructor(syncPostRequestBodyParameterValue?: SyncPostRequestBody | undefined) {
-        this.additionalData = syncPostRequestBodyParameterValue?.additionalData ? syncPostRequestBodyParameterValue?.additionalData! : {}
-        this.syncType = syncPostRequestBodyParameterValue?.syncType ;
+        this.additionalData = syncPostRequestBodyParameterValue?.additionalData ? syncPostRequestBodyParameterValue?.additionalData! : {};
+        this.syncType = syncPostRequestBodyParameterValue?.syncType;
     };
     /**
      * The deserialization information for the current model
@@ -32,7 +32,7 @@ export class SyncPostRequestBodyImpl implements AdditionalDataHolder, Parsable, 
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.syncType){
-        writer.writeEnumValue<DeviceManagementExchangeConnectorSyncType>("syncType", this.syncType);
+            writer.writeEnumValue<DeviceManagementExchangeConnectorSyncType>("syncType", this.syncType);
         }
         writer.writeAdditionalData(this.additionalData);
     };

@@ -1,7 +1,7 @@
 import {AppConsentRequestScope} from './appConsentRequestScope';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class AppConsentRequestScopeImpl implements AdditionalDataHolder, AppConsentRequestScope, Parsable {
+export class AppConsentRequestScopeImpl implements AppConsentRequestScope {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The name of the scope. */
@@ -11,8 +11,8 @@ export class AppConsentRequestScopeImpl implements AdditionalDataHolder, AppCons
      * @param appConsentRequestScopeParameterValue 
      */
     public constructor(appConsentRequestScopeParameterValue?: AppConsentRequestScope | undefined) {
-        this.additionalData = appConsentRequestScopeParameterValue?.additionalData ? appConsentRequestScopeParameterValue?.additionalData! : {}
-        this.displayName = appConsentRequestScopeParameterValue?.displayName ;
+        this.additionalData = appConsentRequestScopeParameterValue?.additionalData ? appConsentRequestScopeParameterValue?.additionalData! : {};
+        this.displayName = appConsentRequestScopeParameterValue?.displayName;
     };
     /**
      * The deserialization information for the current model
@@ -30,7 +30,7 @@ export class AppConsentRequestScopeImpl implements AdditionalDataHolder, AppCons
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.displayName){
-        writer.writeStringValue("displayName", this.displayName);
+            writer.writeStringValue("displayName", this.displayName);
         }
         writer.writeAdditionalData(this.additionalData);
     };

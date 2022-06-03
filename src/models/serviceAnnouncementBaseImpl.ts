@@ -5,7 +5,7 @@ import {ServiceAnnouncementBase} from './serviceAnnouncementBase';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the admin singleton. */
-export class ServiceAnnouncementBaseImpl extends EntityImpl implements Parsable, ServiceAnnouncementBase {
+export class ServiceAnnouncementBaseImpl extends EntityImpl implements ServiceAnnouncementBase {
     /** Additional details about service event. This property doesn't support filters. */
     public details?: KeyValuePair[] | undefined;
     /** The end time of the service event. */
@@ -21,12 +21,12 @@ export class ServiceAnnouncementBaseImpl extends EntityImpl implements Parsable,
      * @param serviceAnnouncementBaseParameterValue 
      */
     public constructor(serviceAnnouncementBaseParameterValue?: ServiceAnnouncementBase | undefined) {
-        super();
-        this.details = serviceAnnouncementBaseParameterValue?.details ;
-        this.endDateTime = serviceAnnouncementBaseParameterValue?.endDateTime ;
-        this.lastModifiedDateTime = serviceAnnouncementBaseParameterValue?.lastModifiedDateTime ;
-        this.startDateTime = serviceAnnouncementBaseParameterValue?.startDateTime ;
-        this.title = serviceAnnouncementBaseParameterValue?.title ;
+        super(serviceAnnouncementBaseParameterValue);
+        this.details = serviceAnnouncementBaseParameterValue?.details;
+        this.endDateTime = serviceAnnouncementBaseParameterValue?.endDateTime;
+        this.lastModifiedDateTime = serviceAnnouncementBaseParameterValue?.lastModifiedDateTime;
+        this.startDateTime = serviceAnnouncementBaseParameterValue?.startDateTime;
+        this.title = serviceAnnouncementBaseParameterValue?.title;
     };
     /**
      * The deserialization information for the current model
@@ -49,19 +49,19 @@ export class ServiceAnnouncementBaseImpl extends EntityImpl implements Parsable,
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.details && this.details.length != 0){        const detailsArrValue: KeyValuePairImpl[] = []; this.details?.forEach(element => {detailsArrValue.push(new KeyValuePairImpl(element));});
-        writer.writeCollectionOfObjectValues<KeyValuePairImpl>("details", detailsArrValue);
+            writer.writeCollectionOfObjectValues<KeyValuePairImpl>("details", detailsArrValue);
         }
         if(this.endDateTime){
-        writer.writeDateValue("endDateTime", this.endDateTime);
+            writer.writeDateValue("endDateTime", this.endDateTime);
         }
         if(this.lastModifiedDateTime){
-        writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
+            writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
         }
         if(this.startDateTime){
-        writer.writeDateValue("startDateTime", this.startDateTime);
+            writer.writeDateValue("startDateTime", this.startDateTime);
         }
         if(this.title){
-        writer.writeStringValue("title", this.title);
+            writer.writeStringValue("title", this.title);
         }
     };
 }

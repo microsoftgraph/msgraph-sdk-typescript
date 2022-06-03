@@ -1,11 +1,11 @@
 import {Fido2AuthenticationMethodItemRequestBuilderGetQueryParameters} from './fido2AuthenticationMethodItemRequestBuilderGetQueryParameters';
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
-export interface Fido2AuthenticationMethodItemRequestBuilderGetRequestConfiguration{
+export interface Fido2AuthenticationMethodItemRequestBuilderGetRequestConfiguration {
     /** Request headers */
-    headers?:Record<string, string> | undefined;
+    headers?: Record<string, string> | undefined;
     /** Request options */
-    options?:RequestOption[] | undefined;
+    options?: RequestOption[] | undefined;
     /** Request query parameters */
-    queryParameters?:Fido2AuthenticationMethodItemRequestBuilderGetQueryParameters | undefined;
+    queryParameters?: Fido2AuthenticationMethodItemRequestBuilderGetQueryParameters | undefined;
 }

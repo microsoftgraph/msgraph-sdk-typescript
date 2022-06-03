@@ -12,7 +12,7 @@ import {ThreatExpectedAssessment} from './threatExpectedAssessment';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the informationProtection singleton. */
-export class ThreatAssessmentRequestImpl extends EntityImpl implements Parsable, ThreatAssessmentRequest {
+export class ThreatAssessmentRequestImpl extends EntityImpl implements ThreatAssessmentRequest {
     /** The threat category. Possible values are: spam, phishing, malware. */
     public category?: ThreatCategory | undefined;
     /** The content type of threat assessment. Possible values are: mail, url, file. */
@@ -34,15 +34,15 @@ export class ThreatAssessmentRequestImpl extends EntityImpl implements Parsable,
      * @param threatAssessmentRequestParameterValue 
      */
     public constructor(threatAssessmentRequestParameterValue?: ThreatAssessmentRequest | undefined) {
-        super();
-        this.category = threatAssessmentRequestParameterValue?.category ;
-        this.contentType = threatAssessmentRequestParameterValue?.contentType ;
-        this.createdBy = threatAssessmentRequestParameterValue?.createdBy ;
-        this.createdDateTime = threatAssessmentRequestParameterValue?.createdDateTime ;
-        this.expectedAssessment = threatAssessmentRequestParameterValue?.expectedAssessment ;
-        this.requestSource = threatAssessmentRequestParameterValue?.requestSource ;
-        this.results = threatAssessmentRequestParameterValue?.results ;
-        this.status = threatAssessmentRequestParameterValue?.status ;
+        super(threatAssessmentRequestParameterValue);
+        this.category = threatAssessmentRequestParameterValue?.category;
+        this.contentType = threatAssessmentRequestParameterValue?.contentType;
+        this.createdBy = threatAssessmentRequestParameterValue?.createdBy;
+        this.createdDateTime = threatAssessmentRequestParameterValue?.createdDateTime;
+        this.expectedAssessment = threatAssessmentRequestParameterValue?.expectedAssessment;
+        this.requestSource = threatAssessmentRequestParameterValue?.requestSource;
+        this.results = threatAssessmentRequestParameterValue?.results;
+        this.status = threatAssessmentRequestParameterValue?.status;
     };
     /**
      * The deserialization information for the current model
@@ -68,28 +68,28 @@ export class ThreatAssessmentRequestImpl extends EntityImpl implements Parsable,
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.category){
-        writer.writeEnumValue<ThreatCategory>("category", this.category);
+            writer.writeEnumValue<ThreatCategory>("category", this.category);
         }
         if(this.contentType){
-        writer.writeEnumValue<ThreatAssessmentContentType>("contentType", this.contentType);
+            writer.writeEnumValue<ThreatAssessmentContentType>("contentType", this.contentType);
         }
         if(this.createdBy){
-        writer.writeObjectValue<IdentitySetImpl>("createdBy", new IdentitySetImpl(this.createdBy));
+            writer.writeObjectValue<IdentitySetImpl>("createdBy", new IdentitySetImpl(this.createdBy));
         }
         if(this.createdDateTime){
-        writer.writeDateValue("createdDateTime", this.createdDateTime);
+            writer.writeDateValue("createdDateTime", this.createdDateTime);
         }
         if(this.expectedAssessment){
-        writer.writeEnumValue<ThreatExpectedAssessment>("expectedAssessment", this.expectedAssessment);
+            writer.writeEnumValue<ThreatExpectedAssessment>("expectedAssessment", this.expectedAssessment);
         }
         if(this.requestSource){
-        writer.writeEnumValue<ThreatAssessmentRequestSource>("requestSource", this.requestSource);
+            writer.writeEnumValue<ThreatAssessmentRequestSource>("requestSource", this.requestSource);
         }
         if(this.results && this.results.length != 0){        const resultsArrValue: ThreatAssessmentResultImpl[] = []; this.results?.forEach(element => {resultsArrValue.push(new ThreatAssessmentResultImpl(element));});
-        writer.writeCollectionOfObjectValues<ThreatAssessmentResultImpl>("results", resultsArrValue);
+            writer.writeCollectionOfObjectValues<ThreatAssessmentResultImpl>("results", resultsArrValue);
         }
         if(this.status){
-        writer.writeEnumValue<ThreatAssessmentStatus>("status", this.status);
+            writer.writeEnumValue<ThreatAssessmentStatus>("status", this.status);
         }
     };
 }

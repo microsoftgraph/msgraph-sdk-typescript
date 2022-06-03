@@ -1,39 +1,40 @@
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface PrinterLocation{
+export interface PrinterLocation extends Partial<AdditionalDataHolder>, Partial<Parsable> {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?:Record<string, unknown>;
+    additionalData?: Record<string, unknown>;
     /** The altitude, in meters, that the printer is located at. */
-    altitudeInMeters?:number | undefined;
+    altitudeInMeters?: number | undefined;
     /** The building that the printer is located in. */
-    building?:string | undefined;
+    building?: string | undefined;
     /** The city that the printer is located in. */
-    city?:string | undefined;
+    city?: string | undefined;
     /** The country or region that the printer is located in. */
-    countryOrRegion?:string | undefined;
+    countryOrRegion?: string | undefined;
     /** The floor that the printer is located on. Only numerical values are supported right now. */
-    floor?:string | undefined;
+    floor?: string | undefined;
     /** The description of the floor that the printer is located on. */
-    floorDescription?:string | undefined;
+    floorDescription?: string | undefined;
     /** The latitude that the printer is located at. */
-    latitude?:number | undefined;
+    latitude?: number | undefined;
     /** The longitude that the printer is located at. */
-    longitude?:number | undefined;
+    longitude?: number | undefined;
     /** The organizational hierarchy that the printer belongs to. The elements should be in hierarchical order. */
-    organization?:string[] | undefined;
+    organization?: string[] | undefined;
     /** The postal code that the printer is located in. */
-    postalCode?:string | undefined;
+    postalCode?: string | undefined;
     /** The description of the room that the printer is located in. */
-    roomDescription?:string | undefined;
+    roomDescription?: string | undefined;
     /** The room that the printer is located in. Only numerical values are supported right now. */
-    roomName?:string | undefined;
+    roomName?: string | undefined;
     /** The site that the printer is located in. */
-    site?:string | undefined;
+    site?: string | undefined;
     /** The state or province that the printer is located in. */
-    stateOrProvince?:string | undefined;
+    stateOrProvince?: string | undefined;
     /** The street address where the printer is located. */
-    streetAddress?:string | undefined;
+    streetAddress?: string | undefined;
     /** The subdivision that the printer is located in. The elements should be in hierarchical order. */
-    subdivision?:string[] | undefined;
+    subdivision?: string[] | undefined;
     /** The subunit property */
-    subunit?:string[] | undefined;
+    subunit?: string[] | undefined;
 }

@@ -2,8 +2,8 @@ import {OnenoteEntityBaseModelImpl} from './index';
 import {OnenoteResource} from './onenoteResource';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to group. */
-export class OnenoteResourceImpl extends OnenoteEntityBaseModelImpl implements OnenoteResource, Parsable {
+/** Casts the previous resource to user. */
+export class OnenoteResourceImpl extends OnenoteEntityBaseModelImpl implements OnenoteResource {
     /** The content stream */
     public content?: string | undefined;
     /** The URL for downloading the content */
@@ -13,9 +13,9 @@ export class OnenoteResourceImpl extends OnenoteEntityBaseModelImpl implements O
      * @param onenoteResourceParameterValue 
      */
     public constructor(onenoteResourceParameterValue?: OnenoteResource | undefined) {
-        super();
-        this.content = onenoteResourceParameterValue?.content ;
-        this.contentUrl = onenoteResourceParameterValue?.contentUrl ;
+        super(onenoteResourceParameterValue);
+        this.content = onenoteResourceParameterValue?.content;
+        this.contentUrl = onenoteResourceParameterValue?.contentUrl;
     };
     /**
      * The deserialization information for the current model
@@ -35,10 +35,10 @@ export class OnenoteResourceImpl extends OnenoteEntityBaseModelImpl implements O
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.content){
-        writer.writeStringValue("content", this.content);
+            writer.writeStringValue("content", this.content);
         }
         if(this.contentUrl){
-        writer.writeStringValue("contentUrl", this.contentUrl);
+            writer.writeStringValue("contentUrl", this.contentUrl);
         }
     };
 }

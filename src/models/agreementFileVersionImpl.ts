@@ -3,13 +3,13 @@ import {AgreementFilePropertiesImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the collection of agreement entities. */
-export class AgreementFileVersionImpl extends AgreementFilePropertiesImpl implements AgreementFileVersion, Parsable {
+export class AgreementFileVersionImpl extends AgreementFilePropertiesImpl implements AgreementFileVersion {
     /**
      * Instantiates a new agreementFileVersion and sets the default values.
      * @param agreementFileVersionParameterValue 
      */
     public constructor(agreementFileVersionParameterValue?: AgreementFileVersion | undefined) {
-        super();
+        super(agreementFileVersionParameterValue);
     };
     /**
      * The deserialization information for the current model

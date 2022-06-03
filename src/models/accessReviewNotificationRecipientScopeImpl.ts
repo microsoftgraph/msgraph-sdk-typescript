@@ -1,7 +1,7 @@
 import {AccessReviewNotificationRecipientScope} from './accessReviewNotificationRecipientScope';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class AccessReviewNotificationRecipientScopeImpl implements AccessReviewNotificationRecipientScope, AdditionalDataHolder, Parsable {
+export class AccessReviewNotificationRecipientScopeImpl implements AccessReviewNotificationRecipientScope {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /**
@@ -9,7 +9,7 @@ export class AccessReviewNotificationRecipientScopeImpl implements AccessReviewN
      * @param accessReviewNotificationRecipientScopeParameterValue 
      */
     public constructor(accessReviewNotificationRecipientScopeParameterValue?: AccessReviewNotificationRecipientScope | undefined) {
-        this.additionalData = accessReviewNotificationRecipientScopeParameterValue?.additionalData ? accessReviewNotificationRecipientScopeParameterValue?.additionalData! : {}
+        this.additionalData = accessReviewNotificationRecipientScopeParameterValue?.additionalData ? accessReviewNotificationRecipientScopeParameterValue?.additionalData! : {};
     };
     /**
      * The deserialization information for the current model

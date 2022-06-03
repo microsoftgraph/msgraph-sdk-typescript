@@ -2,7 +2,7 @@ import {SelfSignedCertificatePostRequestBody} from './selfSignedCertificatePostR
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the addTokenSigningCertificate method. */
-export class SelfSignedCertificatePostRequestBodyImpl implements AdditionalDataHolder, Parsable, SelfSignedCertificatePostRequestBody {
+export class SelfSignedCertificatePostRequestBodyImpl implements SelfSignedCertificatePostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The displayName property */
@@ -14,9 +14,9 @@ export class SelfSignedCertificatePostRequestBodyImpl implements AdditionalDataH
      * @param selfSignedCertificatePostRequestBodyParameterValue 
      */
     public constructor(selfSignedCertificatePostRequestBodyParameterValue?: SelfSignedCertificatePostRequestBody | undefined) {
-        this.additionalData = selfSignedCertificatePostRequestBodyParameterValue?.additionalData ? selfSignedCertificatePostRequestBodyParameterValue?.additionalData! : {}
-        this.displayName = selfSignedCertificatePostRequestBodyParameterValue?.displayName ;
-        this.endDateTime = selfSignedCertificatePostRequestBodyParameterValue?.endDateTime ;
+        this.additionalData = selfSignedCertificatePostRequestBodyParameterValue?.additionalData ? selfSignedCertificatePostRequestBodyParameterValue?.additionalData! : {};
+        this.displayName = selfSignedCertificatePostRequestBodyParameterValue?.displayName;
+        this.endDateTime = selfSignedCertificatePostRequestBodyParameterValue?.endDateTime;
     };
     /**
      * The deserialization information for the current model
@@ -35,10 +35,10 @@ export class SelfSignedCertificatePostRequestBodyImpl implements AdditionalDataH
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.displayName){
-        writer.writeStringValue("displayName", this.displayName);
+            writer.writeStringValue("displayName", this.displayName);
         }
         if(this.endDateTime){
-        writer.writeDateValue("endDateTime", this.endDateTime);
+            writer.writeDateValue("endDateTime", this.endDateTime);
         }
         writer.writeAdditionalData(this.additionalData);
     };

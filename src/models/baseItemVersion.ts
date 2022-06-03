@@ -1,12 +1,13 @@
 import {Entity} from './entity';
 import {IdentitySet} from './identitySet';
 import {PublicationFacet} from './publicationFacet';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface BaseItemVersion extends Entity{
+export interface BaseItemVersion extends Entity, Partial<Parsable> {
     /** Identity of the user which last modified the version. Read-only. */
-    lastModifiedBy?:IdentitySet | undefined;
+    lastModifiedBy?: IdentitySet | undefined;
     /** Date and time the version was last modified. Read-only. */
-    lastModifiedDateTime?:Date | undefined;
+    lastModifiedDateTime?: Date | undefined;
     /** Indicates the publication status of this particular version. Read-only. */
-    publication?:PublicationFacet | undefined;
+    publication?: PublicationFacet | undefined;
 }

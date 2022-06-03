@@ -5,7 +5,7 @@ import {ScheduleChangeState} from './scheduleChangeState';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Casts the previous resource to group. */
-export class ScheduleChangeRequestImpl extends ChangeTrackedEntityImpl implements Parsable, ScheduleChangeRequest {
+export class ScheduleChangeRequestImpl extends ChangeTrackedEntityImpl implements ScheduleChangeRequest {
     /** The assignedTo property */
     public assignedTo?: ScheduleChangeRequestActor | undefined;
     /** The managerActionDateTime property */
@@ -27,15 +27,15 @@ export class ScheduleChangeRequestImpl extends ChangeTrackedEntityImpl implement
      * @param scheduleChangeRequestParameterValue 
      */
     public constructor(scheduleChangeRequestParameterValue?: ScheduleChangeRequest | undefined) {
-        super();
-        this.assignedTo = scheduleChangeRequestParameterValue?.assignedTo ;
-        this.managerActionDateTime = scheduleChangeRequestParameterValue?.managerActionDateTime ;
-        this.managerActionMessage = scheduleChangeRequestParameterValue?.managerActionMessage ;
-        this.managerUserId = scheduleChangeRequestParameterValue?.managerUserId ;
-        this.senderDateTime = scheduleChangeRequestParameterValue?.senderDateTime ;
-        this.senderMessage = scheduleChangeRequestParameterValue?.senderMessage ;
-        this.senderUserId = scheduleChangeRequestParameterValue?.senderUserId ;
-        this.state = scheduleChangeRequestParameterValue?.state ;
+        super(scheduleChangeRequestParameterValue);
+        this.assignedTo = scheduleChangeRequestParameterValue?.assignedTo;
+        this.managerActionDateTime = scheduleChangeRequestParameterValue?.managerActionDateTime;
+        this.managerActionMessage = scheduleChangeRequestParameterValue?.managerActionMessage;
+        this.managerUserId = scheduleChangeRequestParameterValue?.managerUserId;
+        this.senderDateTime = scheduleChangeRequestParameterValue?.senderDateTime;
+        this.senderMessage = scheduleChangeRequestParameterValue?.senderMessage;
+        this.senderUserId = scheduleChangeRequestParameterValue?.senderUserId;
+        this.state = scheduleChangeRequestParameterValue?.state;
     };
     /**
      * The deserialization information for the current model
@@ -61,28 +61,28 @@ export class ScheduleChangeRequestImpl extends ChangeTrackedEntityImpl implement
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.assignedTo){
-        writer.writeEnumValue<ScheduleChangeRequestActor>("assignedTo", this.assignedTo);
+            writer.writeEnumValue<ScheduleChangeRequestActor>("assignedTo", this.assignedTo);
         }
         if(this.managerActionDateTime){
-        writer.writeDateValue("managerActionDateTime", this.managerActionDateTime);
+            writer.writeDateValue("managerActionDateTime", this.managerActionDateTime);
         }
         if(this.managerActionMessage){
-        writer.writeStringValue("managerActionMessage", this.managerActionMessage);
+            writer.writeStringValue("managerActionMessage", this.managerActionMessage);
         }
         if(this.managerUserId){
-        writer.writeStringValue("managerUserId", this.managerUserId);
+            writer.writeStringValue("managerUserId", this.managerUserId);
         }
         if(this.senderDateTime){
-        writer.writeDateValue("senderDateTime", this.senderDateTime);
+            writer.writeDateValue("senderDateTime", this.senderDateTime);
         }
         if(this.senderMessage){
-        writer.writeStringValue("senderMessage", this.senderMessage);
+            writer.writeStringValue("senderMessage", this.senderMessage);
         }
         if(this.senderUserId){
-        writer.writeStringValue("senderUserId", this.senderUserId);
+            writer.writeStringValue("senderUserId", this.senderUserId);
         }
         if(this.state){
-        writer.writeEnumValue<ScheduleChangeState>("state", this.state);
+            writer.writeEnumValue<ScheduleChangeState>("state", this.state);
         }
     };
 }

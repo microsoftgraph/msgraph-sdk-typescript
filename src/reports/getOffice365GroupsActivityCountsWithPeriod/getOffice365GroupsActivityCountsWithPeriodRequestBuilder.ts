@@ -22,7 +22,7 @@ export class GetOffice365GroupsActivityCountsWithPeriodRequestBuilder {
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/reports/microsoft.graph.getOffice365GroupsActivityCounts(period='{period}')";
         const urlTplParams = getPathParameters(pathParameters);
-        urlTplParams[""] = period
+        urlTplParams["period"] = period
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };

@@ -1,7 +1,7 @@
 import {TermsExpiration} from './termsExpiration';
 import {AdditionalDataHolder, Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class TermsExpirationImpl implements AdditionalDataHolder, Parsable, TermsExpiration {
+export class TermsExpirationImpl implements TermsExpiration {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Represents the frequency at which the terms will expire, after its first expiration as set in startDateTime. The value is represented in ISO 8601 format for durations. For example, PT1M represents a time period of 1 month. */
@@ -13,9 +13,9 @@ export class TermsExpirationImpl implements AdditionalDataHolder, Parsable, Term
      * @param termsExpirationParameterValue 
      */
     public constructor(termsExpirationParameterValue?: TermsExpiration | undefined) {
-        this.additionalData = termsExpirationParameterValue?.additionalData ? termsExpirationParameterValue?.additionalData! : {}
-        this.frequency = termsExpirationParameterValue?.frequency ;
-        this.startDateTime = termsExpirationParameterValue?.startDateTime ;
+        this.additionalData = termsExpirationParameterValue?.additionalData ? termsExpirationParameterValue?.additionalData! : {};
+        this.frequency = termsExpirationParameterValue?.frequency;
+        this.startDateTime = termsExpirationParameterValue?.startDateTime;
     };
     /**
      * The deserialization information for the current model
@@ -34,10 +34,10 @@ export class TermsExpirationImpl implements AdditionalDataHolder, Parsable, Term
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.frequency){
-        writer.writeDurationValue("frequency", this.frequency);
+            writer.writeDurationValue("frequency", this.frequency);
         }
         if(this.startDateTime){
-        writer.writeDateValue("startDateTime", this.startDateTime);
+            writer.writeDateValue("startDateTime", this.startDateTime);
         }
         writer.writeAdditionalData(this.additionalData);
     };

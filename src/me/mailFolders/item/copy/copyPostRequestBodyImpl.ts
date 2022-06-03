@@ -2,7 +2,7 @@ import {CopyPostRequestBody} from './copyPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the copy method. */
-export class CopyPostRequestBodyImpl implements AdditionalDataHolder, CopyPostRequestBody, Parsable {
+export class CopyPostRequestBodyImpl implements CopyPostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The DestinationId property */
@@ -12,8 +12,8 @@ export class CopyPostRequestBodyImpl implements AdditionalDataHolder, CopyPostRe
      * @param copyPostRequestBodyParameterValue 
      */
     public constructor(copyPostRequestBodyParameterValue?: CopyPostRequestBody | undefined) {
-        this.additionalData = copyPostRequestBodyParameterValue?.additionalData ? copyPostRequestBodyParameterValue?.additionalData! : {}
-        this.destinationId = copyPostRequestBodyParameterValue?.destinationId ;
+        this.additionalData = copyPostRequestBodyParameterValue?.additionalData ? copyPostRequestBodyParameterValue?.additionalData! : {};
+        this.destinationId = copyPostRequestBodyParameterValue?.destinationId;
     };
     /**
      * The deserialization information for the current model
@@ -31,7 +31,7 @@ export class CopyPostRequestBodyImpl implements AdditionalDataHolder, CopyPostRe
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.destinationId){
-        writer.writeStringValue("destinationId", this.destinationId);
+            writer.writeStringValue("destinationId", this.destinationId);
         }
         writer.writeAdditionalData(this.additionalData);
     };

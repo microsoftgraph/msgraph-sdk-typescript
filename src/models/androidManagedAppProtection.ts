@@ -1,26 +1,27 @@
 import {ManagedAppPolicyDeploymentSummary} from './managedAppPolicyDeploymentSummary';
 import {ManagedMobileApp} from './managedMobileApp';
 import {TargetedManagedAppProtection} from './targetedManagedAppProtection';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface AndroidManagedAppProtection extends TargetedManagedAppProtection{
+export interface AndroidManagedAppProtection extends Partial<Parsable>, TargetedManagedAppProtection {
     /** List of apps to which the policy is deployed. */
-    apps?:ManagedMobileApp[] | undefined;
+    apps?: ManagedMobileApp[] | undefined;
     /** Friendly name of the preferred custom browser to open weblink on Android. */
-    customBrowserDisplayName?:string | undefined;
+    customBrowserDisplayName?: string | undefined;
     /** Unique identifier of a custom browser to open weblink on Android. */
-    customBrowserPackageId?:string | undefined;
+    customBrowserPackageId?: string | undefined;
     /** Count of apps to which the current policy is deployed. */
-    deployedAppCount?:number | undefined;
+    deployedAppCount?: number | undefined;
     /** Navigation property to deployment summary of the configuration. */
-    deploymentSummary?:ManagedAppPolicyDeploymentSummary | undefined;
+    deploymentSummary?: ManagedAppPolicyDeploymentSummary | undefined;
     /** When this setting is enabled, app level encryption is disabled if device level encryption is enabled */
-    disableAppEncryptionIfDeviceEncryptionIsEnabled?:boolean | undefined;
+    disableAppEncryptionIfDeviceEncryptionIsEnabled?: boolean | undefined;
     /** Indicates whether application data for managed apps should be encrypted */
-    encryptAppData?:boolean | undefined;
+    encryptAppData?: boolean | undefined;
     /** Define the oldest required Android security patch level a user can have to gain secure access to the app. */
-    minimumRequiredPatchVersion?:string | undefined;
+    minimumRequiredPatchVersion?: string | undefined;
     /** Define the oldest recommended Android security patch level a user can have for secure access to the app. */
-    minimumWarningPatchVersion?:string | undefined;
+    minimumWarningPatchVersion?: string | undefined;
     /** Indicates whether a managed user can take screen captures of managed apps */
-    screenCaptureBlocked?:boolean | undefined;
+    screenCaptureBlocked?: boolean | undefined;
 }

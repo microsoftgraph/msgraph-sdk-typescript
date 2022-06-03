@@ -3,7 +3,7 @@ import {OAuth2PermissionGrant} from './oAuth2PermissionGrant';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the instantiate method. */
-export class OAuth2PermissionGrantImpl extends EntityImpl implements OAuth2PermissionGrant, Parsable {
+export class OAuth2PermissionGrantImpl extends EntityImpl implements OAuth2PermissionGrant {
     /** The id of the client service principal for the application which is authorized to act on behalf of a signed-in user when accessing an API. Required. Supports $filter (eq only). */
     public clientId?: string | undefined;
     /** Indicates whether authorization is granted for the client application to impersonate all users or only a specific user. AllPrincipals indicates authorization to impersonate all users. Principal indicates authorization to impersonate a specific user. Consent on behalf of all users can be granted by an administrator. Non-admin users may be authorized to consent on behalf of themselves in some cases, for some delegated permissions. Required. Supports $filter (eq only). */
@@ -19,12 +19,12 @@ export class OAuth2PermissionGrantImpl extends EntityImpl implements OAuth2Permi
      * @param oAuth2PermissionGrantParameterValue 
      */
     public constructor(oAuth2PermissionGrantParameterValue?: OAuth2PermissionGrant | undefined) {
-        super();
-        this.clientId = oAuth2PermissionGrantParameterValue?.clientId ;
-        this.consentType = oAuth2PermissionGrantParameterValue?.consentType ;
-        this.principalId = oAuth2PermissionGrantParameterValue?.principalId ;
-        this.resourceId = oAuth2PermissionGrantParameterValue?.resourceId ;
-        this.scope = oAuth2PermissionGrantParameterValue?.scope ;
+        super(oAuth2PermissionGrantParameterValue);
+        this.clientId = oAuth2PermissionGrantParameterValue?.clientId;
+        this.consentType = oAuth2PermissionGrantParameterValue?.consentType;
+        this.principalId = oAuth2PermissionGrantParameterValue?.principalId;
+        this.resourceId = oAuth2PermissionGrantParameterValue?.resourceId;
+        this.scope = oAuth2PermissionGrantParameterValue?.scope;
     };
     /**
      * The deserialization information for the current model
@@ -47,19 +47,19 @@ export class OAuth2PermissionGrantImpl extends EntityImpl implements OAuth2Permi
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.clientId){
-        writer.writeStringValue("clientId", this.clientId);
+            writer.writeStringValue("clientId", this.clientId);
         }
         if(this.consentType){
-        writer.writeStringValue("consentType", this.consentType);
+            writer.writeStringValue("consentType", this.consentType);
         }
         if(this.principalId){
-        writer.writeStringValue("principalId", this.principalId);
+            writer.writeStringValue("principalId", this.principalId);
         }
         if(this.resourceId){
-        writer.writeStringValue("resourceId", this.resourceId);
+            writer.writeStringValue("resourceId", this.resourceId);
         }
         if(this.scope){
-        writer.writeStringValue("scope", this.scope);
+            writer.writeStringValue("scope", this.scope);
         }
     };
 }

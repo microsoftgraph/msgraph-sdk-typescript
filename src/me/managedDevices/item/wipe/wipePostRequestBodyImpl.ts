@@ -2,7 +2,7 @@ import {WipePostRequestBody} from './wipePostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the wipe method. */
-export class WipePostRequestBodyImpl implements AdditionalDataHolder, Parsable, WipePostRequestBody {
+export class WipePostRequestBodyImpl implements WipePostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The keepEnrollmentData property */
@@ -18,11 +18,11 @@ export class WipePostRequestBodyImpl implements AdditionalDataHolder, Parsable, 
      * @param wipePostRequestBodyParameterValue 
      */
     public constructor(wipePostRequestBodyParameterValue?: WipePostRequestBody | undefined) {
-        this.additionalData = wipePostRequestBodyParameterValue?.additionalData ? wipePostRequestBodyParameterValue?.additionalData! : {}
-        this.keepEnrollmentData = wipePostRequestBodyParameterValue?.keepEnrollmentData ;
-        this.keepUserData = wipePostRequestBodyParameterValue?.keepUserData ;
-        this.macOsUnlockCode = wipePostRequestBodyParameterValue?.macOsUnlockCode ;
-        this.persistEsimDataPlan = wipePostRequestBodyParameterValue?.persistEsimDataPlan ;
+        this.additionalData = wipePostRequestBodyParameterValue?.additionalData ? wipePostRequestBodyParameterValue?.additionalData! : {};
+        this.keepEnrollmentData = wipePostRequestBodyParameterValue?.keepEnrollmentData;
+        this.keepUserData = wipePostRequestBodyParameterValue?.keepUserData;
+        this.macOsUnlockCode = wipePostRequestBodyParameterValue?.macOsUnlockCode;
+        this.persistEsimDataPlan = wipePostRequestBodyParameterValue?.persistEsimDataPlan;
     };
     /**
      * The deserialization information for the current model
@@ -43,16 +43,16 @@ export class WipePostRequestBodyImpl implements AdditionalDataHolder, Parsable, 
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.keepEnrollmentData){
-        writer.writeBooleanValue("keepEnrollmentData", this.keepEnrollmentData);
+            writer.writeBooleanValue("keepEnrollmentData", this.keepEnrollmentData);
         }
         if(this.keepUserData){
-        writer.writeBooleanValue("keepUserData", this.keepUserData);
+            writer.writeBooleanValue("keepUserData", this.keepUserData);
         }
         if(this.macOsUnlockCode){
-        writer.writeStringValue("macOsUnlockCode", this.macOsUnlockCode);
+            writer.writeStringValue("macOsUnlockCode", this.macOsUnlockCode);
         }
         if(this.persistEsimDataPlan){
-        writer.writeBooleanValue("persistEsimDataPlan", this.persistEsimDataPlan);
+            writer.writeBooleanValue("persistEsimDataPlan", this.persistEsimDataPlan);
         }
         writer.writeAdditionalData(this.additionalData);
     };

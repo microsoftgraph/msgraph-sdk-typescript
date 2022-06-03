@@ -38,8 +38,8 @@ import {TextColumn} from './textColumn';
 import {ThumbnailColumn} from './thumbnailColumn';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to group. */
-export class ColumnDefinitionImpl extends EntityImpl implements ColumnDefinition, Parsable {
+/** Casts the previous resource to user. */
+export class ColumnDefinitionImpl extends EntityImpl implements ColumnDefinition {
     /** This column stores boolean values. */
     public boolean?: BooleanColumn | undefined;
     /** This column's data is calculated based on other columns. */
@@ -109,39 +109,39 @@ export class ColumnDefinitionImpl extends EntityImpl implements ColumnDefinition
      * @param columnDefinitionParameterValue 
      */
     public constructor(columnDefinitionParameterValue?: ColumnDefinition | undefined) {
-        super();
-        this.boolean = columnDefinitionParameterValue?.boolean ;
-        this.calculated = columnDefinitionParameterValue?.calculated ;
-        this.choice = columnDefinitionParameterValue?.choice ;
-        this.columnGroup = columnDefinitionParameterValue?.columnGroup ;
-        this.contentApprovalStatus = columnDefinitionParameterValue?.contentApprovalStatus ;
-        this.currency = columnDefinitionParameterValue?.currency ;
-        this.dateTime = columnDefinitionParameterValue?.dateTime ;
-        this.defaultValue = columnDefinitionParameterValue?.defaultValue ;
-        this.description = columnDefinitionParameterValue?.description ;
-        this.displayName = columnDefinitionParameterValue?.displayName ;
-        this.enforceUniqueValues = columnDefinitionParameterValue?.enforceUniqueValues ;
-        this.geolocation = columnDefinitionParameterValue?.geolocation ;
-        this.hidden = columnDefinitionParameterValue?.hidden ;
-        this.hyperlinkOrPicture = columnDefinitionParameterValue?.hyperlinkOrPicture ;
-        this.indexed = columnDefinitionParameterValue?.indexed ;
-        this.isDeletable = columnDefinitionParameterValue?.isDeletable ;
-        this.isReorderable = columnDefinitionParameterValue?.isReorderable ;
-        this.isSealed = columnDefinitionParameterValue?.isSealed ;
-        this.lookup = columnDefinitionParameterValue?.lookup ;
-        this.name = columnDefinitionParameterValue?.name ;
-        this.number = columnDefinitionParameterValue?.number ;
-        this.personOrGroup = columnDefinitionParameterValue?.personOrGroup ;
-        this.propagateChanges = columnDefinitionParameterValue?.propagateChanges ;
-        this.readOnly = columnDefinitionParameterValue?.readOnly ;
-        this.required = columnDefinitionParameterValue?.required ;
-        this.sourceColumn = columnDefinitionParameterValue?.sourceColumn ;
-        this.sourceContentType = columnDefinitionParameterValue?.sourceContentType ;
-        this.term = columnDefinitionParameterValue?.term ;
-        this.text = columnDefinitionParameterValue?.text ;
-        this.thumbnail = columnDefinitionParameterValue?.thumbnail ;
-        this.type = columnDefinitionParameterValue?.type ;
-        this.validation = columnDefinitionParameterValue?.validation ;
+        super(columnDefinitionParameterValue);
+        this.boolean = columnDefinitionParameterValue?.boolean;
+        this.calculated = columnDefinitionParameterValue?.calculated;
+        this.choice = columnDefinitionParameterValue?.choice;
+        this.columnGroup = columnDefinitionParameterValue?.columnGroup;
+        this.contentApprovalStatus = columnDefinitionParameterValue?.contentApprovalStatus;
+        this.currency = columnDefinitionParameterValue?.currency;
+        this.dateTime = columnDefinitionParameterValue?.dateTime;
+        this.defaultValue = columnDefinitionParameterValue?.defaultValue;
+        this.description = columnDefinitionParameterValue?.description;
+        this.displayName = columnDefinitionParameterValue?.displayName;
+        this.enforceUniqueValues = columnDefinitionParameterValue?.enforceUniqueValues;
+        this.geolocation = columnDefinitionParameterValue?.geolocation;
+        this.hidden = columnDefinitionParameterValue?.hidden;
+        this.hyperlinkOrPicture = columnDefinitionParameterValue?.hyperlinkOrPicture;
+        this.indexed = columnDefinitionParameterValue?.indexed;
+        this.isDeletable = columnDefinitionParameterValue?.isDeletable;
+        this.isReorderable = columnDefinitionParameterValue?.isReorderable;
+        this.isSealed = columnDefinitionParameterValue?.isSealed;
+        this.lookup = columnDefinitionParameterValue?.lookup;
+        this.name = columnDefinitionParameterValue?.name;
+        this.number = columnDefinitionParameterValue?.number;
+        this.personOrGroup = columnDefinitionParameterValue?.personOrGroup;
+        this.propagateChanges = columnDefinitionParameterValue?.propagateChanges;
+        this.readOnly = columnDefinitionParameterValue?.readOnly;
+        this.required = columnDefinitionParameterValue?.required;
+        this.sourceColumn = columnDefinitionParameterValue?.sourceColumn;
+        this.sourceContentType = columnDefinitionParameterValue?.sourceContentType;
+        this.term = columnDefinitionParameterValue?.term;
+        this.text = columnDefinitionParameterValue?.text;
+        this.thumbnail = columnDefinitionParameterValue?.thumbnail;
+        this.type = columnDefinitionParameterValue?.type;
+        this.validation = columnDefinitionParameterValue?.validation;
     };
     /**
      * The deserialization information for the current model
@@ -191,100 +191,100 @@ export class ColumnDefinitionImpl extends EntityImpl implements ColumnDefinition
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.boolean){
-        writer.writeObjectValue<BooleanColumnImpl>("boolean", new BooleanColumnImpl(this.boolean));
+            writer.writeObjectValue<BooleanColumnImpl>("boolean", new BooleanColumnImpl(this.boolean));
         }
         if(this.calculated){
-        writer.writeObjectValue<CalculatedColumnImpl>("calculated", new CalculatedColumnImpl(this.calculated));
+            writer.writeObjectValue<CalculatedColumnImpl>("calculated", new CalculatedColumnImpl(this.calculated));
         }
         if(this.choice){
-        writer.writeObjectValue<ChoiceColumnImpl>("choice", new ChoiceColumnImpl(this.choice));
+            writer.writeObjectValue<ChoiceColumnImpl>("choice", new ChoiceColumnImpl(this.choice));
         }
         if(this.columnGroup){
-        writer.writeStringValue("columnGroup", this.columnGroup);
+            writer.writeStringValue("columnGroup", this.columnGroup);
         }
         if(this.contentApprovalStatus){
-        writer.writeObjectValue<ContentApprovalStatusColumnImpl>("contentApprovalStatus", new ContentApprovalStatusColumnImpl(this.contentApprovalStatus));
+            writer.writeObjectValue<ContentApprovalStatusColumnImpl>("contentApprovalStatus", new ContentApprovalStatusColumnImpl(this.contentApprovalStatus));
         }
         if(this.currency){
-        writer.writeObjectValue<CurrencyColumnImpl>("currency", new CurrencyColumnImpl(this.currency));
+            writer.writeObjectValue<CurrencyColumnImpl>("currency", new CurrencyColumnImpl(this.currency));
         }
         if(this.dateTime){
-        writer.writeObjectValue<DateTimeColumnImpl>("dateTime", new DateTimeColumnImpl(this.dateTime));
+            writer.writeObjectValue<DateTimeColumnImpl>("dateTime", new DateTimeColumnImpl(this.dateTime));
         }
         if(this.defaultValue){
-        writer.writeObjectValue<DefaultColumnValueImpl>("defaultValue", new DefaultColumnValueImpl(this.defaultValue));
+            writer.writeObjectValue<DefaultColumnValueImpl>("defaultValue", new DefaultColumnValueImpl(this.defaultValue));
         }
         if(this.description){
-        writer.writeStringValue("description", this.description);
+            writer.writeStringValue("description", this.description);
         }
         if(this.displayName){
-        writer.writeStringValue("displayName", this.displayName);
+            writer.writeStringValue("displayName", this.displayName);
         }
         if(this.enforceUniqueValues){
-        writer.writeBooleanValue("enforceUniqueValues", this.enforceUniqueValues);
+            writer.writeBooleanValue("enforceUniqueValues", this.enforceUniqueValues);
         }
         if(this.geolocation){
-        writer.writeObjectValue<GeolocationColumnImpl>("geolocation", new GeolocationColumnImpl(this.geolocation));
+            writer.writeObjectValue<GeolocationColumnImpl>("geolocation", new GeolocationColumnImpl(this.geolocation));
         }
         if(this.hidden){
-        writer.writeBooleanValue("hidden", this.hidden);
+            writer.writeBooleanValue("hidden", this.hidden);
         }
         if(this.hyperlinkOrPicture){
-        writer.writeObjectValue<HyperlinkOrPictureColumnImpl>("hyperlinkOrPicture", new HyperlinkOrPictureColumnImpl(this.hyperlinkOrPicture));
+            writer.writeObjectValue<HyperlinkOrPictureColumnImpl>("hyperlinkOrPicture", new HyperlinkOrPictureColumnImpl(this.hyperlinkOrPicture));
         }
         if(this.indexed){
-        writer.writeBooleanValue("indexed", this.indexed);
+            writer.writeBooleanValue("indexed", this.indexed);
         }
         if(this.isDeletable){
-        writer.writeBooleanValue("isDeletable", this.isDeletable);
+            writer.writeBooleanValue("isDeletable", this.isDeletable);
         }
         if(this.isReorderable){
-        writer.writeBooleanValue("isReorderable", this.isReorderable);
+            writer.writeBooleanValue("isReorderable", this.isReorderable);
         }
         if(this.isSealed){
-        writer.writeBooleanValue("isSealed", this.isSealed);
+            writer.writeBooleanValue("isSealed", this.isSealed);
         }
         if(this.lookup){
-        writer.writeObjectValue<LookupColumnImpl>("lookup", new LookupColumnImpl(this.lookup));
+            writer.writeObjectValue<LookupColumnImpl>("lookup", new LookupColumnImpl(this.lookup));
         }
         if(this.name){
-        writer.writeStringValue("name", this.name);
+            writer.writeStringValue("name", this.name);
         }
         if(this.number){
-        writer.writeObjectValue<NumberColumnImpl>("number", new NumberColumnImpl(this.number));
+            writer.writeObjectValue<NumberColumnImpl>("number", new NumberColumnImpl(this.number));
         }
         if(this.personOrGroup){
-        writer.writeObjectValue<PersonOrGroupColumnImpl>("personOrGroup", new PersonOrGroupColumnImpl(this.personOrGroup));
+            writer.writeObjectValue<PersonOrGroupColumnImpl>("personOrGroup", new PersonOrGroupColumnImpl(this.personOrGroup));
         }
         if(this.propagateChanges){
-        writer.writeBooleanValue("propagateChanges", this.propagateChanges);
+            writer.writeBooleanValue("propagateChanges", this.propagateChanges);
         }
         if(this.readOnly){
-        writer.writeBooleanValue("readOnly", this.readOnly);
+            writer.writeBooleanValue("readOnly", this.readOnly);
         }
         if(this.required){
-        writer.writeBooleanValue("required", this.required);
+            writer.writeBooleanValue("required", this.required);
         }
         if(this.sourceColumn){
-        writer.writeObjectValue<ColumnDefinitionImpl>("sourceColumn", new ColumnDefinitionImpl(this.sourceColumn));
+            writer.writeObjectValue<ColumnDefinitionImpl>("sourceColumn", new ColumnDefinitionImpl(this.sourceColumn));
         }
         if(this.sourceContentType){
-        writer.writeObjectValue<ContentTypeInfoImpl>("sourceContentType", new ContentTypeInfoImpl(this.sourceContentType));
+            writer.writeObjectValue<ContentTypeInfoImpl>("sourceContentType", new ContentTypeInfoImpl(this.sourceContentType));
         }
         if(this.term){
-        writer.writeObjectValue<TermColumnImpl>("term", new TermColumnImpl(this.term));
+            writer.writeObjectValue<TermColumnImpl>("term", new TermColumnImpl(this.term));
         }
         if(this.text){
-        writer.writeObjectValue<TextColumnImpl>("text", new TextColumnImpl(this.text));
+            writer.writeObjectValue<TextColumnImpl>("text", new TextColumnImpl(this.text));
         }
         if(this.thumbnail){
-        writer.writeObjectValue<ThumbnailColumnImpl>("thumbnail", new ThumbnailColumnImpl(this.thumbnail));
+            writer.writeObjectValue<ThumbnailColumnImpl>("thumbnail", new ThumbnailColumnImpl(this.thumbnail));
         }
         if(this.type){
-        writer.writeEnumValue<ColumnTypes>("type", this.type);
+            writer.writeEnumValue<ColumnTypes>("type", this.type);
         }
         if(this.validation){
-        writer.writeObjectValue<ColumnValidationImpl>("validation", new ColumnValidationImpl(this.validation));
+            writer.writeObjectValue<ColumnValidationImpl>("validation", new ColumnValidationImpl(this.validation));
         }
     };
 }

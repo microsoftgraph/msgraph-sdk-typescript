@@ -1,7 +1,7 @@
 import {Entity} from './entity';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class EntityImpl implements AdditionalDataHolder, Entity, Parsable {
+export class EntityImpl implements Entity {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Read-only. */
@@ -11,8 +11,8 @@ export class EntityImpl implements AdditionalDataHolder, Entity, Parsable {
      * @param entityParameterValue 
      */
     public constructor(entityParameterValue?: Entity | undefined) {
-        this.additionalData = entityParameterValue?.additionalData ? entityParameterValue?.additionalData! : {}
-        this.id = entityParameterValue?.id ;
+        this.additionalData = entityParameterValue?.additionalData ? entityParameterValue?.additionalData! : {};
+        this.id = entityParameterValue?.id;
     };
     /**
      * The deserialization information for the current model
@@ -30,7 +30,7 @@ export class EntityImpl implements AdditionalDataHolder, Entity, Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.id){
-        writer.writeStringValue("id", this.id);
+            writer.writeStringValue("id", this.id);
         }
         writer.writeAdditionalData(this.additionalData);
     };

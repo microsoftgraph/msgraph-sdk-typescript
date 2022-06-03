@@ -13,7 +13,7 @@ import {PrintQuality} from './printQuality';
 import {PrintScaling} from './printScaling';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class PrintJobConfigurationImpl implements AdditionalDataHolder, Parsable, PrintJobConfiguration {
+export class PrintJobConfigurationImpl implements PrintJobConfiguration {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Whether the printer should collate pages wehen printing multiple copies of a multi-page document. */
@@ -59,26 +59,26 @@ export class PrintJobConfigurationImpl implements AdditionalDataHolder, Parsable
      * @param printJobConfigurationParameterValue 
      */
     public constructor(printJobConfigurationParameterValue?: PrintJobConfiguration | undefined) {
-        this.additionalData = printJobConfigurationParameterValue?.additionalData ? printJobConfigurationParameterValue?.additionalData! : {}
-        this.collate = printJobConfigurationParameterValue?.collate ;
-        this.colorMode = printJobConfigurationParameterValue?.colorMode ;
-        this.copies = printJobConfigurationParameterValue?.copies ;
-        this.dpi = printJobConfigurationParameterValue?.dpi ;
-        this.duplexMode = printJobConfigurationParameterValue?.duplexMode ;
-        this.feedOrientation = printJobConfigurationParameterValue?.feedOrientation ;
-        this.finishings = printJobConfigurationParameterValue?.finishings ;
-        this.fitPdfToPage = printJobConfigurationParameterValue?.fitPdfToPage ;
-        this.inputBin = printJobConfigurationParameterValue?.inputBin ;
-        this.margin = printJobConfigurationParameterValue?.margin ;
-        this.mediaSize = printJobConfigurationParameterValue?.mediaSize ;
-        this.mediaType = printJobConfigurationParameterValue?.mediaType ;
-        this.multipageLayout = printJobConfigurationParameterValue?.multipageLayout ;
-        this.orientation = printJobConfigurationParameterValue?.orientation ;
-        this.outputBin = printJobConfigurationParameterValue?.outputBin ;
-        this.pageRanges = printJobConfigurationParameterValue?.pageRanges ;
-        this.pagesPerSheet = printJobConfigurationParameterValue?.pagesPerSheet ;
-        this.quality = printJobConfigurationParameterValue?.quality ;
-        this.scaling = printJobConfigurationParameterValue?.scaling ;
+        this.additionalData = printJobConfigurationParameterValue?.additionalData ? printJobConfigurationParameterValue?.additionalData! : {};
+        this.collate = printJobConfigurationParameterValue?.collate;
+        this.colorMode = printJobConfigurationParameterValue?.colorMode;
+        this.copies = printJobConfigurationParameterValue?.copies;
+        this.dpi = printJobConfigurationParameterValue?.dpi;
+        this.duplexMode = printJobConfigurationParameterValue?.duplexMode;
+        this.feedOrientation = printJobConfigurationParameterValue?.feedOrientation;
+        this.finishings = printJobConfigurationParameterValue?.finishings;
+        this.fitPdfToPage = printJobConfigurationParameterValue?.fitPdfToPage;
+        this.inputBin = printJobConfigurationParameterValue?.inputBin;
+        this.margin = printJobConfigurationParameterValue?.margin;
+        this.mediaSize = printJobConfigurationParameterValue?.mediaSize;
+        this.mediaType = printJobConfigurationParameterValue?.mediaType;
+        this.multipageLayout = printJobConfigurationParameterValue?.multipageLayout;
+        this.orientation = printJobConfigurationParameterValue?.orientation;
+        this.outputBin = printJobConfigurationParameterValue?.outputBin;
+        this.pageRanges = printJobConfigurationParameterValue?.pageRanges;
+        this.pagesPerSheet = printJobConfigurationParameterValue?.pagesPerSheet;
+        this.quality = printJobConfigurationParameterValue?.quality;
+        this.scaling = printJobConfigurationParameterValue?.scaling;
     };
     /**
      * The deserialization information for the current model
@@ -114,61 +114,61 @@ export class PrintJobConfigurationImpl implements AdditionalDataHolder, Parsable
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.collate){
-        writer.writeBooleanValue("collate", this.collate);
+            writer.writeBooleanValue("collate", this.collate);
         }
         if(this.colorMode){
-        writer.writeEnumValue<PrintColorMode>("colorMode", this.colorMode);
+            writer.writeEnumValue<PrintColorMode>("colorMode", this.colorMode);
         }
         if(this.copies){
-        writer.writeNumberValue("copies", this.copies);
+            writer.writeNumberValue("copies", this.copies);
         }
         if(this.dpi){
-        writer.writeNumberValue("dpi", this.dpi);
+            writer.writeNumberValue("dpi", this.dpi);
         }
         if(this.duplexMode){
-        writer.writeEnumValue<PrintDuplexMode>("duplexMode", this.duplexMode);
+            writer.writeEnumValue<PrintDuplexMode>("duplexMode", this.duplexMode);
         }
         if(this.feedOrientation){
-        writer.writeEnumValue<PrinterFeedOrientation>("feedOrientation", this.feedOrientation);
+            writer.writeEnumValue<PrinterFeedOrientation>("feedOrientation", this.feedOrientation);
         }
         if(this.finishings){
-        writer.writeCollectionOfPrimitiveValues<string>("finishings", this.finishings);
+            writer.writeCollectionOfPrimitiveValues<string>("finishings", this.finishings);
         }
         if(this.fitPdfToPage){
-        writer.writeBooleanValue("fitPdfToPage", this.fitPdfToPage);
+            writer.writeBooleanValue("fitPdfToPage", this.fitPdfToPage);
         }
         if(this.inputBin){
-        writer.writeStringValue("inputBin", this.inputBin);
+            writer.writeStringValue("inputBin", this.inputBin);
         }
         if(this.margin){
-        writer.writeObjectValue<PrintMarginImpl>("margin", new PrintMarginImpl(this.margin));
+            writer.writeObjectValue<PrintMarginImpl>("margin", new PrintMarginImpl(this.margin));
         }
         if(this.mediaSize){
-        writer.writeStringValue("mediaSize", this.mediaSize);
+            writer.writeStringValue("mediaSize", this.mediaSize);
         }
         if(this.mediaType){
-        writer.writeStringValue("mediaType", this.mediaType);
+            writer.writeStringValue("mediaType", this.mediaType);
         }
         if(this.multipageLayout){
-        writer.writeEnumValue<PrintMultipageLayout>("multipageLayout", this.multipageLayout);
+            writer.writeEnumValue<PrintMultipageLayout>("multipageLayout", this.multipageLayout);
         }
         if(this.orientation){
-        writer.writeEnumValue<PrintOrientation>("orientation", this.orientation);
+            writer.writeEnumValue<PrintOrientation>("orientation", this.orientation);
         }
         if(this.outputBin){
-        writer.writeStringValue("outputBin", this.outputBin);
+            writer.writeStringValue("outputBin", this.outputBin);
         }
         if(this.pageRanges && this.pageRanges.length != 0){        const pageRangesArrValue: IntegerRangeImpl[] = []; this.pageRanges?.forEach(element => {pageRangesArrValue.push(new IntegerRangeImpl(element));});
-        writer.writeCollectionOfObjectValues<IntegerRangeImpl>("pageRanges", pageRangesArrValue);
+            writer.writeCollectionOfObjectValues<IntegerRangeImpl>("pageRanges", pageRangesArrValue);
         }
         if(this.pagesPerSheet){
-        writer.writeNumberValue("pagesPerSheet", this.pagesPerSheet);
+            writer.writeNumberValue("pagesPerSheet", this.pagesPerSheet);
         }
         if(this.quality){
-        writer.writeEnumValue<PrintQuality>("quality", this.quality);
+            writer.writeEnumValue<PrintQuality>("quality", this.quality);
         }
         if(this.scaling){
-        writer.writeEnumValue<PrintScaling>("scaling", this.scaling);
+            writer.writeEnumValue<PrintScaling>("scaling", this.scaling);
         }
         writer.writeAdditionalData(this.additionalData);
     };

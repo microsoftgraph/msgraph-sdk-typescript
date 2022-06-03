@@ -1,18 +1,19 @@
 import {ItemBody} from '../../../models/itemBody';
 import {KeyValuePair} from '../../../models/keyValuePair';
 import {TeamworkActivityTopic} from '../../../models/teamworkActivityTopic';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface SendActivityNotificationPostRequestBody{
+export interface SendActivityNotificationPostRequestBody extends Partial<AdditionalDataHolder>, Partial<Parsable> {
     /** The activityType property */
-    activityType?:string | undefined;
+    activityType?: string | undefined;
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?:Record<string, unknown>;
+    additionalData?: Record<string, unknown>;
     /** The chainId property */
-    chainId?:number | undefined;
+    chainId?: number | undefined;
     /** The previewText property */
-    previewText?:ItemBody | undefined;
+    previewText?: ItemBody | undefined;
     /** The templateParameters property */
-    templateParameters?:KeyValuePair[] | undefined;
+    templateParameters?: KeyValuePair[] | undefined;
     /** The topic property */
-    topic?:TeamworkActivityTopic | undefined;
+    topic?: TeamworkActivityTopic | undefined;
 }

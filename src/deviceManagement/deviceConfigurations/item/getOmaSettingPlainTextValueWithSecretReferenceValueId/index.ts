@@ -1,3 +1,3 @@
 export * from './getOmaSettingPlainTextValueWithSecretReferenceValueIdResponseImpl'
-export * from './getOmaSettingPlainTextValueWithSecretReferenceValueIdResponse'
 export * from './getOmaSettingPlainTextValueWithSecretReferenceValueIdRequestBuilderGetRequestConfiguration'
+export * from './getOmaSettingPlainTextValueWithSecretReferenceValueIdResponse'

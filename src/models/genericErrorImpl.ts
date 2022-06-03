@@ -1,7 +1,7 @@
 import {GenericError} from './genericError';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class GenericErrorImpl implements AdditionalDataHolder, GenericError, Parsable {
+export class GenericErrorImpl implements GenericError {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The error code. */
@@ -13,9 +13,9 @@ export class GenericErrorImpl implements AdditionalDataHolder, GenericError, Par
      * @param genericErrorParameterValue 
      */
     public constructor(genericErrorParameterValue?: GenericError | undefined) {
-        this.additionalData = genericErrorParameterValue?.additionalData ? genericErrorParameterValue?.additionalData! : {}
-        this.code = genericErrorParameterValue?.code ;
-        this.message = genericErrorParameterValue?.message ;
+        this.additionalData = genericErrorParameterValue?.additionalData ? genericErrorParameterValue?.additionalData! : {};
+        this.code = genericErrorParameterValue?.code;
+        this.message = genericErrorParameterValue?.message;
     };
     /**
      * The deserialization information for the current model
@@ -34,10 +34,10 @@ export class GenericErrorImpl implements AdditionalDataHolder, GenericError, Par
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.code){
-        writer.writeStringValue("code", this.code);
+            writer.writeStringValue("code", this.code);
         }
         if(this.message){
-        writer.writeStringValue("message", this.message);
+            writer.writeStringValue("message", this.message);
         }
         writer.writeAdditionalData(this.additionalData);
     };

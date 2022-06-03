@@ -6,7 +6,7 @@ import {EmailAddressImpl, EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Casts the previous resource to user. */
-export class CalendarPermissionImpl extends EntityImpl implements CalendarPermission, Parsable {
+export class CalendarPermissionImpl extends EntityImpl implements CalendarPermission {
     /** List of allowed sharing or delegating permission levels for the calendar. Possible values are: none, freeBusyRead, limitedRead, read, write, delegateWithoutPrivateEventAccess, delegateWithPrivateEventAccess, custom. */
     public allowedRoles?: string[] | undefined;
     /** Represents a sharee or delegate who has access to the calendar. For the 'My Organization' sharee, the address property is null. Read-only. */
@@ -22,12 +22,12 @@ export class CalendarPermissionImpl extends EntityImpl implements CalendarPermis
      * @param calendarPermissionParameterValue 
      */
     public constructor(calendarPermissionParameterValue?: CalendarPermission | undefined) {
-        super();
-        this.allowedRoles = calendarPermissionParameterValue?.allowedRoles ;
-        this.emailAddress = calendarPermissionParameterValue?.emailAddress ;
-        this.isInsideOrganization = calendarPermissionParameterValue?.isInsideOrganization ;
-        this.isRemovable = calendarPermissionParameterValue?.isRemovable ;
-        this.role = calendarPermissionParameterValue?.role ;
+        super(calendarPermissionParameterValue);
+        this.allowedRoles = calendarPermissionParameterValue?.allowedRoles;
+        this.emailAddress = calendarPermissionParameterValue?.emailAddress;
+        this.isInsideOrganization = calendarPermissionParameterValue?.isInsideOrganization;
+        this.isRemovable = calendarPermissionParameterValue?.isRemovable;
+        this.role = calendarPermissionParameterValue?.role;
     };
     /**
      * The deserialization information for the current model
@@ -50,19 +50,19 @@ export class CalendarPermissionImpl extends EntityImpl implements CalendarPermis
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.allowedRoles){
-        writer.writeCollectionOfPrimitiveValues<string>("allowedRoles", this.allowedRoles);
+            writer.writeCollectionOfPrimitiveValues<string>("allowedRoles", this.allowedRoles);
         }
         if(this.emailAddress){
-        writer.writeObjectValue<EmailAddressImpl>("emailAddress", new EmailAddressImpl(this.emailAddress));
+            writer.writeObjectValue<EmailAddressImpl>("emailAddress", new EmailAddressImpl(this.emailAddress));
         }
         if(this.isInsideOrganization){
-        writer.writeBooleanValue("isInsideOrganization", this.isInsideOrganization);
+            writer.writeBooleanValue("isInsideOrganization", this.isInsideOrganization);
         }
         if(this.isRemovable){
-        writer.writeBooleanValue("isRemovable", this.isRemovable);
+            writer.writeBooleanValue("isRemovable", this.isRemovable);
         }
         if(this.role){
-        writer.writeEnumValue<CalendarRoleType>("role", this.role);
+            writer.writeEnumValue<CalendarRoleType>("role", this.role);
         }
     };
 }

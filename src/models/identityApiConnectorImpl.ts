@@ -5,7 +5,7 @@ import {ApiAuthenticationConfigurationBaseImpl, EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the identityContainer singleton. */
-export class IdentityApiConnectorImpl extends EntityImpl implements IdentityApiConnector, Parsable {
+export class IdentityApiConnectorImpl extends EntityImpl implements IdentityApiConnector {
     /** The object which describes the authentication configuration details for calling the API. Basic and PKCS 12 client certificate are supported. */
     public authenticationConfiguration?: ApiAuthenticationConfigurationBase | undefined;
     /** The name of the API connector. */
@@ -17,10 +17,10 @@ export class IdentityApiConnectorImpl extends EntityImpl implements IdentityApiC
      * @param identityApiConnectorParameterValue 
      */
     public constructor(identityApiConnectorParameterValue?: IdentityApiConnector | undefined) {
-        super();
-        this.authenticationConfiguration = identityApiConnectorParameterValue?.authenticationConfiguration ;
-        this.displayName = identityApiConnectorParameterValue?.displayName ;
-        this.targetUrl = identityApiConnectorParameterValue?.targetUrl ;
+        super(identityApiConnectorParameterValue);
+        this.authenticationConfiguration = identityApiConnectorParameterValue?.authenticationConfiguration;
+        this.displayName = identityApiConnectorParameterValue?.displayName;
+        this.targetUrl = identityApiConnectorParameterValue?.targetUrl;
     };
     /**
      * The deserialization information for the current model
@@ -41,13 +41,13 @@ export class IdentityApiConnectorImpl extends EntityImpl implements IdentityApiC
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.authenticationConfiguration){
-        writer.writeObjectValue<ApiAuthenticationConfigurationBaseImpl>("authenticationConfiguration", new ApiAuthenticationConfigurationBaseImpl(this.authenticationConfiguration));
+            writer.writeObjectValue<ApiAuthenticationConfigurationBaseImpl>("authenticationConfiguration", new ApiAuthenticationConfigurationBaseImpl(this.authenticationConfiguration));
         }
         if(this.displayName){
-        writer.writeStringValue("displayName", this.displayName);
+            writer.writeStringValue("displayName", this.displayName);
         }
         if(this.targetUrl){
-        writer.writeStringValue("targetUrl", this.targetUrl);
+            writer.writeStringValue("targetUrl", this.targetUrl);
         }
     };
 }

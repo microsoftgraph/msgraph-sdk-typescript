@@ -11,7 +11,7 @@ import {PhysicalOfficeAddress} from './physicalOfficeAddress';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the collection of orgContact entities. */
-export class OrgContactImpl extends DirectoryObjectImpl implements OrgContact, Parsable {
+export class OrgContactImpl extends DirectoryObjectImpl implements OrgContact {
     /** Postal addresses for this organizational contact. For now a contact can only have one physical address. */
     public addresses?: PhysicalOfficeAddress[] | undefined;
     /** Name of the company that this organizational contact belong to. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values). */
@@ -53,25 +53,25 @@ export class OrgContactImpl extends DirectoryObjectImpl implements OrgContact, P
      * @param orgContactParameterValue 
      */
     public constructor(orgContactParameterValue?: OrgContact | undefined) {
-        super();
-        this.addresses = orgContactParameterValue?.addresses ;
-        this.companyName = orgContactParameterValue?.companyName ;
-        this.department = orgContactParameterValue?.department ;
-        this.directReports = orgContactParameterValue?.directReports ;
-        this.displayName = orgContactParameterValue?.displayName ;
-        this.givenName = orgContactParameterValue?.givenName ;
-        this.jobTitle = orgContactParameterValue?.jobTitle ;
-        this.mail = orgContactParameterValue?.mail ;
-        this.mailNickname = orgContactParameterValue?.mailNickname ;
-        this.manager = orgContactParameterValue?.manager ;
-        this.memberOf = orgContactParameterValue?.memberOf ;
-        this.onPremisesLastSyncDateTime = orgContactParameterValue?.onPremisesLastSyncDateTime ;
-        this.onPremisesProvisioningErrors = orgContactParameterValue?.onPremisesProvisioningErrors ;
-        this.onPremisesSyncEnabled = orgContactParameterValue?.onPremisesSyncEnabled ;
-        this.phones = orgContactParameterValue?.phones ;
-        this.proxyAddresses = orgContactParameterValue?.proxyAddresses ;
-        this.surname = orgContactParameterValue?.surname ;
-        this.transitiveMemberOf = orgContactParameterValue?.transitiveMemberOf ;
+        super(orgContactParameterValue);
+        this.addresses = orgContactParameterValue?.addresses;
+        this.companyName = orgContactParameterValue?.companyName;
+        this.department = orgContactParameterValue?.department;
+        this.directReports = orgContactParameterValue?.directReports;
+        this.displayName = orgContactParameterValue?.displayName;
+        this.givenName = orgContactParameterValue?.givenName;
+        this.jobTitle = orgContactParameterValue?.jobTitle;
+        this.mail = orgContactParameterValue?.mail;
+        this.mailNickname = orgContactParameterValue?.mailNickname;
+        this.manager = orgContactParameterValue?.manager;
+        this.memberOf = orgContactParameterValue?.memberOf;
+        this.onPremisesLastSyncDateTime = orgContactParameterValue?.onPremisesLastSyncDateTime;
+        this.onPremisesProvisioningErrors = orgContactParameterValue?.onPremisesProvisioningErrors;
+        this.onPremisesSyncEnabled = orgContactParameterValue?.onPremisesSyncEnabled;
+        this.phones = orgContactParameterValue?.phones;
+        this.proxyAddresses = orgContactParameterValue?.proxyAddresses;
+        this.surname = orgContactParameterValue?.surname;
+        this.transitiveMemberOf = orgContactParameterValue?.transitiveMemberOf;
     };
     /**
      * The deserialization information for the current model
@@ -107,58 +107,58 @@ export class OrgContactImpl extends DirectoryObjectImpl implements OrgContact, P
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.addresses && this.addresses.length != 0){        const addressesArrValue: PhysicalOfficeAddressImpl[] = []; this.addresses?.forEach(element => {addressesArrValue.push(new PhysicalOfficeAddressImpl(element));});
-        writer.writeCollectionOfObjectValues<PhysicalOfficeAddressImpl>("addresses", addressesArrValue);
+            writer.writeCollectionOfObjectValues<PhysicalOfficeAddressImpl>("addresses", addressesArrValue);
         }
         if(this.companyName){
-        writer.writeStringValue("companyName", this.companyName);
+            writer.writeStringValue("companyName", this.companyName);
         }
         if(this.department){
-        writer.writeStringValue("department", this.department);
+            writer.writeStringValue("department", this.department);
         }
         if(this.directReports && this.directReports.length != 0){        const directReportsArrValue: DirectoryObjectImpl[] = []; this.directReports?.forEach(element => {directReportsArrValue.push(new DirectoryObjectImpl(element));});
-        writer.writeCollectionOfObjectValues<DirectoryObjectImpl>("directReports", directReportsArrValue);
+            writer.writeCollectionOfObjectValues<DirectoryObjectImpl>("directReports", directReportsArrValue);
         }
         if(this.displayName){
-        writer.writeStringValue("displayName", this.displayName);
+            writer.writeStringValue("displayName", this.displayName);
         }
         if(this.givenName){
-        writer.writeStringValue("givenName", this.givenName);
+            writer.writeStringValue("givenName", this.givenName);
         }
         if(this.jobTitle){
-        writer.writeStringValue("jobTitle", this.jobTitle);
+            writer.writeStringValue("jobTitle", this.jobTitle);
         }
         if(this.mail){
-        writer.writeStringValue("mail", this.mail);
+            writer.writeStringValue("mail", this.mail);
         }
         if(this.mailNickname){
-        writer.writeStringValue("mailNickname", this.mailNickname);
+            writer.writeStringValue("mailNickname", this.mailNickname);
         }
         if(this.manager){
-        writer.writeObjectValue<DirectoryObjectImpl>("manager", new DirectoryObjectImpl(this.manager));
+            writer.writeObjectValue<DirectoryObjectImpl>("manager", new DirectoryObjectImpl(this.manager));
         }
         if(this.memberOf && this.memberOf.length != 0){        const memberOfArrValue: DirectoryObjectImpl[] = []; this.memberOf?.forEach(element => {memberOfArrValue.push(new DirectoryObjectImpl(element));});
-        writer.writeCollectionOfObjectValues<DirectoryObjectImpl>("memberOf", memberOfArrValue);
+            writer.writeCollectionOfObjectValues<DirectoryObjectImpl>("memberOf", memberOfArrValue);
         }
         if(this.onPremisesLastSyncDateTime){
-        writer.writeDateValue("onPremisesLastSyncDateTime", this.onPremisesLastSyncDateTime);
+            writer.writeDateValue("onPremisesLastSyncDateTime", this.onPremisesLastSyncDateTime);
         }
         if(this.onPremisesProvisioningErrors && this.onPremisesProvisioningErrors.length != 0){        const onPremisesProvisioningErrorsArrValue: OnPremisesProvisioningErrorImpl[] = []; this.onPremisesProvisioningErrors?.forEach(element => {onPremisesProvisioningErrorsArrValue.push(new OnPremisesProvisioningErrorImpl(element));});
-        writer.writeCollectionOfObjectValues<OnPremisesProvisioningErrorImpl>("onPremisesProvisioningErrors", onPremisesProvisioningErrorsArrValue);
+            writer.writeCollectionOfObjectValues<OnPremisesProvisioningErrorImpl>("onPremisesProvisioningErrors", onPremisesProvisioningErrorsArrValue);
         }
         if(this.onPremisesSyncEnabled){
-        writer.writeBooleanValue("onPremisesSyncEnabled", this.onPremisesSyncEnabled);
+            writer.writeBooleanValue("onPremisesSyncEnabled", this.onPremisesSyncEnabled);
         }
         if(this.phones && this.phones.length != 0){        const phonesArrValue: PhoneImpl[] = []; this.phones?.forEach(element => {phonesArrValue.push(new PhoneImpl(element));});
-        writer.writeCollectionOfObjectValues<PhoneImpl>("phones", phonesArrValue);
+            writer.writeCollectionOfObjectValues<PhoneImpl>("phones", phonesArrValue);
         }
         if(this.proxyAddresses){
-        writer.writeCollectionOfPrimitiveValues<string>("proxyAddresses", this.proxyAddresses);
+            writer.writeCollectionOfPrimitiveValues<string>("proxyAddresses", this.proxyAddresses);
         }
         if(this.surname){
-        writer.writeStringValue("surname", this.surname);
+            writer.writeStringValue("surname", this.surname);
         }
         if(this.transitiveMemberOf && this.transitiveMemberOf.length != 0){        const transitiveMemberOfArrValue: DirectoryObjectImpl[] = []; this.transitiveMemberOf?.forEach(element => {transitiveMemberOfArrValue.push(new DirectoryObjectImpl(element));});
-        writer.writeCollectionOfObjectValues<DirectoryObjectImpl>("transitiveMemberOf", transitiveMemberOfArrValue);
+            writer.writeCollectionOfObjectValues<DirectoryObjectImpl>("transitiveMemberOf", transitiveMemberOfArrValue);
         }
     };
 }

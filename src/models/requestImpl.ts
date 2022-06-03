@@ -5,7 +5,7 @@ import {Request} from './request';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the identityGovernance singleton. */
-export class RequestImpl extends EntityImpl implements Parsable, Request {
+export class RequestImpl extends EntityImpl implements Request {
     /** The identifier of the approval of the request. */
     public approvalId?: string | undefined;
     /** The request completion date time. */
@@ -23,13 +23,13 @@ export class RequestImpl extends EntityImpl implements Parsable, Request {
      * @param requestParameterValue 
      */
     public constructor(requestParameterValue?: Request | undefined) {
-        super();
-        this.approvalId = requestParameterValue?.approvalId ;
-        this.completedDateTime = requestParameterValue?.completedDateTime ;
-        this.createdBy = requestParameterValue?.createdBy ;
-        this.createdDateTime = requestParameterValue?.createdDateTime ;
-        this.customData = requestParameterValue?.customData ;
-        this.status = requestParameterValue?.status ;
+        super(requestParameterValue);
+        this.approvalId = requestParameterValue?.approvalId;
+        this.completedDateTime = requestParameterValue?.completedDateTime;
+        this.createdBy = requestParameterValue?.createdBy;
+        this.createdDateTime = requestParameterValue?.createdDateTime;
+        this.customData = requestParameterValue?.customData;
+        this.status = requestParameterValue?.status;
     };
     /**
      * The deserialization information for the current model
@@ -53,22 +53,22 @@ export class RequestImpl extends EntityImpl implements Parsable, Request {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.approvalId){
-        writer.writeStringValue("approvalId", this.approvalId);
+            writer.writeStringValue("approvalId", this.approvalId);
         }
         if(this.completedDateTime){
-        writer.writeDateValue("completedDateTime", this.completedDateTime);
+            writer.writeDateValue("completedDateTime", this.completedDateTime);
         }
         if(this.createdBy){
-        writer.writeObjectValue<IdentitySetImpl>("createdBy", new IdentitySetImpl(this.createdBy));
+            writer.writeObjectValue<IdentitySetImpl>("createdBy", new IdentitySetImpl(this.createdBy));
         }
         if(this.createdDateTime){
-        writer.writeDateValue("createdDateTime", this.createdDateTime);
+            writer.writeDateValue("createdDateTime", this.createdDateTime);
         }
         if(this.customData){
-        writer.writeStringValue("customData", this.customData);
+            writer.writeStringValue("customData", this.customData);
         }
         if(this.status){
-        writer.writeStringValue("status", this.status);
+            writer.writeStringValue("status", this.status);
         }
     };
 }

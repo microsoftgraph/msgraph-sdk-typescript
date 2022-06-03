@@ -18,7 +18,7 @@ import {SubjectSet} from './subjectSet';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the identityGovernance singleton. */
-export class AccessPackageAssignmentPolicyImpl extends EntityImpl implements AccessPackageAssignmentPolicy, Parsable {
+export class AccessPackageAssignmentPolicyImpl extends EntityImpl implements AccessPackageAssignmentPolicy {
     /** The access package with this policy. Read-only. Nullable. Supports $expand. */
     public accessPackage?: AccessPackage | undefined;
     /** Principals that can be assigned the access package through this policy. The possible values are: notSpecified, specificDirectoryUsers, specificConnectedOrganizationUsers, specificDirectoryServicePrincipals, allMemberUsers, allDirectoryUsers, allDirectoryServicePrincipals, allConfiguredConnectedOrganizationUsers, allExternalUsers, unknownFutureValue. */
@@ -48,19 +48,19 @@ export class AccessPackageAssignmentPolicyImpl extends EntityImpl implements Acc
      * @param accessPackageAssignmentPolicyParameterValue 
      */
     public constructor(accessPackageAssignmentPolicyParameterValue?: AccessPackageAssignmentPolicy | undefined) {
-        super();
-        this.accessPackage = accessPackageAssignmentPolicyParameterValue?.accessPackage ;
-        this.allowedTargetScope = accessPackageAssignmentPolicyParameterValue?.allowedTargetScope ;
-        this.catalog = accessPackageAssignmentPolicyParameterValue?.catalog ;
-        this.createdDateTime = accessPackageAssignmentPolicyParameterValue?.createdDateTime ;
-        this.description = accessPackageAssignmentPolicyParameterValue?.description ;
-        this.displayName = accessPackageAssignmentPolicyParameterValue?.displayName ;
-        this.expiration = accessPackageAssignmentPolicyParameterValue?.expiration ;
-        this.modifiedDateTime = accessPackageAssignmentPolicyParameterValue?.modifiedDateTime ;
-        this.requestApprovalSettings = accessPackageAssignmentPolicyParameterValue?.requestApprovalSettings ;
-        this.requestorSettings = accessPackageAssignmentPolicyParameterValue?.requestorSettings ;
-        this.reviewSettings = accessPackageAssignmentPolicyParameterValue?.reviewSettings ;
-        this.specificAllowedTargets = accessPackageAssignmentPolicyParameterValue?.specificAllowedTargets ;
+        super(accessPackageAssignmentPolicyParameterValue);
+        this.accessPackage = accessPackageAssignmentPolicyParameterValue?.accessPackage;
+        this.allowedTargetScope = accessPackageAssignmentPolicyParameterValue?.allowedTargetScope;
+        this.catalog = accessPackageAssignmentPolicyParameterValue?.catalog;
+        this.createdDateTime = accessPackageAssignmentPolicyParameterValue?.createdDateTime;
+        this.description = accessPackageAssignmentPolicyParameterValue?.description;
+        this.displayName = accessPackageAssignmentPolicyParameterValue?.displayName;
+        this.expiration = accessPackageAssignmentPolicyParameterValue?.expiration;
+        this.modifiedDateTime = accessPackageAssignmentPolicyParameterValue?.modifiedDateTime;
+        this.requestApprovalSettings = accessPackageAssignmentPolicyParameterValue?.requestApprovalSettings;
+        this.requestorSettings = accessPackageAssignmentPolicyParameterValue?.requestorSettings;
+        this.reviewSettings = accessPackageAssignmentPolicyParameterValue?.reviewSettings;
+        this.specificAllowedTargets = accessPackageAssignmentPolicyParameterValue?.specificAllowedTargets;
     };
     /**
      * The deserialization information for the current model
@@ -90,40 +90,40 @@ export class AccessPackageAssignmentPolicyImpl extends EntityImpl implements Acc
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.accessPackage){
-        writer.writeObjectValue<AccessPackageImpl>("accessPackage", new AccessPackageImpl(this.accessPackage));
+            writer.writeObjectValue<AccessPackageImpl>("accessPackage", new AccessPackageImpl(this.accessPackage));
         }
         if(this.allowedTargetScope){
-        writer.writeEnumValue<AllowedTargetScope>("allowedTargetScope", this.allowedTargetScope);
+            writer.writeEnumValue<AllowedTargetScope>("allowedTargetScope", this.allowedTargetScope);
         }
         if(this.catalog){
-        writer.writeObjectValue<AccessPackageCatalogImpl>("catalog", new AccessPackageCatalogImpl(this.catalog));
+            writer.writeObjectValue<AccessPackageCatalogImpl>("catalog", new AccessPackageCatalogImpl(this.catalog));
         }
         if(this.createdDateTime){
-        writer.writeDateValue("createdDateTime", this.createdDateTime);
+            writer.writeDateValue("createdDateTime", this.createdDateTime);
         }
         if(this.description){
-        writer.writeStringValue("description", this.description);
+            writer.writeStringValue("description", this.description);
         }
         if(this.displayName){
-        writer.writeStringValue("displayName", this.displayName);
+            writer.writeStringValue("displayName", this.displayName);
         }
         if(this.expiration){
-        writer.writeObjectValue<ExpirationPatternImpl>("expiration", new ExpirationPatternImpl(this.expiration));
+            writer.writeObjectValue<ExpirationPatternImpl>("expiration", new ExpirationPatternImpl(this.expiration));
         }
         if(this.modifiedDateTime){
-        writer.writeDateValue("modifiedDateTime", this.modifiedDateTime);
+            writer.writeDateValue("modifiedDateTime", this.modifiedDateTime);
         }
         if(this.requestApprovalSettings){
-        writer.writeObjectValue<AccessPackageAssignmentApprovalSettingsImpl>("requestApprovalSettings", new AccessPackageAssignmentApprovalSettingsImpl(this.requestApprovalSettings));
+            writer.writeObjectValue<AccessPackageAssignmentApprovalSettingsImpl>("requestApprovalSettings", new AccessPackageAssignmentApprovalSettingsImpl(this.requestApprovalSettings));
         }
         if(this.requestorSettings){
-        writer.writeObjectValue<AccessPackageAssignmentRequestorSettingsImpl>("requestorSettings", new AccessPackageAssignmentRequestorSettingsImpl(this.requestorSettings));
+            writer.writeObjectValue<AccessPackageAssignmentRequestorSettingsImpl>("requestorSettings", new AccessPackageAssignmentRequestorSettingsImpl(this.requestorSettings));
         }
         if(this.reviewSettings){
-        writer.writeObjectValue<AccessPackageAssignmentReviewSettingsImpl>("reviewSettings", new AccessPackageAssignmentReviewSettingsImpl(this.reviewSettings));
+            writer.writeObjectValue<AccessPackageAssignmentReviewSettingsImpl>("reviewSettings", new AccessPackageAssignmentReviewSettingsImpl(this.reviewSettings));
         }
         if(this.specificAllowedTargets && this.specificAllowedTargets.length != 0){        const specificAllowedTargetsArrValue: SubjectSetImpl[] = []; this.specificAllowedTargets?.forEach(element => {specificAllowedTargetsArrValue.push(new SubjectSetImpl(element));});
-        writer.writeCollectionOfObjectValues<SubjectSetImpl>("specificAllowedTargets", specificAllowedTargetsArrValue);
+            writer.writeCollectionOfObjectValues<SubjectSetImpl>("specificAllowedTargets", specificAllowedTargetsArrValue);
         }
     };
 }

@@ -1,7 +1,7 @@
 import {PrintMargin} from './printMargin';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class PrintMarginImpl implements AdditionalDataHolder, Parsable, PrintMargin {
+export class PrintMarginImpl implements PrintMargin {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The margin in microns from the bottom edge. */
@@ -17,11 +17,11 @@ export class PrintMarginImpl implements AdditionalDataHolder, Parsable, PrintMar
      * @param printMarginParameterValue 
      */
     public constructor(printMarginParameterValue?: PrintMargin | undefined) {
-        this.additionalData = printMarginParameterValue?.additionalData ? printMarginParameterValue?.additionalData! : {}
-        this.bottom = printMarginParameterValue?.bottom ;
-        this.left = printMarginParameterValue?.left ;
-        this.right = printMarginParameterValue?.right ;
-        this.top = printMarginParameterValue?.top ;
+        this.additionalData = printMarginParameterValue?.additionalData ? printMarginParameterValue?.additionalData! : {};
+        this.bottom = printMarginParameterValue?.bottom;
+        this.left = printMarginParameterValue?.left;
+        this.right = printMarginParameterValue?.right;
+        this.top = printMarginParameterValue?.top;
     };
     /**
      * The deserialization information for the current model
@@ -42,16 +42,16 @@ export class PrintMarginImpl implements AdditionalDataHolder, Parsable, PrintMar
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.bottom){
-        writer.writeNumberValue("bottom", this.bottom);
+            writer.writeNumberValue("bottom", this.bottom);
         }
         if(this.left){
-        writer.writeNumberValue("left", this.left);
+            writer.writeNumberValue("left", this.left);
         }
         if(this.right){
-        writer.writeNumberValue("right", this.right);
+            writer.writeNumberValue("right", this.right);
         }
         if(this.top){
-        writer.writeNumberValue("top", this.top);
+            writer.writeNumberValue("top", this.top);
         }
         writer.writeAdditionalData(this.additionalData);
     };

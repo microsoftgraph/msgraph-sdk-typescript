@@ -4,7 +4,7 @@ import {createAgreementFileVersionFromDiscriminatorValue} from './createAgreemen
 import {AgreementFileVersionImpl} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class AgreementFileVersionCollectionResponseImpl implements AdditionalDataHolder, AgreementFileVersionCollectionResponse, Parsable {
+export class AgreementFileVersionCollectionResponseImpl implements AgreementFileVersionCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class AgreementFileVersionCollectionResponseImpl implements AdditionalDat
      * @param agreementFileVersionCollectionResponseParameterValue 
      */
     public constructor(agreementFileVersionCollectionResponseParameterValue?: AgreementFileVersionCollectionResponse | undefined) {
-        this.additionalData = agreementFileVersionCollectionResponseParameterValue?.additionalData ? agreementFileVersionCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = agreementFileVersionCollectionResponseParameterValue?.nextLink ;
-        this.value = agreementFileVersionCollectionResponseParameterValue?.value ;
+        this.additionalData = agreementFileVersionCollectionResponseParameterValue?.additionalData ? agreementFileVersionCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = agreementFileVersionCollectionResponseParameterValue?.nextLink;
+        this.value = agreementFileVersionCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class AgreementFileVersionCollectionResponseImpl implements AdditionalDat
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: AgreementFileVersionImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new AgreementFileVersionImpl(element));});
-        writer.writeCollectionOfObjectValues<AgreementFileVersionImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<AgreementFileVersionImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

@@ -7,7 +7,7 @@ import {Recipient} from './recipient';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Casts the previous resource to group. */
-export class ConversationThreadImpl extends EntityImpl implements ConversationThread, Parsable {
+export class ConversationThreadImpl extends EntityImpl implements ConversationThread {
     /** The Cc: recipients for the thread. Returned only on $select. */
     public ccRecipients?: Recipient[] | undefined;
     /** Indicates whether any of the posts within this thread has at least one attachment. Returned by default. */
@@ -31,16 +31,16 @@ export class ConversationThreadImpl extends EntityImpl implements ConversationTh
      * @param conversationThreadParameterValue 
      */
     public constructor(conversationThreadParameterValue?: ConversationThread | undefined) {
-        super();
-        this.ccRecipients = conversationThreadParameterValue?.ccRecipients ;
-        this.hasAttachments = conversationThreadParameterValue?.hasAttachments ;
-        this.isLocked = conversationThreadParameterValue?.isLocked ;
-        this.lastDeliveredDateTime = conversationThreadParameterValue?.lastDeliveredDateTime ;
-        this.posts = conversationThreadParameterValue?.posts ;
-        this.preview = conversationThreadParameterValue?.preview ;
-        this.topic = conversationThreadParameterValue?.topic ;
-        this.toRecipients = conversationThreadParameterValue?.toRecipients ;
-        this.uniqueSenders = conversationThreadParameterValue?.uniqueSenders ;
+        super(conversationThreadParameterValue);
+        this.ccRecipients = conversationThreadParameterValue?.ccRecipients;
+        this.hasAttachments = conversationThreadParameterValue?.hasAttachments;
+        this.isLocked = conversationThreadParameterValue?.isLocked;
+        this.lastDeliveredDateTime = conversationThreadParameterValue?.lastDeliveredDateTime;
+        this.posts = conversationThreadParameterValue?.posts;
+        this.preview = conversationThreadParameterValue?.preview;
+        this.topic = conversationThreadParameterValue?.topic;
+        this.toRecipients = conversationThreadParameterValue?.toRecipients;
+        this.uniqueSenders = conversationThreadParameterValue?.uniqueSenders;
     };
     /**
      * The deserialization information for the current model
@@ -67,31 +67,31 @@ export class ConversationThreadImpl extends EntityImpl implements ConversationTh
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.ccRecipients && this.ccRecipients.length != 0){        const ccRecipientsArrValue: RecipientImpl[] = []; this.ccRecipients?.forEach(element => {ccRecipientsArrValue.push(new RecipientImpl(element));});
-        writer.writeCollectionOfObjectValues<RecipientImpl>("ccRecipients", ccRecipientsArrValue);
+            writer.writeCollectionOfObjectValues<RecipientImpl>("ccRecipients", ccRecipientsArrValue);
         }
         if(this.hasAttachments){
-        writer.writeBooleanValue("hasAttachments", this.hasAttachments);
+            writer.writeBooleanValue("hasAttachments", this.hasAttachments);
         }
         if(this.isLocked){
-        writer.writeBooleanValue("isLocked", this.isLocked);
+            writer.writeBooleanValue("isLocked", this.isLocked);
         }
         if(this.lastDeliveredDateTime){
-        writer.writeDateValue("lastDeliveredDateTime", this.lastDeliveredDateTime);
+            writer.writeDateValue("lastDeliveredDateTime", this.lastDeliveredDateTime);
         }
         if(this.posts && this.posts.length != 0){        const postsArrValue: PostImpl[] = []; this.posts?.forEach(element => {postsArrValue.push(new PostImpl(element));});
-        writer.writeCollectionOfObjectValues<PostImpl>("posts", postsArrValue);
+            writer.writeCollectionOfObjectValues<PostImpl>("posts", postsArrValue);
         }
         if(this.preview){
-        writer.writeStringValue("preview", this.preview);
+            writer.writeStringValue("preview", this.preview);
         }
         if(this.topic){
-        writer.writeStringValue("topic", this.topic);
+            writer.writeStringValue("topic", this.topic);
         }
         if(this.toRecipients && this.toRecipients.length != 0){        const toRecipientsArrValue: RecipientImpl[] = []; this.toRecipients?.forEach(element => {toRecipientsArrValue.push(new RecipientImpl(element));});
-        writer.writeCollectionOfObjectValues<RecipientImpl>("toRecipients", toRecipientsArrValue);
+            writer.writeCollectionOfObjectValues<RecipientImpl>("toRecipients", toRecipientsArrValue);
         }
         if(this.uniqueSenders){
-        writer.writeCollectionOfPrimitiveValues<string>("uniqueSenders", this.uniqueSenders);
+            writer.writeCollectionOfPrimitiveValues<string>("uniqueSenders", this.uniqueSenders);
         }
     };
 }

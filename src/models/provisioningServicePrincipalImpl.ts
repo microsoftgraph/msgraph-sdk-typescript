@@ -3,13 +3,13 @@ import {ProvisioningServicePrincipal} from './provisioningServicePrincipal';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the auditLogRoot singleton. */
-export class ProvisioningServicePrincipalImpl extends IdentityImpl implements Parsable, ProvisioningServicePrincipal {
+export class ProvisioningServicePrincipalImpl extends IdentityImpl implements ProvisioningServicePrincipal {
     /**
      * Instantiates a new provisioningServicePrincipal and sets the default values.
      * @param provisioningServicePrincipalParameterValue 
      */
     public constructor(provisioningServicePrincipalParameterValue?: ProvisioningServicePrincipal | undefined) {
-        super();
+        super(provisioningServicePrincipalParameterValue);
     };
     /**
      * The deserialization information for the current model

@@ -2,7 +2,7 @@ import {SetMobileDeviceManagementAuthorityResponse} from './setMobileDeviceManag
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the setMobileDeviceManagementAuthority method. */
-export class SetMobileDeviceManagementAuthorityResponseImpl implements AdditionalDataHolder, Parsable, SetMobileDeviceManagementAuthorityResponse {
+export class SetMobileDeviceManagementAuthorityResponseImpl implements SetMobileDeviceManagementAuthorityResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The value property */
@@ -12,8 +12,8 @@ export class SetMobileDeviceManagementAuthorityResponseImpl implements Additiona
      * @param setMobileDeviceManagementAuthorityResponseParameterValue 
      */
     public constructor(setMobileDeviceManagementAuthorityResponseParameterValue?: SetMobileDeviceManagementAuthorityResponse | undefined) {
-        this.additionalData = setMobileDeviceManagementAuthorityResponseParameterValue?.additionalData ? setMobileDeviceManagementAuthorityResponseParameterValue?.additionalData! : {}
-        this.value = setMobileDeviceManagementAuthorityResponseParameterValue?.value ;
+        this.additionalData = setMobileDeviceManagementAuthorityResponseParameterValue?.additionalData ? setMobileDeviceManagementAuthorityResponseParameterValue?.additionalData! : {};
+        this.value = setMobileDeviceManagementAuthorityResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -31,7 +31,7 @@ export class SetMobileDeviceManagementAuthorityResponseImpl implements Additiona
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.value){
-        writer.writeNumberValue("value", this.value);
+            writer.writeNumberValue("value", this.value);
         }
         writer.writeAdditionalData(this.additionalData);
     };

@@ -4,7 +4,7 @@ import {DirectoryRoleTemplateCollectionResponse} from './directoryRoleTemplateCo
 import {DirectoryRoleTemplateImpl} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class DirectoryRoleTemplateCollectionResponseImpl implements AdditionalDataHolder, DirectoryRoleTemplateCollectionResponse, Parsable {
+export class DirectoryRoleTemplateCollectionResponseImpl implements DirectoryRoleTemplateCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class DirectoryRoleTemplateCollectionResponseImpl implements AdditionalDa
      * @param directoryRoleTemplateCollectionResponseParameterValue 
      */
     public constructor(directoryRoleTemplateCollectionResponseParameterValue?: DirectoryRoleTemplateCollectionResponse | undefined) {
-        this.additionalData = directoryRoleTemplateCollectionResponseParameterValue?.additionalData ? directoryRoleTemplateCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = directoryRoleTemplateCollectionResponseParameterValue?.nextLink ;
-        this.value = directoryRoleTemplateCollectionResponseParameterValue?.value ;
+        this.additionalData = directoryRoleTemplateCollectionResponseParameterValue?.additionalData ? directoryRoleTemplateCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = directoryRoleTemplateCollectionResponseParameterValue?.nextLink;
+        this.value = directoryRoleTemplateCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class DirectoryRoleTemplateCollectionResponseImpl implements AdditionalDa
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: DirectoryRoleTemplateImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new DirectoryRoleTemplateImpl(element));});
-        writer.writeCollectionOfObjectValues<DirectoryRoleTemplateImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<DirectoryRoleTemplateImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

@@ -4,7 +4,7 @@ import {IdentitySetImpl} from './index';
 import {SharingInvitation} from './sharingInvitation';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class SharingInvitationImpl implements AdditionalDataHolder, Parsable, SharingInvitation {
+export class SharingInvitationImpl implements SharingInvitation {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The email address provided for the recipient of the sharing invitation. Read-only. */
@@ -20,11 +20,11 @@ export class SharingInvitationImpl implements AdditionalDataHolder, Parsable, Sh
      * @param sharingInvitationParameterValue 
      */
     public constructor(sharingInvitationParameterValue?: SharingInvitation | undefined) {
-        this.additionalData = sharingInvitationParameterValue?.additionalData ? sharingInvitationParameterValue?.additionalData! : {}
-        this.email = sharingInvitationParameterValue?.email ;
-        this.invitedBy = sharingInvitationParameterValue?.invitedBy ;
-        this.redeemedBy = sharingInvitationParameterValue?.redeemedBy ;
-        this.signInRequired = sharingInvitationParameterValue?.signInRequired ;
+        this.additionalData = sharingInvitationParameterValue?.additionalData ? sharingInvitationParameterValue?.additionalData! : {};
+        this.email = sharingInvitationParameterValue?.email;
+        this.invitedBy = sharingInvitationParameterValue?.invitedBy;
+        this.redeemedBy = sharingInvitationParameterValue?.redeemedBy;
+        this.signInRequired = sharingInvitationParameterValue?.signInRequired;
     };
     /**
      * The deserialization information for the current model
@@ -45,16 +45,16 @@ export class SharingInvitationImpl implements AdditionalDataHolder, Parsable, Sh
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.email){
-        writer.writeStringValue("email", this.email);
+            writer.writeStringValue("email", this.email);
         }
         if(this.invitedBy){
-        writer.writeObjectValue<IdentitySetImpl>("invitedBy", new IdentitySetImpl(this.invitedBy));
+            writer.writeObjectValue<IdentitySetImpl>("invitedBy", new IdentitySetImpl(this.invitedBy));
         }
         if(this.redeemedBy){
-        writer.writeStringValue("redeemedBy", this.redeemedBy);
+            writer.writeStringValue("redeemedBy", this.redeemedBy);
         }
         if(this.signInRequired){
-        writer.writeBooleanValue("signInRequired", this.signInRequired);
+            writer.writeBooleanValue("signInRequired", this.signInRequired);
         }
         writer.writeAdditionalData(this.additionalData);
     };

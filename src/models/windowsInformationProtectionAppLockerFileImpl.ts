@@ -3,7 +3,7 @@ import {WindowsInformationProtectionAppLockerFile} from './windowsInformationPro
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Windows Information Protection AppLocker File */
-export class WindowsInformationProtectionAppLockerFileImpl extends EntityImpl implements Parsable, WindowsInformationProtectionAppLockerFile {
+export class WindowsInformationProtectionAppLockerFileImpl extends EntityImpl implements WindowsInformationProtectionAppLockerFile {
     /** The friendly name */
     public displayName?: string | undefined;
     /** File as a byte array */
@@ -17,11 +17,11 @@ export class WindowsInformationProtectionAppLockerFileImpl extends EntityImpl im
      * @param windowsInformationProtectionAppLockerFileParameterValue 
      */
     public constructor(windowsInformationProtectionAppLockerFileParameterValue?: WindowsInformationProtectionAppLockerFile | undefined) {
-        super();
-        this.displayName = windowsInformationProtectionAppLockerFileParameterValue?.displayName ;
-        this.file = windowsInformationProtectionAppLockerFileParameterValue?.file ;
-        this.fileHash = windowsInformationProtectionAppLockerFileParameterValue?.fileHash ;
-        this.version = windowsInformationProtectionAppLockerFileParameterValue?.version ;
+        super(windowsInformationProtectionAppLockerFileParameterValue);
+        this.displayName = windowsInformationProtectionAppLockerFileParameterValue?.displayName;
+        this.file = windowsInformationProtectionAppLockerFileParameterValue?.file;
+        this.fileHash = windowsInformationProtectionAppLockerFileParameterValue?.fileHash;
+        this.version = windowsInformationProtectionAppLockerFileParameterValue?.version;
     };
     /**
      * The deserialization information for the current model
@@ -43,16 +43,16 @@ export class WindowsInformationProtectionAppLockerFileImpl extends EntityImpl im
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.displayName){
-        writer.writeStringValue("displayName", this.displayName);
+            writer.writeStringValue("displayName", this.displayName);
         }
         if(this.file){
-        writer.writeStringValue("file", this.file);
+            writer.writeStringValue("file", this.file);
         }
         if(this.fileHash){
-        writer.writeStringValue("fileHash", this.fileHash);
+            writer.writeStringValue("fileHash", this.fileHash);
         }
         if(this.version){
-        writer.writeStringValue("version", this.version);
+            writer.writeStringValue("version", this.version);
         }
     };
 }

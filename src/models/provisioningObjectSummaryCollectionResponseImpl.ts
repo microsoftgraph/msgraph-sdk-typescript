@@ -4,7 +4,7 @@ import {ProvisioningObjectSummary} from './provisioningObjectSummary';
 import {ProvisioningObjectSummaryCollectionResponse} from './provisioningObjectSummaryCollectionResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ProvisioningObjectSummaryCollectionResponseImpl implements AdditionalDataHolder, Parsable, ProvisioningObjectSummaryCollectionResponse {
+export class ProvisioningObjectSummaryCollectionResponseImpl implements ProvisioningObjectSummaryCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class ProvisioningObjectSummaryCollectionResponseImpl implements Addition
      * @param provisioningObjectSummaryCollectionResponseParameterValue 
      */
     public constructor(provisioningObjectSummaryCollectionResponseParameterValue?: ProvisioningObjectSummaryCollectionResponse | undefined) {
-        this.additionalData = provisioningObjectSummaryCollectionResponseParameterValue?.additionalData ? provisioningObjectSummaryCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = provisioningObjectSummaryCollectionResponseParameterValue?.nextLink ;
-        this.value = provisioningObjectSummaryCollectionResponseParameterValue?.value ;
+        this.additionalData = provisioningObjectSummaryCollectionResponseParameterValue?.additionalData ? provisioningObjectSummaryCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = provisioningObjectSummaryCollectionResponseParameterValue?.nextLink;
+        this.value = provisioningObjectSummaryCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class ProvisioningObjectSummaryCollectionResponseImpl implements Addition
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: ProvisioningObjectSummaryImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ProvisioningObjectSummaryImpl(element));});
-        writer.writeCollectionOfObjectValues<ProvisioningObjectSummaryImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<ProvisioningObjectSummaryImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

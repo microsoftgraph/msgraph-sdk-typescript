@@ -43,7 +43,7 @@ export class IdentityProvidersRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Retrieve a list of [identityProviders](../resources/identityprovider.md) objects.
+     * Retrieve a list of identityProviders objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -60,7 +60,7 @@ export class IdentityProvidersRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create a new [identityProvider](../resources/identityprovider.md) object.
+     * Create a new identityProvider object.
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -80,7 +80,7 @@ export class IdentityProvidersRequestBuilder {
         return requestInfo;
     };
     /**
-     * Retrieve a list of [identityProviders](../resources/identityprovider.md) objects.
+     * Retrieve a list of identityProviders objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of IdentityProviderCollectionResponse
@@ -96,7 +96,7 @@ export class IdentityProvidersRequestBuilder {
         return this.requestAdapter?.sendAsync<IdentityProviderCollectionResponseImpl>(requestInfo, createIdentityProviderCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Create a new [identityProvider](../resources/identityprovider.md) object.
+     * Create a new identityProvider object.
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service

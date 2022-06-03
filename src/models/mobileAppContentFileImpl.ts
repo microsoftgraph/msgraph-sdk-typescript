@@ -4,7 +4,7 @@ import {MobileAppContentFileUploadState} from './mobileAppContentFileUploadState
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Contains properties for a single installer file that is associated with a given mobileAppContent version. */
-export class MobileAppContentFileImpl extends EntityImpl implements MobileAppContentFile, Parsable {
+export class MobileAppContentFileImpl extends EntityImpl implements MobileAppContentFile {
     /** The Azure Storage URI. */
     public azureStorageUri?: string | undefined;
     /** The time the Azure storage Uri expires. */
@@ -28,16 +28,16 @@ export class MobileAppContentFileImpl extends EntityImpl implements MobileAppCon
      * @param mobileAppContentFileParameterValue 
      */
     public constructor(mobileAppContentFileParameterValue?: MobileAppContentFile | undefined) {
-        super();
-        this.azureStorageUri = mobileAppContentFileParameterValue?.azureStorageUri ;
-        this.azureStorageUriExpirationDateTime = mobileAppContentFileParameterValue?.azureStorageUriExpirationDateTime ;
-        this.createdDateTime = mobileAppContentFileParameterValue?.createdDateTime ;
-        this.isCommitted = mobileAppContentFileParameterValue?.isCommitted ;
-        this.manifest = mobileAppContentFileParameterValue?.manifest ;
-        this.name = mobileAppContentFileParameterValue?.name ;
-        this.size = mobileAppContentFileParameterValue?.size ;
-        this.sizeEncrypted = mobileAppContentFileParameterValue?.sizeEncrypted ;
-        this.uploadState = mobileAppContentFileParameterValue?.uploadState ;
+        super(mobileAppContentFileParameterValue);
+        this.azureStorageUri = mobileAppContentFileParameterValue?.azureStorageUri;
+        this.azureStorageUriExpirationDateTime = mobileAppContentFileParameterValue?.azureStorageUriExpirationDateTime;
+        this.createdDateTime = mobileAppContentFileParameterValue?.createdDateTime;
+        this.isCommitted = mobileAppContentFileParameterValue?.isCommitted;
+        this.manifest = mobileAppContentFileParameterValue?.manifest;
+        this.name = mobileAppContentFileParameterValue?.name;
+        this.size = mobileAppContentFileParameterValue?.size;
+        this.sizeEncrypted = mobileAppContentFileParameterValue?.sizeEncrypted;
+        this.uploadState = mobileAppContentFileParameterValue?.uploadState;
     };
     /**
      * The deserialization information for the current model
@@ -64,31 +64,31 @@ export class MobileAppContentFileImpl extends EntityImpl implements MobileAppCon
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.azureStorageUri){
-        writer.writeStringValue("azureStorageUri", this.azureStorageUri);
+            writer.writeStringValue("azureStorageUri", this.azureStorageUri);
         }
         if(this.azureStorageUriExpirationDateTime){
-        writer.writeDateValue("azureStorageUriExpirationDateTime", this.azureStorageUriExpirationDateTime);
+            writer.writeDateValue("azureStorageUriExpirationDateTime", this.azureStorageUriExpirationDateTime);
         }
         if(this.createdDateTime){
-        writer.writeDateValue("createdDateTime", this.createdDateTime);
+            writer.writeDateValue("createdDateTime", this.createdDateTime);
         }
         if(this.isCommitted){
-        writer.writeBooleanValue("isCommitted", this.isCommitted);
+            writer.writeBooleanValue("isCommitted", this.isCommitted);
         }
         if(this.manifest){
-        writer.writeStringValue("manifest", this.manifest);
+            writer.writeStringValue("manifest", this.manifest);
         }
         if(this.name){
-        writer.writeStringValue("name", this.name);
+            writer.writeStringValue("name", this.name);
         }
         if(this.size){
-        writer.writeNumberValue("size", this.size);
+            writer.writeNumberValue("size", this.size);
         }
         if(this.sizeEncrypted){
-        writer.writeNumberValue("sizeEncrypted", this.sizeEncrypted);
+            writer.writeNumberValue("sizeEncrypted", this.sizeEncrypted);
         }
         if(this.uploadState){
-        writer.writeEnumValue<MobileAppContentFileUploadState>("uploadState", this.uploadState);
+            writer.writeEnumValue<MobileAppContentFileUploadState>("uploadState", this.uploadState);
         }
     };
 }

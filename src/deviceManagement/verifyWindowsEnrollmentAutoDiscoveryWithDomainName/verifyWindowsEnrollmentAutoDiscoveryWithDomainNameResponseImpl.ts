@@ -2,7 +2,7 @@ import {VerifyWindowsEnrollmentAutoDiscoveryWithDomainNameResponse} from './veri
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the verifyWindowsEnrollmentAutoDiscovery method. */
-export class VerifyWindowsEnrollmentAutoDiscoveryWithDomainNameResponseImpl implements AdditionalDataHolder, Parsable, VerifyWindowsEnrollmentAutoDiscoveryWithDomainNameResponse {
+export class VerifyWindowsEnrollmentAutoDiscoveryWithDomainNameResponseImpl implements VerifyWindowsEnrollmentAutoDiscoveryWithDomainNameResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The value property */
@@ -12,8 +12,8 @@ export class VerifyWindowsEnrollmentAutoDiscoveryWithDomainNameResponseImpl impl
      * @param verifyWindowsEnrollmentAutoDiscoveryWithDomainNameResponseParameterValue 
      */
     public constructor(verifyWindowsEnrollmentAutoDiscoveryWithDomainNameResponseParameterValue?: VerifyWindowsEnrollmentAutoDiscoveryWithDomainNameResponse | undefined) {
-        this.additionalData = verifyWindowsEnrollmentAutoDiscoveryWithDomainNameResponseParameterValue?.additionalData ? verifyWindowsEnrollmentAutoDiscoveryWithDomainNameResponseParameterValue?.additionalData! : {}
-        this.value = verifyWindowsEnrollmentAutoDiscoveryWithDomainNameResponseParameterValue?.value ;
+        this.additionalData = verifyWindowsEnrollmentAutoDiscoveryWithDomainNameResponseParameterValue?.additionalData ? verifyWindowsEnrollmentAutoDiscoveryWithDomainNameResponseParameterValue?.additionalData! : {};
+        this.value = verifyWindowsEnrollmentAutoDiscoveryWithDomainNameResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -31,7 +31,7 @@ export class VerifyWindowsEnrollmentAutoDiscoveryWithDomainNameResponseImpl impl
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.value){
-        writer.writeBooleanValue("value", this.value);
+            writer.writeBooleanValue("value", this.value);
         }
         writer.writeAdditionalData(this.additionalData);
     };

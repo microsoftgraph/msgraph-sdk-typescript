@@ -4,7 +4,7 @@ import {createChatMessageFromDiscriminatorValue} from './createChatMessageFromDi
 import {ChatMessageImpl} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ChatMessageCollectionResponseImpl implements AdditionalDataHolder, ChatMessageCollectionResponse, Parsable {
+export class ChatMessageCollectionResponseImpl implements ChatMessageCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class ChatMessageCollectionResponseImpl implements AdditionalDataHolder, 
      * @param chatMessageCollectionResponseParameterValue 
      */
     public constructor(chatMessageCollectionResponseParameterValue?: ChatMessageCollectionResponse | undefined) {
-        this.additionalData = chatMessageCollectionResponseParameterValue?.additionalData ? chatMessageCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = chatMessageCollectionResponseParameterValue?.nextLink ;
-        this.value = chatMessageCollectionResponseParameterValue?.value ;
+        this.additionalData = chatMessageCollectionResponseParameterValue?.additionalData ? chatMessageCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = chatMessageCollectionResponseParameterValue?.nextLink;
+        this.value = chatMessageCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class ChatMessageCollectionResponseImpl implements AdditionalDataHolder, 
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: ChatMessageImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ChatMessageImpl(element));});
-        writer.writeCollectionOfObjectValues<ChatMessageImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<ChatMessageImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

@@ -1,7 +1,7 @@
 import {DateTimeColumn} from './dateTimeColumn';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class DateTimeColumnImpl implements AdditionalDataHolder, DateTimeColumn, Parsable {
+export class DateTimeColumnImpl implements DateTimeColumn {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** How the value should be presented in the UX. Must be one of default, friendly, or standard. See below for more details. If unspecified, treated as default. */
@@ -13,9 +13,9 @@ export class DateTimeColumnImpl implements AdditionalDataHolder, DateTimeColumn,
      * @param dateTimeColumnParameterValue 
      */
     public constructor(dateTimeColumnParameterValue?: DateTimeColumn | undefined) {
-        this.additionalData = dateTimeColumnParameterValue?.additionalData ? dateTimeColumnParameterValue?.additionalData! : {}
-        this.displayAs = dateTimeColumnParameterValue?.displayAs ;
-        this.format = dateTimeColumnParameterValue?.format ;
+        this.additionalData = dateTimeColumnParameterValue?.additionalData ? dateTimeColumnParameterValue?.additionalData! : {};
+        this.displayAs = dateTimeColumnParameterValue?.displayAs;
+        this.format = dateTimeColumnParameterValue?.format;
     };
     /**
      * The deserialization information for the current model
@@ -34,10 +34,10 @@ export class DateTimeColumnImpl implements AdditionalDataHolder, DateTimeColumn,
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.displayAs){
-        writer.writeStringValue("displayAs", this.displayAs);
+            writer.writeStringValue("displayAs", this.displayAs);
         }
         if(this.format){
-        writer.writeStringValue("format", this.format);
+            writer.writeStringValue("format", this.format);
         }
         writer.writeAdditionalData(this.additionalData);
     };

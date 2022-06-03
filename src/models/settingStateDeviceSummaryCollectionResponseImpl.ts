@@ -4,7 +4,7 @@ import {SettingStateDeviceSummary} from './settingStateDeviceSummary';
 import {SettingStateDeviceSummaryCollectionResponse} from './settingStateDeviceSummaryCollectionResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class SettingStateDeviceSummaryCollectionResponseImpl implements AdditionalDataHolder, Parsable, SettingStateDeviceSummaryCollectionResponse {
+export class SettingStateDeviceSummaryCollectionResponseImpl implements SettingStateDeviceSummaryCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class SettingStateDeviceSummaryCollectionResponseImpl implements Addition
      * @param settingStateDeviceSummaryCollectionResponseParameterValue 
      */
     public constructor(settingStateDeviceSummaryCollectionResponseParameterValue?: SettingStateDeviceSummaryCollectionResponse | undefined) {
-        this.additionalData = settingStateDeviceSummaryCollectionResponseParameterValue?.additionalData ? settingStateDeviceSummaryCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = settingStateDeviceSummaryCollectionResponseParameterValue?.nextLink ;
-        this.value = settingStateDeviceSummaryCollectionResponseParameterValue?.value ;
+        this.additionalData = settingStateDeviceSummaryCollectionResponseParameterValue?.additionalData ? settingStateDeviceSummaryCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = settingStateDeviceSummaryCollectionResponseParameterValue?.nextLink;
+        this.value = settingStateDeviceSummaryCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class SettingStateDeviceSummaryCollectionResponseImpl implements Addition
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: SettingStateDeviceSummaryImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new SettingStateDeviceSummaryImpl(element));});
-        writer.writeCollectionOfObjectValues<SettingStateDeviceSummaryImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<SettingStateDeviceSummaryImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

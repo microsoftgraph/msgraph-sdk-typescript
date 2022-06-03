@@ -5,7 +5,7 @@ import {SnoozeReminderPostRequestBody} from './snoozeReminderPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the snoozeReminder method. */
-export class SnoozeReminderPostRequestBodyImpl implements AdditionalDataHolder, Parsable, SnoozeReminderPostRequestBody {
+export class SnoozeReminderPostRequestBodyImpl implements SnoozeReminderPostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The NewReminderTime property */
@@ -15,8 +15,8 @@ export class SnoozeReminderPostRequestBodyImpl implements AdditionalDataHolder, 
      * @param snoozeReminderPostRequestBodyParameterValue 
      */
     public constructor(snoozeReminderPostRequestBodyParameterValue?: SnoozeReminderPostRequestBody | undefined) {
-        this.additionalData = snoozeReminderPostRequestBodyParameterValue?.additionalData ? snoozeReminderPostRequestBodyParameterValue?.additionalData! : {}
-        this.newReminderTime = snoozeReminderPostRequestBodyParameterValue?.newReminderTime ;
+        this.additionalData = snoozeReminderPostRequestBodyParameterValue?.additionalData ? snoozeReminderPostRequestBodyParameterValue?.additionalData! : {};
+        this.newReminderTime = snoozeReminderPostRequestBodyParameterValue?.newReminderTime;
     };
     /**
      * The deserialization information for the current model
@@ -34,7 +34,7 @@ export class SnoozeReminderPostRequestBodyImpl implements AdditionalDataHolder, 
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.newReminderTime){
-        writer.writeObjectValue<DateTimeTimeZoneImpl>("newReminderTime", new DateTimeTimeZoneImpl(this.newReminderTime));
+            writer.writeObjectValue<DateTimeTimeZoneImpl>("newReminderTime", new DateTimeTimeZoneImpl(this.newReminderTime));
         }
         writer.writeAdditionalData(this.additionalData);
     };

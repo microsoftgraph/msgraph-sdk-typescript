@@ -1,11 +1,11 @@
 import {IdentityUserFlowAttributeItemRequestBuilderGetQueryParameters} from './identityUserFlowAttributeItemRequestBuilderGetQueryParameters';
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
-export interface IdentityUserFlowAttributeItemRequestBuilderGetRequestConfiguration{
+export interface IdentityUserFlowAttributeItemRequestBuilderGetRequestConfiguration {
     /** Request headers */
-    headers?:Record<string, string> | undefined;
+    headers?: Record<string, string> | undefined;
     /** Request options */
-    options?:RequestOption[] | undefined;
+    options?: RequestOption[] | undefined;
     /** Request query parameters */
-    queryParameters?:IdentityUserFlowAttributeItemRequestBuilderGetQueryParameters | undefined;
+    queryParameters?: IdentityUserFlowAttributeItemRequestBuilderGetQueryParameters | undefined;
 }

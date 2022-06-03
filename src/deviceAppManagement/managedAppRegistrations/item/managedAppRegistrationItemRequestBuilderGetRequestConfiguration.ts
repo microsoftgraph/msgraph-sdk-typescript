@@ -1,11 +1,11 @@
 import {ManagedAppRegistrationItemRequestBuilderGetQueryParameters} from './managedAppRegistrationItemRequestBuilderGetQueryParameters';
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
-export interface ManagedAppRegistrationItemRequestBuilderGetRequestConfiguration{
+export interface ManagedAppRegistrationItemRequestBuilderGetRequestConfiguration {
     /** Request headers */
-    headers?:Record<string, string> | undefined;
+    headers?: Record<string, string> | undefined;
     /** Request options */
-    options?:RequestOption[] | undefined;
+    options?: RequestOption[] | undefined;
     /** Request query parameters */
-    queryParameters?:ManagedAppRegistrationItemRequestBuilderGetQueryParameters | undefined;
+    queryParameters?: ManagedAppRegistrationItemRequestBuilderGetQueryParameters | undefined;
 }

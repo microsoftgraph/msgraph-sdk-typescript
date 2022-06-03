@@ -5,28 +5,29 @@ import {DeviceConfigurationUserOverview} from './deviceConfigurationUserOverview
 import {DeviceConfigurationUserStatus} from './deviceConfigurationUserStatus';
 import {Entity} from './entity';
 import {SettingStateDeviceSummary} from './settingStateDeviceSummary';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface DeviceConfiguration extends Entity{
+export interface DeviceConfiguration extends Entity, Partial<Parsable> {
     /** The list of assignments for the device configuration profile. */
-    assignments?:DeviceConfigurationAssignment[] | undefined;
+    assignments?: DeviceConfigurationAssignment[] | undefined;
     /** DateTime the object was created. */
-    createdDateTime?:Date | undefined;
+    createdDateTime?: Date | undefined;
     /** Admin provided description of the Device Configuration. */
-    description?:string | undefined;
+    description?: string | undefined;
     /** Device Configuration Setting State Device Summary */
-    deviceSettingStateSummaries?:SettingStateDeviceSummary[] | undefined;
+    deviceSettingStateSummaries?: SettingStateDeviceSummary[] | undefined;
     /** Device configuration installation status by device. */
-    deviceStatuses?:DeviceConfigurationDeviceStatus[] | undefined;
+    deviceStatuses?: DeviceConfigurationDeviceStatus[] | undefined;
     /** Device Configuration devices status overview */
-    deviceStatusOverview?:DeviceConfigurationDeviceOverview | undefined;
+    deviceStatusOverview?: DeviceConfigurationDeviceOverview | undefined;
     /** Admin provided name of the device configuration. */
-    displayName?:string | undefined;
+    displayName?: string | undefined;
     /** DateTime the object was last modified. */
-    lastModifiedDateTime?:Date | undefined;
+    lastModifiedDateTime?: Date | undefined;
     /** Device configuration installation status by user. */
-    userStatuses?:DeviceConfigurationUserStatus[] | undefined;
+    userStatuses?: DeviceConfigurationUserStatus[] | undefined;
     /** Device Configuration users status overview */
-    userStatusOverview?:DeviceConfigurationUserOverview | undefined;
+    userStatusOverview?: DeviceConfigurationUserOverview | undefined;
     /** Version of the device configuration. */
-    version?:number | undefined;
+    version?: number | undefined;
 }

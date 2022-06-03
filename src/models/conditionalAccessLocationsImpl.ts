@@ -1,7 +1,7 @@
 import {ConditionalAccessLocations} from './conditionalAccessLocations';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ConditionalAccessLocationsImpl implements AdditionalDataHolder, ConditionalAccessLocations, Parsable {
+export class ConditionalAccessLocationsImpl implements ConditionalAccessLocations {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Location IDs excluded from scope of policy. */
@@ -13,9 +13,9 @@ export class ConditionalAccessLocationsImpl implements AdditionalDataHolder, Con
      * @param conditionalAccessLocationsParameterValue 
      */
     public constructor(conditionalAccessLocationsParameterValue?: ConditionalAccessLocations | undefined) {
-        this.additionalData = conditionalAccessLocationsParameterValue?.additionalData ? conditionalAccessLocationsParameterValue?.additionalData! : {}
-        this.excludeLocations = conditionalAccessLocationsParameterValue?.excludeLocations ;
-        this.includeLocations = conditionalAccessLocationsParameterValue?.includeLocations ;
+        this.additionalData = conditionalAccessLocationsParameterValue?.additionalData ? conditionalAccessLocationsParameterValue?.additionalData! : {};
+        this.excludeLocations = conditionalAccessLocationsParameterValue?.excludeLocations;
+        this.includeLocations = conditionalAccessLocationsParameterValue?.includeLocations;
     };
     /**
      * The deserialization information for the current model
@@ -34,10 +34,10 @@ export class ConditionalAccessLocationsImpl implements AdditionalDataHolder, Con
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.excludeLocations){
-        writer.writeCollectionOfPrimitiveValues<string>("excludeLocations", this.excludeLocations);
+            writer.writeCollectionOfPrimitiveValues<string>("excludeLocations", this.excludeLocations);
         }
         if(this.includeLocations){
-        writer.writeCollectionOfPrimitiveValues<string>("includeLocations", this.includeLocations);
+            writer.writeCollectionOfPrimitiveValues<string>("includeLocations", this.includeLocations);
         }
         writer.writeAdditionalData(this.additionalData);
     };

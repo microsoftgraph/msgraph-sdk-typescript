@@ -1,7 +1,7 @@
 import {TeleconferenceDeviceMediaQuality} from './teleconferenceDeviceMediaQuality';
 import {AdditionalDataHolder, Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class TeleconferenceDeviceMediaQualityImpl implements AdditionalDataHolder, Parsable, TeleconferenceDeviceMediaQuality {
+export class TeleconferenceDeviceMediaQualityImpl implements TeleconferenceDeviceMediaQuality {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The average inbound stream network jitter. */
@@ -51,28 +51,28 @@ export class TeleconferenceDeviceMediaQualityImpl implements AdditionalDataHolde
      * @param teleconferenceDeviceMediaQualityParameterValue 
      */
     public constructor(teleconferenceDeviceMediaQualityParameterValue?: TeleconferenceDeviceMediaQuality | undefined) {
-        this.additionalData = teleconferenceDeviceMediaQualityParameterValue?.additionalData ? teleconferenceDeviceMediaQualityParameterValue?.additionalData! : {}
-        this.averageInboundJitter = teleconferenceDeviceMediaQualityParameterValue?.averageInboundJitter ;
-        this.averageInboundPacketLossRateInPercentage = teleconferenceDeviceMediaQualityParameterValue?.averageInboundPacketLossRateInPercentage ;
-        this.averageInboundRoundTripDelay = teleconferenceDeviceMediaQualityParameterValue?.averageInboundRoundTripDelay ;
-        this.averageOutboundJitter = teleconferenceDeviceMediaQualityParameterValue?.averageOutboundJitter ;
-        this.averageOutboundPacketLossRateInPercentage = teleconferenceDeviceMediaQualityParameterValue?.averageOutboundPacketLossRateInPercentage ;
-        this.averageOutboundRoundTripDelay = teleconferenceDeviceMediaQualityParameterValue?.averageOutboundRoundTripDelay ;
-        this.channelIndex = teleconferenceDeviceMediaQualityParameterValue?.channelIndex ;
-        this.inboundPackets = teleconferenceDeviceMediaQualityParameterValue?.inboundPackets ;
-        this.localIPAddress = teleconferenceDeviceMediaQualityParameterValue?.localIPAddress ;
-        this.localPort = teleconferenceDeviceMediaQualityParameterValue?.localPort ;
-        this.maximumInboundJitter = teleconferenceDeviceMediaQualityParameterValue?.maximumInboundJitter ;
-        this.maximumInboundPacketLossRateInPercentage = teleconferenceDeviceMediaQualityParameterValue?.maximumInboundPacketLossRateInPercentage ;
-        this.maximumInboundRoundTripDelay = teleconferenceDeviceMediaQualityParameterValue?.maximumInboundRoundTripDelay ;
-        this.maximumOutboundJitter = teleconferenceDeviceMediaQualityParameterValue?.maximumOutboundJitter ;
-        this.maximumOutboundPacketLossRateInPercentage = teleconferenceDeviceMediaQualityParameterValue?.maximumOutboundPacketLossRateInPercentage ;
-        this.maximumOutboundRoundTripDelay = teleconferenceDeviceMediaQualityParameterValue?.maximumOutboundRoundTripDelay ;
-        this.mediaDuration = teleconferenceDeviceMediaQualityParameterValue?.mediaDuration ;
-        this.networkLinkSpeedInBytes = teleconferenceDeviceMediaQualityParameterValue?.networkLinkSpeedInBytes ;
-        this.outboundPackets = teleconferenceDeviceMediaQualityParameterValue?.outboundPackets ;
-        this.remoteIPAddress = teleconferenceDeviceMediaQualityParameterValue?.remoteIPAddress ;
-        this.remotePort = teleconferenceDeviceMediaQualityParameterValue?.remotePort ;
+        this.additionalData = teleconferenceDeviceMediaQualityParameterValue?.additionalData ? teleconferenceDeviceMediaQualityParameterValue?.additionalData! : {};
+        this.averageInboundJitter = teleconferenceDeviceMediaQualityParameterValue?.averageInboundJitter;
+        this.averageInboundPacketLossRateInPercentage = teleconferenceDeviceMediaQualityParameterValue?.averageInboundPacketLossRateInPercentage;
+        this.averageInboundRoundTripDelay = teleconferenceDeviceMediaQualityParameterValue?.averageInboundRoundTripDelay;
+        this.averageOutboundJitter = teleconferenceDeviceMediaQualityParameterValue?.averageOutboundJitter;
+        this.averageOutboundPacketLossRateInPercentage = teleconferenceDeviceMediaQualityParameterValue?.averageOutboundPacketLossRateInPercentage;
+        this.averageOutboundRoundTripDelay = teleconferenceDeviceMediaQualityParameterValue?.averageOutboundRoundTripDelay;
+        this.channelIndex = teleconferenceDeviceMediaQualityParameterValue?.channelIndex;
+        this.inboundPackets = teleconferenceDeviceMediaQualityParameterValue?.inboundPackets;
+        this.localIPAddress = teleconferenceDeviceMediaQualityParameterValue?.localIPAddress;
+        this.localPort = teleconferenceDeviceMediaQualityParameterValue?.localPort;
+        this.maximumInboundJitter = teleconferenceDeviceMediaQualityParameterValue?.maximumInboundJitter;
+        this.maximumInboundPacketLossRateInPercentage = teleconferenceDeviceMediaQualityParameterValue?.maximumInboundPacketLossRateInPercentage;
+        this.maximumInboundRoundTripDelay = teleconferenceDeviceMediaQualityParameterValue?.maximumInboundRoundTripDelay;
+        this.maximumOutboundJitter = teleconferenceDeviceMediaQualityParameterValue?.maximumOutboundJitter;
+        this.maximumOutboundPacketLossRateInPercentage = teleconferenceDeviceMediaQualityParameterValue?.maximumOutboundPacketLossRateInPercentage;
+        this.maximumOutboundRoundTripDelay = teleconferenceDeviceMediaQualityParameterValue?.maximumOutboundRoundTripDelay;
+        this.mediaDuration = teleconferenceDeviceMediaQualityParameterValue?.mediaDuration;
+        this.networkLinkSpeedInBytes = teleconferenceDeviceMediaQualityParameterValue?.networkLinkSpeedInBytes;
+        this.outboundPackets = teleconferenceDeviceMediaQualityParameterValue?.outboundPackets;
+        this.remoteIPAddress = teleconferenceDeviceMediaQualityParameterValue?.remoteIPAddress;
+        this.remotePort = teleconferenceDeviceMediaQualityParameterValue?.remotePort;
     };
     /**
      * The deserialization information for the current model
@@ -110,67 +110,67 @@ export class TeleconferenceDeviceMediaQualityImpl implements AdditionalDataHolde
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.averageInboundJitter){
-        writer.writeDurationValue("averageInboundJitter", this.averageInboundJitter);
+            writer.writeDurationValue("averageInboundJitter", this.averageInboundJitter);
         }
         if(this.averageInboundPacketLossRateInPercentage){
-        writer.writeNumberValue("averageInboundPacketLossRateInPercentage", this.averageInboundPacketLossRateInPercentage);
+            writer.writeNumberValue("averageInboundPacketLossRateInPercentage", this.averageInboundPacketLossRateInPercentage);
         }
         if(this.averageInboundRoundTripDelay){
-        writer.writeDurationValue("averageInboundRoundTripDelay", this.averageInboundRoundTripDelay);
+            writer.writeDurationValue("averageInboundRoundTripDelay", this.averageInboundRoundTripDelay);
         }
         if(this.averageOutboundJitter){
-        writer.writeDurationValue("averageOutboundJitter", this.averageOutboundJitter);
+            writer.writeDurationValue("averageOutboundJitter", this.averageOutboundJitter);
         }
         if(this.averageOutboundPacketLossRateInPercentage){
-        writer.writeNumberValue("averageOutboundPacketLossRateInPercentage", this.averageOutboundPacketLossRateInPercentage);
+            writer.writeNumberValue("averageOutboundPacketLossRateInPercentage", this.averageOutboundPacketLossRateInPercentage);
         }
         if(this.averageOutboundRoundTripDelay){
-        writer.writeDurationValue("averageOutboundRoundTripDelay", this.averageOutboundRoundTripDelay);
+            writer.writeDurationValue("averageOutboundRoundTripDelay", this.averageOutboundRoundTripDelay);
         }
         if(this.channelIndex){
-        writer.writeNumberValue("channelIndex", this.channelIndex);
+            writer.writeNumberValue("channelIndex", this.channelIndex);
         }
         if(this.inboundPackets){
-        writer.writeNumberValue("inboundPackets", this.inboundPackets);
+            writer.writeNumberValue("inboundPackets", this.inboundPackets);
         }
         if(this.localIPAddress){
-        writer.writeStringValue("localIPAddress", this.localIPAddress);
+            writer.writeStringValue("localIPAddress", this.localIPAddress);
         }
         if(this.localPort){
-        writer.writeNumberValue("localPort", this.localPort);
+            writer.writeNumberValue("localPort", this.localPort);
         }
         if(this.maximumInboundJitter){
-        writer.writeDurationValue("maximumInboundJitter", this.maximumInboundJitter);
+            writer.writeDurationValue("maximumInboundJitter", this.maximumInboundJitter);
         }
         if(this.maximumInboundPacketLossRateInPercentage){
-        writer.writeNumberValue("maximumInboundPacketLossRateInPercentage", this.maximumInboundPacketLossRateInPercentage);
+            writer.writeNumberValue("maximumInboundPacketLossRateInPercentage", this.maximumInboundPacketLossRateInPercentage);
         }
         if(this.maximumInboundRoundTripDelay){
-        writer.writeDurationValue("maximumInboundRoundTripDelay", this.maximumInboundRoundTripDelay);
+            writer.writeDurationValue("maximumInboundRoundTripDelay", this.maximumInboundRoundTripDelay);
         }
         if(this.maximumOutboundJitter){
-        writer.writeDurationValue("maximumOutboundJitter", this.maximumOutboundJitter);
+            writer.writeDurationValue("maximumOutboundJitter", this.maximumOutboundJitter);
         }
         if(this.maximumOutboundPacketLossRateInPercentage){
-        writer.writeNumberValue("maximumOutboundPacketLossRateInPercentage", this.maximumOutboundPacketLossRateInPercentage);
+            writer.writeNumberValue("maximumOutboundPacketLossRateInPercentage", this.maximumOutboundPacketLossRateInPercentage);
         }
         if(this.maximumOutboundRoundTripDelay){
-        writer.writeDurationValue("maximumOutboundRoundTripDelay", this.maximumOutboundRoundTripDelay);
+            writer.writeDurationValue("maximumOutboundRoundTripDelay", this.maximumOutboundRoundTripDelay);
         }
         if(this.mediaDuration){
-        writer.writeDurationValue("mediaDuration", this.mediaDuration);
+            writer.writeDurationValue("mediaDuration", this.mediaDuration);
         }
         if(this.networkLinkSpeedInBytes){
-        writer.writeNumberValue("networkLinkSpeedInBytes", this.networkLinkSpeedInBytes);
+            writer.writeNumberValue("networkLinkSpeedInBytes", this.networkLinkSpeedInBytes);
         }
         if(this.outboundPackets){
-        writer.writeNumberValue("outboundPackets", this.outboundPackets);
+            writer.writeNumberValue("outboundPackets", this.outboundPackets);
         }
         if(this.remoteIPAddress){
-        writer.writeStringValue("remoteIPAddress", this.remoteIPAddress);
+            writer.writeStringValue("remoteIPAddress", this.remoteIPAddress);
         }
         if(this.remotePort){
-        writer.writeNumberValue("remotePort", this.remotePort);
+            writer.writeNumberValue("remotePort", this.remotePort);
         }
         writer.writeAdditionalData(this.additionalData);
     };

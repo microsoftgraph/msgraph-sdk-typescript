@@ -2,8 +2,8 @@ import {EntityImpl} from './index';
 import {Subscription} from './subscription';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
-export class SubscriptionImpl extends EntityImpl implements Parsable, Subscription {
+/** Casts the previous resource to group. */
+export class SubscriptionImpl extends EntityImpl implements Subscription {
     /** Optional. Identifier of the application used to create the subscription. Read-only. */
     public applicationId?: string | undefined;
     /** Required. Indicates the type of change in the subscribed resource that will raise a change notification. The supported values are: created, updated, deleted. Multiple values can be combined using a comma-separated list. Note:  Drive root item and list change notifications support only the updated changeType. User and group change notifications support updated and deleted changeType. */
@@ -37,21 +37,21 @@ export class SubscriptionImpl extends EntityImpl implements Parsable, Subscripti
      * @param subscriptionParameterValue 
      */
     public constructor(subscriptionParameterValue?: Subscription | undefined) {
-        super();
-        this.applicationId = subscriptionParameterValue?.applicationId ;
-        this.changeType = subscriptionParameterValue?.changeType ;
-        this.clientState = subscriptionParameterValue?.clientState ;
-        this.creatorId = subscriptionParameterValue?.creatorId ;
-        this.encryptionCertificate = subscriptionParameterValue?.encryptionCertificate ;
-        this.encryptionCertificateId = subscriptionParameterValue?.encryptionCertificateId ;
-        this.expirationDateTime = subscriptionParameterValue?.expirationDateTime ;
-        this.includeResourceData = subscriptionParameterValue?.includeResourceData ;
-        this.latestSupportedTlsVersion = subscriptionParameterValue?.latestSupportedTlsVersion ;
-        this.lifecycleNotificationUrl = subscriptionParameterValue?.lifecycleNotificationUrl ;
-        this.notificationQueryOptions = subscriptionParameterValue?.notificationQueryOptions ;
-        this.notificationUrl = subscriptionParameterValue?.notificationUrl ;
-        this.notificationUrlAppId = subscriptionParameterValue?.notificationUrlAppId ;
-        this.resource = subscriptionParameterValue?.resource ;
+        super(subscriptionParameterValue);
+        this.applicationId = subscriptionParameterValue?.applicationId;
+        this.changeType = subscriptionParameterValue?.changeType;
+        this.clientState = subscriptionParameterValue?.clientState;
+        this.creatorId = subscriptionParameterValue?.creatorId;
+        this.encryptionCertificate = subscriptionParameterValue?.encryptionCertificate;
+        this.encryptionCertificateId = subscriptionParameterValue?.encryptionCertificateId;
+        this.expirationDateTime = subscriptionParameterValue?.expirationDateTime;
+        this.includeResourceData = subscriptionParameterValue?.includeResourceData;
+        this.latestSupportedTlsVersion = subscriptionParameterValue?.latestSupportedTlsVersion;
+        this.lifecycleNotificationUrl = subscriptionParameterValue?.lifecycleNotificationUrl;
+        this.notificationQueryOptions = subscriptionParameterValue?.notificationQueryOptions;
+        this.notificationUrl = subscriptionParameterValue?.notificationUrl;
+        this.notificationUrlAppId = subscriptionParameterValue?.notificationUrlAppId;
+        this.resource = subscriptionParameterValue?.resource;
     };
     /**
      * The deserialization information for the current model
@@ -83,46 +83,46 @@ export class SubscriptionImpl extends EntityImpl implements Parsable, Subscripti
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.applicationId){
-        writer.writeStringValue("applicationId", this.applicationId);
+            writer.writeStringValue("applicationId", this.applicationId);
         }
         if(this.changeType){
-        writer.writeStringValue("changeType", this.changeType);
+            writer.writeStringValue("changeType", this.changeType);
         }
         if(this.clientState){
-        writer.writeStringValue("clientState", this.clientState);
+            writer.writeStringValue("clientState", this.clientState);
         }
         if(this.creatorId){
-        writer.writeStringValue("creatorId", this.creatorId);
+            writer.writeStringValue("creatorId", this.creatorId);
         }
         if(this.encryptionCertificate){
-        writer.writeStringValue("encryptionCertificate", this.encryptionCertificate);
+            writer.writeStringValue("encryptionCertificate", this.encryptionCertificate);
         }
         if(this.encryptionCertificateId){
-        writer.writeStringValue("encryptionCertificateId", this.encryptionCertificateId);
+            writer.writeStringValue("encryptionCertificateId", this.encryptionCertificateId);
         }
         if(this.expirationDateTime){
-        writer.writeDateValue("expirationDateTime", this.expirationDateTime);
+            writer.writeDateValue("expirationDateTime", this.expirationDateTime);
         }
         if(this.includeResourceData){
-        writer.writeBooleanValue("includeResourceData", this.includeResourceData);
+            writer.writeBooleanValue("includeResourceData", this.includeResourceData);
         }
         if(this.latestSupportedTlsVersion){
-        writer.writeStringValue("latestSupportedTlsVersion", this.latestSupportedTlsVersion);
+            writer.writeStringValue("latestSupportedTlsVersion", this.latestSupportedTlsVersion);
         }
         if(this.lifecycleNotificationUrl){
-        writer.writeStringValue("lifecycleNotificationUrl", this.lifecycleNotificationUrl);
+            writer.writeStringValue("lifecycleNotificationUrl", this.lifecycleNotificationUrl);
         }
         if(this.notificationQueryOptions){
-        writer.writeStringValue("notificationQueryOptions", this.notificationQueryOptions);
+            writer.writeStringValue("notificationQueryOptions", this.notificationQueryOptions);
         }
         if(this.notificationUrl){
-        writer.writeStringValue("notificationUrl", this.notificationUrl);
+            writer.writeStringValue("notificationUrl", this.notificationUrl);
         }
         if(this.notificationUrlAppId){
-        writer.writeStringValue("notificationUrlAppId", this.notificationUrlAppId);
+            writer.writeStringValue("notificationUrlAppId", this.notificationUrlAppId);
         }
         if(this.resource){
-        writer.writeStringValue("resource", this.resource);
+            writer.writeStringValue("resource", this.resource);
         }
     };
 }

@@ -4,7 +4,7 @@ import {IosUpdateDeviceStatus} from './iosUpdateDeviceStatus';
 import {IosUpdateDeviceStatusCollectionResponse} from './iosUpdateDeviceStatusCollectionResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class IosUpdateDeviceStatusCollectionResponseImpl implements AdditionalDataHolder, IosUpdateDeviceStatusCollectionResponse, Parsable {
+export class IosUpdateDeviceStatusCollectionResponseImpl implements IosUpdateDeviceStatusCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class IosUpdateDeviceStatusCollectionResponseImpl implements AdditionalDa
      * @param iosUpdateDeviceStatusCollectionResponseParameterValue 
      */
     public constructor(iosUpdateDeviceStatusCollectionResponseParameterValue?: IosUpdateDeviceStatusCollectionResponse | undefined) {
-        this.additionalData = iosUpdateDeviceStatusCollectionResponseParameterValue?.additionalData ? iosUpdateDeviceStatusCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = iosUpdateDeviceStatusCollectionResponseParameterValue?.nextLink ;
-        this.value = iosUpdateDeviceStatusCollectionResponseParameterValue?.value ;
+        this.additionalData = iosUpdateDeviceStatusCollectionResponseParameterValue?.additionalData ? iosUpdateDeviceStatusCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = iosUpdateDeviceStatusCollectionResponseParameterValue?.nextLink;
+        this.value = iosUpdateDeviceStatusCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class IosUpdateDeviceStatusCollectionResponseImpl implements AdditionalDa
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: IosUpdateDeviceStatusImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new IosUpdateDeviceStatusImpl(element));});
-        writer.writeCollectionOfObjectValues<IosUpdateDeviceStatusImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<IosUpdateDeviceStatusImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

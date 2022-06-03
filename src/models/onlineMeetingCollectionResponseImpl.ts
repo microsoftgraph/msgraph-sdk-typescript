@@ -4,7 +4,7 @@ import {OnlineMeeting} from './onlineMeeting';
 import {OnlineMeetingCollectionResponse} from './onlineMeetingCollectionResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class OnlineMeetingCollectionResponseImpl implements AdditionalDataHolder, OnlineMeetingCollectionResponse, Parsable {
+export class OnlineMeetingCollectionResponseImpl implements OnlineMeetingCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class OnlineMeetingCollectionResponseImpl implements AdditionalDataHolder
      * @param onlineMeetingCollectionResponseParameterValue 
      */
     public constructor(onlineMeetingCollectionResponseParameterValue?: OnlineMeetingCollectionResponse | undefined) {
-        this.additionalData = onlineMeetingCollectionResponseParameterValue?.additionalData ? onlineMeetingCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = onlineMeetingCollectionResponseParameterValue?.nextLink ;
-        this.value = onlineMeetingCollectionResponseParameterValue?.value ;
+        this.additionalData = onlineMeetingCollectionResponseParameterValue?.additionalData ? onlineMeetingCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = onlineMeetingCollectionResponseParameterValue?.nextLink;
+        this.value = onlineMeetingCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class OnlineMeetingCollectionResponseImpl implements AdditionalDataHolder
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: OnlineMeetingImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new OnlineMeetingImpl(element));});
-        writer.writeCollectionOfObjectValues<OnlineMeetingImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<OnlineMeetingImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

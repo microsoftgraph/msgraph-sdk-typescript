@@ -4,7 +4,7 @@ import {ExternalGroupCollectionResponse} from './externalGroupCollectionResponse
 import {ExternalGroupImpl} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ExternalGroupCollectionResponseImpl implements AdditionalDataHolder, ExternalGroupCollectionResponse, Parsable {
+export class ExternalGroupCollectionResponseImpl implements ExternalGroupCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class ExternalGroupCollectionResponseImpl implements AdditionalDataHolder
      * @param externalGroupCollectionResponseParameterValue 
      */
     public constructor(externalGroupCollectionResponseParameterValue?: ExternalGroupCollectionResponse | undefined) {
-        this.additionalData = externalGroupCollectionResponseParameterValue?.additionalData ? externalGroupCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = externalGroupCollectionResponseParameterValue?.nextLink ;
-        this.value = externalGroupCollectionResponseParameterValue?.value ;
+        this.additionalData = externalGroupCollectionResponseParameterValue?.additionalData ? externalGroupCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = externalGroupCollectionResponseParameterValue?.nextLink;
+        this.value = externalGroupCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class ExternalGroupCollectionResponseImpl implements AdditionalDataHolder
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: ExternalGroupImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ExternalGroupImpl(element));});
-        writer.writeCollectionOfObjectValues<ExternalGroupImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<ExternalGroupImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

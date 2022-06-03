@@ -4,7 +4,7 @@ import {createAlbumFromDiscriminatorValue} from './createAlbumFromDiscriminatorV
 import {AlbumImpl} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class BundleImpl implements AdditionalDataHolder, Bundle, Parsable {
+export class BundleImpl implements Bundle {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** If the bundle is an [album][], then the album property is included */
@@ -16,9 +16,9 @@ export class BundleImpl implements AdditionalDataHolder, Bundle, Parsable {
      * @param bundleParameterValue 
      */
     public constructor(bundleParameterValue?: Bundle | undefined) {
-        this.additionalData = bundleParameterValue?.additionalData ? bundleParameterValue?.additionalData! : {}
-        this.album = bundleParameterValue?.album ;
-        this.childCount = bundleParameterValue?.childCount ;
+        this.additionalData = bundleParameterValue?.additionalData ? bundleParameterValue?.additionalData! : {};
+        this.album = bundleParameterValue?.album;
+        this.childCount = bundleParameterValue?.childCount;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class BundleImpl implements AdditionalDataHolder, Bundle, Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.album){
-        writer.writeObjectValue<AlbumImpl>("album", new AlbumImpl(this.album));
+            writer.writeObjectValue<AlbumImpl>("album", new AlbumImpl(this.album));
         }
         if(this.childCount){
-        writer.writeNumberValue("childCount", this.childCount);
+            writer.writeNumberValue("childCount", this.childCount);
         }
         writer.writeAdditionalData(this.additionalData);
     };

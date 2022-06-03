@@ -2,8 +2,8 @@ import {ColumnLink} from './columnLink';
 import {EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to group. */
-export class ColumnLinkImpl extends EntityImpl implements ColumnLink, Parsable {
+/** Casts the previous resource to user. */
+export class ColumnLinkImpl extends EntityImpl implements ColumnLink {
     /** The name of the column  in this content type. */
     public name?: string | undefined;
     /**
@@ -11,8 +11,8 @@ export class ColumnLinkImpl extends EntityImpl implements ColumnLink, Parsable {
      * @param columnLinkParameterValue 
      */
     public constructor(columnLinkParameterValue?: ColumnLink | undefined) {
-        super();
-        this.name = columnLinkParameterValue?.name ;
+        super(columnLinkParameterValue);
+        this.name = columnLinkParameterValue?.name;
     };
     /**
      * The deserialization information for the current model
@@ -31,7 +31,7 @@ export class ColumnLinkImpl extends EntityImpl implements ColumnLink, Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.name){
-        writer.writeStringValue("name", this.name);
+            writer.writeStringValue("name", this.name);
         }
     };
 }

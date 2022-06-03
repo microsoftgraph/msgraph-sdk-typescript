@@ -3,7 +3,7 @@ import {SoftwareUpdateStatusSummary} from './softwareUpdateStatusSummary';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the deviceManagement singleton. */
-export class SoftwareUpdateStatusSummaryImpl extends EntityImpl implements Parsable, SoftwareUpdateStatusSummary {
+export class SoftwareUpdateStatusSummaryImpl extends EntityImpl implements SoftwareUpdateStatusSummary {
     /** Number of compliant devices. */
     public compliantDeviceCount?: number | undefined;
     /** Number of compliant users. */
@@ -39,22 +39,22 @@ export class SoftwareUpdateStatusSummaryImpl extends EntityImpl implements Parsa
      * @param softwareUpdateStatusSummaryParameterValue 
      */
     public constructor(softwareUpdateStatusSummaryParameterValue?: SoftwareUpdateStatusSummary | undefined) {
-        super();
-        this.compliantDeviceCount = softwareUpdateStatusSummaryParameterValue?.compliantDeviceCount ;
-        this.compliantUserCount = softwareUpdateStatusSummaryParameterValue?.compliantUserCount ;
-        this.conflictDeviceCount = softwareUpdateStatusSummaryParameterValue?.conflictDeviceCount ;
-        this.conflictUserCount = softwareUpdateStatusSummaryParameterValue?.conflictUserCount ;
-        this.displayName = softwareUpdateStatusSummaryParameterValue?.displayName ;
-        this.errorDeviceCount = softwareUpdateStatusSummaryParameterValue?.errorDeviceCount ;
-        this.errorUserCount = softwareUpdateStatusSummaryParameterValue?.errorUserCount ;
-        this.nonCompliantDeviceCount = softwareUpdateStatusSummaryParameterValue?.nonCompliantDeviceCount ;
-        this.nonCompliantUserCount = softwareUpdateStatusSummaryParameterValue?.nonCompliantUserCount ;
-        this.notApplicableDeviceCount = softwareUpdateStatusSummaryParameterValue?.notApplicableDeviceCount ;
-        this.notApplicableUserCount = softwareUpdateStatusSummaryParameterValue?.notApplicableUserCount ;
-        this.remediatedDeviceCount = softwareUpdateStatusSummaryParameterValue?.remediatedDeviceCount ;
-        this.remediatedUserCount = softwareUpdateStatusSummaryParameterValue?.remediatedUserCount ;
-        this.unknownDeviceCount = softwareUpdateStatusSummaryParameterValue?.unknownDeviceCount ;
-        this.unknownUserCount = softwareUpdateStatusSummaryParameterValue?.unknownUserCount ;
+        super(softwareUpdateStatusSummaryParameterValue);
+        this.compliantDeviceCount = softwareUpdateStatusSummaryParameterValue?.compliantDeviceCount;
+        this.compliantUserCount = softwareUpdateStatusSummaryParameterValue?.compliantUserCount;
+        this.conflictDeviceCount = softwareUpdateStatusSummaryParameterValue?.conflictDeviceCount;
+        this.conflictUserCount = softwareUpdateStatusSummaryParameterValue?.conflictUserCount;
+        this.displayName = softwareUpdateStatusSummaryParameterValue?.displayName;
+        this.errorDeviceCount = softwareUpdateStatusSummaryParameterValue?.errorDeviceCount;
+        this.errorUserCount = softwareUpdateStatusSummaryParameterValue?.errorUserCount;
+        this.nonCompliantDeviceCount = softwareUpdateStatusSummaryParameterValue?.nonCompliantDeviceCount;
+        this.nonCompliantUserCount = softwareUpdateStatusSummaryParameterValue?.nonCompliantUserCount;
+        this.notApplicableDeviceCount = softwareUpdateStatusSummaryParameterValue?.notApplicableDeviceCount;
+        this.notApplicableUserCount = softwareUpdateStatusSummaryParameterValue?.notApplicableUserCount;
+        this.remediatedDeviceCount = softwareUpdateStatusSummaryParameterValue?.remediatedDeviceCount;
+        this.remediatedUserCount = softwareUpdateStatusSummaryParameterValue?.remediatedUserCount;
+        this.unknownDeviceCount = softwareUpdateStatusSummaryParameterValue?.unknownDeviceCount;
+        this.unknownUserCount = softwareUpdateStatusSummaryParameterValue?.unknownUserCount;
     };
     /**
      * The deserialization information for the current model
@@ -87,49 +87,49 @@ export class SoftwareUpdateStatusSummaryImpl extends EntityImpl implements Parsa
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.compliantDeviceCount){
-        writer.writeNumberValue("compliantDeviceCount", this.compliantDeviceCount);
+            writer.writeNumberValue("compliantDeviceCount", this.compliantDeviceCount);
         }
         if(this.compliantUserCount){
-        writer.writeNumberValue("compliantUserCount", this.compliantUserCount);
+            writer.writeNumberValue("compliantUserCount", this.compliantUserCount);
         }
         if(this.conflictDeviceCount){
-        writer.writeNumberValue("conflictDeviceCount", this.conflictDeviceCount);
+            writer.writeNumberValue("conflictDeviceCount", this.conflictDeviceCount);
         }
         if(this.conflictUserCount){
-        writer.writeNumberValue("conflictUserCount", this.conflictUserCount);
+            writer.writeNumberValue("conflictUserCount", this.conflictUserCount);
         }
         if(this.displayName){
-        writer.writeStringValue("displayName", this.displayName);
+            writer.writeStringValue("displayName", this.displayName);
         }
         if(this.errorDeviceCount){
-        writer.writeNumberValue("errorDeviceCount", this.errorDeviceCount);
+            writer.writeNumberValue("errorDeviceCount", this.errorDeviceCount);
         }
         if(this.errorUserCount){
-        writer.writeNumberValue("errorUserCount", this.errorUserCount);
+            writer.writeNumberValue("errorUserCount", this.errorUserCount);
         }
         if(this.nonCompliantDeviceCount){
-        writer.writeNumberValue("nonCompliantDeviceCount", this.nonCompliantDeviceCount);
+            writer.writeNumberValue("nonCompliantDeviceCount", this.nonCompliantDeviceCount);
         }
         if(this.nonCompliantUserCount){
-        writer.writeNumberValue("nonCompliantUserCount", this.nonCompliantUserCount);
+            writer.writeNumberValue("nonCompliantUserCount", this.nonCompliantUserCount);
         }
         if(this.notApplicableDeviceCount){
-        writer.writeNumberValue("notApplicableDeviceCount", this.notApplicableDeviceCount);
+            writer.writeNumberValue("notApplicableDeviceCount", this.notApplicableDeviceCount);
         }
         if(this.notApplicableUserCount){
-        writer.writeNumberValue("notApplicableUserCount", this.notApplicableUserCount);
+            writer.writeNumberValue("notApplicableUserCount", this.notApplicableUserCount);
         }
         if(this.remediatedDeviceCount){
-        writer.writeNumberValue("remediatedDeviceCount", this.remediatedDeviceCount);
+            writer.writeNumberValue("remediatedDeviceCount", this.remediatedDeviceCount);
         }
         if(this.remediatedUserCount){
-        writer.writeNumberValue("remediatedUserCount", this.remediatedUserCount);
+            writer.writeNumberValue("remediatedUserCount", this.remediatedUserCount);
         }
         if(this.unknownDeviceCount){
-        writer.writeNumberValue("unknownDeviceCount", this.unknownDeviceCount);
+            writer.writeNumberValue("unknownDeviceCount", this.unknownDeviceCount);
         }
         if(this.unknownUserCount){
-        writer.writeNumberValue("unknownUserCount", this.unknownUserCount);
+            writer.writeNumberValue("unknownUserCount", this.unknownUserCount);
         }
     };
 }

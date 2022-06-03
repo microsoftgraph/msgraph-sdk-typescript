@@ -1,7 +1,7 @@
 import {Root} from './root';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class RootImpl implements AdditionalDataHolder, Parsable, Root {
+export class RootImpl implements Root {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /**
@@ -9,7 +9,7 @@ export class RootImpl implements AdditionalDataHolder, Parsable, Root {
      * @param rootParameterValue 
      */
     public constructor(rootParameterValue?: Root | undefined) {
-        this.additionalData = rootParameterValue?.additionalData ? rootParameterValue?.additionalData! : {}
+        this.additionalData = rootParameterValue?.additionalData ? rootParameterValue?.additionalData! : {};
     };
     /**
      * The deserialization information for the current model

@@ -5,7 +5,7 @@ import {UserConsentRequest} from './userConsentRequest';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the identityGovernance singleton. */
-export class UserConsentRequestImpl extends RequestImpl implements Parsable, UserConsentRequest {
+export class UserConsentRequestImpl extends RequestImpl implements UserConsentRequest {
     /** Approval decisions associated with a request. */
     public approval?: Approval | undefined;
     /** The user's justification for requiring access to the app. Supports $filter (eq only) and $orderby. */
@@ -15,9 +15,9 @@ export class UserConsentRequestImpl extends RequestImpl implements Parsable, Use
      * @param userConsentRequestParameterValue 
      */
     public constructor(userConsentRequestParameterValue?: UserConsentRequest | undefined) {
-        super();
-        this.approval = userConsentRequestParameterValue?.approval ;
-        this.reason = userConsentRequestParameterValue?.reason ;
+        super(userConsentRequestParameterValue);
+        this.approval = userConsentRequestParameterValue?.approval;
+        this.reason = userConsentRequestParameterValue?.reason;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class UserConsentRequestImpl extends RequestImpl implements Parsable, Use
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.approval){
-        writer.writeObjectValue<ApprovalImpl>("approval", new ApprovalImpl(this.approval));
+            writer.writeObjectValue<ApprovalImpl>("approval", new ApprovalImpl(this.approval));
         }
         if(this.reason){
-        writer.writeStringValue("reason", this.reason);
+            writer.writeStringValue("reason", this.reason);
         }
     };
 }

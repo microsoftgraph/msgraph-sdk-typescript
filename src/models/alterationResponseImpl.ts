@@ -5,7 +5,7 @@ import {SearchAlteration} from './searchAlteration';
 import {SearchAlterationType} from './searchAlterationType';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class AlterationResponseImpl implements AdditionalDataHolder, AlterationResponse, Parsable {
+export class AlterationResponseImpl implements AlterationResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Defines the original user query string. */
@@ -19,10 +19,10 @@ export class AlterationResponseImpl implements AdditionalDataHolder, AlterationR
      * @param alterationResponseParameterValue 
      */
     public constructor(alterationResponseParameterValue?: AlterationResponse | undefined) {
-        this.additionalData = alterationResponseParameterValue?.additionalData ? alterationResponseParameterValue?.additionalData! : {}
-        this.originalQueryString = alterationResponseParameterValue?.originalQueryString ;
-        this.queryAlteration = alterationResponseParameterValue?.queryAlteration ;
-        this.queryAlterationType = alterationResponseParameterValue?.queryAlterationType ;
+        this.additionalData = alterationResponseParameterValue?.additionalData ? alterationResponseParameterValue?.additionalData! : {};
+        this.originalQueryString = alterationResponseParameterValue?.originalQueryString;
+        this.queryAlteration = alterationResponseParameterValue?.queryAlteration;
+        this.queryAlterationType = alterationResponseParameterValue?.queryAlterationType;
     };
     /**
      * The deserialization information for the current model
@@ -42,13 +42,13 @@ export class AlterationResponseImpl implements AdditionalDataHolder, AlterationR
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.originalQueryString){
-        writer.writeStringValue("originalQueryString", this.originalQueryString);
+            writer.writeStringValue("originalQueryString", this.originalQueryString);
         }
         if(this.queryAlteration){
-        writer.writeObjectValue<SearchAlterationImpl>("queryAlteration", new SearchAlterationImpl(this.queryAlteration));
+            writer.writeObjectValue<SearchAlterationImpl>("queryAlteration", new SearchAlterationImpl(this.queryAlteration));
         }
         if(this.queryAlterationType){
-        writer.writeEnumValue<SearchAlterationType>("queryAlterationType", this.queryAlterationType);
+            writer.writeEnumValue<SearchAlterationType>("queryAlterationType", this.queryAlterationType);
         }
         writer.writeAdditionalData(this.additionalData);
     };

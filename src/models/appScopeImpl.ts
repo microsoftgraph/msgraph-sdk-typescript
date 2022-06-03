@@ -3,7 +3,7 @@ import {EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the roleManagement singleton. */
-export class AppScopeImpl extends EntityImpl implements AppScope, Parsable {
+export class AppScopeImpl extends EntityImpl implements AppScope {
     /** Provides the display name of the app-specific resource represented by the app scope. Provided for display purposes since appScopeId is often an immutable, non-human-readable id. This property is read only. */
     public displayName?: string | undefined;
     /** Describes the type of app-specific resource represented by the app scope. Provided for display purposes, so a user interface can convey to the user the kind of app specific resource represented by the app scope. This property is read only. */
@@ -13,9 +13,9 @@ export class AppScopeImpl extends EntityImpl implements AppScope, Parsable {
      * @param appScopeParameterValue 
      */
     public constructor(appScopeParameterValue?: AppScope | undefined) {
-        super();
-        this.displayName = appScopeParameterValue?.displayName ;
-        this.type = appScopeParameterValue?.type ;
+        super(appScopeParameterValue);
+        this.displayName = appScopeParameterValue?.displayName;
+        this.type = appScopeParameterValue?.type;
     };
     /**
      * The deserialization information for the current model
@@ -35,10 +35,10 @@ export class AppScopeImpl extends EntityImpl implements AppScope, Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.displayName){
-        writer.writeStringValue("displayName", this.displayName);
+            writer.writeStringValue("displayName", this.displayName);
         }
         if(this.type){
-        writer.writeStringValue("type", this.type);
+            writer.writeStringValue("type", this.type);
         }
     };
 }

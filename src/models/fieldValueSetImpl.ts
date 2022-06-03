@@ -3,13 +3,13 @@ import {EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Casts the previous resource to user. */
-export class FieldValueSetImpl extends EntityImpl implements FieldValueSet, Parsable {
+export class FieldValueSetImpl extends EntityImpl implements FieldValueSet {
     /**
      * Instantiates a new fieldValueSet and sets the default values.
      * @param fieldValueSetParameterValue 
      */
     public constructor(fieldValueSetParameterValue?: FieldValueSet | undefined) {
-        super();
+        super(fieldValueSetParameterValue);
     };
     /**
      * The deserialization information for the current model

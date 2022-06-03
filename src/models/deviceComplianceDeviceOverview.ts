@@ -1,18 +1,19 @@
 import {Entity} from './entity';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface DeviceComplianceDeviceOverview extends Entity{
+export interface DeviceComplianceDeviceOverview extends Entity, Partial<Parsable> {
     /** Version of the policy for that overview */
-    configurationVersion?:number | undefined;
+    configurationVersion?: number | undefined;
     /** Number of error devices */
-    errorCount?:number | undefined;
+    errorCount?: number | undefined;
     /** Number of failed devices */
-    failedCount?:number | undefined;
+    failedCount?: number | undefined;
     /** Last update time */
-    lastUpdateDateTime?:Date | undefined;
+    lastUpdateDateTime?: Date | undefined;
     /** Number of not applicable devices */
-    notApplicableCount?:number | undefined;
+    notApplicableCount?: number | undefined;
     /** Number of pending devices */
-    pendingCount?:number | undefined;
+    pendingCount?: number | undefined;
     /** Number of succeeded devices */
-    successCount?:number | undefined;
+    successCount?: number | undefined;
 }

@@ -1,7 +1,7 @@
 import {ChannelIdentity} from './channelIdentity';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ChannelIdentityImpl implements AdditionalDataHolder, ChannelIdentity, Parsable {
+export class ChannelIdentityImpl implements ChannelIdentity {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The identity of the channel in which the message was posted. */
@@ -13,9 +13,9 @@ export class ChannelIdentityImpl implements AdditionalDataHolder, ChannelIdentit
      * @param channelIdentityParameterValue 
      */
     public constructor(channelIdentityParameterValue?: ChannelIdentity | undefined) {
-        this.additionalData = channelIdentityParameterValue?.additionalData ? channelIdentityParameterValue?.additionalData! : {}
-        this.channelId = channelIdentityParameterValue?.channelId ;
-        this.teamId = channelIdentityParameterValue?.teamId ;
+        this.additionalData = channelIdentityParameterValue?.additionalData ? channelIdentityParameterValue?.additionalData! : {};
+        this.channelId = channelIdentityParameterValue?.channelId;
+        this.teamId = channelIdentityParameterValue?.teamId;
     };
     /**
      * The deserialization information for the current model
@@ -34,10 +34,10 @@ export class ChannelIdentityImpl implements AdditionalDataHolder, ChannelIdentit
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.channelId){
-        writer.writeStringValue("channelId", this.channelId);
+            writer.writeStringValue("channelId", this.channelId);
         }
         if(this.teamId){
-        writer.writeStringValue("teamId", this.teamId);
+            writer.writeStringValue("teamId", this.teamId);
         }
         writer.writeAdditionalData(this.additionalData);
     };

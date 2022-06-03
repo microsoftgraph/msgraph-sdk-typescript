@@ -3,7 +3,7 @@ import {DirectoryObjectImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the collection of application entities. */
-export class ExtensionPropertyImpl extends DirectoryObjectImpl implements ExtensionProperty, Parsable {
+export class ExtensionPropertyImpl extends DirectoryObjectImpl implements ExtensionProperty {
     /** Display name of the application object on which this extension property is defined. Read-only. */
     public appDisplayName?: string | undefined;
     /** Specifies the data type of the value the extension property can hold. Following values are supported. Not nullable. Binary - 256 bytes maximumBooleanDateTime - Must be specified in ISO 8601 format. Will be stored in UTC.Integer - 32-bit value.LargeInteger - 64-bit value.String - 256 characters maximum */
@@ -19,12 +19,12 @@ export class ExtensionPropertyImpl extends DirectoryObjectImpl implements Extens
      * @param extensionPropertyParameterValue 
      */
     public constructor(extensionPropertyParameterValue?: ExtensionProperty | undefined) {
-        super();
-        this.appDisplayName = extensionPropertyParameterValue?.appDisplayName ;
-        this.dataType = extensionPropertyParameterValue?.dataType ;
-        this.isSyncedFromOnPremises = extensionPropertyParameterValue?.isSyncedFromOnPremises ;
-        this.name = extensionPropertyParameterValue?.name ;
-        this.targetObjects = extensionPropertyParameterValue?.targetObjects ;
+        super(extensionPropertyParameterValue);
+        this.appDisplayName = extensionPropertyParameterValue?.appDisplayName;
+        this.dataType = extensionPropertyParameterValue?.dataType;
+        this.isSyncedFromOnPremises = extensionPropertyParameterValue?.isSyncedFromOnPremises;
+        this.name = extensionPropertyParameterValue?.name;
+        this.targetObjects = extensionPropertyParameterValue?.targetObjects;
     };
     /**
      * The deserialization information for the current model
@@ -47,19 +47,19 @@ export class ExtensionPropertyImpl extends DirectoryObjectImpl implements Extens
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.appDisplayName){
-        writer.writeStringValue("appDisplayName", this.appDisplayName);
+            writer.writeStringValue("appDisplayName", this.appDisplayName);
         }
         if(this.dataType){
-        writer.writeStringValue("dataType", this.dataType);
+            writer.writeStringValue("dataType", this.dataType);
         }
         if(this.isSyncedFromOnPremises){
-        writer.writeBooleanValue("isSyncedFromOnPremises", this.isSyncedFromOnPremises);
+            writer.writeBooleanValue("isSyncedFromOnPremises", this.isSyncedFromOnPremises);
         }
         if(this.name){
-        writer.writeStringValue("name", this.name);
+            writer.writeStringValue("name", this.name);
         }
         if(this.targetObjects){
-        writer.writeCollectionOfPrimitiveValues<string>("targetObjects", this.targetObjects);
+            writer.writeCollectionOfPrimitiveValues<string>("targetObjects", this.targetObjects);
         }
     };
 }

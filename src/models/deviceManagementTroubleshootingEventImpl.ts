@@ -3,7 +3,7 @@ import {EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Event representing an general failure. */
-export class DeviceManagementTroubleshootingEventImpl extends EntityImpl implements DeviceManagementTroubleshootingEvent, Parsable {
+export class DeviceManagementTroubleshootingEventImpl extends EntityImpl implements DeviceManagementTroubleshootingEvent {
     /** Id used for tracing the failure in the service. */
     public correlationId?: string | undefined;
     /** Time when the event occurred . */
@@ -13,9 +13,9 @@ export class DeviceManagementTroubleshootingEventImpl extends EntityImpl impleme
      * @param deviceManagementTroubleshootingEventParameterValue 
      */
     public constructor(deviceManagementTroubleshootingEventParameterValue?: DeviceManagementTroubleshootingEvent | undefined) {
-        super();
-        this.correlationId = deviceManagementTroubleshootingEventParameterValue?.correlationId ;
-        this.eventDateTime = deviceManagementTroubleshootingEventParameterValue?.eventDateTime ;
+        super(deviceManagementTroubleshootingEventParameterValue);
+        this.correlationId = deviceManagementTroubleshootingEventParameterValue?.correlationId;
+        this.eventDateTime = deviceManagementTroubleshootingEventParameterValue?.eventDateTime;
     };
     /**
      * The deserialization information for the current model
@@ -35,10 +35,10 @@ export class DeviceManagementTroubleshootingEventImpl extends EntityImpl impleme
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.correlationId){
-        writer.writeStringValue("correlationId", this.correlationId);
+            writer.writeStringValue("correlationId", this.correlationId);
         }
         if(this.eventDateTime){
-        writer.writeDateValue("eventDateTime", this.eventDateTime);
+            writer.writeDateValue("eventDateTime", this.eventDateTime);
         }
     };
 }

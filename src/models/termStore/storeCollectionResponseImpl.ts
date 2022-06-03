@@ -4,7 +4,7 @@ import {Store} from './store';
 import {StoreCollectionResponse} from './storeCollectionResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class StoreCollectionResponseImpl implements AdditionalDataHolder, Parsable, StoreCollectionResponse {
+export class StoreCollectionResponseImpl implements StoreCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class StoreCollectionResponseImpl implements AdditionalDataHolder, Parsab
      * @param storeCollectionResponseParameterValue 
      */
     public constructor(storeCollectionResponseParameterValue?: StoreCollectionResponse | undefined) {
-        this.additionalData = storeCollectionResponseParameterValue?.additionalData ? storeCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = storeCollectionResponseParameterValue?.nextLink ;
-        this.value = storeCollectionResponseParameterValue?.value ;
+        this.additionalData = storeCollectionResponseParameterValue?.additionalData ? storeCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = storeCollectionResponseParameterValue?.nextLink;
+        this.value = storeCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class StoreCollectionResponseImpl implements AdditionalDataHolder, Parsab
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: StoreImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new StoreImpl(element));});
-        writer.writeCollectionOfObjectValues<StoreImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<StoreImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

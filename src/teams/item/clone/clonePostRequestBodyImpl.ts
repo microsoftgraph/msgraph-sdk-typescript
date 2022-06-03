@@ -4,7 +4,7 @@ import {ClonePostRequestBody} from './clonePostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the clone method. */
-export class ClonePostRequestBodyImpl implements AdditionalDataHolder, ClonePostRequestBody, Parsable {
+export class ClonePostRequestBodyImpl implements ClonePostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The classification property */
@@ -24,13 +24,13 @@ export class ClonePostRequestBodyImpl implements AdditionalDataHolder, ClonePost
      * @param clonePostRequestBodyParameterValue 
      */
     public constructor(clonePostRequestBodyParameterValue?: ClonePostRequestBody | undefined) {
-        this.additionalData = clonePostRequestBodyParameterValue?.additionalData ? clonePostRequestBodyParameterValue?.additionalData! : {}
-        this.classification = clonePostRequestBodyParameterValue?.classification ;
-        this.description = clonePostRequestBodyParameterValue?.description ;
-        this.displayName = clonePostRequestBodyParameterValue?.displayName ;
-        this.mailNickname = clonePostRequestBodyParameterValue?.mailNickname ;
-        this.partsToClone = clonePostRequestBodyParameterValue?.partsToClone ;
-        this.visibility = clonePostRequestBodyParameterValue?.visibility ;
+        this.additionalData = clonePostRequestBodyParameterValue?.additionalData ? clonePostRequestBodyParameterValue?.additionalData! : {};
+        this.classification = clonePostRequestBodyParameterValue?.classification;
+        this.description = clonePostRequestBodyParameterValue?.description;
+        this.displayName = clonePostRequestBodyParameterValue?.displayName;
+        this.mailNickname = clonePostRequestBodyParameterValue?.mailNickname;
+        this.partsToClone = clonePostRequestBodyParameterValue?.partsToClone;
+        this.visibility = clonePostRequestBodyParameterValue?.visibility;
     };
     /**
      * The deserialization information for the current model
@@ -53,22 +53,22 @@ export class ClonePostRequestBodyImpl implements AdditionalDataHolder, ClonePost
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.classification){
-        writer.writeStringValue("classification", this.classification);
+            writer.writeStringValue("classification", this.classification);
         }
         if(this.description){
-        writer.writeStringValue("description", this.description);
+            writer.writeStringValue("description", this.description);
         }
         if(this.displayName){
-        writer.writeStringValue("displayName", this.displayName);
+            writer.writeStringValue("displayName", this.displayName);
         }
         if(this.mailNickname){
-        writer.writeStringValue("mailNickname", this.mailNickname);
+            writer.writeStringValue("mailNickname", this.mailNickname);
         }
         if(this.partsToClone){
-        writer.writeEnumValue<ClonableTeamParts>("partsToClone", this.partsToClone);
+            writer.writeEnumValue<ClonableTeamParts>("partsToClone", this.partsToClone);
         }
         if(this.visibility){
-        writer.writeEnumValue<TeamVisibilityType>("visibility", this.visibility);
+            writer.writeEnumValue<TeamVisibilityType>("visibility", this.visibility);
         }
         writer.writeAdditionalData(this.additionalData);
     };

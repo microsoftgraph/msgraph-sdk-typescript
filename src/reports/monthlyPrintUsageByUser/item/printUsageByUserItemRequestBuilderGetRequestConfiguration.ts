@@ -1,11 +1,11 @@
 import {PrintUsageByUserItemRequestBuilderGetQueryParameters} from './printUsageByUserItemRequestBuilderGetQueryParameters';
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
-export interface PrintUsageByUserItemRequestBuilderGetRequestConfiguration{
+export interface PrintUsageByUserItemRequestBuilderGetRequestConfiguration {
     /** Request headers */
-    headers?:Record<string, string> | undefined;
+    headers?: Record<string, string> | undefined;
     /** Request options */
-    options?:RequestOption[] | undefined;
+    options?: RequestOption[] | undefined;
     /** Request query parameters */
-    queryParameters?:PrintUsageByUserItemRequestBuilderGetQueryParameters | undefined;
+    queryParameters?: PrintUsageByUserItemRequestBuilderGetQueryParameters | undefined;
 }

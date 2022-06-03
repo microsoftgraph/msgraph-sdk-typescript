@@ -3,7 +3,7 @@ import {ManagedAppPolicy} from './managedAppPolicy';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** The ManagedAppPolicy resource represents a base type for platform specific policies. */
-export class ManagedAppPolicyImpl extends EntityImpl implements ManagedAppPolicy, Parsable {
+export class ManagedAppPolicyImpl extends EntityImpl implements ManagedAppPolicy {
     /** The date and time the policy was created. */
     public createdDateTime?: Date | undefined;
     /** The policy's description. */
@@ -19,12 +19,12 @@ export class ManagedAppPolicyImpl extends EntityImpl implements ManagedAppPolicy
      * @param managedAppPolicyParameterValue 
      */
     public constructor(managedAppPolicyParameterValue?: ManagedAppPolicy | undefined) {
-        super();
-        this.createdDateTime = managedAppPolicyParameterValue?.createdDateTime ;
-        this.description = managedAppPolicyParameterValue?.description ;
-        this.displayName = managedAppPolicyParameterValue?.displayName ;
-        this.lastModifiedDateTime = managedAppPolicyParameterValue?.lastModifiedDateTime ;
-        this.version = managedAppPolicyParameterValue?.version ;
+        super(managedAppPolicyParameterValue);
+        this.createdDateTime = managedAppPolicyParameterValue?.createdDateTime;
+        this.description = managedAppPolicyParameterValue?.description;
+        this.displayName = managedAppPolicyParameterValue?.displayName;
+        this.lastModifiedDateTime = managedAppPolicyParameterValue?.lastModifiedDateTime;
+        this.version = managedAppPolicyParameterValue?.version;
     };
     /**
      * The deserialization information for the current model
@@ -47,19 +47,19 @@ export class ManagedAppPolicyImpl extends EntityImpl implements ManagedAppPolicy
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.createdDateTime){
-        writer.writeDateValue("createdDateTime", this.createdDateTime);
+            writer.writeDateValue("createdDateTime", this.createdDateTime);
         }
         if(this.description){
-        writer.writeStringValue("description", this.description);
+            writer.writeStringValue("description", this.description);
         }
         if(this.displayName){
-        writer.writeStringValue("displayName", this.displayName);
+            writer.writeStringValue("displayName", this.displayName);
         }
         if(this.lastModifiedDateTime){
-        writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
+            writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
         }
         if(this.version){
-        writer.writeStringValue("version", this.version);
+            writer.writeStringValue("version", this.version);
         }
     };
 }

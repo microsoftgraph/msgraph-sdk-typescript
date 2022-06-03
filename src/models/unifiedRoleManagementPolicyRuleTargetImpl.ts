@@ -4,7 +4,7 @@ import {DirectoryObjectImpl} from './index';
 import {UnifiedRoleManagementPolicyRuleTarget} from './unifiedRoleManagementPolicyRuleTarget';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class UnifiedRoleManagementPolicyRuleTargetImpl implements AdditionalDataHolder, Parsable, UnifiedRoleManagementPolicyRuleTarget {
+export class UnifiedRoleManagementPolicyRuleTargetImpl implements UnifiedRoleManagementPolicyRuleTarget {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The caller for the policy rule target. Allowed values are: None, Admin, EndUser. */
@@ -24,13 +24,13 @@ export class UnifiedRoleManagementPolicyRuleTargetImpl implements AdditionalData
      * @param unifiedRoleManagementPolicyRuleTargetParameterValue 
      */
     public constructor(unifiedRoleManagementPolicyRuleTargetParameterValue?: UnifiedRoleManagementPolicyRuleTarget | undefined) {
-        this.additionalData = unifiedRoleManagementPolicyRuleTargetParameterValue?.additionalData ? unifiedRoleManagementPolicyRuleTargetParameterValue?.additionalData! : {}
-        this.caller = unifiedRoleManagementPolicyRuleTargetParameterValue?.caller ;
-        this.enforcedSettings = unifiedRoleManagementPolicyRuleTargetParameterValue?.enforcedSettings ;
-        this.inheritableSettings = unifiedRoleManagementPolicyRuleTargetParameterValue?.inheritableSettings ;
-        this.level = unifiedRoleManagementPolicyRuleTargetParameterValue?.level ;
-        this.operations = unifiedRoleManagementPolicyRuleTargetParameterValue?.operations ;
-        this.targetObjects = unifiedRoleManagementPolicyRuleTargetParameterValue?.targetObjects ;
+        this.additionalData = unifiedRoleManagementPolicyRuleTargetParameterValue?.additionalData ? unifiedRoleManagementPolicyRuleTargetParameterValue?.additionalData! : {};
+        this.caller = unifiedRoleManagementPolicyRuleTargetParameterValue?.caller;
+        this.enforcedSettings = unifiedRoleManagementPolicyRuleTargetParameterValue?.enforcedSettings;
+        this.inheritableSettings = unifiedRoleManagementPolicyRuleTargetParameterValue?.inheritableSettings;
+        this.level = unifiedRoleManagementPolicyRuleTargetParameterValue?.level;
+        this.operations = unifiedRoleManagementPolicyRuleTargetParameterValue?.operations;
+        this.targetObjects = unifiedRoleManagementPolicyRuleTargetParameterValue?.targetObjects;
     };
     /**
      * The deserialization information for the current model
@@ -53,22 +53,22 @@ export class UnifiedRoleManagementPolicyRuleTargetImpl implements AdditionalData
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.caller){
-        writer.writeStringValue("caller", this.caller);
+            writer.writeStringValue("caller", this.caller);
         }
         if(this.enforcedSettings){
-        writer.writeCollectionOfPrimitiveValues<string>("enforcedSettings", this.enforcedSettings);
+            writer.writeCollectionOfPrimitiveValues<string>("enforcedSettings", this.enforcedSettings);
         }
         if(this.inheritableSettings){
-        writer.writeCollectionOfPrimitiveValues<string>("inheritableSettings", this.inheritableSettings);
+            writer.writeCollectionOfPrimitiveValues<string>("inheritableSettings", this.inheritableSettings);
         }
         if(this.level){
-        writer.writeStringValue("level", this.level);
+            writer.writeStringValue("level", this.level);
         }
         if(this.operations){
-        writer.writeCollectionOfPrimitiveValues<string>("operations", this.operations);
+            writer.writeCollectionOfPrimitiveValues<string>("operations", this.operations);
         }
         if(this.targetObjects && this.targetObjects.length != 0){        const targetObjectsArrValue: DirectoryObjectImpl[] = []; this.targetObjects?.forEach(element => {targetObjectsArrValue.push(new DirectoryObjectImpl(element));});
-        writer.writeCollectionOfObjectValues<DirectoryObjectImpl>("targetObjects", targetObjectsArrValue);
+            writer.writeCollectionOfObjectValues<DirectoryObjectImpl>("targetObjects", targetObjectsArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

@@ -9,7 +9,7 @@ import {RecordingInfo} from './recordingInfo';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the cloudCommunications singleton. */
-export class ParticipantImpl extends EntityImpl implements Parsable, Participant {
+export class ParticipantImpl extends EntityImpl implements Participant {
     /** The info property */
     public info?: ParticipantInfo | undefined;
     /** true if the participant is in lobby. */
@@ -27,13 +27,13 @@ export class ParticipantImpl extends EntityImpl implements Parsable, Participant
      * @param participantParameterValue 
      */
     public constructor(participantParameterValue?: Participant | undefined) {
-        super();
-        this.info = participantParameterValue?.info ;
-        this.isInLobby = participantParameterValue?.isInLobby ;
-        this.isMuted = participantParameterValue?.isMuted ;
-        this.mediaStreams = participantParameterValue?.mediaStreams ;
-        this.metadata = participantParameterValue?.metadata ;
-        this.recordingInfo = participantParameterValue?.recordingInfo ;
+        super(participantParameterValue);
+        this.info = participantParameterValue?.info;
+        this.isInLobby = participantParameterValue?.isInLobby;
+        this.isMuted = participantParameterValue?.isMuted;
+        this.mediaStreams = participantParameterValue?.mediaStreams;
+        this.metadata = participantParameterValue?.metadata;
+        this.recordingInfo = participantParameterValue?.recordingInfo;
     };
     /**
      * The deserialization information for the current model
@@ -57,22 +57,22 @@ export class ParticipantImpl extends EntityImpl implements Parsable, Participant
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.info){
-        writer.writeObjectValue<ParticipantInfoImpl>("info", new ParticipantInfoImpl(this.info));
+            writer.writeObjectValue<ParticipantInfoImpl>("info", new ParticipantInfoImpl(this.info));
         }
         if(this.isInLobby){
-        writer.writeBooleanValue("isInLobby", this.isInLobby);
+            writer.writeBooleanValue("isInLobby", this.isInLobby);
         }
         if(this.isMuted){
-        writer.writeBooleanValue("isMuted", this.isMuted);
+            writer.writeBooleanValue("isMuted", this.isMuted);
         }
         if(this.mediaStreams && this.mediaStreams.length != 0){        const mediaStreamsArrValue: MediaStreamImpl[] = []; this.mediaStreams?.forEach(element => {mediaStreamsArrValue.push(new MediaStreamImpl(element));});
-        writer.writeCollectionOfObjectValues<MediaStreamImpl>("mediaStreams", mediaStreamsArrValue);
+            writer.writeCollectionOfObjectValues<MediaStreamImpl>("mediaStreams", mediaStreamsArrValue);
         }
         if(this.metadata){
-        writer.writeStringValue("metadata", this.metadata);
+            writer.writeStringValue("metadata", this.metadata);
         }
         if(this.recordingInfo){
-        writer.writeObjectValue<RecordingInfoImpl>("recordingInfo", new RecordingInfoImpl(this.recordingInfo));
+            writer.writeObjectValue<RecordingInfoImpl>("recordingInfo", new RecordingInfoImpl(this.recordingInfo));
         }
     };
 }

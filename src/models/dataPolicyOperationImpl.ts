@@ -4,7 +4,7 @@ import {EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the collection of dataPolicyOperation entities. */
-export class DataPolicyOperationImpl extends EntityImpl implements DataPolicyOperation, Parsable {
+export class DataPolicyOperationImpl extends EntityImpl implements DataPolicyOperation {
     /** Represents when the request for this data policy operation was completed, in UTC time, using the ISO 8601 format. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Null until the operation completes. */
     public completedDateTime?: Date | undefined;
     /** Specifies the progress of an operation. */
@@ -22,13 +22,13 @@ export class DataPolicyOperationImpl extends EntityImpl implements DataPolicyOpe
      * @param dataPolicyOperationParameterValue 
      */
     public constructor(dataPolicyOperationParameterValue?: DataPolicyOperation | undefined) {
-        super();
-        this.completedDateTime = dataPolicyOperationParameterValue?.completedDateTime ;
-        this.progress = dataPolicyOperationParameterValue?.progress ;
-        this.status = dataPolicyOperationParameterValue?.status ;
-        this.storageLocation = dataPolicyOperationParameterValue?.storageLocation ;
-        this.submittedDateTime = dataPolicyOperationParameterValue?.submittedDateTime ;
-        this.userId = dataPolicyOperationParameterValue?.userId ;
+        super(dataPolicyOperationParameterValue);
+        this.completedDateTime = dataPolicyOperationParameterValue?.completedDateTime;
+        this.progress = dataPolicyOperationParameterValue?.progress;
+        this.status = dataPolicyOperationParameterValue?.status;
+        this.storageLocation = dataPolicyOperationParameterValue?.storageLocation;
+        this.submittedDateTime = dataPolicyOperationParameterValue?.submittedDateTime;
+        this.userId = dataPolicyOperationParameterValue?.userId;
     };
     /**
      * The deserialization information for the current model
@@ -52,22 +52,22 @@ export class DataPolicyOperationImpl extends EntityImpl implements DataPolicyOpe
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.completedDateTime){
-        writer.writeDateValue("completedDateTime", this.completedDateTime);
+            writer.writeDateValue("completedDateTime", this.completedDateTime);
         }
         if(this.progress){
-        writer.writeNumberValue("progress", this.progress);
+            writer.writeNumberValue("progress", this.progress);
         }
         if(this.status){
-        writer.writeEnumValue<DataPolicyOperationStatus>("status", this.status);
+            writer.writeEnumValue<DataPolicyOperationStatus>("status", this.status);
         }
         if(this.storageLocation){
-        writer.writeStringValue("storageLocation", this.storageLocation);
+            writer.writeStringValue("storageLocation", this.storageLocation);
         }
         if(this.submittedDateTime){
-        writer.writeDateValue("submittedDateTime", this.submittedDateTime);
+            writer.writeDateValue("submittedDateTime", this.submittedDateTime);
         }
         if(this.userId){
-        writer.writeStringValue("userId", this.userId);
+            writer.writeStringValue("userId", this.userId);
         }
     };
 }

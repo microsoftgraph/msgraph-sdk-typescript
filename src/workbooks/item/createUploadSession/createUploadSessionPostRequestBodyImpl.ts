@@ -5,7 +5,7 @@ import {CreateUploadSessionPostRequestBody} from './createUploadSessionPostReque
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the createUploadSession method. */
-export class CreateUploadSessionPostRequestBodyImpl implements AdditionalDataHolder, CreateUploadSessionPostRequestBody, Parsable {
+export class CreateUploadSessionPostRequestBodyImpl implements CreateUploadSessionPostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The item property */
@@ -15,8 +15,8 @@ export class CreateUploadSessionPostRequestBodyImpl implements AdditionalDataHol
      * @param createUploadSessionPostRequestBodyParameterValue 
      */
     public constructor(createUploadSessionPostRequestBodyParameterValue?: CreateUploadSessionPostRequestBody | undefined) {
-        this.additionalData = createUploadSessionPostRequestBodyParameterValue?.additionalData ? createUploadSessionPostRequestBodyParameterValue?.additionalData! : {}
-        this.item = createUploadSessionPostRequestBodyParameterValue?.item ;
+        this.additionalData = createUploadSessionPostRequestBodyParameterValue?.additionalData ? createUploadSessionPostRequestBodyParameterValue?.additionalData! : {};
+        this.item = createUploadSessionPostRequestBodyParameterValue?.item;
     };
     /**
      * The deserialization information for the current model
@@ -34,7 +34,7 @@ export class CreateUploadSessionPostRequestBodyImpl implements AdditionalDataHol
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.item){
-        writer.writeObjectValue<DriveItemUploadablePropertiesImpl>("item", new DriveItemUploadablePropertiesImpl(this.item));
+            writer.writeObjectValue<DriveItemUploadablePropertiesImpl>("item", new DriveItemUploadablePropertiesImpl(this.item));
         }
         writer.writeAdditionalData(this.additionalData);
     };

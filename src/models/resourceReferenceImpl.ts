@@ -1,7 +1,7 @@
 import {ResourceReference} from './resourceReference';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ResourceReferenceImpl implements AdditionalDataHolder, Parsable, ResourceReference {
+export class ResourceReferenceImpl implements ResourceReference {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The item's unique identifier. */
@@ -15,10 +15,10 @@ export class ResourceReferenceImpl implements AdditionalDataHolder, Parsable, Re
      * @param resourceReferenceParameterValue 
      */
     public constructor(resourceReferenceParameterValue?: ResourceReference | undefined) {
-        this.additionalData = resourceReferenceParameterValue?.additionalData ? resourceReferenceParameterValue?.additionalData! : {}
-        this.id = resourceReferenceParameterValue?.id ;
-        this.type = resourceReferenceParameterValue?.type ;
-        this.webUrl = resourceReferenceParameterValue?.webUrl ;
+        this.additionalData = resourceReferenceParameterValue?.additionalData ? resourceReferenceParameterValue?.additionalData! : {};
+        this.id = resourceReferenceParameterValue?.id;
+        this.type = resourceReferenceParameterValue?.type;
+        this.webUrl = resourceReferenceParameterValue?.webUrl;
     };
     /**
      * The deserialization information for the current model
@@ -38,13 +38,13 @@ export class ResourceReferenceImpl implements AdditionalDataHolder, Parsable, Re
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.id){
-        writer.writeStringValue("id", this.id);
+            writer.writeStringValue("id", this.id);
         }
         if(this.type){
-        writer.writeStringValue("type", this.type);
+            writer.writeStringValue("type", this.type);
         }
         if(this.webUrl){
-        writer.writeStringValue("webUrl", this.webUrl);
+            writer.writeStringValue("webUrl", this.webUrl);
         }
         writer.writeAdditionalData(this.additionalData);
     };

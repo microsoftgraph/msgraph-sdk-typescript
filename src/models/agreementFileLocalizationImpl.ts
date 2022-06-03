@@ -5,7 +5,7 @@ import {AgreementFilePropertiesImpl, AgreementFileVersionImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the collection of agreement entities. */
-export class AgreementFileLocalizationImpl extends AgreementFilePropertiesImpl implements AgreementFileLocalization, Parsable {
+export class AgreementFileLocalizationImpl extends AgreementFilePropertiesImpl implements AgreementFileLocalization {
     /** Read-only. Customized versions of the terms of use agreement in the Azure AD tenant. */
     public versions?: AgreementFileVersion[] | undefined;
     /**
@@ -13,8 +13,8 @@ export class AgreementFileLocalizationImpl extends AgreementFilePropertiesImpl i
      * @param agreementFileLocalizationParameterValue 
      */
     public constructor(agreementFileLocalizationParameterValue?: AgreementFileLocalization | undefined) {
-        super();
-        this.versions = agreementFileLocalizationParameterValue?.versions ;
+        super(agreementFileLocalizationParameterValue);
+        this.versions = agreementFileLocalizationParameterValue?.versions;
     };
     /**
      * The deserialization information for the current model
@@ -33,7 +33,7 @@ export class AgreementFileLocalizationImpl extends AgreementFilePropertiesImpl i
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.versions && this.versions.length != 0){        const versionsArrValue: AgreementFileVersionImpl[] = []; this.versions?.forEach(element => {versionsArrValue.push(new AgreementFileVersionImpl(element));});
-        writer.writeCollectionOfObjectValues<AgreementFileVersionImpl>("versions", versionsArrValue);
+            writer.writeCollectionOfObjectValues<AgreementFileVersionImpl>("versions", versionsArrValue);
         }
     };
 }

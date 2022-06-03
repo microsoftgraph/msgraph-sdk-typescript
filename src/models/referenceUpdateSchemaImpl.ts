@@ -1,7 +1,7 @@
 import {ReferenceUpdateSchema} from './referenceUpdateSchema';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ReferenceUpdateSchemaImpl implements AdditionalDataHolder, Parsable, ReferenceUpdateSchema {
+export class ReferenceUpdateSchemaImpl implements ReferenceUpdateSchema {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The id property */
@@ -13,9 +13,9 @@ export class ReferenceUpdateSchemaImpl implements AdditionalDataHolder, Parsable
      * @param referenceUpdateSchemaParameterValue 
      */
     public constructor(referenceUpdateSchemaParameterValue?: ReferenceUpdateSchema | undefined) {
-        this.additionalData = referenceUpdateSchemaParameterValue?.additionalData ? referenceUpdateSchemaParameterValue?.additionalData! : {}
-        this.id = referenceUpdateSchemaParameterValue?.id ;
-        this.type = referenceUpdateSchemaParameterValue?.type ;
+        this.additionalData = referenceUpdateSchemaParameterValue?.additionalData ? referenceUpdateSchemaParameterValue?.additionalData! : {};
+        this.id = referenceUpdateSchemaParameterValue?.id;
+        this.type = referenceUpdateSchemaParameterValue?.type;
     };
     /**
      * The deserialization information for the current model
@@ -34,10 +34,10 @@ export class ReferenceUpdateSchemaImpl implements AdditionalDataHolder, Parsable
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.id){
-        writer.writeStringValue("@odata.id", this.id);
+            writer.writeStringValue("@odata.id", this.id);
         }
         if(this.type){
-        writer.writeStringValue("@odata.type", this.type);
+            writer.writeStringValue("@odata.type", this.type);
         }
         writer.writeAdditionalData(this.additionalData);
     };

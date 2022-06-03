@@ -1,11 +1,11 @@
 import {MobileAppItemRequestBuilderGetQueryParameters} from './mobileAppItemRequestBuilderGetQueryParameters';
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
-export interface MobileAppItemRequestBuilderGetRequestConfiguration{
+export interface MobileAppItemRequestBuilderGetRequestConfiguration {
     /** Request headers */
-    headers?:Record<string, string> | undefined;
+    headers?: Record<string, string> | undefined;
     /** Request options */
-    options?:RequestOption[] | undefined;
+    options?: RequestOption[] | undefined;
     /** Request query parameters */
-    queryParameters?:MobileAppItemRequestBuilderGetQueryParameters | undefined;
+    queryParameters?: MobileAppItemRequestBuilderGetQueryParameters | undefined;
 }

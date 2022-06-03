@@ -2,7 +2,7 @@ import {UpdateDevicePropertiesPostRequestBody} from './updateDevicePropertiesPos
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the updateDeviceProperties method. */
-export class UpdateDevicePropertiesPostRequestBodyImpl implements AdditionalDataHolder, Parsable, UpdateDevicePropertiesPostRequestBody {
+export class UpdateDevicePropertiesPostRequestBodyImpl implements UpdateDevicePropertiesPostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The addressableUserName property */
@@ -18,11 +18,11 @@ export class UpdateDevicePropertiesPostRequestBodyImpl implements AdditionalData
      * @param updateDevicePropertiesPostRequestBodyParameterValue 
      */
     public constructor(updateDevicePropertiesPostRequestBodyParameterValue?: UpdateDevicePropertiesPostRequestBody | undefined) {
-        this.additionalData = updateDevicePropertiesPostRequestBodyParameterValue?.additionalData ? updateDevicePropertiesPostRequestBodyParameterValue?.additionalData! : {}
-        this.addressableUserName = updateDevicePropertiesPostRequestBodyParameterValue?.addressableUserName ;
-        this.displayName = updateDevicePropertiesPostRequestBodyParameterValue?.displayName ;
-        this.groupTag = updateDevicePropertiesPostRequestBodyParameterValue?.groupTag ;
-        this.userPrincipalName = updateDevicePropertiesPostRequestBodyParameterValue?.userPrincipalName ;
+        this.additionalData = updateDevicePropertiesPostRequestBodyParameterValue?.additionalData ? updateDevicePropertiesPostRequestBodyParameterValue?.additionalData! : {};
+        this.addressableUserName = updateDevicePropertiesPostRequestBodyParameterValue?.addressableUserName;
+        this.displayName = updateDevicePropertiesPostRequestBodyParameterValue?.displayName;
+        this.groupTag = updateDevicePropertiesPostRequestBodyParameterValue?.groupTag;
+        this.userPrincipalName = updateDevicePropertiesPostRequestBodyParameterValue?.userPrincipalName;
     };
     /**
      * The deserialization information for the current model
@@ -43,16 +43,16 @@ export class UpdateDevicePropertiesPostRequestBodyImpl implements AdditionalData
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.addressableUserName){
-        writer.writeStringValue("addressableUserName", this.addressableUserName);
+            writer.writeStringValue("addressableUserName", this.addressableUserName);
         }
         if(this.displayName){
-        writer.writeStringValue("displayName", this.displayName);
+            writer.writeStringValue("displayName", this.displayName);
         }
         if(this.groupTag){
-        writer.writeStringValue("groupTag", this.groupTag);
+            writer.writeStringValue("groupTag", this.groupTag);
         }
         if(this.userPrincipalName){
-        writer.writeStringValue("userPrincipalName", this.userPrincipalName);
+            writer.writeStringValue("userPrincipalName", this.userPrincipalName);
         }
         writer.writeAdditionalData(this.additionalData);
     };

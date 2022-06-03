@@ -5,7 +5,7 @@ import {InvitePostRequestBody} from './invitePostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the invite method. */
-export class InvitePostRequestBodyImpl implements AdditionalDataHolder, InvitePostRequestBody, Parsable {
+export class InvitePostRequestBodyImpl implements InvitePostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The clientContext property */
@@ -17,9 +17,9 @@ export class InvitePostRequestBodyImpl implements AdditionalDataHolder, InvitePo
      * @param invitePostRequestBodyParameterValue 
      */
     public constructor(invitePostRequestBodyParameterValue?: InvitePostRequestBody | undefined) {
-        this.additionalData = invitePostRequestBodyParameterValue?.additionalData ? invitePostRequestBodyParameterValue?.additionalData! : {}
-        this.clientContext = invitePostRequestBodyParameterValue?.clientContext ;
-        this.participants = invitePostRequestBodyParameterValue?.participants ;
+        this.additionalData = invitePostRequestBodyParameterValue?.additionalData ? invitePostRequestBodyParameterValue?.additionalData! : {};
+        this.clientContext = invitePostRequestBodyParameterValue?.clientContext;
+        this.participants = invitePostRequestBodyParameterValue?.participants;
     };
     /**
      * The deserialization information for the current model
@@ -38,10 +38,10 @@ export class InvitePostRequestBodyImpl implements AdditionalDataHolder, InvitePo
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.clientContext){
-        writer.writeStringValue("clientContext", this.clientContext);
+            writer.writeStringValue("clientContext", this.clientContext);
         }
         if(this.participants && this.participants.length != 0){        const participantsArrValue: InvitationParticipantInfoImpl[] = []; this.participants?.forEach(element => {participantsArrValue.push(new InvitationParticipantInfoImpl(element));});
-        writer.writeCollectionOfObjectValues<InvitationParticipantInfoImpl>("participants", participantsArrValue);
+            writer.writeCollectionOfObjectValues<InvitationParticipantInfoImpl>("participants", participantsArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

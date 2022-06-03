@@ -1,23 +1,24 @@
 import {DateTimeTimeZone} from './dateTimeTimeZone';
 import {Location} from './location';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface Reminder{
+export interface Reminder extends Partial<AdditionalDataHolder>, Partial<Parsable> {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?:Record<string, unknown>;
+    additionalData?: Record<string, unknown>;
     /** Identifies the version of the reminder. Every time the reminder is changed, changeKey changes as well. This allows Exchange to apply changes to the correct version of the object. */
-    changeKey?:string | undefined;
+    changeKey?: string | undefined;
     /** The date, time and time zone that the event ends. */
-    eventEndTime?:DateTimeTimeZone | undefined;
+    eventEndTime?: DateTimeTimeZone | undefined;
     /** The unique ID of the event. Read only. */
-    eventId?:string | undefined;
+    eventId?: string | undefined;
     /** The location of the event. */
-    eventLocation?:Location | undefined;
+    eventLocation?: Location | undefined;
     /** The date, time, and time zone that the event starts. */
-    eventStartTime?:DateTimeTimeZone | undefined;
+    eventStartTime?: DateTimeTimeZone | undefined;
     /** The text of the event's subject line. */
-    eventSubject?:string | undefined;
+    eventSubject?: string | undefined;
     /** The URL to open the event in Outlook on the web.The event will open in the browser if you are logged in to your mailbox via Outlook on the web. You will be prompted to login if you are not already logged in with the browser.This URL cannot be accessed from within an iFrame. */
-    eventWebLink?:string | undefined;
+    eventWebLink?: string | undefined;
     /** The date, time, and time zone that the reminder is set to occur. */
-    reminderFireTime?:DateTimeTimeZone | undefined;
+    reminderFireTime?: DateTimeTimeZone | undefined;
 }

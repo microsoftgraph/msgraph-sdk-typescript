@@ -4,7 +4,7 @@ import {ConditionalAccessSessionControlImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the identityContainer singleton. */
-export class CloudAppSecuritySessionControlImpl extends ConditionalAccessSessionControlImpl implements CloudAppSecuritySessionControl, Parsable {
+export class CloudAppSecuritySessionControlImpl extends ConditionalAccessSessionControlImpl implements CloudAppSecuritySessionControl {
     /** Possible values are: mcasConfigured, monitorOnly, blockDownloads. To learn more about these values, Deploy Conditional Access App Control for featured apps. */
     public cloudAppSecurityType?: CloudAppSecuritySessionControlType | undefined;
     /**
@@ -12,8 +12,8 @@ export class CloudAppSecuritySessionControlImpl extends ConditionalAccessSession
      * @param cloudAppSecuritySessionControlParameterValue 
      */
     public constructor(cloudAppSecuritySessionControlParameterValue?: CloudAppSecuritySessionControl | undefined) {
-        super();
-        this.cloudAppSecurityType = cloudAppSecuritySessionControlParameterValue?.cloudAppSecurityType ;
+        super(cloudAppSecuritySessionControlParameterValue);
+        this.cloudAppSecurityType = cloudAppSecuritySessionControlParameterValue?.cloudAppSecurityType;
     };
     /**
      * The deserialization information for the current model
@@ -32,7 +32,7 @@ export class CloudAppSecuritySessionControlImpl extends ConditionalAccessSession
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.cloudAppSecurityType){
-        writer.writeEnumValue<CloudAppSecuritySessionControlType>("cloudAppSecurityType", this.cloudAppSecurityType);
+            writer.writeEnumValue<CloudAppSecuritySessionControlType>("cloudAppSecurityType", this.cloudAppSecurityType);
         }
     };
 }

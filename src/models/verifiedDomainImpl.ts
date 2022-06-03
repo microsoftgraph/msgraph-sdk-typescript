@@ -1,7 +1,7 @@
 import {VerifiedDomain} from './verifiedDomain';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class VerifiedDomainImpl implements AdditionalDataHolder, Parsable, VerifiedDomain {
+export class VerifiedDomainImpl implements VerifiedDomain {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** For example, Email, OfficeCommunicationsOnline. */
@@ -19,12 +19,12 @@ export class VerifiedDomainImpl implements AdditionalDataHolder, Parsable, Verif
      * @param verifiedDomainParameterValue 
      */
     public constructor(verifiedDomainParameterValue?: VerifiedDomain | undefined) {
-        this.additionalData = verifiedDomainParameterValue?.additionalData ? verifiedDomainParameterValue?.additionalData! : {}
-        this.capabilities = verifiedDomainParameterValue?.capabilities ;
-        this.isDefault = verifiedDomainParameterValue?.isDefault ;
-        this.isInitial = verifiedDomainParameterValue?.isInitial ;
-        this.name = verifiedDomainParameterValue?.name ;
-        this.type = verifiedDomainParameterValue?.type ;
+        this.additionalData = verifiedDomainParameterValue?.additionalData ? verifiedDomainParameterValue?.additionalData! : {};
+        this.capabilities = verifiedDomainParameterValue?.capabilities;
+        this.isDefault = verifiedDomainParameterValue?.isDefault;
+        this.isInitial = verifiedDomainParameterValue?.isInitial;
+        this.name = verifiedDomainParameterValue?.name;
+        this.type = verifiedDomainParameterValue?.type;
     };
     /**
      * The deserialization information for the current model
@@ -46,19 +46,19 @@ export class VerifiedDomainImpl implements AdditionalDataHolder, Parsable, Verif
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.capabilities){
-        writer.writeStringValue("capabilities", this.capabilities);
+            writer.writeStringValue("capabilities", this.capabilities);
         }
         if(this.isDefault){
-        writer.writeBooleanValue("isDefault", this.isDefault);
+            writer.writeBooleanValue("isDefault", this.isDefault);
         }
         if(this.isInitial){
-        writer.writeBooleanValue("isInitial", this.isInitial);
+            writer.writeBooleanValue("isInitial", this.isInitial);
         }
         if(this.name){
-        writer.writeStringValue("name", this.name);
+            writer.writeStringValue("name", this.name);
         }
         if(this.type){
-        writer.writeStringValue("type", this.type);
+            writer.writeStringValue("type", this.type);
         }
         writer.writeAdditionalData(this.additionalData);
     };

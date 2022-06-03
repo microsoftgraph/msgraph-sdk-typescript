@@ -4,7 +4,7 @@ import {MobileThreatDefenseConnector} from './mobileThreatDefenseConnector';
 import {MobileThreatDefenseConnectorCollectionResponse} from './mobileThreatDefenseConnectorCollectionResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class MobileThreatDefenseConnectorCollectionResponseImpl implements AdditionalDataHolder, MobileThreatDefenseConnectorCollectionResponse, Parsable {
+export class MobileThreatDefenseConnectorCollectionResponseImpl implements MobileThreatDefenseConnectorCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class MobileThreatDefenseConnectorCollectionResponseImpl implements Addit
      * @param mobileThreatDefenseConnectorCollectionResponseParameterValue 
      */
     public constructor(mobileThreatDefenseConnectorCollectionResponseParameterValue?: MobileThreatDefenseConnectorCollectionResponse | undefined) {
-        this.additionalData = mobileThreatDefenseConnectorCollectionResponseParameterValue?.additionalData ? mobileThreatDefenseConnectorCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = mobileThreatDefenseConnectorCollectionResponseParameterValue?.nextLink ;
-        this.value = mobileThreatDefenseConnectorCollectionResponseParameterValue?.value ;
+        this.additionalData = mobileThreatDefenseConnectorCollectionResponseParameterValue?.additionalData ? mobileThreatDefenseConnectorCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = mobileThreatDefenseConnectorCollectionResponseParameterValue?.nextLink;
+        this.value = mobileThreatDefenseConnectorCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class MobileThreatDefenseConnectorCollectionResponseImpl implements Addit
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: MobileThreatDefenseConnectorImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new MobileThreatDefenseConnectorImpl(element));});
-        writer.writeCollectionOfObjectValues<MobileThreatDefenseConnectorImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<MobileThreatDefenseConnectorImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

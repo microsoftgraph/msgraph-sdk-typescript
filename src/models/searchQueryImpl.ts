@@ -1,7 +1,7 @@
 import {SearchQuery} from './searchQuery';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class SearchQueryImpl implements AdditionalDataHolder, Parsable, SearchQuery {
+export class SearchQueryImpl implements SearchQuery {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The search query containing the search terms. Required. */
@@ -11,8 +11,8 @@ export class SearchQueryImpl implements AdditionalDataHolder, Parsable, SearchQu
      * @param searchQueryParameterValue 
      */
     public constructor(searchQueryParameterValue?: SearchQuery | undefined) {
-        this.additionalData = searchQueryParameterValue?.additionalData ? searchQueryParameterValue?.additionalData! : {}
-        this.queryString = searchQueryParameterValue?.queryString ;
+        this.additionalData = searchQueryParameterValue?.additionalData ? searchQueryParameterValue?.additionalData! : {};
+        this.queryString = searchQueryParameterValue?.queryString;
     };
     /**
      * The deserialization information for the current model
@@ -30,7 +30,7 @@ export class SearchQueryImpl implements AdditionalDataHolder, Parsable, SearchQu
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.queryString){
-        writer.writeStringValue("queryString", this.queryString);
+            writer.writeStringValue("queryString", this.queryString);
         }
         writer.writeAdditionalData(this.additionalData);
     };

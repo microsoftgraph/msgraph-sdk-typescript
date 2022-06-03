@@ -7,7 +7,7 @@ import {AccessPackageAssignmentPolicyImpl, AccessPackageCatalogImpl, EntityImpl}
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the identityGovernance singleton. */
-export class AccessPackageImpl extends EntityImpl implements AccessPackage, Parsable {
+export class AccessPackageImpl extends EntityImpl implements AccessPackage {
     /** Read-only. Nullable. */
     public assignmentPolicies?: AccessPackageAssignmentPolicy[] | undefined;
     /** Read-only. Nullable. */
@@ -27,14 +27,14 @@ export class AccessPackageImpl extends EntityImpl implements AccessPackage, Pars
      * @param accessPackageParameterValue 
      */
     public constructor(accessPackageParameterValue?: AccessPackage | undefined) {
-        super();
-        this.assignmentPolicies = accessPackageParameterValue?.assignmentPolicies ;
-        this.catalog = accessPackageParameterValue?.catalog ;
-        this.createdDateTime = accessPackageParameterValue?.createdDateTime ;
-        this.description = accessPackageParameterValue?.description ;
-        this.displayName = accessPackageParameterValue?.displayName ;
-        this.isHidden = accessPackageParameterValue?.isHidden ;
-        this.modifiedDateTime = accessPackageParameterValue?.modifiedDateTime ;
+        super(accessPackageParameterValue);
+        this.assignmentPolicies = accessPackageParameterValue?.assignmentPolicies;
+        this.catalog = accessPackageParameterValue?.catalog;
+        this.createdDateTime = accessPackageParameterValue?.createdDateTime;
+        this.description = accessPackageParameterValue?.description;
+        this.displayName = accessPackageParameterValue?.displayName;
+        this.isHidden = accessPackageParameterValue?.isHidden;
+        this.modifiedDateTime = accessPackageParameterValue?.modifiedDateTime;
     };
     /**
      * The deserialization information for the current model
@@ -59,25 +59,25 @@ export class AccessPackageImpl extends EntityImpl implements AccessPackage, Pars
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.assignmentPolicies && this.assignmentPolicies.length != 0){        const assignmentPoliciesArrValue: AccessPackageAssignmentPolicyImpl[] = []; this.assignmentPolicies?.forEach(element => {assignmentPoliciesArrValue.push(new AccessPackageAssignmentPolicyImpl(element));});
-        writer.writeCollectionOfObjectValues<AccessPackageAssignmentPolicyImpl>("assignmentPolicies", assignmentPoliciesArrValue);
+            writer.writeCollectionOfObjectValues<AccessPackageAssignmentPolicyImpl>("assignmentPolicies", assignmentPoliciesArrValue);
         }
         if(this.catalog){
-        writer.writeObjectValue<AccessPackageCatalogImpl>("catalog", new AccessPackageCatalogImpl(this.catalog));
+            writer.writeObjectValue<AccessPackageCatalogImpl>("catalog", new AccessPackageCatalogImpl(this.catalog));
         }
         if(this.createdDateTime){
-        writer.writeDateValue("createdDateTime", this.createdDateTime);
+            writer.writeDateValue("createdDateTime", this.createdDateTime);
         }
         if(this.description){
-        writer.writeStringValue("description", this.description);
+            writer.writeStringValue("description", this.description);
         }
         if(this.displayName){
-        writer.writeStringValue("displayName", this.displayName);
+            writer.writeStringValue("displayName", this.displayName);
         }
         if(this.isHidden){
-        writer.writeBooleanValue("isHidden", this.isHidden);
+            writer.writeBooleanValue("isHidden", this.isHidden);
         }
         if(this.modifiedDateTime){
-        writer.writeDateValue("modifiedDateTime", this.modifiedDateTime);
+            writer.writeDateValue("modifiedDateTime", this.modifiedDateTime);
         }
     };
 }

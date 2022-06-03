@@ -3,7 +3,7 @@ import {EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the deviceManagement singleton. */
-export class DeviceComplianceUserOverviewImpl extends EntityImpl implements DeviceComplianceUserOverview, Parsable {
+export class DeviceComplianceUserOverviewImpl extends EntityImpl implements DeviceComplianceUserOverview {
     /** Version of the policy for that overview */
     public configurationVersion?: number | undefined;
     /** Number of error Users */
@@ -23,14 +23,14 @@ export class DeviceComplianceUserOverviewImpl extends EntityImpl implements Devi
      * @param deviceComplianceUserOverviewParameterValue 
      */
     public constructor(deviceComplianceUserOverviewParameterValue?: DeviceComplianceUserOverview | undefined) {
-        super();
-        this.configurationVersion = deviceComplianceUserOverviewParameterValue?.configurationVersion ;
-        this.errorCount = deviceComplianceUserOverviewParameterValue?.errorCount ;
-        this.failedCount = deviceComplianceUserOverviewParameterValue?.failedCount ;
-        this.lastUpdateDateTime = deviceComplianceUserOverviewParameterValue?.lastUpdateDateTime ;
-        this.notApplicableCount = deviceComplianceUserOverviewParameterValue?.notApplicableCount ;
-        this.pendingCount = deviceComplianceUserOverviewParameterValue?.pendingCount ;
-        this.successCount = deviceComplianceUserOverviewParameterValue?.successCount ;
+        super(deviceComplianceUserOverviewParameterValue);
+        this.configurationVersion = deviceComplianceUserOverviewParameterValue?.configurationVersion;
+        this.errorCount = deviceComplianceUserOverviewParameterValue?.errorCount;
+        this.failedCount = deviceComplianceUserOverviewParameterValue?.failedCount;
+        this.lastUpdateDateTime = deviceComplianceUserOverviewParameterValue?.lastUpdateDateTime;
+        this.notApplicableCount = deviceComplianceUserOverviewParameterValue?.notApplicableCount;
+        this.pendingCount = deviceComplianceUserOverviewParameterValue?.pendingCount;
+        this.successCount = deviceComplianceUserOverviewParameterValue?.successCount;
     };
     /**
      * The deserialization information for the current model
@@ -55,25 +55,25 @@ export class DeviceComplianceUserOverviewImpl extends EntityImpl implements Devi
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.configurationVersion){
-        writer.writeNumberValue("configurationVersion", this.configurationVersion);
+            writer.writeNumberValue("configurationVersion", this.configurationVersion);
         }
         if(this.errorCount){
-        writer.writeNumberValue("errorCount", this.errorCount);
+            writer.writeNumberValue("errorCount", this.errorCount);
         }
         if(this.failedCount){
-        writer.writeNumberValue("failedCount", this.failedCount);
+            writer.writeNumberValue("failedCount", this.failedCount);
         }
         if(this.lastUpdateDateTime){
-        writer.writeDateValue("lastUpdateDateTime", this.lastUpdateDateTime);
+            writer.writeDateValue("lastUpdateDateTime", this.lastUpdateDateTime);
         }
         if(this.notApplicableCount){
-        writer.writeNumberValue("notApplicableCount", this.notApplicableCount);
+            writer.writeNumberValue("notApplicableCount", this.notApplicableCount);
         }
         if(this.pendingCount){
-        writer.writeNumberValue("pendingCount", this.pendingCount);
+            writer.writeNumberValue("pendingCount", this.pendingCount);
         }
         if(this.successCount){
-        writer.writeNumberValue("successCount", this.successCount);
+            writer.writeNumberValue("successCount", this.successCount);
         }
     };
 }

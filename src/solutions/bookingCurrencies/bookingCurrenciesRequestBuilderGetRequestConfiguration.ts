@@ -1,11 +1,11 @@
 import {BookingCurrenciesRequestBuilderGetQueryParameters} from './bookingCurrenciesRequestBuilderGetQueryParameters';
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
-export interface BookingCurrenciesRequestBuilderGetRequestConfiguration{
+export interface BookingCurrenciesRequestBuilderGetRequestConfiguration {
     /** Request headers */
-    headers?:Record<string, string> | undefined;
+    headers?: Record<string, string> | undefined;
     /** Request options */
-    options?:RequestOption[] | undefined;
+    options?: RequestOption[] | undefined;
     /** Request query parameters */
-    queryParameters?:BookingCurrenciesRequestBuilderGetQueryParameters | undefined;
+    queryParameters?: BookingCurrenciesRequestBuilderGetQueryParameters | undefined;
 }

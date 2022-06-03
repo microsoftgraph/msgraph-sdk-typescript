@@ -4,7 +4,7 @@ import {TeamsAsyncOperation} from './teamsAsyncOperation';
 import {TeamsAsyncOperationCollectionResponse} from './teamsAsyncOperationCollectionResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class TeamsAsyncOperationCollectionResponseImpl implements AdditionalDataHolder, Parsable, TeamsAsyncOperationCollectionResponse {
+export class TeamsAsyncOperationCollectionResponseImpl implements TeamsAsyncOperationCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class TeamsAsyncOperationCollectionResponseImpl implements AdditionalData
      * @param teamsAsyncOperationCollectionResponseParameterValue 
      */
     public constructor(teamsAsyncOperationCollectionResponseParameterValue?: TeamsAsyncOperationCollectionResponse | undefined) {
-        this.additionalData = teamsAsyncOperationCollectionResponseParameterValue?.additionalData ? teamsAsyncOperationCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = teamsAsyncOperationCollectionResponseParameterValue?.nextLink ;
-        this.value = teamsAsyncOperationCollectionResponseParameterValue?.value ;
+        this.additionalData = teamsAsyncOperationCollectionResponseParameterValue?.additionalData ? teamsAsyncOperationCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = teamsAsyncOperationCollectionResponseParameterValue?.nextLink;
+        this.value = teamsAsyncOperationCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class TeamsAsyncOperationCollectionResponseImpl implements AdditionalData
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: TeamsAsyncOperationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new TeamsAsyncOperationImpl(element));});
-        writer.writeCollectionOfObjectValues<TeamsAsyncOperationImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<TeamsAsyncOperationImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

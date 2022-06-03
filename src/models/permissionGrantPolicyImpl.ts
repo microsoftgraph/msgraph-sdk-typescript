@@ -5,7 +5,7 @@ import {PermissionGrantPolicy} from './permissionGrantPolicy';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the policyRoot singleton. */
-export class PermissionGrantPolicyImpl extends PolicyBaseImpl implements Parsable, PermissionGrantPolicy {
+export class PermissionGrantPolicyImpl extends PolicyBaseImpl implements PermissionGrantPolicy {
     /** Condition sets which are excluded in this permission grant policy. Automatically expanded on GET. */
     public excludes?: PermissionGrantConditionSet[] | undefined;
     /** Condition sets which are included in this permission grant policy. Automatically expanded on GET. */
@@ -15,9 +15,9 @@ export class PermissionGrantPolicyImpl extends PolicyBaseImpl implements Parsabl
      * @param permissionGrantPolicyParameterValue 
      */
     public constructor(permissionGrantPolicyParameterValue?: PermissionGrantPolicy | undefined) {
-        super();
-        this.excludes = permissionGrantPolicyParameterValue?.excludes ;
-        this.includes = permissionGrantPolicyParameterValue?.includes ;
+        super(permissionGrantPolicyParameterValue);
+        this.excludes = permissionGrantPolicyParameterValue?.excludes;
+        this.includes = permissionGrantPolicyParameterValue?.includes;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class PermissionGrantPolicyImpl extends PolicyBaseImpl implements Parsabl
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.excludes && this.excludes.length != 0){        const excludesArrValue: PermissionGrantConditionSetImpl[] = []; this.excludes?.forEach(element => {excludesArrValue.push(new PermissionGrantConditionSetImpl(element));});
-        writer.writeCollectionOfObjectValues<PermissionGrantConditionSetImpl>("excludes", excludesArrValue);
+            writer.writeCollectionOfObjectValues<PermissionGrantConditionSetImpl>("excludes", excludesArrValue);
         }
         if(this.includes && this.includes.length != 0){        const includesArrValue: PermissionGrantConditionSetImpl[] = []; this.includes?.forEach(element => {includesArrValue.push(new PermissionGrantConditionSetImpl(element));});
-        writer.writeCollectionOfObjectValues<PermissionGrantConditionSetImpl>("includes", includesArrValue);
+            writer.writeCollectionOfObjectValues<PermissionGrantConditionSetImpl>("includes", includesArrValue);
         }
     };
 }

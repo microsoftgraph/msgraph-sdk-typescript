@@ -4,7 +4,7 @@ import {RichLongRunningOperation} from './richLongRunningOperation';
 import {RichLongRunningOperationCollectionResponse} from './richLongRunningOperationCollectionResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class RichLongRunningOperationCollectionResponseImpl implements AdditionalDataHolder, Parsable, RichLongRunningOperationCollectionResponse {
+export class RichLongRunningOperationCollectionResponseImpl implements RichLongRunningOperationCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class RichLongRunningOperationCollectionResponseImpl implements Additiona
      * @param richLongRunningOperationCollectionResponseParameterValue 
      */
     public constructor(richLongRunningOperationCollectionResponseParameterValue?: RichLongRunningOperationCollectionResponse | undefined) {
-        this.additionalData = richLongRunningOperationCollectionResponseParameterValue?.additionalData ? richLongRunningOperationCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = richLongRunningOperationCollectionResponseParameterValue?.nextLink ;
-        this.value = richLongRunningOperationCollectionResponseParameterValue?.value ;
+        this.additionalData = richLongRunningOperationCollectionResponseParameterValue?.additionalData ? richLongRunningOperationCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = richLongRunningOperationCollectionResponseParameterValue?.nextLink;
+        this.value = richLongRunningOperationCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class RichLongRunningOperationCollectionResponseImpl implements Additiona
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: RichLongRunningOperationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new RichLongRunningOperationImpl(element));});
-        writer.writeCollectionOfObjectValues<RichLongRunningOperationImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<RichLongRunningOperationImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

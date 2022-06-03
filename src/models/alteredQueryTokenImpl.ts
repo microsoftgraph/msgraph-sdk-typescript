@@ -1,7 +1,7 @@
 import {AlteredQueryToken} from './alteredQueryToken';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class AlteredQueryTokenImpl implements AdditionalDataHolder, AlteredQueryToken, Parsable {
+export class AlteredQueryTokenImpl implements AlteredQueryToken {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Defines the length of a changed segment. */
@@ -15,10 +15,10 @@ export class AlteredQueryTokenImpl implements AdditionalDataHolder, AlteredQuery
      * @param alteredQueryTokenParameterValue 
      */
     public constructor(alteredQueryTokenParameterValue?: AlteredQueryToken | undefined) {
-        this.additionalData = alteredQueryTokenParameterValue?.additionalData ? alteredQueryTokenParameterValue?.additionalData! : {}
-        this.length = alteredQueryTokenParameterValue?.length ;
-        this.offset = alteredQueryTokenParameterValue?.offset ;
-        this.suggestion = alteredQueryTokenParameterValue?.suggestion ;
+        this.additionalData = alteredQueryTokenParameterValue?.additionalData ? alteredQueryTokenParameterValue?.additionalData! : {};
+        this.length = alteredQueryTokenParameterValue?.length;
+        this.offset = alteredQueryTokenParameterValue?.offset;
+        this.suggestion = alteredQueryTokenParameterValue?.suggestion;
     };
     /**
      * The deserialization information for the current model
@@ -38,13 +38,13 @@ export class AlteredQueryTokenImpl implements AdditionalDataHolder, AlteredQuery
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.length){
-        writer.writeNumberValue("length", this.length);
+            writer.writeNumberValue("length", this.length);
         }
         if(this.offset){
-        writer.writeNumberValue("offset", this.offset);
+            writer.writeNumberValue("offset", this.offset);
         }
         if(this.suggestion){
-        writer.writeStringValue("suggestion", this.suggestion);
+            writer.writeStringValue("suggestion", this.suggestion);
         }
         writer.writeAdditionalData(this.additionalData);
     };

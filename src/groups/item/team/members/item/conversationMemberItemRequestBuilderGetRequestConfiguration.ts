@@ -1,11 +1,11 @@
 import {ConversationMemberItemRequestBuilderGetQueryParameters} from './conversationMemberItemRequestBuilderGetQueryParameters';
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
-export interface ConversationMemberItemRequestBuilderGetRequestConfiguration{
+export interface ConversationMemberItemRequestBuilderGetRequestConfiguration {
     /** Request headers */
-    headers?:Record<string, string> | undefined;
+    headers?: Record<string, string> | undefined;
     /** Request options */
-    options?:RequestOption[] | undefined;
+    options?: RequestOption[] | undefined;
     /** Request query parameters */
-    queryParameters?:ConversationMemberItemRequestBuilderGetQueryParameters | undefined;
+    queryParameters?: ConversationMemberItemRequestBuilderGetQueryParameters | undefined;
 }

@@ -1,7 +1,7 @@
 import {AccessAction} from './accessAction';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class AccessActionImpl implements AccessAction, AdditionalDataHolder, Parsable {
+export class AccessActionImpl implements AccessAction {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /**
@@ -9,7 +9,7 @@ export class AccessActionImpl implements AccessAction, AdditionalDataHolder, Par
      * @param accessActionParameterValue 
      */
     public constructor(accessActionParameterValue?: AccessAction | undefined) {
-        this.additionalData = accessActionParameterValue?.additionalData ? accessActionParameterValue?.additionalData! : {}
+        this.additionalData = accessActionParameterValue?.additionalData ? accessActionParameterValue?.additionalData! : {};
     };
     /**
      * The deserialization information for the current model

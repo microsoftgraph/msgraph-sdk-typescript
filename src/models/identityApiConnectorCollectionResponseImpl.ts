@@ -4,7 +4,7 @@ import {IdentityApiConnectorCollectionResponse} from './identityApiConnectorColl
 import {IdentityApiConnectorImpl} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class IdentityApiConnectorCollectionResponseImpl implements AdditionalDataHolder, IdentityApiConnectorCollectionResponse, Parsable {
+export class IdentityApiConnectorCollectionResponseImpl implements IdentityApiConnectorCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class IdentityApiConnectorCollectionResponseImpl implements AdditionalDat
      * @param identityApiConnectorCollectionResponseParameterValue 
      */
     public constructor(identityApiConnectorCollectionResponseParameterValue?: IdentityApiConnectorCollectionResponse | undefined) {
-        this.additionalData = identityApiConnectorCollectionResponseParameterValue?.additionalData ? identityApiConnectorCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = identityApiConnectorCollectionResponseParameterValue?.nextLink ;
-        this.value = identityApiConnectorCollectionResponseParameterValue?.value ;
+        this.additionalData = identityApiConnectorCollectionResponseParameterValue?.additionalData ? identityApiConnectorCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = identityApiConnectorCollectionResponseParameterValue?.nextLink;
+        this.value = identityApiConnectorCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class IdentityApiConnectorCollectionResponseImpl implements AdditionalDat
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: IdentityApiConnectorImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new IdentityApiConnectorImpl(element));});
-        writer.writeCollectionOfObjectValues<IdentityApiConnectorImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<IdentityApiConnectorImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

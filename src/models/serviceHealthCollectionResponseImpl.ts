@@ -4,7 +4,7 @@ import {ServiceHealth} from './serviceHealth';
 import {ServiceHealthCollectionResponse} from './serviceHealthCollectionResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ServiceHealthCollectionResponseImpl implements AdditionalDataHolder, Parsable, ServiceHealthCollectionResponse {
+export class ServiceHealthCollectionResponseImpl implements ServiceHealthCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class ServiceHealthCollectionResponseImpl implements AdditionalDataHolder
      * @param serviceHealthCollectionResponseParameterValue 
      */
     public constructor(serviceHealthCollectionResponseParameterValue?: ServiceHealthCollectionResponse | undefined) {
-        this.additionalData = serviceHealthCollectionResponseParameterValue?.additionalData ? serviceHealthCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = serviceHealthCollectionResponseParameterValue?.nextLink ;
-        this.value = serviceHealthCollectionResponseParameterValue?.value ;
+        this.additionalData = serviceHealthCollectionResponseParameterValue?.additionalData ? serviceHealthCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = serviceHealthCollectionResponseParameterValue?.nextLink;
+        this.value = serviceHealthCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class ServiceHealthCollectionResponseImpl implements AdditionalDataHolder
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: ServiceHealthImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ServiceHealthImpl(element));});
-        writer.writeCollectionOfObjectValues<ServiceHealthImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<ServiceHealthImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

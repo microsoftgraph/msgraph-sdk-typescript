@@ -2,7 +2,7 @@ import {ConfigurationManagerClientEnabledFeatures} from './configurationManagerC
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** configuration Manager client enabled features */
-export class ConfigurationManagerClientEnabledFeaturesImpl implements AdditionalDataHolder, ConfigurationManagerClientEnabledFeatures, Parsable {
+export class ConfigurationManagerClientEnabledFeaturesImpl implements ConfigurationManagerClientEnabledFeatures {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Whether compliance policy is managed by Intune */
@@ -22,13 +22,13 @@ export class ConfigurationManagerClientEnabledFeaturesImpl implements Additional
      * @param configurationManagerClientEnabledFeaturesParameterValue 
      */
     public constructor(configurationManagerClientEnabledFeaturesParameterValue?: ConfigurationManagerClientEnabledFeatures | undefined) {
-        this.additionalData = configurationManagerClientEnabledFeaturesParameterValue?.additionalData ? configurationManagerClientEnabledFeaturesParameterValue?.additionalData! : {}
-        this.compliancePolicy = configurationManagerClientEnabledFeaturesParameterValue?.compliancePolicy ;
-        this.deviceConfiguration = configurationManagerClientEnabledFeaturesParameterValue?.deviceConfiguration ;
-        this.inventory = configurationManagerClientEnabledFeaturesParameterValue?.inventory ;
-        this.modernApps = configurationManagerClientEnabledFeaturesParameterValue?.modernApps ;
-        this.resourceAccess = configurationManagerClientEnabledFeaturesParameterValue?.resourceAccess ;
-        this.windowsUpdateForBusiness = configurationManagerClientEnabledFeaturesParameterValue?.windowsUpdateForBusiness ;
+        this.additionalData = configurationManagerClientEnabledFeaturesParameterValue?.additionalData ? configurationManagerClientEnabledFeaturesParameterValue?.additionalData! : {};
+        this.compliancePolicy = configurationManagerClientEnabledFeaturesParameterValue?.compliancePolicy;
+        this.deviceConfiguration = configurationManagerClientEnabledFeaturesParameterValue?.deviceConfiguration;
+        this.inventory = configurationManagerClientEnabledFeaturesParameterValue?.inventory;
+        this.modernApps = configurationManagerClientEnabledFeaturesParameterValue?.modernApps;
+        this.resourceAccess = configurationManagerClientEnabledFeaturesParameterValue?.resourceAccess;
+        this.windowsUpdateForBusiness = configurationManagerClientEnabledFeaturesParameterValue?.windowsUpdateForBusiness;
     };
     /**
      * The deserialization information for the current model
@@ -51,22 +51,22 @@ export class ConfigurationManagerClientEnabledFeaturesImpl implements Additional
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.compliancePolicy){
-        writer.writeBooleanValue("compliancePolicy", this.compliancePolicy);
+            writer.writeBooleanValue("compliancePolicy", this.compliancePolicy);
         }
         if(this.deviceConfiguration){
-        writer.writeBooleanValue("deviceConfiguration", this.deviceConfiguration);
+            writer.writeBooleanValue("deviceConfiguration", this.deviceConfiguration);
         }
         if(this.inventory){
-        writer.writeBooleanValue("inventory", this.inventory);
+            writer.writeBooleanValue("inventory", this.inventory);
         }
         if(this.modernApps){
-        writer.writeBooleanValue("modernApps", this.modernApps);
+            writer.writeBooleanValue("modernApps", this.modernApps);
         }
         if(this.resourceAccess){
-        writer.writeBooleanValue("resourceAccess", this.resourceAccess);
+            writer.writeBooleanValue("resourceAccess", this.resourceAccess);
         }
         if(this.windowsUpdateForBusiness){
-        writer.writeBooleanValue("windowsUpdateForBusiness", this.windowsUpdateForBusiness);
+            writer.writeBooleanValue("windowsUpdateForBusiness", this.windowsUpdateForBusiness);
         }
         writer.writeAdditionalData(this.additionalData);
     };

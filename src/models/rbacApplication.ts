@@ -7,22 +7,23 @@ import {UnifiedRoleDefinition} from './unifiedRoleDefinition';
 import {UnifiedRoleEligibilitySchedule} from './unifiedRoleEligibilitySchedule';
 import {UnifiedRoleEligibilityScheduleInstance} from './unifiedRoleEligibilityScheduleInstance';
 import {UnifiedRoleEligibilityScheduleRequest} from './unifiedRoleEligibilityScheduleRequest';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface RbacApplication extends Entity{
+export interface RbacApplication extends Entity, Partial<Parsable> {
     /** Resource to grant access to users or groups. */
-    roleAssignments?:UnifiedRoleAssignment[] | undefined;
+    roleAssignments?: UnifiedRoleAssignment[] | undefined;
     /** Instances for active role assignments. */
-    roleAssignmentScheduleInstances?:UnifiedRoleAssignmentScheduleInstance[] | undefined;
+    roleAssignmentScheduleInstances?: UnifiedRoleAssignmentScheduleInstance[] | undefined;
     /** Requests for active role assignments to principals through PIM. */
-    roleAssignmentScheduleRequests?:UnifiedRoleAssignmentScheduleRequest[] | undefined;
+    roleAssignmentScheduleRequests?: UnifiedRoleAssignmentScheduleRequest[] | undefined;
     /** Schedules for active role assignment operations. */
-    roleAssignmentSchedules?:UnifiedRoleAssignmentSchedule[] | undefined;
+    roleAssignmentSchedules?: UnifiedRoleAssignmentSchedule[] | undefined;
     /** Resource representing the roles allowed by RBAC providers and the permissions assigned to the roles. */
-    roleDefinitions?:UnifiedRoleDefinition[] | undefined;
+    roleDefinitions?: UnifiedRoleDefinition[] | undefined;
     /** Instances for role eligibility requests. */
-    roleEligibilityScheduleInstances?:UnifiedRoleEligibilityScheduleInstance[] | undefined;
+    roleEligibilityScheduleInstances?: UnifiedRoleEligibilityScheduleInstance[] | undefined;
     /** Requests for role eligibilities for principals through PIM. */
-    roleEligibilityScheduleRequests?:UnifiedRoleEligibilityScheduleRequest[] | undefined;
+    roleEligibilityScheduleRequests?: UnifiedRoleEligibilityScheduleRequest[] | undefined;
     /** Schedules for role eligibility operations. */
-    roleEligibilitySchedules?:UnifiedRoleEligibilitySchedule[] | undefined;
+    roleEligibilitySchedules?: UnifiedRoleEligibilitySchedule[] | undefined;
 }

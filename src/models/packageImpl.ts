@@ -1,7 +1,7 @@
 import {Package} from './package';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class PackageImpl implements AdditionalDataHolder, Package, Parsable {
+export class PackageImpl implements Package {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** A string indicating the type of package. While oneNote is the only currently defined value, you should expect other package types to be returned and handle them accordingly. */
@@ -11,8 +11,8 @@ export class PackageImpl implements AdditionalDataHolder, Package, Parsable {
      * @param packageParameterValue 
      */
     public constructor(packageParameterValue?: Package | undefined) {
-        this.additionalData = packageParameterValue?.additionalData ? packageParameterValue?.additionalData! : {}
-        this.type = packageParameterValue?.type ;
+        this.additionalData = packageParameterValue?.additionalData ? packageParameterValue?.additionalData! : {};
+        this.type = packageParameterValue?.type;
     };
     /**
      * The deserialization information for the current model
@@ -30,7 +30,7 @@ export class PackageImpl implements AdditionalDataHolder, Package, Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.type){
-        writer.writeStringValue("type", this.type);
+            writer.writeStringValue("type", this.type);
         }
         writer.writeAdditionalData(this.additionalData);
     };

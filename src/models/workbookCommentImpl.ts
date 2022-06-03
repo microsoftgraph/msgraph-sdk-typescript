@@ -4,8 +4,8 @@ import {WorkbookComment} from './workbookComment';
 import {WorkbookCommentReply} from './workbookCommentReply';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
-export class WorkbookCommentImpl extends EntityImpl implements Parsable, WorkbookComment {
+/** Casts the previous resource to group. */
+export class WorkbookCommentImpl extends EntityImpl implements WorkbookComment {
     /** The content of the comment. */
     public content?: string | undefined;
     /** Indicates the type for the comment. */
@@ -17,10 +17,10 @@ export class WorkbookCommentImpl extends EntityImpl implements Parsable, Workboo
      * @param workbookCommentParameterValue 
      */
     public constructor(workbookCommentParameterValue?: WorkbookComment | undefined) {
-        super();
-        this.content = workbookCommentParameterValue?.content ;
-        this.contentType = workbookCommentParameterValue?.contentType ;
-        this.replies = workbookCommentParameterValue?.replies ;
+        super(workbookCommentParameterValue);
+        this.content = workbookCommentParameterValue?.content;
+        this.contentType = workbookCommentParameterValue?.contentType;
+        this.replies = workbookCommentParameterValue?.replies;
     };
     /**
      * The deserialization information for the current model
@@ -41,13 +41,13 @@ export class WorkbookCommentImpl extends EntityImpl implements Parsable, Workboo
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.content){
-        writer.writeStringValue("content", this.content);
+            writer.writeStringValue("content", this.content);
         }
         if(this.contentType){
-        writer.writeStringValue("contentType", this.contentType);
+            writer.writeStringValue("contentType", this.contentType);
         }
         if(this.replies && this.replies.length != 0){        const repliesArrValue: WorkbookCommentReplyImpl[] = []; this.replies?.forEach(element => {repliesArrValue.push(new WorkbookCommentReplyImpl(element));});
-        writer.writeCollectionOfObjectValues<WorkbookCommentReplyImpl>("replies", repliesArrValue);
+            writer.writeCollectionOfObjectValues<WorkbookCommentReplyImpl>("replies", repliesArrValue);
         }
     };
 }

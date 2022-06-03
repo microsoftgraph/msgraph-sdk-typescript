@@ -1,11 +1,11 @@
 import {TabsRequestBuilderGetQueryParameters} from './tabsRequestBuilderGetQueryParameters';
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
-export interface TabsRequestBuilderGetRequestConfiguration{
+export interface TabsRequestBuilderGetRequestConfiguration {
     /** Request headers */
-    headers?:Record<string, string> | undefined;
+    headers?: Record<string, string> | undefined;
     /** Request options */
-    options?:RequestOption[] | undefined;
+    options?: RequestOption[] | undefined;
     /** Request query parameters */
-    queryParameters?:TabsRequestBuilderGetQueryParameters | undefined;
+    queryParameters?: TabsRequestBuilderGetQueryParameters | undefined;
 }

@@ -1,7 +1,7 @@
 import {PlannerOrderHintsByAssignee} from './plannerOrderHintsByAssignee';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class PlannerOrderHintsByAssigneeImpl implements AdditionalDataHolder, Parsable, PlannerOrderHintsByAssignee {
+export class PlannerOrderHintsByAssigneeImpl implements PlannerOrderHintsByAssignee {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /**
@@ -9,7 +9,7 @@ export class PlannerOrderHintsByAssigneeImpl implements AdditionalDataHolder, Pa
      * @param plannerOrderHintsByAssigneeParameterValue 
      */
     public constructor(plannerOrderHintsByAssigneeParameterValue?: PlannerOrderHintsByAssignee | undefined) {
-        this.additionalData = plannerOrderHintsByAssigneeParameterValue?.additionalData ? plannerOrderHintsByAssigneeParameterValue?.additionalData! : {}
+        this.additionalData = plannerOrderHintsByAssigneeParameterValue?.additionalData ? plannerOrderHintsByAssigneeParameterValue?.additionalData! : {};
     };
     /**
      * The deserialization information for the current model

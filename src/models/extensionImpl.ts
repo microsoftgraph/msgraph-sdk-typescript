@@ -3,13 +3,13 @@ import {EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the collection of device entities. */
-export class ExtensionImpl extends EntityImpl implements Extension, Parsable {
+export class ExtensionImpl extends EntityImpl implements Extension {
     /**
      * Instantiates a new extension and sets the default values.
      * @param extensionParameterValue 
      */
     public constructor(extensionParameterValue?: Extension | undefined) {
-        super();
+        super(extensionParameterValue);
     };
     /**
      * The deserialization information for the current model

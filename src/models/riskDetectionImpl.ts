@@ -11,7 +11,7 @@ import {TokenIssuerType} from './tokenIssuerType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the identityProtectionRoot singleton. */
-export class RiskDetectionImpl extends EntityImpl implements Parsable, RiskDetection {
+export class RiskDetectionImpl extends EntityImpl implements RiskDetection {
     /** Indicates the activity type the detected risk is linked to. The possible values are signin, user, unknownFutureValue. */
     public activity?: ActivityType | undefined;
     /** Date and time that the risky activity occurred. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
@@ -55,26 +55,26 @@ export class RiskDetectionImpl extends EntityImpl implements Parsable, RiskDetec
      * @param riskDetectionParameterValue 
      */
     public constructor(riskDetectionParameterValue?: RiskDetection | undefined) {
-        super();
-        this.activity = riskDetectionParameterValue?.activity ;
-        this.activityDateTime = riskDetectionParameterValue?.activityDateTime ;
-        this.additionalInfo = riskDetectionParameterValue?.additionalInfo ;
-        this.correlationId = riskDetectionParameterValue?.correlationId ;
-        this.detectedDateTime = riskDetectionParameterValue?.detectedDateTime ;
-        this.detectionTimingType = riskDetectionParameterValue?.detectionTimingType ;
-        this.ipAddress = riskDetectionParameterValue?.ipAddress ;
-        this.lastUpdatedDateTime = riskDetectionParameterValue?.lastUpdatedDateTime ;
-        this.location = riskDetectionParameterValue?.location ;
-        this.requestId = riskDetectionParameterValue?.requestId ;
-        this.riskDetail = riskDetectionParameterValue?.riskDetail ;
-        this.riskEventType = riskDetectionParameterValue?.riskEventType ;
-        this.riskLevel = riskDetectionParameterValue?.riskLevel ;
-        this.riskState = riskDetectionParameterValue?.riskState ;
-        this.source = riskDetectionParameterValue?.source ;
-        this.tokenIssuerType = riskDetectionParameterValue?.tokenIssuerType ;
-        this.userDisplayName = riskDetectionParameterValue?.userDisplayName ;
-        this.userId = riskDetectionParameterValue?.userId ;
-        this.userPrincipalName = riskDetectionParameterValue?.userPrincipalName ;
+        super(riskDetectionParameterValue);
+        this.activity = riskDetectionParameterValue?.activity;
+        this.activityDateTime = riskDetectionParameterValue?.activityDateTime;
+        this.additionalInfo = riskDetectionParameterValue?.additionalInfo;
+        this.correlationId = riskDetectionParameterValue?.correlationId;
+        this.detectedDateTime = riskDetectionParameterValue?.detectedDateTime;
+        this.detectionTimingType = riskDetectionParameterValue?.detectionTimingType;
+        this.ipAddress = riskDetectionParameterValue?.ipAddress;
+        this.lastUpdatedDateTime = riskDetectionParameterValue?.lastUpdatedDateTime;
+        this.location = riskDetectionParameterValue?.location;
+        this.requestId = riskDetectionParameterValue?.requestId;
+        this.riskDetail = riskDetectionParameterValue?.riskDetail;
+        this.riskEventType = riskDetectionParameterValue?.riskEventType;
+        this.riskLevel = riskDetectionParameterValue?.riskLevel;
+        this.riskState = riskDetectionParameterValue?.riskState;
+        this.source = riskDetectionParameterValue?.source;
+        this.tokenIssuerType = riskDetectionParameterValue?.tokenIssuerType;
+        this.userDisplayName = riskDetectionParameterValue?.userDisplayName;
+        this.userId = riskDetectionParameterValue?.userId;
+        this.userPrincipalName = riskDetectionParameterValue?.userPrincipalName;
     };
     /**
      * The deserialization information for the current model
@@ -111,61 +111,61 @@ export class RiskDetectionImpl extends EntityImpl implements Parsable, RiskDetec
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.activity){
-        writer.writeEnumValue<ActivityType>("activity", this.activity);
+            writer.writeEnumValue<ActivityType>("activity", this.activity);
         }
         if(this.activityDateTime){
-        writer.writeDateValue("activityDateTime", this.activityDateTime);
+            writer.writeDateValue("activityDateTime", this.activityDateTime);
         }
         if(this.additionalInfo){
-        writer.writeStringValue("additionalInfo", this.additionalInfo);
+            writer.writeStringValue("additionalInfo", this.additionalInfo);
         }
         if(this.correlationId){
-        writer.writeStringValue("correlationId", this.correlationId);
+            writer.writeStringValue("correlationId", this.correlationId);
         }
         if(this.detectedDateTime){
-        writer.writeDateValue("detectedDateTime", this.detectedDateTime);
+            writer.writeDateValue("detectedDateTime", this.detectedDateTime);
         }
         if(this.detectionTimingType){
-        writer.writeEnumValue<RiskDetectionTimingType>("detectionTimingType", this.detectionTimingType);
+            writer.writeEnumValue<RiskDetectionTimingType>("detectionTimingType", this.detectionTimingType);
         }
         if(this.ipAddress){
-        writer.writeStringValue("ipAddress", this.ipAddress);
+            writer.writeStringValue("ipAddress", this.ipAddress);
         }
         if(this.lastUpdatedDateTime){
-        writer.writeDateValue("lastUpdatedDateTime", this.lastUpdatedDateTime);
+            writer.writeDateValue("lastUpdatedDateTime", this.lastUpdatedDateTime);
         }
         if(this.location){
-        writer.writeObjectValue<SignInLocationImpl>("location", new SignInLocationImpl(this.location));
+            writer.writeObjectValue<SignInLocationImpl>("location", new SignInLocationImpl(this.location));
         }
         if(this.requestId){
-        writer.writeStringValue("requestId", this.requestId);
+            writer.writeStringValue("requestId", this.requestId);
         }
         if(this.riskDetail){
-        writer.writeEnumValue<RiskDetail>("riskDetail", this.riskDetail);
+            writer.writeEnumValue<RiskDetail>("riskDetail", this.riskDetail);
         }
         if(this.riskEventType){
-        writer.writeStringValue("riskEventType", this.riskEventType);
+            writer.writeStringValue("riskEventType", this.riskEventType);
         }
         if(this.riskLevel){
-        writer.writeEnumValue<RiskLevel>("riskLevel", this.riskLevel);
+            writer.writeEnumValue<RiskLevel>("riskLevel", this.riskLevel);
         }
         if(this.riskState){
-        writer.writeEnumValue<RiskState>("riskState", this.riskState);
+            writer.writeEnumValue<RiskState>("riskState", this.riskState);
         }
         if(this.source){
-        writer.writeStringValue("source", this.source);
+            writer.writeStringValue("source", this.source);
         }
         if(this.tokenIssuerType){
-        writer.writeEnumValue<TokenIssuerType>("tokenIssuerType", this.tokenIssuerType);
+            writer.writeEnumValue<TokenIssuerType>("tokenIssuerType", this.tokenIssuerType);
         }
         if(this.userDisplayName){
-        writer.writeStringValue("userDisplayName", this.userDisplayName);
+            writer.writeStringValue("userDisplayName", this.userDisplayName);
         }
         if(this.userId){
-        writer.writeStringValue("userId", this.userId);
+            writer.writeStringValue("userId", this.userId);
         }
         if(this.userPrincipalName){
-        writer.writeStringValue("userPrincipalName", this.userPrincipalName);
+            writer.writeStringValue("userPrincipalName", this.userPrincipalName);
         }
     };
 }

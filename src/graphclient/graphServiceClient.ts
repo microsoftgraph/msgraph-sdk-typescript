@@ -25,7 +25,7 @@ export class GraphServiceClient extends GraphBaseServiceClient implements GraphB
 			error.message = "Unable to Create Client, Please provide an authentication provider";
 			throw error;
 		}
-        const allowedHosts = updateAndReturnAllAllowedHosts(clientOptions.authProvider, clientOptions.customHosts);
+        const allowedHosts = updateAndReturnAllAllowedHosts(clientOptions.authProvider);
 
         const graphSDKConfig: GraphSDKConfig = {
             sdkTelemetryVersion: sdkVersion,
@@ -54,6 +54,7 @@ export class GraphServiceClient extends GraphBaseServiceClient implements GraphB
 		baseUrl: GRAPH_BASE_URL,
 		debugLogging: false,
 		defaultVersion: GRAPH_API_VERSION,
+        authProvider: undefined,
 	};
 
     /**

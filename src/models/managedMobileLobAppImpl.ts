@@ -5,7 +5,7 @@ import {MobileAppContent} from './mobileAppContent';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** An abstract base class containing properties for all managed mobile line of business apps. */
-export class ManagedMobileLobAppImpl extends ManagedAppImpl implements ManagedMobileLobApp, Parsable {
+export class ManagedMobileLobAppImpl extends ManagedAppImpl implements ManagedMobileLobApp {
     /** The internal committed content version. */
     public committedContentVersion?: string | undefined;
     /** The list of content versions for this app. */
@@ -19,11 +19,11 @@ export class ManagedMobileLobAppImpl extends ManagedAppImpl implements ManagedMo
      * @param managedMobileLobAppParameterValue 
      */
     public constructor(managedMobileLobAppParameterValue?: ManagedMobileLobApp | undefined) {
-        super();
-        this.committedContentVersion = managedMobileLobAppParameterValue?.committedContentVersion ;
-        this.contentVersions = managedMobileLobAppParameterValue?.contentVersions ;
-        this.fileName = managedMobileLobAppParameterValue?.fileName ;
-        this.size = managedMobileLobAppParameterValue?.size ;
+        super(managedMobileLobAppParameterValue);
+        this.committedContentVersion = managedMobileLobAppParameterValue?.committedContentVersion;
+        this.contentVersions = managedMobileLobAppParameterValue?.contentVersions;
+        this.fileName = managedMobileLobAppParameterValue?.fileName;
+        this.size = managedMobileLobAppParameterValue?.size;
     };
     /**
      * The deserialization information for the current model
@@ -45,16 +45,16 @@ export class ManagedMobileLobAppImpl extends ManagedAppImpl implements ManagedMo
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.committedContentVersion){
-        writer.writeStringValue("committedContentVersion", this.committedContentVersion);
+            writer.writeStringValue("committedContentVersion", this.committedContentVersion);
         }
         if(this.contentVersions && this.contentVersions.length != 0){        const contentVersionsArrValue: MobileAppContentImpl[] = []; this.contentVersions?.forEach(element => {contentVersionsArrValue.push(new MobileAppContentImpl(element));});
-        writer.writeCollectionOfObjectValues<MobileAppContentImpl>("contentVersions", contentVersionsArrValue);
+            writer.writeCollectionOfObjectValues<MobileAppContentImpl>("contentVersions", contentVersionsArrValue);
         }
         if(this.fileName){
-        writer.writeStringValue("fileName", this.fileName);
+            writer.writeStringValue("fileName", this.fileName);
         }
         if(this.size){
-        writer.writeNumberValue("size", this.size);
+            writer.writeNumberValue("size", this.size);
         }
     };
 }

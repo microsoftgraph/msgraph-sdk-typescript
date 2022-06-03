@@ -9,7 +9,7 @@ import {SecurityVendorInformation} from './securityVendorInformation';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the security singleton. */
-export class SecureScoreImpl extends EntityImpl implements Parsable, SecureScore {
+export class SecureScoreImpl extends EntityImpl implements SecureScore {
     /** Active user count of the given tenant. */
     public activeUserCount?: number | undefined;
     /** Average score by different scopes (for example, average by industry, average by seating) and control category (Identity, Data, Device, Apps, Infrastructure) within the scope. */
@@ -35,17 +35,17 @@ export class SecureScoreImpl extends EntityImpl implements Parsable, SecureScore
      * @param secureScoreParameterValue 
      */
     public constructor(secureScoreParameterValue?: SecureScore | undefined) {
-        super();
-        this.activeUserCount = secureScoreParameterValue?.activeUserCount ;
-        this.averageComparativeScores = secureScoreParameterValue?.averageComparativeScores ;
-        this.azureTenantId = secureScoreParameterValue?.azureTenantId ;
-        this.controlScores = secureScoreParameterValue?.controlScores ;
-        this.createdDateTime = secureScoreParameterValue?.createdDateTime ;
-        this.currentScore = secureScoreParameterValue?.currentScore ;
-        this.enabledServices = secureScoreParameterValue?.enabledServices ;
-        this.licensedUserCount = secureScoreParameterValue?.licensedUserCount ;
-        this.maxScore = secureScoreParameterValue?.maxScore ;
-        this.vendorInformation = secureScoreParameterValue?.vendorInformation ;
+        super(secureScoreParameterValue);
+        this.activeUserCount = secureScoreParameterValue?.activeUserCount;
+        this.averageComparativeScores = secureScoreParameterValue?.averageComparativeScores;
+        this.azureTenantId = secureScoreParameterValue?.azureTenantId;
+        this.controlScores = secureScoreParameterValue?.controlScores;
+        this.createdDateTime = secureScoreParameterValue?.createdDateTime;
+        this.currentScore = secureScoreParameterValue?.currentScore;
+        this.enabledServices = secureScoreParameterValue?.enabledServices;
+        this.licensedUserCount = secureScoreParameterValue?.licensedUserCount;
+        this.maxScore = secureScoreParameterValue?.maxScore;
+        this.vendorInformation = secureScoreParameterValue?.vendorInformation;
     };
     /**
      * The deserialization information for the current model
@@ -73,34 +73,34 @@ export class SecureScoreImpl extends EntityImpl implements Parsable, SecureScore
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.activeUserCount){
-        writer.writeNumberValue("activeUserCount", this.activeUserCount);
+            writer.writeNumberValue("activeUserCount", this.activeUserCount);
         }
         if(this.averageComparativeScores && this.averageComparativeScores.length != 0){        const averageComparativeScoresArrValue: AverageComparativeScoreImpl[] = []; this.averageComparativeScores?.forEach(element => {averageComparativeScoresArrValue.push(new AverageComparativeScoreImpl(element));});
-        writer.writeCollectionOfObjectValues<AverageComparativeScoreImpl>("averageComparativeScores", averageComparativeScoresArrValue);
+            writer.writeCollectionOfObjectValues<AverageComparativeScoreImpl>("averageComparativeScores", averageComparativeScoresArrValue);
         }
         if(this.azureTenantId){
-        writer.writeStringValue("azureTenantId", this.azureTenantId);
+            writer.writeStringValue("azureTenantId", this.azureTenantId);
         }
         if(this.controlScores && this.controlScores.length != 0){        const controlScoresArrValue: ControlScoreImpl[] = []; this.controlScores?.forEach(element => {controlScoresArrValue.push(new ControlScoreImpl(element));});
-        writer.writeCollectionOfObjectValues<ControlScoreImpl>("controlScores", controlScoresArrValue);
+            writer.writeCollectionOfObjectValues<ControlScoreImpl>("controlScores", controlScoresArrValue);
         }
         if(this.createdDateTime){
-        writer.writeDateValue("createdDateTime", this.createdDateTime);
+            writer.writeDateValue("createdDateTime", this.createdDateTime);
         }
         if(this.currentScore){
-        writer.writeNumberValue("currentScore", this.currentScore);
+            writer.writeNumberValue("currentScore", this.currentScore);
         }
         if(this.enabledServices){
-        writer.writeCollectionOfPrimitiveValues<string>("enabledServices", this.enabledServices);
+            writer.writeCollectionOfPrimitiveValues<string>("enabledServices", this.enabledServices);
         }
         if(this.licensedUserCount){
-        writer.writeNumberValue("licensedUserCount", this.licensedUserCount);
+            writer.writeNumberValue("licensedUserCount", this.licensedUserCount);
         }
         if(this.maxScore){
-        writer.writeNumberValue("maxScore", this.maxScore);
+            writer.writeNumberValue("maxScore", this.maxScore);
         }
         if(this.vendorInformation){
-        writer.writeObjectValue<SecurityVendorInformationImpl>("vendorInformation", new SecurityVendorInformationImpl(this.vendorInformation));
+            writer.writeObjectValue<SecurityVendorInformationImpl>("vendorInformation", new SecurityVendorInformationImpl(this.vendorInformation));
         }
     };
 }

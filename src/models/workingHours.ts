@@ -1,15 +1,15 @@
 import {TimeZoneBase} from './timeZoneBase';
-import {TimeOnly} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, TimeOnly} from '@microsoft/kiota-abstractions';
 
-export interface WorkingHours{
+export interface WorkingHours extends Partial<AdditionalDataHolder>, Partial<Parsable> {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?:Record<string, unknown>;
+    additionalData?: Record<string, unknown>;
     /** The days of the week on which the user works. */
-    daysOfWeek?:string[] | undefined;
+    daysOfWeek?: string[] | undefined;
     /** The time of the day that the user stops working. */
-    endTime?:TimeOnly | undefined;
+    endTime?: TimeOnly | undefined;
     /** The time of the day that the user starts working. */
-    startTime?:TimeOnly | undefined;
+    startTime?: TimeOnly | undefined;
     /** The time zone to which the working hours apply. */
-    timeZone?:TimeZoneBase | undefined;
+    timeZone?: TimeZoneBase | undefined;
 }

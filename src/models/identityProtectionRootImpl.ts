@@ -6,7 +6,7 @@ import {RiskDetection} from './riskDetection';
 import {RiskyUser} from './riskyUser';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class IdentityProtectionRootImpl implements AdditionalDataHolder, IdentityProtectionRoot, Parsable {
+export class IdentityProtectionRootImpl implements IdentityProtectionRoot {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Risk detection in Azure AD Identity Protection and the associated information about the detection. */
@@ -18,9 +18,9 @@ export class IdentityProtectionRootImpl implements AdditionalDataHolder, Identit
      * @param identityProtectionRootParameterValue 
      */
     public constructor(identityProtectionRootParameterValue?: IdentityProtectionRoot | undefined) {
-        this.additionalData = identityProtectionRootParameterValue?.additionalData ? identityProtectionRootParameterValue?.additionalData! : {}
-        this.riskDetections = identityProtectionRootParameterValue?.riskDetections ;
-        this.riskyUsers = identityProtectionRootParameterValue?.riskyUsers ;
+        this.additionalData = identityProtectionRootParameterValue?.additionalData ? identityProtectionRootParameterValue?.additionalData! : {};
+        this.riskDetections = identityProtectionRootParameterValue?.riskDetections;
+        this.riskyUsers = identityProtectionRootParameterValue?.riskyUsers;
     };
     /**
      * The deserialization information for the current model
@@ -39,10 +39,10 @@ export class IdentityProtectionRootImpl implements AdditionalDataHolder, Identit
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.riskDetections && this.riskDetections.length != 0){        const riskDetectionsArrValue: RiskDetectionImpl[] = []; this.riskDetections?.forEach(element => {riskDetectionsArrValue.push(new RiskDetectionImpl(element));});
-        writer.writeCollectionOfObjectValues<RiskDetectionImpl>("riskDetections", riskDetectionsArrValue);
+            writer.writeCollectionOfObjectValues<RiskDetectionImpl>("riskDetections", riskDetectionsArrValue);
         }
         if(this.riskyUsers && this.riskyUsers.length != 0){        const riskyUsersArrValue: RiskyUserImpl[] = []; this.riskyUsers?.forEach(element => {riskyUsersArrValue.push(new RiskyUserImpl(element));});
-        writer.writeCollectionOfObjectValues<RiskyUserImpl>("riskyUsers", riskyUsersArrValue);
+            writer.writeCollectionOfObjectValues<RiskyUserImpl>("riskyUsers", riskyUsersArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

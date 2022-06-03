@@ -1,7 +1,7 @@
 import {PublicErrorDetail} from './publicErrorDetail';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class PublicErrorDetailImpl implements AdditionalDataHolder, Parsable, PublicErrorDetail {
+export class PublicErrorDetailImpl implements PublicErrorDetail {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The error code. */
@@ -15,10 +15,10 @@ export class PublicErrorDetailImpl implements AdditionalDataHolder, Parsable, Pu
      * @param publicErrorDetailParameterValue 
      */
     public constructor(publicErrorDetailParameterValue?: PublicErrorDetail | undefined) {
-        this.additionalData = publicErrorDetailParameterValue?.additionalData ? publicErrorDetailParameterValue?.additionalData! : {}
-        this.code = publicErrorDetailParameterValue?.code ;
-        this.message = publicErrorDetailParameterValue?.message ;
-        this.target = publicErrorDetailParameterValue?.target ;
+        this.additionalData = publicErrorDetailParameterValue?.additionalData ? publicErrorDetailParameterValue?.additionalData! : {};
+        this.code = publicErrorDetailParameterValue?.code;
+        this.message = publicErrorDetailParameterValue?.message;
+        this.target = publicErrorDetailParameterValue?.target;
     };
     /**
      * The deserialization information for the current model
@@ -38,13 +38,13 @@ export class PublicErrorDetailImpl implements AdditionalDataHolder, Parsable, Pu
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.code){
-        writer.writeStringValue("code", this.code);
+            writer.writeStringValue("code", this.code);
         }
         if(this.message){
-        writer.writeStringValue("message", this.message);
+            writer.writeStringValue("message", this.message);
         }
         if(this.target){
-        writer.writeStringValue("target", this.target);
+            writer.writeStringValue("target", this.target);
         }
         writer.writeAdditionalData(this.additionalData);
     };

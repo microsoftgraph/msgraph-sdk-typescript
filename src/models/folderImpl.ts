@@ -4,7 +4,7 @@ import {FolderView} from './folderView';
 import {FolderViewImpl} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class FolderImpl implements AdditionalDataHolder, Folder, Parsable {
+export class FolderImpl implements Folder {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Number of children contained immediately within this container. */
@@ -16,9 +16,9 @@ export class FolderImpl implements AdditionalDataHolder, Folder, Parsable {
      * @param folderParameterValue 
      */
     public constructor(folderParameterValue?: Folder | undefined) {
-        this.additionalData = folderParameterValue?.additionalData ? folderParameterValue?.additionalData! : {}
-        this.childCount = folderParameterValue?.childCount ;
-        this.view = folderParameterValue?.view ;
+        this.additionalData = folderParameterValue?.additionalData ? folderParameterValue?.additionalData! : {};
+        this.childCount = folderParameterValue?.childCount;
+        this.view = folderParameterValue?.view;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class FolderImpl implements AdditionalDataHolder, Folder, Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.childCount){
-        writer.writeNumberValue("childCount", this.childCount);
+            writer.writeNumberValue("childCount", this.childCount);
         }
         if(this.view){
-        writer.writeObjectValue<FolderViewImpl>("view", new FolderViewImpl(this.view));
+            writer.writeObjectValue<FolderViewImpl>("view", new FolderViewImpl(this.view));
         }
         writer.writeAdditionalData(this.additionalData);
     };

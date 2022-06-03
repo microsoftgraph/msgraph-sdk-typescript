@@ -4,7 +4,7 @@ import {SamlOrWsFedProvider} from './samlOrWsFedProvider';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the collection of domain entities. */
-export class SamlOrWsFedProviderImpl extends IdentityProviderBaseImpl implements Parsable, SamlOrWsFedProvider {
+export class SamlOrWsFedProviderImpl extends IdentityProviderBaseImpl implements SamlOrWsFedProvider {
     /** Issuer URI of the federation server. */
     public issuerUri?: string | undefined;
     /** URI of the metadata exchange endpoint used for authentication from rich client applications. */
@@ -20,12 +20,12 @@ export class SamlOrWsFedProviderImpl extends IdentityProviderBaseImpl implements
      * @param samlOrWsFedProviderParameterValue 
      */
     public constructor(samlOrWsFedProviderParameterValue?: SamlOrWsFedProvider | undefined) {
-        super();
-        this.issuerUri = samlOrWsFedProviderParameterValue?.issuerUri ;
-        this.metadataExchangeUri = samlOrWsFedProviderParameterValue?.metadataExchangeUri ;
-        this.passiveSignInUri = samlOrWsFedProviderParameterValue?.passiveSignInUri ;
-        this.preferredAuthenticationProtocol = samlOrWsFedProviderParameterValue?.preferredAuthenticationProtocol ;
-        this.signingCertificate = samlOrWsFedProviderParameterValue?.signingCertificate ;
+        super(samlOrWsFedProviderParameterValue);
+        this.issuerUri = samlOrWsFedProviderParameterValue?.issuerUri;
+        this.metadataExchangeUri = samlOrWsFedProviderParameterValue?.metadataExchangeUri;
+        this.passiveSignInUri = samlOrWsFedProviderParameterValue?.passiveSignInUri;
+        this.preferredAuthenticationProtocol = samlOrWsFedProviderParameterValue?.preferredAuthenticationProtocol;
+        this.signingCertificate = samlOrWsFedProviderParameterValue?.signingCertificate;
     };
     /**
      * The deserialization information for the current model
@@ -48,19 +48,19 @@ export class SamlOrWsFedProviderImpl extends IdentityProviderBaseImpl implements
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.issuerUri){
-        writer.writeStringValue("issuerUri", this.issuerUri);
+            writer.writeStringValue("issuerUri", this.issuerUri);
         }
         if(this.metadataExchangeUri){
-        writer.writeStringValue("metadataExchangeUri", this.metadataExchangeUri);
+            writer.writeStringValue("metadataExchangeUri", this.metadataExchangeUri);
         }
         if(this.passiveSignInUri){
-        writer.writeStringValue("passiveSignInUri", this.passiveSignInUri);
+            writer.writeStringValue("passiveSignInUri", this.passiveSignInUri);
         }
         if(this.preferredAuthenticationProtocol){
-        writer.writeEnumValue<AuthenticationProtocol>("preferredAuthenticationProtocol", this.preferredAuthenticationProtocol);
+            writer.writeEnumValue<AuthenticationProtocol>("preferredAuthenticationProtocol", this.preferredAuthenticationProtocol);
         }
         if(this.signingCertificate){
-        writer.writeStringValue("signingCertificate", this.signingCertificate);
+            writer.writeStringValue("signingCertificate", this.signingCertificate);
         }
     };
 }

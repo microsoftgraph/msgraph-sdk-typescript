@@ -4,7 +4,7 @@ import {Session} from './session';
 import {SessionCollectionResponse} from './sessionCollectionResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class SessionCollectionResponseImpl implements AdditionalDataHolder, Parsable, SessionCollectionResponse {
+export class SessionCollectionResponseImpl implements SessionCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class SessionCollectionResponseImpl implements AdditionalDataHolder, Pars
      * @param sessionCollectionResponseParameterValue 
      */
     public constructor(sessionCollectionResponseParameterValue?: SessionCollectionResponse | undefined) {
-        this.additionalData = sessionCollectionResponseParameterValue?.additionalData ? sessionCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = sessionCollectionResponseParameterValue?.nextLink ;
-        this.value = sessionCollectionResponseParameterValue?.value ;
+        this.additionalData = sessionCollectionResponseParameterValue?.additionalData ? sessionCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = sessionCollectionResponseParameterValue?.nextLink;
+        this.value = sessionCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class SessionCollectionResponseImpl implements AdditionalDataHolder, Pars
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: SessionImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new SessionImpl(element));});
-        writer.writeCollectionOfObjectValues<SessionImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<SessionImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

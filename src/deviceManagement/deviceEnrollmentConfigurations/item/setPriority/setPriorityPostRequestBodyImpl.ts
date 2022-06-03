@@ -2,7 +2,7 @@ import {SetPriorityPostRequestBody} from './setPriorityPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the setPriority method. */
-export class SetPriorityPostRequestBodyImpl implements AdditionalDataHolder, Parsable, SetPriorityPostRequestBody {
+export class SetPriorityPostRequestBodyImpl implements SetPriorityPostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The priority property */
@@ -12,8 +12,8 @@ export class SetPriorityPostRequestBodyImpl implements AdditionalDataHolder, Par
      * @param setPriorityPostRequestBodyParameterValue 
      */
     public constructor(setPriorityPostRequestBodyParameterValue?: SetPriorityPostRequestBody | undefined) {
-        this.additionalData = setPriorityPostRequestBodyParameterValue?.additionalData ? setPriorityPostRequestBodyParameterValue?.additionalData! : {}
-        this.priority = setPriorityPostRequestBodyParameterValue?.priority ;
+        this.additionalData = setPriorityPostRequestBodyParameterValue?.additionalData ? setPriorityPostRequestBodyParameterValue?.additionalData! : {};
+        this.priority = setPriorityPostRequestBodyParameterValue?.priority;
     };
     /**
      * The deserialization information for the current model
@@ -31,7 +31,7 @@ export class SetPriorityPostRequestBodyImpl implements AdditionalDataHolder, Par
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.priority){
-        writer.writeNumberValue("priority", this.priority);
+            writer.writeNumberValue("priority", this.priority);
         }
         writer.writeAdditionalData(this.additionalData);
     };

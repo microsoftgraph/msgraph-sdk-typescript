@@ -1,7 +1,7 @@
 import {InnerError} from './innerError';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class InnerErrorImpl implements AdditionalDataHolder, InnerError, Parsable {
+export class InnerErrorImpl implements InnerError {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Client request Id as sent by the client application. */
@@ -15,10 +15,10 @@ export class InnerErrorImpl implements AdditionalDataHolder, InnerError, Parsabl
      * @param innerErrorParameterValue 
      */
     public constructor(innerErrorParameterValue?: InnerError | undefined) {
-        this.additionalData = innerErrorParameterValue?.additionalData ? innerErrorParameterValue?.additionalData! : {}
-        this.clientRequestId = innerErrorParameterValue?.clientRequestId ;
-        this.date = innerErrorParameterValue?.date ;
-        this.requestId = innerErrorParameterValue?.requestId ;
+        this.additionalData = innerErrorParameterValue?.additionalData ? innerErrorParameterValue?.additionalData! : {};
+        this.clientRequestId = innerErrorParameterValue?.clientRequestId;
+        this.date = innerErrorParameterValue?.date;
+        this.requestId = innerErrorParameterValue?.requestId;
     };
     /**
      * The deserialization information for the current model
@@ -38,13 +38,13 @@ export class InnerErrorImpl implements AdditionalDataHolder, InnerError, Parsabl
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.clientRequestId){
-        writer.writeStringValue("client-request-id", this.clientRequestId);
+            writer.writeStringValue("client-request-id", this.clientRequestId);
         }
         if(this.date){
-        writer.writeDateValue("date", this.date);
+            writer.writeDateValue("date", this.date);
         }
         if(this.requestId){
-        writer.writeStringValue("request-id", this.requestId);
+            writer.writeStringValue("request-id", this.requestId);
         }
         writer.writeAdditionalData(this.additionalData);
     };

@@ -3,7 +3,7 @@ import {DirectoryObjectImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the instantiate method. */
-export class AppRoleAssignmentImpl extends DirectoryObjectImpl implements AppRoleAssignment, Parsable {
+export class AppRoleAssignmentImpl extends DirectoryObjectImpl implements AppRoleAssignment {
     /** The identifier (id) for the app role which is assigned to the principal. This app role must be exposed in the appRoles property on the resource application's service principal (resourceId). If the resource application has not declared any app roles, a default app role ID of 00000000-0000-0000-0000-000000000000 can be specified to signal that the principal is assigned to the resource app without any specific app roles. Required on create. */
     public appRoleId?: string | undefined;
     /** The time when the app role assignment was created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. */
@@ -23,14 +23,14 @@ export class AppRoleAssignmentImpl extends DirectoryObjectImpl implements AppRol
      * @param appRoleAssignmentParameterValue 
      */
     public constructor(appRoleAssignmentParameterValue?: AppRoleAssignment | undefined) {
-        super();
-        this.appRoleId = appRoleAssignmentParameterValue?.appRoleId ;
-        this.createdDateTime = appRoleAssignmentParameterValue?.createdDateTime ;
-        this.principalDisplayName = appRoleAssignmentParameterValue?.principalDisplayName ;
-        this.principalId = appRoleAssignmentParameterValue?.principalId ;
-        this.principalType = appRoleAssignmentParameterValue?.principalType ;
-        this.resourceDisplayName = appRoleAssignmentParameterValue?.resourceDisplayName ;
-        this.resourceId = appRoleAssignmentParameterValue?.resourceId ;
+        super(appRoleAssignmentParameterValue);
+        this.appRoleId = appRoleAssignmentParameterValue?.appRoleId;
+        this.createdDateTime = appRoleAssignmentParameterValue?.createdDateTime;
+        this.principalDisplayName = appRoleAssignmentParameterValue?.principalDisplayName;
+        this.principalId = appRoleAssignmentParameterValue?.principalId;
+        this.principalType = appRoleAssignmentParameterValue?.principalType;
+        this.resourceDisplayName = appRoleAssignmentParameterValue?.resourceDisplayName;
+        this.resourceId = appRoleAssignmentParameterValue?.resourceId;
     };
     /**
      * The deserialization information for the current model
@@ -55,25 +55,25 @@ export class AppRoleAssignmentImpl extends DirectoryObjectImpl implements AppRol
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.appRoleId){
-        writer.writeStringValue("appRoleId", this.appRoleId);
+            writer.writeStringValue("appRoleId", this.appRoleId);
         }
         if(this.createdDateTime){
-        writer.writeDateValue("createdDateTime", this.createdDateTime);
+            writer.writeDateValue("createdDateTime", this.createdDateTime);
         }
         if(this.principalDisplayName){
-        writer.writeStringValue("principalDisplayName", this.principalDisplayName);
+            writer.writeStringValue("principalDisplayName", this.principalDisplayName);
         }
         if(this.principalId){
-        writer.writeStringValue("principalId", this.principalId);
+            writer.writeStringValue("principalId", this.principalId);
         }
         if(this.principalType){
-        writer.writeStringValue("principalType", this.principalType);
+            writer.writeStringValue("principalType", this.principalType);
         }
         if(this.resourceDisplayName){
-        writer.writeStringValue("resourceDisplayName", this.resourceDisplayName);
+            writer.writeStringValue("resourceDisplayName", this.resourceDisplayName);
         }
         if(this.resourceId){
-        writer.writeStringValue("resourceId", this.resourceId);
+            writer.writeStringValue("resourceId", this.resourceId);
         }
     };
 }

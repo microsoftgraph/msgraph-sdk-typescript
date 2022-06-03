@@ -4,7 +4,7 @@ import {ServiceAnnouncementImpl} from './index';
 import {ServiceAnnouncement} from './serviceAnnouncement';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class AdminImpl implements AdditionalDataHolder, Admin, Parsable {
+export class AdminImpl implements Admin {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** A container for service communications resources. Read-only. */
@@ -14,8 +14,8 @@ export class AdminImpl implements AdditionalDataHolder, Admin, Parsable {
      * @param adminParameterValue 
      */
     public constructor(adminParameterValue?: Admin | undefined) {
-        this.additionalData = adminParameterValue?.additionalData ? adminParameterValue?.additionalData! : {}
-        this.serviceAnnouncement = adminParameterValue?.serviceAnnouncement ;
+        this.additionalData = adminParameterValue?.additionalData ? adminParameterValue?.additionalData! : {};
+        this.serviceAnnouncement = adminParameterValue?.serviceAnnouncement;
     };
     /**
      * The deserialization information for the current model
@@ -33,7 +33,7 @@ export class AdminImpl implements AdditionalDataHolder, Admin, Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.serviceAnnouncement){
-        writer.writeObjectValue<ServiceAnnouncementImpl>("serviceAnnouncement", new ServiceAnnouncementImpl(this.serviceAnnouncement));
+            writer.writeObjectValue<ServiceAnnouncementImpl>("serviceAnnouncement", new ServiceAnnouncementImpl(this.serviceAnnouncement));
         }
         writer.writeAdditionalData(this.additionalData);
     };

@@ -4,7 +4,7 @@ import {ManagedMobileLobApp} from './managedMobileLobApp';
 import {ManagedMobileLobAppCollectionResponse} from './managedMobileLobAppCollectionResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ManagedMobileLobAppCollectionResponseImpl implements AdditionalDataHolder, ManagedMobileLobAppCollectionResponse, Parsable {
+export class ManagedMobileLobAppCollectionResponseImpl implements ManagedMobileLobAppCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class ManagedMobileLobAppCollectionResponseImpl implements AdditionalData
      * @param managedMobileLobAppCollectionResponseParameterValue 
      */
     public constructor(managedMobileLobAppCollectionResponseParameterValue?: ManagedMobileLobAppCollectionResponse | undefined) {
-        this.additionalData = managedMobileLobAppCollectionResponseParameterValue?.additionalData ? managedMobileLobAppCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = managedMobileLobAppCollectionResponseParameterValue?.nextLink ;
-        this.value = managedMobileLobAppCollectionResponseParameterValue?.value ;
+        this.additionalData = managedMobileLobAppCollectionResponseParameterValue?.additionalData ? managedMobileLobAppCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = managedMobileLobAppCollectionResponseParameterValue?.nextLink;
+        this.value = managedMobileLobAppCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class ManagedMobileLobAppCollectionResponseImpl implements AdditionalData
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: ManagedMobileLobAppImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ManagedMobileLobAppImpl(element));});
-        writer.writeCollectionOfObjectValues<ManagedMobileLobAppImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<ManagedMobileLobAppImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

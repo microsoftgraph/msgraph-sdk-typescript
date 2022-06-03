@@ -9,7 +9,7 @@ import {SecurityVendorInformation} from './securityVendorInformation';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the security singleton. */
-export class SecureScoreControlProfileImpl extends EntityImpl implements Parsable, SecureScoreControlProfile {
+export class SecureScoreControlProfileImpl extends EntityImpl implements SecureScoreControlProfile {
     /** Control action type (Config, Review, Behavior). */
     public actionType?: string | undefined;
     /** URL to where the control can be actioned. */
@@ -53,26 +53,26 @@ export class SecureScoreControlProfileImpl extends EntityImpl implements Parsabl
      * @param secureScoreControlProfileParameterValue 
      */
     public constructor(secureScoreControlProfileParameterValue?: SecureScoreControlProfile | undefined) {
-        super();
-        this.actionType = secureScoreControlProfileParameterValue?.actionType ;
-        this.actionUrl = secureScoreControlProfileParameterValue?.actionUrl ;
-        this.azureTenantId = secureScoreControlProfileParameterValue?.azureTenantId ;
-        this.complianceInformation = secureScoreControlProfileParameterValue?.complianceInformation ;
-        this.controlCategory = secureScoreControlProfileParameterValue?.controlCategory ;
-        this.controlStateUpdates = secureScoreControlProfileParameterValue?.controlStateUpdates ;
-        this.deprecated = secureScoreControlProfileParameterValue?.deprecated ;
-        this.implementationCost = secureScoreControlProfileParameterValue?.implementationCost ;
-        this.lastModifiedDateTime = secureScoreControlProfileParameterValue?.lastModifiedDateTime ;
-        this.maxScore = secureScoreControlProfileParameterValue?.maxScore ;
-        this.rank = secureScoreControlProfileParameterValue?.rank ;
-        this.remediation = secureScoreControlProfileParameterValue?.remediation ;
-        this.remediationImpact = secureScoreControlProfileParameterValue?.remediationImpact ;
-        this.service = secureScoreControlProfileParameterValue?.service ;
-        this.threats = secureScoreControlProfileParameterValue?.threats ;
-        this.tier = secureScoreControlProfileParameterValue?.tier ;
-        this.title = secureScoreControlProfileParameterValue?.title ;
-        this.userImpact = secureScoreControlProfileParameterValue?.userImpact ;
-        this.vendorInformation = secureScoreControlProfileParameterValue?.vendorInformation ;
+        super(secureScoreControlProfileParameterValue);
+        this.actionType = secureScoreControlProfileParameterValue?.actionType;
+        this.actionUrl = secureScoreControlProfileParameterValue?.actionUrl;
+        this.azureTenantId = secureScoreControlProfileParameterValue?.azureTenantId;
+        this.complianceInformation = secureScoreControlProfileParameterValue?.complianceInformation;
+        this.controlCategory = secureScoreControlProfileParameterValue?.controlCategory;
+        this.controlStateUpdates = secureScoreControlProfileParameterValue?.controlStateUpdates;
+        this.deprecated = secureScoreControlProfileParameterValue?.deprecated;
+        this.implementationCost = secureScoreControlProfileParameterValue?.implementationCost;
+        this.lastModifiedDateTime = secureScoreControlProfileParameterValue?.lastModifiedDateTime;
+        this.maxScore = secureScoreControlProfileParameterValue?.maxScore;
+        this.rank = secureScoreControlProfileParameterValue?.rank;
+        this.remediation = secureScoreControlProfileParameterValue?.remediation;
+        this.remediationImpact = secureScoreControlProfileParameterValue?.remediationImpact;
+        this.service = secureScoreControlProfileParameterValue?.service;
+        this.threats = secureScoreControlProfileParameterValue?.threats;
+        this.tier = secureScoreControlProfileParameterValue?.tier;
+        this.title = secureScoreControlProfileParameterValue?.title;
+        this.userImpact = secureScoreControlProfileParameterValue?.userImpact;
+        this.vendorInformation = secureScoreControlProfileParameterValue?.vendorInformation;
     };
     /**
      * The deserialization information for the current model
@@ -109,61 +109,61 @@ export class SecureScoreControlProfileImpl extends EntityImpl implements Parsabl
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.actionType){
-        writer.writeStringValue("actionType", this.actionType);
+            writer.writeStringValue("actionType", this.actionType);
         }
         if(this.actionUrl){
-        writer.writeStringValue("actionUrl", this.actionUrl);
+            writer.writeStringValue("actionUrl", this.actionUrl);
         }
         if(this.azureTenantId){
-        writer.writeStringValue("azureTenantId", this.azureTenantId);
+            writer.writeStringValue("azureTenantId", this.azureTenantId);
         }
         if(this.complianceInformation && this.complianceInformation.length != 0){        const complianceInformationArrValue: ComplianceInformationImpl[] = []; this.complianceInformation?.forEach(element => {complianceInformationArrValue.push(new ComplianceInformationImpl(element));});
-        writer.writeCollectionOfObjectValues<ComplianceInformationImpl>("complianceInformation", complianceInformationArrValue);
+            writer.writeCollectionOfObjectValues<ComplianceInformationImpl>("complianceInformation", complianceInformationArrValue);
         }
         if(this.controlCategory){
-        writer.writeStringValue("controlCategory", this.controlCategory);
+            writer.writeStringValue("controlCategory", this.controlCategory);
         }
         if(this.controlStateUpdates && this.controlStateUpdates.length != 0){        const controlStateUpdatesArrValue: SecureScoreControlStateUpdateImpl[] = []; this.controlStateUpdates?.forEach(element => {controlStateUpdatesArrValue.push(new SecureScoreControlStateUpdateImpl(element));});
-        writer.writeCollectionOfObjectValues<SecureScoreControlStateUpdateImpl>("controlStateUpdates", controlStateUpdatesArrValue);
+            writer.writeCollectionOfObjectValues<SecureScoreControlStateUpdateImpl>("controlStateUpdates", controlStateUpdatesArrValue);
         }
         if(this.deprecated){
-        writer.writeBooleanValue("deprecated", this.deprecated);
+            writer.writeBooleanValue("deprecated", this.deprecated);
         }
         if(this.implementationCost){
-        writer.writeStringValue("implementationCost", this.implementationCost);
+            writer.writeStringValue("implementationCost", this.implementationCost);
         }
         if(this.lastModifiedDateTime){
-        writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
+            writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
         }
         if(this.maxScore){
-        writer.writeNumberValue("maxScore", this.maxScore);
+            writer.writeNumberValue("maxScore", this.maxScore);
         }
         if(this.rank){
-        writer.writeNumberValue("rank", this.rank);
+            writer.writeNumberValue("rank", this.rank);
         }
         if(this.remediation){
-        writer.writeStringValue("remediation", this.remediation);
+            writer.writeStringValue("remediation", this.remediation);
         }
         if(this.remediationImpact){
-        writer.writeStringValue("remediationImpact", this.remediationImpact);
+            writer.writeStringValue("remediationImpact", this.remediationImpact);
         }
         if(this.service){
-        writer.writeStringValue("service", this.service);
+            writer.writeStringValue("service", this.service);
         }
         if(this.threats){
-        writer.writeCollectionOfPrimitiveValues<string>("threats", this.threats);
+            writer.writeCollectionOfPrimitiveValues<string>("threats", this.threats);
         }
         if(this.tier){
-        writer.writeStringValue("tier", this.tier);
+            writer.writeStringValue("tier", this.tier);
         }
         if(this.title){
-        writer.writeStringValue("title", this.title);
+            writer.writeStringValue("title", this.title);
         }
         if(this.userImpact){
-        writer.writeStringValue("userImpact", this.userImpact);
+            writer.writeStringValue("userImpact", this.userImpact);
         }
         if(this.vendorInformation){
-        writer.writeObjectValue<SecurityVendorInformationImpl>("vendorInformation", new SecurityVendorInformationImpl(this.vendorInformation));
+            writer.writeObjectValue<SecurityVendorInformationImpl>("vendorInformation", new SecurityVendorInformationImpl(this.vendorInformation));
         }
     };
 }

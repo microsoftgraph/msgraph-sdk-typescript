@@ -2,7 +2,7 @@ import {ProvisioningErrorInfo} from './provisioningErrorInfo';
 import {ProvisioningStatusErrorCategory} from './provisioningStatusErrorCategory';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ProvisioningErrorInfoImpl implements AdditionalDataHolder, Parsable, ProvisioningErrorInfo {
+export class ProvisioningErrorInfoImpl implements ProvisioningErrorInfo {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Additional details in case of error. */
@@ -20,12 +20,12 @@ export class ProvisioningErrorInfoImpl implements AdditionalDataHolder, Parsable
      * @param provisioningErrorInfoParameterValue 
      */
     public constructor(provisioningErrorInfoParameterValue?: ProvisioningErrorInfo | undefined) {
-        this.additionalData = provisioningErrorInfoParameterValue?.additionalData ? provisioningErrorInfoParameterValue?.additionalData! : {}
-        this.additionalDetails = provisioningErrorInfoParameterValue?.additionalDetails ;
-        this.errorCategory = provisioningErrorInfoParameterValue?.errorCategory ;
-        this.errorCode = provisioningErrorInfoParameterValue?.errorCode ;
-        this.reason = provisioningErrorInfoParameterValue?.reason ;
-        this.recommendedAction = provisioningErrorInfoParameterValue?.recommendedAction ;
+        this.additionalData = provisioningErrorInfoParameterValue?.additionalData ? provisioningErrorInfoParameterValue?.additionalData! : {};
+        this.additionalDetails = provisioningErrorInfoParameterValue?.additionalDetails;
+        this.errorCategory = provisioningErrorInfoParameterValue?.errorCategory;
+        this.errorCode = provisioningErrorInfoParameterValue?.errorCode;
+        this.reason = provisioningErrorInfoParameterValue?.reason;
+        this.recommendedAction = provisioningErrorInfoParameterValue?.recommendedAction;
     };
     /**
      * The deserialization information for the current model
@@ -47,19 +47,19 @@ export class ProvisioningErrorInfoImpl implements AdditionalDataHolder, Parsable
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.additionalDetails){
-        writer.writeStringValue("additionalDetails", this.additionalDetails);
+            writer.writeStringValue("additionalDetails", this.additionalDetails);
         }
         if(this.errorCategory){
-        writer.writeEnumValue<ProvisioningStatusErrorCategory>("errorCategory", this.errorCategory);
+            writer.writeEnumValue<ProvisioningStatusErrorCategory>("errorCategory", this.errorCategory);
         }
         if(this.errorCode){
-        writer.writeStringValue("errorCode", this.errorCode);
+            writer.writeStringValue("errorCode", this.errorCode);
         }
         if(this.reason){
-        writer.writeStringValue("reason", this.reason);
+            writer.writeStringValue("reason", this.reason);
         }
         if(this.recommendedAction){
-        writer.writeStringValue("recommendedAction", this.recommendedAction);
+            writer.writeStringValue("recommendedAction", this.recommendedAction);
         }
         writer.writeAdditionalData(this.additionalData);
     };

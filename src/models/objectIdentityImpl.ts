@@ -1,7 +1,7 @@
 import {ObjectIdentity} from './objectIdentity';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ObjectIdentityImpl implements AdditionalDataHolder, ObjectIdentity, Parsable {
+export class ObjectIdentityImpl implements ObjectIdentity {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Specifies the issuer of the identity, for example facebook.com.For local accounts (where signInType is not federated), this property is the local B2C tenant default domain name, for example contoso.onmicrosoft.com.For external users from other Azure AD organization, this will be the domain of the federated organization, for example contoso.com.Supports $filter. 512 character limit. */
@@ -15,10 +15,10 @@ export class ObjectIdentityImpl implements AdditionalDataHolder, ObjectIdentity,
      * @param objectIdentityParameterValue 
      */
     public constructor(objectIdentityParameterValue?: ObjectIdentity | undefined) {
-        this.additionalData = objectIdentityParameterValue?.additionalData ? objectIdentityParameterValue?.additionalData! : {}
-        this.issuer = objectIdentityParameterValue?.issuer ;
-        this.issuerAssignedId = objectIdentityParameterValue?.issuerAssignedId ;
-        this.signInType = objectIdentityParameterValue?.signInType ;
+        this.additionalData = objectIdentityParameterValue?.additionalData ? objectIdentityParameterValue?.additionalData! : {};
+        this.issuer = objectIdentityParameterValue?.issuer;
+        this.issuerAssignedId = objectIdentityParameterValue?.issuerAssignedId;
+        this.signInType = objectIdentityParameterValue?.signInType;
     };
     /**
      * The deserialization information for the current model
@@ -38,13 +38,13 @@ export class ObjectIdentityImpl implements AdditionalDataHolder, ObjectIdentity,
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.issuer){
-        writer.writeStringValue("issuer", this.issuer);
+            writer.writeStringValue("issuer", this.issuer);
         }
         if(this.issuerAssignedId){
-        writer.writeStringValue("issuerAssignedId", this.issuerAssignedId);
+            writer.writeStringValue("issuerAssignedId", this.issuerAssignedId);
         }
         if(this.signInType){
-        writer.writeStringValue("signInType", this.signInType);
+            writer.writeStringValue("signInType", this.signInType);
         }
         writer.writeAdditionalData(this.additionalData);
     };

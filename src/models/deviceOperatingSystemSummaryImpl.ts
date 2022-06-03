@@ -2,7 +2,7 @@ import {DeviceOperatingSystemSummary} from './deviceOperatingSystemSummary';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Device operating system summary. */
-export class DeviceOperatingSystemSummaryImpl implements AdditionalDataHolder, DeviceOperatingSystemSummary, Parsable {
+export class DeviceOperatingSystemSummaryImpl implements DeviceOperatingSystemSummary {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Number of android device count. */
@@ -22,13 +22,13 @@ export class DeviceOperatingSystemSummaryImpl implements AdditionalDataHolder, D
      * @param deviceOperatingSystemSummaryParameterValue 
      */
     public constructor(deviceOperatingSystemSummaryParameterValue?: DeviceOperatingSystemSummary | undefined) {
-        this.additionalData = deviceOperatingSystemSummaryParameterValue?.additionalData ? deviceOperatingSystemSummaryParameterValue?.additionalData! : {}
-        this.androidCount = deviceOperatingSystemSummaryParameterValue?.androidCount ;
-        this.iosCount = deviceOperatingSystemSummaryParameterValue?.iosCount ;
-        this.macOSCount = deviceOperatingSystemSummaryParameterValue?.macOSCount ;
-        this.unknownCount = deviceOperatingSystemSummaryParameterValue?.unknownCount ;
-        this.windowsCount = deviceOperatingSystemSummaryParameterValue?.windowsCount ;
-        this.windowsMobileCount = deviceOperatingSystemSummaryParameterValue?.windowsMobileCount ;
+        this.additionalData = deviceOperatingSystemSummaryParameterValue?.additionalData ? deviceOperatingSystemSummaryParameterValue?.additionalData! : {};
+        this.androidCount = deviceOperatingSystemSummaryParameterValue?.androidCount;
+        this.iosCount = deviceOperatingSystemSummaryParameterValue?.iosCount;
+        this.macOSCount = deviceOperatingSystemSummaryParameterValue?.macOSCount;
+        this.unknownCount = deviceOperatingSystemSummaryParameterValue?.unknownCount;
+        this.windowsCount = deviceOperatingSystemSummaryParameterValue?.windowsCount;
+        this.windowsMobileCount = deviceOperatingSystemSummaryParameterValue?.windowsMobileCount;
     };
     /**
      * The deserialization information for the current model
@@ -51,22 +51,22 @@ export class DeviceOperatingSystemSummaryImpl implements AdditionalDataHolder, D
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.androidCount){
-        writer.writeNumberValue("androidCount", this.androidCount);
+            writer.writeNumberValue("androidCount", this.androidCount);
         }
         if(this.iosCount){
-        writer.writeNumberValue("iosCount", this.iosCount);
+            writer.writeNumberValue("iosCount", this.iosCount);
         }
         if(this.macOSCount){
-        writer.writeNumberValue("macOSCount", this.macOSCount);
+            writer.writeNumberValue("macOSCount", this.macOSCount);
         }
         if(this.unknownCount){
-        writer.writeNumberValue("unknownCount", this.unknownCount);
+            writer.writeNumberValue("unknownCount", this.unknownCount);
         }
         if(this.windowsCount){
-        writer.writeNumberValue("windowsCount", this.windowsCount);
+            writer.writeNumberValue("windowsCount", this.windowsCount);
         }
         if(this.windowsMobileCount){
-        writer.writeNumberValue("windowsMobileCount", this.windowsMobileCount);
+            writer.writeNumberValue("windowsMobileCount", this.windowsMobileCount);
         }
         writer.writeAdditionalData(this.additionalData);
     };

@@ -4,7 +4,7 @@ import {DeviceCollectionResponse} from './deviceCollectionResponse';
 import {DeviceImpl} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class DeviceCollectionResponseImpl implements AdditionalDataHolder, DeviceCollectionResponse, Parsable {
+export class DeviceCollectionResponseImpl implements DeviceCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class DeviceCollectionResponseImpl implements AdditionalDataHolder, Devic
      * @param deviceCollectionResponseParameterValue 
      */
     public constructor(deviceCollectionResponseParameterValue?: DeviceCollectionResponse | undefined) {
-        this.additionalData = deviceCollectionResponseParameterValue?.additionalData ? deviceCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = deviceCollectionResponseParameterValue?.nextLink ;
-        this.value = deviceCollectionResponseParameterValue?.value ;
+        this.additionalData = deviceCollectionResponseParameterValue?.additionalData ? deviceCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = deviceCollectionResponseParameterValue?.nextLink;
+        this.value = deviceCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class DeviceCollectionResponseImpl implements AdditionalDataHolder, Devic
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: DeviceImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new DeviceImpl(element));});
-        writer.writeCollectionOfObjectValues<DeviceImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<DeviceImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

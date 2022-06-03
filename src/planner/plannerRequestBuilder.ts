@@ -58,7 +58,7 @@ export class PlannerRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * The **planner** resource is the entry point for the Planner object model. It returns a singleton **planner** resource.  It doesn't contain any usable properties.
+     * Get planner
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -95,7 +95,7 @@ export class PlannerRequestBuilder {
         return requestInfo;
     };
     /**
-     * The **planner** resource is the entry point for the Planner object model. It returns a singleton **planner** resource.  It doesn't contain any usable properties.
+     * Get planner
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Planner

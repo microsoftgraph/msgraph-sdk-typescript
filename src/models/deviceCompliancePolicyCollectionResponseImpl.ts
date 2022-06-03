@@ -4,7 +4,7 @@ import {DeviceCompliancePolicyCollectionResponse} from './deviceCompliancePolicy
 import {DeviceCompliancePolicyImpl} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class DeviceCompliancePolicyCollectionResponseImpl implements AdditionalDataHolder, DeviceCompliancePolicyCollectionResponse, Parsable {
+export class DeviceCompliancePolicyCollectionResponseImpl implements DeviceCompliancePolicyCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class DeviceCompliancePolicyCollectionResponseImpl implements AdditionalD
      * @param deviceCompliancePolicyCollectionResponseParameterValue 
      */
     public constructor(deviceCompliancePolicyCollectionResponseParameterValue?: DeviceCompliancePolicyCollectionResponse | undefined) {
-        this.additionalData = deviceCompliancePolicyCollectionResponseParameterValue?.additionalData ? deviceCompliancePolicyCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = deviceCompliancePolicyCollectionResponseParameterValue?.nextLink ;
-        this.value = deviceCompliancePolicyCollectionResponseParameterValue?.value ;
+        this.additionalData = deviceCompliancePolicyCollectionResponseParameterValue?.additionalData ? deviceCompliancePolicyCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = deviceCompliancePolicyCollectionResponseParameterValue?.nextLink;
+        this.value = deviceCompliancePolicyCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class DeviceCompliancePolicyCollectionResponseImpl implements AdditionalD
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: DeviceCompliancePolicyImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new DeviceCompliancePolicyImpl(element));});
-        writer.writeCollectionOfObjectValues<DeviceCompliancePolicyImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<DeviceCompliancePolicyImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

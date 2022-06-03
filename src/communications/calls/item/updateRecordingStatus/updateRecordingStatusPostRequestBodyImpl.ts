@@ -3,7 +3,7 @@ import {UpdateRecordingStatusPostRequestBody} from './updateRecordingStatusPostR
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the updateRecordingStatus method. */
-export class UpdateRecordingStatusPostRequestBodyImpl implements AdditionalDataHolder, Parsable, UpdateRecordingStatusPostRequestBody {
+export class UpdateRecordingStatusPostRequestBodyImpl implements UpdateRecordingStatusPostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The clientContext property */
@@ -15,9 +15,9 @@ export class UpdateRecordingStatusPostRequestBodyImpl implements AdditionalDataH
      * @param updateRecordingStatusPostRequestBodyParameterValue 
      */
     public constructor(updateRecordingStatusPostRequestBodyParameterValue?: UpdateRecordingStatusPostRequestBody | undefined) {
-        this.additionalData = updateRecordingStatusPostRequestBodyParameterValue?.additionalData ? updateRecordingStatusPostRequestBodyParameterValue?.additionalData! : {}
-        this.clientContext = updateRecordingStatusPostRequestBodyParameterValue?.clientContext ;
-        this.status = updateRecordingStatusPostRequestBodyParameterValue?.status ;
+        this.additionalData = updateRecordingStatusPostRequestBodyParameterValue?.additionalData ? updateRecordingStatusPostRequestBodyParameterValue?.additionalData! : {};
+        this.clientContext = updateRecordingStatusPostRequestBodyParameterValue?.clientContext;
+        this.status = updateRecordingStatusPostRequestBodyParameterValue?.status;
     };
     /**
      * The deserialization information for the current model
@@ -36,10 +36,10 @@ export class UpdateRecordingStatusPostRequestBodyImpl implements AdditionalDataH
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.clientContext){
-        writer.writeStringValue("clientContext", this.clientContext);
+            writer.writeStringValue("clientContext", this.clientContext);
         }
         if(this.status){
-        writer.writeEnumValue<RecordingStatus>("status", this.status);
+            writer.writeEnumValue<RecordingStatus>("status", this.status);
         }
         writer.writeAdditionalData(this.additionalData);
     };

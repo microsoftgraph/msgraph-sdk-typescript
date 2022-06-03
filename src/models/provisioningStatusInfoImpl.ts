@@ -5,7 +5,7 @@ import {ProvisioningResult} from './provisioningResult';
 import {ProvisioningStatusInfo} from './provisioningStatusInfo';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ProvisioningStatusInfoImpl implements AdditionalDataHolder, Parsable, ProvisioningStatusInfo {
+export class ProvisioningStatusInfoImpl implements ProvisioningStatusInfo {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The errorInformation property */
@@ -17,9 +17,9 @@ export class ProvisioningStatusInfoImpl implements AdditionalDataHolder, Parsabl
      * @param provisioningStatusInfoParameterValue 
      */
     public constructor(provisioningStatusInfoParameterValue?: ProvisioningStatusInfo | undefined) {
-        this.additionalData = provisioningStatusInfoParameterValue?.additionalData ? provisioningStatusInfoParameterValue?.additionalData! : {}
-        this.errorInformation = provisioningStatusInfoParameterValue?.errorInformation ;
-        this.status = provisioningStatusInfoParameterValue?.status ;
+        this.additionalData = provisioningStatusInfoParameterValue?.additionalData ? provisioningStatusInfoParameterValue?.additionalData! : {};
+        this.errorInformation = provisioningStatusInfoParameterValue?.errorInformation;
+        this.status = provisioningStatusInfoParameterValue?.status;
     };
     /**
      * The deserialization information for the current model
@@ -38,10 +38,10 @@ export class ProvisioningStatusInfoImpl implements AdditionalDataHolder, Parsabl
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.errorInformation){
-        writer.writeObjectValue<ProvisioningErrorInfoImpl>("errorInformation", new ProvisioningErrorInfoImpl(this.errorInformation));
+            writer.writeObjectValue<ProvisioningErrorInfoImpl>("errorInformation", new ProvisioningErrorInfoImpl(this.errorInformation));
         }
         if(this.status){
-        writer.writeEnumValue<ProvisioningResult>("status", this.status);
+            writer.writeEnumValue<ProvisioningResult>("status", this.status);
         }
         writer.writeAdditionalData(this.additionalData);
     };

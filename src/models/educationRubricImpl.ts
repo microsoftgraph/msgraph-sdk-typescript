@@ -13,7 +13,7 @@ import {RubricQuality} from './rubricQuality';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the educationRoot singleton. */
-export class EducationRubricImpl extends EntityImpl implements EducationRubric, Parsable {
+export class EducationRubricImpl extends EntityImpl implements EducationRubric {
     /** The user who created this resource. */
     public createdBy?: IdentitySet | undefined;
     /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
@@ -37,16 +37,16 @@ export class EducationRubricImpl extends EntityImpl implements EducationRubric, 
      * @param educationRubricParameterValue 
      */
     public constructor(educationRubricParameterValue?: EducationRubric | undefined) {
-        super();
-        this.createdBy = educationRubricParameterValue?.createdBy ;
-        this.createdDateTime = educationRubricParameterValue?.createdDateTime ;
-        this.description = educationRubricParameterValue?.description ;
-        this.displayName = educationRubricParameterValue?.displayName ;
-        this.grading = educationRubricParameterValue?.grading ;
-        this.lastModifiedBy = educationRubricParameterValue?.lastModifiedBy ;
-        this.lastModifiedDateTime = educationRubricParameterValue?.lastModifiedDateTime ;
-        this.levels = educationRubricParameterValue?.levels ;
-        this.qualities = educationRubricParameterValue?.qualities ;
+        super(educationRubricParameterValue);
+        this.createdBy = educationRubricParameterValue?.createdBy;
+        this.createdDateTime = educationRubricParameterValue?.createdDateTime;
+        this.description = educationRubricParameterValue?.description;
+        this.displayName = educationRubricParameterValue?.displayName;
+        this.grading = educationRubricParameterValue?.grading;
+        this.lastModifiedBy = educationRubricParameterValue?.lastModifiedBy;
+        this.lastModifiedDateTime = educationRubricParameterValue?.lastModifiedDateTime;
+        this.levels = educationRubricParameterValue?.levels;
+        this.qualities = educationRubricParameterValue?.qualities;
     };
     /**
      * The deserialization information for the current model
@@ -73,31 +73,31 @@ export class EducationRubricImpl extends EntityImpl implements EducationRubric, 
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.createdBy){
-        writer.writeObjectValue<IdentitySetImpl>("createdBy", new IdentitySetImpl(this.createdBy));
+            writer.writeObjectValue<IdentitySetImpl>("createdBy", new IdentitySetImpl(this.createdBy));
         }
         if(this.createdDateTime){
-        writer.writeDateValue("createdDateTime", this.createdDateTime);
+            writer.writeDateValue("createdDateTime", this.createdDateTime);
         }
         if(this.description){
-        writer.writeObjectValue<EducationItemBodyImpl>("description", new EducationItemBodyImpl(this.description));
+            writer.writeObjectValue<EducationItemBodyImpl>("description", new EducationItemBodyImpl(this.description));
         }
         if(this.displayName){
-        writer.writeStringValue("displayName", this.displayName);
+            writer.writeStringValue("displayName", this.displayName);
         }
         if(this.grading){
-        writer.writeObjectValue<EducationAssignmentGradeTypeImpl>("grading", new EducationAssignmentGradeTypeImpl(this.grading));
+            writer.writeObjectValue<EducationAssignmentGradeTypeImpl>("grading", new EducationAssignmentGradeTypeImpl(this.grading));
         }
         if(this.lastModifiedBy){
-        writer.writeObjectValue<IdentitySetImpl>("lastModifiedBy", new IdentitySetImpl(this.lastModifiedBy));
+            writer.writeObjectValue<IdentitySetImpl>("lastModifiedBy", new IdentitySetImpl(this.lastModifiedBy));
         }
         if(this.lastModifiedDateTime){
-        writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
+            writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
         }
         if(this.levels && this.levels.length != 0){        const levelsArrValue: RubricLevelImpl[] = []; this.levels?.forEach(element => {levelsArrValue.push(new RubricLevelImpl(element));});
-        writer.writeCollectionOfObjectValues<RubricLevelImpl>("levels", levelsArrValue);
+            writer.writeCollectionOfObjectValues<RubricLevelImpl>("levels", levelsArrValue);
         }
         if(this.qualities && this.qualities.length != 0){        const qualitiesArrValue: RubricQualityImpl[] = []; this.qualities?.forEach(element => {qualitiesArrValue.push(new RubricQualityImpl(element));});
-        writer.writeCollectionOfObjectValues<RubricQualityImpl>("qualities", qualitiesArrValue);
+            writer.writeCollectionOfObjectValues<RubricQualityImpl>("qualities", qualitiesArrValue);
         }
     };
 }

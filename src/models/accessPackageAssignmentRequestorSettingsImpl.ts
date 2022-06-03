@@ -4,7 +4,7 @@ import {SubjectSetImpl} from './index';
 import {SubjectSet} from './subjectSet';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class AccessPackageAssignmentRequestorSettingsImpl implements AccessPackageAssignmentRequestorSettings, AdditionalDataHolder, Parsable {
+export class AccessPackageAssignmentRequestorSettingsImpl implements AccessPackageAssignmentRequestorSettings {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** If false, the requestor is not permitted to include a schedule in their request. */
@@ -28,15 +28,15 @@ export class AccessPackageAssignmentRequestorSettingsImpl implements AccessPacka
      * @param accessPackageAssignmentRequestorSettingsParameterValue 
      */
     public constructor(accessPackageAssignmentRequestorSettingsParameterValue?: AccessPackageAssignmentRequestorSettings | undefined) {
-        this.additionalData = accessPackageAssignmentRequestorSettingsParameterValue?.additionalData ? accessPackageAssignmentRequestorSettingsParameterValue?.additionalData! : {}
-        this.allowCustomAssignmentSchedule = accessPackageAssignmentRequestorSettingsParameterValue?.allowCustomAssignmentSchedule ;
-        this.enableOnBehalfRequestorsToAddAccess = accessPackageAssignmentRequestorSettingsParameterValue?.enableOnBehalfRequestorsToAddAccess ;
-        this.enableOnBehalfRequestorsToRemoveAccess = accessPackageAssignmentRequestorSettingsParameterValue?.enableOnBehalfRequestorsToRemoveAccess ;
-        this.enableOnBehalfRequestorsToUpdateAccess = accessPackageAssignmentRequestorSettingsParameterValue?.enableOnBehalfRequestorsToUpdateAccess ;
-        this.enableTargetsToSelfAddAccess = accessPackageAssignmentRequestorSettingsParameterValue?.enableTargetsToSelfAddAccess ;
-        this.enableTargetsToSelfRemoveAccess = accessPackageAssignmentRequestorSettingsParameterValue?.enableTargetsToSelfRemoveAccess ;
-        this.enableTargetsToSelfUpdateAccess = accessPackageAssignmentRequestorSettingsParameterValue?.enableTargetsToSelfUpdateAccess ;
-        this.onBehalfRequestors = accessPackageAssignmentRequestorSettingsParameterValue?.onBehalfRequestors ;
+        this.additionalData = accessPackageAssignmentRequestorSettingsParameterValue?.additionalData ? accessPackageAssignmentRequestorSettingsParameterValue?.additionalData! : {};
+        this.allowCustomAssignmentSchedule = accessPackageAssignmentRequestorSettingsParameterValue?.allowCustomAssignmentSchedule;
+        this.enableOnBehalfRequestorsToAddAccess = accessPackageAssignmentRequestorSettingsParameterValue?.enableOnBehalfRequestorsToAddAccess;
+        this.enableOnBehalfRequestorsToRemoveAccess = accessPackageAssignmentRequestorSettingsParameterValue?.enableOnBehalfRequestorsToRemoveAccess;
+        this.enableOnBehalfRequestorsToUpdateAccess = accessPackageAssignmentRequestorSettingsParameterValue?.enableOnBehalfRequestorsToUpdateAccess;
+        this.enableTargetsToSelfAddAccess = accessPackageAssignmentRequestorSettingsParameterValue?.enableTargetsToSelfAddAccess;
+        this.enableTargetsToSelfRemoveAccess = accessPackageAssignmentRequestorSettingsParameterValue?.enableTargetsToSelfRemoveAccess;
+        this.enableTargetsToSelfUpdateAccess = accessPackageAssignmentRequestorSettingsParameterValue?.enableTargetsToSelfUpdateAccess;
+        this.onBehalfRequestors = accessPackageAssignmentRequestorSettingsParameterValue?.onBehalfRequestors;
     };
     /**
      * The deserialization information for the current model
@@ -61,28 +61,28 @@ export class AccessPackageAssignmentRequestorSettingsImpl implements AccessPacka
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.allowCustomAssignmentSchedule){
-        writer.writeBooleanValue("allowCustomAssignmentSchedule", this.allowCustomAssignmentSchedule);
+            writer.writeBooleanValue("allowCustomAssignmentSchedule", this.allowCustomAssignmentSchedule);
         }
         if(this.enableOnBehalfRequestorsToAddAccess){
-        writer.writeBooleanValue("enableOnBehalfRequestorsToAddAccess", this.enableOnBehalfRequestorsToAddAccess);
+            writer.writeBooleanValue("enableOnBehalfRequestorsToAddAccess", this.enableOnBehalfRequestorsToAddAccess);
         }
         if(this.enableOnBehalfRequestorsToRemoveAccess){
-        writer.writeBooleanValue("enableOnBehalfRequestorsToRemoveAccess", this.enableOnBehalfRequestorsToRemoveAccess);
+            writer.writeBooleanValue("enableOnBehalfRequestorsToRemoveAccess", this.enableOnBehalfRequestorsToRemoveAccess);
         }
         if(this.enableOnBehalfRequestorsToUpdateAccess){
-        writer.writeBooleanValue("enableOnBehalfRequestorsToUpdateAccess", this.enableOnBehalfRequestorsToUpdateAccess);
+            writer.writeBooleanValue("enableOnBehalfRequestorsToUpdateAccess", this.enableOnBehalfRequestorsToUpdateAccess);
         }
         if(this.enableTargetsToSelfAddAccess){
-        writer.writeBooleanValue("enableTargetsToSelfAddAccess", this.enableTargetsToSelfAddAccess);
+            writer.writeBooleanValue("enableTargetsToSelfAddAccess", this.enableTargetsToSelfAddAccess);
         }
         if(this.enableTargetsToSelfRemoveAccess){
-        writer.writeBooleanValue("enableTargetsToSelfRemoveAccess", this.enableTargetsToSelfRemoveAccess);
+            writer.writeBooleanValue("enableTargetsToSelfRemoveAccess", this.enableTargetsToSelfRemoveAccess);
         }
         if(this.enableTargetsToSelfUpdateAccess){
-        writer.writeBooleanValue("enableTargetsToSelfUpdateAccess", this.enableTargetsToSelfUpdateAccess);
+            writer.writeBooleanValue("enableTargetsToSelfUpdateAccess", this.enableTargetsToSelfUpdateAccess);
         }
         if(this.onBehalfRequestors && this.onBehalfRequestors.length != 0){        const onBehalfRequestorsArrValue: SubjectSetImpl[] = []; this.onBehalfRequestors?.forEach(element => {onBehalfRequestorsArrValue.push(new SubjectSetImpl(element));});
-        writer.writeCollectionOfObjectValues<SubjectSetImpl>("onBehalfRequestors", onBehalfRequestorsArrValue);
+            writer.writeCollectionOfObjectValues<SubjectSetImpl>("onBehalfRequestors", onBehalfRequestorsArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

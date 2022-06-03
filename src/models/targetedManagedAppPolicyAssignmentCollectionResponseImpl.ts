@@ -4,7 +4,7 @@ import {TargetedManagedAppPolicyAssignment} from './targetedManagedAppPolicyAssi
 import {TargetedManagedAppPolicyAssignmentCollectionResponse} from './targetedManagedAppPolicyAssignmentCollectionResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class TargetedManagedAppPolicyAssignmentCollectionResponseImpl implements AdditionalDataHolder, Parsable, TargetedManagedAppPolicyAssignmentCollectionResponse {
+export class TargetedManagedAppPolicyAssignmentCollectionResponseImpl implements TargetedManagedAppPolicyAssignmentCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class TargetedManagedAppPolicyAssignmentCollectionResponseImpl implements
      * @param targetedManagedAppPolicyAssignmentCollectionResponseParameterValue 
      */
     public constructor(targetedManagedAppPolicyAssignmentCollectionResponseParameterValue?: TargetedManagedAppPolicyAssignmentCollectionResponse | undefined) {
-        this.additionalData = targetedManagedAppPolicyAssignmentCollectionResponseParameterValue?.additionalData ? targetedManagedAppPolicyAssignmentCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = targetedManagedAppPolicyAssignmentCollectionResponseParameterValue?.nextLink ;
-        this.value = targetedManagedAppPolicyAssignmentCollectionResponseParameterValue?.value ;
+        this.additionalData = targetedManagedAppPolicyAssignmentCollectionResponseParameterValue?.additionalData ? targetedManagedAppPolicyAssignmentCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = targetedManagedAppPolicyAssignmentCollectionResponseParameterValue?.nextLink;
+        this.value = targetedManagedAppPolicyAssignmentCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class TargetedManagedAppPolicyAssignmentCollectionResponseImpl implements
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: TargetedManagedAppPolicyAssignmentImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new TargetedManagedAppPolicyAssignmentImpl(element));});
-        writer.writeCollectionOfObjectValues<TargetedManagedAppPolicyAssignmentImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<TargetedManagedAppPolicyAssignmentImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

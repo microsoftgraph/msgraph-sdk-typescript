@@ -4,7 +4,7 @@ import {AuthenticationMethodsRegistrationCampaignImpl} from './index';
 import {RegistrationEnforcement} from './registrationEnforcement';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class RegistrationEnforcementImpl implements AdditionalDataHolder, Parsable, RegistrationEnforcement {
+export class RegistrationEnforcementImpl implements RegistrationEnforcement {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Run campaigns to remind users to setup targeted authentication methods. */
@@ -14,8 +14,8 @@ export class RegistrationEnforcementImpl implements AdditionalDataHolder, Parsab
      * @param registrationEnforcementParameterValue 
      */
     public constructor(registrationEnforcementParameterValue?: RegistrationEnforcement | undefined) {
-        this.additionalData = registrationEnforcementParameterValue?.additionalData ? registrationEnforcementParameterValue?.additionalData! : {}
-        this.authenticationMethodsRegistrationCampaign = registrationEnforcementParameterValue?.authenticationMethodsRegistrationCampaign ;
+        this.additionalData = registrationEnforcementParameterValue?.additionalData ? registrationEnforcementParameterValue?.additionalData! : {};
+        this.authenticationMethodsRegistrationCampaign = registrationEnforcementParameterValue?.authenticationMethodsRegistrationCampaign;
     };
     /**
      * The deserialization information for the current model
@@ -33,7 +33,7 @@ export class RegistrationEnforcementImpl implements AdditionalDataHolder, Parsab
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.authenticationMethodsRegistrationCampaign){
-        writer.writeObjectValue<AuthenticationMethodsRegistrationCampaignImpl>("authenticationMethodsRegistrationCampaign", new AuthenticationMethodsRegistrationCampaignImpl(this.authenticationMethodsRegistrationCampaign));
+            writer.writeObjectValue<AuthenticationMethodsRegistrationCampaignImpl>("authenticationMethodsRegistrationCampaign", new AuthenticationMethodsRegistrationCampaignImpl(this.authenticationMethodsRegistrationCampaign));
         }
         writer.writeAdditionalData(this.additionalData);
     };

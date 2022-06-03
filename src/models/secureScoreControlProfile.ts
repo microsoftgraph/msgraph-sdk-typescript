@@ -2,44 +2,45 @@ import {ComplianceInformation} from './complianceInformation';
 import {Entity} from './entity';
 import {SecureScoreControlStateUpdate} from './secureScoreControlStateUpdate';
 import {SecurityVendorInformation} from './securityVendorInformation';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface SecureScoreControlProfile extends Entity{
+export interface SecureScoreControlProfile extends Entity, Partial<Parsable> {
     /** Control action type (Config, Review, Behavior). */
-    actionType?:string | undefined;
+    actionType?: string | undefined;
     /** URL to where the control can be actioned. */
-    actionUrl?:string | undefined;
+    actionUrl?: string | undefined;
     /** GUID string for tenant ID. */
-    azureTenantId?:string | undefined;
+    azureTenantId?: string | undefined;
     /** The collection of compliance information associated with secure score control */
-    complianceInformation?:ComplianceInformation[] | undefined;
+    complianceInformation?: ComplianceInformation[] | undefined;
     /** Control action category (Account, Data, Device, Apps, Infrastructure). */
-    controlCategory?:string | undefined;
+    controlCategory?: string | undefined;
     /** Flag to indicate where the tenant has marked a control (ignore, thirdParty, reviewed) (supports update). */
-    controlStateUpdates?:SecureScoreControlStateUpdate[] | undefined;
+    controlStateUpdates?: SecureScoreControlStateUpdate[] | undefined;
     /** Flag to indicate if a control is depreciated. */
-    deprecated?:boolean | undefined;
+    deprecated?: boolean | undefined;
     /** Resource cost of implemmentating control (low, moderate, high). */
-    implementationCost?:string | undefined;
+    implementationCost?: string | undefined;
     /** Time at which the control profile entity was last modified. The Timestamp type represents date and time */
-    lastModifiedDateTime?:Date | undefined;
+    lastModifiedDateTime?: Date | undefined;
     /** Current obtained max score on specified date. */
-    maxScore?:number | undefined;
+    maxScore?: number | undefined;
     /** Microsoft's stack ranking of control. */
-    rank?:number | undefined;
+    rank?: number | undefined;
     /** Description of what the control will help remediate. */
-    remediation?:string | undefined;
+    remediation?: string | undefined;
     /** Description of the impact on users of the remediation. */
-    remediationImpact?:string | undefined;
+    remediationImpact?: string | undefined;
     /** Service that owns the control (Exchange, Sharepoint, Azure AD). */
-    service?:string | undefined;
+    service?: string | undefined;
     /** List of threats the control mitigates (accountBreach,dataDeletion,dataExfiltration,dataSpillage,elevationOfPrivilege,maliciousInsider,passwordCracking,phishingOrWhaling,spoofing). */
-    threats?:string[] | undefined;
+    threats?: string[] | undefined;
     /** Control tier (Core, Defense in Depth, Advanced.) */
-    tier?:string | undefined;
+    tier?: string | undefined;
     /** Title of the control. */
-    title?:string | undefined;
+    title?: string | undefined;
     /** User impact of implementing control (low, moderate, high). */
-    userImpact?:string | undefined;
+    userImpact?: string | undefined;
     /** The vendorInformation property */
-    vendorInformation?:SecurityVendorInformation | undefined;
+    vendorInformation?: SecurityVendorInformation | undefined;
 }

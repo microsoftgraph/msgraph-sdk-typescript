@@ -2,7 +2,7 @@ import {ScoredEmailAddress} from './scoredEmailAddress';
 import {SelectionLikelihoodInfo} from './selectionLikelihoodInfo';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ScoredEmailAddressImpl implements AdditionalDataHolder, Parsable, ScoredEmailAddress {
+export class ScoredEmailAddressImpl implements ScoredEmailAddress {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The email address. */
@@ -18,11 +18,11 @@ export class ScoredEmailAddressImpl implements AdditionalDataHolder, Parsable, S
      * @param scoredEmailAddressParameterValue 
      */
     public constructor(scoredEmailAddressParameterValue?: ScoredEmailAddress | undefined) {
-        this.additionalData = scoredEmailAddressParameterValue?.additionalData ? scoredEmailAddressParameterValue?.additionalData! : {}
-        this.address = scoredEmailAddressParameterValue?.address ;
-        this.itemId = scoredEmailAddressParameterValue?.itemId ;
-        this.relevanceScore = scoredEmailAddressParameterValue?.relevanceScore ;
-        this.selectionLikelihood = scoredEmailAddressParameterValue?.selectionLikelihood ;
+        this.additionalData = scoredEmailAddressParameterValue?.additionalData ? scoredEmailAddressParameterValue?.additionalData! : {};
+        this.address = scoredEmailAddressParameterValue?.address;
+        this.itemId = scoredEmailAddressParameterValue?.itemId;
+        this.relevanceScore = scoredEmailAddressParameterValue?.relevanceScore;
+        this.selectionLikelihood = scoredEmailAddressParameterValue?.selectionLikelihood;
     };
     /**
      * The deserialization information for the current model
@@ -43,16 +43,16 @@ export class ScoredEmailAddressImpl implements AdditionalDataHolder, Parsable, S
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.address){
-        writer.writeStringValue("address", this.address);
+            writer.writeStringValue("address", this.address);
         }
         if(this.itemId){
-        writer.writeStringValue("itemId", this.itemId);
+            writer.writeStringValue("itemId", this.itemId);
         }
         if(this.relevanceScore){
-        writer.writeNumberValue("relevanceScore", this.relevanceScore);
+            writer.writeNumberValue("relevanceScore", this.relevanceScore);
         }
         if(this.selectionLikelihood){
-        writer.writeEnumValue<SelectionLikelihoodInfo>("selectionLikelihood", this.selectionLikelihood);
+            writer.writeEnumValue<SelectionLikelihoodInfo>("selectionLikelihood", this.selectionLikelihood);
         }
         writer.writeAdditionalData(this.additionalData);
     };

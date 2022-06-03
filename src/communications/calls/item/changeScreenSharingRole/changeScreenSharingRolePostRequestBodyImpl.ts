@@ -3,7 +3,7 @@ import {ChangeScreenSharingRolePostRequestBody} from './changeScreenSharingRoleP
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the changeScreenSharingRole method. */
-export class ChangeScreenSharingRolePostRequestBodyImpl implements AdditionalDataHolder, ChangeScreenSharingRolePostRequestBody, Parsable {
+export class ChangeScreenSharingRolePostRequestBodyImpl implements ChangeScreenSharingRolePostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The role property */
@@ -13,8 +13,8 @@ export class ChangeScreenSharingRolePostRequestBodyImpl implements AdditionalDat
      * @param changeScreenSharingRolePostRequestBodyParameterValue 
      */
     public constructor(changeScreenSharingRolePostRequestBodyParameterValue?: ChangeScreenSharingRolePostRequestBody | undefined) {
-        this.additionalData = changeScreenSharingRolePostRequestBodyParameterValue?.additionalData ? changeScreenSharingRolePostRequestBodyParameterValue?.additionalData! : {}
-        this.role = changeScreenSharingRolePostRequestBodyParameterValue?.role ;
+        this.additionalData = changeScreenSharingRolePostRequestBodyParameterValue?.additionalData ? changeScreenSharingRolePostRequestBodyParameterValue?.additionalData! : {};
+        this.role = changeScreenSharingRolePostRequestBodyParameterValue?.role;
     };
     /**
      * The deserialization information for the current model
@@ -32,7 +32,7 @@ export class ChangeScreenSharingRolePostRequestBodyImpl implements AdditionalDat
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.role){
-        writer.writeEnumValue<ScreenSharingRole>("role", this.role);
+            writer.writeEnumValue<ScreenSharingRole>("role", this.role);
         }
         writer.writeAdditionalData(this.additionalData);
     };

@@ -3,7 +3,7 @@ import {ResourceOperation} from './resourceOperation';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Describes the resourceOperation resource (entity) of the Microsoft Graph API (REST), which supports Intune workflows related to role-based access control (RBAC). */
-export class ResourceOperationImpl extends EntityImpl implements Parsable, ResourceOperation {
+export class ResourceOperationImpl extends EntityImpl implements ResourceOperation {
     /** Type of action this operation is going to perform. The actionName should be concise and limited to as few words as possible. */
     public actionName?: string | undefined;
     /** Description of the resource operation. The description is used in mouse-over text for the operation when shown in the Azure Portal. */
@@ -15,10 +15,10 @@ export class ResourceOperationImpl extends EntityImpl implements Parsable, Resou
      * @param resourceOperationParameterValue 
      */
     public constructor(resourceOperationParameterValue?: ResourceOperation | undefined) {
-        super();
-        this.actionName = resourceOperationParameterValue?.actionName ;
-        this.description = resourceOperationParameterValue?.description ;
-        this.resourceName = resourceOperationParameterValue?.resourceName ;
+        super(resourceOperationParameterValue);
+        this.actionName = resourceOperationParameterValue?.actionName;
+        this.description = resourceOperationParameterValue?.description;
+        this.resourceName = resourceOperationParameterValue?.resourceName;
     };
     /**
      * The deserialization information for the current model
@@ -39,13 +39,13 @@ export class ResourceOperationImpl extends EntityImpl implements Parsable, Resou
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.actionName){
-        writer.writeStringValue("actionName", this.actionName);
+            writer.writeStringValue("actionName", this.actionName);
         }
         if(this.description){
-        writer.writeStringValue("description", this.description);
+            writer.writeStringValue("description", this.description);
         }
         if(this.resourceName){
-        writer.writeStringValue("resourceName", this.resourceName);
+            writer.writeStringValue("resourceName", this.resourceName);
         }
     };
 }

@@ -4,7 +4,7 @@ import {createChatFromDiscriminatorValue} from './createChatFromDiscriminatorVal
 import {ChatImpl} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ChatCollectionResponseImpl implements AdditionalDataHolder, ChatCollectionResponse, Parsable {
+export class ChatCollectionResponseImpl implements ChatCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class ChatCollectionResponseImpl implements AdditionalDataHolder, ChatCol
      * @param chatCollectionResponseParameterValue 
      */
     public constructor(chatCollectionResponseParameterValue?: ChatCollectionResponse | undefined) {
-        this.additionalData = chatCollectionResponseParameterValue?.additionalData ? chatCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = chatCollectionResponseParameterValue?.nextLink ;
-        this.value = chatCollectionResponseParameterValue?.value ;
+        this.additionalData = chatCollectionResponseParameterValue?.additionalData ? chatCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = chatCollectionResponseParameterValue?.nextLink;
+        this.value = chatCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class ChatCollectionResponseImpl implements AdditionalDataHolder, ChatCol
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: ChatImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ChatImpl(element));});
-        writer.writeCollectionOfObjectValues<ChatImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<ChatImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

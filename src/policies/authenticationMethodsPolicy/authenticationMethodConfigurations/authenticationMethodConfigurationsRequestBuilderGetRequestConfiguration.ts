@@ -1,11 +1,11 @@
 import {AuthenticationMethodConfigurationsRequestBuilderGetQueryParameters} from './authenticationMethodConfigurationsRequestBuilderGetQueryParameters';
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
-export interface AuthenticationMethodConfigurationsRequestBuilderGetRequestConfiguration{
+export interface AuthenticationMethodConfigurationsRequestBuilderGetRequestConfiguration {
     /** Request headers */
-    headers?:Record<string, string> | undefined;
+    headers?: Record<string, string> | undefined;
     /** Request options */
-    options?:RequestOption[] | undefined;
+    options?: RequestOption[] | undefined;
     /** Request query parameters */
-    queryParameters?:AuthenticationMethodConfigurationsRequestBuilderGetQueryParameters | undefined;
+    queryParameters?: AuthenticationMethodConfigurationsRequestBuilderGetQueryParameters | undefined;
 }

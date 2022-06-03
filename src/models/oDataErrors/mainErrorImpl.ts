@@ -6,7 +6,7 @@ import {InnerError} from './innerError';
 import {MainError} from './mainError';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class MainErrorImpl implements AdditionalDataHolder, MainError, Parsable {
+export class MainErrorImpl implements MainError {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The code property */
@@ -24,12 +24,12 @@ export class MainErrorImpl implements AdditionalDataHolder, MainError, Parsable 
      * @param mainErrorParameterValue 
      */
     public constructor(mainErrorParameterValue?: MainError | undefined) {
-        this.additionalData = mainErrorParameterValue?.additionalData ? mainErrorParameterValue?.additionalData! : {}
-        this.code = mainErrorParameterValue?.code ;
-        this.details = mainErrorParameterValue?.details ;
-        this.innererror = mainErrorParameterValue?.innererror ;
-        this.message = mainErrorParameterValue?.message ;
-        this.target = mainErrorParameterValue?.target ;
+        this.additionalData = mainErrorParameterValue?.additionalData ? mainErrorParameterValue?.additionalData! : {};
+        this.code = mainErrorParameterValue?.code;
+        this.details = mainErrorParameterValue?.details;
+        this.innererror = mainErrorParameterValue?.innererror;
+        this.message = mainErrorParameterValue?.message;
+        this.target = mainErrorParameterValue?.target;
     };
     /**
      * The deserialization information for the current model
@@ -51,19 +51,19 @@ export class MainErrorImpl implements AdditionalDataHolder, MainError, Parsable 
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.code){
-        writer.writeStringValue("code", this.code);
+            writer.writeStringValue("code", this.code);
         }
         if(this.details && this.details.length != 0){        const detailsArrValue: ErrorDetailsImpl[] = []; this.details?.forEach(element => {detailsArrValue.push(new ErrorDetailsImpl(element));});
-        writer.writeCollectionOfObjectValues<ErrorDetailsImpl>("details", detailsArrValue);
+            writer.writeCollectionOfObjectValues<ErrorDetailsImpl>("details", detailsArrValue);
         }
         if(this.innererror){
-        writer.writeObjectValue<InnerErrorImpl>("innererror", new InnerErrorImpl(this.innererror));
+            writer.writeObjectValue<InnerErrorImpl>("innererror", new InnerErrorImpl(this.innererror));
         }
         if(this.message){
-        writer.writeStringValue("message", this.message);
+            writer.writeStringValue("message", this.message);
         }
         if(this.target){
-        writer.writeStringValue("target", this.target);
+            writer.writeStringValue("target", this.target);
         }
         writer.writeAdditionalData(this.additionalData);
     };

@@ -10,7 +10,7 @@ import {MobileAppPublishingState} from './mobileAppPublishingState';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** An abstract class containing the base properties for Intune mobile apps. */
-export class MobileAppImpl extends EntityImpl implements MobileApp, Parsable {
+export class MobileAppImpl extends EntityImpl implements MobileApp {
     /** The list of group assignments for this mobile app. */
     public assignments?: MobileAppAssignment[] | undefined;
     /** The list of categories for this app. */
@@ -46,22 +46,22 @@ export class MobileAppImpl extends EntityImpl implements MobileApp, Parsable {
      * @param mobileAppParameterValue 
      */
     public constructor(mobileAppParameterValue?: MobileApp | undefined) {
-        super();
-        this.assignments = mobileAppParameterValue?.assignments ;
-        this.categories = mobileAppParameterValue?.categories ;
-        this.createdDateTime = mobileAppParameterValue?.createdDateTime ;
-        this.description = mobileAppParameterValue?.description ;
-        this.developer = mobileAppParameterValue?.developer ;
-        this.displayName = mobileAppParameterValue?.displayName ;
-        this.informationUrl = mobileAppParameterValue?.informationUrl ;
-        this.isFeatured = mobileAppParameterValue?.isFeatured ;
-        this.largeIcon = mobileAppParameterValue?.largeIcon ;
-        this.lastModifiedDateTime = mobileAppParameterValue?.lastModifiedDateTime ;
-        this.notes = mobileAppParameterValue?.notes ;
-        this.owner = mobileAppParameterValue?.owner ;
-        this.privacyInformationUrl = mobileAppParameterValue?.privacyInformationUrl ;
-        this.publisher = mobileAppParameterValue?.publisher ;
-        this.publishingState = mobileAppParameterValue?.publishingState ;
+        super(mobileAppParameterValue);
+        this.assignments = mobileAppParameterValue?.assignments;
+        this.categories = mobileAppParameterValue?.categories;
+        this.createdDateTime = mobileAppParameterValue?.createdDateTime;
+        this.description = mobileAppParameterValue?.description;
+        this.developer = mobileAppParameterValue?.developer;
+        this.displayName = mobileAppParameterValue?.displayName;
+        this.informationUrl = mobileAppParameterValue?.informationUrl;
+        this.isFeatured = mobileAppParameterValue?.isFeatured;
+        this.largeIcon = mobileAppParameterValue?.largeIcon;
+        this.lastModifiedDateTime = mobileAppParameterValue?.lastModifiedDateTime;
+        this.notes = mobileAppParameterValue?.notes;
+        this.owner = mobileAppParameterValue?.owner;
+        this.privacyInformationUrl = mobileAppParameterValue?.privacyInformationUrl;
+        this.publisher = mobileAppParameterValue?.publisher;
+        this.publishingState = mobileAppParameterValue?.publishingState;
     };
     /**
      * The deserialization information for the current model
@@ -94,49 +94,49 @@ export class MobileAppImpl extends EntityImpl implements MobileApp, Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.assignments && this.assignments.length != 0){        const assignmentsArrValue: MobileAppAssignmentImpl[] = []; this.assignments?.forEach(element => {assignmentsArrValue.push(new MobileAppAssignmentImpl(element));});
-        writer.writeCollectionOfObjectValues<MobileAppAssignmentImpl>("assignments", assignmentsArrValue);
+            writer.writeCollectionOfObjectValues<MobileAppAssignmentImpl>("assignments", assignmentsArrValue);
         }
         if(this.categories && this.categories.length != 0){        const categoriesArrValue: MobileAppCategoryImpl[] = []; this.categories?.forEach(element => {categoriesArrValue.push(new MobileAppCategoryImpl(element));});
-        writer.writeCollectionOfObjectValues<MobileAppCategoryImpl>("categories", categoriesArrValue);
+            writer.writeCollectionOfObjectValues<MobileAppCategoryImpl>("categories", categoriesArrValue);
         }
         if(this.createdDateTime){
-        writer.writeDateValue("createdDateTime", this.createdDateTime);
+            writer.writeDateValue("createdDateTime", this.createdDateTime);
         }
         if(this.description){
-        writer.writeStringValue("description", this.description);
+            writer.writeStringValue("description", this.description);
         }
         if(this.developer){
-        writer.writeStringValue("developer", this.developer);
+            writer.writeStringValue("developer", this.developer);
         }
         if(this.displayName){
-        writer.writeStringValue("displayName", this.displayName);
+            writer.writeStringValue("displayName", this.displayName);
         }
         if(this.informationUrl){
-        writer.writeStringValue("informationUrl", this.informationUrl);
+            writer.writeStringValue("informationUrl", this.informationUrl);
         }
         if(this.isFeatured){
-        writer.writeBooleanValue("isFeatured", this.isFeatured);
+            writer.writeBooleanValue("isFeatured", this.isFeatured);
         }
         if(this.largeIcon){
-        writer.writeObjectValue<MimeContentImpl>("largeIcon", new MimeContentImpl(this.largeIcon));
+            writer.writeObjectValue<MimeContentImpl>("largeIcon", new MimeContentImpl(this.largeIcon));
         }
         if(this.lastModifiedDateTime){
-        writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
+            writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
         }
         if(this.notes){
-        writer.writeStringValue("notes", this.notes);
+            writer.writeStringValue("notes", this.notes);
         }
         if(this.owner){
-        writer.writeStringValue("owner", this.owner);
+            writer.writeStringValue("owner", this.owner);
         }
         if(this.privacyInformationUrl){
-        writer.writeStringValue("privacyInformationUrl", this.privacyInformationUrl);
+            writer.writeStringValue("privacyInformationUrl", this.privacyInformationUrl);
         }
         if(this.publisher){
-        writer.writeStringValue("publisher", this.publisher);
+            writer.writeStringValue("publisher", this.publisher);
         }
         if(this.publishingState){
-        writer.writeEnumValue<MobileAppPublishingState>("publishingState", this.publishingState);
+            writer.writeEnumValue<MobileAppPublishingState>("publishingState", this.publishingState);
         }
     };
 }

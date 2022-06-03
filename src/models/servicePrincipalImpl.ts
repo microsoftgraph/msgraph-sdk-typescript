@@ -37,7 +37,7 @@ import {TokenLifetimePolicy} from './tokenLifetimePolicy';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the instantiate method. */
-export class ServicePrincipalImpl extends DirectoryObjectImpl implements Parsable, ServicePrincipal {
+export class ServicePrincipalImpl extends DirectoryObjectImpl implements ServicePrincipal {
     /** true if the service principal account is enabled; otherwise, false. Supports $filter (eq, ne, not, in). */
     public accountEnabled?: boolean | undefined;
     /** Defines custom behavior that a consuming service can use to call an app in specific contexts. For example, applications that can render file streams may set the addIns property for its 'FileHandler' functionality. This will let services like Microsoft 365 call the application in the context of a document the user is working on. */
@@ -135,53 +135,53 @@ export class ServicePrincipalImpl extends DirectoryObjectImpl implements Parsabl
      * @param servicePrincipalParameterValue 
      */
     public constructor(servicePrincipalParameterValue?: ServicePrincipal | undefined) {
-        super();
-        this.accountEnabled = servicePrincipalParameterValue?.accountEnabled ;
-        this.addIns = servicePrincipalParameterValue?.addIns ;
-        this.alternativeNames = servicePrincipalParameterValue?.alternativeNames ;
-        this.appDescription = servicePrincipalParameterValue?.appDescription ;
-        this.appDisplayName = servicePrincipalParameterValue?.appDisplayName ;
-        this.appId = servicePrincipalParameterValue?.appId ;
-        this.applicationTemplateId = servicePrincipalParameterValue?.applicationTemplateId ;
-        this.appOwnerOrganizationId = servicePrincipalParameterValue?.appOwnerOrganizationId ;
-        this.appRoleAssignedTo = servicePrincipalParameterValue?.appRoleAssignedTo ;
-        this.appRoleAssignmentRequired = servicePrincipalParameterValue?.appRoleAssignmentRequired ;
-        this.appRoleAssignments = servicePrincipalParameterValue?.appRoleAssignments ;
-        this.appRoles = servicePrincipalParameterValue?.appRoles ;
-        this.claimsMappingPolicies = servicePrincipalParameterValue?.claimsMappingPolicies ;
-        this.createdObjects = servicePrincipalParameterValue?.createdObjects ;
-        this.delegatedPermissionClassifications = servicePrincipalParameterValue?.delegatedPermissionClassifications ;
-        this.description = servicePrincipalParameterValue?.description ;
-        this.disabledByMicrosoftStatus = servicePrincipalParameterValue?.disabledByMicrosoftStatus ;
-        this.displayName = servicePrincipalParameterValue?.displayName ;
-        this.endpoints = servicePrincipalParameterValue?.endpoints ;
-        this.homepage = servicePrincipalParameterValue?.homepage ;
-        this.homeRealmDiscoveryPolicies = servicePrincipalParameterValue?.homeRealmDiscoveryPolicies ;
-        this.info = servicePrincipalParameterValue?.info ;
-        this.keyCredentials = servicePrincipalParameterValue?.keyCredentials ;
-        this.loginUrl = servicePrincipalParameterValue?.loginUrl ;
-        this.logoutUrl = servicePrincipalParameterValue?.logoutUrl ;
-        this.memberOf = servicePrincipalParameterValue?.memberOf ;
-        this.notes = servicePrincipalParameterValue?.notes ;
-        this.notificationEmailAddresses = servicePrincipalParameterValue?.notificationEmailAddresses ;
-        this.oauth2PermissionGrants = servicePrincipalParameterValue?.oauth2PermissionGrants ;
-        this.oauth2PermissionScopes = servicePrincipalParameterValue?.oauth2PermissionScopes ;
-        this.ownedObjects = servicePrincipalParameterValue?.ownedObjects ;
-        this.owners = servicePrincipalParameterValue?.owners ;
-        this.passwordCredentials = servicePrincipalParameterValue?.passwordCredentials ;
-        this.preferredSingleSignOnMode = servicePrincipalParameterValue?.preferredSingleSignOnMode ;
-        this.preferredTokenSigningKeyThumbprint = servicePrincipalParameterValue?.preferredTokenSigningKeyThumbprint ;
-        this.replyUrls = servicePrincipalParameterValue?.replyUrls ;
-        this.resourceSpecificApplicationPermissions = servicePrincipalParameterValue?.resourceSpecificApplicationPermissions ;
-        this.samlSingleSignOnSettings = servicePrincipalParameterValue?.samlSingleSignOnSettings ;
-        this.servicePrincipalNames = servicePrincipalParameterValue?.servicePrincipalNames ;
-        this.servicePrincipalType = servicePrincipalParameterValue?.servicePrincipalType ;
-        this.signInAudience = servicePrincipalParameterValue?.signInAudience ;
-        this.tags = servicePrincipalParameterValue?.tags ;
-        this.tokenEncryptionKeyId = servicePrincipalParameterValue?.tokenEncryptionKeyId ;
-        this.tokenIssuancePolicies = servicePrincipalParameterValue?.tokenIssuancePolicies ;
-        this.tokenLifetimePolicies = servicePrincipalParameterValue?.tokenLifetimePolicies ;
-        this.transitiveMemberOf = servicePrincipalParameterValue?.transitiveMemberOf ;
+        super(servicePrincipalParameterValue);
+        this.accountEnabled = servicePrincipalParameterValue?.accountEnabled;
+        this.addIns = servicePrincipalParameterValue?.addIns;
+        this.alternativeNames = servicePrincipalParameterValue?.alternativeNames;
+        this.appDescription = servicePrincipalParameterValue?.appDescription;
+        this.appDisplayName = servicePrincipalParameterValue?.appDisplayName;
+        this.appId = servicePrincipalParameterValue?.appId;
+        this.applicationTemplateId = servicePrincipalParameterValue?.applicationTemplateId;
+        this.appOwnerOrganizationId = servicePrincipalParameterValue?.appOwnerOrganizationId;
+        this.appRoleAssignedTo = servicePrincipalParameterValue?.appRoleAssignedTo;
+        this.appRoleAssignmentRequired = servicePrincipalParameterValue?.appRoleAssignmentRequired;
+        this.appRoleAssignments = servicePrincipalParameterValue?.appRoleAssignments;
+        this.appRoles = servicePrincipalParameterValue?.appRoles;
+        this.claimsMappingPolicies = servicePrincipalParameterValue?.claimsMappingPolicies;
+        this.createdObjects = servicePrincipalParameterValue?.createdObjects;
+        this.delegatedPermissionClassifications = servicePrincipalParameterValue?.delegatedPermissionClassifications;
+        this.description = servicePrincipalParameterValue?.description;
+        this.disabledByMicrosoftStatus = servicePrincipalParameterValue?.disabledByMicrosoftStatus;
+        this.displayName = servicePrincipalParameterValue?.displayName;
+        this.endpoints = servicePrincipalParameterValue?.endpoints;
+        this.homepage = servicePrincipalParameterValue?.homepage;
+        this.homeRealmDiscoveryPolicies = servicePrincipalParameterValue?.homeRealmDiscoveryPolicies;
+        this.info = servicePrincipalParameterValue?.info;
+        this.keyCredentials = servicePrincipalParameterValue?.keyCredentials;
+        this.loginUrl = servicePrincipalParameterValue?.loginUrl;
+        this.logoutUrl = servicePrincipalParameterValue?.logoutUrl;
+        this.memberOf = servicePrincipalParameterValue?.memberOf;
+        this.notes = servicePrincipalParameterValue?.notes;
+        this.notificationEmailAddresses = servicePrincipalParameterValue?.notificationEmailAddresses;
+        this.oauth2PermissionGrants = servicePrincipalParameterValue?.oauth2PermissionGrants;
+        this.oauth2PermissionScopes = servicePrincipalParameterValue?.oauth2PermissionScopes;
+        this.ownedObjects = servicePrincipalParameterValue?.ownedObjects;
+        this.owners = servicePrincipalParameterValue?.owners;
+        this.passwordCredentials = servicePrincipalParameterValue?.passwordCredentials;
+        this.preferredSingleSignOnMode = servicePrincipalParameterValue?.preferredSingleSignOnMode;
+        this.preferredTokenSigningKeyThumbprint = servicePrincipalParameterValue?.preferredTokenSigningKeyThumbprint;
+        this.replyUrls = servicePrincipalParameterValue?.replyUrls;
+        this.resourceSpecificApplicationPermissions = servicePrincipalParameterValue?.resourceSpecificApplicationPermissions;
+        this.samlSingleSignOnSettings = servicePrincipalParameterValue?.samlSingleSignOnSettings;
+        this.servicePrincipalNames = servicePrincipalParameterValue?.servicePrincipalNames;
+        this.servicePrincipalType = servicePrincipalParameterValue?.servicePrincipalType;
+        this.signInAudience = servicePrincipalParameterValue?.signInAudience;
+        this.tags = servicePrincipalParameterValue?.tags;
+        this.tokenEncryptionKeyId = servicePrincipalParameterValue?.tokenEncryptionKeyId;
+        this.tokenIssuancePolicies = servicePrincipalParameterValue?.tokenIssuancePolicies;
+        this.tokenLifetimePolicies = servicePrincipalParameterValue?.tokenLifetimePolicies;
+        this.transitiveMemberOf = servicePrincipalParameterValue?.transitiveMemberOf;
     };
     /**
      * The deserialization information for the current model
@@ -245,142 +245,142 @@ export class ServicePrincipalImpl extends DirectoryObjectImpl implements Parsabl
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.accountEnabled){
-        writer.writeBooleanValue("accountEnabled", this.accountEnabled);
+            writer.writeBooleanValue("accountEnabled", this.accountEnabled);
         }
         if(this.addIns && this.addIns.length != 0){        const addInsArrValue: AddInImpl[] = []; this.addIns?.forEach(element => {addInsArrValue.push(new AddInImpl(element));});
-        writer.writeCollectionOfObjectValues<AddInImpl>("addIns", addInsArrValue);
+            writer.writeCollectionOfObjectValues<AddInImpl>("addIns", addInsArrValue);
         }
         if(this.alternativeNames){
-        writer.writeCollectionOfPrimitiveValues<string>("alternativeNames", this.alternativeNames);
+            writer.writeCollectionOfPrimitiveValues<string>("alternativeNames", this.alternativeNames);
         }
         if(this.appDescription){
-        writer.writeStringValue("appDescription", this.appDescription);
+            writer.writeStringValue("appDescription", this.appDescription);
         }
         if(this.appDisplayName){
-        writer.writeStringValue("appDisplayName", this.appDisplayName);
+            writer.writeStringValue("appDisplayName", this.appDisplayName);
         }
         if(this.appId){
-        writer.writeStringValue("appId", this.appId);
+            writer.writeStringValue("appId", this.appId);
         }
         if(this.applicationTemplateId){
-        writer.writeStringValue("applicationTemplateId", this.applicationTemplateId);
+            writer.writeStringValue("applicationTemplateId", this.applicationTemplateId);
         }
         if(this.appOwnerOrganizationId){
-        writer.writeStringValue("appOwnerOrganizationId", this.appOwnerOrganizationId);
+            writer.writeStringValue("appOwnerOrganizationId", this.appOwnerOrganizationId);
         }
         if(this.appRoleAssignedTo && this.appRoleAssignedTo.length != 0){        const appRoleAssignedToArrValue: AppRoleAssignmentImpl[] = []; this.appRoleAssignedTo?.forEach(element => {appRoleAssignedToArrValue.push(new AppRoleAssignmentImpl(element));});
-        writer.writeCollectionOfObjectValues<AppRoleAssignmentImpl>("appRoleAssignedTo", appRoleAssignedToArrValue);
+            writer.writeCollectionOfObjectValues<AppRoleAssignmentImpl>("appRoleAssignedTo", appRoleAssignedToArrValue);
         }
         if(this.appRoleAssignmentRequired){
-        writer.writeBooleanValue("appRoleAssignmentRequired", this.appRoleAssignmentRequired);
+            writer.writeBooleanValue("appRoleAssignmentRequired", this.appRoleAssignmentRequired);
         }
         if(this.appRoleAssignments && this.appRoleAssignments.length != 0){        const appRoleAssignmentsArrValue: AppRoleAssignmentImpl[] = []; this.appRoleAssignments?.forEach(element => {appRoleAssignmentsArrValue.push(new AppRoleAssignmentImpl(element));});
-        writer.writeCollectionOfObjectValues<AppRoleAssignmentImpl>("appRoleAssignments", appRoleAssignmentsArrValue);
+            writer.writeCollectionOfObjectValues<AppRoleAssignmentImpl>("appRoleAssignments", appRoleAssignmentsArrValue);
         }
         if(this.appRoles && this.appRoles.length != 0){        const appRolesArrValue: AppRoleImpl[] = []; this.appRoles?.forEach(element => {appRolesArrValue.push(new AppRoleImpl(element));});
-        writer.writeCollectionOfObjectValues<AppRoleImpl>("appRoles", appRolesArrValue);
+            writer.writeCollectionOfObjectValues<AppRoleImpl>("appRoles", appRolesArrValue);
         }
         if(this.claimsMappingPolicies && this.claimsMappingPolicies.length != 0){        const claimsMappingPoliciesArrValue: ClaimsMappingPolicyImpl[] = []; this.claimsMappingPolicies?.forEach(element => {claimsMappingPoliciesArrValue.push(new ClaimsMappingPolicyImpl(element));});
-        writer.writeCollectionOfObjectValues<ClaimsMappingPolicyImpl>("claimsMappingPolicies", claimsMappingPoliciesArrValue);
+            writer.writeCollectionOfObjectValues<ClaimsMappingPolicyImpl>("claimsMappingPolicies", claimsMappingPoliciesArrValue);
         }
         if(this.createdObjects && this.createdObjects.length != 0){        const createdObjectsArrValue: DirectoryObjectImpl[] = []; this.createdObjects?.forEach(element => {createdObjectsArrValue.push(new DirectoryObjectImpl(element));});
-        writer.writeCollectionOfObjectValues<DirectoryObjectImpl>("createdObjects", createdObjectsArrValue);
+            writer.writeCollectionOfObjectValues<DirectoryObjectImpl>("createdObjects", createdObjectsArrValue);
         }
         if(this.delegatedPermissionClassifications && this.delegatedPermissionClassifications.length != 0){        const delegatedPermissionClassificationsArrValue: DelegatedPermissionClassificationImpl[] = []; this.delegatedPermissionClassifications?.forEach(element => {delegatedPermissionClassificationsArrValue.push(new DelegatedPermissionClassificationImpl(element));});
-        writer.writeCollectionOfObjectValues<DelegatedPermissionClassificationImpl>("delegatedPermissionClassifications", delegatedPermissionClassificationsArrValue);
+            writer.writeCollectionOfObjectValues<DelegatedPermissionClassificationImpl>("delegatedPermissionClassifications", delegatedPermissionClassificationsArrValue);
         }
         if(this.description){
-        writer.writeStringValue("description", this.description);
+            writer.writeStringValue("description", this.description);
         }
         if(this.disabledByMicrosoftStatus){
-        writer.writeStringValue("disabledByMicrosoftStatus", this.disabledByMicrosoftStatus);
+            writer.writeStringValue("disabledByMicrosoftStatus", this.disabledByMicrosoftStatus);
         }
         if(this.displayName){
-        writer.writeStringValue("displayName", this.displayName);
+            writer.writeStringValue("displayName", this.displayName);
         }
         if(this.endpoints && this.endpoints.length != 0){        const endpointsArrValue: EndpointImpl[] = []; this.endpoints?.forEach(element => {endpointsArrValue.push(new EndpointImpl(element));});
-        writer.writeCollectionOfObjectValues<EndpointImpl>("endpoints", endpointsArrValue);
+            writer.writeCollectionOfObjectValues<EndpointImpl>("endpoints", endpointsArrValue);
         }
         if(this.homepage){
-        writer.writeStringValue("homepage", this.homepage);
+            writer.writeStringValue("homepage", this.homepage);
         }
         if(this.homeRealmDiscoveryPolicies && this.homeRealmDiscoveryPolicies.length != 0){        const homeRealmDiscoveryPoliciesArrValue: HomeRealmDiscoveryPolicyImpl[] = []; this.homeRealmDiscoveryPolicies?.forEach(element => {homeRealmDiscoveryPoliciesArrValue.push(new HomeRealmDiscoveryPolicyImpl(element));});
-        writer.writeCollectionOfObjectValues<HomeRealmDiscoveryPolicyImpl>("homeRealmDiscoveryPolicies", homeRealmDiscoveryPoliciesArrValue);
+            writer.writeCollectionOfObjectValues<HomeRealmDiscoveryPolicyImpl>("homeRealmDiscoveryPolicies", homeRealmDiscoveryPoliciesArrValue);
         }
         if(this.info){
-        writer.writeObjectValue<InformationalUrlImpl>("info", new InformationalUrlImpl(this.info));
+            writer.writeObjectValue<InformationalUrlImpl>("info", new InformationalUrlImpl(this.info));
         }
         if(this.keyCredentials && this.keyCredentials.length != 0){        const keyCredentialsArrValue: KeyCredentialImpl[] = []; this.keyCredentials?.forEach(element => {keyCredentialsArrValue.push(new KeyCredentialImpl(element));});
-        writer.writeCollectionOfObjectValues<KeyCredentialImpl>("keyCredentials", keyCredentialsArrValue);
+            writer.writeCollectionOfObjectValues<KeyCredentialImpl>("keyCredentials", keyCredentialsArrValue);
         }
         if(this.loginUrl){
-        writer.writeStringValue("loginUrl", this.loginUrl);
+            writer.writeStringValue("loginUrl", this.loginUrl);
         }
         if(this.logoutUrl){
-        writer.writeStringValue("logoutUrl", this.logoutUrl);
+            writer.writeStringValue("logoutUrl", this.logoutUrl);
         }
         if(this.memberOf && this.memberOf.length != 0){        const memberOfArrValue: DirectoryObjectImpl[] = []; this.memberOf?.forEach(element => {memberOfArrValue.push(new DirectoryObjectImpl(element));});
-        writer.writeCollectionOfObjectValues<DirectoryObjectImpl>("memberOf", memberOfArrValue);
+            writer.writeCollectionOfObjectValues<DirectoryObjectImpl>("memberOf", memberOfArrValue);
         }
         if(this.notes){
-        writer.writeStringValue("notes", this.notes);
+            writer.writeStringValue("notes", this.notes);
         }
         if(this.notificationEmailAddresses){
-        writer.writeCollectionOfPrimitiveValues<string>("notificationEmailAddresses", this.notificationEmailAddresses);
+            writer.writeCollectionOfPrimitiveValues<string>("notificationEmailAddresses", this.notificationEmailAddresses);
         }
         if(this.oauth2PermissionGrants && this.oauth2PermissionGrants.length != 0){        const oauth2PermissionGrantsArrValue: OAuth2PermissionGrantImpl[] = []; this.oauth2PermissionGrants?.forEach(element => {oauth2PermissionGrantsArrValue.push(new OAuth2PermissionGrantImpl(element));});
-        writer.writeCollectionOfObjectValues<OAuth2PermissionGrantImpl>("oauth2PermissionGrants", oauth2PermissionGrantsArrValue);
+            writer.writeCollectionOfObjectValues<OAuth2PermissionGrantImpl>("oauth2PermissionGrants", oauth2PermissionGrantsArrValue);
         }
         if(this.oauth2PermissionScopes && this.oauth2PermissionScopes.length != 0){        const oauth2PermissionScopesArrValue: PermissionScopeImpl[] = []; this.oauth2PermissionScopes?.forEach(element => {oauth2PermissionScopesArrValue.push(new PermissionScopeImpl(element));});
-        writer.writeCollectionOfObjectValues<PermissionScopeImpl>("oauth2PermissionScopes", oauth2PermissionScopesArrValue);
+            writer.writeCollectionOfObjectValues<PermissionScopeImpl>("oauth2PermissionScopes", oauth2PermissionScopesArrValue);
         }
         if(this.ownedObjects && this.ownedObjects.length != 0){        const ownedObjectsArrValue: DirectoryObjectImpl[] = []; this.ownedObjects?.forEach(element => {ownedObjectsArrValue.push(new DirectoryObjectImpl(element));});
-        writer.writeCollectionOfObjectValues<DirectoryObjectImpl>("ownedObjects", ownedObjectsArrValue);
+            writer.writeCollectionOfObjectValues<DirectoryObjectImpl>("ownedObjects", ownedObjectsArrValue);
         }
         if(this.owners && this.owners.length != 0){        const ownersArrValue: DirectoryObjectImpl[] = []; this.owners?.forEach(element => {ownersArrValue.push(new DirectoryObjectImpl(element));});
-        writer.writeCollectionOfObjectValues<DirectoryObjectImpl>("owners", ownersArrValue);
+            writer.writeCollectionOfObjectValues<DirectoryObjectImpl>("owners", ownersArrValue);
         }
         if(this.passwordCredentials && this.passwordCredentials.length != 0){        const passwordCredentialsArrValue: PasswordCredentialImpl[] = []; this.passwordCredentials?.forEach(element => {passwordCredentialsArrValue.push(new PasswordCredentialImpl(element));});
-        writer.writeCollectionOfObjectValues<PasswordCredentialImpl>("passwordCredentials", passwordCredentialsArrValue);
+            writer.writeCollectionOfObjectValues<PasswordCredentialImpl>("passwordCredentials", passwordCredentialsArrValue);
         }
         if(this.preferredSingleSignOnMode){
-        writer.writeStringValue("preferredSingleSignOnMode", this.preferredSingleSignOnMode);
+            writer.writeStringValue("preferredSingleSignOnMode", this.preferredSingleSignOnMode);
         }
         if(this.preferredTokenSigningKeyThumbprint){
-        writer.writeStringValue("preferredTokenSigningKeyThumbprint", this.preferredTokenSigningKeyThumbprint);
+            writer.writeStringValue("preferredTokenSigningKeyThumbprint", this.preferredTokenSigningKeyThumbprint);
         }
         if(this.replyUrls){
-        writer.writeCollectionOfPrimitiveValues<string>("replyUrls", this.replyUrls);
+            writer.writeCollectionOfPrimitiveValues<string>("replyUrls", this.replyUrls);
         }
         if(this.resourceSpecificApplicationPermissions && this.resourceSpecificApplicationPermissions.length != 0){        const resourceSpecificApplicationPermissionsArrValue: ResourceSpecificPermissionImpl[] = []; this.resourceSpecificApplicationPermissions?.forEach(element => {resourceSpecificApplicationPermissionsArrValue.push(new ResourceSpecificPermissionImpl(element));});
-        writer.writeCollectionOfObjectValues<ResourceSpecificPermissionImpl>("resourceSpecificApplicationPermissions", resourceSpecificApplicationPermissionsArrValue);
+            writer.writeCollectionOfObjectValues<ResourceSpecificPermissionImpl>("resourceSpecificApplicationPermissions", resourceSpecificApplicationPermissionsArrValue);
         }
         if(this.samlSingleSignOnSettings){
-        writer.writeObjectValue<SamlSingleSignOnSettingsImpl>("samlSingleSignOnSettings", new SamlSingleSignOnSettingsImpl(this.samlSingleSignOnSettings));
+            writer.writeObjectValue<SamlSingleSignOnSettingsImpl>("samlSingleSignOnSettings", new SamlSingleSignOnSettingsImpl(this.samlSingleSignOnSettings));
         }
         if(this.servicePrincipalNames){
-        writer.writeCollectionOfPrimitiveValues<string>("servicePrincipalNames", this.servicePrincipalNames);
+            writer.writeCollectionOfPrimitiveValues<string>("servicePrincipalNames", this.servicePrincipalNames);
         }
         if(this.servicePrincipalType){
-        writer.writeStringValue("servicePrincipalType", this.servicePrincipalType);
+            writer.writeStringValue("servicePrincipalType", this.servicePrincipalType);
         }
         if(this.signInAudience){
-        writer.writeStringValue("signInAudience", this.signInAudience);
+            writer.writeStringValue("signInAudience", this.signInAudience);
         }
         if(this.tags){
-        writer.writeCollectionOfPrimitiveValues<string>("tags", this.tags);
+            writer.writeCollectionOfPrimitiveValues<string>("tags", this.tags);
         }
         if(this.tokenEncryptionKeyId){
-        writer.writeStringValue("tokenEncryptionKeyId", this.tokenEncryptionKeyId);
+            writer.writeStringValue("tokenEncryptionKeyId", this.tokenEncryptionKeyId);
         }
         if(this.tokenIssuancePolicies && this.tokenIssuancePolicies.length != 0){        const tokenIssuancePoliciesArrValue: TokenIssuancePolicyImpl[] = []; this.tokenIssuancePolicies?.forEach(element => {tokenIssuancePoliciesArrValue.push(new TokenIssuancePolicyImpl(element));});
-        writer.writeCollectionOfObjectValues<TokenIssuancePolicyImpl>("tokenIssuancePolicies", tokenIssuancePoliciesArrValue);
+            writer.writeCollectionOfObjectValues<TokenIssuancePolicyImpl>("tokenIssuancePolicies", tokenIssuancePoliciesArrValue);
         }
         if(this.tokenLifetimePolicies && this.tokenLifetimePolicies.length != 0){        const tokenLifetimePoliciesArrValue: TokenLifetimePolicyImpl[] = []; this.tokenLifetimePolicies?.forEach(element => {tokenLifetimePoliciesArrValue.push(new TokenLifetimePolicyImpl(element));});
-        writer.writeCollectionOfObjectValues<TokenLifetimePolicyImpl>("tokenLifetimePolicies", tokenLifetimePoliciesArrValue);
+            writer.writeCollectionOfObjectValues<TokenLifetimePolicyImpl>("tokenLifetimePolicies", tokenLifetimePoliciesArrValue);
         }
         if(this.transitiveMemberOf && this.transitiveMemberOf.length != 0){        const transitiveMemberOfArrValue: DirectoryObjectImpl[] = []; this.transitiveMemberOf?.forEach(element => {transitiveMemberOfArrValue.push(new DirectoryObjectImpl(element));});
-        writer.writeCollectionOfObjectValues<DirectoryObjectImpl>("transitiveMemberOf", transitiveMemberOfArrValue);
+            writer.writeCollectionOfObjectValues<DirectoryObjectImpl>("transitiveMemberOf", transitiveMemberOfArrValue);
         }
     };
 }

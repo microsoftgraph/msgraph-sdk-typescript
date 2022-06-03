@@ -6,7 +6,7 @@ import {RecurrencePattern} from './recurrencePattern';
 import {RecurrenceRange} from './recurrenceRange';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class PatternedRecurrenceImpl implements AdditionalDataHolder, Parsable, PatternedRecurrence {
+export class PatternedRecurrenceImpl implements PatternedRecurrence {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The frequency of an event. Do not specify for a one-time access review.  For access reviews: Do not specify this property for a one-time access review.   Only interval, dayOfMonth, and type (weekly, absoluteMonthly) properties of recurrencePattern are supported. */
@@ -18,9 +18,9 @@ export class PatternedRecurrenceImpl implements AdditionalDataHolder, Parsable, 
      * @param patternedRecurrenceParameterValue 
      */
     public constructor(patternedRecurrenceParameterValue?: PatternedRecurrence | undefined) {
-        this.additionalData = patternedRecurrenceParameterValue?.additionalData ? patternedRecurrenceParameterValue?.additionalData! : {}
-        this.pattern = patternedRecurrenceParameterValue?.pattern ;
-        this.range = patternedRecurrenceParameterValue?.range ;
+        this.additionalData = patternedRecurrenceParameterValue?.additionalData ? patternedRecurrenceParameterValue?.additionalData! : {};
+        this.pattern = patternedRecurrenceParameterValue?.pattern;
+        this.range = patternedRecurrenceParameterValue?.range;
     };
     /**
      * The deserialization information for the current model
@@ -39,10 +39,10 @@ export class PatternedRecurrenceImpl implements AdditionalDataHolder, Parsable, 
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.pattern){
-        writer.writeObjectValue<RecurrencePatternImpl>("pattern", new RecurrencePatternImpl(this.pattern));
+            writer.writeObjectValue<RecurrencePatternImpl>("pattern", new RecurrencePatternImpl(this.pattern));
         }
         if(this.range){
-        writer.writeObjectValue<RecurrenceRangeImpl>("range", new RecurrenceRangeImpl(this.range));
+            writer.writeObjectValue<RecurrenceRangeImpl>("range", new RecurrenceRangeImpl(this.range));
         }
         writer.writeAdditionalData(this.additionalData);
     };

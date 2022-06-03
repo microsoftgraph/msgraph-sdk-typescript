@@ -4,7 +4,7 @@ import {OrganizationalBrandingLocalization} from './organizationalBrandingLocali
 import {OrganizationalBrandingLocalizationCollectionResponse} from './organizationalBrandingLocalizationCollectionResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class OrganizationalBrandingLocalizationCollectionResponseImpl implements AdditionalDataHolder, OrganizationalBrandingLocalizationCollectionResponse, Parsable {
+export class OrganizationalBrandingLocalizationCollectionResponseImpl implements OrganizationalBrandingLocalizationCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class OrganizationalBrandingLocalizationCollectionResponseImpl implements
      * @param organizationalBrandingLocalizationCollectionResponseParameterValue 
      */
     public constructor(organizationalBrandingLocalizationCollectionResponseParameterValue?: OrganizationalBrandingLocalizationCollectionResponse | undefined) {
-        this.additionalData = organizationalBrandingLocalizationCollectionResponseParameterValue?.additionalData ? organizationalBrandingLocalizationCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = organizationalBrandingLocalizationCollectionResponseParameterValue?.nextLink ;
-        this.value = organizationalBrandingLocalizationCollectionResponseParameterValue?.value ;
+        this.additionalData = organizationalBrandingLocalizationCollectionResponseParameterValue?.additionalData ? organizationalBrandingLocalizationCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = organizationalBrandingLocalizationCollectionResponseParameterValue?.nextLink;
+        this.value = organizationalBrandingLocalizationCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class OrganizationalBrandingLocalizationCollectionResponseImpl implements
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: OrganizationalBrandingLocalizationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new OrganizationalBrandingLocalizationImpl(element));});
-        writer.writeCollectionOfObjectValues<OrganizationalBrandingLocalizationImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<OrganizationalBrandingLocalizationImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

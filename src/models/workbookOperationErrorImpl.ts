@@ -2,7 +2,7 @@ import {createWorkbookOperationErrorFromDiscriminatorValue} from './createWorkbo
 import {WorkbookOperationError} from './workbookOperationError';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class WorkbookOperationErrorImpl implements AdditionalDataHolder, Parsable, WorkbookOperationError {
+export class WorkbookOperationErrorImpl implements WorkbookOperationError {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The error code. */
@@ -16,10 +16,10 @@ export class WorkbookOperationErrorImpl implements AdditionalDataHolder, Parsabl
      * @param workbookOperationErrorParameterValue 
      */
     public constructor(workbookOperationErrorParameterValue?: WorkbookOperationError | undefined) {
-        this.additionalData = workbookOperationErrorParameterValue?.additionalData ? workbookOperationErrorParameterValue?.additionalData! : {}
-        this.code = workbookOperationErrorParameterValue?.code ;
-        this.innerError = workbookOperationErrorParameterValue?.innerError ;
-        this.message = workbookOperationErrorParameterValue?.message ;
+        this.additionalData = workbookOperationErrorParameterValue?.additionalData ? workbookOperationErrorParameterValue?.additionalData! : {};
+        this.code = workbookOperationErrorParameterValue?.code;
+        this.innerError = workbookOperationErrorParameterValue?.innerError;
+        this.message = workbookOperationErrorParameterValue?.message;
     };
     /**
      * The deserialization information for the current model
@@ -39,13 +39,13 @@ export class WorkbookOperationErrorImpl implements AdditionalDataHolder, Parsabl
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.code){
-        writer.writeStringValue("code", this.code);
+            writer.writeStringValue("code", this.code);
         }
         if(this.innerError){
-        writer.writeObjectValue<WorkbookOperationErrorImpl>("innerError", new WorkbookOperationErrorImpl(this.innerError));
+            writer.writeObjectValue<WorkbookOperationErrorImpl>("innerError", new WorkbookOperationErrorImpl(this.innerError));
         }
         if(this.message){
-        writer.writeStringValue("message", this.message);
+            writer.writeStringValue("message", this.message);
         }
         writer.writeAdditionalData(this.additionalData);
     };

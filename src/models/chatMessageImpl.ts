@@ -24,7 +24,7 @@ import {ItemBody} from './itemBody';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the collection of chat entities. */
-export class ChatMessageImpl extends EntityImpl implements ChatMessage, Parsable {
+export class ChatMessageImpl extends EntityImpl implements ChatMessage {
     /** References to attached objects like files, tabs, meetings etc. */
     public attachments?: ChatMessageAttachment[] | undefined;
     /** The body property */
@@ -76,30 +76,30 @@ export class ChatMessageImpl extends EntityImpl implements ChatMessage, Parsable
      * @param chatMessageParameterValue 
      */
     public constructor(chatMessageParameterValue?: ChatMessage | undefined) {
-        super();
-        this.attachments = chatMessageParameterValue?.attachments ;
-        this.body = chatMessageParameterValue?.body ;
-        this.channelIdentity = chatMessageParameterValue?.channelIdentity ;
-        this.chatId = chatMessageParameterValue?.chatId ;
-        this.createdDateTime = chatMessageParameterValue?.createdDateTime ;
-        this.deletedDateTime = chatMessageParameterValue?.deletedDateTime ;
-        this.etag = chatMessageParameterValue?.etag ;
-        this.eventDetail = chatMessageParameterValue?.eventDetail ;
-        this.from = chatMessageParameterValue?.from ;
-        this.hostedContents = chatMessageParameterValue?.hostedContents ;
-        this.importance = chatMessageParameterValue?.importance ;
-        this.lastEditedDateTime = chatMessageParameterValue?.lastEditedDateTime ;
-        this.lastModifiedDateTime = chatMessageParameterValue?.lastModifiedDateTime ;
-        this.locale = chatMessageParameterValue?.locale ;
-        this.mentions = chatMessageParameterValue?.mentions ;
-        this.messageType = chatMessageParameterValue?.messageType ;
-        this.policyViolation = chatMessageParameterValue?.policyViolation ;
-        this.reactions = chatMessageParameterValue?.reactions ;
-        this.replies = chatMessageParameterValue?.replies ;
-        this.replyToId = chatMessageParameterValue?.replyToId ;
-        this.subject = chatMessageParameterValue?.subject ;
-        this.summary = chatMessageParameterValue?.summary ;
-        this.webUrl = chatMessageParameterValue?.webUrl ;
+        super(chatMessageParameterValue);
+        this.attachments = chatMessageParameterValue?.attachments;
+        this.body = chatMessageParameterValue?.body;
+        this.channelIdentity = chatMessageParameterValue?.channelIdentity;
+        this.chatId = chatMessageParameterValue?.chatId;
+        this.createdDateTime = chatMessageParameterValue?.createdDateTime;
+        this.deletedDateTime = chatMessageParameterValue?.deletedDateTime;
+        this.etag = chatMessageParameterValue?.etag;
+        this.eventDetail = chatMessageParameterValue?.eventDetail;
+        this.from = chatMessageParameterValue?.from;
+        this.hostedContents = chatMessageParameterValue?.hostedContents;
+        this.importance = chatMessageParameterValue?.importance;
+        this.lastEditedDateTime = chatMessageParameterValue?.lastEditedDateTime;
+        this.lastModifiedDateTime = chatMessageParameterValue?.lastModifiedDateTime;
+        this.locale = chatMessageParameterValue?.locale;
+        this.mentions = chatMessageParameterValue?.mentions;
+        this.messageType = chatMessageParameterValue?.messageType;
+        this.policyViolation = chatMessageParameterValue?.policyViolation;
+        this.reactions = chatMessageParameterValue?.reactions;
+        this.replies = chatMessageParameterValue?.replies;
+        this.replyToId = chatMessageParameterValue?.replyToId;
+        this.subject = chatMessageParameterValue?.subject;
+        this.summary = chatMessageParameterValue?.summary;
+        this.webUrl = chatMessageParameterValue?.webUrl;
     };
     /**
      * The deserialization information for the current model
@@ -140,73 +140,73 @@ export class ChatMessageImpl extends EntityImpl implements ChatMessage, Parsable
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.attachments && this.attachments.length != 0){        const attachmentsArrValue: ChatMessageAttachmentImpl[] = []; this.attachments?.forEach(element => {attachmentsArrValue.push(new ChatMessageAttachmentImpl(element));});
-        writer.writeCollectionOfObjectValues<ChatMessageAttachmentImpl>("attachments", attachmentsArrValue);
+            writer.writeCollectionOfObjectValues<ChatMessageAttachmentImpl>("attachments", attachmentsArrValue);
         }
         if(this.body){
-        writer.writeObjectValue<ItemBodyImpl>("body", new ItemBodyImpl(this.body));
+            writer.writeObjectValue<ItemBodyImpl>("body", new ItemBodyImpl(this.body));
         }
         if(this.channelIdentity){
-        writer.writeObjectValue<ChannelIdentityImpl>("channelIdentity", new ChannelIdentityImpl(this.channelIdentity));
+            writer.writeObjectValue<ChannelIdentityImpl>("channelIdentity", new ChannelIdentityImpl(this.channelIdentity));
         }
         if(this.chatId){
-        writer.writeStringValue("chatId", this.chatId);
+            writer.writeStringValue("chatId", this.chatId);
         }
         if(this.createdDateTime){
-        writer.writeDateValue("createdDateTime", this.createdDateTime);
+            writer.writeDateValue("createdDateTime", this.createdDateTime);
         }
         if(this.deletedDateTime){
-        writer.writeDateValue("deletedDateTime", this.deletedDateTime);
+            writer.writeDateValue("deletedDateTime", this.deletedDateTime);
         }
         if(this.etag){
-        writer.writeStringValue("etag", this.etag);
+            writer.writeStringValue("etag", this.etag);
         }
         if(this.eventDetail){
-        writer.writeObjectValue<EventMessageDetailImpl>("eventDetail", new EventMessageDetailImpl(this.eventDetail));
+            writer.writeObjectValue<EventMessageDetailImpl>("eventDetail", new EventMessageDetailImpl(this.eventDetail));
         }
         if(this.from){
-        writer.writeObjectValue<ChatMessageFromIdentitySetImpl>("from", new ChatMessageFromIdentitySetImpl(this.from));
+            writer.writeObjectValue<ChatMessageFromIdentitySetImpl>("from", new ChatMessageFromIdentitySetImpl(this.from));
         }
         if(this.hostedContents && this.hostedContents.length != 0){        const hostedContentsArrValue: ChatMessageHostedContentImpl[] = []; this.hostedContents?.forEach(element => {hostedContentsArrValue.push(new ChatMessageHostedContentImpl(element));});
-        writer.writeCollectionOfObjectValues<ChatMessageHostedContentImpl>("hostedContents", hostedContentsArrValue);
+            writer.writeCollectionOfObjectValues<ChatMessageHostedContentImpl>("hostedContents", hostedContentsArrValue);
         }
         if(this.importance){
-        writer.writeEnumValue<ChatMessageImportance>("importance", this.importance);
+            writer.writeEnumValue<ChatMessageImportance>("importance", this.importance);
         }
         if(this.lastEditedDateTime){
-        writer.writeDateValue("lastEditedDateTime", this.lastEditedDateTime);
+            writer.writeDateValue("lastEditedDateTime", this.lastEditedDateTime);
         }
         if(this.lastModifiedDateTime){
-        writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
+            writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
         }
         if(this.locale){
-        writer.writeStringValue("locale", this.locale);
+            writer.writeStringValue("locale", this.locale);
         }
         if(this.mentions && this.mentions.length != 0){        const mentionsArrValue: ChatMessageMentionImpl[] = []; this.mentions?.forEach(element => {mentionsArrValue.push(new ChatMessageMentionImpl(element));});
-        writer.writeCollectionOfObjectValues<ChatMessageMentionImpl>("mentions", mentionsArrValue);
+            writer.writeCollectionOfObjectValues<ChatMessageMentionImpl>("mentions", mentionsArrValue);
         }
         if(this.messageType){
-        writer.writeEnumValue<ChatMessageType>("messageType", this.messageType);
+            writer.writeEnumValue<ChatMessageType>("messageType", this.messageType);
         }
         if(this.policyViolation){
-        writer.writeObjectValue<ChatMessagePolicyViolationImpl>("policyViolation", new ChatMessagePolicyViolationImpl(this.policyViolation));
+            writer.writeObjectValue<ChatMessagePolicyViolationImpl>("policyViolation", new ChatMessagePolicyViolationImpl(this.policyViolation));
         }
         if(this.reactions && this.reactions.length != 0){        const reactionsArrValue: ChatMessageReactionImpl[] = []; this.reactions?.forEach(element => {reactionsArrValue.push(new ChatMessageReactionImpl(element));});
-        writer.writeCollectionOfObjectValues<ChatMessageReactionImpl>("reactions", reactionsArrValue);
+            writer.writeCollectionOfObjectValues<ChatMessageReactionImpl>("reactions", reactionsArrValue);
         }
         if(this.replies && this.replies.length != 0){        const repliesArrValue: ChatMessageImpl[] = []; this.replies?.forEach(element => {repliesArrValue.push(new ChatMessageImpl(element));});
-        writer.writeCollectionOfObjectValues<ChatMessageImpl>("replies", repliesArrValue);
+            writer.writeCollectionOfObjectValues<ChatMessageImpl>("replies", repliesArrValue);
         }
         if(this.replyToId){
-        writer.writeStringValue("replyToId", this.replyToId);
+            writer.writeStringValue("replyToId", this.replyToId);
         }
         if(this.subject){
-        writer.writeStringValue("subject", this.subject);
+            writer.writeStringValue("subject", this.subject);
         }
         if(this.summary){
-        writer.writeStringValue("summary", this.summary);
+            writer.writeStringValue("summary", this.summary);
         }
         if(this.webUrl){
-        writer.writeStringValue("webUrl", this.webUrl);
+            writer.writeStringValue("webUrl", this.webUrl);
         }
     };
 }

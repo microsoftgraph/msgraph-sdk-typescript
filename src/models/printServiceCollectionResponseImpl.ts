@@ -4,7 +4,7 @@ import {PrintService} from './printService';
 import {PrintServiceCollectionResponse} from './printServiceCollectionResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class PrintServiceCollectionResponseImpl implements AdditionalDataHolder, Parsable, PrintServiceCollectionResponse {
+export class PrintServiceCollectionResponseImpl implements PrintServiceCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class PrintServiceCollectionResponseImpl implements AdditionalDataHolder,
      * @param printServiceCollectionResponseParameterValue 
      */
     public constructor(printServiceCollectionResponseParameterValue?: PrintServiceCollectionResponse | undefined) {
-        this.additionalData = printServiceCollectionResponseParameterValue?.additionalData ? printServiceCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = printServiceCollectionResponseParameterValue?.nextLink ;
-        this.value = printServiceCollectionResponseParameterValue?.value ;
+        this.additionalData = printServiceCollectionResponseParameterValue?.additionalData ? printServiceCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = printServiceCollectionResponseParameterValue?.nextLink;
+        this.value = printServiceCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class PrintServiceCollectionResponseImpl implements AdditionalDataHolder,
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: PrintServiceImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new PrintServiceImpl(element));});
-        writer.writeCollectionOfObjectValues<PrintServiceImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<PrintServiceImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

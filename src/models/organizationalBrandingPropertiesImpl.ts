@@ -3,7 +3,7 @@ import {OrganizationalBrandingProperties} from './organizationalBrandingProperti
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the organizationalBranding singleton. */
-export class OrganizationalBrandingPropertiesImpl extends EntityImpl implements OrganizationalBrandingProperties, Parsable {
+export class OrganizationalBrandingPropertiesImpl extends EntityImpl implements OrganizationalBrandingProperties {
     /** Color that appears in place of the background image in low-bandwidth connections. We recommend that you use the primary color of your banner logo or your organization color. Specify this in hexadecimal format, for example, white is #FFFFFF. */
     public backgroundColor?: string | undefined;
     /** Image that appears as the background of the sign-in page. The allowed types are PNG or JPEG not smaller than 300 KB and not larger than 1920 × 1080 pixels. A smaller image will reduce bandwidth requirements and make the page load faster. */
@@ -29,17 +29,17 @@ export class OrganizationalBrandingPropertiesImpl extends EntityImpl implements 
      * @param organizationalBrandingPropertiesParameterValue 
      */
     public constructor(organizationalBrandingPropertiesParameterValue?: OrganizationalBrandingProperties | undefined) {
-        super();
-        this.backgroundColor = organizationalBrandingPropertiesParameterValue?.backgroundColor ;
-        this.backgroundImage = organizationalBrandingPropertiesParameterValue?.backgroundImage ;
-        this.backgroundImageRelativeUrl = organizationalBrandingPropertiesParameterValue?.backgroundImageRelativeUrl ;
-        this.bannerLogo = organizationalBrandingPropertiesParameterValue?.bannerLogo ;
-        this.bannerLogoRelativeUrl = organizationalBrandingPropertiesParameterValue?.bannerLogoRelativeUrl ;
-        this.cdnList = organizationalBrandingPropertiesParameterValue?.cdnList ;
-        this.signInPageText = organizationalBrandingPropertiesParameterValue?.signInPageText ;
-        this.squareLogo = organizationalBrandingPropertiesParameterValue?.squareLogo ;
-        this.squareLogoRelativeUrl = organizationalBrandingPropertiesParameterValue?.squareLogoRelativeUrl ;
-        this.usernameHintText = organizationalBrandingPropertiesParameterValue?.usernameHintText ;
+        super(organizationalBrandingPropertiesParameterValue);
+        this.backgroundColor = organizationalBrandingPropertiesParameterValue?.backgroundColor;
+        this.backgroundImage = organizationalBrandingPropertiesParameterValue?.backgroundImage;
+        this.backgroundImageRelativeUrl = organizationalBrandingPropertiesParameterValue?.backgroundImageRelativeUrl;
+        this.bannerLogo = organizationalBrandingPropertiesParameterValue?.bannerLogo;
+        this.bannerLogoRelativeUrl = organizationalBrandingPropertiesParameterValue?.bannerLogoRelativeUrl;
+        this.cdnList = organizationalBrandingPropertiesParameterValue?.cdnList;
+        this.signInPageText = organizationalBrandingPropertiesParameterValue?.signInPageText;
+        this.squareLogo = organizationalBrandingPropertiesParameterValue?.squareLogo;
+        this.squareLogoRelativeUrl = organizationalBrandingPropertiesParameterValue?.squareLogoRelativeUrl;
+        this.usernameHintText = organizationalBrandingPropertiesParameterValue?.usernameHintText;
     };
     /**
      * The deserialization information for the current model
@@ -67,34 +67,34 @@ export class OrganizationalBrandingPropertiesImpl extends EntityImpl implements 
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.backgroundColor){
-        writer.writeStringValue("backgroundColor", this.backgroundColor);
+            writer.writeStringValue("backgroundColor", this.backgroundColor);
         }
         if(this.backgroundImage){
-        writer.writeStringValue("backgroundImage", this.backgroundImage);
+            writer.writeStringValue("backgroundImage", this.backgroundImage);
         }
         if(this.backgroundImageRelativeUrl){
-        writer.writeStringValue("backgroundImageRelativeUrl", this.backgroundImageRelativeUrl);
+            writer.writeStringValue("backgroundImageRelativeUrl", this.backgroundImageRelativeUrl);
         }
         if(this.bannerLogo){
-        writer.writeStringValue("bannerLogo", this.bannerLogo);
+            writer.writeStringValue("bannerLogo", this.bannerLogo);
         }
         if(this.bannerLogoRelativeUrl){
-        writer.writeStringValue("bannerLogoRelativeUrl", this.bannerLogoRelativeUrl);
+            writer.writeStringValue("bannerLogoRelativeUrl", this.bannerLogoRelativeUrl);
         }
         if(this.cdnList){
-        writer.writeCollectionOfPrimitiveValues<string>("cdnList", this.cdnList);
+            writer.writeCollectionOfPrimitiveValues<string>("cdnList", this.cdnList);
         }
         if(this.signInPageText){
-        writer.writeStringValue("signInPageText", this.signInPageText);
+            writer.writeStringValue("signInPageText", this.signInPageText);
         }
         if(this.squareLogo){
-        writer.writeStringValue("squareLogo", this.squareLogo);
+            writer.writeStringValue("squareLogo", this.squareLogo);
         }
         if(this.squareLogoRelativeUrl){
-        writer.writeStringValue("squareLogoRelativeUrl", this.squareLogoRelativeUrl);
+            writer.writeStringValue("squareLogoRelativeUrl", this.squareLogoRelativeUrl);
         }
         if(this.usernameHintText){
-        writer.writeStringValue("usernameHintText", this.usernameHintText);
+            writer.writeStringValue("usernameHintText", this.usernameHintText);
         }
     };
 }

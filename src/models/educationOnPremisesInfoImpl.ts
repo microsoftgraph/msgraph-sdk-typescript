@@ -1,7 +1,7 @@
 import {EducationOnPremisesInfo} from './educationOnPremisesInfo';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class EducationOnPremisesInfoImpl implements AdditionalDataHolder, EducationOnPremisesInfo, Parsable {
+export class EducationOnPremisesInfoImpl implements EducationOnPremisesInfo {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Unique identifier for the user object in Active Directory. */
@@ -11,8 +11,8 @@ export class EducationOnPremisesInfoImpl implements AdditionalDataHolder, Educat
      * @param educationOnPremisesInfoParameterValue 
      */
     public constructor(educationOnPremisesInfoParameterValue?: EducationOnPremisesInfo | undefined) {
-        this.additionalData = educationOnPremisesInfoParameterValue?.additionalData ? educationOnPremisesInfoParameterValue?.additionalData! : {}
-        this.immutableId = educationOnPremisesInfoParameterValue?.immutableId ;
+        this.additionalData = educationOnPremisesInfoParameterValue?.additionalData ? educationOnPremisesInfoParameterValue?.additionalData! : {};
+        this.immutableId = educationOnPremisesInfoParameterValue?.immutableId;
     };
     /**
      * The deserialization information for the current model
@@ -30,7 +30,7 @@ export class EducationOnPremisesInfoImpl implements AdditionalDataHolder, Educat
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.immutableId){
-        writer.writeStringValue("immutableId", this.immutableId);
+            writer.writeStringValue("immutableId", this.immutableId);
         }
         writer.writeAdditionalData(this.additionalData);
     };

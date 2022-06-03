@@ -1,18 +1,19 @@
 import {DirectoryObject} from './directoryObject';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface UnifiedRoleManagementPolicyRuleTarget{
+export interface UnifiedRoleManagementPolicyRuleTarget extends Partial<AdditionalDataHolder>, Partial<Parsable> {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?:Record<string, unknown>;
+    additionalData?: Record<string, unknown>;
     /** The caller for the policy rule target. Allowed values are: None, Admin, EndUser. */
-    caller?:string | undefined;
+    caller?: string | undefined;
     /** The list of settings which are enforced and cannot be overridden by child scopes. Use All for all settings. */
-    enforcedSettings?:string[] | undefined;
+    enforcedSettings?: string[] | undefined;
     /** The list of settings which can be inherited by child scopes. Use All for all settings. */
-    inheritableSettings?:string[] | undefined;
+    inheritableSettings?: string[] | undefined;
     /** The level for the policy rule target. Allowed values are: Eligibility, Assignment. */
-    level?:string | undefined;
+    level?: string | undefined;
     /** The operations for policy rule target. Allowed values are: All, Activate, Deactivate, Assign, Update, Remove, Extend, Renew. */
-    operations?:string[] | undefined;
+    operations?: string[] | undefined;
     /** The targetObjects property */
-    targetObjects?:DirectoryObject[] | undefined;
+    targetObjects?: DirectoryObject[] | undefined;
 }

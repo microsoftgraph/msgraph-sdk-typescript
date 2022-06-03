@@ -1,11 +1,11 @@
 import {ExtensionPropertyItemRequestBuilderGetQueryParameters} from './extensionPropertyItemRequestBuilderGetQueryParameters';
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
-export interface ExtensionPropertyItemRequestBuilderGetRequestConfiguration{
+export interface ExtensionPropertyItemRequestBuilderGetRequestConfiguration {
     /** Request headers */
-    headers?:Record<string, string> | undefined;
+    headers?: Record<string, string> | undefined;
     /** Request options */
-    options?:RequestOption[] | undefined;
+    options?: RequestOption[] | undefined;
     /** Request query parameters */
-    queryParameters?:ExtensionPropertyItemRequestBuilderGetQueryParameters | undefined;
+    queryParameters?: ExtensionPropertyItemRequestBuilderGetQueryParameters | undefined;
 }

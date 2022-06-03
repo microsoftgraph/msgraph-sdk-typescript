@@ -1,7 +1,7 @@
 import {ExtensionSchemaProperty} from './extensionSchemaProperty';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ExtensionSchemaPropertyImpl implements AdditionalDataHolder, ExtensionSchemaProperty, Parsable {
+export class ExtensionSchemaPropertyImpl implements ExtensionSchemaProperty {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The name of the strongly typed property defined as part of a schema extension. */
@@ -13,9 +13,9 @@ export class ExtensionSchemaPropertyImpl implements AdditionalDataHolder, Extens
      * @param extensionSchemaPropertyParameterValue 
      */
     public constructor(extensionSchemaPropertyParameterValue?: ExtensionSchemaProperty | undefined) {
-        this.additionalData = extensionSchemaPropertyParameterValue?.additionalData ? extensionSchemaPropertyParameterValue?.additionalData! : {}
-        this.name = extensionSchemaPropertyParameterValue?.name ;
-        this.type = extensionSchemaPropertyParameterValue?.type ;
+        this.additionalData = extensionSchemaPropertyParameterValue?.additionalData ? extensionSchemaPropertyParameterValue?.additionalData! : {};
+        this.name = extensionSchemaPropertyParameterValue?.name;
+        this.type = extensionSchemaPropertyParameterValue?.type;
     };
     /**
      * The deserialization information for the current model
@@ -34,10 +34,10 @@ export class ExtensionSchemaPropertyImpl implements AdditionalDataHolder, Extens
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.name){
-        writer.writeStringValue("name", this.name);
+            writer.writeStringValue("name", this.name);
         }
         if(this.type){
-        writer.writeStringValue("type", this.type);
+            writer.writeStringValue("type", this.type);
         }
         writer.writeAdditionalData(this.additionalData);
     };

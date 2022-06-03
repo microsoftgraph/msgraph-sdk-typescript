@@ -4,7 +4,7 @@ import {createApplicationTemplateFromDiscriminatorValue} from './createApplicati
 import {ApplicationTemplateImpl} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ApplicationTemplateCollectionResponseImpl implements AdditionalDataHolder, ApplicationTemplateCollectionResponse, Parsable {
+export class ApplicationTemplateCollectionResponseImpl implements ApplicationTemplateCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class ApplicationTemplateCollectionResponseImpl implements AdditionalData
      * @param applicationTemplateCollectionResponseParameterValue 
      */
     public constructor(applicationTemplateCollectionResponseParameterValue?: ApplicationTemplateCollectionResponse | undefined) {
-        this.additionalData = applicationTemplateCollectionResponseParameterValue?.additionalData ? applicationTemplateCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = applicationTemplateCollectionResponseParameterValue?.nextLink ;
-        this.value = applicationTemplateCollectionResponseParameterValue?.value ;
+        this.additionalData = applicationTemplateCollectionResponseParameterValue?.additionalData ? applicationTemplateCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = applicationTemplateCollectionResponseParameterValue?.nextLink;
+        this.value = applicationTemplateCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class ApplicationTemplateCollectionResponseImpl implements AdditionalData
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: ApplicationTemplateImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ApplicationTemplateImpl(element));});
-        writer.writeCollectionOfObjectValues<ApplicationTemplateImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<ApplicationTemplateImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

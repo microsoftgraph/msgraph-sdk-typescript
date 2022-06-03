@@ -3,7 +3,7 @@ import {Acl} from './acl';
 import {AclType} from './aclType';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class AclImpl implements Acl, AdditionalDataHolder, Parsable {
+export class AclImpl implements Acl {
     /** The access granted to the identity. Possible values are: grant, deny. */
     public accessType?: AccessType | undefined;
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
@@ -17,10 +17,10 @@ export class AclImpl implements Acl, AdditionalDataHolder, Parsable {
      * @param aclParameterValue 
      */
     public constructor(aclParameterValue?: Acl | undefined) {
-        this.accessType = aclParameterValue?.accessType ;
-        this.additionalData = aclParameterValue?.additionalData ? aclParameterValue?.additionalData! : {}
-        this.type = aclParameterValue?.type ;
-        this.value = aclParameterValue?.value ;
+        this.accessType = aclParameterValue?.accessType;
+        this.additionalData = aclParameterValue?.additionalData ? aclParameterValue?.additionalData! : {};
+        this.type = aclParameterValue?.type;
+        this.value = aclParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,13 +40,13 @@ export class AclImpl implements Acl, AdditionalDataHolder, Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.accessType){
-        writer.writeEnumValue<AccessType>("accessType", this.accessType);
+            writer.writeEnumValue<AccessType>("accessType", this.accessType);
         }
         if(this.type){
-        writer.writeEnumValue<AclType>("type", this.type);
+            writer.writeEnumValue<AclType>("type", this.type);
         }
         if(this.value){
-        writer.writeStringValue("value", this.value);
+            writer.writeStringValue("value", this.value);
         }
         writer.writeAdditionalData(this.additionalData);
     };

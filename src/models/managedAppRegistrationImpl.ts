@@ -9,7 +9,7 @@ import {MobileAppIdentifier} from './mobileAppIdentifier';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** The ManagedAppEntity is the base entity type for all other entity types under app management workflow. */
-export class ManagedAppRegistrationImpl extends EntityImpl implements ManagedAppRegistration, Parsable {
+export class ManagedAppRegistrationImpl extends EntityImpl implements ManagedAppRegistration {
     /** The app package Identifier */
     public appIdentifier?: MobileAppIdentifier | undefined;
     /** App version */
@@ -45,22 +45,22 @@ export class ManagedAppRegistrationImpl extends EntityImpl implements ManagedApp
      * @param managedAppRegistrationParameterValue 
      */
     public constructor(managedAppRegistrationParameterValue?: ManagedAppRegistration | undefined) {
-        super();
-        this.appIdentifier = managedAppRegistrationParameterValue?.appIdentifier ;
-        this.applicationVersion = managedAppRegistrationParameterValue?.applicationVersion ;
-        this.appliedPolicies = managedAppRegistrationParameterValue?.appliedPolicies ;
-        this.createdDateTime = managedAppRegistrationParameterValue?.createdDateTime ;
-        this.deviceName = managedAppRegistrationParameterValue?.deviceName ;
-        this.deviceTag = managedAppRegistrationParameterValue?.deviceTag ;
-        this.deviceType = managedAppRegistrationParameterValue?.deviceType ;
-        this.flaggedReasons = managedAppRegistrationParameterValue?.flaggedReasons ;
-        this.intendedPolicies = managedAppRegistrationParameterValue?.intendedPolicies ;
-        this.lastSyncDateTime = managedAppRegistrationParameterValue?.lastSyncDateTime ;
-        this.managementSdkVersion = managedAppRegistrationParameterValue?.managementSdkVersion ;
-        this.operations = managedAppRegistrationParameterValue?.operations ;
-        this.platformVersion = managedAppRegistrationParameterValue?.platformVersion ;
-        this.userId = managedAppRegistrationParameterValue?.userId ;
-        this.version = managedAppRegistrationParameterValue?.version ;
+        super(managedAppRegistrationParameterValue);
+        this.appIdentifier = managedAppRegistrationParameterValue?.appIdentifier;
+        this.applicationVersion = managedAppRegistrationParameterValue?.applicationVersion;
+        this.appliedPolicies = managedAppRegistrationParameterValue?.appliedPolicies;
+        this.createdDateTime = managedAppRegistrationParameterValue?.createdDateTime;
+        this.deviceName = managedAppRegistrationParameterValue?.deviceName;
+        this.deviceTag = managedAppRegistrationParameterValue?.deviceTag;
+        this.deviceType = managedAppRegistrationParameterValue?.deviceType;
+        this.flaggedReasons = managedAppRegistrationParameterValue?.flaggedReasons;
+        this.intendedPolicies = managedAppRegistrationParameterValue?.intendedPolicies;
+        this.lastSyncDateTime = managedAppRegistrationParameterValue?.lastSyncDateTime;
+        this.managementSdkVersion = managedAppRegistrationParameterValue?.managementSdkVersion;
+        this.operations = managedAppRegistrationParameterValue?.operations;
+        this.platformVersion = managedAppRegistrationParameterValue?.platformVersion;
+        this.userId = managedAppRegistrationParameterValue?.userId;
+        this.version = managedAppRegistrationParameterValue?.version;
     };
     /**
      * The deserialization information for the current model
@@ -93,49 +93,49 @@ export class ManagedAppRegistrationImpl extends EntityImpl implements ManagedApp
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.appIdentifier){
-        writer.writeObjectValue<MobileAppIdentifierImpl>("appIdentifier", new MobileAppIdentifierImpl(this.appIdentifier));
+            writer.writeObjectValue<MobileAppIdentifierImpl>("appIdentifier", new MobileAppIdentifierImpl(this.appIdentifier));
         }
         if(this.applicationVersion){
-        writer.writeStringValue("applicationVersion", this.applicationVersion);
+            writer.writeStringValue("applicationVersion", this.applicationVersion);
         }
         if(this.appliedPolicies && this.appliedPolicies.length != 0){        const appliedPoliciesArrValue: ManagedAppPolicyImpl[] = []; this.appliedPolicies?.forEach(element => {appliedPoliciesArrValue.push(new ManagedAppPolicyImpl(element));});
-        writer.writeCollectionOfObjectValues<ManagedAppPolicyImpl>("appliedPolicies", appliedPoliciesArrValue);
+            writer.writeCollectionOfObjectValues<ManagedAppPolicyImpl>("appliedPolicies", appliedPoliciesArrValue);
         }
         if(this.createdDateTime){
-        writer.writeDateValue("createdDateTime", this.createdDateTime);
+            writer.writeDateValue("createdDateTime", this.createdDateTime);
         }
         if(this.deviceName){
-        writer.writeStringValue("deviceName", this.deviceName);
+            writer.writeStringValue("deviceName", this.deviceName);
         }
         if(this.deviceTag){
-        writer.writeStringValue("deviceTag", this.deviceTag);
+            writer.writeStringValue("deviceTag", this.deviceTag);
         }
         if(this.deviceType){
-        writer.writeStringValue("deviceType", this.deviceType);
+            writer.writeStringValue("deviceType", this.deviceType);
         }
         if(this.flaggedReasons){
-        writer.writeCollectionOfPrimitiveValues<string>("flaggedReasons", this.flaggedReasons);
+            writer.writeCollectionOfPrimitiveValues<string>("flaggedReasons", this.flaggedReasons);
         }
         if(this.intendedPolicies && this.intendedPolicies.length != 0){        const intendedPoliciesArrValue: ManagedAppPolicyImpl[] = []; this.intendedPolicies?.forEach(element => {intendedPoliciesArrValue.push(new ManagedAppPolicyImpl(element));});
-        writer.writeCollectionOfObjectValues<ManagedAppPolicyImpl>("intendedPolicies", intendedPoliciesArrValue);
+            writer.writeCollectionOfObjectValues<ManagedAppPolicyImpl>("intendedPolicies", intendedPoliciesArrValue);
         }
         if(this.lastSyncDateTime){
-        writer.writeDateValue("lastSyncDateTime", this.lastSyncDateTime);
+            writer.writeDateValue("lastSyncDateTime", this.lastSyncDateTime);
         }
         if(this.managementSdkVersion){
-        writer.writeStringValue("managementSdkVersion", this.managementSdkVersion);
+            writer.writeStringValue("managementSdkVersion", this.managementSdkVersion);
         }
         if(this.operations && this.operations.length != 0){        const operationsArrValue: ManagedAppOperationImpl[] = []; this.operations?.forEach(element => {operationsArrValue.push(new ManagedAppOperationImpl(element));});
-        writer.writeCollectionOfObjectValues<ManagedAppOperationImpl>("operations", operationsArrValue);
+            writer.writeCollectionOfObjectValues<ManagedAppOperationImpl>("operations", operationsArrValue);
         }
         if(this.platformVersion){
-        writer.writeStringValue("platformVersion", this.platformVersion);
+            writer.writeStringValue("platformVersion", this.platformVersion);
         }
         if(this.userId){
-        writer.writeStringValue("userId", this.userId);
+            writer.writeStringValue("userId", this.userId);
         }
         if(this.version){
-        writer.writeStringValue("version", this.version);
+            writer.writeStringValue("version", this.version);
         }
     };
 }

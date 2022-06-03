@@ -1,6 +1,7 @@
 import {RoleAssignment} from './roleAssignment';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface DeviceAndAppManagementRoleAssignment extends RoleAssignment{
+export interface DeviceAndAppManagementRoleAssignment extends Partial<Parsable>, RoleAssignment {
     /** The list of ids of role member security groups. These are IDs from Azure Active Directory. */
-    members?:string[] | undefined;
+    members?: string[] | undefined;
 }

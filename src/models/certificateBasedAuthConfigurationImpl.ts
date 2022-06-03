@@ -5,7 +5,7 @@ import {CertificateAuthorityImpl, EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the collection of certificateBasedAuthConfiguration entities. */
-export class CertificateBasedAuthConfigurationImpl extends EntityImpl implements CertificateBasedAuthConfiguration, Parsable {
+export class CertificateBasedAuthConfigurationImpl extends EntityImpl implements CertificateBasedAuthConfiguration {
     /** Collection of certificate authorities which creates a trusted certificate chain. */
     public certificateAuthorities?: CertificateAuthority[] | undefined;
     /**
@@ -13,8 +13,8 @@ export class CertificateBasedAuthConfigurationImpl extends EntityImpl implements
      * @param certificateBasedAuthConfigurationParameterValue 
      */
     public constructor(certificateBasedAuthConfigurationParameterValue?: CertificateBasedAuthConfiguration | undefined) {
-        super();
-        this.certificateAuthorities = certificateBasedAuthConfigurationParameterValue?.certificateAuthorities ;
+        super(certificateBasedAuthConfigurationParameterValue);
+        this.certificateAuthorities = certificateBasedAuthConfigurationParameterValue?.certificateAuthorities;
     };
     /**
      * The deserialization information for the current model
@@ -33,7 +33,7 @@ export class CertificateBasedAuthConfigurationImpl extends EntityImpl implements
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.certificateAuthorities && this.certificateAuthorities.length != 0){        const certificateAuthoritiesArrValue: CertificateAuthorityImpl[] = []; this.certificateAuthorities?.forEach(element => {certificateAuthoritiesArrValue.push(new CertificateAuthorityImpl(element));});
-        writer.writeCollectionOfObjectValues<CertificateAuthorityImpl>("certificateAuthorities", certificateAuthoritiesArrValue);
+            writer.writeCollectionOfObjectValues<CertificateAuthorityImpl>("certificateAuthorities", certificateAuthoritiesArrValue);
         }
     };
 }

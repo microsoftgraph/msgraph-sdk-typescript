@@ -2,7 +2,7 @@ import {WindowsInformationProtectionResourceCollection} from './windowsInformati
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Windows Information Protection Resource Collection */
-export class WindowsInformationProtectionResourceCollectionImpl implements AdditionalDataHolder, Parsable, WindowsInformationProtectionResourceCollection {
+export class WindowsInformationProtectionResourceCollectionImpl implements WindowsInformationProtectionResourceCollection {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Display name */
@@ -14,9 +14,9 @@ export class WindowsInformationProtectionResourceCollectionImpl implements Addit
      * @param windowsInformationProtectionResourceCollectionParameterValue 
      */
     public constructor(windowsInformationProtectionResourceCollectionParameterValue?: WindowsInformationProtectionResourceCollection | undefined) {
-        this.additionalData = windowsInformationProtectionResourceCollectionParameterValue?.additionalData ? windowsInformationProtectionResourceCollectionParameterValue?.additionalData! : {}
-        this.displayName = windowsInformationProtectionResourceCollectionParameterValue?.displayName ;
-        this.resources = windowsInformationProtectionResourceCollectionParameterValue?.resources ;
+        this.additionalData = windowsInformationProtectionResourceCollectionParameterValue?.additionalData ? windowsInformationProtectionResourceCollectionParameterValue?.additionalData! : {};
+        this.displayName = windowsInformationProtectionResourceCollectionParameterValue?.displayName;
+        this.resources = windowsInformationProtectionResourceCollectionParameterValue?.resources;
     };
     /**
      * The deserialization information for the current model
@@ -35,10 +35,10 @@ export class WindowsInformationProtectionResourceCollectionImpl implements Addit
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.displayName){
-        writer.writeStringValue("displayName", this.displayName);
+            writer.writeStringValue("displayName", this.displayName);
         }
         if(this.resources){
-        writer.writeCollectionOfPrimitiveValues<string>("resources", this.resources);
+            writer.writeCollectionOfPrimitiveValues<string>("resources", this.resources);
         }
         writer.writeAdditionalData(this.additionalData);
     };

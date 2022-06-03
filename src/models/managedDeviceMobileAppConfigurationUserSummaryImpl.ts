@@ -3,7 +3,7 @@ import {ManagedDeviceMobileAppConfigurationUserSummary} from './managedDeviceMob
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Contains properties, inherited properties and actions for an MDM mobile app configuration user status summary. */
-export class ManagedDeviceMobileAppConfigurationUserSummaryImpl extends EntityImpl implements ManagedDeviceMobileAppConfigurationUserSummary, Parsable {
+export class ManagedDeviceMobileAppConfigurationUserSummaryImpl extends EntityImpl implements ManagedDeviceMobileAppConfigurationUserSummary {
     /** Version of the policy for that overview */
     public configurationVersion?: number | undefined;
     /** Number of error Users */
@@ -23,14 +23,14 @@ export class ManagedDeviceMobileAppConfigurationUserSummaryImpl extends EntityIm
      * @param managedDeviceMobileAppConfigurationUserSummaryParameterValue 
      */
     public constructor(managedDeviceMobileAppConfigurationUserSummaryParameterValue?: ManagedDeviceMobileAppConfigurationUserSummary | undefined) {
-        super();
-        this.configurationVersion = managedDeviceMobileAppConfigurationUserSummaryParameterValue?.configurationVersion ;
-        this.errorCount = managedDeviceMobileAppConfigurationUserSummaryParameterValue?.errorCount ;
-        this.failedCount = managedDeviceMobileAppConfigurationUserSummaryParameterValue?.failedCount ;
-        this.lastUpdateDateTime = managedDeviceMobileAppConfigurationUserSummaryParameterValue?.lastUpdateDateTime ;
-        this.notApplicableCount = managedDeviceMobileAppConfigurationUserSummaryParameterValue?.notApplicableCount ;
-        this.pendingCount = managedDeviceMobileAppConfigurationUserSummaryParameterValue?.pendingCount ;
-        this.successCount = managedDeviceMobileAppConfigurationUserSummaryParameterValue?.successCount ;
+        super(managedDeviceMobileAppConfigurationUserSummaryParameterValue);
+        this.configurationVersion = managedDeviceMobileAppConfigurationUserSummaryParameterValue?.configurationVersion;
+        this.errorCount = managedDeviceMobileAppConfigurationUserSummaryParameterValue?.errorCount;
+        this.failedCount = managedDeviceMobileAppConfigurationUserSummaryParameterValue?.failedCount;
+        this.lastUpdateDateTime = managedDeviceMobileAppConfigurationUserSummaryParameterValue?.lastUpdateDateTime;
+        this.notApplicableCount = managedDeviceMobileAppConfigurationUserSummaryParameterValue?.notApplicableCount;
+        this.pendingCount = managedDeviceMobileAppConfigurationUserSummaryParameterValue?.pendingCount;
+        this.successCount = managedDeviceMobileAppConfigurationUserSummaryParameterValue?.successCount;
     };
     /**
      * The deserialization information for the current model
@@ -55,25 +55,25 @@ export class ManagedDeviceMobileAppConfigurationUserSummaryImpl extends EntityIm
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.configurationVersion){
-        writer.writeNumberValue("configurationVersion", this.configurationVersion);
+            writer.writeNumberValue("configurationVersion", this.configurationVersion);
         }
         if(this.errorCount){
-        writer.writeNumberValue("errorCount", this.errorCount);
+            writer.writeNumberValue("errorCount", this.errorCount);
         }
         if(this.failedCount){
-        writer.writeNumberValue("failedCount", this.failedCount);
+            writer.writeNumberValue("failedCount", this.failedCount);
         }
         if(this.lastUpdateDateTime){
-        writer.writeDateValue("lastUpdateDateTime", this.lastUpdateDateTime);
+            writer.writeDateValue("lastUpdateDateTime", this.lastUpdateDateTime);
         }
         if(this.notApplicableCount){
-        writer.writeNumberValue("notApplicableCount", this.notApplicableCount);
+            writer.writeNumberValue("notApplicableCount", this.notApplicableCount);
         }
         if(this.pendingCount){
-        writer.writeNumberValue("pendingCount", this.pendingCount);
+            writer.writeNumberValue("pendingCount", this.pendingCount);
         }
         if(this.successCount){
-        writer.writeNumberValue("successCount", this.successCount);
+            writer.writeNumberValue("successCount", this.successCount);
         }
     };
 }

@@ -1,7 +1,7 @@
 import {AssignmentOrder} from './assignmentOrder';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class AssignmentOrderImpl implements AdditionalDataHolder, AssignmentOrder, Parsable {
+export class AssignmentOrderImpl implements AssignmentOrder {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** A list of identityUserFlowAttribute IDs provided to determine the order in which attributes should be collected within a user flow. */
@@ -11,8 +11,8 @@ export class AssignmentOrderImpl implements AdditionalDataHolder, AssignmentOrde
      * @param assignmentOrderParameterValue 
      */
     public constructor(assignmentOrderParameterValue?: AssignmentOrder | undefined) {
-        this.additionalData = assignmentOrderParameterValue?.additionalData ? assignmentOrderParameterValue?.additionalData! : {}
-        this.order = assignmentOrderParameterValue?.order ;
+        this.additionalData = assignmentOrderParameterValue?.additionalData ? assignmentOrderParameterValue?.additionalData! : {};
+        this.order = assignmentOrderParameterValue?.order;
     };
     /**
      * The deserialization information for the current model
@@ -30,7 +30,7 @@ export class AssignmentOrderImpl implements AdditionalDataHolder, AssignmentOrde
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.order){
-        writer.writeCollectionOfPrimitiveValues<string>("order", this.order);
+            writer.writeCollectionOfPrimitiveValues<string>("order", this.order);
         }
         writer.writeAdditionalData(this.additionalData);
     };

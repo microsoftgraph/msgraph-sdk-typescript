@@ -1,14 +1,15 @@
 import {RequestSchedule} from './requestSchedule';
 import {UnifiedRoleEligibilitySchedule} from './unifiedRoleEligibilitySchedule';
 import {UnifiedRoleScheduleBase} from './unifiedRoleScheduleBase';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface UnifiedRoleAssignmentSchedule extends UnifiedRoleScheduleBase{
+export interface UnifiedRoleAssignmentSchedule extends Partial<Parsable>, UnifiedRoleScheduleBase {
     /** If the roleAssignmentSchedule is activated by a roleEligibilitySchedule, this is the link to that schedule. */
-    activatedUsing?:UnifiedRoleEligibilitySchedule | undefined;
+    activatedUsing?: UnifiedRoleEligibilitySchedule | undefined;
     /** Type of the assignment. It can either be Assigned or Activated. */
-    assignmentType?:string | undefined;
+    assignmentType?: string | undefined;
     /** Membership type of the assignment. It can either be Inherited, Direct, or Group. */
-    memberType?:string | undefined;
+    memberType?: string | undefined;
     /** The schedule object of the role assignment request. */
-    scheduleInfo?:RequestSchedule | undefined;
+    scheduleInfo?: RequestSchedule | undefined;
 }

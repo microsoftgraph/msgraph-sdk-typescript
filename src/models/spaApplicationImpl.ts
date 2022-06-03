@@ -1,7 +1,7 @@
 import {SpaApplication} from './spaApplication';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class SpaApplicationImpl implements AdditionalDataHolder, Parsable, SpaApplication {
+export class SpaApplicationImpl implements SpaApplication {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Specifies the URLs where user tokens are sent for sign-in, or the redirect URIs where OAuth 2.0 authorization codes and access tokens are sent. */
@@ -11,8 +11,8 @@ export class SpaApplicationImpl implements AdditionalDataHolder, Parsable, SpaAp
      * @param spaApplicationParameterValue 
      */
     public constructor(spaApplicationParameterValue?: SpaApplication | undefined) {
-        this.additionalData = spaApplicationParameterValue?.additionalData ? spaApplicationParameterValue?.additionalData! : {}
-        this.redirectUris = spaApplicationParameterValue?.redirectUris ;
+        this.additionalData = spaApplicationParameterValue?.additionalData ? spaApplicationParameterValue?.additionalData! : {};
+        this.redirectUris = spaApplicationParameterValue?.redirectUris;
     };
     /**
      * The deserialization information for the current model
@@ -30,7 +30,7 @@ export class SpaApplicationImpl implements AdditionalDataHolder, Parsable, SpaAp
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.redirectUris){
-        writer.writeCollectionOfPrimitiveValues<string>("redirectUris", this.redirectUris);
+            writer.writeCollectionOfPrimitiveValues<string>("redirectUris", this.redirectUris);
         }
         writer.writeAdditionalData(this.additionalData);
     };

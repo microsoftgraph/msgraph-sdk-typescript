@@ -6,7 +6,7 @@ import {RubricCriterion} from './rubricCriterion';
 import {RubricQuality} from './rubricQuality';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class RubricQualityImpl implements AdditionalDataHolder, Parsable, RubricQuality {
+export class RubricQualityImpl implements RubricQuality {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The collection of criteria for this rubric quality. */
@@ -24,12 +24,12 @@ export class RubricQualityImpl implements AdditionalDataHolder, Parsable, Rubric
      * @param rubricQualityParameterValue 
      */
     public constructor(rubricQualityParameterValue?: RubricQuality | undefined) {
-        this.additionalData = rubricQualityParameterValue?.additionalData ? rubricQualityParameterValue?.additionalData! : {}
-        this.criteria = rubricQualityParameterValue?.criteria ;
-        this.description = rubricQualityParameterValue?.description ;
-        this.displayName = rubricQualityParameterValue?.displayName ;
-        this.qualityId = rubricQualityParameterValue?.qualityId ;
-        this.weight = rubricQualityParameterValue?.weight ;
+        this.additionalData = rubricQualityParameterValue?.additionalData ? rubricQualityParameterValue?.additionalData! : {};
+        this.criteria = rubricQualityParameterValue?.criteria;
+        this.description = rubricQualityParameterValue?.description;
+        this.displayName = rubricQualityParameterValue?.displayName;
+        this.qualityId = rubricQualityParameterValue?.qualityId;
+        this.weight = rubricQualityParameterValue?.weight;
     };
     /**
      * The deserialization information for the current model
@@ -51,19 +51,19 @@ export class RubricQualityImpl implements AdditionalDataHolder, Parsable, Rubric
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.criteria && this.criteria.length != 0){        const criteriaArrValue: RubricCriterionImpl[] = []; this.criteria?.forEach(element => {criteriaArrValue.push(new RubricCriterionImpl(element));});
-        writer.writeCollectionOfObjectValues<RubricCriterionImpl>("criteria", criteriaArrValue);
+            writer.writeCollectionOfObjectValues<RubricCriterionImpl>("criteria", criteriaArrValue);
         }
         if(this.description){
-        writer.writeObjectValue<EducationItemBodyImpl>("description", new EducationItemBodyImpl(this.description));
+            writer.writeObjectValue<EducationItemBodyImpl>("description", new EducationItemBodyImpl(this.description));
         }
         if(this.displayName){
-        writer.writeStringValue("displayName", this.displayName);
+            writer.writeStringValue("displayName", this.displayName);
         }
         if(this.qualityId){
-        writer.writeStringValue("qualityId", this.qualityId);
+            writer.writeStringValue("qualityId", this.qualityId);
         }
         if(this.weight){
-        writer.writeNumberValue("weight", this.weight);
+            writer.writeNumberValue("weight", this.weight);
         }
         writer.writeAdditionalData(this.additionalData);
     };

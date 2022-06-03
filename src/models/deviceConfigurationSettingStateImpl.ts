@@ -6,7 +6,7 @@ import {SettingSource} from './settingSource';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Device Configuration Setting State for a given device. */
-export class DeviceConfigurationSettingStateImpl implements AdditionalDataHolder, DeviceConfigurationSettingState, Parsable {
+export class DeviceConfigurationSettingStateImpl implements DeviceConfigurationSettingState {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Current value of setting on device */
@@ -38,19 +38,19 @@ export class DeviceConfigurationSettingStateImpl implements AdditionalDataHolder
      * @param deviceConfigurationSettingStateParameterValue 
      */
     public constructor(deviceConfigurationSettingStateParameterValue?: DeviceConfigurationSettingState | undefined) {
-        this.additionalData = deviceConfigurationSettingStateParameterValue?.additionalData ? deviceConfigurationSettingStateParameterValue?.additionalData! : {}
-        this.currentValue = deviceConfigurationSettingStateParameterValue?.currentValue ;
-        this.errorCode = deviceConfigurationSettingStateParameterValue?.errorCode ;
-        this.errorDescription = deviceConfigurationSettingStateParameterValue?.errorDescription ;
-        this.instanceDisplayName = deviceConfigurationSettingStateParameterValue?.instanceDisplayName ;
-        this.setting = deviceConfigurationSettingStateParameterValue?.setting ;
-        this.settingName = deviceConfigurationSettingStateParameterValue?.settingName ;
-        this.sources = deviceConfigurationSettingStateParameterValue?.sources ;
-        this.state = deviceConfigurationSettingStateParameterValue?.state ;
-        this.userEmail = deviceConfigurationSettingStateParameterValue?.userEmail ;
-        this.userId = deviceConfigurationSettingStateParameterValue?.userId ;
-        this.userName = deviceConfigurationSettingStateParameterValue?.userName ;
-        this.userPrincipalName = deviceConfigurationSettingStateParameterValue?.userPrincipalName ;
+        this.additionalData = deviceConfigurationSettingStateParameterValue?.additionalData ? deviceConfigurationSettingStateParameterValue?.additionalData! : {};
+        this.currentValue = deviceConfigurationSettingStateParameterValue?.currentValue;
+        this.errorCode = deviceConfigurationSettingStateParameterValue?.errorCode;
+        this.errorDescription = deviceConfigurationSettingStateParameterValue?.errorDescription;
+        this.instanceDisplayName = deviceConfigurationSettingStateParameterValue?.instanceDisplayName;
+        this.setting = deviceConfigurationSettingStateParameterValue?.setting;
+        this.settingName = deviceConfigurationSettingStateParameterValue?.settingName;
+        this.sources = deviceConfigurationSettingStateParameterValue?.sources;
+        this.state = deviceConfigurationSettingStateParameterValue?.state;
+        this.userEmail = deviceConfigurationSettingStateParameterValue?.userEmail;
+        this.userId = deviceConfigurationSettingStateParameterValue?.userId;
+        this.userName = deviceConfigurationSettingStateParameterValue?.userName;
+        this.userPrincipalName = deviceConfigurationSettingStateParameterValue?.userPrincipalName;
     };
     /**
      * The deserialization information for the current model
@@ -79,40 +79,40 @@ export class DeviceConfigurationSettingStateImpl implements AdditionalDataHolder
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.currentValue){
-        writer.writeStringValue("currentValue", this.currentValue);
+            writer.writeStringValue("currentValue", this.currentValue);
         }
         if(this.errorCode){
-        writer.writeNumberValue("errorCode", this.errorCode);
+            writer.writeNumberValue("errorCode", this.errorCode);
         }
         if(this.errorDescription){
-        writer.writeStringValue("errorDescription", this.errorDescription);
+            writer.writeStringValue("errorDescription", this.errorDescription);
         }
         if(this.instanceDisplayName){
-        writer.writeStringValue("instanceDisplayName", this.instanceDisplayName);
+            writer.writeStringValue("instanceDisplayName", this.instanceDisplayName);
         }
         if(this.setting){
-        writer.writeStringValue("setting", this.setting);
+            writer.writeStringValue("setting", this.setting);
         }
         if(this.settingName){
-        writer.writeStringValue("settingName", this.settingName);
+            writer.writeStringValue("settingName", this.settingName);
         }
         if(this.sources && this.sources.length != 0){        const sourcesArrValue: SettingSourceImpl[] = []; this.sources?.forEach(element => {sourcesArrValue.push(new SettingSourceImpl(element));});
-        writer.writeCollectionOfObjectValues<SettingSourceImpl>("sources", sourcesArrValue);
+            writer.writeCollectionOfObjectValues<SettingSourceImpl>("sources", sourcesArrValue);
         }
         if(this.state){
-        writer.writeEnumValue<ComplianceStatus>("state", this.state);
+            writer.writeEnumValue<ComplianceStatus>("state", this.state);
         }
         if(this.userEmail){
-        writer.writeStringValue("userEmail", this.userEmail);
+            writer.writeStringValue("userEmail", this.userEmail);
         }
         if(this.userId){
-        writer.writeStringValue("userId", this.userId);
+            writer.writeStringValue("userId", this.userId);
         }
         if(this.userName){
-        writer.writeStringValue("userName", this.userName);
+            writer.writeStringValue("userName", this.userName);
         }
         if(this.userPrincipalName){
-        writer.writeStringValue("userPrincipalName", this.userPrincipalName);
+            writer.writeStringValue("userPrincipalName", this.userPrincipalName);
         }
         writer.writeAdditionalData(this.additionalData);
     };

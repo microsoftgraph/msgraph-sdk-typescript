@@ -2,7 +2,7 @@ import {RgbColor} from './rgbColor';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Color in RGB. */
-export class RgbColorImpl implements AdditionalDataHolder, Parsable, RgbColor {
+export class RgbColorImpl implements RgbColor {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Blue value */
@@ -16,10 +16,10 @@ export class RgbColorImpl implements AdditionalDataHolder, Parsable, RgbColor {
      * @param rgbColorParameterValue 
      */
     public constructor(rgbColorParameterValue?: RgbColor | undefined) {
-        this.additionalData = rgbColorParameterValue?.additionalData ? rgbColorParameterValue?.additionalData! : {}
-        this.b = rgbColorParameterValue?.b ;
-        this.g = rgbColorParameterValue?.g ;
-        this.r = rgbColorParameterValue?.r ;
+        this.additionalData = rgbColorParameterValue?.additionalData ? rgbColorParameterValue?.additionalData! : {};
+        this.b = rgbColorParameterValue?.b;
+        this.g = rgbColorParameterValue?.g;
+        this.r = rgbColorParameterValue?.r;
     };
     /**
      * The deserialization information for the current model
@@ -39,13 +39,13 @@ export class RgbColorImpl implements AdditionalDataHolder, Parsable, RgbColor {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.b){
-        writer.writeNumberValue("b", this.b);
+            writer.writeNumberValue("b", this.b);
         }
         if(this.g){
-        writer.writeNumberValue("g", this.g);
+            writer.writeNumberValue("g", this.g);
         }
         if(this.r){
-        writer.writeNumberValue("r", this.r);
+            writer.writeNumberValue("r", this.r);
         }
         writer.writeAdditionalData(this.additionalData);
     };

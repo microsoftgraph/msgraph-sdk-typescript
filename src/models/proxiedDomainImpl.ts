@@ -2,7 +2,7 @@ import {ProxiedDomain} from './proxiedDomain';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Proxied Domain */
-export class ProxiedDomainImpl implements AdditionalDataHolder, Parsable, ProxiedDomain {
+export class ProxiedDomainImpl implements ProxiedDomain {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The IP address or FQDN */
@@ -14,9 +14,9 @@ export class ProxiedDomainImpl implements AdditionalDataHolder, Parsable, Proxie
      * @param proxiedDomainParameterValue 
      */
     public constructor(proxiedDomainParameterValue?: ProxiedDomain | undefined) {
-        this.additionalData = proxiedDomainParameterValue?.additionalData ? proxiedDomainParameterValue?.additionalData! : {}
-        this.ipAddressOrFQDN = proxiedDomainParameterValue?.ipAddressOrFQDN ;
-        this.proxy = proxiedDomainParameterValue?.proxy ;
+        this.additionalData = proxiedDomainParameterValue?.additionalData ? proxiedDomainParameterValue?.additionalData! : {};
+        this.ipAddressOrFQDN = proxiedDomainParameterValue?.ipAddressOrFQDN;
+        this.proxy = proxiedDomainParameterValue?.proxy;
     };
     /**
      * The deserialization information for the current model
@@ -35,10 +35,10 @@ export class ProxiedDomainImpl implements AdditionalDataHolder, Parsable, Proxie
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.ipAddressOrFQDN){
-        writer.writeStringValue("ipAddressOrFQDN", this.ipAddressOrFQDN);
+            writer.writeStringValue("ipAddressOrFQDN", this.ipAddressOrFQDN);
         }
         if(this.proxy){
-        writer.writeStringValue("proxy", this.proxy);
+            writer.writeStringValue("proxy", this.proxy);
         }
         writer.writeAdditionalData(this.additionalData);
     };

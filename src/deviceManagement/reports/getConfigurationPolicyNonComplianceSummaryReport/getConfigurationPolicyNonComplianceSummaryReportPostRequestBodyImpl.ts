@@ -2,7 +2,7 @@ import {GetConfigurationPolicyNonComplianceSummaryReportPostRequestBody} from '.
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the getConfigurationPolicyNonComplianceSummaryReport method. */
-export class GetConfigurationPolicyNonComplianceSummaryReportPostRequestBodyImpl implements AdditionalDataHolder, GetConfigurationPolicyNonComplianceSummaryReportPostRequestBody, Parsable {
+export class GetConfigurationPolicyNonComplianceSummaryReportPostRequestBodyImpl implements GetConfigurationPolicyNonComplianceSummaryReportPostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The filter property */
@@ -28,16 +28,16 @@ export class GetConfigurationPolicyNonComplianceSummaryReportPostRequestBodyImpl
      * @param getConfigurationPolicyNonComplianceSummaryReportPostRequestBodyParameterValue 
      */
     public constructor(getConfigurationPolicyNonComplianceSummaryReportPostRequestBodyParameterValue?: GetConfigurationPolicyNonComplianceSummaryReportPostRequestBody | undefined) {
-        this.additionalData = getConfigurationPolicyNonComplianceSummaryReportPostRequestBodyParameterValue?.additionalData ? getConfigurationPolicyNonComplianceSummaryReportPostRequestBodyParameterValue?.additionalData! : {}
-        this.filter = getConfigurationPolicyNonComplianceSummaryReportPostRequestBodyParameterValue?.filter ;
-        this.groupBy = getConfigurationPolicyNonComplianceSummaryReportPostRequestBodyParameterValue?.groupBy ;
-        this.name = getConfigurationPolicyNonComplianceSummaryReportPostRequestBodyParameterValue?.name ;
-        this.orderBy = getConfigurationPolicyNonComplianceSummaryReportPostRequestBodyParameterValue?.orderBy ;
-        this.search = getConfigurationPolicyNonComplianceSummaryReportPostRequestBodyParameterValue?.search ;
-        this.select = getConfigurationPolicyNonComplianceSummaryReportPostRequestBodyParameterValue?.select ;
-        this.sessionId = getConfigurationPolicyNonComplianceSummaryReportPostRequestBodyParameterValue?.sessionId ;
-        this.skip = getConfigurationPolicyNonComplianceSummaryReportPostRequestBodyParameterValue?.skip ;
-        this.top = getConfigurationPolicyNonComplianceSummaryReportPostRequestBodyParameterValue?.top ;
+        this.additionalData = getConfigurationPolicyNonComplianceSummaryReportPostRequestBodyParameterValue?.additionalData ? getConfigurationPolicyNonComplianceSummaryReportPostRequestBodyParameterValue?.additionalData! : {};
+        this.filter = getConfigurationPolicyNonComplianceSummaryReportPostRequestBodyParameterValue?.filter;
+        this.groupBy = getConfigurationPolicyNonComplianceSummaryReportPostRequestBodyParameterValue?.groupBy;
+        this.name = getConfigurationPolicyNonComplianceSummaryReportPostRequestBodyParameterValue?.name;
+        this.orderBy = getConfigurationPolicyNonComplianceSummaryReportPostRequestBodyParameterValue?.orderBy;
+        this.search = getConfigurationPolicyNonComplianceSummaryReportPostRequestBodyParameterValue?.search;
+        this.select = getConfigurationPolicyNonComplianceSummaryReportPostRequestBodyParameterValue?.select;
+        this.sessionId = getConfigurationPolicyNonComplianceSummaryReportPostRequestBodyParameterValue?.sessionId;
+        this.skip = getConfigurationPolicyNonComplianceSummaryReportPostRequestBodyParameterValue?.skip;
+        this.top = getConfigurationPolicyNonComplianceSummaryReportPostRequestBodyParameterValue?.top;
     };
     /**
      * The deserialization information for the current model
@@ -63,31 +63,31 @@ export class GetConfigurationPolicyNonComplianceSummaryReportPostRequestBodyImpl
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.filter){
-        writer.writeStringValue("filter", this.filter);
+            writer.writeStringValue("filter", this.filter);
         }
         if(this.groupBy){
-        writer.writeCollectionOfPrimitiveValues<string>("groupBy", this.groupBy);
+            writer.writeCollectionOfPrimitiveValues<string>("groupBy", this.groupBy);
         }
         if(this.name){
-        writer.writeStringValue("name", this.name);
+            writer.writeStringValue("name", this.name);
         }
         if(this.orderBy){
-        writer.writeCollectionOfPrimitiveValues<string>("orderBy", this.orderBy);
+            writer.writeCollectionOfPrimitiveValues<string>("orderBy", this.orderBy);
         }
         if(this.search){
-        writer.writeStringValue("search", this.search);
+            writer.writeStringValue("search", this.search);
         }
         if(this.select){
-        writer.writeCollectionOfPrimitiveValues<string>("select", this.select);
+            writer.writeCollectionOfPrimitiveValues<string>("select", this.select);
         }
         if(this.sessionId){
-        writer.writeStringValue("sessionId", this.sessionId);
+            writer.writeStringValue("sessionId", this.sessionId);
         }
         if(this.skip){
-        writer.writeNumberValue("skip", this.skip);
+            writer.writeNumberValue("skip", this.skip);
         }
         if(this.top){
-        writer.writeNumberValue("top", this.top);
+            writer.writeNumberValue("top", this.top);
         }
         writer.writeAdditionalData(this.additionalData);
     };

@@ -13,7 +13,7 @@ import {AccessPackageAssignmentImpl, AccessPackageImpl, AccessPackageSubjectImpl
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the identityGovernance singleton. */
-export class AccessPackageAssignmentRequestImpl extends EntityImpl implements AccessPackageAssignmentRequest, Parsable {
+export class AccessPackageAssignmentRequestImpl extends EntityImpl implements AccessPackageAssignmentRequest {
     /** The access package associated with the accessPackageAssignmentRequest. An access package defines the collections of resource roles and the policies for how one or more users can get access to those resources. Read-only. Nullable. Supports $expand. */
     public accessPackage?: AccessPackage | undefined;
     /** For a requestType of UserAdd or AdminAdd, this is an access package assignment requested to be created.  For a requestType of UserRemove, AdminRemove or SystemRemove, this has the id property of an existing assignment to be removed.   Supports $expand. */
@@ -37,16 +37,16 @@ export class AccessPackageAssignmentRequestImpl extends EntityImpl implements Ac
      * @param accessPackageAssignmentRequestParameterValue 
      */
     public constructor(accessPackageAssignmentRequestParameterValue?: AccessPackageAssignmentRequest | undefined) {
-        super();
-        this.accessPackage = accessPackageAssignmentRequestParameterValue?.accessPackage ;
-        this.assignment = accessPackageAssignmentRequestParameterValue?.assignment ;
-        this.completedDateTime = accessPackageAssignmentRequestParameterValue?.completedDateTime ;
-        this.createdDateTime = accessPackageAssignmentRequestParameterValue?.createdDateTime ;
-        this.requestor = accessPackageAssignmentRequestParameterValue?.requestor ;
-        this.requestType = accessPackageAssignmentRequestParameterValue?.requestType ;
-        this.schedule = accessPackageAssignmentRequestParameterValue?.schedule ;
-        this.state = accessPackageAssignmentRequestParameterValue?.state ;
-        this.status = accessPackageAssignmentRequestParameterValue?.status ;
+        super(accessPackageAssignmentRequestParameterValue);
+        this.accessPackage = accessPackageAssignmentRequestParameterValue?.accessPackage;
+        this.assignment = accessPackageAssignmentRequestParameterValue?.assignment;
+        this.completedDateTime = accessPackageAssignmentRequestParameterValue?.completedDateTime;
+        this.createdDateTime = accessPackageAssignmentRequestParameterValue?.createdDateTime;
+        this.requestor = accessPackageAssignmentRequestParameterValue?.requestor;
+        this.requestType = accessPackageAssignmentRequestParameterValue?.requestType;
+        this.schedule = accessPackageAssignmentRequestParameterValue?.schedule;
+        this.state = accessPackageAssignmentRequestParameterValue?.state;
+        this.status = accessPackageAssignmentRequestParameterValue?.status;
     };
     /**
      * The deserialization information for the current model
@@ -73,31 +73,31 @@ export class AccessPackageAssignmentRequestImpl extends EntityImpl implements Ac
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.accessPackage){
-        writer.writeObjectValue<AccessPackageImpl>("accessPackage", new AccessPackageImpl(this.accessPackage));
+            writer.writeObjectValue<AccessPackageImpl>("accessPackage", new AccessPackageImpl(this.accessPackage));
         }
         if(this.assignment){
-        writer.writeObjectValue<AccessPackageAssignmentImpl>("assignment", new AccessPackageAssignmentImpl(this.assignment));
+            writer.writeObjectValue<AccessPackageAssignmentImpl>("assignment", new AccessPackageAssignmentImpl(this.assignment));
         }
         if(this.completedDateTime){
-        writer.writeDateValue("completedDateTime", this.completedDateTime);
+            writer.writeDateValue("completedDateTime", this.completedDateTime);
         }
         if(this.createdDateTime){
-        writer.writeDateValue("createdDateTime", this.createdDateTime);
+            writer.writeDateValue("createdDateTime", this.createdDateTime);
         }
         if(this.requestor){
-        writer.writeObjectValue<AccessPackageSubjectImpl>("requestor", new AccessPackageSubjectImpl(this.requestor));
+            writer.writeObjectValue<AccessPackageSubjectImpl>("requestor", new AccessPackageSubjectImpl(this.requestor));
         }
         if(this.requestType){
-        writer.writeEnumValue<AccessPackageRequestType>("requestType", this.requestType);
+            writer.writeEnumValue<AccessPackageRequestType>("requestType", this.requestType);
         }
         if(this.schedule){
-        writer.writeObjectValue<EntitlementManagementScheduleImpl>("schedule", new EntitlementManagementScheduleImpl(this.schedule));
+            writer.writeObjectValue<EntitlementManagementScheduleImpl>("schedule", new EntitlementManagementScheduleImpl(this.schedule));
         }
         if(this.state){
-        writer.writeEnumValue<AccessPackageRequestState>("state", this.state);
+            writer.writeEnumValue<AccessPackageRequestState>("state", this.state);
         }
         if(this.status){
-        writer.writeStringValue("status", this.status);
+            writer.writeStringValue("status", this.status);
         }
     };
 }

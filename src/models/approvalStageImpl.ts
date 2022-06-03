@@ -5,7 +5,7 @@ import {EntityImpl, IdentityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the identityGovernance singleton. */
-export class ApprovalStageImpl extends EntityImpl implements ApprovalStage, Parsable {
+export class ApprovalStageImpl extends EntityImpl implements ApprovalStage {
     /** Indicates whether the stage is assigned to the calling user to review. Read-only. */
     public assignedToMe?: boolean | undefined;
     /** The label provided by the policy creator to identify an approval stage. Read-only. */
@@ -25,14 +25,14 @@ export class ApprovalStageImpl extends EntityImpl implements ApprovalStage, Pars
      * @param approvalStageParameterValue 
      */
     public constructor(approvalStageParameterValue?: ApprovalStage | undefined) {
-        super();
-        this.assignedToMe = approvalStageParameterValue?.assignedToMe ;
-        this.displayName = approvalStageParameterValue?.displayName ;
-        this.justification = approvalStageParameterValue?.justification ;
-        this.reviewedBy = approvalStageParameterValue?.reviewedBy ;
-        this.reviewedDateTime = approvalStageParameterValue?.reviewedDateTime ;
-        this.reviewResult = approvalStageParameterValue?.reviewResult ;
-        this.status = approvalStageParameterValue?.status ;
+        super(approvalStageParameterValue);
+        this.assignedToMe = approvalStageParameterValue?.assignedToMe;
+        this.displayName = approvalStageParameterValue?.displayName;
+        this.justification = approvalStageParameterValue?.justification;
+        this.reviewedBy = approvalStageParameterValue?.reviewedBy;
+        this.reviewedDateTime = approvalStageParameterValue?.reviewedDateTime;
+        this.reviewResult = approvalStageParameterValue?.reviewResult;
+        this.status = approvalStageParameterValue?.status;
     };
     /**
      * The deserialization information for the current model
@@ -57,25 +57,25 @@ export class ApprovalStageImpl extends EntityImpl implements ApprovalStage, Pars
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.assignedToMe){
-        writer.writeBooleanValue("assignedToMe", this.assignedToMe);
+            writer.writeBooleanValue("assignedToMe", this.assignedToMe);
         }
         if(this.displayName){
-        writer.writeStringValue("displayName", this.displayName);
+            writer.writeStringValue("displayName", this.displayName);
         }
         if(this.justification){
-        writer.writeStringValue("justification", this.justification);
+            writer.writeStringValue("justification", this.justification);
         }
         if(this.reviewedBy){
-        writer.writeObjectValue<IdentityImpl>("reviewedBy", new IdentityImpl(this.reviewedBy));
+            writer.writeObjectValue<IdentityImpl>("reviewedBy", new IdentityImpl(this.reviewedBy));
         }
         if(this.reviewedDateTime){
-        writer.writeDateValue("reviewedDateTime", this.reviewedDateTime);
+            writer.writeDateValue("reviewedDateTime", this.reviewedDateTime);
         }
         if(this.reviewResult){
-        writer.writeStringValue("reviewResult", this.reviewResult);
+            writer.writeStringValue("reviewResult", this.reviewResult);
         }
         if(this.status){
-        writer.writeStringValue("status", this.status);
+            writer.writeStringValue("status", this.status);
         }
     };
 }

@@ -5,7 +5,7 @@ import {TeamworkConversationIdentity} from './teamworkConversationIdentity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the collection of chat entities. */
-export class ChatMessageMentionedIdentitySetImpl extends IdentitySetImpl implements ChatMessageMentionedIdentitySet, Parsable {
+export class ChatMessageMentionedIdentitySetImpl extends IdentitySetImpl implements ChatMessageMentionedIdentitySet {
     /** If present, represents a conversation (for example, team or channel) @mentioned in a message. */
     public conversation?: TeamworkConversationIdentity | undefined;
     /**
@@ -13,8 +13,8 @@ export class ChatMessageMentionedIdentitySetImpl extends IdentitySetImpl impleme
      * @param chatMessageMentionedIdentitySetParameterValue 
      */
     public constructor(chatMessageMentionedIdentitySetParameterValue?: ChatMessageMentionedIdentitySet | undefined) {
-        super();
-        this.conversation = chatMessageMentionedIdentitySetParameterValue?.conversation ;
+        super(chatMessageMentionedIdentitySetParameterValue);
+        this.conversation = chatMessageMentionedIdentitySetParameterValue?.conversation;
     };
     /**
      * The deserialization information for the current model
@@ -33,7 +33,7 @@ export class ChatMessageMentionedIdentitySetImpl extends IdentitySetImpl impleme
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.conversation){
-        writer.writeObjectValue<TeamworkConversationIdentityImpl>("conversation", new TeamworkConversationIdentityImpl(this.conversation));
+            writer.writeObjectValue<TeamworkConversationIdentityImpl>("conversation", new TeamworkConversationIdentityImpl(this.conversation));
         }
     };
 }

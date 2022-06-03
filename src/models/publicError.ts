@@ -1,17 +1,18 @@
 import {PublicErrorDetail} from './publicErrorDetail';
 import {PublicInnerError} from './publicInnerError';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface PublicError{
+export interface PublicError extends Partial<AdditionalDataHolder>, Partial<Parsable> {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?:Record<string, unknown>;
+    additionalData?: Record<string, unknown>;
     /** Represents the error code. */
-    code?:string | undefined;
+    code?: string | undefined;
     /** Details of the error. */
-    details?:PublicErrorDetail[] | undefined;
+    details?: PublicErrorDetail[] | undefined;
     /** Details of the inner error. */
-    innerError?:PublicInnerError | undefined;
+    innerError?: PublicInnerError | undefined;
     /** A non-localized message for the developer. */
-    message?:string | undefined;
+    message?: string | undefined;
     /** The target of the error. */
-    target?:string | undefined;
+    target?: string | undefined;
 }

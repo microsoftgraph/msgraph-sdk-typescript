@@ -12,7 +12,7 @@ import {TeamsTab} from './teamsTab';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Casts the previous resource to group. */
-export class ChannelImpl extends EntityImpl implements Channel, Parsable {
+export class ChannelImpl extends EntityImpl implements Channel {
     /** Read only. Timestamp at which the channel was created. */
     public createdDateTime?: Date | undefined;
     /** Optional textual description for the channel. */
@@ -40,18 +40,18 @@ export class ChannelImpl extends EntityImpl implements Channel, Parsable {
      * @param channelParameterValue 
      */
     public constructor(channelParameterValue?: Channel | undefined) {
-        super();
-        this.createdDateTime = channelParameterValue?.createdDateTime ;
-        this.description = channelParameterValue?.description ;
-        this.displayName = channelParameterValue?.displayName ;
-        this.email = channelParameterValue?.email ;
-        this.filesFolder = channelParameterValue?.filesFolder ;
-        this.isFavoriteByDefault = channelParameterValue?.isFavoriteByDefault ;
-        this.members = channelParameterValue?.members ;
-        this.membershipType = channelParameterValue?.membershipType ;
-        this.messages = channelParameterValue?.messages ;
-        this.tabs = channelParameterValue?.tabs ;
-        this.webUrl = channelParameterValue?.webUrl ;
+        super(channelParameterValue);
+        this.createdDateTime = channelParameterValue?.createdDateTime;
+        this.description = channelParameterValue?.description;
+        this.displayName = channelParameterValue?.displayName;
+        this.email = channelParameterValue?.email;
+        this.filesFolder = channelParameterValue?.filesFolder;
+        this.isFavoriteByDefault = channelParameterValue?.isFavoriteByDefault;
+        this.members = channelParameterValue?.members;
+        this.membershipType = channelParameterValue?.membershipType;
+        this.messages = channelParameterValue?.messages;
+        this.tabs = channelParameterValue?.tabs;
+        this.webUrl = channelParameterValue?.webUrl;
     };
     /**
      * The deserialization information for the current model
@@ -80,37 +80,37 @@ export class ChannelImpl extends EntityImpl implements Channel, Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.createdDateTime){
-        writer.writeDateValue("createdDateTime", this.createdDateTime);
+            writer.writeDateValue("createdDateTime", this.createdDateTime);
         }
         if(this.description){
-        writer.writeStringValue("description", this.description);
+            writer.writeStringValue("description", this.description);
         }
         if(this.displayName){
-        writer.writeStringValue("displayName", this.displayName);
+            writer.writeStringValue("displayName", this.displayName);
         }
         if(this.email){
-        writer.writeStringValue("email", this.email);
+            writer.writeStringValue("email", this.email);
         }
         if(this.filesFolder){
-        writer.writeObjectValue<DriveItemImpl>("filesFolder", new DriveItemImpl(this.filesFolder));
+            writer.writeObjectValue<DriveItemImpl>("filesFolder", new DriveItemImpl(this.filesFolder));
         }
         if(this.isFavoriteByDefault){
-        writer.writeBooleanValue("isFavoriteByDefault", this.isFavoriteByDefault);
+            writer.writeBooleanValue("isFavoriteByDefault", this.isFavoriteByDefault);
         }
         if(this.members && this.members.length != 0){        const membersArrValue: ConversationMemberImpl[] = []; this.members?.forEach(element => {membersArrValue.push(new ConversationMemberImpl(element));});
-        writer.writeCollectionOfObjectValues<ConversationMemberImpl>("members", membersArrValue);
+            writer.writeCollectionOfObjectValues<ConversationMemberImpl>("members", membersArrValue);
         }
         if(this.membershipType){
-        writer.writeEnumValue<ChannelMembershipType>("membershipType", this.membershipType);
+            writer.writeEnumValue<ChannelMembershipType>("membershipType", this.membershipType);
         }
         if(this.messages && this.messages.length != 0){        const messagesArrValue: ChatMessageImpl[] = []; this.messages?.forEach(element => {messagesArrValue.push(new ChatMessageImpl(element));});
-        writer.writeCollectionOfObjectValues<ChatMessageImpl>("messages", messagesArrValue);
+            writer.writeCollectionOfObjectValues<ChatMessageImpl>("messages", messagesArrValue);
         }
         if(this.tabs && this.tabs.length != 0){        const tabsArrValue: TeamsTabImpl[] = []; this.tabs?.forEach(element => {tabsArrValue.push(new TeamsTabImpl(element));});
-        writer.writeCollectionOfObjectValues<TeamsTabImpl>("tabs", tabsArrValue);
+            writer.writeCollectionOfObjectValues<TeamsTabImpl>("tabs", tabsArrValue);
         }
         if(this.webUrl){
-        writer.writeStringValue("webUrl", this.webUrl);
+            writer.writeStringValue("webUrl", this.webUrl);
         }
     };
 }

@@ -1,7 +1,7 @@
 import {ItemPreviewInfo} from './itemPreviewInfo';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ItemPreviewInfoImpl implements AdditionalDataHolder, ItemPreviewInfo, Parsable {
+export class ItemPreviewInfoImpl implements ItemPreviewInfo {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The getUrl property */
@@ -15,10 +15,10 @@ export class ItemPreviewInfoImpl implements AdditionalDataHolder, ItemPreviewInf
      * @param itemPreviewInfoParameterValue 
      */
     public constructor(itemPreviewInfoParameterValue?: ItemPreviewInfo | undefined) {
-        this.additionalData = itemPreviewInfoParameterValue?.additionalData ? itemPreviewInfoParameterValue?.additionalData! : {}
-        this.getUrl = itemPreviewInfoParameterValue?.getUrl ;
-        this.postParameters = itemPreviewInfoParameterValue?.postParameters ;
-        this.postUrl = itemPreviewInfoParameterValue?.postUrl ;
+        this.additionalData = itemPreviewInfoParameterValue?.additionalData ? itemPreviewInfoParameterValue?.additionalData! : {};
+        this.getUrl = itemPreviewInfoParameterValue?.getUrl;
+        this.postParameters = itemPreviewInfoParameterValue?.postParameters;
+        this.postUrl = itemPreviewInfoParameterValue?.postUrl;
     };
     /**
      * The deserialization information for the current model
@@ -38,13 +38,13 @@ export class ItemPreviewInfoImpl implements AdditionalDataHolder, ItemPreviewInf
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.getUrl){
-        writer.writeStringValue("getUrl", this.getUrl);
+            writer.writeStringValue("getUrl", this.getUrl);
         }
         if(this.postParameters){
-        writer.writeStringValue("postParameters", this.postParameters);
+            writer.writeStringValue("postParameters", this.postParameters);
         }
         if(this.postUrl){
-        writer.writeStringValue("postUrl", this.postUrl);
+            writer.writeStringValue("postUrl", this.postUrl);
         }
         writer.writeAdditionalData(this.additionalData);
     };

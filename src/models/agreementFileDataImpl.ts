@@ -1,7 +1,7 @@
 import {AgreementFileData} from './agreementFileData';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class AgreementFileDataImpl implements AdditionalDataHolder, AgreementFileData, Parsable {
+export class AgreementFileDataImpl implements AgreementFileData {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Data that represents the terms of use PDF document. Read-only. Note: You can use the .NET Convert.ToBase64String method to convert your file to binary data for uploading using the Create agreements API. A sample syntax using this method in PowerShell is [convert]::ToBase64String((Get-Content -path 'your_file_path' -Encoding byte)). */
@@ -11,8 +11,8 @@ export class AgreementFileDataImpl implements AdditionalDataHolder, AgreementFil
      * @param agreementFileDataParameterValue 
      */
     public constructor(agreementFileDataParameterValue?: AgreementFileData | undefined) {
-        this.additionalData = agreementFileDataParameterValue?.additionalData ? agreementFileDataParameterValue?.additionalData! : {}
-        this.data = agreementFileDataParameterValue?.data ;
+        this.additionalData = agreementFileDataParameterValue?.additionalData ? agreementFileDataParameterValue?.additionalData! : {};
+        this.data = agreementFileDataParameterValue?.data;
     };
     /**
      * The deserialization information for the current model
@@ -30,7 +30,7 @@ export class AgreementFileDataImpl implements AdditionalDataHolder, AgreementFil
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.data){
-        writer.writeStringValue("data", this.data);
+            writer.writeStringValue("data", this.data);
         }
         writer.writeAdditionalData(this.additionalData);
     };

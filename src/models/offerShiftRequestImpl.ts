@@ -3,7 +3,7 @@ import {OfferShiftRequest} from './offerShiftRequest';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Casts the previous resource to group. */
-export class OfferShiftRequestImpl extends ScheduleChangeRequestImpl implements OfferShiftRequest, Parsable {
+export class OfferShiftRequestImpl extends ScheduleChangeRequestImpl implements OfferShiftRequest {
     /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     public recipientActionDateTime?: Date | undefined;
     /** Custom message sent by recipient of the offer shift request. */
@@ -17,11 +17,11 @@ export class OfferShiftRequestImpl extends ScheduleChangeRequestImpl implements 
      * @param offerShiftRequestParameterValue 
      */
     public constructor(offerShiftRequestParameterValue?: OfferShiftRequest | undefined) {
-        super();
-        this.recipientActionDateTime = offerShiftRequestParameterValue?.recipientActionDateTime ;
-        this.recipientActionMessage = offerShiftRequestParameterValue?.recipientActionMessage ;
-        this.recipientUserId = offerShiftRequestParameterValue?.recipientUserId ;
-        this.senderShiftId = offerShiftRequestParameterValue?.senderShiftId ;
+        super(offerShiftRequestParameterValue);
+        this.recipientActionDateTime = offerShiftRequestParameterValue?.recipientActionDateTime;
+        this.recipientActionMessage = offerShiftRequestParameterValue?.recipientActionMessage;
+        this.recipientUserId = offerShiftRequestParameterValue?.recipientUserId;
+        this.senderShiftId = offerShiftRequestParameterValue?.senderShiftId;
     };
     /**
      * The deserialization information for the current model
@@ -43,16 +43,16 @@ export class OfferShiftRequestImpl extends ScheduleChangeRequestImpl implements 
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.recipientActionDateTime){
-        writer.writeDateValue("recipientActionDateTime", this.recipientActionDateTime);
+            writer.writeDateValue("recipientActionDateTime", this.recipientActionDateTime);
         }
         if(this.recipientActionMessage){
-        writer.writeStringValue("recipientActionMessage", this.recipientActionMessage);
+            writer.writeStringValue("recipientActionMessage", this.recipientActionMessage);
         }
         if(this.recipientUserId){
-        writer.writeStringValue("recipientUserId", this.recipientUserId);
+            writer.writeStringValue("recipientUserId", this.recipientUserId);
         }
         if(this.senderShiftId){
-        writer.writeStringValue("senderShiftId", this.senderShiftId);
+            writer.writeStringValue("senderShiftId", this.senderShiftId);
         }
     };
 }

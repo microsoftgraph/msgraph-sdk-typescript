@@ -3,13 +3,13 @@ import {IdentitySetImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the collection of chat entities. */
-export class ChatMessageFromIdentitySetImpl extends IdentitySetImpl implements ChatMessageFromIdentitySet, Parsable {
+export class ChatMessageFromIdentitySetImpl extends IdentitySetImpl implements ChatMessageFromIdentitySet {
     /**
      * Instantiates a new chatMessageFromIdentitySet and sets the default values.
      * @param chatMessageFromIdentitySetParameterValue 
      */
     public constructor(chatMessageFromIdentitySetParameterValue?: ChatMessageFromIdentitySet | undefined) {
-        super();
+        super(chatMessageFromIdentitySetParameterValue);
     };
     /**
      * The deserialization information for the current model

@@ -1,7 +1,7 @@
 import {Hashes} from './hashes';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class HashesImpl implements AdditionalDataHolder, Hashes, Parsable {
+export class HashesImpl implements Hashes {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The CRC32 value of the file (if available). Read-only. */
@@ -17,11 +17,11 @@ export class HashesImpl implements AdditionalDataHolder, Hashes, Parsable {
      * @param hashesParameterValue 
      */
     public constructor(hashesParameterValue?: Hashes | undefined) {
-        this.additionalData = hashesParameterValue?.additionalData ? hashesParameterValue?.additionalData! : {}
-        this.crc32Hash = hashesParameterValue?.crc32Hash ;
-        this.quickXorHash = hashesParameterValue?.quickXorHash ;
-        this.sha1Hash = hashesParameterValue?.sha1Hash ;
-        this.sha256Hash = hashesParameterValue?.sha256Hash ;
+        this.additionalData = hashesParameterValue?.additionalData ? hashesParameterValue?.additionalData! : {};
+        this.crc32Hash = hashesParameterValue?.crc32Hash;
+        this.quickXorHash = hashesParameterValue?.quickXorHash;
+        this.sha1Hash = hashesParameterValue?.sha1Hash;
+        this.sha256Hash = hashesParameterValue?.sha256Hash;
     };
     /**
      * The deserialization information for the current model
@@ -42,16 +42,16 @@ export class HashesImpl implements AdditionalDataHolder, Hashes, Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.crc32Hash){
-        writer.writeStringValue("crc32Hash", this.crc32Hash);
+            writer.writeStringValue("crc32Hash", this.crc32Hash);
         }
         if(this.quickXorHash){
-        writer.writeStringValue("quickXorHash", this.quickXorHash);
+            writer.writeStringValue("quickXorHash", this.quickXorHash);
         }
         if(this.sha1Hash){
-        writer.writeStringValue("sha1Hash", this.sha1Hash);
+            writer.writeStringValue("sha1Hash", this.sha1Hash);
         }
         if(this.sha256Hash){
-        writer.writeStringValue("sha256Hash", this.sha256Hash);
+            writer.writeStringValue("sha256Hash", this.sha256Hash);
         }
         writer.writeAdditionalData(this.additionalData);
     };

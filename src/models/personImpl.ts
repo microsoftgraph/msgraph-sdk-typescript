@@ -13,7 +13,7 @@ import {Website} from './website';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Casts the previous resource to user. */
-export class PersonImpl extends EntityImpl implements Parsable, Person {
+export class PersonImpl extends EntityImpl implements Person {
     /** The person's birthday. */
     public birthday?: string | undefined;
     /** The name of the person's company. */
@@ -57,26 +57,26 @@ export class PersonImpl extends EntityImpl implements Parsable, Person {
      * @param personParameterValue 
      */
     public constructor(personParameterValue?: Person | undefined) {
-        super();
-        this.birthday = personParameterValue?.birthday ;
-        this.companyName = personParameterValue?.companyName ;
-        this.department = personParameterValue?.department ;
-        this.displayName = personParameterValue?.displayName ;
-        this.givenName = personParameterValue?.givenName ;
-        this.imAddress = personParameterValue?.imAddress ;
-        this.isFavorite = personParameterValue?.isFavorite ;
-        this.jobTitle = personParameterValue?.jobTitle ;
-        this.officeLocation = personParameterValue?.officeLocation ;
-        this.personNotes = personParameterValue?.personNotes ;
-        this.personType = personParameterValue?.personType ;
-        this.phones = personParameterValue?.phones ;
-        this.postalAddresses = personParameterValue?.postalAddresses ;
-        this.profession = personParameterValue?.profession ;
-        this.scoredEmailAddresses = personParameterValue?.scoredEmailAddresses ;
-        this.surname = personParameterValue?.surname ;
-        this.userPrincipalName = personParameterValue?.userPrincipalName ;
-        this.websites = personParameterValue?.websites ;
-        this.yomiCompany = personParameterValue?.yomiCompany ;
+        super(personParameterValue);
+        this.birthday = personParameterValue?.birthday;
+        this.companyName = personParameterValue?.companyName;
+        this.department = personParameterValue?.department;
+        this.displayName = personParameterValue?.displayName;
+        this.givenName = personParameterValue?.givenName;
+        this.imAddress = personParameterValue?.imAddress;
+        this.isFavorite = personParameterValue?.isFavorite;
+        this.jobTitle = personParameterValue?.jobTitle;
+        this.officeLocation = personParameterValue?.officeLocation;
+        this.personNotes = personParameterValue?.personNotes;
+        this.personType = personParameterValue?.personType;
+        this.phones = personParameterValue?.phones;
+        this.postalAddresses = personParameterValue?.postalAddresses;
+        this.profession = personParameterValue?.profession;
+        this.scoredEmailAddresses = personParameterValue?.scoredEmailAddresses;
+        this.surname = personParameterValue?.surname;
+        this.userPrincipalName = personParameterValue?.userPrincipalName;
+        this.websites = personParameterValue?.websites;
+        this.yomiCompany = personParameterValue?.yomiCompany;
     };
     /**
      * The deserialization information for the current model
@@ -113,61 +113,61 @@ export class PersonImpl extends EntityImpl implements Parsable, Person {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.birthday){
-        writer.writeStringValue("birthday", this.birthday);
+            writer.writeStringValue("birthday", this.birthday);
         }
         if(this.companyName){
-        writer.writeStringValue("companyName", this.companyName);
+            writer.writeStringValue("companyName", this.companyName);
         }
         if(this.department){
-        writer.writeStringValue("department", this.department);
+            writer.writeStringValue("department", this.department);
         }
         if(this.displayName){
-        writer.writeStringValue("displayName", this.displayName);
+            writer.writeStringValue("displayName", this.displayName);
         }
         if(this.givenName){
-        writer.writeStringValue("givenName", this.givenName);
+            writer.writeStringValue("givenName", this.givenName);
         }
         if(this.imAddress){
-        writer.writeStringValue("imAddress", this.imAddress);
+            writer.writeStringValue("imAddress", this.imAddress);
         }
         if(this.isFavorite){
-        writer.writeBooleanValue("isFavorite", this.isFavorite);
+            writer.writeBooleanValue("isFavorite", this.isFavorite);
         }
         if(this.jobTitle){
-        writer.writeStringValue("jobTitle", this.jobTitle);
+            writer.writeStringValue("jobTitle", this.jobTitle);
         }
         if(this.officeLocation){
-        writer.writeStringValue("officeLocation", this.officeLocation);
+            writer.writeStringValue("officeLocation", this.officeLocation);
         }
         if(this.personNotes){
-        writer.writeStringValue("personNotes", this.personNotes);
+            writer.writeStringValue("personNotes", this.personNotes);
         }
         if(this.personType){
-        writer.writeObjectValue<PersonTypeImpl>("personType", new PersonTypeImpl(this.personType));
+            writer.writeObjectValue<PersonTypeImpl>("personType", new PersonTypeImpl(this.personType));
         }
         if(this.phones && this.phones.length != 0){        const phonesArrValue: PhoneImpl[] = []; this.phones?.forEach(element => {phonesArrValue.push(new PhoneImpl(element));});
-        writer.writeCollectionOfObjectValues<PhoneImpl>("phones", phonesArrValue);
+            writer.writeCollectionOfObjectValues<PhoneImpl>("phones", phonesArrValue);
         }
         if(this.postalAddresses && this.postalAddresses.length != 0){        const postalAddressesArrValue: LocationImpl[] = []; this.postalAddresses?.forEach(element => {postalAddressesArrValue.push(new LocationImpl(element));});
-        writer.writeCollectionOfObjectValues<LocationImpl>("postalAddresses", postalAddressesArrValue);
+            writer.writeCollectionOfObjectValues<LocationImpl>("postalAddresses", postalAddressesArrValue);
         }
         if(this.profession){
-        writer.writeStringValue("profession", this.profession);
+            writer.writeStringValue("profession", this.profession);
         }
         if(this.scoredEmailAddresses && this.scoredEmailAddresses.length != 0){        const scoredEmailAddressesArrValue: ScoredEmailAddressImpl[] = []; this.scoredEmailAddresses?.forEach(element => {scoredEmailAddressesArrValue.push(new ScoredEmailAddressImpl(element));});
-        writer.writeCollectionOfObjectValues<ScoredEmailAddressImpl>("scoredEmailAddresses", scoredEmailAddressesArrValue);
+            writer.writeCollectionOfObjectValues<ScoredEmailAddressImpl>("scoredEmailAddresses", scoredEmailAddressesArrValue);
         }
         if(this.surname){
-        writer.writeStringValue("surname", this.surname);
+            writer.writeStringValue("surname", this.surname);
         }
         if(this.userPrincipalName){
-        writer.writeStringValue("userPrincipalName", this.userPrincipalName);
+            writer.writeStringValue("userPrincipalName", this.userPrincipalName);
         }
         if(this.websites && this.websites.length != 0){        const websitesArrValue: WebsiteImpl[] = []; this.websites?.forEach(element => {websitesArrValue.push(new WebsiteImpl(element));});
-        writer.writeCollectionOfObjectValues<WebsiteImpl>("websites", websitesArrValue);
+            writer.writeCollectionOfObjectValues<WebsiteImpl>("websites", websitesArrValue);
         }
         if(this.yomiCompany){
-        writer.writeStringValue("yomiCompany", this.yomiCompany);
+            writer.writeStringValue("yomiCompany", this.yomiCompany);
         }
     };
 }

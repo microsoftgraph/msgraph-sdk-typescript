@@ -9,7 +9,7 @@ import {MeetingTimeSuggestion} from './meetingTimeSuggestion';
 import {TimeSlot} from './timeSlot';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class MeetingTimeSuggestionImpl implements AdditionalDataHolder, MeetingTimeSuggestion, Parsable {
+export class MeetingTimeSuggestionImpl implements MeetingTimeSuggestion {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** An array that shows the availability status of each attendee for this meeting suggestion. */
@@ -31,14 +31,14 @@ export class MeetingTimeSuggestionImpl implements AdditionalDataHolder, MeetingT
      * @param meetingTimeSuggestionParameterValue 
      */
     public constructor(meetingTimeSuggestionParameterValue?: MeetingTimeSuggestion | undefined) {
-        this.additionalData = meetingTimeSuggestionParameterValue?.additionalData ? meetingTimeSuggestionParameterValue?.additionalData! : {}
-        this.attendeeAvailability = meetingTimeSuggestionParameterValue?.attendeeAvailability ;
-        this.confidence = meetingTimeSuggestionParameterValue?.confidence ;
-        this.locations = meetingTimeSuggestionParameterValue?.locations ;
-        this.meetingTimeSlot = meetingTimeSuggestionParameterValue?.meetingTimeSlot ;
-        this.order = meetingTimeSuggestionParameterValue?.order ;
-        this.organizerAvailability = meetingTimeSuggestionParameterValue?.organizerAvailability ;
-        this.suggestionReason = meetingTimeSuggestionParameterValue?.suggestionReason ;
+        this.additionalData = meetingTimeSuggestionParameterValue?.additionalData ? meetingTimeSuggestionParameterValue?.additionalData! : {};
+        this.attendeeAvailability = meetingTimeSuggestionParameterValue?.attendeeAvailability;
+        this.confidence = meetingTimeSuggestionParameterValue?.confidence;
+        this.locations = meetingTimeSuggestionParameterValue?.locations;
+        this.meetingTimeSlot = meetingTimeSuggestionParameterValue?.meetingTimeSlot;
+        this.order = meetingTimeSuggestionParameterValue?.order;
+        this.organizerAvailability = meetingTimeSuggestionParameterValue?.organizerAvailability;
+        this.suggestionReason = meetingTimeSuggestionParameterValue?.suggestionReason;
     };
     /**
      * The deserialization information for the current model
@@ -62,25 +62,25 @@ export class MeetingTimeSuggestionImpl implements AdditionalDataHolder, MeetingT
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.attendeeAvailability && this.attendeeAvailability.length != 0){        const attendeeAvailabilityArrValue: AttendeeAvailabilityImpl[] = []; this.attendeeAvailability?.forEach(element => {attendeeAvailabilityArrValue.push(new AttendeeAvailabilityImpl(element));});
-        writer.writeCollectionOfObjectValues<AttendeeAvailabilityImpl>("attendeeAvailability", attendeeAvailabilityArrValue);
+            writer.writeCollectionOfObjectValues<AttendeeAvailabilityImpl>("attendeeAvailability", attendeeAvailabilityArrValue);
         }
         if(this.confidence){
-        writer.writeNumberValue("confidence", this.confidence);
+            writer.writeNumberValue("confidence", this.confidence);
         }
         if(this.locations && this.locations.length != 0){        const locationsArrValue: LocationImpl[] = []; this.locations?.forEach(element => {locationsArrValue.push(new LocationImpl(element));});
-        writer.writeCollectionOfObjectValues<LocationImpl>("locations", locationsArrValue);
+            writer.writeCollectionOfObjectValues<LocationImpl>("locations", locationsArrValue);
         }
         if(this.meetingTimeSlot){
-        writer.writeObjectValue<TimeSlotImpl>("meetingTimeSlot", new TimeSlotImpl(this.meetingTimeSlot));
+            writer.writeObjectValue<TimeSlotImpl>("meetingTimeSlot", new TimeSlotImpl(this.meetingTimeSlot));
         }
         if(this.order){
-        writer.writeNumberValue("order", this.order);
+            writer.writeNumberValue("order", this.order);
         }
         if(this.organizerAvailability){
-        writer.writeEnumValue<FreeBusyStatus>("organizerAvailability", this.organizerAvailability);
+            writer.writeEnumValue<FreeBusyStatus>("organizerAvailability", this.organizerAvailability);
         }
         if(this.suggestionReason){
-        writer.writeStringValue("suggestionReason", this.suggestionReason);
+            writer.writeStringValue("suggestionReason", this.suggestionReason);
         }
         writer.writeAdditionalData(this.additionalData);
     };

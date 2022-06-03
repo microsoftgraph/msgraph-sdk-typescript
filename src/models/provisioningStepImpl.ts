@@ -6,7 +6,7 @@ import {ProvisioningStep} from './provisioningStep';
 import {ProvisioningStepType} from './provisioningStepType';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ProvisioningStepImpl implements AdditionalDataHolder, Parsable, ProvisioningStep {
+export class ProvisioningStepImpl implements ProvisioningStep {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Summary of what occurred during the step. */
@@ -24,12 +24,12 @@ export class ProvisioningStepImpl implements AdditionalDataHolder, Parsable, Pro
      * @param provisioningStepParameterValue 
      */
     public constructor(provisioningStepParameterValue?: ProvisioningStep | undefined) {
-        this.additionalData = provisioningStepParameterValue?.additionalData ? provisioningStepParameterValue?.additionalData! : {}
-        this.description = provisioningStepParameterValue?.description ;
-        this.details = provisioningStepParameterValue?.details ;
-        this.name = provisioningStepParameterValue?.name ;
-        this.provisioningStepType = provisioningStepParameterValue?.provisioningStepType ;
-        this.status = provisioningStepParameterValue?.status ;
+        this.additionalData = provisioningStepParameterValue?.additionalData ? provisioningStepParameterValue?.additionalData! : {};
+        this.description = provisioningStepParameterValue?.description;
+        this.details = provisioningStepParameterValue?.details;
+        this.name = provisioningStepParameterValue?.name;
+        this.provisioningStepType = provisioningStepParameterValue?.provisioningStepType;
+        this.status = provisioningStepParameterValue?.status;
     };
     /**
      * The deserialization information for the current model
@@ -51,19 +51,19 @@ export class ProvisioningStepImpl implements AdditionalDataHolder, Parsable, Pro
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.description){
-        writer.writeStringValue("description", this.description);
+            writer.writeStringValue("description", this.description);
         }
         if(this.details){
-        writer.writeObjectValue<DetailsInfoImpl>("details", new DetailsInfoImpl(this.details));
+            writer.writeObjectValue<DetailsInfoImpl>("details", new DetailsInfoImpl(this.details));
         }
         if(this.name){
-        writer.writeStringValue("name", this.name);
+            writer.writeStringValue("name", this.name);
         }
         if(this.provisioningStepType){
-        writer.writeEnumValue<ProvisioningStepType>("provisioningStepType", this.provisioningStepType);
+            writer.writeEnumValue<ProvisioningStepType>("provisioningStepType", this.provisioningStepType);
         }
         if(this.status){
-        writer.writeEnumValue<ProvisioningResult>("status", this.status);
+            writer.writeEnumValue<ProvisioningResult>("status", this.status);
         }
         writer.writeAdditionalData(this.additionalData);
     };

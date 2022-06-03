@@ -1,11 +1,11 @@
 import {ActivityBasedTimeoutPolicyItemRequestBuilderGetQueryParameters} from './activityBasedTimeoutPolicyItemRequestBuilderGetQueryParameters';
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
-export interface ActivityBasedTimeoutPolicyItemRequestBuilderGetRequestConfiguration{
+export interface ActivityBasedTimeoutPolicyItemRequestBuilderGetRequestConfiguration {
     /** Request headers */
-    headers?:Record<string, string> | undefined;
+    headers?: Record<string, string> | undefined;
     /** Request options */
-    options?:RequestOption[] | undefined;
+    options?: RequestOption[] | undefined;
     /** Request query parameters */
-    queryParameters?:ActivityBasedTimeoutPolicyItemRequestBuilderGetQueryParameters | undefined;
+    queryParameters?: ActivityBasedTimeoutPolicyItemRequestBuilderGetQueryParameters | undefined;
 }

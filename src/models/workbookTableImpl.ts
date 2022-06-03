@@ -10,8 +10,8 @@ import {WorkbookTableSort} from './workbookTableSort';
 import {WorkbookWorksheet} from './workbookWorksheet';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
-export class WorkbookTableImpl extends EntityImpl implements Parsable, WorkbookTable {
+/** Casts the previous resource to group. */
+export class WorkbookTableImpl extends EntityImpl implements WorkbookTable {
     /** Represents a collection of all the columns in the table. Read-only. */
     public columns?: WorkbookTableColumn[] | undefined;
     /** Indicates whether the first column contains special formatting. */
@@ -45,21 +45,21 @@ export class WorkbookTableImpl extends EntityImpl implements Parsable, WorkbookT
      * @param workbookTableParameterValue 
      */
     public constructor(workbookTableParameterValue?: WorkbookTable | undefined) {
-        super();
-        this.columns = workbookTableParameterValue?.columns ;
-        this.highlightFirstColumn = workbookTableParameterValue?.highlightFirstColumn ;
-        this.highlightLastColumn = workbookTableParameterValue?.highlightLastColumn ;
-        this.legacyId = workbookTableParameterValue?.legacyId ;
-        this.name = workbookTableParameterValue?.name ;
-        this.rows = workbookTableParameterValue?.rows ;
-        this.showBandedColumns = workbookTableParameterValue?.showBandedColumns ;
-        this.showBandedRows = workbookTableParameterValue?.showBandedRows ;
-        this.showFilterButton = workbookTableParameterValue?.showFilterButton ;
-        this.showHeaders = workbookTableParameterValue?.showHeaders ;
-        this.showTotals = workbookTableParameterValue?.showTotals ;
-        this.sort = workbookTableParameterValue?.sort ;
-        this.style = workbookTableParameterValue?.style ;
-        this.worksheet = workbookTableParameterValue?.worksheet ;
+        super(workbookTableParameterValue);
+        this.columns = workbookTableParameterValue?.columns;
+        this.highlightFirstColumn = workbookTableParameterValue?.highlightFirstColumn;
+        this.highlightLastColumn = workbookTableParameterValue?.highlightLastColumn;
+        this.legacyId = workbookTableParameterValue?.legacyId;
+        this.name = workbookTableParameterValue?.name;
+        this.rows = workbookTableParameterValue?.rows;
+        this.showBandedColumns = workbookTableParameterValue?.showBandedColumns;
+        this.showBandedRows = workbookTableParameterValue?.showBandedRows;
+        this.showFilterButton = workbookTableParameterValue?.showFilterButton;
+        this.showHeaders = workbookTableParameterValue?.showHeaders;
+        this.showTotals = workbookTableParameterValue?.showTotals;
+        this.sort = workbookTableParameterValue?.sort;
+        this.style = workbookTableParameterValue?.style;
+        this.worksheet = workbookTableParameterValue?.worksheet;
     };
     /**
      * The deserialization information for the current model
@@ -91,46 +91,46 @@ export class WorkbookTableImpl extends EntityImpl implements Parsable, WorkbookT
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.columns && this.columns.length != 0){        const columnsArrValue: WorkbookTableColumnImpl[] = []; this.columns?.forEach(element => {columnsArrValue.push(new WorkbookTableColumnImpl(element));});
-        writer.writeCollectionOfObjectValues<WorkbookTableColumnImpl>("columns", columnsArrValue);
+            writer.writeCollectionOfObjectValues<WorkbookTableColumnImpl>("columns", columnsArrValue);
         }
         if(this.highlightFirstColumn){
-        writer.writeBooleanValue("highlightFirstColumn", this.highlightFirstColumn);
+            writer.writeBooleanValue("highlightFirstColumn", this.highlightFirstColumn);
         }
         if(this.highlightLastColumn){
-        writer.writeBooleanValue("highlightLastColumn", this.highlightLastColumn);
+            writer.writeBooleanValue("highlightLastColumn", this.highlightLastColumn);
         }
         if(this.legacyId){
-        writer.writeStringValue("legacyId", this.legacyId);
+            writer.writeStringValue("legacyId", this.legacyId);
         }
         if(this.name){
-        writer.writeStringValue("name", this.name);
+            writer.writeStringValue("name", this.name);
         }
         if(this.rows && this.rows.length != 0){        const rowsArrValue: WorkbookTableRowImpl[] = []; this.rows?.forEach(element => {rowsArrValue.push(new WorkbookTableRowImpl(element));});
-        writer.writeCollectionOfObjectValues<WorkbookTableRowImpl>("rows", rowsArrValue);
+            writer.writeCollectionOfObjectValues<WorkbookTableRowImpl>("rows", rowsArrValue);
         }
         if(this.showBandedColumns){
-        writer.writeBooleanValue("showBandedColumns", this.showBandedColumns);
+            writer.writeBooleanValue("showBandedColumns", this.showBandedColumns);
         }
         if(this.showBandedRows){
-        writer.writeBooleanValue("showBandedRows", this.showBandedRows);
+            writer.writeBooleanValue("showBandedRows", this.showBandedRows);
         }
         if(this.showFilterButton){
-        writer.writeBooleanValue("showFilterButton", this.showFilterButton);
+            writer.writeBooleanValue("showFilterButton", this.showFilterButton);
         }
         if(this.showHeaders){
-        writer.writeBooleanValue("showHeaders", this.showHeaders);
+            writer.writeBooleanValue("showHeaders", this.showHeaders);
         }
         if(this.showTotals){
-        writer.writeBooleanValue("showTotals", this.showTotals);
+            writer.writeBooleanValue("showTotals", this.showTotals);
         }
         if(this.sort){
-        writer.writeObjectValue<WorkbookTableSortImpl>("sort", new WorkbookTableSortImpl(this.sort));
+            writer.writeObjectValue<WorkbookTableSortImpl>("sort", new WorkbookTableSortImpl(this.sort));
         }
         if(this.style){
-        writer.writeStringValue("style", this.style);
+            writer.writeStringValue("style", this.style);
         }
         if(this.worksheet){
-        writer.writeObjectValue<WorkbookWorksheetImpl>("worksheet", new WorkbookWorksheetImpl(this.worksheet));
+            writer.writeObjectValue<WorkbookWorksheetImpl>("worksheet", new WorkbookWorksheetImpl(this.worksheet));
         }
     };
 }

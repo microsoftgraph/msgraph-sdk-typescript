@@ -4,7 +4,7 @@ import {TimeZoneBase} from './timeZoneBase';
 import {WorkingHours} from './workingHours';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter, TimeOnly} from '@microsoft/kiota-abstractions';
 
-export class WorkingHoursImpl implements AdditionalDataHolder, Parsable, WorkingHours {
+export class WorkingHoursImpl implements WorkingHours {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The days of the week on which the user works. */
@@ -20,11 +20,11 @@ export class WorkingHoursImpl implements AdditionalDataHolder, Parsable, Working
      * @param workingHoursParameterValue 
      */
     public constructor(workingHoursParameterValue?: WorkingHours | undefined) {
-        this.additionalData = workingHoursParameterValue?.additionalData ? workingHoursParameterValue?.additionalData! : {}
-        this.daysOfWeek = workingHoursParameterValue?.daysOfWeek ;
-        this.endTime = workingHoursParameterValue?.endTime ;
-        this.startTime = workingHoursParameterValue?.startTime ;
-        this.timeZone = workingHoursParameterValue?.timeZone ;
+        this.additionalData = workingHoursParameterValue?.additionalData ? workingHoursParameterValue?.additionalData! : {};
+        this.daysOfWeek = workingHoursParameterValue?.daysOfWeek;
+        this.endTime = workingHoursParameterValue?.endTime;
+        this.startTime = workingHoursParameterValue?.startTime;
+        this.timeZone = workingHoursParameterValue?.timeZone;
     };
     /**
      * The deserialization information for the current model
@@ -45,16 +45,16 @@ export class WorkingHoursImpl implements AdditionalDataHolder, Parsable, Working
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.daysOfWeek){
-        writer.writeCollectionOfPrimitiveValues<string>("daysOfWeek", this.daysOfWeek);
+            writer.writeCollectionOfPrimitiveValues<string>("daysOfWeek", this.daysOfWeek);
         }
         if(this.endTime){
-        writer.writeTimeOnlyValue("endTime", this.endTime);
+            writer.writeTimeOnlyValue("endTime", this.endTime);
         }
         if(this.startTime){
-        writer.writeTimeOnlyValue("startTime", this.startTime);
+            writer.writeTimeOnlyValue("startTime", this.startTime);
         }
         if(this.timeZone){
-        writer.writeObjectValue<TimeZoneBaseImpl>("timeZone", new TimeZoneBaseImpl(this.timeZone));
+            writer.writeObjectValue<TimeZoneBaseImpl>("timeZone", new TimeZoneBaseImpl(this.timeZone));
         }
         writer.writeAdditionalData(this.additionalData);
     };

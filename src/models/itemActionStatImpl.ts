@@ -1,7 +1,7 @@
 import {ItemActionStat} from './itemActionStat';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ItemActionStatImpl implements AdditionalDataHolder, ItemActionStat, Parsable {
+export class ItemActionStatImpl implements ItemActionStat {
     /** The number of times the action took place. Read-only. */
     public actionCount?: number | undefined;
     /** The number of distinct actors that performed the action. Read-only. */
@@ -13,9 +13,9 @@ export class ItemActionStatImpl implements AdditionalDataHolder, ItemActionStat,
      * @param itemActionStatParameterValue 
      */
     public constructor(itemActionStatParameterValue?: ItemActionStat | undefined) {
-        this.actionCount = itemActionStatParameterValue?.actionCount ;
-        this.actorCount = itemActionStatParameterValue?.actorCount ;
-        this.additionalData = itemActionStatParameterValue?.additionalData ? itemActionStatParameterValue?.additionalData! : {}
+        this.actionCount = itemActionStatParameterValue?.actionCount;
+        this.actorCount = itemActionStatParameterValue?.actorCount;
+        this.additionalData = itemActionStatParameterValue?.additionalData ? itemActionStatParameterValue?.additionalData! : {};
     };
     /**
      * The deserialization information for the current model
@@ -34,10 +34,10 @@ export class ItemActionStatImpl implements AdditionalDataHolder, ItemActionStat,
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.actionCount){
-        writer.writeNumberValue("actionCount", this.actionCount);
+            writer.writeNumberValue("actionCount", this.actionCount);
         }
         if(this.actorCount){
-        writer.writeNumberValue("actorCount", this.actorCount);
+            writer.writeNumberValue("actorCount", this.actorCount);
         }
         writer.writeAdditionalData(this.additionalData);
     };

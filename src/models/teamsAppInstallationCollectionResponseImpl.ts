@@ -4,7 +4,7 @@ import {TeamsAppInstallation} from './teamsAppInstallation';
 import {TeamsAppInstallationCollectionResponse} from './teamsAppInstallationCollectionResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class TeamsAppInstallationCollectionResponseImpl implements AdditionalDataHolder, Parsable, TeamsAppInstallationCollectionResponse {
+export class TeamsAppInstallationCollectionResponseImpl implements TeamsAppInstallationCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class TeamsAppInstallationCollectionResponseImpl implements AdditionalDat
      * @param teamsAppInstallationCollectionResponseParameterValue 
      */
     public constructor(teamsAppInstallationCollectionResponseParameterValue?: TeamsAppInstallationCollectionResponse | undefined) {
-        this.additionalData = teamsAppInstallationCollectionResponseParameterValue?.additionalData ? teamsAppInstallationCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = teamsAppInstallationCollectionResponseParameterValue?.nextLink ;
-        this.value = teamsAppInstallationCollectionResponseParameterValue?.value ;
+        this.additionalData = teamsAppInstallationCollectionResponseParameterValue?.additionalData ? teamsAppInstallationCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = teamsAppInstallationCollectionResponseParameterValue?.nextLink;
+        this.value = teamsAppInstallationCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class TeamsAppInstallationCollectionResponseImpl implements AdditionalDat
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: TeamsAppInstallationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new TeamsAppInstallationImpl(element));});
-        writer.writeCollectionOfObjectValues<TeamsAppInstallationImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<TeamsAppInstallationImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

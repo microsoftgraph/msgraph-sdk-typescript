@@ -1,7 +1,7 @@
 import {ConditionalAccessGrantControls} from './conditionalAccessGrantControls';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ConditionalAccessGrantControlsImpl implements AdditionalDataHolder, ConditionalAccessGrantControls, Parsable {
+export class ConditionalAccessGrantControlsImpl implements ConditionalAccessGrantControls {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** List of values of built-in controls required by the policy. Possible values: block, mfa, compliantDevice, domainJoinedDevice, approvedApplication, compliantApplication, passwordChange, unknownFutureValue. */
@@ -17,11 +17,11 @@ export class ConditionalAccessGrantControlsImpl implements AdditionalDataHolder,
      * @param conditionalAccessGrantControlsParameterValue 
      */
     public constructor(conditionalAccessGrantControlsParameterValue?: ConditionalAccessGrantControls | undefined) {
-        this.additionalData = conditionalAccessGrantControlsParameterValue?.additionalData ? conditionalAccessGrantControlsParameterValue?.additionalData! : {}
-        this.builtInControls = conditionalAccessGrantControlsParameterValue?.builtInControls ;
-        this.customAuthenticationFactors = conditionalAccessGrantControlsParameterValue?.customAuthenticationFactors ;
-        this.operator = conditionalAccessGrantControlsParameterValue?.operator ;
-        this.termsOfUse = conditionalAccessGrantControlsParameterValue?.termsOfUse ;
+        this.additionalData = conditionalAccessGrantControlsParameterValue?.additionalData ? conditionalAccessGrantControlsParameterValue?.additionalData! : {};
+        this.builtInControls = conditionalAccessGrantControlsParameterValue?.builtInControls;
+        this.customAuthenticationFactors = conditionalAccessGrantControlsParameterValue?.customAuthenticationFactors;
+        this.operator = conditionalAccessGrantControlsParameterValue?.operator;
+        this.termsOfUse = conditionalAccessGrantControlsParameterValue?.termsOfUse;
     };
     /**
      * The deserialization information for the current model
@@ -42,16 +42,16 @@ export class ConditionalAccessGrantControlsImpl implements AdditionalDataHolder,
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.builtInControls){
-        writer.writeCollectionOfPrimitiveValues<string>("builtInControls", this.builtInControls);
+            writer.writeCollectionOfPrimitiveValues<string>("builtInControls", this.builtInControls);
         }
         if(this.customAuthenticationFactors){
-        writer.writeCollectionOfPrimitiveValues<string>("customAuthenticationFactors", this.customAuthenticationFactors);
+            writer.writeCollectionOfPrimitiveValues<string>("customAuthenticationFactors", this.customAuthenticationFactors);
         }
         if(this.operator){
-        writer.writeStringValue("operator", this.operator);
+            writer.writeStringValue("operator", this.operator);
         }
         if(this.termsOfUse){
-        writer.writeCollectionOfPrimitiveValues<string>("termsOfUse", this.termsOfUse);
+            writer.writeCollectionOfPrimitiveValues<string>("termsOfUse", this.termsOfUse);
         }
         writer.writeAdditionalData(this.additionalData);
     };

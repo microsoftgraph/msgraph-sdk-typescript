@@ -2,7 +2,7 @@ import {GetUserIdsWithFlaggedAppRegistrationResponse} from './getUserIdsWithFlag
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the getUserIdsWithFlaggedAppRegistration method. */
-export class GetUserIdsWithFlaggedAppRegistrationResponseImpl implements AdditionalDataHolder, GetUserIdsWithFlaggedAppRegistrationResponse, Parsable {
+export class GetUserIdsWithFlaggedAppRegistrationResponseImpl implements GetUserIdsWithFlaggedAppRegistrationResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The value property */
@@ -12,8 +12,8 @@ export class GetUserIdsWithFlaggedAppRegistrationResponseImpl implements Additio
      * @param getUserIdsWithFlaggedAppRegistrationResponseParameterValue 
      */
     public constructor(getUserIdsWithFlaggedAppRegistrationResponseParameterValue?: GetUserIdsWithFlaggedAppRegistrationResponse | undefined) {
-        this.additionalData = getUserIdsWithFlaggedAppRegistrationResponseParameterValue?.additionalData ? getUserIdsWithFlaggedAppRegistrationResponseParameterValue?.additionalData! : {}
-        this.value = getUserIdsWithFlaggedAppRegistrationResponseParameterValue?.value ;
+        this.additionalData = getUserIdsWithFlaggedAppRegistrationResponseParameterValue?.additionalData ? getUserIdsWithFlaggedAppRegistrationResponseParameterValue?.additionalData! : {};
+        this.value = getUserIdsWithFlaggedAppRegistrationResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -31,7 +31,7 @@ export class GetUserIdsWithFlaggedAppRegistrationResponseImpl implements Additio
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.value){
-        writer.writeCollectionOfPrimitiveValues<string>("value", this.value);
+            writer.writeCollectionOfPrimitiveValues<string>("value", this.value);
         }
         writer.writeAdditionalData(this.additionalData);
     };

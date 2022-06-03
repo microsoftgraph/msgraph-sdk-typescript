@@ -4,16 +4,17 @@ import {Entity} from './entity';
 import {IdentityApiConnector} from './identityApiConnector';
 import {IdentityProviderBase} from './identityProviderBase';
 import {IdentityUserFlowAttribute} from './identityUserFlowAttribute';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface IdentityContainer extends Entity{
+export interface IdentityContainer extends Entity, Partial<Parsable> {
     /** Represents entry point for API connectors. */
-    apiConnectors?:IdentityApiConnector[] | undefined;
+    apiConnectors?: IdentityApiConnector[] | undefined;
     /** Represents entry point for B2X and self-service sign-up identity userflows. */
-    b2xUserFlows?:B2xIdentityUserFlow[] | undefined;
+    b2xUserFlows?: B2xIdentityUserFlow[] | undefined;
     /** the entry point for the Conditional Access (CA) object model. */
-    conditionalAccess?:ConditionalAccessRoot | undefined;
+    conditionalAccess?: ConditionalAccessRoot | undefined;
     /** Represents entry point for identity provider base. */
-    identityProviders?:IdentityProviderBase[] | undefined;
+    identityProviders?: IdentityProviderBase[] | undefined;
     /** Represents entry point for identity userflow attributes. */
-    userFlowAttributes?:IdentityUserFlowAttribute[] | undefined;
+    userFlowAttributes?: IdentityUserFlowAttribute[] | undefined;
 }

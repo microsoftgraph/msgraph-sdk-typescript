@@ -22,7 +22,7 @@ export class SupportedTimeZonesWithTimeZoneStandardRequestBuilder {
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/me/outlook/microsoft.graph.supportedTimeZones(TimeZoneStandard='{TimeZoneStandard}')";
         const urlTplParams = getPathParameters(pathParameters);
-        urlTplParams[""] = timeZoneStandard
+        urlTplParams["TimeZoneStandard"] = timeZoneStandard
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };

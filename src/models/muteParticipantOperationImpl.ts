@@ -3,13 +3,13 @@ import {MuteParticipantOperation} from './muteParticipantOperation';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the mute method. */
-export class MuteParticipantOperationImpl extends CommsOperationImpl implements MuteParticipantOperation, Parsable {
+export class MuteParticipantOperationImpl extends CommsOperationImpl implements MuteParticipantOperation {
     /**
      * Instantiates a new muteParticipantOperation and sets the default values.
      * @param muteParticipantOperationParameterValue 
      */
     public constructor(muteParticipantOperationParameterValue?: MuteParticipantOperation | undefined) {
-        super();
+        super(muteParticipantOperationParameterValue);
     };
     /**
      * The deserialization information for the current model

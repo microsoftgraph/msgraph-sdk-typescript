@@ -4,7 +4,7 @@ import {DeviceManagementExchangeConnectorCollectionResponse} from './deviceManag
 import {DeviceManagementExchangeConnectorImpl} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class DeviceManagementExchangeConnectorCollectionResponseImpl implements AdditionalDataHolder, DeviceManagementExchangeConnectorCollectionResponse, Parsable {
+export class DeviceManagementExchangeConnectorCollectionResponseImpl implements DeviceManagementExchangeConnectorCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class DeviceManagementExchangeConnectorCollectionResponseImpl implements 
      * @param deviceManagementExchangeConnectorCollectionResponseParameterValue 
      */
     public constructor(deviceManagementExchangeConnectorCollectionResponseParameterValue?: DeviceManagementExchangeConnectorCollectionResponse | undefined) {
-        this.additionalData = deviceManagementExchangeConnectorCollectionResponseParameterValue?.additionalData ? deviceManagementExchangeConnectorCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = deviceManagementExchangeConnectorCollectionResponseParameterValue?.nextLink ;
-        this.value = deviceManagementExchangeConnectorCollectionResponseParameterValue?.value ;
+        this.additionalData = deviceManagementExchangeConnectorCollectionResponseParameterValue?.additionalData ? deviceManagementExchangeConnectorCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = deviceManagementExchangeConnectorCollectionResponseParameterValue?.nextLink;
+        this.value = deviceManagementExchangeConnectorCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class DeviceManagementExchangeConnectorCollectionResponseImpl implements 
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: DeviceManagementExchangeConnectorImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new DeviceManagementExchangeConnectorImpl(element));});
-        writer.writeCollectionOfObjectValues<DeviceManagementExchangeConnectorImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<DeviceManagementExchangeConnectorImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

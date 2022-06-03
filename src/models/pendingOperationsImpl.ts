@@ -4,7 +4,7 @@ import {PendingContentUpdate} from './pendingContentUpdate';
 import {PendingOperations} from './pendingOperations';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class PendingOperationsImpl implements AdditionalDataHolder, Parsable, PendingOperations {
+export class PendingOperationsImpl implements PendingOperations {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** A property that indicates that an operation that might update the binary content of a file is pending completion. */
@@ -14,8 +14,8 @@ export class PendingOperationsImpl implements AdditionalDataHolder, Parsable, Pe
      * @param pendingOperationsParameterValue 
      */
     public constructor(pendingOperationsParameterValue?: PendingOperations | undefined) {
-        this.additionalData = pendingOperationsParameterValue?.additionalData ? pendingOperationsParameterValue?.additionalData! : {}
-        this.pendingContentUpdate = pendingOperationsParameterValue?.pendingContentUpdate ;
+        this.additionalData = pendingOperationsParameterValue?.additionalData ? pendingOperationsParameterValue?.additionalData! : {};
+        this.pendingContentUpdate = pendingOperationsParameterValue?.pendingContentUpdate;
     };
     /**
      * The deserialization information for the current model
@@ -33,7 +33,7 @@ export class PendingOperationsImpl implements AdditionalDataHolder, Parsable, Pe
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.pendingContentUpdate){
-        writer.writeObjectValue<PendingContentUpdateImpl>("pendingContentUpdate", new PendingContentUpdateImpl(this.pendingContentUpdate));
+            writer.writeObjectValue<PendingContentUpdateImpl>("pendingContentUpdate", new PendingContentUpdateImpl(this.pendingContentUpdate));
         }
         writer.writeAdditionalData(this.additionalData);
     };

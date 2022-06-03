@@ -5,7 +5,7 @@ import {LogTeleconferenceDeviceQualityPostRequestBody} from './logTeleconference
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the logTeleconferenceDeviceQuality method. */
-export class LogTeleconferenceDeviceQualityPostRequestBodyImpl implements AdditionalDataHolder, LogTeleconferenceDeviceQualityPostRequestBody, Parsable {
+export class LogTeleconferenceDeviceQualityPostRequestBodyImpl implements LogTeleconferenceDeviceQualityPostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The quality property */
@@ -15,8 +15,8 @@ export class LogTeleconferenceDeviceQualityPostRequestBodyImpl implements Additi
      * @param logTeleconferenceDeviceQualityPostRequestBodyParameterValue 
      */
     public constructor(logTeleconferenceDeviceQualityPostRequestBodyParameterValue?: LogTeleconferenceDeviceQualityPostRequestBody | undefined) {
-        this.additionalData = logTeleconferenceDeviceQualityPostRequestBodyParameterValue?.additionalData ? logTeleconferenceDeviceQualityPostRequestBodyParameterValue?.additionalData! : {}
-        this.quality = logTeleconferenceDeviceQualityPostRequestBodyParameterValue?.quality ;
+        this.additionalData = logTeleconferenceDeviceQualityPostRequestBodyParameterValue?.additionalData ? logTeleconferenceDeviceQualityPostRequestBodyParameterValue?.additionalData! : {};
+        this.quality = logTeleconferenceDeviceQualityPostRequestBodyParameterValue?.quality;
     };
     /**
      * The deserialization information for the current model
@@ -34,7 +34,7 @@ export class LogTeleconferenceDeviceQualityPostRequestBodyImpl implements Additi
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.quality){
-        writer.writeObjectValue<TeleconferenceDeviceQualityImpl>("quality", new TeleconferenceDeviceQualityImpl(this.quality));
+            writer.writeObjectValue<TeleconferenceDeviceQualityImpl>("quality", new TeleconferenceDeviceQualityImpl(this.quality));
         }
         writer.writeAdditionalData(this.additionalData);
     };

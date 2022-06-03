@@ -1,7 +1,7 @@
 import {AssignedLabel} from './assignedLabel';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class AssignedLabelImpl implements AdditionalDataHolder, AssignedLabel, Parsable {
+export class AssignedLabelImpl implements AssignedLabel {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The display name of the label. Read-only. */
@@ -13,9 +13,9 @@ export class AssignedLabelImpl implements AdditionalDataHolder, AssignedLabel, P
      * @param assignedLabelParameterValue 
      */
     public constructor(assignedLabelParameterValue?: AssignedLabel | undefined) {
-        this.additionalData = assignedLabelParameterValue?.additionalData ? assignedLabelParameterValue?.additionalData! : {}
-        this.displayName = assignedLabelParameterValue?.displayName ;
-        this.labelId = assignedLabelParameterValue?.labelId ;
+        this.additionalData = assignedLabelParameterValue?.additionalData ? assignedLabelParameterValue?.additionalData! : {};
+        this.displayName = assignedLabelParameterValue?.displayName;
+        this.labelId = assignedLabelParameterValue?.labelId;
     };
     /**
      * The deserialization information for the current model
@@ -34,10 +34,10 @@ export class AssignedLabelImpl implements AdditionalDataHolder, AssignedLabel, P
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.displayName){
-        writer.writeStringValue("displayName", this.displayName);
+            writer.writeStringValue("displayName", this.displayName);
         }
         if(this.labelId){
-        writer.writeStringValue("labelId", this.labelId);
+            writer.writeStringValue("labelId", this.labelId);
         }
         writer.writeAdditionalData(this.additionalData);
     };

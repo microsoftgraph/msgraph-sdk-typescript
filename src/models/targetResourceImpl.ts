@@ -5,7 +5,7 @@ import {ModifiedProperty} from './modifiedProperty';
 import {TargetResource} from './targetResource';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class TargetResourceImpl implements AdditionalDataHolder, Parsable, TargetResource {
+export class TargetResourceImpl implements TargetResource {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Indicates the visible name defined for the resource. Typically specified when the resource is created. */
@@ -25,13 +25,13 @@ export class TargetResourceImpl implements AdditionalDataHolder, Parsable, Targe
      * @param targetResourceParameterValue 
      */
     public constructor(targetResourceParameterValue?: TargetResource | undefined) {
-        this.additionalData = targetResourceParameterValue?.additionalData ? targetResourceParameterValue?.additionalData! : {}
-        this.displayName = targetResourceParameterValue?.displayName ;
-        this.groupType = targetResourceParameterValue?.groupType ;
-        this.id = targetResourceParameterValue?.id ;
-        this.modifiedProperties = targetResourceParameterValue?.modifiedProperties ;
-        this.type = targetResourceParameterValue?.type ;
-        this.userPrincipalName = targetResourceParameterValue?.userPrincipalName ;
+        this.additionalData = targetResourceParameterValue?.additionalData ? targetResourceParameterValue?.additionalData! : {};
+        this.displayName = targetResourceParameterValue?.displayName;
+        this.groupType = targetResourceParameterValue?.groupType;
+        this.id = targetResourceParameterValue?.id;
+        this.modifiedProperties = targetResourceParameterValue?.modifiedProperties;
+        this.type = targetResourceParameterValue?.type;
+        this.userPrincipalName = targetResourceParameterValue?.userPrincipalName;
     };
     /**
      * The deserialization information for the current model
@@ -54,22 +54,22 @@ export class TargetResourceImpl implements AdditionalDataHolder, Parsable, Targe
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.displayName){
-        writer.writeStringValue("displayName", this.displayName);
+            writer.writeStringValue("displayName", this.displayName);
         }
         if(this.groupType){
-        writer.writeEnumValue<GroupType>("groupType", this.groupType);
+            writer.writeEnumValue<GroupType>("groupType", this.groupType);
         }
         if(this.id){
-        writer.writeStringValue("id", this.id);
+            writer.writeStringValue("id", this.id);
         }
         if(this.modifiedProperties && this.modifiedProperties.length != 0){        const modifiedPropertiesArrValue: ModifiedPropertyImpl[] = []; this.modifiedProperties?.forEach(element => {modifiedPropertiesArrValue.push(new ModifiedPropertyImpl(element));});
-        writer.writeCollectionOfObjectValues<ModifiedPropertyImpl>("modifiedProperties", modifiedPropertiesArrValue);
+            writer.writeCollectionOfObjectValues<ModifiedPropertyImpl>("modifiedProperties", modifiedPropertiesArrValue);
         }
         if(this.type){
-        writer.writeStringValue("type", this.type);
+            writer.writeStringValue("type", this.type);
         }
         if(this.userPrincipalName){
-        writer.writeStringValue("userPrincipalName", this.userPrincipalName);
+            writer.writeStringValue("userPrincipalName", this.userPrincipalName);
         }
         writer.writeAdditionalData(this.additionalData);
     };

@@ -3,7 +3,7 @@ import {PolicyBase} from './policyBase';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the collection of application entities. */
-export class PolicyBaseImpl extends DirectoryObjectImpl implements Parsable, PolicyBase {
+export class PolicyBaseImpl extends DirectoryObjectImpl implements PolicyBase {
     /** Description for this policy. Required. */
     public description?: string | undefined;
     /** Display name for this policy. Required. */
@@ -13,9 +13,9 @@ export class PolicyBaseImpl extends DirectoryObjectImpl implements Parsable, Pol
      * @param policyBaseParameterValue 
      */
     public constructor(policyBaseParameterValue?: PolicyBase | undefined) {
-        super();
-        this.description = policyBaseParameterValue?.description ;
-        this.displayName = policyBaseParameterValue?.displayName ;
+        super(policyBaseParameterValue);
+        this.description = policyBaseParameterValue?.description;
+        this.displayName = policyBaseParameterValue?.displayName;
     };
     /**
      * The deserialization information for the current model
@@ -35,10 +35,10 @@ export class PolicyBaseImpl extends DirectoryObjectImpl implements Parsable, Pol
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.description){
-        writer.writeStringValue("description", this.description);
+            writer.writeStringValue("description", this.description);
         }
         if(this.displayName){
-        writer.writeStringValue("displayName", this.displayName);
+            writer.writeStringValue("displayName", this.displayName);
         }
     };
 }

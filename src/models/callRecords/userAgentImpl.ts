@@ -1,7 +1,7 @@
 import {UserAgent} from './userAgent';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class UserAgentImpl implements AdditionalDataHolder, Parsable, UserAgent {
+export class UserAgentImpl implements UserAgent {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Identifies the version of application software used by this endpoint. */
@@ -13,9 +13,9 @@ export class UserAgentImpl implements AdditionalDataHolder, Parsable, UserAgent 
      * @param userAgentParameterValue 
      */
     public constructor(userAgentParameterValue?: UserAgent | undefined) {
-        this.additionalData = userAgentParameterValue?.additionalData ? userAgentParameterValue?.additionalData! : {}
-        this.applicationVersion = userAgentParameterValue?.applicationVersion ;
-        this.headerValue = userAgentParameterValue?.headerValue ;
+        this.additionalData = userAgentParameterValue?.additionalData ? userAgentParameterValue?.additionalData! : {};
+        this.applicationVersion = userAgentParameterValue?.applicationVersion;
+        this.headerValue = userAgentParameterValue?.headerValue;
     };
     /**
      * The deserialization information for the current model
@@ -34,10 +34,10 @@ export class UserAgentImpl implements AdditionalDataHolder, Parsable, UserAgent 
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.applicationVersion){
-        writer.writeStringValue("applicationVersion", this.applicationVersion);
+            writer.writeStringValue("applicationVersion", this.applicationVersion);
         }
         if(this.headerValue){
-        writer.writeStringValue("headerValue", this.headerValue);
+            writer.writeStringValue("headerValue", this.headerValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

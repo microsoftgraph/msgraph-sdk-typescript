@@ -2,7 +2,7 @@ import {BodyType} from './bodyType';
 import {ItemBody} from './itemBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ItemBodyImpl implements AdditionalDataHolder, ItemBody, Parsable {
+export class ItemBodyImpl implements ItemBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The content of the item. */
@@ -14,9 +14,9 @@ export class ItemBodyImpl implements AdditionalDataHolder, ItemBody, Parsable {
      * @param itemBodyParameterValue 
      */
     public constructor(itemBodyParameterValue?: ItemBody | undefined) {
-        this.additionalData = itemBodyParameterValue?.additionalData ? itemBodyParameterValue?.additionalData! : {}
-        this.content = itemBodyParameterValue?.content ;
-        this.contentType = itemBodyParameterValue?.contentType ;
+        this.additionalData = itemBodyParameterValue?.additionalData ? itemBodyParameterValue?.additionalData! : {};
+        this.content = itemBodyParameterValue?.content;
+        this.contentType = itemBodyParameterValue?.contentType;
     };
     /**
      * The deserialization information for the current model
@@ -35,10 +35,10 @@ export class ItemBodyImpl implements AdditionalDataHolder, ItemBody, Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.content){
-        writer.writeStringValue("content", this.content);
+            writer.writeStringValue("content", this.content);
         }
         if(this.contentType){
-        writer.writeEnumValue<BodyType>("contentType", this.contentType);
+            writer.writeEnumValue<BodyType>("contentType", this.contentType);
         }
         writer.writeAdditionalData(this.additionalData);
     };

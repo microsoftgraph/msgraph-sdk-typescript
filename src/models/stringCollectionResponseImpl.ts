@@ -1,7 +1,7 @@
 import {StringCollectionResponse} from './stringCollectionResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class StringCollectionResponseImpl implements AdditionalDataHolder, Parsable, StringCollectionResponse {
+export class StringCollectionResponseImpl implements StringCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -13,9 +13,9 @@ export class StringCollectionResponseImpl implements AdditionalDataHolder, Parsa
      * @param stringCollectionResponseParameterValue 
      */
     public constructor(stringCollectionResponseParameterValue?: StringCollectionResponse | undefined) {
-        this.additionalData = stringCollectionResponseParameterValue?.additionalData ? stringCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = stringCollectionResponseParameterValue?.nextLink ;
-        this.value = stringCollectionResponseParameterValue?.value ;
+        this.additionalData = stringCollectionResponseParameterValue?.additionalData ? stringCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = stringCollectionResponseParameterValue?.nextLink;
+        this.value = stringCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -34,10 +34,10 @@ export class StringCollectionResponseImpl implements AdditionalDataHolder, Parsa
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value){
-        writer.writeCollectionOfPrimitiveValues<string>("value", this.value);
+            writer.writeCollectionOfPrimitiveValues<string>("value", this.value);
         }
         writer.writeAdditionalData(this.additionalData);
     };

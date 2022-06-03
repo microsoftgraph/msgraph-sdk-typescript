@@ -9,7 +9,7 @@ import {AdministrativeUnitImpl, DirectoryObjectImpl, EntityImpl, IdentityProvide
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the directory singleton. */
-export class DirectoryImpl extends EntityImpl implements Directory, Parsable {
+export class DirectoryImpl extends EntityImpl implements Directory {
     /** Conceptual container for user and group directory objects. */
     public administrativeUnits?: AdministrativeUnit[] | undefined;
     /** Recently deleted items. Read-only. Nullable. */
@@ -21,10 +21,10 @@ export class DirectoryImpl extends EntityImpl implements Directory, Parsable {
      * @param directoryParameterValue 
      */
     public constructor(directoryParameterValue?: Directory | undefined) {
-        super();
-        this.administrativeUnits = directoryParameterValue?.administrativeUnits ;
-        this.deletedItems = directoryParameterValue?.deletedItems ;
-        this.federationConfigurations = directoryParameterValue?.federationConfigurations ;
+        super(directoryParameterValue);
+        this.administrativeUnits = directoryParameterValue?.administrativeUnits;
+        this.deletedItems = directoryParameterValue?.deletedItems;
+        this.federationConfigurations = directoryParameterValue?.federationConfigurations;
     };
     /**
      * The deserialization information for the current model
@@ -45,13 +45,13 @@ export class DirectoryImpl extends EntityImpl implements Directory, Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.administrativeUnits && this.administrativeUnits.length != 0){        const administrativeUnitsArrValue: AdministrativeUnitImpl[] = []; this.administrativeUnits?.forEach(element => {administrativeUnitsArrValue.push(new AdministrativeUnitImpl(element));});
-        writer.writeCollectionOfObjectValues<AdministrativeUnitImpl>("administrativeUnits", administrativeUnitsArrValue);
+            writer.writeCollectionOfObjectValues<AdministrativeUnitImpl>("administrativeUnits", administrativeUnitsArrValue);
         }
         if(this.deletedItems && this.deletedItems.length != 0){        const deletedItemsArrValue: DirectoryObjectImpl[] = []; this.deletedItems?.forEach(element => {deletedItemsArrValue.push(new DirectoryObjectImpl(element));});
-        writer.writeCollectionOfObjectValues<DirectoryObjectImpl>("deletedItems", deletedItemsArrValue);
+            writer.writeCollectionOfObjectValues<DirectoryObjectImpl>("deletedItems", deletedItemsArrValue);
         }
         if(this.federationConfigurations && this.federationConfigurations.length != 0){        const federationConfigurationsArrValue: IdentityProviderBaseImpl[] = []; this.federationConfigurations?.forEach(element => {federationConfigurationsArrValue.push(new IdentityProviderBaseImpl(element));});
-        writer.writeCollectionOfObjectValues<IdentityProviderBaseImpl>("federationConfigurations", federationConfigurationsArrValue);
+            writer.writeCollectionOfObjectValues<IdentityProviderBaseImpl>("federationConfigurations", federationConfigurationsArrValue);
         }
     };
 }

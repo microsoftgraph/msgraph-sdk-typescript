@@ -1,7 +1,7 @@
 import {ChatMessageAttachment} from './chatMessageAttachment';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ChatMessageAttachmentImpl implements AdditionalDataHolder, ChatMessageAttachment, Parsable {
+export class ChatMessageAttachmentImpl implements ChatMessageAttachment {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The content of the attachment. If the attachment is a rich card, set the property to the rich card object. This property and contentUrl are mutually exclusive. */
@@ -21,13 +21,13 @@ export class ChatMessageAttachmentImpl implements AdditionalDataHolder, ChatMess
      * @param chatMessageAttachmentParameterValue 
      */
     public constructor(chatMessageAttachmentParameterValue?: ChatMessageAttachment | undefined) {
-        this.additionalData = chatMessageAttachmentParameterValue?.additionalData ? chatMessageAttachmentParameterValue?.additionalData! : {}
-        this.content = chatMessageAttachmentParameterValue?.content ;
-        this.contentType = chatMessageAttachmentParameterValue?.contentType ;
-        this.contentUrl = chatMessageAttachmentParameterValue?.contentUrl ;
-        this.id = chatMessageAttachmentParameterValue?.id ;
-        this.name = chatMessageAttachmentParameterValue?.name ;
-        this.thumbnailUrl = chatMessageAttachmentParameterValue?.thumbnailUrl ;
+        this.additionalData = chatMessageAttachmentParameterValue?.additionalData ? chatMessageAttachmentParameterValue?.additionalData! : {};
+        this.content = chatMessageAttachmentParameterValue?.content;
+        this.contentType = chatMessageAttachmentParameterValue?.contentType;
+        this.contentUrl = chatMessageAttachmentParameterValue?.contentUrl;
+        this.id = chatMessageAttachmentParameterValue?.id;
+        this.name = chatMessageAttachmentParameterValue?.name;
+        this.thumbnailUrl = chatMessageAttachmentParameterValue?.thumbnailUrl;
     };
     /**
      * The deserialization information for the current model
@@ -50,22 +50,22 @@ export class ChatMessageAttachmentImpl implements AdditionalDataHolder, ChatMess
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.content){
-        writer.writeStringValue("content", this.content);
+            writer.writeStringValue("content", this.content);
         }
         if(this.contentType){
-        writer.writeStringValue("contentType", this.contentType);
+            writer.writeStringValue("contentType", this.contentType);
         }
         if(this.contentUrl){
-        writer.writeStringValue("contentUrl", this.contentUrl);
+            writer.writeStringValue("contentUrl", this.contentUrl);
         }
         if(this.id){
-        writer.writeStringValue("id", this.id);
+            writer.writeStringValue("id", this.id);
         }
         if(this.name){
-        writer.writeStringValue("name", this.name);
+            writer.writeStringValue("name", this.name);
         }
         if(this.thumbnailUrl){
-        writer.writeStringValue("thumbnailUrl", this.thumbnailUrl);
+            writer.writeStringValue("thumbnailUrl", this.thumbnailUrl);
         }
         writer.writeAdditionalData(this.additionalData);
     };

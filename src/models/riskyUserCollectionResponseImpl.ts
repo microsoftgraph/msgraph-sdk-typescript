@@ -4,7 +4,7 @@ import {RiskyUser} from './riskyUser';
 import {RiskyUserCollectionResponse} from './riskyUserCollectionResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class RiskyUserCollectionResponseImpl implements AdditionalDataHolder, Parsable, RiskyUserCollectionResponse {
+export class RiskyUserCollectionResponseImpl implements RiskyUserCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class RiskyUserCollectionResponseImpl implements AdditionalDataHolder, Pa
      * @param riskyUserCollectionResponseParameterValue 
      */
     public constructor(riskyUserCollectionResponseParameterValue?: RiskyUserCollectionResponse | undefined) {
-        this.additionalData = riskyUserCollectionResponseParameterValue?.additionalData ? riskyUserCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = riskyUserCollectionResponseParameterValue?.nextLink ;
-        this.value = riskyUserCollectionResponseParameterValue?.value ;
+        this.additionalData = riskyUserCollectionResponseParameterValue?.additionalData ? riskyUserCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = riskyUserCollectionResponseParameterValue?.nextLink;
+        this.value = riskyUserCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class RiskyUserCollectionResponseImpl implements AdditionalDataHolder, Pa
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: RiskyUserImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new RiskyUserImpl(element));});
-        writer.writeCollectionOfObjectValues<RiskyUserImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<RiskyUserImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

@@ -1,14 +1,15 @@
 import {Entity} from '../entity';
 import {Group} from './group';
 import {Set} from './set';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface Store extends Entity{
+export interface Store extends Entity, Partial<Parsable> {
     /** Default language of the term store. */
-    defaultLanguageTag?:string | undefined;
+    defaultLanguageTag?: string | undefined;
     /** Collection of all groups available in the term store. */
-    groups?:Group[] | undefined;
+    groups?: Group[] | undefined;
     /** List of languages for the term store. */
-    languageTags?:string[] | undefined;
+    languageTags?: string[] | undefined;
     /** Collection of all sets available in the term store. */
-    sets?:Set[] | undefined;
+    sets?: Set[] | undefined;
 }

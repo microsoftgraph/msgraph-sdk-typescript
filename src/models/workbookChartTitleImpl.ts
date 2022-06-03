@@ -4,8 +4,8 @@ import {WorkbookChartTitle} from './workbookChartTitle';
 import {WorkbookChartTitleFormat} from './workbookChartTitleFormat';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
-export class WorkbookChartTitleImpl extends EntityImpl implements Parsable, WorkbookChartTitle {
+/** Casts the previous resource to group. */
+export class WorkbookChartTitleImpl extends EntityImpl implements WorkbookChartTitle {
     /** Represents the formatting of a chart title, which includes fill and font formatting. Read-only. */
     public format?: WorkbookChartTitleFormat | undefined;
     /** Boolean value representing if the chart title will overlay the chart or not. */
@@ -19,11 +19,11 @@ export class WorkbookChartTitleImpl extends EntityImpl implements Parsable, Work
      * @param workbookChartTitleParameterValue 
      */
     public constructor(workbookChartTitleParameterValue?: WorkbookChartTitle | undefined) {
-        super();
-        this.format = workbookChartTitleParameterValue?.format ;
-        this.overlay = workbookChartTitleParameterValue?.overlay ;
-        this.text = workbookChartTitleParameterValue?.text ;
-        this.visible = workbookChartTitleParameterValue?.visible ;
+        super(workbookChartTitleParameterValue);
+        this.format = workbookChartTitleParameterValue?.format;
+        this.overlay = workbookChartTitleParameterValue?.overlay;
+        this.text = workbookChartTitleParameterValue?.text;
+        this.visible = workbookChartTitleParameterValue?.visible;
     };
     /**
      * The deserialization information for the current model
@@ -45,16 +45,16 @@ export class WorkbookChartTitleImpl extends EntityImpl implements Parsable, Work
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.format){
-        writer.writeObjectValue<WorkbookChartTitleFormatImpl>("format", new WorkbookChartTitleFormatImpl(this.format));
+            writer.writeObjectValue<WorkbookChartTitleFormatImpl>("format", new WorkbookChartTitleFormatImpl(this.format));
         }
         if(this.overlay){
-        writer.writeBooleanValue("overlay", this.overlay);
+            writer.writeBooleanValue("overlay", this.overlay);
         }
         if(this.text){
-        writer.writeStringValue("text", this.text);
+            writer.writeStringValue("text", this.text);
         }
         if(this.visible){
-        writer.writeBooleanValue("visible", this.visible);
+            writer.writeBooleanValue("visible", this.visible);
         }
     };
 }

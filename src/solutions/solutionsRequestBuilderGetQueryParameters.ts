@@ -1,7 +1,7 @@
 
-export interface SolutionsRequestBuilderGetQueryParameters{
+export interface SolutionsRequestBuilderGetQueryParameters {
     /** Expand related entities */
-    expand?:string[] | undefined;
+    expand?: string[] | undefined;
     /** Select properties to be returned */
-    select?:string[] | undefined;
+    select?: string[] | undefined;
 }

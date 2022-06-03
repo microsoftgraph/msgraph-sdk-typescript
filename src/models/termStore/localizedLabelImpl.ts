@@ -1,7 +1,7 @@
 import {LocalizedLabel} from './localizedLabel';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class LocalizedLabelImpl implements AdditionalDataHolder, LocalizedLabel, Parsable {
+export class LocalizedLabelImpl implements LocalizedLabel {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Indicates whether the label is the default label. */
@@ -15,10 +15,10 @@ export class LocalizedLabelImpl implements AdditionalDataHolder, LocalizedLabel,
      * @param localizedLabelParameterValue 
      */
     public constructor(localizedLabelParameterValue?: LocalizedLabel | undefined) {
-        this.additionalData = localizedLabelParameterValue?.additionalData ? localizedLabelParameterValue?.additionalData! : {}
-        this.isDefault = localizedLabelParameterValue?.isDefault ;
-        this.languageTag = localizedLabelParameterValue?.languageTag ;
-        this.name = localizedLabelParameterValue?.name ;
+        this.additionalData = localizedLabelParameterValue?.additionalData ? localizedLabelParameterValue?.additionalData! : {};
+        this.isDefault = localizedLabelParameterValue?.isDefault;
+        this.languageTag = localizedLabelParameterValue?.languageTag;
+        this.name = localizedLabelParameterValue?.name;
     };
     /**
      * The deserialization information for the current model
@@ -38,13 +38,13 @@ export class LocalizedLabelImpl implements AdditionalDataHolder, LocalizedLabel,
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.isDefault){
-        writer.writeBooleanValue("isDefault", this.isDefault);
+            writer.writeBooleanValue("isDefault", this.isDefault);
         }
         if(this.languageTag){
-        writer.writeStringValue("languageTag", this.languageTag);
+            writer.writeStringValue("languageTag", this.languageTag);
         }
         if(this.name){
-        writer.writeStringValue("name", this.name);
+            writer.writeStringValue("name", this.name);
         }
         writer.writeAdditionalData(this.additionalData);
     };

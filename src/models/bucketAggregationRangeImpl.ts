@@ -1,7 +1,7 @@
 import {BucketAggregationRange} from './bucketAggregationRange';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class BucketAggregationRangeImpl implements AdditionalDataHolder, BucketAggregationRange, Parsable {
+export class BucketAggregationRangeImpl implements BucketAggregationRange {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Defines the lower bound from which to compute the aggregation. This can be a numeric value or a string representation of a date using the YYYY-MM-DDTHH:mm:ss.sssZ format. Required. */
@@ -13,9 +13,9 @@ export class BucketAggregationRangeImpl implements AdditionalDataHolder, BucketA
      * @param bucketAggregationRangeParameterValue 
      */
     public constructor(bucketAggregationRangeParameterValue?: BucketAggregationRange | undefined) {
-        this.additionalData = bucketAggregationRangeParameterValue?.additionalData ? bucketAggregationRangeParameterValue?.additionalData! : {}
-        this.from = bucketAggregationRangeParameterValue?.from ;
-        this.to = bucketAggregationRangeParameterValue?.to ;
+        this.additionalData = bucketAggregationRangeParameterValue?.additionalData ? bucketAggregationRangeParameterValue?.additionalData! : {};
+        this.from = bucketAggregationRangeParameterValue?.from;
+        this.to = bucketAggregationRangeParameterValue?.to;
     };
     /**
      * The deserialization information for the current model
@@ -34,10 +34,10 @@ export class BucketAggregationRangeImpl implements AdditionalDataHolder, BucketA
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.from){
-        writer.writeStringValue("from", this.from);
+            writer.writeStringValue("from", this.from);
         }
         if(this.to){
-        writer.writeStringValue("to", this.to);
+            writer.writeStringValue("to", this.to);
         }
         writer.writeAdditionalData(this.additionalData);
     };

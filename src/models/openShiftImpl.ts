@@ -5,7 +5,7 @@ import {OpenShiftItem} from './openShiftItem';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Casts the previous resource to group. */
-export class OpenShiftImpl extends ChangeTrackedEntityImpl implements OpenShift, Parsable {
+export class OpenShiftImpl extends ChangeTrackedEntityImpl implements OpenShift {
     /** An unpublished open shift. */
     public draftOpenShift?: OpenShiftItem | undefined;
     /** ID for the scheduling group that the open shift belongs to. */
@@ -17,10 +17,10 @@ export class OpenShiftImpl extends ChangeTrackedEntityImpl implements OpenShift,
      * @param openShiftParameterValue 
      */
     public constructor(openShiftParameterValue?: OpenShift | undefined) {
-        super();
-        this.draftOpenShift = openShiftParameterValue?.draftOpenShift ;
-        this.schedulingGroupId = openShiftParameterValue?.schedulingGroupId ;
-        this.sharedOpenShift = openShiftParameterValue?.sharedOpenShift ;
+        super(openShiftParameterValue);
+        this.draftOpenShift = openShiftParameterValue?.draftOpenShift;
+        this.schedulingGroupId = openShiftParameterValue?.schedulingGroupId;
+        this.sharedOpenShift = openShiftParameterValue?.sharedOpenShift;
     };
     /**
      * The deserialization information for the current model
@@ -41,13 +41,13 @@ export class OpenShiftImpl extends ChangeTrackedEntityImpl implements OpenShift,
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.draftOpenShift){
-        writer.writeObjectValue<OpenShiftItemImpl>("draftOpenShift", new OpenShiftItemImpl(this.draftOpenShift));
+            writer.writeObjectValue<OpenShiftItemImpl>("draftOpenShift", new OpenShiftItemImpl(this.draftOpenShift));
         }
         if(this.schedulingGroupId){
-        writer.writeStringValue("schedulingGroupId", this.schedulingGroupId);
+            writer.writeStringValue("schedulingGroupId", this.schedulingGroupId);
         }
         if(this.sharedOpenShift){
-        writer.writeObjectValue<OpenShiftItemImpl>("sharedOpenShift", new OpenShiftItemImpl(this.sharedOpenShift));
+            writer.writeObjectValue<OpenShiftItemImpl>("sharedOpenShift", new OpenShiftItemImpl(this.sharedOpenShift));
         }
     };
 }

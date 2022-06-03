@@ -1,7 +1,7 @@
 import {AccessReviewApplyAction} from './accessReviewApplyAction';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class AccessReviewApplyActionImpl implements AccessReviewApplyAction, AdditionalDataHolder, Parsable {
+export class AccessReviewApplyActionImpl implements AccessReviewApplyAction {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /**
@@ -9,7 +9,7 @@ export class AccessReviewApplyActionImpl implements AccessReviewApplyAction, Add
      * @param accessReviewApplyActionParameterValue 
      */
     public constructor(accessReviewApplyActionParameterValue?: AccessReviewApplyAction | undefined) {
-        this.additionalData = accessReviewApplyActionParameterValue?.additionalData ? accessReviewApplyActionParameterValue?.additionalData! : {}
+        this.additionalData = accessReviewApplyActionParameterValue?.additionalData ? accessReviewApplyActionParameterValue?.additionalData! : {};
     };
     /**
      * The deserialization information for the current model

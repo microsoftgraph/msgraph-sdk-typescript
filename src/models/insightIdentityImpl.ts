@@ -1,7 +1,7 @@
 import {InsightIdentity} from './insightIdentity';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class InsightIdentityImpl implements AdditionalDataHolder, InsightIdentity, Parsable {
+export class InsightIdentityImpl implements InsightIdentity {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The email address of the user who shared the item. */
@@ -15,10 +15,10 @@ export class InsightIdentityImpl implements AdditionalDataHolder, InsightIdentit
      * @param insightIdentityParameterValue 
      */
     public constructor(insightIdentityParameterValue?: InsightIdentity | undefined) {
-        this.additionalData = insightIdentityParameterValue?.additionalData ? insightIdentityParameterValue?.additionalData! : {}
-        this.address = insightIdentityParameterValue?.address ;
-        this.displayName = insightIdentityParameterValue?.displayName ;
-        this.id = insightIdentityParameterValue?.id ;
+        this.additionalData = insightIdentityParameterValue?.additionalData ? insightIdentityParameterValue?.additionalData! : {};
+        this.address = insightIdentityParameterValue?.address;
+        this.displayName = insightIdentityParameterValue?.displayName;
+        this.id = insightIdentityParameterValue?.id;
     };
     /**
      * The deserialization information for the current model
@@ -38,13 +38,13 @@ export class InsightIdentityImpl implements AdditionalDataHolder, InsightIdentit
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.address){
-        writer.writeStringValue("address", this.address);
+            writer.writeStringValue("address", this.address);
         }
         if(this.displayName){
-        writer.writeStringValue("displayName", this.displayName);
+            writer.writeStringValue("displayName", this.displayName);
         }
         if(this.id){
-        writer.writeStringValue("id", this.id);
+            writer.writeStringValue("id", this.id);
         }
         writer.writeAdditionalData(this.additionalData);
     };

@@ -2,7 +2,7 @@ import {ValidatePermissionPostRequestBody} from './validatePermissionPostRequest
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the validatePermission method. */
-export class ValidatePermissionPostRequestBodyImpl implements AdditionalDataHolder, Parsable, ValidatePermissionPostRequestBody {
+export class ValidatePermissionPostRequestBodyImpl implements ValidatePermissionPostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The challengeToken property */
@@ -14,9 +14,9 @@ export class ValidatePermissionPostRequestBodyImpl implements AdditionalDataHold
      * @param validatePermissionPostRequestBodyParameterValue 
      */
     public constructor(validatePermissionPostRequestBodyParameterValue?: ValidatePermissionPostRequestBody | undefined) {
-        this.additionalData = validatePermissionPostRequestBodyParameterValue?.additionalData ? validatePermissionPostRequestBodyParameterValue?.additionalData! : {}
-        this.challengeToken = validatePermissionPostRequestBodyParameterValue?.challengeToken ;
-        this.password = validatePermissionPostRequestBodyParameterValue?.password ;
+        this.additionalData = validatePermissionPostRequestBodyParameterValue?.additionalData ? validatePermissionPostRequestBodyParameterValue?.additionalData! : {};
+        this.challengeToken = validatePermissionPostRequestBodyParameterValue?.challengeToken;
+        this.password = validatePermissionPostRequestBodyParameterValue?.password;
     };
     /**
      * The deserialization information for the current model
@@ -35,10 +35,10 @@ export class ValidatePermissionPostRequestBodyImpl implements AdditionalDataHold
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.challengeToken){
-        writer.writeStringValue("challengeToken", this.challengeToken);
+            writer.writeStringValue("challengeToken", this.challengeToken);
         }
         if(this.password){
-        writer.writeStringValue("password", this.password);
+            writer.writeStringValue("password", this.password);
         }
         writer.writeAdditionalData(this.additionalData);
     };

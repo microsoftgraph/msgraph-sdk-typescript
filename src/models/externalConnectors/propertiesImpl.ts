@@ -1,7 +1,7 @@
 import {Properties} from './properties';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class PropertiesImpl implements AdditionalDataHolder, Parsable, Properties {
+export class PropertiesImpl implements Properties {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /**
@@ -9,7 +9,7 @@ export class PropertiesImpl implements AdditionalDataHolder, Parsable, Propertie
      * @param propertiesParameterValue 
      */
     public constructor(propertiesParameterValue?: Properties | undefined) {
-        this.additionalData = propertiesParameterValue?.additionalData ? propertiesParameterValue?.additionalData! : {}
+        this.additionalData = propertiesParameterValue?.additionalData ? propertiesParameterValue?.additionalData! : {};
     };
     /**
      * The deserialization information for the current model

@@ -4,7 +4,7 @@ import {RemoteAssistancePartner} from './remoteAssistancePartner';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** RemoteAssistPartner resources represent the metadata and status of a given Remote Assistance partner service. */
-export class RemoteAssistancePartnerImpl extends EntityImpl implements Parsable, RemoteAssistancePartner {
+export class RemoteAssistancePartnerImpl extends EntityImpl implements RemoteAssistancePartner {
     /** Display name of the partner. */
     public displayName?: string | undefined;
     /** Timestamp of the last request sent to Intune by the TEM partner. */
@@ -18,11 +18,11 @@ export class RemoteAssistancePartnerImpl extends EntityImpl implements Parsable,
      * @param remoteAssistancePartnerParameterValue 
      */
     public constructor(remoteAssistancePartnerParameterValue?: RemoteAssistancePartner | undefined) {
-        super();
-        this.displayName = remoteAssistancePartnerParameterValue?.displayName ;
-        this.lastConnectionDateTime = remoteAssistancePartnerParameterValue?.lastConnectionDateTime ;
-        this.onboardingStatus = remoteAssistancePartnerParameterValue?.onboardingStatus ;
-        this.onboardingUrl = remoteAssistancePartnerParameterValue?.onboardingUrl ;
+        super(remoteAssistancePartnerParameterValue);
+        this.displayName = remoteAssistancePartnerParameterValue?.displayName;
+        this.lastConnectionDateTime = remoteAssistancePartnerParameterValue?.lastConnectionDateTime;
+        this.onboardingStatus = remoteAssistancePartnerParameterValue?.onboardingStatus;
+        this.onboardingUrl = remoteAssistancePartnerParameterValue?.onboardingUrl;
     };
     /**
      * The deserialization information for the current model
@@ -44,16 +44,16 @@ export class RemoteAssistancePartnerImpl extends EntityImpl implements Parsable,
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.displayName){
-        writer.writeStringValue("displayName", this.displayName);
+            writer.writeStringValue("displayName", this.displayName);
         }
         if(this.lastConnectionDateTime){
-        writer.writeDateValue("lastConnectionDateTime", this.lastConnectionDateTime);
+            writer.writeDateValue("lastConnectionDateTime", this.lastConnectionDateTime);
         }
         if(this.onboardingStatus){
-        writer.writeEnumValue<RemoteAssistanceOnboardingStatus>("onboardingStatus", this.onboardingStatus);
+            writer.writeEnumValue<RemoteAssistanceOnboardingStatus>("onboardingStatus", this.onboardingStatus);
         }
         if(this.onboardingUrl){
-        writer.writeStringValue("onboardingUrl", this.onboardingUrl);
+            writer.writeStringValue("onboardingUrl", this.onboardingUrl);
         }
     };
 }

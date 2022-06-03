@@ -3,13 +3,13 @@ import {SubscribeToToneOperation} from './subscribeToToneOperation';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the subscribeToTone method. */
-export class SubscribeToToneOperationImpl extends CommsOperationImpl implements Parsable, SubscribeToToneOperation {
+export class SubscribeToToneOperationImpl extends CommsOperationImpl implements SubscribeToToneOperation {
     /**
      * Instantiates a new subscribeToToneOperation and sets the default values.
      * @param subscribeToToneOperationParameterValue 
      */
     public constructor(subscribeToToneOperationParameterValue?: SubscribeToToneOperation | undefined) {
-        super();
+        super(subscribeToToneOperationParameterValue);
     };
     /**
      * The deserialization information for the current model

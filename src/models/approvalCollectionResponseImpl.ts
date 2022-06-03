@@ -4,7 +4,7 @@ import {createApprovalFromDiscriminatorValue} from './createApprovalFromDiscrimi
 import {ApprovalImpl} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ApprovalCollectionResponseImpl implements AdditionalDataHolder, ApprovalCollectionResponse, Parsable {
+export class ApprovalCollectionResponseImpl implements ApprovalCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class ApprovalCollectionResponseImpl implements AdditionalDataHolder, App
      * @param approvalCollectionResponseParameterValue 
      */
     public constructor(approvalCollectionResponseParameterValue?: ApprovalCollectionResponse | undefined) {
-        this.additionalData = approvalCollectionResponseParameterValue?.additionalData ? approvalCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = approvalCollectionResponseParameterValue?.nextLink ;
-        this.value = approvalCollectionResponseParameterValue?.value ;
+        this.additionalData = approvalCollectionResponseParameterValue?.additionalData ? approvalCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = approvalCollectionResponseParameterValue?.nextLink;
+        this.value = approvalCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class ApprovalCollectionResponseImpl implements AdditionalDataHolder, App
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: ApprovalImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ApprovalImpl(element));});
-        writer.writeCollectionOfObjectValues<ApprovalImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<ApprovalImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

@@ -4,7 +4,7 @@ import {DeviceCategoryCollectionResponse} from './deviceCategoryCollectionRespon
 import {DeviceCategoryImpl} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class DeviceCategoryCollectionResponseImpl implements AdditionalDataHolder, DeviceCategoryCollectionResponse, Parsable {
+export class DeviceCategoryCollectionResponseImpl implements DeviceCategoryCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class DeviceCategoryCollectionResponseImpl implements AdditionalDataHolde
      * @param deviceCategoryCollectionResponseParameterValue 
      */
     public constructor(deviceCategoryCollectionResponseParameterValue?: DeviceCategoryCollectionResponse | undefined) {
-        this.additionalData = deviceCategoryCollectionResponseParameterValue?.additionalData ? deviceCategoryCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = deviceCategoryCollectionResponseParameterValue?.nextLink ;
-        this.value = deviceCategoryCollectionResponseParameterValue?.value ;
+        this.additionalData = deviceCategoryCollectionResponseParameterValue?.additionalData ? deviceCategoryCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = deviceCategoryCollectionResponseParameterValue?.nextLink;
+        this.value = deviceCategoryCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class DeviceCategoryCollectionResponseImpl implements AdditionalDataHolde
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: DeviceCategoryImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new DeviceCategoryImpl(element));});
-        writer.writeCollectionOfObjectValues<DeviceCategoryImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<DeviceCategoryImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

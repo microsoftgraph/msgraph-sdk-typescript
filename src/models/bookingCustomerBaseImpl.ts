@@ -3,13 +3,13 @@ import {EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Booking entities that provide a display name. */
-export class BookingCustomerBaseImpl extends EntityImpl implements BookingCustomerBase, Parsable {
+export class BookingCustomerBaseImpl extends EntityImpl implements BookingCustomerBase {
     /**
      * Instantiates a new bookingCustomerBase and sets the default values.
      * @param bookingCustomerBaseParameterValue 
      */
     public constructor(bookingCustomerBaseParameterValue?: BookingCustomerBase | undefined) {
-        super();
+        super(bookingCustomerBaseParameterValue);
     };
     /**
      * The deserialization information for the current model

@@ -1,7 +1,7 @@
 import {PendingContentUpdate} from './pendingContentUpdate';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class PendingContentUpdateImpl implements AdditionalDataHolder, Parsable, PendingContentUpdate {
+export class PendingContentUpdateImpl implements PendingContentUpdate {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Date and time the pending binary operation was queued in UTC time. Read-only. */
@@ -11,8 +11,8 @@ export class PendingContentUpdateImpl implements AdditionalDataHolder, Parsable,
      * @param pendingContentUpdateParameterValue 
      */
     public constructor(pendingContentUpdateParameterValue?: PendingContentUpdate | undefined) {
-        this.additionalData = pendingContentUpdateParameterValue?.additionalData ? pendingContentUpdateParameterValue?.additionalData! : {}
-        this.queuedDateTime = pendingContentUpdateParameterValue?.queuedDateTime ;
+        this.additionalData = pendingContentUpdateParameterValue?.additionalData ? pendingContentUpdateParameterValue?.additionalData! : {};
+        this.queuedDateTime = pendingContentUpdateParameterValue?.queuedDateTime;
     };
     /**
      * The deserialization information for the current model
@@ -30,7 +30,7 @@ export class PendingContentUpdateImpl implements AdditionalDataHolder, Parsable,
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.queuedDateTime){
-        writer.writeDateValue("queuedDateTime", this.queuedDateTime);
+            writer.writeDateValue("queuedDateTime", this.queuedDateTime);
         }
         writer.writeAdditionalData(this.additionalData);
     };

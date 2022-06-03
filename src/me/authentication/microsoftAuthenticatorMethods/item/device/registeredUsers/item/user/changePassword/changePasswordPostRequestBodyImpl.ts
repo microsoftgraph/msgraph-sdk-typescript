@@ -2,7 +2,7 @@ import {ChangePasswordPostRequestBody} from './changePasswordPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the changePassword method. */
-export class ChangePasswordPostRequestBodyImpl implements AdditionalDataHolder, ChangePasswordPostRequestBody, Parsable {
+export class ChangePasswordPostRequestBodyImpl implements ChangePasswordPostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The currentPassword property */
@@ -14,9 +14,9 @@ export class ChangePasswordPostRequestBodyImpl implements AdditionalDataHolder, 
      * @param changePasswordPostRequestBodyParameterValue 
      */
     public constructor(changePasswordPostRequestBodyParameterValue?: ChangePasswordPostRequestBody | undefined) {
-        this.additionalData = changePasswordPostRequestBodyParameterValue?.additionalData ? changePasswordPostRequestBodyParameterValue?.additionalData! : {}
-        this.currentPassword = changePasswordPostRequestBodyParameterValue?.currentPassword ;
-        this.newPassword = changePasswordPostRequestBodyParameterValue?.newPassword ;
+        this.additionalData = changePasswordPostRequestBodyParameterValue?.additionalData ? changePasswordPostRequestBodyParameterValue?.additionalData! : {};
+        this.currentPassword = changePasswordPostRequestBodyParameterValue?.currentPassword;
+        this.newPassword = changePasswordPostRequestBodyParameterValue?.newPassword;
     };
     /**
      * The deserialization information for the current model
@@ -35,10 +35,10 @@ export class ChangePasswordPostRequestBodyImpl implements AdditionalDataHolder, 
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.currentPassword){
-        writer.writeStringValue("currentPassword", this.currentPassword);
+            writer.writeStringValue("currentPassword", this.currentPassword);
         }
         if(this.newPassword){
-        writer.writeStringValue("newPassword", this.newPassword);
+            writer.writeStringValue("newPassword", this.newPassword);
         }
         writer.writeAdditionalData(this.additionalData);
     };

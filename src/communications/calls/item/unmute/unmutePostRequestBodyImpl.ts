@@ -2,7 +2,7 @@ import {UnmutePostRequestBody} from './unmutePostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the unmute method. */
-export class UnmutePostRequestBodyImpl implements AdditionalDataHolder, Parsable, UnmutePostRequestBody {
+export class UnmutePostRequestBodyImpl implements UnmutePostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The clientContext property */
@@ -12,8 +12,8 @@ export class UnmutePostRequestBodyImpl implements AdditionalDataHolder, Parsable
      * @param unmutePostRequestBodyParameterValue 
      */
     public constructor(unmutePostRequestBodyParameterValue?: UnmutePostRequestBody | undefined) {
-        this.additionalData = unmutePostRequestBodyParameterValue?.additionalData ? unmutePostRequestBodyParameterValue?.additionalData! : {}
-        this.clientContext = unmutePostRequestBodyParameterValue?.clientContext ;
+        this.additionalData = unmutePostRequestBodyParameterValue?.additionalData ? unmutePostRequestBodyParameterValue?.additionalData! : {};
+        this.clientContext = unmutePostRequestBodyParameterValue?.clientContext;
     };
     /**
      * The deserialization information for the current model
@@ -31,7 +31,7 @@ export class UnmutePostRequestBodyImpl implements AdditionalDataHolder, Parsable
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.clientContext){
-        writer.writeStringValue("clientContext", this.clientContext);
+            writer.writeStringValue("clientContext", this.clientContext);
         }
         writer.writeAdditionalData(this.additionalData);
     };

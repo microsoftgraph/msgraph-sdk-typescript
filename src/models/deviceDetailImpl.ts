@@ -1,7 +1,7 @@
 import {DeviceDetail} from './deviceDetail';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class DeviceDetailImpl implements AdditionalDataHolder, DeviceDetail, Parsable {
+export class DeviceDetailImpl implements DeviceDetail {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Indicates the browser information of the used for signing-in. */
@@ -23,14 +23,14 @@ export class DeviceDetailImpl implements AdditionalDataHolder, DeviceDetail, Par
      * @param deviceDetailParameterValue 
      */
     public constructor(deviceDetailParameterValue?: DeviceDetail | undefined) {
-        this.additionalData = deviceDetailParameterValue?.additionalData ? deviceDetailParameterValue?.additionalData! : {}
-        this.browser = deviceDetailParameterValue?.browser ;
-        this.deviceId = deviceDetailParameterValue?.deviceId ;
-        this.displayName = deviceDetailParameterValue?.displayName ;
-        this.isCompliant = deviceDetailParameterValue?.isCompliant ;
-        this.isManaged = deviceDetailParameterValue?.isManaged ;
-        this.operatingSystem = deviceDetailParameterValue?.operatingSystem ;
-        this.trustType = deviceDetailParameterValue?.trustType ;
+        this.additionalData = deviceDetailParameterValue?.additionalData ? deviceDetailParameterValue?.additionalData! : {};
+        this.browser = deviceDetailParameterValue?.browser;
+        this.deviceId = deviceDetailParameterValue?.deviceId;
+        this.displayName = deviceDetailParameterValue?.displayName;
+        this.isCompliant = deviceDetailParameterValue?.isCompliant;
+        this.isManaged = deviceDetailParameterValue?.isManaged;
+        this.operatingSystem = deviceDetailParameterValue?.operatingSystem;
+        this.trustType = deviceDetailParameterValue?.trustType;
     };
     /**
      * The deserialization information for the current model
@@ -54,25 +54,25 @@ export class DeviceDetailImpl implements AdditionalDataHolder, DeviceDetail, Par
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.browser){
-        writer.writeStringValue("browser", this.browser);
+            writer.writeStringValue("browser", this.browser);
         }
         if(this.deviceId){
-        writer.writeStringValue("deviceId", this.deviceId);
+            writer.writeStringValue("deviceId", this.deviceId);
         }
         if(this.displayName){
-        writer.writeStringValue("displayName", this.displayName);
+            writer.writeStringValue("displayName", this.displayName);
         }
         if(this.isCompliant){
-        writer.writeBooleanValue("isCompliant", this.isCompliant);
+            writer.writeBooleanValue("isCompliant", this.isCompliant);
         }
         if(this.isManaged){
-        writer.writeBooleanValue("isManaged", this.isManaged);
+            writer.writeBooleanValue("isManaged", this.isManaged);
         }
         if(this.operatingSystem){
-        writer.writeStringValue("operatingSystem", this.operatingSystem);
+            writer.writeStringValue("operatingSystem", this.operatingSystem);
         }
         if(this.trustType){
-        writer.writeStringValue("trustType", this.trustType);
+            writer.writeStringValue("trustType", this.trustType);
         }
         writer.writeAdditionalData(this.additionalData);
     };

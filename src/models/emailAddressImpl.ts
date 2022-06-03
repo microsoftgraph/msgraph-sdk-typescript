@@ -1,7 +1,7 @@
 import {EmailAddress} from './emailAddress';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class EmailAddressImpl implements AdditionalDataHolder, EmailAddress, Parsable {
+export class EmailAddressImpl implements EmailAddress {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The email address of an entity instance. */
@@ -13,9 +13,9 @@ export class EmailAddressImpl implements AdditionalDataHolder, EmailAddress, Par
      * @param emailAddressParameterValue 
      */
     public constructor(emailAddressParameterValue?: EmailAddress | undefined) {
-        this.additionalData = emailAddressParameterValue?.additionalData ? emailAddressParameterValue?.additionalData! : {}
-        this.address = emailAddressParameterValue?.address ;
-        this.name = emailAddressParameterValue?.name ;
+        this.additionalData = emailAddressParameterValue?.additionalData ? emailAddressParameterValue?.additionalData! : {};
+        this.address = emailAddressParameterValue?.address;
+        this.name = emailAddressParameterValue?.name;
     };
     /**
      * The deserialization information for the current model
@@ -34,10 +34,10 @@ export class EmailAddressImpl implements AdditionalDataHolder, EmailAddress, Par
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.address){
-        writer.writeStringValue("address", this.address);
+            writer.writeStringValue("address", this.address);
         }
         if(this.name){
-        writer.writeStringValue("name", this.name);
+            writer.writeStringValue("name", this.name);
         }
         writer.writeAdditionalData(this.additionalData);
     };

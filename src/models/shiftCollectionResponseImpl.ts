@@ -4,7 +4,7 @@ import {Shift} from './shift';
 import {ShiftCollectionResponse} from './shiftCollectionResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ShiftCollectionResponseImpl implements AdditionalDataHolder, Parsable, ShiftCollectionResponse {
+export class ShiftCollectionResponseImpl implements ShiftCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class ShiftCollectionResponseImpl implements AdditionalDataHolder, Parsab
      * @param shiftCollectionResponseParameterValue 
      */
     public constructor(shiftCollectionResponseParameterValue?: ShiftCollectionResponse | undefined) {
-        this.additionalData = shiftCollectionResponseParameterValue?.additionalData ? shiftCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = shiftCollectionResponseParameterValue?.nextLink ;
-        this.value = shiftCollectionResponseParameterValue?.value ;
+        this.additionalData = shiftCollectionResponseParameterValue?.additionalData ? shiftCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = shiftCollectionResponseParameterValue?.nextLink;
+        this.value = shiftCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class ShiftCollectionResponseImpl implements AdditionalDataHolder, Parsab
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: ShiftImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ShiftImpl(element));});
-        writer.writeCollectionOfObjectValues<ShiftImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<ShiftImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

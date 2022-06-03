@@ -5,7 +5,7 @@ import {AddPostRequestBody} from './addPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the add method. */
-export class AddPostRequestBodyImpl implements AdditionalDataHolder, AddPostRequestBody, Parsable {
+export class AddPostRequestBodyImpl implements AddPostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The value property */
@@ -15,8 +15,8 @@ export class AddPostRequestBodyImpl implements AdditionalDataHolder, AddPostRequ
      * @param addPostRequestBodyParameterValue 
      */
     public constructor(addPostRequestBodyParameterValue?: AddPostRequestBody | undefined) {
-        this.additionalData = addPostRequestBodyParameterValue?.additionalData ? addPostRequestBodyParameterValue?.additionalData! : {}
-        this.value = addPostRequestBodyParameterValue?.value ;
+        this.additionalData = addPostRequestBodyParameterValue?.additionalData ? addPostRequestBodyParameterValue?.additionalData! : {};
+        this.value = addPostRequestBodyParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -34,7 +34,7 @@ export class AddPostRequestBodyImpl implements AdditionalDataHolder, AddPostRequ
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.value && this.value.length != 0){        const valueArrValue: SiteImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new SiteImpl(element));});
-        writer.writeCollectionOfObjectValues<SiteImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<SiteImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

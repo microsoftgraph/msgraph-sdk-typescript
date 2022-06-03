@@ -1,15 +1,16 @@
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface CopyNotebookPostRequestBody{
+export interface CopyNotebookPostRequestBody extends Partial<AdditionalDataHolder>, Partial<Parsable> {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?:Record<string, unknown>;
+    additionalData?: Record<string, unknown>;
     /** The groupId property */
-    groupId?:string | undefined;
+    groupId?: string | undefined;
     /** The notebookFolder property */
-    notebookFolder?:string | undefined;
+    notebookFolder?: string | undefined;
     /** The renameAs property */
-    renameAs?:string | undefined;
+    renameAs?: string | undefined;
     /** The siteCollectionId property */
-    siteCollectionId?:string | undefined;
+    siteCollectionId?: string | undefined;
     /** The siteId property */
-    siteId?:string | undefined;
+    siteId?: string | undefined;
 }

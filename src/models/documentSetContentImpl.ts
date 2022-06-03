@@ -4,7 +4,7 @@ import {DocumentSetContent} from './documentSetContent';
 import {ContentTypeInfoImpl} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class DocumentSetContentImpl implements AdditionalDataHolder, DocumentSetContent, Parsable {
+export class DocumentSetContentImpl implements DocumentSetContent {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Content type information of the file. */
@@ -18,10 +18,10 @@ export class DocumentSetContentImpl implements AdditionalDataHolder, DocumentSet
      * @param documentSetContentParameterValue 
      */
     public constructor(documentSetContentParameterValue?: DocumentSetContent | undefined) {
-        this.additionalData = documentSetContentParameterValue?.additionalData ? documentSetContentParameterValue?.additionalData! : {}
-        this.contentType = documentSetContentParameterValue?.contentType ;
-        this.fileName = documentSetContentParameterValue?.fileName ;
-        this.folderName = documentSetContentParameterValue?.folderName ;
+        this.additionalData = documentSetContentParameterValue?.additionalData ? documentSetContentParameterValue?.additionalData! : {};
+        this.contentType = documentSetContentParameterValue?.contentType;
+        this.fileName = documentSetContentParameterValue?.fileName;
+        this.folderName = documentSetContentParameterValue?.folderName;
     };
     /**
      * The deserialization information for the current model
@@ -41,13 +41,13 @@ export class DocumentSetContentImpl implements AdditionalDataHolder, DocumentSet
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.contentType){
-        writer.writeObjectValue<ContentTypeInfoImpl>("contentType", new ContentTypeInfoImpl(this.contentType));
+            writer.writeObjectValue<ContentTypeInfoImpl>("contentType", new ContentTypeInfoImpl(this.contentType));
         }
         if(this.fileName){
-        writer.writeStringValue("fileName", this.fileName);
+            writer.writeStringValue("fileName", this.fileName);
         }
         if(this.folderName){
-        writer.writeStringValue("folderName", this.folderName);
+            writer.writeStringValue("folderName", this.folderName);
         }
         writer.writeAdditionalData(this.additionalData);
     };

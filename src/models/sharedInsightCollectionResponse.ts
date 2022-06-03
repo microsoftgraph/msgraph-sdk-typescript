@@ -1,10 +1,11 @@
 import {SharedInsight} from './sharedInsight';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface SharedInsightCollectionResponse{
+export interface SharedInsightCollectionResponse extends Partial<AdditionalDataHolder>, Partial<Parsable> {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?:Record<string, unknown>;
+    additionalData?: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?:string | undefined;
+    nextLink?: string | undefined;
     /** The value property */
-    value?:SharedInsight[] | undefined;
+    value?: SharedInsight[] | undefined;
 }

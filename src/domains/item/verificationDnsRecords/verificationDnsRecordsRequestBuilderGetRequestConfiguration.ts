@@ -1,11 +1,11 @@
 import {VerificationDnsRecordsRequestBuilderGetQueryParameters} from './verificationDnsRecordsRequestBuilderGetQueryParameters';
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
-export interface VerificationDnsRecordsRequestBuilderGetRequestConfiguration{
+export interface VerificationDnsRecordsRequestBuilderGetRequestConfiguration {
     /** Request headers */
-    headers?:Record<string, string> | undefined;
+    headers?: Record<string, string> | undefined;
     /** Request options */
-    options?:RequestOption[] | undefined;
+    options?: RequestOption[] | undefined;
     /** Request query parameters */
-    queryParameters?:VerificationDnsRecordsRequestBuilderGetQueryParameters | undefined;
+    queryParameters?: VerificationDnsRecordsRequestBuilderGetQueryParameters | undefined;
 }

@@ -1,7 +1,7 @@
 import {AssignedLicense} from './assignedLicense';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class AssignedLicenseImpl implements AdditionalDataHolder, AssignedLicense, Parsable {
+export class AssignedLicenseImpl implements AssignedLicense {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** A collection of the unique identifiers for plans that have been disabled. */
@@ -13,9 +13,9 @@ export class AssignedLicenseImpl implements AdditionalDataHolder, AssignedLicens
      * @param assignedLicenseParameterValue 
      */
     public constructor(assignedLicenseParameterValue?: AssignedLicense | undefined) {
-        this.additionalData = assignedLicenseParameterValue?.additionalData ? assignedLicenseParameterValue?.additionalData! : {}
-        this.disabledPlans = assignedLicenseParameterValue?.disabledPlans ;
-        this.skuId = assignedLicenseParameterValue?.skuId ;
+        this.additionalData = assignedLicenseParameterValue?.additionalData ? assignedLicenseParameterValue?.additionalData! : {};
+        this.disabledPlans = assignedLicenseParameterValue?.disabledPlans;
+        this.skuId = assignedLicenseParameterValue?.skuId;
     };
     /**
      * The deserialization information for the current model
@@ -34,10 +34,10 @@ export class AssignedLicenseImpl implements AdditionalDataHolder, AssignedLicens
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.disabledPlans){
-        writer.writeCollectionOfPrimitiveValues<string>("disabledPlans", this.disabledPlans);
+            writer.writeCollectionOfPrimitiveValues<string>("disabledPlans", this.disabledPlans);
         }
         if(this.skuId){
-        writer.writeStringValue("skuId", this.skuId);
+            writer.writeStringValue("skuId", this.skuId);
         }
         writer.writeAdditionalData(this.additionalData);
     };

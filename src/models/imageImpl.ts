@@ -1,7 +1,7 @@
 import {Image} from './image';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ImageImpl implements AdditionalDataHolder, Image, Parsable {
+export class ImageImpl implements Image {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Optional. Height of the image, in pixels. Read-only. */
@@ -13,9 +13,9 @@ export class ImageImpl implements AdditionalDataHolder, Image, Parsable {
      * @param imageParameterValue 
      */
     public constructor(imageParameterValue?: Image | undefined) {
-        this.additionalData = imageParameterValue?.additionalData ? imageParameterValue?.additionalData! : {}
-        this.height = imageParameterValue?.height ;
-        this.width = imageParameterValue?.width ;
+        this.additionalData = imageParameterValue?.additionalData ? imageParameterValue?.additionalData! : {};
+        this.height = imageParameterValue?.height;
+        this.width = imageParameterValue?.width;
     };
     /**
      * The deserialization information for the current model
@@ -34,10 +34,10 @@ export class ImageImpl implements AdditionalDataHolder, Image, Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.height){
-        writer.writeNumberValue("height", this.height);
+            writer.writeNumberValue("height", this.height);
         }
         if(this.width){
-        writer.writeNumberValue("width", this.width);
+            writer.writeNumberValue("width", this.width);
         }
         writer.writeAdditionalData(this.additionalData);
     };

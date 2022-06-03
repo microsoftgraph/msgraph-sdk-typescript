@@ -1,10 +1,11 @@
 import {Entity} from './entity';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface PrintDocument extends Entity{
+export interface PrintDocument extends Entity, Partial<Parsable> {
     /** The document's content (MIME) type. Read-only. */
-    contentType?:string | undefined;
+    contentType?: string | undefined;
     /** The document's name. Read-only. */
-    displayName?:string | undefined;
+    displayName?: string | undefined;
     /** The document's size in bytes. Read-only. */
-    size?:number | undefined;
+    size?: number | undefined;
 }

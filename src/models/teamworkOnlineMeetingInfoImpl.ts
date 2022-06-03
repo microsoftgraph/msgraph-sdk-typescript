@@ -4,7 +4,7 @@ import {TeamworkOnlineMeetingInfo} from './teamworkOnlineMeetingInfo';
 import {TeamworkUserIdentity} from './teamworkUserIdentity';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class TeamworkOnlineMeetingInfoImpl implements AdditionalDataHolder, Parsable, TeamworkOnlineMeetingInfo {
+export class TeamworkOnlineMeetingInfoImpl implements TeamworkOnlineMeetingInfo {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The identifier of the calendar event associated with the meeting. */
@@ -18,10 +18,10 @@ export class TeamworkOnlineMeetingInfoImpl implements AdditionalDataHolder, Pars
      * @param teamworkOnlineMeetingInfoParameterValue 
      */
     public constructor(teamworkOnlineMeetingInfoParameterValue?: TeamworkOnlineMeetingInfo | undefined) {
-        this.additionalData = teamworkOnlineMeetingInfoParameterValue?.additionalData ? teamworkOnlineMeetingInfoParameterValue?.additionalData! : {}
-        this.calendarEventId = teamworkOnlineMeetingInfoParameterValue?.calendarEventId ;
-        this.joinWebUrl = teamworkOnlineMeetingInfoParameterValue?.joinWebUrl ;
-        this.organizer = teamworkOnlineMeetingInfoParameterValue?.organizer ;
+        this.additionalData = teamworkOnlineMeetingInfoParameterValue?.additionalData ? teamworkOnlineMeetingInfoParameterValue?.additionalData! : {};
+        this.calendarEventId = teamworkOnlineMeetingInfoParameterValue?.calendarEventId;
+        this.joinWebUrl = teamworkOnlineMeetingInfoParameterValue?.joinWebUrl;
+        this.organizer = teamworkOnlineMeetingInfoParameterValue?.organizer;
     };
     /**
      * The deserialization information for the current model
@@ -41,13 +41,13 @@ export class TeamworkOnlineMeetingInfoImpl implements AdditionalDataHolder, Pars
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.calendarEventId){
-        writer.writeStringValue("calendarEventId", this.calendarEventId);
+            writer.writeStringValue("calendarEventId", this.calendarEventId);
         }
         if(this.joinWebUrl){
-        writer.writeStringValue("joinWebUrl", this.joinWebUrl);
+            writer.writeStringValue("joinWebUrl", this.joinWebUrl);
         }
         if(this.organizer){
-        writer.writeObjectValue<TeamworkUserIdentityImpl>("organizer", new TeamworkUserIdentityImpl(this.organizer));
+            writer.writeObjectValue<TeamworkUserIdentityImpl>("organizer", new TeamworkUserIdentityImpl(this.organizer));
         }
         writer.writeAdditionalData(this.additionalData);
     };

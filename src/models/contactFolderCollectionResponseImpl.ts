@@ -4,7 +4,7 @@ import {createContactFolderFromDiscriminatorValue} from './createContactFolderFr
 import {ContactFolderImpl} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ContactFolderCollectionResponseImpl implements AdditionalDataHolder, ContactFolderCollectionResponse, Parsable {
+export class ContactFolderCollectionResponseImpl implements ContactFolderCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class ContactFolderCollectionResponseImpl implements AdditionalDataHolder
      * @param contactFolderCollectionResponseParameterValue 
      */
     public constructor(contactFolderCollectionResponseParameterValue?: ContactFolderCollectionResponse | undefined) {
-        this.additionalData = contactFolderCollectionResponseParameterValue?.additionalData ? contactFolderCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = contactFolderCollectionResponseParameterValue?.nextLink ;
-        this.value = contactFolderCollectionResponseParameterValue?.value ;
+        this.additionalData = contactFolderCollectionResponseParameterValue?.additionalData ? contactFolderCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = contactFolderCollectionResponseParameterValue?.nextLink;
+        this.value = contactFolderCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class ContactFolderCollectionResponseImpl implements AdditionalDataHolder
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: ContactFolderImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ContactFolderImpl(element));});
-        writer.writeCollectionOfObjectValues<ContactFolderImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<ContactFolderImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

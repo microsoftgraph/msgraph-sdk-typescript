@@ -5,7 +5,7 @@ import {InvitePostRequestBody} from './invitePostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the invite method. */
-export class InvitePostRequestBodyImpl implements AdditionalDataHolder, InvitePostRequestBody, Parsable {
+export class InvitePostRequestBodyImpl implements InvitePostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The expirationDateTime property */
@@ -29,15 +29,15 @@ export class InvitePostRequestBodyImpl implements AdditionalDataHolder, InvitePo
      * @param invitePostRequestBodyParameterValue 
      */
     public constructor(invitePostRequestBodyParameterValue?: InvitePostRequestBody | undefined) {
-        this.additionalData = invitePostRequestBodyParameterValue?.additionalData ? invitePostRequestBodyParameterValue?.additionalData! : {}
-        this.expirationDateTime = invitePostRequestBodyParameterValue?.expirationDateTime ;
-        this.message = invitePostRequestBodyParameterValue?.message ;
-        this.password = invitePostRequestBodyParameterValue?.password ;
-        this.recipients = invitePostRequestBodyParameterValue?.recipients ;
-        this.requireSignIn = invitePostRequestBodyParameterValue?.requireSignIn ;
-        this.retainInheritedPermissions = invitePostRequestBodyParameterValue?.retainInheritedPermissions ;
-        this.roles = invitePostRequestBodyParameterValue?.roles ;
-        this.sendInvitation = invitePostRequestBodyParameterValue?.sendInvitation ;
+        this.additionalData = invitePostRequestBodyParameterValue?.additionalData ? invitePostRequestBodyParameterValue?.additionalData! : {};
+        this.expirationDateTime = invitePostRequestBodyParameterValue?.expirationDateTime;
+        this.message = invitePostRequestBodyParameterValue?.message;
+        this.password = invitePostRequestBodyParameterValue?.password;
+        this.recipients = invitePostRequestBodyParameterValue?.recipients;
+        this.requireSignIn = invitePostRequestBodyParameterValue?.requireSignIn;
+        this.retainInheritedPermissions = invitePostRequestBodyParameterValue?.retainInheritedPermissions;
+        this.roles = invitePostRequestBodyParameterValue?.roles;
+        this.sendInvitation = invitePostRequestBodyParameterValue?.sendInvitation;
     };
     /**
      * The deserialization information for the current model
@@ -62,28 +62,28 @@ export class InvitePostRequestBodyImpl implements AdditionalDataHolder, InvitePo
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.expirationDateTime){
-        writer.writeStringValue("expirationDateTime", this.expirationDateTime);
+            writer.writeStringValue("expirationDateTime", this.expirationDateTime);
         }
         if(this.message){
-        writer.writeStringValue("message", this.message);
+            writer.writeStringValue("message", this.message);
         }
         if(this.password){
-        writer.writeStringValue("password", this.password);
+            writer.writeStringValue("password", this.password);
         }
         if(this.recipients && this.recipients.length != 0){        const recipientsArrValue: DriveRecipientImpl[] = []; this.recipients?.forEach(element => {recipientsArrValue.push(new DriveRecipientImpl(element));});
-        writer.writeCollectionOfObjectValues<DriveRecipientImpl>("recipients", recipientsArrValue);
+            writer.writeCollectionOfObjectValues<DriveRecipientImpl>("recipients", recipientsArrValue);
         }
         if(this.requireSignIn){
-        writer.writeBooleanValue("requireSignIn", this.requireSignIn);
+            writer.writeBooleanValue("requireSignIn", this.requireSignIn);
         }
         if(this.retainInheritedPermissions){
-        writer.writeBooleanValue("retainInheritedPermissions", this.retainInheritedPermissions);
+            writer.writeBooleanValue("retainInheritedPermissions", this.retainInheritedPermissions);
         }
         if(this.roles){
-        writer.writeCollectionOfPrimitiveValues<string>("roles", this.roles);
+            writer.writeCollectionOfPrimitiveValues<string>("roles", this.roles);
         }
         if(this.sendInvitation){
-        writer.writeBooleanValue("sendInvitation", this.sendInvitation);
+            writer.writeBooleanValue("sendInvitation", this.sendInvitation);
         }
         writer.writeAdditionalData(this.additionalData);
     };

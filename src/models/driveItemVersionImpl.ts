@@ -2,8 +2,8 @@ import {DriveItemVersion} from './driveItemVersion';
 import {BaseItemVersionImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
-export class DriveItemVersionImpl extends BaseItemVersionImpl implements DriveItemVersion, Parsable {
+/** Casts the previous resource to group. */
+export class DriveItemVersionImpl extends BaseItemVersionImpl implements DriveItemVersion {
     /** The content property */
     public content?: string | undefined;
     /** Indicates the size of the content stream for this version of the item. */
@@ -13,9 +13,9 @@ export class DriveItemVersionImpl extends BaseItemVersionImpl implements DriveIt
      * @param driveItemVersionParameterValue 
      */
     public constructor(driveItemVersionParameterValue?: DriveItemVersion | undefined) {
-        super();
-        this.content = driveItemVersionParameterValue?.content ;
-        this.size = driveItemVersionParameterValue?.size ;
+        super(driveItemVersionParameterValue);
+        this.content = driveItemVersionParameterValue?.content;
+        this.size = driveItemVersionParameterValue?.size;
     };
     /**
      * The deserialization information for the current model
@@ -35,10 +35,10 @@ export class DriveItemVersionImpl extends BaseItemVersionImpl implements DriveIt
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.content){
-        writer.writeStringValue("content", this.content);
+            writer.writeStringValue("content", this.content);
         }
         if(this.size){
-        writer.writeNumberValue("size", this.size);
+            writer.writeNumberValue("size", this.size);
         }
     };
 }

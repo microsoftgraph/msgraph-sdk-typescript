@@ -1,7 +1,7 @@
 import {LookupColumn} from './lookupColumn';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class LookupColumnImpl implements AdditionalDataHolder, LookupColumn, Parsable {
+export class LookupColumnImpl implements LookupColumn {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Indicates whether multiple values can be selected from the source. */
@@ -19,12 +19,12 @@ export class LookupColumnImpl implements AdditionalDataHolder, LookupColumn, Par
      * @param lookupColumnParameterValue 
      */
     public constructor(lookupColumnParameterValue?: LookupColumn | undefined) {
-        this.additionalData = lookupColumnParameterValue?.additionalData ? lookupColumnParameterValue?.additionalData! : {}
-        this.allowMultipleValues = lookupColumnParameterValue?.allowMultipleValues ;
-        this.allowUnlimitedLength = lookupColumnParameterValue?.allowUnlimitedLength ;
-        this.columnName = lookupColumnParameterValue?.columnName ;
-        this.listId = lookupColumnParameterValue?.listId ;
-        this.primaryLookupColumnId = lookupColumnParameterValue?.primaryLookupColumnId ;
+        this.additionalData = lookupColumnParameterValue?.additionalData ? lookupColumnParameterValue?.additionalData! : {};
+        this.allowMultipleValues = lookupColumnParameterValue?.allowMultipleValues;
+        this.allowUnlimitedLength = lookupColumnParameterValue?.allowUnlimitedLength;
+        this.columnName = lookupColumnParameterValue?.columnName;
+        this.listId = lookupColumnParameterValue?.listId;
+        this.primaryLookupColumnId = lookupColumnParameterValue?.primaryLookupColumnId;
     };
     /**
      * The deserialization information for the current model
@@ -46,19 +46,19 @@ export class LookupColumnImpl implements AdditionalDataHolder, LookupColumn, Par
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.allowMultipleValues){
-        writer.writeBooleanValue("allowMultipleValues", this.allowMultipleValues);
+            writer.writeBooleanValue("allowMultipleValues", this.allowMultipleValues);
         }
         if(this.allowUnlimitedLength){
-        writer.writeBooleanValue("allowUnlimitedLength", this.allowUnlimitedLength);
+            writer.writeBooleanValue("allowUnlimitedLength", this.allowUnlimitedLength);
         }
         if(this.columnName){
-        writer.writeStringValue("columnName", this.columnName);
+            writer.writeStringValue("columnName", this.columnName);
         }
         if(this.listId){
-        writer.writeStringValue("listId", this.listId);
+            writer.writeStringValue("listId", this.listId);
         }
         if(this.primaryLookupColumnId){
-        writer.writeStringValue("primaryLookupColumnId", this.primaryLookupColumnId);
+            writer.writeStringValue("primaryLookupColumnId", this.primaryLookupColumnId);
         }
         writer.writeAdditionalData(this.additionalData);
     };

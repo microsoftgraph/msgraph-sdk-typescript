@@ -1,7 +1,7 @@
 import {ResultInfo} from './resultInfo';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ResultInfoImpl implements AdditionalDataHolder, Parsable, ResultInfo {
+export class ResultInfoImpl implements ResultInfo {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The result code. */
@@ -15,10 +15,10 @@ export class ResultInfoImpl implements AdditionalDataHolder, Parsable, ResultInf
      * @param resultInfoParameterValue 
      */
     public constructor(resultInfoParameterValue?: ResultInfo | undefined) {
-        this.additionalData = resultInfoParameterValue?.additionalData ? resultInfoParameterValue?.additionalData! : {}
-        this.code = resultInfoParameterValue?.code ;
-        this.message = resultInfoParameterValue?.message ;
-        this.subcode = resultInfoParameterValue?.subcode ;
+        this.additionalData = resultInfoParameterValue?.additionalData ? resultInfoParameterValue?.additionalData! : {};
+        this.code = resultInfoParameterValue?.code;
+        this.message = resultInfoParameterValue?.message;
+        this.subcode = resultInfoParameterValue?.subcode;
     };
     /**
      * The deserialization information for the current model
@@ -38,13 +38,13 @@ export class ResultInfoImpl implements AdditionalDataHolder, Parsable, ResultInf
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.code){
-        writer.writeNumberValue("code", this.code);
+            writer.writeNumberValue("code", this.code);
         }
         if(this.message){
-        writer.writeStringValue("message", this.message);
+            writer.writeStringValue("message", this.message);
         }
         if(this.subcode){
-        writer.writeNumberValue("subcode", this.subcode);
+            writer.writeNumberValue("subcode", this.subcode);
         }
         writer.writeAdditionalData(this.additionalData);
     };

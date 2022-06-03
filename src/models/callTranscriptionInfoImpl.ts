@@ -2,7 +2,7 @@ import {CallTranscriptionInfo} from './callTranscriptionInfo';
 import {CallTranscriptionState} from './callTranscriptionState';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class CallTranscriptionInfoImpl implements AdditionalDataHolder, CallTranscriptionInfo, Parsable {
+export class CallTranscriptionInfoImpl implements CallTranscriptionInfo {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The state modified time in UTC. */
@@ -14,9 +14,9 @@ export class CallTranscriptionInfoImpl implements AdditionalDataHolder, CallTran
      * @param callTranscriptionInfoParameterValue 
      */
     public constructor(callTranscriptionInfoParameterValue?: CallTranscriptionInfo | undefined) {
-        this.additionalData = callTranscriptionInfoParameterValue?.additionalData ? callTranscriptionInfoParameterValue?.additionalData! : {}
-        this.lastModifiedDateTime = callTranscriptionInfoParameterValue?.lastModifiedDateTime ;
-        this.state = callTranscriptionInfoParameterValue?.state ;
+        this.additionalData = callTranscriptionInfoParameterValue?.additionalData ? callTranscriptionInfoParameterValue?.additionalData! : {};
+        this.lastModifiedDateTime = callTranscriptionInfoParameterValue?.lastModifiedDateTime;
+        this.state = callTranscriptionInfoParameterValue?.state;
     };
     /**
      * The deserialization information for the current model
@@ -35,10 +35,10 @@ export class CallTranscriptionInfoImpl implements AdditionalDataHolder, CallTran
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.lastModifiedDateTime){
-        writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
+            writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
         }
         if(this.state){
-        writer.writeEnumValue<CallTranscriptionState>("state", this.state);
+            writer.writeEnumValue<CallTranscriptionState>("state", this.state);
         }
         writer.writeAdditionalData(this.additionalData);
     };

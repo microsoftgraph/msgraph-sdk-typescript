@@ -22,7 +22,7 @@ export class GetOffice365GroupsActivityDetailWithDateRequestBuilder {
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/reports/microsoft.graph.getOffice365GroupsActivityDetail(date={date})";
         const urlTplParams = getPathParameters(pathParameters);
-        urlTplParams[""] = date
+        urlTplParams["date"] = date
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };

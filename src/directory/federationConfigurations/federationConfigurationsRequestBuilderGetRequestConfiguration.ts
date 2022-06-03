@@ -1,11 +1,11 @@
 import {FederationConfigurationsRequestBuilderGetQueryParameters} from './federationConfigurationsRequestBuilderGetQueryParameters';
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
-export interface FederationConfigurationsRequestBuilderGetRequestConfiguration{
+export interface FederationConfigurationsRequestBuilderGetRequestConfiguration {
     /** Request headers */
-    headers?:Record<string, string> | undefined;
+    headers?: Record<string, string> | undefined;
     /** Request options */
-    options?:RequestOption[] | undefined;
+    options?: RequestOption[] | undefined;
     /** Request query parameters */
-    queryParameters?:FederationConfigurationsRequestBuilderGetQueryParameters | undefined;
+    queryParameters?: FederationConfigurationsRequestBuilderGetQueryParameters | undefined;
 }

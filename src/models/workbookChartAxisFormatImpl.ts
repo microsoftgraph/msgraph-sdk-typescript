@@ -6,8 +6,8 @@ import {WorkbookChartFont} from './workbookChartFont';
 import {WorkbookChartLineFormat} from './workbookChartLineFormat';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
-export class WorkbookChartAxisFormatImpl extends EntityImpl implements Parsable, WorkbookChartAxisFormat {
+/** Casts the previous resource to group. */
+export class WorkbookChartAxisFormatImpl extends EntityImpl implements WorkbookChartAxisFormat {
     /** Represents the font attributes (font name, font size, color, etc.) for a chart axis element. Read-only. */
     public font?: WorkbookChartFont | undefined;
     /** Represents chart line formatting. Read-only. */
@@ -17,9 +17,9 @@ export class WorkbookChartAxisFormatImpl extends EntityImpl implements Parsable,
      * @param workbookChartAxisFormatParameterValue 
      */
     public constructor(workbookChartAxisFormatParameterValue?: WorkbookChartAxisFormat | undefined) {
-        super();
-        this.font = workbookChartAxisFormatParameterValue?.font ;
-        this.line = workbookChartAxisFormatParameterValue?.line ;
+        super(workbookChartAxisFormatParameterValue);
+        this.font = workbookChartAxisFormatParameterValue?.font;
+        this.line = workbookChartAxisFormatParameterValue?.line;
     };
     /**
      * The deserialization information for the current model
@@ -39,10 +39,10 @@ export class WorkbookChartAxisFormatImpl extends EntityImpl implements Parsable,
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.font){
-        writer.writeObjectValue<WorkbookChartFontImpl>("font", new WorkbookChartFontImpl(this.font));
+            writer.writeObjectValue<WorkbookChartFontImpl>("font", new WorkbookChartFontImpl(this.font));
         }
         if(this.line){
-        writer.writeObjectValue<WorkbookChartLineFormatImpl>("line", new WorkbookChartLineFormatImpl(this.line));
+            writer.writeObjectValue<WorkbookChartLineFormatImpl>("line", new WorkbookChartLineFormatImpl(this.line));
         }
     };
 }

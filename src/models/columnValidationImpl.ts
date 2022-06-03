@@ -4,7 +4,7 @@ import {DisplayNameLocalization} from './displayNameLocalization';
 import {DisplayNameLocalizationImpl} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ColumnValidationImpl implements AdditionalDataHolder, ColumnValidation, Parsable {
+export class ColumnValidationImpl implements ColumnValidation {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Default BCP 47 language tag for the description. */
@@ -18,10 +18,10 @@ export class ColumnValidationImpl implements AdditionalDataHolder, ColumnValidat
      * @param columnValidationParameterValue 
      */
     public constructor(columnValidationParameterValue?: ColumnValidation | undefined) {
-        this.additionalData = columnValidationParameterValue?.additionalData ? columnValidationParameterValue?.additionalData! : {}
-        this.defaultLanguage = columnValidationParameterValue?.defaultLanguage ;
-        this.descriptions = columnValidationParameterValue?.descriptions ;
-        this.formula = columnValidationParameterValue?.formula ;
+        this.additionalData = columnValidationParameterValue?.additionalData ? columnValidationParameterValue?.additionalData! : {};
+        this.defaultLanguage = columnValidationParameterValue?.defaultLanguage;
+        this.descriptions = columnValidationParameterValue?.descriptions;
+        this.formula = columnValidationParameterValue?.formula;
     };
     /**
      * The deserialization information for the current model
@@ -41,13 +41,13 @@ export class ColumnValidationImpl implements AdditionalDataHolder, ColumnValidat
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.defaultLanguage){
-        writer.writeStringValue("defaultLanguage", this.defaultLanguage);
+            writer.writeStringValue("defaultLanguage", this.defaultLanguage);
         }
         if(this.descriptions && this.descriptions.length != 0){        const descriptionsArrValue: DisplayNameLocalizationImpl[] = []; this.descriptions?.forEach(element => {descriptionsArrValue.push(new DisplayNameLocalizationImpl(element));});
-        writer.writeCollectionOfObjectValues<DisplayNameLocalizationImpl>("descriptions", descriptionsArrValue);
+            writer.writeCollectionOfObjectValues<DisplayNameLocalizationImpl>("descriptions", descriptionsArrValue);
         }
         if(this.formula){
-        writer.writeStringValue("formula", this.formula);
+            writer.writeStringValue("formula", this.formula);
         }
         writer.writeAdditionalData(this.additionalData);
     };

@@ -1,11 +1,11 @@
 import {LicenseDetailsRequestBuilderGetQueryParameters} from './licenseDetailsRequestBuilderGetQueryParameters';
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
-export interface LicenseDetailsRequestBuilderGetRequestConfiguration{
+export interface LicenseDetailsRequestBuilderGetRequestConfiguration {
     /** Request headers */
-    headers?:Record<string, string> | undefined;
+    headers?: Record<string, string> | undefined;
     /** Request options */
-    options?:RequestOption[] | undefined;
+    options?: RequestOption[] | undefined;
     /** Request query parameters */
-    queryParameters?:LicenseDetailsRequestBuilderGetQueryParameters | undefined;
+    queryParameters?: LicenseDetailsRequestBuilderGetQueryParameters | undefined;
 }

@@ -1,7 +1,7 @@
 import {DataSubject} from './dataSubject';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class DataSubjectImpl implements AdditionalDataHolder, DataSubject, Parsable {
+export class DataSubjectImpl implements DataSubject {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Email of the data subject. */
@@ -17,11 +17,11 @@ export class DataSubjectImpl implements AdditionalDataHolder, DataSubject, Parsa
      * @param dataSubjectParameterValue 
      */
     public constructor(dataSubjectParameterValue?: DataSubject | undefined) {
-        this.additionalData = dataSubjectParameterValue?.additionalData ? dataSubjectParameterValue?.additionalData! : {}
-        this.email = dataSubjectParameterValue?.email ;
-        this.firstName = dataSubjectParameterValue?.firstName ;
-        this.lastName = dataSubjectParameterValue?.lastName ;
-        this.residency = dataSubjectParameterValue?.residency ;
+        this.additionalData = dataSubjectParameterValue?.additionalData ? dataSubjectParameterValue?.additionalData! : {};
+        this.email = dataSubjectParameterValue?.email;
+        this.firstName = dataSubjectParameterValue?.firstName;
+        this.lastName = dataSubjectParameterValue?.lastName;
+        this.residency = dataSubjectParameterValue?.residency;
     };
     /**
      * The deserialization information for the current model
@@ -42,16 +42,16 @@ export class DataSubjectImpl implements AdditionalDataHolder, DataSubject, Parsa
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.email){
-        writer.writeStringValue("email", this.email);
+            writer.writeStringValue("email", this.email);
         }
         if(this.firstName){
-        writer.writeStringValue("firstName", this.firstName);
+            writer.writeStringValue("firstName", this.firstName);
         }
         if(this.lastName){
-        writer.writeStringValue("lastName", this.lastName);
+            writer.writeStringValue("lastName", this.lastName);
         }
         if(this.residency){
-        writer.writeStringValue("residency", this.residency);
+            writer.writeStringValue("residency", this.residency);
         }
         writer.writeAdditionalData(this.additionalData);
     };

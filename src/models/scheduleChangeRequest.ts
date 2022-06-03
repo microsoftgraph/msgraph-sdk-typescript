@@ -1,22 +1,23 @@
 import {ChangeTrackedEntity} from './changeTrackedEntity';
 import {ScheduleChangeRequestActor} from './scheduleChangeRequestActor';
 import {ScheduleChangeState} from './scheduleChangeState';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface ScheduleChangeRequest extends ChangeTrackedEntity{
+export interface ScheduleChangeRequest extends ChangeTrackedEntity, Partial<Parsable> {
     /** The assignedTo property */
-    assignedTo?:ScheduleChangeRequestActor | undefined;
+    assignedTo?: ScheduleChangeRequestActor | undefined;
     /** The managerActionDateTime property */
-    managerActionDateTime?:Date | undefined;
+    managerActionDateTime?: Date | undefined;
     /** The managerActionMessage property */
-    managerActionMessage?:string | undefined;
+    managerActionMessage?: string | undefined;
     /** The managerUserId property */
-    managerUserId?:string | undefined;
+    managerUserId?: string | undefined;
     /** The senderDateTime property */
-    senderDateTime?:Date | undefined;
+    senderDateTime?: Date | undefined;
     /** The senderMessage property */
-    senderMessage?:string | undefined;
+    senderMessage?: string | undefined;
     /** The senderUserId property */
-    senderUserId?:string | undefined;
+    senderUserId?: string | undefined;
     /** The state property */
-    state?:ScheduleChangeState | undefined;
+    state?: ScheduleChangeState | undefined;
 }

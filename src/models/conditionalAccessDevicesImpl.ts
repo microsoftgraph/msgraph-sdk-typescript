@@ -4,7 +4,7 @@ import {createConditionalAccessFilterFromDiscriminatorValue} from './createCondi
 import {ConditionalAccessFilterImpl} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ConditionalAccessDevicesImpl implements AdditionalDataHolder, ConditionalAccessDevices, Parsable {
+export class ConditionalAccessDevicesImpl implements ConditionalAccessDevices {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Filter that defines the dynamic-device-syntax rule to include/exclude devices. A filter can use device properties (such as extension attributes) to include/exclude them. Cannot be set if includeDevices or excludeDevices is set. */
@@ -14,8 +14,8 @@ export class ConditionalAccessDevicesImpl implements AdditionalDataHolder, Condi
      * @param conditionalAccessDevicesParameterValue 
      */
     public constructor(conditionalAccessDevicesParameterValue?: ConditionalAccessDevices | undefined) {
-        this.additionalData = conditionalAccessDevicesParameterValue?.additionalData ? conditionalAccessDevicesParameterValue?.additionalData! : {}
-        this.deviceFilter = conditionalAccessDevicesParameterValue?.deviceFilter ;
+        this.additionalData = conditionalAccessDevicesParameterValue?.additionalData ? conditionalAccessDevicesParameterValue?.additionalData! : {};
+        this.deviceFilter = conditionalAccessDevicesParameterValue?.deviceFilter;
     };
     /**
      * The deserialization information for the current model
@@ -33,7 +33,7 @@ export class ConditionalAccessDevicesImpl implements AdditionalDataHolder, Condi
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.deviceFilter){
-        writer.writeObjectValue<ConditionalAccessFilterImpl>("deviceFilter", new ConditionalAccessFilterImpl(this.deviceFilter));
+            writer.writeObjectValue<ConditionalAccessFilterImpl>("deviceFilter", new ConditionalAccessFilterImpl(this.deviceFilter));
         }
         writer.writeAdditionalData(this.additionalData);
     };

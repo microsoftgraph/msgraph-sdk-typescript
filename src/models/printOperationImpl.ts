@@ -5,7 +5,7 @@ import {PrintOperationStatus} from './printOperationStatus';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the print singleton. */
-export class PrintOperationImpl extends EntityImpl implements Parsable, PrintOperation {
+export class PrintOperationImpl extends EntityImpl implements PrintOperation {
     /** The DateTimeOffset when the operation was created. Read-only. */
     public createdDateTime?: Date | undefined;
     /** The status property */
@@ -15,9 +15,9 @@ export class PrintOperationImpl extends EntityImpl implements Parsable, PrintOpe
      * @param printOperationParameterValue 
      */
     public constructor(printOperationParameterValue?: PrintOperation | undefined) {
-        super();
-        this.createdDateTime = printOperationParameterValue?.createdDateTime ;
-        this.status = printOperationParameterValue?.status ;
+        super(printOperationParameterValue);
+        this.createdDateTime = printOperationParameterValue?.createdDateTime;
+        this.status = printOperationParameterValue?.status;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class PrintOperationImpl extends EntityImpl implements Parsable, PrintOpe
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.createdDateTime){
-        writer.writeDateValue("createdDateTime", this.createdDateTime);
+            writer.writeDateValue("createdDateTime", this.createdDateTime);
         }
         if(this.status){
-        writer.writeObjectValue<PrintOperationStatusImpl>("status", new PrintOperationStatusImpl(this.status));
+            writer.writeObjectValue<PrintOperationStatusImpl>("status", new PrintOperationStatusImpl(this.status));
         }
     };
 }

@@ -3,7 +3,7 @@ import {ServiceAnnouncementAttachment} from './serviceAnnouncementAttachment';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the admin singleton. */
-export class ServiceAnnouncementAttachmentImpl extends EntityImpl implements Parsable, ServiceAnnouncementAttachment {
+export class ServiceAnnouncementAttachmentImpl extends EntityImpl implements ServiceAnnouncementAttachment {
     /** The attachment content. */
     public content?: string | undefined;
     /** The contentType property */
@@ -19,12 +19,12 @@ export class ServiceAnnouncementAttachmentImpl extends EntityImpl implements Par
      * @param serviceAnnouncementAttachmentParameterValue 
      */
     public constructor(serviceAnnouncementAttachmentParameterValue?: ServiceAnnouncementAttachment | undefined) {
-        super();
-        this.content = serviceAnnouncementAttachmentParameterValue?.content ;
-        this.contentType = serviceAnnouncementAttachmentParameterValue?.contentType ;
-        this.lastModifiedDateTime = serviceAnnouncementAttachmentParameterValue?.lastModifiedDateTime ;
-        this.name = serviceAnnouncementAttachmentParameterValue?.name ;
-        this.size = serviceAnnouncementAttachmentParameterValue?.size ;
+        super(serviceAnnouncementAttachmentParameterValue);
+        this.content = serviceAnnouncementAttachmentParameterValue?.content;
+        this.contentType = serviceAnnouncementAttachmentParameterValue?.contentType;
+        this.lastModifiedDateTime = serviceAnnouncementAttachmentParameterValue?.lastModifiedDateTime;
+        this.name = serviceAnnouncementAttachmentParameterValue?.name;
+        this.size = serviceAnnouncementAttachmentParameterValue?.size;
     };
     /**
      * The deserialization information for the current model
@@ -47,19 +47,19 @@ export class ServiceAnnouncementAttachmentImpl extends EntityImpl implements Par
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.content){
-        writer.writeStringValue("content", this.content);
+            writer.writeStringValue("content", this.content);
         }
         if(this.contentType){
-        writer.writeStringValue("contentType", this.contentType);
+            writer.writeStringValue("contentType", this.contentType);
         }
         if(this.lastModifiedDateTime){
-        writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
+            writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
         }
         if(this.name){
-        writer.writeStringValue("name", this.name);
+            writer.writeStringValue("name", this.name);
         }
         if(this.size){
-        writer.writeNumberValue("size", this.size);
+            writer.writeNumberValue("size", this.size);
         }
     };
 }

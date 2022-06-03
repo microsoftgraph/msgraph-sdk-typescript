@@ -7,7 +7,7 @@ import {UnifiedRoleEligibilitySchedule} from './unifiedRoleEligibilitySchedule';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the roleManagement singleton. */
-export class UnifiedRoleAssignmentScheduleImpl extends UnifiedRoleScheduleBaseImpl implements Parsable, UnifiedRoleAssignmentSchedule {
+export class UnifiedRoleAssignmentScheduleImpl extends UnifiedRoleScheduleBaseImpl implements UnifiedRoleAssignmentSchedule {
     /** If the roleAssignmentSchedule is activated by a roleEligibilitySchedule, this is the link to that schedule. */
     public activatedUsing?: UnifiedRoleEligibilitySchedule | undefined;
     /** Type of the assignment. It can either be Assigned or Activated. */
@@ -21,11 +21,11 @@ export class UnifiedRoleAssignmentScheduleImpl extends UnifiedRoleScheduleBaseIm
      * @param unifiedRoleAssignmentScheduleParameterValue 
      */
     public constructor(unifiedRoleAssignmentScheduleParameterValue?: UnifiedRoleAssignmentSchedule | undefined) {
-        super();
-        this.activatedUsing = unifiedRoleAssignmentScheduleParameterValue?.activatedUsing ;
-        this.assignmentType = unifiedRoleAssignmentScheduleParameterValue?.assignmentType ;
-        this.memberType = unifiedRoleAssignmentScheduleParameterValue?.memberType ;
-        this.scheduleInfo = unifiedRoleAssignmentScheduleParameterValue?.scheduleInfo ;
+        super(unifiedRoleAssignmentScheduleParameterValue);
+        this.activatedUsing = unifiedRoleAssignmentScheduleParameterValue?.activatedUsing;
+        this.assignmentType = unifiedRoleAssignmentScheduleParameterValue?.assignmentType;
+        this.memberType = unifiedRoleAssignmentScheduleParameterValue?.memberType;
+        this.scheduleInfo = unifiedRoleAssignmentScheduleParameterValue?.scheduleInfo;
     };
     /**
      * The deserialization information for the current model
@@ -47,16 +47,16 @@ export class UnifiedRoleAssignmentScheduleImpl extends UnifiedRoleScheduleBaseIm
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.activatedUsing){
-        writer.writeObjectValue<UnifiedRoleEligibilityScheduleImpl>("activatedUsing", new UnifiedRoleEligibilityScheduleImpl(this.activatedUsing));
+            writer.writeObjectValue<UnifiedRoleEligibilityScheduleImpl>("activatedUsing", new UnifiedRoleEligibilityScheduleImpl(this.activatedUsing));
         }
         if(this.assignmentType){
-        writer.writeStringValue("assignmentType", this.assignmentType);
+            writer.writeStringValue("assignmentType", this.assignmentType);
         }
         if(this.memberType){
-        writer.writeStringValue("memberType", this.memberType);
+            writer.writeStringValue("memberType", this.memberType);
         }
         if(this.scheduleInfo){
-        writer.writeObjectValue<RequestScheduleImpl>("scheduleInfo", new RequestScheduleImpl(this.scheduleInfo));
+            writer.writeObjectValue<RequestScheduleImpl>("scheduleInfo", new RequestScheduleImpl(this.scheduleInfo));
         }
     };
 }

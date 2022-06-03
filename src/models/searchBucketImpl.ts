@@ -1,7 +1,7 @@
 import {SearchBucket} from './searchBucket';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class SearchBucketImpl implements AdditionalDataHolder, Parsable, SearchBucket {
+export class SearchBucketImpl implements SearchBucket {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** A token containing the encoded filter to aggregate search matches by the specific key value. To use the filter, pass the token as part of the aggregationFilter property in a searchRequest object, in the format '{field}:/'{aggregationFilterToken}/''. See an example. */
@@ -15,10 +15,10 @@ export class SearchBucketImpl implements AdditionalDataHolder, Parsable, SearchB
      * @param searchBucketParameterValue 
      */
     public constructor(searchBucketParameterValue?: SearchBucket | undefined) {
-        this.additionalData = searchBucketParameterValue?.additionalData ? searchBucketParameterValue?.additionalData! : {}
-        this.aggregationFilterToken = searchBucketParameterValue?.aggregationFilterToken ;
-        this.count = searchBucketParameterValue?.count ;
-        this.key = searchBucketParameterValue?.key ;
+        this.additionalData = searchBucketParameterValue?.additionalData ? searchBucketParameterValue?.additionalData! : {};
+        this.aggregationFilterToken = searchBucketParameterValue?.aggregationFilterToken;
+        this.count = searchBucketParameterValue?.count;
+        this.key = searchBucketParameterValue?.key;
     };
     /**
      * The deserialization information for the current model
@@ -38,13 +38,13 @@ export class SearchBucketImpl implements AdditionalDataHolder, Parsable, SearchB
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.aggregationFilterToken){
-        writer.writeStringValue("aggregationFilterToken", this.aggregationFilterToken);
+            writer.writeStringValue("aggregationFilterToken", this.aggregationFilterToken);
         }
         if(this.count){
-        writer.writeNumberValue("count", this.count);
+            writer.writeNumberValue("count", this.count);
         }
         if(this.key){
-        writer.writeStringValue("key", this.key);
+            writer.writeStringValue("key", this.key);
         }
         writer.writeAdditionalData(this.additionalData);
     };

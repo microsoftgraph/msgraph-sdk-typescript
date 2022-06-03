@@ -5,7 +5,7 @@ import {FilterByCurrentUserWithOnResponse} from './filterByCurrentUserWithOnResp
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the filterByCurrentUser method. */
-export class FilterByCurrentUserWithOnResponseImpl implements AdditionalDataHolder, FilterByCurrentUserWithOnResponse, Parsable {
+export class FilterByCurrentUserWithOnResponseImpl implements FilterByCurrentUserWithOnResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The value property */
@@ -15,8 +15,8 @@ export class FilterByCurrentUserWithOnResponseImpl implements AdditionalDataHold
      * @param filterByCurrentUserWithOnResponseParameterValue 
      */
     public constructor(filterByCurrentUserWithOnResponseParameterValue?: FilterByCurrentUserWithOnResponse | undefined) {
-        this.additionalData = filterByCurrentUserWithOnResponseParameterValue?.additionalData ? filterByCurrentUserWithOnResponseParameterValue?.additionalData! : {}
-        this.value = filterByCurrentUserWithOnResponseParameterValue?.value ;
+        this.additionalData = filterByCurrentUserWithOnResponseParameterValue?.additionalData ? filterByCurrentUserWithOnResponseParameterValue?.additionalData! : {};
+        this.value = filterByCurrentUserWithOnResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -34,7 +34,7 @@ export class FilterByCurrentUserWithOnResponseImpl implements AdditionalDataHold
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.value && this.value.length != 0){        const valueArrValue: UserConsentRequestImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new UserConsentRequestImpl(element));});
-        writer.writeCollectionOfObjectValues<UserConsentRequestImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<UserConsentRequestImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

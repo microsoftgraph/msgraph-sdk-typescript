@@ -5,7 +5,7 @@ import {EntityImpl, ImportedWindowsAutopilotDeviceIdentityStateImpl} from './ind
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Imported windows autopilot devices. */
-export class ImportedWindowsAutopilotDeviceIdentityImpl extends EntityImpl implements ImportedWindowsAutopilotDeviceIdentity, Parsable {
+export class ImportedWindowsAutopilotDeviceIdentityImpl extends EntityImpl implements ImportedWindowsAutopilotDeviceIdentity {
     /** UPN of the user the device will be assigned */
     public assignedUserPrincipalName?: string | undefined;
     /** Group Tag of the Windows autopilot device. */
@@ -25,14 +25,14 @@ export class ImportedWindowsAutopilotDeviceIdentityImpl extends EntityImpl imple
      * @param importedWindowsAutopilotDeviceIdentityParameterValue 
      */
     public constructor(importedWindowsAutopilotDeviceIdentityParameterValue?: ImportedWindowsAutopilotDeviceIdentity | undefined) {
-        super();
-        this.assignedUserPrincipalName = importedWindowsAutopilotDeviceIdentityParameterValue?.assignedUserPrincipalName ;
-        this.groupTag = importedWindowsAutopilotDeviceIdentityParameterValue?.groupTag ;
-        this.hardwareIdentifier = importedWindowsAutopilotDeviceIdentityParameterValue?.hardwareIdentifier ;
-        this.importId = importedWindowsAutopilotDeviceIdentityParameterValue?.importId ;
-        this.productKey = importedWindowsAutopilotDeviceIdentityParameterValue?.productKey ;
-        this.serialNumber = importedWindowsAutopilotDeviceIdentityParameterValue?.serialNumber ;
-        this.state = importedWindowsAutopilotDeviceIdentityParameterValue?.state ;
+        super(importedWindowsAutopilotDeviceIdentityParameterValue);
+        this.assignedUserPrincipalName = importedWindowsAutopilotDeviceIdentityParameterValue?.assignedUserPrincipalName;
+        this.groupTag = importedWindowsAutopilotDeviceIdentityParameterValue?.groupTag;
+        this.hardwareIdentifier = importedWindowsAutopilotDeviceIdentityParameterValue?.hardwareIdentifier;
+        this.importId = importedWindowsAutopilotDeviceIdentityParameterValue?.importId;
+        this.productKey = importedWindowsAutopilotDeviceIdentityParameterValue?.productKey;
+        this.serialNumber = importedWindowsAutopilotDeviceIdentityParameterValue?.serialNumber;
+        this.state = importedWindowsAutopilotDeviceIdentityParameterValue?.state;
     };
     /**
      * The deserialization information for the current model
@@ -57,25 +57,25 @@ export class ImportedWindowsAutopilotDeviceIdentityImpl extends EntityImpl imple
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.assignedUserPrincipalName){
-        writer.writeStringValue("assignedUserPrincipalName", this.assignedUserPrincipalName);
+            writer.writeStringValue("assignedUserPrincipalName", this.assignedUserPrincipalName);
         }
         if(this.groupTag){
-        writer.writeStringValue("groupTag", this.groupTag);
+            writer.writeStringValue("groupTag", this.groupTag);
         }
         if(this.hardwareIdentifier){
-        writer.writeStringValue("hardwareIdentifier", this.hardwareIdentifier);
+            writer.writeStringValue("hardwareIdentifier", this.hardwareIdentifier);
         }
         if(this.importId){
-        writer.writeStringValue("importId", this.importId);
+            writer.writeStringValue("importId", this.importId);
         }
         if(this.productKey){
-        writer.writeStringValue("productKey", this.productKey);
+            writer.writeStringValue("productKey", this.productKey);
         }
         if(this.serialNumber){
-        writer.writeStringValue("serialNumber", this.serialNumber);
+            writer.writeStringValue("serialNumber", this.serialNumber);
         }
         if(this.state){
-        writer.writeObjectValue<ImportedWindowsAutopilotDeviceIdentityStateImpl>("state", new ImportedWindowsAutopilotDeviceIdentityStateImpl(this.state));
+            writer.writeObjectValue<ImportedWindowsAutopilotDeviceIdentityStateImpl>("state", new ImportedWindowsAutopilotDeviceIdentityStateImpl(this.state));
         }
     };
 }

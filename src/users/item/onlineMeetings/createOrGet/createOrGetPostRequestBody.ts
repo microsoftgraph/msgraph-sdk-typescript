@@ -1,19 +1,20 @@
 import {ChatInfo} from '../../../../models/chatInfo';
 import {MeetingParticipants} from '../../../../models/meetingParticipants';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface CreateOrGetPostRequestBody{
+export interface CreateOrGetPostRequestBody extends Partial<AdditionalDataHolder>, Partial<Parsable> {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?:Record<string, unknown>;
+    additionalData?: Record<string, unknown>;
     /** The chatInfo property */
-    chatInfo?:ChatInfo | undefined;
+    chatInfo?: ChatInfo | undefined;
     /** The endDateTime property */
-    endDateTime?:Date | undefined;
+    endDateTime?: Date | undefined;
     /** The externalId property */
-    externalId?:string | undefined;
+    externalId?: string | undefined;
     /** The participants property */
-    participants?:MeetingParticipants | undefined;
+    participants?: MeetingParticipants | undefined;
     /** The startDateTime property */
-    startDateTime?:Date | undefined;
+    startDateTime?: Date | undefined;
     /** The subject property */
-    subject?:string | undefined;
+    subject?: string | undefined;
 }

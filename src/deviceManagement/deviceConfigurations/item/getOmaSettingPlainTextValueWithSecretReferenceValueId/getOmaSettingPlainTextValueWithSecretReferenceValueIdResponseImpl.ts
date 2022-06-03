@@ -2,7 +2,7 @@ import {GetOmaSettingPlainTextValueWithSecretReferenceValueIdResponse} from './g
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the getOmaSettingPlainTextValue method. */
-export class GetOmaSettingPlainTextValueWithSecretReferenceValueIdResponseImpl implements AdditionalDataHolder, GetOmaSettingPlainTextValueWithSecretReferenceValueIdResponse, Parsable {
+export class GetOmaSettingPlainTextValueWithSecretReferenceValueIdResponseImpl implements GetOmaSettingPlainTextValueWithSecretReferenceValueIdResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The value property */
@@ -12,8 +12,8 @@ export class GetOmaSettingPlainTextValueWithSecretReferenceValueIdResponseImpl i
      * @param getOmaSettingPlainTextValueWithSecretReferenceValueIdResponseParameterValue 
      */
     public constructor(getOmaSettingPlainTextValueWithSecretReferenceValueIdResponseParameterValue?: GetOmaSettingPlainTextValueWithSecretReferenceValueIdResponse | undefined) {
-        this.additionalData = getOmaSettingPlainTextValueWithSecretReferenceValueIdResponseParameterValue?.additionalData ? getOmaSettingPlainTextValueWithSecretReferenceValueIdResponseParameterValue?.additionalData! : {}
-        this.value = getOmaSettingPlainTextValueWithSecretReferenceValueIdResponseParameterValue?.value ;
+        this.additionalData = getOmaSettingPlainTextValueWithSecretReferenceValueIdResponseParameterValue?.additionalData ? getOmaSettingPlainTextValueWithSecretReferenceValueIdResponseParameterValue?.additionalData! : {};
+        this.value = getOmaSettingPlainTextValueWithSecretReferenceValueIdResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -31,7 +31,7 @@ export class GetOmaSettingPlainTextValueWithSecretReferenceValueIdResponseImpl i
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.value){
-        writer.writeStringValue("value", this.value);
+            writer.writeStringValue("value", this.value);
         }
         writer.writeAdditionalData(this.additionalData);
     };

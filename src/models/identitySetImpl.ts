@@ -4,7 +4,7 @@ import {IdentitySet} from './identitySet';
 import {IdentityImpl} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class IdentitySetImpl implements AdditionalDataHolder, IdentitySet, Parsable {
+export class IdentitySetImpl implements IdentitySet {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The Identity of the Application. This property is read-only. */
@@ -18,10 +18,10 @@ export class IdentitySetImpl implements AdditionalDataHolder, IdentitySet, Parsa
      * @param identitySetParameterValue 
      */
     public constructor(identitySetParameterValue?: IdentitySet | undefined) {
-        this.additionalData = identitySetParameterValue?.additionalData ? identitySetParameterValue?.additionalData! : {}
-        this.application = identitySetParameterValue?.application ;
-        this.device = identitySetParameterValue?.device ;
-        this.user = identitySetParameterValue?.user ;
+        this.additionalData = identitySetParameterValue?.additionalData ? identitySetParameterValue?.additionalData! : {};
+        this.application = identitySetParameterValue?.application;
+        this.device = identitySetParameterValue?.device;
+        this.user = identitySetParameterValue?.user;
     };
     /**
      * The deserialization information for the current model
@@ -41,13 +41,13 @@ export class IdentitySetImpl implements AdditionalDataHolder, IdentitySet, Parsa
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.application){
-        writer.writeObjectValue<IdentityImpl>("application", new IdentityImpl(this.application));
+            writer.writeObjectValue<IdentityImpl>("application", new IdentityImpl(this.application));
         }
         if(this.device){
-        writer.writeObjectValue<IdentityImpl>("device", new IdentityImpl(this.device));
+            writer.writeObjectValue<IdentityImpl>("device", new IdentityImpl(this.device));
         }
         if(this.user){
-        writer.writeObjectValue<IdentityImpl>("user", new IdentityImpl(this.user));
+            writer.writeObjectValue<IdentityImpl>("user", new IdentityImpl(this.user));
         }
         writer.writeAdditionalData(this.additionalData);
     };

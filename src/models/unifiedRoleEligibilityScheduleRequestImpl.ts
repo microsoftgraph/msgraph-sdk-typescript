@@ -16,7 +16,7 @@ import {UnifiedRoleScheduleRequestActions} from './unifiedRoleScheduleRequestAct
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the roleManagement singleton. */
-export class UnifiedRoleEligibilityScheduleRequestImpl extends RequestImpl implements Parsable, UnifiedRoleEligibilityScheduleRequest {
+export class UnifiedRoleEligibilityScheduleRequestImpl extends RequestImpl implements UnifiedRoleEligibilityScheduleRequest {
     /** Represents the type of the operation on the role eligibility assignment. The possible values are: AdminAssign: For administrators to assign role eligibility to users or groups to roles.AdminExtend: For administrators to extend expiring assignments.AdminUpdate: For administrators to change existing role assignments.AdminRenew: For administrators to renew expired assignments.AdminRemove: For administrators to remove users or groups from eligible roles.UserAdd: For users to activate their eligible assignments.UserExtend: For users to request to extend their expiring eligible assignments.UserRemove: For users to deactivate their active eligible assignments.UserRenew: For users to request to renew their expired eligible assignments. */
     public action?: UnifiedRoleScheduleRequestActions | undefined;
     /** Read-only property with details of the app-specific scope when the assignment scope is app-specific. Containment entity. */
@@ -52,22 +52,22 @@ export class UnifiedRoleEligibilityScheduleRequestImpl extends RequestImpl imple
      * @param unifiedRoleEligibilityScheduleRequestParameterValue 
      */
     public constructor(unifiedRoleEligibilityScheduleRequestParameterValue?: UnifiedRoleEligibilityScheduleRequest | undefined) {
-        super();
-        this.action = unifiedRoleEligibilityScheduleRequestParameterValue?.action ;
-        this.appScope = unifiedRoleEligibilityScheduleRequestParameterValue?.appScope ;
-        this.appScopeId = unifiedRoleEligibilityScheduleRequestParameterValue?.appScopeId ;
-        this.directoryScope = unifiedRoleEligibilityScheduleRequestParameterValue?.directoryScope ;
-        this.directoryScopeId = unifiedRoleEligibilityScheduleRequestParameterValue?.directoryScopeId ;
-        this.isValidationOnly = unifiedRoleEligibilityScheduleRequestParameterValue?.isValidationOnly ;
-        this.justification = unifiedRoleEligibilityScheduleRequestParameterValue?.justification ;
-        this.principal = unifiedRoleEligibilityScheduleRequestParameterValue?.principal ;
-        this.principalId = unifiedRoleEligibilityScheduleRequestParameterValue?.principalId ;
-        this.roleDefinition = unifiedRoleEligibilityScheduleRequestParameterValue?.roleDefinition ;
-        this.roleDefinitionId = unifiedRoleEligibilityScheduleRequestParameterValue?.roleDefinitionId ;
-        this.scheduleInfo = unifiedRoleEligibilityScheduleRequestParameterValue?.scheduleInfo ;
-        this.targetSchedule = unifiedRoleEligibilityScheduleRequestParameterValue?.targetSchedule ;
-        this.targetScheduleId = unifiedRoleEligibilityScheduleRequestParameterValue?.targetScheduleId ;
-        this.ticketInfo = unifiedRoleEligibilityScheduleRequestParameterValue?.ticketInfo ;
+        super(unifiedRoleEligibilityScheduleRequestParameterValue);
+        this.action = unifiedRoleEligibilityScheduleRequestParameterValue?.action;
+        this.appScope = unifiedRoleEligibilityScheduleRequestParameterValue?.appScope;
+        this.appScopeId = unifiedRoleEligibilityScheduleRequestParameterValue?.appScopeId;
+        this.directoryScope = unifiedRoleEligibilityScheduleRequestParameterValue?.directoryScope;
+        this.directoryScopeId = unifiedRoleEligibilityScheduleRequestParameterValue?.directoryScopeId;
+        this.isValidationOnly = unifiedRoleEligibilityScheduleRequestParameterValue?.isValidationOnly;
+        this.justification = unifiedRoleEligibilityScheduleRequestParameterValue?.justification;
+        this.principal = unifiedRoleEligibilityScheduleRequestParameterValue?.principal;
+        this.principalId = unifiedRoleEligibilityScheduleRequestParameterValue?.principalId;
+        this.roleDefinition = unifiedRoleEligibilityScheduleRequestParameterValue?.roleDefinition;
+        this.roleDefinitionId = unifiedRoleEligibilityScheduleRequestParameterValue?.roleDefinitionId;
+        this.scheduleInfo = unifiedRoleEligibilityScheduleRequestParameterValue?.scheduleInfo;
+        this.targetSchedule = unifiedRoleEligibilityScheduleRequestParameterValue?.targetSchedule;
+        this.targetScheduleId = unifiedRoleEligibilityScheduleRequestParameterValue?.targetScheduleId;
+        this.ticketInfo = unifiedRoleEligibilityScheduleRequestParameterValue?.ticketInfo;
     };
     /**
      * The deserialization information for the current model
@@ -100,49 +100,49 @@ export class UnifiedRoleEligibilityScheduleRequestImpl extends RequestImpl imple
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.action){
-        writer.writeEnumValue<UnifiedRoleScheduleRequestActions>("action", this.action);
+            writer.writeEnumValue<UnifiedRoleScheduleRequestActions>("action", this.action);
         }
         if(this.appScope){
-        writer.writeObjectValue<AppScopeImpl>("appScope", new AppScopeImpl(this.appScope));
+            writer.writeObjectValue<AppScopeImpl>("appScope", new AppScopeImpl(this.appScope));
         }
         if(this.appScopeId){
-        writer.writeStringValue("appScopeId", this.appScopeId);
+            writer.writeStringValue("appScopeId", this.appScopeId);
         }
         if(this.directoryScope){
-        writer.writeObjectValue<DirectoryObjectImpl>("directoryScope", new DirectoryObjectImpl(this.directoryScope));
+            writer.writeObjectValue<DirectoryObjectImpl>("directoryScope", new DirectoryObjectImpl(this.directoryScope));
         }
         if(this.directoryScopeId){
-        writer.writeStringValue("directoryScopeId", this.directoryScopeId);
+            writer.writeStringValue("directoryScopeId", this.directoryScopeId);
         }
         if(this.isValidationOnly){
-        writer.writeBooleanValue("isValidationOnly", this.isValidationOnly);
+            writer.writeBooleanValue("isValidationOnly", this.isValidationOnly);
         }
         if(this.justification){
-        writer.writeStringValue("justification", this.justification);
+            writer.writeStringValue("justification", this.justification);
         }
         if(this.principal){
-        writer.writeObjectValue<DirectoryObjectImpl>("principal", new DirectoryObjectImpl(this.principal));
+            writer.writeObjectValue<DirectoryObjectImpl>("principal", new DirectoryObjectImpl(this.principal));
         }
         if(this.principalId){
-        writer.writeStringValue("principalId", this.principalId);
+            writer.writeStringValue("principalId", this.principalId);
         }
         if(this.roleDefinition){
-        writer.writeObjectValue<UnifiedRoleDefinitionImpl>("roleDefinition", new UnifiedRoleDefinitionImpl(this.roleDefinition));
+            writer.writeObjectValue<UnifiedRoleDefinitionImpl>("roleDefinition", new UnifiedRoleDefinitionImpl(this.roleDefinition));
         }
         if(this.roleDefinitionId){
-        writer.writeStringValue("roleDefinitionId", this.roleDefinitionId);
+            writer.writeStringValue("roleDefinitionId", this.roleDefinitionId);
         }
         if(this.scheduleInfo){
-        writer.writeObjectValue<RequestScheduleImpl>("scheduleInfo", new RequestScheduleImpl(this.scheduleInfo));
+            writer.writeObjectValue<RequestScheduleImpl>("scheduleInfo", new RequestScheduleImpl(this.scheduleInfo));
         }
         if(this.targetSchedule){
-        writer.writeObjectValue<UnifiedRoleEligibilityScheduleImpl>("targetSchedule", new UnifiedRoleEligibilityScheduleImpl(this.targetSchedule));
+            writer.writeObjectValue<UnifiedRoleEligibilityScheduleImpl>("targetSchedule", new UnifiedRoleEligibilityScheduleImpl(this.targetSchedule));
         }
         if(this.targetScheduleId){
-        writer.writeStringValue("targetScheduleId", this.targetScheduleId);
+            writer.writeStringValue("targetScheduleId", this.targetScheduleId);
         }
         if(this.ticketInfo){
-        writer.writeObjectValue<TicketInfoImpl>("ticketInfo", new TicketInfoImpl(this.ticketInfo));
+            writer.writeObjectValue<TicketInfoImpl>("ticketInfo", new TicketInfoImpl(this.ticketInfo));
         }
     };
 }

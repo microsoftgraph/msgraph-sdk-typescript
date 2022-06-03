@@ -4,7 +4,7 @@ import {createAccessReviewNotificationRecipientScopeFromDiscriminatorValue} from
 import {AccessReviewNotificationRecipientScopeImpl} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class AccessReviewNotificationRecipientItemImpl implements AccessReviewNotificationRecipientItem, AdditionalDataHolder, Parsable {
+export class AccessReviewNotificationRecipientItemImpl implements AccessReviewNotificationRecipientItem {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Determines the recipient of the notification email. */
@@ -16,9 +16,9 @@ export class AccessReviewNotificationRecipientItemImpl implements AccessReviewNo
      * @param accessReviewNotificationRecipientItemParameterValue 
      */
     public constructor(accessReviewNotificationRecipientItemParameterValue?: AccessReviewNotificationRecipientItem | undefined) {
-        this.additionalData = accessReviewNotificationRecipientItemParameterValue?.additionalData ? accessReviewNotificationRecipientItemParameterValue?.additionalData! : {}
-        this.notificationRecipientScope = accessReviewNotificationRecipientItemParameterValue?.notificationRecipientScope ;
-        this.notificationTemplateType = accessReviewNotificationRecipientItemParameterValue?.notificationTemplateType ;
+        this.additionalData = accessReviewNotificationRecipientItemParameterValue?.additionalData ? accessReviewNotificationRecipientItemParameterValue?.additionalData! : {};
+        this.notificationRecipientScope = accessReviewNotificationRecipientItemParameterValue?.notificationRecipientScope;
+        this.notificationTemplateType = accessReviewNotificationRecipientItemParameterValue?.notificationTemplateType;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class AccessReviewNotificationRecipientItemImpl implements AccessReviewNo
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.notificationRecipientScope){
-        writer.writeObjectValue<AccessReviewNotificationRecipientScopeImpl>("notificationRecipientScope", new AccessReviewNotificationRecipientScopeImpl(this.notificationRecipientScope));
+            writer.writeObjectValue<AccessReviewNotificationRecipientScopeImpl>("notificationRecipientScope", new AccessReviewNotificationRecipientScopeImpl(this.notificationRecipientScope));
         }
         if(this.notificationTemplateType){
-        writer.writeStringValue("notificationTemplateType", this.notificationTemplateType);
+            writer.writeStringValue("notificationTemplateType", this.notificationTemplateType);
         }
         writer.writeAdditionalData(this.additionalData);
     };

@@ -4,7 +4,7 @@ import {LocationConstraint} from './locationConstraint';
 import {LocationConstraintItem} from './locationConstraintItem';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class LocationConstraintImpl implements AdditionalDataHolder, LocationConstraint, Parsable {
+export class LocationConstraintImpl implements LocationConstraint {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The client requests the service to include in the response a meeting location for the meeting. If this is true and all the resources are busy, findMeetingTimes will not return any meeting time suggestions. If this is false and all the resources are busy, findMeetingTimes would still look for meeting times without locations. */
@@ -18,10 +18,10 @@ export class LocationConstraintImpl implements AdditionalDataHolder, LocationCon
      * @param locationConstraintParameterValue 
      */
     public constructor(locationConstraintParameterValue?: LocationConstraint | undefined) {
-        this.additionalData = locationConstraintParameterValue?.additionalData ? locationConstraintParameterValue?.additionalData! : {}
-        this.isRequired = locationConstraintParameterValue?.isRequired ;
-        this.locations = locationConstraintParameterValue?.locations ;
-        this.suggestLocation = locationConstraintParameterValue?.suggestLocation ;
+        this.additionalData = locationConstraintParameterValue?.additionalData ? locationConstraintParameterValue?.additionalData! : {};
+        this.isRequired = locationConstraintParameterValue?.isRequired;
+        this.locations = locationConstraintParameterValue?.locations;
+        this.suggestLocation = locationConstraintParameterValue?.suggestLocation;
     };
     /**
      * The deserialization information for the current model
@@ -41,13 +41,13 @@ export class LocationConstraintImpl implements AdditionalDataHolder, LocationCon
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.isRequired){
-        writer.writeBooleanValue("isRequired", this.isRequired);
+            writer.writeBooleanValue("isRequired", this.isRequired);
         }
         if(this.locations && this.locations.length != 0){        const locationsArrValue: LocationConstraintItemImpl[] = []; this.locations?.forEach(element => {locationsArrValue.push(new LocationConstraintItemImpl(element));});
-        writer.writeCollectionOfObjectValues<LocationConstraintItemImpl>("locations", locationsArrValue);
+            writer.writeCollectionOfObjectValues<LocationConstraintItemImpl>("locations", locationsArrValue);
         }
         if(this.suggestLocation){
-        writer.writeBooleanValue("suggestLocation", this.suggestLocation);
+            writer.writeBooleanValue("suggestLocation", this.suggestLocation);
         }
         writer.writeAdditionalData(this.additionalData);
     };

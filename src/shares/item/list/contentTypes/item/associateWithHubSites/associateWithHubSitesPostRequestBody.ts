@@ -1,9 +1,10 @@
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface AssociateWithHubSitesPostRequestBody{
+export interface AssociateWithHubSitesPostRequestBody extends Partial<AdditionalDataHolder>, Partial<Parsable> {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?:Record<string, unknown>;
+    additionalData?: Record<string, unknown>;
     /** The hubSiteUrls property */
-    hubSiteUrls?:string[] | undefined;
+    hubSiteUrls?: string[] | undefined;
     /** The propagateToExistingLists property */
-    propagateToExistingLists?:boolean | undefined;
+    propagateToExistingLists?: boolean | undefined;
 }

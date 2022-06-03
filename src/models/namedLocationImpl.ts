@@ -3,7 +3,7 @@ import {NamedLocation} from './namedLocation';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the identityContainer singleton. */
-export class NamedLocationImpl extends EntityImpl implements NamedLocation, Parsable {
+export class NamedLocationImpl extends EntityImpl implements NamedLocation {
     /** The Timestamp type represents creation date and time of the location using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. */
     public createdDateTime?: Date | undefined;
     /** Human-readable name of the location. */
@@ -15,10 +15,10 @@ export class NamedLocationImpl extends EntityImpl implements NamedLocation, Pars
      * @param namedLocationParameterValue 
      */
     public constructor(namedLocationParameterValue?: NamedLocation | undefined) {
-        super();
-        this.createdDateTime = namedLocationParameterValue?.createdDateTime ;
-        this.displayName = namedLocationParameterValue?.displayName ;
-        this.modifiedDateTime = namedLocationParameterValue?.modifiedDateTime ;
+        super(namedLocationParameterValue);
+        this.createdDateTime = namedLocationParameterValue?.createdDateTime;
+        this.displayName = namedLocationParameterValue?.displayName;
+        this.modifiedDateTime = namedLocationParameterValue?.modifiedDateTime;
     };
     /**
      * The deserialization information for the current model
@@ -39,13 +39,13 @@ export class NamedLocationImpl extends EntityImpl implements NamedLocation, Pars
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.createdDateTime){
-        writer.writeDateValue("createdDateTime", this.createdDateTime);
+            writer.writeDateValue("createdDateTime", this.createdDateTime);
         }
         if(this.displayName){
-        writer.writeStringValue("displayName", this.displayName);
+            writer.writeStringValue("displayName", this.displayName);
         }
         if(this.modifiedDateTime){
-        writer.writeDateValue("modifiedDateTime", this.modifiedDateTime);
+            writer.writeDateValue("modifiedDateTime", this.modifiedDateTime);
         }
     };
 }

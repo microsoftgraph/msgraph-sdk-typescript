@@ -7,7 +7,7 @@ import {TermsAndConditionsAssignment} from './termsAndConditionsAssignment';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** A termsAndConditions entity represents the metadata and contents of a given Terms and Conditions (T&C) policy. T&C policies’ contents are presented to users upon their first attempt to enroll into Intune and subsequently upon edits where an administrator has required re-acceptance. They enable administrators to communicate the provisions to which a user must agree in order to have devices enrolled into Intune. */
-export class TermsAndConditionsImpl extends EntityImpl implements Parsable, TermsAndConditions {
+export class TermsAndConditionsImpl extends EntityImpl implements TermsAndConditions {
     /** Administrator-supplied explanation of the terms and conditions, typically describing what it means to accept the terms and conditions set out in the T&C policy. This is shown to the user on prompts to accept the T&C policy. */
     public acceptanceStatement?: string | undefined;
     /** The list of acceptance statuses for this T&C policy. */
@@ -33,17 +33,17 @@ export class TermsAndConditionsImpl extends EntityImpl implements Parsable, Term
      * @param termsAndConditionsParameterValue 
      */
     public constructor(termsAndConditionsParameterValue?: TermsAndConditions | undefined) {
-        super();
-        this.acceptanceStatement = termsAndConditionsParameterValue?.acceptanceStatement ;
-        this.acceptanceStatuses = termsAndConditionsParameterValue?.acceptanceStatuses ;
-        this.assignments = termsAndConditionsParameterValue?.assignments ;
-        this.bodyText = termsAndConditionsParameterValue?.bodyText ;
-        this.createdDateTime = termsAndConditionsParameterValue?.createdDateTime ;
-        this.description = termsAndConditionsParameterValue?.description ;
-        this.displayName = termsAndConditionsParameterValue?.displayName ;
-        this.lastModifiedDateTime = termsAndConditionsParameterValue?.lastModifiedDateTime ;
-        this.title = termsAndConditionsParameterValue?.title ;
-        this.version = termsAndConditionsParameterValue?.version ;
+        super(termsAndConditionsParameterValue);
+        this.acceptanceStatement = termsAndConditionsParameterValue?.acceptanceStatement;
+        this.acceptanceStatuses = termsAndConditionsParameterValue?.acceptanceStatuses;
+        this.assignments = termsAndConditionsParameterValue?.assignments;
+        this.bodyText = termsAndConditionsParameterValue?.bodyText;
+        this.createdDateTime = termsAndConditionsParameterValue?.createdDateTime;
+        this.description = termsAndConditionsParameterValue?.description;
+        this.displayName = termsAndConditionsParameterValue?.displayName;
+        this.lastModifiedDateTime = termsAndConditionsParameterValue?.lastModifiedDateTime;
+        this.title = termsAndConditionsParameterValue?.title;
+        this.version = termsAndConditionsParameterValue?.version;
     };
     /**
      * The deserialization information for the current model
@@ -71,34 +71,34 @@ export class TermsAndConditionsImpl extends EntityImpl implements Parsable, Term
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.acceptanceStatement){
-        writer.writeStringValue("acceptanceStatement", this.acceptanceStatement);
+            writer.writeStringValue("acceptanceStatement", this.acceptanceStatement);
         }
         if(this.acceptanceStatuses && this.acceptanceStatuses.length != 0){        const acceptanceStatusesArrValue: TermsAndConditionsAcceptanceStatusImpl[] = []; this.acceptanceStatuses?.forEach(element => {acceptanceStatusesArrValue.push(new TermsAndConditionsAcceptanceStatusImpl(element));});
-        writer.writeCollectionOfObjectValues<TermsAndConditionsAcceptanceStatusImpl>("acceptanceStatuses", acceptanceStatusesArrValue);
+            writer.writeCollectionOfObjectValues<TermsAndConditionsAcceptanceStatusImpl>("acceptanceStatuses", acceptanceStatusesArrValue);
         }
         if(this.assignments && this.assignments.length != 0){        const assignmentsArrValue: TermsAndConditionsAssignmentImpl[] = []; this.assignments?.forEach(element => {assignmentsArrValue.push(new TermsAndConditionsAssignmentImpl(element));});
-        writer.writeCollectionOfObjectValues<TermsAndConditionsAssignmentImpl>("assignments", assignmentsArrValue);
+            writer.writeCollectionOfObjectValues<TermsAndConditionsAssignmentImpl>("assignments", assignmentsArrValue);
         }
         if(this.bodyText){
-        writer.writeStringValue("bodyText", this.bodyText);
+            writer.writeStringValue("bodyText", this.bodyText);
         }
         if(this.createdDateTime){
-        writer.writeDateValue("createdDateTime", this.createdDateTime);
+            writer.writeDateValue("createdDateTime", this.createdDateTime);
         }
         if(this.description){
-        writer.writeStringValue("description", this.description);
+            writer.writeStringValue("description", this.description);
         }
         if(this.displayName){
-        writer.writeStringValue("displayName", this.displayName);
+            writer.writeStringValue("displayName", this.displayName);
         }
         if(this.lastModifiedDateTime){
-        writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
+            writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
         }
         if(this.title){
-        writer.writeStringValue("title", this.title);
+            writer.writeStringValue("title", this.title);
         }
         if(this.version){
-        writer.writeNumberValue("version", this.version);
+            writer.writeNumberValue("version", this.version);
         }
     };
 }

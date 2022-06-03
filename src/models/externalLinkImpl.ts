@@ -1,7 +1,7 @@
 import {ExternalLink} from './externalLink';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ExternalLinkImpl implements AdditionalDataHolder, ExternalLink, Parsable {
+export class ExternalLinkImpl implements ExternalLink {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The url of the link. */
@@ -11,8 +11,8 @@ export class ExternalLinkImpl implements AdditionalDataHolder, ExternalLink, Par
      * @param externalLinkParameterValue 
      */
     public constructor(externalLinkParameterValue?: ExternalLink | undefined) {
-        this.additionalData = externalLinkParameterValue?.additionalData ? externalLinkParameterValue?.additionalData! : {}
-        this.href = externalLinkParameterValue?.href ;
+        this.additionalData = externalLinkParameterValue?.additionalData ? externalLinkParameterValue?.additionalData! : {};
+        this.href = externalLinkParameterValue?.href;
     };
     /**
      * The deserialization information for the current model
@@ -30,7 +30,7 @@ export class ExternalLinkImpl implements AdditionalDataHolder, ExternalLink, Par
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.href){
-        writer.writeStringValue("href", this.href);
+            writer.writeStringValue("href", this.href);
         }
         writer.writeAdditionalData(this.additionalData);
     };

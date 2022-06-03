@@ -4,7 +4,7 @@ import {PrintTaskTrigger} from './printTaskTrigger';
 import {PrintTaskTriggerCollectionResponse} from './printTaskTriggerCollectionResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class PrintTaskTriggerCollectionResponseImpl implements AdditionalDataHolder, Parsable, PrintTaskTriggerCollectionResponse {
+export class PrintTaskTriggerCollectionResponseImpl implements PrintTaskTriggerCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class PrintTaskTriggerCollectionResponseImpl implements AdditionalDataHol
      * @param printTaskTriggerCollectionResponseParameterValue 
      */
     public constructor(printTaskTriggerCollectionResponseParameterValue?: PrintTaskTriggerCollectionResponse | undefined) {
-        this.additionalData = printTaskTriggerCollectionResponseParameterValue?.additionalData ? printTaskTriggerCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = printTaskTriggerCollectionResponseParameterValue?.nextLink ;
-        this.value = printTaskTriggerCollectionResponseParameterValue?.value ;
+        this.additionalData = printTaskTriggerCollectionResponseParameterValue?.additionalData ? printTaskTriggerCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = printTaskTriggerCollectionResponseParameterValue?.nextLink;
+        this.value = printTaskTriggerCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class PrintTaskTriggerCollectionResponseImpl implements AdditionalDataHol
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: PrintTaskTriggerImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new PrintTaskTriggerImpl(element));});
-        writer.writeCollectionOfObjectValues<PrintTaskTriggerImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<PrintTaskTriggerImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

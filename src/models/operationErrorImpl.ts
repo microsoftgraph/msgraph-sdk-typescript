@@ -1,7 +1,7 @@
 import {OperationError} from './operationError';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class OperationErrorImpl implements AdditionalDataHolder, OperationError, Parsable {
+export class OperationErrorImpl implements OperationError {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Operation error code. */
@@ -13,9 +13,9 @@ export class OperationErrorImpl implements AdditionalDataHolder, OperationError,
      * @param operationErrorParameterValue 
      */
     public constructor(operationErrorParameterValue?: OperationError | undefined) {
-        this.additionalData = operationErrorParameterValue?.additionalData ? operationErrorParameterValue?.additionalData! : {}
-        this.code = operationErrorParameterValue?.code ;
-        this.message = operationErrorParameterValue?.message ;
+        this.additionalData = operationErrorParameterValue?.additionalData ? operationErrorParameterValue?.additionalData! : {};
+        this.code = operationErrorParameterValue?.code;
+        this.message = operationErrorParameterValue?.message;
     };
     /**
      * The deserialization information for the current model
@@ -34,10 +34,10 @@ export class OperationErrorImpl implements AdditionalDataHolder, OperationError,
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.code){
-        writer.writeStringValue("code", this.code);
+            writer.writeStringValue("code", this.code);
         }
         if(this.message){
-        writer.writeStringValue("message", this.message);
+            writer.writeStringValue("message", this.message);
         }
         writer.writeAdditionalData(this.additionalData);
     };

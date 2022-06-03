@@ -4,7 +4,7 @@ import {createContentTypeFromDiscriminatorValue} from './createContentTypeFromDi
 import {ContentTypeImpl} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ContentTypeCollectionResponseImpl implements AdditionalDataHolder, ContentTypeCollectionResponse, Parsable {
+export class ContentTypeCollectionResponseImpl implements ContentTypeCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class ContentTypeCollectionResponseImpl implements AdditionalDataHolder, 
      * @param contentTypeCollectionResponseParameterValue 
      */
     public constructor(contentTypeCollectionResponseParameterValue?: ContentTypeCollectionResponse | undefined) {
-        this.additionalData = contentTypeCollectionResponseParameterValue?.additionalData ? contentTypeCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = contentTypeCollectionResponseParameterValue?.nextLink ;
-        this.value = contentTypeCollectionResponseParameterValue?.value ;
+        this.additionalData = contentTypeCollectionResponseParameterValue?.additionalData ? contentTypeCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = contentTypeCollectionResponseParameterValue?.nextLink;
+        this.value = contentTypeCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class ContentTypeCollectionResponseImpl implements AdditionalDataHolder, 
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: ContentTypeImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ContentTypeImpl(element));});
-        writer.writeCollectionOfObjectValues<ContentTypeImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<ContentTypeImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

@@ -4,8 +4,8 @@ import {OnenoteOperation} from './onenoteOperation';
 import {OnenoteOperationError} from './onenoteOperationError';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to group. */
-export class OnenoteOperationImpl extends OperationImpl implements OnenoteOperation, Parsable {
+/** Casts the previous resource to user. */
+export class OnenoteOperationImpl extends OperationImpl implements OnenoteOperation {
     /** The error returned by the operation. */
     public error_escaped?: OnenoteOperationError | undefined;
     /** The operation percent complete if the operation is still in running status. */
@@ -19,11 +19,11 @@ export class OnenoteOperationImpl extends OperationImpl implements OnenoteOperat
      * @param onenoteOperationParameterValue 
      */
     public constructor(onenoteOperationParameterValue?: OnenoteOperation | undefined) {
-        super();
-        this.error_escaped = onenoteOperationParameterValue?.error_escaped ;
-        this.percentComplete = onenoteOperationParameterValue?.percentComplete ;
-        this.resourceId = onenoteOperationParameterValue?.resourceId ;
-        this.resourceLocation = onenoteOperationParameterValue?.resourceLocation ;
+        super(onenoteOperationParameterValue);
+        this.error_escaped = onenoteOperationParameterValue?.error_escaped;
+        this.percentComplete = onenoteOperationParameterValue?.percentComplete;
+        this.resourceId = onenoteOperationParameterValue?.resourceId;
+        this.resourceLocation = onenoteOperationParameterValue?.resourceLocation;
     };
     /**
      * The deserialization information for the current model
@@ -45,16 +45,16 @@ export class OnenoteOperationImpl extends OperationImpl implements OnenoteOperat
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.error_escaped){
-        writer.writeObjectValue<OnenoteOperationErrorImpl>("error", new OnenoteOperationErrorImpl(this.error_escaped));
+            writer.writeObjectValue<OnenoteOperationErrorImpl>("error", new OnenoteOperationErrorImpl(this.error_escaped));
         }
         if(this.percentComplete){
-        writer.writeStringValue("percentComplete", this.percentComplete);
+            writer.writeStringValue("percentComplete", this.percentComplete);
         }
         if(this.resourceId){
-        writer.writeStringValue("resourceId", this.resourceId);
+            writer.writeStringValue("resourceId", this.resourceId);
         }
         if(this.resourceLocation){
-        writer.writeStringValue("resourceLocation", this.resourceLocation);
+            writer.writeStringValue("resourceLocation", this.resourceLocation);
         }
     };
 }

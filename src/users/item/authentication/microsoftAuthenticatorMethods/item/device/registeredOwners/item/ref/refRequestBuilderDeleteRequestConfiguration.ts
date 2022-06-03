@@ -1,11 +1,11 @@
 import {RefRequestBuilderDeleteQueryParameters} from './refRequestBuilderDeleteQueryParameters';
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
-export interface RefRequestBuilderDeleteRequestConfiguration{
+export interface RefRequestBuilderDeleteRequestConfiguration {
     /** Request headers */
-    headers?:Record<string, string> | undefined;
+    headers?: Record<string, string> | undefined;
     /** Request options */
-    options?:RequestOption[] | undefined;
+    options?: RequestOption[] | undefined;
     /** Request query parameters */
-    queryParameters?:RefRequestBuilderDeleteQueryParameters | undefined;
+    queryParameters?: RefRequestBuilderDeleteQueryParameters | undefined;
 }

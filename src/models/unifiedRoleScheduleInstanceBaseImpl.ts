@@ -9,7 +9,7 @@ import {UnifiedRoleScheduleInstanceBase} from './unifiedRoleScheduleInstanceBase
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the roleManagement singleton. */
-export class UnifiedRoleScheduleInstanceBaseImpl extends EntityImpl implements Parsable, UnifiedRoleScheduleInstanceBase {
+export class UnifiedRoleScheduleInstanceBaseImpl extends EntityImpl implements UnifiedRoleScheduleInstanceBase {
     /** Read-only property with details of the app specific scope when the assignment scope is app specific. Containment entity. */
     public appScope?: AppScope | undefined;
     /** Identifier of the app-specific scope when the assignment scope is app-specific. The scope of an assignment determines the set of resources for which the principal has been granted access. App scopes are scopes that are defined and understood by this application only. Use / for tenant-wide app scopes. Use directoryScopeId to limit the scope to particular directory objects, for example, administrative units. */
@@ -31,15 +31,15 @@ export class UnifiedRoleScheduleInstanceBaseImpl extends EntityImpl implements P
      * @param unifiedRoleScheduleInstanceBaseParameterValue 
      */
     public constructor(unifiedRoleScheduleInstanceBaseParameterValue?: UnifiedRoleScheduleInstanceBase | undefined) {
-        super();
-        this.appScope = unifiedRoleScheduleInstanceBaseParameterValue?.appScope ;
-        this.appScopeId = unifiedRoleScheduleInstanceBaseParameterValue?.appScopeId ;
-        this.directoryScope = unifiedRoleScheduleInstanceBaseParameterValue?.directoryScope ;
-        this.directoryScopeId = unifiedRoleScheduleInstanceBaseParameterValue?.directoryScopeId ;
-        this.principal = unifiedRoleScheduleInstanceBaseParameterValue?.principal ;
-        this.principalId = unifiedRoleScheduleInstanceBaseParameterValue?.principalId ;
-        this.roleDefinition = unifiedRoleScheduleInstanceBaseParameterValue?.roleDefinition ;
-        this.roleDefinitionId = unifiedRoleScheduleInstanceBaseParameterValue?.roleDefinitionId ;
+        super(unifiedRoleScheduleInstanceBaseParameterValue);
+        this.appScope = unifiedRoleScheduleInstanceBaseParameterValue?.appScope;
+        this.appScopeId = unifiedRoleScheduleInstanceBaseParameterValue?.appScopeId;
+        this.directoryScope = unifiedRoleScheduleInstanceBaseParameterValue?.directoryScope;
+        this.directoryScopeId = unifiedRoleScheduleInstanceBaseParameterValue?.directoryScopeId;
+        this.principal = unifiedRoleScheduleInstanceBaseParameterValue?.principal;
+        this.principalId = unifiedRoleScheduleInstanceBaseParameterValue?.principalId;
+        this.roleDefinition = unifiedRoleScheduleInstanceBaseParameterValue?.roleDefinition;
+        this.roleDefinitionId = unifiedRoleScheduleInstanceBaseParameterValue?.roleDefinitionId;
     };
     /**
      * The deserialization information for the current model
@@ -65,28 +65,28 @@ export class UnifiedRoleScheduleInstanceBaseImpl extends EntityImpl implements P
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.appScope){
-        writer.writeObjectValue<AppScopeImpl>("appScope", new AppScopeImpl(this.appScope));
+            writer.writeObjectValue<AppScopeImpl>("appScope", new AppScopeImpl(this.appScope));
         }
         if(this.appScopeId){
-        writer.writeStringValue("appScopeId", this.appScopeId);
+            writer.writeStringValue("appScopeId", this.appScopeId);
         }
         if(this.directoryScope){
-        writer.writeObjectValue<DirectoryObjectImpl>("directoryScope", new DirectoryObjectImpl(this.directoryScope));
+            writer.writeObjectValue<DirectoryObjectImpl>("directoryScope", new DirectoryObjectImpl(this.directoryScope));
         }
         if(this.directoryScopeId){
-        writer.writeStringValue("directoryScopeId", this.directoryScopeId);
+            writer.writeStringValue("directoryScopeId", this.directoryScopeId);
         }
         if(this.principal){
-        writer.writeObjectValue<DirectoryObjectImpl>("principal", new DirectoryObjectImpl(this.principal));
+            writer.writeObjectValue<DirectoryObjectImpl>("principal", new DirectoryObjectImpl(this.principal));
         }
         if(this.principalId){
-        writer.writeStringValue("principalId", this.principalId);
+            writer.writeStringValue("principalId", this.principalId);
         }
         if(this.roleDefinition){
-        writer.writeObjectValue<UnifiedRoleDefinitionImpl>("roleDefinition", new UnifiedRoleDefinitionImpl(this.roleDefinition));
+            writer.writeObjectValue<UnifiedRoleDefinitionImpl>("roleDefinition", new UnifiedRoleDefinitionImpl(this.roleDefinition));
         }
         if(this.roleDefinitionId){
-        writer.writeStringValue("roleDefinitionId", this.roleDefinitionId);
+            writer.writeStringValue("roleDefinitionId", this.roleDefinitionId);
         }
     };
 }

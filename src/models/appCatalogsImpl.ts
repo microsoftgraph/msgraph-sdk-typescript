@@ -5,7 +5,7 @@ import {TeamsApp} from './teamsApp';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the appCatalogs singleton. */
-export class AppCatalogsImpl extends EntityImpl implements AppCatalogs, Parsable {
+export class AppCatalogsImpl extends EntityImpl implements AppCatalogs {
     /** The teamsApps property */
     public teamsApps?: TeamsApp[] | undefined;
     /**
@@ -13,8 +13,8 @@ export class AppCatalogsImpl extends EntityImpl implements AppCatalogs, Parsable
      * @param appCatalogsParameterValue 
      */
     public constructor(appCatalogsParameterValue?: AppCatalogs | undefined) {
-        super();
-        this.teamsApps = appCatalogsParameterValue?.teamsApps ;
+        super(appCatalogsParameterValue);
+        this.teamsApps = appCatalogsParameterValue?.teamsApps;
     };
     /**
      * The deserialization information for the current model
@@ -33,7 +33,7 @@ export class AppCatalogsImpl extends EntityImpl implements AppCatalogs, Parsable
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.teamsApps && this.teamsApps.length != 0){        const teamsAppsArrValue: TeamsAppImpl[] = []; this.teamsApps?.forEach(element => {teamsAppsArrValue.push(new TeamsAppImpl(element));});
-        writer.writeCollectionOfObjectValues<TeamsAppImpl>("teamsApps", teamsAppsArrValue);
+            writer.writeCollectionOfObjectValues<TeamsAppImpl>("teamsApps", teamsAppsArrValue);
         }
     };
 }

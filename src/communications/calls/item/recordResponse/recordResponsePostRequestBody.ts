@@ -1,22 +1,23 @@
 import {Prompt} from '../../../../models/prompt';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface RecordResponsePostRequestBody{
+export interface RecordResponsePostRequestBody extends Partial<AdditionalDataHolder>, Partial<Parsable> {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?:Record<string, unknown>;
+    additionalData?: Record<string, unknown>;
     /** The bargeInAllowed property */
-    bargeInAllowed?:boolean | undefined;
+    bargeInAllowed?: boolean | undefined;
     /** The clientContext property */
-    clientContext?:string | undefined;
+    clientContext?: string | undefined;
     /** The initialSilenceTimeoutInSeconds property */
-    initialSilenceTimeoutInSeconds?:number | undefined;
+    initialSilenceTimeoutInSeconds?: number | undefined;
     /** The maxRecordDurationInSeconds property */
-    maxRecordDurationInSeconds?:number | undefined;
+    maxRecordDurationInSeconds?: number | undefined;
     /** The maxSilenceTimeoutInSeconds property */
-    maxSilenceTimeoutInSeconds?:number | undefined;
+    maxSilenceTimeoutInSeconds?: number | undefined;
     /** The playBeep property */
-    playBeep?:boolean | undefined;
+    playBeep?: boolean | undefined;
     /** The prompts property */
-    prompts?:Prompt[] | undefined;
+    prompts?: Prompt[] | undefined;
     /** The stopTones property */
-    stopTones?:string[] | undefined;
+    stopTones?: string[] | undefined;
 }

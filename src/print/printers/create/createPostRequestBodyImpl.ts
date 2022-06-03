@@ -5,7 +5,7 @@ import {CreatePostRequestBody} from './createPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the create method. */
-export class CreatePostRequestBodyImpl implements AdditionalDataHolder, CreatePostRequestBody, Parsable {
+export class CreatePostRequestBodyImpl implements CreatePostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The certificateSigningRequest property */
@@ -27,14 +27,14 @@ export class CreatePostRequestBodyImpl implements AdditionalDataHolder, CreatePo
      * @param createPostRequestBodyParameterValue 
      */
     public constructor(createPostRequestBodyParameterValue?: CreatePostRequestBody | undefined) {
-        this.additionalData = createPostRequestBodyParameterValue?.additionalData ? createPostRequestBodyParameterValue?.additionalData! : {}
-        this.certificateSigningRequest = createPostRequestBodyParameterValue?.certificateSigningRequest ;
-        this.connectorId = createPostRequestBodyParameterValue?.connectorId ;
-        this.displayName = createPostRequestBodyParameterValue?.displayName ;
-        this.hasPhysicalDevice = createPostRequestBodyParameterValue?.hasPhysicalDevice ;
-        this.manufacturer = createPostRequestBodyParameterValue?.manufacturer ;
-        this.model = createPostRequestBodyParameterValue?.model ;
-        this.physicalDeviceId = createPostRequestBodyParameterValue?.physicalDeviceId ;
+        this.additionalData = createPostRequestBodyParameterValue?.additionalData ? createPostRequestBodyParameterValue?.additionalData! : {};
+        this.certificateSigningRequest = createPostRequestBodyParameterValue?.certificateSigningRequest;
+        this.connectorId = createPostRequestBodyParameterValue?.connectorId;
+        this.displayName = createPostRequestBodyParameterValue?.displayName;
+        this.hasPhysicalDevice = createPostRequestBodyParameterValue?.hasPhysicalDevice;
+        this.manufacturer = createPostRequestBodyParameterValue?.manufacturer;
+        this.model = createPostRequestBodyParameterValue?.model;
+        this.physicalDeviceId = createPostRequestBodyParameterValue?.physicalDeviceId;
     };
     /**
      * The deserialization information for the current model
@@ -58,25 +58,25 @@ export class CreatePostRequestBodyImpl implements AdditionalDataHolder, CreatePo
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.certificateSigningRequest){
-        writer.writeObjectValue<PrintCertificateSigningRequestImpl>("certificateSigningRequest", new PrintCertificateSigningRequestImpl(this.certificateSigningRequest));
+            writer.writeObjectValue<PrintCertificateSigningRequestImpl>("certificateSigningRequest", new PrintCertificateSigningRequestImpl(this.certificateSigningRequest));
         }
         if(this.connectorId){
-        writer.writeStringValue("connectorId", this.connectorId);
+            writer.writeStringValue("connectorId", this.connectorId);
         }
         if(this.displayName){
-        writer.writeStringValue("displayName", this.displayName);
+            writer.writeStringValue("displayName", this.displayName);
         }
         if(this.hasPhysicalDevice){
-        writer.writeBooleanValue("hasPhysicalDevice", this.hasPhysicalDevice);
+            writer.writeBooleanValue("hasPhysicalDevice", this.hasPhysicalDevice);
         }
         if(this.manufacturer){
-        writer.writeStringValue("manufacturer", this.manufacturer);
+            writer.writeStringValue("manufacturer", this.manufacturer);
         }
         if(this.model){
-        writer.writeStringValue("model", this.model);
+            writer.writeStringValue("model", this.model);
         }
         if(this.physicalDeviceId){
-        writer.writeStringValue("physicalDeviceId", this.physicalDeviceId);
+            writer.writeStringValue("physicalDeviceId", this.physicalDeviceId);
         }
         writer.writeAdditionalData(this.additionalData);
     };

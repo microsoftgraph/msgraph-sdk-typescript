@@ -9,7 +9,7 @@ import {ServiceUpdateMessage} from './serviceUpdateMessage';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the admin singleton. */
-export class ServiceAnnouncementImpl extends EntityImpl implements Parsable, ServiceAnnouncement {
+export class ServiceAnnouncementImpl extends EntityImpl implements ServiceAnnouncement {
     /** A collection of service health information for tenant. This property is a contained navigation property, it is nullable and readonly. */
     public healthOverviews?: ServiceHealth[] | undefined;
     /** A collection of service issues for tenant. This property is a contained navigation property, it is nullable and readonly. */
@@ -21,10 +21,10 @@ export class ServiceAnnouncementImpl extends EntityImpl implements Parsable, Ser
      * @param serviceAnnouncementParameterValue 
      */
     public constructor(serviceAnnouncementParameterValue?: ServiceAnnouncement | undefined) {
-        super();
-        this.healthOverviews = serviceAnnouncementParameterValue?.healthOverviews ;
-        this.issues = serviceAnnouncementParameterValue?.issues ;
-        this.messages = serviceAnnouncementParameterValue?.messages ;
+        super(serviceAnnouncementParameterValue);
+        this.healthOverviews = serviceAnnouncementParameterValue?.healthOverviews;
+        this.issues = serviceAnnouncementParameterValue?.issues;
+        this.messages = serviceAnnouncementParameterValue?.messages;
     };
     /**
      * The deserialization information for the current model
@@ -45,13 +45,13 @@ export class ServiceAnnouncementImpl extends EntityImpl implements Parsable, Ser
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.healthOverviews && this.healthOverviews.length != 0){        const healthOverviewsArrValue: ServiceHealthImpl[] = []; this.healthOverviews?.forEach(element => {healthOverviewsArrValue.push(new ServiceHealthImpl(element));});
-        writer.writeCollectionOfObjectValues<ServiceHealthImpl>("healthOverviews", healthOverviewsArrValue);
+            writer.writeCollectionOfObjectValues<ServiceHealthImpl>("healthOverviews", healthOverviewsArrValue);
         }
         if(this.issues && this.issues.length != 0){        const issuesArrValue: ServiceHealthIssueImpl[] = []; this.issues?.forEach(element => {issuesArrValue.push(new ServiceHealthIssueImpl(element));});
-        writer.writeCollectionOfObjectValues<ServiceHealthIssueImpl>("issues", issuesArrValue);
+            writer.writeCollectionOfObjectValues<ServiceHealthIssueImpl>("issues", issuesArrValue);
         }
         if(this.messages && this.messages.length != 0){        const messagesArrValue: ServiceUpdateMessageImpl[] = []; this.messages?.forEach(element => {messagesArrValue.push(new ServiceUpdateMessageImpl(element));});
-        writer.writeCollectionOfObjectValues<ServiceUpdateMessageImpl>("messages", messagesArrValue);
+            writer.writeCollectionOfObjectValues<ServiceUpdateMessageImpl>("messages", messagesArrValue);
         }
     };
 }

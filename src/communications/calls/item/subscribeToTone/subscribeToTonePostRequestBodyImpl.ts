@@ -2,7 +2,7 @@ import {SubscribeToTonePostRequestBody} from './subscribeToTonePostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the subscribeToTone method. */
-export class SubscribeToTonePostRequestBodyImpl implements AdditionalDataHolder, Parsable, SubscribeToTonePostRequestBody {
+export class SubscribeToTonePostRequestBodyImpl implements SubscribeToTonePostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The clientContext property */
@@ -12,8 +12,8 @@ export class SubscribeToTonePostRequestBodyImpl implements AdditionalDataHolder,
      * @param subscribeToTonePostRequestBodyParameterValue 
      */
     public constructor(subscribeToTonePostRequestBodyParameterValue?: SubscribeToTonePostRequestBody | undefined) {
-        this.additionalData = subscribeToTonePostRequestBodyParameterValue?.additionalData ? subscribeToTonePostRequestBodyParameterValue?.additionalData! : {}
-        this.clientContext = subscribeToTonePostRequestBodyParameterValue?.clientContext ;
+        this.additionalData = subscribeToTonePostRequestBodyParameterValue?.additionalData ? subscribeToTonePostRequestBodyParameterValue?.additionalData! : {};
+        this.clientContext = subscribeToTonePostRequestBodyParameterValue?.clientContext;
     };
     /**
      * The deserialization information for the current model
@@ -31,7 +31,7 @@ export class SubscribeToTonePostRequestBodyImpl implements AdditionalDataHolder,
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.clientContext){
-        writer.writeStringValue("clientContext", this.clientContext);
+            writer.writeStringValue("clientContext", this.clientContext);
         }
         writer.writeAdditionalData(this.additionalData);
     };

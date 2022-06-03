@@ -1,21 +1,22 @@
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface GetHistoricalReportPostRequestBody{
+export interface GetHistoricalReportPostRequestBody extends Partial<AdditionalDataHolder>, Partial<Parsable> {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?:Record<string, unknown>;
+    additionalData?: Record<string, unknown>;
     /** The filter property */
-    filter?:string | undefined;
+    filter?: string | undefined;
     /** The groupBy property */
-    groupBy?:string[] | undefined;
+    groupBy?: string[] | undefined;
     /** The name property */
-    name?:string | undefined;
+    name?: string | undefined;
     /** The orderBy property */
-    orderBy?:string[] | undefined;
+    orderBy?: string[] | undefined;
     /** The search property */
-    search?:string | undefined;
+    search?: string | undefined;
     /** The select property */
-    select?:string[] | undefined;
+    select?: string[] | undefined;
     /** The skip property */
-    skip?:number | undefined;
+    skip?: number | undefined;
     /** The top property */
-    top?:number | undefined;
+    top?: number | undefined;
 }

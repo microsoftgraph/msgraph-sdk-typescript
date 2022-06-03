@@ -1,7 +1,7 @@
 import {PublicClientApplication} from './publicClientApplication';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class PublicClientApplicationImpl implements AdditionalDataHolder, Parsable, PublicClientApplication {
+export class PublicClientApplicationImpl implements PublicClientApplication {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Specifies the URLs where user tokens are sent for sign-in, or the redirect URIs where OAuth 2.0 authorization codes and access tokens are sent. */
@@ -11,8 +11,8 @@ export class PublicClientApplicationImpl implements AdditionalDataHolder, Parsab
      * @param publicClientApplicationParameterValue 
      */
     public constructor(publicClientApplicationParameterValue?: PublicClientApplication | undefined) {
-        this.additionalData = publicClientApplicationParameterValue?.additionalData ? publicClientApplicationParameterValue?.additionalData! : {}
-        this.redirectUris = publicClientApplicationParameterValue?.redirectUris ;
+        this.additionalData = publicClientApplicationParameterValue?.additionalData ? publicClientApplicationParameterValue?.additionalData! : {};
+        this.redirectUris = publicClientApplicationParameterValue?.redirectUris;
     };
     /**
      * The deserialization information for the current model
@@ -30,7 +30,7 @@ export class PublicClientApplicationImpl implements AdditionalDataHolder, Parsab
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.redirectUris){
-        writer.writeCollectionOfPrimitiveValues<string>("redirectUris", this.redirectUris);
+            writer.writeCollectionOfPrimitiveValues<string>("redirectUris", this.redirectUris);
         }
         writer.writeAdditionalData(this.additionalData);
     };

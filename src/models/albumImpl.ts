@@ -1,7 +1,7 @@
 import {Album} from './album';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class AlbumImpl implements AdditionalDataHolder, Album, Parsable {
+export class AlbumImpl implements Album {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Unique identifier of the [driveItem][] that is the cover of the album. */
@@ -11,8 +11,8 @@ export class AlbumImpl implements AdditionalDataHolder, Album, Parsable {
      * @param albumParameterValue 
      */
     public constructor(albumParameterValue?: Album | undefined) {
-        this.additionalData = albumParameterValue?.additionalData ? albumParameterValue?.additionalData! : {}
-        this.coverImageItemId = albumParameterValue?.coverImageItemId ;
+        this.additionalData = albumParameterValue?.additionalData ? albumParameterValue?.additionalData! : {};
+        this.coverImageItemId = albumParameterValue?.coverImageItemId;
     };
     /**
      * The deserialization information for the current model
@@ -30,7 +30,7 @@ export class AlbumImpl implements AdditionalDataHolder, Album, Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.coverImageItemId){
-        writer.writeStringValue("coverImageItemId", this.coverImageItemId);
+            writer.writeStringValue("coverImageItemId", this.coverImageItemId);
         }
         writer.writeAdditionalData(this.additionalData);
     };

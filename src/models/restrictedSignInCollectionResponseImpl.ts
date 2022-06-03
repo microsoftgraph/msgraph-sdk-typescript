@@ -4,7 +4,7 @@ import {RestrictedSignIn} from './restrictedSignIn';
 import {RestrictedSignInCollectionResponse} from './restrictedSignInCollectionResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class RestrictedSignInCollectionResponseImpl implements AdditionalDataHolder, Parsable, RestrictedSignInCollectionResponse {
+export class RestrictedSignInCollectionResponseImpl implements RestrictedSignInCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class RestrictedSignInCollectionResponseImpl implements AdditionalDataHol
      * @param restrictedSignInCollectionResponseParameterValue 
      */
     public constructor(restrictedSignInCollectionResponseParameterValue?: RestrictedSignInCollectionResponse | undefined) {
-        this.additionalData = restrictedSignInCollectionResponseParameterValue?.additionalData ? restrictedSignInCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = restrictedSignInCollectionResponseParameterValue?.nextLink ;
-        this.value = restrictedSignInCollectionResponseParameterValue?.value ;
+        this.additionalData = restrictedSignInCollectionResponseParameterValue?.additionalData ? restrictedSignInCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = restrictedSignInCollectionResponseParameterValue?.nextLink;
+        this.value = restrictedSignInCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class RestrictedSignInCollectionResponseImpl implements AdditionalDataHol
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: RestrictedSignInImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new RestrictedSignInImpl(element));});
-        writer.writeCollectionOfObjectValues<RestrictedSignInImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<RestrictedSignInImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

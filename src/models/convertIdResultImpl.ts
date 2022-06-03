@@ -4,7 +4,7 @@ import {GenericError} from './genericError';
 import {GenericErrorImpl} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ConvertIdResultImpl implements AdditionalDataHolder, ConvertIdResult, Parsable {
+export class ConvertIdResultImpl implements ConvertIdResult {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** An error object indicating the reason for the conversion failure. This value is not present if the conversion succeeded. */
@@ -18,10 +18,10 @@ export class ConvertIdResultImpl implements AdditionalDataHolder, ConvertIdResul
      * @param convertIdResultParameterValue 
      */
     public constructor(convertIdResultParameterValue?: ConvertIdResult | undefined) {
-        this.additionalData = convertIdResultParameterValue?.additionalData ? convertIdResultParameterValue?.additionalData! : {}
-        this.errorDetails = convertIdResultParameterValue?.errorDetails ;
-        this.sourceId = convertIdResultParameterValue?.sourceId ;
-        this.targetId = convertIdResultParameterValue?.targetId ;
+        this.additionalData = convertIdResultParameterValue?.additionalData ? convertIdResultParameterValue?.additionalData! : {};
+        this.errorDetails = convertIdResultParameterValue?.errorDetails;
+        this.sourceId = convertIdResultParameterValue?.sourceId;
+        this.targetId = convertIdResultParameterValue?.targetId;
     };
     /**
      * The deserialization information for the current model
@@ -41,13 +41,13 @@ export class ConvertIdResultImpl implements AdditionalDataHolder, ConvertIdResul
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.errorDetails){
-        writer.writeObjectValue<GenericErrorImpl>("errorDetails", new GenericErrorImpl(this.errorDetails));
+            writer.writeObjectValue<GenericErrorImpl>("errorDetails", new GenericErrorImpl(this.errorDetails));
         }
         if(this.sourceId){
-        writer.writeStringValue("sourceId", this.sourceId);
+            writer.writeStringValue("sourceId", this.sourceId);
         }
         if(this.targetId){
-        writer.writeStringValue("targetId", this.targetId);
+            writer.writeStringValue("targetId", this.targetId);
         }
         writer.writeAdditionalData(this.additionalData);
     };

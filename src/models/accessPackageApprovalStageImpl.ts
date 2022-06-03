@@ -4,7 +4,7 @@ import {SubjectSetImpl} from './index';
 import {SubjectSet} from './subjectSet';
 import {AdditionalDataHolder, Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class AccessPackageApprovalStageImpl implements AccessPackageApprovalStage, AdditionalDataHolder, Parsable {
+export class AccessPackageApprovalStageImpl implements AccessPackageApprovalStage {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The number of days that a request can be pending a response before it is automatically denied. */
@@ -28,15 +28,15 @@ export class AccessPackageApprovalStageImpl implements AccessPackageApprovalStag
      * @param accessPackageApprovalStageParameterValue 
      */
     public constructor(accessPackageApprovalStageParameterValue?: AccessPackageApprovalStage | undefined) {
-        this.additionalData = accessPackageApprovalStageParameterValue?.additionalData ? accessPackageApprovalStageParameterValue?.additionalData! : {}
-        this.durationBeforeAutomaticDenial = accessPackageApprovalStageParameterValue?.durationBeforeAutomaticDenial ;
-        this.durationBeforeEscalation = accessPackageApprovalStageParameterValue?.durationBeforeEscalation ;
-        this.escalationApprovers = accessPackageApprovalStageParameterValue?.escalationApprovers ;
-        this.fallbackEscalationApprovers = accessPackageApprovalStageParameterValue?.fallbackEscalationApprovers ;
-        this.fallbackPrimaryApprovers = accessPackageApprovalStageParameterValue?.fallbackPrimaryApprovers ;
-        this.isApproverJustificationRequired = accessPackageApprovalStageParameterValue?.isApproverJustificationRequired ;
-        this.isEscalationEnabled = accessPackageApprovalStageParameterValue?.isEscalationEnabled ;
-        this.primaryApprovers = accessPackageApprovalStageParameterValue?.primaryApprovers ;
+        this.additionalData = accessPackageApprovalStageParameterValue?.additionalData ? accessPackageApprovalStageParameterValue?.additionalData! : {};
+        this.durationBeforeAutomaticDenial = accessPackageApprovalStageParameterValue?.durationBeforeAutomaticDenial;
+        this.durationBeforeEscalation = accessPackageApprovalStageParameterValue?.durationBeforeEscalation;
+        this.escalationApprovers = accessPackageApprovalStageParameterValue?.escalationApprovers;
+        this.fallbackEscalationApprovers = accessPackageApprovalStageParameterValue?.fallbackEscalationApprovers;
+        this.fallbackPrimaryApprovers = accessPackageApprovalStageParameterValue?.fallbackPrimaryApprovers;
+        this.isApproverJustificationRequired = accessPackageApprovalStageParameterValue?.isApproverJustificationRequired;
+        this.isEscalationEnabled = accessPackageApprovalStageParameterValue?.isEscalationEnabled;
+        this.primaryApprovers = accessPackageApprovalStageParameterValue?.primaryApprovers;
     };
     /**
      * The deserialization information for the current model
@@ -61,28 +61,28 @@ export class AccessPackageApprovalStageImpl implements AccessPackageApprovalStag
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.durationBeforeAutomaticDenial){
-        writer.writeDurationValue("durationBeforeAutomaticDenial", this.durationBeforeAutomaticDenial);
+            writer.writeDurationValue("durationBeforeAutomaticDenial", this.durationBeforeAutomaticDenial);
         }
         if(this.durationBeforeEscalation){
-        writer.writeDurationValue("durationBeforeEscalation", this.durationBeforeEscalation);
+            writer.writeDurationValue("durationBeforeEscalation", this.durationBeforeEscalation);
         }
         if(this.escalationApprovers && this.escalationApprovers.length != 0){        const escalationApproversArrValue: SubjectSetImpl[] = []; this.escalationApprovers?.forEach(element => {escalationApproversArrValue.push(new SubjectSetImpl(element));});
-        writer.writeCollectionOfObjectValues<SubjectSetImpl>("escalationApprovers", escalationApproversArrValue);
+            writer.writeCollectionOfObjectValues<SubjectSetImpl>("escalationApprovers", escalationApproversArrValue);
         }
         if(this.fallbackEscalationApprovers && this.fallbackEscalationApprovers.length != 0){        const fallbackEscalationApproversArrValue: SubjectSetImpl[] = []; this.fallbackEscalationApprovers?.forEach(element => {fallbackEscalationApproversArrValue.push(new SubjectSetImpl(element));});
-        writer.writeCollectionOfObjectValues<SubjectSetImpl>("fallbackEscalationApprovers", fallbackEscalationApproversArrValue);
+            writer.writeCollectionOfObjectValues<SubjectSetImpl>("fallbackEscalationApprovers", fallbackEscalationApproversArrValue);
         }
         if(this.fallbackPrimaryApprovers && this.fallbackPrimaryApprovers.length != 0){        const fallbackPrimaryApproversArrValue: SubjectSetImpl[] = []; this.fallbackPrimaryApprovers?.forEach(element => {fallbackPrimaryApproversArrValue.push(new SubjectSetImpl(element));});
-        writer.writeCollectionOfObjectValues<SubjectSetImpl>("fallbackPrimaryApprovers", fallbackPrimaryApproversArrValue);
+            writer.writeCollectionOfObjectValues<SubjectSetImpl>("fallbackPrimaryApprovers", fallbackPrimaryApproversArrValue);
         }
         if(this.isApproverJustificationRequired){
-        writer.writeBooleanValue("isApproverJustificationRequired", this.isApproverJustificationRequired);
+            writer.writeBooleanValue("isApproverJustificationRequired", this.isApproverJustificationRequired);
         }
         if(this.isEscalationEnabled){
-        writer.writeBooleanValue("isEscalationEnabled", this.isEscalationEnabled);
+            writer.writeBooleanValue("isEscalationEnabled", this.isEscalationEnabled);
         }
         if(this.primaryApprovers && this.primaryApprovers.length != 0){        const primaryApproversArrValue: SubjectSetImpl[] = []; this.primaryApprovers?.forEach(element => {primaryApproversArrValue.push(new SubjectSetImpl(element));});
-        writer.writeCollectionOfObjectValues<SubjectSetImpl>("primaryApprovers", primaryApproversArrValue);
+            writer.writeCollectionOfObjectValues<SubjectSetImpl>("primaryApprovers", primaryApproversArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

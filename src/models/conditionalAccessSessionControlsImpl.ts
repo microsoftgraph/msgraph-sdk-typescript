@@ -10,7 +10,7 @@ import {PersistentBrowserSessionControl} from './persistentBrowserSessionControl
 import {SignInFrequencySessionControl} from './signInFrequencySessionControl';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ConditionalAccessSessionControlsImpl implements AdditionalDataHolder, ConditionalAccessSessionControls, Parsable {
+export class ConditionalAccessSessionControlsImpl implements ConditionalAccessSessionControls {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Session control to enforce application restrictions. Only Exchange Online and Sharepoint Online support this session control. */
@@ -28,12 +28,12 @@ export class ConditionalAccessSessionControlsImpl implements AdditionalDataHolde
      * @param conditionalAccessSessionControlsParameterValue 
      */
     public constructor(conditionalAccessSessionControlsParameterValue?: ConditionalAccessSessionControls | undefined) {
-        this.additionalData = conditionalAccessSessionControlsParameterValue?.additionalData ? conditionalAccessSessionControlsParameterValue?.additionalData! : {}
-        this.applicationEnforcedRestrictions = conditionalAccessSessionControlsParameterValue?.applicationEnforcedRestrictions ;
-        this.cloudAppSecurity = conditionalAccessSessionControlsParameterValue?.cloudAppSecurity ;
-        this.disableResilienceDefaults = conditionalAccessSessionControlsParameterValue?.disableResilienceDefaults ;
-        this.persistentBrowser = conditionalAccessSessionControlsParameterValue?.persistentBrowser ;
-        this.signInFrequency = conditionalAccessSessionControlsParameterValue?.signInFrequency ;
+        this.additionalData = conditionalAccessSessionControlsParameterValue?.additionalData ? conditionalAccessSessionControlsParameterValue?.additionalData! : {};
+        this.applicationEnforcedRestrictions = conditionalAccessSessionControlsParameterValue?.applicationEnforcedRestrictions;
+        this.cloudAppSecurity = conditionalAccessSessionControlsParameterValue?.cloudAppSecurity;
+        this.disableResilienceDefaults = conditionalAccessSessionControlsParameterValue?.disableResilienceDefaults;
+        this.persistentBrowser = conditionalAccessSessionControlsParameterValue?.persistentBrowser;
+        this.signInFrequency = conditionalAccessSessionControlsParameterValue?.signInFrequency;
     };
     /**
      * The deserialization information for the current model
@@ -55,19 +55,19 @@ export class ConditionalAccessSessionControlsImpl implements AdditionalDataHolde
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.applicationEnforcedRestrictions){
-        writer.writeObjectValue<ApplicationEnforcedRestrictionsSessionControlImpl>("applicationEnforcedRestrictions", new ApplicationEnforcedRestrictionsSessionControlImpl(this.applicationEnforcedRestrictions));
+            writer.writeObjectValue<ApplicationEnforcedRestrictionsSessionControlImpl>("applicationEnforcedRestrictions", new ApplicationEnforcedRestrictionsSessionControlImpl(this.applicationEnforcedRestrictions));
         }
         if(this.cloudAppSecurity){
-        writer.writeObjectValue<CloudAppSecuritySessionControlImpl>("cloudAppSecurity", new CloudAppSecuritySessionControlImpl(this.cloudAppSecurity));
+            writer.writeObjectValue<CloudAppSecuritySessionControlImpl>("cloudAppSecurity", new CloudAppSecuritySessionControlImpl(this.cloudAppSecurity));
         }
         if(this.disableResilienceDefaults){
-        writer.writeBooleanValue("disableResilienceDefaults", this.disableResilienceDefaults);
+            writer.writeBooleanValue("disableResilienceDefaults", this.disableResilienceDefaults);
         }
         if(this.persistentBrowser){
-        writer.writeObjectValue<PersistentBrowserSessionControlImpl>("persistentBrowser", new PersistentBrowserSessionControlImpl(this.persistentBrowser));
+            writer.writeObjectValue<PersistentBrowserSessionControlImpl>("persistentBrowser", new PersistentBrowserSessionControlImpl(this.persistentBrowser));
         }
         if(this.signInFrequency){
-        writer.writeObjectValue<SignInFrequencySessionControlImpl>("signInFrequency", new SignInFrequencySessionControlImpl(this.signInFrequency));
+            writer.writeObjectValue<SignInFrequencySessionControlImpl>("signInFrequency", new SignInFrequencySessionControlImpl(this.signInFrequency));
         }
         writer.writeAdditionalData(this.additionalData);
     };

@@ -4,7 +4,7 @@ import {createAppRoleAssignmentFromDiscriminatorValue} from './createAppRoleAssi
 import {AppRoleAssignmentImpl} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class AppRoleAssignmentCollectionResponseImpl implements AdditionalDataHolder, AppRoleAssignmentCollectionResponse, Parsable {
+export class AppRoleAssignmentCollectionResponseImpl implements AppRoleAssignmentCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class AppRoleAssignmentCollectionResponseImpl implements AdditionalDataHo
      * @param appRoleAssignmentCollectionResponseParameterValue 
      */
     public constructor(appRoleAssignmentCollectionResponseParameterValue?: AppRoleAssignmentCollectionResponse | undefined) {
-        this.additionalData = appRoleAssignmentCollectionResponseParameterValue?.additionalData ? appRoleAssignmentCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = appRoleAssignmentCollectionResponseParameterValue?.nextLink ;
-        this.value = appRoleAssignmentCollectionResponseParameterValue?.value ;
+        this.additionalData = appRoleAssignmentCollectionResponseParameterValue?.additionalData ? appRoleAssignmentCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = appRoleAssignmentCollectionResponseParameterValue?.nextLink;
+        this.value = appRoleAssignmentCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class AppRoleAssignmentCollectionResponseImpl implements AdditionalDataHo
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: AppRoleAssignmentImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new AppRoleAssignmentImpl(element));});
-        writer.writeCollectionOfObjectValues<AppRoleAssignmentImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<AppRoleAssignmentImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

@@ -4,7 +4,7 @@ import {ExternalConnectionCollectionResponse} from './externalConnectionCollecti
 import {ExternalConnectionImpl} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ExternalConnectionCollectionResponseImpl implements AdditionalDataHolder, ExternalConnectionCollectionResponse, Parsable {
+export class ExternalConnectionCollectionResponseImpl implements ExternalConnectionCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class ExternalConnectionCollectionResponseImpl implements AdditionalDataH
      * @param externalConnectionCollectionResponseParameterValue 
      */
     public constructor(externalConnectionCollectionResponseParameterValue?: ExternalConnectionCollectionResponse | undefined) {
-        this.additionalData = externalConnectionCollectionResponseParameterValue?.additionalData ? externalConnectionCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = externalConnectionCollectionResponseParameterValue?.nextLink ;
-        this.value = externalConnectionCollectionResponseParameterValue?.value ;
+        this.additionalData = externalConnectionCollectionResponseParameterValue?.additionalData ? externalConnectionCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = externalConnectionCollectionResponseParameterValue?.nextLink;
+        this.value = externalConnectionCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class ExternalConnectionCollectionResponseImpl implements AdditionalDataH
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: ExternalConnectionImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ExternalConnectionImpl(element));});
-        writer.writeCollectionOfObjectValues<ExternalConnectionImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<ExternalConnectionImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

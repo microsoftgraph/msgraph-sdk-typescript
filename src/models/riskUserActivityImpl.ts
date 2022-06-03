@@ -2,7 +2,7 @@ import {RiskDetail} from './riskDetail';
 import {RiskUserActivity} from './riskUserActivity';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class RiskUserActivityImpl implements AdditionalDataHolder, Parsable, RiskUserActivity {
+export class RiskUserActivityImpl implements RiskUserActivity {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The possible values are none, adminGeneratedTemporaryPassword, userPerformedSecuredPasswordChange, userPerformedSecuredPasswordReset, adminConfirmedSigninSafe, aiConfirmedSigninSafe, userPassedMFADrivenByRiskBasedPolicy, adminDismissedAllRiskForUser, adminConfirmedSigninCompromised, hidden, adminConfirmedUserCompromised, unknownFutureValue. */
@@ -14,9 +14,9 @@ export class RiskUserActivityImpl implements AdditionalDataHolder, Parsable, Ris
      * @param riskUserActivityParameterValue 
      */
     public constructor(riskUserActivityParameterValue?: RiskUserActivity | undefined) {
-        this.additionalData = riskUserActivityParameterValue?.additionalData ? riskUserActivityParameterValue?.additionalData! : {}
-        this.detail = riskUserActivityParameterValue?.detail ;
-        this.riskEventTypes = riskUserActivityParameterValue?.riskEventTypes ;
+        this.additionalData = riskUserActivityParameterValue?.additionalData ? riskUserActivityParameterValue?.additionalData! : {};
+        this.detail = riskUserActivityParameterValue?.detail;
+        this.riskEventTypes = riskUserActivityParameterValue?.riskEventTypes;
     };
     /**
      * The deserialization information for the current model
@@ -35,10 +35,10 @@ export class RiskUserActivityImpl implements AdditionalDataHolder, Parsable, Ris
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.detail){
-        writer.writeEnumValue<RiskDetail>("detail", this.detail);
+            writer.writeEnumValue<RiskDetail>("detail", this.detail);
         }
         if(this.riskEventTypes){
-        writer.writeCollectionOfPrimitiveValues<string>("riskEventTypes", this.riskEventTypes);
+            writer.writeCollectionOfPrimitiveValues<string>("riskEventTypes", this.riskEventTypes);
         }
         writer.writeAdditionalData(this.additionalData);
     };

@@ -5,7 +5,7 @@ import {UserTeamwork} from './userTeamwork';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Casts the previous resource to user. */
-export class UserTeamworkImpl extends EntityImpl implements Parsable, UserTeamwork {
+export class UserTeamworkImpl extends EntityImpl implements UserTeamwork {
     /** The apps installed in the personal scope of this user. */
     public installedApps?: UserScopeTeamsAppInstallation[] | undefined;
     /**
@@ -13,8 +13,8 @@ export class UserTeamworkImpl extends EntityImpl implements Parsable, UserTeamwo
      * @param userTeamworkParameterValue 
      */
     public constructor(userTeamworkParameterValue?: UserTeamwork | undefined) {
-        super();
-        this.installedApps = userTeamworkParameterValue?.installedApps ;
+        super(userTeamworkParameterValue);
+        this.installedApps = userTeamworkParameterValue?.installedApps;
     };
     /**
      * The deserialization information for the current model
@@ -33,7 +33,7 @@ export class UserTeamworkImpl extends EntityImpl implements Parsable, UserTeamwo
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.installedApps && this.installedApps.length != 0){        const installedAppsArrValue: UserScopeTeamsAppInstallationImpl[] = []; this.installedApps?.forEach(element => {installedAppsArrValue.push(new UserScopeTeamsAppInstallationImpl(element));});
-        writer.writeCollectionOfObjectValues<UserScopeTeamsAppInstallationImpl>("installedApps", installedAppsArrValue);
+            writer.writeCollectionOfObjectValues<UserScopeTeamsAppInstallationImpl>("installedApps", installedAppsArrValue);
         }
     };
 }

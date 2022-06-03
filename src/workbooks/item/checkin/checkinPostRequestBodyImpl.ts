@@ -2,7 +2,7 @@ import {CheckinPostRequestBody} from './checkinPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the checkin method. */
-export class CheckinPostRequestBodyImpl implements AdditionalDataHolder, CheckinPostRequestBody, Parsable {
+export class CheckinPostRequestBodyImpl implements CheckinPostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The checkInAs property */
@@ -14,9 +14,9 @@ export class CheckinPostRequestBodyImpl implements AdditionalDataHolder, Checkin
      * @param checkinPostRequestBodyParameterValue 
      */
     public constructor(checkinPostRequestBodyParameterValue?: CheckinPostRequestBody | undefined) {
-        this.additionalData = checkinPostRequestBodyParameterValue?.additionalData ? checkinPostRequestBodyParameterValue?.additionalData! : {}
-        this.checkInAs = checkinPostRequestBodyParameterValue?.checkInAs ;
-        this.comment = checkinPostRequestBodyParameterValue?.comment ;
+        this.additionalData = checkinPostRequestBodyParameterValue?.additionalData ? checkinPostRequestBodyParameterValue?.additionalData! : {};
+        this.checkInAs = checkinPostRequestBodyParameterValue?.checkInAs;
+        this.comment = checkinPostRequestBodyParameterValue?.comment;
     };
     /**
      * The deserialization information for the current model
@@ -35,10 +35,10 @@ export class CheckinPostRequestBodyImpl implements AdditionalDataHolder, Checkin
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.checkInAs){
-        writer.writeStringValue("checkInAs", this.checkInAs);
+            writer.writeStringValue("checkInAs", this.checkInAs);
         }
         if(this.comment){
-        writer.writeStringValue("comment", this.comment);
+            writer.writeStringValue("comment", this.comment);
         }
         writer.writeAdditionalData(this.additionalData);
     };

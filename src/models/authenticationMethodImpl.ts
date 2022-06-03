@@ -3,13 +3,13 @@ import {EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Casts the previous resource to user. */
-export class AuthenticationMethodImpl extends EntityImpl implements AuthenticationMethod, Parsable {
+export class AuthenticationMethodImpl extends EntityImpl implements AuthenticationMethod {
     /**
      * Instantiates a new authenticationMethod and sets the default values.
      * @param authenticationMethodParameterValue 
      */
     public constructor(authenticationMethodParameterValue?: AuthenticationMethod | undefined) {
-        super();
+        super(authenticationMethodParameterValue);
     };
     /**
      * The deserialization information for the current model

@@ -11,7 +11,7 @@ import {Recipient} from './recipient';
 import {RecipientScopeType} from './recipientScopeType';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class MailTipsImpl implements AdditionalDataHolder, MailTips, Parsable {
+export class MailTipsImpl implements MailTips {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Mail tips for automatic reply if it has been set up by the recipient. */
@@ -43,19 +43,19 @@ export class MailTipsImpl implements AdditionalDataHolder, MailTips, Parsable {
      * @param mailTipsParameterValue 
      */
     public constructor(mailTipsParameterValue?: MailTips | undefined) {
-        this.additionalData = mailTipsParameterValue?.additionalData ? mailTipsParameterValue?.additionalData! : {}
-        this.automaticReplies = mailTipsParameterValue?.automaticReplies ;
-        this.customMailTip = mailTipsParameterValue?.customMailTip ;
-        this.deliveryRestricted = mailTipsParameterValue?.deliveryRestricted ;
-        this.emailAddress = mailTipsParameterValue?.emailAddress ;
-        this.error_escaped = mailTipsParameterValue?.error_escaped ;
-        this.externalMemberCount = mailTipsParameterValue?.externalMemberCount ;
-        this.isModerated = mailTipsParameterValue?.isModerated ;
-        this.mailboxFull = mailTipsParameterValue?.mailboxFull ;
-        this.maxMessageSize = mailTipsParameterValue?.maxMessageSize ;
-        this.recipientScope = mailTipsParameterValue?.recipientScope ;
-        this.recipientSuggestions = mailTipsParameterValue?.recipientSuggestions ;
-        this.totalMemberCount = mailTipsParameterValue?.totalMemberCount ;
+        this.additionalData = mailTipsParameterValue?.additionalData ? mailTipsParameterValue?.additionalData! : {};
+        this.automaticReplies = mailTipsParameterValue?.automaticReplies;
+        this.customMailTip = mailTipsParameterValue?.customMailTip;
+        this.deliveryRestricted = mailTipsParameterValue?.deliveryRestricted;
+        this.emailAddress = mailTipsParameterValue?.emailAddress;
+        this.error_escaped = mailTipsParameterValue?.error_escaped;
+        this.externalMemberCount = mailTipsParameterValue?.externalMemberCount;
+        this.isModerated = mailTipsParameterValue?.isModerated;
+        this.mailboxFull = mailTipsParameterValue?.mailboxFull;
+        this.maxMessageSize = mailTipsParameterValue?.maxMessageSize;
+        this.recipientScope = mailTipsParameterValue?.recipientScope;
+        this.recipientSuggestions = mailTipsParameterValue?.recipientSuggestions;
+        this.totalMemberCount = mailTipsParameterValue?.totalMemberCount;
     };
     /**
      * The deserialization information for the current model
@@ -84,40 +84,40 @@ export class MailTipsImpl implements AdditionalDataHolder, MailTips, Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.automaticReplies){
-        writer.writeObjectValue<AutomaticRepliesMailTipsImpl>("automaticReplies", new AutomaticRepliesMailTipsImpl(this.automaticReplies));
+            writer.writeObjectValue<AutomaticRepliesMailTipsImpl>("automaticReplies", new AutomaticRepliesMailTipsImpl(this.automaticReplies));
         }
         if(this.customMailTip){
-        writer.writeStringValue("customMailTip", this.customMailTip);
+            writer.writeStringValue("customMailTip", this.customMailTip);
         }
         if(this.deliveryRestricted){
-        writer.writeBooleanValue("deliveryRestricted", this.deliveryRestricted);
+            writer.writeBooleanValue("deliveryRestricted", this.deliveryRestricted);
         }
         if(this.emailAddress){
-        writer.writeObjectValue<EmailAddressImpl>("emailAddress", new EmailAddressImpl(this.emailAddress));
+            writer.writeObjectValue<EmailAddressImpl>("emailAddress", new EmailAddressImpl(this.emailAddress));
         }
         if(this.error_escaped){
-        writer.writeObjectValue<MailTipsErrorImpl>("error", new MailTipsErrorImpl(this.error_escaped));
+            writer.writeObjectValue<MailTipsErrorImpl>("error", new MailTipsErrorImpl(this.error_escaped));
         }
         if(this.externalMemberCount){
-        writer.writeNumberValue("externalMemberCount", this.externalMemberCount);
+            writer.writeNumberValue("externalMemberCount", this.externalMemberCount);
         }
         if(this.isModerated){
-        writer.writeBooleanValue("isModerated", this.isModerated);
+            writer.writeBooleanValue("isModerated", this.isModerated);
         }
         if(this.mailboxFull){
-        writer.writeBooleanValue("mailboxFull", this.mailboxFull);
+            writer.writeBooleanValue("mailboxFull", this.mailboxFull);
         }
         if(this.maxMessageSize){
-        writer.writeNumberValue("maxMessageSize", this.maxMessageSize);
+            writer.writeNumberValue("maxMessageSize", this.maxMessageSize);
         }
         if(this.recipientScope){
-        writer.writeEnumValue<RecipientScopeType>("recipientScope", this.recipientScope);
+            writer.writeEnumValue<RecipientScopeType>("recipientScope", this.recipientScope);
         }
         if(this.recipientSuggestions && this.recipientSuggestions.length != 0){        const recipientSuggestionsArrValue: RecipientImpl[] = []; this.recipientSuggestions?.forEach(element => {recipientSuggestionsArrValue.push(new RecipientImpl(element));});
-        writer.writeCollectionOfObjectValues<RecipientImpl>("recipientSuggestions", recipientSuggestionsArrValue);
+            writer.writeCollectionOfObjectValues<RecipientImpl>("recipientSuggestions", recipientSuggestionsArrValue);
         }
         if(this.totalMemberCount){
-        writer.writeNumberValue("totalMemberCount", this.totalMemberCount);
+            writer.writeNumberValue("totalMemberCount", this.totalMemberCount);
         }
         writer.writeAdditionalData(this.additionalData);
     };

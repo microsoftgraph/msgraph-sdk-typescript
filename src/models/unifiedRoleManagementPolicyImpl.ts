@@ -7,7 +7,7 @@ import {UnifiedRoleManagementPolicyRule} from './unifiedRoleManagementPolicyRule
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the policyRoot singleton. */
-export class UnifiedRoleManagementPolicyImpl extends EntityImpl implements Parsable, UnifiedRoleManagementPolicy {
+export class UnifiedRoleManagementPolicyImpl extends EntityImpl implements UnifiedRoleManagementPolicy {
     /** Description for the policy. */
     public description?: string | undefined;
     /** Display name for the policy. */
@@ -31,16 +31,16 @@ export class UnifiedRoleManagementPolicyImpl extends EntityImpl implements Parsa
      * @param unifiedRoleManagementPolicyParameterValue 
      */
     public constructor(unifiedRoleManagementPolicyParameterValue?: UnifiedRoleManagementPolicy | undefined) {
-        super();
-        this.description = unifiedRoleManagementPolicyParameterValue?.description ;
-        this.displayName = unifiedRoleManagementPolicyParameterValue?.displayName ;
-        this.effectiveRules = unifiedRoleManagementPolicyParameterValue?.effectiveRules ;
-        this.isOrganizationDefault = unifiedRoleManagementPolicyParameterValue?.isOrganizationDefault ;
-        this.lastModifiedBy = unifiedRoleManagementPolicyParameterValue?.lastModifiedBy ;
-        this.lastModifiedDateTime = unifiedRoleManagementPolicyParameterValue?.lastModifiedDateTime ;
-        this.rules = unifiedRoleManagementPolicyParameterValue?.rules ;
-        this.scopeId = unifiedRoleManagementPolicyParameterValue?.scopeId ;
-        this.scopeType = unifiedRoleManagementPolicyParameterValue?.scopeType ;
+        super(unifiedRoleManagementPolicyParameterValue);
+        this.description = unifiedRoleManagementPolicyParameterValue?.description;
+        this.displayName = unifiedRoleManagementPolicyParameterValue?.displayName;
+        this.effectiveRules = unifiedRoleManagementPolicyParameterValue?.effectiveRules;
+        this.isOrganizationDefault = unifiedRoleManagementPolicyParameterValue?.isOrganizationDefault;
+        this.lastModifiedBy = unifiedRoleManagementPolicyParameterValue?.lastModifiedBy;
+        this.lastModifiedDateTime = unifiedRoleManagementPolicyParameterValue?.lastModifiedDateTime;
+        this.rules = unifiedRoleManagementPolicyParameterValue?.rules;
+        this.scopeId = unifiedRoleManagementPolicyParameterValue?.scopeId;
+        this.scopeType = unifiedRoleManagementPolicyParameterValue?.scopeType;
     };
     /**
      * The deserialization information for the current model
@@ -67,31 +67,31 @@ export class UnifiedRoleManagementPolicyImpl extends EntityImpl implements Parsa
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.description){
-        writer.writeStringValue("description", this.description);
+            writer.writeStringValue("description", this.description);
         }
         if(this.displayName){
-        writer.writeStringValue("displayName", this.displayName);
+            writer.writeStringValue("displayName", this.displayName);
         }
         if(this.effectiveRules && this.effectiveRules.length != 0){        const effectiveRulesArrValue: UnifiedRoleManagementPolicyRuleImpl[] = []; this.effectiveRules?.forEach(element => {effectiveRulesArrValue.push(new UnifiedRoleManagementPolicyRuleImpl(element));});
-        writer.writeCollectionOfObjectValues<UnifiedRoleManagementPolicyRuleImpl>("effectiveRules", effectiveRulesArrValue);
+            writer.writeCollectionOfObjectValues<UnifiedRoleManagementPolicyRuleImpl>("effectiveRules", effectiveRulesArrValue);
         }
         if(this.isOrganizationDefault){
-        writer.writeBooleanValue("isOrganizationDefault", this.isOrganizationDefault);
+            writer.writeBooleanValue("isOrganizationDefault", this.isOrganizationDefault);
         }
         if(this.lastModifiedBy){
-        writer.writeObjectValue<IdentityImpl>("lastModifiedBy", new IdentityImpl(this.lastModifiedBy));
+            writer.writeObjectValue<IdentityImpl>("lastModifiedBy", new IdentityImpl(this.lastModifiedBy));
         }
         if(this.lastModifiedDateTime){
-        writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
+            writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
         }
         if(this.rules && this.rules.length != 0){        const rulesArrValue: UnifiedRoleManagementPolicyRuleImpl[] = []; this.rules?.forEach(element => {rulesArrValue.push(new UnifiedRoleManagementPolicyRuleImpl(element));});
-        writer.writeCollectionOfObjectValues<UnifiedRoleManagementPolicyRuleImpl>("rules", rulesArrValue);
+            writer.writeCollectionOfObjectValues<UnifiedRoleManagementPolicyRuleImpl>("rules", rulesArrValue);
         }
         if(this.scopeId){
-        writer.writeStringValue("scopeId", this.scopeId);
+            writer.writeStringValue("scopeId", this.scopeId);
         }
         if(this.scopeType){
-        writer.writeStringValue("scopeType", this.scopeType);
+            writer.writeStringValue("scopeType", this.scopeType);
         }
     };
 }

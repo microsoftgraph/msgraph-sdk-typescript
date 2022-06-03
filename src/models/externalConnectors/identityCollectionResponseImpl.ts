@@ -4,7 +4,7 @@ import {IdentityCollectionResponse} from './identityCollectionResponse';
 import {IdentityImpl} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class IdentityCollectionResponseImpl implements AdditionalDataHolder, IdentityCollectionResponse, Parsable {
+export class IdentityCollectionResponseImpl implements IdentityCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class IdentityCollectionResponseImpl implements AdditionalDataHolder, Ide
      * @param identityCollectionResponseParameterValue 
      */
     public constructor(identityCollectionResponseParameterValue?: IdentityCollectionResponse | undefined) {
-        this.additionalData = identityCollectionResponseParameterValue?.additionalData ? identityCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = identityCollectionResponseParameterValue?.nextLink ;
-        this.value = identityCollectionResponseParameterValue?.value ;
+        this.additionalData = identityCollectionResponseParameterValue?.additionalData ? identityCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = identityCollectionResponseParameterValue?.nextLink;
+        this.value = identityCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class IdentityCollectionResponseImpl implements AdditionalDataHolder, Ide
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: IdentityImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new IdentityImpl(element));});
-        writer.writeCollectionOfObjectValues<IdentityImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<IdentityImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

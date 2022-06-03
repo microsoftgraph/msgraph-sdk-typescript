@@ -2,7 +2,7 @@ import {AppliedConditionalAccessPolicy} from './appliedConditionalAccessPolicy';
 import {AppliedConditionalAccessPolicyResult} from './appliedConditionalAccessPolicyResult';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class AppliedConditionalAccessPolicyImpl implements AdditionalDataHolder, AppliedConditionalAccessPolicy, Parsable {
+export class AppliedConditionalAccessPolicyImpl implements AppliedConditionalAccessPolicy {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Name of the conditional access policy. */
@@ -20,12 +20,12 @@ export class AppliedConditionalAccessPolicyImpl implements AdditionalDataHolder,
      * @param appliedConditionalAccessPolicyParameterValue 
      */
     public constructor(appliedConditionalAccessPolicyParameterValue?: AppliedConditionalAccessPolicy | undefined) {
-        this.additionalData = appliedConditionalAccessPolicyParameterValue?.additionalData ? appliedConditionalAccessPolicyParameterValue?.additionalData! : {}
-        this.displayName = appliedConditionalAccessPolicyParameterValue?.displayName ;
-        this.enforcedGrantControls = appliedConditionalAccessPolicyParameterValue?.enforcedGrantControls ;
-        this.enforcedSessionControls = appliedConditionalAccessPolicyParameterValue?.enforcedSessionControls ;
-        this.id = appliedConditionalAccessPolicyParameterValue?.id ;
-        this.result = appliedConditionalAccessPolicyParameterValue?.result ;
+        this.additionalData = appliedConditionalAccessPolicyParameterValue?.additionalData ? appliedConditionalAccessPolicyParameterValue?.additionalData! : {};
+        this.displayName = appliedConditionalAccessPolicyParameterValue?.displayName;
+        this.enforcedGrantControls = appliedConditionalAccessPolicyParameterValue?.enforcedGrantControls;
+        this.enforcedSessionControls = appliedConditionalAccessPolicyParameterValue?.enforcedSessionControls;
+        this.id = appliedConditionalAccessPolicyParameterValue?.id;
+        this.result = appliedConditionalAccessPolicyParameterValue?.result;
     };
     /**
      * The deserialization information for the current model
@@ -47,19 +47,19 @@ export class AppliedConditionalAccessPolicyImpl implements AdditionalDataHolder,
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.displayName){
-        writer.writeStringValue("displayName", this.displayName);
+            writer.writeStringValue("displayName", this.displayName);
         }
         if(this.enforcedGrantControls){
-        writer.writeCollectionOfPrimitiveValues<string>("enforcedGrantControls", this.enforcedGrantControls);
+            writer.writeCollectionOfPrimitiveValues<string>("enforcedGrantControls", this.enforcedGrantControls);
         }
         if(this.enforcedSessionControls){
-        writer.writeCollectionOfPrimitiveValues<string>("enforcedSessionControls", this.enforcedSessionControls);
+            writer.writeCollectionOfPrimitiveValues<string>("enforcedSessionControls", this.enforcedSessionControls);
         }
         if(this.id){
-        writer.writeStringValue("id", this.id);
+            writer.writeStringValue("id", this.id);
         }
         if(this.result){
-        writer.writeEnumValue<AppliedConditionalAccessPolicyResult>("result", this.result);
+            writer.writeEnumValue<AppliedConditionalAccessPolicyResult>("result", this.result);
         }
         writer.writeAdditionalData(this.additionalData);
     };

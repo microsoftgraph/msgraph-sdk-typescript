@@ -4,7 +4,7 @@ import {OnlineMeetingInfo} from './onlineMeetingInfo';
 import {Phone} from './phone';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class OnlineMeetingInfoImpl implements AdditionalDataHolder, OnlineMeetingInfo, Parsable {
+export class OnlineMeetingInfoImpl implements OnlineMeetingInfo {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The ID of the conference. */
@@ -24,13 +24,13 @@ export class OnlineMeetingInfoImpl implements AdditionalDataHolder, OnlineMeetin
      * @param onlineMeetingInfoParameterValue 
      */
     public constructor(onlineMeetingInfoParameterValue?: OnlineMeetingInfo | undefined) {
-        this.additionalData = onlineMeetingInfoParameterValue?.additionalData ? onlineMeetingInfoParameterValue?.additionalData! : {}
-        this.conferenceId = onlineMeetingInfoParameterValue?.conferenceId ;
-        this.joinUrl = onlineMeetingInfoParameterValue?.joinUrl ;
-        this.phones = onlineMeetingInfoParameterValue?.phones ;
-        this.quickDial = onlineMeetingInfoParameterValue?.quickDial ;
-        this.tollFreeNumbers = onlineMeetingInfoParameterValue?.tollFreeNumbers ;
-        this.tollNumber = onlineMeetingInfoParameterValue?.tollNumber ;
+        this.additionalData = onlineMeetingInfoParameterValue?.additionalData ? onlineMeetingInfoParameterValue?.additionalData! : {};
+        this.conferenceId = onlineMeetingInfoParameterValue?.conferenceId;
+        this.joinUrl = onlineMeetingInfoParameterValue?.joinUrl;
+        this.phones = onlineMeetingInfoParameterValue?.phones;
+        this.quickDial = onlineMeetingInfoParameterValue?.quickDial;
+        this.tollFreeNumbers = onlineMeetingInfoParameterValue?.tollFreeNumbers;
+        this.tollNumber = onlineMeetingInfoParameterValue?.tollNumber;
     };
     /**
      * The deserialization information for the current model
@@ -53,22 +53,22 @@ export class OnlineMeetingInfoImpl implements AdditionalDataHolder, OnlineMeetin
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.conferenceId){
-        writer.writeStringValue("conferenceId", this.conferenceId);
+            writer.writeStringValue("conferenceId", this.conferenceId);
         }
         if(this.joinUrl){
-        writer.writeStringValue("joinUrl", this.joinUrl);
+            writer.writeStringValue("joinUrl", this.joinUrl);
         }
         if(this.phones && this.phones.length != 0){        const phonesArrValue: PhoneImpl[] = []; this.phones?.forEach(element => {phonesArrValue.push(new PhoneImpl(element));});
-        writer.writeCollectionOfObjectValues<PhoneImpl>("phones", phonesArrValue);
+            writer.writeCollectionOfObjectValues<PhoneImpl>("phones", phonesArrValue);
         }
         if(this.quickDial){
-        writer.writeStringValue("quickDial", this.quickDial);
+            writer.writeStringValue("quickDial", this.quickDial);
         }
         if(this.tollFreeNumbers){
-        writer.writeCollectionOfPrimitiveValues<string>("tollFreeNumbers", this.tollFreeNumbers);
+            writer.writeCollectionOfPrimitiveValues<string>("tollFreeNumbers", this.tollFreeNumbers);
         }
         if(this.tollNumber){
-        writer.writeStringValue("tollNumber", this.tollNumber);
+            writer.writeStringValue("tollNumber", this.tollNumber);
         }
         writer.writeAdditionalData(this.additionalData);
     };

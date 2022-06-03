@@ -3,7 +3,7 @@ import {EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the deviceManagement singleton. */
-export class DeviceCompliancePolicyDeviceStateSummaryImpl extends EntityImpl implements DeviceCompliancePolicyDeviceStateSummary, Parsable {
+export class DeviceCompliancePolicyDeviceStateSummaryImpl extends EntityImpl implements DeviceCompliancePolicyDeviceStateSummary {
     /** Number of compliant devices */
     public compliantDeviceCount?: number | undefined;
     /** Number of devices that have compliance managed by System Center Configuration Manager */
@@ -27,16 +27,16 @@ export class DeviceCompliancePolicyDeviceStateSummaryImpl extends EntityImpl imp
      * @param deviceCompliancePolicyDeviceStateSummaryParameterValue 
      */
     public constructor(deviceCompliancePolicyDeviceStateSummaryParameterValue?: DeviceCompliancePolicyDeviceStateSummary | undefined) {
-        super();
-        this.compliantDeviceCount = deviceCompliancePolicyDeviceStateSummaryParameterValue?.compliantDeviceCount ;
-        this.configManagerCount = deviceCompliancePolicyDeviceStateSummaryParameterValue?.configManagerCount ;
-        this.conflictDeviceCount = deviceCompliancePolicyDeviceStateSummaryParameterValue?.conflictDeviceCount ;
-        this.errorDeviceCount = deviceCompliancePolicyDeviceStateSummaryParameterValue?.errorDeviceCount ;
-        this.inGracePeriodCount = deviceCompliancePolicyDeviceStateSummaryParameterValue?.inGracePeriodCount ;
-        this.nonCompliantDeviceCount = deviceCompliancePolicyDeviceStateSummaryParameterValue?.nonCompliantDeviceCount ;
-        this.notApplicableDeviceCount = deviceCompliancePolicyDeviceStateSummaryParameterValue?.notApplicableDeviceCount ;
-        this.remediatedDeviceCount = deviceCompliancePolicyDeviceStateSummaryParameterValue?.remediatedDeviceCount ;
-        this.unknownDeviceCount = deviceCompliancePolicyDeviceStateSummaryParameterValue?.unknownDeviceCount ;
+        super(deviceCompliancePolicyDeviceStateSummaryParameterValue);
+        this.compliantDeviceCount = deviceCompliancePolicyDeviceStateSummaryParameterValue?.compliantDeviceCount;
+        this.configManagerCount = deviceCompliancePolicyDeviceStateSummaryParameterValue?.configManagerCount;
+        this.conflictDeviceCount = deviceCompliancePolicyDeviceStateSummaryParameterValue?.conflictDeviceCount;
+        this.errorDeviceCount = deviceCompliancePolicyDeviceStateSummaryParameterValue?.errorDeviceCount;
+        this.inGracePeriodCount = deviceCompliancePolicyDeviceStateSummaryParameterValue?.inGracePeriodCount;
+        this.nonCompliantDeviceCount = deviceCompliancePolicyDeviceStateSummaryParameterValue?.nonCompliantDeviceCount;
+        this.notApplicableDeviceCount = deviceCompliancePolicyDeviceStateSummaryParameterValue?.notApplicableDeviceCount;
+        this.remediatedDeviceCount = deviceCompliancePolicyDeviceStateSummaryParameterValue?.remediatedDeviceCount;
+        this.unknownDeviceCount = deviceCompliancePolicyDeviceStateSummaryParameterValue?.unknownDeviceCount;
     };
     /**
      * The deserialization information for the current model
@@ -63,31 +63,31 @@ export class DeviceCompliancePolicyDeviceStateSummaryImpl extends EntityImpl imp
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.compliantDeviceCount){
-        writer.writeNumberValue("compliantDeviceCount", this.compliantDeviceCount);
+            writer.writeNumberValue("compliantDeviceCount", this.compliantDeviceCount);
         }
         if(this.configManagerCount){
-        writer.writeNumberValue("configManagerCount", this.configManagerCount);
+            writer.writeNumberValue("configManagerCount", this.configManagerCount);
         }
         if(this.conflictDeviceCount){
-        writer.writeNumberValue("conflictDeviceCount", this.conflictDeviceCount);
+            writer.writeNumberValue("conflictDeviceCount", this.conflictDeviceCount);
         }
         if(this.errorDeviceCount){
-        writer.writeNumberValue("errorDeviceCount", this.errorDeviceCount);
+            writer.writeNumberValue("errorDeviceCount", this.errorDeviceCount);
         }
         if(this.inGracePeriodCount){
-        writer.writeNumberValue("inGracePeriodCount", this.inGracePeriodCount);
+            writer.writeNumberValue("inGracePeriodCount", this.inGracePeriodCount);
         }
         if(this.nonCompliantDeviceCount){
-        writer.writeNumberValue("nonCompliantDeviceCount", this.nonCompliantDeviceCount);
+            writer.writeNumberValue("nonCompliantDeviceCount", this.nonCompliantDeviceCount);
         }
         if(this.notApplicableDeviceCount){
-        writer.writeNumberValue("notApplicableDeviceCount", this.notApplicableDeviceCount);
+            writer.writeNumberValue("notApplicableDeviceCount", this.notApplicableDeviceCount);
         }
         if(this.remediatedDeviceCount){
-        writer.writeNumberValue("remediatedDeviceCount", this.remediatedDeviceCount);
+            writer.writeNumberValue("remediatedDeviceCount", this.remediatedDeviceCount);
         }
         if(this.unknownDeviceCount){
-        writer.writeNumberValue("unknownDeviceCount", this.unknownDeviceCount);
+            writer.writeNumberValue("unknownDeviceCount", this.unknownDeviceCount);
         }
     };
 }

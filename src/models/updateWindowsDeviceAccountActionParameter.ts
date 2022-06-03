@@ -1,18 +1,19 @@
 import {WindowsDeviceAccount} from './windowsDeviceAccount';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface UpdateWindowsDeviceAccountActionParameter{
+export interface UpdateWindowsDeviceAccountActionParameter extends Partial<AdditionalDataHolder>, Partial<Parsable> {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?:Record<string, unknown>;
+    additionalData?: Record<string, unknown>;
     /** Not yet documented */
-    calendarSyncEnabled?:boolean | undefined;
+    calendarSyncEnabled?: boolean | undefined;
     /** Not yet documented */
-    deviceAccount?:WindowsDeviceAccount | undefined;
+    deviceAccount?: WindowsDeviceAccount | undefined;
     /** Not yet documented */
-    deviceAccountEmail?:string | undefined;
+    deviceAccountEmail?: string | undefined;
     /** Not yet documented */
-    exchangeServer?:string | undefined;
+    exchangeServer?: string | undefined;
     /** Not yet documented */
-    passwordRotationEnabled?:boolean | undefined;
+    passwordRotationEnabled?: boolean | undefined;
     /** Not yet documented */
-    sessionInitiationProtocalAddress?:string | undefined;
+    sessionInitiationProtocalAddress?: string | undefined;
 }

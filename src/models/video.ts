@@ -1,25 +1,26 @@
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface Video{
+export interface Video extends Partial<AdditionalDataHolder>, Partial<Parsable> {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?:Record<string, unknown>;
+    additionalData?: Record<string, unknown>;
     /** Number of audio bits per sample. */
-    audioBitsPerSample?:number | undefined;
+    audioBitsPerSample?: number | undefined;
     /** Number of audio channels. */
-    audioChannels?:number | undefined;
+    audioChannels?: number | undefined;
     /** Name of the audio format (AAC, MP3, etc.). */
-    audioFormat?:string | undefined;
+    audioFormat?: string | undefined;
     /** Number of audio samples per second. */
-    audioSamplesPerSecond?:number | undefined;
+    audioSamplesPerSecond?: number | undefined;
     /** Bit rate of the video in bits per second. */
-    bitrate?:number | undefined;
+    bitrate?: number | undefined;
     /** Duration of the file in milliseconds. */
-    duration?:number | undefined;
+    duration?: number | undefined;
     /** 'Four character code' name of the video format. */
-    fourCC?:string | undefined;
+    fourCC?: string | undefined;
     /** Frame rate of the video. */
-    frameRate?:number | undefined;
+    frameRate?: number | undefined;
     /** Height of the video, in pixels. */
-    height?:number | undefined;
+    height?: number | undefined;
     /** Width of the video, in pixels. */
-    width?:number | undefined;
+    width?: number | undefined;
 }

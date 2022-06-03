@@ -1,7 +1,7 @@
 import {AlternativeSecurityId} from './alternativeSecurityId';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class AlternativeSecurityIdImpl implements AdditionalDataHolder, AlternativeSecurityId, Parsable {
+export class AlternativeSecurityIdImpl implements AlternativeSecurityId {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** For internal use only */
@@ -15,10 +15,10 @@ export class AlternativeSecurityIdImpl implements AdditionalDataHolder, Alternat
      * @param alternativeSecurityIdParameterValue 
      */
     public constructor(alternativeSecurityIdParameterValue?: AlternativeSecurityId | undefined) {
-        this.additionalData = alternativeSecurityIdParameterValue?.additionalData ? alternativeSecurityIdParameterValue?.additionalData! : {}
-        this.identityProvider = alternativeSecurityIdParameterValue?.identityProvider ;
-        this.key = alternativeSecurityIdParameterValue?.key ;
-        this.type = alternativeSecurityIdParameterValue?.type ;
+        this.additionalData = alternativeSecurityIdParameterValue?.additionalData ? alternativeSecurityIdParameterValue?.additionalData! : {};
+        this.identityProvider = alternativeSecurityIdParameterValue?.identityProvider;
+        this.key = alternativeSecurityIdParameterValue?.key;
+        this.type = alternativeSecurityIdParameterValue?.type;
     };
     /**
      * The deserialization information for the current model
@@ -38,13 +38,13 @@ export class AlternativeSecurityIdImpl implements AdditionalDataHolder, Alternat
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.identityProvider){
-        writer.writeStringValue("identityProvider", this.identityProvider);
+            writer.writeStringValue("identityProvider", this.identityProvider);
         }
         if(this.key){
-        writer.writeStringValue("key", this.key);
+            writer.writeStringValue("key", this.key);
         }
         if(this.type){
-        writer.writeNumberValue("type", this.type);
+            writer.writeNumberValue("type", this.type);
         }
         writer.writeAdditionalData(this.additionalData);
     };

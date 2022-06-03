@@ -2,7 +2,7 @@ import {ScheduleEntityTheme} from './scheduleEntityTheme';
 import {ShiftActivity} from './shiftActivity';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ShiftActivityImpl implements AdditionalDataHolder, Parsable, ShiftActivity {
+export class ShiftActivityImpl implements ShiftActivity {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Customer defined code for the shiftActivity. Required. */
@@ -22,13 +22,13 @@ export class ShiftActivityImpl implements AdditionalDataHolder, Parsable, ShiftA
      * @param shiftActivityParameterValue 
      */
     public constructor(shiftActivityParameterValue?: ShiftActivity | undefined) {
-        this.additionalData = shiftActivityParameterValue?.additionalData ? shiftActivityParameterValue?.additionalData! : {}
-        this.code = shiftActivityParameterValue?.code ;
-        this.displayName = shiftActivityParameterValue?.displayName ;
-        this.endDateTime = shiftActivityParameterValue?.endDateTime ;
-        this.isPaid = shiftActivityParameterValue?.isPaid ;
-        this.startDateTime = shiftActivityParameterValue?.startDateTime ;
-        this.theme = shiftActivityParameterValue?.theme ;
+        this.additionalData = shiftActivityParameterValue?.additionalData ? shiftActivityParameterValue?.additionalData! : {};
+        this.code = shiftActivityParameterValue?.code;
+        this.displayName = shiftActivityParameterValue?.displayName;
+        this.endDateTime = shiftActivityParameterValue?.endDateTime;
+        this.isPaid = shiftActivityParameterValue?.isPaid;
+        this.startDateTime = shiftActivityParameterValue?.startDateTime;
+        this.theme = shiftActivityParameterValue?.theme;
     };
     /**
      * The deserialization information for the current model
@@ -51,22 +51,22 @@ export class ShiftActivityImpl implements AdditionalDataHolder, Parsable, ShiftA
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.code){
-        writer.writeStringValue("code", this.code);
+            writer.writeStringValue("code", this.code);
         }
         if(this.displayName){
-        writer.writeStringValue("displayName", this.displayName);
+            writer.writeStringValue("displayName", this.displayName);
         }
         if(this.endDateTime){
-        writer.writeDateValue("endDateTime", this.endDateTime);
+            writer.writeDateValue("endDateTime", this.endDateTime);
         }
         if(this.isPaid){
-        writer.writeBooleanValue("isPaid", this.isPaid);
+            writer.writeBooleanValue("isPaid", this.isPaid);
         }
         if(this.startDateTime){
-        writer.writeDateValue("startDateTime", this.startDateTime);
+            writer.writeDateValue("startDateTime", this.startDateTime);
         }
         if(this.theme){
-        writer.writeEnumValue<ScheduleEntityTheme>("theme", this.theme);
+            writer.writeEnumValue<ScheduleEntityTheme>("theme", this.theme);
         }
         writer.writeAdditionalData(this.additionalData);
     };

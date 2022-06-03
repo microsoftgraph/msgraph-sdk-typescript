@@ -4,7 +4,7 @@ import {PermissionType} from './permissionType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the policyRoot singleton. */
-export class PermissionGrantConditionSetImpl extends EntityImpl implements Parsable, PermissionGrantConditionSet {
+export class PermissionGrantConditionSetImpl extends EntityImpl implements PermissionGrantConditionSet {
     /** A list of appId values for the client applications to match with, or a list with the single value all to match any client application. Default is the single value all. */
     public clientApplicationIds?: string[] | undefined;
     /** A list of Microsoft Partner Network (MPN) IDs for verified publishers of the client application, or a list with the single value all to match with client apps from any publisher. Default is the single value all. */
@@ -26,15 +26,15 @@ export class PermissionGrantConditionSetImpl extends EntityImpl implements Parsa
      * @param permissionGrantConditionSetParameterValue 
      */
     public constructor(permissionGrantConditionSetParameterValue?: PermissionGrantConditionSet | undefined) {
-        super();
-        this.clientApplicationIds = permissionGrantConditionSetParameterValue?.clientApplicationIds ;
-        this.clientApplicationPublisherIds = permissionGrantConditionSetParameterValue?.clientApplicationPublisherIds ;
-        this.clientApplicationsFromVerifiedPublisherOnly = permissionGrantConditionSetParameterValue?.clientApplicationsFromVerifiedPublisherOnly ;
-        this.clientApplicationTenantIds = permissionGrantConditionSetParameterValue?.clientApplicationTenantIds ;
-        this.permissionClassification = permissionGrantConditionSetParameterValue?.permissionClassification ;
-        this.permissions = permissionGrantConditionSetParameterValue?.permissions ;
-        this.permissionType = permissionGrantConditionSetParameterValue?.permissionType ;
-        this.resourceApplication = permissionGrantConditionSetParameterValue?.resourceApplication ;
+        super(permissionGrantConditionSetParameterValue);
+        this.clientApplicationIds = permissionGrantConditionSetParameterValue?.clientApplicationIds;
+        this.clientApplicationPublisherIds = permissionGrantConditionSetParameterValue?.clientApplicationPublisherIds;
+        this.clientApplicationsFromVerifiedPublisherOnly = permissionGrantConditionSetParameterValue?.clientApplicationsFromVerifiedPublisherOnly;
+        this.clientApplicationTenantIds = permissionGrantConditionSetParameterValue?.clientApplicationTenantIds;
+        this.permissionClassification = permissionGrantConditionSetParameterValue?.permissionClassification;
+        this.permissions = permissionGrantConditionSetParameterValue?.permissions;
+        this.permissionType = permissionGrantConditionSetParameterValue?.permissionType;
+        this.resourceApplication = permissionGrantConditionSetParameterValue?.resourceApplication;
     };
     /**
      * The deserialization information for the current model
@@ -60,28 +60,28 @@ export class PermissionGrantConditionSetImpl extends EntityImpl implements Parsa
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.clientApplicationIds){
-        writer.writeCollectionOfPrimitiveValues<string>("clientApplicationIds", this.clientApplicationIds);
+            writer.writeCollectionOfPrimitiveValues<string>("clientApplicationIds", this.clientApplicationIds);
         }
         if(this.clientApplicationPublisherIds){
-        writer.writeCollectionOfPrimitiveValues<string>("clientApplicationPublisherIds", this.clientApplicationPublisherIds);
+            writer.writeCollectionOfPrimitiveValues<string>("clientApplicationPublisherIds", this.clientApplicationPublisherIds);
         }
         if(this.clientApplicationsFromVerifiedPublisherOnly){
-        writer.writeBooleanValue("clientApplicationsFromVerifiedPublisherOnly", this.clientApplicationsFromVerifiedPublisherOnly);
+            writer.writeBooleanValue("clientApplicationsFromVerifiedPublisherOnly", this.clientApplicationsFromVerifiedPublisherOnly);
         }
         if(this.clientApplicationTenantIds){
-        writer.writeCollectionOfPrimitiveValues<string>("clientApplicationTenantIds", this.clientApplicationTenantIds);
+            writer.writeCollectionOfPrimitiveValues<string>("clientApplicationTenantIds", this.clientApplicationTenantIds);
         }
         if(this.permissionClassification){
-        writer.writeStringValue("permissionClassification", this.permissionClassification);
+            writer.writeStringValue("permissionClassification", this.permissionClassification);
         }
         if(this.permissions){
-        writer.writeCollectionOfPrimitiveValues<string>("permissions", this.permissions);
+            writer.writeCollectionOfPrimitiveValues<string>("permissions", this.permissions);
         }
         if(this.permissionType){
-        writer.writeEnumValue<PermissionType>("permissionType", this.permissionType);
+            writer.writeEnumValue<PermissionType>("permissionType", this.permissionType);
         }
         if(this.resourceApplication){
-        writer.writeStringValue("resourceApplication", this.resourceApplication);
+            writer.writeStringValue("resourceApplication", this.resourceApplication);
         }
     };
 }

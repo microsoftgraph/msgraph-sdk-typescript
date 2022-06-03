@@ -4,7 +4,7 @@ import {MobileAppAssignment} from './mobileAppAssignment';
 import {MobileAppAssignmentCollectionResponse} from './mobileAppAssignmentCollectionResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class MobileAppAssignmentCollectionResponseImpl implements AdditionalDataHolder, MobileAppAssignmentCollectionResponse, Parsable {
+export class MobileAppAssignmentCollectionResponseImpl implements MobileAppAssignmentCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class MobileAppAssignmentCollectionResponseImpl implements AdditionalData
      * @param mobileAppAssignmentCollectionResponseParameterValue 
      */
     public constructor(mobileAppAssignmentCollectionResponseParameterValue?: MobileAppAssignmentCollectionResponse | undefined) {
-        this.additionalData = mobileAppAssignmentCollectionResponseParameterValue?.additionalData ? mobileAppAssignmentCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = mobileAppAssignmentCollectionResponseParameterValue?.nextLink ;
-        this.value = mobileAppAssignmentCollectionResponseParameterValue?.value ;
+        this.additionalData = mobileAppAssignmentCollectionResponseParameterValue?.additionalData ? mobileAppAssignmentCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = mobileAppAssignmentCollectionResponseParameterValue?.nextLink;
+        this.value = mobileAppAssignmentCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class MobileAppAssignmentCollectionResponseImpl implements AdditionalData
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: MobileAppAssignmentImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new MobileAppAssignmentImpl(element));});
-        writer.writeCollectionOfObjectValues<MobileAppAssignmentImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<MobileAppAssignmentImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

@@ -1,7 +1,7 @@
 import {AttendanceInterval} from './attendanceInterval';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class AttendanceIntervalImpl implements AdditionalDataHolder, AttendanceInterval, Parsable {
+export class AttendanceIntervalImpl implements AttendanceInterval {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Duration of the meeting interval in seconds; that is, the difference between joinDateTime and leaveDateTime. */
@@ -15,10 +15,10 @@ export class AttendanceIntervalImpl implements AdditionalDataHolder, AttendanceI
      * @param attendanceIntervalParameterValue 
      */
     public constructor(attendanceIntervalParameterValue?: AttendanceInterval | undefined) {
-        this.additionalData = attendanceIntervalParameterValue?.additionalData ? attendanceIntervalParameterValue?.additionalData! : {}
-        this.durationInSeconds = attendanceIntervalParameterValue?.durationInSeconds ;
-        this.joinDateTime = attendanceIntervalParameterValue?.joinDateTime ;
-        this.leaveDateTime = attendanceIntervalParameterValue?.leaveDateTime ;
+        this.additionalData = attendanceIntervalParameterValue?.additionalData ? attendanceIntervalParameterValue?.additionalData! : {};
+        this.durationInSeconds = attendanceIntervalParameterValue?.durationInSeconds;
+        this.joinDateTime = attendanceIntervalParameterValue?.joinDateTime;
+        this.leaveDateTime = attendanceIntervalParameterValue?.leaveDateTime;
     };
     /**
      * The deserialization information for the current model
@@ -38,13 +38,13 @@ export class AttendanceIntervalImpl implements AdditionalDataHolder, AttendanceI
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.durationInSeconds){
-        writer.writeNumberValue("durationInSeconds", this.durationInSeconds);
+            writer.writeNumberValue("durationInSeconds", this.durationInSeconds);
         }
         if(this.joinDateTime){
-        writer.writeDateValue("joinDateTime", this.joinDateTime);
+            writer.writeDateValue("joinDateTime", this.joinDateTime);
         }
         if(this.leaveDateTime){
-        writer.writeDateValue("leaveDateTime", this.leaveDateTime);
+            writer.writeDateValue("leaveDateTime", this.leaveDateTime);
         }
         writer.writeAdditionalData(this.additionalData);
     };

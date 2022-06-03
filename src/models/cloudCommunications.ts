@@ -3,14 +3,15 @@ import {CallRecord} from './callRecords/callRecord';
 import {Entity} from './entity';
 import {OnlineMeeting} from './onlineMeeting';
 import {Presence} from './presence';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface CloudCommunications extends Entity{
+export interface CloudCommunications extends Entity, Partial<Parsable> {
     /** The callRecords property */
-    callRecords?:CallRecord[] | undefined;
+    callRecords?: CallRecord[] | undefined;
     /** The calls property */
-    calls?:Call[] | undefined;
+    calls?: Call[] | undefined;
     /** The onlineMeetings property */
-    onlineMeetings?:OnlineMeeting[] | undefined;
+    onlineMeetings?: OnlineMeeting[] | undefined;
     /** The presences property */
-    presences?:Presence[] | undefined;
+    presences?: Presence[] | undefined;
 }

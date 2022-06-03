@@ -3,13 +3,13 @@ import {TeamworkBot} from './teamworkBot';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the appCatalogs singleton. */
-export class TeamworkBotImpl extends EntityImpl implements Parsable, TeamworkBot {
+export class TeamworkBotImpl extends EntityImpl implements TeamworkBot {
     /**
      * Instantiates a new teamworkBot and sets the default values.
      * @param teamworkBotParameterValue 
      */
     public constructor(teamworkBotParameterValue?: TeamworkBot | undefined) {
-        super();
+        super(teamworkBotParameterValue);
     };
     /**
      * The deserialization information for the current model

@@ -15,7 +15,7 @@ import {SharepointIds} from './sharepointIds';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Casts the previous resource to user. */
-export class ListItemImpl extends BaseItemImpl implements ListItem, Parsable {
+export class ListItemImpl extends BaseItemImpl implements ListItem {
     /** Analytics about the view activities that took place on this item. */
     public analytics?: ItemAnalytics | undefined;
     /** The content type of this list item */
@@ -33,13 +33,13 @@ export class ListItemImpl extends BaseItemImpl implements ListItem, Parsable {
      * @param listItemParameterValue 
      */
     public constructor(listItemParameterValue?: ListItem | undefined) {
-        super();
-        this.analytics = listItemParameterValue?.analytics ;
-        this.contentType = listItemParameterValue?.contentType ;
-        this.driveItem = listItemParameterValue?.driveItem ;
-        this.fields = listItemParameterValue?.fields ;
-        this.sharepointIds = listItemParameterValue?.sharepointIds ;
-        this.versions = listItemParameterValue?.versions ;
+        super(listItemParameterValue);
+        this.analytics = listItemParameterValue?.analytics;
+        this.contentType = listItemParameterValue?.contentType;
+        this.driveItem = listItemParameterValue?.driveItem;
+        this.fields = listItemParameterValue?.fields;
+        this.sharepointIds = listItemParameterValue?.sharepointIds;
+        this.versions = listItemParameterValue?.versions;
     };
     /**
      * The deserialization information for the current model
@@ -63,22 +63,22 @@ export class ListItemImpl extends BaseItemImpl implements ListItem, Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.analytics){
-        writer.writeObjectValue<ItemAnalyticsImpl>("analytics", new ItemAnalyticsImpl(this.analytics));
+            writer.writeObjectValue<ItemAnalyticsImpl>("analytics", new ItemAnalyticsImpl(this.analytics));
         }
         if(this.contentType){
-        writer.writeObjectValue<ContentTypeInfoImpl>("contentType", new ContentTypeInfoImpl(this.contentType));
+            writer.writeObjectValue<ContentTypeInfoImpl>("contentType", new ContentTypeInfoImpl(this.contentType));
         }
         if(this.driveItem){
-        writer.writeObjectValue<DriveItemImpl>("driveItem", new DriveItemImpl(this.driveItem));
+            writer.writeObjectValue<DriveItemImpl>("driveItem", new DriveItemImpl(this.driveItem));
         }
         if(this.fields){
-        writer.writeObjectValue<FieldValueSetImpl>("fields", new FieldValueSetImpl(this.fields));
+            writer.writeObjectValue<FieldValueSetImpl>("fields", new FieldValueSetImpl(this.fields));
         }
         if(this.sharepointIds){
-        writer.writeObjectValue<SharepointIdsImpl>("sharepointIds", new SharepointIdsImpl(this.sharepointIds));
+            writer.writeObjectValue<SharepointIdsImpl>("sharepointIds", new SharepointIdsImpl(this.sharepointIds));
         }
         if(this.versions && this.versions.length != 0){        const versionsArrValue: ListItemVersionImpl[] = []; this.versions?.forEach(element => {versionsArrValue.push(new ListItemVersionImpl(element));});
-        writer.writeCollectionOfObjectValues<ListItemVersionImpl>("versions", versionsArrValue);
+            writer.writeCollectionOfObjectValues<ListItemVersionImpl>("versions", versionsArrValue);
         }
     };
 }

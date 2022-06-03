@@ -1,7 +1,7 @@
 
-export interface TermStoreRequestBuilderGetQueryParameters{
+export interface TermStoreRequestBuilderGetQueryParameters {
     /** Expand related entities */
-    expand?:string[] | undefined;
+    expand?: string[] | undefined;
     /** Select properties to be returned */
-    select?:string[] | undefined;
+    select?: string[] | undefined;
 }

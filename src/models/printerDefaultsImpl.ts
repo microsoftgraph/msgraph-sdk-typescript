@@ -7,7 +7,7 @@ import {PrintQuality} from './printQuality';
 import {PrintScaling} from './printScaling';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class PrinterDefaultsImpl implements AdditionalDataHolder, Parsable, PrinterDefaults {
+export class PrinterDefaultsImpl implements PrinterDefaults {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The default color mode to use when printing the document. Valid values are described in the following table. */
@@ -49,24 +49,24 @@ export class PrinterDefaultsImpl implements AdditionalDataHolder, Parsable, Prin
      * @param printerDefaultsParameterValue 
      */
     public constructor(printerDefaultsParameterValue?: PrinterDefaults | undefined) {
-        this.additionalData = printerDefaultsParameterValue?.additionalData ? printerDefaultsParameterValue?.additionalData! : {}
-        this.colorMode = printerDefaultsParameterValue?.colorMode ;
-        this.contentType = printerDefaultsParameterValue?.contentType ;
-        this.copiesPerJob = printerDefaultsParameterValue?.copiesPerJob ;
-        this.dpi = printerDefaultsParameterValue?.dpi ;
-        this.duplexMode = printerDefaultsParameterValue?.duplexMode ;
-        this.finishings = printerDefaultsParameterValue?.finishings ;
-        this.fitPdfToPage = printerDefaultsParameterValue?.fitPdfToPage ;
-        this.inputBin = printerDefaultsParameterValue?.inputBin ;
-        this.mediaColor = printerDefaultsParameterValue?.mediaColor ;
-        this.mediaSize = printerDefaultsParameterValue?.mediaSize ;
-        this.mediaType = printerDefaultsParameterValue?.mediaType ;
-        this.multipageLayout = printerDefaultsParameterValue?.multipageLayout ;
-        this.orientation = printerDefaultsParameterValue?.orientation ;
-        this.outputBin = printerDefaultsParameterValue?.outputBin ;
-        this.pagesPerSheet = printerDefaultsParameterValue?.pagesPerSheet ;
-        this.quality = printerDefaultsParameterValue?.quality ;
-        this.scaling = printerDefaultsParameterValue?.scaling ;
+        this.additionalData = printerDefaultsParameterValue?.additionalData ? printerDefaultsParameterValue?.additionalData! : {};
+        this.colorMode = printerDefaultsParameterValue?.colorMode;
+        this.contentType = printerDefaultsParameterValue?.contentType;
+        this.copiesPerJob = printerDefaultsParameterValue?.copiesPerJob;
+        this.dpi = printerDefaultsParameterValue?.dpi;
+        this.duplexMode = printerDefaultsParameterValue?.duplexMode;
+        this.finishings = printerDefaultsParameterValue?.finishings;
+        this.fitPdfToPage = printerDefaultsParameterValue?.fitPdfToPage;
+        this.inputBin = printerDefaultsParameterValue?.inputBin;
+        this.mediaColor = printerDefaultsParameterValue?.mediaColor;
+        this.mediaSize = printerDefaultsParameterValue?.mediaSize;
+        this.mediaType = printerDefaultsParameterValue?.mediaType;
+        this.multipageLayout = printerDefaultsParameterValue?.multipageLayout;
+        this.orientation = printerDefaultsParameterValue?.orientation;
+        this.outputBin = printerDefaultsParameterValue?.outputBin;
+        this.pagesPerSheet = printerDefaultsParameterValue?.pagesPerSheet;
+        this.quality = printerDefaultsParameterValue?.quality;
+        this.scaling = printerDefaultsParameterValue?.scaling;
     };
     /**
      * The deserialization information for the current model
@@ -100,55 +100,55 @@ export class PrinterDefaultsImpl implements AdditionalDataHolder, Parsable, Prin
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.colorMode){
-        writer.writeEnumValue<PrintColorMode>("colorMode", this.colorMode);
+            writer.writeEnumValue<PrintColorMode>("colorMode", this.colorMode);
         }
         if(this.contentType){
-        writer.writeStringValue("contentType", this.contentType);
+            writer.writeStringValue("contentType", this.contentType);
         }
         if(this.copiesPerJob){
-        writer.writeNumberValue("copiesPerJob", this.copiesPerJob);
+            writer.writeNumberValue("copiesPerJob", this.copiesPerJob);
         }
         if(this.dpi){
-        writer.writeNumberValue("dpi", this.dpi);
+            writer.writeNumberValue("dpi", this.dpi);
         }
         if(this.duplexMode){
-        writer.writeEnumValue<PrintDuplexMode>("duplexMode", this.duplexMode);
+            writer.writeEnumValue<PrintDuplexMode>("duplexMode", this.duplexMode);
         }
         if(this.finishings){
-        writer.writeCollectionOfPrimitiveValues<string>("finishings", this.finishings);
+            writer.writeCollectionOfPrimitiveValues<string>("finishings", this.finishings);
         }
         if(this.fitPdfToPage){
-        writer.writeBooleanValue("fitPdfToPage", this.fitPdfToPage);
+            writer.writeBooleanValue("fitPdfToPage", this.fitPdfToPage);
         }
         if(this.inputBin){
-        writer.writeStringValue("inputBin", this.inputBin);
+            writer.writeStringValue("inputBin", this.inputBin);
         }
         if(this.mediaColor){
-        writer.writeStringValue("mediaColor", this.mediaColor);
+            writer.writeStringValue("mediaColor", this.mediaColor);
         }
         if(this.mediaSize){
-        writer.writeStringValue("mediaSize", this.mediaSize);
+            writer.writeStringValue("mediaSize", this.mediaSize);
         }
         if(this.mediaType){
-        writer.writeStringValue("mediaType", this.mediaType);
+            writer.writeStringValue("mediaType", this.mediaType);
         }
         if(this.multipageLayout){
-        writer.writeEnumValue<PrintMultipageLayout>("multipageLayout", this.multipageLayout);
+            writer.writeEnumValue<PrintMultipageLayout>("multipageLayout", this.multipageLayout);
         }
         if(this.orientation){
-        writer.writeEnumValue<PrintOrientation>("orientation", this.orientation);
+            writer.writeEnumValue<PrintOrientation>("orientation", this.orientation);
         }
         if(this.outputBin){
-        writer.writeStringValue("outputBin", this.outputBin);
+            writer.writeStringValue("outputBin", this.outputBin);
         }
         if(this.pagesPerSheet){
-        writer.writeNumberValue("pagesPerSheet", this.pagesPerSheet);
+            writer.writeNumberValue("pagesPerSheet", this.pagesPerSheet);
         }
         if(this.quality){
-        writer.writeEnumValue<PrintQuality>("quality", this.quality);
+            writer.writeEnumValue<PrintQuality>("quality", this.quality);
         }
         if(this.scaling){
-        writer.writeEnumValue<PrintScaling>("scaling", this.scaling);
+            writer.writeEnumValue<PrintScaling>("scaling", this.scaling);
         }
         writer.writeAdditionalData(this.additionalData);
     };

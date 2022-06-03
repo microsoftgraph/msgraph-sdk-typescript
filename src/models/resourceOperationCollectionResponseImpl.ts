@@ -4,7 +4,7 @@ import {ResourceOperation} from './resourceOperation';
 import {ResourceOperationCollectionResponse} from './resourceOperationCollectionResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ResourceOperationCollectionResponseImpl implements AdditionalDataHolder, Parsable, ResourceOperationCollectionResponse {
+export class ResourceOperationCollectionResponseImpl implements ResourceOperationCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class ResourceOperationCollectionResponseImpl implements AdditionalDataHo
      * @param resourceOperationCollectionResponseParameterValue 
      */
     public constructor(resourceOperationCollectionResponseParameterValue?: ResourceOperationCollectionResponse | undefined) {
-        this.additionalData = resourceOperationCollectionResponseParameterValue?.additionalData ? resourceOperationCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = resourceOperationCollectionResponseParameterValue?.nextLink ;
-        this.value = resourceOperationCollectionResponseParameterValue?.value ;
+        this.additionalData = resourceOperationCollectionResponseParameterValue?.additionalData ? resourceOperationCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = resourceOperationCollectionResponseParameterValue?.nextLink;
+        this.value = resourceOperationCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class ResourceOperationCollectionResponseImpl implements AdditionalDataHo
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: ResourceOperationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ResourceOperationImpl(element));});
-        writer.writeCollectionOfObjectValues<ResourceOperationImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<ResourceOperationImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

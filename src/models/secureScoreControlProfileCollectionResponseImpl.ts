@@ -4,7 +4,7 @@ import {SecureScoreControlProfile} from './secureScoreControlProfile';
 import {SecureScoreControlProfileCollectionResponse} from './secureScoreControlProfileCollectionResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class SecureScoreControlProfileCollectionResponseImpl implements AdditionalDataHolder, Parsable, SecureScoreControlProfileCollectionResponse {
+export class SecureScoreControlProfileCollectionResponseImpl implements SecureScoreControlProfileCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class SecureScoreControlProfileCollectionResponseImpl implements Addition
      * @param secureScoreControlProfileCollectionResponseParameterValue 
      */
     public constructor(secureScoreControlProfileCollectionResponseParameterValue?: SecureScoreControlProfileCollectionResponse | undefined) {
-        this.additionalData = secureScoreControlProfileCollectionResponseParameterValue?.additionalData ? secureScoreControlProfileCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = secureScoreControlProfileCollectionResponseParameterValue?.nextLink ;
-        this.value = secureScoreControlProfileCollectionResponseParameterValue?.value ;
+        this.additionalData = secureScoreControlProfileCollectionResponseParameterValue?.additionalData ? secureScoreControlProfileCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = secureScoreControlProfileCollectionResponseParameterValue?.nextLink;
+        this.value = secureScoreControlProfileCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class SecureScoreControlProfileCollectionResponseImpl implements Addition
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: SecureScoreControlProfileImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new SecureScoreControlProfileImpl(element));});
-        writer.writeCollectionOfObjectValues<SecureScoreControlProfileImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<SecureScoreControlProfileImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

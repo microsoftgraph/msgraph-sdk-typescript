@@ -4,7 +4,7 @@ import {OptionalClaim} from './optionalClaim';
 import {OptionalClaims} from './optionalClaims';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class OptionalClaimsImpl implements AdditionalDataHolder, OptionalClaims, Parsable {
+export class OptionalClaimsImpl implements OptionalClaims {
     /** The optional claims returned in the JWT access token. */
     public accessToken?: OptionalClaim[] | undefined;
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
@@ -18,10 +18,10 @@ export class OptionalClaimsImpl implements AdditionalDataHolder, OptionalClaims,
      * @param optionalClaimsParameterValue 
      */
     public constructor(optionalClaimsParameterValue?: OptionalClaims | undefined) {
-        this.accessToken = optionalClaimsParameterValue?.accessToken ;
-        this.additionalData = optionalClaimsParameterValue?.additionalData ? optionalClaimsParameterValue?.additionalData! : {}
-        this.idToken = optionalClaimsParameterValue?.idToken ;
-        this.saml2Token = optionalClaimsParameterValue?.saml2Token ;
+        this.accessToken = optionalClaimsParameterValue?.accessToken;
+        this.additionalData = optionalClaimsParameterValue?.additionalData ? optionalClaimsParameterValue?.additionalData! : {};
+        this.idToken = optionalClaimsParameterValue?.idToken;
+        this.saml2Token = optionalClaimsParameterValue?.saml2Token;
     };
     /**
      * The deserialization information for the current model
@@ -41,13 +41,13 @@ export class OptionalClaimsImpl implements AdditionalDataHolder, OptionalClaims,
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.accessToken && this.accessToken.length != 0){        const accessTokenArrValue: OptionalClaimImpl[] = []; this.accessToken?.forEach(element => {accessTokenArrValue.push(new OptionalClaimImpl(element));});
-        writer.writeCollectionOfObjectValues<OptionalClaimImpl>("accessToken", accessTokenArrValue);
+            writer.writeCollectionOfObjectValues<OptionalClaimImpl>("accessToken", accessTokenArrValue);
         }
         if(this.idToken && this.idToken.length != 0){        const idTokenArrValue: OptionalClaimImpl[] = []; this.idToken?.forEach(element => {idTokenArrValue.push(new OptionalClaimImpl(element));});
-        writer.writeCollectionOfObjectValues<OptionalClaimImpl>("idToken", idTokenArrValue);
+            writer.writeCollectionOfObjectValues<OptionalClaimImpl>("idToken", idTokenArrValue);
         }
         if(this.saml2Token && this.saml2Token.length != 0){        const saml2TokenArrValue: OptionalClaimImpl[] = []; this.saml2Token?.forEach(element => {saml2TokenArrValue.push(new OptionalClaimImpl(element));});
-        writer.writeCollectionOfObjectValues<OptionalClaimImpl>("saml2Token", saml2TokenArrValue);
+            writer.writeCollectionOfObjectValues<OptionalClaimImpl>("saml2Token", saml2TokenArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

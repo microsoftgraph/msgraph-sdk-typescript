@@ -8,7 +8,7 @@ import {ServiceHealthStatus} from './serviceHealthStatus';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the admin singleton. */
-export class ServiceHealthIssueImpl extends ServiceAnnouncementBaseImpl implements Parsable, ServiceHealthIssue {
+export class ServiceHealthIssueImpl extends ServiceAnnouncementBaseImpl implements ServiceHealthIssue {
     /** The type of service health issue. Possible values are: advisory, incident, unknownFutureValue. */
     public classification?: ServiceHealthClassificationType | undefined;
     /** The feature name of the service issue. */
@@ -32,16 +32,16 @@ export class ServiceHealthIssueImpl extends ServiceAnnouncementBaseImpl implemen
      * @param serviceHealthIssueParameterValue 
      */
     public constructor(serviceHealthIssueParameterValue?: ServiceHealthIssue | undefined) {
-        super();
-        this.classification = serviceHealthIssueParameterValue?.classification ;
-        this.feature = serviceHealthIssueParameterValue?.feature ;
-        this.featureGroup = serviceHealthIssueParameterValue?.featureGroup ;
-        this.impactDescription = serviceHealthIssueParameterValue?.impactDescription ;
-        this.isResolved = serviceHealthIssueParameterValue?.isResolved ;
-        this.origin = serviceHealthIssueParameterValue?.origin ;
-        this.posts = serviceHealthIssueParameterValue?.posts ;
-        this.service = serviceHealthIssueParameterValue?.service ;
-        this.status = serviceHealthIssueParameterValue?.status ;
+        super(serviceHealthIssueParameterValue);
+        this.classification = serviceHealthIssueParameterValue?.classification;
+        this.feature = serviceHealthIssueParameterValue?.feature;
+        this.featureGroup = serviceHealthIssueParameterValue?.featureGroup;
+        this.impactDescription = serviceHealthIssueParameterValue?.impactDescription;
+        this.isResolved = serviceHealthIssueParameterValue?.isResolved;
+        this.origin = serviceHealthIssueParameterValue?.origin;
+        this.posts = serviceHealthIssueParameterValue?.posts;
+        this.service = serviceHealthIssueParameterValue?.service;
+        this.status = serviceHealthIssueParameterValue?.status;
     };
     /**
      * The deserialization information for the current model
@@ -68,31 +68,31 @@ export class ServiceHealthIssueImpl extends ServiceAnnouncementBaseImpl implemen
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.classification){
-        writer.writeEnumValue<ServiceHealthClassificationType>("classification", this.classification);
+            writer.writeEnumValue<ServiceHealthClassificationType>("classification", this.classification);
         }
         if(this.feature){
-        writer.writeStringValue("feature", this.feature);
+            writer.writeStringValue("feature", this.feature);
         }
         if(this.featureGroup){
-        writer.writeStringValue("featureGroup", this.featureGroup);
+            writer.writeStringValue("featureGroup", this.featureGroup);
         }
         if(this.impactDescription){
-        writer.writeStringValue("impactDescription", this.impactDescription);
+            writer.writeStringValue("impactDescription", this.impactDescription);
         }
         if(this.isResolved){
-        writer.writeBooleanValue("isResolved", this.isResolved);
+            writer.writeBooleanValue("isResolved", this.isResolved);
         }
         if(this.origin){
-        writer.writeEnumValue<ServiceHealthOrigin>("origin", this.origin);
+            writer.writeEnumValue<ServiceHealthOrigin>("origin", this.origin);
         }
         if(this.posts && this.posts.length != 0){        const postsArrValue: ServiceHealthIssuePostImpl[] = []; this.posts?.forEach(element => {postsArrValue.push(new ServiceHealthIssuePostImpl(element));});
-        writer.writeCollectionOfObjectValues<ServiceHealthIssuePostImpl>("posts", postsArrValue);
+            writer.writeCollectionOfObjectValues<ServiceHealthIssuePostImpl>("posts", postsArrValue);
         }
         if(this.service){
-        writer.writeStringValue("service", this.service);
+            writer.writeStringValue("service", this.service);
         }
         if(this.status){
-        writer.writeEnumValue<ServiceHealthStatus>("status", this.status);
+            writer.writeEnumValue<ServiceHealthStatus>("status", this.status);
         }
     };
 }

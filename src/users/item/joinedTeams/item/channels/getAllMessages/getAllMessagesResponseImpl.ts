@@ -5,7 +5,7 @@ import {GetAllMessagesResponse} from './getAllMessagesResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the getAllMessages method. */
-export class GetAllMessagesResponseImpl implements AdditionalDataHolder, GetAllMessagesResponse, Parsable {
+export class GetAllMessagesResponseImpl implements GetAllMessagesResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The value property */
@@ -15,8 +15,8 @@ export class GetAllMessagesResponseImpl implements AdditionalDataHolder, GetAllM
      * @param getAllMessagesResponseParameterValue 
      */
     public constructor(getAllMessagesResponseParameterValue?: GetAllMessagesResponse | undefined) {
-        this.additionalData = getAllMessagesResponseParameterValue?.additionalData ? getAllMessagesResponseParameterValue?.additionalData! : {}
-        this.value = getAllMessagesResponseParameterValue?.value ;
+        this.additionalData = getAllMessagesResponseParameterValue?.additionalData ? getAllMessagesResponseParameterValue?.additionalData! : {};
+        this.value = getAllMessagesResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -34,7 +34,7 @@ export class GetAllMessagesResponseImpl implements AdditionalDataHolder, GetAllM
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.value && this.value.length != 0){        const valueArrValue: ChatMessageImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ChatMessageImpl(element));});
-        writer.writeCollectionOfObjectValues<ChatMessageImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<ChatMessageImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

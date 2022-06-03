@@ -4,7 +4,7 @@ import {PrintTaskDefinition} from './printTaskDefinition';
 import {PrintTaskDefinitionCollectionResponse} from './printTaskDefinitionCollectionResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class PrintTaskDefinitionCollectionResponseImpl implements AdditionalDataHolder, Parsable, PrintTaskDefinitionCollectionResponse {
+export class PrintTaskDefinitionCollectionResponseImpl implements PrintTaskDefinitionCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class PrintTaskDefinitionCollectionResponseImpl implements AdditionalData
      * @param printTaskDefinitionCollectionResponseParameterValue 
      */
     public constructor(printTaskDefinitionCollectionResponseParameterValue?: PrintTaskDefinitionCollectionResponse | undefined) {
-        this.additionalData = printTaskDefinitionCollectionResponseParameterValue?.additionalData ? printTaskDefinitionCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = printTaskDefinitionCollectionResponseParameterValue?.nextLink ;
-        this.value = printTaskDefinitionCollectionResponseParameterValue?.value ;
+        this.additionalData = printTaskDefinitionCollectionResponseParameterValue?.additionalData ? printTaskDefinitionCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = printTaskDefinitionCollectionResponseParameterValue?.nextLink;
+        this.value = printTaskDefinitionCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class PrintTaskDefinitionCollectionResponseImpl implements AdditionalData
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: PrintTaskDefinitionImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new PrintTaskDefinitionImpl(element));});
-        writer.writeCollectionOfObjectValues<PrintTaskDefinitionImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<PrintTaskDefinitionImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

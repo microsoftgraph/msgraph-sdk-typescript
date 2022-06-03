@@ -3,7 +3,7 @@ import {ResourceSpecificPermissionGrant} from './resourceSpecificPermissionGrant
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Casts the previous resource to group. */
-export class ResourceSpecificPermissionGrantImpl extends DirectoryObjectImpl implements Parsable, ResourceSpecificPermissionGrant {
+export class ResourceSpecificPermissionGrantImpl extends DirectoryObjectImpl implements ResourceSpecificPermissionGrant {
     /** ID of the service principal of the Azure AD app that has been granted access. Read-only. */
     public clientAppId?: string | undefined;
     /** ID of the Azure AD app that has been granted access. Read-only. */
@@ -19,12 +19,12 @@ export class ResourceSpecificPermissionGrantImpl extends DirectoryObjectImpl imp
      * @param resourceSpecificPermissionGrantParameterValue 
      */
     public constructor(resourceSpecificPermissionGrantParameterValue?: ResourceSpecificPermissionGrant | undefined) {
-        super();
-        this.clientAppId = resourceSpecificPermissionGrantParameterValue?.clientAppId ;
-        this.clientId = resourceSpecificPermissionGrantParameterValue?.clientId ;
-        this.permission = resourceSpecificPermissionGrantParameterValue?.permission ;
-        this.permissionType = resourceSpecificPermissionGrantParameterValue?.permissionType ;
-        this.resourceAppId = resourceSpecificPermissionGrantParameterValue?.resourceAppId ;
+        super(resourceSpecificPermissionGrantParameterValue);
+        this.clientAppId = resourceSpecificPermissionGrantParameterValue?.clientAppId;
+        this.clientId = resourceSpecificPermissionGrantParameterValue?.clientId;
+        this.permission = resourceSpecificPermissionGrantParameterValue?.permission;
+        this.permissionType = resourceSpecificPermissionGrantParameterValue?.permissionType;
+        this.resourceAppId = resourceSpecificPermissionGrantParameterValue?.resourceAppId;
     };
     /**
      * The deserialization information for the current model
@@ -47,19 +47,19 @@ export class ResourceSpecificPermissionGrantImpl extends DirectoryObjectImpl imp
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.clientAppId){
-        writer.writeStringValue("clientAppId", this.clientAppId);
+            writer.writeStringValue("clientAppId", this.clientAppId);
         }
         if(this.clientId){
-        writer.writeStringValue("clientId", this.clientId);
+            writer.writeStringValue("clientId", this.clientId);
         }
         if(this.permission){
-        writer.writeStringValue("permission", this.permission);
+            writer.writeStringValue("permission", this.permission);
         }
         if(this.permissionType){
-        writer.writeStringValue("permissionType", this.permissionType);
+            writer.writeStringValue("permissionType", this.permissionType);
         }
         if(this.resourceAppId){
-        writer.writeStringValue("resourceAppId", this.resourceAppId);
+            writer.writeStringValue("resourceAppId", this.resourceAppId);
         }
     };
 }

@@ -5,7 +5,7 @@ import {ManagedAppPolicyDeploymentSummaryPerApp} from './managedAppPolicyDeploym
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** The ManagedAppEntity is the base entity type for all other entity types under app management workflow. */
-export class ManagedAppPolicyDeploymentSummaryImpl extends EntityImpl implements ManagedAppPolicyDeploymentSummary, Parsable {
+export class ManagedAppPolicyDeploymentSummaryImpl extends EntityImpl implements ManagedAppPolicyDeploymentSummary {
     /** Not yet documented */
     public configurationDeployedUserCount?: number | undefined;
     /** Not yet documented */
@@ -21,12 +21,12 @@ export class ManagedAppPolicyDeploymentSummaryImpl extends EntityImpl implements
      * @param managedAppPolicyDeploymentSummaryParameterValue 
      */
     public constructor(managedAppPolicyDeploymentSummaryParameterValue?: ManagedAppPolicyDeploymentSummary | undefined) {
-        super();
-        this.configurationDeployedUserCount = managedAppPolicyDeploymentSummaryParameterValue?.configurationDeployedUserCount ;
-        this.configurationDeploymentSummaryPerApp = managedAppPolicyDeploymentSummaryParameterValue?.configurationDeploymentSummaryPerApp ;
-        this.displayName = managedAppPolicyDeploymentSummaryParameterValue?.displayName ;
-        this.lastRefreshTime = managedAppPolicyDeploymentSummaryParameterValue?.lastRefreshTime ;
-        this.version = managedAppPolicyDeploymentSummaryParameterValue?.version ;
+        super(managedAppPolicyDeploymentSummaryParameterValue);
+        this.configurationDeployedUserCount = managedAppPolicyDeploymentSummaryParameterValue?.configurationDeployedUserCount;
+        this.configurationDeploymentSummaryPerApp = managedAppPolicyDeploymentSummaryParameterValue?.configurationDeploymentSummaryPerApp;
+        this.displayName = managedAppPolicyDeploymentSummaryParameterValue?.displayName;
+        this.lastRefreshTime = managedAppPolicyDeploymentSummaryParameterValue?.lastRefreshTime;
+        this.version = managedAppPolicyDeploymentSummaryParameterValue?.version;
     };
     /**
      * The deserialization information for the current model
@@ -49,19 +49,19 @@ export class ManagedAppPolicyDeploymentSummaryImpl extends EntityImpl implements
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.configurationDeployedUserCount){
-        writer.writeNumberValue("configurationDeployedUserCount", this.configurationDeployedUserCount);
+            writer.writeNumberValue("configurationDeployedUserCount", this.configurationDeployedUserCount);
         }
         if(this.configurationDeploymentSummaryPerApp && this.configurationDeploymentSummaryPerApp.length != 0){        const configurationDeploymentSummaryPerAppArrValue: ManagedAppPolicyDeploymentSummaryPerAppImpl[] = []; this.configurationDeploymentSummaryPerApp?.forEach(element => {configurationDeploymentSummaryPerAppArrValue.push(new ManagedAppPolicyDeploymentSummaryPerAppImpl(element));});
-        writer.writeCollectionOfObjectValues<ManagedAppPolicyDeploymentSummaryPerAppImpl>("configurationDeploymentSummaryPerApp", configurationDeploymentSummaryPerAppArrValue);
+            writer.writeCollectionOfObjectValues<ManagedAppPolicyDeploymentSummaryPerAppImpl>("configurationDeploymentSummaryPerApp", configurationDeploymentSummaryPerAppArrValue);
         }
         if(this.displayName){
-        writer.writeStringValue("displayName", this.displayName);
+            writer.writeStringValue("displayName", this.displayName);
         }
         if(this.lastRefreshTime){
-        writer.writeDateValue("lastRefreshTime", this.lastRefreshTime);
+            writer.writeDateValue("lastRefreshTime", this.lastRefreshTime);
         }
         if(this.version){
-        writer.writeStringValue("version", this.version);
+            writer.writeStringValue("version", this.version);
         }
     };
 }

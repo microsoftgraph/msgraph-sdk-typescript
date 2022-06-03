@@ -7,7 +7,7 @@ import {AnswerPostRequestBody} from './answerPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the answer method. */
-export class AnswerPostRequestBodyImpl implements AdditionalDataHolder, AnswerPostRequestBody, Parsable {
+export class AnswerPostRequestBodyImpl implements AnswerPostRequestBody {
     /** The acceptedModalities property */
     public acceptedModalities?: string[] | undefined;
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
@@ -25,12 +25,12 @@ export class AnswerPostRequestBodyImpl implements AdditionalDataHolder, AnswerPo
      * @param answerPostRequestBodyParameterValue 
      */
     public constructor(answerPostRequestBodyParameterValue?: AnswerPostRequestBody | undefined) {
-        this.acceptedModalities = answerPostRequestBodyParameterValue?.acceptedModalities ;
-        this.additionalData = answerPostRequestBodyParameterValue?.additionalData ? answerPostRequestBodyParameterValue?.additionalData! : {}
-        this.callbackUri = answerPostRequestBodyParameterValue?.callbackUri ;
-        this.callOptions = answerPostRequestBodyParameterValue?.callOptions ;
-        this.mediaConfig = answerPostRequestBodyParameterValue?.mediaConfig ;
-        this.participantCapacity = answerPostRequestBodyParameterValue?.participantCapacity ;
+        this.acceptedModalities = answerPostRequestBodyParameterValue?.acceptedModalities;
+        this.additionalData = answerPostRequestBodyParameterValue?.additionalData ? answerPostRequestBodyParameterValue?.additionalData! : {};
+        this.callbackUri = answerPostRequestBodyParameterValue?.callbackUri;
+        this.callOptions = answerPostRequestBodyParameterValue?.callOptions;
+        this.mediaConfig = answerPostRequestBodyParameterValue?.mediaConfig;
+        this.participantCapacity = answerPostRequestBodyParameterValue?.participantCapacity;
     };
     /**
      * The deserialization information for the current model
@@ -52,19 +52,19 @@ export class AnswerPostRequestBodyImpl implements AdditionalDataHolder, AnswerPo
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.acceptedModalities){
-        writer.writeCollectionOfPrimitiveValues<string>("acceptedModalities", this.acceptedModalities);
+            writer.writeCollectionOfPrimitiveValues<string>("acceptedModalities", this.acceptedModalities);
         }
         if(this.callbackUri){
-        writer.writeStringValue("callbackUri", this.callbackUri);
+            writer.writeStringValue("callbackUri", this.callbackUri);
         }
         if(this.callOptions){
-        writer.writeObjectValue<IncomingCallOptionsImpl>("callOptions", new IncomingCallOptionsImpl(this.callOptions));
+            writer.writeObjectValue<IncomingCallOptionsImpl>("callOptions", new IncomingCallOptionsImpl(this.callOptions));
         }
         if(this.mediaConfig){
-        writer.writeObjectValue<MediaConfigImpl>("mediaConfig", new MediaConfigImpl(this.mediaConfig));
+            writer.writeObjectValue<MediaConfigImpl>("mediaConfig", new MediaConfigImpl(this.mediaConfig));
         }
         if(this.participantCapacity){
-        writer.writeNumberValue("participantCapacity", this.participantCapacity);
+            writer.writeNumberValue("participantCapacity", this.participantCapacity);
         }
         writer.writeAdditionalData(this.additionalData);
     };

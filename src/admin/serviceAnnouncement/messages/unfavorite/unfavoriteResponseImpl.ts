@@ -2,7 +2,7 @@ import {UnfavoriteResponse} from './unfavoriteResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the unfavorite method. */
-export class UnfavoriteResponseImpl implements AdditionalDataHolder, Parsable, UnfavoriteResponse {
+export class UnfavoriteResponseImpl implements UnfavoriteResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The value property */
@@ -12,8 +12,8 @@ export class UnfavoriteResponseImpl implements AdditionalDataHolder, Parsable, U
      * @param unfavoriteResponseParameterValue 
      */
     public constructor(unfavoriteResponseParameterValue?: UnfavoriteResponse | undefined) {
-        this.additionalData = unfavoriteResponseParameterValue?.additionalData ? unfavoriteResponseParameterValue?.additionalData! : {}
-        this.value = unfavoriteResponseParameterValue?.value ;
+        this.additionalData = unfavoriteResponseParameterValue?.additionalData ? unfavoriteResponseParameterValue?.additionalData! : {};
+        this.value = unfavoriteResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -31,7 +31,7 @@ export class UnfavoriteResponseImpl implements AdditionalDataHolder, Parsable, U
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.value){
-        writer.writeBooleanValue("value", this.value);
+            writer.writeBooleanValue("value", this.value);
         }
         writer.writeAdditionalData(this.additionalData);
     };

@@ -5,7 +5,7 @@ import {AssignPostRequestBody} from './assignPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the assign method. */
-export class AssignPostRequestBodyImpl implements AdditionalDataHolder, AssignPostRequestBody, Parsable {
+export class AssignPostRequestBodyImpl implements AssignPostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The mobileAppAssignments property */
@@ -15,8 +15,8 @@ export class AssignPostRequestBodyImpl implements AdditionalDataHolder, AssignPo
      * @param assignPostRequestBodyParameterValue 
      */
     public constructor(assignPostRequestBodyParameterValue?: AssignPostRequestBody | undefined) {
-        this.additionalData = assignPostRequestBodyParameterValue?.additionalData ? assignPostRequestBodyParameterValue?.additionalData! : {}
-        this.mobileAppAssignments = assignPostRequestBodyParameterValue?.mobileAppAssignments ;
+        this.additionalData = assignPostRequestBodyParameterValue?.additionalData ? assignPostRequestBodyParameterValue?.additionalData! : {};
+        this.mobileAppAssignments = assignPostRequestBodyParameterValue?.mobileAppAssignments;
     };
     /**
      * The deserialization information for the current model
@@ -34,7 +34,7 @@ export class AssignPostRequestBodyImpl implements AdditionalDataHolder, AssignPo
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.mobileAppAssignments && this.mobileAppAssignments.length != 0){        const mobileAppAssignmentsArrValue: MobileAppAssignmentImpl[] = []; this.mobileAppAssignments?.forEach(element => {mobileAppAssignmentsArrValue.push(new MobileAppAssignmentImpl(element));});
-        writer.writeCollectionOfObjectValues<MobileAppAssignmentImpl>("mobileAppAssignments", mobileAppAssignmentsArrValue);
+            writer.writeCollectionOfObjectValues<MobileAppAssignmentImpl>("mobileAppAssignments", mobileAppAssignmentsArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

@@ -1,7 +1,7 @@
 import {PublicationFacet} from './publicationFacet';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class PublicationFacetImpl implements AdditionalDataHolder, Parsable, PublicationFacet {
+export class PublicationFacetImpl implements PublicationFacet {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The state of publication for this document. Either published or checkout. Read-only. */
@@ -13,9 +13,9 @@ export class PublicationFacetImpl implements AdditionalDataHolder, Parsable, Pub
      * @param publicationFacetParameterValue 
      */
     public constructor(publicationFacetParameterValue?: PublicationFacet | undefined) {
-        this.additionalData = publicationFacetParameterValue?.additionalData ? publicationFacetParameterValue?.additionalData! : {}
-        this.level = publicationFacetParameterValue?.level ;
-        this.versionId = publicationFacetParameterValue?.versionId ;
+        this.additionalData = publicationFacetParameterValue?.additionalData ? publicationFacetParameterValue?.additionalData! : {};
+        this.level = publicationFacetParameterValue?.level;
+        this.versionId = publicationFacetParameterValue?.versionId;
     };
     /**
      * The deserialization information for the current model
@@ -34,10 +34,10 @@ export class PublicationFacetImpl implements AdditionalDataHolder, Parsable, Pub
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.level){
-        writer.writeStringValue("level", this.level);
+            writer.writeStringValue("level", this.level);
         }
         if(this.versionId){
-        writer.writeStringValue("versionId", this.versionId);
+            writer.writeStringValue("versionId", this.versionId);
         }
         writer.writeAdditionalData(this.additionalData);
     };

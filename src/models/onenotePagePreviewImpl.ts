@@ -4,7 +4,7 @@ import {OnenotePagePreview} from './onenotePagePreview';
 import {OnenotePagePreviewLinks} from './onenotePagePreviewLinks';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class OnenotePagePreviewImpl implements AdditionalDataHolder, OnenotePagePreview, Parsable {
+export class OnenotePagePreviewImpl implements OnenotePagePreview {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The links property */
@@ -16,9 +16,9 @@ export class OnenotePagePreviewImpl implements AdditionalDataHolder, OnenotePage
      * @param onenotePagePreviewParameterValue 
      */
     public constructor(onenotePagePreviewParameterValue?: OnenotePagePreview | undefined) {
-        this.additionalData = onenotePagePreviewParameterValue?.additionalData ? onenotePagePreviewParameterValue?.additionalData! : {}
-        this.links = onenotePagePreviewParameterValue?.links ;
-        this.previewText = onenotePagePreviewParameterValue?.previewText ;
+        this.additionalData = onenotePagePreviewParameterValue?.additionalData ? onenotePagePreviewParameterValue?.additionalData! : {};
+        this.links = onenotePagePreviewParameterValue?.links;
+        this.previewText = onenotePagePreviewParameterValue?.previewText;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class OnenotePagePreviewImpl implements AdditionalDataHolder, OnenotePage
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.links){
-        writer.writeObjectValue<OnenotePagePreviewLinksImpl>("links", new OnenotePagePreviewLinksImpl(this.links));
+            writer.writeObjectValue<OnenotePagePreviewLinksImpl>("links", new OnenotePagePreviewLinksImpl(this.links));
         }
         if(this.previewText){
-        writer.writeStringValue("previewText", this.previewText);
+            writer.writeStringValue("previewText", this.previewText);
         }
         writer.writeAdditionalData(this.additionalData);
     };

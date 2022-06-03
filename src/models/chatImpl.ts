@@ -14,7 +14,7 @@ import {TeamworkOnlineMeetingInfo} from './teamworkOnlineMeetingInfo';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the collection of chat entities. */
-export class ChatImpl extends EntityImpl implements Chat, Parsable {
+export class ChatImpl extends EntityImpl implements Chat {
     /** Specifies the type of chat. Possible values are: group, oneOnOne, meeting, unknownFutureValue. */
     public chatType?: ChatType | undefined;
     /** Date and time at which the chat was created. Read-only. */
@@ -42,18 +42,18 @@ export class ChatImpl extends EntityImpl implements Chat, Parsable {
      * @param chatParameterValue 
      */
     public constructor(chatParameterValue?: Chat | undefined) {
-        super();
-        this.chatType = chatParameterValue?.chatType ;
-        this.createdDateTime = chatParameterValue?.createdDateTime ;
-        this.installedApps = chatParameterValue?.installedApps ;
-        this.lastUpdatedDateTime = chatParameterValue?.lastUpdatedDateTime ;
-        this.members = chatParameterValue?.members ;
-        this.messages = chatParameterValue?.messages ;
-        this.onlineMeetingInfo = chatParameterValue?.onlineMeetingInfo ;
-        this.tabs = chatParameterValue?.tabs ;
-        this.tenantId = chatParameterValue?.tenantId ;
-        this.topic = chatParameterValue?.topic ;
-        this.webUrl = chatParameterValue?.webUrl ;
+        super(chatParameterValue);
+        this.chatType = chatParameterValue?.chatType;
+        this.createdDateTime = chatParameterValue?.createdDateTime;
+        this.installedApps = chatParameterValue?.installedApps;
+        this.lastUpdatedDateTime = chatParameterValue?.lastUpdatedDateTime;
+        this.members = chatParameterValue?.members;
+        this.messages = chatParameterValue?.messages;
+        this.onlineMeetingInfo = chatParameterValue?.onlineMeetingInfo;
+        this.tabs = chatParameterValue?.tabs;
+        this.tenantId = chatParameterValue?.tenantId;
+        this.topic = chatParameterValue?.topic;
+        this.webUrl = chatParameterValue?.webUrl;
     };
     /**
      * The deserialization information for the current model
@@ -82,37 +82,37 @@ export class ChatImpl extends EntityImpl implements Chat, Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.chatType){
-        writer.writeEnumValue<ChatType>("chatType", this.chatType);
+            writer.writeEnumValue<ChatType>("chatType", this.chatType);
         }
         if(this.createdDateTime){
-        writer.writeDateValue("createdDateTime", this.createdDateTime);
+            writer.writeDateValue("createdDateTime", this.createdDateTime);
         }
         if(this.installedApps && this.installedApps.length != 0){        const installedAppsArrValue: TeamsAppInstallationImpl[] = []; this.installedApps?.forEach(element => {installedAppsArrValue.push(new TeamsAppInstallationImpl(element));});
-        writer.writeCollectionOfObjectValues<TeamsAppInstallationImpl>("installedApps", installedAppsArrValue);
+            writer.writeCollectionOfObjectValues<TeamsAppInstallationImpl>("installedApps", installedAppsArrValue);
         }
         if(this.lastUpdatedDateTime){
-        writer.writeDateValue("lastUpdatedDateTime", this.lastUpdatedDateTime);
+            writer.writeDateValue("lastUpdatedDateTime", this.lastUpdatedDateTime);
         }
         if(this.members && this.members.length != 0){        const membersArrValue: ConversationMemberImpl[] = []; this.members?.forEach(element => {membersArrValue.push(new ConversationMemberImpl(element));});
-        writer.writeCollectionOfObjectValues<ConversationMemberImpl>("members", membersArrValue);
+            writer.writeCollectionOfObjectValues<ConversationMemberImpl>("members", membersArrValue);
         }
         if(this.messages && this.messages.length != 0){        const messagesArrValue: ChatMessageImpl[] = []; this.messages?.forEach(element => {messagesArrValue.push(new ChatMessageImpl(element));});
-        writer.writeCollectionOfObjectValues<ChatMessageImpl>("messages", messagesArrValue);
+            writer.writeCollectionOfObjectValues<ChatMessageImpl>("messages", messagesArrValue);
         }
         if(this.onlineMeetingInfo){
-        writer.writeObjectValue<TeamworkOnlineMeetingInfoImpl>("onlineMeetingInfo", new TeamworkOnlineMeetingInfoImpl(this.onlineMeetingInfo));
+            writer.writeObjectValue<TeamworkOnlineMeetingInfoImpl>("onlineMeetingInfo", new TeamworkOnlineMeetingInfoImpl(this.onlineMeetingInfo));
         }
         if(this.tabs && this.tabs.length != 0){        const tabsArrValue: TeamsTabImpl[] = []; this.tabs?.forEach(element => {tabsArrValue.push(new TeamsTabImpl(element));});
-        writer.writeCollectionOfObjectValues<TeamsTabImpl>("tabs", tabsArrValue);
+            writer.writeCollectionOfObjectValues<TeamsTabImpl>("tabs", tabsArrValue);
         }
         if(this.tenantId){
-        writer.writeStringValue("tenantId", this.tenantId);
+            writer.writeStringValue("tenantId", this.tenantId);
         }
         if(this.topic){
-        writer.writeStringValue("topic", this.topic);
+            writer.writeStringValue("topic", this.topic);
         }
         if(this.webUrl){
-        writer.writeStringValue("webUrl", this.webUrl);
+            writer.writeStringValue("webUrl", this.webUrl);
         }
     };
 }

@@ -7,7 +7,7 @@ import {PolicyPlatformType} from './policyPlatformType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Device Compliance Policy State for a given device. */
-export class DeviceCompliancePolicyStateImpl extends EntityImpl implements DeviceCompliancePolicyState, Parsable {
+export class DeviceCompliancePolicyStateImpl extends EntityImpl implements DeviceCompliancePolicyState {
     /** The name of the policy for this policyBase */
     public displayName?: string | undefined;
     /** Platform type that the policy applies to */
@@ -25,13 +25,13 @@ export class DeviceCompliancePolicyStateImpl extends EntityImpl implements Devic
      * @param deviceCompliancePolicyStateParameterValue 
      */
     public constructor(deviceCompliancePolicyStateParameterValue?: DeviceCompliancePolicyState | undefined) {
-        super();
-        this.displayName = deviceCompliancePolicyStateParameterValue?.displayName ;
-        this.platformType = deviceCompliancePolicyStateParameterValue?.platformType ;
-        this.settingCount = deviceCompliancePolicyStateParameterValue?.settingCount ;
-        this.settingStates = deviceCompliancePolicyStateParameterValue?.settingStates ;
-        this.state = deviceCompliancePolicyStateParameterValue?.state ;
-        this.version = deviceCompliancePolicyStateParameterValue?.version ;
+        super(deviceCompliancePolicyStateParameterValue);
+        this.displayName = deviceCompliancePolicyStateParameterValue?.displayName;
+        this.platformType = deviceCompliancePolicyStateParameterValue?.platformType;
+        this.settingCount = deviceCompliancePolicyStateParameterValue?.settingCount;
+        this.settingStates = deviceCompliancePolicyStateParameterValue?.settingStates;
+        this.state = deviceCompliancePolicyStateParameterValue?.state;
+        this.version = deviceCompliancePolicyStateParameterValue?.version;
     };
     /**
      * The deserialization information for the current model
@@ -55,22 +55,22 @@ export class DeviceCompliancePolicyStateImpl extends EntityImpl implements Devic
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.displayName){
-        writer.writeStringValue("displayName", this.displayName);
+            writer.writeStringValue("displayName", this.displayName);
         }
         if(this.platformType){
-        writer.writeEnumValue<PolicyPlatformType>("platformType", this.platformType);
+            writer.writeEnumValue<PolicyPlatformType>("platformType", this.platformType);
         }
         if(this.settingCount){
-        writer.writeNumberValue("settingCount", this.settingCount);
+            writer.writeNumberValue("settingCount", this.settingCount);
         }
         if(this.settingStates && this.settingStates.length != 0){        const settingStatesArrValue: DeviceCompliancePolicySettingStateImpl[] = []; this.settingStates?.forEach(element => {settingStatesArrValue.push(new DeviceCompliancePolicySettingStateImpl(element));});
-        writer.writeCollectionOfObjectValues<DeviceCompliancePolicySettingStateImpl>("settingStates", settingStatesArrValue);
+            writer.writeCollectionOfObjectValues<DeviceCompliancePolicySettingStateImpl>("settingStates", settingStatesArrValue);
         }
         if(this.state){
-        writer.writeEnumValue<ComplianceStatus>("state", this.state);
+            writer.writeEnumValue<ComplianceStatus>("state", this.state);
         }
         if(this.version){
-        writer.writeNumberValue("version", this.version);
+            writer.writeNumberValue("version", this.version);
         }
     };
 }

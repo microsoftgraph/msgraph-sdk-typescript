@@ -1,11 +1,11 @@
 import {VppTokensRequestBuilderGetQueryParameters} from './vppTokensRequestBuilderGetQueryParameters';
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
-export interface VppTokensRequestBuilderGetRequestConfiguration{
+export interface VppTokensRequestBuilderGetRequestConfiguration {
     /** Request headers */
-    headers?:Record<string, string> | undefined;
+    headers?: Record<string, string> | undefined;
     /** Request options */
-    options?:RequestOption[] | undefined;
+    options?: RequestOption[] | undefined;
     /** Request query parameters */
-    queryParameters?:VppTokensRequestBuilderGetQueryParameters | undefined;
+    queryParameters?: VppTokensRequestBuilderGetQueryParameters | undefined;
 }

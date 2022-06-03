@@ -5,7 +5,7 @@ import {OnenotePatchContentPostRequestBody} from './onenotePatchContentPostReque
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the onenotePatchContent method. */
-export class OnenotePatchContentPostRequestBodyImpl implements AdditionalDataHolder, OnenotePatchContentPostRequestBody, Parsable {
+export class OnenotePatchContentPostRequestBodyImpl implements OnenotePatchContentPostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The commands property */
@@ -15,8 +15,8 @@ export class OnenotePatchContentPostRequestBodyImpl implements AdditionalDataHol
      * @param onenotePatchContentPostRequestBodyParameterValue 
      */
     public constructor(onenotePatchContentPostRequestBodyParameterValue?: OnenotePatchContentPostRequestBody | undefined) {
-        this.additionalData = onenotePatchContentPostRequestBodyParameterValue?.additionalData ? onenotePatchContentPostRequestBodyParameterValue?.additionalData! : {}
-        this.commands = onenotePatchContentPostRequestBodyParameterValue?.commands ;
+        this.additionalData = onenotePatchContentPostRequestBodyParameterValue?.additionalData ? onenotePatchContentPostRequestBodyParameterValue?.additionalData! : {};
+        this.commands = onenotePatchContentPostRequestBodyParameterValue?.commands;
     };
     /**
      * The deserialization information for the current model
@@ -34,7 +34,7 @@ export class OnenotePatchContentPostRequestBodyImpl implements AdditionalDataHol
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.commands && this.commands.length != 0){        const commandsArrValue: OnenotePatchContentCommandImpl[] = []; this.commands?.forEach(element => {commandsArrValue.push(new OnenotePatchContentCommandImpl(element));});
-        writer.writeCollectionOfObjectValues<OnenotePatchContentCommandImpl>("commands", commandsArrValue);
+            writer.writeCollectionOfObjectValues<OnenotePatchContentCommandImpl>("commands", commandsArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

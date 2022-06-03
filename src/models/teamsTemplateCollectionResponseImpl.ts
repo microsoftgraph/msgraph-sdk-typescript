@@ -4,7 +4,7 @@ import {TeamsTemplate} from './teamsTemplate';
 import {TeamsTemplateCollectionResponse} from './teamsTemplateCollectionResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class TeamsTemplateCollectionResponseImpl implements AdditionalDataHolder, Parsable, TeamsTemplateCollectionResponse {
+export class TeamsTemplateCollectionResponseImpl implements TeamsTemplateCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class TeamsTemplateCollectionResponseImpl implements AdditionalDataHolder
      * @param teamsTemplateCollectionResponseParameterValue 
      */
     public constructor(teamsTemplateCollectionResponseParameterValue?: TeamsTemplateCollectionResponse | undefined) {
-        this.additionalData = teamsTemplateCollectionResponseParameterValue?.additionalData ? teamsTemplateCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = teamsTemplateCollectionResponseParameterValue?.nextLink ;
-        this.value = teamsTemplateCollectionResponseParameterValue?.value ;
+        this.additionalData = teamsTemplateCollectionResponseParameterValue?.additionalData ? teamsTemplateCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = teamsTemplateCollectionResponseParameterValue?.nextLink;
+        this.value = teamsTemplateCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class TeamsTemplateCollectionResponseImpl implements AdditionalDataHolder
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: TeamsTemplateImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new TeamsTemplateImpl(element));});
-        writer.writeCollectionOfObjectValues<TeamsTemplateImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<TeamsTemplateImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

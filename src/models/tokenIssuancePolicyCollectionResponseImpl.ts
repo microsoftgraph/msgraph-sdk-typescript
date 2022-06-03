@@ -4,7 +4,7 @@ import {TokenIssuancePolicy} from './tokenIssuancePolicy';
 import {TokenIssuancePolicyCollectionResponse} from './tokenIssuancePolicyCollectionResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class TokenIssuancePolicyCollectionResponseImpl implements AdditionalDataHolder, Parsable, TokenIssuancePolicyCollectionResponse {
+export class TokenIssuancePolicyCollectionResponseImpl implements TokenIssuancePolicyCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class TokenIssuancePolicyCollectionResponseImpl implements AdditionalData
      * @param tokenIssuancePolicyCollectionResponseParameterValue 
      */
     public constructor(tokenIssuancePolicyCollectionResponseParameterValue?: TokenIssuancePolicyCollectionResponse | undefined) {
-        this.additionalData = tokenIssuancePolicyCollectionResponseParameterValue?.additionalData ? tokenIssuancePolicyCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = tokenIssuancePolicyCollectionResponseParameterValue?.nextLink ;
-        this.value = tokenIssuancePolicyCollectionResponseParameterValue?.value ;
+        this.additionalData = tokenIssuancePolicyCollectionResponseParameterValue?.additionalData ? tokenIssuancePolicyCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = tokenIssuancePolicyCollectionResponseParameterValue?.nextLink;
+        this.value = tokenIssuancePolicyCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class TokenIssuancePolicyCollectionResponseImpl implements AdditionalData
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: TokenIssuancePolicyImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new TokenIssuancePolicyImpl(element));});
-        writer.writeCollectionOfObjectValues<TokenIssuancePolicyImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<TokenIssuancePolicyImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

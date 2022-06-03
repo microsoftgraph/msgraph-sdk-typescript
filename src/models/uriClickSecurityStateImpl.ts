@@ -1,7 +1,7 @@
 import {UriClickSecurityState} from './uriClickSecurityState';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class UriClickSecurityStateImpl implements AdditionalDataHolder, Parsable, UriClickSecurityState {
+export class UriClickSecurityStateImpl implements UriClickSecurityState {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The clickAction property */
@@ -21,13 +21,13 @@ export class UriClickSecurityStateImpl implements AdditionalDataHolder, Parsable
      * @param uriClickSecurityStateParameterValue 
      */
     public constructor(uriClickSecurityStateParameterValue?: UriClickSecurityState | undefined) {
-        this.additionalData = uriClickSecurityStateParameterValue?.additionalData ? uriClickSecurityStateParameterValue?.additionalData! : {}
-        this.clickAction = uriClickSecurityStateParameterValue?.clickAction ;
-        this.clickDateTime = uriClickSecurityStateParameterValue?.clickDateTime ;
-        this.id = uriClickSecurityStateParameterValue?.id ;
-        this.sourceId = uriClickSecurityStateParameterValue?.sourceId ;
-        this.uriDomain = uriClickSecurityStateParameterValue?.uriDomain ;
-        this.verdict = uriClickSecurityStateParameterValue?.verdict ;
+        this.additionalData = uriClickSecurityStateParameterValue?.additionalData ? uriClickSecurityStateParameterValue?.additionalData! : {};
+        this.clickAction = uriClickSecurityStateParameterValue?.clickAction;
+        this.clickDateTime = uriClickSecurityStateParameterValue?.clickDateTime;
+        this.id = uriClickSecurityStateParameterValue?.id;
+        this.sourceId = uriClickSecurityStateParameterValue?.sourceId;
+        this.uriDomain = uriClickSecurityStateParameterValue?.uriDomain;
+        this.verdict = uriClickSecurityStateParameterValue?.verdict;
     };
     /**
      * The deserialization information for the current model
@@ -50,22 +50,22 @@ export class UriClickSecurityStateImpl implements AdditionalDataHolder, Parsable
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.clickAction){
-        writer.writeStringValue("clickAction", this.clickAction);
+            writer.writeStringValue("clickAction", this.clickAction);
         }
         if(this.clickDateTime){
-        writer.writeDateValue("clickDateTime", this.clickDateTime);
+            writer.writeDateValue("clickDateTime", this.clickDateTime);
         }
         if(this.id){
-        writer.writeStringValue("id", this.id);
+            writer.writeStringValue("id", this.id);
         }
         if(this.sourceId){
-        writer.writeStringValue("sourceId", this.sourceId);
+            writer.writeStringValue("sourceId", this.sourceId);
         }
         if(this.uriDomain){
-        writer.writeStringValue("uriDomain", this.uriDomain);
+            writer.writeStringValue("uriDomain", this.uriDomain);
         }
         if(this.verdict){
-        writer.writeStringValue("verdict", this.verdict);
+            writer.writeStringValue("verdict", this.verdict);
         }
         writer.writeAdditionalData(this.additionalData);
     };

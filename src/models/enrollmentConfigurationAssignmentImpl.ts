@@ -5,7 +5,7 @@ import {DeviceAndAppManagementAssignmentTargetImpl, EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Enrollment Configuration Assignment */
-export class EnrollmentConfigurationAssignmentImpl extends EntityImpl implements EnrollmentConfigurationAssignment, Parsable {
+export class EnrollmentConfigurationAssignmentImpl extends EntityImpl implements EnrollmentConfigurationAssignment {
     /** Represents an assignment to managed devices in the tenant */
     public target?: DeviceAndAppManagementAssignmentTarget | undefined;
     /**
@@ -13,8 +13,8 @@ export class EnrollmentConfigurationAssignmentImpl extends EntityImpl implements
      * @param enrollmentConfigurationAssignmentParameterValue 
      */
     public constructor(enrollmentConfigurationAssignmentParameterValue?: EnrollmentConfigurationAssignment | undefined) {
-        super();
-        this.target = enrollmentConfigurationAssignmentParameterValue?.target ;
+        super(enrollmentConfigurationAssignmentParameterValue);
+        this.target = enrollmentConfigurationAssignmentParameterValue?.target;
     };
     /**
      * The deserialization information for the current model
@@ -33,7 +33,7 @@ export class EnrollmentConfigurationAssignmentImpl extends EntityImpl implements
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.target){
-        writer.writeObjectValue<DeviceAndAppManagementAssignmentTargetImpl>("target", new DeviceAndAppManagementAssignmentTargetImpl(this.target));
+            writer.writeObjectValue<DeviceAndAppManagementAssignmentTargetImpl>("target", new DeviceAndAppManagementAssignmentTargetImpl(this.target));
         }
     };
 }

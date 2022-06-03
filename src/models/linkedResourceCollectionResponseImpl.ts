@@ -4,7 +4,7 @@ import {LinkedResource} from './linkedResource';
 import {LinkedResourceCollectionResponse} from './linkedResourceCollectionResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class LinkedResourceCollectionResponseImpl implements AdditionalDataHolder, LinkedResourceCollectionResponse, Parsable {
+export class LinkedResourceCollectionResponseImpl implements LinkedResourceCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class LinkedResourceCollectionResponseImpl implements AdditionalDataHolde
      * @param linkedResourceCollectionResponseParameterValue 
      */
     public constructor(linkedResourceCollectionResponseParameterValue?: LinkedResourceCollectionResponse | undefined) {
-        this.additionalData = linkedResourceCollectionResponseParameterValue?.additionalData ? linkedResourceCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = linkedResourceCollectionResponseParameterValue?.nextLink ;
-        this.value = linkedResourceCollectionResponseParameterValue?.value ;
+        this.additionalData = linkedResourceCollectionResponseParameterValue?.additionalData ? linkedResourceCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = linkedResourceCollectionResponseParameterValue?.nextLink;
+        this.value = linkedResourceCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class LinkedResourceCollectionResponseImpl implements AdditionalDataHolde
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: LinkedResourceImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new LinkedResourceImpl(element));});
-        writer.writeCollectionOfObjectValues<LinkedResourceImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<LinkedResourceImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

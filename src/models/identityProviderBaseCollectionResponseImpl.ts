@@ -4,7 +4,7 @@ import {IdentityProviderBaseCollectionResponse} from './identityProviderBaseColl
 import {IdentityProviderBaseImpl} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class IdentityProviderBaseCollectionResponseImpl implements AdditionalDataHolder, IdentityProviderBaseCollectionResponse, Parsable {
+export class IdentityProviderBaseCollectionResponseImpl implements IdentityProviderBaseCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class IdentityProviderBaseCollectionResponseImpl implements AdditionalDat
      * @param identityProviderBaseCollectionResponseParameterValue 
      */
     public constructor(identityProviderBaseCollectionResponseParameterValue?: IdentityProviderBaseCollectionResponse | undefined) {
-        this.additionalData = identityProviderBaseCollectionResponseParameterValue?.additionalData ? identityProviderBaseCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = identityProviderBaseCollectionResponseParameterValue?.nextLink ;
-        this.value = identityProviderBaseCollectionResponseParameterValue?.value ;
+        this.additionalData = identityProviderBaseCollectionResponseParameterValue?.additionalData ? identityProviderBaseCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = identityProviderBaseCollectionResponseParameterValue?.nextLink;
+        this.value = identityProviderBaseCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class IdentityProviderBaseCollectionResponseImpl implements AdditionalDat
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: IdentityProviderBaseImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new IdentityProviderBaseImpl(element));});
-        writer.writeCollectionOfObjectValues<IdentityProviderBaseImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<IdentityProviderBaseImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

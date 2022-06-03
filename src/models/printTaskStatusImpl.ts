@@ -2,7 +2,7 @@ import {PrintTaskProcessingState} from './printTaskProcessingState';
 import {PrintTaskStatus} from './printTaskStatus';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class PrintTaskStatusImpl implements AdditionalDataHolder, Parsable, PrintTaskStatus {
+export class PrintTaskStatusImpl implements PrintTaskStatus {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** A human-readable description of the current processing state of the printTask. */
@@ -14,9 +14,9 @@ export class PrintTaskStatusImpl implements AdditionalDataHolder, Parsable, Prin
      * @param printTaskStatusParameterValue 
      */
     public constructor(printTaskStatusParameterValue?: PrintTaskStatus | undefined) {
-        this.additionalData = printTaskStatusParameterValue?.additionalData ? printTaskStatusParameterValue?.additionalData! : {}
-        this.description = printTaskStatusParameterValue?.description ;
-        this.state = printTaskStatusParameterValue?.state ;
+        this.additionalData = printTaskStatusParameterValue?.additionalData ? printTaskStatusParameterValue?.additionalData! : {};
+        this.description = printTaskStatusParameterValue?.description;
+        this.state = printTaskStatusParameterValue?.state;
     };
     /**
      * The deserialization information for the current model
@@ -35,10 +35,10 @@ export class PrintTaskStatusImpl implements AdditionalDataHolder, Parsable, Prin
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.description){
-        writer.writeStringValue("description", this.description);
+            writer.writeStringValue("description", this.description);
         }
         if(this.state){
-        writer.writeEnumValue<PrintTaskProcessingState>("state", this.state);
+            writer.writeEnumValue<PrintTaskProcessingState>("state", this.state);
         }
         writer.writeAdditionalData(this.additionalData);
     };

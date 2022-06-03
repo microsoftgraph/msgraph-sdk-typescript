@@ -1,11 +1,11 @@
 import {DrivesRequestBuilderGetQueryParameters} from './drivesRequestBuilderGetQueryParameters';
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
-export interface DrivesRequestBuilderGetRequestConfiguration{
+export interface DrivesRequestBuilderGetRequestConfiguration {
     /** Request headers */
-    headers?:Record<string, string> | undefined;
+    headers?: Record<string, string> | undefined;
     /** Request options */
-    options?:RequestOption[] | undefined;
+    options?: RequestOption[] | undefined;
     /** Request query parameters */
-    queryParameters?:DrivesRequestBuilderGetQueryParameters | undefined;
+    queryParameters?: DrivesRequestBuilderGetQueryParameters | undefined;
 }

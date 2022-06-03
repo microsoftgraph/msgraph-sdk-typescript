@@ -2,7 +2,7 @@ import {GetMemberGroupsPostRequestBody} from './getMemberGroupsPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the getMemberGroups method. */
-export class GetMemberGroupsPostRequestBodyImpl implements AdditionalDataHolder, GetMemberGroupsPostRequestBody, Parsable {
+export class GetMemberGroupsPostRequestBodyImpl implements GetMemberGroupsPostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The securityEnabledOnly property */
@@ -12,8 +12,8 @@ export class GetMemberGroupsPostRequestBodyImpl implements AdditionalDataHolder,
      * @param getMemberGroupsPostRequestBodyParameterValue 
      */
     public constructor(getMemberGroupsPostRequestBodyParameterValue?: GetMemberGroupsPostRequestBody | undefined) {
-        this.additionalData = getMemberGroupsPostRequestBodyParameterValue?.additionalData ? getMemberGroupsPostRequestBodyParameterValue?.additionalData! : {}
-        this.securityEnabledOnly = getMemberGroupsPostRequestBodyParameterValue?.securityEnabledOnly ;
+        this.additionalData = getMemberGroupsPostRequestBodyParameterValue?.additionalData ? getMemberGroupsPostRequestBodyParameterValue?.additionalData! : {};
+        this.securityEnabledOnly = getMemberGroupsPostRequestBodyParameterValue?.securityEnabledOnly;
     };
     /**
      * The deserialization information for the current model
@@ -31,7 +31,7 @@ export class GetMemberGroupsPostRequestBodyImpl implements AdditionalDataHolder,
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.securityEnabledOnly){
-        writer.writeBooleanValue("securityEnabledOnly", this.securityEnabledOnly);
+            writer.writeBooleanValue("securityEnabledOnly", this.securityEnabledOnly);
         }
         writer.writeAdditionalData(this.additionalData);
     };

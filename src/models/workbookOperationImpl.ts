@@ -5,8 +5,8 @@ import {WorkbookOperationError} from './workbookOperationError';
 import {WorkbookOperationStatus} from './workbookOperationStatus';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
-export class WorkbookOperationImpl extends EntityImpl implements Parsable, WorkbookOperation {
+/** Casts the previous resource to group. */
+export class WorkbookOperationImpl extends EntityImpl implements WorkbookOperation {
     /** The error returned by the operation. */
     public error_escaped?: WorkbookOperationError | undefined;
     /** The resource URI for the result. */
@@ -18,10 +18,10 @@ export class WorkbookOperationImpl extends EntityImpl implements Parsable, Workb
      * @param workbookOperationParameterValue 
      */
     public constructor(workbookOperationParameterValue?: WorkbookOperation | undefined) {
-        super();
-        this.error_escaped = workbookOperationParameterValue?.error_escaped ;
-        this.resourceLocation = workbookOperationParameterValue?.resourceLocation ;
-        this.status = workbookOperationParameterValue?.status ;
+        super(workbookOperationParameterValue);
+        this.error_escaped = workbookOperationParameterValue?.error_escaped;
+        this.resourceLocation = workbookOperationParameterValue?.resourceLocation;
+        this.status = workbookOperationParameterValue?.status;
     };
     /**
      * The deserialization information for the current model
@@ -42,13 +42,13 @@ export class WorkbookOperationImpl extends EntityImpl implements Parsable, Workb
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.error_escaped){
-        writer.writeObjectValue<WorkbookOperationErrorImpl>("error", new WorkbookOperationErrorImpl(this.error_escaped));
+            writer.writeObjectValue<WorkbookOperationErrorImpl>("error", new WorkbookOperationErrorImpl(this.error_escaped));
         }
         if(this.resourceLocation){
-        writer.writeStringValue("resourceLocation", this.resourceLocation);
+            writer.writeStringValue("resourceLocation", this.resourceLocation);
         }
         if(this.status){
-        writer.writeEnumValue<WorkbookOperationStatus>("status", this.status);
+            writer.writeEnumValue<WorkbookOperationStatus>("status", this.status);
         }
     };
 }

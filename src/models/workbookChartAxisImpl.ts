@@ -10,8 +10,8 @@ import {WorkbookChartAxisTitle} from './workbookChartAxisTitle';
 import {WorkbookChartGridlines} from './workbookChartGridlines';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
-export class WorkbookChartAxisImpl extends EntityImpl implements Parsable, WorkbookChartAxis {
+/** Casts the previous resource to group. */
+export class WorkbookChartAxisImpl extends EntityImpl implements WorkbookChartAxis {
     /** Represents the formatting of a chart object, which includes line and font formatting. Read-only. */
     public format?: WorkbookChartAxisFormat | undefined;
     /** Returns a gridlines object that represents the major gridlines for the specified axis. Read-only. */
@@ -33,15 +33,15 @@ export class WorkbookChartAxisImpl extends EntityImpl implements Parsable, Workb
      * @param workbookChartAxisParameterValue 
      */
     public constructor(workbookChartAxisParameterValue?: WorkbookChartAxis | undefined) {
-        super();
-        this.format = workbookChartAxisParameterValue?.format ;
-        this.majorGridlines = workbookChartAxisParameterValue?.majorGridlines ;
-        this.majorUnit = workbookChartAxisParameterValue?.majorUnit ;
-        this.maximum = workbookChartAxisParameterValue?.maximum ;
-        this.minimum = workbookChartAxisParameterValue?.minimum ;
-        this.minorGridlines = workbookChartAxisParameterValue?.minorGridlines ;
-        this.minorUnit = workbookChartAxisParameterValue?.minorUnit ;
-        this.title = workbookChartAxisParameterValue?.title ;
+        super(workbookChartAxisParameterValue);
+        this.format = workbookChartAxisParameterValue?.format;
+        this.majorGridlines = workbookChartAxisParameterValue?.majorGridlines;
+        this.majorUnit = workbookChartAxisParameterValue?.majorUnit;
+        this.maximum = workbookChartAxisParameterValue?.maximum;
+        this.minimum = workbookChartAxisParameterValue?.minimum;
+        this.minorGridlines = workbookChartAxisParameterValue?.minorGridlines;
+        this.minorUnit = workbookChartAxisParameterValue?.minorUnit;
+        this.title = workbookChartAxisParameterValue?.title;
     };
     /**
      * The deserialization information for the current model
@@ -67,28 +67,28 @@ export class WorkbookChartAxisImpl extends EntityImpl implements Parsable, Workb
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.format){
-        writer.writeObjectValue<WorkbookChartAxisFormatImpl>("format", new WorkbookChartAxisFormatImpl(this.format));
+            writer.writeObjectValue<WorkbookChartAxisFormatImpl>("format", new WorkbookChartAxisFormatImpl(this.format));
         }
         if(this.majorGridlines){
-        writer.writeObjectValue<WorkbookChartGridlinesImpl>("majorGridlines", new WorkbookChartGridlinesImpl(this.majorGridlines));
+            writer.writeObjectValue<WorkbookChartGridlinesImpl>("majorGridlines", new WorkbookChartGridlinesImpl(this.majorGridlines));
         }
         if(this.majorUnit){
-        writer.writeObjectValue<JsonImpl>("majorUnit", new JsonImpl(this.majorUnit));
+            writer.writeObjectValue<JsonImpl>("majorUnit", new JsonImpl(this.majorUnit));
         }
         if(this.maximum){
-        writer.writeObjectValue<JsonImpl>("maximum", new JsonImpl(this.maximum));
+            writer.writeObjectValue<JsonImpl>("maximum", new JsonImpl(this.maximum));
         }
         if(this.minimum){
-        writer.writeObjectValue<JsonImpl>("minimum", new JsonImpl(this.minimum));
+            writer.writeObjectValue<JsonImpl>("minimum", new JsonImpl(this.minimum));
         }
         if(this.minorGridlines){
-        writer.writeObjectValue<WorkbookChartGridlinesImpl>("minorGridlines", new WorkbookChartGridlinesImpl(this.minorGridlines));
+            writer.writeObjectValue<WorkbookChartGridlinesImpl>("minorGridlines", new WorkbookChartGridlinesImpl(this.minorGridlines));
         }
         if(this.minorUnit){
-        writer.writeObjectValue<JsonImpl>("minorUnit", new JsonImpl(this.minorUnit));
+            writer.writeObjectValue<JsonImpl>("minorUnit", new JsonImpl(this.minorUnit));
         }
         if(this.title){
-        writer.writeObjectValue<WorkbookChartAxisTitleImpl>("title", new WorkbookChartAxisTitleImpl(this.title));
+            writer.writeObjectValue<WorkbookChartAxisTitleImpl>("title", new WorkbookChartAxisTitleImpl(this.title));
         }
     };
 }

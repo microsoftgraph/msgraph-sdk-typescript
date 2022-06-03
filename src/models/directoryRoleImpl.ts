@@ -7,7 +7,7 @@ import {ScopedRoleMembership} from './scopedRoleMembership';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the collection of directoryRole entities. */
-export class DirectoryRoleImpl extends DirectoryObjectImpl implements DirectoryRole, Parsable {
+export class DirectoryRoleImpl extends DirectoryObjectImpl implements DirectoryRole {
     /** The description for the directory role. Read-only. Supports $filter (eq), $search, $select. */
     public description?: string | undefined;
     /** The display name for the directory role. Read-only. Supports $filter (eq), $search, $select. */
@@ -23,12 +23,12 @@ export class DirectoryRoleImpl extends DirectoryObjectImpl implements DirectoryR
      * @param directoryRoleParameterValue 
      */
     public constructor(directoryRoleParameterValue?: DirectoryRole | undefined) {
-        super();
-        this.description = directoryRoleParameterValue?.description ;
-        this.displayName = directoryRoleParameterValue?.displayName ;
-        this.members = directoryRoleParameterValue?.members ;
-        this.roleTemplateId = directoryRoleParameterValue?.roleTemplateId ;
-        this.scopedMembers = directoryRoleParameterValue?.scopedMembers ;
+        super(directoryRoleParameterValue);
+        this.description = directoryRoleParameterValue?.description;
+        this.displayName = directoryRoleParameterValue?.displayName;
+        this.members = directoryRoleParameterValue?.members;
+        this.roleTemplateId = directoryRoleParameterValue?.roleTemplateId;
+        this.scopedMembers = directoryRoleParameterValue?.scopedMembers;
     };
     /**
      * The deserialization information for the current model
@@ -51,19 +51,19 @@ export class DirectoryRoleImpl extends DirectoryObjectImpl implements DirectoryR
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.description){
-        writer.writeStringValue("description", this.description);
+            writer.writeStringValue("description", this.description);
         }
         if(this.displayName){
-        writer.writeStringValue("displayName", this.displayName);
+            writer.writeStringValue("displayName", this.displayName);
         }
         if(this.members && this.members.length != 0){        const membersArrValue: DirectoryObjectImpl[] = []; this.members?.forEach(element => {membersArrValue.push(new DirectoryObjectImpl(element));});
-        writer.writeCollectionOfObjectValues<DirectoryObjectImpl>("members", membersArrValue);
+            writer.writeCollectionOfObjectValues<DirectoryObjectImpl>("members", membersArrValue);
         }
         if(this.roleTemplateId){
-        writer.writeStringValue("roleTemplateId", this.roleTemplateId);
+            writer.writeStringValue("roleTemplateId", this.roleTemplateId);
         }
         if(this.scopedMembers && this.scopedMembers.length != 0){        const scopedMembersArrValue: ScopedRoleMembershipImpl[] = []; this.scopedMembers?.forEach(element => {scopedMembersArrValue.push(new ScopedRoleMembershipImpl(element));});
-        writer.writeCollectionOfObjectValues<ScopedRoleMembershipImpl>("scopedMembers", scopedMembersArrValue);
+            writer.writeCollectionOfObjectValues<ScopedRoleMembershipImpl>("scopedMembers", scopedMembersArrValue);
         }
     };
 }

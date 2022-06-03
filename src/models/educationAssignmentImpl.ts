@@ -22,7 +22,7 @@ import {EducationAssignmentGradeTypeImpl, EducationAssignmentRecipientImpl, Educ
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the educationRoot singleton. */
-export class EducationAssignmentImpl extends EntityImpl implements EducationAssignment, Parsable {
+export class EducationAssignmentImpl extends EntityImpl implements EducationAssignment {
     /** Optional field to control the assignment behavior for students who are added after the assignment is published. If not specified, defaults to none value. Currently supports only two values: none or assignIfOpen. */
     public addedStudentAction?: EducationAddedStudentAction | undefined;
     /** Optional field to control the assignment behavior  for adding assignments to students' and teachers' calendars when the assignment is published. The possible values are: none, studentsAndPublisher, studentsAndTeamOwners, unknownFutureValue, and studentsOnly. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: studentsOnly. The default value is none. */
@@ -78,32 +78,32 @@ export class EducationAssignmentImpl extends EntityImpl implements EducationAssi
      * @param educationAssignmentParameterValue 
      */
     public constructor(educationAssignmentParameterValue?: EducationAssignment | undefined) {
-        super();
-        this.addedStudentAction = educationAssignmentParameterValue?.addedStudentAction ;
-        this.addToCalendarAction = educationAssignmentParameterValue?.addToCalendarAction ;
-        this.allowLateSubmissions = educationAssignmentParameterValue?.allowLateSubmissions ;
-        this.allowStudentsToAddResourcesToSubmission = educationAssignmentParameterValue?.allowStudentsToAddResourcesToSubmission ;
-        this.assignDateTime = educationAssignmentParameterValue?.assignDateTime ;
-        this.assignedDateTime = educationAssignmentParameterValue?.assignedDateTime ;
-        this.assignTo = educationAssignmentParameterValue?.assignTo ;
-        this.categories = educationAssignmentParameterValue?.categories ;
-        this.classId = educationAssignmentParameterValue?.classId ;
-        this.closeDateTime = educationAssignmentParameterValue?.closeDateTime ;
-        this.createdBy = educationAssignmentParameterValue?.createdBy ;
-        this.createdDateTime = educationAssignmentParameterValue?.createdDateTime ;
-        this.displayName = educationAssignmentParameterValue?.displayName ;
-        this.dueDateTime = educationAssignmentParameterValue?.dueDateTime ;
-        this.grading = educationAssignmentParameterValue?.grading ;
-        this.instructions = educationAssignmentParameterValue?.instructions ;
-        this.lastModifiedBy = educationAssignmentParameterValue?.lastModifiedBy ;
-        this.lastModifiedDateTime = educationAssignmentParameterValue?.lastModifiedDateTime ;
-        this.notificationChannelUrl = educationAssignmentParameterValue?.notificationChannelUrl ;
-        this.resources = educationAssignmentParameterValue?.resources ;
-        this.resourcesFolderUrl = educationAssignmentParameterValue?.resourcesFolderUrl ;
-        this.rubric = educationAssignmentParameterValue?.rubric ;
-        this.status = educationAssignmentParameterValue?.status ;
-        this.submissions = educationAssignmentParameterValue?.submissions ;
-        this.webUrl = educationAssignmentParameterValue?.webUrl ;
+        super(educationAssignmentParameterValue);
+        this.addedStudentAction = educationAssignmentParameterValue?.addedStudentAction;
+        this.addToCalendarAction = educationAssignmentParameterValue?.addToCalendarAction;
+        this.allowLateSubmissions = educationAssignmentParameterValue?.allowLateSubmissions;
+        this.allowStudentsToAddResourcesToSubmission = educationAssignmentParameterValue?.allowStudentsToAddResourcesToSubmission;
+        this.assignDateTime = educationAssignmentParameterValue?.assignDateTime;
+        this.assignedDateTime = educationAssignmentParameterValue?.assignedDateTime;
+        this.assignTo = educationAssignmentParameterValue?.assignTo;
+        this.categories = educationAssignmentParameterValue?.categories;
+        this.classId = educationAssignmentParameterValue?.classId;
+        this.closeDateTime = educationAssignmentParameterValue?.closeDateTime;
+        this.createdBy = educationAssignmentParameterValue?.createdBy;
+        this.createdDateTime = educationAssignmentParameterValue?.createdDateTime;
+        this.displayName = educationAssignmentParameterValue?.displayName;
+        this.dueDateTime = educationAssignmentParameterValue?.dueDateTime;
+        this.grading = educationAssignmentParameterValue?.grading;
+        this.instructions = educationAssignmentParameterValue?.instructions;
+        this.lastModifiedBy = educationAssignmentParameterValue?.lastModifiedBy;
+        this.lastModifiedDateTime = educationAssignmentParameterValue?.lastModifiedDateTime;
+        this.notificationChannelUrl = educationAssignmentParameterValue?.notificationChannelUrl;
+        this.resources = educationAssignmentParameterValue?.resources;
+        this.resourcesFolderUrl = educationAssignmentParameterValue?.resourcesFolderUrl;
+        this.rubric = educationAssignmentParameterValue?.rubric;
+        this.status = educationAssignmentParameterValue?.status;
+        this.submissions = educationAssignmentParameterValue?.submissions;
+        this.webUrl = educationAssignmentParameterValue?.webUrl;
     };
     /**
      * The deserialization information for the current model
@@ -146,79 +146,79 @@ export class EducationAssignmentImpl extends EntityImpl implements EducationAssi
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.addedStudentAction){
-        writer.writeEnumValue<EducationAddedStudentAction>("addedStudentAction", this.addedStudentAction);
+            writer.writeEnumValue<EducationAddedStudentAction>("addedStudentAction", this.addedStudentAction);
         }
         if(this.addToCalendarAction){
-        writer.writeEnumValue<EducationAddToCalendarOptions>("addToCalendarAction", this.addToCalendarAction);
+            writer.writeEnumValue<EducationAddToCalendarOptions>("addToCalendarAction", this.addToCalendarAction);
         }
         if(this.allowLateSubmissions){
-        writer.writeBooleanValue("allowLateSubmissions", this.allowLateSubmissions);
+            writer.writeBooleanValue("allowLateSubmissions", this.allowLateSubmissions);
         }
         if(this.allowStudentsToAddResourcesToSubmission){
-        writer.writeBooleanValue("allowStudentsToAddResourcesToSubmission", this.allowStudentsToAddResourcesToSubmission);
+            writer.writeBooleanValue("allowStudentsToAddResourcesToSubmission", this.allowStudentsToAddResourcesToSubmission);
         }
         if(this.assignDateTime){
-        writer.writeDateValue("assignDateTime", this.assignDateTime);
+            writer.writeDateValue("assignDateTime", this.assignDateTime);
         }
         if(this.assignedDateTime){
-        writer.writeDateValue("assignedDateTime", this.assignedDateTime);
+            writer.writeDateValue("assignedDateTime", this.assignedDateTime);
         }
         if(this.assignTo){
-        writer.writeObjectValue<EducationAssignmentRecipientImpl>("assignTo", new EducationAssignmentRecipientImpl(this.assignTo));
+            writer.writeObjectValue<EducationAssignmentRecipientImpl>("assignTo", new EducationAssignmentRecipientImpl(this.assignTo));
         }
         if(this.categories && this.categories.length != 0){        const categoriesArrValue: EducationCategoryImpl[] = []; this.categories?.forEach(element => {categoriesArrValue.push(new EducationCategoryImpl(element));});
-        writer.writeCollectionOfObjectValues<EducationCategoryImpl>("categories", categoriesArrValue);
+            writer.writeCollectionOfObjectValues<EducationCategoryImpl>("categories", categoriesArrValue);
         }
         if(this.classId){
-        writer.writeStringValue("classId", this.classId);
+            writer.writeStringValue("classId", this.classId);
         }
         if(this.closeDateTime){
-        writer.writeDateValue("closeDateTime", this.closeDateTime);
+            writer.writeDateValue("closeDateTime", this.closeDateTime);
         }
         if(this.createdBy){
-        writer.writeObjectValue<IdentitySetImpl>("createdBy", new IdentitySetImpl(this.createdBy));
+            writer.writeObjectValue<IdentitySetImpl>("createdBy", new IdentitySetImpl(this.createdBy));
         }
         if(this.createdDateTime){
-        writer.writeDateValue("createdDateTime", this.createdDateTime);
+            writer.writeDateValue("createdDateTime", this.createdDateTime);
         }
         if(this.displayName){
-        writer.writeStringValue("displayName", this.displayName);
+            writer.writeStringValue("displayName", this.displayName);
         }
         if(this.dueDateTime){
-        writer.writeDateValue("dueDateTime", this.dueDateTime);
+            writer.writeDateValue("dueDateTime", this.dueDateTime);
         }
         if(this.grading){
-        writer.writeObjectValue<EducationAssignmentGradeTypeImpl>("grading", new EducationAssignmentGradeTypeImpl(this.grading));
+            writer.writeObjectValue<EducationAssignmentGradeTypeImpl>("grading", new EducationAssignmentGradeTypeImpl(this.grading));
         }
         if(this.instructions){
-        writer.writeObjectValue<EducationItemBodyImpl>("instructions", new EducationItemBodyImpl(this.instructions));
+            writer.writeObjectValue<EducationItemBodyImpl>("instructions", new EducationItemBodyImpl(this.instructions));
         }
         if(this.lastModifiedBy){
-        writer.writeObjectValue<IdentitySetImpl>("lastModifiedBy", new IdentitySetImpl(this.lastModifiedBy));
+            writer.writeObjectValue<IdentitySetImpl>("lastModifiedBy", new IdentitySetImpl(this.lastModifiedBy));
         }
         if(this.lastModifiedDateTime){
-        writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
+            writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
         }
         if(this.notificationChannelUrl){
-        writer.writeStringValue("notificationChannelUrl", this.notificationChannelUrl);
+            writer.writeStringValue("notificationChannelUrl", this.notificationChannelUrl);
         }
         if(this.resources && this.resources.length != 0){        const resourcesArrValue: EducationAssignmentResourceImpl[] = []; this.resources?.forEach(element => {resourcesArrValue.push(new EducationAssignmentResourceImpl(element));});
-        writer.writeCollectionOfObjectValues<EducationAssignmentResourceImpl>("resources", resourcesArrValue);
+            writer.writeCollectionOfObjectValues<EducationAssignmentResourceImpl>("resources", resourcesArrValue);
         }
         if(this.resourcesFolderUrl){
-        writer.writeStringValue("resourcesFolderUrl", this.resourcesFolderUrl);
+            writer.writeStringValue("resourcesFolderUrl", this.resourcesFolderUrl);
         }
         if(this.rubric){
-        writer.writeObjectValue<EducationRubricImpl>("rubric", new EducationRubricImpl(this.rubric));
+            writer.writeObjectValue<EducationRubricImpl>("rubric", new EducationRubricImpl(this.rubric));
         }
         if(this.status){
-        writer.writeEnumValue<EducationAssignmentStatus>("status", this.status);
+            writer.writeEnumValue<EducationAssignmentStatus>("status", this.status);
         }
         if(this.submissions && this.submissions.length != 0){        const submissionsArrValue: EducationSubmissionImpl[] = []; this.submissions?.forEach(element => {submissionsArrValue.push(new EducationSubmissionImpl(element));});
-        writer.writeCollectionOfObjectValues<EducationSubmissionImpl>("submissions", submissionsArrValue);
+            writer.writeCollectionOfObjectValues<EducationSubmissionImpl>("submissions", submissionsArrValue);
         }
         if(this.webUrl){
-        writer.writeStringValue("webUrl", this.webUrl);
+            writer.writeStringValue("webUrl", this.webUrl);
         }
     };
 }

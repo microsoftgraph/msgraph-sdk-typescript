@@ -5,7 +5,7 @@ import {CopyToDefaultContentLocationPostRequestBody} from './copyToDefaultConten
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the copyToDefaultContentLocation method. */
-export class CopyToDefaultContentLocationPostRequestBodyImpl implements AdditionalDataHolder, CopyToDefaultContentLocationPostRequestBody, Parsable {
+export class CopyToDefaultContentLocationPostRequestBodyImpl implements CopyToDefaultContentLocationPostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The destinationFileName property */
@@ -17,9 +17,9 @@ export class CopyToDefaultContentLocationPostRequestBodyImpl implements Addition
      * @param copyToDefaultContentLocationPostRequestBodyParameterValue 
      */
     public constructor(copyToDefaultContentLocationPostRequestBodyParameterValue?: CopyToDefaultContentLocationPostRequestBody | undefined) {
-        this.additionalData = copyToDefaultContentLocationPostRequestBodyParameterValue?.additionalData ? copyToDefaultContentLocationPostRequestBodyParameterValue?.additionalData! : {}
-        this.destinationFileName = copyToDefaultContentLocationPostRequestBodyParameterValue?.destinationFileName ;
-        this.sourceFile = copyToDefaultContentLocationPostRequestBodyParameterValue?.sourceFile ;
+        this.additionalData = copyToDefaultContentLocationPostRequestBodyParameterValue?.additionalData ? copyToDefaultContentLocationPostRequestBodyParameterValue?.additionalData! : {};
+        this.destinationFileName = copyToDefaultContentLocationPostRequestBodyParameterValue?.destinationFileName;
+        this.sourceFile = copyToDefaultContentLocationPostRequestBodyParameterValue?.sourceFile;
     };
     /**
      * The deserialization information for the current model
@@ -38,10 +38,10 @@ export class CopyToDefaultContentLocationPostRequestBodyImpl implements Addition
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.destinationFileName){
-        writer.writeStringValue("destinationFileName", this.destinationFileName);
+            writer.writeStringValue("destinationFileName", this.destinationFileName);
         }
         if(this.sourceFile){
-        writer.writeObjectValue<ItemReferenceImpl>("sourceFile", new ItemReferenceImpl(this.sourceFile));
+            writer.writeObjectValue<ItemReferenceImpl>("sourceFile", new ItemReferenceImpl(this.sourceFile));
         }
         writer.writeAdditionalData(this.additionalData);
     };

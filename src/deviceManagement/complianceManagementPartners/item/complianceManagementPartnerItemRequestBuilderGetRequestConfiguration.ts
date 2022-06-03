@@ -1,11 +1,11 @@
 import {ComplianceManagementPartnerItemRequestBuilderGetQueryParameters} from './complianceManagementPartnerItemRequestBuilderGetQueryParameters';
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
-export interface ComplianceManagementPartnerItemRequestBuilderGetRequestConfiguration{
+export interface ComplianceManagementPartnerItemRequestBuilderGetRequestConfiguration {
     /** Request headers */
-    headers?:Record<string, string> | undefined;
+    headers?: Record<string, string> | undefined;
     /** Request options */
-    options?:RequestOption[] | undefined;
+    options?: RequestOption[] | undefined;
     /** Request query parameters */
-    queryParameters?:ComplianceManagementPartnerItemRequestBuilderGetQueryParameters | undefined;
+    queryParameters?: ComplianceManagementPartnerItemRequestBuilderGetQueryParameters | undefined;
 }

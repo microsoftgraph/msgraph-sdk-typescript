@@ -2,7 +2,7 @@ import {PlannerContainerType} from './plannerContainerType';
 import {PlannerPlanContainer} from './plannerPlanContainer';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class PlannerPlanContainerImpl implements AdditionalDataHolder, Parsable, PlannerPlanContainer {
+export class PlannerPlanContainerImpl implements PlannerPlanContainer {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The identifier of the resource that contains the plan. */
@@ -16,10 +16,10 @@ export class PlannerPlanContainerImpl implements AdditionalDataHolder, Parsable,
      * @param plannerPlanContainerParameterValue 
      */
     public constructor(plannerPlanContainerParameterValue?: PlannerPlanContainer | undefined) {
-        this.additionalData = plannerPlanContainerParameterValue?.additionalData ? plannerPlanContainerParameterValue?.additionalData! : {}
-        this.containerId = plannerPlanContainerParameterValue?.containerId ;
-        this.type = plannerPlanContainerParameterValue?.type ;
-        this.url = plannerPlanContainerParameterValue?.url ;
+        this.additionalData = plannerPlanContainerParameterValue?.additionalData ? plannerPlanContainerParameterValue?.additionalData! : {};
+        this.containerId = plannerPlanContainerParameterValue?.containerId;
+        this.type = plannerPlanContainerParameterValue?.type;
+        this.url = plannerPlanContainerParameterValue?.url;
     };
     /**
      * The deserialization information for the current model
@@ -39,13 +39,13 @@ export class PlannerPlanContainerImpl implements AdditionalDataHolder, Parsable,
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.containerId){
-        writer.writeStringValue("containerId", this.containerId);
+            writer.writeStringValue("containerId", this.containerId);
         }
         if(this.type){
-        writer.writeEnumValue<PlannerContainerType>("type", this.type);
+            writer.writeEnumValue<PlannerContainerType>("type", this.type);
         }
         if(this.url){
-        writer.writeStringValue("url", this.url);
+            writer.writeStringValue("url", this.url);
         }
         writer.writeAdditionalData(this.additionalData);
     };

@@ -3,13 +3,13 @@ import {StopHoldMusicOperation} from './stopHoldMusicOperation';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the stopHoldMusic method. */
-export class StopHoldMusicOperationImpl extends CommsOperationImpl implements Parsable, StopHoldMusicOperation {
+export class StopHoldMusicOperationImpl extends CommsOperationImpl implements StopHoldMusicOperation {
     /**
      * Instantiates a new stopHoldMusicOperation and sets the default values.
      * @param stopHoldMusicOperationParameterValue 
      */
     public constructor(stopHoldMusicOperationParameterValue?: StopHoldMusicOperation | undefined) {
-        super();
+        super(stopHoldMusicOperationParameterValue);
     };
     /**
      * The deserialization information for the current model

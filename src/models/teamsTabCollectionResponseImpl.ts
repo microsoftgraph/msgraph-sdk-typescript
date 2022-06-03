@@ -4,7 +4,7 @@ import {TeamsTab} from './teamsTab';
 import {TeamsTabCollectionResponse} from './teamsTabCollectionResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class TeamsTabCollectionResponseImpl implements AdditionalDataHolder, Parsable, TeamsTabCollectionResponse {
+export class TeamsTabCollectionResponseImpl implements TeamsTabCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class TeamsTabCollectionResponseImpl implements AdditionalDataHolder, Par
      * @param teamsTabCollectionResponseParameterValue 
      */
     public constructor(teamsTabCollectionResponseParameterValue?: TeamsTabCollectionResponse | undefined) {
-        this.additionalData = teamsTabCollectionResponseParameterValue?.additionalData ? teamsTabCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = teamsTabCollectionResponseParameterValue?.nextLink ;
-        this.value = teamsTabCollectionResponseParameterValue?.value ;
+        this.additionalData = teamsTabCollectionResponseParameterValue?.additionalData ? teamsTabCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = teamsTabCollectionResponseParameterValue?.nextLink;
+        this.value = teamsTabCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class TeamsTabCollectionResponseImpl implements AdditionalDataHolder, Par
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: TeamsTabImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new TeamsTabImpl(element));});
-        writer.writeCollectionOfObjectValues<TeamsTabImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<TeamsTabImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

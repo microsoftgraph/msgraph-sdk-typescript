@@ -24,7 +24,7 @@ import {EducationAssignmentDefaultsImpl, EducationAssignmentImpl, EducationAssig
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the educationRoot singleton. */
-export class EducationClassImpl extends EntityImpl implements EducationClass, Parsable {
+export class EducationClassImpl extends EntityImpl implements EducationClass {
     /** All categories associated with this class. Nullable. */
     public assignmentCategories?: EducationCategory[] | undefined;
     /** Specifies class-level defaults respected by new assignments created in the class. */
@@ -70,27 +70,27 @@ export class EducationClassImpl extends EntityImpl implements EducationClass, Pa
      * @param educationClassParameterValue 
      */
     public constructor(educationClassParameterValue?: EducationClass | undefined) {
-        super();
-        this.assignmentCategories = educationClassParameterValue?.assignmentCategories ;
-        this.assignmentDefaults = educationClassParameterValue?.assignmentDefaults ;
-        this.assignments = educationClassParameterValue?.assignments ;
-        this.assignmentSettings = educationClassParameterValue?.assignmentSettings ;
-        this.classCode = educationClassParameterValue?.classCode ;
-        this.course = educationClassParameterValue?.course ;
-        this.createdBy = educationClassParameterValue?.createdBy ;
-        this.description = educationClassParameterValue?.description ;
-        this.displayName = educationClassParameterValue?.displayName ;
-        this.externalId = educationClassParameterValue?.externalId ;
-        this.externalName = educationClassParameterValue?.externalName ;
-        this.externalSource = educationClassParameterValue?.externalSource ;
-        this.externalSourceDetail = educationClassParameterValue?.externalSourceDetail ;
-        this.grade = educationClassParameterValue?.grade ;
-        this.group = educationClassParameterValue?.group ;
-        this.mailNickname = educationClassParameterValue?.mailNickname ;
-        this.members = educationClassParameterValue?.members ;
-        this.schools = educationClassParameterValue?.schools ;
-        this.teachers = educationClassParameterValue?.teachers ;
-        this.term = educationClassParameterValue?.term ;
+        super(educationClassParameterValue);
+        this.assignmentCategories = educationClassParameterValue?.assignmentCategories;
+        this.assignmentDefaults = educationClassParameterValue?.assignmentDefaults;
+        this.assignments = educationClassParameterValue?.assignments;
+        this.assignmentSettings = educationClassParameterValue?.assignmentSettings;
+        this.classCode = educationClassParameterValue?.classCode;
+        this.course = educationClassParameterValue?.course;
+        this.createdBy = educationClassParameterValue?.createdBy;
+        this.description = educationClassParameterValue?.description;
+        this.displayName = educationClassParameterValue?.displayName;
+        this.externalId = educationClassParameterValue?.externalId;
+        this.externalName = educationClassParameterValue?.externalName;
+        this.externalSource = educationClassParameterValue?.externalSource;
+        this.externalSourceDetail = educationClassParameterValue?.externalSourceDetail;
+        this.grade = educationClassParameterValue?.grade;
+        this.group = educationClassParameterValue?.group;
+        this.mailNickname = educationClassParameterValue?.mailNickname;
+        this.members = educationClassParameterValue?.members;
+        this.schools = educationClassParameterValue?.schools;
+        this.teachers = educationClassParameterValue?.teachers;
+        this.term = educationClassParameterValue?.term;
     };
     /**
      * The deserialization information for the current model
@@ -128,64 +128,64 @@ export class EducationClassImpl extends EntityImpl implements EducationClass, Pa
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.assignmentCategories && this.assignmentCategories.length != 0){        const assignmentCategoriesArrValue: EducationCategoryImpl[] = []; this.assignmentCategories?.forEach(element => {assignmentCategoriesArrValue.push(new EducationCategoryImpl(element));});
-        writer.writeCollectionOfObjectValues<EducationCategoryImpl>("assignmentCategories", assignmentCategoriesArrValue);
+            writer.writeCollectionOfObjectValues<EducationCategoryImpl>("assignmentCategories", assignmentCategoriesArrValue);
         }
         if(this.assignmentDefaults){
-        writer.writeObjectValue<EducationAssignmentDefaultsImpl>("assignmentDefaults", new EducationAssignmentDefaultsImpl(this.assignmentDefaults));
+            writer.writeObjectValue<EducationAssignmentDefaultsImpl>("assignmentDefaults", new EducationAssignmentDefaultsImpl(this.assignmentDefaults));
         }
         if(this.assignments && this.assignments.length != 0){        const assignmentsArrValue: EducationAssignmentImpl[] = []; this.assignments?.forEach(element => {assignmentsArrValue.push(new EducationAssignmentImpl(element));});
-        writer.writeCollectionOfObjectValues<EducationAssignmentImpl>("assignments", assignmentsArrValue);
+            writer.writeCollectionOfObjectValues<EducationAssignmentImpl>("assignments", assignmentsArrValue);
         }
         if(this.assignmentSettings){
-        writer.writeObjectValue<EducationAssignmentSettingsImpl>("assignmentSettings", new EducationAssignmentSettingsImpl(this.assignmentSettings));
+            writer.writeObjectValue<EducationAssignmentSettingsImpl>("assignmentSettings", new EducationAssignmentSettingsImpl(this.assignmentSettings));
         }
         if(this.classCode){
-        writer.writeStringValue("classCode", this.classCode);
+            writer.writeStringValue("classCode", this.classCode);
         }
         if(this.course){
-        writer.writeObjectValue<EducationCourseImpl>("course", new EducationCourseImpl(this.course));
+            writer.writeObjectValue<EducationCourseImpl>("course", new EducationCourseImpl(this.course));
         }
         if(this.createdBy){
-        writer.writeObjectValue<IdentitySetImpl>("createdBy", new IdentitySetImpl(this.createdBy));
+            writer.writeObjectValue<IdentitySetImpl>("createdBy", new IdentitySetImpl(this.createdBy));
         }
         if(this.description){
-        writer.writeStringValue("description", this.description);
+            writer.writeStringValue("description", this.description);
         }
         if(this.displayName){
-        writer.writeStringValue("displayName", this.displayName);
+            writer.writeStringValue("displayName", this.displayName);
         }
         if(this.externalId){
-        writer.writeStringValue("externalId", this.externalId);
+            writer.writeStringValue("externalId", this.externalId);
         }
         if(this.externalName){
-        writer.writeStringValue("externalName", this.externalName);
+            writer.writeStringValue("externalName", this.externalName);
         }
         if(this.externalSource){
-        writer.writeEnumValue<EducationExternalSource>("externalSource", this.externalSource);
+            writer.writeEnumValue<EducationExternalSource>("externalSource", this.externalSource);
         }
         if(this.externalSourceDetail){
-        writer.writeStringValue("externalSourceDetail", this.externalSourceDetail);
+            writer.writeStringValue("externalSourceDetail", this.externalSourceDetail);
         }
         if(this.grade){
-        writer.writeStringValue("grade", this.grade);
+            writer.writeStringValue("grade", this.grade);
         }
         if(this.group){
-        writer.writeObjectValue<GroupImpl>("group", new GroupImpl(this.group));
+            writer.writeObjectValue<GroupImpl>("group", new GroupImpl(this.group));
         }
         if(this.mailNickname){
-        writer.writeStringValue("mailNickname", this.mailNickname);
+            writer.writeStringValue("mailNickname", this.mailNickname);
         }
         if(this.members && this.members.length != 0){        const membersArrValue: EducationUserImpl[] = []; this.members?.forEach(element => {membersArrValue.push(new EducationUserImpl(element));});
-        writer.writeCollectionOfObjectValues<EducationUserImpl>("members", membersArrValue);
+            writer.writeCollectionOfObjectValues<EducationUserImpl>("members", membersArrValue);
         }
         if(this.schools && this.schools.length != 0){        const schoolsArrValue: EducationSchoolImpl[] = []; this.schools?.forEach(element => {schoolsArrValue.push(new EducationSchoolImpl(element));});
-        writer.writeCollectionOfObjectValues<EducationSchoolImpl>("schools", schoolsArrValue);
+            writer.writeCollectionOfObjectValues<EducationSchoolImpl>("schools", schoolsArrValue);
         }
         if(this.teachers && this.teachers.length != 0){        const teachersArrValue: EducationUserImpl[] = []; this.teachers?.forEach(element => {teachersArrValue.push(new EducationUserImpl(element));});
-        writer.writeCollectionOfObjectValues<EducationUserImpl>("teachers", teachersArrValue);
+            writer.writeCollectionOfObjectValues<EducationUserImpl>("teachers", teachersArrValue);
         }
         if(this.term){
-        writer.writeObjectValue<EducationTermImpl>("term", new EducationTermImpl(this.term));
+            writer.writeObjectValue<EducationTermImpl>("term", new EducationTermImpl(this.term));
         }
     };
 }

@@ -10,7 +10,7 @@ import {ManagedMobileApp} from './managedMobileApp';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Policy used to configure detailed management settings for a specified set of apps for all users not targeted by a TargetedManagedAppProtection Policy */
-export class DefaultManagedAppProtectionImpl extends ManagedAppProtectionImpl implements DefaultManagedAppProtection, Parsable {
+export class DefaultManagedAppProtectionImpl extends ManagedAppProtectionImpl implements DefaultManagedAppProtection {
     /** Type of encryption which should be used for data in a managed app. (iOS Only). Possible values are: useDeviceSettings, afterDeviceRestart, whenDeviceLockedExceptOpenFiles, whenDeviceLocked. */
     public appDataEncryptionType?: ManagedAppDataEncryptionType | undefined;
     /** List of apps to which the policy is deployed. */
@@ -40,19 +40,19 @@ export class DefaultManagedAppProtectionImpl extends ManagedAppProtectionImpl im
      * @param defaultManagedAppProtectionParameterValue 
      */
     public constructor(defaultManagedAppProtectionParameterValue?: DefaultManagedAppProtection | undefined) {
-        super();
-        this.appDataEncryptionType = defaultManagedAppProtectionParameterValue?.appDataEncryptionType ;
-        this.apps = defaultManagedAppProtectionParameterValue?.apps ;
-        this.customSettings = defaultManagedAppProtectionParameterValue?.customSettings ;
-        this.deployedAppCount = defaultManagedAppProtectionParameterValue?.deployedAppCount ;
-        this.deploymentSummary = defaultManagedAppProtectionParameterValue?.deploymentSummary ;
-        this.disableAppEncryptionIfDeviceEncryptionIsEnabled = defaultManagedAppProtectionParameterValue?.disableAppEncryptionIfDeviceEncryptionIsEnabled ;
-        this.encryptAppData = defaultManagedAppProtectionParameterValue?.encryptAppData ;
-        this.faceIdBlocked = defaultManagedAppProtectionParameterValue?.faceIdBlocked ;
-        this.minimumRequiredPatchVersion = defaultManagedAppProtectionParameterValue?.minimumRequiredPatchVersion ;
-        this.minimumRequiredSdkVersion = defaultManagedAppProtectionParameterValue?.minimumRequiredSdkVersion ;
-        this.minimumWarningPatchVersion = defaultManagedAppProtectionParameterValue?.minimumWarningPatchVersion ;
-        this.screenCaptureBlocked = defaultManagedAppProtectionParameterValue?.screenCaptureBlocked ;
+        super(defaultManagedAppProtectionParameterValue);
+        this.appDataEncryptionType = defaultManagedAppProtectionParameterValue?.appDataEncryptionType;
+        this.apps = defaultManagedAppProtectionParameterValue?.apps;
+        this.customSettings = defaultManagedAppProtectionParameterValue?.customSettings;
+        this.deployedAppCount = defaultManagedAppProtectionParameterValue?.deployedAppCount;
+        this.deploymentSummary = defaultManagedAppProtectionParameterValue?.deploymentSummary;
+        this.disableAppEncryptionIfDeviceEncryptionIsEnabled = defaultManagedAppProtectionParameterValue?.disableAppEncryptionIfDeviceEncryptionIsEnabled;
+        this.encryptAppData = defaultManagedAppProtectionParameterValue?.encryptAppData;
+        this.faceIdBlocked = defaultManagedAppProtectionParameterValue?.faceIdBlocked;
+        this.minimumRequiredPatchVersion = defaultManagedAppProtectionParameterValue?.minimumRequiredPatchVersion;
+        this.minimumRequiredSdkVersion = defaultManagedAppProtectionParameterValue?.minimumRequiredSdkVersion;
+        this.minimumWarningPatchVersion = defaultManagedAppProtectionParameterValue?.minimumWarningPatchVersion;
+        this.screenCaptureBlocked = defaultManagedAppProtectionParameterValue?.screenCaptureBlocked;
     };
     /**
      * The deserialization information for the current model
@@ -82,40 +82,40 @@ export class DefaultManagedAppProtectionImpl extends ManagedAppProtectionImpl im
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.appDataEncryptionType){
-        writer.writeEnumValue<ManagedAppDataEncryptionType>("appDataEncryptionType", this.appDataEncryptionType);
+            writer.writeEnumValue<ManagedAppDataEncryptionType>("appDataEncryptionType", this.appDataEncryptionType);
         }
         if(this.apps && this.apps.length != 0){        const appsArrValue: ManagedMobileAppImpl[] = []; this.apps?.forEach(element => {appsArrValue.push(new ManagedMobileAppImpl(element));});
-        writer.writeCollectionOfObjectValues<ManagedMobileAppImpl>("apps", appsArrValue);
+            writer.writeCollectionOfObjectValues<ManagedMobileAppImpl>("apps", appsArrValue);
         }
         if(this.customSettings && this.customSettings.length != 0){        const customSettingsArrValue: KeyValuePairImpl[] = []; this.customSettings?.forEach(element => {customSettingsArrValue.push(new KeyValuePairImpl(element));});
-        writer.writeCollectionOfObjectValues<KeyValuePairImpl>("customSettings", customSettingsArrValue);
+            writer.writeCollectionOfObjectValues<KeyValuePairImpl>("customSettings", customSettingsArrValue);
         }
         if(this.deployedAppCount){
-        writer.writeNumberValue("deployedAppCount", this.deployedAppCount);
+            writer.writeNumberValue("deployedAppCount", this.deployedAppCount);
         }
         if(this.deploymentSummary){
-        writer.writeObjectValue<ManagedAppPolicyDeploymentSummaryImpl>("deploymentSummary", new ManagedAppPolicyDeploymentSummaryImpl(this.deploymentSummary));
+            writer.writeObjectValue<ManagedAppPolicyDeploymentSummaryImpl>("deploymentSummary", new ManagedAppPolicyDeploymentSummaryImpl(this.deploymentSummary));
         }
         if(this.disableAppEncryptionIfDeviceEncryptionIsEnabled){
-        writer.writeBooleanValue("disableAppEncryptionIfDeviceEncryptionIsEnabled", this.disableAppEncryptionIfDeviceEncryptionIsEnabled);
+            writer.writeBooleanValue("disableAppEncryptionIfDeviceEncryptionIsEnabled", this.disableAppEncryptionIfDeviceEncryptionIsEnabled);
         }
         if(this.encryptAppData){
-        writer.writeBooleanValue("encryptAppData", this.encryptAppData);
+            writer.writeBooleanValue("encryptAppData", this.encryptAppData);
         }
         if(this.faceIdBlocked){
-        writer.writeBooleanValue("faceIdBlocked", this.faceIdBlocked);
+            writer.writeBooleanValue("faceIdBlocked", this.faceIdBlocked);
         }
         if(this.minimumRequiredPatchVersion){
-        writer.writeStringValue("minimumRequiredPatchVersion", this.minimumRequiredPatchVersion);
+            writer.writeStringValue("minimumRequiredPatchVersion", this.minimumRequiredPatchVersion);
         }
         if(this.minimumRequiredSdkVersion){
-        writer.writeStringValue("minimumRequiredSdkVersion", this.minimumRequiredSdkVersion);
+            writer.writeStringValue("minimumRequiredSdkVersion", this.minimumRequiredSdkVersion);
         }
         if(this.minimumWarningPatchVersion){
-        writer.writeStringValue("minimumWarningPatchVersion", this.minimumWarningPatchVersion);
+            writer.writeStringValue("minimumWarningPatchVersion", this.minimumWarningPatchVersion);
         }
         if(this.screenCaptureBlocked){
-        writer.writeBooleanValue("screenCaptureBlocked", this.screenCaptureBlocked);
+            writer.writeBooleanValue("screenCaptureBlocked", this.screenCaptureBlocked);
         }
     };
 }

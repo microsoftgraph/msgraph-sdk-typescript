@@ -6,7 +6,7 @@ import {SubjectRightsRequestStageDetail} from './subjectRightsRequestStageDetail
 import {SubjectRightsRequestStageStatus} from './subjectRightsRequestStageStatus';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class SubjectRightsRequestStageDetailImpl implements AdditionalDataHolder, Parsable, SubjectRightsRequestStageDetail {
+export class SubjectRightsRequestStageDetailImpl implements SubjectRightsRequestStageDetail {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Describes the error, if any, for the current stage. */
@@ -20,10 +20,10 @@ export class SubjectRightsRequestStageDetailImpl implements AdditionalDataHolder
      * @param subjectRightsRequestStageDetailParameterValue 
      */
     public constructor(subjectRightsRequestStageDetailParameterValue?: SubjectRightsRequestStageDetail | undefined) {
-        this.additionalData = subjectRightsRequestStageDetailParameterValue?.additionalData ? subjectRightsRequestStageDetailParameterValue?.additionalData! : {}
-        this.error_escaped = subjectRightsRequestStageDetailParameterValue?.error_escaped ;
-        this.stage = subjectRightsRequestStageDetailParameterValue?.stage ;
-        this.status = subjectRightsRequestStageDetailParameterValue?.status ;
+        this.additionalData = subjectRightsRequestStageDetailParameterValue?.additionalData ? subjectRightsRequestStageDetailParameterValue?.additionalData! : {};
+        this.error_escaped = subjectRightsRequestStageDetailParameterValue?.error_escaped;
+        this.stage = subjectRightsRequestStageDetailParameterValue?.stage;
+        this.status = subjectRightsRequestStageDetailParameterValue?.status;
     };
     /**
      * The deserialization information for the current model
@@ -43,13 +43,13 @@ export class SubjectRightsRequestStageDetailImpl implements AdditionalDataHolder
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.error_escaped){
-        writer.writeObjectValue<PublicErrorImpl>("error", new PublicErrorImpl(this.error_escaped));
+            writer.writeObjectValue<PublicErrorImpl>("error", new PublicErrorImpl(this.error_escaped));
         }
         if(this.stage){
-        writer.writeEnumValue<SubjectRightsRequestStage>("stage", this.stage);
+            writer.writeEnumValue<SubjectRightsRequestStage>("stage", this.stage);
         }
         if(this.status){
-        writer.writeEnumValue<SubjectRightsRequestStageStatus>("status", this.status);
+            writer.writeEnumValue<SubjectRightsRequestStageStatus>("status", this.status);
         }
         writer.writeAdditionalData(this.additionalData);
     };

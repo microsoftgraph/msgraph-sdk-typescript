@@ -4,7 +4,7 @@ import {IdentitySet} from './identitySet';
 import {IdentitySetImpl} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class EducationResourceImpl implements AdditionalDataHolder, EducationResource, Parsable {
+export class EducationResourceImpl implements EducationResource {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Who created the resource. */
@@ -22,12 +22,12 @@ export class EducationResourceImpl implements AdditionalDataHolder, EducationRes
      * @param educationResourceParameterValue 
      */
     public constructor(educationResourceParameterValue?: EducationResource | undefined) {
-        this.additionalData = educationResourceParameterValue?.additionalData ? educationResourceParameterValue?.additionalData! : {}
-        this.createdBy = educationResourceParameterValue?.createdBy ;
-        this.createdDateTime = educationResourceParameterValue?.createdDateTime ;
-        this.displayName = educationResourceParameterValue?.displayName ;
-        this.lastModifiedBy = educationResourceParameterValue?.lastModifiedBy ;
-        this.lastModifiedDateTime = educationResourceParameterValue?.lastModifiedDateTime ;
+        this.additionalData = educationResourceParameterValue?.additionalData ? educationResourceParameterValue?.additionalData! : {};
+        this.createdBy = educationResourceParameterValue?.createdBy;
+        this.createdDateTime = educationResourceParameterValue?.createdDateTime;
+        this.displayName = educationResourceParameterValue?.displayName;
+        this.lastModifiedBy = educationResourceParameterValue?.lastModifiedBy;
+        this.lastModifiedDateTime = educationResourceParameterValue?.lastModifiedDateTime;
     };
     /**
      * The deserialization information for the current model
@@ -49,19 +49,19 @@ export class EducationResourceImpl implements AdditionalDataHolder, EducationRes
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.createdBy){
-        writer.writeObjectValue<IdentitySetImpl>("createdBy", new IdentitySetImpl(this.createdBy));
+            writer.writeObjectValue<IdentitySetImpl>("createdBy", new IdentitySetImpl(this.createdBy));
         }
         if(this.createdDateTime){
-        writer.writeDateValue("createdDateTime", this.createdDateTime);
+            writer.writeDateValue("createdDateTime", this.createdDateTime);
         }
         if(this.displayName){
-        writer.writeStringValue("displayName", this.displayName);
+            writer.writeStringValue("displayName", this.displayName);
         }
         if(this.lastModifiedBy){
-        writer.writeObjectValue<IdentitySetImpl>("lastModifiedBy", new IdentitySetImpl(this.lastModifiedBy));
+            writer.writeObjectValue<IdentitySetImpl>("lastModifiedBy", new IdentitySetImpl(this.lastModifiedBy));
         }
         if(this.lastModifiedDateTime){
-        writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
+            writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
         }
         writer.writeAdditionalData(this.additionalData);
     };

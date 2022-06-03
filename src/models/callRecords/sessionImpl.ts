@@ -10,7 +10,7 @@ import {Session} from './session';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the cloudCommunications singleton. */
-export class SessionImpl extends EntityImpl implements Parsable, Session {
+export class SessionImpl extends EntityImpl implements Session {
     /** Endpoint that answered the session. */
     public callee?: Endpoint | undefined;
     /** Endpoint that initiated the session. */
@@ -30,14 +30,14 @@ export class SessionImpl extends EntityImpl implements Parsable, Session {
      * @param sessionParameterValue 
      */
     public constructor(sessionParameterValue?: Session | undefined) {
-        super();
-        this.callee = sessionParameterValue?.callee ;
-        this.caller = sessionParameterValue?.caller ;
-        this.endDateTime = sessionParameterValue?.endDateTime ;
-        this.failureInfo = sessionParameterValue?.failureInfo ;
-        this.modalities = sessionParameterValue?.modalities ;
-        this.segments = sessionParameterValue?.segments ;
-        this.startDateTime = sessionParameterValue?.startDateTime ;
+        super(sessionParameterValue);
+        this.callee = sessionParameterValue?.callee;
+        this.caller = sessionParameterValue?.caller;
+        this.endDateTime = sessionParameterValue?.endDateTime;
+        this.failureInfo = sessionParameterValue?.failureInfo;
+        this.modalities = sessionParameterValue?.modalities;
+        this.segments = sessionParameterValue?.segments;
+        this.startDateTime = sessionParameterValue?.startDateTime;
     };
     /**
      * The deserialization information for the current model
@@ -62,25 +62,25 @@ export class SessionImpl extends EntityImpl implements Parsable, Session {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.callee){
-        writer.writeObjectValue<EndpointImpl>("callee", new EndpointImpl(this.callee));
+            writer.writeObjectValue<EndpointImpl>("callee", new EndpointImpl(this.callee));
         }
         if(this.caller){
-        writer.writeObjectValue<EndpointImpl>("caller", new EndpointImpl(this.caller));
+            writer.writeObjectValue<EndpointImpl>("caller", new EndpointImpl(this.caller));
         }
         if(this.endDateTime){
-        writer.writeDateValue("endDateTime", this.endDateTime);
+            writer.writeDateValue("endDateTime", this.endDateTime);
         }
         if(this.failureInfo){
-        writer.writeObjectValue<FailureInfoImpl>("failureInfo", new FailureInfoImpl(this.failureInfo));
+            writer.writeObjectValue<FailureInfoImpl>("failureInfo", new FailureInfoImpl(this.failureInfo));
         }
         if(this.modalities){
-        writer.writeCollectionOfPrimitiveValues<string>("modalities", this.modalities);
+            writer.writeCollectionOfPrimitiveValues<string>("modalities", this.modalities);
         }
         if(this.segments && this.segments.length != 0){        const segmentsArrValue: SegmentImpl[] = []; this.segments?.forEach(element => {segmentsArrValue.push(new SegmentImpl(element));});
-        writer.writeCollectionOfObjectValues<SegmentImpl>("segments", segmentsArrValue);
+            writer.writeCollectionOfObjectValues<SegmentImpl>("segments", segmentsArrValue);
         }
         if(this.startDateTime){
-        writer.writeDateValue("startDateTime", this.startDateTime);
+            writer.writeDateValue("startDateTime", this.startDateTime);
         }
     };
 }

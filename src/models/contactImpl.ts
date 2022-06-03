@@ -15,7 +15,7 @@ import {SingleValueLegacyExtendedProperty} from './singleValueLegacyExtendedProp
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Casts the previous resource to user. */
-export class ContactImpl extends OutlookItemImpl implements Contact, Parsable {
+export class ContactImpl extends OutlookItemImpl implements Contact {
     /** The name of the contact's assistant. */
     public assistantName?: string | undefined;
     /** The contact's birthday. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
@@ -95,44 +95,44 @@ export class ContactImpl extends OutlookItemImpl implements Contact, Parsable {
      * @param contactParameterValue 
      */
     public constructor(contactParameterValue?: Contact | undefined) {
-        super();
-        this.assistantName = contactParameterValue?.assistantName ;
-        this.birthday = contactParameterValue?.birthday ;
-        this.businessAddress = contactParameterValue?.businessAddress ;
-        this.businessHomePage = contactParameterValue?.businessHomePage ;
-        this.businessPhones = contactParameterValue?.businessPhones ;
-        this.children = contactParameterValue?.children ;
-        this.companyName = contactParameterValue?.companyName ;
-        this.department = contactParameterValue?.department ;
-        this.displayName = contactParameterValue?.displayName ;
-        this.emailAddresses = contactParameterValue?.emailAddresses ;
-        this.extensions = contactParameterValue?.extensions ;
-        this.fileAs = contactParameterValue?.fileAs ;
-        this.generation = contactParameterValue?.generation ;
-        this.givenName = contactParameterValue?.givenName ;
-        this.homeAddress = contactParameterValue?.homeAddress ;
-        this.homePhones = contactParameterValue?.homePhones ;
-        this.imAddresses = contactParameterValue?.imAddresses ;
-        this.initials = contactParameterValue?.initials ;
-        this.jobTitle = contactParameterValue?.jobTitle ;
-        this.manager = contactParameterValue?.manager ;
-        this.middleName = contactParameterValue?.middleName ;
-        this.mobilePhone = contactParameterValue?.mobilePhone ;
-        this.multiValueExtendedProperties = contactParameterValue?.multiValueExtendedProperties ;
-        this.nickName = contactParameterValue?.nickName ;
-        this.officeLocation = contactParameterValue?.officeLocation ;
-        this.otherAddress = contactParameterValue?.otherAddress ;
-        this.parentFolderId = contactParameterValue?.parentFolderId ;
-        this.personalNotes = contactParameterValue?.personalNotes ;
-        this.photo = contactParameterValue?.photo ;
-        this.profession = contactParameterValue?.profession ;
-        this.singleValueExtendedProperties = contactParameterValue?.singleValueExtendedProperties ;
-        this.spouseName = contactParameterValue?.spouseName ;
-        this.surname = contactParameterValue?.surname ;
-        this.title = contactParameterValue?.title ;
-        this.yomiCompanyName = contactParameterValue?.yomiCompanyName ;
-        this.yomiGivenName = contactParameterValue?.yomiGivenName ;
-        this.yomiSurname = contactParameterValue?.yomiSurname ;
+        super(contactParameterValue);
+        this.assistantName = contactParameterValue?.assistantName;
+        this.birthday = contactParameterValue?.birthday;
+        this.businessAddress = contactParameterValue?.businessAddress;
+        this.businessHomePage = contactParameterValue?.businessHomePage;
+        this.businessPhones = contactParameterValue?.businessPhones;
+        this.children = contactParameterValue?.children;
+        this.companyName = contactParameterValue?.companyName;
+        this.department = contactParameterValue?.department;
+        this.displayName = contactParameterValue?.displayName;
+        this.emailAddresses = contactParameterValue?.emailAddresses;
+        this.extensions = contactParameterValue?.extensions;
+        this.fileAs = contactParameterValue?.fileAs;
+        this.generation = contactParameterValue?.generation;
+        this.givenName = contactParameterValue?.givenName;
+        this.homeAddress = contactParameterValue?.homeAddress;
+        this.homePhones = contactParameterValue?.homePhones;
+        this.imAddresses = contactParameterValue?.imAddresses;
+        this.initials = contactParameterValue?.initials;
+        this.jobTitle = contactParameterValue?.jobTitle;
+        this.manager = contactParameterValue?.manager;
+        this.middleName = contactParameterValue?.middleName;
+        this.mobilePhone = contactParameterValue?.mobilePhone;
+        this.multiValueExtendedProperties = contactParameterValue?.multiValueExtendedProperties;
+        this.nickName = contactParameterValue?.nickName;
+        this.officeLocation = contactParameterValue?.officeLocation;
+        this.otherAddress = contactParameterValue?.otherAddress;
+        this.parentFolderId = contactParameterValue?.parentFolderId;
+        this.personalNotes = contactParameterValue?.personalNotes;
+        this.photo = contactParameterValue?.photo;
+        this.profession = contactParameterValue?.profession;
+        this.singleValueExtendedProperties = contactParameterValue?.singleValueExtendedProperties;
+        this.spouseName = contactParameterValue?.spouseName;
+        this.surname = contactParameterValue?.surname;
+        this.title = contactParameterValue?.title;
+        this.yomiCompanyName = contactParameterValue?.yomiCompanyName;
+        this.yomiGivenName = contactParameterValue?.yomiGivenName;
+        this.yomiSurname = contactParameterValue?.yomiSurname;
     };
     /**
      * The deserialization information for the current model
@@ -187,115 +187,115 @@ export class ContactImpl extends OutlookItemImpl implements Contact, Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.assistantName){
-        writer.writeStringValue("assistantName", this.assistantName);
+            writer.writeStringValue("assistantName", this.assistantName);
         }
         if(this.birthday){
-        writer.writeDateValue("birthday", this.birthday);
+            writer.writeDateValue("birthday", this.birthday);
         }
         if(this.businessAddress){
-        writer.writeObjectValue<PhysicalAddressImpl>("businessAddress", new PhysicalAddressImpl(this.businessAddress));
+            writer.writeObjectValue<PhysicalAddressImpl>("businessAddress", new PhysicalAddressImpl(this.businessAddress));
         }
         if(this.businessHomePage){
-        writer.writeStringValue("businessHomePage", this.businessHomePage);
+            writer.writeStringValue("businessHomePage", this.businessHomePage);
         }
         if(this.businessPhones){
-        writer.writeCollectionOfPrimitiveValues<string>("businessPhones", this.businessPhones);
+            writer.writeCollectionOfPrimitiveValues<string>("businessPhones", this.businessPhones);
         }
         if(this.children){
-        writer.writeCollectionOfPrimitiveValues<string>("children", this.children);
+            writer.writeCollectionOfPrimitiveValues<string>("children", this.children);
         }
         if(this.companyName){
-        writer.writeStringValue("companyName", this.companyName);
+            writer.writeStringValue("companyName", this.companyName);
         }
         if(this.department){
-        writer.writeStringValue("department", this.department);
+            writer.writeStringValue("department", this.department);
         }
         if(this.displayName){
-        writer.writeStringValue("displayName", this.displayName);
+            writer.writeStringValue("displayName", this.displayName);
         }
         if(this.emailAddresses && this.emailAddresses.length != 0){        const emailAddressesArrValue: EmailAddressImpl[] = []; this.emailAddresses?.forEach(element => {emailAddressesArrValue.push(new EmailAddressImpl(element));});
-        writer.writeCollectionOfObjectValues<EmailAddressImpl>("emailAddresses", emailAddressesArrValue);
+            writer.writeCollectionOfObjectValues<EmailAddressImpl>("emailAddresses", emailAddressesArrValue);
         }
         if(this.extensions && this.extensions.length != 0){        const extensionsArrValue: ExtensionImpl[] = []; this.extensions?.forEach(element => {extensionsArrValue.push(new ExtensionImpl(element));});
-        writer.writeCollectionOfObjectValues<ExtensionImpl>("extensions", extensionsArrValue);
+            writer.writeCollectionOfObjectValues<ExtensionImpl>("extensions", extensionsArrValue);
         }
         if(this.fileAs){
-        writer.writeStringValue("fileAs", this.fileAs);
+            writer.writeStringValue("fileAs", this.fileAs);
         }
         if(this.generation){
-        writer.writeStringValue("generation", this.generation);
+            writer.writeStringValue("generation", this.generation);
         }
         if(this.givenName){
-        writer.writeStringValue("givenName", this.givenName);
+            writer.writeStringValue("givenName", this.givenName);
         }
         if(this.homeAddress){
-        writer.writeObjectValue<PhysicalAddressImpl>("homeAddress", new PhysicalAddressImpl(this.homeAddress));
+            writer.writeObjectValue<PhysicalAddressImpl>("homeAddress", new PhysicalAddressImpl(this.homeAddress));
         }
         if(this.homePhones){
-        writer.writeCollectionOfPrimitiveValues<string>("homePhones", this.homePhones);
+            writer.writeCollectionOfPrimitiveValues<string>("homePhones", this.homePhones);
         }
         if(this.imAddresses){
-        writer.writeCollectionOfPrimitiveValues<string>("imAddresses", this.imAddresses);
+            writer.writeCollectionOfPrimitiveValues<string>("imAddresses", this.imAddresses);
         }
         if(this.initials){
-        writer.writeStringValue("initials", this.initials);
+            writer.writeStringValue("initials", this.initials);
         }
         if(this.jobTitle){
-        writer.writeStringValue("jobTitle", this.jobTitle);
+            writer.writeStringValue("jobTitle", this.jobTitle);
         }
         if(this.manager){
-        writer.writeStringValue("manager", this.manager);
+            writer.writeStringValue("manager", this.manager);
         }
         if(this.middleName){
-        writer.writeStringValue("middleName", this.middleName);
+            writer.writeStringValue("middleName", this.middleName);
         }
         if(this.mobilePhone){
-        writer.writeStringValue("mobilePhone", this.mobilePhone);
+            writer.writeStringValue("mobilePhone", this.mobilePhone);
         }
         if(this.multiValueExtendedProperties && this.multiValueExtendedProperties.length != 0){        const multiValueExtendedPropertiesArrValue: MultiValueLegacyExtendedPropertyImpl[] = []; this.multiValueExtendedProperties?.forEach(element => {multiValueExtendedPropertiesArrValue.push(new MultiValueLegacyExtendedPropertyImpl(element));});
-        writer.writeCollectionOfObjectValues<MultiValueLegacyExtendedPropertyImpl>("multiValueExtendedProperties", multiValueExtendedPropertiesArrValue);
+            writer.writeCollectionOfObjectValues<MultiValueLegacyExtendedPropertyImpl>("multiValueExtendedProperties", multiValueExtendedPropertiesArrValue);
         }
         if(this.nickName){
-        writer.writeStringValue("nickName", this.nickName);
+            writer.writeStringValue("nickName", this.nickName);
         }
         if(this.officeLocation){
-        writer.writeStringValue("officeLocation", this.officeLocation);
+            writer.writeStringValue("officeLocation", this.officeLocation);
         }
         if(this.otherAddress){
-        writer.writeObjectValue<PhysicalAddressImpl>("otherAddress", new PhysicalAddressImpl(this.otherAddress));
+            writer.writeObjectValue<PhysicalAddressImpl>("otherAddress", new PhysicalAddressImpl(this.otherAddress));
         }
         if(this.parentFolderId){
-        writer.writeStringValue("parentFolderId", this.parentFolderId);
+            writer.writeStringValue("parentFolderId", this.parentFolderId);
         }
         if(this.personalNotes){
-        writer.writeStringValue("personalNotes", this.personalNotes);
+            writer.writeStringValue("personalNotes", this.personalNotes);
         }
         if(this.photo){
-        writer.writeObjectValue<ProfilePhotoImpl>("photo", new ProfilePhotoImpl(this.photo));
+            writer.writeObjectValue<ProfilePhotoImpl>("photo", new ProfilePhotoImpl(this.photo));
         }
         if(this.profession){
-        writer.writeStringValue("profession", this.profession);
+            writer.writeStringValue("profession", this.profession);
         }
         if(this.singleValueExtendedProperties && this.singleValueExtendedProperties.length != 0){        const singleValueExtendedPropertiesArrValue: SingleValueLegacyExtendedPropertyImpl[] = []; this.singleValueExtendedProperties?.forEach(element => {singleValueExtendedPropertiesArrValue.push(new SingleValueLegacyExtendedPropertyImpl(element));});
-        writer.writeCollectionOfObjectValues<SingleValueLegacyExtendedPropertyImpl>("singleValueExtendedProperties", singleValueExtendedPropertiesArrValue);
+            writer.writeCollectionOfObjectValues<SingleValueLegacyExtendedPropertyImpl>("singleValueExtendedProperties", singleValueExtendedPropertiesArrValue);
         }
         if(this.spouseName){
-        writer.writeStringValue("spouseName", this.spouseName);
+            writer.writeStringValue("spouseName", this.spouseName);
         }
         if(this.surname){
-        writer.writeStringValue("surname", this.surname);
+            writer.writeStringValue("surname", this.surname);
         }
         if(this.title){
-        writer.writeStringValue("title", this.title);
+            writer.writeStringValue("title", this.title);
         }
         if(this.yomiCompanyName){
-        writer.writeStringValue("yomiCompanyName", this.yomiCompanyName);
+            writer.writeStringValue("yomiCompanyName", this.yomiCompanyName);
         }
         if(this.yomiGivenName){
-        writer.writeStringValue("yomiGivenName", this.yomiGivenName);
+            writer.writeStringValue("yomiGivenName", this.yomiGivenName);
         }
         if(this.yomiSurname){
-        writer.writeStringValue("yomiSurname", this.yomiSurname);
+            writer.writeStringValue("yomiSurname", this.yomiSurname);
         }
     };
 }

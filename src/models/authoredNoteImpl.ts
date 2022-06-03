@@ -7,7 +7,7 @@ import {ItemBody} from './itemBody';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the privacy singleton. */
-export class AuthoredNoteImpl extends EntityImpl implements AuthoredNote, Parsable {
+export class AuthoredNoteImpl extends EntityImpl implements AuthoredNote {
     /** Identity information about the note's author. */
     public author?: Identity | undefined;
     /** The content of the note. */
@@ -19,10 +19,10 @@ export class AuthoredNoteImpl extends EntityImpl implements AuthoredNote, Parsab
      * @param authoredNoteParameterValue 
      */
     public constructor(authoredNoteParameterValue?: AuthoredNote | undefined) {
-        super();
-        this.author = authoredNoteParameterValue?.author ;
-        this.content = authoredNoteParameterValue?.content ;
-        this.createdDateTime = authoredNoteParameterValue?.createdDateTime ;
+        super(authoredNoteParameterValue);
+        this.author = authoredNoteParameterValue?.author;
+        this.content = authoredNoteParameterValue?.content;
+        this.createdDateTime = authoredNoteParameterValue?.createdDateTime;
     };
     /**
      * The deserialization information for the current model
@@ -43,13 +43,13 @@ export class AuthoredNoteImpl extends EntityImpl implements AuthoredNote, Parsab
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.author){
-        writer.writeObjectValue<IdentityImpl>("author", new IdentityImpl(this.author));
+            writer.writeObjectValue<IdentityImpl>("author", new IdentityImpl(this.author));
         }
         if(this.content){
-        writer.writeObjectValue<ItemBodyImpl>("content", new ItemBodyImpl(this.content));
+            writer.writeObjectValue<ItemBodyImpl>("content", new ItemBodyImpl(this.content));
         }
         if(this.createdDateTime){
-        writer.writeDateValue("createdDateTime", this.createdDateTime);
+            writer.writeDateValue("createdDateTime", this.createdDateTime);
         }
     };
 }

@@ -1,7 +1,7 @@
 import {LicenseAssignmentState} from './licenseAssignmentState';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class LicenseAssignmentStateImpl implements AdditionalDataHolder, LicenseAssignmentState, Parsable {
+export class LicenseAssignmentStateImpl implements LicenseAssignmentState {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The id of the group that assigns this license. If the assignment is a direct-assigned license, this field will be Null. Read-Only. */
@@ -21,13 +21,13 @@ export class LicenseAssignmentStateImpl implements AdditionalDataHolder, License
      * @param licenseAssignmentStateParameterValue 
      */
     public constructor(licenseAssignmentStateParameterValue?: LicenseAssignmentState | undefined) {
-        this.additionalData = licenseAssignmentStateParameterValue?.additionalData ? licenseAssignmentStateParameterValue?.additionalData! : {}
-        this.assignedByGroup = licenseAssignmentStateParameterValue?.assignedByGroup ;
-        this.disabledPlans = licenseAssignmentStateParameterValue?.disabledPlans ;
-        this.error_escaped = licenseAssignmentStateParameterValue?.error_escaped ;
-        this.lastUpdatedDateTime = licenseAssignmentStateParameterValue?.lastUpdatedDateTime ;
-        this.skuId = licenseAssignmentStateParameterValue?.skuId ;
-        this.state = licenseAssignmentStateParameterValue?.state ;
+        this.additionalData = licenseAssignmentStateParameterValue?.additionalData ? licenseAssignmentStateParameterValue?.additionalData! : {};
+        this.assignedByGroup = licenseAssignmentStateParameterValue?.assignedByGroup;
+        this.disabledPlans = licenseAssignmentStateParameterValue?.disabledPlans;
+        this.error_escaped = licenseAssignmentStateParameterValue?.error_escaped;
+        this.lastUpdatedDateTime = licenseAssignmentStateParameterValue?.lastUpdatedDateTime;
+        this.skuId = licenseAssignmentStateParameterValue?.skuId;
+        this.state = licenseAssignmentStateParameterValue?.state;
     };
     /**
      * The deserialization information for the current model
@@ -50,22 +50,22 @@ export class LicenseAssignmentStateImpl implements AdditionalDataHolder, License
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.assignedByGroup){
-        writer.writeStringValue("assignedByGroup", this.assignedByGroup);
+            writer.writeStringValue("assignedByGroup", this.assignedByGroup);
         }
         if(this.disabledPlans){
-        writer.writeCollectionOfPrimitiveValues<string>("disabledPlans", this.disabledPlans);
+            writer.writeCollectionOfPrimitiveValues<string>("disabledPlans", this.disabledPlans);
         }
         if(this.error_escaped){
-        writer.writeStringValue("error", this.error_escaped);
+            writer.writeStringValue("error", this.error_escaped);
         }
         if(this.lastUpdatedDateTime){
-        writer.writeDateValue("lastUpdatedDateTime", this.lastUpdatedDateTime);
+            writer.writeDateValue("lastUpdatedDateTime", this.lastUpdatedDateTime);
         }
         if(this.skuId){
-        writer.writeStringValue("skuId", this.skuId);
+            writer.writeStringValue("skuId", this.skuId);
         }
         if(this.state){
-        writer.writeStringValue("state", this.state);
+            writer.writeStringValue("state", this.state);
         }
         writer.writeAdditionalData(this.additionalData);
     };

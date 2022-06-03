@@ -1,7 +1,7 @@
 import {WorkbookWorksheetProtectionOptions} from './workbookWorksheetProtectionOptions';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class WorkbookWorksheetProtectionOptionsImpl implements AdditionalDataHolder, Parsable, WorkbookWorksheetProtectionOptions {
+export class WorkbookWorksheetProtectionOptionsImpl implements WorkbookWorksheetProtectionOptions {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Represents the worksheet protection option of allowing using auto filter feature. */
@@ -31,18 +31,18 @@ export class WorkbookWorksheetProtectionOptionsImpl implements AdditionalDataHol
      * @param workbookWorksheetProtectionOptionsParameterValue 
      */
     public constructor(workbookWorksheetProtectionOptionsParameterValue?: WorkbookWorksheetProtectionOptions | undefined) {
-        this.additionalData = workbookWorksheetProtectionOptionsParameterValue?.additionalData ? workbookWorksheetProtectionOptionsParameterValue?.additionalData! : {}
-        this.allowAutoFilter = workbookWorksheetProtectionOptionsParameterValue?.allowAutoFilter ;
-        this.allowDeleteColumns = workbookWorksheetProtectionOptionsParameterValue?.allowDeleteColumns ;
-        this.allowDeleteRows = workbookWorksheetProtectionOptionsParameterValue?.allowDeleteRows ;
-        this.allowFormatCells = workbookWorksheetProtectionOptionsParameterValue?.allowFormatCells ;
-        this.allowFormatColumns = workbookWorksheetProtectionOptionsParameterValue?.allowFormatColumns ;
-        this.allowFormatRows = workbookWorksheetProtectionOptionsParameterValue?.allowFormatRows ;
-        this.allowInsertColumns = workbookWorksheetProtectionOptionsParameterValue?.allowInsertColumns ;
-        this.allowInsertHyperlinks = workbookWorksheetProtectionOptionsParameterValue?.allowInsertHyperlinks ;
-        this.allowInsertRows = workbookWorksheetProtectionOptionsParameterValue?.allowInsertRows ;
-        this.allowPivotTables = workbookWorksheetProtectionOptionsParameterValue?.allowPivotTables ;
-        this.allowSort = workbookWorksheetProtectionOptionsParameterValue?.allowSort ;
+        this.additionalData = workbookWorksheetProtectionOptionsParameterValue?.additionalData ? workbookWorksheetProtectionOptionsParameterValue?.additionalData! : {};
+        this.allowAutoFilter = workbookWorksheetProtectionOptionsParameterValue?.allowAutoFilter;
+        this.allowDeleteColumns = workbookWorksheetProtectionOptionsParameterValue?.allowDeleteColumns;
+        this.allowDeleteRows = workbookWorksheetProtectionOptionsParameterValue?.allowDeleteRows;
+        this.allowFormatCells = workbookWorksheetProtectionOptionsParameterValue?.allowFormatCells;
+        this.allowFormatColumns = workbookWorksheetProtectionOptionsParameterValue?.allowFormatColumns;
+        this.allowFormatRows = workbookWorksheetProtectionOptionsParameterValue?.allowFormatRows;
+        this.allowInsertColumns = workbookWorksheetProtectionOptionsParameterValue?.allowInsertColumns;
+        this.allowInsertHyperlinks = workbookWorksheetProtectionOptionsParameterValue?.allowInsertHyperlinks;
+        this.allowInsertRows = workbookWorksheetProtectionOptionsParameterValue?.allowInsertRows;
+        this.allowPivotTables = workbookWorksheetProtectionOptionsParameterValue?.allowPivotTables;
+        this.allowSort = workbookWorksheetProtectionOptionsParameterValue?.allowSort;
     };
     /**
      * The deserialization information for the current model
@@ -70,37 +70,37 @@ export class WorkbookWorksheetProtectionOptionsImpl implements AdditionalDataHol
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.allowAutoFilter){
-        writer.writeBooleanValue("allowAutoFilter", this.allowAutoFilter);
+            writer.writeBooleanValue("allowAutoFilter", this.allowAutoFilter);
         }
         if(this.allowDeleteColumns){
-        writer.writeBooleanValue("allowDeleteColumns", this.allowDeleteColumns);
+            writer.writeBooleanValue("allowDeleteColumns", this.allowDeleteColumns);
         }
         if(this.allowDeleteRows){
-        writer.writeBooleanValue("allowDeleteRows", this.allowDeleteRows);
+            writer.writeBooleanValue("allowDeleteRows", this.allowDeleteRows);
         }
         if(this.allowFormatCells){
-        writer.writeBooleanValue("allowFormatCells", this.allowFormatCells);
+            writer.writeBooleanValue("allowFormatCells", this.allowFormatCells);
         }
         if(this.allowFormatColumns){
-        writer.writeBooleanValue("allowFormatColumns", this.allowFormatColumns);
+            writer.writeBooleanValue("allowFormatColumns", this.allowFormatColumns);
         }
         if(this.allowFormatRows){
-        writer.writeBooleanValue("allowFormatRows", this.allowFormatRows);
+            writer.writeBooleanValue("allowFormatRows", this.allowFormatRows);
         }
         if(this.allowInsertColumns){
-        writer.writeBooleanValue("allowInsertColumns", this.allowInsertColumns);
+            writer.writeBooleanValue("allowInsertColumns", this.allowInsertColumns);
         }
         if(this.allowInsertHyperlinks){
-        writer.writeBooleanValue("allowInsertHyperlinks", this.allowInsertHyperlinks);
+            writer.writeBooleanValue("allowInsertHyperlinks", this.allowInsertHyperlinks);
         }
         if(this.allowInsertRows){
-        writer.writeBooleanValue("allowInsertRows", this.allowInsertRows);
+            writer.writeBooleanValue("allowInsertRows", this.allowInsertRows);
         }
         if(this.allowPivotTables){
-        writer.writeBooleanValue("allowPivotTables", this.allowPivotTables);
+            writer.writeBooleanValue("allowPivotTables", this.allowPivotTables);
         }
         if(this.allowSort){
-        writer.writeBooleanValue("allowSort", this.allowSort);
+            writer.writeBooleanValue("allowSort", this.allowSort);
         }
         writer.writeAdditionalData(this.additionalData);
     };

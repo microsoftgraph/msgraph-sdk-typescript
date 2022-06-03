@@ -1,11 +1,11 @@
 import {RiskDetectionsRequestBuilderGetQueryParameters} from './riskDetectionsRequestBuilderGetQueryParameters';
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
-export interface RiskDetectionsRequestBuilderGetRequestConfiguration{
+export interface RiskDetectionsRequestBuilderGetRequestConfiguration {
     /** Request headers */
-    headers?:Record<string, string> | undefined;
+    headers?: Record<string, string> | undefined;
     /** Request options */
-    options?:RequestOption[] | undefined;
+    options?: RequestOption[] | undefined;
     /** Request query parameters */
-    queryParameters?:RiskDetectionsRequestBuilderGetQueryParameters | undefined;
+    queryParameters?: RiskDetectionsRequestBuilderGetQueryParameters | undefined;
 }

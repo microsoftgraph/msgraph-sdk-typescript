@@ -4,7 +4,7 @@ import {WorkbookIcon} from './workbookIcon';
 import {WorkbookSortField} from './workbookSortField';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class WorkbookSortFieldImpl implements AdditionalDataHolder, Parsable, WorkbookSortField {
+export class WorkbookSortFieldImpl implements WorkbookSortField {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Represents whether the sorting is done in an ascending fashion. */
@@ -24,13 +24,13 @@ export class WorkbookSortFieldImpl implements AdditionalDataHolder, Parsable, Wo
      * @param workbookSortFieldParameterValue 
      */
     public constructor(workbookSortFieldParameterValue?: WorkbookSortField | undefined) {
-        this.additionalData = workbookSortFieldParameterValue?.additionalData ? workbookSortFieldParameterValue?.additionalData! : {}
-        this.ascending = workbookSortFieldParameterValue?.ascending ;
-        this.color = workbookSortFieldParameterValue?.color ;
-        this.dataOption = workbookSortFieldParameterValue?.dataOption ;
-        this.icon = workbookSortFieldParameterValue?.icon ;
-        this.key = workbookSortFieldParameterValue?.key ;
-        this.sortOn = workbookSortFieldParameterValue?.sortOn ;
+        this.additionalData = workbookSortFieldParameterValue?.additionalData ? workbookSortFieldParameterValue?.additionalData! : {};
+        this.ascending = workbookSortFieldParameterValue?.ascending;
+        this.color = workbookSortFieldParameterValue?.color;
+        this.dataOption = workbookSortFieldParameterValue?.dataOption;
+        this.icon = workbookSortFieldParameterValue?.icon;
+        this.key = workbookSortFieldParameterValue?.key;
+        this.sortOn = workbookSortFieldParameterValue?.sortOn;
     };
     /**
      * The deserialization information for the current model
@@ -53,22 +53,22 @@ export class WorkbookSortFieldImpl implements AdditionalDataHolder, Parsable, Wo
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.ascending){
-        writer.writeBooleanValue("ascending", this.ascending);
+            writer.writeBooleanValue("ascending", this.ascending);
         }
         if(this.color){
-        writer.writeStringValue("color", this.color);
+            writer.writeStringValue("color", this.color);
         }
         if(this.dataOption){
-        writer.writeStringValue("dataOption", this.dataOption);
+            writer.writeStringValue("dataOption", this.dataOption);
         }
         if(this.icon){
-        writer.writeObjectValue<WorkbookIconImpl>("icon", new WorkbookIconImpl(this.icon));
+            writer.writeObjectValue<WorkbookIconImpl>("icon", new WorkbookIconImpl(this.icon));
         }
         if(this.key){
-        writer.writeNumberValue("key", this.key);
+            writer.writeNumberValue("key", this.key);
         }
         if(this.sortOn){
-        writer.writeStringValue("sortOn", this.sortOn);
+            writer.writeStringValue("sortOn", this.sortOn);
         }
         writer.writeAdditionalData(this.additionalData);
     };

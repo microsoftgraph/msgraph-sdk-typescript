@@ -5,7 +5,7 @@ import {CalendarImpl, EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Casts the previous resource to user. */
-export class CalendarGroupImpl extends EntityImpl implements CalendarGroup, Parsable {
+export class CalendarGroupImpl extends EntityImpl implements CalendarGroup {
     /** The calendars in the calendar group. Navigation property. Read-only. Nullable. */
     public calendars?: Calendar[] | undefined;
     /** Identifies the version of the calendar group. Every time the calendar group is changed, ChangeKey changes as well. This allows Exchange to apply changes to the correct version of the object. Read-only. */
@@ -19,11 +19,11 @@ export class CalendarGroupImpl extends EntityImpl implements CalendarGroup, Pars
      * @param calendarGroupParameterValue 
      */
     public constructor(calendarGroupParameterValue?: CalendarGroup | undefined) {
-        super();
-        this.calendars = calendarGroupParameterValue?.calendars ;
-        this.changeKey = calendarGroupParameterValue?.changeKey ;
-        this.classId = calendarGroupParameterValue?.classId ;
-        this.name = calendarGroupParameterValue?.name ;
+        super(calendarGroupParameterValue);
+        this.calendars = calendarGroupParameterValue?.calendars;
+        this.changeKey = calendarGroupParameterValue?.changeKey;
+        this.classId = calendarGroupParameterValue?.classId;
+        this.name = calendarGroupParameterValue?.name;
     };
     /**
      * The deserialization information for the current model
@@ -45,16 +45,16 @@ export class CalendarGroupImpl extends EntityImpl implements CalendarGroup, Pars
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.calendars && this.calendars.length != 0){        const calendarsArrValue: CalendarImpl[] = []; this.calendars?.forEach(element => {calendarsArrValue.push(new CalendarImpl(element));});
-        writer.writeCollectionOfObjectValues<CalendarImpl>("calendars", calendarsArrValue);
+            writer.writeCollectionOfObjectValues<CalendarImpl>("calendars", calendarsArrValue);
         }
         if(this.changeKey){
-        writer.writeStringValue("changeKey", this.changeKey);
+            writer.writeStringValue("changeKey", this.changeKey);
         }
         if(this.classId){
-        writer.writeStringValue("classId", this.classId);
+            writer.writeStringValue("classId", this.classId);
         }
         if(this.name){
-        writer.writeStringValue("name", this.name);
+            writer.writeStringValue("name", this.name);
         }
     };
 }

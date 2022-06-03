@@ -1,8 +1,9 @@
 import {Approval} from '../../../../models/approval';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface FilterByCurrentUserWithOnResponse{
+export interface FilterByCurrentUserWithOnResponse extends Partial<AdditionalDataHolder>, Partial<Parsable> {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?:Record<string, unknown>;
+    additionalData?: Record<string, unknown>;
     /** The value property */
-    value?:Approval[] | undefined;
+    value?: Approval[] | undefined;
 }

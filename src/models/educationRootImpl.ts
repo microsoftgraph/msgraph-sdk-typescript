@@ -8,7 +8,7 @@ import {EducationUser} from './educationUser';
 import {EducationClassImpl, EducationSchoolImpl, EducationUserImpl} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class EducationRootImpl implements AdditionalDataHolder, EducationRoot, Parsable {
+export class EducationRootImpl implements EducationRoot {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The classes property */
@@ -24,11 +24,11 @@ export class EducationRootImpl implements AdditionalDataHolder, EducationRoot, P
      * @param educationRootParameterValue 
      */
     public constructor(educationRootParameterValue?: EducationRoot | undefined) {
-        this.additionalData = educationRootParameterValue?.additionalData ? educationRootParameterValue?.additionalData! : {}
-        this.classes = educationRootParameterValue?.classes ;
-        this.me = educationRootParameterValue?.me ;
-        this.schools = educationRootParameterValue?.schools ;
-        this.users = educationRootParameterValue?.users ;
+        this.additionalData = educationRootParameterValue?.additionalData ? educationRootParameterValue?.additionalData! : {};
+        this.classes = educationRootParameterValue?.classes;
+        this.me = educationRootParameterValue?.me;
+        this.schools = educationRootParameterValue?.schools;
+        this.users = educationRootParameterValue?.users;
     };
     /**
      * The deserialization information for the current model
@@ -49,16 +49,16 @@ export class EducationRootImpl implements AdditionalDataHolder, EducationRoot, P
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.classes && this.classes.length != 0){        const classesArrValue: EducationClassImpl[] = []; this.classes?.forEach(element => {classesArrValue.push(new EducationClassImpl(element));});
-        writer.writeCollectionOfObjectValues<EducationClassImpl>("classes", classesArrValue);
+            writer.writeCollectionOfObjectValues<EducationClassImpl>("classes", classesArrValue);
         }
         if(this.me){
-        writer.writeObjectValue<EducationUserImpl>("me", new EducationUserImpl(this.me));
+            writer.writeObjectValue<EducationUserImpl>("me", new EducationUserImpl(this.me));
         }
         if(this.schools && this.schools.length != 0){        const schoolsArrValue: EducationSchoolImpl[] = []; this.schools?.forEach(element => {schoolsArrValue.push(new EducationSchoolImpl(element));});
-        writer.writeCollectionOfObjectValues<EducationSchoolImpl>("schools", schoolsArrValue);
+            writer.writeCollectionOfObjectValues<EducationSchoolImpl>("schools", schoolsArrValue);
         }
         if(this.users && this.users.length != 0){        const usersArrValue: EducationUserImpl[] = []; this.users?.forEach(element => {usersArrValue.push(new EducationUserImpl(element));});
-        writer.writeCollectionOfObjectValues<EducationUserImpl>("users", usersArrValue);
+            writer.writeCollectionOfObjectValues<EducationUserImpl>("users", usersArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

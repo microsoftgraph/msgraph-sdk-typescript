@@ -15,7 +15,7 @@ import {SettingStateDeviceSummary} from './settingStateDeviceSummary';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Device Configuration. */
-export class DeviceConfigurationImpl extends EntityImpl implements DeviceConfiguration, Parsable {
+export class DeviceConfigurationImpl extends EntityImpl implements DeviceConfiguration {
     /** The list of assignments for the device configuration profile. */
     public assignments?: DeviceConfigurationAssignment[] | undefined;
     /** DateTime the object was created. */
@@ -43,18 +43,18 @@ export class DeviceConfigurationImpl extends EntityImpl implements DeviceConfigu
      * @param deviceConfigurationParameterValue 
      */
     public constructor(deviceConfigurationParameterValue?: DeviceConfiguration | undefined) {
-        super();
-        this.assignments = deviceConfigurationParameterValue?.assignments ;
-        this.createdDateTime = deviceConfigurationParameterValue?.createdDateTime ;
-        this.description = deviceConfigurationParameterValue?.description ;
-        this.deviceSettingStateSummaries = deviceConfigurationParameterValue?.deviceSettingStateSummaries ;
-        this.deviceStatuses = deviceConfigurationParameterValue?.deviceStatuses ;
-        this.deviceStatusOverview = deviceConfigurationParameterValue?.deviceStatusOverview ;
-        this.displayName = deviceConfigurationParameterValue?.displayName ;
-        this.lastModifiedDateTime = deviceConfigurationParameterValue?.lastModifiedDateTime ;
-        this.userStatuses = deviceConfigurationParameterValue?.userStatuses ;
-        this.userStatusOverview = deviceConfigurationParameterValue?.userStatusOverview ;
-        this.version = deviceConfigurationParameterValue?.version ;
+        super(deviceConfigurationParameterValue);
+        this.assignments = deviceConfigurationParameterValue?.assignments;
+        this.createdDateTime = deviceConfigurationParameterValue?.createdDateTime;
+        this.description = deviceConfigurationParameterValue?.description;
+        this.deviceSettingStateSummaries = deviceConfigurationParameterValue?.deviceSettingStateSummaries;
+        this.deviceStatuses = deviceConfigurationParameterValue?.deviceStatuses;
+        this.deviceStatusOverview = deviceConfigurationParameterValue?.deviceStatusOverview;
+        this.displayName = deviceConfigurationParameterValue?.displayName;
+        this.lastModifiedDateTime = deviceConfigurationParameterValue?.lastModifiedDateTime;
+        this.userStatuses = deviceConfigurationParameterValue?.userStatuses;
+        this.userStatusOverview = deviceConfigurationParameterValue?.userStatusOverview;
+        this.version = deviceConfigurationParameterValue?.version;
     };
     /**
      * The deserialization information for the current model
@@ -83,37 +83,37 @@ export class DeviceConfigurationImpl extends EntityImpl implements DeviceConfigu
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.assignments && this.assignments.length != 0){        const assignmentsArrValue: DeviceConfigurationAssignmentImpl[] = []; this.assignments?.forEach(element => {assignmentsArrValue.push(new DeviceConfigurationAssignmentImpl(element));});
-        writer.writeCollectionOfObjectValues<DeviceConfigurationAssignmentImpl>("assignments", assignmentsArrValue);
+            writer.writeCollectionOfObjectValues<DeviceConfigurationAssignmentImpl>("assignments", assignmentsArrValue);
         }
         if(this.createdDateTime){
-        writer.writeDateValue("createdDateTime", this.createdDateTime);
+            writer.writeDateValue("createdDateTime", this.createdDateTime);
         }
         if(this.description){
-        writer.writeStringValue("description", this.description);
+            writer.writeStringValue("description", this.description);
         }
         if(this.deviceSettingStateSummaries && this.deviceSettingStateSummaries.length != 0){        const deviceSettingStateSummariesArrValue: SettingStateDeviceSummaryImpl[] = []; this.deviceSettingStateSummaries?.forEach(element => {deviceSettingStateSummariesArrValue.push(new SettingStateDeviceSummaryImpl(element));});
-        writer.writeCollectionOfObjectValues<SettingStateDeviceSummaryImpl>("deviceSettingStateSummaries", deviceSettingStateSummariesArrValue);
+            writer.writeCollectionOfObjectValues<SettingStateDeviceSummaryImpl>("deviceSettingStateSummaries", deviceSettingStateSummariesArrValue);
         }
         if(this.deviceStatuses && this.deviceStatuses.length != 0){        const deviceStatusesArrValue: DeviceConfigurationDeviceStatusImpl[] = []; this.deviceStatuses?.forEach(element => {deviceStatusesArrValue.push(new DeviceConfigurationDeviceStatusImpl(element));});
-        writer.writeCollectionOfObjectValues<DeviceConfigurationDeviceStatusImpl>("deviceStatuses", deviceStatusesArrValue);
+            writer.writeCollectionOfObjectValues<DeviceConfigurationDeviceStatusImpl>("deviceStatuses", deviceStatusesArrValue);
         }
         if(this.deviceStatusOverview){
-        writer.writeObjectValue<DeviceConfigurationDeviceOverviewImpl>("deviceStatusOverview", new DeviceConfigurationDeviceOverviewImpl(this.deviceStatusOverview));
+            writer.writeObjectValue<DeviceConfigurationDeviceOverviewImpl>("deviceStatusOverview", new DeviceConfigurationDeviceOverviewImpl(this.deviceStatusOverview));
         }
         if(this.displayName){
-        writer.writeStringValue("displayName", this.displayName);
+            writer.writeStringValue("displayName", this.displayName);
         }
         if(this.lastModifiedDateTime){
-        writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
+            writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
         }
         if(this.userStatuses && this.userStatuses.length != 0){        const userStatusesArrValue: DeviceConfigurationUserStatusImpl[] = []; this.userStatuses?.forEach(element => {userStatusesArrValue.push(new DeviceConfigurationUserStatusImpl(element));});
-        writer.writeCollectionOfObjectValues<DeviceConfigurationUserStatusImpl>("userStatuses", userStatusesArrValue);
+            writer.writeCollectionOfObjectValues<DeviceConfigurationUserStatusImpl>("userStatuses", userStatusesArrValue);
         }
         if(this.userStatusOverview){
-        writer.writeObjectValue<DeviceConfigurationUserOverviewImpl>("userStatusOverview", new DeviceConfigurationUserOverviewImpl(this.userStatusOverview));
+            writer.writeObjectValue<DeviceConfigurationUserOverviewImpl>("userStatusOverview", new DeviceConfigurationUserOverviewImpl(this.userStatusOverview));
         }
         if(this.version){
-        writer.writeNumberValue("version", this.version);
+            writer.writeNumberValue("version", this.version);
         }
     };
 }

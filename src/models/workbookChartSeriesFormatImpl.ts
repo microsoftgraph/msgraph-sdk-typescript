@@ -6,8 +6,8 @@ import {WorkbookChartLineFormat} from './workbookChartLineFormat';
 import {WorkbookChartSeriesFormat} from './workbookChartSeriesFormat';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
-export class WorkbookChartSeriesFormatImpl extends EntityImpl implements Parsable, WorkbookChartSeriesFormat {
+/** Casts the previous resource to group. */
+export class WorkbookChartSeriesFormatImpl extends EntityImpl implements WorkbookChartSeriesFormat {
     /** Represents the fill format of a chart series, which includes background formating information. Read-only. */
     public fill?: WorkbookChartFill | undefined;
     /** Represents line formatting. Read-only. */
@@ -17,9 +17,9 @@ export class WorkbookChartSeriesFormatImpl extends EntityImpl implements Parsabl
      * @param workbookChartSeriesFormatParameterValue 
      */
     public constructor(workbookChartSeriesFormatParameterValue?: WorkbookChartSeriesFormat | undefined) {
-        super();
-        this.fill = workbookChartSeriesFormatParameterValue?.fill ;
-        this.line = workbookChartSeriesFormatParameterValue?.line ;
+        super(workbookChartSeriesFormatParameterValue);
+        this.fill = workbookChartSeriesFormatParameterValue?.fill;
+        this.line = workbookChartSeriesFormatParameterValue?.line;
     };
     /**
      * The deserialization information for the current model
@@ -39,10 +39,10 @@ export class WorkbookChartSeriesFormatImpl extends EntityImpl implements Parsabl
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.fill){
-        writer.writeObjectValue<WorkbookChartFillImpl>("fill", new WorkbookChartFillImpl(this.fill));
+            writer.writeObjectValue<WorkbookChartFillImpl>("fill", new WorkbookChartFillImpl(this.fill));
         }
         if(this.line){
-        writer.writeObjectValue<WorkbookChartLineFormatImpl>("line", new WorkbookChartLineFormatImpl(this.line));
+            writer.writeObjectValue<WorkbookChartLineFormatImpl>("line", new WorkbookChartLineFormatImpl(this.line));
         }
     };
 }

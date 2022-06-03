@@ -5,7 +5,7 @@ import {AgreementFileDataImpl, EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the collection of agreement entities. */
-export class AgreementFilePropertiesImpl extends EntityImpl implements AgreementFileProperties, Parsable {
+export class AgreementFilePropertiesImpl extends EntityImpl implements AgreementFileProperties {
     /** The date time representing when the file was created.The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
     public createdDateTime?: Date | undefined;
     /** Localized display name of the policy file of an agreement. The localized display name is shown to end users who view the agreement. */
@@ -25,14 +25,14 @@ export class AgreementFilePropertiesImpl extends EntityImpl implements Agreement
      * @param agreementFilePropertiesParameterValue 
      */
     public constructor(agreementFilePropertiesParameterValue?: AgreementFileProperties | undefined) {
-        super();
-        this.createdDateTime = agreementFilePropertiesParameterValue?.createdDateTime ;
-        this.displayName = agreementFilePropertiesParameterValue?.displayName ;
-        this.fileData = agreementFilePropertiesParameterValue?.fileData ;
-        this.fileName = agreementFilePropertiesParameterValue?.fileName ;
-        this.isDefault = agreementFilePropertiesParameterValue?.isDefault ;
-        this.isMajorVersion = agreementFilePropertiesParameterValue?.isMajorVersion ;
-        this.language = agreementFilePropertiesParameterValue?.language ;
+        super(agreementFilePropertiesParameterValue);
+        this.createdDateTime = agreementFilePropertiesParameterValue?.createdDateTime;
+        this.displayName = agreementFilePropertiesParameterValue?.displayName;
+        this.fileData = agreementFilePropertiesParameterValue?.fileData;
+        this.fileName = agreementFilePropertiesParameterValue?.fileName;
+        this.isDefault = agreementFilePropertiesParameterValue?.isDefault;
+        this.isMajorVersion = agreementFilePropertiesParameterValue?.isMajorVersion;
+        this.language = agreementFilePropertiesParameterValue?.language;
     };
     /**
      * The deserialization information for the current model
@@ -57,25 +57,25 @@ export class AgreementFilePropertiesImpl extends EntityImpl implements Agreement
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.createdDateTime){
-        writer.writeDateValue("createdDateTime", this.createdDateTime);
+            writer.writeDateValue("createdDateTime", this.createdDateTime);
         }
         if(this.displayName){
-        writer.writeStringValue("displayName", this.displayName);
+            writer.writeStringValue("displayName", this.displayName);
         }
         if(this.fileData){
-        writer.writeObjectValue<AgreementFileDataImpl>("fileData", new AgreementFileDataImpl(this.fileData));
+            writer.writeObjectValue<AgreementFileDataImpl>("fileData", new AgreementFileDataImpl(this.fileData));
         }
         if(this.fileName){
-        writer.writeStringValue("fileName", this.fileName);
+            writer.writeStringValue("fileName", this.fileName);
         }
         if(this.isDefault){
-        writer.writeBooleanValue("isDefault", this.isDefault);
+            writer.writeBooleanValue("isDefault", this.isDefault);
         }
         if(this.isMajorVersion){
-        writer.writeBooleanValue("isMajorVersion", this.isMajorVersion);
+            writer.writeBooleanValue("isMajorVersion", this.isMajorVersion);
         }
         if(this.language){
-        writer.writeStringValue("language", this.language);
+            writer.writeStringValue("language", this.language);
         }
     };
 }

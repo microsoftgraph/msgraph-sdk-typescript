@@ -5,7 +5,7 @@ import {GetScheduleResponse} from './getScheduleResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the getSchedule method. */
-export class GetScheduleResponseImpl implements AdditionalDataHolder, GetScheduleResponse, Parsable {
+export class GetScheduleResponseImpl implements GetScheduleResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The value property */
@@ -15,8 +15,8 @@ export class GetScheduleResponseImpl implements AdditionalDataHolder, GetSchedul
      * @param getScheduleResponseParameterValue 
      */
     public constructor(getScheduleResponseParameterValue?: GetScheduleResponse | undefined) {
-        this.additionalData = getScheduleResponseParameterValue?.additionalData ? getScheduleResponseParameterValue?.additionalData! : {}
-        this.value = getScheduleResponseParameterValue?.value ;
+        this.additionalData = getScheduleResponseParameterValue?.additionalData ? getScheduleResponseParameterValue?.additionalData! : {};
+        this.value = getScheduleResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -34,7 +34,7 @@ export class GetScheduleResponseImpl implements AdditionalDataHolder, GetSchedul
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.value && this.value.length != 0){        const valueArrValue: ScheduleInformationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ScheduleInformationImpl(element));});
-        writer.writeCollectionOfObjectValues<ScheduleInformationImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<ScheduleInformationImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

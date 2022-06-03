@@ -2,7 +2,7 @@ import {FavoritePostRequestBody} from './favoritePostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the favorite method. */
-export class FavoritePostRequestBodyImpl implements AdditionalDataHolder, FavoritePostRequestBody, Parsable {
+export class FavoritePostRequestBodyImpl implements FavoritePostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The messageIds property */
@@ -12,8 +12,8 @@ export class FavoritePostRequestBodyImpl implements AdditionalDataHolder, Favori
      * @param favoritePostRequestBodyParameterValue 
      */
     public constructor(favoritePostRequestBodyParameterValue?: FavoritePostRequestBody | undefined) {
-        this.additionalData = favoritePostRequestBodyParameterValue?.additionalData ? favoritePostRequestBodyParameterValue?.additionalData! : {}
-        this.messageIds = favoritePostRequestBodyParameterValue?.messageIds ;
+        this.additionalData = favoritePostRequestBodyParameterValue?.additionalData ? favoritePostRequestBodyParameterValue?.additionalData! : {};
+        this.messageIds = favoritePostRequestBodyParameterValue?.messageIds;
     };
     /**
      * The deserialization information for the current model
@@ -31,7 +31,7 @@ export class FavoritePostRequestBodyImpl implements AdditionalDataHolder, Favori
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.messageIds){
-        writer.writeCollectionOfPrimitiveValues<string>("messageIds", this.messageIds);
+            writer.writeCollectionOfPrimitiveValues<string>("messageIds", this.messageIds);
         }
         writer.writeAdditionalData(this.additionalData);
     };

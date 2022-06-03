@@ -2,7 +2,7 @@ import {GetReportFiltersPostRequestBody} from './getReportFiltersPostRequestBody
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the getReportFilters method. */
-export class GetReportFiltersPostRequestBodyImpl implements AdditionalDataHolder, GetReportFiltersPostRequestBody, Parsable {
+export class GetReportFiltersPostRequestBodyImpl implements GetReportFiltersPostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The filter property */
@@ -28,16 +28,16 @@ export class GetReportFiltersPostRequestBodyImpl implements AdditionalDataHolder
      * @param getReportFiltersPostRequestBodyParameterValue 
      */
     public constructor(getReportFiltersPostRequestBodyParameterValue?: GetReportFiltersPostRequestBody | undefined) {
-        this.additionalData = getReportFiltersPostRequestBodyParameterValue?.additionalData ? getReportFiltersPostRequestBodyParameterValue?.additionalData! : {}
-        this.filter = getReportFiltersPostRequestBodyParameterValue?.filter ;
-        this.groupBy = getReportFiltersPostRequestBodyParameterValue?.groupBy ;
-        this.name = getReportFiltersPostRequestBodyParameterValue?.name ;
-        this.orderBy = getReportFiltersPostRequestBodyParameterValue?.orderBy ;
-        this.search = getReportFiltersPostRequestBodyParameterValue?.search ;
-        this.select = getReportFiltersPostRequestBodyParameterValue?.select ;
-        this.sessionId = getReportFiltersPostRequestBodyParameterValue?.sessionId ;
-        this.skip = getReportFiltersPostRequestBodyParameterValue?.skip ;
-        this.top = getReportFiltersPostRequestBodyParameterValue?.top ;
+        this.additionalData = getReportFiltersPostRequestBodyParameterValue?.additionalData ? getReportFiltersPostRequestBodyParameterValue?.additionalData! : {};
+        this.filter = getReportFiltersPostRequestBodyParameterValue?.filter;
+        this.groupBy = getReportFiltersPostRequestBodyParameterValue?.groupBy;
+        this.name = getReportFiltersPostRequestBodyParameterValue?.name;
+        this.orderBy = getReportFiltersPostRequestBodyParameterValue?.orderBy;
+        this.search = getReportFiltersPostRequestBodyParameterValue?.search;
+        this.select = getReportFiltersPostRequestBodyParameterValue?.select;
+        this.sessionId = getReportFiltersPostRequestBodyParameterValue?.sessionId;
+        this.skip = getReportFiltersPostRequestBodyParameterValue?.skip;
+        this.top = getReportFiltersPostRequestBodyParameterValue?.top;
     };
     /**
      * The deserialization information for the current model
@@ -63,31 +63,31 @@ export class GetReportFiltersPostRequestBodyImpl implements AdditionalDataHolder
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.filter){
-        writer.writeStringValue("filter", this.filter);
+            writer.writeStringValue("filter", this.filter);
         }
         if(this.groupBy){
-        writer.writeCollectionOfPrimitiveValues<string>("groupBy", this.groupBy);
+            writer.writeCollectionOfPrimitiveValues<string>("groupBy", this.groupBy);
         }
         if(this.name){
-        writer.writeStringValue("name", this.name);
+            writer.writeStringValue("name", this.name);
         }
         if(this.orderBy){
-        writer.writeCollectionOfPrimitiveValues<string>("orderBy", this.orderBy);
+            writer.writeCollectionOfPrimitiveValues<string>("orderBy", this.orderBy);
         }
         if(this.search){
-        writer.writeStringValue("search", this.search);
+            writer.writeStringValue("search", this.search);
         }
         if(this.select){
-        writer.writeCollectionOfPrimitiveValues<string>("select", this.select);
+            writer.writeCollectionOfPrimitiveValues<string>("select", this.select);
         }
         if(this.sessionId){
-        writer.writeStringValue("sessionId", this.sessionId);
+            writer.writeStringValue("sessionId", this.sessionId);
         }
         if(this.skip){
-        writer.writeNumberValue("skip", this.skip);
+            writer.writeNumberValue("skip", this.skip);
         }
         if(this.top){
-        writer.writeNumberValue("top", this.top);
+            writer.writeNumberValue("top", this.top);
         }
         writer.writeAdditionalData(this.additionalData);
     };

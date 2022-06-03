@@ -1,13 +1,13 @@
 
-export interface RefRequestBuilderGetQueryParameters{
+export interface RefRequestBuilderGetQueryParameters {
     /** Include count of items */
-    count?:boolean | undefined;
+    count?: boolean | undefined;
     /** Filter items by property values */
-    filter?:string | undefined;
+    filter?: string | undefined;
     /** Order items by property values */
-    orderby?:string[] | undefined;
+    orderby?: string[] | undefined;
     /** Skip the first n items */
-    skip?:number | undefined;
+    skip?: number | undefined;
     /** Show only the first n items */
-    top?:number | undefined;
+    top?: number | undefined;
 }

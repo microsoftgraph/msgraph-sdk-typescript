@@ -1,17 +1,18 @@
 import {Entity} from './entity';
 import {IdentitySet} from './identitySet';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface Request extends Entity{
+export interface Request extends Entity, Partial<Parsable> {
     /** The identifier of the approval of the request. */
-    approvalId?:string | undefined;
+    approvalId?: string | undefined;
     /** The request completion date time. */
-    completedDateTime?:Date | undefined;
+    completedDateTime?: Date | undefined;
     /** The user who created this request. */
-    createdBy?:IdentitySet | undefined;
+    createdBy?: IdentitySet | undefined;
     /** The request creation date time. */
-    createdDateTime?:Date | undefined;
+    createdDateTime?: Date | undefined;
     /** Free text field to define any custom data for the request. Not used. */
-    customData?:string | undefined;
+    customData?: string | undefined;
     /** The status of the request. Not nullable. The possible values are: Canceled, Denied, Failed, Granted, PendingAdminDecision, PendingApproval, PendingProvisioning, PendingScheduleCreation, Provisioned, Revoked, and ScheduleCreated. Not nullable. */
-    status?:string | undefined;
+    status?: string | undefined;
 }

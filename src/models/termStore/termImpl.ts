@@ -14,8 +14,8 @@ import {Set} from './set';
 import {Term} from './term';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to group. */
-export class TermImpl extends EntityImpl implements Parsable, Term {
+/** Casts the previous resource to user. */
+export class TermImpl extends EntityImpl implements Term {
     /** Children of current term. */
     public children?: Term[] | undefined;
     /** Date and time of term creation. Read-only. */
@@ -37,15 +37,15 @@ export class TermImpl extends EntityImpl implements Parsable, Term {
      * @param termParameterValue 
      */
     public constructor(termParameterValue?: Term | undefined) {
-        super();
-        this.children = termParameterValue?.children ;
-        this.createdDateTime = termParameterValue?.createdDateTime ;
-        this.descriptions = termParameterValue?.descriptions ;
-        this.labels = termParameterValue?.labels ;
-        this.lastModifiedDateTime = termParameterValue?.lastModifiedDateTime ;
-        this.properties = termParameterValue?.properties ;
-        this.relations = termParameterValue?.relations ;
-        this.set = termParameterValue?.set ;
+        super(termParameterValue);
+        this.children = termParameterValue?.children;
+        this.createdDateTime = termParameterValue?.createdDateTime;
+        this.descriptions = termParameterValue?.descriptions;
+        this.labels = termParameterValue?.labels;
+        this.lastModifiedDateTime = termParameterValue?.lastModifiedDateTime;
+        this.properties = termParameterValue?.properties;
+        this.relations = termParameterValue?.relations;
+        this.set = termParameterValue?.set;
     };
     /**
      * The deserialization information for the current model
@@ -71,28 +71,28 @@ export class TermImpl extends EntityImpl implements Parsable, Term {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.children && this.children.length != 0){        const childrenArrValue: TermImpl[] = []; this.children?.forEach(element => {childrenArrValue.push(new TermImpl(element));});
-        writer.writeCollectionOfObjectValues<TermImpl>("children", childrenArrValue);
+            writer.writeCollectionOfObjectValues<TermImpl>("children", childrenArrValue);
         }
         if(this.createdDateTime){
-        writer.writeDateValue("createdDateTime", this.createdDateTime);
+            writer.writeDateValue("createdDateTime", this.createdDateTime);
         }
         if(this.descriptions && this.descriptions.length != 0){        const descriptionsArrValue: LocalizedDescriptionImpl[] = []; this.descriptions?.forEach(element => {descriptionsArrValue.push(new LocalizedDescriptionImpl(element));});
-        writer.writeCollectionOfObjectValues<LocalizedDescriptionImpl>("descriptions", descriptionsArrValue);
+            writer.writeCollectionOfObjectValues<LocalizedDescriptionImpl>("descriptions", descriptionsArrValue);
         }
         if(this.labels && this.labels.length != 0){        const labelsArrValue: LocalizedLabelImpl[] = []; this.labels?.forEach(element => {labelsArrValue.push(new LocalizedLabelImpl(element));});
-        writer.writeCollectionOfObjectValues<LocalizedLabelImpl>("labels", labelsArrValue);
+            writer.writeCollectionOfObjectValues<LocalizedLabelImpl>("labels", labelsArrValue);
         }
         if(this.lastModifiedDateTime){
-        writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
+            writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
         }
         if(this.properties && this.properties.length != 0){        const propertiesArrValue: KeyValueImpl[] = []; this.properties?.forEach(element => {propertiesArrValue.push(new KeyValueImpl(element));});
-        writer.writeCollectionOfObjectValues<KeyValueImpl>("properties", propertiesArrValue);
+            writer.writeCollectionOfObjectValues<KeyValueImpl>("properties", propertiesArrValue);
         }
         if(this.relations && this.relations.length != 0){        const relationsArrValue: RelationImpl[] = []; this.relations?.forEach(element => {relationsArrValue.push(new RelationImpl(element));});
-        writer.writeCollectionOfObjectValues<RelationImpl>("relations", relationsArrValue);
+            writer.writeCollectionOfObjectValues<RelationImpl>("relations", relationsArrValue);
         }
         if(this.set){
-        writer.writeObjectValue<SetImpl>("set", new SetImpl(this.set));
+            writer.writeObjectValue<SetImpl>("set", new SetImpl(this.set));
         }
     };
 }

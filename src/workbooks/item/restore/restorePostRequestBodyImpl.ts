@@ -5,7 +5,7 @@ import {RestorePostRequestBody} from './restorePostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the restore method. */
-export class RestorePostRequestBodyImpl implements AdditionalDataHolder, Parsable, RestorePostRequestBody {
+export class RestorePostRequestBodyImpl implements RestorePostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The name property */
@@ -17,9 +17,9 @@ export class RestorePostRequestBodyImpl implements AdditionalDataHolder, Parsabl
      * @param restorePostRequestBodyParameterValue 
      */
     public constructor(restorePostRequestBodyParameterValue?: RestorePostRequestBody | undefined) {
-        this.additionalData = restorePostRequestBodyParameterValue?.additionalData ? restorePostRequestBodyParameterValue?.additionalData! : {}
-        this.name = restorePostRequestBodyParameterValue?.name ;
-        this.parentReference = restorePostRequestBodyParameterValue?.parentReference ;
+        this.additionalData = restorePostRequestBodyParameterValue?.additionalData ? restorePostRequestBodyParameterValue?.additionalData! : {};
+        this.name = restorePostRequestBodyParameterValue?.name;
+        this.parentReference = restorePostRequestBodyParameterValue?.parentReference;
     };
     /**
      * The deserialization information for the current model
@@ -38,10 +38,10 @@ export class RestorePostRequestBodyImpl implements AdditionalDataHolder, Parsabl
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.name){
-        writer.writeStringValue("name", this.name);
+            writer.writeStringValue("name", this.name);
         }
         if(this.parentReference){
-        writer.writeObjectValue<ItemReferenceImpl>("parentReference", new ItemReferenceImpl(this.parentReference));
+            writer.writeObjectValue<ItemReferenceImpl>("parentReference", new ItemReferenceImpl(this.parentReference));
         }
         writer.writeAdditionalData(this.additionalData);
     };

@@ -5,7 +5,7 @@ import {ImportPostRequestBody} from './importPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the import method. */
-export class ImportPostRequestBodyImpl implements AdditionalDataHolder, ImportPostRequestBody, Parsable {
+export class ImportPostRequestBodyImpl implements ImportPostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The importedWindowsAutopilotDeviceIdentities property */
@@ -15,8 +15,8 @@ export class ImportPostRequestBodyImpl implements AdditionalDataHolder, ImportPo
      * @param importPostRequestBodyParameterValue 
      */
     public constructor(importPostRequestBodyParameterValue?: ImportPostRequestBody | undefined) {
-        this.additionalData = importPostRequestBodyParameterValue?.additionalData ? importPostRequestBodyParameterValue?.additionalData! : {}
-        this.importedWindowsAutopilotDeviceIdentities = importPostRequestBodyParameterValue?.importedWindowsAutopilotDeviceIdentities ;
+        this.additionalData = importPostRequestBodyParameterValue?.additionalData ? importPostRequestBodyParameterValue?.additionalData! : {};
+        this.importedWindowsAutopilotDeviceIdentities = importPostRequestBodyParameterValue?.importedWindowsAutopilotDeviceIdentities;
     };
     /**
      * The deserialization information for the current model
@@ -34,7 +34,7 @@ export class ImportPostRequestBodyImpl implements AdditionalDataHolder, ImportPo
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.importedWindowsAutopilotDeviceIdentities && this.importedWindowsAutopilotDeviceIdentities.length != 0){        const importedWindowsAutopilotDeviceIdentitiesArrValue: ImportedWindowsAutopilotDeviceIdentityImpl[] = []; this.importedWindowsAutopilotDeviceIdentities?.forEach(element => {importedWindowsAutopilotDeviceIdentitiesArrValue.push(new ImportedWindowsAutopilotDeviceIdentityImpl(element));});
-        writer.writeCollectionOfObjectValues<ImportedWindowsAutopilotDeviceIdentityImpl>("importedWindowsAutopilotDeviceIdentities", importedWindowsAutopilotDeviceIdentitiesArrValue);
+            writer.writeCollectionOfObjectValues<ImportedWindowsAutopilotDeviceIdentityImpl>("importedWindowsAutopilotDeviceIdentities", importedWindowsAutopilotDeviceIdentitiesArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

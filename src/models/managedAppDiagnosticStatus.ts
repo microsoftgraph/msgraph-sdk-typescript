@@ -1,11 +1,12 @@
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface ManagedAppDiagnosticStatus{
+export interface ManagedAppDiagnosticStatus extends Partial<AdditionalDataHolder>, Partial<Parsable> {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?:Record<string, unknown>;
+    additionalData?: Record<string, unknown>;
     /** Instruction on how to mitigate a failed validation */
-    mitigationInstruction?:string | undefined;
+    mitigationInstruction?: string | undefined;
     /** The state of the operation */
-    state?:string | undefined;
+    state?: string | undefined;
     /** The validation friendly name */
-    validationName?:string | undefined;
+    validationName?: string | undefined;
 }

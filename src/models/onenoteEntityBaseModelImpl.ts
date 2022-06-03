@@ -2,8 +2,8 @@ import {EntityImpl} from './index';
 import {OnenoteEntityBaseModel} from './onenoteEntityBaseModel';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to group. */
-export class OnenoteEntityBaseModelImpl extends EntityImpl implements OnenoteEntityBaseModel, Parsable {
+/** Casts the previous resource to user. */
+export class OnenoteEntityBaseModelImpl extends EntityImpl implements OnenoteEntityBaseModel {
     /** The endpoint where you can get details about the page. Read-only. */
     public self?: string | undefined;
     /**
@@ -11,8 +11,8 @@ export class OnenoteEntityBaseModelImpl extends EntityImpl implements OnenoteEnt
      * @param onenoteEntityBaseModelParameterValue 
      */
     public constructor(onenoteEntityBaseModelParameterValue?: OnenoteEntityBaseModel | undefined) {
-        super();
-        this.self = onenoteEntityBaseModelParameterValue?.self ;
+        super(onenoteEntityBaseModelParameterValue);
+        this.self = onenoteEntityBaseModelParameterValue?.self;
     };
     /**
      * The deserialization information for the current model
@@ -31,7 +31,7 @@ export class OnenoteEntityBaseModelImpl extends EntityImpl implements OnenoteEnt
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.self){
-        writer.writeStringValue("self", this.self);
+            writer.writeStringValue("self", this.self);
         }
     };
 }

@@ -6,7 +6,7 @@ import {VppTokenSyncStatus} from './vppTokenSyncStatus';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** You purchase multiple licenses for iOS apps through the Apple Volume Purchase Program for Business or Education. This involves setting up an Apple VPP account from the Apple website and uploading the Apple VPP Business or Education token to Intune. You can then synchronize your volume purchase information with Intune and track your volume-purchased app use. You can upload multiple Apple VPP Business or Education tokens. */
-export class VppTokenImpl extends EntityImpl implements Parsable, VppToken {
+export class VppTokenImpl extends EntityImpl implements VppToken {
     /** The apple Id associated with the given Apple Volume Purchase Program Token. */
     public appleId?: string | undefined;
     /** Whether or not apps for the VPP token will be automatically updated. */
@@ -34,18 +34,18 @@ export class VppTokenImpl extends EntityImpl implements Parsable, VppToken {
      * @param vppTokenParameterValue 
      */
     public constructor(vppTokenParameterValue?: VppToken | undefined) {
-        super();
-        this.appleId = vppTokenParameterValue?.appleId ;
-        this.automaticallyUpdateApps = vppTokenParameterValue?.automaticallyUpdateApps ;
-        this.countryOrRegion = vppTokenParameterValue?.countryOrRegion ;
-        this.expirationDateTime = vppTokenParameterValue?.expirationDateTime ;
-        this.lastModifiedDateTime = vppTokenParameterValue?.lastModifiedDateTime ;
-        this.lastSyncDateTime = vppTokenParameterValue?.lastSyncDateTime ;
-        this.lastSyncStatus = vppTokenParameterValue?.lastSyncStatus ;
-        this.organizationName = vppTokenParameterValue?.organizationName ;
-        this.state = vppTokenParameterValue?.state ;
-        this.token = vppTokenParameterValue?.token ;
-        this.vppTokenAccountType = vppTokenParameterValue?.vppTokenAccountType ;
+        super(vppTokenParameterValue);
+        this.appleId = vppTokenParameterValue?.appleId;
+        this.automaticallyUpdateApps = vppTokenParameterValue?.automaticallyUpdateApps;
+        this.countryOrRegion = vppTokenParameterValue?.countryOrRegion;
+        this.expirationDateTime = vppTokenParameterValue?.expirationDateTime;
+        this.lastModifiedDateTime = vppTokenParameterValue?.lastModifiedDateTime;
+        this.lastSyncDateTime = vppTokenParameterValue?.lastSyncDateTime;
+        this.lastSyncStatus = vppTokenParameterValue?.lastSyncStatus;
+        this.organizationName = vppTokenParameterValue?.organizationName;
+        this.state = vppTokenParameterValue?.state;
+        this.token = vppTokenParameterValue?.token;
+        this.vppTokenAccountType = vppTokenParameterValue?.vppTokenAccountType;
     };
     /**
      * The deserialization information for the current model
@@ -74,37 +74,37 @@ export class VppTokenImpl extends EntityImpl implements Parsable, VppToken {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.appleId){
-        writer.writeStringValue("appleId", this.appleId);
+            writer.writeStringValue("appleId", this.appleId);
         }
         if(this.automaticallyUpdateApps){
-        writer.writeBooleanValue("automaticallyUpdateApps", this.automaticallyUpdateApps);
+            writer.writeBooleanValue("automaticallyUpdateApps", this.automaticallyUpdateApps);
         }
         if(this.countryOrRegion){
-        writer.writeStringValue("countryOrRegion", this.countryOrRegion);
+            writer.writeStringValue("countryOrRegion", this.countryOrRegion);
         }
         if(this.expirationDateTime){
-        writer.writeDateValue("expirationDateTime", this.expirationDateTime);
+            writer.writeDateValue("expirationDateTime", this.expirationDateTime);
         }
         if(this.lastModifiedDateTime){
-        writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
+            writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
         }
         if(this.lastSyncDateTime){
-        writer.writeDateValue("lastSyncDateTime", this.lastSyncDateTime);
+            writer.writeDateValue("lastSyncDateTime", this.lastSyncDateTime);
         }
         if(this.lastSyncStatus){
-        writer.writeEnumValue<VppTokenSyncStatus>("lastSyncStatus", this.lastSyncStatus);
+            writer.writeEnumValue<VppTokenSyncStatus>("lastSyncStatus", this.lastSyncStatus);
         }
         if(this.organizationName){
-        writer.writeStringValue("organizationName", this.organizationName);
+            writer.writeStringValue("organizationName", this.organizationName);
         }
         if(this.state){
-        writer.writeEnumValue<VppTokenState>("state", this.state);
+            writer.writeEnumValue<VppTokenState>("state", this.state);
         }
         if(this.token){
-        writer.writeStringValue("token", this.token);
+            writer.writeStringValue("token", this.token);
         }
         if(this.vppTokenAccountType){
-        writer.writeEnumValue<VppTokenAccountType>("vppTokenAccountType", this.vppTokenAccountType);
+            writer.writeEnumValue<VppTokenAccountType>("vppTokenAccountType", this.vppTokenAccountType);
         }
     };
 }

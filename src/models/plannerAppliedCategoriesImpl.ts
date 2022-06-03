@@ -1,7 +1,7 @@
 import {PlannerAppliedCategories} from './plannerAppliedCategories';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class PlannerAppliedCategoriesImpl implements AdditionalDataHolder, Parsable, PlannerAppliedCategories {
+export class PlannerAppliedCategoriesImpl implements PlannerAppliedCategories {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /**
@@ -9,7 +9,7 @@ export class PlannerAppliedCategoriesImpl implements AdditionalDataHolder, Parsa
      * @param plannerAppliedCategoriesParameterValue 
      */
     public constructor(plannerAppliedCategoriesParameterValue?: PlannerAppliedCategories | undefined) {
-        this.additionalData = plannerAppliedCategoriesParameterValue?.additionalData ? plannerAppliedCategoriesParameterValue?.additionalData! : {}
+        this.additionalData = plannerAppliedCategoriesParameterValue?.additionalData ? plannerAppliedCategoriesParameterValue?.additionalData! : {};
     };
     /**
      * The deserialization information for the current model

@@ -4,7 +4,7 @@ import {HomeRealmDiscoveryPolicyCollectionResponse} from './homeRealmDiscoveryPo
 import {HomeRealmDiscoveryPolicyImpl} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class HomeRealmDiscoveryPolicyCollectionResponseImpl implements AdditionalDataHolder, HomeRealmDiscoveryPolicyCollectionResponse, Parsable {
+export class HomeRealmDiscoveryPolicyCollectionResponseImpl implements HomeRealmDiscoveryPolicyCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class HomeRealmDiscoveryPolicyCollectionResponseImpl implements Additiona
      * @param homeRealmDiscoveryPolicyCollectionResponseParameterValue 
      */
     public constructor(homeRealmDiscoveryPolicyCollectionResponseParameterValue?: HomeRealmDiscoveryPolicyCollectionResponse | undefined) {
-        this.additionalData = homeRealmDiscoveryPolicyCollectionResponseParameterValue?.additionalData ? homeRealmDiscoveryPolicyCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = homeRealmDiscoveryPolicyCollectionResponseParameterValue?.nextLink ;
-        this.value = homeRealmDiscoveryPolicyCollectionResponseParameterValue?.value ;
+        this.additionalData = homeRealmDiscoveryPolicyCollectionResponseParameterValue?.additionalData ? homeRealmDiscoveryPolicyCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = homeRealmDiscoveryPolicyCollectionResponseParameterValue?.nextLink;
+        this.value = homeRealmDiscoveryPolicyCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class HomeRealmDiscoveryPolicyCollectionResponseImpl implements Additiona
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: HomeRealmDiscoveryPolicyImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new HomeRealmDiscoveryPolicyImpl(element));});
-        writer.writeCollectionOfObjectValues<HomeRealmDiscoveryPolicyImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<HomeRealmDiscoveryPolicyImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

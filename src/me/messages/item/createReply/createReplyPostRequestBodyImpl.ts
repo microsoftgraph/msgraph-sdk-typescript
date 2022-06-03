@@ -5,7 +5,7 @@ import {CreateReplyPostRequestBody} from './createReplyPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the createReply method. */
-export class CreateReplyPostRequestBodyImpl implements AdditionalDataHolder, CreateReplyPostRequestBody, Parsable {
+export class CreateReplyPostRequestBodyImpl implements CreateReplyPostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The Comment property */
@@ -17,9 +17,9 @@ export class CreateReplyPostRequestBodyImpl implements AdditionalDataHolder, Cre
      * @param createReplyPostRequestBodyParameterValue 
      */
     public constructor(createReplyPostRequestBodyParameterValue?: CreateReplyPostRequestBody | undefined) {
-        this.additionalData = createReplyPostRequestBodyParameterValue?.additionalData ? createReplyPostRequestBodyParameterValue?.additionalData! : {}
-        this.comment = createReplyPostRequestBodyParameterValue?.comment ;
-        this.message = createReplyPostRequestBodyParameterValue?.message ;
+        this.additionalData = createReplyPostRequestBodyParameterValue?.additionalData ? createReplyPostRequestBodyParameterValue?.additionalData! : {};
+        this.comment = createReplyPostRequestBodyParameterValue?.comment;
+        this.message = createReplyPostRequestBodyParameterValue?.message;
     };
     /**
      * The deserialization information for the current model
@@ -38,10 +38,10 @@ export class CreateReplyPostRequestBodyImpl implements AdditionalDataHolder, Cre
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.comment){
-        writer.writeStringValue("comment", this.comment);
+            writer.writeStringValue("comment", this.comment);
         }
         if(this.message){
-        writer.writeObjectValue<MessageImpl>("message", new MessageImpl(this.message));
+            writer.writeObjectValue<MessageImpl>("message", new MessageImpl(this.message));
         }
         writer.writeAdditionalData(this.additionalData);
     };

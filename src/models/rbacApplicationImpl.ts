@@ -19,7 +19,7 @@ import {UnifiedRoleEligibilityScheduleRequest} from './unifiedRoleEligibilitySch
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the roleManagement singleton. */
-export class RbacApplicationImpl extends EntityImpl implements Parsable, RbacApplication {
+export class RbacApplicationImpl extends EntityImpl implements RbacApplication {
     /** Resource to grant access to users or groups. */
     public roleAssignments?: UnifiedRoleAssignment[] | undefined;
     /** Instances for active role assignments. */
@@ -41,15 +41,15 @@ export class RbacApplicationImpl extends EntityImpl implements Parsable, RbacApp
      * @param rbacApplicationParameterValue 
      */
     public constructor(rbacApplicationParameterValue?: RbacApplication | undefined) {
-        super();
-        this.roleAssignments = rbacApplicationParameterValue?.roleAssignments ;
-        this.roleAssignmentScheduleInstances = rbacApplicationParameterValue?.roleAssignmentScheduleInstances ;
-        this.roleAssignmentScheduleRequests = rbacApplicationParameterValue?.roleAssignmentScheduleRequests ;
-        this.roleAssignmentSchedules = rbacApplicationParameterValue?.roleAssignmentSchedules ;
-        this.roleDefinitions = rbacApplicationParameterValue?.roleDefinitions ;
-        this.roleEligibilityScheduleInstances = rbacApplicationParameterValue?.roleEligibilityScheduleInstances ;
-        this.roleEligibilityScheduleRequests = rbacApplicationParameterValue?.roleEligibilityScheduleRequests ;
-        this.roleEligibilitySchedules = rbacApplicationParameterValue?.roleEligibilitySchedules ;
+        super(rbacApplicationParameterValue);
+        this.roleAssignments = rbacApplicationParameterValue?.roleAssignments;
+        this.roleAssignmentScheduleInstances = rbacApplicationParameterValue?.roleAssignmentScheduleInstances;
+        this.roleAssignmentScheduleRequests = rbacApplicationParameterValue?.roleAssignmentScheduleRequests;
+        this.roleAssignmentSchedules = rbacApplicationParameterValue?.roleAssignmentSchedules;
+        this.roleDefinitions = rbacApplicationParameterValue?.roleDefinitions;
+        this.roleEligibilityScheduleInstances = rbacApplicationParameterValue?.roleEligibilityScheduleInstances;
+        this.roleEligibilityScheduleRequests = rbacApplicationParameterValue?.roleEligibilityScheduleRequests;
+        this.roleEligibilitySchedules = rbacApplicationParameterValue?.roleEligibilitySchedules;
     };
     /**
      * The deserialization information for the current model
@@ -75,28 +75,28 @@ export class RbacApplicationImpl extends EntityImpl implements Parsable, RbacApp
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.roleAssignments && this.roleAssignments.length != 0){        const roleAssignmentsArrValue: UnifiedRoleAssignmentImpl[] = []; this.roleAssignments?.forEach(element => {roleAssignmentsArrValue.push(new UnifiedRoleAssignmentImpl(element));});
-        writer.writeCollectionOfObjectValues<UnifiedRoleAssignmentImpl>("roleAssignments", roleAssignmentsArrValue);
+            writer.writeCollectionOfObjectValues<UnifiedRoleAssignmentImpl>("roleAssignments", roleAssignmentsArrValue);
         }
         if(this.roleAssignmentScheduleInstances && this.roleAssignmentScheduleInstances.length != 0){        const roleAssignmentScheduleInstancesArrValue: UnifiedRoleAssignmentScheduleInstanceImpl[] = []; this.roleAssignmentScheduleInstances?.forEach(element => {roleAssignmentScheduleInstancesArrValue.push(new UnifiedRoleAssignmentScheduleInstanceImpl(element));});
-        writer.writeCollectionOfObjectValues<UnifiedRoleAssignmentScheduleInstanceImpl>("roleAssignmentScheduleInstances", roleAssignmentScheduleInstancesArrValue);
+            writer.writeCollectionOfObjectValues<UnifiedRoleAssignmentScheduleInstanceImpl>("roleAssignmentScheduleInstances", roleAssignmentScheduleInstancesArrValue);
         }
         if(this.roleAssignmentScheduleRequests && this.roleAssignmentScheduleRequests.length != 0){        const roleAssignmentScheduleRequestsArrValue: UnifiedRoleAssignmentScheduleRequestImpl[] = []; this.roleAssignmentScheduleRequests?.forEach(element => {roleAssignmentScheduleRequestsArrValue.push(new UnifiedRoleAssignmentScheduleRequestImpl(element));});
-        writer.writeCollectionOfObjectValues<UnifiedRoleAssignmentScheduleRequestImpl>("roleAssignmentScheduleRequests", roleAssignmentScheduleRequestsArrValue);
+            writer.writeCollectionOfObjectValues<UnifiedRoleAssignmentScheduleRequestImpl>("roleAssignmentScheduleRequests", roleAssignmentScheduleRequestsArrValue);
         }
         if(this.roleAssignmentSchedules && this.roleAssignmentSchedules.length != 0){        const roleAssignmentSchedulesArrValue: UnifiedRoleAssignmentScheduleImpl[] = []; this.roleAssignmentSchedules?.forEach(element => {roleAssignmentSchedulesArrValue.push(new UnifiedRoleAssignmentScheduleImpl(element));});
-        writer.writeCollectionOfObjectValues<UnifiedRoleAssignmentScheduleImpl>("roleAssignmentSchedules", roleAssignmentSchedulesArrValue);
+            writer.writeCollectionOfObjectValues<UnifiedRoleAssignmentScheduleImpl>("roleAssignmentSchedules", roleAssignmentSchedulesArrValue);
         }
         if(this.roleDefinitions && this.roleDefinitions.length != 0){        const roleDefinitionsArrValue: UnifiedRoleDefinitionImpl[] = []; this.roleDefinitions?.forEach(element => {roleDefinitionsArrValue.push(new UnifiedRoleDefinitionImpl(element));});
-        writer.writeCollectionOfObjectValues<UnifiedRoleDefinitionImpl>("roleDefinitions", roleDefinitionsArrValue);
+            writer.writeCollectionOfObjectValues<UnifiedRoleDefinitionImpl>("roleDefinitions", roleDefinitionsArrValue);
         }
         if(this.roleEligibilityScheduleInstances && this.roleEligibilityScheduleInstances.length != 0){        const roleEligibilityScheduleInstancesArrValue: UnifiedRoleEligibilityScheduleInstanceImpl[] = []; this.roleEligibilityScheduleInstances?.forEach(element => {roleEligibilityScheduleInstancesArrValue.push(new UnifiedRoleEligibilityScheduleInstanceImpl(element));});
-        writer.writeCollectionOfObjectValues<UnifiedRoleEligibilityScheduleInstanceImpl>("roleEligibilityScheduleInstances", roleEligibilityScheduleInstancesArrValue);
+            writer.writeCollectionOfObjectValues<UnifiedRoleEligibilityScheduleInstanceImpl>("roleEligibilityScheduleInstances", roleEligibilityScheduleInstancesArrValue);
         }
         if(this.roleEligibilityScheduleRequests && this.roleEligibilityScheduleRequests.length != 0){        const roleEligibilityScheduleRequestsArrValue: UnifiedRoleEligibilityScheduleRequestImpl[] = []; this.roleEligibilityScheduleRequests?.forEach(element => {roleEligibilityScheduleRequestsArrValue.push(new UnifiedRoleEligibilityScheduleRequestImpl(element));});
-        writer.writeCollectionOfObjectValues<UnifiedRoleEligibilityScheduleRequestImpl>("roleEligibilityScheduleRequests", roleEligibilityScheduleRequestsArrValue);
+            writer.writeCollectionOfObjectValues<UnifiedRoleEligibilityScheduleRequestImpl>("roleEligibilityScheduleRequests", roleEligibilityScheduleRequestsArrValue);
         }
         if(this.roleEligibilitySchedules && this.roleEligibilitySchedules.length != 0){        const roleEligibilitySchedulesArrValue: UnifiedRoleEligibilityScheduleImpl[] = []; this.roleEligibilitySchedules?.forEach(element => {roleEligibilitySchedulesArrValue.push(new UnifiedRoleEligibilityScheduleImpl(element));});
-        writer.writeCollectionOfObjectValues<UnifiedRoleEligibilityScheduleImpl>("roleEligibilitySchedules", roleEligibilitySchedulesArrValue);
+            writer.writeCollectionOfObjectValues<UnifiedRoleEligibilityScheduleImpl>("roleEligibilitySchedules", roleEligibilitySchedulesArrValue);
         }
     };
 }

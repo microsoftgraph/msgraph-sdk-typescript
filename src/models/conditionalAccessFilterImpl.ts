@@ -2,7 +2,7 @@ import {ConditionalAccessFilter} from './conditionalAccessFilter';
 import {FilterMode} from './filterMode';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ConditionalAccessFilterImpl implements AdditionalDataHolder, ConditionalAccessFilter, Parsable {
+export class ConditionalAccessFilterImpl implements ConditionalAccessFilter {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Mode to use for the filter. Possible values are include or exclude. */
@@ -14,9 +14,9 @@ export class ConditionalAccessFilterImpl implements AdditionalDataHolder, Condit
      * @param conditionalAccessFilterParameterValue 
      */
     public constructor(conditionalAccessFilterParameterValue?: ConditionalAccessFilter | undefined) {
-        this.additionalData = conditionalAccessFilterParameterValue?.additionalData ? conditionalAccessFilterParameterValue?.additionalData! : {}
-        this.mode = conditionalAccessFilterParameterValue?.mode ;
-        this.rule = conditionalAccessFilterParameterValue?.rule ;
+        this.additionalData = conditionalAccessFilterParameterValue?.additionalData ? conditionalAccessFilterParameterValue?.additionalData! : {};
+        this.mode = conditionalAccessFilterParameterValue?.mode;
+        this.rule = conditionalAccessFilterParameterValue?.rule;
     };
     /**
      * The deserialization information for the current model
@@ -35,10 +35,10 @@ export class ConditionalAccessFilterImpl implements AdditionalDataHolder, Condit
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.mode){
-        writer.writeEnumValue<FilterMode>("mode", this.mode);
+            writer.writeEnumValue<FilterMode>("mode", this.mode);
         }
         if(this.rule){
-        writer.writeStringValue("rule", this.rule);
+            writer.writeStringValue("rule", this.rule);
         }
         writer.writeAdditionalData(this.additionalData);
     };

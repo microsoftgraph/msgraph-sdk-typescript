@@ -2,7 +2,7 @@ import {GetDeviceNonComplianceReportPostRequestBody} from './getDeviceNonComplia
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the getDeviceNonComplianceReport method. */
-export class GetDeviceNonComplianceReportPostRequestBodyImpl implements AdditionalDataHolder, GetDeviceNonComplianceReportPostRequestBody, Parsable {
+export class GetDeviceNonComplianceReportPostRequestBodyImpl implements GetDeviceNonComplianceReportPostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The filter property */
@@ -28,16 +28,16 @@ export class GetDeviceNonComplianceReportPostRequestBodyImpl implements Addition
      * @param getDeviceNonComplianceReportPostRequestBodyParameterValue 
      */
     public constructor(getDeviceNonComplianceReportPostRequestBodyParameterValue?: GetDeviceNonComplianceReportPostRequestBody | undefined) {
-        this.additionalData = getDeviceNonComplianceReportPostRequestBodyParameterValue?.additionalData ? getDeviceNonComplianceReportPostRequestBodyParameterValue?.additionalData! : {}
-        this.filter = getDeviceNonComplianceReportPostRequestBodyParameterValue?.filter ;
-        this.groupBy = getDeviceNonComplianceReportPostRequestBodyParameterValue?.groupBy ;
-        this.name = getDeviceNonComplianceReportPostRequestBodyParameterValue?.name ;
-        this.orderBy = getDeviceNonComplianceReportPostRequestBodyParameterValue?.orderBy ;
-        this.search = getDeviceNonComplianceReportPostRequestBodyParameterValue?.search ;
-        this.select = getDeviceNonComplianceReportPostRequestBodyParameterValue?.select ;
-        this.sessionId = getDeviceNonComplianceReportPostRequestBodyParameterValue?.sessionId ;
-        this.skip = getDeviceNonComplianceReportPostRequestBodyParameterValue?.skip ;
-        this.top = getDeviceNonComplianceReportPostRequestBodyParameterValue?.top ;
+        this.additionalData = getDeviceNonComplianceReportPostRequestBodyParameterValue?.additionalData ? getDeviceNonComplianceReportPostRequestBodyParameterValue?.additionalData! : {};
+        this.filter = getDeviceNonComplianceReportPostRequestBodyParameterValue?.filter;
+        this.groupBy = getDeviceNonComplianceReportPostRequestBodyParameterValue?.groupBy;
+        this.name = getDeviceNonComplianceReportPostRequestBodyParameterValue?.name;
+        this.orderBy = getDeviceNonComplianceReportPostRequestBodyParameterValue?.orderBy;
+        this.search = getDeviceNonComplianceReportPostRequestBodyParameterValue?.search;
+        this.select = getDeviceNonComplianceReportPostRequestBodyParameterValue?.select;
+        this.sessionId = getDeviceNonComplianceReportPostRequestBodyParameterValue?.sessionId;
+        this.skip = getDeviceNonComplianceReportPostRequestBodyParameterValue?.skip;
+        this.top = getDeviceNonComplianceReportPostRequestBodyParameterValue?.top;
     };
     /**
      * The deserialization information for the current model
@@ -63,31 +63,31 @@ export class GetDeviceNonComplianceReportPostRequestBodyImpl implements Addition
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.filter){
-        writer.writeStringValue("filter", this.filter);
+            writer.writeStringValue("filter", this.filter);
         }
         if(this.groupBy){
-        writer.writeCollectionOfPrimitiveValues<string>("groupBy", this.groupBy);
+            writer.writeCollectionOfPrimitiveValues<string>("groupBy", this.groupBy);
         }
         if(this.name){
-        writer.writeStringValue("name", this.name);
+            writer.writeStringValue("name", this.name);
         }
         if(this.orderBy){
-        writer.writeCollectionOfPrimitiveValues<string>("orderBy", this.orderBy);
+            writer.writeCollectionOfPrimitiveValues<string>("orderBy", this.orderBy);
         }
         if(this.search){
-        writer.writeStringValue("search", this.search);
+            writer.writeStringValue("search", this.search);
         }
         if(this.select){
-        writer.writeCollectionOfPrimitiveValues<string>("select", this.select);
+            writer.writeCollectionOfPrimitiveValues<string>("select", this.select);
         }
         if(this.sessionId){
-        writer.writeStringValue("sessionId", this.sessionId);
+            writer.writeStringValue("sessionId", this.sessionId);
         }
         if(this.skip){
-        writer.writeNumberValue("skip", this.skip);
+            writer.writeNumberValue("skip", this.skip);
         }
         if(this.top){
-        writer.writeNumberValue("top", this.top);
+            writer.writeNumberValue("top", this.top);
         }
         writer.writeAdditionalData(this.additionalData);
     };

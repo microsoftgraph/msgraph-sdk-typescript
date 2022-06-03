@@ -1,7 +1,7 @@
 import {SortProperty} from './sortProperty';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class SortPropertyImpl implements AdditionalDataHolder, Parsable, SortProperty {
+export class SortPropertyImpl implements SortProperty {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** True if the sort order is descending. Default is false, with the sort order as ascending. Optional. */
@@ -13,9 +13,9 @@ export class SortPropertyImpl implements AdditionalDataHolder, Parsable, SortPro
      * @param sortPropertyParameterValue 
      */
     public constructor(sortPropertyParameterValue?: SortProperty | undefined) {
-        this.additionalData = sortPropertyParameterValue?.additionalData ? sortPropertyParameterValue?.additionalData! : {}
-        this.isDescending = sortPropertyParameterValue?.isDescending ;
-        this.name = sortPropertyParameterValue?.name ;
+        this.additionalData = sortPropertyParameterValue?.additionalData ? sortPropertyParameterValue?.additionalData! : {};
+        this.isDescending = sortPropertyParameterValue?.isDescending;
+        this.name = sortPropertyParameterValue?.name;
     };
     /**
      * The deserialization information for the current model
@@ -34,10 +34,10 @@ export class SortPropertyImpl implements AdditionalDataHolder, Parsable, SortPro
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.isDescending){
-        writer.writeBooleanValue("isDescending", this.isDescending);
+            writer.writeBooleanValue("isDescending", this.isDescending);
         }
         if(this.name){
-        writer.writeStringValue("name", this.name);
+            writer.writeStringValue("name", this.name);
         }
         writer.writeAdditionalData(this.additionalData);
     };

@@ -6,8 +6,8 @@ import {WorkbookFilter} from './workbookFilter';
 import {WorkbookTableColumn} from './workbookTableColumn';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
-export class WorkbookTableColumnImpl extends EntityImpl implements Parsable, WorkbookTableColumn {
+/** Casts the previous resource to group. */
+export class WorkbookTableColumnImpl extends EntityImpl implements WorkbookTableColumn {
     /** Retrieve the filter applied to the column. Read-only. */
     public filter?: WorkbookFilter | undefined;
     /** Returns the index number of the column within the columns collection of the table. Zero-indexed. Read-only. */
@@ -21,11 +21,11 @@ export class WorkbookTableColumnImpl extends EntityImpl implements Parsable, Wor
      * @param workbookTableColumnParameterValue 
      */
     public constructor(workbookTableColumnParameterValue?: WorkbookTableColumn | undefined) {
-        super();
-        this.filter = workbookTableColumnParameterValue?.filter ;
-        this.index = workbookTableColumnParameterValue?.index ;
-        this.name = workbookTableColumnParameterValue?.name ;
-        this.values = workbookTableColumnParameterValue?.values ;
+        super(workbookTableColumnParameterValue);
+        this.filter = workbookTableColumnParameterValue?.filter;
+        this.index = workbookTableColumnParameterValue?.index;
+        this.name = workbookTableColumnParameterValue?.name;
+        this.values = workbookTableColumnParameterValue?.values;
     };
     /**
      * The deserialization information for the current model
@@ -47,16 +47,16 @@ export class WorkbookTableColumnImpl extends EntityImpl implements Parsable, Wor
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.filter){
-        writer.writeObjectValue<WorkbookFilterImpl>("filter", new WorkbookFilterImpl(this.filter));
+            writer.writeObjectValue<WorkbookFilterImpl>("filter", new WorkbookFilterImpl(this.filter));
         }
         if(this.index){
-        writer.writeNumberValue("index", this.index);
+            writer.writeNumberValue("index", this.index);
         }
         if(this.name){
-        writer.writeStringValue("name", this.name);
+            writer.writeStringValue("name", this.name);
         }
         if(this.values){
-        writer.writeObjectValue<JsonImpl>("values", new JsonImpl(this.values));
+            writer.writeObjectValue<JsonImpl>("values", new JsonImpl(this.values));
         }
     };
 }

@@ -1,10 +1,11 @@
 import {AssignedLicense} from '../../../../../../../../../models/assignedLicense';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface AssignLicensePostRequestBody{
+export interface AssignLicensePostRequestBody extends Partial<AdditionalDataHolder>, Partial<Parsable> {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?:Record<string, unknown>;
+    additionalData?: Record<string, unknown>;
     /** The addLicenses property */
-    addLicenses?:AssignedLicense[] | undefined;
+    addLicenses?: AssignedLicense[] | undefined;
     /** The removeLicenses property */
-    removeLicenses?:string[] | undefined;
+    removeLicenses?: string[] | undefined;
 }

@@ -1,7 +1,7 @@
 import {ListInfo} from './listInfo';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ListInfoImpl implements AdditionalDataHolder, ListInfo, Parsable {
+export class ListInfoImpl implements ListInfo {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** If true, indicates that content types are enabled for this list. */
@@ -15,10 +15,10 @@ export class ListInfoImpl implements AdditionalDataHolder, ListInfo, Parsable {
      * @param listInfoParameterValue 
      */
     public constructor(listInfoParameterValue?: ListInfo | undefined) {
-        this.additionalData = listInfoParameterValue?.additionalData ? listInfoParameterValue?.additionalData! : {}
-        this.contentTypesEnabled = listInfoParameterValue?.contentTypesEnabled ;
-        this.hidden = listInfoParameterValue?.hidden ;
-        this.template = listInfoParameterValue?.template ;
+        this.additionalData = listInfoParameterValue?.additionalData ? listInfoParameterValue?.additionalData! : {};
+        this.contentTypesEnabled = listInfoParameterValue?.contentTypesEnabled;
+        this.hidden = listInfoParameterValue?.hidden;
+        this.template = listInfoParameterValue?.template;
     };
     /**
      * The deserialization information for the current model
@@ -38,13 +38,13 @@ export class ListInfoImpl implements AdditionalDataHolder, ListInfo, Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.contentTypesEnabled){
-        writer.writeBooleanValue("contentTypesEnabled", this.contentTypesEnabled);
+            writer.writeBooleanValue("contentTypesEnabled", this.contentTypesEnabled);
         }
         if(this.hidden){
-        writer.writeBooleanValue("hidden", this.hidden);
+            writer.writeBooleanValue("hidden", this.hidden);
         }
         if(this.template){
-        writer.writeStringValue("template", this.template);
+            writer.writeStringValue("template", this.template);
         }
         writer.writeAdditionalData(this.additionalData);
     };

@@ -1,8 +1,8 @@
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
-export interface IosUpdateDeviceStatusItemRequestBuilderPatchRequestConfiguration{
+export interface IosUpdateDeviceStatusItemRequestBuilderPatchRequestConfiguration {
     /** Request headers */
-    headers?:Record<string, string> | undefined;
+    headers?: Record<string, string> | undefined;
     /** Request options */
-    options?:RequestOption[] | undefined;
+    options?: RequestOption[] | undefined;
 }

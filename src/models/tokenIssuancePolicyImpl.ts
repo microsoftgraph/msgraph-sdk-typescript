@@ -3,13 +3,13 @@ import {TokenIssuancePolicy} from './tokenIssuancePolicy';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the collection of application entities. */
-export class TokenIssuancePolicyImpl extends StsPolicyImpl implements Parsable, TokenIssuancePolicy {
+export class TokenIssuancePolicyImpl extends StsPolicyImpl implements TokenIssuancePolicy {
     /**
      * Instantiates a new tokenIssuancePolicy and sets the default values.
      * @param tokenIssuancePolicyParameterValue 
      */
     public constructor(tokenIssuancePolicyParameterValue?: TokenIssuancePolicy | undefined) {
-        super();
+        super(tokenIssuancePolicyParameterValue);
     };
     /**
      * The deserialization information for the current model

@@ -4,7 +4,7 @@ import {RecurrencePatternType} from './recurrencePatternType';
 import {WeekIndex} from './weekIndex';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class RecurrencePatternImpl implements AdditionalDataHolder, Parsable, RecurrencePattern {
+export class RecurrencePatternImpl implements RecurrencePattern {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The day of the month on which the event occurs. Required if type is absoluteMonthly or absoluteYearly. */
@@ -26,14 +26,14 @@ export class RecurrencePatternImpl implements AdditionalDataHolder, Parsable, Re
      * @param recurrencePatternParameterValue 
      */
     public constructor(recurrencePatternParameterValue?: RecurrencePattern | undefined) {
-        this.additionalData = recurrencePatternParameterValue?.additionalData ? recurrencePatternParameterValue?.additionalData! : {}
-        this.dayOfMonth = recurrencePatternParameterValue?.dayOfMonth ;
-        this.daysOfWeek = recurrencePatternParameterValue?.daysOfWeek ;
-        this.firstDayOfWeek = recurrencePatternParameterValue?.firstDayOfWeek ;
-        this.index = recurrencePatternParameterValue?.index ;
-        this.interval = recurrencePatternParameterValue?.interval ;
-        this.month = recurrencePatternParameterValue?.month ;
-        this.type = recurrencePatternParameterValue?.type ;
+        this.additionalData = recurrencePatternParameterValue?.additionalData ? recurrencePatternParameterValue?.additionalData! : {};
+        this.dayOfMonth = recurrencePatternParameterValue?.dayOfMonth;
+        this.daysOfWeek = recurrencePatternParameterValue?.daysOfWeek;
+        this.firstDayOfWeek = recurrencePatternParameterValue?.firstDayOfWeek;
+        this.index = recurrencePatternParameterValue?.index;
+        this.interval = recurrencePatternParameterValue?.interval;
+        this.month = recurrencePatternParameterValue?.month;
+        this.type = recurrencePatternParameterValue?.type;
     };
     /**
      * The deserialization information for the current model
@@ -57,25 +57,25 @@ export class RecurrencePatternImpl implements AdditionalDataHolder, Parsable, Re
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.dayOfMonth){
-        writer.writeNumberValue("dayOfMonth", this.dayOfMonth);
+            writer.writeNumberValue("dayOfMonth", this.dayOfMonth);
         }
         if(this.daysOfWeek){
-        writer.writeCollectionOfPrimitiveValues<string>("daysOfWeek", this.daysOfWeek);
+            writer.writeCollectionOfPrimitiveValues<string>("daysOfWeek", this.daysOfWeek);
         }
         if(this.firstDayOfWeek){
-        writer.writeEnumValue<DayOfWeek>("firstDayOfWeek", this.firstDayOfWeek);
+            writer.writeEnumValue<DayOfWeek>("firstDayOfWeek", this.firstDayOfWeek);
         }
         if(this.index){
-        writer.writeEnumValue<WeekIndex>("index", this.index);
+            writer.writeEnumValue<WeekIndex>("index", this.index);
         }
         if(this.interval){
-        writer.writeNumberValue("interval", this.interval);
+            writer.writeNumberValue("interval", this.interval);
         }
         if(this.month){
-        writer.writeNumberValue("month", this.month);
+            writer.writeNumberValue("month", this.month);
         }
         if(this.type){
-        writer.writeEnumValue<RecurrencePatternType>("type", this.type);
+            writer.writeEnumValue<RecurrencePatternType>("type", this.type);
         }
         writer.writeAdditionalData(this.additionalData);
     };

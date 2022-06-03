@@ -1,7 +1,7 @@
 import {ErrorDetails} from './errorDetails';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ErrorDetailsImpl implements AdditionalDataHolder, ErrorDetails, Parsable {
+export class ErrorDetailsImpl implements ErrorDetails {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The code property */
@@ -15,10 +15,10 @@ export class ErrorDetailsImpl implements AdditionalDataHolder, ErrorDetails, Par
      * @param errorDetailsParameterValue 
      */
     public constructor(errorDetailsParameterValue?: ErrorDetails | undefined) {
-        this.additionalData = errorDetailsParameterValue?.additionalData ? errorDetailsParameterValue?.additionalData! : {}
-        this.code = errorDetailsParameterValue?.code ;
-        this.message = errorDetailsParameterValue?.message ;
-        this.target = errorDetailsParameterValue?.target ;
+        this.additionalData = errorDetailsParameterValue?.additionalData ? errorDetailsParameterValue?.additionalData! : {};
+        this.code = errorDetailsParameterValue?.code;
+        this.message = errorDetailsParameterValue?.message;
+        this.target = errorDetailsParameterValue?.target;
     };
     /**
      * The deserialization information for the current model
@@ -38,13 +38,13 @@ export class ErrorDetailsImpl implements AdditionalDataHolder, ErrorDetails, Par
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.code){
-        writer.writeStringValue("code", this.code);
+            writer.writeStringValue("code", this.code);
         }
         if(this.message){
-        writer.writeStringValue("message", this.message);
+            writer.writeStringValue("message", this.message);
         }
         if(this.target){
-        writer.writeStringValue("target", this.target);
+            writer.writeStringValue("target", this.target);
         }
         writer.writeAdditionalData(this.additionalData);
     };

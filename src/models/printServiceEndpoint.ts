@@ -1,8 +1,9 @@
 import {Entity} from './entity';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface PrintServiceEndpoint extends Entity{
+export interface PrintServiceEndpoint extends Entity, Partial<Parsable> {
     /** A human-readable display name for the endpoint. */
-    displayName?:string | undefined;
+    displayName?: string | undefined;
     /** The URI that can be used to access the service. */
-    uri?:string | undefined;
+    uri?: string | undefined;
 }

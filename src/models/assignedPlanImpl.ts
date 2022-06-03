@@ -1,7 +1,7 @@
 import {AssignedPlan} from './assignedPlan';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class AssignedPlanImpl implements AdditionalDataHolder, AssignedPlan, Parsable {
+export class AssignedPlanImpl implements AssignedPlan {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The date and time at which the plan was assigned; for example: 2013-01-02T19:32:30Z. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
@@ -17,11 +17,11 @@ export class AssignedPlanImpl implements AdditionalDataHolder, AssignedPlan, Par
      * @param assignedPlanParameterValue 
      */
     public constructor(assignedPlanParameterValue?: AssignedPlan | undefined) {
-        this.additionalData = assignedPlanParameterValue?.additionalData ? assignedPlanParameterValue?.additionalData! : {}
-        this.assignedDateTime = assignedPlanParameterValue?.assignedDateTime ;
-        this.capabilityStatus = assignedPlanParameterValue?.capabilityStatus ;
-        this.service = assignedPlanParameterValue?.service ;
-        this.servicePlanId = assignedPlanParameterValue?.servicePlanId ;
+        this.additionalData = assignedPlanParameterValue?.additionalData ? assignedPlanParameterValue?.additionalData! : {};
+        this.assignedDateTime = assignedPlanParameterValue?.assignedDateTime;
+        this.capabilityStatus = assignedPlanParameterValue?.capabilityStatus;
+        this.service = assignedPlanParameterValue?.service;
+        this.servicePlanId = assignedPlanParameterValue?.servicePlanId;
     };
     /**
      * The deserialization information for the current model
@@ -42,16 +42,16 @@ export class AssignedPlanImpl implements AdditionalDataHolder, AssignedPlan, Par
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.assignedDateTime){
-        writer.writeDateValue("assignedDateTime", this.assignedDateTime);
+            writer.writeDateValue("assignedDateTime", this.assignedDateTime);
         }
         if(this.capabilityStatus){
-        writer.writeStringValue("capabilityStatus", this.capabilityStatus);
+            writer.writeStringValue("capabilityStatus", this.capabilityStatus);
         }
         if(this.service){
-        writer.writeStringValue("service", this.service);
+            writer.writeStringValue("service", this.service);
         }
         if(this.servicePlanId){
-        writer.writeStringValue("servicePlanId", this.servicePlanId);
+            writer.writeStringValue("servicePlanId", this.servicePlanId);
         }
         writer.writeAdditionalData(this.additionalData);
     };

@@ -4,7 +4,7 @@ import {SigninFrequencyType} from './signinFrequencyType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the identityContainer singleton. */
-export class SignInFrequencySessionControlImpl extends ConditionalAccessSessionControlImpl implements Parsable, SignInFrequencySessionControl {
+export class SignInFrequencySessionControlImpl extends ConditionalAccessSessionControlImpl implements SignInFrequencySessionControl {
     /** Possible values are: days, hours. */
     public type?: SigninFrequencyType | undefined;
     /** The number of days or hours. */
@@ -14,9 +14,9 @@ export class SignInFrequencySessionControlImpl extends ConditionalAccessSessionC
      * @param signInFrequencySessionControlParameterValue 
      */
     public constructor(signInFrequencySessionControlParameterValue?: SignInFrequencySessionControl | undefined) {
-        super();
-        this.type = signInFrequencySessionControlParameterValue?.type ;
-        this.value = signInFrequencySessionControlParameterValue?.value ;
+        super(signInFrequencySessionControlParameterValue);
+        this.type = signInFrequencySessionControlParameterValue?.type;
+        this.value = signInFrequencySessionControlParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -36,10 +36,10 @@ export class SignInFrequencySessionControlImpl extends ConditionalAccessSessionC
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.type){
-        writer.writeEnumValue<SigninFrequencyType>("type", this.type);
+            writer.writeEnumValue<SigninFrequencyType>("type", this.type);
         }
         if(this.value){
-        writer.writeNumberValue("value", this.value);
+            writer.writeNumberValue("value", this.value);
         }
     };
 }

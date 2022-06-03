@@ -3,7 +3,7 @@ import {PrintUsage} from './printUsage';
 import {DateOnly, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the reportRoot singleton. */
-export class PrintUsageImpl extends EntityImpl implements Parsable, PrintUsage {
+export class PrintUsageImpl extends EntityImpl implements PrintUsage {
     /** The completedBlackAndWhiteJobCount property */
     public completedBlackAndWhiteJobCount?: number | undefined;
     /** The completedColorJobCount property */
@@ -17,11 +17,11 @@ export class PrintUsageImpl extends EntityImpl implements Parsable, PrintUsage {
      * @param printUsageParameterValue 
      */
     public constructor(printUsageParameterValue?: PrintUsage | undefined) {
-        super();
-        this.completedBlackAndWhiteJobCount = printUsageParameterValue?.completedBlackAndWhiteJobCount ;
-        this.completedColorJobCount = printUsageParameterValue?.completedColorJobCount ;
-        this.incompleteJobCount = printUsageParameterValue?.incompleteJobCount ;
-        this.usageDate = printUsageParameterValue?.usageDate ;
+        super(printUsageParameterValue);
+        this.completedBlackAndWhiteJobCount = printUsageParameterValue?.completedBlackAndWhiteJobCount;
+        this.completedColorJobCount = printUsageParameterValue?.completedColorJobCount;
+        this.incompleteJobCount = printUsageParameterValue?.incompleteJobCount;
+        this.usageDate = printUsageParameterValue?.usageDate;
     };
     /**
      * The deserialization information for the current model
@@ -43,16 +43,16 @@ export class PrintUsageImpl extends EntityImpl implements Parsable, PrintUsage {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.completedBlackAndWhiteJobCount){
-        writer.writeNumberValue("completedBlackAndWhiteJobCount", this.completedBlackAndWhiteJobCount);
+            writer.writeNumberValue("completedBlackAndWhiteJobCount", this.completedBlackAndWhiteJobCount);
         }
         if(this.completedColorJobCount){
-        writer.writeNumberValue("completedColorJobCount", this.completedColorJobCount);
+            writer.writeNumberValue("completedColorJobCount", this.completedColorJobCount);
         }
         if(this.incompleteJobCount){
-        writer.writeNumberValue("incompleteJobCount", this.incompleteJobCount);
+            writer.writeNumberValue("incompleteJobCount", this.incompleteJobCount);
         }
         if(this.usageDate){
-        writer.writeDateOnlyValue("usageDate", this.usageDate);
+            writer.writeDateOnlyValue("usageDate", this.usageDate);
         }
     };
 }

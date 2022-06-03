@@ -22,7 +22,7 @@ export class VerifyWindowsEnrollmentAutoDiscoveryWithDomainNameRequestBuilder {
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/deviceManagement/microsoft.graph.verifyWindowsEnrollmentAutoDiscovery(domainName='{domainName}')";
         const urlTplParams = getPathParameters(pathParameters);
-        urlTplParams[""] = domainName
+        urlTplParams["domainName"] = domainName
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };

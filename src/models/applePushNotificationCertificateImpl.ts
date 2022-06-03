@@ -3,7 +3,7 @@ import {EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Apple push notification certificate. */
-export class ApplePushNotificationCertificateImpl extends EntityImpl implements ApplePushNotificationCertificate, Parsable {
+export class ApplePushNotificationCertificateImpl extends EntityImpl implements ApplePushNotificationCertificate {
     /** Apple Id of the account used to create the MDM push certificate. */
     public appleIdentifier?: string | undefined;
     /** Not yet documented */
@@ -21,13 +21,13 @@ export class ApplePushNotificationCertificateImpl extends EntityImpl implements 
      * @param applePushNotificationCertificateParameterValue 
      */
     public constructor(applePushNotificationCertificateParameterValue?: ApplePushNotificationCertificate | undefined) {
-        super();
-        this.appleIdentifier = applePushNotificationCertificateParameterValue?.appleIdentifier ;
-        this.certificate = applePushNotificationCertificateParameterValue?.certificate ;
-        this.certificateSerialNumber = applePushNotificationCertificateParameterValue?.certificateSerialNumber ;
-        this.expirationDateTime = applePushNotificationCertificateParameterValue?.expirationDateTime ;
-        this.lastModifiedDateTime = applePushNotificationCertificateParameterValue?.lastModifiedDateTime ;
-        this.topicIdentifier = applePushNotificationCertificateParameterValue?.topicIdentifier ;
+        super(applePushNotificationCertificateParameterValue);
+        this.appleIdentifier = applePushNotificationCertificateParameterValue?.appleIdentifier;
+        this.certificate = applePushNotificationCertificateParameterValue?.certificate;
+        this.certificateSerialNumber = applePushNotificationCertificateParameterValue?.certificateSerialNumber;
+        this.expirationDateTime = applePushNotificationCertificateParameterValue?.expirationDateTime;
+        this.lastModifiedDateTime = applePushNotificationCertificateParameterValue?.lastModifiedDateTime;
+        this.topicIdentifier = applePushNotificationCertificateParameterValue?.topicIdentifier;
     };
     /**
      * The deserialization information for the current model
@@ -51,22 +51,22 @@ export class ApplePushNotificationCertificateImpl extends EntityImpl implements 
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.appleIdentifier){
-        writer.writeStringValue("appleIdentifier", this.appleIdentifier);
+            writer.writeStringValue("appleIdentifier", this.appleIdentifier);
         }
         if(this.certificate){
-        writer.writeStringValue("certificate", this.certificate);
+            writer.writeStringValue("certificate", this.certificate);
         }
         if(this.certificateSerialNumber){
-        writer.writeStringValue("certificateSerialNumber", this.certificateSerialNumber);
+            writer.writeStringValue("certificateSerialNumber", this.certificateSerialNumber);
         }
         if(this.expirationDateTime){
-        writer.writeDateValue("expirationDateTime", this.expirationDateTime);
+            writer.writeDateValue("expirationDateTime", this.expirationDateTime);
         }
         if(this.lastModifiedDateTime){
-        writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
+            writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
         }
         if(this.topicIdentifier){
-        writer.writeStringValue("topicIdentifier", this.topicIdentifier);
+            writer.writeStringValue("topicIdentifier", this.topicIdentifier);
         }
     };
 }

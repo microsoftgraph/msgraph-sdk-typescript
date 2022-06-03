@@ -4,7 +4,7 @@ import {createBaseItemFromDiscriminatorValue} from './createBaseItemFromDiscrimi
 import {BaseItemImpl} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class BaseItemCollectionResponseImpl implements AdditionalDataHolder, BaseItemCollectionResponse, Parsable {
+export class BaseItemCollectionResponseImpl implements BaseItemCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class BaseItemCollectionResponseImpl implements AdditionalDataHolder, Bas
      * @param baseItemCollectionResponseParameterValue 
      */
     public constructor(baseItemCollectionResponseParameterValue?: BaseItemCollectionResponse | undefined) {
-        this.additionalData = baseItemCollectionResponseParameterValue?.additionalData ? baseItemCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = baseItemCollectionResponseParameterValue?.nextLink ;
-        this.value = baseItemCollectionResponseParameterValue?.value ;
+        this.additionalData = baseItemCollectionResponseParameterValue?.additionalData ? baseItemCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = baseItemCollectionResponseParameterValue?.nextLink;
+        this.value = baseItemCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class BaseItemCollectionResponseImpl implements AdditionalDataHolder, Bas
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: BaseItemImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new BaseItemImpl(element));});
-        writer.writeCollectionOfObjectValues<BaseItemImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<BaseItemImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

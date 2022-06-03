@@ -6,7 +6,7 @@ import {ServiceHealthStatus} from './serviceHealthStatus';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the admin singleton. */
-export class ServiceHealthImpl extends EntityImpl implements Parsable, ServiceHealth {
+export class ServiceHealthImpl extends EntityImpl implements ServiceHealth {
     /** A collection of issues that happened on the service, with detailed information for each issue. */
     public issues?: ServiceHealthIssue[] | undefined;
     /** The service name. Use the list healthOverviews operation to get exact string names for services subscribed by the tenant. */
@@ -18,10 +18,10 @@ export class ServiceHealthImpl extends EntityImpl implements Parsable, ServiceHe
      * @param serviceHealthParameterValue 
      */
     public constructor(serviceHealthParameterValue?: ServiceHealth | undefined) {
-        super();
-        this.issues = serviceHealthParameterValue?.issues ;
-        this.service = serviceHealthParameterValue?.service ;
-        this.status = serviceHealthParameterValue?.status ;
+        super(serviceHealthParameterValue);
+        this.issues = serviceHealthParameterValue?.issues;
+        this.service = serviceHealthParameterValue?.service;
+        this.status = serviceHealthParameterValue?.status;
     };
     /**
      * The deserialization information for the current model
@@ -42,13 +42,13 @@ export class ServiceHealthImpl extends EntityImpl implements Parsable, ServiceHe
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.issues && this.issues.length != 0){        const issuesArrValue: ServiceHealthIssueImpl[] = []; this.issues?.forEach(element => {issuesArrValue.push(new ServiceHealthIssueImpl(element));});
-        writer.writeCollectionOfObjectValues<ServiceHealthIssueImpl>("issues", issuesArrValue);
+            writer.writeCollectionOfObjectValues<ServiceHealthIssueImpl>("issues", issuesArrValue);
         }
         if(this.service){
-        writer.writeStringValue("service", this.service);
+            writer.writeStringValue("service", this.service);
         }
         if(this.status){
-        writer.writeEnumValue<ServiceHealthStatus>("status", this.status);
+            writer.writeEnumValue<ServiceHealthStatus>("status", this.status);
         }
     };
 }

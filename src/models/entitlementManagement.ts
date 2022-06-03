@@ -7,22 +7,23 @@ import {Approval} from './approval';
 import {ConnectedOrganization} from './connectedOrganization';
 import {EntitlementManagementSettings} from './entitlementManagementSettings';
 import {Entity} from './entity';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface EntitlementManagement extends Entity{
-    /** Approval stages for assignment requests. */
-    accessPackageAssignmentApprovals?:Approval[] | undefined;
+export interface EntitlementManagement extends Entity, Partial<Parsable> {
+    /** Approval stages for decisions associated with access package assignment requests. */
+    accessPackageAssignmentApprovals?: Approval[] | undefined;
     /** Represents access package objects. */
-    accessPackages?:AccessPackage[] | undefined;
-    /** Access package assignment policies. */
-    assignmentPolicies?:AccessPackageAssignmentPolicy[] | undefined;
-    /** Represents access package assignment requests created by or on behalf of a user. */
-    assignmentRequests?:AccessPackageAssignmentRequest[] | undefined;
-    /** Represents the grant of an access package to a subject (user or group). */
-    assignments?:AccessPackageAssignment[] | undefined;
-    /** Represents a collection of access packages. */
-    catalogs?:AccessPackageCatalog[] | undefined;
+    accessPackages?: AccessPackage[] | undefined;
+    /** Access package assignment policies govern which subjects can request or be assigned an access package via an access package assignment. */
+    assignmentPolicies?: AccessPackageAssignmentPolicy[] | undefined;
+    /** Access package assignment requests created by or on behalf of a subject. */
+    assignmentRequests?: AccessPackageAssignmentRequest[] | undefined;
+    /** The assignment of an access package to a subject for a period of time. */
+    assignments?: AccessPackageAssignment[] | undefined;
+    /** A container for access packages. */
+    catalogs?: AccessPackageCatalog[] | undefined;
     /** Represents references to a directory or domain of another organization whose users can request access. */
-    connectedOrganizations?:ConnectedOrganization[] | undefined;
+    connectedOrganizations?: ConnectedOrganization[] | undefined;
     /** Represents the settings that control the behavior of Azure AD entitlement management. */
-    settings?:EntitlementManagementSettings | undefined;
+    settings?: EntitlementManagementSettings | undefined;
 }

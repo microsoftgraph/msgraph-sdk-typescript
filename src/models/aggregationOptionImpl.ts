@@ -4,7 +4,7 @@ import {createBucketAggregationDefinitionFromDiscriminatorValue} from './createB
 import {BucketAggregationDefinitionImpl} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class AggregationOptionImpl implements AdditionalDataHolder, AggregationOption, Parsable {
+export class AggregationOptionImpl implements AggregationOption {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The bucketDefinition property */
@@ -18,10 +18,10 @@ export class AggregationOptionImpl implements AdditionalDataHolder, AggregationO
      * @param aggregationOptionParameterValue 
      */
     public constructor(aggregationOptionParameterValue?: AggregationOption | undefined) {
-        this.additionalData = aggregationOptionParameterValue?.additionalData ? aggregationOptionParameterValue?.additionalData! : {}
-        this.bucketDefinition = aggregationOptionParameterValue?.bucketDefinition ;
-        this.field = aggregationOptionParameterValue?.field ;
-        this.size = aggregationOptionParameterValue?.size ;
+        this.additionalData = aggregationOptionParameterValue?.additionalData ? aggregationOptionParameterValue?.additionalData! : {};
+        this.bucketDefinition = aggregationOptionParameterValue?.bucketDefinition;
+        this.field = aggregationOptionParameterValue?.field;
+        this.size = aggregationOptionParameterValue?.size;
     };
     /**
      * The deserialization information for the current model
@@ -41,13 +41,13 @@ export class AggregationOptionImpl implements AdditionalDataHolder, AggregationO
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.bucketDefinition){
-        writer.writeObjectValue<BucketAggregationDefinitionImpl>("bucketDefinition", new BucketAggregationDefinitionImpl(this.bucketDefinition));
+            writer.writeObjectValue<BucketAggregationDefinitionImpl>("bucketDefinition", new BucketAggregationDefinitionImpl(this.bucketDefinition));
         }
         if(this.field){
-        writer.writeStringValue("field", this.field);
+            writer.writeStringValue("field", this.field);
         }
         if(this.size){
-        writer.writeNumberValue("size", this.size);
+            writer.writeNumberValue("size", this.size);
         }
         writer.writeAdditionalData(this.additionalData);
     };

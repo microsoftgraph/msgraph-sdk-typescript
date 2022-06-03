@@ -1,7 +1,7 @@
 import {PersonType} from './personType';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class PersonTypeImpl implements AdditionalDataHolder, Parsable, PersonType {
+export class PersonTypeImpl implements PersonType {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The type of data source, such as Person. */
@@ -13,9 +13,9 @@ export class PersonTypeImpl implements AdditionalDataHolder, Parsable, PersonTyp
      * @param personTypeParameterValue 
      */
     public constructor(personTypeParameterValue?: PersonType | undefined) {
-        this.additionalData = personTypeParameterValue?.additionalData ? personTypeParameterValue?.additionalData! : {}
-        this.class_escaped = personTypeParameterValue?.class_escaped ;
-        this.subclass = personTypeParameterValue?.subclass ;
+        this.additionalData = personTypeParameterValue?.additionalData ? personTypeParameterValue?.additionalData! : {};
+        this.class_escaped = personTypeParameterValue?.class_escaped;
+        this.subclass = personTypeParameterValue?.subclass;
     };
     /**
      * The deserialization information for the current model
@@ -34,10 +34,10 @@ export class PersonTypeImpl implements AdditionalDataHolder, Parsable, PersonTyp
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.class_escaped){
-        writer.writeStringValue("class", this.class_escaped);
+            writer.writeStringValue("class", this.class_escaped);
         }
         if(this.subclass){
-        writer.writeStringValue("subclass", this.subclass);
+            writer.writeStringValue("subclass", this.subclass);
         }
         writer.writeAdditionalData(this.additionalData);
     };

@@ -4,7 +4,7 @@ import {RequiredResourceAccess} from './requiredResourceAccess';
 import {ResourceAccess} from './resourceAccess';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class RequiredResourceAccessImpl implements AdditionalDataHolder, Parsable, RequiredResourceAccess {
+export class RequiredResourceAccessImpl implements RequiredResourceAccess {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The list of OAuth2.0 permission scopes and app roles that the application requires from the specified resource. */
@@ -16,9 +16,9 @@ export class RequiredResourceAccessImpl implements AdditionalDataHolder, Parsabl
      * @param requiredResourceAccessParameterValue 
      */
     public constructor(requiredResourceAccessParameterValue?: RequiredResourceAccess | undefined) {
-        this.additionalData = requiredResourceAccessParameterValue?.additionalData ? requiredResourceAccessParameterValue?.additionalData! : {}
-        this.resourceAccess = requiredResourceAccessParameterValue?.resourceAccess ;
-        this.resourceAppId = requiredResourceAccessParameterValue?.resourceAppId ;
+        this.additionalData = requiredResourceAccessParameterValue?.additionalData ? requiredResourceAccessParameterValue?.additionalData! : {};
+        this.resourceAccess = requiredResourceAccessParameterValue?.resourceAccess;
+        this.resourceAppId = requiredResourceAccessParameterValue?.resourceAppId;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class RequiredResourceAccessImpl implements AdditionalDataHolder, Parsabl
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.resourceAccess && this.resourceAccess.length != 0){        const resourceAccessArrValue: ResourceAccessImpl[] = []; this.resourceAccess?.forEach(element => {resourceAccessArrValue.push(new ResourceAccessImpl(element));});
-        writer.writeCollectionOfObjectValues<ResourceAccessImpl>("resourceAccess", resourceAccessArrValue);
+            writer.writeCollectionOfObjectValues<ResourceAccessImpl>("resourceAccess", resourceAccessArrValue);
         }
         if(this.resourceAppId){
-        writer.writeStringValue("resourceAppId", this.resourceAppId);
+            writer.writeStringValue("resourceAppId", this.resourceAppId);
         }
         writer.writeAdditionalData(this.additionalData);
     };

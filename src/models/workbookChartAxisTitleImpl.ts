@@ -4,8 +4,8 @@ import {WorkbookChartAxisTitle} from './workbookChartAxisTitle';
 import {WorkbookChartAxisTitleFormat} from './workbookChartAxisTitleFormat';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
-export class WorkbookChartAxisTitleImpl extends EntityImpl implements Parsable, WorkbookChartAxisTitle {
+/** Casts the previous resource to group. */
+export class WorkbookChartAxisTitleImpl extends EntityImpl implements WorkbookChartAxisTitle {
     /** Represents the formatting of chart axis title. Read-only. */
     public format?: WorkbookChartAxisTitleFormat | undefined;
     /** Represents the axis title. */
@@ -17,10 +17,10 @@ export class WorkbookChartAxisTitleImpl extends EntityImpl implements Parsable, 
      * @param workbookChartAxisTitleParameterValue 
      */
     public constructor(workbookChartAxisTitleParameterValue?: WorkbookChartAxisTitle | undefined) {
-        super();
-        this.format = workbookChartAxisTitleParameterValue?.format ;
-        this.text = workbookChartAxisTitleParameterValue?.text ;
-        this.visible = workbookChartAxisTitleParameterValue?.visible ;
+        super(workbookChartAxisTitleParameterValue);
+        this.format = workbookChartAxisTitleParameterValue?.format;
+        this.text = workbookChartAxisTitleParameterValue?.text;
+        this.visible = workbookChartAxisTitleParameterValue?.visible;
     };
     /**
      * The deserialization information for the current model
@@ -41,13 +41,13 @@ export class WorkbookChartAxisTitleImpl extends EntityImpl implements Parsable, 
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.format){
-        writer.writeObjectValue<WorkbookChartAxisTitleFormatImpl>("format", new WorkbookChartAxisTitleFormatImpl(this.format));
+            writer.writeObjectValue<WorkbookChartAxisTitleFormatImpl>("format", new WorkbookChartAxisTitleFormatImpl(this.format));
         }
         if(this.text){
-        writer.writeStringValue("text", this.text);
+            writer.writeStringValue("text", this.text);
         }
         if(this.visible){
-        writer.writeBooleanValue("visible", this.visible);
+            writer.writeBooleanValue("visible", this.visible);
         }
     };
 }

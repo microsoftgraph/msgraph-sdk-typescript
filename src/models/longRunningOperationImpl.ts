@@ -3,8 +3,8 @@ import {LongRunningOperation} from './longRunningOperation';
 import {LongRunningOperationStatus} from './longRunningOperationStatus';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to group. */
-export class LongRunningOperationImpl extends EntityImpl implements LongRunningOperation, Parsable {
+/** Casts the previous resource to user. */
+export class LongRunningOperationImpl extends EntityImpl implements LongRunningOperation {
     /** The createdDateTime property */
     public createdDateTime?: Date | undefined;
     /** The lastActionDateTime property */
@@ -20,12 +20,12 @@ export class LongRunningOperationImpl extends EntityImpl implements LongRunningO
      * @param longRunningOperationParameterValue 
      */
     public constructor(longRunningOperationParameterValue?: LongRunningOperation | undefined) {
-        super();
-        this.createdDateTime = longRunningOperationParameterValue?.createdDateTime ;
-        this.lastActionDateTime = longRunningOperationParameterValue?.lastActionDateTime ;
-        this.resourceLocation = longRunningOperationParameterValue?.resourceLocation ;
-        this.status = longRunningOperationParameterValue?.status ;
-        this.statusDetail = longRunningOperationParameterValue?.statusDetail ;
+        super(longRunningOperationParameterValue);
+        this.createdDateTime = longRunningOperationParameterValue?.createdDateTime;
+        this.lastActionDateTime = longRunningOperationParameterValue?.lastActionDateTime;
+        this.resourceLocation = longRunningOperationParameterValue?.resourceLocation;
+        this.status = longRunningOperationParameterValue?.status;
+        this.statusDetail = longRunningOperationParameterValue?.statusDetail;
     };
     /**
      * The deserialization information for the current model
@@ -48,19 +48,19 @@ export class LongRunningOperationImpl extends EntityImpl implements LongRunningO
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.createdDateTime){
-        writer.writeDateValue("createdDateTime", this.createdDateTime);
+            writer.writeDateValue("createdDateTime", this.createdDateTime);
         }
         if(this.lastActionDateTime){
-        writer.writeDateValue("lastActionDateTime", this.lastActionDateTime);
+            writer.writeDateValue("lastActionDateTime", this.lastActionDateTime);
         }
         if(this.resourceLocation){
-        writer.writeStringValue("resourceLocation", this.resourceLocation);
+            writer.writeStringValue("resourceLocation", this.resourceLocation);
         }
         if(this.status){
-        writer.writeEnumValue<LongRunningOperationStatus>("status", this.status);
+            writer.writeEnumValue<LongRunningOperationStatus>("status", this.status);
         }
         if(this.statusDetail){
-        writer.writeStringValue("statusDetail", this.statusDetail);
+            writer.writeStringValue("statusDetail", this.statusDetail);
         }
     };
 }

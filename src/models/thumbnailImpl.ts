@@ -1,7 +1,7 @@
 import {Thumbnail} from './thumbnail';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ThumbnailImpl implements AdditionalDataHolder, Parsable, Thumbnail {
+export class ThumbnailImpl implements Thumbnail {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The content stream for the thumbnail. */
@@ -19,12 +19,12 @@ export class ThumbnailImpl implements AdditionalDataHolder, Parsable, Thumbnail 
      * @param thumbnailParameterValue 
      */
     public constructor(thumbnailParameterValue?: Thumbnail | undefined) {
-        this.additionalData = thumbnailParameterValue?.additionalData ? thumbnailParameterValue?.additionalData! : {}
-        this.content = thumbnailParameterValue?.content ;
-        this.height = thumbnailParameterValue?.height ;
-        this.sourceItemId = thumbnailParameterValue?.sourceItemId ;
-        this.url = thumbnailParameterValue?.url ;
-        this.width = thumbnailParameterValue?.width ;
+        this.additionalData = thumbnailParameterValue?.additionalData ? thumbnailParameterValue?.additionalData! : {};
+        this.content = thumbnailParameterValue?.content;
+        this.height = thumbnailParameterValue?.height;
+        this.sourceItemId = thumbnailParameterValue?.sourceItemId;
+        this.url = thumbnailParameterValue?.url;
+        this.width = thumbnailParameterValue?.width;
     };
     /**
      * The deserialization information for the current model
@@ -46,19 +46,19 @@ export class ThumbnailImpl implements AdditionalDataHolder, Parsable, Thumbnail 
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.content){
-        writer.writeStringValue("content", this.content);
+            writer.writeStringValue("content", this.content);
         }
         if(this.height){
-        writer.writeNumberValue("height", this.height);
+            writer.writeNumberValue("height", this.height);
         }
         if(this.sourceItemId){
-        writer.writeStringValue("sourceItemId", this.sourceItemId);
+            writer.writeStringValue("sourceItemId", this.sourceItemId);
         }
         if(this.url){
-        writer.writeStringValue("url", this.url);
+            writer.writeStringValue("url", this.url);
         }
         if(this.width){
-        writer.writeNumberValue("width", this.width);
+            writer.writeNumberValue("width", this.width);
         }
         writer.writeAdditionalData(this.additionalData);
     };

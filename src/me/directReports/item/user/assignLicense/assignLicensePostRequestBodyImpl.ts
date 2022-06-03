@@ -5,7 +5,7 @@ import {AssignLicensePostRequestBody} from './assignLicensePostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the assignLicense method. */
-export class AssignLicensePostRequestBodyImpl implements AdditionalDataHolder, AssignLicensePostRequestBody, Parsable {
+export class AssignLicensePostRequestBodyImpl implements AssignLicensePostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The addLicenses property */
@@ -17,9 +17,9 @@ export class AssignLicensePostRequestBodyImpl implements AdditionalDataHolder, A
      * @param assignLicensePostRequestBodyParameterValue 
      */
     public constructor(assignLicensePostRequestBodyParameterValue?: AssignLicensePostRequestBody | undefined) {
-        this.additionalData = assignLicensePostRequestBodyParameterValue?.additionalData ? assignLicensePostRequestBodyParameterValue?.additionalData! : {}
-        this.addLicenses = assignLicensePostRequestBodyParameterValue?.addLicenses ;
-        this.removeLicenses = assignLicensePostRequestBodyParameterValue?.removeLicenses ;
+        this.additionalData = assignLicensePostRequestBodyParameterValue?.additionalData ? assignLicensePostRequestBodyParameterValue?.additionalData! : {};
+        this.addLicenses = assignLicensePostRequestBodyParameterValue?.addLicenses;
+        this.removeLicenses = assignLicensePostRequestBodyParameterValue?.removeLicenses;
     };
     /**
      * The deserialization information for the current model
@@ -38,10 +38,10 @@ export class AssignLicensePostRequestBodyImpl implements AdditionalDataHolder, A
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.addLicenses && this.addLicenses.length != 0){        const addLicensesArrValue: AssignedLicenseImpl[] = []; this.addLicenses?.forEach(element => {addLicensesArrValue.push(new AssignedLicenseImpl(element));});
-        writer.writeCollectionOfObjectValues<AssignedLicenseImpl>("addLicenses", addLicensesArrValue);
+            writer.writeCollectionOfObjectValues<AssignedLicenseImpl>("addLicenses", addLicensesArrValue);
         }
         if(this.removeLicenses){
-        writer.writeCollectionOfPrimitiveValues<string>("removeLicenses", this.removeLicenses);
+            writer.writeCollectionOfPrimitiveValues<string>("removeLicenses", this.removeLicenses);
         }
         writer.writeAdditionalData(this.additionalData);
     };

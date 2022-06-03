@@ -3,13 +3,13 @@ import {StsPolicyImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the policyRoot singleton. */
-export class ActivityBasedTimeoutPolicyImpl extends StsPolicyImpl implements ActivityBasedTimeoutPolicy, Parsable {
+export class ActivityBasedTimeoutPolicyImpl extends StsPolicyImpl implements ActivityBasedTimeoutPolicy {
     /**
      * Instantiates a new activityBasedTimeoutPolicy and sets the default values.
      * @param activityBasedTimeoutPolicyParameterValue 
      */
     public constructor(activityBasedTimeoutPolicyParameterValue?: ActivityBasedTimeoutPolicy | undefined) {
-        super();
+        super(activityBasedTimeoutPolicyParameterValue);
     };
     /**
      * The deserialization information for the current model

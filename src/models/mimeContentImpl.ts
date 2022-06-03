@@ -2,7 +2,7 @@ import {MimeContent} from './mimeContent';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Contains properties for a generic mime content. */
-export class MimeContentImpl implements AdditionalDataHolder, MimeContent, Parsable {
+export class MimeContentImpl implements MimeContent {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Indicates the content mime type. */
@@ -14,9 +14,9 @@ export class MimeContentImpl implements AdditionalDataHolder, MimeContent, Parsa
      * @param mimeContentParameterValue 
      */
     public constructor(mimeContentParameterValue?: MimeContent | undefined) {
-        this.additionalData = mimeContentParameterValue?.additionalData ? mimeContentParameterValue?.additionalData! : {}
-        this.type = mimeContentParameterValue?.type ;
-        this.value = mimeContentParameterValue?.value ;
+        this.additionalData = mimeContentParameterValue?.additionalData ? mimeContentParameterValue?.additionalData! : {};
+        this.type = mimeContentParameterValue?.type;
+        this.value = mimeContentParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -35,10 +35,10 @@ export class MimeContentImpl implements AdditionalDataHolder, MimeContent, Parsa
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.type){
-        writer.writeStringValue("type", this.type);
+            writer.writeStringValue("type", this.type);
         }
         if(this.value){
-        writer.writeStringValue("value", this.value);
+            writer.writeStringValue("value", this.value);
         }
         writer.writeAdditionalData(this.additionalData);
     };

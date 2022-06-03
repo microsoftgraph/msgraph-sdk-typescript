@@ -1,7 +1,7 @@
 import {ResourceVisualization} from './resourceVisualization';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ResourceVisualizationImpl implements AdditionalDataHolder, Parsable, ResourceVisualization {
+export class ResourceVisualizationImpl implements ResourceVisualization {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** A string describing where the item is stored. For example, the name of a SharePoint site or the user name identifying the owner of the OneDrive storing the item. */
@@ -25,15 +25,15 @@ export class ResourceVisualizationImpl implements AdditionalDataHolder, Parsable
      * @param resourceVisualizationParameterValue 
      */
     public constructor(resourceVisualizationParameterValue?: ResourceVisualization | undefined) {
-        this.additionalData = resourceVisualizationParameterValue?.additionalData ? resourceVisualizationParameterValue?.additionalData! : {}
-        this.containerDisplayName = resourceVisualizationParameterValue?.containerDisplayName ;
-        this.containerType = resourceVisualizationParameterValue?.containerType ;
-        this.containerWebUrl = resourceVisualizationParameterValue?.containerWebUrl ;
-        this.mediaType = resourceVisualizationParameterValue?.mediaType ;
-        this.previewImageUrl = resourceVisualizationParameterValue?.previewImageUrl ;
-        this.previewText = resourceVisualizationParameterValue?.previewText ;
-        this.title = resourceVisualizationParameterValue?.title ;
-        this.type = resourceVisualizationParameterValue?.type ;
+        this.additionalData = resourceVisualizationParameterValue?.additionalData ? resourceVisualizationParameterValue?.additionalData! : {};
+        this.containerDisplayName = resourceVisualizationParameterValue?.containerDisplayName;
+        this.containerType = resourceVisualizationParameterValue?.containerType;
+        this.containerWebUrl = resourceVisualizationParameterValue?.containerWebUrl;
+        this.mediaType = resourceVisualizationParameterValue?.mediaType;
+        this.previewImageUrl = resourceVisualizationParameterValue?.previewImageUrl;
+        this.previewText = resourceVisualizationParameterValue?.previewText;
+        this.title = resourceVisualizationParameterValue?.title;
+        this.type = resourceVisualizationParameterValue?.type;
     };
     /**
      * The deserialization information for the current model
@@ -58,28 +58,28 @@ export class ResourceVisualizationImpl implements AdditionalDataHolder, Parsable
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.containerDisplayName){
-        writer.writeStringValue("containerDisplayName", this.containerDisplayName);
+            writer.writeStringValue("containerDisplayName", this.containerDisplayName);
         }
         if(this.containerType){
-        writer.writeStringValue("containerType", this.containerType);
+            writer.writeStringValue("containerType", this.containerType);
         }
         if(this.containerWebUrl){
-        writer.writeStringValue("containerWebUrl", this.containerWebUrl);
+            writer.writeStringValue("containerWebUrl", this.containerWebUrl);
         }
         if(this.mediaType){
-        writer.writeStringValue("mediaType", this.mediaType);
+            writer.writeStringValue("mediaType", this.mediaType);
         }
         if(this.previewImageUrl){
-        writer.writeStringValue("previewImageUrl", this.previewImageUrl);
+            writer.writeStringValue("previewImageUrl", this.previewImageUrl);
         }
         if(this.previewText){
-        writer.writeStringValue("previewText", this.previewText);
+            writer.writeStringValue("previewText", this.previewText);
         }
         if(this.title){
-        writer.writeStringValue("title", this.title);
+            writer.writeStringValue("title", this.title);
         }
         if(this.type){
-        writer.writeStringValue("type", this.type);
+            writer.writeStringValue("type", this.type);
         }
         writer.writeAdditionalData(this.additionalData);
     };

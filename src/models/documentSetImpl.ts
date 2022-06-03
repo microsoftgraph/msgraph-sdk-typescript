@@ -8,7 +8,7 @@ import {DocumentSetContent} from './documentSetContent';
 import {ColumnDefinitionImpl, ContentTypeInfoImpl, DocumentSetContentImpl} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class DocumentSetImpl implements AdditionalDataHolder, DocumentSet, Parsable {
+export class DocumentSetImpl implements DocumentSet {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Content types allowed in document set. */
@@ -30,14 +30,14 @@ export class DocumentSetImpl implements AdditionalDataHolder, DocumentSet, Parsa
      * @param documentSetParameterValue 
      */
     public constructor(documentSetParameterValue?: DocumentSet | undefined) {
-        this.additionalData = documentSetParameterValue?.additionalData ? documentSetParameterValue?.additionalData! : {}
-        this.allowedContentTypes = documentSetParameterValue?.allowedContentTypes ;
-        this.defaultContents = documentSetParameterValue?.defaultContents ;
-        this.propagateWelcomePageChanges = documentSetParameterValue?.propagateWelcomePageChanges ;
-        this.sharedColumns = documentSetParameterValue?.sharedColumns ;
-        this.shouldPrefixNameToFile = documentSetParameterValue?.shouldPrefixNameToFile ;
-        this.welcomePageColumns = documentSetParameterValue?.welcomePageColumns ;
-        this.welcomePageUrl = documentSetParameterValue?.welcomePageUrl ;
+        this.additionalData = documentSetParameterValue?.additionalData ? documentSetParameterValue?.additionalData! : {};
+        this.allowedContentTypes = documentSetParameterValue?.allowedContentTypes;
+        this.defaultContents = documentSetParameterValue?.defaultContents;
+        this.propagateWelcomePageChanges = documentSetParameterValue?.propagateWelcomePageChanges;
+        this.sharedColumns = documentSetParameterValue?.sharedColumns;
+        this.shouldPrefixNameToFile = documentSetParameterValue?.shouldPrefixNameToFile;
+        this.welcomePageColumns = documentSetParameterValue?.welcomePageColumns;
+        this.welcomePageUrl = documentSetParameterValue?.welcomePageUrl;
     };
     /**
      * The deserialization information for the current model
@@ -61,25 +61,25 @@ export class DocumentSetImpl implements AdditionalDataHolder, DocumentSet, Parsa
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.allowedContentTypes && this.allowedContentTypes.length != 0){        const allowedContentTypesArrValue: ContentTypeInfoImpl[] = []; this.allowedContentTypes?.forEach(element => {allowedContentTypesArrValue.push(new ContentTypeInfoImpl(element));});
-        writer.writeCollectionOfObjectValues<ContentTypeInfoImpl>("allowedContentTypes", allowedContentTypesArrValue);
+            writer.writeCollectionOfObjectValues<ContentTypeInfoImpl>("allowedContentTypes", allowedContentTypesArrValue);
         }
         if(this.defaultContents && this.defaultContents.length != 0){        const defaultContentsArrValue: DocumentSetContentImpl[] = []; this.defaultContents?.forEach(element => {defaultContentsArrValue.push(new DocumentSetContentImpl(element));});
-        writer.writeCollectionOfObjectValues<DocumentSetContentImpl>("defaultContents", defaultContentsArrValue);
+            writer.writeCollectionOfObjectValues<DocumentSetContentImpl>("defaultContents", defaultContentsArrValue);
         }
         if(this.propagateWelcomePageChanges){
-        writer.writeBooleanValue("propagateWelcomePageChanges", this.propagateWelcomePageChanges);
+            writer.writeBooleanValue("propagateWelcomePageChanges", this.propagateWelcomePageChanges);
         }
         if(this.sharedColumns && this.sharedColumns.length != 0){        const sharedColumnsArrValue: ColumnDefinitionImpl[] = []; this.sharedColumns?.forEach(element => {sharedColumnsArrValue.push(new ColumnDefinitionImpl(element));});
-        writer.writeCollectionOfObjectValues<ColumnDefinitionImpl>("sharedColumns", sharedColumnsArrValue);
+            writer.writeCollectionOfObjectValues<ColumnDefinitionImpl>("sharedColumns", sharedColumnsArrValue);
         }
         if(this.shouldPrefixNameToFile){
-        writer.writeBooleanValue("shouldPrefixNameToFile", this.shouldPrefixNameToFile);
+            writer.writeBooleanValue("shouldPrefixNameToFile", this.shouldPrefixNameToFile);
         }
         if(this.welcomePageColumns && this.welcomePageColumns.length != 0){        const welcomePageColumnsArrValue: ColumnDefinitionImpl[] = []; this.welcomePageColumns?.forEach(element => {welcomePageColumnsArrValue.push(new ColumnDefinitionImpl(element));});
-        writer.writeCollectionOfObjectValues<ColumnDefinitionImpl>("welcomePageColumns", welcomePageColumnsArrValue);
+            writer.writeCollectionOfObjectValues<ColumnDefinitionImpl>("welcomePageColumns", welcomePageColumnsArrValue);
         }
         if(this.welcomePageUrl){
-        writer.writeStringValue("welcomePageUrl", this.welcomePageUrl);
+            writer.writeStringValue("welcomePageUrl", this.welcomePageUrl);
         }
         writer.writeAdditionalData(this.additionalData);
     };

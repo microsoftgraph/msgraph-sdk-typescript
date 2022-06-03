@@ -1,6 +1,7 @@
 import {Identity} from './identity';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface SharePointIdentity extends Identity{
+export interface SharePointIdentity extends Identity, Partial<Parsable> {
     /** The sign in name of the SharePoint identity. */
-    loginName?:string | undefined;
+    loginName?: string | undefined;
 }

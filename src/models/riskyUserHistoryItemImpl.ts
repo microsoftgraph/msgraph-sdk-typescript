@@ -5,7 +5,7 @@ import {RiskyUserHistoryItem} from './riskyUserHistoryItem';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the identityProtectionRoot singleton. */
-export class RiskyUserHistoryItemImpl extends RiskyUserImpl implements Parsable, RiskyUserHistoryItem {
+export class RiskyUserHistoryItemImpl extends RiskyUserImpl implements RiskyUserHistoryItem {
     /** The activity related to user risk level change. */
     public activity?: RiskUserActivity | undefined;
     /** The id of actor that does the operation. */
@@ -17,10 +17,10 @@ export class RiskyUserHistoryItemImpl extends RiskyUserImpl implements Parsable,
      * @param riskyUserHistoryItemParameterValue 
      */
     public constructor(riskyUserHistoryItemParameterValue?: RiskyUserHistoryItem | undefined) {
-        super();
-        this.activity = riskyUserHistoryItemParameterValue?.activity ;
-        this.initiatedBy = riskyUserHistoryItemParameterValue?.initiatedBy ;
-        this.userId = riskyUserHistoryItemParameterValue?.userId ;
+        super(riskyUserHistoryItemParameterValue);
+        this.activity = riskyUserHistoryItemParameterValue?.activity;
+        this.initiatedBy = riskyUserHistoryItemParameterValue?.initiatedBy;
+        this.userId = riskyUserHistoryItemParameterValue?.userId;
     };
     /**
      * The deserialization information for the current model
@@ -41,13 +41,13 @@ export class RiskyUserHistoryItemImpl extends RiskyUserImpl implements Parsable,
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.activity){
-        writer.writeObjectValue<RiskUserActivityImpl>("activity", new RiskUserActivityImpl(this.activity));
+            writer.writeObjectValue<RiskUserActivityImpl>("activity", new RiskUserActivityImpl(this.activity));
         }
         if(this.initiatedBy){
-        writer.writeStringValue("initiatedBy", this.initiatedBy);
+            writer.writeStringValue("initiatedBy", this.initiatedBy);
         }
         if(this.userId){
-        writer.writeStringValue("userId", this.userId);
+            writer.writeStringValue("userId", this.userId);
         }
     };
 }

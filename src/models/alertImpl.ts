@@ -40,7 +40,7 @@ import {VulnerabilityState} from './vulnerabilityState';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the security singleton. */
-export class AlertImpl extends EntityImpl implements Alert, Parsable {
+export class AlertImpl extends EntityImpl implements Alert {
     /** Name or alias of the activity group (attacker) this alert is attributed to. */
     public activityGroupName?: string | undefined;
     /** The alertDetections property */
@@ -124,46 +124,46 @@ export class AlertImpl extends EntityImpl implements Alert, Parsable {
      * @param alertParameterValue 
      */
     public constructor(alertParameterValue?: Alert | undefined) {
-        super();
-        this.activityGroupName = alertParameterValue?.activityGroupName ;
-        this.alertDetections = alertParameterValue?.alertDetections ;
-        this.assignedTo = alertParameterValue?.assignedTo ;
-        this.azureSubscriptionId = alertParameterValue?.azureSubscriptionId ;
-        this.azureTenantId = alertParameterValue?.azureTenantId ;
-        this.category = alertParameterValue?.category ;
-        this.closedDateTime = alertParameterValue?.closedDateTime ;
-        this.cloudAppStates = alertParameterValue?.cloudAppStates ;
-        this.comments = alertParameterValue?.comments ;
-        this.confidence = alertParameterValue?.confidence ;
-        this.createdDateTime = alertParameterValue?.createdDateTime ;
-        this.description = alertParameterValue?.description ;
-        this.detectionIds = alertParameterValue?.detectionIds ;
-        this.eventDateTime = alertParameterValue?.eventDateTime ;
-        this.feedback = alertParameterValue?.feedback ;
-        this.fileStates = alertParameterValue?.fileStates ;
-        this.historyStates = alertParameterValue?.historyStates ;
-        this.hostStates = alertParameterValue?.hostStates ;
-        this.incidentIds = alertParameterValue?.incidentIds ;
-        this.investigationSecurityStates = alertParameterValue?.investigationSecurityStates ;
-        this.lastEventDateTime = alertParameterValue?.lastEventDateTime ;
-        this.lastModifiedDateTime = alertParameterValue?.lastModifiedDateTime ;
-        this.malwareStates = alertParameterValue?.malwareStates ;
-        this.messageSecurityStates = alertParameterValue?.messageSecurityStates ;
-        this.networkConnections = alertParameterValue?.networkConnections ;
-        this.processes = alertParameterValue?.processes ;
-        this.recommendedActions = alertParameterValue?.recommendedActions ;
-        this.registryKeyStates = alertParameterValue?.registryKeyStates ;
-        this.securityResources = alertParameterValue?.securityResources ;
-        this.severity = alertParameterValue?.severity ;
-        this.sourceMaterials = alertParameterValue?.sourceMaterials ;
-        this.status = alertParameterValue?.status ;
-        this.tags = alertParameterValue?.tags ;
-        this.title = alertParameterValue?.title ;
-        this.triggers = alertParameterValue?.triggers ;
-        this.uriClickSecurityStates = alertParameterValue?.uriClickSecurityStates ;
-        this.userStates = alertParameterValue?.userStates ;
-        this.vendorInformation = alertParameterValue?.vendorInformation ;
-        this.vulnerabilityStates = alertParameterValue?.vulnerabilityStates ;
+        super(alertParameterValue);
+        this.activityGroupName = alertParameterValue?.activityGroupName;
+        this.alertDetections = alertParameterValue?.alertDetections;
+        this.assignedTo = alertParameterValue?.assignedTo;
+        this.azureSubscriptionId = alertParameterValue?.azureSubscriptionId;
+        this.azureTenantId = alertParameterValue?.azureTenantId;
+        this.category = alertParameterValue?.category;
+        this.closedDateTime = alertParameterValue?.closedDateTime;
+        this.cloudAppStates = alertParameterValue?.cloudAppStates;
+        this.comments = alertParameterValue?.comments;
+        this.confidence = alertParameterValue?.confidence;
+        this.createdDateTime = alertParameterValue?.createdDateTime;
+        this.description = alertParameterValue?.description;
+        this.detectionIds = alertParameterValue?.detectionIds;
+        this.eventDateTime = alertParameterValue?.eventDateTime;
+        this.feedback = alertParameterValue?.feedback;
+        this.fileStates = alertParameterValue?.fileStates;
+        this.historyStates = alertParameterValue?.historyStates;
+        this.hostStates = alertParameterValue?.hostStates;
+        this.incidentIds = alertParameterValue?.incidentIds;
+        this.investigationSecurityStates = alertParameterValue?.investigationSecurityStates;
+        this.lastEventDateTime = alertParameterValue?.lastEventDateTime;
+        this.lastModifiedDateTime = alertParameterValue?.lastModifiedDateTime;
+        this.malwareStates = alertParameterValue?.malwareStates;
+        this.messageSecurityStates = alertParameterValue?.messageSecurityStates;
+        this.networkConnections = alertParameterValue?.networkConnections;
+        this.processes = alertParameterValue?.processes;
+        this.recommendedActions = alertParameterValue?.recommendedActions;
+        this.registryKeyStates = alertParameterValue?.registryKeyStates;
+        this.securityResources = alertParameterValue?.securityResources;
+        this.severity = alertParameterValue?.severity;
+        this.sourceMaterials = alertParameterValue?.sourceMaterials;
+        this.status = alertParameterValue?.status;
+        this.tags = alertParameterValue?.tags;
+        this.title = alertParameterValue?.title;
+        this.triggers = alertParameterValue?.triggers;
+        this.uriClickSecurityStates = alertParameterValue?.uriClickSecurityStates;
+        this.userStates = alertParameterValue?.userStates;
+        this.vendorInformation = alertParameterValue?.vendorInformation;
+        this.vulnerabilityStates = alertParameterValue?.vulnerabilityStates;
     };
     /**
      * The deserialization information for the current model
@@ -220,121 +220,121 @@ export class AlertImpl extends EntityImpl implements Alert, Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.activityGroupName){
-        writer.writeStringValue("activityGroupName", this.activityGroupName);
+            writer.writeStringValue("activityGroupName", this.activityGroupName);
         }
         if(this.alertDetections && this.alertDetections.length != 0){        const alertDetectionsArrValue: AlertDetectionImpl[] = []; this.alertDetections?.forEach(element => {alertDetectionsArrValue.push(new AlertDetectionImpl(element));});
-        writer.writeCollectionOfObjectValues<AlertDetectionImpl>("alertDetections", alertDetectionsArrValue);
+            writer.writeCollectionOfObjectValues<AlertDetectionImpl>("alertDetections", alertDetectionsArrValue);
         }
         if(this.assignedTo){
-        writer.writeStringValue("assignedTo", this.assignedTo);
+            writer.writeStringValue("assignedTo", this.assignedTo);
         }
         if(this.azureSubscriptionId){
-        writer.writeStringValue("azureSubscriptionId", this.azureSubscriptionId);
+            writer.writeStringValue("azureSubscriptionId", this.azureSubscriptionId);
         }
         if(this.azureTenantId){
-        writer.writeStringValue("azureTenantId", this.azureTenantId);
+            writer.writeStringValue("azureTenantId", this.azureTenantId);
         }
         if(this.category){
-        writer.writeStringValue("category", this.category);
+            writer.writeStringValue("category", this.category);
         }
         if(this.closedDateTime){
-        writer.writeDateValue("closedDateTime", this.closedDateTime);
+            writer.writeDateValue("closedDateTime", this.closedDateTime);
         }
         if(this.cloudAppStates && this.cloudAppStates.length != 0){        const cloudAppStatesArrValue: CloudAppSecurityStateImpl[] = []; this.cloudAppStates?.forEach(element => {cloudAppStatesArrValue.push(new CloudAppSecurityStateImpl(element));});
-        writer.writeCollectionOfObjectValues<CloudAppSecurityStateImpl>("cloudAppStates", cloudAppStatesArrValue);
+            writer.writeCollectionOfObjectValues<CloudAppSecurityStateImpl>("cloudAppStates", cloudAppStatesArrValue);
         }
         if(this.comments){
-        writer.writeCollectionOfPrimitiveValues<string>("comments", this.comments);
+            writer.writeCollectionOfPrimitiveValues<string>("comments", this.comments);
         }
         if(this.confidence){
-        writer.writeNumberValue("confidence", this.confidence);
+            writer.writeNumberValue("confidence", this.confidence);
         }
         if(this.createdDateTime){
-        writer.writeDateValue("createdDateTime", this.createdDateTime);
+            writer.writeDateValue("createdDateTime", this.createdDateTime);
         }
         if(this.description){
-        writer.writeStringValue("description", this.description);
+            writer.writeStringValue("description", this.description);
         }
         if(this.detectionIds){
-        writer.writeCollectionOfPrimitiveValues<string>("detectionIds", this.detectionIds);
+            writer.writeCollectionOfPrimitiveValues<string>("detectionIds", this.detectionIds);
         }
         if(this.eventDateTime){
-        writer.writeDateValue("eventDateTime", this.eventDateTime);
+            writer.writeDateValue("eventDateTime", this.eventDateTime);
         }
         if(this.feedback){
-        writer.writeEnumValue<AlertFeedback>("feedback", this.feedback);
+            writer.writeEnumValue<AlertFeedback>("feedback", this.feedback);
         }
         if(this.fileStates && this.fileStates.length != 0){        const fileStatesArrValue: FileSecurityStateImpl[] = []; this.fileStates?.forEach(element => {fileStatesArrValue.push(new FileSecurityStateImpl(element));});
-        writer.writeCollectionOfObjectValues<FileSecurityStateImpl>("fileStates", fileStatesArrValue);
+            writer.writeCollectionOfObjectValues<FileSecurityStateImpl>("fileStates", fileStatesArrValue);
         }
         if(this.historyStates && this.historyStates.length != 0){        const historyStatesArrValue: AlertHistoryStateImpl[] = []; this.historyStates?.forEach(element => {historyStatesArrValue.push(new AlertHistoryStateImpl(element));});
-        writer.writeCollectionOfObjectValues<AlertHistoryStateImpl>("historyStates", historyStatesArrValue);
+            writer.writeCollectionOfObjectValues<AlertHistoryStateImpl>("historyStates", historyStatesArrValue);
         }
         if(this.hostStates && this.hostStates.length != 0){        const hostStatesArrValue: HostSecurityStateImpl[] = []; this.hostStates?.forEach(element => {hostStatesArrValue.push(new HostSecurityStateImpl(element));});
-        writer.writeCollectionOfObjectValues<HostSecurityStateImpl>("hostStates", hostStatesArrValue);
+            writer.writeCollectionOfObjectValues<HostSecurityStateImpl>("hostStates", hostStatesArrValue);
         }
         if(this.incidentIds){
-        writer.writeCollectionOfPrimitiveValues<string>("incidentIds", this.incidentIds);
+            writer.writeCollectionOfPrimitiveValues<string>("incidentIds", this.incidentIds);
         }
         if(this.investigationSecurityStates && this.investigationSecurityStates.length != 0){        const investigationSecurityStatesArrValue: InvestigationSecurityStateImpl[] = []; this.investigationSecurityStates?.forEach(element => {investigationSecurityStatesArrValue.push(new InvestigationSecurityStateImpl(element));});
-        writer.writeCollectionOfObjectValues<InvestigationSecurityStateImpl>("investigationSecurityStates", investigationSecurityStatesArrValue);
+            writer.writeCollectionOfObjectValues<InvestigationSecurityStateImpl>("investigationSecurityStates", investigationSecurityStatesArrValue);
         }
         if(this.lastEventDateTime){
-        writer.writeDateValue("lastEventDateTime", this.lastEventDateTime);
+            writer.writeDateValue("lastEventDateTime", this.lastEventDateTime);
         }
         if(this.lastModifiedDateTime){
-        writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
+            writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
         }
         if(this.malwareStates && this.malwareStates.length != 0){        const malwareStatesArrValue: MalwareStateImpl[] = []; this.malwareStates?.forEach(element => {malwareStatesArrValue.push(new MalwareStateImpl(element));});
-        writer.writeCollectionOfObjectValues<MalwareStateImpl>("malwareStates", malwareStatesArrValue);
+            writer.writeCollectionOfObjectValues<MalwareStateImpl>("malwareStates", malwareStatesArrValue);
         }
         if(this.messageSecurityStates && this.messageSecurityStates.length != 0){        const messageSecurityStatesArrValue: MessageSecurityStateImpl[] = []; this.messageSecurityStates?.forEach(element => {messageSecurityStatesArrValue.push(new MessageSecurityStateImpl(element));});
-        writer.writeCollectionOfObjectValues<MessageSecurityStateImpl>("messageSecurityStates", messageSecurityStatesArrValue);
+            writer.writeCollectionOfObjectValues<MessageSecurityStateImpl>("messageSecurityStates", messageSecurityStatesArrValue);
         }
         if(this.networkConnections && this.networkConnections.length != 0){        const networkConnectionsArrValue: NetworkConnectionImpl[] = []; this.networkConnections?.forEach(element => {networkConnectionsArrValue.push(new NetworkConnectionImpl(element));});
-        writer.writeCollectionOfObjectValues<NetworkConnectionImpl>("networkConnections", networkConnectionsArrValue);
+            writer.writeCollectionOfObjectValues<NetworkConnectionImpl>("networkConnections", networkConnectionsArrValue);
         }
         if(this.processes && this.processes.length != 0){        const processesArrValue: ProcessImpl[] = []; this.processes?.forEach(element => {processesArrValue.push(new ProcessImpl(element));});
-        writer.writeCollectionOfObjectValues<ProcessImpl>("processes", processesArrValue);
+            writer.writeCollectionOfObjectValues<ProcessImpl>("processes", processesArrValue);
         }
         if(this.recommendedActions){
-        writer.writeCollectionOfPrimitiveValues<string>("recommendedActions", this.recommendedActions);
+            writer.writeCollectionOfPrimitiveValues<string>("recommendedActions", this.recommendedActions);
         }
         if(this.registryKeyStates && this.registryKeyStates.length != 0){        const registryKeyStatesArrValue: RegistryKeyStateImpl[] = []; this.registryKeyStates?.forEach(element => {registryKeyStatesArrValue.push(new RegistryKeyStateImpl(element));});
-        writer.writeCollectionOfObjectValues<RegistryKeyStateImpl>("registryKeyStates", registryKeyStatesArrValue);
+            writer.writeCollectionOfObjectValues<RegistryKeyStateImpl>("registryKeyStates", registryKeyStatesArrValue);
         }
         if(this.securityResources && this.securityResources.length != 0){        const securityResourcesArrValue: SecurityResourceImpl[] = []; this.securityResources?.forEach(element => {securityResourcesArrValue.push(new SecurityResourceImpl(element));});
-        writer.writeCollectionOfObjectValues<SecurityResourceImpl>("securityResources", securityResourcesArrValue);
+            writer.writeCollectionOfObjectValues<SecurityResourceImpl>("securityResources", securityResourcesArrValue);
         }
         if(this.severity){
-        writer.writeEnumValue<AlertSeverity>("severity", this.severity);
+            writer.writeEnumValue<AlertSeverity>("severity", this.severity);
         }
         if(this.sourceMaterials){
-        writer.writeCollectionOfPrimitiveValues<string>("sourceMaterials", this.sourceMaterials);
+            writer.writeCollectionOfPrimitiveValues<string>("sourceMaterials", this.sourceMaterials);
         }
         if(this.status){
-        writer.writeEnumValue<AlertStatus>("status", this.status);
+            writer.writeEnumValue<AlertStatus>("status", this.status);
         }
         if(this.tags){
-        writer.writeCollectionOfPrimitiveValues<string>("tags", this.tags);
+            writer.writeCollectionOfPrimitiveValues<string>("tags", this.tags);
         }
         if(this.title){
-        writer.writeStringValue("title", this.title);
+            writer.writeStringValue("title", this.title);
         }
         if(this.triggers && this.triggers.length != 0){        const triggersArrValue: AlertTriggerImpl[] = []; this.triggers?.forEach(element => {triggersArrValue.push(new AlertTriggerImpl(element));});
-        writer.writeCollectionOfObjectValues<AlertTriggerImpl>("triggers", triggersArrValue);
+            writer.writeCollectionOfObjectValues<AlertTriggerImpl>("triggers", triggersArrValue);
         }
         if(this.uriClickSecurityStates && this.uriClickSecurityStates.length != 0){        const uriClickSecurityStatesArrValue: UriClickSecurityStateImpl[] = []; this.uriClickSecurityStates?.forEach(element => {uriClickSecurityStatesArrValue.push(new UriClickSecurityStateImpl(element));});
-        writer.writeCollectionOfObjectValues<UriClickSecurityStateImpl>("uriClickSecurityStates", uriClickSecurityStatesArrValue);
+            writer.writeCollectionOfObjectValues<UriClickSecurityStateImpl>("uriClickSecurityStates", uriClickSecurityStatesArrValue);
         }
         if(this.userStates && this.userStates.length != 0){        const userStatesArrValue: UserSecurityStateImpl[] = []; this.userStates?.forEach(element => {userStatesArrValue.push(new UserSecurityStateImpl(element));});
-        writer.writeCollectionOfObjectValues<UserSecurityStateImpl>("userStates", userStatesArrValue);
+            writer.writeCollectionOfObjectValues<UserSecurityStateImpl>("userStates", userStatesArrValue);
         }
         if(this.vendorInformation){
-        writer.writeObjectValue<SecurityVendorInformationImpl>("vendorInformation", new SecurityVendorInformationImpl(this.vendorInformation));
+            writer.writeObjectValue<SecurityVendorInformationImpl>("vendorInformation", new SecurityVendorInformationImpl(this.vendorInformation));
         }
         if(this.vulnerabilityStates && this.vulnerabilityStates.length != 0){        const vulnerabilityStatesArrValue: VulnerabilityStateImpl[] = []; this.vulnerabilityStates?.forEach(element => {vulnerabilityStatesArrValue.push(new VulnerabilityStateImpl(element));});
-        writer.writeCollectionOfObjectValues<VulnerabilityStateImpl>("vulnerabilityStates", vulnerabilityStatesArrValue);
+            writer.writeCollectionOfObjectValues<VulnerabilityStateImpl>("vulnerabilityStates", vulnerabilityStatesArrValue);
         }
     };
 }

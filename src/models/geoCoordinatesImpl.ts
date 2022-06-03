@@ -1,7 +1,7 @@
 import {GeoCoordinates} from './geoCoordinates';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class GeoCoordinatesImpl implements AdditionalDataHolder, GeoCoordinates, Parsable {
+export class GeoCoordinatesImpl implements GeoCoordinates {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Optional. The altitude (height), in feet,  above sea level for the item. Read-only. */
@@ -15,10 +15,10 @@ export class GeoCoordinatesImpl implements AdditionalDataHolder, GeoCoordinates,
      * @param geoCoordinatesParameterValue 
      */
     public constructor(geoCoordinatesParameterValue?: GeoCoordinates | undefined) {
-        this.additionalData = geoCoordinatesParameterValue?.additionalData ? geoCoordinatesParameterValue?.additionalData! : {}
-        this.altitude = geoCoordinatesParameterValue?.altitude ;
-        this.latitude = geoCoordinatesParameterValue?.latitude ;
-        this.longitude = geoCoordinatesParameterValue?.longitude ;
+        this.additionalData = geoCoordinatesParameterValue?.additionalData ? geoCoordinatesParameterValue?.additionalData! : {};
+        this.altitude = geoCoordinatesParameterValue?.altitude;
+        this.latitude = geoCoordinatesParameterValue?.latitude;
+        this.longitude = geoCoordinatesParameterValue?.longitude;
     };
     /**
      * The deserialization information for the current model
@@ -38,13 +38,13 @@ export class GeoCoordinatesImpl implements AdditionalDataHolder, GeoCoordinates,
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.altitude){
-        writer.writeNumberValue("altitude", this.altitude);
+            writer.writeNumberValue("altitude", this.altitude);
         }
         if(this.latitude){
-        writer.writeNumberValue("latitude", this.latitude);
+            writer.writeNumberValue("latitude", this.latitude);
         }
         if(this.longitude){
-        writer.writeNumberValue("longitude", this.longitude);
+            writer.writeNumberValue("longitude", this.longitude);
         }
         writer.writeAdditionalData(this.additionalData);
     };

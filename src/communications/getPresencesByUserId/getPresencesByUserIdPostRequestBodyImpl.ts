@@ -2,7 +2,7 @@ import {GetPresencesByUserIdPostRequestBody} from './getPresencesByUserIdPostReq
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the getPresencesByUserId method. */
-export class GetPresencesByUserIdPostRequestBodyImpl implements AdditionalDataHolder, GetPresencesByUserIdPostRequestBody, Parsable {
+export class GetPresencesByUserIdPostRequestBodyImpl implements GetPresencesByUserIdPostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The ids property */
@@ -12,8 +12,8 @@ export class GetPresencesByUserIdPostRequestBodyImpl implements AdditionalDataHo
      * @param getPresencesByUserIdPostRequestBodyParameterValue 
      */
     public constructor(getPresencesByUserIdPostRequestBodyParameterValue?: GetPresencesByUserIdPostRequestBody | undefined) {
-        this.additionalData = getPresencesByUserIdPostRequestBodyParameterValue?.additionalData ? getPresencesByUserIdPostRequestBodyParameterValue?.additionalData! : {}
-        this.ids = getPresencesByUserIdPostRequestBodyParameterValue?.ids ;
+        this.additionalData = getPresencesByUserIdPostRequestBodyParameterValue?.additionalData ? getPresencesByUserIdPostRequestBodyParameterValue?.additionalData! : {};
+        this.ids = getPresencesByUserIdPostRequestBodyParameterValue?.ids;
     };
     /**
      * The deserialization information for the current model
@@ -31,7 +31,7 @@ export class GetPresencesByUserIdPostRequestBodyImpl implements AdditionalDataHo
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.ids){
-        writer.writeCollectionOfPrimitiveValues<string>("ids", this.ids);
+            writer.writeCollectionOfPrimitiveValues<string>("ids", this.ids);
         }
         writer.writeAdditionalData(this.additionalData);
     };

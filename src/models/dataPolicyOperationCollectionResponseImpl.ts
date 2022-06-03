@@ -4,7 +4,7 @@ import {DataPolicyOperationCollectionResponse} from './dataPolicyOperationCollec
 import {DataPolicyOperationImpl} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class DataPolicyOperationCollectionResponseImpl implements AdditionalDataHolder, DataPolicyOperationCollectionResponse, Parsable {
+export class DataPolicyOperationCollectionResponseImpl implements DataPolicyOperationCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class DataPolicyOperationCollectionResponseImpl implements AdditionalData
      * @param dataPolicyOperationCollectionResponseParameterValue 
      */
     public constructor(dataPolicyOperationCollectionResponseParameterValue?: DataPolicyOperationCollectionResponse | undefined) {
-        this.additionalData = dataPolicyOperationCollectionResponseParameterValue?.additionalData ? dataPolicyOperationCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = dataPolicyOperationCollectionResponseParameterValue?.nextLink ;
-        this.value = dataPolicyOperationCollectionResponseParameterValue?.value ;
+        this.additionalData = dataPolicyOperationCollectionResponseParameterValue?.additionalData ? dataPolicyOperationCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = dataPolicyOperationCollectionResponseParameterValue?.nextLink;
+        this.value = dataPolicyOperationCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class DataPolicyOperationCollectionResponseImpl implements AdditionalData
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: DataPolicyOperationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new DataPolicyOperationImpl(element));});
-        writer.writeCollectionOfObjectValues<DataPolicyOperationImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<DataPolicyOperationImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

@@ -1,11 +1,11 @@
 import {UnifiedRoleEligibilityScheduleRequestItemRequestBuilderGetQueryParameters} from './unifiedRoleEligibilityScheduleRequestItemRequestBuilderGetQueryParameters';
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
-export interface UnifiedRoleEligibilityScheduleRequestItemRequestBuilderGetRequestConfiguration{
+export interface UnifiedRoleEligibilityScheduleRequestItemRequestBuilderGetRequestConfiguration {
     /** Request headers */
-    headers?:Record<string, string> | undefined;
+    headers?: Record<string, string> | undefined;
     /** Request options */
-    options?:RequestOption[] | undefined;
+    options?: RequestOption[] | undefined;
     /** Request query parameters */
-    queryParameters?:UnifiedRoleEligibilityScheduleRequestItemRequestBuilderGetQueryParameters | undefined;
+    queryParameters?: UnifiedRoleEligibilityScheduleRequestItemRequestBuilderGetQueryParameters | undefined;
 }

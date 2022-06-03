@@ -4,7 +4,7 @@ import {ItemReference} from './itemReference';
 import {SharepointIds} from './sharepointIds';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ItemReferenceImpl implements AdditionalDataHolder, ItemReference, Parsable {
+export class ItemReferenceImpl implements ItemReference {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Unique identifier of the drive instance that contains the item. Read-only. */
@@ -28,15 +28,15 @@ export class ItemReferenceImpl implements AdditionalDataHolder, ItemReference, P
      * @param itemReferenceParameterValue 
      */
     public constructor(itemReferenceParameterValue?: ItemReference | undefined) {
-        this.additionalData = itemReferenceParameterValue?.additionalData ? itemReferenceParameterValue?.additionalData! : {}
-        this.driveId = itemReferenceParameterValue?.driveId ;
-        this.driveType = itemReferenceParameterValue?.driveType ;
-        this.id = itemReferenceParameterValue?.id ;
-        this.name = itemReferenceParameterValue?.name ;
-        this.path = itemReferenceParameterValue?.path ;
-        this.shareId = itemReferenceParameterValue?.shareId ;
-        this.sharepointIds = itemReferenceParameterValue?.sharepointIds ;
-        this.siteId = itemReferenceParameterValue?.siteId ;
+        this.additionalData = itemReferenceParameterValue?.additionalData ? itemReferenceParameterValue?.additionalData! : {};
+        this.driveId = itemReferenceParameterValue?.driveId;
+        this.driveType = itemReferenceParameterValue?.driveType;
+        this.id = itemReferenceParameterValue?.id;
+        this.name = itemReferenceParameterValue?.name;
+        this.path = itemReferenceParameterValue?.path;
+        this.shareId = itemReferenceParameterValue?.shareId;
+        this.sharepointIds = itemReferenceParameterValue?.sharepointIds;
+        this.siteId = itemReferenceParameterValue?.siteId;
     };
     /**
      * The deserialization information for the current model
@@ -61,28 +61,28 @@ export class ItemReferenceImpl implements AdditionalDataHolder, ItemReference, P
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.driveId){
-        writer.writeStringValue("driveId", this.driveId);
+            writer.writeStringValue("driveId", this.driveId);
         }
         if(this.driveType){
-        writer.writeStringValue("driveType", this.driveType);
+            writer.writeStringValue("driveType", this.driveType);
         }
         if(this.id){
-        writer.writeStringValue("id", this.id);
+            writer.writeStringValue("id", this.id);
         }
         if(this.name){
-        writer.writeStringValue("name", this.name);
+            writer.writeStringValue("name", this.name);
         }
         if(this.path){
-        writer.writeStringValue("path", this.path);
+            writer.writeStringValue("path", this.path);
         }
         if(this.shareId){
-        writer.writeStringValue("shareId", this.shareId);
+            writer.writeStringValue("shareId", this.shareId);
         }
         if(this.sharepointIds){
-        writer.writeObjectValue<SharepointIdsImpl>("sharepointIds", new SharepointIdsImpl(this.sharepointIds));
+            writer.writeObjectValue<SharepointIdsImpl>("sharepointIds", new SharepointIdsImpl(this.sharepointIds));
         }
         if(this.siteId){
-        writer.writeStringValue("siteId", this.siteId);
+            writer.writeStringValue("siteId", this.siteId);
         }
         writer.writeAdditionalData(this.additionalData);
     };

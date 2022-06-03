@@ -8,7 +8,7 @@ import {OutlookGeoCoordinates} from './outlookGeoCoordinates';
 import {PhysicalAddress} from './physicalAddress';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class LocationImpl implements AdditionalDataHolder, Location, Parsable {
+export class LocationImpl implements Location {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The street address of the location. */
@@ -32,15 +32,15 @@ export class LocationImpl implements AdditionalDataHolder, Location, Parsable {
      * @param locationParameterValue 
      */
     public constructor(locationParameterValue?: Location | undefined) {
-        this.additionalData = locationParameterValue?.additionalData ? locationParameterValue?.additionalData! : {}
-        this.address = locationParameterValue?.address ;
-        this.coordinates = locationParameterValue?.coordinates ;
-        this.displayName = locationParameterValue?.displayName ;
-        this.locationEmailAddress = locationParameterValue?.locationEmailAddress ;
-        this.locationType = locationParameterValue?.locationType ;
-        this.locationUri = locationParameterValue?.locationUri ;
-        this.uniqueId = locationParameterValue?.uniqueId ;
-        this.uniqueIdType = locationParameterValue?.uniqueIdType ;
+        this.additionalData = locationParameterValue?.additionalData ? locationParameterValue?.additionalData! : {};
+        this.address = locationParameterValue?.address;
+        this.coordinates = locationParameterValue?.coordinates;
+        this.displayName = locationParameterValue?.displayName;
+        this.locationEmailAddress = locationParameterValue?.locationEmailAddress;
+        this.locationType = locationParameterValue?.locationType;
+        this.locationUri = locationParameterValue?.locationUri;
+        this.uniqueId = locationParameterValue?.uniqueId;
+        this.uniqueIdType = locationParameterValue?.uniqueIdType;
     };
     /**
      * The deserialization information for the current model
@@ -65,28 +65,28 @@ export class LocationImpl implements AdditionalDataHolder, Location, Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.address){
-        writer.writeObjectValue<PhysicalAddressImpl>("address", new PhysicalAddressImpl(this.address));
+            writer.writeObjectValue<PhysicalAddressImpl>("address", new PhysicalAddressImpl(this.address));
         }
         if(this.coordinates){
-        writer.writeObjectValue<OutlookGeoCoordinatesImpl>("coordinates", new OutlookGeoCoordinatesImpl(this.coordinates));
+            writer.writeObjectValue<OutlookGeoCoordinatesImpl>("coordinates", new OutlookGeoCoordinatesImpl(this.coordinates));
         }
         if(this.displayName){
-        writer.writeStringValue("displayName", this.displayName);
+            writer.writeStringValue("displayName", this.displayName);
         }
         if(this.locationEmailAddress){
-        writer.writeStringValue("locationEmailAddress", this.locationEmailAddress);
+            writer.writeStringValue("locationEmailAddress", this.locationEmailAddress);
         }
         if(this.locationType){
-        writer.writeEnumValue<LocationType>("locationType", this.locationType);
+            writer.writeEnumValue<LocationType>("locationType", this.locationType);
         }
         if(this.locationUri){
-        writer.writeStringValue("locationUri", this.locationUri);
+            writer.writeStringValue("locationUri", this.locationUri);
         }
         if(this.uniqueId){
-        writer.writeStringValue("uniqueId", this.uniqueId);
+            writer.writeStringValue("uniqueId", this.uniqueId);
         }
         if(this.uniqueIdType){
-        writer.writeEnumValue<LocationUniqueIdType>("uniqueIdType", this.uniqueIdType);
+            writer.writeEnumValue<LocationUniqueIdType>("uniqueIdType", this.uniqueIdType);
         }
         writer.writeAdditionalData(this.additionalData);
     };

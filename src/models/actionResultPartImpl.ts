@@ -4,7 +4,7 @@ import {PublicErrorImpl} from './index';
 import {PublicError} from './publicError';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ActionResultPartImpl implements ActionResultPart, AdditionalDataHolder, Parsable {
+export class ActionResultPartImpl implements ActionResultPart {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The error that occurred, if any, during the course of the bulk operation. */
@@ -14,8 +14,8 @@ export class ActionResultPartImpl implements ActionResultPart, AdditionalDataHol
      * @param actionResultPartParameterValue 
      */
     public constructor(actionResultPartParameterValue?: ActionResultPart | undefined) {
-        this.additionalData = actionResultPartParameterValue?.additionalData ? actionResultPartParameterValue?.additionalData! : {}
-        this.error_escaped = actionResultPartParameterValue?.error_escaped ;
+        this.additionalData = actionResultPartParameterValue?.additionalData ? actionResultPartParameterValue?.additionalData! : {};
+        this.error_escaped = actionResultPartParameterValue?.error_escaped;
     };
     /**
      * The deserialization information for the current model
@@ -33,7 +33,7 @@ export class ActionResultPartImpl implements ActionResultPart, AdditionalDataHol
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.error_escaped){
-        writer.writeObjectValue<PublicErrorImpl>("error", new PublicErrorImpl(this.error_escaped));
+            writer.writeObjectValue<PublicErrorImpl>("error", new PublicErrorImpl(this.error_escaped));
         }
         writer.writeAdditionalData(this.additionalData);
     };

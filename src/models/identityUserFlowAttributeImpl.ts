@@ -5,7 +5,7 @@ import {EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the identityContainer singleton. */
-export class IdentityUserFlowAttributeImpl extends EntityImpl implements IdentityUserFlowAttribute, Parsable {
+export class IdentityUserFlowAttributeImpl extends EntityImpl implements IdentityUserFlowAttribute {
     /** The data type of the user flow attribute. This cannot be modified after the custom user flow attribute is created. The supported values for dataType are: string , boolean , int64 , stringCollection , dateTime. */
     public dataType?: IdentityUserFlowAttributeDataType | undefined;
     /** The description of the user flow attribute that's shown to the user at the time of sign-up. */
@@ -19,11 +19,11 @@ export class IdentityUserFlowAttributeImpl extends EntityImpl implements Identit
      * @param identityUserFlowAttributeParameterValue 
      */
     public constructor(identityUserFlowAttributeParameterValue?: IdentityUserFlowAttribute | undefined) {
-        super();
-        this.dataType = identityUserFlowAttributeParameterValue?.dataType ;
-        this.description = identityUserFlowAttributeParameterValue?.description ;
-        this.displayName = identityUserFlowAttributeParameterValue?.displayName ;
-        this.userFlowAttributeType = identityUserFlowAttributeParameterValue?.userFlowAttributeType ;
+        super(identityUserFlowAttributeParameterValue);
+        this.dataType = identityUserFlowAttributeParameterValue?.dataType;
+        this.description = identityUserFlowAttributeParameterValue?.description;
+        this.displayName = identityUserFlowAttributeParameterValue?.displayName;
+        this.userFlowAttributeType = identityUserFlowAttributeParameterValue?.userFlowAttributeType;
     };
     /**
      * The deserialization information for the current model
@@ -45,16 +45,16 @@ export class IdentityUserFlowAttributeImpl extends EntityImpl implements Identit
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.dataType){
-        writer.writeEnumValue<IdentityUserFlowAttributeDataType>("dataType", this.dataType);
+            writer.writeEnumValue<IdentityUserFlowAttributeDataType>("dataType", this.dataType);
         }
         if(this.description){
-        writer.writeStringValue("description", this.description);
+            writer.writeStringValue("description", this.description);
         }
         if(this.displayName){
-        writer.writeStringValue("displayName", this.displayName);
+            writer.writeStringValue("displayName", this.displayName);
         }
         if(this.userFlowAttributeType){
-        writer.writeEnumValue<IdentityUserFlowAttributeType>("userFlowAttributeType", this.userFlowAttributeType);
+            writer.writeEnumValue<IdentityUserFlowAttributeType>("userFlowAttributeType", this.userFlowAttributeType);
         }
     };
 }

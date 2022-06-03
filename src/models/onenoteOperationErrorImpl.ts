@@ -1,7 +1,7 @@
 import {OnenoteOperationError} from './onenoteOperationError';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class OnenoteOperationErrorImpl implements AdditionalDataHolder, OnenoteOperationError, Parsable {
+export class OnenoteOperationErrorImpl implements OnenoteOperationError {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The error code. */
@@ -13,9 +13,9 @@ export class OnenoteOperationErrorImpl implements AdditionalDataHolder, OnenoteO
      * @param onenoteOperationErrorParameterValue 
      */
     public constructor(onenoteOperationErrorParameterValue?: OnenoteOperationError | undefined) {
-        this.additionalData = onenoteOperationErrorParameterValue?.additionalData ? onenoteOperationErrorParameterValue?.additionalData! : {}
-        this.code = onenoteOperationErrorParameterValue?.code ;
-        this.message = onenoteOperationErrorParameterValue?.message ;
+        this.additionalData = onenoteOperationErrorParameterValue?.additionalData ? onenoteOperationErrorParameterValue?.additionalData! : {};
+        this.code = onenoteOperationErrorParameterValue?.code;
+        this.message = onenoteOperationErrorParameterValue?.message;
     };
     /**
      * The deserialization information for the current model
@@ -34,10 +34,10 @@ export class OnenoteOperationErrorImpl implements AdditionalDataHolder, OnenoteO
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.code){
-        writer.writeStringValue("code", this.code);
+            writer.writeStringValue("code", this.code);
         }
         if(this.message){
-        writer.writeStringValue("message", this.message);
+            writer.writeStringValue("message", this.message);
         }
         writer.writeAdditionalData(this.additionalData);
     };

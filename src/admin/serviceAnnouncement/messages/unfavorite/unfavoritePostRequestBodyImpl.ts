@@ -2,7 +2,7 @@ import {UnfavoritePostRequestBody} from './unfavoritePostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the unfavorite method. */
-export class UnfavoritePostRequestBodyImpl implements AdditionalDataHolder, Parsable, UnfavoritePostRequestBody {
+export class UnfavoritePostRequestBodyImpl implements UnfavoritePostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The messageIds property */
@@ -12,8 +12,8 @@ export class UnfavoritePostRequestBodyImpl implements AdditionalDataHolder, Pars
      * @param unfavoritePostRequestBodyParameterValue 
      */
     public constructor(unfavoritePostRequestBodyParameterValue?: UnfavoritePostRequestBody | undefined) {
-        this.additionalData = unfavoritePostRequestBodyParameterValue?.additionalData ? unfavoritePostRequestBodyParameterValue?.additionalData! : {}
-        this.messageIds = unfavoritePostRequestBodyParameterValue?.messageIds ;
+        this.additionalData = unfavoritePostRequestBodyParameterValue?.additionalData ? unfavoritePostRequestBodyParameterValue?.additionalData! : {};
+        this.messageIds = unfavoritePostRequestBodyParameterValue?.messageIds;
     };
     /**
      * The deserialization information for the current model
@@ -31,7 +31,7 @@ export class UnfavoritePostRequestBodyImpl implements AdditionalDataHolder, Pars
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.messageIds){
-        writer.writeCollectionOfPrimitiveValues<string>("messageIds", this.messageIds);
+            writer.writeCollectionOfPrimitiveValues<string>("messageIds", this.messageIds);
         }
         writer.writeAdditionalData(this.additionalData);
     };

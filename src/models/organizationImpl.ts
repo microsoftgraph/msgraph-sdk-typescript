@@ -18,10 +18,10 @@ import {VerifiedDomain} from './verifiedDomain';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the collection of organization entities. */
-export class OrganizationImpl extends DirectoryObjectImpl implements Organization, Parsable {
+export class OrganizationImpl extends DirectoryObjectImpl implements Organization {
     /** The collection of service plans associated with the tenant. Not nullable. */
     public assignedPlans?: AssignedPlan[] | undefined;
-    /** The branding property */
+    /** Resource to manage the default branding for the organization. Nullable. */
     public branding?: OrganizationalBranding | undefined;
     /** Telephone number for the organization. Although this is a string collection, only one number can be set for this property. */
     public businessPhones?: string[] | undefined;
@@ -74,32 +74,32 @@ export class OrganizationImpl extends DirectoryObjectImpl implements Organizatio
      * @param organizationParameterValue 
      */
     public constructor(organizationParameterValue?: Organization | undefined) {
-        super();
-        this.assignedPlans = organizationParameterValue?.assignedPlans ;
-        this.branding = organizationParameterValue?.branding ;
-        this.businessPhones = organizationParameterValue?.businessPhones ;
-        this.certificateBasedAuthConfiguration = organizationParameterValue?.certificateBasedAuthConfiguration ;
-        this.city = organizationParameterValue?.city ;
-        this.country = organizationParameterValue?.country ;
-        this.countryLetterCode = organizationParameterValue?.countryLetterCode ;
-        this.createdDateTime = organizationParameterValue?.createdDateTime ;
-        this.displayName = organizationParameterValue?.displayName ;
-        this.extensions = organizationParameterValue?.extensions ;
-        this.marketingNotificationEmails = organizationParameterValue?.marketingNotificationEmails ;
-        this.mobileDeviceManagementAuthority = organizationParameterValue?.mobileDeviceManagementAuthority ;
-        this.onPremisesLastSyncDateTime = organizationParameterValue?.onPremisesLastSyncDateTime ;
-        this.onPremisesSyncEnabled = organizationParameterValue?.onPremisesSyncEnabled ;
-        this.postalCode = organizationParameterValue?.postalCode ;
-        this.preferredLanguage = organizationParameterValue?.preferredLanguage ;
-        this.privacyProfile = organizationParameterValue?.privacyProfile ;
-        this.provisionedPlans = organizationParameterValue?.provisionedPlans ;
-        this.securityComplianceNotificationMails = organizationParameterValue?.securityComplianceNotificationMails ;
-        this.securityComplianceNotificationPhones = organizationParameterValue?.securityComplianceNotificationPhones ;
-        this.state = organizationParameterValue?.state ;
-        this.street = organizationParameterValue?.street ;
-        this.technicalNotificationMails = organizationParameterValue?.technicalNotificationMails ;
-        this.tenantType = organizationParameterValue?.tenantType ;
-        this.verifiedDomains = organizationParameterValue?.verifiedDomains ;
+        super(organizationParameterValue);
+        this.assignedPlans = organizationParameterValue?.assignedPlans;
+        this.branding = organizationParameterValue?.branding;
+        this.businessPhones = organizationParameterValue?.businessPhones;
+        this.certificateBasedAuthConfiguration = organizationParameterValue?.certificateBasedAuthConfiguration;
+        this.city = organizationParameterValue?.city;
+        this.country = organizationParameterValue?.country;
+        this.countryLetterCode = organizationParameterValue?.countryLetterCode;
+        this.createdDateTime = organizationParameterValue?.createdDateTime;
+        this.displayName = organizationParameterValue?.displayName;
+        this.extensions = organizationParameterValue?.extensions;
+        this.marketingNotificationEmails = organizationParameterValue?.marketingNotificationEmails;
+        this.mobileDeviceManagementAuthority = organizationParameterValue?.mobileDeviceManagementAuthority;
+        this.onPremisesLastSyncDateTime = organizationParameterValue?.onPremisesLastSyncDateTime;
+        this.onPremisesSyncEnabled = organizationParameterValue?.onPremisesSyncEnabled;
+        this.postalCode = organizationParameterValue?.postalCode;
+        this.preferredLanguage = organizationParameterValue?.preferredLanguage;
+        this.privacyProfile = organizationParameterValue?.privacyProfile;
+        this.provisionedPlans = organizationParameterValue?.provisionedPlans;
+        this.securityComplianceNotificationMails = organizationParameterValue?.securityComplianceNotificationMails;
+        this.securityComplianceNotificationPhones = organizationParameterValue?.securityComplianceNotificationPhones;
+        this.state = organizationParameterValue?.state;
+        this.street = organizationParameterValue?.street;
+        this.technicalNotificationMails = organizationParameterValue?.technicalNotificationMails;
+        this.tenantType = organizationParameterValue?.tenantType;
+        this.verifiedDomains = organizationParameterValue?.verifiedDomains;
     };
     /**
      * The deserialization information for the current model
@@ -142,79 +142,79 @@ export class OrganizationImpl extends DirectoryObjectImpl implements Organizatio
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.assignedPlans && this.assignedPlans.length != 0){        const assignedPlansArrValue: AssignedPlanImpl[] = []; this.assignedPlans?.forEach(element => {assignedPlansArrValue.push(new AssignedPlanImpl(element));});
-        writer.writeCollectionOfObjectValues<AssignedPlanImpl>("assignedPlans", assignedPlansArrValue);
+            writer.writeCollectionOfObjectValues<AssignedPlanImpl>("assignedPlans", assignedPlansArrValue);
         }
         if(this.branding){
-        writer.writeObjectValue<OrganizationalBrandingImpl>("branding", new OrganizationalBrandingImpl(this.branding));
+            writer.writeObjectValue<OrganizationalBrandingImpl>("branding", new OrganizationalBrandingImpl(this.branding));
         }
         if(this.businessPhones){
-        writer.writeCollectionOfPrimitiveValues<string>("businessPhones", this.businessPhones);
+            writer.writeCollectionOfPrimitiveValues<string>("businessPhones", this.businessPhones);
         }
         if(this.certificateBasedAuthConfiguration && this.certificateBasedAuthConfiguration.length != 0){        const certificateBasedAuthConfigurationArrValue: CertificateBasedAuthConfigurationImpl[] = []; this.certificateBasedAuthConfiguration?.forEach(element => {certificateBasedAuthConfigurationArrValue.push(new CertificateBasedAuthConfigurationImpl(element));});
-        writer.writeCollectionOfObjectValues<CertificateBasedAuthConfigurationImpl>("certificateBasedAuthConfiguration", certificateBasedAuthConfigurationArrValue);
+            writer.writeCollectionOfObjectValues<CertificateBasedAuthConfigurationImpl>("certificateBasedAuthConfiguration", certificateBasedAuthConfigurationArrValue);
         }
         if(this.city){
-        writer.writeStringValue("city", this.city);
+            writer.writeStringValue("city", this.city);
         }
         if(this.country){
-        writer.writeStringValue("country", this.country);
+            writer.writeStringValue("country", this.country);
         }
         if(this.countryLetterCode){
-        writer.writeStringValue("countryLetterCode", this.countryLetterCode);
+            writer.writeStringValue("countryLetterCode", this.countryLetterCode);
         }
         if(this.createdDateTime){
-        writer.writeDateValue("createdDateTime", this.createdDateTime);
+            writer.writeDateValue("createdDateTime", this.createdDateTime);
         }
         if(this.displayName){
-        writer.writeStringValue("displayName", this.displayName);
+            writer.writeStringValue("displayName", this.displayName);
         }
         if(this.extensions && this.extensions.length != 0){        const extensionsArrValue: ExtensionImpl[] = []; this.extensions?.forEach(element => {extensionsArrValue.push(new ExtensionImpl(element));});
-        writer.writeCollectionOfObjectValues<ExtensionImpl>("extensions", extensionsArrValue);
+            writer.writeCollectionOfObjectValues<ExtensionImpl>("extensions", extensionsArrValue);
         }
         if(this.marketingNotificationEmails){
-        writer.writeCollectionOfPrimitiveValues<string>("marketingNotificationEmails", this.marketingNotificationEmails);
+            writer.writeCollectionOfPrimitiveValues<string>("marketingNotificationEmails", this.marketingNotificationEmails);
         }
         if(this.mobileDeviceManagementAuthority){
-        writer.writeEnumValue<MdmAuthority>("mobileDeviceManagementAuthority", this.mobileDeviceManagementAuthority);
+            writer.writeEnumValue<MdmAuthority>("mobileDeviceManagementAuthority", this.mobileDeviceManagementAuthority);
         }
         if(this.onPremisesLastSyncDateTime){
-        writer.writeDateValue("onPremisesLastSyncDateTime", this.onPremisesLastSyncDateTime);
+            writer.writeDateValue("onPremisesLastSyncDateTime", this.onPremisesLastSyncDateTime);
         }
         if(this.onPremisesSyncEnabled){
-        writer.writeBooleanValue("onPremisesSyncEnabled", this.onPremisesSyncEnabled);
+            writer.writeBooleanValue("onPremisesSyncEnabled", this.onPremisesSyncEnabled);
         }
         if(this.postalCode){
-        writer.writeStringValue("postalCode", this.postalCode);
+            writer.writeStringValue("postalCode", this.postalCode);
         }
         if(this.preferredLanguage){
-        writer.writeStringValue("preferredLanguage", this.preferredLanguage);
+            writer.writeStringValue("preferredLanguage", this.preferredLanguage);
         }
         if(this.privacyProfile){
-        writer.writeObjectValue<PrivacyProfileImpl>("privacyProfile", new PrivacyProfileImpl(this.privacyProfile));
+            writer.writeObjectValue<PrivacyProfileImpl>("privacyProfile", new PrivacyProfileImpl(this.privacyProfile));
         }
         if(this.provisionedPlans && this.provisionedPlans.length != 0){        const provisionedPlansArrValue: ProvisionedPlanImpl[] = []; this.provisionedPlans?.forEach(element => {provisionedPlansArrValue.push(new ProvisionedPlanImpl(element));});
-        writer.writeCollectionOfObjectValues<ProvisionedPlanImpl>("provisionedPlans", provisionedPlansArrValue);
+            writer.writeCollectionOfObjectValues<ProvisionedPlanImpl>("provisionedPlans", provisionedPlansArrValue);
         }
         if(this.securityComplianceNotificationMails){
-        writer.writeCollectionOfPrimitiveValues<string>("securityComplianceNotificationMails", this.securityComplianceNotificationMails);
+            writer.writeCollectionOfPrimitiveValues<string>("securityComplianceNotificationMails", this.securityComplianceNotificationMails);
         }
         if(this.securityComplianceNotificationPhones){
-        writer.writeCollectionOfPrimitiveValues<string>("securityComplianceNotificationPhones", this.securityComplianceNotificationPhones);
+            writer.writeCollectionOfPrimitiveValues<string>("securityComplianceNotificationPhones", this.securityComplianceNotificationPhones);
         }
         if(this.state){
-        writer.writeStringValue("state", this.state);
+            writer.writeStringValue("state", this.state);
         }
         if(this.street){
-        writer.writeStringValue("street", this.street);
+            writer.writeStringValue("street", this.street);
         }
         if(this.technicalNotificationMails){
-        writer.writeCollectionOfPrimitiveValues<string>("technicalNotificationMails", this.technicalNotificationMails);
+            writer.writeCollectionOfPrimitiveValues<string>("technicalNotificationMails", this.technicalNotificationMails);
         }
         if(this.tenantType){
-        writer.writeStringValue("tenantType", this.tenantType);
+            writer.writeStringValue("tenantType", this.tenantType);
         }
         if(this.verifiedDomains && this.verifiedDomains.length != 0){        const verifiedDomainsArrValue: VerifiedDomainImpl[] = []; this.verifiedDomains?.forEach(element => {verifiedDomainsArrValue.push(new VerifiedDomainImpl(element));});
-        writer.writeCollectionOfObjectValues<VerifiedDomainImpl>("verifiedDomains", verifiedDomainsArrValue);
+            writer.writeCollectionOfObjectValues<VerifiedDomainImpl>("verifiedDomains", verifiedDomainsArrValue);
         }
     };
 }

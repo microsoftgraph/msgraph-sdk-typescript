@@ -4,7 +4,7 @@ import {ScopedRoleMembership} from './scopedRoleMembership';
 import {ScopedRoleMembershipCollectionResponse} from './scopedRoleMembershipCollectionResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ScopedRoleMembershipCollectionResponseImpl implements AdditionalDataHolder, Parsable, ScopedRoleMembershipCollectionResponse {
+export class ScopedRoleMembershipCollectionResponseImpl implements ScopedRoleMembershipCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class ScopedRoleMembershipCollectionResponseImpl implements AdditionalDat
      * @param scopedRoleMembershipCollectionResponseParameterValue 
      */
     public constructor(scopedRoleMembershipCollectionResponseParameterValue?: ScopedRoleMembershipCollectionResponse | undefined) {
-        this.additionalData = scopedRoleMembershipCollectionResponseParameterValue?.additionalData ? scopedRoleMembershipCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = scopedRoleMembershipCollectionResponseParameterValue?.nextLink ;
-        this.value = scopedRoleMembershipCollectionResponseParameterValue?.value ;
+        this.additionalData = scopedRoleMembershipCollectionResponseParameterValue?.additionalData ? scopedRoleMembershipCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = scopedRoleMembershipCollectionResponseParameterValue?.nextLink;
+        this.value = scopedRoleMembershipCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class ScopedRoleMembershipCollectionResponseImpl implements AdditionalDat
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: ScopedRoleMembershipImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ScopedRoleMembershipImpl(element));});
-        writer.writeCollectionOfObjectValues<ScopedRoleMembershipImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<ScopedRoleMembershipImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

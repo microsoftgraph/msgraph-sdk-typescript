@@ -3,13 +3,13 @@ import {UpdateRecordingStatusOperation} from './updateRecordingStatusOperation';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the updateRecordingStatus method. */
-export class UpdateRecordingStatusOperationImpl extends CommsOperationImpl implements Parsable, UpdateRecordingStatusOperation {
+export class UpdateRecordingStatusOperationImpl extends CommsOperationImpl implements UpdateRecordingStatusOperation {
     /**
      * Instantiates a new updateRecordingStatusOperation and sets the default values.
      * @param updateRecordingStatusOperationParameterValue 
      */
     public constructor(updateRecordingStatusOperationParameterValue?: UpdateRecordingStatusOperation | undefined) {
-        super();
+        super(updateRecordingStatusOperationParameterValue);
     };
     /**
      * The deserialization information for the current model

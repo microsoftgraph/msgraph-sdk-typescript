@@ -5,7 +5,7 @@ import {IdentitySetImpl} from './index';
 import {RoutingType} from './routingType';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class CallRouteImpl implements AdditionalDataHolder, CallRoute, Parsable {
+export class CallRouteImpl implements CallRoute {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The final property */
@@ -19,10 +19,10 @@ export class CallRouteImpl implements AdditionalDataHolder, CallRoute, Parsable 
      * @param callRouteParameterValue 
      */
     public constructor(callRouteParameterValue?: CallRoute | undefined) {
-        this.additionalData = callRouteParameterValue?.additionalData ? callRouteParameterValue?.additionalData! : {}
-        this.final = callRouteParameterValue?.final ;
-        this.original = callRouteParameterValue?.original ;
-        this.routingType = callRouteParameterValue?.routingType ;
+        this.additionalData = callRouteParameterValue?.additionalData ? callRouteParameterValue?.additionalData! : {};
+        this.final = callRouteParameterValue?.final;
+        this.original = callRouteParameterValue?.original;
+        this.routingType = callRouteParameterValue?.routingType;
     };
     /**
      * The deserialization information for the current model
@@ -42,13 +42,13 @@ export class CallRouteImpl implements AdditionalDataHolder, CallRoute, Parsable 
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.final){
-        writer.writeObjectValue<IdentitySetImpl>("final", new IdentitySetImpl(this.final));
+            writer.writeObjectValue<IdentitySetImpl>("final", new IdentitySetImpl(this.final));
         }
         if(this.original){
-        writer.writeObjectValue<IdentitySetImpl>("original", new IdentitySetImpl(this.original));
+            writer.writeObjectValue<IdentitySetImpl>("original", new IdentitySetImpl(this.original));
         }
         if(this.routingType){
-        writer.writeEnumValue<RoutingType>("routingType", this.routingType);
+            writer.writeEnumValue<RoutingType>("routingType", this.routingType);
         }
         writer.writeAdditionalData(this.additionalData);
     };

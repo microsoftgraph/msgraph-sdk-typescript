@@ -4,7 +4,7 @@ import {UnifiedRoleDefinition} from './unifiedRoleDefinition';
 import {UnifiedRoleDefinitionCollectionResponse} from './unifiedRoleDefinitionCollectionResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class UnifiedRoleDefinitionCollectionResponseImpl implements AdditionalDataHolder, Parsable, UnifiedRoleDefinitionCollectionResponse {
+export class UnifiedRoleDefinitionCollectionResponseImpl implements UnifiedRoleDefinitionCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class UnifiedRoleDefinitionCollectionResponseImpl implements AdditionalDa
      * @param unifiedRoleDefinitionCollectionResponseParameterValue 
      */
     public constructor(unifiedRoleDefinitionCollectionResponseParameterValue?: UnifiedRoleDefinitionCollectionResponse | undefined) {
-        this.additionalData = unifiedRoleDefinitionCollectionResponseParameterValue?.additionalData ? unifiedRoleDefinitionCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = unifiedRoleDefinitionCollectionResponseParameterValue?.nextLink ;
-        this.value = unifiedRoleDefinitionCollectionResponseParameterValue?.value ;
+        this.additionalData = unifiedRoleDefinitionCollectionResponseParameterValue?.additionalData ? unifiedRoleDefinitionCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = unifiedRoleDefinitionCollectionResponseParameterValue?.nextLink;
+        this.value = unifiedRoleDefinitionCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class UnifiedRoleDefinitionCollectionResponseImpl implements AdditionalDa
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: UnifiedRoleDefinitionImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new UnifiedRoleDefinitionImpl(element));});
-        writer.writeCollectionOfObjectValues<UnifiedRoleDefinitionImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<UnifiedRoleDefinitionImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

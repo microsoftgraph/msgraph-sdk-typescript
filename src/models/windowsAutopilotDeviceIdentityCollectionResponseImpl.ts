@@ -4,7 +4,7 @@ import {WindowsAutopilotDeviceIdentity} from './windowsAutopilotDeviceIdentity';
 import {WindowsAutopilotDeviceIdentityCollectionResponse} from './windowsAutopilotDeviceIdentityCollectionResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class WindowsAutopilotDeviceIdentityCollectionResponseImpl implements AdditionalDataHolder, Parsable, WindowsAutopilotDeviceIdentityCollectionResponse {
+export class WindowsAutopilotDeviceIdentityCollectionResponseImpl implements WindowsAutopilotDeviceIdentityCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class WindowsAutopilotDeviceIdentityCollectionResponseImpl implements Add
      * @param windowsAutopilotDeviceIdentityCollectionResponseParameterValue 
      */
     public constructor(windowsAutopilotDeviceIdentityCollectionResponseParameterValue?: WindowsAutopilotDeviceIdentityCollectionResponse | undefined) {
-        this.additionalData = windowsAutopilotDeviceIdentityCollectionResponseParameterValue?.additionalData ? windowsAutopilotDeviceIdentityCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = windowsAutopilotDeviceIdentityCollectionResponseParameterValue?.nextLink ;
-        this.value = windowsAutopilotDeviceIdentityCollectionResponseParameterValue?.value ;
+        this.additionalData = windowsAutopilotDeviceIdentityCollectionResponseParameterValue?.additionalData ? windowsAutopilotDeviceIdentityCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = windowsAutopilotDeviceIdentityCollectionResponseParameterValue?.nextLink;
+        this.value = windowsAutopilotDeviceIdentityCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class WindowsAutopilotDeviceIdentityCollectionResponseImpl implements Add
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: WindowsAutopilotDeviceIdentityImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new WindowsAutopilotDeviceIdentityImpl(element));});
-        writer.writeCollectionOfObjectValues<WindowsAutopilotDeviceIdentityImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<WindowsAutopilotDeviceIdentityImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

@@ -1,11 +1,12 @@
 import {Entity} from './entity';
 import {SelfServiceSignUpAuthenticationFlowConfiguration} from './selfServiceSignUpAuthenticationFlowConfiguration';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface AuthenticationFlowsPolicy extends Entity{
+export interface AuthenticationFlowsPolicy extends Entity, Partial<Parsable> {
     /** Inherited property. A description of the policy. This property is not a key. Optional. Read-only. */
-    description?:string | undefined;
+    description?: string | undefined;
     /** Inherited property. The human-readable name of the policy. This property is not a key. Optional. Read-only. */
-    displayName?:string | undefined;
+    displayName?: string | undefined;
     /** Contains selfServiceSignUpAuthenticationFlowConfiguration settings that convey whether self-service sign-up is enabled or disabled. This property is not a key. Optional. Read-only. */
-    selfServiceSignUp?:SelfServiceSignUpAuthenticationFlowConfiguration | undefined;
+    selfServiceSignUp?: SelfServiceSignUpAuthenticationFlowConfiguration | undefined;
 }

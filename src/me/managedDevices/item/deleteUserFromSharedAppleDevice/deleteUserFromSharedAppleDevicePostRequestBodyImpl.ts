@@ -2,7 +2,7 @@ import {DeleteUserFromSharedAppleDevicePostRequestBody} from './deleteUserFromSh
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the deleteUserFromSharedAppleDevice method. */
-export class DeleteUserFromSharedAppleDevicePostRequestBodyImpl implements AdditionalDataHolder, DeleteUserFromSharedAppleDevicePostRequestBody, Parsable {
+export class DeleteUserFromSharedAppleDevicePostRequestBodyImpl implements DeleteUserFromSharedAppleDevicePostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The userPrincipalName property */
@@ -12,8 +12,8 @@ export class DeleteUserFromSharedAppleDevicePostRequestBodyImpl implements Addit
      * @param deleteUserFromSharedAppleDevicePostRequestBodyParameterValue 
      */
     public constructor(deleteUserFromSharedAppleDevicePostRequestBodyParameterValue?: DeleteUserFromSharedAppleDevicePostRequestBody | undefined) {
-        this.additionalData = deleteUserFromSharedAppleDevicePostRequestBodyParameterValue?.additionalData ? deleteUserFromSharedAppleDevicePostRequestBodyParameterValue?.additionalData! : {}
-        this.userPrincipalName = deleteUserFromSharedAppleDevicePostRequestBodyParameterValue?.userPrincipalName ;
+        this.additionalData = deleteUserFromSharedAppleDevicePostRequestBodyParameterValue?.additionalData ? deleteUserFromSharedAppleDevicePostRequestBodyParameterValue?.additionalData! : {};
+        this.userPrincipalName = deleteUserFromSharedAppleDevicePostRequestBodyParameterValue?.userPrincipalName;
     };
     /**
      * The deserialization information for the current model
@@ -31,7 +31,7 @@ export class DeleteUserFromSharedAppleDevicePostRequestBodyImpl implements Addit
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.userPrincipalName){
-        writer.writeStringValue("userPrincipalName", this.userPrincipalName);
+            writer.writeStringValue("userPrincipalName", this.userPrincipalName);
         }
         writer.writeAdditionalData(this.additionalData);
     };

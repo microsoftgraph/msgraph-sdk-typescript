@@ -6,7 +6,7 @@ import {InferenceClassificationType} from './inferenceClassificationType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Casts the previous resource to user. */
-export class InferenceClassificationOverrideImpl extends EntityImpl implements InferenceClassificationOverride, Parsable {
+export class InferenceClassificationOverrideImpl extends EntityImpl implements InferenceClassificationOverride {
     /** Specifies how incoming messages from a specific sender should always be classified as. Possible values are: focused, other. */
     public classifyAs?: InferenceClassificationType | undefined;
     /** The email address information of the sender for whom the override is created. */
@@ -16,9 +16,9 @@ export class InferenceClassificationOverrideImpl extends EntityImpl implements I
      * @param inferenceClassificationOverrideParameterValue 
      */
     public constructor(inferenceClassificationOverrideParameterValue?: InferenceClassificationOverride | undefined) {
-        super();
-        this.classifyAs = inferenceClassificationOverrideParameterValue?.classifyAs ;
-        this.senderEmailAddress = inferenceClassificationOverrideParameterValue?.senderEmailAddress ;
+        super(inferenceClassificationOverrideParameterValue);
+        this.classifyAs = inferenceClassificationOverrideParameterValue?.classifyAs;
+        this.senderEmailAddress = inferenceClassificationOverrideParameterValue?.senderEmailAddress;
     };
     /**
      * The deserialization information for the current model
@@ -38,10 +38,10 @@ export class InferenceClassificationOverrideImpl extends EntityImpl implements I
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.classifyAs){
-        writer.writeEnumValue<InferenceClassificationType>("classifyAs", this.classifyAs);
+            writer.writeEnumValue<InferenceClassificationType>("classifyAs", this.classifyAs);
         }
         if(this.senderEmailAddress){
-        writer.writeObjectValue<EmailAddressImpl>("senderEmailAddress", new EmailAddressImpl(this.senderEmailAddress));
+            writer.writeObjectValue<EmailAddressImpl>("senderEmailAddress", new EmailAddressImpl(this.senderEmailAddress));
         }
     };
 }

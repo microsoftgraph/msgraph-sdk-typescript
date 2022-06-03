@@ -2,7 +2,7 @@ import {InstantiatePostRequestBody} from './instantiatePostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the instantiate method. */
-export class InstantiatePostRequestBodyImpl implements AdditionalDataHolder, InstantiatePostRequestBody, Parsable {
+export class InstantiatePostRequestBodyImpl implements InstantiatePostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The displayName property */
@@ -12,8 +12,8 @@ export class InstantiatePostRequestBodyImpl implements AdditionalDataHolder, Ins
      * @param instantiatePostRequestBodyParameterValue 
      */
     public constructor(instantiatePostRequestBodyParameterValue?: InstantiatePostRequestBody | undefined) {
-        this.additionalData = instantiatePostRequestBodyParameterValue?.additionalData ? instantiatePostRequestBodyParameterValue?.additionalData! : {}
-        this.displayName = instantiatePostRequestBodyParameterValue?.displayName ;
+        this.additionalData = instantiatePostRequestBodyParameterValue?.additionalData ? instantiatePostRequestBodyParameterValue?.additionalData! : {};
+        this.displayName = instantiatePostRequestBodyParameterValue?.displayName;
     };
     /**
      * The deserialization information for the current model
@@ -31,7 +31,7 @@ export class InstantiatePostRequestBodyImpl implements AdditionalDataHolder, Ins
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.displayName){
-        writer.writeStringValue("displayName", this.displayName);
+            writer.writeStringValue("displayName", this.displayName);
         }
         writer.writeAdditionalData(this.additionalData);
     };

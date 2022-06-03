@@ -2,7 +2,7 @@ import {SharePostRequestBody} from './sharePostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the share method. */
-export class SharePostRequestBodyImpl implements AdditionalDataHolder, Parsable, SharePostRequestBody {
+export class SharePostRequestBodyImpl implements SharePostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The endDateTime property */
@@ -16,10 +16,10 @@ export class SharePostRequestBodyImpl implements AdditionalDataHolder, Parsable,
      * @param sharePostRequestBodyParameterValue 
      */
     public constructor(sharePostRequestBodyParameterValue?: SharePostRequestBody | undefined) {
-        this.additionalData = sharePostRequestBodyParameterValue?.additionalData ? sharePostRequestBodyParameterValue?.additionalData! : {}
-        this.endDateTime = sharePostRequestBodyParameterValue?.endDateTime ;
-        this.notifyTeam = sharePostRequestBodyParameterValue?.notifyTeam ;
-        this.startDateTime = sharePostRequestBodyParameterValue?.startDateTime ;
+        this.additionalData = sharePostRequestBodyParameterValue?.additionalData ? sharePostRequestBodyParameterValue?.additionalData! : {};
+        this.endDateTime = sharePostRequestBodyParameterValue?.endDateTime;
+        this.notifyTeam = sharePostRequestBodyParameterValue?.notifyTeam;
+        this.startDateTime = sharePostRequestBodyParameterValue?.startDateTime;
     };
     /**
      * The deserialization information for the current model
@@ -39,13 +39,13 @@ export class SharePostRequestBodyImpl implements AdditionalDataHolder, Parsable,
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.endDateTime){
-        writer.writeDateValue("endDateTime", this.endDateTime);
+            writer.writeDateValue("endDateTime", this.endDateTime);
         }
         if(this.notifyTeam){
-        writer.writeBooleanValue("notifyTeam", this.notifyTeam);
+            writer.writeBooleanValue("notifyTeam", this.notifyTeam);
         }
         if(this.startDateTime){
-        writer.writeDateValue("startDateTime", this.startDateTime);
+            writer.writeDateValue("startDateTime", this.startDateTime);
         }
         writer.writeAdditionalData(this.additionalData);
     };

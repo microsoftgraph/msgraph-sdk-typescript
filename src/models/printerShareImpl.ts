@@ -9,7 +9,7 @@ import {User} from './user';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the print singleton. */
-export class PrinterShareImpl extends PrinterBaseImpl implements Parsable, PrinterShare {
+export class PrinterShareImpl extends PrinterBaseImpl implements PrinterShare {
     /** If true, all users and groups will be granted access to this printer share. This supersedes the allow lists defined by the allowedUsers and allowedGroups navigation properties. */
     public allowAllUsers?: boolean | undefined;
     /** The groups whose users have access to print using the printer. */
@@ -25,12 +25,12 @@ export class PrinterShareImpl extends PrinterBaseImpl implements Parsable, Print
      * @param printerShareParameterValue 
      */
     public constructor(printerShareParameterValue?: PrinterShare | undefined) {
-        super();
-        this.allowAllUsers = printerShareParameterValue?.allowAllUsers ;
-        this.allowedGroups = printerShareParameterValue?.allowedGroups ;
-        this.allowedUsers = printerShareParameterValue?.allowedUsers ;
-        this.createdDateTime = printerShareParameterValue?.createdDateTime ;
-        this.printer = printerShareParameterValue?.printer ;
+        super(printerShareParameterValue);
+        this.allowAllUsers = printerShareParameterValue?.allowAllUsers;
+        this.allowedGroups = printerShareParameterValue?.allowedGroups;
+        this.allowedUsers = printerShareParameterValue?.allowedUsers;
+        this.createdDateTime = printerShareParameterValue?.createdDateTime;
+        this.printer = printerShareParameterValue?.printer;
     };
     /**
      * The deserialization information for the current model
@@ -53,19 +53,19 @@ export class PrinterShareImpl extends PrinterBaseImpl implements Parsable, Print
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.allowAllUsers){
-        writer.writeBooleanValue("allowAllUsers", this.allowAllUsers);
+            writer.writeBooleanValue("allowAllUsers", this.allowAllUsers);
         }
         if(this.allowedGroups && this.allowedGroups.length != 0){        const allowedGroupsArrValue: GroupImpl[] = []; this.allowedGroups?.forEach(element => {allowedGroupsArrValue.push(new GroupImpl(element));});
-        writer.writeCollectionOfObjectValues<GroupImpl>("allowedGroups", allowedGroupsArrValue);
+            writer.writeCollectionOfObjectValues<GroupImpl>("allowedGroups", allowedGroupsArrValue);
         }
         if(this.allowedUsers && this.allowedUsers.length != 0){        const allowedUsersArrValue: UserImpl[] = []; this.allowedUsers?.forEach(element => {allowedUsersArrValue.push(new UserImpl(element));});
-        writer.writeCollectionOfObjectValues<UserImpl>("allowedUsers", allowedUsersArrValue);
+            writer.writeCollectionOfObjectValues<UserImpl>("allowedUsers", allowedUsersArrValue);
         }
         if(this.createdDateTime){
-        writer.writeDateValue("createdDateTime", this.createdDateTime);
+            writer.writeDateValue("createdDateTime", this.createdDateTime);
         }
         if(this.printer){
-        writer.writeObjectValue<PrinterImpl>("printer", new PrinterImpl(this.printer));
+            writer.writeObjectValue<PrinterImpl>("printer", new PrinterImpl(this.printer));
         }
     };
 }

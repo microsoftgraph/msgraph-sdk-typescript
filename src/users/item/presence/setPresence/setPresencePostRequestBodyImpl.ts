@@ -2,7 +2,7 @@ import {SetPresencePostRequestBody} from './setPresencePostRequestBody';
 import {AdditionalDataHolder, Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the setPresence method. */
-export class SetPresencePostRequestBodyImpl implements AdditionalDataHolder, Parsable, SetPresencePostRequestBody {
+export class SetPresencePostRequestBodyImpl implements SetPresencePostRequestBody {
     /** The activity property */
     public activity?: string | undefined;
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
@@ -18,11 +18,11 @@ export class SetPresencePostRequestBodyImpl implements AdditionalDataHolder, Par
      * @param setPresencePostRequestBodyParameterValue 
      */
     public constructor(setPresencePostRequestBodyParameterValue?: SetPresencePostRequestBody | undefined) {
-        this.activity = setPresencePostRequestBodyParameterValue?.activity ;
-        this.additionalData = setPresencePostRequestBodyParameterValue?.additionalData ? setPresencePostRequestBodyParameterValue?.additionalData! : {}
-        this.availability = setPresencePostRequestBodyParameterValue?.availability ;
-        this.expirationDuration = setPresencePostRequestBodyParameterValue?.expirationDuration ;
-        this.sessionId = setPresencePostRequestBodyParameterValue?.sessionId ;
+        this.activity = setPresencePostRequestBodyParameterValue?.activity;
+        this.additionalData = setPresencePostRequestBodyParameterValue?.additionalData ? setPresencePostRequestBodyParameterValue?.additionalData! : {};
+        this.availability = setPresencePostRequestBodyParameterValue?.availability;
+        this.expirationDuration = setPresencePostRequestBodyParameterValue?.expirationDuration;
+        this.sessionId = setPresencePostRequestBodyParameterValue?.sessionId;
     };
     /**
      * The deserialization information for the current model
@@ -43,16 +43,16 @@ export class SetPresencePostRequestBodyImpl implements AdditionalDataHolder, Par
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.activity){
-        writer.writeStringValue("activity", this.activity);
+            writer.writeStringValue("activity", this.activity);
         }
         if(this.availability){
-        writer.writeStringValue("availability", this.availability);
+            writer.writeStringValue("availability", this.availability);
         }
         if(this.expirationDuration){
-        writer.writeDurationValue("expirationDuration", this.expirationDuration);
+            writer.writeDurationValue("expirationDuration", this.expirationDuration);
         }
         if(this.sessionId){
-        writer.writeStringValue("sessionId", this.sessionId);
+            writer.writeStringValue("sessionId", this.sessionId);
         }
         writer.writeAdditionalData(this.additionalData);
     };

@@ -1,5 +1,5 @@
-export * from './getMemberGroupsResponseImpl'
 export * from './getMemberGroupsPostRequestBodyImpl'
+export * from './getMemberGroupsResponseImpl'
 export * from './getMemberGroupsRequestBuilderPostRequestConfiguration'
 export * from './getMemberGroupsResponse'
 export * from './getMemberGroupsPostRequestBody'

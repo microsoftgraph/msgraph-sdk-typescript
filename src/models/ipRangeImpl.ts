@@ -1,7 +1,7 @@
 import {IpRange} from './ipRange';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class IpRangeImpl implements AdditionalDataHolder, IpRange, Parsable {
+export class IpRangeImpl implements IpRange {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /**
@@ -9,7 +9,7 @@ export class IpRangeImpl implements AdditionalDataHolder, IpRange, Parsable {
      * @param ipRangeParameterValue 
      */
     public constructor(ipRangeParameterValue?: IpRange | undefined) {
-        this.additionalData = ipRangeParameterValue?.additionalData ? ipRangeParameterValue?.additionalData! : {}
+        this.additionalData = ipRangeParameterValue?.additionalData ? ipRangeParameterValue?.additionalData! : {};
     };
     /**
      * The deserialization information for the current model

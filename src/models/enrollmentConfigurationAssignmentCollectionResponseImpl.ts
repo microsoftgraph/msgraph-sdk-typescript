@@ -4,7 +4,7 @@ import {EnrollmentConfigurationAssignmentCollectionResponse} from './enrollmentC
 import {EnrollmentConfigurationAssignmentImpl} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class EnrollmentConfigurationAssignmentCollectionResponseImpl implements AdditionalDataHolder, EnrollmentConfigurationAssignmentCollectionResponse, Parsable {
+export class EnrollmentConfigurationAssignmentCollectionResponseImpl implements EnrollmentConfigurationAssignmentCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class EnrollmentConfigurationAssignmentCollectionResponseImpl implements 
      * @param enrollmentConfigurationAssignmentCollectionResponseParameterValue 
      */
     public constructor(enrollmentConfigurationAssignmentCollectionResponseParameterValue?: EnrollmentConfigurationAssignmentCollectionResponse | undefined) {
-        this.additionalData = enrollmentConfigurationAssignmentCollectionResponseParameterValue?.additionalData ? enrollmentConfigurationAssignmentCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = enrollmentConfigurationAssignmentCollectionResponseParameterValue?.nextLink ;
-        this.value = enrollmentConfigurationAssignmentCollectionResponseParameterValue?.value ;
+        this.additionalData = enrollmentConfigurationAssignmentCollectionResponseParameterValue?.additionalData ? enrollmentConfigurationAssignmentCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = enrollmentConfigurationAssignmentCollectionResponseParameterValue?.nextLink;
+        this.value = enrollmentConfigurationAssignmentCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class EnrollmentConfigurationAssignmentCollectionResponseImpl implements 
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: EnrollmentConfigurationAssignmentImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new EnrollmentConfigurationAssignmentImpl(element));});
-        writer.writeCollectionOfObjectValues<EnrollmentConfigurationAssignmentImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<EnrollmentConfigurationAssignmentImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

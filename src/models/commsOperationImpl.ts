@@ -6,7 +6,7 @@ import {ResultInfo} from './resultInfo';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the cloudCommunications singleton. */
-export class CommsOperationImpl extends EntityImpl implements CommsOperation, Parsable {
+export class CommsOperationImpl extends EntityImpl implements CommsOperation {
     /** Unique Client Context string. Max limit is 256 chars. */
     public clientContext?: string | undefined;
     /** The result information. Read-only. */
@@ -18,10 +18,10 @@ export class CommsOperationImpl extends EntityImpl implements CommsOperation, Pa
      * @param commsOperationParameterValue 
      */
     public constructor(commsOperationParameterValue?: CommsOperation | undefined) {
-        super();
-        this.clientContext = commsOperationParameterValue?.clientContext ;
-        this.resultInfo = commsOperationParameterValue?.resultInfo ;
-        this.status = commsOperationParameterValue?.status ;
+        super(commsOperationParameterValue);
+        this.clientContext = commsOperationParameterValue?.clientContext;
+        this.resultInfo = commsOperationParameterValue?.resultInfo;
+        this.status = commsOperationParameterValue?.status;
     };
     /**
      * The deserialization information for the current model
@@ -42,13 +42,13 @@ export class CommsOperationImpl extends EntityImpl implements CommsOperation, Pa
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.clientContext){
-        writer.writeStringValue("clientContext", this.clientContext);
+            writer.writeStringValue("clientContext", this.clientContext);
         }
         if(this.resultInfo){
-        writer.writeObjectValue<ResultInfoImpl>("resultInfo", new ResultInfoImpl(this.resultInfo));
+            writer.writeObjectValue<ResultInfoImpl>("resultInfo", new ResultInfoImpl(this.resultInfo));
         }
         if(this.status){
-        writer.writeEnumValue<OperationStatus>("status", this.status);
+            writer.writeEnumValue<OperationStatus>("status", this.status);
         }
     };
 }

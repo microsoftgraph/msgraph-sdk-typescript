@@ -1,7 +1,8 @@
 import {Chat} from './chat';
 import {TeamsAppInstallation} from './teamsAppInstallation';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface UserScopeTeamsAppInstallation extends TeamsAppInstallation{
+export interface UserScopeTeamsAppInstallation extends Partial<Parsable>, TeamsAppInstallation {
     /** The chat between the user and Teams app. */
-    chat?:Chat | undefined;
+    chat?: Chat | undefined;
 }

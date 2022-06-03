@@ -5,7 +5,7 @@ import {ServicePlanInfo} from './servicePlanInfo';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Casts the previous resource to user. */
-export class LicenseDetailsImpl extends EntityImpl implements LicenseDetails, Parsable {
+export class LicenseDetailsImpl extends EntityImpl implements LicenseDetails {
     /** Information about the service plans assigned with the license. Read-only, Not nullable */
     public servicePlans?: ServicePlanInfo[] | undefined;
     /** Unique identifier (GUID) for the service SKU. Equal to the skuId property on the related SubscribedSku object. Read-only */
@@ -17,10 +17,10 @@ export class LicenseDetailsImpl extends EntityImpl implements LicenseDetails, Pa
      * @param licenseDetailsParameterValue 
      */
     public constructor(licenseDetailsParameterValue?: LicenseDetails | undefined) {
-        super();
-        this.servicePlans = licenseDetailsParameterValue?.servicePlans ;
-        this.skuId = licenseDetailsParameterValue?.skuId ;
-        this.skuPartNumber = licenseDetailsParameterValue?.skuPartNumber ;
+        super(licenseDetailsParameterValue);
+        this.servicePlans = licenseDetailsParameterValue?.servicePlans;
+        this.skuId = licenseDetailsParameterValue?.skuId;
+        this.skuPartNumber = licenseDetailsParameterValue?.skuPartNumber;
     };
     /**
      * The deserialization information for the current model
@@ -41,13 +41,13 @@ export class LicenseDetailsImpl extends EntityImpl implements LicenseDetails, Pa
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.servicePlans && this.servicePlans.length != 0){        const servicePlansArrValue: ServicePlanInfoImpl[] = []; this.servicePlans?.forEach(element => {servicePlansArrValue.push(new ServicePlanInfoImpl(element));});
-        writer.writeCollectionOfObjectValues<ServicePlanInfoImpl>("servicePlans", servicePlansArrValue);
+            writer.writeCollectionOfObjectValues<ServicePlanInfoImpl>("servicePlans", servicePlansArrValue);
         }
         if(this.skuId){
-        writer.writeStringValue("skuId", this.skuId);
+            writer.writeStringValue("skuId", this.skuId);
         }
         if(this.skuPartNumber){
-        writer.writeStringValue("skuPartNumber", this.skuPartNumber);
+            writer.writeStringValue("skuPartNumber", this.skuPartNumber);
         }
     };
 }

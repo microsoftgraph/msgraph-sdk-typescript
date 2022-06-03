@@ -2,7 +2,7 @@ import {WipeManagedAppRegistrationsByDeviceTagPostRequestBody} from './wipeManag
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the wipeManagedAppRegistrationsByDeviceTag method. */
-export class WipeManagedAppRegistrationsByDeviceTagPostRequestBodyImpl implements AdditionalDataHolder, Parsable, WipeManagedAppRegistrationsByDeviceTagPostRequestBody {
+export class WipeManagedAppRegistrationsByDeviceTagPostRequestBodyImpl implements WipeManagedAppRegistrationsByDeviceTagPostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The deviceTag property */
@@ -12,8 +12,8 @@ export class WipeManagedAppRegistrationsByDeviceTagPostRequestBodyImpl implement
      * @param wipeManagedAppRegistrationsByDeviceTagPostRequestBodyParameterValue 
      */
     public constructor(wipeManagedAppRegistrationsByDeviceTagPostRequestBodyParameterValue?: WipeManagedAppRegistrationsByDeviceTagPostRequestBody | undefined) {
-        this.additionalData = wipeManagedAppRegistrationsByDeviceTagPostRequestBodyParameterValue?.additionalData ? wipeManagedAppRegistrationsByDeviceTagPostRequestBodyParameterValue?.additionalData! : {}
-        this.deviceTag = wipeManagedAppRegistrationsByDeviceTagPostRequestBodyParameterValue?.deviceTag ;
+        this.additionalData = wipeManagedAppRegistrationsByDeviceTagPostRequestBodyParameterValue?.additionalData ? wipeManagedAppRegistrationsByDeviceTagPostRequestBodyParameterValue?.additionalData! : {};
+        this.deviceTag = wipeManagedAppRegistrationsByDeviceTagPostRequestBodyParameterValue?.deviceTag;
     };
     /**
      * The deserialization information for the current model
@@ -31,7 +31,7 @@ export class WipeManagedAppRegistrationsByDeviceTagPostRequestBodyImpl implement
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.deviceTag){
-        writer.writeStringValue("deviceTag", this.deviceTag);
+            writer.writeStringValue("deviceTag", this.deviceTag);
         }
         writer.writeAdditionalData(this.additionalData);
     };

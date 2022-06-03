@@ -5,7 +5,7 @@ import {TargetAppsPostRequestBody} from './targetAppsPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the targetApps method. */
-export class TargetAppsPostRequestBodyImpl implements AdditionalDataHolder, Parsable, TargetAppsPostRequestBody {
+export class TargetAppsPostRequestBodyImpl implements TargetAppsPostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The apps property */
@@ -15,8 +15,8 @@ export class TargetAppsPostRequestBodyImpl implements AdditionalDataHolder, Pars
      * @param targetAppsPostRequestBodyParameterValue 
      */
     public constructor(targetAppsPostRequestBodyParameterValue?: TargetAppsPostRequestBody | undefined) {
-        this.additionalData = targetAppsPostRequestBodyParameterValue?.additionalData ? targetAppsPostRequestBodyParameterValue?.additionalData! : {}
-        this.apps = targetAppsPostRequestBodyParameterValue?.apps ;
+        this.additionalData = targetAppsPostRequestBodyParameterValue?.additionalData ? targetAppsPostRequestBodyParameterValue?.additionalData! : {};
+        this.apps = targetAppsPostRequestBodyParameterValue?.apps;
     };
     /**
      * The deserialization information for the current model
@@ -34,7 +34,7 @@ export class TargetAppsPostRequestBodyImpl implements AdditionalDataHolder, Pars
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.apps && this.apps.length != 0){        const appsArrValue: ManagedMobileAppImpl[] = []; this.apps?.forEach(element => {appsArrValue.push(new ManagedMobileAppImpl(element));});
-        writer.writeCollectionOfObjectValues<ManagedMobileAppImpl>("apps", appsArrValue);
+            writer.writeCollectionOfObjectValues<ManagedMobileAppImpl>("apps", appsArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

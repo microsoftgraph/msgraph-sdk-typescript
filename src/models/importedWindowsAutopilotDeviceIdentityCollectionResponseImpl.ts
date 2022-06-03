@@ -4,7 +4,7 @@ import {ImportedWindowsAutopilotDeviceIdentityCollectionResponse} from './import
 import {ImportedWindowsAutopilotDeviceIdentityImpl} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ImportedWindowsAutopilotDeviceIdentityCollectionResponseImpl implements AdditionalDataHolder, ImportedWindowsAutopilotDeviceIdentityCollectionResponse, Parsable {
+export class ImportedWindowsAutopilotDeviceIdentityCollectionResponseImpl implements ImportedWindowsAutopilotDeviceIdentityCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class ImportedWindowsAutopilotDeviceIdentityCollectionResponseImpl implem
      * @param importedWindowsAutopilotDeviceIdentityCollectionResponseParameterValue 
      */
     public constructor(importedWindowsAutopilotDeviceIdentityCollectionResponseParameterValue?: ImportedWindowsAutopilotDeviceIdentityCollectionResponse | undefined) {
-        this.additionalData = importedWindowsAutopilotDeviceIdentityCollectionResponseParameterValue?.additionalData ? importedWindowsAutopilotDeviceIdentityCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = importedWindowsAutopilotDeviceIdentityCollectionResponseParameterValue?.nextLink ;
-        this.value = importedWindowsAutopilotDeviceIdentityCollectionResponseParameterValue?.value ;
+        this.additionalData = importedWindowsAutopilotDeviceIdentityCollectionResponseParameterValue?.additionalData ? importedWindowsAutopilotDeviceIdentityCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = importedWindowsAutopilotDeviceIdentityCollectionResponseParameterValue?.nextLink;
+        this.value = importedWindowsAutopilotDeviceIdentityCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class ImportedWindowsAutopilotDeviceIdentityCollectionResponseImpl implem
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: ImportedWindowsAutopilotDeviceIdentityImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ImportedWindowsAutopilotDeviceIdentityImpl(element));});
-        writer.writeCollectionOfObjectValues<ImportedWindowsAutopilotDeviceIdentityImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<ImportedWindowsAutopilotDeviceIdentityImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

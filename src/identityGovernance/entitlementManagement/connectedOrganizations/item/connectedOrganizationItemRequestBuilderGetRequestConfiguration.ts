@@ -1,11 +1,11 @@
 import {ConnectedOrganizationItemRequestBuilderGetQueryParameters} from './connectedOrganizationItemRequestBuilderGetQueryParameters';
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
-export interface ConnectedOrganizationItemRequestBuilderGetRequestConfiguration{
+export interface ConnectedOrganizationItemRequestBuilderGetRequestConfiguration {
     /** Request headers */
-    headers?:Record<string, string> | undefined;
+    headers?: Record<string, string> | undefined;
     /** Request options */
-    options?:RequestOption[] | undefined;
+    options?: RequestOption[] | undefined;
     /** Request query parameters */
-    queryParameters?:ConnectedOrganizationItemRequestBuilderGetQueryParameters | undefined;
+    queryParameters?: ConnectedOrganizationItemRequestBuilderGetQueryParameters | undefined;
 }

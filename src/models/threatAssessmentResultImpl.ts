@@ -4,7 +4,7 @@ import {ThreatAssessmentResultType} from './threatAssessmentResultType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the informationProtection singleton. */
-export class ThreatAssessmentResultImpl extends EntityImpl implements Parsable, ThreatAssessmentResult {
+export class ThreatAssessmentResultImpl extends EntityImpl implements ThreatAssessmentResult {
     /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
     public createdDateTime?: Date | undefined;
     /** The result message for each threat assessment. */
@@ -16,10 +16,10 @@ export class ThreatAssessmentResultImpl extends EntityImpl implements Parsable, 
      * @param threatAssessmentResultParameterValue 
      */
     public constructor(threatAssessmentResultParameterValue?: ThreatAssessmentResult | undefined) {
-        super();
-        this.createdDateTime = threatAssessmentResultParameterValue?.createdDateTime ;
-        this.message = threatAssessmentResultParameterValue?.message ;
-        this.resultType = threatAssessmentResultParameterValue?.resultType ;
+        super(threatAssessmentResultParameterValue);
+        this.createdDateTime = threatAssessmentResultParameterValue?.createdDateTime;
+        this.message = threatAssessmentResultParameterValue?.message;
+        this.resultType = threatAssessmentResultParameterValue?.resultType;
     };
     /**
      * The deserialization information for the current model
@@ -40,13 +40,13 @@ export class ThreatAssessmentResultImpl extends EntityImpl implements Parsable, 
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.createdDateTime){
-        writer.writeDateValue("createdDateTime", this.createdDateTime);
+            writer.writeDateValue("createdDateTime", this.createdDateTime);
         }
         if(this.message){
-        writer.writeStringValue("message", this.message);
+            writer.writeStringValue("message", this.message);
         }
         if(this.resultType){
-        writer.writeEnumValue<ThreatAssessmentResultType>("resultType", this.resultType);
+            writer.writeEnumValue<ThreatAssessmentResultType>("resultType", this.resultType);
         }
     };
 }

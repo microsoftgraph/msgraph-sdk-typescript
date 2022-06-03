@@ -1,7 +1,7 @@
 import {HostSecurityState} from './hostSecurityState';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class HostSecurityStateImpl implements AdditionalDataHolder, HostSecurityState, Parsable {
+export class HostSecurityStateImpl implements HostSecurityState {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Host FQDN (Fully Qualified Domain Name) (for example, machine.company.com). */
@@ -27,16 +27,16 @@ export class HostSecurityStateImpl implements AdditionalDataHolder, HostSecurity
      * @param hostSecurityStateParameterValue 
      */
     public constructor(hostSecurityStateParameterValue?: HostSecurityState | undefined) {
-        this.additionalData = hostSecurityStateParameterValue?.additionalData ? hostSecurityStateParameterValue?.additionalData! : {}
-        this.fqdn = hostSecurityStateParameterValue?.fqdn ;
-        this.isAzureAdJoined = hostSecurityStateParameterValue?.isAzureAdJoined ;
-        this.isAzureAdRegistered = hostSecurityStateParameterValue?.isAzureAdRegistered ;
-        this.isHybridAzureDomainJoined = hostSecurityStateParameterValue?.isHybridAzureDomainJoined ;
-        this.netBiosName = hostSecurityStateParameterValue?.netBiosName ;
-        this.os = hostSecurityStateParameterValue?.os ;
-        this.privateIpAddress = hostSecurityStateParameterValue?.privateIpAddress ;
-        this.publicIpAddress = hostSecurityStateParameterValue?.publicIpAddress ;
-        this.riskScore = hostSecurityStateParameterValue?.riskScore ;
+        this.additionalData = hostSecurityStateParameterValue?.additionalData ? hostSecurityStateParameterValue?.additionalData! : {};
+        this.fqdn = hostSecurityStateParameterValue?.fqdn;
+        this.isAzureAdJoined = hostSecurityStateParameterValue?.isAzureAdJoined;
+        this.isAzureAdRegistered = hostSecurityStateParameterValue?.isAzureAdRegistered;
+        this.isHybridAzureDomainJoined = hostSecurityStateParameterValue?.isHybridAzureDomainJoined;
+        this.netBiosName = hostSecurityStateParameterValue?.netBiosName;
+        this.os = hostSecurityStateParameterValue?.os;
+        this.privateIpAddress = hostSecurityStateParameterValue?.privateIpAddress;
+        this.publicIpAddress = hostSecurityStateParameterValue?.publicIpAddress;
+        this.riskScore = hostSecurityStateParameterValue?.riskScore;
     };
     /**
      * The deserialization information for the current model
@@ -62,31 +62,31 @@ export class HostSecurityStateImpl implements AdditionalDataHolder, HostSecurity
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.fqdn){
-        writer.writeStringValue("fqdn", this.fqdn);
+            writer.writeStringValue("fqdn", this.fqdn);
         }
         if(this.isAzureAdJoined){
-        writer.writeBooleanValue("isAzureAdJoined", this.isAzureAdJoined);
+            writer.writeBooleanValue("isAzureAdJoined", this.isAzureAdJoined);
         }
         if(this.isAzureAdRegistered){
-        writer.writeBooleanValue("isAzureAdRegistered", this.isAzureAdRegistered);
+            writer.writeBooleanValue("isAzureAdRegistered", this.isAzureAdRegistered);
         }
         if(this.isHybridAzureDomainJoined){
-        writer.writeBooleanValue("isHybridAzureDomainJoined", this.isHybridAzureDomainJoined);
+            writer.writeBooleanValue("isHybridAzureDomainJoined", this.isHybridAzureDomainJoined);
         }
         if(this.netBiosName){
-        writer.writeStringValue("netBiosName", this.netBiosName);
+            writer.writeStringValue("netBiosName", this.netBiosName);
         }
         if(this.os){
-        writer.writeStringValue("os", this.os);
+            writer.writeStringValue("os", this.os);
         }
         if(this.privateIpAddress){
-        writer.writeStringValue("privateIpAddress", this.privateIpAddress);
+            writer.writeStringValue("privateIpAddress", this.privateIpAddress);
         }
         if(this.publicIpAddress){
-        writer.writeStringValue("publicIpAddress", this.publicIpAddress);
+            writer.writeStringValue("publicIpAddress", this.publicIpAddress);
         }
         if(this.riskScore){
-        writer.writeStringValue("riskScore", this.riskScore);
+            writer.writeStringValue("riskScore", this.riskScore);
         }
         writer.writeAdditionalData(this.additionalData);
     };

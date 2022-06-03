@@ -1,7 +1,7 @@
 import {Json} from './json';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class JsonImpl implements AdditionalDataHolder, Json, Parsable {
+export class JsonImpl implements Json {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /**
@@ -9,7 +9,7 @@ export class JsonImpl implements AdditionalDataHolder, Json, Parsable {
      * @param jsonParameterValue 
      */
     public constructor(jsonParameterValue?: Json | undefined) {
-        this.additionalData = jsonParameterValue?.additionalData ? jsonParameterValue?.additionalData! : {}
+        this.additionalData = jsonParameterValue?.additionalData ? jsonParameterValue?.additionalData! : {};
     };
     /**
      * The deserialization information for the current model

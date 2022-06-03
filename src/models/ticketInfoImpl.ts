@@ -1,7 +1,7 @@
 import {TicketInfo} from './ticketInfo';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class TicketInfoImpl implements AdditionalDataHolder, Parsable, TicketInfo {
+export class TicketInfoImpl implements TicketInfo {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Ticket number meta data */
@@ -13,9 +13,9 @@ export class TicketInfoImpl implements AdditionalDataHolder, Parsable, TicketInf
      * @param ticketInfoParameterValue 
      */
     public constructor(ticketInfoParameterValue?: TicketInfo | undefined) {
-        this.additionalData = ticketInfoParameterValue?.additionalData ? ticketInfoParameterValue?.additionalData! : {}
-        this.ticketNumber = ticketInfoParameterValue?.ticketNumber ;
-        this.ticketSystem = ticketInfoParameterValue?.ticketSystem ;
+        this.additionalData = ticketInfoParameterValue?.additionalData ? ticketInfoParameterValue?.additionalData! : {};
+        this.ticketNumber = ticketInfoParameterValue?.ticketNumber;
+        this.ticketSystem = ticketInfoParameterValue?.ticketSystem;
     };
     /**
      * The deserialization information for the current model
@@ -34,10 +34,10 @@ export class TicketInfoImpl implements AdditionalDataHolder, Parsable, TicketInf
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.ticketNumber){
-        writer.writeStringValue("ticketNumber", this.ticketNumber);
+            writer.writeStringValue("ticketNumber", this.ticketNumber);
         }
         if(this.ticketSystem){
-        writer.writeStringValue("ticketSystem", this.ticketSystem);
+            writer.writeStringValue("ticketSystem", this.ticketSystem);
         }
         writer.writeAdditionalData(this.additionalData);
     };

@@ -2,7 +2,7 @@ import {FailureInfo} from './failureInfo';
 import {FailureStage} from './failureStage';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class FailureInfoImpl implements AdditionalDataHolder, FailureInfo, Parsable {
+export class FailureInfoImpl implements FailureInfo {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Classification of why a call or portion of a call failed. */
@@ -14,9 +14,9 @@ export class FailureInfoImpl implements AdditionalDataHolder, FailureInfo, Parsa
      * @param failureInfoParameterValue 
      */
     public constructor(failureInfoParameterValue?: FailureInfo | undefined) {
-        this.additionalData = failureInfoParameterValue?.additionalData ? failureInfoParameterValue?.additionalData! : {}
-        this.reason = failureInfoParameterValue?.reason ;
-        this.stage = failureInfoParameterValue?.stage ;
+        this.additionalData = failureInfoParameterValue?.additionalData ? failureInfoParameterValue?.additionalData! : {};
+        this.reason = failureInfoParameterValue?.reason;
+        this.stage = failureInfoParameterValue?.stage;
     };
     /**
      * The deserialization information for the current model
@@ -35,10 +35,10 @@ export class FailureInfoImpl implements AdditionalDataHolder, FailureInfo, Parsa
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.reason){
-        writer.writeStringValue("reason", this.reason);
+            writer.writeStringValue("reason", this.reason);
         }
         if(this.stage){
-        writer.writeEnumValue<FailureStage>("stage", this.stage);
+            writer.writeEnumValue<FailureStage>("stage", this.stage);
         }
         writer.writeAdditionalData(this.additionalData);
     };

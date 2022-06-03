@@ -4,7 +4,7 @@ import {DeviceConfigurationAssignmentCollectionResponse} from './deviceConfigura
 import {DeviceConfigurationAssignmentImpl} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class DeviceConfigurationAssignmentCollectionResponseImpl implements AdditionalDataHolder, DeviceConfigurationAssignmentCollectionResponse, Parsable {
+export class DeviceConfigurationAssignmentCollectionResponseImpl implements DeviceConfigurationAssignmentCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class DeviceConfigurationAssignmentCollectionResponseImpl implements Addi
      * @param deviceConfigurationAssignmentCollectionResponseParameterValue 
      */
     public constructor(deviceConfigurationAssignmentCollectionResponseParameterValue?: DeviceConfigurationAssignmentCollectionResponse | undefined) {
-        this.additionalData = deviceConfigurationAssignmentCollectionResponseParameterValue?.additionalData ? deviceConfigurationAssignmentCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = deviceConfigurationAssignmentCollectionResponseParameterValue?.nextLink ;
-        this.value = deviceConfigurationAssignmentCollectionResponseParameterValue?.value ;
+        this.additionalData = deviceConfigurationAssignmentCollectionResponseParameterValue?.additionalData ? deviceConfigurationAssignmentCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = deviceConfigurationAssignmentCollectionResponseParameterValue?.nextLink;
+        this.value = deviceConfigurationAssignmentCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class DeviceConfigurationAssignmentCollectionResponseImpl implements Addi
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: DeviceConfigurationAssignmentImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new DeviceConfigurationAssignmentImpl(element));});
-        writer.writeCollectionOfObjectValues<DeviceConfigurationAssignmentImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<DeviceConfigurationAssignmentImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

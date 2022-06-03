@@ -1,17 +1,18 @@
 import {IncomingCallOptions} from '../../../../models/incomingCallOptions';
 import {MediaConfig} from '../../../../models/mediaConfig';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface AnswerPostRequestBody{
+export interface AnswerPostRequestBody extends Partial<AdditionalDataHolder>, Partial<Parsable> {
     /** The acceptedModalities property */
-    acceptedModalities?:string[] | undefined;
+    acceptedModalities?: string[] | undefined;
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?:Record<string, unknown>;
+    additionalData?: Record<string, unknown>;
     /** The callbackUri property */
-    callbackUri?:string | undefined;
+    callbackUri?: string | undefined;
     /** The callOptions property */
-    callOptions?:IncomingCallOptions | undefined;
+    callOptions?: IncomingCallOptions | undefined;
     /** The mediaConfig property */
-    mediaConfig?:MediaConfig | undefined;
+    mediaConfig?: MediaConfig | undefined;
     /** The participantCapacity property */
-    participantCapacity?:number | undefined;
+    participantCapacity?: number | undefined;
 }

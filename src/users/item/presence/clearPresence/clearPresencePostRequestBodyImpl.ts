@@ -2,7 +2,7 @@ import {ClearPresencePostRequestBody} from './clearPresencePostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the clearPresence method. */
-export class ClearPresencePostRequestBodyImpl implements AdditionalDataHolder, ClearPresencePostRequestBody, Parsable {
+export class ClearPresencePostRequestBodyImpl implements ClearPresencePostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The sessionId property */
@@ -12,8 +12,8 @@ export class ClearPresencePostRequestBodyImpl implements AdditionalDataHolder, C
      * @param clearPresencePostRequestBodyParameterValue 
      */
     public constructor(clearPresencePostRequestBodyParameterValue?: ClearPresencePostRequestBody | undefined) {
-        this.additionalData = clearPresencePostRequestBodyParameterValue?.additionalData ? clearPresencePostRequestBodyParameterValue?.additionalData! : {}
-        this.sessionId = clearPresencePostRequestBodyParameterValue?.sessionId ;
+        this.additionalData = clearPresencePostRequestBodyParameterValue?.additionalData ? clearPresencePostRequestBodyParameterValue?.additionalData! : {};
+        this.sessionId = clearPresencePostRequestBodyParameterValue?.sessionId;
     };
     /**
      * The deserialization information for the current model
@@ -31,7 +31,7 @@ export class ClearPresencePostRequestBodyImpl implements AdditionalDataHolder, C
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.sessionId){
-        writer.writeStringValue("sessionId", this.sessionId);
+            writer.writeStringValue("sessionId", this.sessionId);
         }
         writer.writeAdditionalData(this.additionalData);
     };

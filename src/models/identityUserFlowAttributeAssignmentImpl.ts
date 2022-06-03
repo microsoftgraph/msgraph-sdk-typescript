@@ -8,7 +8,7 @@ import {UserAttributeValuesItem} from './userAttributeValuesItem';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the identityContainer singleton. */
-export class IdentityUserFlowAttributeAssignmentImpl extends EntityImpl implements IdentityUserFlowAttributeAssignment, Parsable {
+export class IdentityUserFlowAttributeAssignmentImpl extends EntityImpl implements IdentityUserFlowAttributeAssignment {
     /** The display name of the identityUserFlowAttribute within a user flow. */
     public displayName?: string | undefined;
     /** Determines whether the identityUserFlowAttribute is optional. true means the user doesn't have to provide a value. false means the user cannot complete sign-up without providing a value. */
@@ -26,13 +26,13 @@ export class IdentityUserFlowAttributeAssignmentImpl extends EntityImpl implemen
      * @param identityUserFlowAttributeAssignmentParameterValue 
      */
     public constructor(identityUserFlowAttributeAssignmentParameterValue?: IdentityUserFlowAttributeAssignment | undefined) {
-        super();
-        this.displayName = identityUserFlowAttributeAssignmentParameterValue?.displayName ;
-        this.isOptional = identityUserFlowAttributeAssignmentParameterValue?.isOptional ;
-        this.requiresVerification = identityUserFlowAttributeAssignmentParameterValue?.requiresVerification ;
-        this.userAttribute = identityUserFlowAttributeAssignmentParameterValue?.userAttribute ;
-        this.userAttributeValues = identityUserFlowAttributeAssignmentParameterValue?.userAttributeValues ;
-        this.userInputType = identityUserFlowAttributeAssignmentParameterValue?.userInputType ;
+        super(identityUserFlowAttributeAssignmentParameterValue);
+        this.displayName = identityUserFlowAttributeAssignmentParameterValue?.displayName;
+        this.isOptional = identityUserFlowAttributeAssignmentParameterValue?.isOptional;
+        this.requiresVerification = identityUserFlowAttributeAssignmentParameterValue?.requiresVerification;
+        this.userAttribute = identityUserFlowAttributeAssignmentParameterValue?.userAttribute;
+        this.userAttributeValues = identityUserFlowAttributeAssignmentParameterValue?.userAttributeValues;
+        this.userInputType = identityUserFlowAttributeAssignmentParameterValue?.userInputType;
     };
     /**
      * The deserialization information for the current model
@@ -56,22 +56,22 @@ export class IdentityUserFlowAttributeAssignmentImpl extends EntityImpl implemen
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.displayName){
-        writer.writeStringValue("displayName", this.displayName);
+            writer.writeStringValue("displayName", this.displayName);
         }
         if(this.isOptional){
-        writer.writeBooleanValue("isOptional", this.isOptional);
+            writer.writeBooleanValue("isOptional", this.isOptional);
         }
         if(this.requiresVerification){
-        writer.writeBooleanValue("requiresVerification", this.requiresVerification);
+            writer.writeBooleanValue("requiresVerification", this.requiresVerification);
         }
         if(this.userAttribute){
-        writer.writeObjectValue<IdentityUserFlowAttributeImpl>("userAttribute", new IdentityUserFlowAttributeImpl(this.userAttribute));
+            writer.writeObjectValue<IdentityUserFlowAttributeImpl>("userAttribute", new IdentityUserFlowAttributeImpl(this.userAttribute));
         }
         if(this.userAttributeValues && this.userAttributeValues.length != 0){        const userAttributeValuesArrValue: UserAttributeValuesItemImpl[] = []; this.userAttributeValues?.forEach(element => {userAttributeValuesArrValue.push(new UserAttributeValuesItemImpl(element));});
-        writer.writeCollectionOfObjectValues<UserAttributeValuesItemImpl>("userAttributeValues", userAttributeValuesArrValue);
+            writer.writeCollectionOfObjectValues<UserAttributeValuesItemImpl>("userAttributeValues", userAttributeValuesArrValue);
         }
         if(this.userInputType){
-        writer.writeEnumValue<IdentityUserFlowAttributeInputType>("userInputType", this.userInputType);
+            writer.writeEnumValue<IdentityUserFlowAttributeInputType>("userInputType", this.userInputType);
         }
     };
 }

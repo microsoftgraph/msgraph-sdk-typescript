@@ -7,7 +7,7 @@ import {ReportRoot} from './reportRoot';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** The resource that represents an instance of Enrollment Failure Reports. */
-export class ReportRootImpl extends EntityImpl implements Parsable, ReportRoot {
+export class ReportRootImpl extends EntityImpl implements ReportRoot {
     /** The dailyPrintUsageByPrinter property */
     public dailyPrintUsageByPrinter?: PrintUsageByPrinter[] | undefined;
     /** The dailyPrintUsageByUser property */
@@ -21,11 +21,11 @@ export class ReportRootImpl extends EntityImpl implements Parsable, ReportRoot {
      * @param reportRootParameterValue 
      */
     public constructor(reportRootParameterValue?: ReportRoot | undefined) {
-        super();
-        this.dailyPrintUsageByPrinter = reportRootParameterValue?.dailyPrintUsageByPrinter ;
-        this.dailyPrintUsageByUser = reportRootParameterValue?.dailyPrintUsageByUser ;
-        this.monthlyPrintUsageByPrinter = reportRootParameterValue?.monthlyPrintUsageByPrinter ;
-        this.monthlyPrintUsageByUser = reportRootParameterValue?.monthlyPrintUsageByUser ;
+        super(reportRootParameterValue);
+        this.dailyPrintUsageByPrinter = reportRootParameterValue?.dailyPrintUsageByPrinter;
+        this.dailyPrintUsageByUser = reportRootParameterValue?.dailyPrintUsageByUser;
+        this.monthlyPrintUsageByPrinter = reportRootParameterValue?.monthlyPrintUsageByPrinter;
+        this.monthlyPrintUsageByUser = reportRootParameterValue?.monthlyPrintUsageByUser;
     };
     /**
      * The deserialization information for the current model
@@ -47,16 +47,16 @@ export class ReportRootImpl extends EntityImpl implements Parsable, ReportRoot {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.dailyPrintUsageByPrinter && this.dailyPrintUsageByPrinter.length != 0){        const dailyPrintUsageByPrinterArrValue: PrintUsageByPrinterImpl[] = []; this.dailyPrintUsageByPrinter?.forEach(element => {dailyPrintUsageByPrinterArrValue.push(new PrintUsageByPrinterImpl(element));});
-        writer.writeCollectionOfObjectValues<PrintUsageByPrinterImpl>("dailyPrintUsageByPrinter", dailyPrintUsageByPrinterArrValue);
+            writer.writeCollectionOfObjectValues<PrintUsageByPrinterImpl>("dailyPrintUsageByPrinter", dailyPrintUsageByPrinterArrValue);
         }
         if(this.dailyPrintUsageByUser && this.dailyPrintUsageByUser.length != 0){        const dailyPrintUsageByUserArrValue: PrintUsageByUserImpl[] = []; this.dailyPrintUsageByUser?.forEach(element => {dailyPrintUsageByUserArrValue.push(new PrintUsageByUserImpl(element));});
-        writer.writeCollectionOfObjectValues<PrintUsageByUserImpl>("dailyPrintUsageByUser", dailyPrintUsageByUserArrValue);
+            writer.writeCollectionOfObjectValues<PrintUsageByUserImpl>("dailyPrintUsageByUser", dailyPrintUsageByUserArrValue);
         }
         if(this.monthlyPrintUsageByPrinter && this.monthlyPrintUsageByPrinter.length != 0){        const monthlyPrintUsageByPrinterArrValue: PrintUsageByPrinterImpl[] = []; this.monthlyPrintUsageByPrinter?.forEach(element => {monthlyPrintUsageByPrinterArrValue.push(new PrintUsageByPrinterImpl(element));});
-        writer.writeCollectionOfObjectValues<PrintUsageByPrinterImpl>("monthlyPrintUsageByPrinter", monthlyPrintUsageByPrinterArrValue);
+            writer.writeCollectionOfObjectValues<PrintUsageByPrinterImpl>("monthlyPrintUsageByPrinter", monthlyPrintUsageByPrinterArrValue);
         }
         if(this.monthlyPrintUsageByUser && this.monthlyPrintUsageByUser.length != 0){        const monthlyPrintUsageByUserArrValue: PrintUsageByUserImpl[] = []; this.monthlyPrintUsageByUser?.forEach(element => {monthlyPrintUsageByUserArrValue.push(new PrintUsageByUserImpl(element));});
-        writer.writeCollectionOfObjectValues<PrintUsageByUserImpl>("monthlyPrintUsageByUser", monthlyPrintUsageByUserArrValue);
+            writer.writeCollectionOfObjectValues<PrintUsageByUserImpl>("monthlyPrintUsageByUser", monthlyPrintUsageByUserArrValue);
         }
     };
 }

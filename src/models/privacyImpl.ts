@@ -4,7 +4,7 @@ import {Privacy} from './privacy';
 import {SubjectRightsRequest} from './subjectRightsRequest';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class PrivacyImpl implements AdditionalDataHolder, Parsable, Privacy {
+export class PrivacyImpl implements Privacy {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The subjectRightsRequests property */
@@ -14,8 +14,8 @@ export class PrivacyImpl implements AdditionalDataHolder, Parsable, Privacy {
      * @param privacyParameterValue 
      */
     public constructor(privacyParameterValue?: Privacy | undefined) {
-        this.additionalData = privacyParameterValue?.additionalData ? privacyParameterValue?.additionalData! : {}
-        this.subjectRightsRequests = privacyParameterValue?.subjectRightsRequests ;
+        this.additionalData = privacyParameterValue?.additionalData ? privacyParameterValue?.additionalData! : {};
+        this.subjectRightsRequests = privacyParameterValue?.subjectRightsRequests;
     };
     /**
      * The deserialization information for the current model
@@ -33,7 +33,7 @@ export class PrivacyImpl implements AdditionalDataHolder, Parsable, Privacy {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.subjectRightsRequests && this.subjectRightsRequests.length != 0){        const subjectRightsRequestsArrValue: SubjectRightsRequestImpl[] = []; this.subjectRightsRequests?.forEach(element => {subjectRightsRequestsArrValue.push(new SubjectRightsRequestImpl(element));});
-        writer.writeCollectionOfObjectValues<SubjectRightsRequestImpl>("subjectRightsRequests", subjectRightsRequestsArrValue);
+            writer.writeCollectionOfObjectValues<SubjectRightsRequestImpl>("subjectRightsRequests", subjectRightsRequestsArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

@@ -20,8 +20,8 @@ import {Subscription} from './subscription';
 import {SystemFacet} from './systemFacet';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to group. */
-export class ListImpl extends BaseItemImpl implements List, Parsable {
+/** Casts the previous resource to user. */
+export class ListImpl extends BaseItemImpl implements List {
     /** The collection of field definitions for this list. */
     public columns?: ColumnDefinition[] | undefined;
     /** The collection of content types present in this list. */
@@ -47,17 +47,17 @@ export class ListImpl extends BaseItemImpl implements List, Parsable {
      * @param listParameterValue 
      */
     public constructor(listParameterValue?: List | undefined) {
-        super();
-        this.columns = listParameterValue?.columns ;
-        this.contentTypes = listParameterValue?.contentTypes ;
-        this.displayName = listParameterValue?.displayName ;
-        this.drive = listParameterValue?.drive ;
-        this.items = listParameterValue?.items ;
-        this.list = listParameterValue?.list ;
-        this.operations = listParameterValue?.operations ;
-        this.sharepointIds = listParameterValue?.sharepointIds ;
-        this.subscriptions = listParameterValue?.subscriptions ;
-        this.system = listParameterValue?.system ;
+        super(listParameterValue);
+        this.columns = listParameterValue?.columns;
+        this.contentTypes = listParameterValue?.contentTypes;
+        this.displayName = listParameterValue?.displayName;
+        this.drive = listParameterValue?.drive;
+        this.items = listParameterValue?.items;
+        this.list = listParameterValue?.list;
+        this.operations = listParameterValue?.operations;
+        this.sharepointIds = listParameterValue?.sharepointIds;
+        this.subscriptions = listParameterValue?.subscriptions;
+        this.system = listParameterValue?.system;
     };
     /**
      * The deserialization information for the current model
@@ -85,34 +85,34 @@ export class ListImpl extends BaseItemImpl implements List, Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.columns && this.columns.length != 0){        const columnsArrValue: ColumnDefinitionImpl[] = []; this.columns?.forEach(element => {columnsArrValue.push(new ColumnDefinitionImpl(element));});
-        writer.writeCollectionOfObjectValues<ColumnDefinitionImpl>("columns", columnsArrValue);
+            writer.writeCollectionOfObjectValues<ColumnDefinitionImpl>("columns", columnsArrValue);
         }
         if(this.contentTypes && this.contentTypes.length != 0){        const contentTypesArrValue: ContentTypeImpl[] = []; this.contentTypes?.forEach(element => {contentTypesArrValue.push(new ContentTypeImpl(element));});
-        writer.writeCollectionOfObjectValues<ContentTypeImpl>("contentTypes", contentTypesArrValue);
+            writer.writeCollectionOfObjectValues<ContentTypeImpl>("contentTypes", contentTypesArrValue);
         }
         if(this.displayName){
-        writer.writeStringValue("displayName", this.displayName);
+            writer.writeStringValue("displayName", this.displayName);
         }
         if(this.drive){
-        writer.writeObjectValue<DriveImpl>("drive", new DriveImpl(this.drive));
+            writer.writeObjectValue<DriveImpl>("drive", new DriveImpl(this.drive));
         }
         if(this.items && this.items.length != 0){        const itemsArrValue: ListItemImpl[] = []; this.items?.forEach(element => {itemsArrValue.push(new ListItemImpl(element));});
-        writer.writeCollectionOfObjectValues<ListItemImpl>("items", itemsArrValue);
+            writer.writeCollectionOfObjectValues<ListItemImpl>("items", itemsArrValue);
         }
         if(this.list){
-        writer.writeObjectValue<ListInfoImpl>("list", new ListInfoImpl(this.list));
+            writer.writeObjectValue<ListInfoImpl>("list", new ListInfoImpl(this.list));
         }
         if(this.operations && this.operations.length != 0){        const operationsArrValue: RichLongRunningOperationImpl[] = []; this.operations?.forEach(element => {operationsArrValue.push(new RichLongRunningOperationImpl(element));});
-        writer.writeCollectionOfObjectValues<RichLongRunningOperationImpl>("operations", operationsArrValue);
+            writer.writeCollectionOfObjectValues<RichLongRunningOperationImpl>("operations", operationsArrValue);
         }
         if(this.sharepointIds){
-        writer.writeObjectValue<SharepointIdsImpl>("sharepointIds", new SharepointIdsImpl(this.sharepointIds));
+            writer.writeObjectValue<SharepointIdsImpl>("sharepointIds", new SharepointIdsImpl(this.sharepointIds));
         }
         if(this.subscriptions && this.subscriptions.length != 0){        const subscriptionsArrValue: SubscriptionImpl[] = []; this.subscriptions?.forEach(element => {subscriptionsArrValue.push(new SubscriptionImpl(element));});
-        writer.writeCollectionOfObjectValues<SubscriptionImpl>("subscriptions", subscriptionsArrValue);
+            writer.writeCollectionOfObjectValues<SubscriptionImpl>("subscriptions", subscriptionsArrValue);
         }
         if(this.system){
-        writer.writeObjectValue<SystemFacetImpl>("system", new SystemFacetImpl(this.system));
+            writer.writeObjectValue<SystemFacetImpl>("system", new SystemFacetImpl(this.system));
         }
     };
 }

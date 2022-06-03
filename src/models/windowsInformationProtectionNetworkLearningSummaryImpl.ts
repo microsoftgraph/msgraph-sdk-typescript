@@ -3,7 +3,7 @@ import {WindowsInformationProtectionNetworkLearningSummary} from './windowsInfor
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Windows Information Protection Network learning Summary entity. */
-export class WindowsInformationProtectionNetworkLearningSummaryImpl extends EntityImpl implements Parsable, WindowsInformationProtectionNetworkLearningSummary {
+export class WindowsInformationProtectionNetworkLearningSummaryImpl extends EntityImpl implements WindowsInformationProtectionNetworkLearningSummary {
     /** Device Count */
     public deviceCount?: number | undefined;
     /** Website url */
@@ -13,9 +13,9 @@ export class WindowsInformationProtectionNetworkLearningSummaryImpl extends Enti
      * @param windowsInformationProtectionNetworkLearningSummaryParameterValue 
      */
     public constructor(windowsInformationProtectionNetworkLearningSummaryParameterValue?: WindowsInformationProtectionNetworkLearningSummary | undefined) {
-        super();
-        this.deviceCount = windowsInformationProtectionNetworkLearningSummaryParameterValue?.deviceCount ;
-        this.url = windowsInformationProtectionNetworkLearningSummaryParameterValue?.url ;
+        super(windowsInformationProtectionNetworkLearningSummaryParameterValue);
+        this.deviceCount = windowsInformationProtectionNetworkLearningSummaryParameterValue?.deviceCount;
+        this.url = windowsInformationProtectionNetworkLearningSummaryParameterValue?.url;
     };
     /**
      * The deserialization information for the current model
@@ -35,10 +35,10 @@ export class WindowsInformationProtectionNetworkLearningSummaryImpl extends Enti
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.deviceCount){
-        writer.writeNumberValue("deviceCount", this.deviceCount);
+            writer.writeNumberValue("deviceCount", this.deviceCount);
         }
         if(this.url){
-        writer.writeStringValue("url", this.url);
+            writer.writeStringValue("url", this.url);
         }
     };
 }

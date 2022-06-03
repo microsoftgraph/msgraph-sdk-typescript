@@ -2,7 +2,7 @@ import {ArchiveResponse} from './archiveResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the archive method. */
-export class ArchiveResponseImpl implements AdditionalDataHolder, ArchiveResponse, Parsable {
+export class ArchiveResponseImpl implements ArchiveResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The value property */
@@ -12,8 +12,8 @@ export class ArchiveResponseImpl implements AdditionalDataHolder, ArchiveRespons
      * @param archiveResponseParameterValue 
      */
     public constructor(archiveResponseParameterValue?: ArchiveResponse | undefined) {
-        this.additionalData = archiveResponseParameterValue?.additionalData ? archiveResponseParameterValue?.additionalData! : {}
-        this.value = archiveResponseParameterValue?.value ;
+        this.additionalData = archiveResponseParameterValue?.additionalData ? archiveResponseParameterValue?.additionalData! : {};
+        this.value = archiveResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -31,7 +31,7 @@ export class ArchiveResponseImpl implements AdditionalDataHolder, ArchiveRespons
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.value){
-        writer.writeBooleanValue("value", this.value);
+            writer.writeBooleanValue("value", this.value);
         }
         writer.writeAdditionalData(this.additionalData);
     };

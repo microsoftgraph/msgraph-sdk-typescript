@@ -1,7 +1,7 @@
 import {SamlSingleSignOnSettings} from './samlSingleSignOnSettings';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class SamlSingleSignOnSettingsImpl implements AdditionalDataHolder, Parsable, SamlSingleSignOnSettings {
+export class SamlSingleSignOnSettingsImpl implements SamlSingleSignOnSettings {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The relative URI the service provider would redirect to after completion of the single sign-on flow. */
@@ -11,8 +11,8 @@ export class SamlSingleSignOnSettingsImpl implements AdditionalDataHolder, Parsa
      * @param samlSingleSignOnSettingsParameterValue 
      */
     public constructor(samlSingleSignOnSettingsParameterValue?: SamlSingleSignOnSettings | undefined) {
-        this.additionalData = samlSingleSignOnSettingsParameterValue?.additionalData ? samlSingleSignOnSettingsParameterValue?.additionalData! : {}
-        this.relayState = samlSingleSignOnSettingsParameterValue?.relayState ;
+        this.additionalData = samlSingleSignOnSettingsParameterValue?.additionalData ? samlSingleSignOnSettingsParameterValue?.additionalData! : {};
+        this.relayState = samlSingleSignOnSettingsParameterValue?.relayState;
     };
     /**
      * The deserialization information for the current model
@@ -30,7 +30,7 @@ export class SamlSingleSignOnSettingsImpl implements AdditionalDataHolder, Parsa
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.relayState){
-        writer.writeStringValue("relayState", this.relayState);
+            writer.writeStringValue("relayState", this.relayState);
         }
         writer.writeAdditionalData(this.additionalData);
     };

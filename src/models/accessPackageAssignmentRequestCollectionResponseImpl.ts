@@ -4,7 +4,7 @@ import {createAccessPackageAssignmentRequestFromDiscriminatorValue} from './crea
 import {AccessPackageAssignmentRequestImpl} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class AccessPackageAssignmentRequestCollectionResponseImpl implements AccessPackageAssignmentRequestCollectionResponse, AdditionalDataHolder, Parsable {
+export class AccessPackageAssignmentRequestCollectionResponseImpl implements AccessPackageAssignmentRequestCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class AccessPackageAssignmentRequestCollectionResponseImpl implements Acc
      * @param accessPackageAssignmentRequestCollectionResponseParameterValue 
      */
     public constructor(accessPackageAssignmentRequestCollectionResponseParameterValue?: AccessPackageAssignmentRequestCollectionResponse | undefined) {
-        this.additionalData = accessPackageAssignmentRequestCollectionResponseParameterValue?.additionalData ? accessPackageAssignmentRequestCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = accessPackageAssignmentRequestCollectionResponseParameterValue?.nextLink ;
-        this.value = accessPackageAssignmentRequestCollectionResponseParameterValue?.value ;
+        this.additionalData = accessPackageAssignmentRequestCollectionResponseParameterValue?.additionalData ? accessPackageAssignmentRequestCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = accessPackageAssignmentRequestCollectionResponseParameterValue?.nextLink;
+        this.value = accessPackageAssignmentRequestCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class AccessPackageAssignmentRequestCollectionResponseImpl implements Acc
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: AccessPackageAssignmentRequestImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new AccessPackageAssignmentRequestImpl(element));});
-        writer.writeCollectionOfObjectValues<AccessPackageAssignmentRequestImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<AccessPackageAssignmentRequestImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

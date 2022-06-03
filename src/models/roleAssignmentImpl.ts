@@ -5,7 +5,7 @@ import {RoleDefinition} from './roleDefinition';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** The Role Assignment resource. Role assignments tie together a role definition with members and scopes. There can be one or more role assignments per role. This applies to custom and built-in roles. */
-export class RoleAssignmentImpl extends EntityImpl implements Parsable, RoleAssignment {
+export class RoleAssignmentImpl extends EntityImpl implements RoleAssignment {
     /** Description of the Role Assignment. */
     public description?: string | undefined;
     /** The display or friendly name of the role Assignment. */
@@ -19,11 +19,11 @@ export class RoleAssignmentImpl extends EntityImpl implements Parsable, RoleAssi
      * @param roleAssignmentParameterValue 
      */
     public constructor(roleAssignmentParameterValue?: RoleAssignment | undefined) {
-        super();
-        this.description = roleAssignmentParameterValue?.description ;
-        this.displayName = roleAssignmentParameterValue?.displayName ;
-        this.resourceScopes = roleAssignmentParameterValue?.resourceScopes ;
-        this.roleDefinition = roleAssignmentParameterValue?.roleDefinition ;
+        super(roleAssignmentParameterValue);
+        this.description = roleAssignmentParameterValue?.description;
+        this.displayName = roleAssignmentParameterValue?.displayName;
+        this.resourceScopes = roleAssignmentParameterValue?.resourceScopes;
+        this.roleDefinition = roleAssignmentParameterValue?.roleDefinition;
     };
     /**
      * The deserialization information for the current model
@@ -45,16 +45,16 @@ export class RoleAssignmentImpl extends EntityImpl implements Parsable, RoleAssi
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.description){
-        writer.writeStringValue("description", this.description);
+            writer.writeStringValue("description", this.description);
         }
         if(this.displayName){
-        writer.writeStringValue("displayName", this.displayName);
+            writer.writeStringValue("displayName", this.displayName);
         }
         if(this.resourceScopes){
-        writer.writeCollectionOfPrimitiveValues<string>("resourceScopes", this.resourceScopes);
+            writer.writeCollectionOfPrimitiveValues<string>("resourceScopes", this.resourceScopes);
         }
         if(this.roleDefinition){
-        writer.writeObjectValue<RoleDefinitionImpl>("roleDefinition", new RoleDefinitionImpl(this.roleDefinition));
+            writer.writeObjectValue<RoleDefinitionImpl>("roleDefinition", new RoleDefinitionImpl(this.roleDefinition));
         }
     };
 }

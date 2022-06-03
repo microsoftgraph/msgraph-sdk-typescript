@@ -4,7 +4,7 @@ import {ManagedDeviceMobileAppConfigurationUserStatus} from './managedDeviceMobi
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Contains properties, inherited properties and actions for an MDM mobile app configuration status for a user. */
-export class ManagedDeviceMobileAppConfigurationUserStatusImpl extends EntityImpl implements ManagedDeviceMobileAppConfigurationUserStatus, Parsable {
+export class ManagedDeviceMobileAppConfigurationUserStatusImpl extends EntityImpl implements ManagedDeviceMobileAppConfigurationUserStatus {
     /** Devices count for that user. */
     public devicesCount?: number | undefined;
     /** Last modified date time of the policy report. */
@@ -20,12 +20,12 @@ export class ManagedDeviceMobileAppConfigurationUserStatusImpl extends EntityImp
      * @param managedDeviceMobileAppConfigurationUserStatusParameterValue 
      */
     public constructor(managedDeviceMobileAppConfigurationUserStatusParameterValue?: ManagedDeviceMobileAppConfigurationUserStatus | undefined) {
-        super();
-        this.devicesCount = managedDeviceMobileAppConfigurationUserStatusParameterValue?.devicesCount ;
-        this.lastReportedDateTime = managedDeviceMobileAppConfigurationUserStatusParameterValue?.lastReportedDateTime ;
-        this.status = managedDeviceMobileAppConfigurationUserStatusParameterValue?.status ;
-        this.userDisplayName = managedDeviceMobileAppConfigurationUserStatusParameterValue?.userDisplayName ;
-        this.userPrincipalName = managedDeviceMobileAppConfigurationUserStatusParameterValue?.userPrincipalName ;
+        super(managedDeviceMobileAppConfigurationUserStatusParameterValue);
+        this.devicesCount = managedDeviceMobileAppConfigurationUserStatusParameterValue?.devicesCount;
+        this.lastReportedDateTime = managedDeviceMobileAppConfigurationUserStatusParameterValue?.lastReportedDateTime;
+        this.status = managedDeviceMobileAppConfigurationUserStatusParameterValue?.status;
+        this.userDisplayName = managedDeviceMobileAppConfigurationUserStatusParameterValue?.userDisplayName;
+        this.userPrincipalName = managedDeviceMobileAppConfigurationUserStatusParameterValue?.userPrincipalName;
     };
     /**
      * The deserialization information for the current model
@@ -48,19 +48,19 @@ export class ManagedDeviceMobileAppConfigurationUserStatusImpl extends EntityImp
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.devicesCount){
-        writer.writeNumberValue("devicesCount", this.devicesCount);
+            writer.writeNumberValue("devicesCount", this.devicesCount);
         }
         if(this.lastReportedDateTime){
-        writer.writeDateValue("lastReportedDateTime", this.lastReportedDateTime);
+            writer.writeDateValue("lastReportedDateTime", this.lastReportedDateTime);
         }
         if(this.status){
-        writer.writeEnumValue<ComplianceStatus>("status", this.status);
+            writer.writeEnumValue<ComplianceStatus>("status", this.status);
         }
         if(this.userDisplayName){
-        writer.writeStringValue("userDisplayName", this.userDisplayName);
+            writer.writeStringValue("userDisplayName", this.userDisplayName);
         }
         if(this.userPrincipalName){
-        writer.writeStringValue("userPrincipalName", this.userPrincipalName);
+            writer.writeStringValue("userPrincipalName", this.userPrincipalName);
         }
     };
 }

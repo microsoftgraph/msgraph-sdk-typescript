@@ -5,7 +5,7 @@ import {AccessReviewReviewerScopeImpl, EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the policyRoot singleton. */
-export class AdminConsentRequestPolicyImpl extends EntityImpl implements AdminConsentRequestPolicy, Parsable {
+export class AdminConsentRequestPolicyImpl extends EntityImpl implements AdminConsentRequestPolicy {
     /** Specifies whether the admin consent request feature is enabled or disabled. Required. */
     public isEnabled?: boolean | undefined;
     /** Specifies whether reviewers will receive notifications. Required. */
@@ -23,13 +23,13 @@ export class AdminConsentRequestPolicyImpl extends EntityImpl implements AdminCo
      * @param adminConsentRequestPolicyParameterValue 
      */
     public constructor(adminConsentRequestPolicyParameterValue?: AdminConsentRequestPolicy | undefined) {
-        super();
-        this.isEnabled = adminConsentRequestPolicyParameterValue?.isEnabled ;
-        this.notifyReviewers = adminConsentRequestPolicyParameterValue?.notifyReviewers ;
-        this.remindersEnabled = adminConsentRequestPolicyParameterValue?.remindersEnabled ;
-        this.requestDurationInDays = adminConsentRequestPolicyParameterValue?.requestDurationInDays ;
-        this.reviewers = adminConsentRequestPolicyParameterValue?.reviewers ;
-        this.version = adminConsentRequestPolicyParameterValue?.version ;
+        super(adminConsentRequestPolicyParameterValue);
+        this.isEnabled = adminConsentRequestPolicyParameterValue?.isEnabled;
+        this.notifyReviewers = adminConsentRequestPolicyParameterValue?.notifyReviewers;
+        this.remindersEnabled = adminConsentRequestPolicyParameterValue?.remindersEnabled;
+        this.requestDurationInDays = adminConsentRequestPolicyParameterValue?.requestDurationInDays;
+        this.reviewers = adminConsentRequestPolicyParameterValue?.reviewers;
+        this.version = adminConsentRequestPolicyParameterValue?.version;
     };
     /**
      * The deserialization information for the current model
@@ -53,22 +53,22 @@ export class AdminConsentRequestPolicyImpl extends EntityImpl implements AdminCo
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.isEnabled){
-        writer.writeBooleanValue("isEnabled", this.isEnabled);
+            writer.writeBooleanValue("isEnabled", this.isEnabled);
         }
         if(this.notifyReviewers){
-        writer.writeBooleanValue("notifyReviewers", this.notifyReviewers);
+            writer.writeBooleanValue("notifyReviewers", this.notifyReviewers);
         }
         if(this.remindersEnabled){
-        writer.writeBooleanValue("remindersEnabled", this.remindersEnabled);
+            writer.writeBooleanValue("remindersEnabled", this.remindersEnabled);
         }
         if(this.requestDurationInDays){
-        writer.writeNumberValue("requestDurationInDays", this.requestDurationInDays);
+            writer.writeNumberValue("requestDurationInDays", this.requestDurationInDays);
         }
         if(this.reviewers && this.reviewers.length != 0){        const reviewersArrValue: AccessReviewReviewerScopeImpl[] = []; this.reviewers?.forEach(element => {reviewersArrValue.push(new AccessReviewReviewerScopeImpl(element));});
-        writer.writeCollectionOfObjectValues<AccessReviewReviewerScopeImpl>("reviewers", reviewersArrValue);
+            writer.writeCollectionOfObjectValues<AccessReviewReviewerScopeImpl>("reviewers", reviewersArrValue);
         }
         if(this.version){
-        writer.writeNumberValue("version", this.version);
+            writer.writeNumberValue("version", this.version);
         }
     };
 }

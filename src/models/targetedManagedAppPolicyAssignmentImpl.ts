@@ -5,7 +5,7 @@ import {TargetedManagedAppPolicyAssignment} from './targetedManagedAppPolicyAssi
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** The type for deployment of groups or apps. */
-export class TargetedManagedAppPolicyAssignmentImpl extends EntityImpl implements Parsable, TargetedManagedAppPolicyAssignment {
+export class TargetedManagedAppPolicyAssignmentImpl extends EntityImpl implements TargetedManagedAppPolicyAssignment {
     /** Identifier for deployment to a group or app */
     public target?: DeviceAndAppManagementAssignmentTarget | undefined;
     /**
@@ -13,8 +13,8 @@ export class TargetedManagedAppPolicyAssignmentImpl extends EntityImpl implement
      * @param targetedManagedAppPolicyAssignmentParameterValue 
      */
     public constructor(targetedManagedAppPolicyAssignmentParameterValue?: TargetedManagedAppPolicyAssignment | undefined) {
-        super();
-        this.target = targetedManagedAppPolicyAssignmentParameterValue?.target ;
+        super(targetedManagedAppPolicyAssignmentParameterValue);
+        this.target = targetedManagedAppPolicyAssignmentParameterValue?.target;
     };
     /**
      * The deserialization information for the current model
@@ -33,7 +33,7 @@ export class TargetedManagedAppPolicyAssignmentImpl extends EntityImpl implement
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.target){
-        writer.writeObjectValue<DeviceAndAppManagementAssignmentTargetImpl>("target", new DeviceAndAppManagementAssignmentTargetImpl(this.target));
+            writer.writeObjectValue<DeviceAndAppManagementAssignmentTargetImpl>("target", new DeviceAndAppManagementAssignmentTargetImpl(this.target));
         }
     };
 }

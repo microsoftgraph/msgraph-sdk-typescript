@@ -6,7 +6,7 @@ import {ComplianceManagementPartnerAssignmentImpl, EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Compliance management partner for all platforms */
-export class ComplianceManagementPartnerImpl extends EntityImpl implements ComplianceManagementPartner, Parsable {
+export class ComplianceManagementPartnerImpl extends EntityImpl implements ComplianceManagementPartner {
     /** User groups which enroll Android devices through partner. */
     public androidEnrollmentAssignments?: ComplianceManagementPartnerAssignment[] | undefined;
     /** Partner onboarded for Android devices. */
@@ -30,16 +30,16 @@ export class ComplianceManagementPartnerImpl extends EntityImpl implements Compl
      * @param complianceManagementPartnerParameterValue 
      */
     public constructor(complianceManagementPartnerParameterValue?: ComplianceManagementPartner | undefined) {
-        super();
-        this.androidEnrollmentAssignments = complianceManagementPartnerParameterValue?.androidEnrollmentAssignments ;
-        this.androidOnboarded = complianceManagementPartnerParameterValue?.androidOnboarded ;
-        this.displayName = complianceManagementPartnerParameterValue?.displayName ;
-        this.iosEnrollmentAssignments = complianceManagementPartnerParameterValue?.iosEnrollmentAssignments ;
-        this.iosOnboarded = complianceManagementPartnerParameterValue?.iosOnboarded ;
-        this.lastHeartbeatDateTime = complianceManagementPartnerParameterValue?.lastHeartbeatDateTime ;
-        this.macOsEnrollmentAssignments = complianceManagementPartnerParameterValue?.macOsEnrollmentAssignments ;
-        this.macOsOnboarded = complianceManagementPartnerParameterValue?.macOsOnboarded ;
-        this.partnerState = complianceManagementPartnerParameterValue?.partnerState ;
+        super(complianceManagementPartnerParameterValue);
+        this.androidEnrollmentAssignments = complianceManagementPartnerParameterValue?.androidEnrollmentAssignments;
+        this.androidOnboarded = complianceManagementPartnerParameterValue?.androidOnboarded;
+        this.displayName = complianceManagementPartnerParameterValue?.displayName;
+        this.iosEnrollmentAssignments = complianceManagementPartnerParameterValue?.iosEnrollmentAssignments;
+        this.iosOnboarded = complianceManagementPartnerParameterValue?.iosOnboarded;
+        this.lastHeartbeatDateTime = complianceManagementPartnerParameterValue?.lastHeartbeatDateTime;
+        this.macOsEnrollmentAssignments = complianceManagementPartnerParameterValue?.macOsEnrollmentAssignments;
+        this.macOsOnboarded = complianceManagementPartnerParameterValue?.macOsOnboarded;
+        this.partnerState = complianceManagementPartnerParameterValue?.partnerState;
     };
     /**
      * The deserialization information for the current model
@@ -66,31 +66,31 @@ export class ComplianceManagementPartnerImpl extends EntityImpl implements Compl
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.androidEnrollmentAssignments && this.androidEnrollmentAssignments.length != 0){        const androidEnrollmentAssignmentsArrValue: ComplianceManagementPartnerAssignmentImpl[] = []; this.androidEnrollmentAssignments?.forEach(element => {androidEnrollmentAssignmentsArrValue.push(new ComplianceManagementPartnerAssignmentImpl(element));});
-        writer.writeCollectionOfObjectValues<ComplianceManagementPartnerAssignmentImpl>("androidEnrollmentAssignments", androidEnrollmentAssignmentsArrValue);
+            writer.writeCollectionOfObjectValues<ComplianceManagementPartnerAssignmentImpl>("androidEnrollmentAssignments", androidEnrollmentAssignmentsArrValue);
         }
         if(this.androidOnboarded){
-        writer.writeBooleanValue("androidOnboarded", this.androidOnboarded);
+            writer.writeBooleanValue("androidOnboarded", this.androidOnboarded);
         }
         if(this.displayName){
-        writer.writeStringValue("displayName", this.displayName);
+            writer.writeStringValue("displayName", this.displayName);
         }
         if(this.iosEnrollmentAssignments && this.iosEnrollmentAssignments.length != 0){        const iosEnrollmentAssignmentsArrValue: ComplianceManagementPartnerAssignmentImpl[] = []; this.iosEnrollmentAssignments?.forEach(element => {iosEnrollmentAssignmentsArrValue.push(new ComplianceManagementPartnerAssignmentImpl(element));});
-        writer.writeCollectionOfObjectValues<ComplianceManagementPartnerAssignmentImpl>("iosEnrollmentAssignments", iosEnrollmentAssignmentsArrValue);
+            writer.writeCollectionOfObjectValues<ComplianceManagementPartnerAssignmentImpl>("iosEnrollmentAssignments", iosEnrollmentAssignmentsArrValue);
         }
         if(this.iosOnboarded){
-        writer.writeBooleanValue("iosOnboarded", this.iosOnboarded);
+            writer.writeBooleanValue("iosOnboarded", this.iosOnboarded);
         }
         if(this.lastHeartbeatDateTime){
-        writer.writeDateValue("lastHeartbeatDateTime", this.lastHeartbeatDateTime);
+            writer.writeDateValue("lastHeartbeatDateTime", this.lastHeartbeatDateTime);
         }
         if(this.macOsEnrollmentAssignments && this.macOsEnrollmentAssignments.length != 0){        const macOsEnrollmentAssignmentsArrValue: ComplianceManagementPartnerAssignmentImpl[] = []; this.macOsEnrollmentAssignments?.forEach(element => {macOsEnrollmentAssignmentsArrValue.push(new ComplianceManagementPartnerAssignmentImpl(element));});
-        writer.writeCollectionOfObjectValues<ComplianceManagementPartnerAssignmentImpl>("macOsEnrollmentAssignments", macOsEnrollmentAssignmentsArrValue);
+            writer.writeCollectionOfObjectValues<ComplianceManagementPartnerAssignmentImpl>("macOsEnrollmentAssignments", macOsEnrollmentAssignmentsArrValue);
         }
         if(this.macOsOnboarded){
-        writer.writeBooleanValue("macOsOnboarded", this.macOsOnboarded);
+            writer.writeBooleanValue("macOsOnboarded", this.macOsOnboarded);
         }
         if(this.partnerState){
-        writer.writeEnumValue<DeviceManagementPartnerTenantState>("partnerState", this.partnerState);
+            writer.writeEnumValue<DeviceManagementPartnerTenantState>("partnerState", this.partnerState);
         }
     };
 }

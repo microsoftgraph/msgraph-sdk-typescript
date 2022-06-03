@@ -5,7 +5,7 @@ import {ListItemVersion} from './listItemVersion';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Casts the previous resource to user. */
-export class ListItemVersionImpl extends BaseItemVersionImpl implements ListItemVersion, Parsable {
+export class ListItemVersionImpl extends BaseItemVersionImpl implements ListItemVersion {
     /** A collection of the fields and values for this version of the list item. */
     public fields?: FieldValueSet | undefined;
     /**
@@ -13,8 +13,8 @@ export class ListItemVersionImpl extends BaseItemVersionImpl implements ListItem
      * @param listItemVersionParameterValue 
      */
     public constructor(listItemVersionParameterValue?: ListItemVersion | undefined) {
-        super();
-        this.fields = listItemVersionParameterValue?.fields ;
+        super(listItemVersionParameterValue);
+        this.fields = listItemVersionParameterValue?.fields;
     };
     /**
      * The deserialization information for the current model
@@ -33,7 +33,7 @@ export class ListItemVersionImpl extends BaseItemVersionImpl implements ListItem
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.fields){
-        writer.writeObjectValue<FieldValueSetImpl>("fields", new FieldValueSetImpl(this.fields));
+            writer.writeObjectValue<FieldValueSetImpl>("fields", new FieldValueSetImpl(this.fields));
         }
     };
 }

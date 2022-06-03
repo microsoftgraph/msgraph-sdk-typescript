@@ -1,12 +1,13 @@
 import {InvitationParticipantInfo} from '../../../../models/invitationParticipantInfo';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface RedirectPostRequestBody{
+export interface RedirectPostRequestBody extends Partial<AdditionalDataHolder>, Partial<Parsable> {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?:Record<string, unknown>;
+    additionalData?: Record<string, unknown>;
     /** The callbackUri property */
-    callbackUri?:string | undefined;
+    callbackUri?: string | undefined;
     /** The targets property */
-    targets?:InvitationParticipantInfo[] | undefined;
+    targets?: InvitationParticipantInfo[] | undefined;
     /** The timeout property */
-    timeout?:number | undefined;
+    timeout?: number | undefined;
 }

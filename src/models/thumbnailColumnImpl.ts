@@ -1,7 +1,7 @@
 import {ThumbnailColumn} from './thumbnailColumn';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ThumbnailColumnImpl implements AdditionalDataHolder, Parsable, ThumbnailColumn {
+export class ThumbnailColumnImpl implements ThumbnailColumn {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /**
@@ -9,7 +9,7 @@ export class ThumbnailColumnImpl implements AdditionalDataHolder, Parsable, Thum
      * @param thumbnailColumnParameterValue 
      */
     public constructor(thumbnailColumnParameterValue?: ThumbnailColumn | undefined) {
-        this.additionalData = thumbnailColumnParameterValue?.additionalData ? thumbnailColumnParameterValue?.additionalData! : {}
+        this.additionalData = thumbnailColumnParameterValue?.additionalData ? thumbnailColumnParameterValue?.additionalData! : {};
     };
     /**
      * The deserialization information for the current model

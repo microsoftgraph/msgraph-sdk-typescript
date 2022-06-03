@@ -1,7 +1,7 @@
 import {LocalizedDescription} from './localizedDescription';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class LocalizedDescriptionImpl implements AdditionalDataHolder, LocalizedDescription, Parsable {
+export class LocalizedDescriptionImpl implements LocalizedDescription {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The description in the localized language. */
@@ -13,9 +13,9 @@ export class LocalizedDescriptionImpl implements AdditionalDataHolder, Localized
      * @param localizedDescriptionParameterValue 
      */
     public constructor(localizedDescriptionParameterValue?: LocalizedDescription | undefined) {
-        this.additionalData = localizedDescriptionParameterValue?.additionalData ? localizedDescriptionParameterValue?.additionalData! : {}
-        this.description = localizedDescriptionParameterValue?.description ;
-        this.languageTag = localizedDescriptionParameterValue?.languageTag ;
+        this.additionalData = localizedDescriptionParameterValue?.additionalData ? localizedDescriptionParameterValue?.additionalData! : {};
+        this.description = localizedDescriptionParameterValue?.description;
+        this.languageTag = localizedDescriptionParameterValue?.languageTag;
     };
     /**
      * The deserialization information for the current model
@@ -34,10 +34,10 @@ export class LocalizedDescriptionImpl implements AdditionalDataHolder, Localized
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.description){
-        writer.writeStringValue("description", this.description);
+            writer.writeStringValue("description", this.description);
         }
         if(this.languageTag){
-        writer.writeStringValue("languageTag", this.languageTag);
+            writer.writeStringValue("languageTag", this.languageTag);
         }
         writer.writeAdditionalData(this.additionalData);
     };

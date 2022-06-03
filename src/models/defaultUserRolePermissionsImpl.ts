@@ -1,7 +1,7 @@
 import {DefaultUserRolePermissions} from './defaultUserRolePermissions';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class DefaultUserRolePermissionsImpl implements AdditionalDataHolder, DefaultUserRolePermissions, Parsable {
+export class DefaultUserRolePermissionsImpl implements DefaultUserRolePermissions {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Indicates whether the default user role can create applications. */
@@ -17,11 +17,11 @@ export class DefaultUserRolePermissionsImpl implements AdditionalDataHolder, Def
      * @param defaultUserRolePermissionsParameterValue 
      */
     public constructor(defaultUserRolePermissionsParameterValue?: DefaultUserRolePermissions | undefined) {
-        this.additionalData = defaultUserRolePermissionsParameterValue?.additionalData ? defaultUserRolePermissionsParameterValue?.additionalData! : {}
-        this.allowedToCreateApps = defaultUserRolePermissionsParameterValue?.allowedToCreateApps ;
-        this.allowedToCreateSecurityGroups = defaultUserRolePermissionsParameterValue?.allowedToCreateSecurityGroups ;
-        this.allowedToReadOtherUsers = defaultUserRolePermissionsParameterValue?.allowedToReadOtherUsers ;
-        this.permissionGrantPoliciesAssigned = defaultUserRolePermissionsParameterValue?.permissionGrantPoliciesAssigned ;
+        this.additionalData = defaultUserRolePermissionsParameterValue?.additionalData ? defaultUserRolePermissionsParameterValue?.additionalData! : {};
+        this.allowedToCreateApps = defaultUserRolePermissionsParameterValue?.allowedToCreateApps;
+        this.allowedToCreateSecurityGroups = defaultUserRolePermissionsParameterValue?.allowedToCreateSecurityGroups;
+        this.allowedToReadOtherUsers = defaultUserRolePermissionsParameterValue?.allowedToReadOtherUsers;
+        this.permissionGrantPoliciesAssigned = defaultUserRolePermissionsParameterValue?.permissionGrantPoliciesAssigned;
     };
     /**
      * The deserialization information for the current model
@@ -42,16 +42,16 @@ export class DefaultUserRolePermissionsImpl implements AdditionalDataHolder, Def
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.allowedToCreateApps){
-        writer.writeBooleanValue("allowedToCreateApps", this.allowedToCreateApps);
+            writer.writeBooleanValue("allowedToCreateApps", this.allowedToCreateApps);
         }
         if(this.allowedToCreateSecurityGroups){
-        writer.writeBooleanValue("allowedToCreateSecurityGroups", this.allowedToCreateSecurityGroups);
+            writer.writeBooleanValue("allowedToCreateSecurityGroups", this.allowedToCreateSecurityGroups);
         }
         if(this.allowedToReadOtherUsers){
-        writer.writeBooleanValue("allowedToReadOtherUsers", this.allowedToReadOtherUsers);
+            writer.writeBooleanValue("allowedToReadOtherUsers", this.allowedToReadOtherUsers);
         }
         if(this.permissionGrantPoliciesAssigned){
-        writer.writeCollectionOfPrimitiveValues<string>("permissionGrantPoliciesAssigned", this.permissionGrantPoliciesAssigned);
+            writer.writeCollectionOfPrimitiveValues<string>("permissionGrantPoliciesAssigned", this.permissionGrantPoliciesAssigned);
         }
         writer.writeAdditionalData(this.additionalData);
     };

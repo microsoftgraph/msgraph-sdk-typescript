@@ -5,7 +5,7 @@ import {DeviceAndAppManagementAssignmentTargetImpl, EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** The device configuration assignment entity assigns an AAD group to a specific device configuration. */
-export class DeviceConfigurationAssignmentImpl extends EntityImpl implements DeviceConfigurationAssignment, Parsable {
+export class DeviceConfigurationAssignmentImpl extends EntityImpl implements DeviceConfigurationAssignment {
     /** The assignment target for the device configuration. */
     public target?: DeviceAndAppManagementAssignmentTarget | undefined;
     /**
@@ -13,8 +13,8 @@ export class DeviceConfigurationAssignmentImpl extends EntityImpl implements Dev
      * @param deviceConfigurationAssignmentParameterValue 
      */
     public constructor(deviceConfigurationAssignmentParameterValue?: DeviceConfigurationAssignment | undefined) {
-        super();
-        this.target = deviceConfigurationAssignmentParameterValue?.target ;
+        super(deviceConfigurationAssignmentParameterValue);
+        this.target = deviceConfigurationAssignmentParameterValue?.target;
     };
     /**
      * The deserialization information for the current model
@@ -33,7 +33,7 @@ export class DeviceConfigurationAssignmentImpl extends EntityImpl implements Dev
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.target){
-        writer.writeObjectValue<DeviceAndAppManagementAssignmentTargetImpl>("target", new DeviceAndAppManagementAssignmentTargetImpl(this.target));
+            writer.writeObjectValue<DeviceAndAppManagementAssignmentTargetImpl>("target", new DeviceAndAppManagementAssignmentTargetImpl(this.target));
         }
     };
 }

@@ -7,8 +7,8 @@ import {PlannerPreviewType} from './plannerPreviewType';
 import {PlannerTaskDetails} from './plannerTaskDetails';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
-export class PlannerTaskDetailsImpl extends EntityImpl implements Parsable, PlannerTaskDetails {
+/** Casts the previous resource to group. */
+export class PlannerTaskDetailsImpl extends EntityImpl implements PlannerTaskDetails {
     /** The collection of checklist items on the task. */
     public checklist?: PlannerChecklistItems | undefined;
     /** Description of the task. */
@@ -22,11 +22,11 @@ export class PlannerTaskDetailsImpl extends EntityImpl implements Parsable, Plan
      * @param plannerTaskDetailsParameterValue 
      */
     public constructor(plannerTaskDetailsParameterValue?: PlannerTaskDetails | undefined) {
-        super();
-        this.checklist = plannerTaskDetailsParameterValue?.checklist ;
-        this.description = plannerTaskDetailsParameterValue?.description ;
-        this.previewType = plannerTaskDetailsParameterValue?.previewType ;
-        this.references = plannerTaskDetailsParameterValue?.references ;
+        super(plannerTaskDetailsParameterValue);
+        this.checklist = plannerTaskDetailsParameterValue?.checklist;
+        this.description = plannerTaskDetailsParameterValue?.description;
+        this.previewType = plannerTaskDetailsParameterValue?.previewType;
+        this.references = plannerTaskDetailsParameterValue?.references;
     };
     /**
      * The deserialization information for the current model
@@ -48,16 +48,16 @@ export class PlannerTaskDetailsImpl extends EntityImpl implements Parsable, Plan
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.checklist){
-        writer.writeObjectValue<PlannerChecklistItemsImpl>("checklist", new PlannerChecklistItemsImpl(this.checklist));
+            writer.writeObjectValue<PlannerChecklistItemsImpl>("checklist", new PlannerChecklistItemsImpl(this.checklist));
         }
         if(this.description){
-        writer.writeStringValue("description", this.description);
+            writer.writeStringValue("description", this.description);
         }
         if(this.previewType){
-        writer.writeEnumValue<PlannerPreviewType>("previewType", this.previewType);
+            writer.writeEnumValue<PlannerPreviewType>("previewType", this.previewType);
         }
         if(this.references){
-        writer.writeObjectValue<PlannerExternalReferencesImpl>("references", new PlannerExternalReferencesImpl(this.references));
+            writer.writeObjectValue<PlannerExternalReferencesImpl>("references", new PlannerExternalReferencesImpl(this.references));
         }
     };
 }

@@ -15,7 +15,7 @@ import {SignInStatus} from './signInStatus';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the auditLogRoot singleton. */
-export class SignInImpl extends EntityImpl implements Parsable, SignIn {
+export class SignInImpl extends EntityImpl implements SignIn {
     /** The application name displayed in the Azure Portal. Supports $filter (eq and startsWith operators only). */
     public appDisplayName?: string | undefined;
     /** The application identifier in Azure Active Directory. Supports $filter (eq operator only). */
@@ -67,30 +67,30 @@ export class SignInImpl extends EntityImpl implements Parsable, SignIn {
      * @param signInParameterValue 
      */
     public constructor(signInParameterValue?: SignIn | undefined) {
-        super();
-        this.appDisplayName = signInParameterValue?.appDisplayName ;
-        this.appId = signInParameterValue?.appId ;
-        this.appliedConditionalAccessPolicies = signInParameterValue?.appliedConditionalAccessPolicies ;
-        this.clientAppUsed = signInParameterValue?.clientAppUsed ;
-        this.conditionalAccessStatus = signInParameterValue?.conditionalAccessStatus ;
-        this.correlationId = signInParameterValue?.correlationId ;
-        this.createdDateTime = signInParameterValue?.createdDateTime ;
-        this.deviceDetail = signInParameterValue?.deviceDetail ;
-        this.ipAddress = signInParameterValue?.ipAddress ;
-        this.isInteractive = signInParameterValue?.isInteractive ;
-        this.location = signInParameterValue?.location ;
-        this.resourceDisplayName = signInParameterValue?.resourceDisplayName ;
-        this.resourceId = signInParameterValue?.resourceId ;
-        this.riskDetail = signInParameterValue?.riskDetail ;
-        this.riskEventTypes = signInParameterValue?.riskEventTypes ;
-        this.riskEventTypes_v2 = signInParameterValue?.riskEventTypes_v2 ;
-        this.riskLevelAggregated = signInParameterValue?.riskLevelAggregated ;
-        this.riskLevelDuringSignIn = signInParameterValue?.riskLevelDuringSignIn ;
-        this.riskState = signInParameterValue?.riskState ;
-        this.status = signInParameterValue?.status ;
-        this.userDisplayName = signInParameterValue?.userDisplayName ;
-        this.userId = signInParameterValue?.userId ;
-        this.userPrincipalName = signInParameterValue?.userPrincipalName ;
+        super(signInParameterValue);
+        this.appDisplayName = signInParameterValue?.appDisplayName;
+        this.appId = signInParameterValue?.appId;
+        this.appliedConditionalAccessPolicies = signInParameterValue?.appliedConditionalAccessPolicies;
+        this.clientAppUsed = signInParameterValue?.clientAppUsed;
+        this.conditionalAccessStatus = signInParameterValue?.conditionalAccessStatus;
+        this.correlationId = signInParameterValue?.correlationId;
+        this.createdDateTime = signInParameterValue?.createdDateTime;
+        this.deviceDetail = signInParameterValue?.deviceDetail;
+        this.ipAddress = signInParameterValue?.ipAddress;
+        this.isInteractive = signInParameterValue?.isInteractive;
+        this.location = signInParameterValue?.location;
+        this.resourceDisplayName = signInParameterValue?.resourceDisplayName;
+        this.resourceId = signInParameterValue?.resourceId;
+        this.riskDetail = signInParameterValue?.riskDetail;
+        this.riskEventTypes = signInParameterValue?.riskEventTypes;
+        this.riskEventTypes_v2 = signInParameterValue?.riskEventTypes_v2;
+        this.riskLevelAggregated = signInParameterValue?.riskLevelAggregated;
+        this.riskLevelDuringSignIn = signInParameterValue?.riskLevelDuringSignIn;
+        this.riskState = signInParameterValue?.riskState;
+        this.status = signInParameterValue?.status;
+        this.userDisplayName = signInParameterValue?.userDisplayName;
+        this.userId = signInParameterValue?.userId;
+        this.userPrincipalName = signInParameterValue?.userPrincipalName;
     };
     /**
      * The deserialization information for the current model
@@ -131,73 +131,73 @@ export class SignInImpl extends EntityImpl implements Parsable, SignIn {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.appDisplayName){
-        writer.writeStringValue("appDisplayName", this.appDisplayName);
+            writer.writeStringValue("appDisplayName", this.appDisplayName);
         }
         if(this.appId){
-        writer.writeStringValue("appId", this.appId);
+            writer.writeStringValue("appId", this.appId);
         }
         if(this.appliedConditionalAccessPolicies && this.appliedConditionalAccessPolicies.length != 0){        const appliedConditionalAccessPoliciesArrValue: AppliedConditionalAccessPolicyImpl[] = []; this.appliedConditionalAccessPolicies?.forEach(element => {appliedConditionalAccessPoliciesArrValue.push(new AppliedConditionalAccessPolicyImpl(element));});
-        writer.writeCollectionOfObjectValues<AppliedConditionalAccessPolicyImpl>("appliedConditionalAccessPolicies", appliedConditionalAccessPoliciesArrValue);
+            writer.writeCollectionOfObjectValues<AppliedConditionalAccessPolicyImpl>("appliedConditionalAccessPolicies", appliedConditionalAccessPoliciesArrValue);
         }
         if(this.clientAppUsed){
-        writer.writeStringValue("clientAppUsed", this.clientAppUsed);
+            writer.writeStringValue("clientAppUsed", this.clientAppUsed);
         }
         if(this.conditionalAccessStatus){
-        writer.writeEnumValue<ConditionalAccessStatus>("conditionalAccessStatus", this.conditionalAccessStatus);
+            writer.writeEnumValue<ConditionalAccessStatus>("conditionalAccessStatus", this.conditionalAccessStatus);
         }
         if(this.correlationId){
-        writer.writeStringValue("correlationId", this.correlationId);
+            writer.writeStringValue("correlationId", this.correlationId);
         }
         if(this.createdDateTime){
-        writer.writeDateValue("createdDateTime", this.createdDateTime);
+            writer.writeDateValue("createdDateTime", this.createdDateTime);
         }
         if(this.deviceDetail){
-        writer.writeObjectValue<DeviceDetailImpl>("deviceDetail", new DeviceDetailImpl(this.deviceDetail));
+            writer.writeObjectValue<DeviceDetailImpl>("deviceDetail", new DeviceDetailImpl(this.deviceDetail));
         }
         if(this.ipAddress){
-        writer.writeStringValue("ipAddress", this.ipAddress);
+            writer.writeStringValue("ipAddress", this.ipAddress);
         }
         if(this.isInteractive){
-        writer.writeBooleanValue("isInteractive", this.isInteractive);
+            writer.writeBooleanValue("isInteractive", this.isInteractive);
         }
         if(this.location){
-        writer.writeObjectValue<SignInLocationImpl>("location", new SignInLocationImpl(this.location));
+            writer.writeObjectValue<SignInLocationImpl>("location", new SignInLocationImpl(this.location));
         }
         if(this.resourceDisplayName){
-        writer.writeStringValue("resourceDisplayName", this.resourceDisplayName);
+            writer.writeStringValue("resourceDisplayName", this.resourceDisplayName);
         }
         if(this.resourceId){
-        writer.writeStringValue("resourceId", this.resourceId);
+            writer.writeStringValue("resourceId", this.resourceId);
         }
         if(this.riskDetail){
-        writer.writeEnumValue<RiskDetail>("riskDetail", this.riskDetail);
+            writer.writeEnumValue<RiskDetail>("riskDetail", this.riskDetail);
         }
         if(this.riskEventTypes){
-        writer.writeCollectionOfPrimitiveValues<string>("riskEventTypes", this.riskEventTypes);
+            writer.writeCollectionOfPrimitiveValues<string>("riskEventTypes", this.riskEventTypes);
         }
         if(this.riskEventTypes_v2){
-        writer.writeCollectionOfPrimitiveValues<string>("riskEventTypes_v2", this.riskEventTypes_v2);
+            writer.writeCollectionOfPrimitiveValues<string>("riskEventTypes_v2", this.riskEventTypes_v2);
         }
         if(this.riskLevelAggregated){
-        writer.writeEnumValue<RiskLevel>("riskLevelAggregated", this.riskLevelAggregated);
+            writer.writeEnumValue<RiskLevel>("riskLevelAggregated", this.riskLevelAggregated);
         }
         if(this.riskLevelDuringSignIn){
-        writer.writeEnumValue<RiskLevel>("riskLevelDuringSignIn", this.riskLevelDuringSignIn);
+            writer.writeEnumValue<RiskLevel>("riskLevelDuringSignIn", this.riskLevelDuringSignIn);
         }
         if(this.riskState){
-        writer.writeEnumValue<RiskState>("riskState", this.riskState);
+            writer.writeEnumValue<RiskState>("riskState", this.riskState);
         }
         if(this.status){
-        writer.writeObjectValue<SignInStatusImpl>("status", new SignInStatusImpl(this.status));
+            writer.writeObjectValue<SignInStatusImpl>("status", new SignInStatusImpl(this.status));
         }
         if(this.userDisplayName){
-        writer.writeStringValue("userDisplayName", this.userDisplayName);
+            writer.writeStringValue("userDisplayName", this.userDisplayName);
         }
         if(this.userId){
-        writer.writeStringValue("userId", this.userId);
+            writer.writeStringValue("userId", this.userId);
         }
         if(this.userPrincipalName){
-        writer.writeStringValue("userPrincipalName", this.userPrincipalName);
+            writer.writeStringValue("userPrincipalName", this.userPrincipalName);
         }
     };
 }

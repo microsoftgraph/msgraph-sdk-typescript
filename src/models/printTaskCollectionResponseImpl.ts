@@ -4,7 +4,7 @@ import {PrintTask} from './printTask';
 import {PrintTaskCollectionResponse} from './printTaskCollectionResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class PrintTaskCollectionResponseImpl implements AdditionalDataHolder, Parsable, PrintTaskCollectionResponse {
+export class PrintTaskCollectionResponseImpl implements PrintTaskCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class PrintTaskCollectionResponseImpl implements AdditionalDataHolder, Pa
      * @param printTaskCollectionResponseParameterValue 
      */
     public constructor(printTaskCollectionResponseParameterValue?: PrintTaskCollectionResponse | undefined) {
-        this.additionalData = printTaskCollectionResponseParameterValue?.additionalData ? printTaskCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = printTaskCollectionResponseParameterValue?.nextLink ;
-        this.value = printTaskCollectionResponseParameterValue?.value ;
+        this.additionalData = printTaskCollectionResponseParameterValue?.additionalData ? printTaskCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = printTaskCollectionResponseParameterValue?.nextLink;
+        this.value = printTaskCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class PrintTaskCollectionResponseImpl implements AdditionalDataHolder, Pa
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: PrintTaskImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new PrintTaskImpl(element));});
-        writer.writeCollectionOfObjectValues<PrintTaskImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<PrintTaskImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

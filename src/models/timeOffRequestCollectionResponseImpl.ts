@@ -4,7 +4,7 @@ import {TimeOffRequest} from './timeOffRequest';
 import {TimeOffRequestCollectionResponse} from './timeOffRequestCollectionResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class TimeOffRequestCollectionResponseImpl implements AdditionalDataHolder, Parsable, TimeOffRequestCollectionResponse {
+export class TimeOffRequestCollectionResponseImpl implements TimeOffRequestCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class TimeOffRequestCollectionResponseImpl implements AdditionalDataHolde
      * @param timeOffRequestCollectionResponseParameterValue 
      */
     public constructor(timeOffRequestCollectionResponseParameterValue?: TimeOffRequestCollectionResponse | undefined) {
-        this.additionalData = timeOffRequestCollectionResponseParameterValue?.additionalData ? timeOffRequestCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = timeOffRequestCollectionResponseParameterValue?.nextLink ;
-        this.value = timeOffRequestCollectionResponseParameterValue?.value ;
+        this.additionalData = timeOffRequestCollectionResponseParameterValue?.additionalData ? timeOffRequestCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = timeOffRequestCollectionResponseParameterValue?.nextLink;
+        this.value = timeOffRequestCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class TimeOffRequestCollectionResponseImpl implements AdditionalDataHolde
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: TimeOffRequestImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new TimeOffRequestImpl(element));});
-        writer.writeCollectionOfObjectValues<TimeOffRequestImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<TimeOffRequestImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

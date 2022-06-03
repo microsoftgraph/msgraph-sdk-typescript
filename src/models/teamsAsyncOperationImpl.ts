@@ -7,7 +7,7 @@ import {TeamsAsyncOperationType} from './teamsAsyncOperationType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Casts the previous resource to group. */
-export class TeamsAsyncOperationImpl extends EntityImpl implements Parsable, TeamsAsyncOperation {
+export class TeamsAsyncOperationImpl extends EntityImpl implements TeamsAsyncOperation {
     /** Number of times the operation was attempted before being marked successful or failed. */
     public attemptsCount?: number | undefined;
     /** Time when the operation was created. */
@@ -29,15 +29,15 @@ export class TeamsAsyncOperationImpl extends EntityImpl implements Parsable, Tea
      * @param teamsAsyncOperationParameterValue 
      */
     public constructor(teamsAsyncOperationParameterValue?: TeamsAsyncOperation | undefined) {
-        super();
-        this.attemptsCount = teamsAsyncOperationParameterValue?.attemptsCount ;
-        this.createdDateTime = teamsAsyncOperationParameterValue?.createdDateTime ;
-        this.error_escaped = teamsAsyncOperationParameterValue?.error_escaped ;
-        this.lastActionDateTime = teamsAsyncOperationParameterValue?.lastActionDateTime ;
-        this.operationType = teamsAsyncOperationParameterValue?.operationType ;
-        this.status = teamsAsyncOperationParameterValue?.status ;
-        this.targetResourceId = teamsAsyncOperationParameterValue?.targetResourceId ;
-        this.targetResourceLocation = teamsAsyncOperationParameterValue?.targetResourceLocation ;
+        super(teamsAsyncOperationParameterValue);
+        this.attemptsCount = teamsAsyncOperationParameterValue?.attemptsCount;
+        this.createdDateTime = teamsAsyncOperationParameterValue?.createdDateTime;
+        this.error_escaped = teamsAsyncOperationParameterValue?.error_escaped;
+        this.lastActionDateTime = teamsAsyncOperationParameterValue?.lastActionDateTime;
+        this.operationType = teamsAsyncOperationParameterValue?.operationType;
+        this.status = teamsAsyncOperationParameterValue?.status;
+        this.targetResourceId = teamsAsyncOperationParameterValue?.targetResourceId;
+        this.targetResourceLocation = teamsAsyncOperationParameterValue?.targetResourceLocation;
     };
     /**
      * The deserialization information for the current model
@@ -63,28 +63,28 @@ export class TeamsAsyncOperationImpl extends EntityImpl implements Parsable, Tea
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.attemptsCount){
-        writer.writeNumberValue("attemptsCount", this.attemptsCount);
+            writer.writeNumberValue("attemptsCount", this.attemptsCount);
         }
         if(this.createdDateTime){
-        writer.writeDateValue("createdDateTime", this.createdDateTime);
+            writer.writeDateValue("createdDateTime", this.createdDateTime);
         }
         if(this.error_escaped){
-        writer.writeObjectValue<OperationErrorImpl>("error", new OperationErrorImpl(this.error_escaped));
+            writer.writeObjectValue<OperationErrorImpl>("error", new OperationErrorImpl(this.error_escaped));
         }
         if(this.lastActionDateTime){
-        writer.writeDateValue("lastActionDateTime", this.lastActionDateTime);
+            writer.writeDateValue("lastActionDateTime", this.lastActionDateTime);
         }
         if(this.operationType){
-        writer.writeEnumValue<TeamsAsyncOperationType>("operationType", this.operationType);
+            writer.writeEnumValue<TeamsAsyncOperationType>("operationType", this.operationType);
         }
         if(this.status){
-        writer.writeEnumValue<TeamsAsyncOperationStatus>("status", this.status);
+            writer.writeEnumValue<TeamsAsyncOperationStatus>("status", this.status);
         }
         if(this.targetResourceId){
-        writer.writeStringValue("targetResourceId", this.targetResourceId);
+            writer.writeStringValue("targetResourceId", this.targetResourceId);
         }
         if(this.targetResourceLocation){
-        writer.writeStringValue("targetResourceLocation", this.targetResourceLocation);
+            writer.writeStringValue("targetResourceLocation", this.targetResourceLocation);
         }
     };
 }

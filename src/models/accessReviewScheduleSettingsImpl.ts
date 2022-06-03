@@ -6,7 +6,7 @@ import {AccessReviewApplyActionImpl, PatternedRecurrenceImpl} from './index';
 import {PatternedRecurrence} from './patternedRecurrence';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class AccessReviewScheduleSettingsImpl implements AccessReviewScheduleSettings, AdditionalDataHolder, Parsable {
+export class AccessReviewScheduleSettingsImpl implements AccessReviewScheduleSettings {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Optional field. Describes the  actions to take once a review is complete. There are two types that are currently supported: removeAccessApplyAction (default) and disableAndDeleteUserApplyAction. Field only needs to be specified in the case of disableAndDeleteUserApplyAction. */
@@ -34,17 +34,17 @@ export class AccessReviewScheduleSettingsImpl implements AccessReviewScheduleSet
      * @param accessReviewScheduleSettingsParameterValue 
      */
     public constructor(accessReviewScheduleSettingsParameterValue?: AccessReviewScheduleSettings | undefined) {
-        this.additionalData = accessReviewScheduleSettingsParameterValue?.additionalData ? accessReviewScheduleSettingsParameterValue?.additionalData! : {}
-        this.applyActions = accessReviewScheduleSettingsParameterValue?.applyActions ;
-        this.autoApplyDecisionsEnabled = accessReviewScheduleSettingsParameterValue?.autoApplyDecisionsEnabled ;
-        this.defaultDecision = accessReviewScheduleSettingsParameterValue?.defaultDecision ;
-        this.defaultDecisionEnabled = accessReviewScheduleSettingsParameterValue?.defaultDecisionEnabled ;
-        this.instanceDurationInDays = accessReviewScheduleSettingsParameterValue?.instanceDurationInDays ;
-        this.justificationRequiredOnApproval = accessReviewScheduleSettingsParameterValue?.justificationRequiredOnApproval ;
-        this.mailNotificationsEnabled = accessReviewScheduleSettingsParameterValue?.mailNotificationsEnabled ;
-        this.recommendationsEnabled = accessReviewScheduleSettingsParameterValue?.recommendationsEnabled ;
-        this.recurrence = accessReviewScheduleSettingsParameterValue?.recurrence ;
-        this.reminderNotificationsEnabled = accessReviewScheduleSettingsParameterValue?.reminderNotificationsEnabled ;
+        this.additionalData = accessReviewScheduleSettingsParameterValue?.additionalData ? accessReviewScheduleSettingsParameterValue?.additionalData! : {};
+        this.applyActions = accessReviewScheduleSettingsParameterValue?.applyActions;
+        this.autoApplyDecisionsEnabled = accessReviewScheduleSettingsParameterValue?.autoApplyDecisionsEnabled;
+        this.defaultDecision = accessReviewScheduleSettingsParameterValue?.defaultDecision;
+        this.defaultDecisionEnabled = accessReviewScheduleSettingsParameterValue?.defaultDecisionEnabled;
+        this.instanceDurationInDays = accessReviewScheduleSettingsParameterValue?.instanceDurationInDays;
+        this.justificationRequiredOnApproval = accessReviewScheduleSettingsParameterValue?.justificationRequiredOnApproval;
+        this.mailNotificationsEnabled = accessReviewScheduleSettingsParameterValue?.mailNotificationsEnabled;
+        this.recommendationsEnabled = accessReviewScheduleSettingsParameterValue?.recommendationsEnabled;
+        this.recurrence = accessReviewScheduleSettingsParameterValue?.recurrence;
+        this.reminderNotificationsEnabled = accessReviewScheduleSettingsParameterValue?.reminderNotificationsEnabled;
     };
     /**
      * The deserialization information for the current model
@@ -71,34 +71,34 @@ export class AccessReviewScheduleSettingsImpl implements AccessReviewScheduleSet
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.applyActions && this.applyActions.length != 0){        const applyActionsArrValue: AccessReviewApplyActionImpl[] = []; this.applyActions?.forEach(element => {applyActionsArrValue.push(new AccessReviewApplyActionImpl(element));});
-        writer.writeCollectionOfObjectValues<AccessReviewApplyActionImpl>("applyActions", applyActionsArrValue);
+            writer.writeCollectionOfObjectValues<AccessReviewApplyActionImpl>("applyActions", applyActionsArrValue);
         }
         if(this.autoApplyDecisionsEnabled){
-        writer.writeBooleanValue("autoApplyDecisionsEnabled", this.autoApplyDecisionsEnabled);
+            writer.writeBooleanValue("autoApplyDecisionsEnabled", this.autoApplyDecisionsEnabled);
         }
         if(this.defaultDecision){
-        writer.writeStringValue("defaultDecision", this.defaultDecision);
+            writer.writeStringValue("defaultDecision", this.defaultDecision);
         }
         if(this.defaultDecisionEnabled){
-        writer.writeBooleanValue("defaultDecisionEnabled", this.defaultDecisionEnabled);
+            writer.writeBooleanValue("defaultDecisionEnabled", this.defaultDecisionEnabled);
         }
         if(this.instanceDurationInDays){
-        writer.writeNumberValue("instanceDurationInDays", this.instanceDurationInDays);
+            writer.writeNumberValue("instanceDurationInDays", this.instanceDurationInDays);
         }
         if(this.justificationRequiredOnApproval){
-        writer.writeBooleanValue("justificationRequiredOnApproval", this.justificationRequiredOnApproval);
+            writer.writeBooleanValue("justificationRequiredOnApproval", this.justificationRequiredOnApproval);
         }
         if(this.mailNotificationsEnabled){
-        writer.writeBooleanValue("mailNotificationsEnabled", this.mailNotificationsEnabled);
+            writer.writeBooleanValue("mailNotificationsEnabled", this.mailNotificationsEnabled);
         }
         if(this.recommendationsEnabled){
-        writer.writeBooleanValue("recommendationsEnabled", this.recommendationsEnabled);
+            writer.writeBooleanValue("recommendationsEnabled", this.recommendationsEnabled);
         }
         if(this.recurrence){
-        writer.writeObjectValue<PatternedRecurrenceImpl>("recurrence", new PatternedRecurrenceImpl(this.recurrence));
+            writer.writeObjectValue<PatternedRecurrenceImpl>("recurrence", new PatternedRecurrenceImpl(this.recurrence));
         }
         if(this.reminderNotificationsEnabled){
-        writer.writeBooleanValue("reminderNotificationsEnabled", this.reminderNotificationsEnabled);
+            writer.writeBooleanValue("reminderNotificationsEnabled", this.reminderNotificationsEnabled);
         }
         writer.writeAdditionalData(this.additionalData);
     };

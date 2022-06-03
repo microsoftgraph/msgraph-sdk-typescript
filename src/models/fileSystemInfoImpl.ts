@@ -1,7 +1,7 @@
 import {FileSystemInfo} from './fileSystemInfo';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class FileSystemInfoImpl implements AdditionalDataHolder, FileSystemInfo, Parsable {
+export class FileSystemInfoImpl implements FileSystemInfo {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The UTC date and time the file was created on a client. */
@@ -15,10 +15,10 @@ export class FileSystemInfoImpl implements AdditionalDataHolder, FileSystemInfo,
      * @param fileSystemInfoParameterValue 
      */
     public constructor(fileSystemInfoParameterValue?: FileSystemInfo | undefined) {
-        this.additionalData = fileSystemInfoParameterValue?.additionalData ? fileSystemInfoParameterValue?.additionalData! : {}
-        this.createdDateTime = fileSystemInfoParameterValue?.createdDateTime ;
-        this.lastAccessedDateTime = fileSystemInfoParameterValue?.lastAccessedDateTime ;
-        this.lastModifiedDateTime = fileSystemInfoParameterValue?.lastModifiedDateTime ;
+        this.additionalData = fileSystemInfoParameterValue?.additionalData ? fileSystemInfoParameterValue?.additionalData! : {};
+        this.createdDateTime = fileSystemInfoParameterValue?.createdDateTime;
+        this.lastAccessedDateTime = fileSystemInfoParameterValue?.lastAccessedDateTime;
+        this.lastModifiedDateTime = fileSystemInfoParameterValue?.lastModifiedDateTime;
     };
     /**
      * The deserialization information for the current model
@@ -38,13 +38,13 @@ export class FileSystemInfoImpl implements AdditionalDataHolder, FileSystemInfo,
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.createdDateTime){
-        writer.writeDateValue("createdDateTime", this.createdDateTime);
+            writer.writeDateValue("createdDateTime", this.createdDateTime);
         }
         if(this.lastAccessedDateTime){
-        writer.writeDateValue("lastAccessedDateTime", this.lastAccessedDateTime);
+            writer.writeDateValue("lastAccessedDateTime", this.lastAccessedDateTime);
         }
         if(this.lastModifiedDateTime){
-        writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
+            writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
         }
         writer.writeAdditionalData(this.additionalData);
     };

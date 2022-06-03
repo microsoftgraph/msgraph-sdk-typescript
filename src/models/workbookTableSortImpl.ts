@@ -4,8 +4,8 @@ import {WorkbookSortField} from './workbookSortField';
 import {WorkbookTableSort} from './workbookTableSort';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
-export class WorkbookTableSortImpl extends EntityImpl implements Parsable, WorkbookTableSort {
+/** Casts the previous resource to group. */
+export class WorkbookTableSortImpl extends EntityImpl implements WorkbookTableSort {
     /** Represents the current conditions used to last sort the table. Read-only. */
     public fields?: WorkbookSortField[] | undefined;
     /** Represents whether the casing impacted the last sort of the table. Read-only. */
@@ -17,10 +17,10 @@ export class WorkbookTableSortImpl extends EntityImpl implements Parsable, Workb
      * @param workbookTableSortParameterValue 
      */
     public constructor(workbookTableSortParameterValue?: WorkbookTableSort | undefined) {
-        super();
-        this.fields = workbookTableSortParameterValue?.fields ;
-        this.matchCase = workbookTableSortParameterValue?.matchCase ;
-        this.method = workbookTableSortParameterValue?.method ;
+        super(workbookTableSortParameterValue);
+        this.fields = workbookTableSortParameterValue?.fields;
+        this.matchCase = workbookTableSortParameterValue?.matchCase;
+        this.method = workbookTableSortParameterValue?.method;
     };
     /**
      * The deserialization information for the current model
@@ -41,13 +41,13 @@ export class WorkbookTableSortImpl extends EntityImpl implements Parsable, Workb
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.fields && this.fields.length != 0){        const fieldsArrValue: WorkbookSortFieldImpl[] = []; this.fields?.forEach(element => {fieldsArrValue.push(new WorkbookSortFieldImpl(element));});
-        writer.writeCollectionOfObjectValues<WorkbookSortFieldImpl>("fields", fieldsArrValue);
+            writer.writeCollectionOfObjectValues<WorkbookSortFieldImpl>("fields", fieldsArrValue);
         }
         if(this.matchCase){
-        writer.writeBooleanValue("matchCase", this.matchCase);
+            writer.writeBooleanValue("matchCase", this.matchCase);
         }
         if(this.method){
-        writer.writeStringValue("method", this.method);
+            writer.writeStringValue("method", this.method);
         }
     };
 }

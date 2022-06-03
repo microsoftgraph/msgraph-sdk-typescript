@@ -4,7 +4,7 @@ import {FileSystemInfo} from './fileSystemInfo';
 import {FileSystemInfoImpl} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class DriveItemUploadablePropertiesImpl implements AdditionalDataHolder, DriveItemUploadableProperties, Parsable {
+export class DriveItemUploadablePropertiesImpl implements DriveItemUploadableProperties {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Provides a user-visible description of the item. Read-write. Only on OneDrive Personal. */
@@ -20,11 +20,11 @@ export class DriveItemUploadablePropertiesImpl implements AdditionalDataHolder, 
      * @param driveItemUploadablePropertiesParameterValue 
      */
     public constructor(driveItemUploadablePropertiesParameterValue?: DriveItemUploadableProperties | undefined) {
-        this.additionalData = driveItemUploadablePropertiesParameterValue?.additionalData ? driveItemUploadablePropertiesParameterValue?.additionalData! : {}
-        this.description = driveItemUploadablePropertiesParameterValue?.description ;
-        this.fileSize = driveItemUploadablePropertiesParameterValue?.fileSize ;
-        this.fileSystemInfo = driveItemUploadablePropertiesParameterValue?.fileSystemInfo ;
-        this.name = driveItemUploadablePropertiesParameterValue?.name ;
+        this.additionalData = driveItemUploadablePropertiesParameterValue?.additionalData ? driveItemUploadablePropertiesParameterValue?.additionalData! : {};
+        this.description = driveItemUploadablePropertiesParameterValue?.description;
+        this.fileSize = driveItemUploadablePropertiesParameterValue?.fileSize;
+        this.fileSystemInfo = driveItemUploadablePropertiesParameterValue?.fileSystemInfo;
+        this.name = driveItemUploadablePropertiesParameterValue?.name;
     };
     /**
      * The deserialization information for the current model
@@ -45,16 +45,16 @@ export class DriveItemUploadablePropertiesImpl implements AdditionalDataHolder, 
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.description){
-        writer.writeStringValue("description", this.description);
+            writer.writeStringValue("description", this.description);
         }
         if(this.fileSize){
-        writer.writeNumberValue("fileSize", this.fileSize);
+            writer.writeNumberValue("fileSize", this.fileSize);
         }
         if(this.fileSystemInfo){
-        writer.writeObjectValue<FileSystemInfoImpl>("fileSystemInfo", new FileSystemInfoImpl(this.fileSystemInfo));
+            writer.writeObjectValue<FileSystemInfoImpl>("fileSystemInfo", new FileSystemInfoImpl(this.fileSystemInfo));
         }
         if(this.name){
-        writer.writeStringValue("name", this.name);
+            writer.writeStringValue("name", this.name);
         }
         writer.writeAdditionalData(this.additionalData);
     };

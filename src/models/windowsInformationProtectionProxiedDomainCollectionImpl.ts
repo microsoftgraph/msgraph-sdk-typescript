@@ -5,7 +5,7 @@ import {WindowsInformationProtectionProxiedDomainCollection} from './windowsInfo
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Windows Information Protection Proxied Domain Collection */
-export class WindowsInformationProtectionProxiedDomainCollectionImpl implements AdditionalDataHolder, Parsable, WindowsInformationProtectionProxiedDomainCollection {
+export class WindowsInformationProtectionProxiedDomainCollectionImpl implements WindowsInformationProtectionProxiedDomainCollection {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Display name */
@@ -17,9 +17,9 @@ export class WindowsInformationProtectionProxiedDomainCollectionImpl implements 
      * @param windowsInformationProtectionProxiedDomainCollectionParameterValue 
      */
     public constructor(windowsInformationProtectionProxiedDomainCollectionParameterValue?: WindowsInformationProtectionProxiedDomainCollection | undefined) {
-        this.additionalData = windowsInformationProtectionProxiedDomainCollectionParameterValue?.additionalData ? windowsInformationProtectionProxiedDomainCollectionParameterValue?.additionalData! : {}
-        this.displayName = windowsInformationProtectionProxiedDomainCollectionParameterValue?.displayName ;
-        this.proxiedDomains = windowsInformationProtectionProxiedDomainCollectionParameterValue?.proxiedDomains ;
+        this.additionalData = windowsInformationProtectionProxiedDomainCollectionParameterValue?.additionalData ? windowsInformationProtectionProxiedDomainCollectionParameterValue?.additionalData! : {};
+        this.displayName = windowsInformationProtectionProxiedDomainCollectionParameterValue?.displayName;
+        this.proxiedDomains = windowsInformationProtectionProxiedDomainCollectionParameterValue?.proxiedDomains;
     };
     /**
      * The deserialization information for the current model
@@ -38,10 +38,10 @@ export class WindowsInformationProtectionProxiedDomainCollectionImpl implements 
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.displayName){
-        writer.writeStringValue("displayName", this.displayName);
+            writer.writeStringValue("displayName", this.displayName);
         }
         if(this.proxiedDomains && this.proxiedDomains.length != 0){        const proxiedDomainsArrValue: ProxiedDomainImpl[] = []; this.proxiedDomains?.forEach(element => {proxiedDomainsArrValue.push(new ProxiedDomainImpl(element));});
-        writer.writeCollectionOfObjectValues<ProxiedDomainImpl>("proxiedDomains", proxiedDomainsArrValue);
+            writer.writeCollectionOfObjectValues<ProxiedDomainImpl>("proxiedDomains", proxiedDomainsArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

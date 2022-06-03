@@ -16,52 +16,53 @@ import {Participant} from './participant';
 import {ParticipantInfo} from './participantInfo';
 import {ResultInfo} from './resultInfo';
 import {ToneInfo} from './toneInfo';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface Call extends Entity{
+export interface Call extends Entity, Partial<Parsable> {
     /** Read-only. Nullable. */
-    audioRoutingGroups?:AudioRoutingGroup[] | undefined;
+    audioRoutingGroups?: AudioRoutingGroup[] | undefined;
     /** The callback URL on which callbacks will be delivered. Must be https. */
-    callbackUri?:string | undefined;
+    callbackUri?: string | undefined;
     /** A unique identifier for all the participant calls in a conference or a unique identifier for two participant calls in a P2P call.  This needs to be copied over from Microsoft.Graph.Call.CallChainId. */
-    callChainId?:string | undefined;
+    callChainId?: string | undefined;
     /** Contains the optional features for the call. */
-    callOptions?:CallOptions | undefined;
+    callOptions?: CallOptions | undefined;
     /** The routing information on how the call was retargeted. Read-only. */
-    callRoutes?:CallRoute[] | undefined;
+    callRoutes?: CallRoute[] | undefined;
     /** The chat information. Required information for meeting scenarios. */
-    chatInfo?:ChatInfo | undefined;
+    chatInfo?: ChatInfo | undefined;
     /** The direction of the call. The possible value are incoming or outgoing. Read-only. */
-    direction?:CallDirection | undefined;
+    direction?: CallDirection | undefined;
     /** The context associated with an incoming call. Read-only. Server generated. */
-    incomingContext?:IncomingContext | undefined;
+    incomingContext?: IncomingContext | undefined;
     /** The media configuration. Required information for creating peer to peer calls or joining meetings. */
-    mediaConfig?:MediaConfig | undefined;
+    mediaConfig?: MediaConfig | undefined;
     /** Read-only. The call media state. */
-    mediaState?:CallMediaState | undefined;
+    mediaState?: CallMediaState | undefined;
     /** The meeting information. Required information for meeting scenarios. */
-    meetingInfo?:MeetingInfo | undefined;
+    meetingInfo?: MeetingInfo | undefined;
     /** The myParticipantId property */
-    myParticipantId?:string | undefined;
+    myParticipantId?: string | undefined;
     /** Read-only. Nullable. */
-    operations?:CommsOperation[] | undefined;
+    operations?: CommsOperation[] | undefined;
     /** Read-only. Nullable. */
-    participants?:Participant[] | undefined;
+    participants?: Participant[] | undefined;
     /** The requestedModalities property */
-    requestedModalities?:string[] | undefined;
+    requestedModalities?: string[] | undefined;
     /** The resultInfo property */
-    resultInfo?:ResultInfo | undefined;
+    resultInfo?: ResultInfo | undefined;
     /** The source property */
-    source?:ParticipantInfo | undefined;
+    source?: ParticipantInfo | undefined;
     /** The state property */
-    state?:CallState | undefined;
+    state?: CallState | undefined;
     /** The subject property */
-    subject?:string | undefined;
+    subject?: string | undefined;
     /** The targets property */
-    targets?:InvitationParticipantInfo[] | undefined;
+    targets?: InvitationParticipantInfo[] | undefined;
     /** The tenantId property */
-    tenantId?:string | undefined;
+    tenantId?: string | undefined;
     /** The toneInfo property */
-    toneInfo?:ToneInfo | undefined;
+    toneInfo?: ToneInfo | undefined;
     /** The transcription information for the call. Read-only. */
-    transcription?:CallTranscriptionInfo | undefined;
+    transcription?: CallTranscriptionInfo | undefined;
 }

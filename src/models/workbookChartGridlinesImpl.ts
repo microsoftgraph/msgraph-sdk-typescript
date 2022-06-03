@@ -4,8 +4,8 @@ import {WorkbookChartGridlines} from './workbookChartGridlines';
 import {WorkbookChartGridlinesFormat} from './workbookChartGridlinesFormat';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
-export class WorkbookChartGridlinesImpl extends EntityImpl implements Parsable, WorkbookChartGridlines {
+/** Casts the previous resource to group. */
+export class WorkbookChartGridlinesImpl extends EntityImpl implements WorkbookChartGridlines {
     /** Represents the formatting of chart gridlines. Read-only. */
     public format?: WorkbookChartGridlinesFormat | undefined;
     /** Boolean value representing if the axis gridlines are visible or not. */
@@ -15,9 +15,9 @@ export class WorkbookChartGridlinesImpl extends EntityImpl implements Parsable, 
      * @param workbookChartGridlinesParameterValue 
      */
     public constructor(workbookChartGridlinesParameterValue?: WorkbookChartGridlines | undefined) {
-        super();
-        this.format = workbookChartGridlinesParameterValue?.format ;
-        this.visible = workbookChartGridlinesParameterValue?.visible ;
+        super(workbookChartGridlinesParameterValue);
+        this.format = workbookChartGridlinesParameterValue?.format;
+        this.visible = workbookChartGridlinesParameterValue?.visible;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class WorkbookChartGridlinesImpl extends EntityImpl implements Parsable, 
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.format){
-        writer.writeObjectValue<WorkbookChartGridlinesFormatImpl>("format", new WorkbookChartGridlinesFormatImpl(this.format));
+            writer.writeObjectValue<WorkbookChartGridlinesFormatImpl>("format", new WorkbookChartGridlinesFormatImpl(this.format));
         }
         if(this.visible){
-        writer.writeBooleanValue("visible", this.visible);
+            writer.writeBooleanValue("visible", this.visible);
         }
     };
 }

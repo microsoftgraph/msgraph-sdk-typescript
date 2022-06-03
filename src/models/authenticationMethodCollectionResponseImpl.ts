@@ -4,7 +4,7 @@ import {createAuthenticationMethodFromDiscriminatorValue} from './createAuthenti
 import {AuthenticationMethodImpl} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class AuthenticationMethodCollectionResponseImpl implements AdditionalDataHolder, AuthenticationMethodCollectionResponse, Parsable {
+export class AuthenticationMethodCollectionResponseImpl implements AuthenticationMethodCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class AuthenticationMethodCollectionResponseImpl implements AdditionalDat
      * @param authenticationMethodCollectionResponseParameterValue 
      */
     public constructor(authenticationMethodCollectionResponseParameterValue?: AuthenticationMethodCollectionResponse | undefined) {
-        this.additionalData = authenticationMethodCollectionResponseParameterValue?.additionalData ? authenticationMethodCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = authenticationMethodCollectionResponseParameterValue?.nextLink ;
-        this.value = authenticationMethodCollectionResponseParameterValue?.value ;
+        this.additionalData = authenticationMethodCollectionResponseParameterValue?.additionalData ? authenticationMethodCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = authenticationMethodCollectionResponseParameterValue?.nextLink;
+        this.value = authenticationMethodCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class AuthenticationMethodCollectionResponseImpl implements AdditionalDat
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: AuthenticationMethodImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new AuthenticationMethodImpl(element));});
-        writer.writeCollectionOfObjectValues<AuthenticationMethodImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<AuthenticationMethodImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

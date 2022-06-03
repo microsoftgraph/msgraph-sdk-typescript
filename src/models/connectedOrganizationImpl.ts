@@ -8,7 +8,7 @@ import {DirectoryObjectImpl, EntityImpl, IdentitySourceImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the identityGovernance singleton. */
-export class ConnectedOrganizationImpl extends EntityImpl implements ConnectedOrganization, Parsable {
+export class ConnectedOrganizationImpl extends EntityImpl implements ConnectedOrganization {
     /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. */
     public createdDateTime?: Date | undefined;
     /** The description of the connected organization. */
@@ -17,7 +17,7 @@ export class ConnectedOrganizationImpl extends EntityImpl implements ConnectedOr
     public displayName?: string | undefined;
     /** Nullable. */
     public externalSponsors?: DirectoryObject[] | undefined;
-    /** The identity sources in this connected organization, one of azureActiveDirectoryTenant, domainIdentitySource or externalDomainFederation. Read-only. Nullable. Supports $select and $filter(eq). To filter by the derived types, you must declare the resource using its full OData cast, for example, $filter=identitySources/any(is:is/microsoft.graph.azureActiveDirectoryTenant/tenantId eq 'bcfdfff4-cbc3-43f2-9000-ba7b7515054f'). */
+    /** The identity sources in this connected organization, one of azureActiveDirectoryTenant, crossCloudAzureActiveDirectoryTenant, domainIdentitySource or externalDomainFederation. Read-only. Nullable. Supports $select and $filter(eq). To filter by the derived types, you must declare the resource using its full OData cast, for example, $filter=identitySources/any(is:is/microsoft.graph.azureActiveDirectoryTenant/tenantId eq 'bcfdfff4-cbc3-43f2-9000-ba7b7515054f'). */
     public identitySources?: IdentitySource[] | undefined;
     /** Nullable. */
     public internalSponsors?: DirectoryObject[] | undefined;
@@ -30,15 +30,15 @@ export class ConnectedOrganizationImpl extends EntityImpl implements ConnectedOr
      * @param connectedOrganizationParameterValue 
      */
     public constructor(connectedOrganizationParameterValue?: ConnectedOrganization | undefined) {
-        super();
-        this.createdDateTime = connectedOrganizationParameterValue?.createdDateTime ;
-        this.description = connectedOrganizationParameterValue?.description ;
-        this.displayName = connectedOrganizationParameterValue?.displayName ;
-        this.externalSponsors = connectedOrganizationParameterValue?.externalSponsors ;
-        this.identitySources = connectedOrganizationParameterValue?.identitySources ;
-        this.internalSponsors = connectedOrganizationParameterValue?.internalSponsors ;
-        this.modifiedDateTime = connectedOrganizationParameterValue?.modifiedDateTime ;
-        this.state = connectedOrganizationParameterValue?.state ;
+        super(connectedOrganizationParameterValue);
+        this.createdDateTime = connectedOrganizationParameterValue?.createdDateTime;
+        this.description = connectedOrganizationParameterValue?.description;
+        this.displayName = connectedOrganizationParameterValue?.displayName;
+        this.externalSponsors = connectedOrganizationParameterValue?.externalSponsors;
+        this.identitySources = connectedOrganizationParameterValue?.identitySources;
+        this.internalSponsors = connectedOrganizationParameterValue?.internalSponsors;
+        this.modifiedDateTime = connectedOrganizationParameterValue?.modifiedDateTime;
+        this.state = connectedOrganizationParameterValue?.state;
     };
     /**
      * The deserialization information for the current model
@@ -64,28 +64,28 @@ export class ConnectedOrganizationImpl extends EntityImpl implements ConnectedOr
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.createdDateTime){
-        writer.writeDateValue("createdDateTime", this.createdDateTime);
+            writer.writeDateValue("createdDateTime", this.createdDateTime);
         }
         if(this.description){
-        writer.writeStringValue("description", this.description);
+            writer.writeStringValue("description", this.description);
         }
         if(this.displayName){
-        writer.writeStringValue("displayName", this.displayName);
+            writer.writeStringValue("displayName", this.displayName);
         }
         if(this.externalSponsors && this.externalSponsors.length != 0){        const externalSponsorsArrValue: DirectoryObjectImpl[] = []; this.externalSponsors?.forEach(element => {externalSponsorsArrValue.push(new DirectoryObjectImpl(element));});
-        writer.writeCollectionOfObjectValues<DirectoryObjectImpl>("externalSponsors", externalSponsorsArrValue);
+            writer.writeCollectionOfObjectValues<DirectoryObjectImpl>("externalSponsors", externalSponsorsArrValue);
         }
         if(this.identitySources && this.identitySources.length != 0){        const identitySourcesArrValue: IdentitySourceImpl[] = []; this.identitySources?.forEach(element => {identitySourcesArrValue.push(new IdentitySourceImpl(element));});
-        writer.writeCollectionOfObjectValues<IdentitySourceImpl>("identitySources", identitySourcesArrValue);
+            writer.writeCollectionOfObjectValues<IdentitySourceImpl>("identitySources", identitySourcesArrValue);
         }
         if(this.internalSponsors && this.internalSponsors.length != 0){        const internalSponsorsArrValue: DirectoryObjectImpl[] = []; this.internalSponsors?.forEach(element => {internalSponsorsArrValue.push(new DirectoryObjectImpl(element));});
-        writer.writeCollectionOfObjectValues<DirectoryObjectImpl>("internalSponsors", internalSponsorsArrValue);
+            writer.writeCollectionOfObjectValues<DirectoryObjectImpl>("internalSponsors", internalSponsorsArrValue);
         }
         if(this.modifiedDateTime){
-        writer.writeDateValue("modifiedDateTime", this.modifiedDateTime);
+            writer.writeDateValue("modifiedDateTime", this.modifiedDateTime);
         }
         if(this.state){
-        writer.writeEnumValue<ConnectedOrganizationState>("state", this.state);
+            writer.writeEnumValue<ConnectedOrganizationState>("state", this.state);
         }
     };
 }

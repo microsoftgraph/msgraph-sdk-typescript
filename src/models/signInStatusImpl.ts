@@ -1,7 +1,7 @@
 import {SignInStatus} from './signInStatus';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class SignInStatusImpl implements AdditionalDataHolder, Parsable, SignInStatus {
+export class SignInStatusImpl implements SignInStatus {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Provides additional details on the sign-in activity */
@@ -15,10 +15,10 @@ export class SignInStatusImpl implements AdditionalDataHolder, Parsable, SignInS
      * @param signInStatusParameterValue 
      */
     public constructor(signInStatusParameterValue?: SignInStatus | undefined) {
-        this.additionalData = signInStatusParameterValue?.additionalData ? signInStatusParameterValue?.additionalData! : {}
-        this.additionalDetails = signInStatusParameterValue?.additionalDetails ;
-        this.errorCode = signInStatusParameterValue?.errorCode ;
-        this.failureReason = signInStatusParameterValue?.failureReason ;
+        this.additionalData = signInStatusParameterValue?.additionalData ? signInStatusParameterValue?.additionalData! : {};
+        this.additionalDetails = signInStatusParameterValue?.additionalDetails;
+        this.errorCode = signInStatusParameterValue?.errorCode;
+        this.failureReason = signInStatusParameterValue?.failureReason;
     };
     /**
      * The deserialization information for the current model
@@ -38,13 +38,13 @@ export class SignInStatusImpl implements AdditionalDataHolder, Parsable, SignInS
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.additionalDetails){
-        writer.writeStringValue("additionalDetails", this.additionalDetails);
+            writer.writeStringValue("additionalDetails", this.additionalDetails);
         }
         if(this.errorCode){
-        writer.writeNumberValue("errorCode", this.errorCode);
+            writer.writeNumberValue("errorCode", this.errorCode);
         }
         if(this.failureReason){
-        writer.writeStringValue("failureReason", this.failureReason);
+            writer.writeStringValue("failureReason", this.failureReason);
         }
         writer.writeAdditionalData(this.additionalData);
     };

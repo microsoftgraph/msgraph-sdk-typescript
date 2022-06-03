@@ -7,7 +7,7 @@ import {KeyCredentialPostRequestBody} from './keyCredentialPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the addKey method. */
-export class KeyCredentialPostRequestBodyImpl implements AdditionalDataHolder, KeyCredentialPostRequestBody, Parsable {
+export class KeyCredentialPostRequestBodyImpl implements KeyCredentialPostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The keyCredential property */
@@ -21,10 +21,10 @@ export class KeyCredentialPostRequestBodyImpl implements AdditionalDataHolder, K
      * @param keyCredentialPostRequestBodyParameterValue 
      */
     public constructor(keyCredentialPostRequestBodyParameterValue?: KeyCredentialPostRequestBody | undefined) {
-        this.additionalData = keyCredentialPostRequestBodyParameterValue?.additionalData ? keyCredentialPostRequestBodyParameterValue?.additionalData! : {}
-        this.keyCredential = keyCredentialPostRequestBodyParameterValue?.keyCredential ;
-        this.passwordCredential = keyCredentialPostRequestBodyParameterValue?.passwordCredential ;
-        this.proof = keyCredentialPostRequestBodyParameterValue?.proof ;
+        this.additionalData = keyCredentialPostRequestBodyParameterValue?.additionalData ? keyCredentialPostRequestBodyParameterValue?.additionalData! : {};
+        this.keyCredential = keyCredentialPostRequestBodyParameterValue?.keyCredential;
+        this.passwordCredential = keyCredentialPostRequestBodyParameterValue?.passwordCredential;
+        this.proof = keyCredentialPostRequestBodyParameterValue?.proof;
     };
     /**
      * The deserialization information for the current model
@@ -44,13 +44,13 @@ export class KeyCredentialPostRequestBodyImpl implements AdditionalDataHolder, K
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.keyCredential){
-        writer.writeObjectValue<KeyCredentialImpl>("keyCredential", new KeyCredentialImpl(this.keyCredential));
+            writer.writeObjectValue<KeyCredentialImpl>("keyCredential", new KeyCredentialImpl(this.keyCredential));
         }
         if(this.passwordCredential){
-        writer.writeObjectValue<PasswordCredentialImpl>("passwordCredential", new PasswordCredentialImpl(this.passwordCredential));
+            writer.writeObjectValue<PasswordCredentialImpl>("passwordCredential", new PasswordCredentialImpl(this.passwordCredential));
         }
         if(this.proof){
-        writer.writeStringValue("proof", this.proof);
+            writer.writeStringValue("proof", this.proof);
         }
         writer.writeAdditionalData(this.additionalData);
     };

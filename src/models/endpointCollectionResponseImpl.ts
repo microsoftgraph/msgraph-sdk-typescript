@@ -4,7 +4,7 @@ import {EndpointCollectionResponse} from './endpointCollectionResponse';
 import {EndpointImpl} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class EndpointCollectionResponseImpl implements AdditionalDataHolder, EndpointCollectionResponse, Parsable {
+export class EndpointCollectionResponseImpl implements EndpointCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class EndpointCollectionResponseImpl implements AdditionalDataHolder, End
      * @param endpointCollectionResponseParameterValue 
      */
     public constructor(endpointCollectionResponseParameterValue?: EndpointCollectionResponse | undefined) {
-        this.additionalData = endpointCollectionResponseParameterValue?.additionalData ? endpointCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = endpointCollectionResponseParameterValue?.nextLink ;
-        this.value = endpointCollectionResponseParameterValue?.value ;
+        this.additionalData = endpointCollectionResponseParameterValue?.additionalData ? endpointCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = endpointCollectionResponseParameterValue?.nextLink;
+        this.value = endpointCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class EndpointCollectionResponseImpl implements AdditionalDataHolder, End
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: EndpointImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new EndpointImpl(element));});
-        writer.writeCollectionOfObjectValues<EndpointImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<EndpointImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

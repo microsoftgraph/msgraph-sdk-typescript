@@ -2,7 +2,7 @@ import {RemovePasswordPostRequestBody} from './removePasswordPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the removePassword method. */
-export class RemovePasswordPostRequestBodyImpl implements AdditionalDataHolder, Parsable, RemovePasswordPostRequestBody {
+export class RemovePasswordPostRequestBodyImpl implements RemovePasswordPostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The keyId property */
@@ -12,8 +12,8 @@ export class RemovePasswordPostRequestBodyImpl implements AdditionalDataHolder, 
      * @param removePasswordPostRequestBodyParameterValue 
      */
     public constructor(removePasswordPostRequestBodyParameterValue?: RemovePasswordPostRequestBody | undefined) {
-        this.additionalData = removePasswordPostRequestBodyParameterValue?.additionalData ? removePasswordPostRequestBodyParameterValue?.additionalData! : {}
-        this.keyId = removePasswordPostRequestBodyParameterValue?.keyId ;
+        this.additionalData = removePasswordPostRequestBodyParameterValue?.additionalData ? removePasswordPostRequestBodyParameterValue?.additionalData! : {};
+        this.keyId = removePasswordPostRequestBodyParameterValue?.keyId;
     };
     /**
      * The deserialization information for the current model
@@ -31,7 +31,7 @@ export class RemovePasswordPostRequestBodyImpl implements AdditionalDataHolder, 
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.keyId){
-        writer.writeStringValue("keyId", this.keyId);
+            writer.writeStringValue("keyId", this.keyId);
         }
         writer.writeAdditionalData(this.additionalData);
     };

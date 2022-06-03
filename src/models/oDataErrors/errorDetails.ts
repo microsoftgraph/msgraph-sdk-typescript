@@ -1,11 +1,12 @@
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface ErrorDetails{
+export interface ErrorDetails extends Partial<AdditionalDataHolder>, Partial<Parsable> {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?:Record<string, unknown>;
+    additionalData?: Record<string, unknown>;
     /** The code property */
-    code?:string | undefined;
+    code?: string | undefined;
     /** The message property */
-    message?:string | undefined;
+    message?: string | undefined;
     /** The target property */
-    target?:string | undefined;
+    target?: string | undefined;
 }

@@ -1,7 +1,7 @@
 import {OptionalClaim} from './optionalClaim';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class OptionalClaimImpl implements AdditionalDataHolder, OptionalClaim, Parsable {
+export class OptionalClaimImpl implements OptionalClaim {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Additional properties of the claim. If a property exists in this collection, it modifies the behavior of the optional claim specified in the name property. */
@@ -17,11 +17,11 @@ export class OptionalClaimImpl implements AdditionalDataHolder, OptionalClaim, P
      * @param optionalClaimParameterValue 
      */
     public constructor(optionalClaimParameterValue?: OptionalClaim | undefined) {
-        this.additionalData = optionalClaimParameterValue?.additionalData ? optionalClaimParameterValue?.additionalData! : {}
-        this.additionalProperties = optionalClaimParameterValue?.additionalProperties ;
-        this.essential = optionalClaimParameterValue?.essential ;
-        this.name = optionalClaimParameterValue?.name ;
-        this.source = optionalClaimParameterValue?.source ;
+        this.additionalData = optionalClaimParameterValue?.additionalData ? optionalClaimParameterValue?.additionalData! : {};
+        this.additionalProperties = optionalClaimParameterValue?.additionalProperties;
+        this.essential = optionalClaimParameterValue?.essential;
+        this.name = optionalClaimParameterValue?.name;
+        this.source = optionalClaimParameterValue?.source;
     };
     /**
      * The deserialization information for the current model
@@ -42,16 +42,16 @@ export class OptionalClaimImpl implements AdditionalDataHolder, OptionalClaim, P
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.additionalProperties){
-        writer.writeCollectionOfPrimitiveValues<string>("additionalProperties", this.additionalProperties);
+            writer.writeCollectionOfPrimitiveValues<string>("additionalProperties", this.additionalProperties);
         }
         if(this.essential){
-        writer.writeBooleanValue("essential", this.essential);
+            writer.writeBooleanValue("essential", this.essential);
         }
         if(this.name){
-        writer.writeStringValue("name", this.name);
+            writer.writeStringValue("name", this.name);
         }
         if(this.source){
-        writer.writeStringValue("source", this.source);
+            writer.writeStringValue("source", this.source);
         }
         writer.writeAdditionalData(this.additionalData);
     };

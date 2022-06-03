@@ -2,7 +2,7 @@ import {MarkReadPostRequestBody} from './markReadPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the markRead method. */
-export class MarkReadPostRequestBodyImpl implements AdditionalDataHolder, MarkReadPostRequestBody, Parsable {
+export class MarkReadPostRequestBodyImpl implements MarkReadPostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The messageIds property */
@@ -12,8 +12,8 @@ export class MarkReadPostRequestBodyImpl implements AdditionalDataHolder, MarkRe
      * @param markReadPostRequestBodyParameterValue 
      */
     public constructor(markReadPostRequestBodyParameterValue?: MarkReadPostRequestBody | undefined) {
-        this.additionalData = markReadPostRequestBodyParameterValue?.additionalData ? markReadPostRequestBodyParameterValue?.additionalData! : {}
-        this.messageIds = markReadPostRequestBodyParameterValue?.messageIds ;
+        this.additionalData = markReadPostRequestBodyParameterValue?.additionalData ? markReadPostRequestBodyParameterValue?.additionalData! : {};
+        this.messageIds = markReadPostRequestBodyParameterValue?.messageIds;
     };
     /**
      * The deserialization information for the current model
@@ -31,7 +31,7 @@ export class MarkReadPostRequestBodyImpl implements AdditionalDataHolder, MarkRe
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.messageIds){
-        writer.writeCollectionOfPrimitiveValues<string>("messageIds", this.messageIds);
+            writer.writeCollectionOfPrimitiveValues<string>("messageIds", this.messageIds);
         }
         writer.writeAdditionalData(this.additionalData);
     };

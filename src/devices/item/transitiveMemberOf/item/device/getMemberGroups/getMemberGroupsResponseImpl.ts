@@ -2,7 +2,7 @@ import {GetMemberGroupsResponse} from './getMemberGroupsResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the getMemberGroups method. */
-export class GetMemberGroupsResponseImpl implements AdditionalDataHolder, GetMemberGroupsResponse, Parsable {
+export class GetMemberGroupsResponseImpl implements GetMemberGroupsResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The value property */
@@ -12,8 +12,8 @@ export class GetMemberGroupsResponseImpl implements AdditionalDataHolder, GetMem
      * @param getMemberGroupsResponseParameterValue 
      */
     public constructor(getMemberGroupsResponseParameterValue?: GetMemberGroupsResponse | undefined) {
-        this.additionalData = getMemberGroupsResponseParameterValue?.additionalData ? getMemberGroupsResponseParameterValue?.additionalData! : {}
-        this.value = getMemberGroupsResponseParameterValue?.value ;
+        this.additionalData = getMemberGroupsResponseParameterValue?.additionalData ? getMemberGroupsResponseParameterValue?.additionalData! : {};
+        this.value = getMemberGroupsResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -31,7 +31,7 @@ export class GetMemberGroupsResponseImpl implements AdditionalDataHolder, GetMem
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.value){
-        writer.writeCollectionOfPrimitiveValues<string>("value", this.value);
+            writer.writeCollectionOfPrimitiveValues<string>("value", this.value);
         }
         writer.writeAdditionalData(this.additionalData);
     };

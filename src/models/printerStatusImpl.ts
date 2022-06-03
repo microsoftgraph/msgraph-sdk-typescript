@@ -2,7 +2,7 @@ import {PrinterProcessingState} from './printerProcessingState';
 import {PrinterStatus} from './printerStatus';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class PrinterStatusImpl implements AdditionalDataHolder, Parsable, PrinterStatus {
+export class PrinterStatusImpl implements PrinterStatus {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** A human-readable description of the printer's current processing state. Read-only. */
@@ -16,10 +16,10 @@ export class PrinterStatusImpl implements AdditionalDataHolder, Parsable, Printe
      * @param printerStatusParameterValue 
      */
     public constructor(printerStatusParameterValue?: PrinterStatus | undefined) {
-        this.additionalData = printerStatusParameterValue?.additionalData ? printerStatusParameterValue?.additionalData! : {}
-        this.description = printerStatusParameterValue?.description ;
-        this.details = printerStatusParameterValue?.details ;
-        this.state = printerStatusParameterValue?.state ;
+        this.additionalData = printerStatusParameterValue?.additionalData ? printerStatusParameterValue?.additionalData! : {};
+        this.description = printerStatusParameterValue?.description;
+        this.details = printerStatusParameterValue?.details;
+        this.state = printerStatusParameterValue?.state;
     };
     /**
      * The deserialization information for the current model
@@ -39,13 +39,13 @@ export class PrinterStatusImpl implements AdditionalDataHolder, Parsable, Printe
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.description){
-        writer.writeStringValue("description", this.description);
+            writer.writeStringValue("description", this.description);
         }
         if(this.details){
-        writer.writeCollectionOfPrimitiveValues<string>("details", this.details);
+            writer.writeCollectionOfPrimitiveValues<string>("details", this.details);
         }
         if(this.state){
-        writer.writeEnumValue<PrinterProcessingState>("state", this.state);
+            writer.writeEnumValue<PrinterProcessingState>("state", this.state);
         }
         writer.writeAdditionalData(this.additionalData);
     };

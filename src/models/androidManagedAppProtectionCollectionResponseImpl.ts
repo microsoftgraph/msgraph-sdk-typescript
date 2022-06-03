@@ -4,7 +4,7 @@ import {createAndroidManagedAppProtectionFromDiscriminatorValue} from './createA
 import {AndroidManagedAppProtectionImpl} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class AndroidManagedAppProtectionCollectionResponseImpl implements AdditionalDataHolder, AndroidManagedAppProtectionCollectionResponse, Parsable {
+export class AndroidManagedAppProtectionCollectionResponseImpl implements AndroidManagedAppProtectionCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class AndroidManagedAppProtectionCollectionResponseImpl implements Additi
      * @param androidManagedAppProtectionCollectionResponseParameterValue 
      */
     public constructor(androidManagedAppProtectionCollectionResponseParameterValue?: AndroidManagedAppProtectionCollectionResponse | undefined) {
-        this.additionalData = androidManagedAppProtectionCollectionResponseParameterValue?.additionalData ? androidManagedAppProtectionCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = androidManagedAppProtectionCollectionResponseParameterValue?.nextLink ;
-        this.value = androidManagedAppProtectionCollectionResponseParameterValue?.value ;
+        this.additionalData = androidManagedAppProtectionCollectionResponseParameterValue?.additionalData ? androidManagedAppProtectionCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = androidManagedAppProtectionCollectionResponseParameterValue?.nextLink;
+        this.value = androidManagedAppProtectionCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class AndroidManagedAppProtectionCollectionResponseImpl implements Additi
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: AndroidManagedAppProtectionImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new AndroidManagedAppProtectionImpl(element));});
-        writer.writeCollectionOfObjectValues<AndroidManagedAppProtectionImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<AndroidManagedAppProtectionImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

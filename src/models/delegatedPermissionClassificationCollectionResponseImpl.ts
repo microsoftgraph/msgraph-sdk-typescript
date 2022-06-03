@@ -4,7 +4,7 @@ import {DelegatedPermissionClassificationCollectionResponse} from './delegatedPe
 import {DelegatedPermissionClassificationImpl} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class DelegatedPermissionClassificationCollectionResponseImpl implements AdditionalDataHolder, DelegatedPermissionClassificationCollectionResponse, Parsable {
+export class DelegatedPermissionClassificationCollectionResponseImpl implements DelegatedPermissionClassificationCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class DelegatedPermissionClassificationCollectionResponseImpl implements 
      * @param delegatedPermissionClassificationCollectionResponseParameterValue 
      */
     public constructor(delegatedPermissionClassificationCollectionResponseParameterValue?: DelegatedPermissionClassificationCollectionResponse | undefined) {
-        this.additionalData = delegatedPermissionClassificationCollectionResponseParameterValue?.additionalData ? delegatedPermissionClassificationCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = delegatedPermissionClassificationCollectionResponseParameterValue?.nextLink ;
-        this.value = delegatedPermissionClassificationCollectionResponseParameterValue?.value ;
+        this.additionalData = delegatedPermissionClassificationCollectionResponseParameterValue?.additionalData ? delegatedPermissionClassificationCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = delegatedPermissionClassificationCollectionResponseParameterValue?.nextLink;
+        this.value = delegatedPermissionClassificationCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class DelegatedPermissionClassificationCollectionResponseImpl implements 
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: DelegatedPermissionClassificationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new DelegatedPermissionClassificationImpl(element));});
-        writer.writeCollectionOfObjectValues<DelegatedPermissionClassificationImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<DelegatedPermissionClassificationImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

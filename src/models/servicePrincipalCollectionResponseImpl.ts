@@ -4,7 +4,7 @@ import {ServicePrincipal} from './servicePrincipal';
 import {ServicePrincipalCollectionResponse} from './servicePrincipalCollectionResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ServicePrincipalCollectionResponseImpl implements AdditionalDataHolder, Parsable, ServicePrincipalCollectionResponse {
+export class ServicePrincipalCollectionResponseImpl implements ServicePrincipalCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class ServicePrincipalCollectionResponseImpl implements AdditionalDataHol
      * @param servicePrincipalCollectionResponseParameterValue 
      */
     public constructor(servicePrincipalCollectionResponseParameterValue?: ServicePrincipalCollectionResponse | undefined) {
-        this.additionalData = servicePrincipalCollectionResponseParameterValue?.additionalData ? servicePrincipalCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = servicePrincipalCollectionResponseParameterValue?.nextLink ;
-        this.value = servicePrincipalCollectionResponseParameterValue?.value ;
+        this.additionalData = servicePrincipalCollectionResponseParameterValue?.additionalData ? servicePrincipalCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = servicePrincipalCollectionResponseParameterValue?.nextLink;
+        this.value = servicePrincipalCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class ServicePrincipalCollectionResponseImpl implements AdditionalDataHol
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: ServicePrincipalImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ServicePrincipalImpl(element));});
-        writer.writeCollectionOfObjectValues<ServicePrincipalImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<ServicePrincipalImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

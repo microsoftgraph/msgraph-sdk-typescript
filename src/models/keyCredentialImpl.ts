@@ -1,7 +1,7 @@
 import {KeyCredential} from './keyCredential';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class KeyCredentialImpl implements AdditionalDataHolder, KeyCredential, Parsable {
+export class KeyCredentialImpl implements KeyCredential {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Custom key identifier */
@@ -25,15 +25,15 @@ export class KeyCredentialImpl implements AdditionalDataHolder, KeyCredential, P
      * @param keyCredentialParameterValue 
      */
     public constructor(keyCredentialParameterValue?: KeyCredential | undefined) {
-        this.additionalData = keyCredentialParameterValue?.additionalData ? keyCredentialParameterValue?.additionalData! : {}
-        this.customKeyIdentifier = keyCredentialParameterValue?.customKeyIdentifier ;
-        this.displayName = keyCredentialParameterValue?.displayName ;
-        this.endDateTime = keyCredentialParameterValue?.endDateTime ;
-        this.key = keyCredentialParameterValue?.key ;
-        this.keyId = keyCredentialParameterValue?.keyId ;
-        this.startDateTime = keyCredentialParameterValue?.startDateTime ;
-        this.type = keyCredentialParameterValue?.type ;
-        this.usage = keyCredentialParameterValue?.usage ;
+        this.additionalData = keyCredentialParameterValue?.additionalData ? keyCredentialParameterValue?.additionalData! : {};
+        this.customKeyIdentifier = keyCredentialParameterValue?.customKeyIdentifier;
+        this.displayName = keyCredentialParameterValue?.displayName;
+        this.endDateTime = keyCredentialParameterValue?.endDateTime;
+        this.key = keyCredentialParameterValue?.key;
+        this.keyId = keyCredentialParameterValue?.keyId;
+        this.startDateTime = keyCredentialParameterValue?.startDateTime;
+        this.type = keyCredentialParameterValue?.type;
+        this.usage = keyCredentialParameterValue?.usage;
     };
     /**
      * The deserialization information for the current model
@@ -58,28 +58,28 @@ export class KeyCredentialImpl implements AdditionalDataHolder, KeyCredential, P
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.customKeyIdentifier){
-        writer.writeStringValue("customKeyIdentifier", this.customKeyIdentifier);
+            writer.writeStringValue("customKeyIdentifier", this.customKeyIdentifier);
         }
         if(this.displayName){
-        writer.writeStringValue("displayName", this.displayName);
+            writer.writeStringValue("displayName", this.displayName);
         }
         if(this.endDateTime){
-        writer.writeDateValue("endDateTime", this.endDateTime);
+            writer.writeDateValue("endDateTime", this.endDateTime);
         }
         if(this.key){
-        writer.writeStringValue("key", this.key);
+            writer.writeStringValue("key", this.key);
         }
         if(this.keyId){
-        writer.writeStringValue("keyId", this.keyId);
+            writer.writeStringValue("keyId", this.keyId);
         }
         if(this.startDateTime){
-        writer.writeDateValue("startDateTime", this.startDateTime);
+            writer.writeDateValue("startDateTime", this.startDateTime);
         }
         if(this.type){
-        writer.writeStringValue("type", this.type);
+            writer.writeStringValue("type", this.type);
         }
         if(this.usage){
-        writer.writeStringValue("usage", this.usage);
+            writer.writeStringValue("usage", this.usage);
         }
         writer.writeAdditionalData(this.additionalData);
     };

@@ -1,7 +1,7 @@
 import {MessageSecurityState} from './messageSecurityState';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class MessageSecurityStateImpl implements AdditionalDataHolder, MessageSecurityState, Parsable {
+export class MessageSecurityStateImpl implements MessageSecurityState {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The connectingIP property */
@@ -27,16 +27,16 @@ export class MessageSecurityStateImpl implements AdditionalDataHolder, MessageSe
      * @param messageSecurityStateParameterValue 
      */
     public constructor(messageSecurityStateParameterValue?: MessageSecurityState | undefined) {
-        this.additionalData = messageSecurityStateParameterValue?.additionalData ? messageSecurityStateParameterValue?.additionalData! : {}
-        this.connectingIP = messageSecurityStateParameterValue?.connectingIP ;
-        this.deliveryAction = messageSecurityStateParameterValue?.deliveryAction ;
-        this.deliveryLocation = messageSecurityStateParameterValue?.deliveryLocation ;
-        this.directionality = messageSecurityStateParameterValue?.directionality ;
-        this.internetMessageId = messageSecurityStateParameterValue?.internetMessageId ;
-        this.messageFingerprint = messageSecurityStateParameterValue?.messageFingerprint ;
-        this.messageReceivedDateTime = messageSecurityStateParameterValue?.messageReceivedDateTime ;
-        this.messageSubject = messageSecurityStateParameterValue?.messageSubject ;
-        this.networkMessageId = messageSecurityStateParameterValue?.networkMessageId ;
+        this.additionalData = messageSecurityStateParameterValue?.additionalData ? messageSecurityStateParameterValue?.additionalData! : {};
+        this.connectingIP = messageSecurityStateParameterValue?.connectingIP;
+        this.deliveryAction = messageSecurityStateParameterValue?.deliveryAction;
+        this.deliveryLocation = messageSecurityStateParameterValue?.deliveryLocation;
+        this.directionality = messageSecurityStateParameterValue?.directionality;
+        this.internetMessageId = messageSecurityStateParameterValue?.internetMessageId;
+        this.messageFingerprint = messageSecurityStateParameterValue?.messageFingerprint;
+        this.messageReceivedDateTime = messageSecurityStateParameterValue?.messageReceivedDateTime;
+        this.messageSubject = messageSecurityStateParameterValue?.messageSubject;
+        this.networkMessageId = messageSecurityStateParameterValue?.networkMessageId;
     };
     /**
      * The deserialization information for the current model
@@ -62,31 +62,31 @@ export class MessageSecurityStateImpl implements AdditionalDataHolder, MessageSe
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.connectingIP){
-        writer.writeStringValue("connectingIP", this.connectingIP);
+            writer.writeStringValue("connectingIP", this.connectingIP);
         }
         if(this.deliveryAction){
-        writer.writeStringValue("deliveryAction", this.deliveryAction);
+            writer.writeStringValue("deliveryAction", this.deliveryAction);
         }
         if(this.deliveryLocation){
-        writer.writeStringValue("deliveryLocation", this.deliveryLocation);
+            writer.writeStringValue("deliveryLocation", this.deliveryLocation);
         }
         if(this.directionality){
-        writer.writeStringValue("directionality", this.directionality);
+            writer.writeStringValue("directionality", this.directionality);
         }
         if(this.internetMessageId){
-        writer.writeStringValue("internetMessageId", this.internetMessageId);
+            writer.writeStringValue("internetMessageId", this.internetMessageId);
         }
         if(this.messageFingerprint){
-        writer.writeStringValue("messageFingerprint", this.messageFingerprint);
+            writer.writeStringValue("messageFingerprint", this.messageFingerprint);
         }
         if(this.messageReceivedDateTime){
-        writer.writeDateValue("messageReceivedDateTime", this.messageReceivedDateTime);
+            writer.writeDateValue("messageReceivedDateTime", this.messageReceivedDateTime);
         }
         if(this.messageSubject){
-        writer.writeStringValue("messageSubject", this.messageSubject);
+            writer.writeStringValue("messageSubject", this.messageSubject);
         }
         if(this.networkMessageId){
-        writer.writeStringValue("networkMessageId", this.networkMessageId);
+            writer.writeStringValue("networkMessageId", this.networkMessageId);
         }
         writer.writeAdditionalData(this.additionalData);
     };

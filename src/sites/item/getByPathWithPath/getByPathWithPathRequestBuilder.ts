@@ -22,7 +22,7 @@ export class GetByPathWithPathRequestBuilder {
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/sites/{site%2Did}/microsoft.graph.getByPath(path='{path}')";
         const urlTplParams = getPathParameters(pathParameters);
-        urlTplParams[""] = path
+        urlTplParams["path"] = path
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };

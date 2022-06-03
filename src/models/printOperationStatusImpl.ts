@@ -2,7 +2,7 @@ import {PrintOperationProcessingState} from './printOperationProcessingState';
 import {PrintOperationStatus} from './printOperationStatus';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class PrintOperationStatusImpl implements AdditionalDataHolder, Parsable, PrintOperationStatus {
+export class PrintOperationStatusImpl implements PrintOperationStatus {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** A human-readable description of the printOperation's current processing state. Read-only. */
@@ -14,9 +14,9 @@ export class PrintOperationStatusImpl implements AdditionalDataHolder, Parsable,
      * @param printOperationStatusParameterValue 
      */
     public constructor(printOperationStatusParameterValue?: PrintOperationStatus | undefined) {
-        this.additionalData = printOperationStatusParameterValue?.additionalData ? printOperationStatusParameterValue?.additionalData! : {}
-        this.description = printOperationStatusParameterValue?.description ;
-        this.state = printOperationStatusParameterValue?.state ;
+        this.additionalData = printOperationStatusParameterValue?.additionalData ? printOperationStatusParameterValue?.additionalData! : {};
+        this.description = printOperationStatusParameterValue?.description;
+        this.state = printOperationStatusParameterValue?.state;
     };
     /**
      * The deserialization information for the current model
@@ -35,10 +35,10 @@ export class PrintOperationStatusImpl implements AdditionalDataHolder, Parsable,
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.description){
-        writer.writeStringValue("description", this.description);
+            writer.writeStringValue("description", this.description);
         }
         if(this.state){
-        writer.writeEnumValue<PrintOperationProcessingState>("state", this.state);
+            writer.writeEnumValue<PrintOperationProcessingState>("state", this.state);
         }
         writer.writeAdditionalData(this.additionalData);
     };

@@ -5,7 +5,7 @@ import {PlayPromptPostRequestBody} from './playPromptPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the playPrompt method. */
-export class PlayPromptPostRequestBodyImpl implements AdditionalDataHolder, Parsable, PlayPromptPostRequestBody {
+export class PlayPromptPostRequestBodyImpl implements PlayPromptPostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The clientContext property */
@@ -17,9 +17,9 @@ export class PlayPromptPostRequestBodyImpl implements AdditionalDataHolder, Pars
      * @param playPromptPostRequestBodyParameterValue 
      */
     public constructor(playPromptPostRequestBodyParameterValue?: PlayPromptPostRequestBody | undefined) {
-        this.additionalData = playPromptPostRequestBodyParameterValue?.additionalData ? playPromptPostRequestBodyParameterValue?.additionalData! : {}
-        this.clientContext = playPromptPostRequestBodyParameterValue?.clientContext ;
-        this.prompts = playPromptPostRequestBodyParameterValue?.prompts ;
+        this.additionalData = playPromptPostRequestBodyParameterValue?.additionalData ? playPromptPostRequestBodyParameterValue?.additionalData! : {};
+        this.clientContext = playPromptPostRequestBodyParameterValue?.clientContext;
+        this.prompts = playPromptPostRequestBodyParameterValue?.prompts;
     };
     /**
      * The deserialization information for the current model
@@ -38,10 +38,10 @@ export class PlayPromptPostRequestBodyImpl implements AdditionalDataHolder, Pars
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.clientContext){
-        writer.writeStringValue("clientContext", this.clientContext);
+            writer.writeStringValue("clientContext", this.clientContext);
         }
         if(this.prompts && this.prompts.length != 0){        const promptsArrValue: PromptImpl[] = []; this.prompts?.forEach(element => {promptsArrValue.push(new PromptImpl(element));});
-        writer.writeCollectionOfObjectValues<PromptImpl>("prompts", promptsArrValue);
+            writer.writeCollectionOfObjectValues<PromptImpl>("prompts", promptsArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

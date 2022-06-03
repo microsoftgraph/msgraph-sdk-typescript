@@ -6,7 +6,7 @@ import {ExpirationPatternImpl, PatternedRecurrenceImpl} from './index';
 import {PatternedRecurrence} from './patternedRecurrence';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class EntitlementManagementScheduleImpl implements AdditionalDataHolder, EntitlementManagementSchedule, Parsable {
+export class EntitlementManagementScheduleImpl implements EntitlementManagementSchedule {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** When the access should expire. */
@@ -20,10 +20,10 @@ export class EntitlementManagementScheduleImpl implements AdditionalDataHolder, 
      * @param entitlementManagementScheduleParameterValue 
      */
     public constructor(entitlementManagementScheduleParameterValue?: EntitlementManagementSchedule | undefined) {
-        this.additionalData = entitlementManagementScheduleParameterValue?.additionalData ? entitlementManagementScheduleParameterValue?.additionalData! : {}
-        this.expiration = entitlementManagementScheduleParameterValue?.expiration ;
-        this.recurrence = entitlementManagementScheduleParameterValue?.recurrence ;
-        this.startDateTime = entitlementManagementScheduleParameterValue?.startDateTime ;
+        this.additionalData = entitlementManagementScheduleParameterValue?.additionalData ? entitlementManagementScheduleParameterValue?.additionalData! : {};
+        this.expiration = entitlementManagementScheduleParameterValue?.expiration;
+        this.recurrence = entitlementManagementScheduleParameterValue?.recurrence;
+        this.startDateTime = entitlementManagementScheduleParameterValue?.startDateTime;
     };
     /**
      * The deserialization information for the current model
@@ -43,13 +43,13 @@ export class EntitlementManagementScheduleImpl implements AdditionalDataHolder, 
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.expiration){
-        writer.writeObjectValue<ExpirationPatternImpl>("expiration", new ExpirationPatternImpl(this.expiration));
+            writer.writeObjectValue<ExpirationPatternImpl>("expiration", new ExpirationPatternImpl(this.expiration));
         }
         if(this.recurrence){
-        writer.writeObjectValue<PatternedRecurrenceImpl>("recurrence", new PatternedRecurrenceImpl(this.recurrence));
+            writer.writeObjectValue<PatternedRecurrenceImpl>("recurrence", new PatternedRecurrenceImpl(this.recurrence));
         }
         if(this.startDateTime){
-        writer.writeDateValue("startDateTime", this.startDateTime);
+            writer.writeDateValue("startDateTime", this.startDateTime);
         }
         writer.writeAdditionalData(this.additionalData);
     };

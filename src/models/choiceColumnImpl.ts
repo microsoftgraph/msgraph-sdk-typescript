@@ -1,7 +1,7 @@
 import {ChoiceColumn} from './choiceColumn';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ChoiceColumnImpl implements AdditionalDataHolder, ChoiceColumn, Parsable {
+export class ChoiceColumnImpl implements ChoiceColumn {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** If true, allows custom values that aren't in the configured choices. */
@@ -15,10 +15,10 @@ export class ChoiceColumnImpl implements AdditionalDataHolder, ChoiceColumn, Par
      * @param choiceColumnParameterValue 
      */
     public constructor(choiceColumnParameterValue?: ChoiceColumn | undefined) {
-        this.additionalData = choiceColumnParameterValue?.additionalData ? choiceColumnParameterValue?.additionalData! : {}
-        this.allowTextEntry = choiceColumnParameterValue?.allowTextEntry ;
-        this.choices = choiceColumnParameterValue?.choices ;
-        this.displayAs = choiceColumnParameterValue?.displayAs ;
+        this.additionalData = choiceColumnParameterValue?.additionalData ? choiceColumnParameterValue?.additionalData! : {};
+        this.allowTextEntry = choiceColumnParameterValue?.allowTextEntry;
+        this.choices = choiceColumnParameterValue?.choices;
+        this.displayAs = choiceColumnParameterValue?.displayAs;
     };
     /**
      * The deserialization information for the current model
@@ -38,13 +38,13 @@ export class ChoiceColumnImpl implements AdditionalDataHolder, ChoiceColumn, Par
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.allowTextEntry){
-        writer.writeBooleanValue("allowTextEntry", this.allowTextEntry);
+            writer.writeBooleanValue("allowTextEntry", this.allowTextEntry);
         }
         if(this.choices){
-        writer.writeCollectionOfPrimitiveValues<string>("choices", this.choices);
+            writer.writeCollectionOfPrimitiveValues<string>("choices", this.choices);
         }
         if(this.displayAs){
-        writer.writeStringValue("displayAs", this.displayAs);
+            writer.writeStringValue("displayAs", this.displayAs);
         }
         writer.writeAdditionalData(this.additionalData);
     };

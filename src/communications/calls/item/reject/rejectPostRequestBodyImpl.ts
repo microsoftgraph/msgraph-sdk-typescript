@@ -3,7 +3,7 @@ import {RejectPostRequestBody} from './rejectPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the reject method. */
-export class RejectPostRequestBodyImpl implements AdditionalDataHolder, Parsable, RejectPostRequestBody {
+export class RejectPostRequestBodyImpl implements RejectPostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The callbackUri property */
@@ -15,9 +15,9 @@ export class RejectPostRequestBodyImpl implements AdditionalDataHolder, Parsable
      * @param rejectPostRequestBodyParameterValue 
      */
     public constructor(rejectPostRequestBodyParameterValue?: RejectPostRequestBody | undefined) {
-        this.additionalData = rejectPostRequestBodyParameterValue?.additionalData ? rejectPostRequestBodyParameterValue?.additionalData! : {}
-        this.callbackUri = rejectPostRequestBodyParameterValue?.callbackUri ;
-        this.reason = rejectPostRequestBodyParameterValue?.reason ;
+        this.additionalData = rejectPostRequestBodyParameterValue?.additionalData ? rejectPostRequestBodyParameterValue?.additionalData! : {};
+        this.callbackUri = rejectPostRequestBodyParameterValue?.callbackUri;
+        this.reason = rejectPostRequestBodyParameterValue?.reason;
     };
     /**
      * The deserialization information for the current model
@@ -36,10 +36,10 @@ export class RejectPostRequestBodyImpl implements AdditionalDataHolder, Parsable
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.callbackUri){
-        writer.writeStringValue("callbackUri", this.callbackUri);
+            writer.writeStringValue("callbackUri", this.callbackUri);
         }
         if(this.reason){
-        writer.writeEnumValue<RejectReason>("reason", this.reason);
+            writer.writeEnumValue<RejectReason>("reason", this.reason);
         }
         writer.writeAdditionalData(this.additionalData);
     };

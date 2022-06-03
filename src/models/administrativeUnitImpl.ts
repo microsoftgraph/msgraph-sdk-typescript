@@ -9,7 +9,7 @@ import {ScopedRoleMembership} from './scopedRoleMembership';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the educationRoot singleton. */
-export class AdministrativeUnitImpl extends DirectoryObjectImpl implements AdministrativeUnit, Parsable {
+export class AdministrativeUnitImpl extends DirectoryObjectImpl implements AdministrativeUnit {
     /** An optional description for the administrative unit. Supports $filter (eq, ne, in, startsWith), $search. */
     public description?: string | undefined;
     /** Display name for the administrative unit. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values), $search, and $orderBy. */
@@ -27,13 +27,13 @@ export class AdministrativeUnitImpl extends DirectoryObjectImpl implements Admin
      * @param administrativeUnitParameterValue 
      */
     public constructor(administrativeUnitParameterValue?: AdministrativeUnit | undefined) {
-        super();
-        this.description = administrativeUnitParameterValue?.description ;
-        this.displayName = administrativeUnitParameterValue?.displayName ;
-        this.extensions = administrativeUnitParameterValue?.extensions ;
-        this.members = administrativeUnitParameterValue?.members ;
-        this.scopedRoleMembers = administrativeUnitParameterValue?.scopedRoleMembers ;
-        this.visibility = administrativeUnitParameterValue?.visibility ;
+        super(administrativeUnitParameterValue);
+        this.description = administrativeUnitParameterValue?.description;
+        this.displayName = administrativeUnitParameterValue?.displayName;
+        this.extensions = administrativeUnitParameterValue?.extensions;
+        this.members = administrativeUnitParameterValue?.members;
+        this.scopedRoleMembers = administrativeUnitParameterValue?.scopedRoleMembers;
+        this.visibility = administrativeUnitParameterValue?.visibility;
     };
     /**
      * The deserialization information for the current model
@@ -57,22 +57,22 @@ export class AdministrativeUnitImpl extends DirectoryObjectImpl implements Admin
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.description){
-        writer.writeStringValue("description", this.description);
+            writer.writeStringValue("description", this.description);
         }
         if(this.displayName){
-        writer.writeStringValue("displayName", this.displayName);
+            writer.writeStringValue("displayName", this.displayName);
         }
         if(this.extensions && this.extensions.length != 0){        const extensionsArrValue: ExtensionImpl[] = []; this.extensions?.forEach(element => {extensionsArrValue.push(new ExtensionImpl(element));});
-        writer.writeCollectionOfObjectValues<ExtensionImpl>("extensions", extensionsArrValue);
+            writer.writeCollectionOfObjectValues<ExtensionImpl>("extensions", extensionsArrValue);
         }
         if(this.members && this.members.length != 0){        const membersArrValue: DirectoryObjectImpl[] = []; this.members?.forEach(element => {membersArrValue.push(new DirectoryObjectImpl(element));});
-        writer.writeCollectionOfObjectValues<DirectoryObjectImpl>("members", membersArrValue);
+            writer.writeCollectionOfObjectValues<DirectoryObjectImpl>("members", membersArrValue);
         }
         if(this.scopedRoleMembers && this.scopedRoleMembers.length != 0){        const scopedRoleMembersArrValue: ScopedRoleMembershipImpl[] = []; this.scopedRoleMembers?.forEach(element => {scopedRoleMembersArrValue.push(new ScopedRoleMembershipImpl(element));});
-        writer.writeCollectionOfObjectValues<ScopedRoleMembershipImpl>("scopedRoleMembers", scopedRoleMembersArrValue);
+            writer.writeCollectionOfObjectValues<ScopedRoleMembershipImpl>("scopedRoleMembers", scopedRoleMembersArrValue);
         }
         if(this.visibility){
-        writer.writeStringValue("visibility", this.visibility);
+            writer.writeStringValue("visibility", this.visibility);
         }
     };
 }

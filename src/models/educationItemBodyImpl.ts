@@ -2,7 +2,7 @@ import {BodyType} from './bodyType';
 import {EducationItemBody} from './educationItemBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class EducationItemBodyImpl implements AdditionalDataHolder, EducationItemBody, Parsable {
+export class EducationItemBodyImpl implements EducationItemBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The content property */
@@ -14,9 +14,9 @@ export class EducationItemBodyImpl implements AdditionalDataHolder, EducationIte
      * @param educationItemBodyParameterValue 
      */
     public constructor(educationItemBodyParameterValue?: EducationItemBody | undefined) {
-        this.additionalData = educationItemBodyParameterValue?.additionalData ? educationItemBodyParameterValue?.additionalData! : {}
-        this.content = educationItemBodyParameterValue?.content ;
-        this.contentType = educationItemBodyParameterValue?.contentType ;
+        this.additionalData = educationItemBodyParameterValue?.additionalData ? educationItemBodyParameterValue?.additionalData! : {};
+        this.content = educationItemBodyParameterValue?.content;
+        this.contentType = educationItemBodyParameterValue?.contentType;
     };
     /**
      * The deserialization information for the current model
@@ -35,10 +35,10 @@ export class EducationItemBodyImpl implements AdditionalDataHolder, EducationIte
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.content){
-        writer.writeStringValue("content", this.content);
+            writer.writeStringValue("content", this.content);
         }
         if(this.contentType){
-        writer.writeEnumValue<BodyType>("contentType", this.contentType);
+            writer.writeEnumValue<BodyType>("contentType", this.contentType);
         }
         writer.writeAdditionalData(this.additionalData);
     };

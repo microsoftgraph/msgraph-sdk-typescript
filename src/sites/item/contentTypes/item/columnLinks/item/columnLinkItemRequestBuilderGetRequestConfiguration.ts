@@ -1,11 +1,11 @@
 import {ColumnLinkItemRequestBuilderGetQueryParameters} from './columnLinkItemRequestBuilderGetQueryParameters';
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
-export interface ColumnLinkItemRequestBuilderGetRequestConfiguration{
+export interface ColumnLinkItemRequestBuilderGetRequestConfiguration {
     /** Request headers */
-    headers?:Record<string, string> | undefined;
+    headers?: Record<string, string> | undefined;
     /** Request options */
-    options?:RequestOption[] | undefined;
+    options?: RequestOption[] | undefined;
     /** Request query parameters */
-    queryParameters?:ColumnLinkItemRequestBuilderGetQueryParameters | undefined;
+    queryParameters?: ColumnLinkItemRequestBuilderGetQueryParameters | undefined;
 }

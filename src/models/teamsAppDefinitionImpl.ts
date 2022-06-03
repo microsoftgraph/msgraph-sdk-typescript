@@ -8,7 +8,7 @@ import {TeamworkBot} from './teamworkBot';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the appCatalogs singleton. */
-export class TeamsAppDefinitionImpl extends EntityImpl implements Parsable, TeamsAppDefinition {
+export class TeamsAppDefinitionImpl extends EntityImpl implements TeamsAppDefinition {
     /** The details of the bot specified in the Teams app manifest. */
     public bot?: TeamworkBot | undefined;
     /** The createdBy property */
@@ -32,16 +32,16 @@ export class TeamsAppDefinitionImpl extends EntityImpl implements Parsable, Team
      * @param teamsAppDefinitionParameterValue 
      */
     public constructor(teamsAppDefinitionParameterValue?: TeamsAppDefinition | undefined) {
-        super();
-        this.bot = teamsAppDefinitionParameterValue?.bot ;
-        this.createdBy = teamsAppDefinitionParameterValue?.createdBy ;
-        this.description = teamsAppDefinitionParameterValue?.description ;
-        this.displayName = teamsAppDefinitionParameterValue?.displayName ;
-        this.lastModifiedDateTime = teamsAppDefinitionParameterValue?.lastModifiedDateTime ;
-        this.publishingState = teamsAppDefinitionParameterValue?.publishingState ;
-        this.shortDescription = teamsAppDefinitionParameterValue?.shortDescription ;
-        this.teamsAppId = teamsAppDefinitionParameterValue?.teamsAppId ;
-        this.version = teamsAppDefinitionParameterValue?.version ;
+        super(teamsAppDefinitionParameterValue);
+        this.bot = teamsAppDefinitionParameterValue?.bot;
+        this.createdBy = teamsAppDefinitionParameterValue?.createdBy;
+        this.description = teamsAppDefinitionParameterValue?.description;
+        this.displayName = teamsAppDefinitionParameterValue?.displayName;
+        this.lastModifiedDateTime = teamsAppDefinitionParameterValue?.lastModifiedDateTime;
+        this.publishingState = teamsAppDefinitionParameterValue?.publishingState;
+        this.shortDescription = teamsAppDefinitionParameterValue?.shortDescription;
+        this.teamsAppId = teamsAppDefinitionParameterValue?.teamsAppId;
+        this.version = teamsAppDefinitionParameterValue?.version;
     };
     /**
      * The deserialization information for the current model
@@ -68,31 +68,31 @@ export class TeamsAppDefinitionImpl extends EntityImpl implements Parsable, Team
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.bot){
-        writer.writeObjectValue<TeamworkBotImpl>("bot", new TeamworkBotImpl(this.bot));
+            writer.writeObjectValue<TeamworkBotImpl>("bot", new TeamworkBotImpl(this.bot));
         }
         if(this.createdBy){
-        writer.writeObjectValue<IdentitySetImpl>("createdBy", new IdentitySetImpl(this.createdBy));
+            writer.writeObjectValue<IdentitySetImpl>("createdBy", new IdentitySetImpl(this.createdBy));
         }
         if(this.description){
-        writer.writeStringValue("description", this.description);
+            writer.writeStringValue("description", this.description);
         }
         if(this.displayName){
-        writer.writeStringValue("displayName", this.displayName);
+            writer.writeStringValue("displayName", this.displayName);
         }
         if(this.lastModifiedDateTime){
-        writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
+            writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
         }
         if(this.publishingState){
-        writer.writeEnumValue<TeamsAppPublishingState>("publishingState", this.publishingState);
+            writer.writeEnumValue<TeamsAppPublishingState>("publishingState", this.publishingState);
         }
         if(this.shortDescription){
-        writer.writeStringValue("shortDescription", this.shortDescription);
+            writer.writeStringValue("shortDescription", this.shortDescription);
         }
         if(this.teamsAppId){
-        writer.writeStringValue("teamsAppId", this.teamsAppId);
+            writer.writeStringValue("teamsAppId", this.teamsAppId);
         }
         if(this.version){
-        writer.writeStringValue("version", this.version);
+            writer.writeStringValue("version", this.version);
         }
     };
 }

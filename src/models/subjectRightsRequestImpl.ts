@@ -22,7 +22,7 @@ import {Team} from './team';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the privacy singleton. */
-export class SubjectRightsRequestImpl extends EntityImpl implements Parsable, SubjectRightsRequest {
+export class SubjectRightsRequestImpl extends EntityImpl implements SubjectRightsRequest {
     /** Identity that the request is assigned to. */
     public assignedTo?: Identity | undefined;
     /** The date and time when the request was closed. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
@@ -66,26 +66,26 @@ export class SubjectRightsRequestImpl extends EntityImpl implements Parsable, Su
      * @param subjectRightsRequestParameterValue 
      */
     public constructor(subjectRightsRequestParameterValue?: SubjectRightsRequest | undefined) {
-        super();
-        this.assignedTo = subjectRightsRequestParameterValue?.assignedTo ;
-        this.closedDateTime = subjectRightsRequestParameterValue?.closedDateTime ;
-        this.createdBy = subjectRightsRequestParameterValue?.createdBy ;
-        this.createdDateTime = subjectRightsRequestParameterValue?.createdDateTime ;
-        this.dataSubject = subjectRightsRequestParameterValue?.dataSubject ;
-        this.dataSubjectType = subjectRightsRequestParameterValue?.dataSubjectType ;
-        this.description = subjectRightsRequestParameterValue?.description ;
-        this.displayName = subjectRightsRequestParameterValue?.displayName ;
-        this.history = subjectRightsRequestParameterValue?.history ;
-        this.insight = subjectRightsRequestParameterValue?.insight ;
-        this.internalDueDateTime = subjectRightsRequestParameterValue?.internalDueDateTime ;
-        this.lastModifiedBy = subjectRightsRequestParameterValue?.lastModifiedBy ;
-        this.lastModifiedDateTime = subjectRightsRequestParameterValue?.lastModifiedDateTime ;
-        this.notes = subjectRightsRequestParameterValue?.notes ;
-        this.regulations = subjectRightsRequestParameterValue?.regulations ;
-        this.stages = subjectRightsRequestParameterValue?.stages ;
-        this.status = subjectRightsRequestParameterValue?.status ;
-        this.team = subjectRightsRequestParameterValue?.team ;
-        this.type = subjectRightsRequestParameterValue?.type ;
+        super(subjectRightsRequestParameterValue);
+        this.assignedTo = subjectRightsRequestParameterValue?.assignedTo;
+        this.closedDateTime = subjectRightsRequestParameterValue?.closedDateTime;
+        this.createdBy = subjectRightsRequestParameterValue?.createdBy;
+        this.createdDateTime = subjectRightsRequestParameterValue?.createdDateTime;
+        this.dataSubject = subjectRightsRequestParameterValue?.dataSubject;
+        this.dataSubjectType = subjectRightsRequestParameterValue?.dataSubjectType;
+        this.description = subjectRightsRequestParameterValue?.description;
+        this.displayName = subjectRightsRequestParameterValue?.displayName;
+        this.history = subjectRightsRequestParameterValue?.history;
+        this.insight = subjectRightsRequestParameterValue?.insight;
+        this.internalDueDateTime = subjectRightsRequestParameterValue?.internalDueDateTime;
+        this.lastModifiedBy = subjectRightsRequestParameterValue?.lastModifiedBy;
+        this.lastModifiedDateTime = subjectRightsRequestParameterValue?.lastModifiedDateTime;
+        this.notes = subjectRightsRequestParameterValue?.notes;
+        this.regulations = subjectRightsRequestParameterValue?.regulations;
+        this.stages = subjectRightsRequestParameterValue?.stages;
+        this.status = subjectRightsRequestParameterValue?.status;
+        this.team = subjectRightsRequestParameterValue?.team;
+        this.type = subjectRightsRequestParameterValue?.type;
     };
     /**
      * The deserialization information for the current model
@@ -122,61 +122,61 @@ export class SubjectRightsRequestImpl extends EntityImpl implements Parsable, Su
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.assignedTo){
-        writer.writeObjectValue<IdentityImpl>("assignedTo", new IdentityImpl(this.assignedTo));
+            writer.writeObjectValue<IdentityImpl>("assignedTo", new IdentityImpl(this.assignedTo));
         }
         if(this.closedDateTime){
-        writer.writeDateValue("closedDateTime", this.closedDateTime);
+            writer.writeDateValue("closedDateTime", this.closedDateTime);
         }
         if(this.createdBy){
-        writer.writeObjectValue<IdentitySetImpl>("createdBy", new IdentitySetImpl(this.createdBy));
+            writer.writeObjectValue<IdentitySetImpl>("createdBy", new IdentitySetImpl(this.createdBy));
         }
         if(this.createdDateTime){
-        writer.writeDateValue("createdDateTime", this.createdDateTime);
+            writer.writeDateValue("createdDateTime", this.createdDateTime);
         }
         if(this.dataSubject){
-        writer.writeObjectValue<DataSubjectImpl>("dataSubject", new DataSubjectImpl(this.dataSubject));
+            writer.writeObjectValue<DataSubjectImpl>("dataSubject", new DataSubjectImpl(this.dataSubject));
         }
         if(this.dataSubjectType){
-        writer.writeEnumValue<DataSubjectType>("dataSubjectType", this.dataSubjectType);
+            writer.writeEnumValue<DataSubjectType>("dataSubjectType", this.dataSubjectType);
         }
         if(this.description){
-        writer.writeStringValue("description", this.description);
+            writer.writeStringValue("description", this.description);
         }
         if(this.displayName){
-        writer.writeStringValue("displayName", this.displayName);
+            writer.writeStringValue("displayName", this.displayName);
         }
         if(this.history && this.history.length != 0){        const historyArrValue: SubjectRightsRequestHistoryImpl[] = []; this.history?.forEach(element => {historyArrValue.push(new SubjectRightsRequestHistoryImpl(element));});
-        writer.writeCollectionOfObjectValues<SubjectRightsRequestHistoryImpl>("history", historyArrValue);
+            writer.writeCollectionOfObjectValues<SubjectRightsRequestHistoryImpl>("history", historyArrValue);
         }
         if(this.insight){
-        writer.writeObjectValue<SubjectRightsRequestDetailImpl>("insight", new SubjectRightsRequestDetailImpl(this.insight));
+            writer.writeObjectValue<SubjectRightsRequestDetailImpl>("insight", new SubjectRightsRequestDetailImpl(this.insight));
         }
         if(this.internalDueDateTime){
-        writer.writeDateValue("internalDueDateTime", this.internalDueDateTime);
+            writer.writeDateValue("internalDueDateTime", this.internalDueDateTime);
         }
         if(this.lastModifiedBy){
-        writer.writeObjectValue<IdentitySetImpl>("lastModifiedBy", new IdentitySetImpl(this.lastModifiedBy));
+            writer.writeObjectValue<IdentitySetImpl>("lastModifiedBy", new IdentitySetImpl(this.lastModifiedBy));
         }
         if(this.lastModifiedDateTime){
-        writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
+            writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
         }
         if(this.notes && this.notes.length != 0){        const notesArrValue: AuthoredNoteImpl[] = []; this.notes?.forEach(element => {notesArrValue.push(new AuthoredNoteImpl(element));});
-        writer.writeCollectionOfObjectValues<AuthoredNoteImpl>("notes", notesArrValue);
+            writer.writeCollectionOfObjectValues<AuthoredNoteImpl>("notes", notesArrValue);
         }
         if(this.regulations){
-        writer.writeCollectionOfPrimitiveValues<string>("regulations", this.regulations);
+            writer.writeCollectionOfPrimitiveValues<string>("regulations", this.regulations);
         }
         if(this.stages && this.stages.length != 0){        const stagesArrValue: SubjectRightsRequestStageDetailImpl[] = []; this.stages?.forEach(element => {stagesArrValue.push(new SubjectRightsRequestStageDetailImpl(element));});
-        writer.writeCollectionOfObjectValues<SubjectRightsRequestStageDetailImpl>("stages", stagesArrValue);
+            writer.writeCollectionOfObjectValues<SubjectRightsRequestStageDetailImpl>("stages", stagesArrValue);
         }
         if(this.status){
-        writer.writeEnumValue<SubjectRightsRequestStatus>("status", this.status);
+            writer.writeEnumValue<SubjectRightsRequestStatus>("status", this.status);
         }
         if(this.team){
-        writer.writeObjectValue<TeamImpl>("team", new TeamImpl(this.team));
+            writer.writeObjectValue<TeamImpl>("team", new TeamImpl(this.team));
         }
         if(this.type){
-        writer.writeEnumValue<SubjectRightsRequestType>("type", this.type);
+            writer.writeEnumValue<SubjectRightsRequestType>("type", this.type);
         }
     };
 }

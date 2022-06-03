@@ -5,7 +5,7 @@ import {WindowsInformationProtectionIPRangeCollection} from './windowsInformatio
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Windows Information Protection IP Range Collection */
-export class WindowsInformationProtectionIPRangeCollectionImpl implements AdditionalDataHolder, Parsable, WindowsInformationProtectionIPRangeCollection {
+export class WindowsInformationProtectionIPRangeCollectionImpl implements WindowsInformationProtectionIPRangeCollection {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Display name */
@@ -17,9 +17,9 @@ export class WindowsInformationProtectionIPRangeCollectionImpl implements Additi
      * @param windowsInformationProtectionIPRangeCollectionParameterValue 
      */
     public constructor(windowsInformationProtectionIPRangeCollectionParameterValue?: WindowsInformationProtectionIPRangeCollection | undefined) {
-        this.additionalData = windowsInformationProtectionIPRangeCollectionParameterValue?.additionalData ? windowsInformationProtectionIPRangeCollectionParameterValue?.additionalData! : {}
-        this.displayName = windowsInformationProtectionIPRangeCollectionParameterValue?.displayName ;
-        this.ranges = windowsInformationProtectionIPRangeCollectionParameterValue?.ranges ;
+        this.additionalData = windowsInformationProtectionIPRangeCollectionParameterValue?.additionalData ? windowsInformationProtectionIPRangeCollectionParameterValue?.additionalData! : {};
+        this.displayName = windowsInformationProtectionIPRangeCollectionParameterValue?.displayName;
+        this.ranges = windowsInformationProtectionIPRangeCollectionParameterValue?.ranges;
     };
     /**
      * The deserialization information for the current model
@@ -38,10 +38,10 @@ export class WindowsInformationProtectionIPRangeCollectionImpl implements Additi
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.displayName){
-        writer.writeStringValue("displayName", this.displayName);
+            writer.writeStringValue("displayName", this.displayName);
         }
         if(this.ranges && this.ranges.length != 0){        const rangesArrValue: IpRangeImpl[] = []; this.ranges?.forEach(element => {rangesArrValue.push(new IpRangeImpl(element));});
-        writer.writeCollectionOfObjectValues<IpRangeImpl>("ranges", rangesArrValue);
+            writer.writeCollectionOfObjectValues<IpRangeImpl>("ranges", rangesArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

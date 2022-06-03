@@ -1,7 +1,7 @@
 import {LicenseUnitsDetail} from './licenseUnitsDetail';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class LicenseUnitsDetailImpl implements AdditionalDataHolder, LicenseUnitsDetail, Parsable {
+export class LicenseUnitsDetailImpl implements LicenseUnitsDetail {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The number of units that are enabled for the active subscription of the service SKU. */
@@ -15,10 +15,10 @@ export class LicenseUnitsDetailImpl implements AdditionalDataHolder, LicenseUnit
      * @param licenseUnitsDetailParameterValue 
      */
     public constructor(licenseUnitsDetailParameterValue?: LicenseUnitsDetail | undefined) {
-        this.additionalData = licenseUnitsDetailParameterValue?.additionalData ? licenseUnitsDetailParameterValue?.additionalData! : {}
-        this.enabled = licenseUnitsDetailParameterValue?.enabled ;
-        this.suspended = licenseUnitsDetailParameterValue?.suspended ;
-        this.warning = licenseUnitsDetailParameterValue?.warning ;
+        this.additionalData = licenseUnitsDetailParameterValue?.additionalData ? licenseUnitsDetailParameterValue?.additionalData! : {};
+        this.enabled = licenseUnitsDetailParameterValue?.enabled;
+        this.suspended = licenseUnitsDetailParameterValue?.suspended;
+        this.warning = licenseUnitsDetailParameterValue?.warning;
     };
     /**
      * The deserialization information for the current model
@@ -38,13 +38,13 @@ export class LicenseUnitsDetailImpl implements AdditionalDataHolder, LicenseUnit
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.enabled){
-        writer.writeNumberValue("enabled", this.enabled);
+            writer.writeNumberValue("enabled", this.enabled);
         }
         if(this.suspended){
-        writer.writeNumberValue("suspended", this.suspended);
+            writer.writeNumberValue("suspended", this.suspended);
         }
         if(this.warning){
-        writer.writeNumberValue("warning", this.warning);
+            writer.writeNumberValue("warning", this.warning);
         }
         writer.writeAdditionalData(this.additionalData);
     };

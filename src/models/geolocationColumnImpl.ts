@@ -1,7 +1,7 @@
 import {GeolocationColumn} from './geolocationColumn';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class GeolocationColumnImpl implements AdditionalDataHolder, GeolocationColumn, Parsable {
+export class GeolocationColumnImpl implements GeolocationColumn {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /**
@@ -9,7 +9,7 @@ export class GeolocationColumnImpl implements AdditionalDataHolder, GeolocationC
      * @param geolocationColumnParameterValue 
      */
     public constructor(geolocationColumnParameterValue?: GeolocationColumn | undefined) {
-        this.additionalData = geolocationColumnParameterValue?.additionalData ? geolocationColumnParameterValue?.additionalData! : {}
+        this.additionalData = geolocationColumnParameterValue?.additionalData ? geolocationColumnParameterValue?.additionalData! : {};
     };
     /**
      * The deserialization information for the current model

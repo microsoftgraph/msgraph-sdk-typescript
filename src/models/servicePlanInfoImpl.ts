@@ -1,7 +1,7 @@
 import {ServicePlanInfo} from './servicePlanInfo';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ServicePlanInfoImpl implements AdditionalDataHolder, Parsable, ServicePlanInfo {
+export class ServicePlanInfoImpl implements ServicePlanInfo {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The object the service plan can be assigned to. The possible values are:User - service plan can be assigned to individual users.Company - service plan can be assigned to the entire tenant. */
@@ -17,11 +17,11 @@ export class ServicePlanInfoImpl implements AdditionalDataHolder, Parsable, Serv
      * @param servicePlanInfoParameterValue 
      */
     public constructor(servicePlanInfoParameterValue?: ServicePlanInfo | undefined) {
-        this.additionalData = servicePlanInfoParameterValue?.additionalData ? servicePlanInfoParameterValue?.additionalData! : {}
-        this.appliesTo = servicePlanInfoParameterValue?.appliesTo ;
-        this.provisioningStatus = servicePlanInfoParameterValue?.provisioningStatus ;
-        this.servicePlanId = servicePlanInfoParameterValue?.servicePlanId ;
-        this.servicePlanName = servicePlanInfoParameterValue?.servicePlanName ;
+        this.additionalData = servicePlanInfoParameterValue?.additionalData ? servicePlanInfoParameterValue?.additionalData! : {};
+        this.appliesTo = servicePlanInfoParameterValue?.appliesTo;
+        this.provisioningStatus = servicePlanInfoParameterValue?.provisioningStatus;
+        this.servicePlanId = servicePlanInfoParameterValue?.servicePlanId;
+        this.servicePlanName = servicePlanInfoParameterValue?.servicePlanName;
     };
     /**
      * The deserialization information for the current model
@@ -42,16 +42,16 @@ export class ServicePlanInfoImpl implements AdditionalDataHolder, Parsable, Serv
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.appliesTo){
-        writer.writeStringValue("appliesTo", this.appliesTo);
+            writer.writeStringValue("appliesTo", this.appliesTo);
         }
         if(this.provisioningStatus){
-        writer.writeStringValue("provisioningStatus", this.provisioningStatus);
+            writer.writeStringValue("provisioningStatus", this.provisioningStatus);
         }
         if(this.servicePlanId){
-        writer.writeStringValue("servicePlanId", this.servicePlanId);
+            writer.writeStringValue("servicePlanId", this.servicePlanId);
         }
         if(this.servicePlanName){
-        writer.writeStringValue("servicePlanName", this.servicePlanName);
+            writer.writeStringValue("servicePlanName", this.servicePlanName);
         }
         writer.writeAdditionalData(this.additionalData);
     };

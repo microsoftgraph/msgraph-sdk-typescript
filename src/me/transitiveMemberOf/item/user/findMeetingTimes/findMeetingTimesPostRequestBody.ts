@@ -1,25 +1,25 @@
 import {AttendeeBase} from '../../../../../models/attendeeBase';
 import {LocationConstraint} from '../../../../../models/locationConstraint';
 import {TimeConstraint} from '../../../../../models/timeConstraint';
-import {Duration} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Duration, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface FindMeetingTimesPostRequestBody{
+export interface FindMeetingTimesPostRequestBody extends Partial<AdditionalDataHolder>, Partial<Parsable> {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?:Record<string, unknown>;
+    additionalData?: Record<string, unknown>;
     /** The attendees property */
-    attendees?:AttendeeBase[] | undefined;
+    attendees?: AttendeeBase[] | undefined;
     /** The isOrganizerOptional property */
-    isOrganizerOptional?:boolean | undefined;
+    isOrganizerOptional?: boolean | undefined;
     /** The locationConstraint property */
-    locationConstraint?:LocationConstraint | undefined;
+    locationConstraint?: LocationConstraint | undefined;
     /** The maxCandidates property */
-    maxCandidates?:number | undefined;
+    maxCandidates?: number | undefined;
     /** The meetingDuration property */
-    meetingDuration?:Duration | undefined;
+    meetingDuration?: Duration | undefined;
     /** The minimumAttendeePercentage property */
-    minimumAttendeePercentage?:number | undefined;
+    minimumAttendeePercentage?: number | undefined;
     /** The returnSuggestionReasons property */
-    returnSuggestionReasons?:boolean | undefined;
+    returnSuggestionReasons?: boolean | undefined;
     /** The timeConstraint property */
-    timeConstraint?:TimeConstraint | undefined;
+    timeConstraint?: TimeConstraint | undefined;
 }

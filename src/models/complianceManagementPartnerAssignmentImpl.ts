@@ -5,7 +5,7 @@ import {DeviceAndAppManagementAssignmentTargetImpl} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** User group targeting for Compliance Management Partner */
-export class ComplianceManagementPartnerAssignmentImpl implements AdditionalDataHolder, ComplianceManagementPartnerAssignment, Parsable {
+export class ComplianceManagementPartnerAssignmentImpl implements ComplianceManagementPartnerAssignment {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Group assignment target. */
@@ -15,8 +15,8 @@ export class ComplianceManagementPartnerAssignmentImpl implements AdditionalData
      * @param complianceManagementPartnerAssignmentParameterValue 
      */
     public constructor(complianceManagementPartnerAssignmentParameterValue?: ComplianceManagementPartnerAssignment | undefined) {
-        this.additionalData = complianceManagementPartnerAssignmentParameterValue?.additionalData ? complianceManagementPartnerAssignmentParameterValue?.additionalData! : {}
-        this.target = complianceManagementPartnerAssignmentParameterValue?.target ;
+        this.additionalData = complianceManagementPartnerAssignmentParameterValue?.additionalData ? complianceManagementPartnerAssignmentParameterValue?.additionalData! : {};
+        this.target = complianceManagementPartnerAssignmentParameterValue?.target;
     };
     /**
      * The deserialization information for the current model
@@ -34,7 +34,7 @@ export class ComplianceManagementPartnerAssignmentImpl implements AdditionalData
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.target){
-        writer.writeObjectValue<DeviceAndAppManagementAssignmentTargetImpl>("target", new DeviceAndAppManagementAssignmentTargetImpl(this.target));
+            writer.writeObjectValue<DeviceAndAppManagementAssignmentTargetImpl>("target", new DeviceAndAppManagementAssignmentTargetImpl(this.target));
         }
         writer.writeAdditionalData(this.additionalData);
     };

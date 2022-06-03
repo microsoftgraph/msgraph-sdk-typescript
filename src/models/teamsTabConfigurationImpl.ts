@@ -1,7 +1,7 @@
 import {TeamsTabConfiguration} from './teamsTabConfiguration';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class TeamsTabConfigurationImpl implements AdditionalDataHolder, Parsable, TeamsTabConfiguration {
+export class TeamsTabConfigurationImpl implements TeamsTabConfiguration {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Url used for rendering tab contents in Teams. Required. */
@@ -17,11 +17,11 @@ export class TeamsTabConfigurationImpl implements AdditionalDataHolder, Parsable
      * @param teamsTabConfigurationParameterValue 
      */
     public constructor(teamsTabConfigurationParameterValue?: TeamsTabConfiguration | undefined) {
-        this.additionalData = teamsTabConfigurationParameterValue?.additionalData ? teamsTabConfigurationParameterValue?.additionalData! : {}
-        this.contentUrl = teamsTabConfigurationParameterValue?.contentUrl ;
-        this.entityId = teamsTabConfigurationParameterValue?.entityId ;
-        this.removeUrl = teamsTabConfigurationParameterValue?.removeUrl ;
-        this.websiteUrl = teamsTabConfigurationParameterValue?.websiteUrl ;
+        this.additionalData = teamsTabConfigurationParameterValue?.additionalData ? teamsTabConfigurationParameterValue?.additionalData! : {};
+        this.contentUrl = teamsTabConfigurationParameterValue?.contentUrl;
+        this.entityId = teamsTabConfigurationParameterValue?.entityId;
+        this.removeUrl = teamsTabConfigurationParameterValue?.removeUrl;
+        this.websiteUrl = teamsTabConfigurationParameterValue?.websiteUrl;
     };
     /**
      * The deserialization information for the current model
@@ -42,16 +42,16 @@ export class TeamsTabConfigurationImpl implements AdditionalDataHolder, Parsable
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.contentUrl){
-        writer.writeStringValue("contentUrl", this.contentUrl);
+            writer.writeStringValue("contentUrl", this.contentUrl);
         }
         if(this.entityId){
-        writer.writeStringValue("entityId", this.entityId);
+            writer.writeStringValue("entityId", this.entityId);
         }
         if(this.removeUrl){
-        writer.writeStringValue("removeUrl", this.removeUrl);
+            writer.writeStringValue("removeUrl", this.removeUrl);
         }
         if(this.websiteUrl){
-        writer.writeStringValue("websiteUrl", this.websiteUrl);
+            writer.writeStringValue("websiteUrl", this.websiteUrl);
         }
         writer.writeAdditionalData(this.additionalData);
     };

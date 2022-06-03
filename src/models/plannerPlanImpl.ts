@@ -12,8 +12,8 @@ import {PlannerPlanDetails} from './plannerPlanDetails';
 import {PlannerTask} from './plannerTask';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
-export class PlannerPlanImpl extends EntityImpl implements Parsable, PlannerPlan {
+/** Casts the previous resource to group. */
+export class PlannerPlanImpl extends EntityImpl implements PlannerPlan {
     /** Collection of buckets in the plan. Read-only. Nullable. */
     public buckets?: PlannerBucket[] | undefined;
     /** Identifies the container of the plan. After it is set, this property can’t be updated. Required. */
@@ -35,15 +35,15 @@ export class PlannerPlanImpl extends EntityImpl implements Parsable, PlannerPlan
      * @param plannerPlanParameterValue 
      */
     public constructor(plannerPlanParameterValue?: PlannerPlan | undefined) {
-        super();
-        this.buckets = plannerPlanParameterValue?.buckets ;
-        this.container = plannerPlanParameterValue?.container ;
-        this.createdBy = plannerPlanParameterValue?.createdBy ;
-        this.createdDateTime = plannerPlanParameterValue?.createdDateTime ;
-        this.details = plannerPlanParameterValue?.details ;
-        this.owner = plannerPlanParameterValue?.owner ;
-        this.tasks = plannerPlanParameterValue?.tasks ;
-        this.title = plannerPlanParameterValue?.title ;
+        super(plannerPlanParameterValue);
+        this.buckets = plannerPlanParameterValue?.buckets;
+        this.container = plannerPlanParameterValue?.container;
+        this.createdBy = plannerPlanParameterValue?.createdBy;
+        this.createdDateTime = plannerPlanParameterValue?.createdDateTime;
+        this.details = plannerPlanParameterValue?.details;
+        this.owner = plannerPlanParameterValue?.owner;
+        this.tasks = plannerPlanParameterValue?.tasks;
+        this.title = plannerPlanParameterValue?.title;
     };
     /**
      * The deserialization information for the current model
@@ -69,28 +69,28 @@ export class PlannerPlanImpl extends EntityImpl implements Parsable, PlannerPlan
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.buckets && this.buckets.length != 0){        const bucketsArrValue: PlannerBucketImpl[] = []; this.buckets?.forEach(element => {bucketsArrValue.push(new PlannerBucketImpl(element));});
-        writer.writeCollectionOfObjectValues<PlannerBucketImpl>("buckets", bucketsArrValue);
+            writer.writeCollectionOfObjectValues<PlannerBucketImpl>("buckets", bucketsArrValue);
         }
         if(this.container){
-        writer.writeObjectValue<PlannerPlanContainerImpl>("container", new PlannerPlanContainerImpl(this.container));
+            writer.writeObjectValue<PlannerPlanContainerImpl>("container", new PlannerPlanContainerImpl(this.container));
         }
         if(this.createdBy){
-        writer.writeObjectValue<IdentitySetImpl>("createdBy", new IdentitySetImpl(this.createdBy));
+            writer.writeObjectValue<IdentitySetImpl>("createdBy", new IdentitySetImpl(this.createdBy));
         }
         if(this.createdDateTime){
-        writer.writeDateValue("createdDateTime", this.createdDateTime);
+            writer.writeDateValue("createdDateTime", this.createdDateTime);
         }
         if(this.details){
-        writer.writeObjectValue<PlannerPlanDetailsImpl>("details", new PlannerPlanDetailsImpl(this.details));
+            writer.writeObjectValue<PlannerPlanDetailsImpl>("details", new PlannerPlanDetailsImpl(this.details));
         }
         if(this.owner){
-        writer.writeStringValue("owner", this.owner);
+            writer.writeStringValue("owner", this.owner);
         }
         if(this.tasks && this.tasks.length != 0){        const tasksArrValue: PlannerTaskImpl[] = []; this.tasks?.forEach(element => {tasksArrValue.push(new PlannerTaskImpl(element));});
-        writer.writeCollectionOfObjectValues<PlannerTaskImpl>("tasks", tasksArrValue);
+            writer.writeCollectionOfObjectValues<PlannerTaskImpl>("tasks", tasksArrValue);
         }
         if(this.title){
-        writer.writeStringValue("title", this.title);
+            writer.writeStringValue("title", this.title);
         }
     };
 }

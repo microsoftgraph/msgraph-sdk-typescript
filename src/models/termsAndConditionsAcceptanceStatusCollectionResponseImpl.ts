@@ -4,7 +4,7 @@ import {TermsAndConditionsAcceptanceStatus} from './termsAndConditionsAcceptance
 import {TermsAndConditionsAcceptanceStatusCollectionResponse} from './termsAndConditionsAcceptanceStatusCollectionResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class TermsAndConditionsAcceptanceStatusCollectionResponseImpl implements AdditionalDataHolder, Parsable, TermsAndConditionsAcceptanceStatusCollectionResponse {
+export class TermsAndConditionsAcceptanceStatusCollectionResponseImpl implements TermsAndConditionsAcceptanceStatusCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class TermsAndConditionsAcceptanceStatusCollectionResponseImpl implements
      * @param termsAndConditionsAcceptanceStatusCollectionResponseParameterValue 
      */
     public constructor(termsAndConditionsAcceptanceStatusCollectionResponseParameterValue?: TermsAndConditionsAcceptanceStatusCollectionResponse | undefined) {
-        this.additionalData = termsAndConditionsAcceptanceStatusCollectionResponseParameterValue?.additionalData ? termsAndConditionsAcceptanceStatusCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = termsAndConditionsAcceptanceStatusCollectionResponseParameterValue?.nextLink ;
-        this.value = termsAndConditionsAcceptanceStatusCollectionResponseParameterValue?.value ;
+        this.additionalData = termsAndConditionsAcceptanceStatusCollectionResponseParameterValue?.additionalData ? termsAndConditionsAcceptanceStatusCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = termsAndConditionsAcceptanceStatusCollectionResponseParameterValue?.nextLink;
+        this.value = termsAndConditionsAcceptanceStatusCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class TermsAndConditionsAcceptanceStatusCollectionResponseImpl implements
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: TermsAndConditionsAcceptanceStatusImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new TermsAndConditionsAcceptanceStatusImpl(element));});
-        writer.writeCollectionOfObjectValues<TermsAndConditionsAcceptanceStatusImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<TermsAndConditionsAcceptanceStatusImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

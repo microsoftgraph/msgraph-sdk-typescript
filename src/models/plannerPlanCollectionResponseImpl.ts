@@ -4,7 +4,7 @@ import {PlannerPlan} from './plannerPlan';
 import {PlannerPlanCollectionResponse} from './plannerPlanCollectionResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class PlannerPlanCollectionResponseImpl implements AdditionalDataHolder, Parsable, PlannerPlanCollectionResponse {
+export class PlannerPlanCollectionResponseImpl implements PlannerPlanCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class PlannerPlanCollectionResponseImpl implements AdditionalDataHolder, 
      * @param plannerPlanCollectionResponseParameterValue 
      */
     public constructor(plannerPlanCollectionResponseParameterValue?: PlannerPlanCollectionResponse | undefined) {
-        this.additionalData = plannerPlanCollectionResponseParameterValue?.additionalData ? plannerPlanCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = plannerPlanCollectionResponseParameterValue?.nextLink ;
-        this.value = plannerPlanCollectionResponseParameterValue?.value ;
+        this.additionalData = plannerPlanCollectionResponseParameterValue?.additionalData ? plannerPlanCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = plannerPlanCollectionResponseParameterValue?.nextLink;
+        this.value = plannerPlanCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class PlannerPlanCollectionResponseImpl implements AdditionalDataHolder, 
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: PlannerPlanImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new PlannerPlanImpl(element));});
-        writer.writeCollectionOfObjectValues<PlannerPlanImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<PlannerPlanImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

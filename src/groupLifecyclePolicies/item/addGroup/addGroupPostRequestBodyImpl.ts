@@ -2,7 +2,7 @@ import {AddGroupPostRequestBody} from './addGroupPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the addGroup method. */
-export class AddGroupPostRequestBodyImpl implements AddGroupPostRequestBody, AdditionalDataHolder, Parsable {
+export class AddGroupPostRequestBodyImpl implements AddGroupPostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The groupId property */
@@ -12,8 +12,8 @@ export class AddGroupPostRequestBodyImpl implements AddGroupPostRequestBody, Add
      * @param addGroupPostRequestBodyParameterValue 
      */
     public constructor(addGroupPostRequestBodyParameterValue?: AddGroupPostRequestBody | undefined) {
-        this.additionalData = addGroupPostRequestBodyParameterValue?.additionalData ? addGroupPostRequestBodyParameterValue?.additionalData! : {}
-        this.groupId = addGroupPostRequestBodyParameterValue?.groupId ;
+        this.additionalData = addGroupPostRequestBodyParameterValue?.additionalData ? addGroupPostRequestBodyParameterValue?.additionalData! : {};
+        this.groupId = addGroupPostRequestBodyParameterValue?.groupId;
     };
     /**
      * The deserialization information for the current model
@@ -31,7 +31,7 @@ export class AddGroupPostRequestBodyImpl implements AddGroupPostRequestBody, Add
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.groupId){
-        writer.writeStringValue("groupId", this.groupId);
+            writer.writeStringValue("groupId", this.groupId);
         }
         writer.writeAdditionalData(this.additionalData);
     };

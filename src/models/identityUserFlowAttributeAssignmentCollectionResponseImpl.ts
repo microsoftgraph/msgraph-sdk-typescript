@@ -4,7 +4,7 @@ import {IdentityUserFlowAttributeAssignmentCollectionResponse} from './identityU
 import {IdentityUserFlowAttributeAssignmentImpl} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class IdentityUserFlowAttributeAssignmentCollectionResponseImpl implements AdditionalDataHolder, IdentityUserFlowAttributeAssignmentCollectionResponse, Parsable {
+export class IdentityUserFlowAttributeAssignmentCollectionResponseImpl implements IdentityUserFlowAttributeAssignmentCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class IdentityUserFlowAttributeAssignmentCollectionResponseImpl implement
      * @param identityUserFlowAttributeAssignmentCollectionResponseParameterValue 
      */
     public constructor(identityUserFlowAttributeAssignmentCollectionResponseParameterValue?: IdentityUserFlowAttributeAssignmentCollectionResponse | undefined) {
-        this.additionalData = identityUserFlowAttributeAssignmentCollectionResponseParameterValue?.additionalData ? identityUserFlowAttributeAssignmentCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = identityUserFlowAttributeAssignmentCollectionResponseParameterValue?.nextLink ;
-        this.value = identityUserFlowAttributeAssignmentCollectionResponseParameterValue?.value ;
+        this.additionalData = identityUserFlowAttributeAssignmentCollectionResponseParameterValue?.additionalData ? identityUserFlowAttributeAssignmentCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = identityUserFlowAttributeAssignmentCollectionResponseParameterValue?.nextLink;
+        this.value = identityUserFlowAttributeAssignmentCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class IdentityUserFlowAttributeAssignmentCollectionResponseImpl implement
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: IdentityUserFlowAttributeAssignmentImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new IdentityUserFlowAttributeAssignmentImpl(element));});
-        writer.writeCollectionOfObjectValues<IdentityUserFlowAttributeAssignmentImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<IdentityUserFlowAttributeAssignmentImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

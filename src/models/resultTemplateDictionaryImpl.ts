@@ -3,13 +3,13 @@ import {ResultTemplateDictionary} from './resultTemplateDictionary';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the query method. */
-export class ResultTemplateDictionaryImpl extends DictionaryImpl implements Parsable, ResultTemplateDictionary {
+export class ResultTemplateDictionaryImpl extends DictionaryImpl implements ResultTemplateDictionary {
     /**
      * Instantiates a new resultTemplateDictionary and sets the default values.
      * @param resultTemplateDictionaryParameterValue 
      */
     public constructor(resultTemplateDictionaryParameterValue?: ResultTemplateDictionary | undefined) {
-        super();
+        super(resultTemplateDictionaryParameterValue);
     };
     /**
      * The deserialization information for the current model

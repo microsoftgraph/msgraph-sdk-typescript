@@ -4,7 +4,7 @@ import {ImplicitGrantSettingsImpl} from './index';
 import {WebApplication} from './webApplication';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class WebApplicationImpl implements AdditionalDataHolder, Parsable, WebApplication {
+export class WebApplicationImpl implements WebApplication {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Home page or landing page of the application. */
@@ -20,11 +20,11 @@ export class WebApplicationImpl implements AdditionalDataHolder, Parsable, WebAp
      * @param webApplicationParameterValue 
      */
     public constructor(webApplicationParameterValue?: WebApplication | undefined) {
-        this.additionalData = webApplicationParameterValue?.additionalData ? webApplicationParameterValue?.additionalData! : {}
-        this.homePageUrl = webApplicationParameterValue?.homePageUrl ;
-        this.implicitGrantSettings = webApplicationParameterValue?.implicitGrantSettings ;
-        this.logoutUrl = webApplicationParameterValue?.logoutUrl ;
-        this.redirectUris = webApplicationParameterValue?.redirectUris ;
+        this.additionalData = webApplicationParameterValue?.additionalData ? webApplicationParameterValue?.additionalData! : {};
+        this.homePageUrl = webApplicationParameterValue?.homePageUrl;
+        this.implicitGrantSettings = webApplicationParameterValue?.implicitGrantSettings;
+        this.logoutUrl = webApplicationParameterValue?.logoutUrl;
+        this.redirectUris = webApplicationParameterValue?.redirectUris;
     };
     /**
      * The deserialization information for the current model
@@ -45,16 +45,16 @@ export class WebApplicationImpl implements AdditionalDataHolder, Parsable, WebAp
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.homePageUrl){
-        writer.writeStringValue("homePageUrl", this.homePageUrl);
+            writer.writeStringValue("homePageUrl", this.homePageUrl);
         }
         if(this.implicitGrantSettings){
-        writer.writeObjectValue<ImplicitGrantSettingsImpl>("implicitGrantSettings", new ImplicitGrantSettingsImpl(this.implicitGrantSettings));
+            writer.writeObjectValue<ImplicitGrantSettingsImpl>("implicitGrantSettings", new ImplicitGrantSettingsImpl(this.implicitGrantSettings));
         }
         if(this.logoutUrl){
-        writer.writeStringValue("logoutUrl", this.logoutUrl);
+            writer.writeStringValue("logoutUrl", this.logoutUrl);
         }
         if(this.redirectUris){
-        writer.writeCollectionOfPrimitiveValues<string>("redirectUris", this.redirectUris);
+            writer.writeCollectionOfPrimitiveValues<string>("redirectUris", this.redirectUris);
         }
         writer.writeAdditionalData(this.additionalData);
     };

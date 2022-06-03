@@ -1,38 +1,39 @@
 import {IdentitySet} from './identitySet';
 import {NotebookLinks} from './notebookLinks';
 import {OnenoteUserRole} from './onenoteUserRole';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface CopyNotebookModel{
+export interface CopyNotebookModel extends Partial<AdditionalDataHolder>, Partial<Parsable> {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?:Record<string, unknown>;
+    additionalData?: Record<string, unknown>;
     /** The createdBy property */
-    createdBy?:string | undefined;
+    createdBy?: string | undefined;
     /** The createdByIdentity property */
-    createdByIdentity?:IdentitySet | undefined;
+    createdByIdentity?: IdentitySet | undefined;
     /** The createdTime property */
-    createdTime?:Date | undefined;
+    createdTime?: Date | undefined;
     /** The id property */
-    id?:string | undefined;
+    id?: string | undefined;
     /** The isDefault property */
-    isDefault?:boolean | undefined;
+    isDefault?: boolean | undefined;
     /** The isShared property */
-    isShared?:boolean | undefined;
+    isShared?: boolean | undefined;
     /** The lastModifiedBy property */
-    lastModifiedBy?:string | undefined;
+    lastModifiedBy?: string | undefined;
     /** The lastModifiedByIdentity property */
-    lastModifiedByIdentity?:IdentitySet | undefined;
+    lastModifiedByIdentity?: IdentitySet | undefined;
     /** The lastModifiedTime property */
-    lastModifiedTime?:Date | undefined;
+    lastModifiedTime?: Date | undefined;
     /** The links property */
-    links?:NotebookLinks | undefined;
+    links?: NotebookLinks | undefined;
     /** The name property */
-    name?:string | undefined;
+    name?: string | undefined;
     /** The sectionGroupsUrl property */
-    sectionGroupsUrl?:string | undefined;
+    sectionGroupsUrl?: string | undefined;
     /** The sectionsUrl property */
-    sectionsUrl?:string | undefined;
+    sectionsUrl?: string | undefined;
     /** The self property */
-    self?:string | undefined;
+    self?: string | undefined;
     /** The userRole property */
-    userRole?:OnenoteUserRole | undefined;
+    userRole?: OnenoteUserRole | undefined;
 }

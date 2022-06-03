@@ -4,7 +4,7 @@ import {UsedInsight} from './usedInsight';
 import {UsedInsightCollectionResponse} from './usedInsightCollectionResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class UsedInsightCollectionResponseImpl implements AdditionalDataHolder, Parsable, UsedInsightCollectionResponse {
+export class UsedInsightCollectionResponseImpl implements UsedInsightCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class UsedInsightCollectionResponseImpl implements AdditionalDataHolder, 
      * @param usedInsightCollectionResponseParameterValue 
      */
     public constructor(usedInsightCollectionResponseParameterValue?: UsedInsightCollectionResponse | undefined) {
-        this.additionalData = usedInsightCollectionResponseParameterValue?.additionalData ? usedInsightCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = usedInsightCollectionResponseParameterValue?.nextLink ;
-        this.value = usedInsightCollectionResponseParameterValue?.value ;
+        this.additionalData = usedInsightCollectionResponseParameterValue?.additionalData ? usedInsightCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = usedInsightCollectionResponseParameterValue?.nextLink;
+        this.value = usedInsightCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class UsedInsightCollectionResponseImpl implements AdditionalDataHolder, 
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: UsedInsightImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new UsedInsightImpl(element));});
-        writer.writeCollectionOfObjectValues<UsedInsightImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<UsedInsightImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

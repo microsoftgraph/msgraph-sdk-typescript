@@ -1,7 +1,7 @@
 import {PrinterLocation} from './printerLocation';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class PrinterLocationImpl implements AdditionalDataHolder, Parsable, PrinterLocation {
+export class PrinterLocationImpl implements PrinterLocation {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The altitude, in meters, that the printer is located at. */
@@ -43,24 +43,24 @@ export class PrinterLocationImpl implements AdditionalDataHolder, Parsable, Prin
      * @param printerLocationParameterValue 
      */
     public constructor(printerLocationParameterValue?: PrinterLocation | undefined) {
-        this.additionalData = printerLocationParameterValue?.additionalData ? printerLocationParameterValue?.additionalData! : {}
-        this.altitudeInMeters = printerLocationParameterValue?.altitudeInMeters ;
-        this.building = printerLocationParameterValue?.building ;
-        this.city = printerLocationParameterValue?.city ;
-        this.countryOrRegion = printerLocationParameterValue?.countryOrRegion ;
-        this.floor = printerLocationParameterValue?.floor ;
-        this.floorDescription = printerLocationParameterValue?.floorDescription ;
-        this.latitude = printerLocationParameterValue?.latitude ;
-        this.longitude = printerLocationParameterValue?.longitude ;
-        this.organization = printerLocationParameterValue?.organization ;
-        this.postalCode = printerLocationParameterValue?.postalCode ;
-        this.roomDescription = printerLocationParameterValue?.roomDescription ;
-        this.roomName = printerLocationParameterValue?.roomName ;
-        this.site = printerLocationParameterValue?.site ;
-        this.stateOrProvince = printerLocationParameterValue?.stateOrProvince ;
-        this.streetAddress = printerLocationParameterValue?.streetAddress ;
-        this.subdivision = printerLocationParameterValue?.subdivision ;
-        this.subunit = printerLocationParameterValue?.subunit ;
+        this.additionalData = printerLocationParameterValue?.additionalData ? printerLocationParameterValue?.additionalData! : {};
+        this.altitudeInMeters = printerLocationParameterValue?.altitudeInMeters;
+        this.building = printerLocationParameterValue?.building;
+        this.city = printerLocationParameterValue?.city;
+        this.countryOrRegion = printerLocationParameterValue?.countryOrRegion;
+        this.floor = printerLocationParameterValue?.floor;
+        this.floorDescription = printerLocationParameterValue?.floorDescription;
+        this.latitude = printerLocationParameterValue?.latitude;
+        this.longitude = printerLocationParameterValue?.longitude;
+        this.organization = printerLocationParameterValue?.organization;
+        this.postalCode = printerLocationParameterValue?.postalCode;
+        this.roomDescription = printerLocationParameterValue?.roomDescription;
+        this.roomName = printerLocationParameterValue?.roomName;
+        this.site = printerLocationParameterValue?.site;
+        this.stateOrProvince = printerLocationParameterValue?.stateOrProvince;
+        this.streetAddress = printerLocationParameterValue?.streetAddress;
+        this.subdivision = printerLocationParameterValue?.subdivision;
+        this.subunit = printerLocationParameterValue?.subunit;
     };
     /**
      * The deserialization information for the current model
@@ -94,55 +94,55 @@ export class PrinterLocationImpl implements AdditionalDataHolder, Parsable, Prin
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.altitudeInMeters){
-        writer.writeNumberValue("altitudeInMeters", this.altitudeInMeters);
+            writer.writeNumberValue("altitudeInMeters", this.altitudeInMeters);
         }
         if(this.building){
-        writer.writeStringValue("building", this.building);
+            writer.writeStringValue("building", this.building);
         }
         if(this.city){
-        writer.writeStringValue("city", this.city);
+            writer.writeStringValue("city", this.city);
         }
         if(this.countryOrRegion){
-        writer.writeStringValue("countryOrRegion", this.countryOrRegion);
+            writer.writeStringValue("countryOrRegion", this.countryOrRegion);
         }
         if(this.floor){
-        writer.writeStringValue("floor", this.floor);
+            writer.writeStringValue("floor", this.floor);
         }
         if(this.floorDescription){
-        writer.writeStringValue("floorDescription", this.floorDescription);
+            writer.writeStringValue("floorDescription", this.floorDescription);
         }
         if(this.latitude){
-        writer.writeNumberValue("latitude", this.latitude);
+            writer.writeNumberValue("latitude", this.latitude);
         }
         if(this.longitude){
-        writer.writeNumberValue("longitude", this.longitude);
+            writer.writeNumberValue("longitude", this.longitude);
         }
         if(this.organization){
-        writer.writeCollectionOfPrimitiveValues<string>("organization", this.organization);
+            writer.writeCollectionOfPrimitiveValues<string>("organization", this.organization);
         }
         if(this.postalCode){
-        writer.writeStringValue("postalCode", this.postalCode);
+            writer.writeStringValue("postalCode", this.postalCode);
         }
         if(this.roomDescription){
-        writer.writeStringValue("roomDescription", this.roomDescription);
+            writer.writeStringValue("roomDescription", this.roomDescription);
         }
         if(this.roomName){
-        writer.writeStringValue("roomName", this.roomName);
+            writer.writeStringValue("roomName", this.roomName);
         }
         if(this.site){
-        writer.writeStringValue("site", this.site);
+            writer.writeStringValue("site", this.site);
         }
         if(this.stateOrProvince){
-        writer.writeStringValue("stateOrProvince", this.stateOrProvince);
+            writer.writeStringValue("stateOrProvince", this.stateOrProvince);
         }
         if(this.streetAddress){
-        writer.writeStringValue("streetAddress", this.streetAddress);
+            writer.writeStringValue("streetAddress", this.streetAddress);
         }
         if(this.subdivision){
-        writer.writeCollectionOfPrimitiveValues<string>("subdivision", this.subdivision);
+            writer.writeCollectionOfPrimitiveValues<string>("subdivision", this.subdivision);
         }
         if(this.subunit){
-        writer.writeCollectionOfPrimitiveValues<string>("subunit", this.subunit);
+            writer.writeCollectionOfPrimitiveValues<string>("subunit", this.subunit);
         }
         writer.writeAdditionalData(this.additionalData);
     };

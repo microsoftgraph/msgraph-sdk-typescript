@@ -1,11 +1,11 @@
 import {OnenoteOperationItemRequestBuilderGetQueryParameters} from './onenoteOperationItemRequestBuilderGetQueryParameters';
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
-export interface OnenoteOperationItemRequestBuilderGetRequestConfiguration{
+export interface OnenoteOperationItemRequestBuilderGetRequestConfiguration {
     /** Request headers */
-    headers?:Record<string, string> | undefined;
+    headers?: Record<string, string> | undefined;
     /** Request options */
-    options?:RequestOption[] | undefined;
+    options?: RequestOption[] | undefined;
     /** Request query parameters */
-    queryParameters?:OnenoteOperationItemRequestBuilderGetQueryParameters | undefined;
+    queryParameters?: OnenoteOperationItemRequestBuilderGetQueryParameters | undefined;
 }

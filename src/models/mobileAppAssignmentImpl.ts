@@ -8,7 +8,7 @@ import {MobileAppAssignmentSettings} from './mobileAppAssignmentSettings';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** A class containing the properties used for Group Assignment of a Mobile App. */
-export class MobileAppAssignmentImpl extends EntityImpl implements MobileAppAssignment, Parsable {
+export class MobileAppAssignmentImpl extends EntityImpl implements MobileAppAssignment {
     /** The install intent defined by the admin. Possible values are: available, required, uninstall, availableWithoutEnrollment. */
     public intent?: InstallIntent | undefined;
     /** The settings for target assignment defined by the admin. */
@@ -20,10 +20,10 @@ export class MobileAppAssignmentImpl extends EntityImpl implements MobileAppAssi
      * @param mobileAppAssignmentParameterValue 
      */
     public constructor(mobileAppAssignmentParameterValue?: MobileAppAssignment | undefined) {
-        super();
-        this.intent = mobileAppAssignmentParameterValue?.intent ;
-        this.settings = mobileAppAssignmentParameterValue?.settings ;
-        this.target = mobileAppAssignmentParameterValue?.target ;
+        super(mobileAppAssignmentParameterValue);
+        this.intent = mobileAppAssignmentParameterValue?.intent;
+        this.settings = mobileAppAssignmentParameterValue?.settings;
+        this.target = mobileAppAssignmentParameterValue?.target;
     };
     /**
      * The deserialization information for the current model
@@ -44,13 +44,13 @@ export class MobileAppAssignmentImpl extends EntityImpl implements MobileAppAssi
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.intent){
-        writer.writeEnumValue<InstallIntent>("intent", this.intent);
+            writer.writeEnumValue<InstallIntent>("intent", this.intent);
         }
         if(this.settings){
-        writer.writeObjectValue<MobileAppAssignmentSettingsImpl>("settings", new MobileAppAssignmentSettingsImpl(this.settings));
+            writer.writeObjectValue<MobileAppAssignmentSettingsImpl>("settings", new MobileAppAssignmentSettingsImpl(this.settings));
         }
         if(this.target){
-        writer.writeObjectValue<DeviceAndAppManagementAssignmentTargetImpl>("target", new DeviceAndAppManagementAssignmentTargetImpl(this.target));
+            writer.writeObjectValue<DeviceAndAppManagementAssignmentTargetImpl>("target", new DeviceAndAppManagementAssignmentTargetImpl(this.target));
         }
     };
 }

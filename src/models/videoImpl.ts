@@ -1,7 +1,7 @@
 import {Video} from './video';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class VideoImpl implements AdditionalDataHolder, Parsable, Video {
+export class VideoImpl implements Video {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Number of audio bits per sample. */
@@ -29,17 +29,17 @@ export class VideoImpl implements AdditionalDataHolder, Parsable, Video {
      * @param videoParameterValue 
      */
     public constructor(videoParameterValue?: Video | undefined) {
-        this.additionalData = videoParameterValue?.additionalData ? videoParameterValue?.additionalData! : {}
-        this.audioBitsPerSample = videoParameterValue?.audioBitsPerSample ;
-        this.audioChannels = videoParameterValue?.audioChannels ;
-        this.audioFormat = videoParameterValue?.audioFormat ;
-        this.audioSamplesPerSecond = videoParameterValue?.audioSamplesPerSecond ;
-        this.bitrate = videoParameterValue?.bitrate ;
-        this.duration = videoParameterValue?.duration ;
-        this.fourCC = videoParameterValue?.fourCC ;
-        this.frameRate = videoParameterValue?.frameRate ;
-        this.height = videoParameterValue?.height ;
-        this.width = videoParameterValue?.width ;
+        this.additionalData = videoParameterValue?.additionalData ? videoParameterValue?.additionalData! : {};
+        this.audioBitsPerSample = videoParameterValue?.audioBitsPerSample;
+        this.audioChannels = videoParameterValue?.audioChannels;
+        this.audioFormat = videoParameterValue?.audioFormat;
+        this.audioSamplesPerSecond = videoParameterValue?.audioSamplesPerSecond;
+        this.bitrate = videoParameterValue?.bitrate;
+        this.duration = videoParameterValue?.duration;
+        this.fourCC = videoParameterValue?.fourCC;
+        this.frameRate = videoParameterValue?.frameRate;
+        this.height = videoParameterValue?.height;
+        this.width = videoParameterValue?.width;
     };
     /**
      * The deserialization information for the current model
@@ -66,34 +66,34 @@ export class VideoImpl implements AdditionalDataHolder, Parsable, Video {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.audioBitsPerSample){
-        writer.writeNumberValue("audioBitsPerSample", this.audioBitsPerSample);
+            writer.writeNumberValue("audioBitsPerSample", this.audioBitsPerSample);
         }
         if(this.audioChannels){
-        writer.writeNumberValue("audioChannels", this.audioChannels);
+            writer.writeNumberValue("audioChannels", this.audioChannels);
         }
         if(this.audioFormat){
-        writer.writeStringValue("audioFormat", this.audioFormat);
+            writer.writeStringValue("audioFormat", this.audioFormat);
         }
         if(this.audioSamplesPerSecond){
-        writer.writeNumberValue("audioSamplesPerSecond", this.audioSamplesPerSecond);
+            writer.writeNumberValue("audioSamplesPerSecond", this.audioSamplesPerSecond);
         }
         if(this.bitrate){
-        writer.writeNumberValue("bitrate", this.bitrate);
+            writer.writeNumberValue("bitrate", this.bitrate);
         }
         if(this.duration){
-        writer.writeNumberValue("duration", this.duration);
+            writer.writeNumberValue("duration", this.duration);
         }
         if(this.fourCC){
-        writer.writeStringValue("fourCC", this.fourCC);
+            writer.writeStringValue("fourCC", this.fourCC);
         }
         if(this.frameRate){
-        writer.writeNumberValue("frameRate", this.frameRate);
+            writer.writeNumberValue("frameRate", this.frameRate);
         }
         if(this.height){
-        writer.writeNumberValue("height", this.height);
+            writer.writeNumberValue("height", this.height);
         }
         if(this.width){
-        writer.writeNumberValue("width", this.width);
+            writer.writeNumberValue("width", this.width);
         }
         writer.writeAdditionalData(this.additionalData);
     };

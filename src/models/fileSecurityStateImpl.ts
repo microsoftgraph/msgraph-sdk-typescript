@@ -4,7 +4,7 @@ import {FileSecurityState} from './fileSecurityState';
 import {FileHashImpl} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class FileSecurityStateImpl implements AdditionalDataHolder, FileSecurityState, Parsable {
+export class FileSecurityStateImpl implements FileSecurityState {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Complex type containing file hashes (cryptographic and location-sensitive). */
@@ -20,11 +20,11 @@ export class FileSecurityStateImpl implements AdditionalDataHolder, FileSecurity
      * @param fileSecurityStateParameterValue 
      */
     public constructor(fileSecurityStateParameterValue?: FileSecurityState | undefined) {
-        this.additionalData = fileSecurityStateParameterValue?.additionalData ? fileSecurityStateParameterValue?.additionalData! : {}
-        this.fileHash = fileSecurityStateParameterValue?.fileHash ;
-        this.name = fileSecurityStateParameterValue?.name ;
-        this.path = fileSecurityStateParameterValue?.path ;
-        this.riskScore = fileSecurityStateParameterValue?.riskScore ;
+        this.additionalData = fileSecurityStateParameterValue?.additionalData ? fileSecurityStateParameterValue?.additionalData! : {};
+        this.fileHash = fileSecurityStateParameterValue?.fileHash;
+        this.name = fileSecurityStateParameterValue?.name;
+        this.path = fileSecurityStateParameterValue?.path;
+        this.riskScore = fileSecurityStateParameterValue?.riskScore;
     };
     /**
      * The deserialization information for the current model
@@ -45,16 +45,16 @@ export class FileSecurityStateImpl implements AdditionalDataHolder, FileSecurity
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.fileHash){
-        writer.writeObjectValue<FileHashImpl>("fileHash", new FileHashImpl(this.fileHash));
+            writer.writeObjectValue<FileHashImpl>("fileHash", new FileHashImpl(this.fileHash));
         }
         if(this.name){
-        writer.writeStringValue("name", this.name);
+            writer.writeStringValue("name", this.name);
         }
         if(this.path){
-        writer.writeStringValue("path", this.path);
+            writer.writeStringValue("path", this.path);
         }
         if(this.riskScore){
-        writer.writeStringValue("riskScore", this.riskScore);
+            writer.writeStringValue("riskScore", this.riskScore);
         }
         writer.writeAdditionalData(this.additionalData);
     };

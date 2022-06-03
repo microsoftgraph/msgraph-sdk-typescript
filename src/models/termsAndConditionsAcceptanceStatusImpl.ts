@@ -5,7 +5,7 @@ import {TermsAndConditionsAcceptanceStatus} from './termsAndConditionsAcceptance
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** A termsAndConditionsAcceptanceStatus entity represents the acceptance status of a given Terms and Conditions (T&C) policy by a given user. Users must accept the most up-to-date version of the terms in order to retain access to the Company Portal. */
-export class TermsAndConditionsAcceptanceStatusImpl extends EntityImpl implements Parsable, TermsAndConditionsAcceptanceStatus {
+export class TermsAndConditionsAcceptanceStatusImpl extends EntityImpl implements TermsAndConditionsAcceptanceStatus {
     /** DateTime when the terms were last accepted by the user. */
     public acceptedDateTime?: Date | undefined;
     /** Most recent version number of the T&C accepted by the user. */
@@ -21,12 +21,12 @@ export class TermsAndConditionsAcceptanceStatusImpl extends EntityImpl implement
      * @param termsAndConditionsAcceptanceStatusParameterValue 
      */
     public constructor(termsAndConditionsAcceptanceStatusParameterValue?: TermsAndConditionsAcceptanceStatus | undefined) {
-        super();
-        this.acceptedDateTime = termsAndConditionsAcceptanceStatusParameterValue?.acceptedDateTime ;
-        this.acceptedVersion = termsAndConditionsAcceptanceStatusParameterValue?.acceptedVersion ;
-        this.termsAndConditions = termsAndConditionsAcceptanceStatusParameterValue?.termsAndConditions ;
-        this.userDisplayName = termsAndConditionsAcceptanceStatusParameterValue?.userDisplayName ;
-        this.userPrincipalName = termsAndConditionsAcceptanceStatusParameterValue?.userPrincipalName ;
+        super(termsAndConditionsAcceptanceStatusParameterValue);
+        this.acceptedDateTime = termsAndConditionsAcceptanceStatusParameterValue?.acceptedDateTime;
+        this.acceptedVersion = termsAndConditionsAcceptanceStatusParameterValue?.acceptedVersion;
+        this.termsAndConditions = termsAndConditionsAcceptanceStatusParameterValue?.termsAndConditions;
+        this.userDisplayName = termsAndConditionsAcceptanceStatusParameterValue?.userDisplayName;
+        this.userPrincipalName = termsAndConditionsAcceptanceStatusParameterValue?.userPrincipalName;
     };
     /**
      * The deserialization information for the current model
@@ -49,19 +49,19 @@ export class TermsAndConditionsAcceptanceStatusImpl extends EntityImpl implement
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.acceptedDateTime){
-        writer.writeDateValue("acceptedDateTime", this.acceptedDateTime);
+            writer.writeDateValue("acceptedDateTime", this.acceptedDateTime);
         }
         if(this.acceptedVersion){
-        writer.writeNumberValue("acceptedVersion", this.acceptedVersion);
+            writer.writeNumberValue("acceptedVersion", this.acceptedVersion);
         }
         if(this.termsAndConditions){
-        writer.writeObjectValue<TermsAndConditionsImpl>("termsAndConditions", new TermsAndConditionsImpl(this.termsAndConditions));
+            writer.writeObjectValue<TermsAndConditionsImpl>("termsAndConditions", new TermsAndConditionsImpl(this.termsAndConditions));
         }
         if(this.userDisplayName){
-        writer.writeStringValue("userDisplayName", this.userDisplayName);
+            writer.writeStringValue("userDisplayName", this.userDisplayName);
         }
         if(this.userPrincipalName){
-        writer.writeStringValue("userPrincipalName", this.userPrincipalName);
+            writer.writeStringValue("userPrincipalName", this.userPrincipalName);
         }
     };
 }

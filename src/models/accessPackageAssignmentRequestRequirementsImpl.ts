@@ -4,7 +4,7 @@ import {EntitlementManagementSchedule} from './entitlementManagementSchedule';
 import {EntitlementManagementScheduleImpl} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class AccessPackageAssignmentRequestRequirementsImpl implements AccessPackageAssignmentRequestRequirements, AdditionalDataHolder, Parsable {
+export class AccessPackageAssignmentRequestRequirementsImpl implements AccessPackageAssignmentRequestRequirements {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Indicates whether the requestor is allowed to set a custom schedule. */
@@ -26,14 +26,14 @@ export class AccessPackageAssignmentRequestRequirementsImpl implements AccessPac
      * @param accessPackageAssignmentRequestRequirementsParameterValue 
      */
     public constructor(accessPackageAssignmentRequestRequirementsParameterValue?: AccessPackageAssignmentRequestRequirements | undefined) {
-        this.additionalData = accessPackageAssignmentRequestRequirementsParameterValue?.additionalData ? accessPackageAssignmentRequestRequirementsParameterValue?.additionalData! : {}
-        this.allowCustomAssignmentSchedule = accessPackageAssignmentRequestRequirementsParameterValue?.allowCustomAssignmentSchedule ;
-        this.isApprovalRequiredForAdd = accessPackageAssignmentRequestRequirementsParameterValue?.isApprovalRequiredForAdd ;
-        this.isApprovalRequiredForUpdate = accessPackageAssignmentRequestRequirementsParameterValue?.isApprovalRequiredForUpdate ;
-        this.policyDescription = accessPackageAssignmentRequestRequirementsParameterValue?.policyDescription ;
-        this.policyDisplayName = accessPackageAssignmentRequestRequirementsParameterValue?.policyDisplayName ;
-        this.policyId = accessPackageAssignmentRequestRequirementsParameterValue?.policyId ;
-        this.schedule = accessPackageAssignmentRequestRequirementsParameterValue?.schedule ;
+        this.additionalData = accessPackageAssignmentRequestRequirementsParameterValue?.additionalData ? accessPackageAssignmentRequestRequirementsParameterValue?.additionalData! : {};
+        this.allowCustomAssignmentSchedule = accessPackageAssignmentRequestRequirementsParameterValue?.allowCustomAssignmentSchedule;
+        this.isApprovalRequiredForAdd = accessPackageAssignmentRequestRequirementsParameterValue?.isApprovalRequiredForAdd;
+        this.isApprovalRequiredForUpdate = accessPackageAssignmentRequestRequirementsParameterValue?.isApprovalRequiredForUpdate;
+        this.policyDescription = accessPackageAssignmentRequestRequirementsParameterValue?.policyDescription;
+        this.policyDisplayName = accessPackageAssignmentRequestRequirementsParameterValue?.policyDisplayName;
+        this.policyId = accessPackageAssignmentRequestRequirementsParameterValue?.policyId;
+        this.schedule = accessPackageAssignmentRequestRequirementsParameterValue?.schedule;
     };
     /**
      * The deserialization information for the current model
@@ -57,25 +57,25 @@ export class AccessPackageAssignmentRequestRequirementsImpl implements AccessPac
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.allowCustomAssignmentSchedule){
-        writer.writeBooleanValue("allowCustomAssignmentSchedule", this.allowCustomAssignmentSchedule);
+            writer.writeBooleanValue("allowCustomAssignmentSchedule", this.allowCustomAssignmentSchedule);
         }
         if(this.isApprovalRequiredForAdd){
-        writer.writeBooleanValue("isApprovalRequiredForAdd", this.isApprovalRequiredForAdd);
+            writer.writeBooleanValue("isApprovalRequiredForAdd", this.isApprovalRequiredForAdd);
         }
         if(this.isApprovalRequiredForUpdate){
-        writer.writeBooleanValue("isApprovalRequiredForUpdate", this.isApprovalRequiredForUpdate);
+            writer.writeBooleanValue("isApprovalRequiredForUpdate", this.isApprovalRequiredForUpdate);
         }
         if(this.policyDescription){
-        writer.writeStringValue("policyDescription", this.policyDescription);
+            writer.writeStringValue("policyDescription", this.policyDescription);
         }
         if(this.policyDisplayName){
-        writer.writeStringValue("policyDisplayName", this.policyDisplayName);
+            writer.writeStringValue("policyDisplayName", this.policyDisplayName);
         }
         if(this.policyId){
-        writer.writeStringValue("policyId", this.policyId);
+            writer.writeStringValue("policyId", this.policyId);
         }
         if(this.schedule){
-        writer.writeObjectValue<EntitlementManagementScheduleImpl>("schedule", new EntitlementManagementScheduleImpl(this.schedule));
+            writer.writeObjectValue<EntitlementManagementScheduleImpl>("schedule", new EntitlementManagementScheduleImpl(this.schedule));
         }
         writer.writeAdditionalData(this.additionalData);
     };

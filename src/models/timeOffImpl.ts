@@ -5,7 +5,7 @@ import {TimeOffItem} from './timeOffItem';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Casts the previous resource to group. */
-export class TimeOffImpl extends ChangeTrackedEntityImpl implements Parsable, TimeOff {
+export class TimeOffImpl extends ChangeTrackedEntityImpl implements TimeOff {
     /** The draft version of this timeOff that is viewable by managers. Required. */
     public draftTimeOff?: TimeOffItem | undefined;
     /** The shared version of this timeOff that is viewable by both employees and managers. Required. */
@@ -17,10 +17,10 @@ export class TimeOffImpl extends ChangeTrackedEntityImpl implements Parsable, Ti
      * @param timeOffParameterValue 
      */
     public constructor(timeOffParameterValue?: TimeOff | undefined) {
-        super();
-        this.draftTimeOff = timeOffParameterValue?.draftTimeOff ;
-        this.sharedTimeOff = timeOffParameterValue?.sharedTimeOff ;
-        this.userId = timeOffParameterValue?.userId ;
+        super(timeOffParameterValue);
+        this.draftTimeOff = timeOffParameterValue?.draftTimeOff;
+        this.sharedTimeOff = timeOffParameterValue?.sharedTimeOff;
+        this.userId = timeOffParameterValue?.userId;
     };
     /**
      * The deserialization information for the current model
@@ -41,13 +41,13 @@ export class TimeOffImpl extends ChangeTrackedEntityImpl implements Parsable, Ti
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.draftTimeOff){
-        writer.writeObjectValue<TimeOffItemImpl>("draftTimeOff", new TimeOffItemImpl(this.draftTimeOff));
+            writer.writeObjectValue<TimeOffItemImpl>("draftTimeOff", new TimeOffItemImpl(this.draftTimeOff));
         }
         if(this.sharedTimeOff){
-        writer.writeObjectValue<TimeOffItemImpl>("sharedTimeOff", new TimeOffItemImpl(this.sharedTimeOff));
+            writer.writeObjectValue<TimeOffItemImpl>("sharedTimeOff", new TimeOffItemImpl(this.sharedTimeOff));
         }
         if(this.userId){
-        writer.writeStringValue("userId", this.userId);
+            writer.writeStringValue("userId", this.userId);
         }
     };
 }

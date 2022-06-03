@@ -3,7 +3,7 @@ import {LocationConstraintItem} from './locationConstraintItem';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the findMeetingTimes method. */
-export class LocationConstraintItemImpl extends LocationImpl implements LocationConstraintItem, Parsable {
+export class LocationConstraintItemImpl extends LocationImpl implements LocationConstraintItem {
     /** If set to true and the specified resource is busy, findMeetingTimes looks for another resource that is free. If set to false and the specified resource is busy, findMeetingTimes returns the resource best ranked in the user's cache without checking if it's free. Default is true. */
     public resolveAvailability?: boolean | undefined;
     /**
@@ -11,8 +11,8 @@ export class LocationConstraintItemImpl extends LocationImpl implements Location
      * @param locationConstraintItemParameterValue 
      */
     public constructor(locationConstraintItemParameterValue?: LocationConstraintItem | undefined) {
-        super();
-        this.resolveAvailability = locationConstraintItemParameterValue?.resolveAvailability ;
+        super(locationConstraintItemParameterValue);
+        this.resolveAvailability = locationConstraintItemParameterValue?.resolveAvailability;
     };
     /**
      * The deserialization information for the current model
@@ -31,7 +31,7 @@ export class LocationConstraintItemImpl extends LocationImpl implements Location
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.resolveAvailability){
-        writer.writeBooleanValue("resolveAvailability", this.resolveAvailability);
+            writer.writeBooleanValue("resolveAvailability", this.resolveAvailability);
         }
     };
 }

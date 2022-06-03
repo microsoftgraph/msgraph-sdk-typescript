@@ -4,7 +4,7 @@ import {LocalizedNotificationMessage} from './localizedNotificationMessage';
 import {LocalizedNotificationMessageCollectionResponse} from './localizedNotificationMessageCollectionResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class LocalizedNotificationMessageCollectionResponseImpl implements AdditionalDataHolder, LocalizedNotificationMessageCollectionResponse, Parsable {
+export class LocalizedNotificationMessageCollectionResponseImpl implements LocalizedNotificationMessageCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class LocalizedNotificationMessageCollectionResponseImpl implements Addit
      * @param localizedNotificationMessageCollectionResponseParameterValue 
      */
     public constructor(localizedNotificationMessageCollectionResponseParameterValue?: LocalizedNotificationMessageCollectionResponse | undefined) {
-        this.additionalData = localizedNotificationMessageCollectionResponseParameterValue?.additionalData ? localizedNotificationMessageCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = localizedNotificationMessageCollectionResponseParameterValue?.nextLink ;
-        this.value = localizedNotificationMessageCollectionResponseParameterValue?.value ;
+        this.additionalData = localizedNotificationMessageCollectionResponseParameterValue?.additionalData ? localizedNotificationMessageCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = localizedNotificationMessageCollectionResponseParameterValue?.nextLink;
+        this.value = localizedNotificationMessageCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class LocalizedNotificationMessageCollectionResponseImpl implements Addit
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: LocalizedNotificationMessageImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new LocalizedNotificationMessageImpl(element));});
-        writer.writeCollectionOfObjectValues<LocalizedNotificationMessageImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<LocalizedNotificationMessageImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

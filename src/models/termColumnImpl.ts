@@ -6,7 +6,7 @@ import {Set} from './termStore/set';
 import {Term} from './termStore/term';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class TermColumnImpl implements AdditionalDataHolder, Parsable, TermColumn {
+export class TermColumnImpl implements TermColumn {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Specifies whether the column will allow more than one value */
@@ -22,11 +22,11 @@ export class TermColumnImpl implements AdditionalDataHolder, Parsable, TermColum
      * @param termColumnParameterValue 
      */
     public constructor(termColumnParameterValue?: TermColumn | undefined) {
-        this.additionalData = termColumnParameterValue?.additionalData ? termColumnParameterValue?.additionalData! : {}
-        this.allowMultipleValues = termColumnParameterValue?.allowMultipleValues ;
-        this.parentTerm = termColumnParameterValue?.parentTerm ;
-        this.showFullyQualifiedName = termColumnParameterValue?.showFullyQualifiedName ;
-        this.termSet = termColumnParameterValue?.termSet ;
+        this.additionalData = termColumnParameterValue?.additionalData ? termColumnParameterValue?.additionalData! : {};
+        this.allowMultipleValues = termColumnParameterValue?.allowMultipleValues;
+        this.parentTerm = termColumnParameterValue?.parentTerm;
+        this.showFullyQualifiedName = termColumnParameterValue?.showFullyQualifiedName;
+        this.termSet = termColumnParameterValue?.termSet;
     };
     /**
      * The deserialization information for the current model
@@ -47,16 +47,16 @@ export class TermColumnImpl implements AdditionalDataHolder, Parsable, TermColum
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.allowMultipleValues){
-        writer.writeBooleanValue("allowMultipleValues", this.allowMultipleValues);
+            writer.writeBooleanValue("allowMultipleValues", this.allowMultipleValues);
         }
         if(this.parentTerm){
-        writer.writeObjectValue<TermImpl>("parentTerm", new TermImpl(this.parentTerm));
+            writer.writeObjectValue<TermImpl>("parentTerm", new TermImpl(this.parentTerm));
         }
         if(this.showFullyQualifiedName){
-        writer.writeBooleanValue("showFullyQualifiedName", this.showFullyQualifiedName);
+            writer.writeBooleanValue("showFullyQualifiedName", this.showFullyQualifiedName);
         }
         if(this.termSet){
-        writer.writeObjectValue<SetImpl>("termSet", new SetImpl(this.termSet));
+            writer.writeObjectValue<SetImpl>("termSet", new SetImpl(this.termSet));
         }
         writer.writeAdditionalData(this.additionalData);
     };

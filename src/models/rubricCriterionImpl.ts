@@ -4,7 +4,7 @@ import {EducationItemBodyImpl} from './index';
 import {RubricCriterion} from './rubricCriterion';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class RubricCriterionImpl implements AdditionalDataHolder, Parsable, RubricCriterion {
+export class RubricCriterionImpl implements RubricCriterion {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The description of this criterion. */
@@ -14,8 +14,8 @@ export class RubricCriterionImpl implements AdditionalDataHolder, Parsable, Rubr
      * @param rubricCriterionParameterValue 
      */
     public constructor(rubricCriterionParameterValue?: RubricCriterion | undefined) {
-        this.additionalData = rubricCriterionParameterValue?.additionalData ? rubricCriterionParameterValue?.additionalData! : {}
-        this.description = rubricCriterionParameterValue?.description ;
+        this.additionalData = rubricCriterionParameterValue?.additionalData ? rubricCriterionParameterValue?.additionalData! : {};
+        this.description = rubricCriterionParameterValue?.description;
     };
     /**
      * The deserialization information for the current model
@@ -33,7 +33,7 @@ export class RubricCriterionImpl implements AdditionalDataHolder, Parsable, Rubr
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.description){
-        writer.writeObjectValue<EducationItemBodyImpl>("description", new EducationItemBodyImpl(this.description));
+            writer.writeObjectValue<EducationItemBodyImpl>("description", new EducationItemBodyImpl(this.description));
         }
         writer.writeAdditionalData(this.additionalData);
     };

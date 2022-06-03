@@ -4,7 +4,7 @@ import {createAuthoredNoteFromDiscriminatorValue} from './createAuthoredNoteFrom
 import {AuthoredNoteImpl} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class AuthoredNoteCollectionResponseImpl implements AdditionalDataHolder, AuthoredNoteCollectionResponse, Parsable {
+export class AuthoredNoteCollectionResponseImpl implements AuthoredNoteCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class AuthoredNoteCollectionResponseImpl implements AdditionalDataHolder,
      * @param authoredNoteCollectionResponseParameterValue 
      */
     public constructor(authoredNoteCollectionResponseParameterValue?: AuthoredNoteCollectionResponse | undefined) {
-        this.additionalData = authoredNoteCollectionResponseParameterValue?.additionalData ? authoredNoteCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = authoredNoteCollectionResponseParameterValue?.nextLink ;
-        this.value = authoredNoteCollectionResponseParameterValue?.value ;
+        this.additionalData = authoredNoteCollectionResponseParameterValue?.additionalData ? authoredNoteCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = authoredNoteCollectionResponseParameterValue?.nextLink;
+        this.value = authoredNoteCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class AuthoredNoteCollectionResponseImpl implements AdditionalDataHolder,
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: AuthoredNoteImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new AuthoredNoteImpl(element));});
-        writer.writeCollectionOfObjectValues<AuthoredNoteImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<AuthoredNoteImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

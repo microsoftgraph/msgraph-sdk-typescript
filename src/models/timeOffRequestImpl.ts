@@ -3,7 +3,7 @@ import {TimeOffRequest} from './timeOffRequest';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Casts the previous resource to group. */
-export class TimeOffRequestImpl extends ScheduleChangeRequestImpl implements Parsable, TimeOffRequest {
+export class TimeOffRequestImpl extends ScheduleChangeRequestImpl implements TimeOffRequest {
     /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     public endDateTime?: Date | undefined;
     /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
@@ -15,10 +15,10 @@ export class TimeOffRequestImpl extends ScheduleChangeRequestImpl implements Par
      * @param timeOffRequestParameterValue 
      */
     public constructor(timeOffRequestParameterValue?: TimeOffRequest | undefined) {
-        super();
-        this.endDateTime = timeOffRequestParameterValue?.endDateTime ;
-        this.startDateTime = timeOffRequestParameterValue?.startDateTime ;
-        this.timeOffReasonId = timeOffRequestParameterValue?.timeOffReasonId ;
+        super(timeOffRequestParameterValue);
+        this.endDateTime = timeOffRequestParameterValue?.endDateTime;
+        this.startDateTime = timeOffRequestParameterValue?.startDateTime;
+        this.timeOffReasonId = timeOffRequestParameterValue?.timeOffReasonId;
     };
     /**
      * The deserialization information for the current model
@@ -39,13 +39,13 @@ export class TimeOffRequestImpl extends ScheduleChangeRequestImpl implements Par
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.endDateTime){
-        writer.writeDateValue("endDateTime", this.endDateTime);
+            writer.writeDateValue("endDateTime", this.endDateTime);
         }
         if(this.startDateTime){
-        writer.writeDateValue("startDateTime", this.startDateTime);
+            writer.writeDateValue("startDateTime", this.startDateTime);
         }
         if(this.timeOffReasonId){
-        writer.writeStringValue("timeOffReasonId", this.timeOffReasonId);
+            writer.writeStringValue("timeOffReasonId", this.timeOffReasonId);
         }
     };
 }

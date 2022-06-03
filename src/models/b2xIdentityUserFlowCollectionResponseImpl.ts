@@ -4,7 +4,7 @@ import {createB2xIdentityUserFlowFromDiscriminatorValue} from './createB2xIdenti
 import {B2xIdentityUserFlowImpl} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class B2xIdentityUserFlowCollectionResponseImpl implements AdditionalDataHolder, B2xIdentityUserFlowCollectionResponse, Parsable {
+export class B2xIdentityUserFlowCollectionResponseImpl implements B2xIdentityUserFlowCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class B2xIdentityUserFlowCollectionResponseImpl implements AdditionalData
      * @param b2xIdentityUserFlowCollectionResponseParameterValue 
      */
     public constructor(b2xIdentityUserFlowCollectionResponseParameterValue?: B2xIdentityUserFlowCollectionResponse | undefined) {
-        this.additionalData = b2xIdentityUserFlowCollectionResponseParameterValue?.additionalData ? b2xIdentityUserFlowCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = b2xIdentityUserFlowCollectionResponseParameterValue?.nextLink ;
-        this.value = b2xIdentityUserFlowCollectionResponseParameterValue?.value ;
+        this.additionalData = b2xIdentityUserFlowCollectionResponseParameterValue?.additionalData ? b2xIdentityUserFlowCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = b2xIdentityUserFlowCollectionResponseParameterValue?.nextLink;
+        this.value = b2xIdentityUserFlowCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class B2xIdentityUserFlowCollectionResponseImpl implements AdditionalData
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: B2xIdentityUserFlowImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new B2xIdentityUserFlowImpl(element));});
-        writer.writeCollectionOfObjectValues<B2xIdentityUserFlowImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<B2xIdentityUserFlowImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

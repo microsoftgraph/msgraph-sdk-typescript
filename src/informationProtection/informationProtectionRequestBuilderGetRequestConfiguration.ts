@@ -1,11 +1,11 @@
 import {InformationProtectionRequestBuilderGetQueryParameters} from './informationProtectionRequestBuilderGetQueryParameters';
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
-export interface InformationProtectionRequestBuilderGetRequestConfiguration{
+export interface InformationProtectionRequestBuilderGetRequestConfiguration {
     /** Request headers */
-    headers?:Record<string, string> | undefined;
+    headers?: Record<string, string> | undefined;
     /** Request options */
-    options?:RequestOption[] | undefined;
+    options?: RequestOption[] | undefined;
     /** Request query parameters */
-    queryParameters?:InformationProtectionRequestBuilderGetQueryParameters | undefined;
+    queryParameters?: InformationProtectionRequestBuilderGetQueryParameters | undefined;
 }

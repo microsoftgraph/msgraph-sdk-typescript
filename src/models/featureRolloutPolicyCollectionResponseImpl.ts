@@ -4,7 +4,7 @@ import {FeatureRolloutPolicyCollectionResponse} from './featureRolloutPolicyColl
 import {FeatureRolloutPolicyImpl} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class FeatureRolloutPolicyCollectionResponseImpl implements AdditionalDataHolder, FeatureRolloutPolicyCollectionResponse, Parsable {
+export class FeatureRolloutPolicyCollectionResponseImpl implements FeatureRolloutPolicyCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class FeatureRolloutPolicyCollectionResponseImpl implements AdditionalDat
      * @param featureRolloutPolicyCollectionResponseParameterValue 
      */
     public constructor(featureRolloutPolicyCollectionResponseParameterValue?: FeatureRolloutPolicyCollectionResponse | undefined) {
-        this.additionalData = featureRolloutPolicyCollectionResponseParameterValue?.additionalData ? featureRolloutPolicyCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = featureRolloutPolicyCollectionResponseParameterValue?.nextLink ;
-        this.value = featureRolloutPolicyCollectionResponseParameterValue?.value ;
+        this.additionalData = featureRolloutPolicyCollectionResponseParameterValue?.additionalData ? featureRolloutPolicyCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = featureRolloutPolicyCollectionResponseParameterValue?.nextLink;
+        this.value = featureRolloutPolicyCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class FeatureRolloutPolicyCollectionResponseImpl implements AdditionalDat
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: FeatureRolloutPolicyImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new FeatureRolloutPolicyImpl(element));});
-        writer.writeCollectionOfObjectValues<FeatureRolloutPolicyImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<FeatureRolloutPolicyImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

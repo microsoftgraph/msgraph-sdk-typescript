@@ -1,11 +1,11 @@
 import {RichLongRunningOperationItemRequestBuilderGetQueryParameters} from './richLongRunningOperationItemRequestBuilderGetQueryParameters';
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
-export interface RichLongRunningOperationItemRequestBuilderGetRequestConfiguration{
+export interface RichLongRunningOperationItemRequestBuilderGetRequestConfiguration {
     /** Request headers */
-    headers?:Record<string, string> | undefined;
+    headers?: Record<string, string> | undefined;
     /** Request options */
-    options?:RequestOption[] | undefined;
+    options?: RequestOption[] | undefined;
     /** Request query parameters */
-    queryParameters?:RichLongRunningOperationItemRequestBuilderGetQueryParameters | undefined;
+    queryParameters?: RichLongRunningOperationItemRequestBuilderGetQueryParameters | undefined;
 }

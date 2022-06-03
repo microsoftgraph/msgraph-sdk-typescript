@@ -5,7 +5,7 @@ import {DateTimeTimeZoneImpl} from './index';
 import {ScheduleItem} from './scheduleItem';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ScheduleItemImpl implements AdditionalDataHolder, Parsable, ScheduleItem {
+export class ScheduleItemImpl implements ScheduleItem {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The date, time, and time zone that the corresponding event ends. */
@@ -25,13 +25,13 @@ export class ScheduleItemImpl implements AdditionalDataHolder, Parsable, Schedul
      * @param scheduleItemParameterValue 
      */
     public constructor(scheduleItemParameterValue?: ScheduleItem | undefined) {
-        this.additionalData = scheduleItemParameterValue?.additionalData ? scheduleItemParameterValue?.additionalData! : {}
-        this.end = scheduleItemParameterValue?.end ;
-        this.isPrivate = scheduleItemParameterValue?.isPrivate ;
-        this.location = scheduleItemParameterValue?.location ;
-        this.start = scheduleItemParameterValue?.start ;
-        this.status = scheduleItemParameterValue?.status ;
-        this.subject = scheduleItemParameterValue?.subject ;
+        this.additionalData = scheduleItemParameterValue?.additionalData ? scheduleItemParameterValue?.additionalData! : {};
+        this.end = scheduleItemParameterValue?.end;
+        this.isPrivate = scheduleItemParameterValue?.isPrivate;
+        this.location = scheduleItemParameterValue?.location;
+        this.start = scheduleItemParameterValue?.start;
+        this.status = scheduleItemParameterValue?.status;
+        this.subject = scheduleItemParameterValue?.subject;
     };
     /**
      * The deserialization information for the current model
@@ -54,22 +54,22 @@ export class ScheduleItemImpl implements AdditionalDataHolder, Parsable, Schedul
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.end){
-        writer.writeObjectValue<DateTimeTimeZoneImpl>("end", new DateTimeTimeZoneImpl(this.end));
+            writer.writeObjectValue<DateTimeTimeZoneImpl>("end", new DateTimeTimeZoneImpl(this.end));
         }
         if(this.isPrivate){
-        writer.writeBooleanValue("isPrivate", this.isPrivate);
+            writer.writeBooleanValue("isPrivate", this.isPrivate);
         }
         if(this.location){
-        writer.writeStringValue("location", this.location);
+            writer.writeStringValue("location", this.location);
         }
         if(this.start){
-        writer.writeObjectValue<DateTimeTimeZoneImpl>("start", new DateTimeTimeZoneImpl(this.start));
+            writer.writeObjectValue<DateTimeTimeZoneImpl>("start", new DateTimeTimeZoneImpl(this.start));
         }
         if(this.status){
-        writer.writeEnumValue<FreeBusyStatus>("status", this.status);
+            writer.writeEnumValue<FreeBusyStatus>("status", this.status);
         }
         if(this.subject){
-        writer.writeStringValue("subject", this.subject);
+            writer.writeStringValue("subject", this.subject);
         }
         writer.writeAdditionalData(this.additionalData);
     };

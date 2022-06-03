@@ -1,7 +1,7 @@
 import {KeyValue} from './keyValue';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class KeyValueImpl implements AdditionalDataHolder, KeyValue, Parsable {
+export class KeyValueImpl implements KeyValue {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Contains the name of the field that a value is associated with. When a sign in or domain hint is included in the sign-in request, corresponding fields are included as key-value pairs. Possible keys: Login hint present, Domain hint present. */
@@ -13,9 +13,9 @@ export class KeyValueImpl implements AdditionalDataHolder, KeyValue, Parsable {
      * @param keyValueParameterValue 
      */
     public constructor(keyValueParameterValue?: KeyValue | undefined) {
-        this.additionalData = keyValueParameterValue?.additionalData ? keyValueParameterValue?.additionalData! : {}
-        this.key = keyValueParameterValue?.key ;
-        this.value = keyValueParameterValue?.value ;
+        this.additionalData = keyValueParameterValue?.additionalData ? keyValueParameterValue?.additionalData! : {};
+        this.key = keyValueParameterValue?.key;
+        this.value = keyValueParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -34,10 +34,10 @@ export class KeyValueImpl implements AdditionalDataHolder, KeyValue, Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.key){
-        writer.writeStringValue("key", this.key);
+            writer.writeStringValue("key", this.key);
         }
         if(this.value){
-        writer.writeStringValue("value", this.value);
+            writer.writeStringValue("value", this.value);
         }
         writer.writeAdditionalData(this.additionalData);
     };

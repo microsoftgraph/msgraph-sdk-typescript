@@ -4,7 +4,7 @@ import {createAttachmentFromDiscriminatorValue} from './createAttachmentFromDisc
 import {AttachmentImpl} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class AttachmentCollectionResponseImpl implements AdditionalDataHolder, AttachmentCollectionResponse, Parsable {
+export class AttachmentCollectionResponseImpl implements AttachmentCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class AttachmentCollectionResponseImpl implements AdditionalDataHolder, A
      * @param attachmentCollectionResponseParameterValue 
      */
     public constructor(attachmentCollectionResponseParameterValue?: AttachmentCollectionResponse | undefined) {
-        this.additionalData = attachmentCollectionResponseParameterValue?.additionalData ? attachmentCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = attachmentCollectionResponseParameterValue?.nextLink ;
-        this.value = attachmentCollectionResponseParameterValue?.value ;
+        this.additionalData = attachmentCollectionResponseParameterValue?.additionalData ? attachmentCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = attachmentCollectionResponseParameterValue?.nextLink;
+        this.value = attachmentCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class AttachmentCollectionResponseImpl implements AdditionalDataHolder, A
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: AttachmentImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new AttachmentImpl(element));});
-        writer.writeCollectionOfObjectValues<AttachmentImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<AttachmentImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

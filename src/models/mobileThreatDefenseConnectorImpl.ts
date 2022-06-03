@@ -4,7 +4,7 @@ import {MobileThreatPartnerTenantState} from './mobileThreatPartnerTenantState';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Entity which represents a connection to Mobile threat defense partner. */
-export class MobileThreatDefenseConnectorImpl extends EntityImpl implements MobileThreatDefenseConnector, Parsable {
+export class MobileThreatDefenseConnectorImpl extends EntityImpl implements MobileThreatDefenseConnector {
     /** For Android, set whether Intune must receive data from the data sync partner prior to marking a device compliant */
     public androidDeviceBlockedOnMissingPartnerData?: boolean | undefined;
     /** For Android, set whether data from the data sync partner should be used during compliance evaluations */
@@ -26,15 +26,15 @@ export class MobileThreatDefenseConnectorImpl extends EntityImpl implements Mobi
      * @param mobileThreatDefenseConnectorParameterValue 
      */
     public constructor(mobileThreatDefenseConnectorParameterValue?: MobileThreatDefenseConnector | undefined) {
-        super();
-        this.androidDeviceBlockedOnMissingPartnerData = mobileThreatDefenseConnectorParameterValue?.androidDeviceBlockedOnMissingPartnerData ;
-        this.androidEnabled = mobileThreatDefenseConnectorParameterValue?.androidEnabled ;
-        this.iosDeviceBlockedOnMissingPartnerData = mobileThreatDefenseConnectorParameterValue?.iosDeviceBlockedOnMissingPartnerData ;
-        this.iosEnabled = mobileThreatDefenseConnectorParameterValue?.iosEnabled ;
-        this.lastHeartbeatDateTime = mobileThreatDefenseConnectorParameterValue?.lastHeartbeatDateTime ;
-        this.partnerState = mobileThreatDefenseConnectorParameterValue?.partnerState ;
-        this.partnerUnresponsivenessThresholdInDays = mobileThreatDefenseConnectorParameterValue?.partnerUnresponsivenessThresholdInDays ;
-        this.partnerUnsupportedOsVersionBlocked = mobileThreatDefenseConnectorParameterValue?.partnerUnsupportedOsVersionBlocked ;
+        super(mobileThreatDefenseConnectorParameterValue);
+        this.androidDeviceBlockedOnMissingPartnerData = mobileThreatDefenseConnectorParameterValue?.androidDeviceBlockedOnMissingPartnerData;
+        this.androidEnabled = mobileThreatDefenseConnectorParameterValue?.androidEnabled;
+        this.iosDeviceBlockedOnMissingPartnerData = mobileThreatDefenseConnectorParameterValue?.iosDeviceBlockedOnMissingPartnerData;
+        this.iosEnabled = mobileThreatDefenseConnectorParameterValue?.iosEnabled;
+        this.lastHeartbeatDateTime = mobileThreatDefenseConnectorParameterValue?.lastHeartbeatDateTime;
+        this.partnerState = mobileThreatDefenseConnectorParameterValue?.partnerState;
+        this.partnerUnresponsivenessThresholdInDays = mobileThreatDefenseConnectorParameterValue?.partnerUnresponsivenessThresholdInDays;
+        this.partnerUnsupportedOsVersionBlocked = mobileThreatDefenseConnectorParameterValue?.partnerUnsupportedOsVersionBlocked;
     };
     /**
      * The deserialization information for the current model
@@ -60,28 +60,28 @@ export class MobileThreatDefenseConnectorImpl extends EntityImpl implements Mobi
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.androidDeviceBlockedOnMissingPartnerData){
-        writer.writeBooleanValue("androidDeviceBlockedOnMissingPartnerData", this.androidDeviceBlockedOnMissingPartnerData);
+            writer.writeBooleanValue("androidDeviceBlockedOnMissingPartnerData", this.androidDeviceBlockedOnMissingPartnerData);
         }
         if(this.androidEnabled){
-        writer.writeBooleanValue("androidEnabled", this.androidEnabled);
+            writer.writeBooleanValue("androidEnabled", this.androidEnabled);
         }
         if(this.iosDeviceBlockedOnMissingPartnerData){
-        writer.writeBooleanValue("iosDeviceBlockedOnMissingPartnerData", this.iosDeviceBlockedOnMissingPartnerData);
+            writer.writeBooleanValue("iosDeviceBlockedOnMissingPartnerData", this.iosDeviceBlockedOnMissingPartnerData);
         }
         if(this.iosEnabled){
-        writer.writeBooleanValue("iosEnabled", this.iosEnabled);
+            writer.writeBooleanValue("iosEnabled", this.iosEnabled);
         }
         if(this.lastHeartbeatDateTime){
-        writer.writeDateValue("lastHeartbeatDateTime", this.lastHeartbeatDateTime);
+            writer.writeDateValue("lastHeartbeatDateTime", this.lastHeartbeatDateTime);
         }
         if(this.partnerState){
-        writer.writeEnumValue<MobileThreatPartnerTenantState>("partnerState", this.partnerState);
+            writer.writeEnumValue<MobileThreatPartnerTenantState>("partnerState", this.partnerState);
         }
         if(this.partnerUnresponsivenessThresholdInDays){
-        writer.writeNumberValue("partnerUnresponsivenessThresholdInDays", this.partnerUnresponsivenessThresholdInDays);
+            writer.writeNumberValue("partnerUnresponsivenessThresholdInDays", this.partnerUnresponsivenessThresholdInDays);
         }
         if(this.partnerUnsupportedOsVersionBlocked){
-        writer.writeBooleanValue("partnerUnsupportedOsVersionBlocked", this.partnerUnsupportedOsVersionBlocked);
+            writer.writeBooleanValue("partnerUnsupportedOsVersionBlocked", this.partnerUnsupportedOsVersionBlocked);
         }
     };
 }

@@ -6,7 +6,7 @@ import {DefaultUserRolePermissionsImpl, PolicyBaseImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the policyRoot singleton. */
-export class AuthorizationPolicyImpl extends PolicyBaseImpl implements AuthorizationPolicy, Parsable {
+export class AuthorizationPolicyImpl extends PolicyBaseImpl implements AuthorizationPolicy {
     /** Indicates whether users can sign up for email based subscriptions. */
     public allowedToSignUpEmailBasedSubscriptions?: boolean | undefined;
     /** Indicates whether the Self-Serve Password Reset feature can be used by users on the tenant. */
@@ -26,14 +26,14 @@ export class AuthorizationPolicyImpl extends PolicyBaseImpl implements Authoriza
      * @param authorizationPolicyParameterValue 
      */
     public constructor(authorizationPolicyParameterValue?: AuthorizationPolicy | undefined) {
-        super();
-        this.allowedToSignUpEmailBasedSubscriptions = authorizationPolicyParameterValue?.allowedToSignUpEmailBasedSubscriptions ;
-        this.allowedToUseSSPR = authorizationPolicyParameterValue?.allowedToUseSSPR ;
-        this.allowEmailVerifiedUsersToJoinOrganization = authorizationPolicyParameterValue?.allowEmailVerifiedUsersToJoinOrganization ;
-        this.allowInvitesFrom = authorizationPolicyParameterValue?.allowInvitesFrom ;
-        this.blockMsolPowerShell = authorizationPolicyParameterValue?.blockMsolPowerShell ;
-        this.defaultUserRolePermissions = authorizationPolicyParameterValue?.defaultUserRolePermissions ;
-        this.guestUserRoleId = authorizationPolicyParameterValue?.guestUserRoleId ;
+        super(authorizationPolicyParameterValue);
+        this.allowedToSignUpEmailBasedSubscriptions = authorizationPolicyParameterValue?.allowedToSignUpEmailBasedSubscriptions;
+        this.allowedToUseSSPR = authorizationPolicyParameterValue?.allowedToUseSSPR;
+        this.allowEmailVerifiedUsersToJoinOrganization = authorizationPolicyParameterValue?.allowEmailVerifiedUsersToJoinOrganization;
+        this.allowInvitesFrom = authorizationPolicyParameterValue?.allowInvitesFrom;
+        this.blockMsolPowerShell = authorizationPolicyParameterValue?.blockMsolPowerShell;
+        this.defaultUserRolePermissions = authorizationPolicyParameterValue?.defaultUserRolePermissions;
+        this.guestUserRoleId = authorizationPolicyParameterValue?.guestUserRoleId;
     };
     /**
      * The deserialization information for the current model
@@ -58,25 +58,25 @@ export class AuthorizationPolicyImpl extends PolicyBaseImpl implements Authoriza
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.allowedToSignUpEmailBasedSubscriptions){
-        writer.writeBooleanValue("allowedToSignUpEmailBasedSubscriptions", this.allowedToSignUpEmailBasedSubscriptions);
+            writer.writeBooleanValue("allowedToSignUpEmailBasedSubscriptions", this.allowedToSignUpEmailBasedSubscriptions);
         }
         if(this.allowedToUseSSPR){
-        writer.writeBooleanValue("allowedToUseSSPR", this.allowedToUseSSPR);
+            writer.writeBooleanValue("allowedToUseSSPR", this.allowedToUseSSPR);
         }
         if(this.allowEmailVerifiedUsersToJoinOrganization){
-        writer.writeBooleanValue("allowEmailVerifiedUsersToJoinOrganization", this.allowEmailVerifiedUsersToJoinOrganization);
+            writer.writeBooleanValue("allowEmailVerifiedUsersToJoinOrganization", this.allowEmailVerifiedUsersToJoinOrganization);
         }
         if(this.allowInvitesFrom){
-        writer.writeEnumValue<AllowInvitesFrom>("allowInvitesFrom", this.allowInvitesFrom);
+            writer.writeEnumValue<AllowInvitesFrom>("allowInvitesFrom", this.allowInvitesFrom);
         }
         if(this.blockMsolPowerShell){
-        writer.writeBooleanValue("blockMsolPowerShell", this.blockMsolPowerShell);
+            writer.writeBooleanValue("blockMsolPowerShell", this.blockMsolPowerShell);
         }
         if(this.defaultUserRolePermissions){
-        writer.writeObjectValue<DefaultUserRolePermissionsImpl>("defaultUserRolePermissions", new DefaultUserRolePermissionsImpl(this.defaultUserRolePermissions));
+            writer.writeObjectValue<DefaultUserRolePermissionsImpl>("defaultUserRolePermissions", new DefaultUserRolePermissionsImpl(this.defaultUserRolePermissions));
         }
         if(this.guestUserRoleId){
-        writer.writeStringValue("guestUserRoleId", this.guestUserRoleId);
+            writer.writeStringValue("guestUserRoleId", this.guestUserRoleId);
         }
     };
 }

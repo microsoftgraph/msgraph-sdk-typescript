@@ -19,7 +19,7 @@ import {OnlineMeetingPresenters} from './onlineMeetingPresenters';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the cloudCommunications singleton. */
-export class OnlineMeetingImpl extends EntityImpl implements OnlineMeeting, Parsable {
+export class OnlineMeetingImpl extends EntityImpl implements OnlineMeeting {
     /** Indicates whether attendees can turn on their camera. */
     public allowAttendeeToEnableCamera?: boolean | undefined;
     /** Indicates whether attendees can turn on their microphone. */
@@ -71,30 +71,30 @@ export class OnlineMeetingImpl extends EntityImpl implements OnlineMeeting, Pars
      * @param onlineMeetingParameterValue 
      */
     public constructor(onlineMeetingParameterValue?: OnlineMeeting | undefined) {
-        super();
-        this.allowAttendeeToEnableCamera = onlineMeetingParameterValue?.allowAttendeeToEnableCamera ;
-        this.allowAttendeeToEnableMic = onlineMeetingParameterValue?.allowAttendeeToEnableMic ;
-        this.allowedPresenters = onlineMeetingParameterValue?.allowedPresenters ;
-        this.allowMeetingChat = onlineMeetingParameterValue?.allowMeetingChat ;
-        this.allowTeamworkReactions = onlineMeetingParameterValue?.allowTeamworkReactions ;
-        this.attendanceReports = onlineMeetingParameterValue?.attendanceReports ;
-        this.attendeeReport = onlineMeetingParameterValue?.attendeeReport ;
-        this.audioConferencing = onlineMeetingParameterValue?.audioConferencing ;
-        this.broadcastSettings = onlineMeetingParameterValue?.broadcastSettings ;
-        this.chatInfo = onlineMeetingParameterValue?.chatInfo ;
-        this.creationDateTime = onlineMeetingParameterValue?.creationDateTime ;
-        this.endDateTime = onlineMeetingParameterValue?.endDateTime ;
-        this.externalId = onlineMeetingParameterValue?.externalId ;
-        this.isBroadcast = onlineMeetingParameterValue?.isBroadcast ;
-        this.isEntryExitAnnounced = onlineMeetingParameterValue?.isEntryExitAnnounced ;
-        this.joinInformation = onlineMeetingParameterValue?.joinInformation ;
-        this.joinWebUrl = onlineMeetingParameterValue?.joinWebUrl ;
-        this.lobbyBypassSettings = onlineMeetingParameterValue?.lobbyBypassSettings ;
-        this.participants = onlineMeetingParameterValue?.participants ;
-        this.recordAutomatically = onlineMeetingParameterValue?.recordAutomatically ;
-        this.startDateTime = onlineMeetingParameterValue?.startDateTime ;
-        this.subject = onlineMeetingParameterValue?.subject ;
-        this.videoTeleconferenceId = onlineMeetingParameterValue?.videoTeleconferenceId ;
+        super(onlineMeetingParameterValue);
+        this.allowAttendeeToEnableCamera = onlineMeetingParameterValue?.allowAttendeeToEnableCamera;
+        this.allowAttendeeToEnableMic = onlineMeetingParameterValue?.allowAttendeeToEnableMic;
+        this.allowedPresenters = onlineMeetingParameterValue?.allowedPresenters;
+        this.allowMeetingChat = onlineMeetingParameterValue?.allowMeetingChat;
+        this.allowTeamworkReactions = onlineMeetingParameterValue?.allowTeamworkReactions;
+        this.attendanceReports = onlineMeetingParameterValue?.attendanceReports;
+        this.attendeeReport = onlineMeetingParameterValue?.attendeeReport;
+        this.audioConferencing = onlineMeetingParameterValue?.audioConferencing;
+        this.broadcastSettings = onlineMeetingParameterValue?.broadcastSettings;
+        this.chatInfo = onlineMeetingParameterValue?.chatInfo;
+        this.creationDateTime = onlineMeetingParameterValue?.creationDateTime;
+        this.endDateTime = onlineMeetingParameterValue?.endDateTime;
+        this.externalId = onlineMeetingParameterValue?.externalId;
+        this.isBroadcast = onlineMeetingParameterValue?.isBroadcast;
+        this.isEntryExitAnnounced = onlineMeetingParameterValue?.isEntryExitAnnounced;
+        this.joinInformation = onlineMeetingParameterValue?.joinInformation;
+        this.joinWebUrl = onlineMeetingParameterValue?.joinWebUrl;
+        this.lobbyBypassSettings = onlineMeetingParameterValue?.lobbyBypassSettings;
+        this.participants = onlineMeetingParameterValue?.participants;
+        this.recordAutomatically = onlineMeetingParameterValue?.recordAutomatically;
+        this.startDateTime = onlineMeetingParameterValue?.startDateTime;
+        this.subject = onlineMeetingParameterValue?.subject;
+        this.videoTeleconferenceId = onlineMeetingParameterValue?.videoTeleconferenceId;
     };
     /**
      * The deserialization information for the current model
@@ -135,73 +135,73 @@ export class OnlineMeetingImpl extends EntityImpl implements OnlineMeeting, Pars
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.allowAttendeeToEnableCamera){
-        writer.writeBooleanValue("allowAttendeeToEnableCamera", this.allowAttendeeToEnableCamera);
+            writer.writeBooleanValue("allowAttendeeToEnableCamera", this.allowAttendeeToEnableCamera);
         }
         if(this.allowAttendeeToEnableMic){
-        writer.writeBooleanValue("allowAttendeeToEnableMic", this.allowAttendeeToEnableMic);
+            writer.writeBooleanValue("allowAttendeeToEnableMic", this.allowAttendeeToEnableMic);
         }
         if(this.allowedPresenters){
-        writer.writeEnumValue<OnlineMeetingPresenters>("allowedPresenters", this.allowedPresenters);
+            writer.writeEnumValue<OnlineMeetingPresenters>("allowedPresenters", this.allowedPresenters);
         }
         if(this.allowMeetingChat){
-        writer.writeEnumValue<MeetingChatMode>("allowMeetingChat", this.allowMeetingChat);
+            writer.writeEnumValue<MeetingChatMode>("allowMeetingChat", this.allowMeetingChat);
         }
         if(this.allowTeamworkReactions){
-        writer.writeBooleanValue("allowTeamworkReactions", this.allowTeamworkReactions);
+            writer.writeBooleanValue("allowTeamworkReactions", this.allowTeamworkReactions);
         }
         if(this.attendanceReports && this.attendanceReports.length != 0){        const attendanceReportsArrValue: MeetingAttendanceReportImpl[] = []; this.attendanceReports?.forEach(element => {attendanceReportsArrValue.push(new MeetingAttendanceReportImpl(element));});
-        writer.writeCollectionOfObjectValues<MeetingAttendanceReportImpl>("attendanceReports", attendanceReportsArrValue);
+            writer.writeCollectionOfObjectValues<MeetingAttendanceReportImpl>("attendanceReports", attendanceReportsArrValue);
         }
         if(this.attendeeReport){
-        writer.writeStringValue("attendeeReport", this.attendeeReport);
+            writer.writeStringValue("attendeeReport", this.attendeeReport);
         }
         if(this.audioConferencing){
-        writer.writeObjectValue<AudioConferencingImpl>("audioConferencing", new AudioConferencingImpl(this.audioConferencing));
+            writer.writeObjectValue<AudioConferencingImpl>("audioConferencing", new AudioConferencingImpl(this.audioConferencing));
         }
         if(this.broadcastSettings){
-        writer.writeObjectValue<BroadcastMeetingSettingsImpl>("broadcastSettings", new BroadcastMeetingSettingsImpl(this.broadcastSettings));
+            writer.writeObjectValue<BroadcastMeetingSettingsImpl>("broadcastSettings", new BroadcastMeetingSettingsImpl(this.broadcastSettings));
         }
         if(this.chatInfo){
-        writer.writeObjectValue<ChatInfoImpl>("chatInfo", new ChatInfoImpl(this.chatInfo));
+            writer.writeObjectValue<ChatInfoImpl>("chatInfo", new ChatInfoImpl(this.chatInfo));
         }
         if(this.creationDateTime){
-        writer.writeDateValue("creationDateTime", this.creationDateTime);
+            writer.writeDateValue("creationDateTime", this.creationDateTime);
         }
         if(this.endDateTime){
-        writer.writeDateValue("endDateTime", this.endDateTime);
+            writer.writeDateValue("endDateTime", this.endDateTime);
         }
         if(this.externalId){
-        writer.writeStringValue("externalId", this.externalId);
+            writer.writeStringValue("externalId", this.externalId);
         }
         if(this.isBroadcast){
-        writer.writeBooleanValue("isBroadcast", this.isBroadcast);
+            writer.writeBooleanValue("isBroadcast", this.isBroadcast);
         }
         if(this.isEntryExitAnnounced){
-        writer.writeBooleanValue("isEntryExitAnnounced", this.isEntryExitAnnounced);
+            writer.writeBooleanValue("isEntryExitAnnounced", this.isEntryExitAnnounced);
         }
         if(this.joinInformation){
-        writer.writeObjectValue<ItemBodyImpl>("joinInformation", new ItemBodyImpl(this.joinInformation));
+            writer.writeObjectValue<ItemBodyImpl>("joinInformation", new ItemBodyImpl(this.joinInformation));
         }
         if(this.joinWebUrl){
-        writer.writeStringValue("joinWebUrl", this.joinWebUrl);
+            writer.writeStringValue("joinWebUrl", this.joinWebUrl);
         }
         if(this.lobbyBypassSettings){
-        writer.writeObjectValue<LobbyBypassSettingsImpl>("lobbyBypassSettings", new LobbyBypassSettingsImpl(this.lobbyBypassSettings));
+            writer.writeObjectValue<LobbyBypassSettingsImpl>("lobbyBypassSettings", new LobbyBypassSettingsImpl(this.lobbyBypassSettings));
         }
         if(this.participants){
-        writer.writeObjectValue<MeetingParticipantsImpl>("participants", new MeetingParticipantsImpl(this.participants));
+            writer.writeObjectValue<MeetingParticipantsImpl>("participants", new MeetingParticipantsImpl(this.participants));
         }
         if(this.recordAutomatically){
-        writer.writeBooleanValue("recordAutomatically", this.recordAutomatically);
+            writer.writeBooleanValue("recordAutomatically", this.recordAutomatically);
         }
         if(this.startDateTime){
-        writer.writeDateValue("startDateTime", this.startDateTime);
+            writer.writeDateValue("startDateTime", this.startDateTime);
         }
         if(this.subject){
-        writer.writeStringValue("subject", this.subject);
+            writer.writeStringValue("subject", this.subject);
         }
         if(this.videoTeleconferenceId){
-        writer.writeStringValue("videoTeleconferenceId", this.videoTeleconferenceId);
+            writer.writeStringValue("videoTeleconferenceId", this.videoTeleconferenceId);
         }
     };
 }

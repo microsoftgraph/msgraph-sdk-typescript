@@ -3,7 +3,7 @@ import {BookingReminderRecipients} from './bookingReminderRecipients';
 import {AdditionalDataHolder, Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** This type represents when and to whom to send an e-mail reminder. */
-export class BookingReminderImpl implements AdditionalDataHolder, BookingReminder, Parsable {
+export class BookingReminderImpl implements BookingReminder {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The message in the reminder. */
@@ -17,10 +17,10 @@ export class BookingReminderImpl implements AdditionalDataHolder, BookingReminde
      * @param bookingReminderParameterValue 
      */
     public constructor(bookingReminderParameterValue?: BookingReminder | undefined) {
-        this.additionalData = bookingReminderParameterValue?.additionalData ? bookingReminderParameterValue?.additionalData! : {}
-        this.message = bookingReminderParameterValue?.message ;
-        this.offset = bookingReminderParameterValue?.offset ;
-        this.recipients = bookingReminderParameterValue?.recipients ;
+        this.additionalData = bookingReminderParameterValue?.additionalData ? bookingReminderParameterValue?.additionalData! : {};
+        this.message = bookingReminderParameterValue?.message;
+        this.offset = bookingReminderParameterValue?.offset;
+        this.recipients = bookingReminderParameterValue?.recipients;
     };
     /**
      * The deserialization information for the current model
@@ -40,13 +40,13 @@ export class BookingReminderImpl implements AdditionalDataHolder, BookingReminde
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.message){
-        writer.writeStringValue("message", this.message);
+            writer.writeStringValue("message", this.message);
         }
         if(this.offset){
-        writer.writeDurationValue("offset", this.offset);
+            writer.writeDurationValue("offset", this.offset);
         }
         if(this.recipients){
-        writer.writeEnumValue<BookingReminderRecipients>("recipients", this.recipients);
+            writer.writeEnumValue<BookingReminderRecipients>("recipients", this.recipients);
         }
         writer.writeAdditionalData(this.additionalData);
     };

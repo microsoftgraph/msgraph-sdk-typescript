@@ -2,7 +2,7 @@ import {ArchivePostRequestBody} from './archivePostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the archive method. */
-export class ArchivePostRequestBodyImpl implements AdditionalDataHolder, ArchivePostRequestBody, Parsable {
+export class ArchivePostRequestBodyImpl implements ArchivePostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The messageIds property */
@@ -12,8 +12,8 @@ export class ArchivePostRequestBodyImpl implements AdditionalDataHolder, Archive
      * @param archivePostRequestBodyParameterValue 
      */
     public constructor(archivePostRequestBodyParameterValue?: ArchivePostRequestBody | undefined) {
-        this.additionalData = archivePostRequestBodyParameterValue?.additionalData ? archivePostRequestBodyParameterValue?.additionalData! : {}
-        this.messageIds = archivePostRequestBodyParameterValue?.messageIds ;
+        this.additionalData = archivePostRequestBodyParameterValue?.additionalData ? archivePostRequestBodyParameterValue?.additionalData! : {};
+        this.messageIds = archivePostRequestBodyParameterValue?.messageIds;
     };
     /**
      * The deserialization information for the current model
@@ -31,7 +31,7 @@ export class ArchivePostRequestBodyImpl implements AdditionalDataHolder, Archive
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.messageIds){
-        writer.writeCollectionOfPrimitiveValues<string>("messageIds", this.messageIds);
+            writer.writeCollectionOfPrimitiveValues<string>("messageIds", this.messageIds);
         }
         writer.writeAdditionalData(this.additionalData);
     };

@@ -7,7 +7,7 @@ import {NamedLocation} from './namedLocation';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the identityContainer singleton. */
-export class ConditionalAccessRootImpl extends EntityImpl implements ConditionalAccessRoot, Parsable {
+export class ConditionalAccessRootImpl extends EntityImpl implements ConditionalAccessRoot {
     /** Read-only. Nullable. Returns a collection of the specified named locations. */
     public namedLocations?: NamedLocation[] | undefined;
     /** Read-only. Nullable. Returns a collection of the specified Conditional Access policies. */
@@ -17,9 +17,9 @@ export class ConditionalAccessRootImpl extends EntityImpl implements Conditional
      * @param conditionalAccessRootParameterValue 
      */
     public constructor(conditionalAccessRootParameterValue?: ConditionalAccessRoot | undefined) {
-        super();
-        this.namedLocations = conditionalAccessRootParameterValue?.namedLocations ;
-        this.policies = conditionalAccessRootParameterValue?.policies ;
+        super(conditionalAccessRootParameterValue);
+        this.namedLocations = conditionalAccessRootParameterValue?.namedLocations;
+        this.policies = conditionalAccessRootParameterValue?.policies;
     };
     /**
      * The deserialization information for the current model
@@ -39,10 +39,10 @@ export class ConditionalAccessRootImpl extends EntityImpl implements Conditional
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.namedLocations && this.namedLocations.length != 0){        const namedLocationsArrValue: NamedLocationImpl[] = []; this.namedLocations?.forEach(element => {namedLocationsArrValue.push(new NamedLocationImpl(element));});
-        writer.writeCollectionOfObjectValues<NamedLocationImpl>("namedLocations", namedLocationsArrValue);
+            writer.writeCollectionOfObjectValues<NamedLocationImpl>("namedLocations", namedLocationsArrValue);
         }
         if(this.policies && this.policies.length != 0){        const policiesArrValue: ConditionalAccessPolicyImpl[] = []; this.policies?.forEach(element => {policiesArrValue.push(new ConditionalAccessPolicyImpl(element));});
-        writer.writeCollectionOfObjectValues<ConditionalAccessPolicyImpl>("policies", policiesArrValue);
+            writer.writeCollectionOfObjectValues<ConditionalAccessPolicyImpl>("policies", policiesArrValue);
         }
     };
 }

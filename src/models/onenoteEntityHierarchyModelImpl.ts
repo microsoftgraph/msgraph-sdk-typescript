@@ -4,8 +4,8 @@ import {IdentitySetImpl, OnenoteEntitySchemaObjectModelImpl} from './index';
 import {OnenoteEntityHierarchyModel} from './onenoteEntityHierarchyModel';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to group. */
-export class OnenoteEntityHierarchyModelImpl extends OnenoteEntitySchemaObjectModelImpl implements OnenoteEntityHierarchyModel, Parsable {
+/** Casts the previous resource to user. */
+export class OnenoteEntityHierarchyModelImpl extends OnenoteEntitySchemaObjectModelImpl implements OnenoteEntityHierarchyModel {
     /** Identity of the user, device, and application which created the item. Read-only. */
     public createdBy?: IdentitySet | undefined;
     /** The name of the notebook. */
@@ -19,11 +19,11 @@ export class OnenoteEntityHierarchyModelImpl extends OnenoteEntitySchemaObjectMo
      * @param onenoteEntityHierarchyModelParameterValue 
      */
     public constructor(onenoteEntityHierarchyModelParameterValue?: OnenoteEntityHierarchyModel | undefined) {
-        super();
-        this.createdBy = onenoteEntityHierarchyModelParameterValue?.createdBy ;
-        this.displayName = onenoteEntityHierarchyModelParameterValue?.displayName ;
-        this.lastModifiedBy = onenoteEntityHierarchyModelParameterValue?.lastModifiedBy ;
-        this.lastModifiedDateTime = onenoteEntityHierarchyModelParameterValue?.lastModifiedDateTime ;
+        super(onenoteEntityHierarchyModelParameterValue);
+        this.createdBy = onenoteEntityHierarchyModelParameterValue?.createdBy;
+        this.displayName = onenoteEntityHierarchyModelParameterValue?.displayName;
+        this.lastModifiedBy = onenoteEntityHierarchyModelParameterValue?.lastModifiedBy;
+        this.lastModifiedDateTime = onenoteEntityHierarchyModelParameterValue?.lastModifiedDateTime;
     };
     /**
      * The deserialization information for the current model
@@ -45,16 +45,16 @@ export class OnenoteEntityHierarchyModelImpl extends OnenoteEntitySchemaObjectMo
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.createdBy){
-        writer.writeObjectValue<IdentitySetImpl>("createdBy", new IdentitySetImpl(this.createdBy));
+            writer.writeObjectValue<IdentitySetImpl>("createdBy", new IdentitySetImpl(this.createdBy));
         }
         if(this.displayName){
-        writer.writeStringValue("displayName", this.displayName);
+            writer.writeStringValue("displayName", this.displayName);
         }
         if(this.lastModifiedBy){
-        writer.writeObjectValue<IdentitySetImpl>("lastModifiedBy", new IdentitySetImpl(this.lastModifiedBy));
+            writer.writeObjectValue<IdentitySetImpl>("lastModifiedBy", new IdentitySetImpl(this.lastModifiedBy));
         }
         if(this.lastModifiedDateTime){
-        writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
+            writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
         }
     };
 }

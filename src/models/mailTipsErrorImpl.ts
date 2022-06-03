@@ -1,7 +1,7 @@
 import {MailTipsError} from './mailTipsError';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class MailTipsErrorImpl implements AdditionalDataHolder, MailTipsError, Parsable {
+export class MailTipsErrorImpl implements MailTipsError {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The error code. */
@@ -13,9 +13,9 @@ export class MailTipsErrorImpl implements AdditionalDataHolder, MailTipsError, P
      * @param mailTipsErrorParameterValue 
      */
     public constructor(mailTipsErrorParameterValue?: MailTipsError | undefined) {
-        this.additionalData = mailTipsErrorParameterValue?.additionalData ? mailTipsErrorParameterValue?.additionalData! : {}
-        this.code = mailTipsErrorParameterValue?.code ;
-        this.message = mailTipsErrorParameterValue?.message ;
+        this.additionalData = mailTipsErrorParameterValue?.additionalData ? mailTipsErrorParameterValue?.additionalData! : {};
+        this.code = mailTipsErrorParameterValue?.code;
+        this.message = mailTipsErrorParameterValue?.message;
     };
     /**
      * The deserialization information for the current model
@@ -34,10 +34,10 @@ export class MailTipsErrorImpl implements AdditionalDataHolder, MailTipsError, P
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.code){
-        writer.writeStringValue("code", this.code);
+            writer.writeStringValue("code", this.code);
         }
         if(this.message){
-        writer.writeStringValue("message", this.message);
+            writer.writeStringValue("message", this.message);
         }
         writer.writeAdditionalData(this.additionalData);
     };

@@ -1,5 +1,5 @@
 
-export interface TimeOffItemRequestBuilderGetQueryParameters{
+export interface TimeOffItemRequestBuilderGetQueryParameters {
     /** Select properties to be returned */
-    select?:string[] | undefined;
+    select?: string[] | undefined;
 }

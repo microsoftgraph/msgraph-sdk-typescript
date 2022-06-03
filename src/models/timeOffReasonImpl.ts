@@ -4,7 +4,7 @@ import {TimeOffReasonIconType} from './timeOffReasonIconType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Casts the previous resource to group. */
-export class TimeOffReasonImpl extends ChangeTrackedEntityImpl implements Parsable, TimeOffReason {
+export class TimeOffReasonImpl extends ChangeTrackedEntityImpl implements TimeOffReason {
     /** The name of the timeOffReason. Required. */
     public displayName?: string | undefined;
     /** Supported icon types: none; car; calendar; running; plane; firstAid; doctor; notWorking; clock; juryDuty; globe; cup; phone; weather; umbrella; piggyBank; dog; cake; trafficCone; pin; sunny. Required. */
@@ -16,10 +16,10 @@ export class TimeOffReasonImpl extends ChangeTrackedEntityImpl implements Parsab
      * @param timeOffReasonParameterValue 
      */
     public constructor(timeOffReasonParameterValue?: TimeOffReason | undefined) {
-        super();
-        this.displayName = timeOffReasonParameterValue?.displayName ;
-        this.iconType = timeOffReasonParameterValue?.iconType ;
-        this.isActive = timeOffReasonParameterValue?.isActive ;
+        super(timeOffReasonParameterValue);
+        this.displayName = timeOffReasonParameterValue?.displayName;
+        this.iconType = timeOffReasonParameterValue?.iconType;
+        this.isActive = timeOffReasonParameterValue?.isActive;
     };
     /**
      * The deserialization information for the current model
@@ -40,13 +40,13 @@ export class TimeOffReasonImpl extends ChangeTrackedEntityImpl implements Parsab
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.displayName){
-        writer.writeStringValue("displayName", this.displayName);
+            writer.writeStringValue("displayName", this.displayName);
         }
         if(this.iconType){
-        writer.writeEnumValue<TimeOffReasonIconType>("iconType", this.iconType);
+            writer.writeEnumValue<TimeOffReasonIconType>("iconType", this.iconType);
         }
         if(this.isActive){
-        writer.writeBooleanValue("isActive", this.isActive);
+            writer.writeBooleanValue("isActive", this.isActive);
         }
     };
 }

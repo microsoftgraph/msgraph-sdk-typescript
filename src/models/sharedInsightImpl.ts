@@ -11,7 +11,7 @@ import {SharingDetail} from './sharingDetail';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Casts the previous resource to user. */
-export class SharedInsightImpl extends EntityImpl implements Parsable, SharedInsight {
+export class SharedInsightImpl extends EntityImpl implements SharedInsight {
     /** Details about the shared item. Read only. */
     public lastShared?: SharingDetail | undefined;
     /** The lastSharedMethod property */
@@ -29,13 +29,13 @@ export class SharedInsightImpl extends EntityImpl implements Parsable, SharedIns
      * @param sharedInsightParameterValue 
      */
     public constructor(sharedInsightParameterValue?: SharedInsight | undefined) {
-        super();
-        this.lastShared = sharedInsightParameterValue?.lastShared ;
-        this.lastSharedMethod = sharedInsightParameterValue?.lastSharedMethod ;
-        this.resource = sharedInsightParameterValue?.resource ;
-        this.resourceReference = sharedInsightParameterValue?.resourceReference ;
-        this.resourceVisualization = sharedInsightParameterValue?.resourceVisualization ;
-        this.sharingHistory = sharedInsightParameterValue?.sharingHistory ;
+        super(sharedInsightParameterValue);
+        this.lastShared = sharedInsightParameterValue?.lastShared;
+        this.lastSharedMethod = sharedInsightParameterValue?.lastSharedMethod;
+        this.resource = sharedInsightParameterValue?.resource;
+        this.resourceReference = sharedInsightParameterValue?.resourceReference;
+        this.resourceVisualization = sharedInsightParameterValue?.resourceVisualization;
+        this.sharingHistory = sharedInsightParameterValue?.sharingHistory;
     };
     /**
      * The deserialization information for the current model
@@ -59,22 +59,22 @@ export class SharedInsightImpl extends EntityImpl implements Parsable, SharedIns
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.lastShared){
-        writer.writeObjectValue<SharingDetailImpl>("lastShared", new SharingDetailImpl(this.lastShared));
+            writer.writeObjectValue<SharingDetailImpl>("lastShared", new SharingDetailImpl(this.lastShared));
         }
         if(this.lastSharedMethod){
-        writer.writeObjectValue<EntityImpl>("lastSharedMethod", new EntityImpl(this.lastSharedMethod));
+            writer.writeObjectValue<EntityImpl>("lastSharedMethod", new EntityImpl(this.lastSharedMethod));
         }
         if(this.resource){
-        writer.writeObjectValue<EntityImpl>("resource", new EntityImpl(this.resource));
+            writer.writeObjectValue<EntityImpl>("resource", new EntityImpl(this.resource));
         }
         if(this.resourceReference){
-        writer.writeObjectValue<ResourceReferenceImpl>("resourceReference", new ResourceReferenceImpl(this.resourceReference));
+            writer.writeObjectValue<ResourceReferenceImpl>("resourceReference", new ResourceReferenceImpl(this.resourceReference));
         }
         if(this.resourceVisualization){
-        writer.writeObjectValue<ResourceVisualizationImpl>("resourceVisualization", new ResourceVisualizationImpl(this.resourceVisualization));
+            writer.writeObjectValue<ResourceVisualizationImpl>("resourceVisualization", new ResourceVisualizationImpl(this.resourceVisualization));
         }
         if(this.sharingHistory && this.sharingHistory.length != 0){        const sharingHistoryArrValue: SharingDetailImpl[] = []; this.sharingHistory?.forEach(element => {sharingHistoryArrValue.push(new SharingDetailImpl(element));});
-        writer.writeCollectionOfObjectValues<SharingDetailImpl>("sharingHistory", sharingHistoryArrValue);
+            writer.writeCollectionOfObjectValues<SharingDetailImpl>("sharingHistory", sharingHistoryArrValue);
         }
     };
 }

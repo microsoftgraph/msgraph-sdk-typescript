@@ -2,7 +2,7 @@ import {BatchRecordDecisionsPostRequestBody} from './batchRecordDecisionsPostReq
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the batchRecordDecisions method. */
-export class BatchRecordDecisionsPostRequestBodyImpl implements AdditionalDataHolder, BatchRecordDecisionsPostRequestBody, Parsable {
+export class BatchRecordDecisionsPostRequestBodyImpl implements BatchRecordDecisionsPostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The decision property */
@@ -18,11 +18,11 @@ export class BatchRecordDecisionsPostRequestBodyImpl implements AdditionalDataHo
      * @param batchRecordDecisionsPostRequestBodyParameterValue 
      */
     public constructor(batchRecordDecisionsPostRequestBodyParameterValue?: BatchRecordDecisionsPostRequestBody | undefined) {
-        this.additionalData = batchRecordDecisionsPostRequestBodyParameterValue?.additionalData ? batchRecordDecisionsPostRequestBodyParameterValue?.additionalData! : {}
-        this.decision = batchRecordDecisionsPostRequestBodyParameterValue?.decision ;
-        this.justification = batchRecordDecisionsPostRequestBodyParameterValue?.justification ;
-        this.principalId = batchRecordDecisionsPostRequestBodyParameterValue?.principalId ;
-        this.resourceId = batchRecordDecisionsPostRequestBodyParameterValue?.resourceId ;
+        this.additionalData = batchRecordDecisionsPostRequestBodyParameterValue?.additionalData ? batchRecordDecisionsPostRequestBodyParameterValue?.additionalData! : {};
+        this.decision = batchRecordDecisionsPostRequestBodyParameterValue?.decision;
+        this.justification = batchRecordDecisionsPostRequestBodyParameterValue?.justification;
+        this.principalId = batchRecordDecisionsPostRequestBodyParameterValue?.principalId;
+        this.resourceId = batchRecordDecisionsPostRequestBodyParameterValue?.resourceId;
     };
     /**
      * The deserialization information for the current model
@@ -43,16 +43,16 @@ export class BatchRecordDecisionsPostRequestBodyImpl implements AdditionalDataHo
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.decision){
-        writer.writeStringValue("decision", this.decision);
+            writer.writeStringValue("decision", this.decision);
         }
         if(this.justification){
-        writer.writeStringValue("justification", this.justification);
+            writer.writeStringValue("justification", this.justification);
         }
         if(this.principalId){
-        writer.writeStringValue("principalId", this.principalId);
+            writer.writeStringValue("principalId", this.principalId);
         }
         if(this.resourceId){
-        writer.writeStringValue("resourceId", this.resourceId);
+            writer.writeStringValue("resourceId", this.resourceId);
         }
         writer.writeAdditionalData(this.additionalData);
     };

@@ -4,7 +4,7 @@ import {WifiBand} from './wifiBand';
 import {WifiRadioType} from './wifiRadioType';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class NetworkInfoImpl implements AdditionalDataHolder, NetworkInfo, Parsable {
+export class NetworkInfoImpl implements NetworkInfo {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Fraction of the call that the media endpoint detected the available bandwidth or bandwidth policy was low enough to cause poor quality of the audio sent. */
@@ -60,31 +60,31 @@ export class NetworkInfoImpl implements AdditionalDataHolder, NetworkInfo, Parsa
      * @param networkInfoParameterValue 
      */
     public constructor(networkInfoParameterValue?: NetworkInfo | undefined) {
-        this.additionalData = networkInfoParameterValue?.additionalData ? networkInfoParameterValue?.additionalData! : {}
-        this.bandwidthLowEventRatio = networkInfoParameterValue?.bandwidthLowEventRatio ;
-        this.basicServiceSetIdentifier = networkInfoParameterValue?.basicServiceSetIdentifier ;
-        this.connectionType = networkInfoParameterValue?.connectionType ;
-        this.delayEventRatio = networkInfoParameterValue?.delayEventRatio ;
-        this.dnsSuffix = networkInfoParameterValue?.dnsSuffix ;
-        this.ipAddress = networkInfoParameterValue?.ipAddress ;
-        this.linkSpeed = networkInfoParameterValue?.linkSpeed ;
-        this.macAddress = networkInfoParameterValue?.macAddress ;
-        this.port = networkInfoParameterValue?.port ;
-        this.receivedQualityEventRatio = networkInfoParameterValue?.receivedQualityEventRatio ;
-        this.reflexiveIPAddress = networkInfoParameterValue?.reflexiveIPAddress ;
-        this.relayIPAddress = networkInfoParameterValue?.relayIPAddress ;
-        this.relayPort = networkInfoParameterValue?.relayPort ;
-        this.sentQualityEventRatio = networkInfoParameterValue?.sentQualityEventRatio ;
-        this.subnet = networkInfoParameterValue?.subnet ;
-        this.wifiBand = networkInfoParameterValue?.wifiBand ;
-        this.wifiBatteryCharge = networkInfoParameterValue?.wifiBatteryCharge ;
-        this.wifiChannel = networkInfoParameterValue?.wifiChannel ;
-        this.wifiMicrosoftDriver = networkInfoParameterValue?.wifiMicrosoftDriver ;
-        this.wifiMicrosoftDriverVersion = networkInfoParameterValue?.wifiMicrosoftDriverVersion ;
-        this.wifiRadioType = networkInfoParameterValue?.wifiRadioType ;
-        this.wifiSignalStrength = networkInfoParameterValue?.wifiSignalStrength ;
-        this.wifiVendorDriver = networkInfoParameterValue?.wifiVendorDriver ;
-        this.wifiVendorDriverVersion = networkInfoParameterValue?.wifiVendorDriverVersion ;
+        this.additionalData = networkInfoParameterValue?.additionalData ? networkInfoParameterValue?.additionalData! : {};
+        this.bandwidthLowEventRatio = networkInfoParameterValue?.bandwidthLowEventRatio;
+        this.basicServiceSetIdentifier = networkInfoParameterValue?.basicServiceSetIdentifier;
+        this.connectionType = networkInfoParameterValue?.connectionType;
+        this.delayEventRatio = networkInfoParameterValue?.delayEventRatio;
+        this.dnsSuffix = networkInfoParameterValue?.dnsSuffix;
+        this.ipAddress = networkInfoParameterValue?.ipAddress;
+        this.linkSpeed = networkInfoParameterValue?.linkSpeed;
+        this.macAddress = networkInfoParameterValue?.macAddress;
+        this.port = networkInfoParameterValue?.port;
+        this.receivedQualityEventRatio = networkInfoParameterValue?.receivedQualityEventRatio;
+        this.reflexiveIPAddress = networkInfoParameterValue?.reflexiveIPAddress;
+        this.relayIPAddress = networkInfoParameterValue?.relayIPAddress;
+        this.relayPort = networkInfoParameterValue?.relayPort;
+        this.sentQualityEventRatio = networkInfoParameterValue?.sentQualityEventRatio;
+        this.subnet = networkInfoParameterValue?.subnet;
+        this.wifiBand = networkInfoParameterValue?.wifiBand;
+        this.wifiBatteryCharge = networkInfoParameterValue?.wifiBatteryCharge;
+        this.wifiChannel = networkInfoParameterValue?.wifiChannel;
+        this.wifiMicrosoftDriver = networkInfoParameterValue?.wifiMicrosoftDriver;
+        this.wifiMicrosoftDriverVersion = networkInfoParameterValue?.wifiMicrosoftDriverVersion;
+        this.wifiRadioType = networkInfoParameterValue?.wifiRadioType;
+        this.wifiSignalStrength = networkInfoParameterValue?.wifiSignalStrength;
+        this.wifiVendorDriver = networkInfoParameterValue?.wifiVendorDriver;
+        this.wifiVendorDriverVersion = networkInfoParameterValue?.wifiVendorDriverVersion;
     };
     /**
      * The deserialization information for the current model
@@ -125,76 +125,76 @@ export class NetworkInfoImpl implements AdditionalDataHolder, NetworkInfo, Parsa
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.bandwidthLowEventRatio){
-        writer.writeNumberValue("bandwidthLowEventRatio", this.bandwidthLowEventRatio);
+            writer.writeNumberValue("bandwidthLowEventRatio", this.bandwidthLowEventRatio);
         }
         if(this.basicServiceSetIdentifier){
-        writer.writeStringValue("basicServiceSetIdentifier", this.basicServiceSetIdentifier);
+            writer.writeStringValue("basicServiceSetIdentifier", this.basicServiceSetIdentifier);
         }
         if(this.connectionType){
-        writer.writeEnumValue<NetworkConnectionType>("connectionType", this.connectionType);
+            writer.writeEnumValue<NetworkConnectionType>("connectionType", this.connectionType);
         }
         if(this.delayEventRatio){
-        writer.writeNumberValue("delayEventRatio", this.delayEventRatio);
+            writer.writeNumberValue("delayEventRatio", this.delayEventRatio);
         }
         if(this.dnsSuffix){
-        writer.writeStringValue("dnsSuffix", this.dnsSuffix);
+            writer.writeStringValue("dnsSuffix", this.dnsSuffix);
         }
         if(this.ipAddress){
-        writer.writeStringValue("ipAddress", this.ipAddress);
+            writer.writeStringValue("ipAddress", this.ipAddress);
         }
         if(this.linkSpeed){
-        writer.writeNumberValue("linkSpeed", this.linkSpeed);
+            writer.writeNumberValue("linkSpeed", this.linkSpeed);
         }
         if(this.macAddress){
-        writer.writeStringValue("macAddress", this.macAddress);
+            writer.writeStringValue("macAddress", this.macAddress);
         }
         if(this.port){
-        writer.writeNumberValue("port", this.port);
+            writer.writeNumberValue("port", this.port);
         }
         if(this.receivedQualityEventRatio){
-        writer.writeNumberValue("receivedQualityEventRatio", this.receivedQualityEventRatio);
+            writer.writeNumberValue("receivedQualityEventRatio", this.receivedQualityEventRatio);
         }
         if(this.reflexiveIPAddress){
-        writer.writeStringValue("reflexiveIPAddress", this.reflexiveIPAddress);
+            writer.writeStringValue("reflexiveIPAddress", this.reflexiveIPAddress);
         }
         if(this.relayIPAddress){
-        writer.writeStringValue("relayIPAddress", this.relayIPAddress);
+            writer.writeStringValue("relayIPAddress", this.relayIPAddress);
         }
         if(this.relayPort){
-        writer.writeNumberValue("relayPort", this.relayPort);
+            writer.writeNumberValue("relayPort", this.relayPort);
         }
         if(this.sentQualityEventRatio){
-        writer.writeNumberValue("sentQualityEventRatio", this.sentQualityEventRatio);
+            writer.writeNumberValue("sentQualityEventRatio", this.sentQualityEventRatio);
         }
         if(this.subnet){
-        writer.writeStringValue("subnet", this.subnet);
+            writer.writeStringValue("subnet", this.subnet);
         }
         if(this.wifiBand){
-        writer.writeEnumValue<WifiBand>("wifiBand", this.wifiBand);
+            writer.writeEnumValue<WifiBand>("wifiBand", this.wifiBand);
         }
         if(this.wifiBatteryCharge){
-        writer.writeNumberValue("wifiBatteryCharge", this.wifiBatteryCharge);
+            writer.writeNumberValue("wifiBatteryCharge", this.wifiBatteryCharge);
         }
         if(this.wifiChannel){
-        writer.writeNumberValue("wifiChannel", this.wifiChannel);
+            writer.writeNumberValue("wifiChannel", this.wifiChannel);
         }
         if(this.wifiMicrosoftDriver){
-        writer.writeStringValue("wifiMicrosoftDriver", this.wifiMicrosoftDriver);
+            writer.writeStringValue("wifiMicrosoftDriver", this.wifiMicrosoftDriver);
         }
         if(this.wifiMicrosoftDriverVersion){
-        writer.writeStringValue("wifiMicrosoftDriverVersion", this.wifiMicrosoftDriverVersion);
+            writer.writeStringValue("wifiMicrosoftDriverVersion", this.wifiMicrosoftDriverVersion);
         }
         if(this.wifiRadioType){
-        writer.writeEnumValue<WifiRadioType>("wifiRadioType", this.wifiRadioType);
+            writer.writeEnumValue<WifiRadioType>("wifiRadioType", this.wifiRadioType);
         }
         if(this.wifiSignalStrength){
-        writer.writeNumberValue("wifiSignalStrength", this.wifiSignalStrength);
+            writer.writeNumberValue("wifiSignalStrength", this.wifiSignalStrength);
         }
         if(this.wifiVendorDriver){
-        writer.writeStringValue("wifiVendorDriver", this.wifiVendorDriver);
+            writer.writeStringValue("wifiVendorDriver", this.wifiVendorDriver);
         }
         if(this.wifiVendorDriverVersion){
-        writer.writeStringValue("wifiVendorDriverVersion", this.wifiVendorDriverVersion);
+            writer.writeStringValue("wifiVendorDriverVersion", this.wifiVendorDriverVersion);
         }
         writer.writeAdditionalData(this.additionalData);
     };

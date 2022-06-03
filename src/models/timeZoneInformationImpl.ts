@@ -1,7 +1,7 @@
 import {TimeZoneInformation} from './timeZoneInformation';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class TimeZoneInformationImpl implements AdditionalDataHolder, Parsable, TimeZoneInformation {
+export class TimeZoneInformationImpl implements TimeZoneInformation {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** An identifier for the time zone. */
@@ -13,9 +13,9 @@ export class TimeZoneInformationImpl implements AdditionalDataHolder, Parsable, 
      * @param timeZoneInformationParameterValue 
      */
     public constructor(timeZoneInformationParameterValue?: TimeZoneInformation | undefined) {
-        this.additionalData = timeZoneInformationParameterValue?.additionalData ? timeZoneInformationParameterValue?.additionalData! : {}
-        this.alias = timeZoneInformationParameterValue?.alias ;
-        this.displayName = timeZoneInformationParameterValue?.displayName ;
+        this.additionalData = timeZoneInformationParameterValue?.additionalData ? timeZoneInformationParameterValue?.additionalData! : {};
+        this.alias = timeZoneInformationParameterValue?.alias;
+        this.displayName = timeZoneInformationParameterValue?.displayName;
     };
     /**
      * The deserialization information for the current model
@@ -34,10 +34,10 @@ export class TimeZoneInformationImpl implements AdditionalDataHolder, Parsable, 
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.alias){
-        writer.writeStringValue("alias", this.alias);
+            writer.writeStringValue("alias", this.alias);
         }
         if(this.displayName){
-        writer.writeStringValue("displayName", this.displayName);
+            writer.writeStringValue("displayName", this.displayName);
         }
         writer.writeAdditionalData(this.additionalData);
     };

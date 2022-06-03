@@ -5,7 +5,7 @@ import {UnifiedRoleManagementPolicyAssignment} from './unifiedRoleManagementPoli
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the policyRoot singleton. */
-export class UnifiedRoleManagementPolicyAssignmentImpl extends EntityImpl implements Parsable, UnifiedRoleManagementPolicyAssignment {
+export class UnifiedRoleManagementPolicyAssignmentImpl extends EntityImpl implements UnifiedRoleManagementPolicyAssignment {
     /** The policy for the assignment. */
     public policy?: UnifiedRoleManagementPolicy | undefined;
     /** The id of the policy. */
@@ -21,12 +21,12 @@ export class UnifiedRoleManagementPolicyAssignmentImpl extends EntityImpl implem
      * @param unifiedRoleManagementPolicyAssignmentParameterValue 
      */
     public constructor(unifiedRoleManagementPolicyAssignmentParameterValue?: UnifiedRoleManagementPolicyAssignment | undefined) {
-        super();
-        this.policy = unifiedRoleManagementPolicyAssignmentParameterValue?.policy ;
-        this.policyId = unifiedRoleManagementPolicyAssignmentParameterValue?.policyId ;
-        this.roleDefinitionId = unifiedRoleManagementPolicyAssignmentParameterValue?.roleDefinitionId ;
-        this.scopeId = unifiedRoleManagementPolicyAssignmentParameterValue?.scopeId ;
-        this.scopeType = unifiedRoleManagementPolicyAssignmentParameterValue?.scopeType ;
+        super(unifiedRoleManagementPolicyAssignmentParameterValue);
+        this.policy = unifiedRoleManagementPolicyAssignmentParameterValue?.policy;
+        this.policyId = unifiedRoleManagementPolicyAssignmentParameterValue?.policyId;
+        this.roleDefinitionId = unifiedRoleManagementPolicyAssignmentParameterValue?.roleDefinitionId;
+        this.scopeId = unifiedRoleManagementPolicyAssignmentParameterValue?.scopeId;
+        this.scopeType = unifiedRoleManagementPolicyAssignmentParameterValue?.scopeType;
     };
     /**
      * The deserialization information for the current model
@@ -49,19 +49,19 @@ export class UnifiedRoleManagementPolicyAssignmentImpl extends EntityImpl implem
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.policy){
-        writer.writeObjectValue<UnifiedRoleManagementPolicyImpl>("policy", new UnifiedRoleManagementPolicyImpl(this.policy));
+            writer.writeObjectValue<UnifiedRoleManagementPolicyImpl>("policy", new UnifiedRoleManagementPolicyImpl(this.policy));
         }
         if(this.policyId){
-        writer.writeStringValue("policyId", this.policyId);
+            writer.writeStringValue("policyId", this.policyId);
         }
         if(this.roleDefinitionId){
-        writer.writeStringValue("roleDefinitionId", this.roleDefinitionId);
+            writer.writeStringValue("roleDefinitionId", this.roleDefinitionId);
         }
         if(this.scopeId){
-        writer.writeStringValue("scopeId", this.scopeId);
+            writer.writeStringValue("scopeId", this.scopeId);
         }
         if(this.scopeType){
-        writer.writeStringValue("scopeType", this.scopeType);
+            writer.writeStringValue("scopeType", this.scopeType);
         }
     };
 }

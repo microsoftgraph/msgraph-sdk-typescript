@@ -4,8 +4,8 @@ import {WorkbookFilter} from './workbookFilter';
 import {WorkbookFilterCriteria} from './workbookFilterCriteria';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
-export class WorkbookFilterImpl extends EntityImpl implements Parsable, WorkbookFilter {
+/** Casts the previous resource to group. */
+export class WorkbookFilterImpl extends EntityImpl implements WorkbookFilter {
     /** The currently applied filter on the given column. Read-only. */
     public criteria?: WorkbookFilterCriteria | undefined;
     /**
@@ -13,8 +13,8 @@ export class WorkbookFilterImpl extends EntityImpl implements Parsable, Workbook
      * @param workbookFilterParameterValue 
      */
     public constructor(workbookFilterParameterValue?: WorkbookFilter | undefined) {
-        super();
-        this.criteria = workbookFilterParameterValue?.criteria ;
+        super(workbookFilterParameterValue);
+        this.criteria = workbookFilterParameterValue?.criteria;
     };
     /**
      * The deserialization information for the current model
@@ -33,7 +33,7 @@ export class WorkbookFilterImpl extends EntityImpl implements Parsable, Workbook
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.criteria){
-        writer.writeObjectValue<WorkbookFilterCriteriaImpl>("criteria", new WorkbookFilterCriteriaImpl(this.criteria));
+            writer.writeObjectValue<WorkbookFilterCriteriaImpl>("criteria", new WorkbookFilterCriteriaImpl(this.criteria));
         }
     };
 }

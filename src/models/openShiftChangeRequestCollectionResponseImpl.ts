@@ -4,7 +4,7 @@ import {OpenShiftChangeRequest} from './openShiftChangeRequest';
 import {OpenShiftChangeRequestCollectionResponse} from './openShiftChangeRequestCollectionResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class OpenShiftChangeRequestCollectionResponseImpl implements AdditionalDataHolder, OpenShiftChangeRequestCollectionResponse, Parsable {
+export class OpenShiftChangeRequestCollectionResponseImpl implements OpenShiftChangeRequestCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class OpenShiftChangeRequestCollectionResponseImpl implements AdditionalD
      * @param openShiftChangeRequestCollectionResponseParameterValue 
      */
     public constructor(openShiftChangeRequestCollectionResponseParameterValue?: OpenShiftChangeRequestCollectionResponse | undefined) {
-        this.additionalData = openShiftChangeRequestCollectionResponseParameterValue?.additionalData ? openShiftChangeRequestCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = openShiftChangeRequestCollectionResponseParameterValue?.nextLink ;
-        this.value = openShiftChangeRequestCollectionResponseParameterValue?.value ;
+        this.additionalData = openShiftChangeRequestCollectionResponseParameterValue?.additionalData ? openShiftChangeRequestCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = openShiftChangeRequestCollectionResponseParameterValue?.nextLink;
+        this.value = openShiftChangeRequestCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class OpenShiftChangeRequestCollectionResponseImpl implements AdditionalD
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: OpenShiftChangeRequestImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new OpenShiftChangeRequestImpl(element));});
-        writer.writeCollectionOfObjectValues<OpenShiftChangeRequestImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<OpenShiftChangeRequestImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

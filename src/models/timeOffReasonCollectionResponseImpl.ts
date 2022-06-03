@@ -4,7 +4,7 @@ import {TimeOffReason} from './timeOffReason';
 import {TimeOffReasonCollectionResponse} from './timeOffReasonCollectionResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class TimeOffReasonCollectionResponseImpl implements AdditionalDataHolder, Parsable, TimeOffReasonCollectionResponse {
+export class TimeOffReasonCollectionResponseImpl implements TimeOffReasonCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class TimeOffReasonCollectionResponseImpl implements AdditionalDataHolder
      * @param timeOffReasonCollectionResponseParameterValue 
      */
     public constructor(timeOffReasonCollectionResponseParameterValue?: TimeOffReasonCollectionResponse | undefined) {
-        this.additionalData = timeOffReasonCollectionResponseParameterValue?.additionalData ? timeOffReasonCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = timeOffReasonCollectionResponseParameterValue?.nextLink ;
-        this.value = timeOffReasonCollectionResponseParameterValue?.value ;
+        this.additionalData = timeOffReasonCollectionResponseParameterValue?.additionalData ? timeOffReasonCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = timeOffReasonCollectionResponseParameterValue?.nextLink;
+        this.value = timeOffReasonCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class TimeOffReasonCollectionResponseImpl implements AdditionalDataHolder
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: TimeOffReasonImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new TimeOffReasonImpl(element));});
-        writer.writeCollectionOfObjectValues<TimeOffReasonImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<TimeOffReasonImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

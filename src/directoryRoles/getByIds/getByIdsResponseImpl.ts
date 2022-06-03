@@ -5,7 +5,7 @@ import {GetByIdsResponse} from './getByIdsResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the getByIds method. */
-export class GetByIdsResponseImpl implements AdditionalDataHolder, GetByIdsResponse, Parsable {
+export class GetByIdsResponseImpl implements GetByIdsResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The value property */
@@ -15,8 +15,8 @@ export class GetByIdsResponseImpl implements AdditionalDataHolder, GetByIdsRespo
      * @param getByIdsResponseParameterValue 
      */
     public constructor(getByIdsResponseParameterValue?: GetByIdsResponse | undefined) {
-        this.additionalData = getByIdsResponseParameterValue?.additionalData ? getByIdsResponseParameterValue?.additionalData! : {}
-        this.value = getByIdsResponseParameterValue?.value ;
+        this.additionalData = getByIdsResponseParameterValue?.additionalData ? getByIdsResponseParameterValue?.additionalData! : {};
+        this.value = getByIdsResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -34,7 +34,7 @@ export class GetByIdsResponseImpl implements AdditionalDataHolder, GetByIdsRespo
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.value && this.value.length != 0){        const valueArrValue: DirectoryObjectImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new DirectoryObjectImpl(element));});
-        writer.writeCollectionOfObjectValues<DirectoryObjectImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<DirectoryObjectImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

@@ -4,7 +4,7 @@ import {IdentityApiConnectorImpl} from './index';
 import {UserFlowApiConnectorConfiguration} from './userFlowApiConnectorConfiguration';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class UserFlowApiConnectorConfigurationImpl implements AdditionalDataHolder, Parsable, UserFlowApiConnectorConfiguration {
+export class UserFlowApiConnectorConfigurationImpl implements UserFlowApiConnectorConfiguration {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The postAttributeCollection property */
@@ -16,9 +16,9 @@ export class UserFlowApiConnectorConfigurationImpl implements AdditionalDataHold
      * @param userFlowApiConnectorConfigurationParameterValue 
      */
     public constructor(userFlowApiConnectorConfigurationParameterValue?: UserFlowApiConnectorConfiguration | undefined) {
-        this.additionalData = userFlowApiConnectorConfigurationParameterValue?.additionalData ? userFlowApiConnectorConfigurationParameterValue?.additionalData! : {}
-        this.postAttributeCollection = userFlowApiConnectorConfigurationParameterValue?.postAttributeCollection ;
-        this.postFederationSignup = userFlowApiConnectorConfigurationParameterValue?.postFederationSignup ;
+        this.additionalData = userFlowApiConnectorConfigurationParameterValue?.additionalData ? userFlowApiConnectorConfigurationParameterValue?.additionalData! : {};
+        this.postAttributeCollection = userFlowApiConnectorConfigurationParameterValue?.postAttributeCollection;
+        this.postFederationSignup = userFlowApiConnectorConfigurationParameterValue?.postFederationSignup;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class UserFlowApiConnectorConfigurationImpl implements AdditionalDataHold
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.postAttributeCollection){
-        writer.writeObjectValue<IdentityApiConnectorImpl>("postAttributeCollection", new IdentityApiConnectorImpl(this.postAttributeCollection));
+            writer.writeObjectValue<IdentityApiConnectorImpl>("postAttributeCollection", new IdentityApiConnectorImpl(this.postAttributeCollection));
         }
         if(this.postFederationSignup){
-        writer.writeObjectValue<IdentityApiConnectorImpl>("postFederationSignup", new IdentityApiConnectorImpl(this.postFederationSignup));
+            writer.writeObjectValue<IdentityApiConnectorImpl>("postFederationSignup", new IdentityApiConnectorImpl(this.postFederationSignup));
         }
         writer.writeAdditionalData(this.additionalData);
     };

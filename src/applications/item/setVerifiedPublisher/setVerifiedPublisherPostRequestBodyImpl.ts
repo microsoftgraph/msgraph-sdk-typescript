@@ -2,7 +2,7 @@ import {SetVerifiedPublisherPostRequestBody} from './setVerifiedPublisherPostReq
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the setVerifiedPublisher method. */
-export class SetVerifiedPublisherPostRequestBodyImpl implements AdditionalDataHolder, Parsable, SetVerifiedPublisherPostRequestBody {
+export class SetVerifiedPublisherPostRequestBodyImpl implements SetVerifiedPublisherPostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The verifiedPublisherId property */
@@ -12,8 +12,8 @@ export class SetVerifiedPublisherPostRequestBodyImpl implements AdditionalDataHo
      * @param setVerifiedPublisherPostRequestBodyParameterValue 
      */
     public constructor(setVerifiedPublisherPostRequestBodyParameterValue?: SetVerifiedPublisherPostRequestBody | undefined) {
-        this.additionalData = setVerifiedPublisherPostRequestBodyParameterValue?.additionalData ? setVerifiedPublisherPostRequestBodyParameterValue?.additionalData! : {}
-        this.verifiedPublisherId = setVerifiedPublisherPostRequestBodyParameterValue?.verifiedPublisherId ;
+        this.additionalData = setVerifiedPublisherPostRequestBodyParameterValue?.additionalData ? setVerifiedPublisherPostRequestBodyParameterValue?.additionalData! : {};
+        this.verifiedPublisherId = setVerifiedPublisherPostRequestBodyParameterValue?.verifiedPublisherId;
     };
     /**
      * The deserialization information for the current model
@@ -31,7 +31,7 @@ export class SetVerifiedPublisherPostRequestBodyImpl implements AdditionalDataHo
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.verifiedPublisherId){
-        writer.writeStringValue("verifiedPublisherId", this.verifiedPublisherId);
+            writer.writeStringValue("verifiedPublisherId", this.verifiedPublisherId);
         }
         writer.writeAdditionalData(this.additionalData);
     };

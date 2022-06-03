@@ -7,7 +7,7 @@ import {PublicationFacet} from './publicationFacet';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Casts the previous resource to user. */
-export class BaseItemVersionImpl extends EntityImpl implements BaseItemVersion, Parsable {
+export class BaseItemVersionImpl extends EntityImpl implements BaseItemVersion {
     /** Identity of the user which last modified the version. Read-only. */
     public lastModifiedBy?: IdentitySet | undefined;
     /** Date and time the version was last modified. Read-only. */
@@ -19,10 +19,10 @@ export class BaseItemVersionImpl extends EntityImpl implements BaseItemVersion, 
      * @param baseItemVersionParameterValue 
      */
     public constructor(baseItemVersionParameterValue?: BaseItemVersion | undefined) {
-        super();
-        this.lastModifiedBy = baseItemVersionParameterValue?.lastModifiedBy ;
-        this.lastModifiedDateTime = baseItemVersionParameterValue?.lastModifiedDateTime ;
-        this.publication = baseItemVersionParameterValue?.publication ;
+        super(baseItemVersionParameterValue);
+        this.lastModifiedBy = baseItemVersionParameterValue?.lastModifiedBy;
+        this.lastModifiedDateTime = baseItemVersionParameterValue?.lastModifiedDateTime;
+        this.publication = baseItemVersionParameterValue?.publication;
     };
     /**
      * The deserialization information for the current model
@@ -43,13 +43,13 @@ export class BaseItemVersionImpl extends EntityImpl implements BaseItemVersion, 
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.lastModifiedBy){
-        writer.writeObjectValue<IdentitySetImpl>("lastModifiedBy", new IdentitySetImpl(this.lastModifiedBy));
+            writer.writeObjectValue<IdentitySetImpl>("lastModifiedBy", new IdentitySetImpl(this.lastModifiedBy));
         }
         if(this.lastModifiedDateTime){
-        writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
+            writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
         }
         if(this.publication){
-        writer.writeObjectValue<PublicationFacetImpl>("publication", new PublicationFacetImpl(this.publication));
+            writer.writeObjectValue<PublicationFacetImpl>("publication", new PublicationFacetImpl(this.publication));
         }
     };
 }

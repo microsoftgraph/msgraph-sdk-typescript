@@ -6,7 +6,7 @@ import {UnifiedRolePermission} from './unifiedRolePermission';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the roleManagement singleton. */
-export class UnifiedRoleDefinitionImpl extends EntityImpl implements Parsable, UnifiedRoleDefinition {
+export class UnifiedRoleDefinitionImpl extends EntityImpl implements UnifiedRoleDefinition {
     /** The description for the unifiedRoleDefinition. Read-only when isBuiltIn is true. */
     public description?: string | undefined;
     /** The display name for the unifiedRoleDefinition. Read-only when isBuiltIn is true. Required.  Supports $filter (eq and startsWith operators only). */
@@ -30,16 +30,16 @@ export class UnifiedRoleDefinitionImpl extends EntityImpl implements Parsable, U
      * @param unifiedRoleDefinitionParameterValue 
      */
     public constructor(unifiedRoleDefinitionParameterValue?: UnifiedRoleDefinition | undefined) {
-        super();
-        this.description = unifiedRoleDefinitionParameterValue?.description ;
-        this.displayName = unifiedRoleDefinitionParameterValue?.displayName ;
-        this.inheritsPermissionsFrom = unifiedRoleDefinitionParameterValue?.inheritsPermissionsFrom ;
-        this.isBuiltIn = unifiedRoleDefinitionParameterValue?.isBuiltIn ;
-        this.isEnabled = unifiedRoleDefinitionParameterValue?.isEnabled ;
-        this.resourceScopes = unifiedRoleDefinitionParameterValue?.resourceScopes ;
-        this.rolePermissions = unifiedRoleDefinitionParameterValue?.rolePermissions ;
-        this.templateId = unifiedRoleDefinitionParameterValue?.templateId ;
-        this.version = unifiedRoleDefinitionParameterValue?.version ;
+        super(unifiedRoleDefinitionParameterValue);
+        this.description = unifiedRoleDefinitionParameterValue?.description;
+        this.displayName = unifiedRoleDefinitionParameterValue?.displayName;
+        this.inheritsPermissionsFrom = unifiedRoleDefinitionParameterValue?.inheritsPermissionsFrom;
+        this.isBuiltIn = unifiedRoleDefinitionParameterValue?.isBuiltIn;
+        this.isEnabled = unifiedRoleDefinitionParameterValue?.isEnabled;
+        this.resourceScopes = unifiedRoleDefinitionParameterValue?.resourceScopes;
+        this.rolePermissions = unifiedRoleDefinitionParameterValue?.rolePermissions;
+        this.templateId = unifiedRoleDefinitionParameterValue?.templateId;
+        this.version = unifiedRoleDefinitionParameterValue?.version;
     };
     /**
      * The deserialization information for the current model
@@ -66,31 +66,31 @@ export class UnifiedRoleDefinitionImpl extends EntityImpl implements Parsable, U
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.description){
-        writer.writeStringValue("description", this.description);
+            writer.writeStringValue("description", this.description);
         }
         if(this.displayName){
-        writer.writeStringValue("displayName", this.displayName);
+            writer.writeStringValue("displayName", this.displayName);
         }
         if(this.inheritsPermissionsFrom && this.inheritsPermissionsFrom.length != 0){        const inheritsPermissionsFromArrValue: UnifiedRoleDefinitionImpl[] = []; this.inheritsPermissionsFrom?.forEach(element => {inheritsPermissionsFromArrValue.push(new UnifiedRoleDefinitionImpl(element));});
-        writer.writeCollectionOfObjectValues<UnifiedRoleDefinitionImpl>("inheritsPermissionsFrom", inheritsPermissionsFromArrValue);
+            writer.writeCollectionOfObjectValues<UnifiedRoleDefinitionImpl>("inheritsPermissionsFrom", inheritsPermissionsFromArrValue);
         }
         if(this.isBuiltIn){
-        writer.writeBooleanValue("isBuiltIn", this.isBuiltIn);
+            writer.writeBooleanValue("isBuiltIn", this.isBuiltIn);
         }
         if(this.isEnabled){
-        writer.writeBooleanValue("isEnabled", this.isEnabled);
+            writer.writeBooleanValue("isEnabled", this.isEnabled);
         }
         if(this.resourceScopes){
-        writer.writeCollectionOfPrimitiveValues<string>("resourceScopes", this.resourceScopes);
+            writer.writeCollectionOfPrimitiveValues<string>("resourceScopes", this.resourceScopes);
         }
         if(this.rolePermissions && this.rolePermissions.length != 0){        const rolePermissionsArrValue: UnifiedRolePermissionImpl[] = []; this.rolePermissions?.forEach(element => {rolePermissionsArrValue.push(new UnifiedRolePermissionImpl(element));});
-        writer.writeCollectionOfObjectValues<UnifiedRolePermissionImpl>("rolePermissions", rolePermissionsArrValue);
+            writer.writeCollectionOfObjectValues<UnifiedRolePermissionImpl>("rolePermissions", rolePermissionsArrValue);
         }
         if(this.templateId){
-        writer.writeStringValue("templateId", this.templateId);
+            writer.writeStringValue("templateId", this.templateId);
         }
         if(this.version){
-        writer.writeStringValue("version", this.version);
+            writer.writeStringValue("version", this.version);
         }
     };
 }

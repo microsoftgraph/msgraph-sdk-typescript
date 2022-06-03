@@ -1,7 +1,7 @@
 import {TimeZoneBase} from './timeZoneBase';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class TimeZoneBaseImpl implements AdditionalDataHolder, Parsable, TimeZoneBase {
+export class TimeZoneBaseImpl implements TimeZoneBase {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The name of a time zone. It can be a standard time zone name such as 'Hawaii-Aleutian Standard Time', or 'Customized Time Zone' for a custom time zone. */
@@ -11,8 +11,8 @@ export class TimeZoneBaseImpl implements AdditionalDataHolder, Parsable, TimeZon
      * @param timeZoneBaseParameterValue 
      */
     public constructor(timeZoneBaseParameterValue?: TimeZoneBase | undefined) {
-        this.additionalData = timeZoneBaseParameterValue?.additionalData ? timeZoneBaseParameterValue?.additionalData! : {}
-        this.name = timeZoneBaseParameterValue?.name ;
+        this.additionalData = timeZoneBaseParameterValue?.additionalData ? timeZoneBaseParameterValue?.additionalData! : {};
+        this.name = timeZoneBaseParameterValue?.name;
     };
     /**
      * The deserialization information for the current model
@@ -30,7 +30,7 @@ export class TimeZoneBaseImpl implements AdditionalDataHolder, Parsable, TimeZon
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.name){
-        writer.writeStringValue("name", this.name);
+            writer.writeStringValue("name", this.name);
         }
         writer.writeAdditionalData(this.additionalData);
     };

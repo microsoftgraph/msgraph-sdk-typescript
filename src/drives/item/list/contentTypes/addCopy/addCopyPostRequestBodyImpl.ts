@@ -2,7 +2,7 @@ import {AddCopyPostRequestBody} from './addCopyPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the addCopy method. */
-export class AddCopyPostRequestBodyImpl implements AddCopyPostRequestBody, AdditionalDataHolder, Parsable {
+export class AddCopyPostRequestBodyImpl implements AddCopyPostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The contentType property */
@@ -12,8 +12,8 @@ export class AddCopyPostRequestBodyImpl implements AddCopyPostRequestBody, Addit
      * @param addCopyPostRequestBodyParameterValue 
      */
     public constructor(addCopyPostRequestBodyParameterValue?: AddCopyPostRequestBody | undefined) {
-        this.additionalData = addCopyPostRequestBodyParameterValue?.additionalData ? addCopyPostRequestBodyParameterValue?.additionalData! : {}
-        this.contentType = addCopyPostRequestBodyParameterValue?.contentType ;
+        this.additionalData = addCopyPostRequestBodyParameterValue?.additionalData ? addCopyPostRequestBodyParameterValue?.additionalData! : {};
+        this.contentType = addCopyPostRequestBodyParameterValue?.contentType;
     };
     /**
      * The deserialization information for the current model
@@ -31,7 +31,7 @@ export class AddCopyPostRequestBodyImpl implements AddCopyPostRequestBody, Addit
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.contentType){
-        writer.writeStringValue("contentType", this.contentType);
+            writer.writeStringValue("contentType", this.contentType);
         }
         writer.writeAdditionalData(this.additionalData);
     };

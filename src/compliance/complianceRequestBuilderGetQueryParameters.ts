@@ -1,7 +1,7 @@
 
-export interface ComplianceRequestBuilderGetQueryParameters{
+export interface ComplianceRequestBuilderGetQueryParameters {
     /** Expand related entities */
-    expand?:string[] | undefined;
+    expand?: string[] | undefined;
     /** Select properties to be returned */
-    select?:string[] | undefined;
+    select?: string[] | undefined;
 }

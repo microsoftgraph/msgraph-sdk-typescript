@@ -1,11 +1,11 @@
 import {EducationAssignmentResourceItemRequestBuilderGetQueryParameters} from './educationAssignmentResourceItemRequestBuilderGetQueryParameters';
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
-export interface EducationAssignmentResourceItemRequestBuilderGetRequestConfiguration{
+export interface EducationAssignmentResourceItemRequestBuilderGetRequestConfiguration {
     /** Request headers */
-    headers?:Record<string, string> | undefined;
+    headers?: Record<string, string> | undefined;
     /** Request options */
-    options?:RequestOption[] | undefined;
+    options?: RequestOption[] | undefined;
     /** Request query parameters */
-    queryParameters?:EducationAssignmentResourceItemRequestBuilderGetQueryParameters | undefined;
+    queryParameters?: EducationAssignmentResourceItemRequestBuilderGetQueryParameters | undefined;
 }

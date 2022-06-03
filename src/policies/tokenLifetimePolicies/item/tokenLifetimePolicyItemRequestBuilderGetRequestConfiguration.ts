@@ -1,11 +1,11 @@
 import {TokenLifetimePolicyItemRequestBuilderGetQueryParameters} from './tokenLifetimePolicyItemRequestBuilderGetQueryParameters';
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
-export interface TokenLifetimePolicyItemRequestBuilderGetRequestConfiguration{
+export interface TokenLifetimePolicyItemRequestBuilderGetRequestConfiguration {
     /** Request headers */
-    headers?:Record<string, string> | undefined;
+    headers?: Record<string, string> | undefined;
     /** Request options */
-    options?:RequestOption[] | undefined;
+    options?: RequestOption[] | undefined;
     /** Request query parameters */
-    queryParameters?:TokenLifetimePolicyItemRequestBuilderGetQueryParameters | undefined;
+    queryParameters?: TokenLifetimePolicyItemRequestBuilderGetQueryParameters | undefined;
 }

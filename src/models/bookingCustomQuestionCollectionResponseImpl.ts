@@ -4,7 +4,7 @@ import {createBookingCustomQuestionFromDiscriminatorValue} from './createBooking
 import {BookingCustomQuestionImpl} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class BookingCustomQuestionCollectionResponseImpl implements AdditionalDataHolder, BookingCustomQuestionCollectionResponse, Parsable {
+export class BookingCustomQuestionCollectionResponseImpl implements BookingCustomQuestionCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class BookingCustomQuestionCollectionResponseImpl implements AdditionalDa
      * @param bookingCustomQuestionCollectionResponseParameterValue 
      */
     public constructor(bookingCustomQuestionCollectionResponseParameterValue?: BookingCustomQuestionCollectionResponse | undefined) {
-        this.additionalData = bookingCustomQuestionCollectionResponseParameterValue?.additionalData ? bookingCustomQuestionCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = bookingCustomQuestionCollectionResponseParameterValue?.nextLink ;
-        this.value = bookingCustomQuestionCollectionResponseParameterValue?.value ;
+        this.additionalData = bookingCustomQuestionCollectionResponseParameterValue?.additionalData ? bookingCustomQuestionCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = bookingCustomQuestionCollectionResponseParameterValue?.nextLink;
+        this.value = bookingCustomQuestionCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class BookingCustomQuestionCollectionResponseImpl implements AdditionalDa
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: BookingCustomQuestionImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new BookingCustomQuestionImpl(element));});
-        writer.writeCollectionOfObjectValues<BookingCustomQuestionImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<BookingCustomQuestionImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

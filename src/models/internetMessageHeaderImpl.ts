@@ -1,7 +1,7 @@
 import {InternetMessageHeader} from './internetMessageHeader';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class InternetMessageHeaderImpl implements AdditionalDataHolder, InternetMessageHeader, Parsable {
+export class InternetMessageHeaderImpl implements InternetMessageHeader {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Represents the key in a key-value pair. */
@@ -13,9 +13,9 @@ export class InternetMessageHeaderImpl implements AdditionalDataHolder, Internet
      * @param internetMessageHeaderParameterValue 
      */
     public constructor(internetMessageHeaderParameterValue?: InternetMessageHeader | undefined) {
-        this.additionalData = internetMessageHeaderParameterValue?.additionalData ? internetMessageHeaderParameterValue?.additionalData! : {}
-        this.name = internetMessageHeaderParameterValue?.name ;
-        this.value = internetMessageHeaderParameterValue?.value ;
+        this.additionalData = internetMessageHeaderParameterValue?.additionalData ? internetMessageHeaderParameterValue?.additionalData! : {};
+        this.name = internetMessageHeaderParameterValue?.name;
+        this.value = internetMessageHeaderParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -34,10 +34,10 @@ export class InternetMessageHeaderImpl implements AdditionalDataHolder, Internet
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.name){
-        writer.writeStringValue("name", this.name);
+            writer.writeStringValue("name", this.name);
         }
         if(this.value){
-        writer.writeStringValue("value", this.value);
+            writer.writeStringValue("value", this.value);
         }
         writer.writeAdditionalData(this.additionalData);
     };

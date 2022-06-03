@@ -35,7 +35,7 @@ import {SingleValueLegacyExtendedProperty} from './singleValueLegacyExtendedProp
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Casts the previous resource to user. */
-export class EventImpl extends OutlookItemImpl implements Event, Parsable {
+export class EventImpl extends OutlookItemImpl implements Event {
     /** true if the meeting organizer allows invitees to propose a new time when responding; otherwise false. Optional. Default is true. */
     public allowNewTimeProposals?: boolean | undefined;
     /** The collection of FileAttachment, ItemAttachment, and referenceAttachment attachments for the event. Navigation property. Read-only. Nullable. */
@@ -125,49 +125,49 @@ export class EventImpl extends OutlookItemImpl implements Event, Parsable {
      * @param eventParameterValue 
      */
     public constructor(eventParameterValue?: Event | undefined) {
-        super();
-        this.allowNewTimeProposals = eventParameterValue?.allowNewTimeProposals ;
-        this.attachments = eventParameterValue?.attachments ;
-        this.attendees = eventParameterValue?.attendees ;
-        this.body = eventParameterValue?.body ;
-        this.bodyPreview = eventParameterValue?.bodyPreview ;
-        this.calendar = eventParameterValue?.calendar ;
-        this.end = eventParameterValue?.end ;
-        this.extensions = eventParameterValue?.extensions ;
-        this.hasAttachments = eventParameterValue?.hasAttachments ;
-        this.hideAttendees = eventParameterValue?.hideAttendees ;
-        this.iCalUId = eventParameterValue?.iCalUId ;
-        this.importance = eventParameterValue?.importance ;
-        this.instances = eventParameterValue?.instances ;
-        this.isAllDay = eventParameterValue?.isAllDay ;
-        this.isCancelled = eventParameterValue?.isCancelled ;
-        this.isDraft = eventParameterValue?.isDraft ;
-        this.isOnlineMeeting = eventParameterValue?.isOnlineMeeting ;
-        this.isOrganizer = eventParameterValue?.isOrganizer ;
-        this.isReminderOn = eventParameterValue?.isReminderOn ;
-        this.location = eventParameterValue?.location ;
-        this.locations = eventParameterValue?.locations ;
-        this.multiValueExtendedProperties = eventParameterValue?.multiValueExtendedProperties ;
-        this.onlineMeeting = eventParameterValue?.onlineMeeting ;
-        this.onlineMeetingProvider = eventParameterValue?.onlineMeetingProvider ;
-        this.onlineMeetingUrl = eventParameterValue?.onlineMeetingUrl ;
-        this.organizer = eventParameterValue?.organizer ;
-        this.originalEndTimeZone = eventParameterValue?.originalEndTimeZone ;
-        this.originalStart = eventParameterValue?.originalStart ;
-        this.originalStartTimeZone = eventParameterValue?.originalStartTimeZone ;
-        this.recurrence = eventParameterValue?.recurrence ;
-        this.reminderMinutesBeforeStart = eventParameterValue?.reminderMinutesBeforeStart ;
-        this.responseRequested = eventParameterValue?.responseRequested ;
-        this.responseStatus = eventParameterValue?.responseStatus ;
-        this.sensitivity = eventParameterValue?.sensitivity ;
-        this.seriesMasterId = eventParameterValue?.seriesMasterId ;
-        this.showAs = eventParameterValue?.showAs ;
-        this.singleValueExtendedProperties = eventParameterValue?.singleValueExtendedProperties ;
-        this.start = eventParameterValue?.start ;
-        this.subject = eventParameterValue?.subject ;
-        this.transactionId = eventParameterValue?.transactionId ;
-        this.type = eventParameterValue?.type ;
-        this.webLink = eventParameterValue?.webLink ;
+        super(eventParameterValue);
+        this.allowNewTimeProposals = eventParameterValue?.allowNewTimeProposals;
+        this.attachments = eventParameterValue?.attachments;
+        this.attendees = eventParameterValue?.attendees;
+        this.body = eventParameterValue?.body;
+        this.bodyPreview = eventParameterValue?.bodyPreview;
+        this.calendar = eventParameterValue?.calendar;
+        this.end = eventParameterValue?.end;
+        this.extensions = eventParameterValue?.extensions;
+        this.hasAttachments = eventParameterValue?.hasAttachments;
+        this.hideAttendees = eventParameterValue?.hideAttendees;
+        this.iCalUId = eventParameterValue?.iCalUId;
+        this.importance = eventParameterValue?.importance;
+        this.instances = eventParameterValue?.instances;
+        this.isAllDay = eventParameterValue?.isAllDay;
+        this.isCancelled = eventParameterValue?.isCancelled;
+        this.isDraft = eventParameterValue?.isDraft;
+        this.isOnlineMeeting = eventParameterValue?.isOnlineMeeting;
+        this.isOrganizer = eventParameterValue?.isOrganizer;
+        this.isReminderOn = eventParameterValue?.isReminderOn;
+        this.location = eventParameterValue?.location;
+        this.locations = eventParameterValue?.locations;
+        this.multiValueExtendedProperties = eventParameterValue?.multiValueExtendedProperties;
+        this.onlineMeeting = eventParameterValue?.onlineMeeting;
+        this.onlineMeetingProvider = eventParameterValue?.onlineMeetingProvider;
+        this.onlineMeetingUrl = eventParameterValue?.onlineMeetingUrl;
+        this.organizer = eventParameterValue?.organizer;
+        this.originalEndTimeZone = eventParameterValue?.originalEndTimeZone;
+        this.originalStart = eventParameterValue?.originalStart;
+        this.originalStartTimeZone = eventParameterValue?.originalStartTimeZone;
+        this.recurrence = eventParameterValue?.recurrence;
+        this.reminderMinutesBeforeStart = eventParameterValue?.reminderMinutesBeforeStart;
+        this.responseRequested = eventParameterValue?.responseRequested;
+        this.responseStatus = eventParameterValue?.responseStatus;
+        this.sensitivity = eventParameterValue?.sensitivity;
+        this.seriesMasterId = eventParameterValue?.seriesMasterId;
+        this.showAs = eventParameterValue?.showAs;
+        this.singleValueExtendedProperties = eventParameterValue?.singleValueExtendedProperties;
+        this.start = eventParameterValue?.start;
+        this.subject = eventParameterValue?.subject;
+        this.transactionId = eventParameterValue?.transactionId;
+        this.type = eventParameterValue?.type;
+        this.webLink = eventParameterValue?.webLink;
     };
     /**
      * The deserialization information for the current model
@@ -227,130 +227,130 @@ export class EventImpl extends OutlookItemImpl implements Event, Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.allowNewTimeProposals){
-        writer.writeBooleanValue("allowNewTimeProposals", this.allowNewTimeProposals);
+            writer.writeBooleanValue("allowNewTimeProposals", this.allowNewTimeProposals);
         }
         if(this.attachments && this.attachments.length != 0){        const attachmentsArrValue: AttachmentImpl[] = []; this.attachments?.forEach(element => {attachmentsArrValue.push(new AttachmentImpl(element));});
-        writer.writeCollectionOfObjectValues<AttachmentImpl>("attachments", attachmentsArrValue);
+            writer.writeCollectionOfObjectValues<AttachmentImpl>("attachments", attachmentsArrValue);
         }
         if(this.attendees && this.attendees.length != 0){        const attendeesArrValue: AttendeeImpl[] = []; this.attendees?.forEach(element => {attendeesArrValue.push(new AttendeeImpl(element));});
-        writer.writeCollectionOfObjectValues<AttendeeImpl>("attendees", attendeesArrValue);
+            writer.writeCollectionOfObjectValues<AttendeeImpl>("attendees", attendeesArrValue);
         }
         if(this.body){
-        writer.writeObjectValue<ItemBodyImpl>("body", new ItemBodyImpl(this.body));
+            writer.writeObjectValue<ItemBodyImpl>("body", new ItemBodyImpl(this.body));
         }
         if(this.bodyPreview){
-        writer.writeStringValue("bodyPreview", this.bodyPreview);
+            writer.writeStringValue("bodyPreview", this.bodyPreview);
         }
         if(this.calendar){
-        writer.writeObjectValue<CalendarImpl>("calendar", new CalendarImpl(this.calendar));
+            writer.writeObjectValue<CalendarImpl>("calendar", new CalendarImpl(this.calendar));
         }
         if(this.end){
-        writer.writeObjectValue<DateTimeTimeZoneImpl>("end", new DateTimeTimeZoneImpl(this.end));
+            writer.writeObjectValue<DateTimeTimeZoneImpl>("end", new DateTimeTimeZoneImpl(this.end));
         }
         if(this.extensions && this.extensions.length != 0){        const extensionsArrValue: ExtensionImpl[] = []; this.extensions?.forEach(element => {extensionsArrValue.push(new ExtensionImpl(element));});
-        writer.writeCollectionOfObjectValues<ExtensionImpl>("extensions", extensionsArrValue);
+            writer.writeCollectionOfObjectValues<ExtensionImpl>("extensions", extensionsArrValue);
         }
         if(this.hasAttachments){
-        writer.writeBooleanValue("hasAttachments", this.hasAttachments);
+            writer.writeBooleanValue("hasAttachments", this.hasAttachments);
         }
         if(this.hideAttendees){
-        writer.writeBooleanValue("hideAttendees", this.hideAttendees);
+            writer.writeBooleanValue("hideAttendees", this.hideAttendees);
         }
         if(this.iCalUId){
-        writer.writeStringValue("iCalUId", this.iCalUId);
+            writer.writeStringValue("iCalUId", this.iCalUId);
         }
         if(this.importance){
-        writer.writeEnumValue<Importance>("importance", this.importance);
+            writer.writeEnumValue<Importance>("importance", this.importance);
         }
         if(this.instances && this.instances.length != 0){        const instancesArrValue: EventImpl[] = []; this.instances?.forEach(element => {instancesArrValue.push(new EventImpl(element));});
-        writer.writeCollectionOfObjectValues<EventImpl>("instances", instancesArrValue);
+            writer.writeCollectionOfObjectValues<EventImpl>("instances", instancesArrValue);
         }
         if(this.isAllDay){
-        writer.writeBooleanValue("isAllDay", this.isAllDay);
+            writer.writeBooleanValue("isAllDay", this.isAllDay);
         }
         if(this.isCancelled){
-        writer.writeBooleanValue("isCancelled", this.isCancelled);
+            writer.writeBooleanValue("isCancelled", this.isCancelled);
         }
         if(this.isDraft){
-        writer.writeBooleanValue("isDraft", this.isDraft);
+            writer.writeBooleanValue("isDraft", this.isDraft);
         }
         if(this.isOnlineMeeting){
-        writer.writeBooleanValue("isOnlineMeeting", this.isOnlineMeeting);
+            writer.writeBooleanValue("isOnlineMeeting", this.isOnlineMeeting);
         }
         if(this.isOrganizer){
-        writer.writeBooleanValue("isOrganizer", this.isOrganizer);
+            writer.writeBooleanValue("isOrganizer", this.isOrganizer);
         }
         if(this.isReminderOn){
-        writer.writeBooleanValue("isReminderOn", this.isReminderOn);
+            writer.writeBooleanValue("isReminderOn", this.isReminderOn);
         }
         if(this.location){
-        writer.writeObjectValue<LocationImpl>("location", new LocationImpl(this.location));
+            writer.writeObjectValue<LocationImpl>("location", new LocationImpl(this.location));
         }
         if(this.locations && this.locations.length != 0){        const locationsArrValue: LocationImpl[] = []; this.locations?.forEach(element => {locationsArrValue.push(new LocationImpl(element));});
-        writer.writeCollectionOfObjectValues<LocationImpl>("locations", locationsArrValue);
+            writer.writeCollectionOfObjectValues<LocationImpl>("locations", locationsArrValue);
         }
         if(this.multiValueExtendedProperties && this.multiValueExtendedProperties.length != 0){        const multiValueExtendedPropertiesArrValue: MultiValueLegacyExtendedPropertyImpl[] = []; this.multiValueExtendedProperties?.forEach(element => {multiValueExtendedPropertiesArrValue.push(new MultiValueLegacyExtendedPropertyImpl(element));});
-        writer.writeCollectionOfObjectValues<MultiValueLegacyExtendedPropertyImpl>("multiValueExtendedProperties", multiValueExtendedPropertiesArrValue);
+            writer.writeCollectionOfObjectValues<MultiValueLegacyExtendedPropertyImpl>("multiValueExtendedProperties", multiValueExtendedPropertiesArrValue);
         }
         if(this.onlineMeeting){
-        writer.writeObjectValue<OnlineMeetingInfoImpl>("onlineMeeting", new OnlineMeetingInfoImpl(this.onlineMeeting));
+            writer.writeObjectValue<OnlineMeetingInfoImpl>("onlineMeeting", new OnlineMeetingInfoImpl(this.onlineMeeting));
         }
         if(this.onlineMeetingProvider){
-        writer.writeEnumValue<OnlineMeetingProviderType>("onlineMeetingProvider", this.onlineMeetingProvider);
+            writer.writeEnumValue<OnlineMeetingProviderType>("onlineMeetingProvider", this.onlineMeetingProvider);
         }
         if(this.onlineMeetingUrl){
-        writer.writeStringValue("onlineMeetingUrl", this.onlineMeetingUrl);
+            writer.writeStringValue("onlineMeetingUrl", this.onlineMeetingUrl);
         }
         if(this.organizer){
-        writer.writeObjectValue<RecipientImpl>("organizer", new RecipientImpl(this.organizer));
+            writer.writeObjectValue<RecipientImpl>("organizer", new RecipientImpl(this.organizer));
         }
         if(this.originalEndTimeZone){
-        writer.writeStringValue("originalEndTimeZone", this.originalEndTimeZone);
+            writer.writeStringValue("originalEndTimeZone", this.originalEndTimeZone);
         }
         if(this.originalStart){
-        writer.writeDateValue("originalStart", this.originalStart);
+            writer.writeDateValue("originalStart", this.originalStart);
         }
         if(this.originalStartTimeZone){
-        writer.writeStringValue("originalStartTimeZone", this.originalStartTimeZone);
+            writer.writeStringValue("originalStartTimeZone", this.originalStartTimeZone);
         }
         if(this.recurrence){
-        writer.writeObjectValue<PatternedRecurrenceImpl>("recurrence", new PatternedRecurrenceImpl(this.recurrence));
+            writer.writeObjectValue<PatternedRecurrenceImpl>("recurrence", new PatternedRecurrenceImpl(this.recurrence));
         }
         if(this.reminderMinutesBeforeStart){
-        writer.writeNumberValue("reminderMinutesBeforeStart", this.reminderMinutesBeforeStart);
+            writer.writeNumberValue("reminderMinutesBeforeStart", this.reminderMinutesBeforeStart);
         }
         if(this.responseRequested){
-        writer.writeBooleanValue("responseRequested", this.responseRequested);
+            writer.writeBooleanValue("responseRequested", this.responseRequested);
         }
         if(this.responseStatus){
-        writer.writeObjectValue<ResponseStatusImpl>("responseStatus", new ResponseStatusImpl(this.responseStatus));
+            writer.writeObjectValue<ResponseStatusImpl>("responseStatus", new ResponseStatusImpl(this.responseStatus));
         }
         if(this.sensitivity){
-        writer.writeEnumValue<Sensitivity>("sensitivity", this.sensitivity);
+            writer.writeEnumValue<Sensitivity>("sensitivity", this.sensitivity);
         }
         if(this.seriesMasterId){
-        writer.writeStringValue("seriesMasterId", this.seriesMasterId);
+            writer.writeStringValue("seriesMasterId", this.seriesMasterId);
         }
         if(this.showAs){
-        writer.writeEnumValue<FreeBusyStatus>("showAs", this.showAs);
+            writer.writeEnumValue<FreeBusyStatus>("showAs", this.showAs);
         }
         if(this.singleValueExtendedProperties && this.singleValueExtendedProperties.length != 0){        const singleValueExtendedPropertiesArrValue: SingleValueLegacyExtendedPropertyImpl[] = []; this.singleValueExtendedProperties?.forEach(element => {singleValueExtendedPropertiesArrValue.push(new SingleValueLegacyExtendedPropertyImpl(element));});
-        writer.writeCollectionOfObjectValues<SingleValueLegacyExtendedPropertyImpl>("singleValueExtendedProperties", singleValueExtendedPropertiesArrValue);
+            writer.writeCollectionOfObjectValues<SingleValueLegacyExtendedPropertyImpl>("singleValueExtendedProperties", singleValueExtendedPropertiesArrValue);
         }
         if(this.start){
-        writer.writeObjectValue<DateTimeTimeZoneImpl>("start", new DateTimeTimeZoneImpl(this.start));
+            writer.writeObjectValue<DateTimeTimeZoneImpl>("start", new DateTimeTimeZoneImpl(this.start));
         }
         if(this.subject){
-        writer.writeStringValue("subject", this.subject);
+            writer.writeStringValue("subject", this.subject);
         }
         if(this.transactionId){
-        writer.writeStringValue("transactionId", this.transactionId);
+            writer.writeStringValue("transactionId", this.transactionId);
         }
         if(this.type){
-        writer.writeEnumValue<EventType>("type", this.type);
+            writer.writeEnumValue<EventType>("type", this.type);
         }
         if(this.webLink){
-        writer.writeStringValue("webLink", this.webLink);
+            writer.writeStringValue("webLink", this.webLink);
         }
     };
 }

@@ -8,7 +8,7 @@ import {MediaStream} from './mediaStream';
 import {NetworkInfo} from './networkInfo';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class MediaImpl implements AdditionalDataHolder, Media, Parsable {
+export class MediaImpl implements Media {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Device information associated with the callee endpoint of this media. */
@@ -28,13 +28,13 @@ export class MediaImpl implements AdditionalDataHolder, Media, Parsable {
      * @param mediaParameterValue 
      */
     public constructor(mediaParameterValue?: Media | undefined) {
-        this.additionalData = mediaParameterValue?.additionalData ? mediaParameterValue?.additionalData! : {}
-        this.calleeDevice = mediaParameterValue?.calleeDevice ;
-        this.calleeNetwork = mediaParameterValue?.calleeNetwork ;
-        this.callerDevice = mediaParameterValue?.callerDevice ;
-        this.callerNetwork = mediaParameterValue?.callerNetwork ;
-        this.label = mediaParameterValue?.label ;
-        this.streams = mediaParameterValue?.streams ;
+        this.additionalData = mediaParameterValue?.additionalData ? mediaParameterValue?.additionalData! : {};
+        this.calleeDevice = mediaParameterValue?.calleeDevice;
+        this.calleeNetwork = mediaParameterValue?.calleeNetwork;
+        this.callerDevice = mediaParameterValue?.callerDevice;
+        this.callerNetwork = mediaParameterValue?.callerNetwork;
+        this.label = mediaParameterValue?.label;
+        this.streams = mediaParameterValue?.streams;
     };
     /**
      * The deserialization information for the current model
@@ -57,22 +57,22 @@ export class MediaImpl implements AdditionalDataHolder, Media, Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.calleeDevice){
-        writer.writeObjectValue<DeviceInfoImpl>("calleeDevice", new DeviceInfoImpl(this.calleeDevice));
+            writer.writeObjectValue<DeviceInfoImpl>("calleeDevice", new DeviceInfoImpl(this.calleeDevice));
         }
         if(this.calleeNetwork){
-        writer.writeObjectValue<NetworkInfoImpl>("calleeNetwork", new NetworkInfoImpl(this.calleeNetwork));
+            writer.writeObjectValue<NetworkInfoImpl>("calleeNetwork", new NetworkInfoImpl(this.calleeNetwork));
         }
         if(this.callerDevice){
-        writer.writeObjectValue<DeviceInfoImpl>("callerDevice", new DeviceInfoImpl(this.callerDevice));
+            writer.writeObjectValue<DeviceInfoImpl>("callerDevice", new DeviceInfoImpl(this.callerDevice));
         }
         if(this.callerNetwork){
-        writer.writeObjectValue<NetworkInfoImpl>("callerNetwork", new NetworkInfoImpl(this.callerNetwork));
+            writer.writeObjectValue<NetworkInfoImpl>("callerNetwork", new NetworkInfoImpl(this.callerNetwork));
         }
         if(this.label){
-        writer.writeStringValue("label", this.label);
+            writer.writeStringValue("label", this.label);
         }
         if(this.streams && this.streams.length != 0){        const streamsArrValue: MediaStreamImpl[] = []; this.streams?.forEach(element => {streamsArrValue.push(new MediaStreamImpl(element));});
-        writer.writeCollectionOfObjectValues<MediaStreamImpl>("streams", streamsArrValue);
+            writer.writeCollectionOfObjectValues<MediaStreamImpl>("streams", streamsArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

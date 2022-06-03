@@ -1,7 +1,7 @@
 import {SettingTemplateValue} from './settingTemplateValue';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class SettingTemplateValueImpl implements AdditionalDataHolder, Parsable, SettingTemplateValue {
+export class SettingTemplateValueImpl implements SettingTemplateValue {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Default value for the setting. Read-only. */
@@ -17,11 +17,11 @@ export class SettingTemplateValueImpl implements AdditionalDataHolder, Parsable,
      * @param settingTemplateValueParameterValue 
      */
     public constructor(settingTemplateValueParameterValue?: SettingTemplateValue | undefined) {
-        this.additionalData = settingTemplateValueParameterValue?.additionalData ? settingTemplateValueParameterValue?.additionalData! : {}
-        this.defaultValue = settingTemplateValueParameterValue?.defaultValue ;
-        this.description = settingTemplateValueParameterValue?.description ;
-        this.name = settingTemplateValueParameterValue?.name ;
-        this.type = settingTemplateValueParameterValue?.type ;
+        this.additionalData = settingTemplateValueParameterValue?.additionalData ? settingTemplateValueParameterValue?.additionalData! : {};
+        this.defaultValue = settingTemplateValueParameterValue?.defaultValue;
+        this.description = settingTemplateValueParameterValue?.description;
+        this.name = settingTemplateValueParameterValue?.name;
+        this.type = settingTemplateValueParameterValue?.type;
     };
     /**
      * The deserialization information for the current model
@@ -42,16 +42,16 @@ export class SettingTemplateValueImpl implements AdditionalDataHolder, Parsable,
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.defaultValue){
-        writer.writeStringValue("defaultValue", this.defaultValue);
+            writer.writeStringValue("defaultValue", this.defaultValue);
         }
         if(this.description){
-        writer.writeStringValue("description", this.description);
+            writer.writeStringValue("description", this.description);
         }
         if(this.name){
-        writer.writeStringValue("name", this.name);
+            writer.writeStringValue("name", this.name);
         }
         if(this.type){
-        writer.writeStringValue("type", this.type);
+            writer.writeStringValue("type", this.type);
         }
         writer.writeAdditionalData(this.additionalData);
     };

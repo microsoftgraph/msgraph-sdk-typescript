@@ -7,7 +7,7 @@ import {ThreatAssessmentRequest} from './threatAssessmentRequest';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the informationProtection singleton. */
-export class InformationProtectionImpl extends EntityImpl implements InformationProtection, Parsable {
+export class InformationProtectionImpl extends EntityImpl implements InformationProtection {
     /** The bitlocker property */
     public bitlocker?: Bitlocker | undefined;
     /** The threatAssessmentRequests property */
@@ -17,9 +17,9 @@ export class InformationProtectionImpl extends EntityImpl implements Information
      * @param informationProtectionParameterValue 
      */
     public constructor(informationProtectionParameterValue?: InformationProtection | undefined) {
-        super();
-        this.bitlocker = informationProtectionParameterValue?.bitlocker ;
-        this.threatAssessmentRequests = informationProtectionParameterValue?.threatAssessmentRequests ;
+        super(informationProtectionParameterValue);
+        this.bitlocker = informationProtectionParameterValue?.bitlocker;
+        this.threatAssessmentRequests = informationProtectionParameterValue?.threatAssessmentRequests;
     };
     /**
      * The deserialization information for the current model
@@ -39,10 +39,10 @@ export class InformationProtectionImpl extends EntityImpl implements Information
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.bitlocker){
-        writer.writeObjectValue<BitlockerImpl>("bitlocker", new BitlockerImpl(this.bitlocker));
+            writer.writeObjectValue<BitlockerImpl>("bitlocker", new BitlockerImpl(this.bitlocker));
         }
         if(this.threatAssessmentRequests && this.threatAssessmentRequests.length != 0){        const threatAssessmentRequestsArrValue: ThreatAssessmentRequestImpl[] = []; this.threatAssessmentRequests?.forEach(element => {threatAssessmentRequestsArrValue.push(new ThreatAssessmentRequestImpl(element));});
-        writer.writeCollectionOfObjectValues<ThreatAssessmentRequestImpl>("threatAssessmentRequests", threatAssessmentRequestsArrValue);
+            writer.writeCollectionOfObjectValues<ThreatAssessmentRequestImpl>("threatAssessmentRequests", threatAssessmentRequestsArrValue);
         }
     };
 }

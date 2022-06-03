@@ -2,7 +2,7 @@ import {CopyToSectionGroupPostRequestBody} from './copyToSectionGroupPostRequest
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the copyToSectionGroup method. */
-export class CopyToSectionGroupPostRequestBodyImpl implements AdditionalDataHolder, CopyToSectionGroupPostRequestBody, Parsable {
+export class CopyToSectionGroupPostRequestBodyImpl implements CopyToSectionGroupPostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The groupId property */
@@ -20,12 +20,12 @@ export class CopyToSectionGroupPostRequestBodyImpl implements AdditionalDataHold
      * @param copyToSectionGroupPostRequestBodyParameterValue 
      */
     public constructor(copyToSectionGroupPostRequestBodyParameterValue?: CopyToSectionGroupPostRequestBody | undefined) {
-        this.additionalData = copyToSectionGroupPostRequestBodyParameterValue?.additionalData ? copyToSectionGroupPostRequestBodyParameterValue?.additionalData! : {}
-        this.groupId = copyToSectionGroupPostRequestBodyParameterValue?.groupId ;
-        this.id = copyToSectionGroupPostRequestBodyParameterValue?.id ;
-        this.renameAs = copyToSectionGroupPostRequestBodyParameterValue?.renameAs ;
-        this.siteCollectionId = copyToSectionGroupPostRequestBodyParameterValue?.siteCollectionId ;
-        this.siteId = copyToSectionGroupPostRequestBodyParameterValue?.siteId ;
+        this.additionalData = copyToSectionGroupPostRequestBodyParameterValue?.additionalData ? copyToSectionGroupPostRequestBodyParameterValue?.additionalData! : {};
+        this.groupId = copyToSectionGroupPostRequestBodyParameterValue?.groupId;
+        this.id = copyToSectionGroupPostRequestBodyParameterValue?.id;
+        this.renameAs = copyToSectionGroupPostRequestBodyParameterValue?.renameAs;
+        this.siteCollectionId = copyToSectionGroupPostRequestBodyParameterValue?.siteCollectionId;
+        this.siteId = copyToSectionGroupPostRequestBodyParameterValue?.siteId;
     };
     /**
      * The deserialization information for the current model
@@ -47,19 +47,19 @@ export class CopyToSectionGroupPostRequestBodyImpl implements AdditionalDataHold
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.groupId){
-        writer.writeStringValue("groupId", this.groupId);
+            writer.writeStringValue("groupId", this.groupId);
         }
         if(this.id){
-        writer.writeStringValue("id", this.id);
+            writer.writeStringValue("id", this.id);
         }
         if(this.renameAs){
-        writer.writeStringValue("renameAs", this.renameAs);
+            writer.writeStringValue("renameAs", this.renameAs);
         }
         if(this.siteCollectionId){
-        writer.writeStringValue("siteCollectionId", this.siteCollectionId);
+            writer.writeStringValue("siteCollectionId", this.siteCollectionId);
         }
         if(this.siteId){
-        writer.writeStringValue("siteId", this.siteId);
+            writer.writeStringValue("siteId", this.siteId);
         }
         writer.writeAdditionalData(this.additionalData);
     };

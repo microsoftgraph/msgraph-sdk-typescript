@@ -1,7 +1,7 @@
 import {UserAttributeValuesItem} from './userAttributeValuesItem';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class UserAttributeValuesItemImpl implements AdditionalDataHolder, Parsable, UserAttributeValuesItem {
+export class UserAttributeValuesItemImpl implements UserAttributeValuesItem {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Used to set the value as the default. */
@@ -15,10 +15,10 @@ export class UserAttributeValuesItemImpl implements AdditionalDataHolder, Parsab
      * @param userAttributeValuesItemParameterValue 
      */
     public constructor(userAttributeValuesItemParameterValue?: UserAttributeValuesItem | undefined) {
-        this.additionalData = userAttributeValuesItemParameterValue?.additionalData ? userAttributeValuesItemParameterValue?.additionalData! : {}
-        this.isDefault = userAttributeValuesItemParameterValue?.isDefault ;
-        this.name = userAttributeValuesItemParameterValue?.name ;
-        this.value = userAttributeValuesItemParameterValue?.value ;
+        this.additionalData = userAttributeValuesItemParameterValue?.additionalData ? userAttributeValuesItemParameterValue?.additionalData! : {};
+        this.isDefault = userAttributeValuesItemParameterValue?.isDefault;
+        this.name = userAttributeValuesItemParameterValue?.name;
+        this.value = userAttributeValuesItemParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -38,13 +38,13 @@ export class UserAttributeValuesItemImpl implements AdditionalDataHolder, Parsab
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.isDefault){
-        writer.writeBooleanValue("isDefault", this.isDefault);
+            writer.writeBooleanValue("isDefault", this.isDefault);
         }
         if(this.name){
-        writer.writeStringValue("name", this.name);
+            writer.writeStringValue("name", this.name);
         }
         if(this.value){
-        writer.writeStringValue("value", this.value);
+            writer.writeStringValue("value", this.value);
         }
         writer.writeAdditionalData(this.additionalData);
     };

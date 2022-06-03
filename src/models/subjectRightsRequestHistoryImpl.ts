@@ -6,7 +6,7 @@ import {SubjectRightsRequestStage} from './subjectRightsRequestStage';
 import {SubjectRightsRequestStageStatus} from './subjectRightsRequestStageStatus';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class SubjectRightsRequestHistoryImpl implements AdditionalDataHolder, Parsable, SubjectRightsRequestHistory {
+export class SubjectRightsRequestHistoryImpl implements SubjectRightsRequestHistory {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Identity of the user who changed the  subject rights request. */
@@ -24,12 +24,12 @@ export class SubjectRightsRequestHistoryImpl implements AdditionalDataHolder, Pa
      * @param subjectRightsRequestHistoryParameterValue 
      */
     public constructor(subjectRightsRequestHistoryParameterValue?: SubjectRightsRequestHistory | undefined) {
-        this.additionalData = subjectRightsRequestHistoryParameterValue?.additionalData ? subjectRightsRequestHistoryParameterValue?.additionalData! : {}
-        this.changedBy = subjectRightsRequestHistoryParameterValue?.changedBy ;
-        this.eventDateTime = subjectRightsRequestHistoryParameterValue?.eventDateTime ;
-        this.stage = subjectRightsRequestHistoryParameterValue?.stage ;
-        this.stageStatus = subjectRightsRequestHistoryParameterValue?.stageStatus ;
-        this.type = subjectRightsRequestHistoryParameterValue?.type ;
+        this.additionalData = subjectRightsRequestHistoryParameterValue?.additionalData ? subjectRightsRequestHistoryParameterValue?.additionalData! : {};
+        this.changedBy = subjectRightsRequestHistoryParameterValue?.changedBy;
+        this.eventDateTime = subjectRightsRequestHistoryParameterValue?.eventDateTime;
+        this.stage = subjectRightsRequestHistoryParameterValue?.stage;
+        this.stageStatus = subjectRightsRequestHistoryParameterValue?.stageStatus;
+        this.type = subjectRightsRequestHistoryParameterValue?.type;
     };
     /**
      * The deserialization information for the current model
@@ -51,19 +51,19 @@ export class SubjectRightsRequestHistoryImpl implements AdditionalDataHolder, Pa
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.changedBy){
-        writer.writeObjectValue<IdentitySetImpl>("changedBy", new IdentitySetImpl(this.changedBy));
+            writer.writeObjectValue<IdentitySetImpl>("changedBy", new IdentitySetImpl(this.changedBy));
         }
         if(this.eventDateTime){
-        writer.writeDateValue("eventDateTime", this.eventDateTime);
+            writer.writeDateValue("eventDateTime", this.eventDateTime);
         }
         if(this.stage){
-        writer.writeEnumValue<SubjectRightsRequestStage>("stage", this.stage);
+            writer.writeEnumValue<SubjectRightsRequestStage>("stage", this.stage);
         }
         if(this.stageStatus){
-        writer.writeEnumValue<SubjectRightsRequestStageStatus>("stageStatus", this.stageStatus);
+            writer.writeEnumValue<SubjectRightsRequestStageStatus>("stageStatus", this.stageStatus);
         }
         if(this.type){
-        writer.writeStringValue("type", this.type);
+            writer.writeStringValue("type", this.type);
         }
         writer.writeAdditionalData(this.additionalData);
     };

@@ -4,7 +4,7 @@ import {WindowsInformationProtectionPolicy} from './windowsInformationProtection
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Policy for Windows information protection without MDM */
-export class WindowsInformationProtectionPolicyImpl extends WindowsInformationProtectionImpl implements Parsable, WindowsInformationProtectionPolicy {
+export class WindowsInformationProtectionPolicyImpl extends WindowsInformationProtectionImpl implements WindowsInformationProtectionPolicy {
     /** Offline interval before app data is wiped (days) */
     public daysWithoutContactBeforeUnenroll?: number | undefined;
     /** Enrollment url for the MDM */
@@ -34,19 +34,19 @@ export class WindowsInformationProtectionPolicyImpl extends WindowsInformationPr
      * @param windowsInformationProtectionPolicyParameterValue 
      */
     public constructor(windowsInformationProtectionPolicyParameterValue?: WindowsInformationProtectionPolicy | undefined) {
-        super();
-        this.daysWithoutContactBeforeUnenroll = windowsInformationProtectionPolicyParameterValue?.daysWithoutContactBeforeUnenroll ;
-        this.mdmEnrollmentUrl = windowsInformationProtectionPolicyParameterValue?.mdmEnrollmentUrl ;
-        this.minutesOfInactivityBeforeDeviceLock = windowsInformationProtectionPolicyParameterValue?.minutesOfInactivityBeforeDeviceLock ;
-        this.numberOfPastPinsRemembered = windowsInformationProtectionPolicyParameterValue?.numberOfPastPinsRemembered ;
-        this.passwordMaximumAttemptCount = windowsInformationProtectionPolicyParameterValue?.passwordMaximumAttemptCount ;
-        this.pinExpirationDays = windowsInformationProtectionPolicyParameterValue?.pinExpirationDays ;
-        this.pinLowercaseLetters = windowsInformationProtectionPolicyParameterValue?.pinLowercaseLetters ;
-        this.pinMinimumLength = windowsInformationProtectionPolicyParameterValue?.pinMinimumLength ;
-        this.pinSpecialCharacters = windowsInformationProtectionPolicyParameterValue?.pinSpecialCharacters ;
-        this.pinUppercaseLetters = windowsInformationProtectionPolicyParameterValue?.pinUppercaseLetters ;
-        this.revokeOnMdmHandoffDisabled = windowsInformationProtectionPolicyParameterValue?.revokeOnMdmHandoffDisabled ;
-        this.windowsHelloForBusinessBlocked = windowsInformationProtectionPolicyParameterValue?.windowsHelloForBusinessBlocked ;
+        super(windowsInformationProtectionPolicyParameterValue);
+        this.daysWithoutContactBeforeUnenroll = windowsInformationProtectionPolicyParameterValue?.daysWithoutContactBeforeUnenroll;
+        this.mdmEnrollmentUrl = windowsInformationProtectionPolicyParameterValue?.mdmEnrollmentUrl;
+        this.minutesOfInactivityBeforeDeviceLock = windowsInformationProtectionPolicyParameterValue?.minutesOfInactivityBeforeDeviceLock;
+        this.numberOfPastPinsRemembered = windowsInformationProtectionPolicyParameterValue?.numberOfPastPinsRemembered;
+        this.passwordMaximumAttemptCount = windowsInformationProtectionPolicyParameterValue?.passwordMaximumAttemptCount;
+        this.pinExpirationDays = windowsInformationProtectionPolicyParameterValue?.pinExpirationDays;
+        this.pinLowercaseLetters = windowsInformationProtectionPolicyParameterValue?.pinLowercaseLetters;
+        this.pinMinimumLength = windowsInformationProtectionPolicyParameterValue?.pinMinimumLength;
+        this.pinSpecialCharacters = windowsInformationProtectionPolicyParameterValue?.pinSpecialCharacters;
+        this.pinUppercaseLetters = windowsInformationProtectionPolicyParameterValue?.pinUppercaseLetters;
+        this.revokeOnMdmHandoffDisabled = windowsInformationProtectionPolicyParameterValue?.revokeOnMdmHandoffDisabled;
+        this.windowsHelloForBusinessBlocked = windowsInformationProtectionPolicyParameterValue?.windowsHelloForBusinessBlocked;
     };
     /**
      * The deserialization information for the current model
@@ -76,40 +76,40 @@ export class WindowsInformationProtectionPolicyImpl extends WindowsInformationPr
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.daysWithoutContactBeforeUnenroll){
-        writer.writeNumberValue("daysWithoutContactBeforeUnenroll", this.daysWithoutContactBeforeUnenroll);
+            writer.writeNumberValue("daysWithoutContactBeforeUnenroll", this.daysWithoutContactBeforeUnenroll);
         }
         if(this.mdmEnrollmentUrl){
-        writer.writeStringValue("mdmEnrollmentUrl", this.mdmEnrollmentUrl);
+            writer.writeStringValue("mdmEnrollmentUrl", this.mdmEnrollmentUrl);
         }
         if(this.minutesOfInactivityBeforeDeviceLock){
-        writer.writeNumberValue("minutesOfInactivityBeforeDeviceLock", this.minutesOfInactivityBeforeDeviceLock);
+            writer.writeNumberValue("minutesOfInactivityBeforeDeviceLock", this.minutesOfInactivityBeforeDeviceLock);
         }
         if(this.numberOfPastPinsRemembered){
-        writer.writeNumberValue("numberOfPastPinsRemembered", this.numberOfPastPinsRemembered);
+            writer.writeNumberValue("numberOfPastPinsRemembered", this.numberOfPastPinsRemembered);
         }
         if(this.passwordMaximumAttemptCount){
-        writer.writeNumberValue("passwordMaximumAttemptCount", this.passwordMaximumAttemptCount);
+            writer.writeNumberValue("passwordMaximumAttemptCount", this.passwordMaximumAttemptCount);
         }
         if(this.pinExpirationDays){
-        writer.writeNumberValue("pinExpirationDays", this.pinExpirationDays);
+            writer.writeNumberValue("pinExpirationDays", this.pinExpirationDays);
         }
         if(this.pinLowercaseLetters){
-        writer.writeEnumValue<WindowsInformationProtectionPinCharacterRequirements>("pinLowercaseLetters", this.pinLowercaseLetters);
+            writer.writeEnumValue<WindowsInformationProtectionPinCharacterRequirements>("pinLowercaseLetters", this.pinLowercaseLetters);
         }
         if(this.pinMinimumLength){
-        writer.writeNumberValue("pinMinimumLength", this.pinMinimumLength);
+            writer.writeNumberValue("pinMinimumLength", this.pinMinimumLength);
         }
         if(this.pinSpecialCharacters){
-        writer.writeEnumValue<WindowsInformationProtectionPinCharacterRequirements>("pinSpecialCharacters", this.pinSpecialCharacters);
+            writer.writeEnumValue<WindowsInformationProtectionPinCharacterRequirements>("pinSpecialCharacters", this.pinSpecialCharacters);
         }
         if(this.pinUppercaseLetters){
-        writer.writeEnumValue<WindowsInformationProtectionPinCharacterRequirements>("pinUppercaseLetters", this.pinUppercaseLetters);
+            writer.writeEnumValue<WindowsInformationProtectionPinCharacterRequirements>("pinUppercaseLetters", this.pinUppercaseLetters);
         }
         if(this.revokeOnMdmHandoffDisabled){
-        writer.writeBooleanValue("revokeOnMdmHandoffDisabled", this.revokeOnMdmHandoffDisabled);
+            writer.writeBooleanValue("revokeOnMdmHandoffDisabled", this.revokeOnMdmHandoffDisabled);
         }
         if(this.windowsHelloForBusinessBlocked){
-        writer.writeBooleanValue("windowsHelloForBusinessBlocked", this.windowsHelloForBusinessBlocked);
+            writer.writeBooleanValue("windowsHelloForBusinessBlocked", this.windowsHelloForBusinessBlocked);
         }
     };
 }

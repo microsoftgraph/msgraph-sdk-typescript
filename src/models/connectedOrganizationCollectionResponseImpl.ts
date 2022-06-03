@@ -4,7 +4,7 @@ import {createConnectedOrganizationFromDiscriminatorValue} from './createConnect
 import {ConnectedOrganizationImpl} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ConnectedOrganizationCollectionResponseImpl implements AdditionalDataHolder, ConnectedOrganizationCollectionResponse, Parsable {
+export class ConnectedOrganizationCollectionResponseImpl implements ConnectedOrganizationCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class ConnectedOrganizationCollectionResponseImpl implements AdditionalDa
      * @param connectedOrganizationCollectionResponseParameterValue 
      */
     public constructor(connectedOrganizationCollectionResponseParameterValue?: ConnectedOrganizationCollectionResponse | undefined) {
-        this.additionalData = connectedOrganizationCollectionResponseParameterValue?.additionalData ? connectedOrganizationCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = connectedOrganizationCollectionResponseParameterValue?.nextLink ;
-        this.value = connectedOrganizationCollectionResponseParameterValue?.value ;
+        this.additionalData = connectedOrganizationCollectionResponseParameterValue?.additionalData ? connectedOrganizationCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = connectedOrganizationCollectionResponseParameterValue?.nextLink;
+        this.value = connectedOrganizationCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class ConnectedOrganizationCollectionResponseImpl implements AdditionalDa
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: ConnectedOrganizationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ConnectedOrganizationImpl(element));});
-        writer.writeCollectionOfObjectValues<ConnectedOrganizationImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<ConnectedOrganizationImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

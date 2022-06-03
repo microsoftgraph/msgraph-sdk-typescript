@@ -1,7 +1,7 @@
 import {ParentalControlSettings} from './parentalControlSettings';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ParentalControlSettingsImpl implements AdditionalDataHolder, ParentalControlSettings, Parsable {
+export class ParentalControlSettingsImpl implements ParentalControlSettings {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Specifies the two-letter ISO country codes. Access to the application will be blocked for minors from the countries specified in this list. */
@@ -13,9 +13,9 @@ export class ParentalControlSettingsImpl implements AdditionalDataHolder, Parent
      * @param parentalControlSettingsParameterValue 
      */
     public constructor(parentalControlSettingsParameterValue?: ParentalControlSettings | undefined) {
-        this.additionalData = parentalControlSettingsParameterValue?.additionalData ? parentalControlSettingsParameterValue?.additionalData! : {}
-        this.countriesBlockedForMinors = parentalControlSettingsParameterValue?.countriesBlockedForMinors ;
-        this.legalAgeGroupRule = parentalControlSettingsParameterValue?.legalAgeGroupRule ;
+        this.additionalData = parentalControlSettingsParameterValue?.additionalData ? parentalControlSettingsParameterValue?.additionalData! : {};
+        this.countriesBlockedForMinors = parentalControlSettingsParameterValue?.countriesBlockedForMinors;
+        this.legalAgeGroupRule = parentalControlSettingsParameterValue?.legalAgeGroupRule;
     };
     /**
      * The deserialization information for the current model
@@ -34,10 +34,10 @@ export class ParentalControlSettingsImpl implements AdditionalDataHolder, Parent
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.countriesBlockedForMinors){
-        writer.writeCollectionOfPrimitiveValues<string>("countriesBlockedForMinors", this.countriesBlockedForMinors);
+            writer.writeCollectionOfPrimitiveValues<string>("countriesBlockedForMinors", this.countriesBlockedForMinors);
         }
         if(this.legalAgeGroupRule){
-        writer.writeStringValue("legalAgeGroupRule", this.legalAgeGroupRule);
+            writer.writeStringValue("legalAgeGroupRule", this.legalAgeGroupRule);
         }
         writer.writeAdditionalData(this.additionalData);
     };

@@ -1,7 +1,7 @@
 import {AppIdentity} from './appIdentity';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class AppIdentityImpl implements AdditionalDataHolder, AppIdentity, Parsable {
+export class AppIdentityImpl implements AppIdentity {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Refers to the unique identifier representing Application Id in the Azure Active Directory. */
@@ -17,11 +17,11 @@ export class AppIdentityImpl implements AdditionalDataHolder, AppIdentity, Parsa
      * @param appIdentityParameterValue 
      */
     public constructor(appIdentityParameterValue?: AppIdentity | undefined) {
-        this.additionalData = appIdentityParameterValue?.additionalData ? appIdentityParameterValue?.additionalData! : {}
-        this.appId = appIdentityParameterValue?.appId ;
-        this.displayName = appIdentityParameterValue?.displayName ;
-        this.servicePrincipalId = appIdentityParameterValue?.servicePrincipalId ;
-        this.servicePrincipalName = appIdentityParameterValue?.servicePrincipalName ;
+        this.additionalData = appIdentityParameterValue?.additionalData ? appIdentityParameterValue?.additionalData! : {};
+        this.appId = appIdentityParameterValue?.appId;
+        this.displayName = appIdentityParameterValue?.displayName;
+        this.servicePrincipalId = appIdentityParameterValue?.servicePrincipalId;
+        this.servicePrincipalName = appIdentityParameterValue?.servicePrincipalName;
     };
     /**
      * The deserialization information for the current model
@@ -42,16 +42,16 @@ export class AppIdentityImpl implements AdditionalDataHolder, AppIdentity, Parsa
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.appId){
-        writer.writeStringValue("appId", this.appId);
+            writer.writeStringValue("appId", this.appId);
         }
         if(this.displayName){
-        writer.writeStringValue("displayName", this.displayName);
+            writer.writeStringValue("displayName", this.displayName);
         }
         if(this.servicePrincipalId){
-        writer.writeStringValue("servicePrincipalId", this.servicePrincipalId);
+            writer.writeStringValue("servicePrincipalId", this.servicePrincipalId);
         }
         if(this.servicePrincipalName){
-        writer.writeStringValue("servicePrincipalName", this.servicePrincipalName);
+            writer.writeStringValue("servicePrincipalName", this.servicePrincipalName);
         }
         writer.writeAdditionalData(this.additionalData);
     };

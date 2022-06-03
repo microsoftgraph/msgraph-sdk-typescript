@@ -4,7 +4,7 @@ import {ExtensionPropertyCollectionResponse} from './extensionPropertyCollection
 import {ExtensionPropertyImpl} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ExtensionPropertyCollectionResponseImpl implements AdditionalDataHolder, ExtensionPropertyCollectionResponse, Parsable {
+export class ExtensionPropertyCollectionResponseImpl implements ExtensionPropertyCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class ExtensionPropertyCollectionResponseImpl implements AdditionalDataHo
      * @param extensionPropertyCollectionResponseParameterValue 
      */
     public constructor(extensionPropertyCollectionResponseParameterValue?: ExtensionPropertyCollectionResponse | undefined) {
-        this.additionalData = extensionPropertyCollectionResponseParameterValue?.additionalData ? extensionPropertyCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = extensionPropertyCollectionResponseParameterValue?.nextLink ;
-        this.value = extensionPropertyCollectionResponseParameterValue?.value ;
+        this.additionalData = extensionPropertyCollectionResponseParameterValue?.additionalData ? extensionPropertyCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = extensionPropertyCollectionResponseParameterValue?.nextLink;
+        this.value = extensionPropertyCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class ExtensionPropertyCollectionResponseImpl implements AdditionalDataHo
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: ExtensionPropertyImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ExtensionPropertyImpl(element));});
-        writer.writeCollectionOfObjectValues<ExtensionPropertyImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<ExtensionPropertyImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

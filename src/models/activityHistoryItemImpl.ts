@@ -6,7 +6,7 @@ import {UserActivity} from './userActivity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Casts the previous resource to user. */
-export class ActivityHistoryItemImpl extends EntityImpl implements ActivityHistoryItem, Parsable {
+export class ActivityHistoryItemImpl extends EntityImpl implements ActivityHistoryItem {
     /** Optional. The duration of active user engagement. if not supplied, this is calculated from the startedDateTime and lastActiveDateTime. */
     public activeDurationSeconds?: number | undefined;
     /** The activity property */
@@ -30,16 +30,16 @@ export class ActivityHistoryItemImpl extends EntityImpl implements ActivityHisto
      * @param activityHistoryItemParameterValue 
      */
     public constructor(activityHistoryItemParameterValue?: ActivityHistoryItem | undefined) {
-        super();
-        this.activeDurationSeconds = activityHistoryItemParameterValue?.activeDurationSeconds ;
-        this.activity = activityHistoryItemParameterValue?.activity ;
-        this.createdDateTime = activityHistoryItemParameterValue?.createdDateTime ;
-        this.expirationDateTime = activityHistoryItemParameterValue?.expirationDateTime ;
-        this.lastActiveDateTime = activityHistoryItemParameterValue?.lastActiveDateTime ;
-        this.lastModifiedDateTime = activityHistoryItemParameterValue?.lastModifiedDateTime ;
-        this.startedDateTime = activityHistoryItemParameterValue?.startedDateTime ;
-        this.status = activityHistoryItemParameterValue?.status ;
-        this.userTimezone = activityHistoryItemParameterValue?.userTimezone ;
+        super(activityHistoryItemParameterValue);
+        this.activeDurationSeconds = activityHistoryItemParameterValue?.activeDurationSeconds;
+        this.activity = activityHistoryItemParameterValue?.activity;
+        this.createdDateTime = activityHistoryItemParameterValue?.createdDateTime;
+        this.expirationDateTime = activityHistoryItemParameterValue?.expirationDateTime;
+        this.lastActiveDateTime = activityHistoryItemParameterValue?.lastActiveDateTime;
+        this.lastModifiedDateTime = activityHistoryItemParameterValue?.lastModifiedDateTime;
+        this.startedDateTime = activityHistoryItemParameterValue?.startedDateTime;
+        this.status = activityHistoryItemParameterValue?.status;
+        this.userTimezone = activityHistoryItemParameterValue?.userTimezone;
     };
     /**
      * The deserialization information for the current model
@@ -66,31 +66,31 @@ export class ActivityHistoryItemImpl extends EntityImpl implements ActivityHisto
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.activeDurationSeconds){
-        writer.writeNumberValue("activeDurationSeconds", this.activeDurationSeconds);
+            writer.writeNumberValue("activeDurationSeconds", this.activeDurationSeconds);
         }
         if(this.activity){
-        writer.writeObjectValue<UserActivityImpl>("activity", new UserActivityImpl(this.activity));
+            writer.writeObjectValue<UserActivityImpl>("activity", new UserActivityImpl(this.activity));
         }
         if(this.createdDateTime){
-        writer.writeDateValue("createdDateTime", this.createdDateTime);
+            writer.writeDateValue("createdDateTime", this.createdDateTime);
         }
         if(this.expirationDateTime){
-        writer.writeDateValue("expirationDateTime", this.expirationDateTime);
+            writer.writeDateValue("expirationDateTime", this.expirationDateTime);
         }
         if(this.lastActiveDateTime){
-        writer.writeDateValue("lastActiveDateTime", this.lastActiveDateTime);
+            writer.writeDateValue("lastActiveDateTime", this.lastActiveDateTime);
         }
         if(this.lastModifiedDateTime){
-        writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
+            writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
         }
         if(this.startedDateTime){
-        writer.writeDateValue("startedDateTime", this.startedDateTime);
+            writer.writeDateValue("startedDateTime", this.startedDateTime);
         }
         if(this.status){
-        writer.writeEnumValue<Status>("status", this.status);
+            writer.writeEnumValue<Status>("status", this.status);
         }
         if(this.userTimezone){
-        writer.writeStringValue("userTimezone", this.userTimezone);
+            writer.writeStringValue("userTimezone", this.userTimezone);
         }
     };
 }

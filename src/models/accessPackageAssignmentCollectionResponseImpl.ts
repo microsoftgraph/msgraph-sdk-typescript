@@ -4,7 +4,7 @@ import {createAccessPackageAssignmentFromDiscriminatorValue} from './createAcces
 import {AccessPackageAssignmentImpl} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class AccessPackageAssignmentCollectionResponseImpl implements AccessPackageAssignmentCollectionResponse, AdditionalDataHolder, Parsable {
+export class AccessPackageAssignmentCollectionResponseImpl implements AccessPackageAssignmentCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class AccessPackageAssignmentCollectionResponseImpl implements AccessPack
      * @param accessPackageAssignmentCollectionResponseParameterValue 
      */
     public constructor(accessPackageAssignmentCollectionResponseParameterValue?: AccessPackageAssignmentCollectionResponse | undefined) {
-        this.additionalData = accessPackageAssignmentCollectionResponseParameterValue?.additionalData ? accessPackageAssignmentCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = accessPackageAssignmentCollectionResponseParameterValue?.nextLink ;
-        this.value = accessPackageAssignmentCollectionResponseParameterValue?.value ;
+        this.additionalData = accessPackageAssignmentCollectionResponseParameterValue?.additionalData ? accessPackageAssignmentCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = accessPackageAssignmentCollectionResponseParameterValue?.nextLink;
+        this.value = accessPackageAssignmentCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class AccessPackageAssignmentCollectionResponseImpl implements AccessPack
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: AccessPackageAssignmentImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new AccessPackageAssignmentImpl(element));});
-        writer.writeCollectionOfObjectValues<AccessPackageAssignmentImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<AccessPackageAssignmentImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

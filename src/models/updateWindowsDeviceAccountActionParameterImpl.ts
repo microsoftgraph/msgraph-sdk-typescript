@@ -4,7 +4,7 @@ import {UpdateWindowsDeviceAccountActionParameter} from './updateWindowsDeviceAc
 import {WindowsDeviceAccount} from './windowsDeviceAccount';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class UpdateWindowsDeviceAccountActionParameterImpl implements AdditionalDataHolder, Parsable, UpdateWindowsDeviceAccountActionParameter {
+export class UpdateWindowsDeviceAccountActionParameterImpl implements UpdateWindowsDeviceAccountActionParameter {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Not yet documented */
@@ -24,13 +24,13 @@ export class UpdateWindowsDeviceAccountActionParameterImpl implements Additional
      * @param updateWindowsDeviceAccountActionParameterParameterValue 
      */
     public constructor(updateWindowsDeviceAccountActionParameterParameterValue?: UpdateWindowsDeviceAccountActionParameter | undefined) {
-        this.additionalData = updateWindowsDeviceAccountActionParameterParameterValue?.additionalData ? updateWindowsDeviceAccountActionParameterParameterValue?.additionalData! : {}
-        this.calendarSyncEnabled = updateWindowsDeviceAccountActionParameterParameterValue?.calendarSyncEnabled ;
-        this.deviceAccount = updateWindowsDeviceAccountActionParameterParameterValue?.deviceAccount ;
-        this.deviceAccountEmail = updateWindowsDeviceAccountActionParameterParameterValue?.deviceAccountEmail ;
-        this.exchangeServer = updateWindowsDeviceAccountActionParameterParameterValue?.exchangeServer ;
-        this.passwordRotationEnabled = updateWindowsDeviceAccountActionParameterParameterValue?.passwordRotationEnabled ;
-        this.sessionInitiationProtocalAddress = updateWindowsDeviceAccountActionParameterParameterValue?.sessionInitiationProtocalAddress ;
+        this.additionalData = updateWindowsDeviceAccountActionParameterParameterValue?.additionalData ? updateWindowsDeviceAccountActionParameterParameterValue?.additionalData! : {};
+        this.calendarSyncEnabled = updateWindowsDeviceAccountActionParameterParameterValue?.calendarSyncEnabled;
+        this.deviceAccount = updateWindowsDeviceAccountActionParameterParameterValue?.deviceAccount;
+        this.deviceAccountEmail = updateWindowsDeviceAccountActionParameterParameterValue?.deviceAccountEmail;
+        this.exchangeServer = updateWindowsDeviceAccountActionParameterParameterValue?.exchangeServer;
+        this.passwordRotationEnabled = updateWindowsDeviceAccountActionParameterParameterValue?.passwordRotationEnabled;
+        this.sessionInitiationProtocalAddress = updateWindowsDeviceAccountActionParameterParameterValue?.sessionInitiationProtocalAddress;
     };
     /**
      * The deserialization information for the current model
@@ -53,22 +53,22 @@ export class UpdateWindowsDeviceAccountActionParameterImpl implements Additional
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.calendarSyncEnabled){
-        writer.writeBooleanValue("calendarSyncEnabled", this.calendarSyncEnabled);
+            writer.writeBooleanValue("calendarSyncEnabled", this.calendarSyncEnabled);
         }
         if(this.deviceAccount){
-        writer.writeObjectValue<WindowsDeviceAccountImpl>("deviceAccount", new WindowsDeviceAccountImpl(this.deviceAccount));
+            writer.writeObjectValue<WindowsDeviceAccountImpl>("deviceAccount", new WindowsDeviceAccountImpl(this.deviceAccount));
         }
         if(this.deviceAccountEmail){
-        writer.writeStringValue("deviceAccountEmail", this.deviceAccountEmail);
+            writer.writeStringValue("deviceAccountEmail", this.deviceAccountEmail);
         }
         if(this.exchangeServer){
-        writer.writeStringValue("exchangeServer", this.exchangeServer);
+            writer.writeStringValue("exchangeServer", this.exchangeServer);
         }
         if(this.passwordRotationEnabled){
-        writer.writeBooleanValue("passwordRotationEnabled", this.passwordRotationEnabled);
+            writer.writeBooleanValue("passwordRotationEnabled", this.passwordRotationEnabled);
         }
         if(this.sessionInitiationProtocalAddress){
-        writer.writeStringValue("sessionInitiationProtocalAddress", this.sessionInitiationProtocalAddress);
+            writer.writeStringValue("sessionInitiationProtocalAddress", this.sessionInitiationProtocalAddress);
         }
         writer.writeAdditionalData(this.additionalData);
     };

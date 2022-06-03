@@ -4,7 +4,7 @@ import {createClaimsMappingPolicyFromDiscriminatorValue} from './createClaimsMap
 import {ClaimsMappingPolicyImpl} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ClaimsMappingPolicyCollectionResponseImpl implements AdditionalDataHolder, ClaimsMappingPolicyCollectionResponse, Parsable {
+export class ClaimsMappingPolicyCollectionResponseImpl implements ClaimsMappingPolicyCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class ClaimsMappingPolicyCollectionResponseImpl implements AdditionalData
      * @param claimsMappingPolicyCollectionResponseParameterValue 
      */
     public constructor(claimsMappingPolicyCollectionResponseParameterValue?: ClaimsMappingPolicyCollectionResponse | undefined) {
-        this.additionalData = claimsMappingPolicyCollectionResponseParameterValue?.additionalData ? claimsMappingPolicyCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = claimsMappingPolicyCollectionResponseParameterValue?.nextLink ;
-        this.value = claimsMappingPolicyCollectionResponseParameterValue?.value ;
+        this.additionalData = claimsMappingPolicyCollectionResponseParameterValue?.additionalData ? claimsMappingPolicyCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = claimsMappingPolicyCollectionResponseParameterValue?.nextLink;
+        this.value = claimsMappingPolicyCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class ClaimsMappingPolicyCollectionResponseImpl implements AdditionalData
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: ClaimsMappingPolicyImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ClaimsMappingPolicyImpl(element));});
-        writer.writeCollectionOfObjectValues<ClaimsMappingPolicyImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<ClaimsMappingPolicyImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

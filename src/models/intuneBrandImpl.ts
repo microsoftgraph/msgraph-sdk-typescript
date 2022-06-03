@@ -7,7 +7,7 @@ import {RgbColor} from './rgbColor';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** intuneBrand contains data which is used in customizing the appearance of the Company Portal applications as well as the end user web portal. */
-export class IntuneBrandImpl implements AdditionalDataHolder, IntuneBrand, Parsable {
+export class IntuneBrandImpl implements IntuneBrand {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Email address of the person/organization responsible for IT support. */
@@ -43,21 +43,21 @@ export class IntuneBrandImpl implements AdditionalDataHolder, IntuneBrand, Parsa
      * @param intuneBrandParameterValue 
      */
     public constructor(intuneBrandParameterValue?: IntuneBrand | undefined) {
-        this.additionalData = intuneBrandParameterValue?.additionalData ? intuneBrandParameterValue?.additionalData! : {}
-        this.contactITEmailAddress = intuneBrandParameterValue?.contactITEmailAddress ;
-        this.contactITName = intuneBrandParameterValue?.contactITName ;
-        this.contactITNotes = intuneBrandParameterValue?.contactITNotes ;
-        this.contactITPhoneNumber = intuneBrandParameterValue?.contactITPhoneNumber ;
-        this.darkBackgroundLogo = intuneBrandParameterValue?.darkBackgroundLogo ;
-        this.displayName = intuneBrandParameterValue?.displayName ;
-        this.lightBackgroundLogo = intuneBrandParameterValue?.lightBackgroundLogo ;
-        this.onlineSupportSiteName = intuneBrandParameterValue?.onlineSupportSiteName ;
-        this.onlineSupportSiteUrl = intuneBrandParameterValue?.onlineSupportSiteUrl ;
-        this.privacyUrl = intuneBrandParameterValue?.privacyUrl ;
-        this.showDisplayNameNextToLogo = intuneBrandParameterValue?.showDisplayNameNextToLogo ;
-        this.showLogo = intuneBrandParameterValue?.showLogo ;
-        this.showNameNextToLogo = intuneBrandParameterValue?.showNameNextToLogo ;
-        this.themeColor = intuneBrandParameterValue?.themeColor ;
+        this.additionalData = intuneBrandParameterValue?.additionalData ? intuneBrandParameterValue?.additionalData! : {};
+        this.contactITEmailAddress = intuneBrandParameterValue?.contactITEmailAddress;
+        this.contactITName = intuneBrandParameterValue?.contactITName;
+        this.contactITNotes = intuneBrandParameterValue?.contactITNotes;
+        this.contactITPhoneNumber = intuneBrandParameterValue?.contactITPhoneNumber;
+        this.darkBackgroundLogo = intuneBrandParameterValue?.darkBackgroundLogo;
+        this.displayName = intuneBrandParameterValue?.displayName;
+        this.lightBackgroundLogo = intuneBrandParameterValue?.lightBackgroundLogo;
+        this.onlineSupportSiteName = intuneBrandParameterValue?.onlineSupportSiteName;
+        this.onlineSupportSiteUrl = intuneBrandParameterValue?.onlineSupportSiteUrl;
+        this.privacyUrl = intuneBrandParameterValue?.privacyUrl;
+        this.showDisplayNameNextToLogo = intuneBrandParameterValue?.showDisplayNameNextToLogo;
+        this.showLogo = intuneBrandParameterValue?.showLogo;
+        this.showNameNextToLogo = intuneBrandParameterValue?.showNameNextToLogo;
+        this.themeColor = intuneBrandParameterValue?.themeColor;
     };
     /**
      * The deserialization information for the current model
@@ -88,46 +88,46 @@ export class IntuneBrandImpl implements AdditionalDataHolder, IntuneBrand, Parsa
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.contactITEmailAddress){
-        writer.writeStringValue("contactITEmailAddress", this.contactITEmailAddress);
+            writer.writeStringValue("contactITEmailAddress", this.contactITEmailAddress);
         }
         if(this.contactITName){
-        writer.writeStringValue("contactITName", this.contactITName);
+            writer.writeStringValue("contactITName", this.contactITName);
         }
         if(this.contactITNotes){
-        writer.writeStringValue("contactITNotes", this.contactITNotes);
+            writer.writeStringValue("contactITNotes", this.contactITNotes);
         }
         if(this.contactITPhoneNumber){
-        writer.writeStringValue("contactITPhoneNumber", this.contactITPhoneNumber);
+            writer.writeStringValue("contactITPhoneNumber", this.contactITPhoneNumber);
         }
         if(this.darkBackgroundLogo){
-        writer.writeObjectValue<MimeContentImpl>("darkBackgroundLogo", new MimeContentImpl(this.darkBackgroundLogo));
+            writer.writeObjectValue<MimeContentImpl>("darkBackgroundLogo", new MimeContentImpl(this.darkBackgroundLogo));
         }
         if(this.displayName){
-        writer.writeStringValue("displayName", this.displayName);
+            writer.writeStringValue("displayName", this.displayName);
         }
         if(this.lightBackgroundLogo){
-        writer.writeObjectValue<MimeContentImpl>("lightBackgroundLogo", new MimeContentImpl(this.lightBackgroundLogo));
+            writer.writeObjectValue<MimeContentImpl>("lightBackgroundLogo", new MimeContentImpl(this.lightBackgroundLogo));
         }
         if(this.onlineSupportSiteName){
-        writer.writeStringValue("onlineSupportSiteName", this.onlineSupportSiteName);
+            writer.writeStringValue("onlineSupportSiteName", this.onlineSupportSiteName);
         }
         if(this.onlineSupportSiteUrl){
-        writer.writeStringValue("onlineSupportSiteUrl", this.onlineSupportSiteUrl);
+            writer.writeStringValue("onlineSupportSiteUrl", this.onlineSupportSiteUrl);
         }
         if(this.privacyUrl){
-        writer.writeStringValue("privacyUrl", this.privacyUrl);
+            writer.writeStringValue("privacyUrl", this.privacyUrl);
         }
         if(this.showDisplayNameNextToLogo){
-        writer.writeBooleanValue("showDisplayNameNextToLogo", this.showDisplayNameNextToLogo);
+            writer.writeBooleanValue("showDisplayNameNextToLogo", this.showDisplayNameNextToLogo);
         }
         if(this.showLogo){
-        writer.writeBooleanValue("showLogo", this.showLogo);
+            writer.writeBooleanValue("showLogo", this.showLogo);
         }
         if(this.showNameNextToLogo){
-        writer.writeBooleanValue("showNameNextToLogo", this.showNameNextToLogo);
+            writer.writeBooleanValue("showNameNextToLogo", this.showNameNextToLogo);
         }
         if(this.themeColor){
-        writer.writeObjectValue<RgbColorImpl>("themeColor", new RgbColorImpl(this.themeColor));
+            writer.writeObjectValue<RgbColorImpl>("themeColor", new RgbColorImpl(this.themeColor));
         }
         writer.writeAdditionalData(this.additionalData);
     };

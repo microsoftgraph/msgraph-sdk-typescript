@@ -5,7 +5,7 @@ import {UnifiedRoleManagementPolicyRuleTarget} from './unifiedRoleManagementPoli
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the policyRoot singleton. */
-export class UnifiedRoleManagementPolicyRuleImpl extends EntityImpl implements Parsable, UnifiedRoleManagementPolicyRule {
+export class UnifiedRoleManagementPolicyRuleImpl extends EntityImpl implements UnifiedRoleManagementPolicyRule {
     /** The target for the policy rule. */
     public target?: UnifiedRoleManagementPolicyRuleTarget | undefined;
     /**
@@ -13,8 +13,8 @@ export class UnifiedRoleManagementPolicyRuleImpl extends EntityImpl implements P
      * @param unifiedRoleManagementPolicyRuleParameterValue 
      */
     public constructor(unifiedRoleManagementPolicyRuleParameterValue?: UnifiedRoleManagementPolicyRule | undefined) {
-        super();
-        this.target = unifiedRoleManagementPolicyRuleParameterValue?.target ;
+        super(unifiedRoleManagementPolicyRuleParameterValue);
+        this.target = unifiedRoleManagementPolicyRuleParameterValue?.target;
     };
     /**
      * The deserialization information for the current model
@@ -33,7 +33,7 @@ export class UnifiedRoleManagementPolicyRuleImpl extends EntityImpl implements P
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.target){
-        writer.writeObjectValue<UnifiedRoleManagementPolicyRuleTargetImpl>("target", new UnifiedRoleManagementPolicyRuleTargetImpl(this.target));
+            writer.writeObjectValue<UnifiedRoleManagementPolicyRuleTargetImpl>("target", new UnifiedRoleManagementPolicyRuleTargetImpl(this.target));
         }
     };
 }

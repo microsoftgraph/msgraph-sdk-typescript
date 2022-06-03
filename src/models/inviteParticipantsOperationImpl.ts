@@ -5,7 +5,7 @@ import {InviteParticipantsOperation} from './inviteParticipantsOperation';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the invite method. */
-export class InviteParticipantsOperationImpl extends CommsOperationImpl implements InviteParticipantsOperation, Parsable {
+export class InviteParticipantsOperationImpl extends CommsOperationImpl implements InviteParticipantsOperation {
     /** The participants to invite. */
     public participants?: InvitationParticipantInfo[] | undefined;
     /**
@@ -13,8 +13,8 @@ export class InviteParticipantsOperationImpl extends CommsOperationImpl implemen
      * @param inviteParticipantsOperationParameterValue 
      */
     public constructor(inviteParticipantsOperationParameterValue?: InviteParticipantsOperation | undefined) {
-        super();
-        this.participants = inviteParticipantsOperationParameterValue?.participants ;
+        super(inviteParticipantsOperationParameterValue);
+        this.participants = inviteParticipantsOperationParameterValue?.participants;
     };
     /**
      * The deserialization information for the current model
@@ -33,7 +33,7 @@ export class InviteParticipantsOperationImpl extends CommsOperationImpl implemen
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.participants && this.participants.length != 0){        const participantsArrValue: InvitationParticipantInfoImpl[] = []; this.participants?.forEach(element => {participantsArrValue.push(new InvitationParticipantInfoImpl(element));});
-        writer.writeCollectionOfObjectValues<InvitationParticipantInfoImpl>("participants", participantsArrValue);
+            writer.writeCollectionOfObjectValues<InvitationParticipantInfoImpl>("participants", participantsArrValue);
         }
     };
 }

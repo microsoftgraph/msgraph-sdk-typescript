@@ -2,7 +2,7 @@ import {GetMemberObjectsResponse} from './getMemberObjectsResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the getMemberObjects method. */
-export class GetMemberObjectsResponseImpl implements AdditionalDataHolder, GetMemberObjectsResponse, Parsable {
+export class GetMemberObjectsResponseImpl implements GetMemberObjectsResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The value property */
@@ -12,8 +12,8 @@ export class GetMemberObjectsResponseImpl implements AdditionalDataHolder, GetMe
      * @param getMemberObjectsResponseParameterValue 
      */
     public constructor(getMemberObjectsResponseParameterValue?: GetMemberObjectsResponse | undefined) {
-        this.additionalData = getMemberObjectsResponseParameterValue?.additionalData ? getMemberObjectsResponseParameterValue?.additionalData! : {}
-        this.value = getMemberObjectsResponseParameterValue?.value ;
+        this.additionalData = getMemberObjectsResponseParameterValue?.additionalData ? getMemberObjectsResponseParameterValue?.additionalData! : {};
+        this.value = getMemberObjectsResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -31,7 +31,7 @@ export class GetMemberObjectsResponseImpl implements AdditionalDataHolder, GetMe
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.value){
-        writer.writeCollectionOfPrimitiveValues<string>("value", this.value);
+            writer.writeCollectionOfPrimitiveValues<string>("value", this.value);
         }
         writer.writeAdditionalData(this.additionalData);
     };

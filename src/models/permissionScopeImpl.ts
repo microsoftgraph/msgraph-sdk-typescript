@@ -1,7 +1,7 @@
 import {PermissionScope} from './permissionScope';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class PermissionScopeImpl implements AdditionalDataHolder, Parsable, PermissionScope {
+export class PermissionScopeImpl implements PermissionScope {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** A description of the delegated permissions, intended to be read by an administrator granting the permission on behalf of all users. This text appears in tenant-wide admin consent experiences. */
@@ -27,16 +27,16 @@ export class PermissionScopeImpl implements AdditionalDataHolder, Parsable, Perm
      * @param permissionScopeParameterValue 
      */
     public constructor(permissionScopeParameterValue?: PermissionScope | undefined) {
-        this.additionalData = permissionScopeParameterValue?.additionalData ? permissionScopeParameterValue?.additionalData! : {}
-        this.adminConsentDescription = permissionScopeParameterValue?.adminConsentDescription ;
-        this.adminConsentDisplayName = permissionScopeParameterValue?.adminConsentDisplayName ;
-        this.id = permissionScopeParameterValue?.id ;
-        this.isEnabled = permissionScopeParameterValue?.isEnabled ;
-        this.origin = permissionScopeParameterValue?.origin ;
-        this.type = permissionScopeParameterValue?.type ;
-        this.userConsentDescription = permissionScopeParameterValue?.userConsentDescription ;
-        this.userConsentDisplayName = permissionScopeParameterValue?.userConsentDisplayName ;
-        this.value = permissionScopeParameterValue?.value ;
+        this.additionalData = permissionScopeParameterValue?.additionalData ? permissionScopeParameterValue?.additionalData! : {};
+        this.adminConsentDescription = permissionScopeParameterValue?.adminConsentDescription;
+        this.adminConsentDisplayName = permissionScopeParameterValue?.adminConsentDisplayName;
+        this.id = permissionScopeParameterValue?.id;
+        this.isEnabled = permissionScopeParameterValue?.isEnabled;
+        this.origin = permissionScopeParameterValue?.origin;
+        this.type = permissionScopeParameterValue?.type;
+        this.userConsentDescription = permissionScopeParameterValue?.userConsentDescription;
+        this.userConsentDisplayName = permissionScopeParameterValue?.userConsentDisplayName;
+        this.value = permissionScopeParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -62,31 +62,31 @@ export class PermissionScopeImpl implements AdditionalDataHolder, Parsable, Perm
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.adminConsentDescription){
-        writer.writeStringValue("adminConsentDescription", this.adminConsentDescription);
+            writer.writeStringValue("adminConsentDescription", this.adminConsentDescription);
         }
         if(this.adminConsentDisplayName){
-        writer.writeStringValue("adminConsentDisplayName", this.adminConsentDisplayName);
+            writer.writeStringValue("adminConsentDisplayName", this.adminConsentDisplayName);
         }
         if(this.id){
-        writer.writeStringValue("id", this.id);
+            writer.writeStringValue("id", this.id);
         }
         if(this.isEnabled){
-        writer.writeBooleanValue("isEnabled", this.isEnabled);
+            writer.writeBooleanValue("isEnabled", this.isEnabled);
         }
         if(this.origin){
-        writer.writeStringValue("origin", this.origin);
+            writer.writeStringValue("origin", this.origin);
         }
         if(this.type){
-        writer.writeStringValue("type", this.type);
+            writer.writeStringValue("type", this.type);
         }
         if(this.userConsentDescription){
-        writer.writeStringValue("userConsentDescription", this.userConsentDescription);
+            writer.writeStringValue("userConsentDescription", this.userConsentDescription);
         }
         if(this.userConsentDisplayName){
-        writer.writeStringValue("userConsentDisplayName", this.userConsentDisplayName);
+            writer.writeStringValue("userConsentDisplayName", this.userConsentDisplayName);
         }
         if(this.value){
-        writer.writeStringValue("value", this.value);
+            writer.writeStringValue("value", this.value);
         }
         writer.writeAdditionalData(this.additionalData);
     };

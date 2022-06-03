@@ -1,7 +1,7 @@
 import {InformationalUrl} from './informationalUrl';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class InformationalUrlImpl implements AdditionalDataHolder, InformationalUrl, Parsable {
+export class InformationalUrlImpl implements InformationalUrl {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** CDN URL to the application's logo, Read-only. */
@@ -19,12 +19,12 @@ export class InformationalUrlImpl implements AdditionalDataHolder, Informational
      * @param informationalUrlParameterValue 
      */
     public constructor(informationalUrlParameterValue?: InformationalUrl | undefined) {
-        this.additionalData = informationalUrlParameterValue?.additionalData ? informationalUrlParameterValue?.additionalData! : {}
-        this.logoUrl = informationalUrlParameterValue?.logoUrl ;
-        this.marketingUrl = informationalUrlParameterValue?.marketingUrl ;
-        this.privacyStatementUrl = informationalUrlParameterValue?.privacyStatementUrl ;
-        this.supportUrl = informationalUrlParameterValue?.supportUrl ;
-        this.termsOfServiceUrl = informationalUrlParameterValue?.termsOfServiceUrl ;
+        this.additionalData = informationalUrlParameterValue?.additionalData ? informationalUrlParameterValue?.additionalData! : {};
+        this.logoUrl = informationalUrlParameterValue?.logoUrl;
+        this.marketingUrl = informationalUrlParameterValue?.marketingUrl;
+        this.privacyStatementUrl = informationalUrlParameterValue?.privacyStatementUrl;
+        this.supportUrl = informationalUrlParameterValue?.supportUrl;
+        this.termsOfServiceUrl = informationalUrlParameterValue?.termsOfServiceUrl;
     };
     /**
      * The deserialization information for the current model
@@ -46,19 +46,19 @@ export class InformationalUrlImpl implements AdditionalDataHolder, Informational
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.logoUrl){
-        writer.writeStringValue("logoUrl", this.logoUrl);
+            writer.writeStringValue("logoUrl", this.logoUrl);
         }
         if(this.marketingUrl){
-        writer.writeStringValue("marketingUrl", this.marketingUrl);
+            writer.writeStringValue("marketingUrl", this.marketingUrl);
         }
         if(this.privacyStatementUrl){
-        writer.writeStringValue("privacyStatementUrl", this.privacyStatementUrl);
+            writer.writeStringValue("privacyStatementUrl", this.privacyStatementUrl);
         }
         if(this.supportUrl){
-        writer.writeStringValue("supportUrl", this.supportUrl);
+            writer.writeStringValue("supportUrl", this.supportUrl);
         }
         if(this.termsOfServiceUrl){
-        writer.writeStringValue("termsOfServiceUrl", this.termsOfServiceUrl);
+            writer.writeStringValue("termsOfServiceUrl", this.termsOfServiceUrl);
         }
         writer.writeAdditionalData(this.additionalData);
     };

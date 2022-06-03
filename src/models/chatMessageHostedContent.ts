@@ -1,4 +1,5 @@
 import {TeamworkHostedContent} from './teamworkHostedContent';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface ChatMessageHostedContent extends TeamworkHostedContent{
+export interface ChatMessageHostedContent extends Partial<Parsable>, TeamworkHostedContent {
 }

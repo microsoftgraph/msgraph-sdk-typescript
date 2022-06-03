@@ -7,7 +7,7 @@ import {TransferPostRequestBody} from './transferPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the transfer method. */
-export class TransferPostRequestBodyImpl implements AdditionalDataHolder, Parsable, TransferPostRequestBody {
+export class TransferPostRequestBodyImpl implements TransferPostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The transferee property */
@@ -19,9 +19,9 @@ export class TransferPostRequestBodyImpl implements AdditionalDataHolder, Parsab
      * @param transferPostRequestBodyParameterValue 
      */
     public constructor(transferPostRequestBodyParameterValue?: TransferPostRequestBody | undefined) {
-        this.additionalData = transferPostRequestBodyParameterValue?.additionalData ? transferPostRequestBodyParameterValue?.additionalData! : {}
-        this.transferee = transferPostRequestBodyParameterValue?.transferee ;
-        this.transferTarget = transferPostRequestBodyParameterValue?.transferTarget ;
+        this.additionalData = transferPostRequestBodyParameterValue?.additionalData ? transferPostRequestBodyParameterValue?.additionalData! : {};
+        this.transferee = transferPostRequestBodyParameterValue?.transferee;
+        this.transferTarget = transferPostRequestBodyParameterValue?.transferTarget;
     };
     /**
      * The deserialization information for the current model
@@ -40,10 +40,10 @@ export class TransferPostRequestBodyImpl implements AdditionalDataHolder, Parsab
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.transferee){
-        writer.writeObjectValue<ParticipantInfoImpl>("transferee", new ParticipantInfoImpl(this.transferee));
+            writer.writeObjectValue<ParticipantInfoImpl>("transferee", new ParticipantInfoImpl(this.transferee));
         }
         if(this.transferTarget){
-        writer.writeObjectValue<InvitationParticipantInfoImpl>("transferTarget", new InvitationParticipantInfoImpl(this.transferTarget));
+            writer.writeObjectValue<InvitationParticipantInfoImpl>("transferTarget", new InvitationParticipantInfoImpl(this.transferTarget));
         }
         writer.writeAdditionalData(this.additionalData);
     };

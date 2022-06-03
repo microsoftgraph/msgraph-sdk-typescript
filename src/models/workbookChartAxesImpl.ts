@@ -4,8 +4,8 @@ import {WorkbookChartAxes} from './workbookChartAxes';
 import {WorkbookChartAxis} from './workbookChartAxis';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
-export class WorkbookChartAxesImpl extends EntityImpl implements Parsable, WorkbookChartAxes {
+/** Casts the previous resource to group. */
+export class WorkbookChartAxesImpl extends EntityImpl implements WorkbookChartAxes {
     /** Represents the category axis in a chart. Read-only. */
     public categoryAxis?: WorkbookChartAxis | undefined;
     /** Represents the series axis of a 3-dimensional chart. Read-only. */
@@ -17,10 +17,10 @@ export class WorkbookChartAxesImpl extends EntityImpl implements Parsable, Workb
      * @param workbookChartAxesParameterValue 
      */
     public constructor(workbookChartAxesParameterValue?: WorkbookChartAxes | undefined) {
-        super();
-        this.categoryAxis = workbookChartAxesParameterValue?.categoryAxis ;
-        this.seriesAxis = workbookChartAxesParameterValue?.seriesAxis ;
-        this.valueAxis = workbookChartAxesParameterValue?.valueAxis ;
+        super(workbookChartAxesParameterValue);
+        this.categoryAxis = workbookChartAxesParameterValue?.categoryAxis;
+        this.seriesAxis = workbookChartAxesParameterValue?.seriesAxis;
+        this.valueAxis = workbookChartAxesParameterValue?.valueAxis;
     };
     /**
      * The deserialization information for the current model
@@ -41,13 +41,13 @@ export class WorkbookChartAxesImpl extends EntityImpl implements Parsable, Workb
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.categoryAxis){
-        writer.writeObjectValue<WorkbookChartAxisImpl>("categoryAxis", new WorkbookChartAxisImpl(this.categoryAxis));
+            writer.writeObjectValue<WorkbookChartAxisImpl>("categoryAxis", new WorkbookChartAxisImpl(this.categoryAxis));
         }
         if(this.seriesAxis){
-        writer.writeObjectValue<WorkbookChartAxisImpl>("seriesAxis", new WorkbookChartAxisImpl(this.seriesAxis));
+            writer.writeObjectValue<WorkbookChartAxisImpl>("seriesAxis", new WorkbookChartAxisImpl(this.seriesAxis));
         }
         if(this.valueAxis){
-        writer.writeObjectValue<WorkbookChartAxisImpl>("valueAxis", new WorkbookChartAxisImpl(this.valueAxis));
+            writer.writeObjectValue<WorkbookChartAxisImpl>("valueAxis", new WorkbookChartAxisImpl(this.valueAxis));
         }
     };
 }

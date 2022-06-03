@@ -3,7 +3,7 @@ import {OpenShiftItem} from './openShiftItem';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Casts the previous resource to group. */
-export class OpenShiftItemImpl extends ShiftItemImpl implements OpenShiftItem, Parsable {
+export class OpenShiftItemImpl extends ShiftItemImpl implements OpenShiftItem {
     /** Count of the number of slots for the given open shift. */
     public openSlotCount?: number | undefined;
     /**
@@ -11,8 +11,8 @@ export class OpenShiftItemImpl extends ShiftItemImpl implements OpenShiftItem, P
      * @param openShiftItemParameterValue 
      */
     public constructor(openShiftItemParameterValue?: OpenShiftItem | undefined) {
-        super();
-        this.openSlotCount = openShiftItemParameterValue?.openSlotCount ;
+        super(openShiftItemParameterValue);
+        this.openSlotCount = openShiftItemParameterValue?.openSlotCount;
     };
     /**
      * The deserialization information for the current model
@@ -31,7 +31,7 @@ export class OpenShiftItemImpl extends ShiftItemImpl implements OpenShiftItem, P
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.openSlotCount){
-        writer.writeNumberValue("openSlotCount", this.openSlotCount);
+            writer.writeNumberValue("openSlotCount", this.openSlotCount);
         }
     };
 }

@@ -5,7 +5,7 @@ import {UserScopeTeamsAppInstallation} from './userScopeTeamsAppInstallation';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Casts the previous resource to user. */
-export class UserScopeTeamsAppInstallationImpl extends TeamsAppInstallationImpl implements Parsable, UserScopeTeamsAppInstallation {
+export class UserScopeTeamsAppInstallationImpl extends TeamsAppInstallationImpl implements UserScopeTeamsAppInstallation {
     /** The chat between the user and Teams app. */
     public chat?: Chat | undefined;
     /**
@@ -13,8 +13,8 @@ export class UserScopeTeamsAppInstallationImpl extends TeamsAppInstallationImpl 
      * @param userScopeTeamsAppInstallationParameterValue 
      */
     public constructor(userScopeTeamsAppInstallationParameterValue?: UserScopeTeamsAppInstallation | undefined) {
-        super();
-        this.chat = userScopeTeamsAppInstallationParameterValue?.chat ;
+        super(userScopeTeamsAppInstallationParameterValue);
+        this.chat = userScopeTeamsAppInstallationParameterValue?.chat;
     };
     /**
      * The deserialization information for the current model
@@ -33,7 +33,7 @@ export class UserScopeTeamsAppInstallationImpl extends TeamsAppInstallationImpl 
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.chat){
-        writer.writeObjectValue<ChatImpl>("chat", new ChatImpl(this.chat));
+            writer.writeObjectValue<ChatImpl>("chat", new ChatImpl(this.chat));
         }
     };
 }

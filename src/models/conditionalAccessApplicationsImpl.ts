@@ -1,7 +1,7 @@
 import {ConditionalAccessApplications} from './conditionalAccessApplications';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ConditionalAccessApplicationsImpl implements AdditionalDataHolder, ConditionalAccessApplications, Parsable {
+export class ConditionalAccessApplicationsImpl implements ConditionalAccessApplications {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The list of application IDs explicitly excluded from the policy. */
@@ -17,11 +17,11 @@ export class ConditionalAccessApplicationsImpl implements AdditionalDataHolder, 
      * @param conditionalAccessApplicationsParameterValue 
      */
     public constructor(conditionalAccessApplicationsParameterValue?: ConditionalAccessApplications | undefined) {
-        this.additionalData = conditionalAccessApplicationsParameterValue?.additionalData ? conditionalAccessApplicationsParameterValue?.additionalData! : {}
-        this.excludeApplications = conditionalAccessApplicationsParameterValue?.excludeApplications ;
-        this.includeApplications = conditionalAccessApplicationsParameterValue?.includeApplications ;
-        this.includeAuthenticationContextClassReferences = conditionalAccessApplicationsParameterValue?.includeAuthenticationContextClassReferences ;
-        this.includeUserActions = conditionalAccessApplicationsParameterValue?.includeUserActions ;
+        this.additionalData = conditionalAccessApplicationsParameterValue?.additionalData ? conditionalAccessApplicationsParameterValue?.additionalData! : {};
+        this.excludeApplications = conditionalAccessApplicationsParameterValue?.excludeApplications;
+        this.includeApplications = conditionalAccessApplicationsParameterValue?.includeApplications;
+        this.includeAuthenticationContextClassReferences = conditionalAccessApplicationsParameterValue?.includeAuthenticationContextClassReferences;
+        this.includeUserActions = conditionalAccessApplicationsParameterValue?.includeUserActions;
     };
     /**
      * The deserialization information for the current model
@@ -42,16 +42,16 @@ export class ConditionalAccessApplicationsImpl implements AdditionalDataHolder, 
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.excludeApplications){
-        writer.writeCollectionOfPrimitiveValues<string>("excludeApplications", this.excludeApplications);
+            writer.writeCollectionOfPrimitiveValues<string>("excludeApplications", this.excludeApplications);
         }
         if(this.includeApplications){
-        writer.writeCollectionOfPrimitiveValues<string>("includeApplications", this.includeApplications);
+            writer.writeCollectionOfPrimitiveValues<string>("includeApplications", this.includeApplications);
         }
         if(this.includeAuthenticationContextClassReferences){
-        writer.writeCollectionOfPrimitiveValues<string>("includeAuthenticationContextClassReferences", this.includeAuthenticationContextClassReferences);
+            writer.writeCollectionOfPrimitiveValues<string>("includeAuthenticationContextClassReferences", this.includeAuthenticationContextClassReferences);
         }
         if(this.includeUserActions){
-        writer.writeCollectionOfPrimitiveValues<string>("includeUserActions", this.includeUserActions);
+            writer.writeCollectionOfPrimitiveValues<string>("includeUserActions", this.includeUserActions);
         }
         writer.writeAdditionalData(this.additionalData);
     };

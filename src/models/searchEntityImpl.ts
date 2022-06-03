@@ -3,13 +3,13 @@ import {SearchEntity} from './searchEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the searchEntity singleton. */
-export class SearchEntityImpl extends EntityImpl implements Parsable, SearchEntity {
+export class SearchEntityImpl extends EntityImpl implements SearchEntity {
     /**
      * Instantiates a new searchEntity and sets the default values.
      * @param searchEntityParameterValue 
      */
     public constructor(searchEntityParameterValue?: SearchEntity | undefined) {
-        super();
+        super(searchEntityParameterValue);
     };
     /**
      * The deserialization information for the current model

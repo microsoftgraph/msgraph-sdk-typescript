@@ -4,7 +4,7 @@ import {DeviceComplianceSettingStateCollectionResponse} from './deviceCompliance
 import {DeviceComplianceSettingStateImpl} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class DeviceComplianceSettingStateCollectionResponseImpl implements AdditionalDataHolder, DeviceComplianceSettingStateCollectionResponse, Parsable {
+export class DeviceComplianceSettingStateCollectionResponseImpl implements DeviceComplianceSettingStateCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class DeviceComplianceSettingStateCollectionResponseImpl implements Addit
      * @param deviceComplianceSettingStateCollectionResponseParameterValue 
      */
     public constructor(deviceComplianceSettingStateCollectionResponseParameterValue?: DeviceComplianceSettingStateCollectionResponse | undefined) {
-        this.additionalData = deviceComplianceSettingStateCollectionResponseParameterValue?.additionalData ? deviceComplianceSettingStateCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = deviceComplianceSettingStateCollectionResponseParameterValue?.nextLink ;
-        this.value = deviceComplianceSettingStateCollectionResponseParameterValue?.value ;
+        this.additionalData = deviceComplianceSettingStateCollectionResponseParameterValue?.additionalData ? deviceComplianceSettingStateCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = deviceComplianceSettingStateCollectionResponseParameterValue?.nextLink;
+        this.value = deviceComplianceSettingStateCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class DeviceComplianceSettingStateCollectionResponseImpl implements Addit
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: DeviceComplianceSettingStateImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new DeviceComplianceSettingStateImpl(element));});
-        writer.writeCollectionOfObjectValues<DeviceComplianceSettingStateImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<DeviceComplianceSettingStateImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

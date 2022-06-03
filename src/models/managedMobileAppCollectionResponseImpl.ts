@@ -4,7 +4,7 @@ import {ManagedMobileApp} from './managedMobileApp';
 import {ManagedMobileAppCollectionResponse} from './managedMobileAppCollectionResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ManagedMobileAppCollectionResponseImpl implements AdditionalDataHolder, ManagedMobileAppCollectionResponse, Parsable {
+export class ManagedMobileAppCollectionResponseImpl implements ManagedMobileAppCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class ManagedMobileAppCollectionResponseImpl implements AdditionalDataHol
      * @param managedMobileAppCollectionResponseParameterValue 
      */
     public constructor(managedMobileAppCollectionResponseParameterValue?: ManagedMobileAppCollectionResponse | undefined) {
-        this.additionalData = managedMobileAppCollectionResponseParameterValue?.additionalData ? managedMobileAppCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = managedMobileAppCollectionResponseParameterValue?.nextLink ;
-        this.value = managedMobileAppCollectionResponseParameterValue?.value ;
+        this.additionalData = managedMobileAppCollectionResponseParameterValue?.additionalData ? managedMobileAppCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = managedMobileAppCollectionResponseParameterValue?.nextLink;
+        this.value = managedMobileAppCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class ManagedMobileAppCollectionResponseImpl implements AdditionalDataHol
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: ManagedMobileAppImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ManagedMobileAppImpl(element));});
-        writer.writeCollectionOfObjectValues<ManagedMobileAppImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<ManagedMobileAppImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

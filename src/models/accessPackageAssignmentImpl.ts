@@ -12,7 +12,7 @@ import {AccessPackageAssignmentPolicyImpl, AccessPackageImpl, AccessPackageSubje
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the identityGovernance singleton. */
-export class AccessPackageAssignmentImpl extends EntityImpl implements AccessPackageAssignment, Parsable {
+export class AccessPackageAssignmentImpl extends EntityImpl implements AccessPackageAssignment {
     /** Read-only. Nullable. Supports $filter (eq) on the id property and $expand query parameters. */
     public accessPackage?: AccessPackage | undefined;
     /** Read-only. Supports $filter (eq) on the id property and $expand query parameters. */
@@ -32,14 +32,14 @@ export class AccessPackageAssignmentImpl extends EntityImpl implements AccessPac
      * @param accessPackageAssignmentParameterValue 
      */
     public constructor(accessPackageAssignmentParameterValue?: AccessPackageAssignment | undefined) {
-        super();
-        this.accessPackage = accessPackageAssignmentParameterValue?.accessPackage ;
-        this.assignmentPolicy = accessPackageAssignmentParameterValue?.assignmentPolicy ;
-        this.expiredDateTime = accessPackageAssignmentParameterValue?.expiredDateTime ;
-        this.schedule = accessPackageAssignmentParameterValue?.schedule ;
-        this.state = accessPackageAssignmentParameterValue?.state ;
-        this.status = accessPackageAssignmentParameterValue?.status ;
-        this.target = accessPackageAssignmentParameterValue?.target ;
+        super(accessPackageAssignmentParameterValue);
+        this.accessPackage = accessPackageAssignmentParameterValue?.accessPackage;
+        this.assignmentPolicy = accessPackageAssignmentParameterValue?.assignmentPolicy;
+        this.expiredDateTime = accessPackageAssignmentParameterValue?.expiredDateTime;
+        this.schedule = accessPackageAssignmentParameterValue?.schedule;
+        this.state = accessPackageAssignmentParameterValue?.state;
+        this.status = accessPackageAssignmentParameterValue?.status;
+        this.target = accessPackageAssignmentParameterValue?.target;
     };
     /**
      * The deserialization information for the current model
@@ -64,25 +64,25 @@ export class AccessPackageAssignmentImpl extends EntityImpl implements AccessPac
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.accessPackage){
-        writer.writeObjectValue<AccessPackageImpl>("accessPackage", new AccessPackageImpl(this.accessPackage));
+            writer.writeObjectValue<AccessPackageImpl>("accessPackage", new AccessPackageImpl(this.accessPackage));
         }
         if(this.assignmentPolicy){
-        writer.writeObjectValue<AccessPackageAssignmentPolicyImpl>("assignmentPolicy", new AccessPackageAssignmentPolicyImpl(this.assignmentPolicy));
+            writer.writeObjectValue<AccessPackageAssignmentPolicyImpl>("assignmentPolicy", new AccessPackageAssignmentPolicyImpl(this.assignmentPolicy));
         }
         if(this.expiredDateTime){
-        writer.writeDateValue("expiredDateTime", this.expiredDateTime);
+            writer.writeDateValue("expiredDateTime", this.expiredDateTime);
         }
         if(this.schedule){
-        writer.writeObjectValue<EntitlementManagementScheduleImpl>("schedule", new EntitlementManagementScheduleImpl(this.schedule));
+            writer.writeObjectValue<EntitlementManagementScheduleImpl>("schedule", new EntitlementManagementScheduleImpl(this.schedule));
         }
         if(this.state){
-        writer.writeEnumValue<AccessPackageAssignmentState>("state", this.state);
+            writer.writeEnumValue<AccessPackageAssignmentState>("state", this.state);
         }
         if(this.status){
-        writer.writeStringValue("status", this.status);
+            writer.writeStringValue("status", this.status);
         }
         if(this.target){
-        writer.writeObjectValue<AccessPackageSubjectImpl>("target", new AccessPackageSubjectImpl(this.target));
+            writer.writeObjectValue<AccessPackageSubjectImpl>("target", new AccessPackageSubjectImpl(this.target));
         }
     };
 }

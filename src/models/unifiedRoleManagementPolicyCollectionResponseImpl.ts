@@ -4,7 +4,7 @@ import {UnifiedRoleManagementPolicy} from './unifiedRoleManagementPolicy';
 import {UnifiedRoleManagementPolicyCollectionResponse} from './unifiedRoleManagementPolicyCollectionResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class UnifiedRoleManagementPolicyCollectionResponseImpl implements AdditionalDataHolder, Parsable, UnifiedRoleManagementPolicyCollectionResponse {
+export class UnifiedRoleManagementPolicyCollectionResponseImpl implements UnifiedRoleManagementPolicyCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class UnifiedRoleManagementPolicyCollectionResponseImpl implements Additi
      * @param unifiedRoleManagementPolicyCollectionResponseParameterValue 
      */
     public constructor(unifiedRoleManagementPolicyCollectionResponseParameterValue?: UnifiedRoleManagementPolicyCollectionResponse | undefined) {
-        this.additionalData = unifiedRoleManagementPolicyCollectionResponseParameterValue?.additionalData ? unifiedRoleManagementPolicyCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = unifiedRoleManagementPolicyCollectionResponseParameterValue?.nextLink ;
-        this.value = unifiedRoleManagementPolicyCollectionResponseParameterValue?.value ;
+        this.additionalData = unifiedRoleManagementPolicyCollectionResponseParameterValue?.additionalData ? unifiedRoleManagementPolicyCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = unifiedRoleManagementPolicyCollectionResponseParameterValue?.nextLink;
+        this.value = unifiedRoleManagementPolicyCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class UnifiedRoleManagementPolicyCollectionResponseImpl implements Additi
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: UnifiedRoleManagementPolicyImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new UnifiedRoleManagementPolicyImpl(element));});
-        writer.writeCollectionOfObjectValues<UnifiedRoleManagementPolicyImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<UnifiedRoleManagementPolicyImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

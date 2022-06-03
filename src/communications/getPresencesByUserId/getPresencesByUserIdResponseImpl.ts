@@ -5,7 +5,7 @@ import {GetPresencesByUserIdResponse} from './getPresencesByUserIdResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the getPresencesByUserId method. */
-export class GetPresencesByUserIdResponseImpl implements AdditionalDataHolder, GetPresencesByUserIdResponse, Parsable {
+export class GetPresencesByUserIdResponseImpl implements GetPresencesByUserIdResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The value property */
@@ -15,8 +15,8 @@ export class GetPresencesByUserIdResponseImpl implements AdditionalDataHolder, G
      * @param getPresencesByUserIdResponseParameterValue 
      */
     public constructor(getPresencesByUserIdResponseParameterValue?: GetPresencesByUserIdResponse | undefined) {
-        this.additionalData = getPresencesByUserIdResponseParameterValue?.additionalData ? getPresencesByUserIdResponseParameterValue?.additionalData! : {}
-        this.value = getPresencesByUserIdResponseParameterValue?.value ;
+        this.additionalData = getPresencesByUserIdResponseParameterValue?.additionalData ? getPresencesByUserIdResponseParameterValue?.additionalData! : {};
+        this.value = getPresencesByUserIdResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -34,7 +34,7 @@ export class GetPresencesByUserIdResponseImpl implements AdditionalDataHolder, G
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.value && this.value.length != 0){        const valueArrValue: PresenceImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new PresenceImpl(element));});
-        writer.writeCollectionOfObjectValues<PresenceImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<PresenceImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

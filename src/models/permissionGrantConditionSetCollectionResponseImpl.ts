@@ -4,7 +4,7 @@ import {PermissionGrantConditionSet} from './permissionGrantConditionSet';
 import {PermissionGrantConditionSetCollectionResponse} from './permissionGrantConditionSetCollectionResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class PermissionGrantConditionSetCollectionResponseImpl implements AdditionalDataHolder, Parsable, PermissionGrantConditionSetCollectionResponse {
+export class PermissionGrantConditionSetCollectionResponseImpl implements PermissionGrantConditionSetCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class PermissionGrantConditionSetCollectionResponseImpl implements Additi
      * @param permissionGrantConditionSetCollectionResponseParameterValue 
      */
     public constructor(permissionGrantConditionSetCollectionResponseParameterValue?: PermissionGrantConditionSetCollectionResponse | undefined) {
-        this.additionalData = permissionGrantConditionSetCollectionResponseParameterValue?.additionalData ? permissionGrantConditionSetCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = permissionGrantConditionSetCollectionResponseParameterValue?.nextLink ;
-        this.value = permissionGrantConditionSetCollectionResponseParameterValue?.value ;
+        this.additionalData = permissionGrantConditionSetCollectionResponseParameterValue?.additionalData ? permissionGrantConditionSetCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = permissionGrantConditionSetCollectionResponseParameterValue?.nextLink;
+        this.value = permissionGrantConditionSetCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class PermissionGrantConditionSetCollectionResponseImpl implements Additi
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: PermissionGrantConditionSetImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new PermissionGrantConditionSetImpl(element));});
-        writer.writeCollectionOfObjectValues<PermissionGrantConditionSetImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<PermissionGrantConditionSetImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

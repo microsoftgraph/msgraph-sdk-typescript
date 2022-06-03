@@ -1,7 +1,7 @@
 import {ChatInfo} from './chatInfo';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ChatInfoImpl implements AdditionalDataHolder, ChatInfo, Parsable {
+export class ChatInfoImpl implements ChatInfo {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The unique identifier for a message in a Microsoft Teams channel. */
@@ -15,10 +15,10 @@ export class ChatInfoImpl implements AdditionalDataHolder, ChatInfo, Parsable {
      * @param chatInfoParameterValue 
      */
     public constructor(chatInfoParameterValue?: ChatInfo | undefined) {
-        this.additionalData = chatInfoParameterValue?.additionalData ? chatInfoParameterValue?.additionalData! : {}
-        this.messageId = chatInfoParameterValue?.messageId ;
-        this.replyChainMessageId = chatInfoParameterValue?.replyChainMessageId ;
-        this.threadId = chatInfoParameterValue?.threadId ;
+        this.additionalData = chatInfoParameterValue?.additionalData ? chatInfoParameterValue?.additionalData! : {};
+        this.messageId = chatInfoParameterValue?.messageId;
+        this.replyChainMessageId = chatInfoParameterValue?.replyChainMessageId;
+        this.threadId = chatInfoParameterValue?.threadId;
     };
     /**
      * The deserialization information for the current model
@@ -38,13 +38,13 @@ export class ChatInfoImpl implements AdditionalDataHolder, ChatInfo, Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.messageId){
-        writer.writeStringValue("messageId", this.messageId);
+            writer.writeStringValue("messageId", this.messageId);
         }
         if(this.replyChainMessageId){
-        writer.writeStringValue("replyChainMessageId", this.replyChainMessageId);
+            writer.writeStringValue("replyChainMessageId", this.replyChainMessageId);
         }
         if(this.threadId){
-        writer.writeStringValue("threadId", this.threadId);
+            writer.writeStringValue("threadId", this.threadId);
         }
         writer.writeAdditionalData(this.additionalData);
     };

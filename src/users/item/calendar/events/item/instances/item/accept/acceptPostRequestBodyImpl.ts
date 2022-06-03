@@ -2,7 +2,7 @@ import {AcceptPostRequestBody} from './acceptPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the accept method. */
-export class AcceptPostRequestBodyImpl implements AcceptPostRequestBody, AdditionalDataHolder, Parsable {
+export class AcceptPostRequestBodyImpl implements AcceptPostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The Comment property */
@@ -14,9 +14,9 @@ export class AcceptPostRequestBodyImpl implements AcceptPostRequestBody, Additio
      * @param acceptPostRequestBodyParameterValue 
      */
     public constructor(acceptPostRequestBodyParameterValue?: AcceptPostRequestBody | undefined) {
-        this.additionalData = acceptPostRequestBodyParameterValue?.additionalData ? acceptPostRequestBodyParameterValue?.additionalData! : {}
-        this.comment = acceptPostRequestBodyParameterValue?.comment ;
-        this.sendResponse = acceptPostRequestBodyParameterValue?.sendResponse ;
+        this.additionalData = acceptPostRequestBodyParameterValue?.additionalData ? acceptPostRequestBodyParameterValue?.additionalData! : {};
+        this.comment = acceptPostRequestBodyParameterValue?.comment;
+        this.sendResponse = acceptPostRequestBodyParameterValue?.sendResponse;
     };
     /**
      * The deserialization information for the current model
@@ -35,10 +35,10 @@ export class AcceptPostRequestBodyImpl implements AcceptPostRequestBody, Additio
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.comment){
-        writer.writeStringValue("comment", this.comment);
+            writer.writeStringValue("comment", this.comment);
         }
         if(this.sendResponse){
-        writer.writeBooleanValue("sendResponse", this.sendResponse);
+            writer.writeBooleanValue("sendResponse", this.sendResponse);
         }
         writer.writeAdditionalData(this.additionalData);
     };

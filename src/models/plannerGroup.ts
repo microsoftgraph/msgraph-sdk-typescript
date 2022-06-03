@@ -1,7 +1,8 @@
 import {Entity} from './entity';
 import {PlannerPlan} from './plannerPlan';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface PlannerGroup extends Entity{
+export interface PlannerGroup extends Entity, Partial<Parsable> {
     /** Read-only. Nullable. Returns the plannerPlans owned by the group. */
-    plans?:PlannerPlan[] | undefined;
+    plans?: PlannerPlan[] | undefined;
 }

@@ -10,7 +10,7 @@ import {AccessReviewSetImpl, AppConsentApprovalRouteImpl, EntitlementManagementI
 import {TermsOfUseContainer} from './termsOfUseContainer';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class IdentityGovernanceImpl implements AdditionalDataHolder, IdentityGovernance, Parsable {
+export class IdentityGovernanceImpl implements IdentityGovernance {
     /** The accessReviews property */
     public accessReviews?: AccessReviewSet | undefined;
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
@@ -26,11 +26,11 @@ export class IdentityGovernanceImpl implements AdditionalDataHolder, IdentityGov
      * @param identityGovernanceParameterValue 
      */
     public constructor(identityGovernanceParameterValue?: IdentityGovernance | undefined) {
-        this.accessReviews = identityGovernanceParameterValue?.accessReviews ;
-        this.additionalData = identityGovernanceParameterValue?.additionalData ? identityGovernanceParameterValue?.additionalData! : {}
-        this.appConsent = identityGovernanceParameterValue?.appConsent ;
-        this.entitlementManagement = identityGovernanceParameterValue?.entitlementManagement ;
-        this.termsOfUse = identityGovernanceParameterValue?.termsOfUse ;
+        this.accessReviews = identityGovernanceParameterValue?.accessReviews;
+        this.additionalData = identityGovernanceParameterValue?.additionalData ? identityGovernanceParameterValue?.additionalData! : {};
+        this.appConsent = identityGovernanceParameterValue?.appConsent;
+        this.entitlementManagement = identityGovernanceParameterValue?.entitlementManagement;
+        this.termsOfUse = identityGovernanceParameterValue?.termsOfUse;
     };
     /**
      * The deserialization information for the current model
@@ -51,16 +51,16 @@ export class IdentityGovernanceImpl implements AdditionalDataHolder, IdentityGov
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.accessReviews){
-        writer.writeObjectValue<AccessReviewSetImpl>("accessReviews", new AccessReviewSetImpl(this.accessReviews));
+            writer.writeObjectValue<AccessReviewSetImpl>("accessReviews", new AccessReviewSetImpl(this.accessReviews));
         }
         if(this.appConsent){
-        writer.writeObjectValue<AppConsentApprovalRouteImpl>("appConsent", new AppConsentApprovalRouteImpl(this.appConsent));
+            writer.writeObjectValue<AppConsentApprovalRouteImpl>("appConsent", new AppConsentApprovalRouteImpl(this.appConsent));
         }
         if(this.entitlementManagement){
-        writer.writeObjectValue<EntitlementManagementImpl>("entitlementManagement", new EntitlementManagementImpl(this.entitlementManagement));
+            writer.writeObjectValue<EntitlementManagementImpl>("entitlementManagement", new EntitlementManagementImpl(this.entitlementManagement));
         }
         if(this.termsOfUse){
-        writer.writeObjectValue<TermsOfUseContainerImpl>("termsOfUse", new TermsOfUseContainerImpl(this.termsOfUse));
+            writer.writeObjectValue<TermsOfUseContainerImpl>("termsOfUse", new TermsOfUseContainerImpl(this.termsOfUse));
         }
         writer.writeAdditionalData(this.additionalData);
     };

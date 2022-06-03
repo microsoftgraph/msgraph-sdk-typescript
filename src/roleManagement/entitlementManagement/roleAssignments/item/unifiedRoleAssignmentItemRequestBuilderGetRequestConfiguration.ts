@@ -1,11 +1,11 @@
 import {UnifiedRoleAssignmentItemRequestBuilderGetQueryParameters} from './unifiedRoleAssignmentItemRequestBuilderGetQueryParameters';
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
-export interface UnifiedRoleAssignmentItemRequestBuilderGetRequestConfiguration{
+export interface UnifiedRoleAssignmentItemRequestBuilderGetRequestConfiguration {
     /** Request headers */
-    headers?:Record<string, string> | undefined;
+    headers?: Record<string, string> | undefined;
     /** Request options */
-    options?:RequestOption[] | undefined;
+    options?: RequestOption[] | undefined;
     /** Request query parameters */
-    queryParameters?:UnifiedRoleAssignmentItemRequestBuilderGetQueryParameters | undefined;
+    queryParameters?: UnifiedRoleAssignmentItemRequestBuilderGetQueryParameters | undefined;
 }

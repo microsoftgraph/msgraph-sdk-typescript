@@ -1,7 +1,7 @@
 import {CalculatedColumn} from './calculatedColumn';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class CalculatedColumnImpl implements AdditionalDataHolder, CalculatedColumn, Parsable {
+export class CalculatedColumnImpl implements CalculatedColumn {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** For dateTime output types, the format of the value. Must be one of dateOnly or dateTime. */
@@ -15,10 +15,10 @@ export class CalculatedColumnImpl implements AdditionalDataHolder, CalculatedCol
      * @param calculatedColumnParameterValue 
      */
     public constructor(calculatedColumnParameterValue?: CalculatedColumn | undefined) {
-        this.additionalData = calculatedColumnParameterValue?.additionalData ? calculatedColumnParameterValue?.additionalData! : {}
-        this.format = calculatedColumnParameterValue?.format ;
-        this.formula = calculatedColumnParameterValue?.formula ;
-        this.outputType = calculatedColumnParameterValue?.outputType ;
+        this.additionalData = calculatedColumnParameterValue?.additionalData ? calculatedColumnParameterValue?.additionalData! : {};
+        this.format = calculatedColumnParameterValue?.format;
+        this.formula = calculatedColumnParameterValue?.formula;
+        this.outputType = calculatedColumnParameterValue?.outputType;
     };
     /**
      * The deserialization information for the current model
@@ -38,13 +38,13 @@ export class CalculatedColumnImpl implements AdditionalDataHolder, CalculatedCol
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.format){
-        writer.writeStringValue("format", this.format);
+            writer.writeStringValue("format", this.format);
         }
         if(this.formula){
-        writer.writeStringValue("formula", this.formula);
+            writer.writeStringValue("formula", this.formula);
         }
         if(this.outputType){
-        writer.writeStringValue("outputType", this.outputType);
+            writer.writeStringValue("outputType", this.outputType);
         }
         writer.writeAdditionalData(this.additionalData);
     };

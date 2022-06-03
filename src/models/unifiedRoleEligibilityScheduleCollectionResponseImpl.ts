@@ -4,7 +4,7 @@ import {UnifiedRoleEligibilitySchedule} from './unifiedRoleEligibilitySchedule';
 import {UnifiedRoleEligibilityScheduleCollectionResponse} from './unifiedRoleEligibilityScheduleCollectionResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class UnifiedRoleEligibilityScheduleCollectionResponseImpl implements AdditionalDataHolder, Parsable, UnifiedRoleEligibilityScheduleCollectionResponse {
+export class UnifiedRoleEligibilityScheduleCollectionResponseImpl implements UnifiedRoleEligibilityScheduleCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class UnifiedRoleEligibilityScheduleCollectionResponseImpl implements Add
      * @param unifiedRoleEligibilityScheduleCollectionResponseParameterValue 
      */
     public constructor(unifiedRoleEligibilityScheduleCollectionResponseParameterValue?: UnifiedRoleEligibilityScheduleCollectionResponse | undefined) {
-        this.additionalData = unifiedRoleEligibilityScheduleCollectionResponseParameterValue?.additionalData ? unifiedRoleEligibilityScheduleCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = unifiedRoleEligibilityScheduleCollectionResponseParameterValue?.nextLink ;
-        this.value = unifiedRoleEligibilityScheduleCollectionResponseParameterValue?.value ;
+        this.additionalData = unifiedRoleEligibilityScheduleCollectionResponseParameterValue?.additionalData ? unifiedRoleEligibilityScheduleCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = unifiedRoleEligibilityScheduleCollectionResponseParameterValue?.nextLink;
+        this.value = unifiedRoleEligibilityScheduleCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class UnifiedRoleEligibilityScheduleCollectionResponseImpl implements Add
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: UnifiedRoleEligibilityScheduleImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new UnifiedRoleEligibilityScheduleImpl(element));});
-        writer.writeCollectionOfObjectValues<UnifiedRoleEligibilityScheduleImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<UnifiedRoleEligibilityScheduleImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

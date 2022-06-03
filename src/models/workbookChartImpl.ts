@@ -16,8 +16,8 @@ import {WorkbookChartTitle} from './workbookChartTitle';
 import {WorkbookWorksheet} from './workbookWorksheet';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
-export class WorkbookChartImpl extends EntityImpl implements Parsable, WorkbookChart {
+/** Casts the previous resource to group. */
+export class WorkbookChartImpl extends EntityImpl implements WorkbookChart {
     /** Represents chart axes. Read-only. */
     public axes?: WorkbookChartAxes | undefined;
     /** Represents the datalabels on the chart. Read-only. */
@@ -47,19 +47,19 @@ export class WorkbookChartImpl extends EntityImpl implements Parsable, WorkbookC
      * @param workbookChartParameterValue 
      */
     public constructor(workbookChartParameterValue?: WorkbookChart | undefined) {
-        super();
-        this.axes = workbookChartParameterValue?.axes ;
-        this.dataLabels = workbookChartParameterValue?.dataLabels ;
-        this.format = workbookChartParameterValue?.format ;
-        this.height = workbookChartParameterValue?.height ;
-        this.left = workbookChartParameterValue?.left ;
-        this.legend = workbookChartParameterValue?.legend ;
-        this.name = workbookChartParameterValue?.name ;
-        this.series = workbookChartParameterValue?.series ;
-        this.title = workbookChartParameterValue?.title ;
-        this.top = workbookChartParameterValue?.top ;
-        this.width = workbookChartParameterValue?.width ;
-        this.worksheet = workbookChartParameterValue?.worksheet ;
+        super(workbookChartParameterValue);
+        this.axes = workbookChartParameterValue?.axes;
+        this.dataLabels = workbookChartParameterValue?.dataLabels;
+        this.format = workbookChartParameterValue?.format;
+        this.height = workbookChartParameterValue?.height;
+        this.left = workbookChartParameterValue?.left;
+        this.legend = workbookChartParameterValue?.legend;
+        this.name = workbookChartParameterValue?.name;
+        this.series = workbookChartParameterValue?.series;
+        this.title = workbookChartParameterValue?.title;
+        this.top = workbookChartParameterValue?.top;
+        this.width = workbookChartParameterValue?.width;
+        this.worksheet = workbookChartParameterValue?.worksheet;
     };
     /**
      * The deserialization information for the current model
@@ -89,40 +89,40 @@ export class WorkbookChartImpl extends EntityImpl implements Parsable, WorkbookC
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.axes){
-        writer.writeObjectValue<WorkbookChartAxesImpl>("axes", new WorkbookChartAxesImpl(this.axes));
+            writer.writeObjectValue<WorkbookChartAxesImpl>("axes", new WorkbookChartAxesImpl(this.axes));
         }
         if(this.dataLabels){
-        writer.writeObjectValue<WorkbookChartDataLabelsImpl>("dataLabels", new WorkbookChartDataLabelsImpl(this.dataLabels));
+            writer.writeObjectValue<WorkbookChartDataLabelsImpl>("dataLabels", new WorkbookChartDataLabelsImpl(this.dataLabels));
         }
         if(this.format){
-        writer.writeObjectValue<WorkbookChartAreaFormatImpl>("format", new WorkbookChartAreaFormatImpl(this.format));
+            writer.writeObjectValue<WorkbookChartAreaFormatImpl>("format", new WorkbookChartAreaFormatImpl(this.format));
         }
         if(this.height){
-        writer.writeNumberValue("height", this.height);
+            writer.writeNumberValue("height", this.height);
         }
         if(this.left){
-        writer.writeNumberValue("left", this.left);
+            writer.writeNumberValue("left", this.left);
         }
         if(this.legend){
-        writer.writeObjectValue<WorkbookChartLegendImpl>("legend", new WorkbookChartLegendImpl(this.legend));
+            writer.writeObjectValue<WorkbookChartLegendImpl>("legend", new WorkbookChartLegendImpl(this.legend));
         }
         if(this.name){
-        writer.writeStringValue("name", this.name);
+            writer.writeStringValue("name", this.name);
         }
         if(this.series && this.series.length != 0){        const seriesArrValue: WorkbookChartSeriesImpl[] = []; this.series?.forEach(element => {seriesArrValue.push(new WorkbookChartSeriesImpl(element));});
-        writer.writeCollectionOfObjectValues<WorkbookChartSeriesImpl>("series", seriesArrValue);
+            writer.writeCollectionOfObjectValues<WorkbookChartSeriesImpl>("series", seriesArrValue);
         }
         if(this.title){
-        writer.writeObjectValue<WorkbookChartTitleImpl>("title", new WorkbookChartTitleImpl(this.title));
+            writer.writeObjectValue<WorkbookChartTitleImpl>("title", new WorkbookChartTitleImpl(this.title));
         }
         if(this.top){
-        writer.writeNumberValue("top", this.top);
+            writer.writeNumberValue("top", this.top);
         }
         if(this.width){
-        writer.writeNumberValue("width", this.width);
+            writer.writeNumberValue("width", this.width);
         }
         if(this.worksheet){
-        writer.writeObjectValue<WorkbookWorksheetImpl>("worksheet", new WorkbookWorksheetImpl(this.worksheet));
+            writer.writeObjectValue<WorkbookWorksheetImpl>("worksheet", new WorkbookWorksheetImpl(this.worksheet));
         }
     };
 }

@@ -5,7 +5,7 @@ import {UpdateWindowsDeviceAccountPostRequestBody} from './updateWindowsDeviceAc
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the updateWindowsDeviceAccount method. */
-export class UpdateWindowsDeviceAccountPostRequestBodyImpl implements AdditionalDataHolder, Parsable, UpdateWindowsDeviceAccountPostRequestBody {
+export class UpdateWindowsDeviceAccountPostRequestBodyImpl implements UpdateWindowsDeviceAccountPostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The updateWindowsDeviceAccountActionParameter property */
@@ -15,8 +15,8 @@ export class UpdateWindowsDeviceAccountPostRequestBodyImpl implements Additional
      * @param updateWindowsDeviceAccountPostRequestBodyParameterValue 
      */
     public constructor(updateWindowsDeviceAccountPostRequestBodyParameterValue?: UpdateWindowsDeviceAccountPostRequestBody | undefined) {
-        this.additionalData = updateWindowsDeviceAccountPostRequestBodyParameterValue?.additionalData ? updateWindowsDeviceAccountPostRequestBodyParameterValue?.additionalData! : {}
-        this.updateWindowsDeviceAccountActionParameter = updateWindowsDeviceAccountPostRequestBodyParameterValue?.updateWindowsDeviceAccountActionParameter ;
+        this.additionalData = updateWindowsDeviceAccountPostRequestBodyParameterValue?.additionalData ? updateWindowsDeviceAccountPostRequestBodyParameterValue?.additionalData! : {};
+        this.updateWindowsDeviceAccountActionParameter = updateWindowsDeviceAccountPostRequestBodyParameterValue?.updateWindowsDeviceAccountActionParameter;
     };
     /**
      * The deserialization information for the current model
@@ -34,7 +34,7 @@ export class UpdateWindowsDeviceAccountPostRequestBodyImpl implements Additional
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.updateWindowsDeviceAccountActionParameter){
-        writer.writeObjectValue<UpdateWindowsDeviceAccountActionParameterImpl>("updateWindowsDeviceAccountActionParameter", new UpdateWindowsDeviceAccountActionParameterImpl(this.updateWindowsDeviceAccountActionParameter));
+            writer.writeObjectValue<UpdateWindowsDeviceAccountActionParameterImpl>("updateWindowsDeviceAccountActionParameter", new UpdateWindowsDeviceAccountActionParameterImpl(this.updateWindowsDeviceAccountActionParameter));
         }
         writer.writeAdditionalData(this.additionalData);
     };

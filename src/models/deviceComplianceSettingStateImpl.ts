@@ -4,7 +4,7 @@ import {EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Device compliance setting State for a given device. */
-export class DeviceComplianceSettingStateImpl extends EntityImpl implements DeviceComplianceSettingState, Parsable {
+export class DeviceComplianceSettingStateImpl extends EntityImpl implements DeviceComplianceSettingState {
     /** The DateTime when device compliance grace period expires */
     public complianceGracePeriodExpirationDateTime?: Date | undefined;
     /** The Device Id that is being reported */
@@ -32,18 +32,18 @@ export class DeviceComplianceSettingStateImpl extends EntityImpl implements Devi
      * @param deviceComplianceSettingStateParameterValue 
      */
     public constructor(deviceComplianceSettingStateParameterValue?: DeviceComplianceSettingState | undefined) {
-        super();
-        this.complianceGracePeriodExpirationDateTime = deviceComplianceSettingStateParameterValue?.complianceGracePeriodExpirationDateTime ;
-        this.deviceId = deviceComplianceSettingStateParameterValue?.deviceId ;
-        this.deviceModel = deviceComplianceSettingStateParameterValue?.deviceModel ;
-        this.deviceName = deviceComplianceSettingStateParameterValue?.deviceName ;
-        this.setting = deviceComplianceSettingStateParameterValue?.setting ;
-        this.settingName = deviceComplianceSettingStateParameterValue?.settingName ;
-        this.state = deviceComplianceSettingStateParameterValue?.state ;
-        this.userEmail = deviceComplianceSettingStateParameterValue?.userEmail ;
-        this.userId = deviceComplianceSettingStateParameterValue?.userId ;
-        this.userName = deviceComplianceSettingStateParameterValue?.userName ;
-        this.userPrincipalName = deviceComplianceSettingStateParameterValue?.userPrincipalName ;
+        super(deviceComplianceSettingStateParameterValue);
+        this.complianceGracePeriodExpirationDateTime = deviceComplianceSettingStateParameterValue?.complianceGracePeriodExpirationDateTime;
+        this.deviceId = deviceComplianceSettingStateParameterValue?.deviceId;
+        this.deviceModel = deviceComplianceSettingStateParameterValue?.deviceModel;
+        this.deviceName = deviceComplianceSettingStateParameterValue?.deviceName;
+        this.setting = deviceComplianceSettingStateParameterValue?.setting;
+        this.settingName = deviceComplianceSettingStateParameterValue?.settingName;
+        this.state = deviceComplianceSettingStateParameterValue?.state;
+        this.userEmail = deviceComplianceSettingStateParameterValue?.userEmail;
+        this.userId = deviceComplianceSettingStateParameterValue?.userId;
+        this.userName = deviceComplianceSettingStateParameterValue?.userName;
+        this.userPrincipalName = deviceComplianceSettingStateParameterValue?.userPrincipalName;
     };
     /**
      * The deserialization information for the current model
@@ -72,37 +72,37 @@ export class DeviceComplianceSettingStateImpl extends EntityImpl implements Devi
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.complianceGracePeriodExpirationDateTime){
-        writer.writeDateValue("complianceGracePeriodExpirationDateTime", this.complianceGracePeriodExpirationDateTime);
+            writer.writeDateValue("complianceGracePeriodExpirationDateTime", this.complianceGracePeriodExpirationDateTime);
         }
         if(this.deviceId){
-        writer.writeStringValue("deviceId", this.deviceId);
+            writer.writeStringValue("deviceId", this.deviceId);
         }
         if(this.deviceModel){
-        writer.writeStringValue("deviceModel", this.deviceModel);
+            writer.writeStringValue("deviceModel", this.deviceModel);
         }
         if(this.deviceName){
-        writer.writeStringValue("deviceName", this.deviceName);
+            writer.writeStringValue("deviceName", this.deviceName);
         }
         if(this.setting){
-        writer.writeStringValue("setting", this.setting);
+            writer.writeStringValue("setting", this.setting);
         }
         if(this.settingName){
-        writer.writeStringValue("settingName", this.settingName);
+            writer.writeStringValue("settingName", this.settingName);
         }
         if(this.state){
-        writer.writeEnumValue<ComplianceStatus>("state", this.state);
+            writer.writeEnumValue<ComplianceStatus>("state", this.state);
         }
         if(this.userEmail){
-        writer.writeStringValue("userEmail", this.userEmail);
+            writer.writeStringValue("userEmail", this.userEmail);
         }
         if(this.userId){
-        writer.writeStringValue("userId", this.userId);
+            writer.writeStringValue("userId", this.userId);
         }
         if(this.userName){
-        writer.writeStringValue("userName", this.userName);
+            writer.writeStringValue("userName", this.userName);
         }
         if(this.userPrincipalName){
-        writer.writeStringValue("userPrincipalName", this.userPrincipalName);
+            writer.writeStringValue("userPrincipalName", this.userPrincipalName);
         }
     };
 }

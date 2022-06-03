@@ -5,7 +5,7 @@ import {EntityImpl, IdentitySetImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the educationRoot singleton. */
-export class EducationOutcomeImpl extends EntityImpl implements EducationOutcome, Parsable {
+export class EducationOutcomeImpl extends EntityImpl implements EducationOutcome {
     /** The individual who updated the resource. */
     public lastModifiedBy?: IdentitySet | undefined;
     /** Moment in time when the resource was last modified.  The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2021 is 2021-01-01T00:00:00Z. */
@@ -15,9 +15,9 @@ export class EducationOutcomeImpl extends EntityImpl implements EducationOutcome
      * @param educationOutcomeParameterValue 
      */
     public constructor(educationOutcomeParameterValue?: EducationOutcome | undefined) {
-        super();
-        this.lastModifiedBy = educationOutcomeParameterValue?.lastModifiedBy ;
-        this.lastModifiedDateTime = educationOutcomeParameterValue?.lastModifiedDateTime ;
+        super(educationOutcomeParameterValue);
+        this.lastModifiedBy = educationOutcomeParameterValue?.lastModifiedBy;
+        this.lastModifiedDateTime = educationOutcomeParameterValue?.lastModifiedDateTime;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class EducationOutcomeImpl extends EntityImpl implements EducationOutcome
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.lastModifiedBy){
-        writer.writeObjectValue<IdentitySetImpl>("lastModifiedBy", new IdentitySetImpl(this.lastModifiedBy));
+            writer.writeObjectValue<IdentitySetImpl>("lastModifiedBy", new IdentitySetImpl(this.lastModifiedBy));
         }
         if(this.lastModifiedDateTime){
-        writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
+            writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
         }
     };
 }

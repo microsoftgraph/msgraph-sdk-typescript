@@ -1,8 +1,8 @@
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
-export interface GetOffice365GroupsActivityFileCountsWithPeriodRequestBuilderGetRequestConfiguration{
+export interface GetOffice365GroupsActivityFileCountsWithPeriodRequestBuilderGetRequestConfiguration {
     /** Request headers */
-    headers?:Record<string, string> | undefined;
+    headers?: Record<string, string> | undefined;
     /** Request options */
-    options?:RequestOption[] | undefined;
+    options?: RequestOption[] | undefined;
 }

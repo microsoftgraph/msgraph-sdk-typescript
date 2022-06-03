@@ -1,7 +1,8 @@
 import {DeviceAndAppManagementAssignmentTarget} from './deviceAndAppManagementAssignmentTarget';
 import {Entity} from './entity';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface DeviceConfigurationAssignment extends Entity{
+export interface DeviceConfigurationAssignment extends Entity, Partial<Parsable> {
     /** The assignment target for the device configuration. */
-    target?:DeviceAndAppManagementAssignmentTarget | undefined;
+    target?: DeviceAndAppManagementAssignmentTarget | undefined;
 }

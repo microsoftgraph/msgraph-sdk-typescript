@@ -3,7 +3,7 @@ import {EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Casts the previous resource to user. */
-export class ChecklistItemImpl extends EntityImpl implements ChecklistItem, Parsable {
+export class ChecklistItemImpl extends EntityImpl implements ChecklistItem {
     /** The date and time when the checklistItem was finished. */
     public checkedDateTime?: Date | undefined;
     /** The date and time when the checklistItem was created. */
@@ -17,11 +17,11 @@ export class ChecklistItemImpl extends EntityImpl implements ChecklistItem, Pars
      * @param checklistItemParameterValue 
      */
     public constructor(checklistItemParameterValue?: ChecklistItem | undefined) {
-        super();
-        this.checkedDateTime = checklistItemParameterValue?.checkedDateTime ;
-        this.createdDateTime = checklistItemParameterValue?.createdDateTime ;
-        this.displayName = checklistItemParameterValue?.displayName ;
-        this.isChecked = checklistItemParameterValue?.isChecked ;
+        super(checklistItemParameterValue);
+        this.checkedDateTime = checklistItemParameterValue?.checkedDateTime;
+        this.createdDateTime = checklistItemParameterValue?.createdDateTime;
+        this.displayName = checklistItemParameterValue?.displayName;
+        this.isChecked = checklistItemParameterValue?.isChecked;
     };
     /**
      * The deserialization information for the current model
@@ -43,16 +43,16 @@ export class ChecklistItemImpl extends EntityImpl implements ChecklistItem, Pars
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.checkedDateTime){
-        writer.writeDateValue("checkedDateTime", this.checkedDateTime);
+            writer.writeDateValue("checkedDateTime", this.checkedDateTime);
         }
         if(this.createdDateTime){
-        writer.writeDateValue("createdDateTime", this.createdDateTime);
+            writer.writeDateValue("createdDateTime", this.createdDateTime);
         }
         if(this.displayName){
-        writer.writeStringValue("displayName", this.displayName);
+            writer.writeStringValue("displayName", this.displayName);
         }
         if(this.isChecked){
-        writer.writeBooleanValue("isChecked", this.isChecked);
+            writer.writeBooleanValue("isChecked", this.isChecked);
         }
     };
 }

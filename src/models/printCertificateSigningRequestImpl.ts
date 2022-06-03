@@ -1,7 +1,7 @@
 import {PrintCertificateSigningRequest} from './printCertificateSigningRequest';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class PrintCertificateSigningRequestImpl implements AdditionalDataHolder, Parsable, PrintCertificateSigningRequest {
+export class PrintCertificateSigningRequestImpl implements PrintCertificateSigningRequest {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** A base64-encoded pkcs10 certificate request. Read-only. */
@@ -13,9 +13,9 @@ export class PrintCertificateSigningRequestImpl implements AdditionalDataHolder,
      * @param printCertificateSigningRequestParameterValue 
      */
     public constructor(printCertificateSigningRequestParameterValue?: PrintCertificateSigningRequest | undefined) {
-        this.additionalData = printCertificateSigningRequestParameterValue?.additionalData ? printCertificateSigningRequestParameterValue?.additionalData! : {}
-        this.content = printCertificateSigningRequestParameterValue?.content ;
-        this.transportKey = printCertificateSigningRequestParameterValue?.transportKey ;
+        this.additionalData = printCertificateSigningRequestParameterValue?.additionalData ? printCertificateSigningRequestParameterValue?.additionalData! : {};
+        this.content = printCertificateSigningRequestParameterValue?.content;
+        this.transportKey = printCertificateSigningRequestParameterValue?.transportKey;
     };
     /**
      * The deserialization information for the current model
@@ -34,10 +34,10 @@ export class PrintCertificateSigningRequestImpl implements AdditionalDataHolder,
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.content){
-        writer.writeStringValue("content", this.content);
+            writer.writeStringValue("content", this.content);
         }
         if(this.transportKey){
-        writer.writeStringValue("transportKey", this.transportKey);
+            writer.writeStringValue("transportKey", this.transportKey);
         }
         writer.writeAdditionalData(this.additionalData);
     };

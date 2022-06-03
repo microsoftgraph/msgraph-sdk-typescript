@@ -1,12 +1,13 @@
 import {Identity} from './identity';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface IdentitySet{
+export interface IdentitySet extends Partial<AdditionalDataHolder>, Partial<Parsable> {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?:Record<string, unknown>;
+    additionalData?: Record<string, unknown>;
     /** The Identity of the Application. This property is read-only. */
-    application?:Identity | undefined;
+    application?: Identity | undefined;
     /** The Identity of the Device. This property is read-only. */
-    device?:Identity | undefined;
+    device?: Identity | undefined;
     /** The Identity of the User. This property is read-only. */
-    user?:Identity | undefined;
+    user?: Identity | undefined;
 }

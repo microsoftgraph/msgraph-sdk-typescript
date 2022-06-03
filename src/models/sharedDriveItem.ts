@@ -5,22 +5,23 @@ import {List} from './list';
 import {ListItem} from './listItem';
 import {Permission} from './permission';
 import {Site} from './site';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface SharedDriveItem extends BaseItem{
+export interface SharedDriveItem extends BaseItem, Partial<Parsable> {
     /** Used to access the underlying driveItem */
-    driveItem?:DriveItem | undefined;
+    driveItem?: DriveItem | undefined;
     /** All driveItems contained in the sharing root. This collection cannot be enumerated. */
-    items?:DriveItem[] | undefined;
+    items?: DriveItem[] | undefined;
     /** Used to access the underlying list */
-    list?:List | undefined;
+    list?: List | undefined;
     /** Used to access the underlying listItem */
-    listItem?:ListItem | undefined;
+    listItem?: ListItem | undefined;
     /** Information about the owner of the shared item being referenced. */
-    owner?:IdentitySet | undefined;
+    owner?: IdentitySet | undefined;
     /** Used to access the permission representing the underlying sharing link */
-    permission?:Permission | undefined;
+    permission?: Permission | undefined;
     /** Used to access the underlying driveItem. Deprecated -- use driveItem instead. */
-    root?:DriveItem | undefined;
+    root?: DriveItem | undefined;
     /** Used to access the underlying site */
-    site?:Site | undefined;
+    site?: Site | undefined;
 }

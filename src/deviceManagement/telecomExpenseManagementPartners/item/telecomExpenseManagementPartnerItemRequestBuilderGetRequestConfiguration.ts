@@ -1,11 +1,11 @@
 import {TelecomExpenseManagementPartnerItemRequestBuilderGetQueryParameters} from './telecomExpenseManagementPartnerItemRequestBuilderGetQueryParameters';
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
-export interface TelecomExpenseManagementPartnerItemRequestBuilderGetRequestConfiguration{
+export interface TelecomExpenseManagementPartnerItemRequestBuilderGetRequestConfiguration {
     /** Request headers */
-    headers?:Record<string, string> | undefined;
+    headers?: Record<string, string> | undefined;
     /** Request options */
-    options?:RequestOption[] | undefined;
+    options?: RequestOption[] | undefined;
     /** Request query parameters */
-    queryParameters?:TelecomExpenseManagementPartnerItemRequestBuilderGetQueryParameters | undefined;
+    queryParameters?: TelecomExpenseManagementPartnerItemRequestBuilderGetQueryParameters | undefined;
 }

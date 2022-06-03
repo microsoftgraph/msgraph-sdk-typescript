@@ -4,7 +4,7 @@ import {DriveItemCollectionResponse} from './driveItemCollectionResponse';
 import {DriveItemImpl} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class DriveItemCollectionResponseImpl implements AdditionalDataHolder, DriveItemCollectionResponse, Parsable {
+export class DriveItemCollectionResponseImpl implements DriveItemCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class DriveItemCollectionResponseImpl implements AdditionalDataHolder, Dr
      * @param driveItemCollectionResponseParameterValue 
      */
     public constructor(driveItemCollectionResponseParameterValue?: DriveItemCollectionResponse | undefined) {
-        this.additionalData = driveItemCollectionResponseParameterValue?.additionalData ? driveItemCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = driveItemCollectionResponseParameterValue?.nextLink ;
-        this.value = driveItemCollectionResponseParameterValue?.value ;
+        this.additionalData = driveItemCollectionResponseParameterValue?.additionalData ? driveItemCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = driveItemCollectionResponseParameterValue?.nextLink;
+        this.value = driveItemCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class DriveItemCollectionResponseImpl implements AdditionalDataHolder, Dr
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: DriveItemImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new DriveItemImpl(element));});
-        writer.writeCollectionOfObjectValues<DriveItemImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<DriveItemImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

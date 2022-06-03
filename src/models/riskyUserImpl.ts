@@ -8,7 +8,7 @@ import {RiskyUserHistoryItem} from './riskyUserHistoryItem';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the identityProtectionRoot singleton. */
-export class RiskyUserImpl extends EntityImpl implements Parsable, RiskyUser {
+export class RiskyUserImpl extends EntityImpl implements RiskyUser {
     /** The activity related to user risk level change */
     public history?: RiskyUserHistoryItem[] | undefined;
     /** Indicates whether the user is deleted. Possible values are: true, false. */
@@ -32,16 +32,16 @@ export class RiskyUserImpl extends EntityImpl implements Parsable, RiskyUser {
      * @param riskyUserParameterValue 
      */
     public constructor(riskyUserParameterValue?: RiskyUser | undefined) {
-        super();
-        this.history = riskyUserParameterValue?.history ;
-        this.isDeleted = riskyUserParameterValue?.isDeleted ;
-        this.isProcessing = riskyUserParameterValue?.isProcessing ;
-        this.riskDetail = riskyUserParameterValue?.riskDetail ;
-        this.riskLastUpdatedDateTime = riskyUserParameterValue?.riskLastUpdatedDateTime ;
-        this.riskLevel = riskyUserParameterValue?.riskLevel ;
-        this.riskState = riskyUserParameterValue?.riskState ;
-        this.userDisplayName = riskyUserParameterValue?.userDisplayName ;
-        this.userPrincipalName = riskyUserParameterValue?.userPrincipalName ;
+        super(riskyUserParameterValue);
+        this.history = riskyUserParameterValue?.history;
+        this.isDeleted = riskyUserParameterValue?.isDeleted;
+        this.isProcessing = riskyUserParameterValue?.isProcessing;
+        this.riskDetail = riskyUserParameterValue?.riskDetail;
+        this.riskLastUpdatedDateTime = riskyUserParameterValue?.riskLastUpdatedDateTime;
+        this.riskLevel = riskyUserParameterValue?.riskLevel;
+        this.riskState = riskyUserParameterValue?.riskState;
+        this.userDisplayName = riskyUserParameterValue?.userDisplayName;
+        this.userPrincipalName = riskyUserParameterValue?.userPrincipalName;
     };
     /**
      * The deserialization information for the current model
@@ -68,31 +68,31 @@ export class RiskyUserImpl extends EntityImpl implements Parsable, RiskyUser {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.history && this.history.length != 0){        const historyArrValue: RiskyUserHistoryItemImpl[] = []; this.history?.forEach(element => {historyArrValue.push(new RiskyUserHistoryItemImpl(element));});
-        writer.writeCollectionOfObjectValues<RiskyUserHistoryItemImpl>("history", historyArrValue);
+            writer.writeCollectionOfObjectValues<RiskyUserHistoryItemImpl>("history", historyArrValue);
         }
         if(this.isDeleted){
-        writer.writeBooleanValue("isDeleted", this.isDeleted);
+            writer.writeBooleanValue("isDeleted", this.isDeleted);
         }
         if(this.isProcessing){
-        writer.writeBooleanValue("isProcessing", this.isProcessing);
+            writer.writeBooleanValue("isProcessing", this.isProcessing);
         }
         if(this.riskDetail){
-        writer.writeEnumValue<RiskDetail>("riskDetail", this.riskDetail);
+            writer.writeEnumValue<RiskDetail>("riskDetail", this.riskDetail);
         }
         if(this.riskLastUpdatedDateTime){
-        writer.writeDateValue("riskLastUpdatedDateTime", this.riskLastUpdatedDateTime);
+            writer.writeDateValue("riskLastUpdatedDateTime", this.riskLastUpdatedDateTime);
         }
         if(this.riskLevel){
-        writer.writeEnumValue<RiskLevel>("riskLevel", this.riskLevel);
+            writer.writeEnumValue<RiskLevel>("riskLevel", this.riskLevel);
         }
         if(this.riskState){
-        writer.writeEnumValue<RiskState>("riskState", this.riskState);
+            writer.writeEnumValue<RiskState>("riskState", this.riskState);
         }
         if(this.userDisplayName){
-        writer.writeStringValue("userDisplayName", this.userDisplayName);
+            writer.writeStringValue("userDisplayName", this.userDisplayName);
         }
         if(this.userPrincipalName){
-        writer.writeStringValue("userPrincipalName", this.userPrincipalName);
+            writer.writeStringValue("userPrincipalName", this.userPrincipalName);
         }
     };
 }

@@ -4,7 +4,7 @@ import {createAccessReviewInstanceFromDiscriminatorValue} from './createAccessRe
 import {AccessReviewInstanceImpl} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class AccessReviewInstanceCollectionResponseImpl implements AccessReviewInstanceCollectionResponse, AdditionalDataHolder, Parsable {
+export class AccessReviewInstanceCollectionResponseImpl implements AccessReviewInstanceCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class AccessReviewInstanceCollectionResponseImpl implements AccessReviewI
      * @param accessReviewInstanceCollectionResponseParameterValue 
      */
     public constructor(accessReviewInstanceCollectionResponseParameterValue?: AccessReviewInstanceCollectionResponse | undefined) {
-        this.additionalData = accessReviewInstanceCollectionResponseParameterValue?.additionalData ? accessReviewInstanceCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = accessReviewInstanceCollectionResponseParameterValue?.nextLink ;
-        this.value = accessReviewInstanceCollectionResponseParameterValue?.value ;
+        this.additionalData = accessReviewInstanceCollectionResponseParameterValue?.additionalData ? accessReviewInstanceCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = accessReviewInstanceCollectionResponseParameterValue?.nextLink;
+        this.value = accessReviewInstanceCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class AccessReviewInstanceCollectionResponseImpl implements AccessReviewI
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: AccessReviewInstanceImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new AccessReviewInstanceImpl(element));});
-        writer.writeCollectionOfObjectValues<AccessReviewInstanceImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<AccessReviewInstanceImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

@@ -1,7 +1,7 @@
 import {CertificationControl} from './certificationControl';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class CertificationControlImpl implements AdditionalDataHolder, CertificationControl, Parsable {
+export class CertificationControlImpl implements CertificationControl {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Certification control name */
@@ -13,9 +13,9 @@ export class CertificationControlImpl implements AdditionalDataHolder, Certifica
      * @param certificationControlParameterValue 
      */
     public constructor(certificationControlParameterValue?: CertificationControl | undefined) {
-        this.additionalData = certificationControlParameterValue?.additionalData ? certificationControlParameterValue?.additionalData! : {}
-        this.name = certificationControlParameterValue?.name ;
-        this.url = certificationControlParameterValue?.url ;
+        this.additionalData = certificationControlParameterValue?.additionalData ? certificationControlParameterValue?.additionalData! : {};
+        this.name = certificationControlParameterValue?.name;
+        this.url = certificationControlParameterValue?.url;
     };
     /**
      * The deserialization information for the current model
@@ -34,10 +34,10 @@ export class CertificationControlImpl implements AdditionalDataHolder, Certifica
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.name){
-        writer.writeStringValue("name", this.name);
+            writer.writeStringValue("name", this.name);
         }
         if(this.url){
-        writer.writeStringValue("url", this.url);
+            writer.writeStringValue("url", this.url);
         }
         writer.writeAdditionalData(this.additionalData);
     };

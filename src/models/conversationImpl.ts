@@ -5,7 +5,7 @@ import {ConversationThreadImpl, EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Casts the previous resource to group. */
-export class ConversationImpl extends EntityImpl implements Conversation, Parsable {
+export class ConversationImpl extends EntityImpl implements Conversation {
     /** Indicates whether any of the posts within this Conversation has at least one attachment. Supports $filter (eq, ne) and $search. */
     public hasAttachments?: boolean | undefined;
     /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Supports $filter (eq, ne, le, ge). */
@@ -23,13 +23,13 @@ export class ConversationImpl extends EntityImpl implements Conversation, Parsab
      * @param conversationParameterValue 
      */
     public constructor(conversationParameterValue?: Conversation | undefined) {
-        super();
-        this.hasAttachments = conversationParameterValue?.hasAttachments ;
-        this.lastDeliveredDateTime = conversationParameterValue?.lastDeliveredDateTime ;
-        this.preview = conversationParameterValue?.preview ;
-        this.threads = conversationParameterValue?.threads ;
-        this.topic = conversationParameterValue?.topic ;
-        this.uniqueSenders = conversationParameterValue?.uniqueSenders ;
+        super(conversationParameterValue);
+        this.hasAttachments = conversationParameterValue?.hasAttachments;
+        this.lastDeliveredDateTime = conversationParameterValue?.lastDeliveredDateTime;
+        this.preview = conversationParameterValue?.preview;
+        this.threads = conversationParameterValue?.threads;
+        this.topic = conversationParameterValue?.topic;
+        this.uniqueSenders = conversationParameterValue?.uniqueSenders;
     };
     /**
      * The deserialization information for the current model
@@ -53,22 +53,22 @@ export class ConversationImpl extends EntityImpl implements Conversation, Parsab
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.hasAttachments){
-        writer.writeBooleanValue("hasAttachments", this.hasAttachments);
+            writer.writeBooleanValue("hasAttachments", this.hasAttachments);
         }
         if(this.lastDeliveredDateTime){
-        writer.writeDateValue("lastDeliveredDateTime", this.lastDeliveredDateTime);
+            writer.writeDateValue("lastDeliveredDateTime", this.lastDeliveredDateTime);
         }
         if(this.preview){
-        writer.writeStringValue("preview", this.preview);
+            writer.writeStringValue("preview", this.preview);
         }
         if(this.threads && this.threads.length != 0){        const threadsArrValue: ConversationThreadImpl[] = []; this.threads?.forEach(element => {threadsArrValue.push(new ConversationThreadImpl(element));});
-        writer.writeCollectionOfObjectValues<ConversationThreadImpl>("threads", threadsArrValue);
+            writer.writeCollectionOfObjectValues<ConversationThreadImpl>("threads", threadsArrValue);
         }
         if(this.topic){
-        writer.writeStringValue("topic", this.topic);
+            writer.writeStringValue("topic", this.topic);
         }
         if(this.uniqueSenders){
-        writer.writeCollectionOfPrimitiveValues<string>("uniqueSenders", this.uniqueSenders);
+            writer.writeCollectionOfPrimitiveValues<string>("uniqueSenders", this.uniqueSenders);
         }
     };
 }

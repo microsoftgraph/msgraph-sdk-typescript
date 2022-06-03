@@ -5,7 +5,7 @@ import {GetGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTimeResp
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the getGroupArchivedPrintJobs method. */
-export class GetGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTimeResponseImpl implements AdditionalDataHolder, GetGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTimeResponse, Parsable {
+export class GetGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTimeResponseImpl implements GetGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTimeResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The value property */
@@ -15,8 +15,8 @@ export class GetGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTim
      * @param getGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTimeResponseParameterValue 
      */
     public constructor(getGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTimeResponseParameterValue?: GetGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTimeResponse | undefined) {
-        this.additionalData = getGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTimeResponseParameterValue?.additionalData ? getGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTimeResponseParameterValue?.additionalData! : {}
-        this.value = getGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTimeResponseParameterValue?.value ;
+        this.additionalData = getGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTimeResponseParameterValue?.additionalData ? getGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTimeResponseParameterValue?.additionalData! : {};
+        this.value = getGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTimeResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -34,7 +34,7 @@ export class GetGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTim
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.value && this.value.length != 0){        const valueArrValue: ArchivedPrintJobImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ArchivedPrintJobImpl(element));});
-        writer.writeCollectionOfObjectValues<ArchivedPrintJobImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<ArchivedPrintJobImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

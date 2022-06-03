@@ -3,7 +3,7 @@ import {EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Contains properties for the installation summary of a book for a device. */
-export class EBookInstallSummaryImpl extends EntityImpl implements EBookInstallSummary, Parsable {
+export class EBookInstallSummaryImpl extends EntityImpl implements EBookInstallSummary {
     /** Number of Devices that have failed to install this book. */
     public failedDeviceCount?: number | undefined;
     /** Number of Users that have 1 or more device that failed to install this book. */
@@ -21,13 +21,13 @@ export class EBookInstallSummaryImpl extends EntityImpl implements EBookInstallS
      * @param eBookInstallSummaryParameterValue 
      */
     public constructor(eBookInstallSummaryParameterValue?: EBookInstallSummary | undefined) {
-        super();
-        this.failedDeviceCount = eBookInstallSummaryParameterValue?.failedDeviceCount ;
-        this.failedUserCount = eBookInstallSummaryParameterValue?.failedUserCount ;
-        this.installedDeviceCount = eBookInstallSummaryParameterValue?.installedDeviceCount ;
-        this.installedUserCount = eBookInstallSummaryParameterValue?.installedUserCount ;
-        this.notInstalledDeviceCount = eBookInstallSummaryParameterValue?.notInstalledDeviceCount ;
-        this.notInstalledUserCount = eBookInstallSummaryParameterValue?.notInstalledUserCount ;
+        super(eBookInstallSummaryParameterValue);
+        this.failedDeviceCount = eBookInstallSummaryParameterValue?.failedDeviceCount;
+        this.failedUserCount = eBookInstallSummaryParameterValue?.failedUserCount;
+        this.installedDeviceCount = eBookInstallSummaryParameterValue?.installedDeviceCount;
+        this.installedUserCount = eBookInstallSummaryParameterValue?.installedUserCount;
+        this.notInstalledDeviceCount = eBookInstallSummaryParameterValue?.notInstalledDeviceCount;
+        this.notInstalledUserCount = eBookInstallSummaryParameterValue?.notInstalledUserCount;
     };
     /**
      * The deserialization information for the current model
@@ -51,22 +51,22 @@ export class EBookInstallSummaryImpl extends EntityImpl implements EBookInstallS
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.failedDeviceCount){
-        writer.writeNumberValue("failedDeviceCount", this.failedDeviceCount);
+            writer.writeNumberValue("failedDeviceCount", this.failedDeviceCount);
         }
         if(this.failedUserCount){
-        writer.writeNumberValue("failedUserCount", this.failedUserCount);
+            writer.writeNumberValue("failedUserCount", this.failedUserCount);
         }
         if(this.installedDeviceCount){
-        writer.writeNumberValue("installedDeviceCount", this.installedDeviceCount);
+            writer.writeNumberValue("installedDeviceCount", this.installedDeviceCount);
         }
         if(this.installedUserCount){
-        writer.writeNumberValue("installedUserCount", this.installedUserCount);
+            writer.writeNumberValue("installedUserCount", this.installedUserCount);
         }
         if(this.notInstalledDeviceCount){
-        writer.writeNumberValue("notInstalledDeviceCount", this.notInstalledDeviceCount);
+            writer.writeNumberValue("notInstalledDeviceCount", this.notInstalledDeviceCount);
         }
         if(this.notInstalledUserCount){
-        writer.writeNumberValue("notInstalledUserCount", this.notInstalledUserCount);
+            writer.writeNumberValue("notInstalledUserCount", this.notInstalledUserCount);
         }
     };
 }

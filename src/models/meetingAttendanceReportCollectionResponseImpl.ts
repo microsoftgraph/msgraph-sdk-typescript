@@ -4,7 +4,7 @@ import {MeetingAttendanceReport} from './meetingAttendanceReport';
 import {MeetingAttendanceReportCollectionResponse} from './meetingAttendanceReportCollectionResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class MeetingAttendanceReportCollectionResponseImpl implements AdditionalDataHolder, MeetingAttendanceReportCollectionResponse, Parsable {
+export class MeetingAttendanceReportCollectionResponseImpl implements MeetingAttendanceReportCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class MeetingAttendanceReportCollectionResponseImpl implements Additional
      * @param meetingAttendanceReportCollectionResponseParameterValue 
      */
     public constructor(meetingAttendanceReportCollectionResponseParameterValue?: MeetingAttendanceReportCollectionResponse | undefined) {
-        this.additionalData = meetingAttendanceReportCollectionResponseParameterValue?.additionalData ? meetingAttendanceReportCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = meetingAttendanceReportCollectionResponseParameterValue?.nextLink ;
-        this.value = meetingAttendanceReportCollectionResponseParameterValue?.value ;
+        this.additionalData = meetingAttendanceReportCollectionResponseParameterValue?.additionalData ? meetingAttendanceReportCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = meetingAttendanceReportCollectionResponseParameterValue?.nextLink;
+        this.value = meetingAttendanceReportCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class MeetingAttendanceReportCollectionResponseImpl implements Additional
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: MeetingAttendanceReportImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new MeetingAttendanceReportImpl(element));});
-        writer.writeCollectionOfObjectValues<MeetingAttendanceReportImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<MeetingAttendanceReportImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

@@ -1,7 +1,7 @@
 import {InvestigationSecurityState} from './investigationSecurityState';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class InvestigationSecurityStateImpl implements AdditionalDataHolder, InvestigationSecurityState, Parsable {
+export class InvestigationSecurityStateImpl implements InvestigationSecurityState {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The name property */
@@ -13,9 +13,9 @@ export class InvestigationSecurityStateImpl implements AdditionalDataHolder, Inv
      * @param investigationSecurityStateParameterValue 
      */
     public constructor(investigationSecurityStateParameterValue?: InvestigationSecurityState | undefined) {
-        this.additionalData = investigationSecurityStateParameterValue?.additionalData ? investigationSecurityStateParameterValue?.additionalData! : {}
-        this.name = investigationSecurityStateParameterValue?.name ;
-        this.status = investigationSecurityStateParameterValue?.status ;
+        this.additionalData = investigationSecurityStateParameterValue?.additionalData ? investigationSecurityStateParameterValue?.additionalData! : {};
+        this.name = investigationSecurityStateParameterValue?.name;
+        this.status = investigationSecurityStateParameterValue?.status;
     };
     /**
      * The deserialization information for the current model
@@ -34,10 +34,10 @@ export class InvestigationSecurityStateImpl implements AdditionalDataHolder, Inv
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.name){
-        writer.writeStringValue("name", this.name);
+            writer.writeStringValue("name", this.name);
         }
         if(this.status){
-        writer.writeStringValue("status", this.status);
+            writer.writeStringValue("status", this.status);
         }
         writer.writeAdditionalData(this.additionalData);
     };

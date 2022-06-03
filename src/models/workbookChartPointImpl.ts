@@ -6,8 +6,8 @@ import {WorkbookChartPoint} from './workbookChartPoint';
 import {WorkbookChartPointFormat} from './workbookChartPointFormat';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
-export class WorkbookChartPointImpl extends EntityImpl implements Parsable, WorkbookChartPoint {
+/** Casts the previous resource to group. */
+export class WorkbookChartPointImpl extends EntityImpl implements WorkbookChartPoint {
     /** Encapsulates the format properties chart point. Read-only. */
     public format?: WorkbookChartPointFormat | undefined;
     /** Returns the value of a chart point. Read-only. */
@@ -17,9 +17,9 @@ export class WorkbookChartPointImpl extends EntityImpl implements Parsable, Work
      * @param workbookChartPointParameterValue 
      */
     public constructor(workbookChartPointParameterValue?: WorkbookChartPoint | undefined) {
-        super();
-        this.format = workbookChartPointParameterValue?.format ;
-        this.value = workbookChartPointParameterValue?.value ;
+        super(workbookChartPointParameterValue);
+        this.format = workbookChartPointParameterValue?.format;
+        this.value = workbookChartPointParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -39,10 +39,10 @@ export class WorkbookChartPointImpl extends EntityImpl implements Parsable, Work
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.format){
-        writer.writeObjectValue<WorkbookChartPointFormatImpl>("format", new WorkbookChartPointFormatImpl(this.format));
+            writer.writeObjectValue<WorkbookChartPointFormatImpl>("format", new WorkbookChartPointFormatImpl(this.format));
         }
         if(this.value){
-        writer.writeObjectValue<JsonImpl>("value", new JsonImpl(this.value));
+            writer.writeObjectValue<JsonImpl>("value", new JsonImpl(this.value));
         }
     };
 }

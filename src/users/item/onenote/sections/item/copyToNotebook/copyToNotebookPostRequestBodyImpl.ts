@@ -2,7 +2,7 @@ import {CopyToNotebookPostRequestBody} from './copyToNotebookPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the copyToNotebook method. */
-export class CopyToNotebookPostRequestBodyImpl implements AdditionalDataHolder, CopyToNotebookPostRequestBody, Parsable {
+export class CopyToNotebookPostRequestBodyImpl implements CopyToNotebookPostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The groupId property */
@@ -20,12 +20,12 @@ export class CopyToNotebookPostRequestBodyImpl implements AdditionalDataHolder, 
      * @param copyToNotebookPostRequestBodyParameterValue 
      */
     public constructor(copyToNotebookPostRequestBodyParameterValue?: CopyToNotebookPostRequestBody | undefined) {
-        this.additionalData = copyToNotebookPostRequestBodyParameterValue?.additionalData ? copyToNotebookPostRequestBodyParameterValue?.additionalData! : {}
-        this.groupId = copyToNotebookPostRequestBodyParameterValue?.groupId ;
-        this.id = copyToNotebookPostRequestBodyParameterValue?.id ;
-        this.renameAs = copyToNotebookPostRequestBodyParameterValue?.renameAs ;
-        this.siteCollectionId = copyToNotebookPostRequestBodyParameterValue?.siteCollectionId ;
-        this.siteId = copyToNotebookPostRequestBodyParameterValue?.siteId ;
+        this.additionalData = copyToNotebookPostRequestBodyParameterValue?.additionalData ? copyToNotebookPostRequestBodyParameterValue?.additionalData! : {};
+        this.groupId = copyToNotebookPostRequestBodyParameterValue?.groupId;
+        this.id = copyToNotebookPostRequestBodyParameterValue?.id;
+        this.renameAs = copyToNotebookPostRequestBodyParameterValue?.renameAs;
+        this.siteCollectionId = copyToNotebookPostRequestBodyParameterValue?.siteCollectionId;
+        this.siteId = copyToNotebookPostRequestBodyParameterValue?.siteId;
     };
     /**
      * The deserialization information for the current model
@@ -47,19 +47,19 @@ export class CopyToNotebookPostRequestBodyImpl implements AdditionalDataHolder, 
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.groupId){
-        writer.writeStringValue("groupId", this.groupId);
+            writer.writeStringValue("groupId", this.groupId);
         }
         if(this.id){
-        writer.writeStringValue("id", this.id);
+            writer.writeStringValue("id", this.id);
         }
         if(this.renameAs){
-        writer.writeStringValue("renameAs", this.renameAs);
+            writer.writeStringValue("renameAs", this.renameAs);
         }
         if(this.siteCollectionId){
-        writer.writeStringValue("siteCollectionId", this.siteCollectionId);
+            writer.writeStringValue("siteCollectionId", this.siteCollectionId);
         }
         if(this.siteId){
-        writer.writeStringValue("siteId", this.siteId);
+            writer.writeStringValue("siteId", this.siteId);
         }
         writer.writeAdditionalData(this.additionalData);
     };

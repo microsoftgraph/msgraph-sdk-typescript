@@ -4,7 +4,7 @@ import {OAuth2PermissionGrant} from './oAuth2PermissionGrant';
 import {OAuth2PermissionGrantCollectionResponse} from './oAuth2PermissionGrantCollectionResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class OAuth2PermissionGrantCollectionResponseImpl implements AdditionalDataHolder, OAuth2PermissionGrantCollectionResponse, Parsable {
+export class OAuth2PermissionGrantCollectionResponseImpl implements OAuth2PermissionGrantCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class OAuth2PermissionGrantCollectionResponseImpl implements AdditionalDa
      * @param oAuth2PermissionGrantCollectionResponseParameterValue 
      */
     public constructor(oAuth2PermissionGrantCollectionResponseParameterValue?: OAuth2PermissionGrantCollectionResponse | undefined) {
-        this.additionalData = oAuth2PermissionGrantCollectionResponseParameterValue?.additionalData ? oAuth2PermissionGrantCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = oAuth2PermissionGrantCollectionResponseParameterValue?.nextLink ;
-        this.value = oAuth2PermissionGrantCollectionResponseParameterValue?.value ;
+        this.additionalData = oAuth2PermissionGrantCollectionResponseParameterValue?.additionalData ? oAuth2PermissionGrantCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = oAuth2PermissionGrantCollectionResponseParameterValue?.nextLink;
+        this.value = oAuth2PermissionGrantCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class OAuth2PermissionGrantCollectionResponseImpl implements AdditionalDa
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: OAuth2PermissionGrantImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new OAuth2PermissionGrantImpl(element));});
-        writer.writeCollectionOfObjectValues<OAuth2PermissionGrantImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<OAuth2PermissionGrantImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

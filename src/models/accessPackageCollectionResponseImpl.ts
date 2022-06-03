@@ -4,7 +4,7 @@ import {createAccessPackageFromDiscriminatorValue} from './createAccessPackageFr
 import {AccessPackageImpl} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class AccessPackageCollectionResponseImpl implements AccessPackageCollectionResponse, AdditionalDataHolder, Parsable {
+export class AccessPackageCollectionResponseImpl implements AccessPackageCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class AccessPackageCollectionResponseImpl implements AccessPackageCollect
      * @param accessPackageCollectionResponseParameterValue 
      */
     public constructor(accessPackageCollectionResponseParameterValue?: AccessPackageCollectionResponse | undefined) {
-        this.additionalData = accessPackageCollectionResponseParameterValue?.additionalData ? accessPackageCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = accessPackageCollectionResponseParameterValue?.nextLink ;
-        this.value = accessPackageCollectionResponseParameterValue?.value ;
+        this.additionalData = accessPackageCollectionResponseParameterValue?.additionalData ? accessPackageCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = accessPackageCollectionResponseParameterValue?.nextLink;
+        this.value = accessPackageCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class AccessPackageCollectionResponseImpl implements AccessPackageCollect
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: AccessPackageImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new AccessPackageImpl(element));});
-        writer.writeCollectionOfObjectValues<AccessPackageImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<AccessPackageImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

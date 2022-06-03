@@ -5,7 +5,7 @@ import {ShiftItem} from './shiftItem';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Casts the previous resource to group. */
-export class ShiftImpl extends ChangeTrackedEntityImpl implements Parsable, Shift {
+export class ShiftImpl extends ChangeTrackedEntityImpl implements Shift {
     /** The draft version of this shift that is viewable by managers. Required. */
     public draftShift?: ShiftItem | undefined;
     /** ID of the scheduling group the shift is part of. Required. */
@@ -19,11 +19,11 @@ export class ShiftImpl extends ChangeTrackedEntityImpl implements Parsable, Shif
      * @param shiftParameterValue 
      */
     public constructor(shiftParameterValue?: Shift | undefined) {
-        super();
-        this.draftShift = shiftParameterValue?.draftShift ;
-        this.schedulingGroupId = shiftParameterValue?.schedulingGroupId ;
-        this.sharedShift = shiftParameterValue?.sharedShift ;
-        this.userId = shiftParameterValue?.userId ;
+        super(shiftParameterValue);
+        this.draftShift = shiftParameterValue?.draftShift;
+        this.schedulingGroupId = shiftParameterValue?.schedulingGroupId;
+        this.sharedShift = shiftParameterValue?.sharedShift;
+        this.userId = shiftParameterValue?.userId;
     };
     /**
      * The deserialization information for the current model
@@ -45,16 +45,16 @@ export class ShiftImpl extends ChangeTrackedEntityImpl implements Parsable, Shif
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.draftShift){
-        writer.writeObjectValue<ShiftItemImpl>("draftShift", new ShiftItemImpl(this.draftShift));
+            writer.writeObjectValue<ShiftItemImpl>("draftShift", new ShiftItemImpl(this.draftShift));
         }
         if(this.schedulingGroupId){
-        writer.writeStringValue("schedulingGroupId", this.schedulingGroupId);
+            writer.writeStringValue("schedulingGroupId", this.schedulingGroupId);
         }
         if(this.sharedShift){
-        writer.writeObjectValue<ShiftItemImpl>("sharedShift", new ShiftItemImpl(this.sharedShift));
+            writer.writeObjectValue<ShiftItemImpl>("sharedShift", new ShiftItemImpl(this.sharedShift));
         }
         if(this.userId){
-        writer.writeStringValue("userId", this.userId);
+            writer.writeStringValue("userId", this.userId);
         }
     };
 }

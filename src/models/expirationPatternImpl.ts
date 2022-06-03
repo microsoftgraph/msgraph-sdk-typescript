@@ -2,7 +2,7 @@ import {ExpirationPattern} from './expirationPattern';
 import {ExpirationPatternType} from './expirationPatternType';
 import {AdditionalDataHolder, Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ExpirationPatternImpl implements AdditionalDataHolder, ExpirationPattern, Parsable {
+export class ExpirationPatternImpl implements ExpirationPattern {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The requestor's desired duration of access represented in ISO 8601 format for durations. For example, PT3H refers to three hours.  If specified in a request, endDateTime should not be present and the type property should be set to afterDuration. */
@@ -16,10 +16,10 @@ export class ExpirationPatternImpl implements AdditionalDataHolder, ExpirationPa
      * @param expirationPatternParameterValue 
      */
     public constructor(expirationPatternParameterValue?: ExpirationPattern | undefined) {
-        this.additionalData = expirationPatternParameterValue?.additionalData ? expirationPatternParameterValue?.additionalData! : {}
-        this.duration = expirationPatternParameterValue?.duration ;
-        this.endDateTime = expirationPatternParameterValue?.endDateTime ;
-        this.type = expirationPatternParameterValue?.type ;
+        this.additionalData = expirationPatternParameterValue?.additionalData ? expirationPatternParameterValue?.additionalData! : {};
+        this.duration = expirationPatternParameterValue?.duration;
+        this.endDateTime = expirationPatternParameterValue?.endDateTime;
+        this.type = expirationPatternParameterValue?.type;
     };
     /**
      * The deserialization information for the current model
@@ -39,13 +39,13 @@ export class ExpirationPatternImpl implements AdditionalDataHolder, ExpirationPa
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.duration){
-        writer.writeDurationValue("duration", this.duration);
+            writer.writeDurationValue("duration", this.duration);
         }
         if(this.endDateTime){
-        writer.writeDateValue("endDateTime", this.endDateTime);
+            writer.writeDateValue("endDateTime", this.endDateTime);
         }
         if(this.type){
-        writer.writeEnumValue<ExpirationPatternType>("type", this.type);
+            writer.writeEnumValue<ExpirationPatternType>("type", this.type);
         }
         writer.writeAdditionalData(this.additionalData);
     };

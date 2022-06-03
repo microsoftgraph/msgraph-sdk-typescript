@@ -4,7 +4,7 @@ import {ExtensionCollectionResponse} from './extensionCollectionResponse';
 import {ExtensionImpl} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ExtensionCollectionResponseImpl implements AdditionalDataHolder, ExtensionCollectionResponse, Parsable {
+export class ExtensionCollectionResponseImpl implements ExtensionCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class ExtensionCollectionResponseImpl implements AdditionalDataHolder, Ex
      * @param extensionCollectionResponseParameterValue 
      */
     public constructor(extensionCollectionResponseParameterValue?: ExtensionCollectionResponse | undefined) {
-        this.additionalData = extensionCollectionResponseParameterValue?.additionalData ? extensionCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = extensionCollectionResponseParameterValue?.nextLink ;
-        this.value = extensionCollectionResponseParameterValue?.value ;
+        this.additionalData = extensionCollectionResponseParameterValue?.additionalData ? extensionCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = extensionCollectionResponseParameterValue?.nextLink;
+        this.value = extensionCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class ExtensionCollectionResponseImpl implements AdditionalDataHolder, Ex
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: ExtensionImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ExtensionImpl(element));});
-        writer.writeCollectionOfObjectValues<ExtensionImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<ExtensionImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

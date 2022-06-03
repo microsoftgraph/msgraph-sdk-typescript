@@ -1,11 +1,11 @@
 import {AuthenticationFlowsPolicyRequestBuilderGetQueryParameters} from './authenticationFlowsPolicyRequestBuilderGetQueryParameters';
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
-export interface AuthenticationFlowsPolicyRequestBuilderGetRequestConfiguration{
+export interface AuthenticationFlowsPolicyRequestBuilderGetRequestConfiguration {
     /** Request headers */
-    headers?:Record<string, string> | undefined;
+    headers?: Record<string, string> | undefined;
     /** Request options */
-    options?:RequestOption[] | undefined;
+    options?: RequestOption[] | undefined;
     /** Request query parameters */
-    queryParameters?:AuthenticationFlowsPolicyRequestBuilderGetQueryParameters | undefined;
+    queryParameters?: AuthenticationFlowsPolicyRequestBuilderGetQueryParameters | undefined;
 }

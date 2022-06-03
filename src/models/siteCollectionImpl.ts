@@ -4,7 +4,7 @@ import {Root} from './root';
 import {SiteCollection} from './siteCollection';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class SiteCollectionImpl implements AdditionalDataHolder, Parsable, SiteCollection {
+export class SiteCollectionImpl implements SiteCollection {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The geographic region code for where this site collection resides. Read-only. */
@@ -18,10 +18,10 @@ export class SiteCollectionImpl implements AdditionalDataHolder, Parsable, SiteC
      * @param siteCollectionParameterValue 
      */
     public constructor(siteCollectionParameterValue?: SiteCollection | undefined) {
-        this.additionalData = siteCollectionParameterValue?.additionalData ? siteCollectionParameterValue?.additionalData! : {}
-        this.dataLocationCode = siteCollectionParameterValue?.dataLocationCode ;
-        this.hostname = siteCollectionParameterValue?.hostname ;
-        this.root = siteCollectionParameterValue?.root ;
+        this.additionalData = siteCollectionParameterValue?.additionalData ? siteCollectionParameterValue?.additionalData! : {};
+        this.dataLocationCode = siteCollectionParameterValue?.dataLocationCode;
+        this.hostname = siteCollectionParameterValue?.hostname;
+        this.root = siteCollectionParameterValue?.root;
     };
     /**
      * The deserialization information for the current model
@@ -41,13 +41,13 @@ export class SiteCollectionImpl implements AdditionalDataHolder, Parsable, SiteC
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.dataLocationCode){
-        writer.writeStringValue("dataLocationCode", this.dataLocationCode);
+            writer.writeStringValue("dataLocationCode", this.dataLocationCode);
         }
         if(this.hostname){
-        writer.writeStringValue("hostname", this.hostname);
+            writer.writeStringValue("hostname", this.hostname);
         }
         if(this.root){
-        writer.writeObjectValue<RootImpl>("root", new RootImpl(this.root));
+            writer.writeObjectValue<RootImpl>("root", new RootImpl(this.root));
         }
         writer.writeAdditionalData(this.additionalData);
     };

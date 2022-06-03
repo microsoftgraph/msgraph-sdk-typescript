@@ -3,13 +3,13 @@ import {UserFlowLanguagePage} from './userFlowLanguagePage';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the identityContainer singleton. */
-export class UserFlowLanguagePageImpl extends EntityImpl implements Parsable, UserFlowLanguagePage {
+export class UserFlowLanguagePageImpl extends EntityImpl implements UserFlowLanguagePage {
     /**
      * Instantiates a new userFlowLanguagePage and sets the default values.
      * @param userFlowLanguagePageParameterValue 
      */
     public constructor(userFlowLanguagePageParameterValue?: UserFlowLanguagePage | undefined) {
-        super();
+        super(userFlowLanguagePageParameterValue);
     };
     /**
      * The deserialization information for the current model

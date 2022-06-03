@@ -2,7 +2,7 @@ import {UploadClientCertificatePostRequestBody} from './uploadClientCertificateP
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the uploadClientCertificate method. */
-export class UploadClientCertificatePostRequestBodyImpl implements AdditionalDataHolder, Parsable, UploadClientCertificatePostRequestBody {
+export class UploadClientCertificatePostRequestBodyImpl implements UploadClientCertificatePostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The password property */
@@ -14,9 +14,9 @@ export class UploadClientCertificatePostRequestBodyImpl implements AdditionalDat
      * @param uploadClientCertificatePostRequestBodyParameterValue 
      */
     public constructor(uploadClientCertificatePostRequestBodyParameterValue?: UploadClientCertificatePostRequestBody | undefined) {
-        this.additionalData = uploadClientCertificatePostRequestBodyParameterValue?.additionalData ? uploadClientCertificatePostRequestBodyParameterValue?.additionalData! : {}
-        this.password = uploadClientCertificatePostRequestBodyParameterValue?.password ;
-        this.pkcs12Value = uploadClientCertificatePostRequestBodyParameterValue?.pkcs12Value ;
+        this.additionalData = uploadClientCertificatePostRequestBodyParameterValue?.additionalData ? uploadClientCertificatePostRequestBodyParameterValue?.additionalData! : {};
+        this.password = uploadClientCertificatePostRequestBodyParameterValue?.password;
+        this.pkcs12Value = uploadClientCertificatePostRequestBodyParameterValue?.pkcs12Value;
     };
     /**
      * The deserialization information for the current model
@@ -35,10 +35,10 @@ export class UploadClientCertificatePostRequestBodyImpl implements AdditionalDat
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.password){
-        writer.writeStringValue("password", this.password);
+            writer.writeStringValue("password", this.password);
         }
         if(this.pkcs12Value){
-        writer.writeStringValue("pkcs12Value", this.pkcs12Value);
+            writer.writeStringValue("pkcs12Value", this.pkcs12Value);
         }
         writer.writeAdditionalData(this.additionalData);
     };

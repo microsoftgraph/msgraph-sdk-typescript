@@ -5,7 +5,7 @@ import {SendMailPostRequestBody} from './sendMailPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the sendMail method. */
-export class SendMailPostRequestBodyImpl implements AdditionalDataHolder, Parsable, SendMailPostRequestBody {
+export class SendMailPostRequestBodyImpl implements SendMailPostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The Message property */
@@ -17,9 +17,9 @@ export class SendMailPostRequestBodyImpl implements AdditionalDataHolder, Parsab
      * @param sendMailPostRequestBodyParameterValue 
      */
     public constructor(sendMailPostRequestBodyParameterValue?: SendMailPostRequestBody | undefined) {
-        this.additionalData = sendMailPostRequestBodyParameterValue?.additionalData ? sendMailPostRequestBodyParameterValue?.additionalData! : {}
-        this.message = sendMailPostRequestBodyParameterValue?.message ;
-        this.saveToSentItems = sendMailPostRequestBodyParameterValue?.saveToSentItems ;
+        this.additionalData = sendMailPostRequestBodyParameterValue?.additionalData ? sendMailPostRequestBodyParameterValue?.additionalData! : {};
+        this.message = sendMailPostRequestBodyParameterValue?.message;
+        this.saveToSentItems = sendMailPostRequestBodyParameterValue?.saveToSentItems;
     };
     /**
      * The deserialization information for the current model
@@ -38,10 +38,10 @@ export class SendMailPostRequestBodyImpl implements AdditionalDataHolder, Parsab
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.message){
-        writer.writeObjectValue<MessageImpl>("message", new MessageImpl(this.message));
+            writer.writeObjectValue<MessageImpl>("message", new MessageImpl(this.message));
         }
         if(this.saveToSentItems){
-        writer.writeBooleanValue("saveToSentItems", this.saveToSentItems);
+            writer.writeBooleanValue("saveToSentItems", this.saveToSentItems);
         }
         writer.writeAdditionalData(this.additionalData);
     };

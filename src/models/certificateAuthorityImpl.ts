@@ -1,7 +1,7 @@
 import {CertificateAuthority} from './certificateAuthority';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class CertificateAuthorityImpl implements AdditionalDataHolder, CertificateAuthority, Parsable {
+export class CertificateAuthorityImpl implements CertificateAuthority {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Required. The base64 encoded string representing the public certificate. */
@@ -21,13 +21,13 @@ export class CertificateAuthorityImpl implements AdditionalDataHolder, Certifica
      * @param certificateAuthorityParameterValue 
      */
     public constructor(certificateAuthorityParameterValue?: CertificateAuthority | undefined) {
-        this.additionalData = certificateAuthorityParameterValue?.additionalData ? certificateAuthorityParameterValue?.additionalData! : {}
-        this.certificate = certificateAuthorityParameterValue?.certificate ;
-        this.certificateRevocationListUrl = certificateAuthorityParameterValue?.certificateRevocationListUrl ;
-        this.deltaCertificateRevocationListUrl = certificateAuthorityParameterValue?.deltaCertificateRevocationListUrl ;
-        this.isRootAuthority = certificateAuthorityParameterValue?.isRootAuthority ;
-        this.issuer = certificateAuthorityParameterValue?.issuer ;
-        this.issuerSki = certificateAuthorityParameterValue?.issuerSki ;
+        this.additionalData = certificateAuthorityParameterValue?.additionalData ? certificateAuthorityParameterValue?.additionalData! : {};
+        this.certificate = certificateAuthorityParameterValue?.certificate;
+        this.certificateRevocationListUrl = certificateAuthorityParameterValue?.certificateRevocationListUrl;
+        this.deltaCertificateRevocationListUrl = certificateAuthorityParameterValue?.deltaCertificateRevocationListUrl;
+        this.isRootAuthority = certificateAuthorityParameterValue?.isRootAuthority;
+        this.issuer = certificateAuthorityParameterValue?.issuer;
+        this.issuerSki = certificateAuthorityParameterValue?.issuerSki;
     };
     /**
      * The deserialization information for the current model
@@ -50,22 +50,22 @@ export class CertificateAuthorityImpl implements AdditionalDataHolder, Certifica
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.certificate){
-        writer.writeStringValue("certificate", this.certificate);
+            writer.writeStringValue("certificate", this.certificate);
         }
         if(this.certificateRevocationListUrl){
-        writer.writeStringValue("certificateRevocationListUrl", this.certificateRevocationListUrl);
+            writer.writeStringValue("certificateRevocationListUrl", this.certificateRevocationListUrl);
         }
         if(this.deltaCertificateRevocationListUrl){
-        writer.writeStringValue("deltaCertificateRevocationListUrl", this.deltaCertificateRevocationListUrl);
+            writer.writeStringValue("deltaCertificateRevocationListUrl", this.deltaCertificateRevocationListUrl);
         }
         if(this.isRootAuthority){
-        writer.writeBooleanValue("isRootAuthority", this.isRootAuthority);
+            writer.writeBooleanValue("isRootAuthority", this.isRootAuthority);
         }
         if(this.issuer){
-        writer.writeStringValue("issuer", this.issuer);
+            writer.writeStringValue("issuer", this.issuer);
         }
         if(this.issuerSki){
-        writer.writeStringValue("issuerSki", this.issuerSki);
+            writer.writeStringValue("issuerSki", this.issuerSki);
         }
         writer.writeAdditionalData(this.additionalData);
     };

@@ -1,7 +1,7 @@
 import {Prompt} from './prompt';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class PromptImpl implements AdditionalDataHolder, Parsable, Prompt {
+export class PromptImpl implements Prompt {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /**
@@ -9,7 +9,7 @@ export class PromptImpl implements AdditionalDataHolder, Parsable, Prompt {
      * @param promptParameterValue 
      */
     public constructor(promptParameterValue?: Prompt | undefined) {
-        this.additionalData = promptParameterValue?.additionalData ? promptParameterValue?.additionalData! : {}
+        this.additionalData = promptParameterValue?.additionalData ? promptParameterValue?.additionalData! : {};
     };
     /**
      * The deserialization information for the current model

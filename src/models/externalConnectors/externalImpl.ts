@@ -4,7 +4,7 @@ import {ExternalConnection} from './externalConnection';
 import {ExternalConnectionImpl} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ExternalImpl implements AdditionalDataHolder, External, Parsable {
+export class ExternalImpl implements External {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The connections property */
@@ -14,8 +14,8 @@ export class ExternalImpl implements AdditionalDataHolder, External, Parsable {
      * @param externalParameterValue 
      */
     public constructor(externalParameterValue?: External | undefined) {
-        this.additionalData = externalParameterValue?.additionalData ? externalParameterValue?.additionalData! : {}
-        this.connections = externalParameterValue?.connections ;
+        this.additionalData = externalParameterValue?.additionalData ? externalParameterValue?.additionalData! : {};
+        this.connections = externalParameterValue?.connections;
     };
     /**
      * The deserialization information for the current model
@@ -33,7 +33,7 @@ export class ExternalImpl implements AdditionalDataHolder, External, Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.connections && this.connections.length != 0){        const connectionsArrValue: ExternalConnectionImpl[] = []; this.connections?.forEach(element => {connectionsArrValue.push(new ExternalConnectionImpl(element));});
-        writer.writeCollectionOfObjectValues<ExternalConnectionImpl>("connections", connectionsArrValue);
+            writer.writeCollectionOfObjectValues<ExternalConnectionImpl>("connections", connectionsArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

@@ -1,11 +1,11 @@
 import {DataPolicyOperationsRequestBuilderGetQueryParameters} from './dataPolicyOperationsRequestBuilderGetQueryParameters';
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
-export interface DataPolicyOperationsRequestBuilderGetRequestConfiguration{
+export interface DataPolicyOperationsRequestBuilderGetRequestConfiguration {
     /** Request headers */
-    headers?:Record<string, string> | undefined;
+    headers?: Record<string, string> | undefined;
     /** Request options */
-    options?:RequestOption[] | undefined;
+    options?: RequestOption[] | undefined;
     /** Request query parameters */
-    queryParameters?:DataPolicyOperationsRequestBuilderGetQueryParameters | undefined;
+    queryParameters?: DataPolicyOperationsRequestBuilderGetQueryParameters | undefined;
 }

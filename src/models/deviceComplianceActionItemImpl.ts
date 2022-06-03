@@ -4,7 +4,7 @@ import {EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Scheduled Action Configuration */
-export class DeviceComplianceActionItemImpl extends EntityImpl implements DeviceComplianceActionItem, Parsable {
+export class DeviceComplianceActionItemImpl extends EntityImpl implements DeviceComplianceActionItem {
     /** What action to take. Possible values are: noAction, notification, block, retire, wipe, removeResourceAccessProfiles, pushNotification, remoteLock. */
     public actionType?: DeviceComplianceActionType | undefined;
     /** Number of hours to wait till the action will be enforced. Valid values 0 to 8760 */
@@ -18,11 +18,11 @@ export class DeviceComplianceActionItemImpl extends EntityImpl implements Device
      * @param deviceComplianceActionItemParameterValue 
      */
     public constructor(deviceComplianceActionItemParameterValue?: DeviceComplianceActionItem | undefined) {
-        super();
-        this.actionType = deviceComplianceActionItemParameterValue?.actionType ;
-        this.gracePeriodHours = deviceComplianceActionItemParameterValue?.gracePeriodHours ;
-        this.notificationMessageCCList = deviceComplianceActionItemParameterValue?.notificationMessageCCList ;
-        this.notificationTemplateId = deviceComplianceActionItemParameterValue?.notificationTemplateId ;
+        super(deviceComplianceActionItemParameterValue);
+        this.actionType = deviceComplianceActionItemParameterValue?.actionType;
+        this.gracePeriodHours = deviceComplianceActionItemParameterValue?.gracePeriodHours;
+        this.notificationMessageCCList = deviceComplianceActionItemParameterValue?.notificationMessageCCList;
+        this.notificationTemplateId = deviceComplianceActionItemParameterValue?.notificationTemplateId;
     };
     /**
      * The deserialization information for the current model
@@ -44,16 +44,16 @@ export class DeviceComplianceActionItemImpl extends EntityImpl implements Device
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.actionType){
-        writer.writeEnumValue<DeviceComplianceActionType>("actionType", this.actionType);
+            writer.writeEnumValue<DeviceComplianceActionType>("actionType", this.actionType);
         }
         if(this.gracePeriodHours){
-        writer.writeNumberValue("gracePeriodHours", this.gracePeriodHours);
+            writer.writeNumberValue("gracePeriodHours", this.gracePeriodHours);
         }
         if(this.notificationMessageCCList){
-        writer.writeCollectionOfPrimitiveValues<string>("notificationMessageCCList", this.notificationMessageCCList);
+            writer.writeCollectionOfPrimitiveValues<string>("notificationMessageCCList", this.notificationMessageCCList);
         }
         if(this.notificationTemplateId){
-        writer.writeStringValue("notificationTemplateId", this.notificationTemplateId);
+            writer.writeStringValue("notificationTemplateId", this.notificationTemplateId);
         }
     };
 }

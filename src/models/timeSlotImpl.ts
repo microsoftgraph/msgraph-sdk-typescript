@@ -4,7 +4,7 @@ import {DateTimeTimeZoneImpl} from './index';
 import {TimeSlot} from './timeSlot';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class TimeSlotImpl implements AdditionalDataHolder, Parsable, TimeSlot {
+export class TimeSlotImpl implements TimeSlot {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The end property */
@@ -16,9 +16,9 @@ export class TimeSlotImpl implements AdditionalDataHolder, Parsable, TimeSlot {
      * @param timeSlotParameterValue 
      */
     public constructor(timeSlotParameterValue?: TimeSlot | undefined) {
-        this.additionalData = timeSlotParameterValue?.additionalData ? timeSlotParameterValue?.additionalData! : {}
-        this.end = timeSlotParameterValue?.end ;
-        this.start = timeSlotParameterValue?.start ;
+        this.additionalData = timeSlotParameterValue?.additionalData ? timeSlotParameterValue?.additionalData! : {};
+        this.end = timeSlotParameterValue?.end;
+        this.start = timeSlotParameterValue?.start;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class TimeSlotImpl implements AdditionalDataHolder, Parsable, TimeSlot {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.end){
-        writer.writeObjectValue<DateTimeTimeZoneImpl>("end", new DateTimeTimeZoneImpl(this.end));
+            writer.writeObjectValue<DateTimeTimeZoneImpl>("end", new DateTimeTimeZoneImpl(this.end));
         }
         if(this.start){
-        writer.writeObjectValue<DateTimeTimeZoneImpl>("start", new DateTimeTimeZoneImpl(this.start));
+            writer.writeObjectValue<DateTimeTimeZoneImpl>("start", new DateTimeTimeZoneImpl(this.start));
         }
         writer.writeAdditionalData(this.additionalData);
     };

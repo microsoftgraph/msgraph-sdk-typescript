@@ -4,7 +4,7 @@ import {EducationSubmissionResourceCollectionResponse} from './educationSubmissi
 import {EducationSubmissionResourceImpl} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class EducationSubmissionResourceCollectionResponseImpl implements AdditionalDataHolder, EducationSubmissionResourceCollectionResponse, Parsable {
+export class EducationSubmissionResourceCollectionResponseImpl implements EducationSubmissionResourceCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class EducationSubmissionResourceCollectionResponseImpl implements Additi
      * @param educationSubmissionResourceCollectionResponseParameterValue 
      */
     public constructor(educationSubmissionResourceCollectionResponseParameterValue?: EducationSubmissionResourceCollectionResponse | undefined) {
-        this.additionalData = educationSubmissionResourceCollectionResponseParameterValue?.additionalData ? educationSubmissionResourceCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = educationSubmissionResourceCollectionResponseParameterValue?.nextLink ;
-        this.value = educationSubmissionResourceCollectionResponseParameterValue?.value ;
+        this.additionalData = educationSubmissionResourceCollectionResponseParameterValue?.additionalData ? educationSubmissionResourceCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = educationSubmissionResourceCollectionResponseParameterValue?.nextLink;
+        this.value = educationSubmissionResourceCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class EducationSubmissionResourceCollectionResponseImpl implements Additi
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: EducationSubmissionResourceImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new EducationSubmissionResourceImpl(element));});
-        writer.writeCollectionOfObjectValues<EducationSubmissionResourceImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<EducationSubmissionResourceImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

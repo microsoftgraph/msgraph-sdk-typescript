@@ -1,7 +1,7 @@
 import {OnPremisesExtensionAttributes} from './onPremisesExtensionAttributes';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class OnPremisesExtensionAttributesImpl implements AdditionalDataHolder, OnPremisesExtensionAttributes, Parsable {
+export class OnPremisesExtensionAttributesImpl implements OnPremisesExtensionAttributes {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** First customizable extension attribute. */
@@ -39,22 +39,22 @@ export class OnPremisesExtensionAttributesImpl implements AdditionalDataHolder, 
      * @param onPremisesExtensionAttributesParameterValue 
      */
     public constructor(onPremisesExtensionAttributesParameterValue?: OnPremisesExtensionAttributes | undefined) {
-        this.additionalData = onPremisesExtensionAttributesParameterValue?.additionalData ? onPremisesExtensionAttributesParameterValue?.additionalData! : {}
-        this.extensionAttribute1 = onPremisesExtensionAttributesParameterValue?.extensionAttribute1 ;
-        this.extensionAttribute10 = onPremisesExtensionAttributesParameterValue?.extensionAttribute10 ;
-        this.extensionAttribute11 = onPremisesExtensionAttributesParameterValue?.extensionAttribute11 ;
-        this.extensionAttribute12 = onPremisesExtensionAttributesParameterValue?.extensionAttribute12 ;
-        this.extensionAttribute13 = onPremisesExtensionAttributesParameterValue?.extensionAttribute13 ;
-        this.extensionAttribute14 = onPremisesExtensionAttributesParameterValue?.extensionAttribute14 ;
-        this.extensionAttribute15 = onPremisesExtensionAttributesParameterValue?.extensionAttribute15 ;
-        this.extensionAttribute2 = onPremisesExtensionAttributesParameterValue?.extensionAttribute2 ;
-        this.extensionAttribute3 = onPremisesExtensionAttributesParameterValue?.extensionAttribute3 ;
-        this.extensionAttribute4 = onPremisesExtensionAttributesParameterValue?.extensionAttribute4 ;
-        this.extensionAttribute5 = onPremisesExtensionAttributesParameterValue?.extensionAttribute5 ;
-        this.extensionAttribute6 = onPremisesExtensionAttributesParameterValue?.extensionAttribute6 ;
-        this.extensionAttribute7 = onPremisesExtensionAttributesParameterValue?.extensionAttribute7 ;
-        this.extensionAttribute8 = onPremisesExtensionAttributesParameterValue?.extensionAttribute8 ;
-        this.extensionAttribute9 = onPremisesExtensionAttributesParameterValue?.extensionAttribute9 ;
+        this.additionalData = onPremisesExtensionAttributesParameterValue?.additionalData ? onPremisesExtensionAttributesParameterValue?.additionalData! : {};
+        this.extensionAttribute1 = onPremisesExtensionAttributesParameterValue?.extensionAttribute1;
+        this.extensionAttribute10 = onPremisesExtensionAttributesParameterValue?.extensionAttribute10;
+        this.extensionAttribute11 = onPremisesExtensionAttributesParameterValue?.extensionAttribute11;
+        this.extensionAttribute12 = onPremisesExtensionAttributesParameterValue?.extensionAttribute12;
+        this.extensionAttribute13 = onPremisesExtensionAttributesParameterValue?.extensionAttribute13;
+        this.extensionAttribute14 = onPremisesExtensionAttributesParameterValue?.extensionAttribute14;
+        this.extensionAttribute15 = onPremisesExtensionAttributesParameterValue?.extensionAttribute15;
+        this.extensionAttribute2 = onPremisesExtensionAttributesParameterValue?.extensionAttribute2;
+        this.extensionAttribute3 = onPremisesExtensionAttributesParameterValue?.extensionAttribute3;
+        this.extensionAttribute4 = onPremisesExtensionAttributesParameterValue?.extensionAttribute4;
+        this.extensionAttribute5 = onPremisesExtensionAttributesParameterValue?.extensionAttribute5;
+        this.extensionAttribute6 = onPremisesExtensionAttributesParameterValue?.extensionAttribute6;
+        this.extensionAttribute7 = onPremisesExtensionAttributesParameterValue?.extensionAttribute7;
+        this.extensionAttribute8 = onPremisesExtensionAttributesParameterValue?.extensionAttribute8;
+        this.extensionAttribute9 = onPremisesExtensionAttributesParameterValue?.extensionAttribute9;
     };
     /**
      * The deserialization information for the current model
@@ -86,49 +86,49 @@ export class OnPremisesExtensionAttributesImpl implements AdditionalDataHolder, 
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.extensionAttribute1){
-        writer.writeStringValue("extensionAttribute1", this.extensionAttribute1);
+            writer.writeStringValue("extensionAttribute1", this.extensionAttribute1);
         }
         if(this.extensionAttribute10){
-        writer.writeStringValue("extensionAttribute10", this.extensionAttribute10);
+            writer.writeStringValue("extensionAttribute10", this.extensionAttribute10);
         }
         if(this.extensionAttribute11){
-        writer.writeStringValue("extensionAttribute11", this.extensionAttribute11);
+            writer.writeStringValue("extensionAttribute11", this.extensionAttribute11);
         }
         if(this.extensionAttribute12){
-        writer.writeStringValue("extensionAttribute12", this.extensionAttribute12);
+            writer.writeStringValue("extensionAttribute12", this.extensionAttribute12);
         }
         if(this.extensionAttribute13){
-        writer.writeStringValue("extensionAttribute13", this.extensionAttribute13);
+            writer.writeStringValue("extensionAttribute13", this.extensionAttribute13);
         }
         if(this.extensionAttribute14){
-        writer.writeStringValue("extensionAttribute14", this.extensionAttribute14);
+            writer.writeStringValue("extensionAttribute14", this.extensionAttribute14);
         }
         if(this.extensionAttribute15){
-        writer.writeStringValue("extensionAttribute15", this.extensionAttribute15);
+            writer.writeStringValue("extensionAttribute15", this.extensionAttribute15);
         }
         if(this.extensionAttribute2){
-        writer.writeStringValue("extensionAttribute2", this.extensionAttribute2);
+            writer.writeStringValue("extensionAttribute2", this.extensionAttribute2);
         }
         if(this.extensionAttribute3){
-        writer.writeStringValue("extensionAttribute3", this.extensionAttribute3);
+            writer.writeStringValue("extensionAttribute3", this.extensionAttribute3);
         }
         if(this.extensionAttribute4){
-        writer.writeStringValue("extensionAttribute4", this.extensionAttribute4);
+            writer.writeStringValue("extensionAttribute4", this.extensionAttribute4);
         }
         if(this.extensionAttribute5){
-        writer.writeStringValue("extensionAttribute5", this.extensionAttribute5);
+            writer.writeStringValue("extensionAttribute5", this.extensionAttribute5);
         }
         if(this.extensionAttribute6){
-        writer.writeStringValue("extensionAttribute6", this.extensionAttribute6);
+            writer.writeStringValue("extensionAttribute6", this.extensionAttribute6);
         }
         if(this.extensionAttribute7){
-        writer.writeStringValue("extensionAttribute7", this.extensionAttribute7);
+            writer.writeStringValue("extensionAttribute7", this.extensionAttribute7);
         }
         if(this.extensionAttribute8){
-        writer.writeStringValue("extensionAttribute8", this.extensionAttribute8);
+            writer.writeStringValue("extensionAttribute8", this.extensionAttribute8);
         }
         if(this.extensionAttribute9){
-        writer.writeStringValue("extensionAttribute9", this.extensionAttribute9);
+            writer.writeStringValue("extensionAttribute9", this.extensionAttribute9);
         }
         writer.writeAdditionalData(this.additionalData);
     };

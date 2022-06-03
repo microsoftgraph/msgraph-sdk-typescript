@@ -7,7 +7,7 @@ import {AttendanceIntervalImpl, EntityImpl, IdentityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the cloudCommunications singleton. */
-export class AttendanceRecordImpl extends EntityImpl implements AttendanceRecord, Parsable {
+export class AttendanceRecordImpl extends EntityImpl implements AttendanceRecord {
     /** List of time periods between joining and leaving a meeting. */
     public attendanceIntervals?: AttendanceInterval[] | undefined;
     /** Email address of the user associated with this atttendance record. */
@@ -23,12 +23,12 @@ export class AttendanceRecordImpl extends EntityImpl implements AttendanceRecord
      * @param attendanceRecordParameterValue 
      */
     public constructor(attendanceRecordParameterValue?: AttendanceRecord | undefined) {
-        super();
-        this.attendanceIntervals = attendanceRecordParameterValue?.attendanceIntervals ;
-        this.emailAddress = attendanceRecordParameterValue?.emailAddress ;
-        this.identity = attendanceRecordParameterValue?.identity ;
-        this.role = attendanceRecordParameterValue?.role ;
-        this.totalAttendanceInSeconds = attendanceRecordParameterValue?.totalAttendanceInSeconds ;
+        super(attendanceRecordParameterValue);
+        this.attendanceIntervals = attendanceRecordParameterValue?.attendanceIntervals;
+        this.emailAddress = attendanceRecordParameterValue?.emailAddress;
+        this.identity = attendanceRecordParameterValue?.identity;
+        this.role = attendanceRecordParameterValue?.role;
+        this.totalAttendanceInSeconds = attendanceRecordParameterValue?.totalAttendanceInSeconds;
     };
     /**
      * The deserialization information for the current model
@@ -51,19 +51,19 @@ export class AttendanceRecordImpl extends EntityImpl implements AttendanceRecord
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.attendanceIntervals && this.attendanceIntervals.length != 0){        const attendanceIntervalsArrValue: AttendanceIntervalImpl[] = []; this.attendanceIntervals?.forEach(element => {attendanceIntervalsArrValue.push(new AttendanceIntervalImpl(element));});
-        writer.writeCollectionOfObjectValues<AttendanceIntervalImpl>("attendanceIntervals", attendanceIntervalsArrValue);
+            writer.writeCollectionOfObjectValues<AttendanceIntervalImpl>("attendanceIntervals", attendanceIntervalsArrValue);
         }
         if(this.emailAddress){
-        writer.writeStringValue("emailAddress", this.emailAddress);
+            writer.writeStringValue("emailAddress", this.emailAddress);
         }
         if(this.identity){
-        writer.writeObjectValue<IdentityImpl>("identity", new IdentityImpl(this.identity));
+            writer.writeObjectValue<IdentityImpl>("identity", new IdentityImpl(this.identity));
         }
         if(this.role){
-        writer.writeStringValue("role", this.role);
+            writer.writeStringValue("role", this.role);
         }
         if(this.totalAttendanceInSeconds){
-        writer.writeNumberValue("totalAttendanceInSeconds", this.totalAttendanceInSeconds);
+            writer.writeNumberValue("totalAttendanceInSeconds", this.totalAttendanceInSeconds);
         }
     };
 }

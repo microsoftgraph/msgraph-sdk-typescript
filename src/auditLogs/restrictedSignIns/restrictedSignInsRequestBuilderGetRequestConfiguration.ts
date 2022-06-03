@@ -1,11 +1,11 @@
 import {RestrictedSignInsRequestBuilderGetQueryParameters} from './restrictedSignInsRequestBuilderGetQueryParameters';
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
-export interface RestrictedSignInsRequestBuilderGetRequestConfiguration{
+export interface RestrictedSignInsRequestBuilderGetRequestConfiguration {
     /** Request headers */
-    headers?:Record<string, string> | undefined;
+    headers?: Record<string, string> | undefined;
     /** Request options */
-    options?:RequestOption[] | undefined;
+    options?: RequestOption[] | undefined;
     /** Request query parameters */
-    queryParameters?:RestrictedSignInsRequestBuilderGetQueryParameters | undefined;
+    queryParameters?: RestrictedSignInsRequestBuilderGetQueryParameters | undefined;
 }

@@ -4,7 +4,7 @@ import {GroupSettingTemplateCollectionResponse} from './groupSettingTemplateColl
 import {GroupSettingTemplateImpl} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class GroupSettingTemplateCollectionResponseImpl implements AdditionalDataHolder, GroupSettingTemplateCollectionResponse, Parsable {
+export class GroupSettingTemplateCollectionResponseImpl implements GroupSettingTemplateCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class GroupSettingTemplateCollectionResponseImpl implements AdditionalDat
      * @param groupSettingTemplateCollectionResponseParameterValue 
      */
     public constructor(groupSettingTemplateCollectionResponseParameterValue?: GroupSettingTemplateCollectionResponse | undefined) {
-        this.additionalData = groupSettingTemplateCollectionResponseParameterValue?.additionalData ? groupSettingTemplateCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = groupSettingTemplateCollectionResponseParameterValue?.nextLink ;
-        this.value = groupSettingTemplateCollectionResponseParameterValue?.value ;
+        this.additionalData = groupSettingTemplateCollectionResponseParameterValue?.additionalData ? groupSettingTemplateCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = groupSettingTemplateCollectionResponseParameterValue?.nextLink;
+        this.value = groupSettingTemplateCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class GroupSettingTemplateCollectionResponseImpl implements AdditionalDat
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: GroupSettingTemplateImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new GroupSettingTemplateImpl(element));});
-        writer.writeCollectionOfObjectValues<GroupSettingTemplateImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<GroupSettingTemplateImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

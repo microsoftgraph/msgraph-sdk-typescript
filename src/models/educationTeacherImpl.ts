@@ -1,7 +1,7 @@
 import {EducationTeacher} from './educationTeacher';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class EducationTeacherImpl implements AdditionalDataHolder, EducationTeacher, Parsable {
+export class EducationTeacherImpl implements EducationTeacher {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Id of the Teacher in external source system. */
@@ -13,9 +13,9 @@ export class EducationTeacherImpl implements AdditionalDataHolder, EducationTeac
      * @param educationTeacherParameterValue 
      */
     public constructor(educationTeacherParameterValue?: EducationTeacher | undefined) {
-        this.additionalData = educationTeacherParameterValue?.additionalData ? educationTeacherParameterValue?.additionalData! : {}
-        this.externalId = educationTeacherParameterValue?.externalId ;
-        this.teacherNumber = educationTeacherParameterValue?.teacherNumber ;
+        this.additionalData = educationTeacherParameterValue?.additionalData ? educationTeacherParameterValue?.additionalData! : {};
+        this.externalId = educationTeacherParameterValue?.externalId;
+        this.teacherNumber = educationTeacherParameterValue?.teacherNumber;
     };
     /**
      * The deserialization information for the current model
@@ -34,10 +34,10 @@ export class EducationTeacherImpl implements AdditionalDataHolder, EducationTeac
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.externalId){
-        writer.writeStringValue("externalId", this.externalId);
+            writer.writeStringValue("externalId", this.externalId);
         }
         if(this.teacherNumber){
-        writer.writeStringValue("teacherNumber", this.teacherNumber);
+            writer.writeStringValue("teacherNumber", this.teacherNumber);
         }
         writer.writeAdditionalData(this.additionalData);
     };

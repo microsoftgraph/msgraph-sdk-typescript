@@ -4,7 +4,7 @@ import {createConversationFromDiscriminatorValue} from './createConversationFrom
 import {ConversationImpl} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ConversationCollectionResponseImpl implements AdditionalDataHolder, ConversationCollectionResponse, Parsable {
+export class ConversationCollectionResponseImpl implements ConversationCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class ConversationCollectionResponseImpl implements AdditionalDataHolder,
      * @param conversationCollectionResponseParameterValue 
      */
     public constructor(conversationCollectionResponseParameterValue?: ConversationCollectionResponse | undefined) {
-        this.additionalData = conversationCollectionResponseParameterValue?.additionalData ? conversationCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = conversationCollectionResponseParameterValue?.nextLink ;
-        this.value = conversationCollectionResponseParameterValue?.value ;
+        this.additionalData = conversationCollectionResponseParameterValue?.additionalData ? conversationCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = conversationCollectionResponseParameterValue?.nextLink;
+        this.value = conversationCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class ConversationCollectionResponseImpl implements AdditionalDataHolder,
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: ConversationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ConversationImpl(element));});
-        writer.writeCollectionOfObjectValues<ConversationImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<ConversationImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

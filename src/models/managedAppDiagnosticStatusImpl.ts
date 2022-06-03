@@ -2,7 +2,7 @@ import {ManagedAppDiagnosticStatus} from './managedAppDiagnosticStatus';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Represents diagnostics status. */
-export class ManagedAppDiagnosticStatusImpl implements AdditionalDataHolder, ManagedAppDiagnosticStatus, Parsable {
+export class ManagedAppDiagnosticStatusImpl implements ManagedAppDiagnosticStatus {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Instruction on how to mitigate a failed validation */
@@ -16,10 +16,10 @@ export class ManagedAppDiagnosticStatusImpl implements AdditionalDataHolder, Man
      * @param managedAppDiagnosticStatusParameterValue 
      */
     public constructor(managedAppDiagnosticStatusParameterValue?: ManagedAppDiagnosticStatus | undefined) {
-        this.additionalData = managedAppDiagnosticStatusParameterValue?.additionalData ? managedAppDiagnosticStatusParameterValue?.additionalData! : {}
-        this.mitigationInstruction = managedAppDiagnosticStatusParameterValue?.mitigationInstruction ;
-        this.state = managedAppDiagnosticStatusParameterValue?.state ;
-        this.validationName = managedAppDiagnosticStatusParameterValue?.validationName ;
+        this.additionalData = managedAppDiagnosticStatusParameterValue?.additionalData ? managedAppDiagnosticStatusParameterValue?.additionalData! : {};
+        this.mitigationInstruction = managedAppDiagnosticStatusParameterValue?.mitigationInstruction;
+        this.state = managedAppDiagnosticStatusParameterValue?.state;
+        this.validationName = managedAppDiagnosticStatusParameterValue?.validationName;
     };
     /**
      * The deserialization information for the current model
@@ -39,13 +39,13 @@ export class ManagedAppDiagnosticStatusImpl implements AdditionalDataHolder, Man
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.mitigationInstruction){
-        writer.writeStringValue("mitigationInstruction", this.mitigationInstruction);
+            writer.writeStringValue("mitigationInstruction", this.mitigationInstruction);
         }
         if(this.state){
-        writer.writeStringValue("state", this.state);
+            writer.writeStringValue("state", this.state);
         }
         if(this.validationName){
-        writer.writeStringValue("validationName", this.validationName);
+            writer.writeStringValue("validationName", this.validationName);
         }
         writer.writeAdditionalData(this.additionalData);
     };

@@ -4,7 +4,7 @@ import {createBitlockerRecoveryKeyFromDiscriminatorValue} from './createBitlocke
 import {BitlockerRecoveryKeyImpl} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class BitlockerRecoveryKeyCollectionResponseImpl implements AdditionalDataHolder, BitlockerRecoveryKeyCollectionResponse, Parsable {
+export class BitlockerRecoveryKeyCollectionResponseImpl implements BitlockerRecoveryKeyCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class BitlockerRecoveryKeyCollectionResponseImpl implements AdditionalDat
      * @param bitlockerRecoveryKeyCollectionResponseParameterValue 
      */
     public constructor(bitlockerRecoveryKeyCollectionResponseParameterValue?: BitlockerRecoveryKeyCollectionResponse | undefined) {
-        this.additionalData = bitlockerRecoveryKeyCollectionResponseParameterValue?.additionalData ? bitlockerRecoveryKeyCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = bitlockerRecoveryKeyCollectionResponseParameterValue?.nextLink ;
-        this.value = bitlockerRecoveryKeyCollectionResponseParameterValue?.value ;
+        this.additionalData = bitlockerRecoveryKeyCollectionResponseParameterValue?.additionalData ? bitlockerRecoveryKeyCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = bitlockerRecoveryKeyCollectionResponseParameterValue?.nextLink;
+        this.value = bitlockerRecoveryKeyCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class BitlockerRecoveryKeyCollectionResponseImpl implements AdditionalDat
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: BitlockerRecoveryKeyImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new BitlockerRecoveryKeyImpl(element));});
-        writer.writeCollectionOfObjectValues<BitlockerRecoveryKeyImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<BitlockerRecoveryKeyImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

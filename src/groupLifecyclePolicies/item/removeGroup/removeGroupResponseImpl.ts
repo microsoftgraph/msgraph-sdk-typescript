@@ -2,7 +2,7 @@ import {RemoveGroupResponse} from './removeGroupResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the removeGroup method. */
-export class RemoveGroupResponseImpl implements AdditionalDataHolder, Parsable, RemoveGroupResponse {
+export class RemoveGroupResponseImpl implements RemoveGroupResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The value property */
@@ -12,8 +12,8 @@ export class RemoveGroupResponseImpl implements AdditionalDataHolder, Parsable, 
      * @param removeGroupResponseParameterValue 
      */
     public constructor(removeGroupResponseParameterValue?: RemoveGroupResponse | undefined) {
-        this.additionalData = removeGroupResponseParameterValue?.additionalData ? removeGroupResponseParameterValue?.additionalData! : {}
-        this.value = removeGroupResponseParameterValue?.value ;
+        this.additionalData = removeGroupResponseParameterValue?.additionalData ? removeGroupResponseParameterValue?.additionalData! : {};
+        this.value = removeGroupResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -31,7 +31,7 @@ export class RemoveGroupResponseImpl implements AdditionalDataHolder, Parsable, 
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.value){
-        writer.writeBooleanValue("value", this.value);
+            writer.writeBooleanValue("value", this.value);
         }
         writer.writeAdditionalData(this.additionalData);
     };

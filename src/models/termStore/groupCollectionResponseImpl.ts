@@ -4,7 +4,7 @@ import {GroupCollectionResponse} from './groupCollectionResponse';
 import {GroupImpl} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class GroupCollectionResponseImpl implements AdditionalDataHolder, GroupCollectionResponse, Parsable {
+export class GroupCollectionResponseImpl implements GroupCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class GroupCollectionResponseImpl implements AdditionalDataHolder, GroupC
      * @param groupCollectionResponseParameterValue 
      */
     public constructor(groupCollectionResponseParameterValue?: GroupCollectionResponse | undefined) {
-        this.additionalData = groupCollectionResponseParameterValue?.additionalData ? groupCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = groupCollectionResponseParameterValue?.nextLink ;
-        this.value = groupCollectionResponseParameterValue?.value ;
+        this.additionalData = groupCollectionResponseParameterValue?.additionalData ? groupCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = groupCollectionResponseParameterValue?.nextLink;
+        this.value = groupCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class GroupCollectionResponseImpl implements AdditionalDataHolder, GroupC
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: GroupImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new GroupImpl(element));});
-        writer.writeCollectionOfObjectValues<GroupImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<GroupImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

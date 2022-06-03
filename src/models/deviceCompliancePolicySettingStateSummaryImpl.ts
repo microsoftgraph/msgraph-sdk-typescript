@@ -6,7 +6,7 @@ import {PolicyPlatformType} from './policyPlatformType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Device Compilance Policy Setting State summary across the account. */
-export class DeviceCompliancePolicySettingStateSummaryImpl extends EntityImpl implements DeviceCompliancePolicySettingStateSummary, Parsable {
+export class DeviceCompliancePolicySettingStateSummaryImpl extends EntityImpl implements DeviceCompliancePolicySettingStateSummary {
     /** Number of compliant devices */
     public compliantDeviceCount?: number | undefined;
     /** Number of conflict devices */
@@ -34,18 +34,18 @@ export class DeviceCompliancePolicySettingStateSummaryImpl extends EntityImpl im
      * @param deviceCompliancePolicySettingStateSummaryParameterValue 
      */
     public constructor(deviceCompliancePolicySettingStateSummaryParameterValue?: DeviceCompliancePolicySettingStateSummary | undefined) {
-        super();
-        this.compliantDeviceCount = deviceCompliancePolicySettingStateSummaryParameterValue?.compliantDeviceCount ;
-        this.conflictDeviceCount = deviceCompliancePolicySettingStateSummaryParameterValue?.conflictDeviceCount ;
-        this.deviceComplianceSettingStates = deviceCompliancePolicySettingStateSummaryParameterValue?.deviceComplianceSettingStates ;
-        this.errorDeviceCount = deviceCompliancePolicySettingStateSummaryParameterValue?.errorDeviceCount ;
-        this.nonCompliantDeviceCount = deviceCompliancePolicySettingStateSummaryParameterValue?.nonCompliantDeviceCount ;
-        this.notApplicableDeviceCount = deviceCompliancePolicySettingStateSummaryParameterValue?.notApplicableDeviceCount ;
-        this.platformType = deviceCompliancePolicySettingStateSummaryParameterValue?.platformType ;
-        this.remediatedDeviceCount = deviceCompliancePolicySettingStateSummaryParameterValue?.remediatedDeviceCount ;
-        this.setting = deviceCompliancePolicySettingStateSummaryParameterValue?.setting ;
-        this.settingName = deviceCompliancePolicySettingStateSummaryParameterValue?.settingName ;
-        this.unknownDeviceCount = deviceCompliancePolicySettingStateSummaryParameterValue?.unknownDeviceCount ;
+        super(deviceCompliancePolicySettingStateSummaryParameterValue);
+        this.compliantDeviceCount = deviceCompliancePolicySettingStateSummaryParameterValue?.compliantDeviceCount;
+        this.conflictDeviceCount = deviceCompliancePolicySettingStateSummaryParameterValue?.conflictDeviceCount;
+        this.deviceComplianceSettingStates = deviceCompliancePolicySettingStateSummaryParameterValue?.deviceComplianceSettingStates;
+        this.errorDeviceCount = deviceCompliancePolicySettingStateSummaryParameterValue?.errorDeviceCount;
+        this.nonCompliantDeviceCount = deviceCompliancePolicySettingStateSummaryParameterValue?.nonCompliantDeviceCount;
+        this.notApplicableDeviceCount = deviceCompliancePolicySettingStateSummaryParameterValue?.notApplicableDeviceCount;
+        this.platformType = deviceCompliancePolicySettingStateSummaryParameterValue?.platformType;
+        this.remediatedDeviceCount = deviceCompliancePolicySettingStateSummaryParameterValue?.remediatedDeviceCount;
+        this.setting = deviceCompliancePolicySettingStateSummaryParameterValue?.setting;
+        this.settingName = deviceCompliancePolicySettingStateSummaryParameterValue?.settingName;
+        this.unknownDeviceCount = deviceCompliancePolicySettingStateSummaryParameterValue?.unknownDeviceCount;
     };
     /**
      * The deserialization information for the current model
@@ -74,37 +74,37 @@ export class DeviceCompliancePolicySettingStateSummaryImpl extends EntityImpl im
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.compliantDeviceCount){
-        writer.writeNumberValue("compliantDeviceCount", this.compliantDeviceCount);
+            writer.writeNumberValue("compliantDeviceCount", this.compliantDeviceCount);
         }
         if(this.conflictDeviceCount){
-        writer.writeNumberValue("conflictDeviceCount", this.conflictDeviceCount);
+            writer.writeNumberValue("conflictDeviceCount", this.conflictDeviceCount);
         }
         if(this.deviceComplianceSettingStates && this.deviceComplianceSettingStates.length != 0){        const deviceComplianceSettingStatesArrValue: DeviceComplianceSettingStateImpl[] = []; this.deviceComplianceSettingStates?.forEach(element => {deviceComplianceSettingStatesArrValue.push(new DeviceComplianceSettingStateImpl(element));});
-        writer.writeCollectionOfObjectValues<DeviceComplianceSettingStateImpl>("deviceComplianceSettingStates", deviceComplianceSettingStatesArrValue);
+            writer.writeCollectionOfObjectValues<DeviceComplianceSettingStateImpl>("deviceComplianceSettingStates", deviceComplianceSettingStatesArrValue);
         }
         if(this.errorDeviceCount){
-        writer.writeNumberValue("errorDeviceCount", this.errorDeviceCount);
+            writer.writeNumberValue("errorDeviceCount", this.errorDeviceCount);
         }
         if(this.nonCompliantDeviceCount){
-        writer.writeNumberValue("nonCompliantDeviceCount", this.nonCompliantDeviceCount);
+            writer.writeNumberValue("nonCompliantDeviceCount", this.nonCompliantDeviceCount);
         }
         if(this.notApplicableDeviceCount){
-        writer.writeNumberValue("notApplicableDeviceCount", this.notApplicableDeviceCount);
+            writer.writeNumberValue("notApplicableDeviceCount", this.notApplicableDeviceCount);
         }
         if(this.platformType){
-        writer.writeEnumValue<PolicyPlatformType>("platformType", this.platformType);
+            writer.writeEnumValue<PolicyPlatformType>("platformType", this.platformType);
         }
         if(this.remediatedDeviceCount){
-        writer.writeNumberValue("remediatedDeviceCount", this.remediatedDeviceCount);
+            writer.writeNumberValue("remediatedDeviceCount", this.remediatedDeviceCount);
         }
         if(this.setting){
-        writer.writeStringValue("setting", this.setting);
+            writer.writeStringValue("setting", this.setting);
         }
         if(this.settingName){
-        writer.writeStringValue("settingName", this.settingName);
+            writer.writeStringValue("settingName", this.settingName);
         }
         if(this.unknownDeviceCount){
-        writer.writeNumberValue("unknownDeviceCount", this.unknownDeviceCount);
+            writer.writeNumberValue("unknownDeviceCount", this.unknownDeviceCount);
         }
     };
 }

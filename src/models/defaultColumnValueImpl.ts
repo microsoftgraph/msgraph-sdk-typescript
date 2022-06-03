@@ -1,7 +1,7 @@
 import {DefaultColumnValue} from './defaultColumnValue';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class DefaultColumnValueImpl implements AdditionalDataHolder, DefaultColumnValue, Parsable {
+export class DefaultColumnValueImpl implements DefaultColumnValue {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The formula used to compute the default value for this column. */
@@ -13,9 +13,9 @@ export class DefaultColumnValueImpl implements AdditionalDataHolder, DefaultColu
      * @param defaultColumnValueParameterValue 
      */
     public constructor(defaultColumnValueParameterValue?: DefaultColumnValue | undefined) {
-        this.additionalData = defaultColumnValueParameterValue?.additionalData ? defaultColumnValueParameterValue?.additionalData! : {}
-        this.formula = defaultColumnValueParameterValue?.formula ;
-        this.value = defaultColumnValueParameterValue?.value ;
+        this.additionalData = defaultColumnValueParameterValue?.additionalData ? defaultColumnValueParameterValue?.additionalData! : {};
+        this.formula = defaultColumnValueParameterValue?.formula;
+        this.value = defaultColumnValueParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -34,10 +34,10 @@ export class DefaultColumnValueImpl implements AdditionalDataHolder, DefaultColu
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.formula){
-        writer.writeStringValue("formula", this.formula);
+            writer.writeStringValue("formula", this.formula);
         }
         if(this.value){
-        writer.writeStringValue("value", this.value);
+            writer.writeStringValue("value", this.value);
         }
         writer.writeAdditionalData(this.additionalData);
     };

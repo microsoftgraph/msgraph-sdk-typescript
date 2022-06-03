@@ -1,10 +1,11 @@
 import {PrintOperationProcessingState} from './printOperationProcessingState';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface PrintOperationStatus{
+export interface PrintOperationStatus extends Partial<AdditionalDataHolder>, Partial<Parsable> {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?:Record<string, unknown>;
+    additionalData?: Record<string, unknown>;
     /** A human-readable description of the printOperation's current processing state. Read-only. */
-    description?:string | undefined;
+    description?: string | undefined;
     /** The printOperation's current processing state. Valid values are described in the following table. Read-only. */
-    state?:PrintOperationProcessingState | undefined;
+    state?: PrintOperationProcessingState | undefined;
 }

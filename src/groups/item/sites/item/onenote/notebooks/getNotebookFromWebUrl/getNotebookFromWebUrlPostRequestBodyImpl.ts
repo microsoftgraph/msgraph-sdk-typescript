@@ -2,7 +2,7 @@ import {GetNotebookFromWebUrlPostRequestBody} from './getNotebookFromWebUrlPostR
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the getNotebookFromWebUrl method. */
-export class GetNotebookFromWebUrlPostRequestBodyImpl implements AdditionalDataHolder, GetNotebookFromWebUrlPostRequestBody, Parsable {
+export class GetNotebookFromWebUrlPostRequestBodyImpl implements GetNotebookFromWebUrlPostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The webUrl property */
@@ -12,8 +12,8 @@ export class GetNotebookFromWebUrlPostRequestBodyImpl implements AdditionalDataH
      * @param getNotebookFromWebUrlPostRequestBodyParameterValue 
      */
     public constructor(getNotebookFromWebUrlPostRequestBodyParameterValue?: GetNotebookFromWebUrlPostRequestBody | undefined) {
-        this.additionalData = getNotebookFromWebUrlPostRequestBodyParameterValue?.additionalData ? getNotebookFromWebUrlPostRequestBodyParameterValue?.additionalData! : {}
-        this.webUrl = getNotebookFromWebUrlPostRequestBodyParameterValue?.webUrl ;
+        this.additionalData = getNotebookFromWebUrlPostRequestBodyParameterValue?.additionalData ? getNotebookFromWebUrlPostRequestBodyParameterValue?.additionalData! : {};
+        this.webUrl = getNotebookFromWebUrlPostRequestBodyParameterValue?.webUrl;
     };
     /**
      * The deserialization information for the current model
@@ -31,7 +31,7 @@ export class GetNotebookFromWebUrlPostRequestBodyImpl implements AdditionalDataH
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.webUrl){
-        writer.writeStringValue("webUrl", this.webUrl);
+            writer.writeStringValue("webUrl", this.webUrl);
         }
         writer.writeAdditionalData(this.additionalData);
     };

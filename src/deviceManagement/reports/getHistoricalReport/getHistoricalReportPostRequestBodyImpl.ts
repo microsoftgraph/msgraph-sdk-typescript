@@ -2,7 +2,7 @@ import {GetHistoricalReportPostRequestBody} from './getHistoricalReportPostReque
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the getHistoricalReport method. */
-export class GetHistoricalReportPostRequestBodyImpl implements AdditionalDataHolder, GetHistoricalReportPostRequestBody, Parsable {
+export class GetHistoricalReportPostRequestBodyImpl implements GetHistoricalReportPostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The filter property */
@@ -26,15 +26,15 @@ export class GetHistoricalReportPostRequestBodyImpl implements AdditionalDataHol
      * @param getHistoricalReportPostRequestBodyParameterValue 
      */
     public constructor(getHistoricalReportPostRequestBodyParameterValue?: GetHistoricalReportPostRequestBody | undefined) {
-        this.additionalData = getHistoricalReportPostRequestBodyParameterValue?.additionalData ? getHistoricalReportPostRequestBodyParameterValue?.additionalData! : {}
-        this.filter = getHistoricalReportPostRequestBodyParameterValue?.filter ;
-        this.groupBy = getHistoricalReportPostRequestBodyParameterValue?.groupBy ;
-        this.name = getHistoricalReportPostRequestBodyParameterValue?.name ;
-        this.orderBy = getHistoricalReportPostRequestBodyParameterValue?.orderBy ;
-        this.search = getHistoricalReportPostRequestBodyParameterValue?.search ;
-        this.select = getHistoricalReportPostRequestBodyParameterValue?.select ;
-        this.skip = getHistoricalReportPostRequestBodyParameterValue?.skip ;
-        this.top = getHistoricalReportPostRequestBodyParameterValue?.top ;
+        this.additionalData = getHistoricalReportPostRequestBodyParameterValue?.additionalData ? getHistoricalReportPostRequestBodyParameterValue?.additionalData! : {};
+        this.filter = getHistoricalReportPostRequestBodyParameterValue?.filter;
+        this.groupBy = getHistoricalReportPostRequestBodyParameterValue?.groupBy;
+        this.name = getHistoricalReportPostRequestBodyParameterValue?.name;
+        this.orderBy = getHistoricalReportPostRequestBodyParameterValue?.orderBy;
+        this.search = getHistoricalReportPostRequestBodyParameterValue?.search;
+        this.select = getHistoricalReportPostRequestBodyParameterValue?.select;
+        this.skip = getHistoricalReportPostRequestBodyParameterValue?.skip;
+        this.top = getHistoricalReportPostRequestBodyParameterValue?.top;
     };
     /**
      * The deserialization information for the current model
@@ -59,28 +59,28 @@ export class GetHistoricalReportPostRequestBodyImpl implements AdditionalDataHol
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.filter){
-        writer.writeStringValue("filter", this.filter);
+            writer.writeStringValue("filter", this.filter);
         }
         if(this.groupBy){
-        writer.writeCollectionOfPrimitiveValues<string>("groupBy", this.groupBy);
+            writer.writeCollectionOfPrimitiveValues<string>("groupBy", this.groupBy);
         }
         if(this.name){
-        writer.writeStringValue("name", this.name);
+            writer.writeStringValue("name", this.name);
         }
         if(this.orderBy){
-        writer.writeCollectionOfPrimitiveValues<string>("orderBy", this.orderBy);
+            writer.writeCollectionOfPrimitiveValues<string>("orderBy", this.orderBy);
         }
         if(this.search){
-        writer.writeStringValue("search", this.search);
+            writer.writeStringValue("search", this.search);
         }
         if(this.select){
-        writer.writeCollectionOfPrimitiveValues<string>("select", this.select);
+            writer.writeCollectionOfPrimitiveValues<string>("select", this.select);
         }
         if(this.skip){
-        writer.writeNumberValue("skip", this.skip);
+            writer.writeNumberValue("skip", this.skip);
         }
         if(this.top){
-        writer.writeNumberValue("top", this.top);
+            writer.writeNumberValue("top", this.top);
         }
         writer.writeAdditionalData(this.additionalData);
     };

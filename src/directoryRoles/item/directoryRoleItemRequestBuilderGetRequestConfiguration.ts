@@ -1,11 +1,11 @@
 import {DirectoryRoleItemRequestBuilderGetQueryParameters} from './directoryRoleItemRequestBuilderGetQueryParameters';
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
-export interface DirectoryRoleItemRequestBuilderGetRequestConfiguration{
+export interface DirectoryRoleItemRequestBuilderGetRequestConfiguration {
     /** Request headers */
-    headers?:Record<string, string> | undefined;
+    headers?: Record<string, string> | undefined;
     /** Request options */
-    options?:RequestOption[] | undefined;
+    options?: RequestOption[] | undefined;
     /** Request query parameters */
-    queryParameters?:DirectoryRoleItemRequestBuilderGetQueryParameters | undefined;
+    queryParameters?: DirectoryRoleItemRequestBuilderGetQueryParameters | undefined;
 }

@@ -4,7 +4,7 @@ import {UserAccountSecurityType} from './userAccountSecurityType';
 import {UserSecurityState} from './userSecurityState';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class UserSecurityStateImpl implements AdditionalDataHolder, Parsable, UserSecurityState {
+export class UserSecurityStateImpl implements UserSecurityState {
     /** AAD User object identifier (GUID) - represents the physical/multi-account user entity. */
     public aadUserId?: string | undefined;
     /** Account name of user account (without Active Directory domain or DNS domain) - (also called mailNickName). */
@@ -40,21 +40,21 @@ export class UserSecurityStateImpl implements AdditionalDataHolder, Parsable, Us
      * @param userSecurityStateParameterValue 
      */
     public constructor(userSecurityStateParameterValue?: UserSecurityState | undefined) {
-        this.aadUserId = userSecurityStateParameterValue?.aadUserId ;
-        this.accountName = userSecurityStateParameterValue?.accountName ;
-        this.additionalData = userSecurityStateParameterValue?.additionalData ? userSecurityStateParameterValue?.additionalData! : {}
-        this.domainName = userSecurityStateParameterValue?.domainName ;
-        this.emailRole = userSecurityStateParameterValue?.emailRole ;
-        this.isVpn = userSecurityStateParameterValue?.isVpn ;
-        this.logonDateTime = userSecurityStateParameterValue?.logonDateTime ;
-        this.logonId = userSecurityStateParameterValue?.logonId ;
-        this.logonIp = userSecurityStateParameterValue?.logonIp ;
-        this.logonLocation = userSecurityStateParameterValue?.logonLocation ;
-        this.logonType = userSecurityStateParameterValue?.logonType ;
-        this.onPremisesSecurityIdentifier = userSecurityStateParameterValue?.onPremisesSecurityIdentifier ;
-        this.riskScore = userSecurityStateParameterValue?.riskScore ;
-        this.userAccountType = userSecurityStateParameterValue?.userAccountType ;
-        this.userPrincipalName = userSecurityStateParameterValue?.userPrincipalName ;
+        this.aadUserId = userSecurityStateParameterValue?.aadUserId;
+        this.accountName = userSecurityStateParameterValue?.accountName;
+        this.additionalData = userSecurityStateParameterValue?.additionalData ? userSecurityStateParameterValue?.additionalData! : {};
+        this.domainName = userSecurityStateParameterValue?.domainName;
+        this.emailRole = userSecurityStateParameterValue?.emailRole;
+        this.isVpn = userSecurityStateParameterValue?.isVpn;
+        this.logonDateTime = userSecurityStateParameterValue?.logonDateTime;
+        this.logonId = userSecurityStateParameterValue?.logonId;
+        this.logonIp = userSecurityStateParameterValue?.logonIp;
+        this.logonLocation = userSecurityStateParameterValue?.logonLocation;
+        this.logonType = userSecurityStateParameterValue?.logonType;
+        this.onPremisesSecurityIdentifier = userSecurityStateParameterValue?.onPremisesSecurityIdentifier;
+        this.riskScore = userSecurityStateParameterValue?.riskScore;
+        this.userAccountType = userSecurityStateParameterValue?.userAccountType;
+        this.userPrincipalName = userSecurityStateParameterValue?.userPrincipalName;
     };
     /**
      * The deserialization information for the current model
@@ -85,46 +85,46 @@ export class UserSecurityStateImpl implements AdditionalDataHolder, Parsable, Us
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.aadUserId){
-        writer.writeStringValue("aadUserId", this.aadUserId);
+            writer.writeStringValue("aadUserId", this.aadUserId);
         }
         if(this.accountName){
-        writer.writeStringValue("accountName", this.accountName);
+            writer.writeStringValue("accountName", this.accountName);
         }
         if(this.domainName){
-        writer.writeStringValue("domainName", this.domainName);
+            writer.writeStringValue("domainName", this.domainName);
         }
         if(this.emailRole){
-        writer.writeEnumValue<EmailRole>("emailRole", this.emailRole);
+            writer.writeEnumValue<EmailRole>("emailRole", this.emailRole);
         }
         if(this.isVpn){
-        writer.writeBooleanValue("isVpn", this.isVpn);
+            writer.writeBooleanValue("isVpn", this.isVpn);
         }
         if(this.logonDateTime){
-        writer.writeDateValue("logonDateTime", this.logonDateTime);
+            writer.writeDateValue("logonDateTime", this.logonDateTime);
         }
         if(this.logonId){
-        writer.writeStringValue("logonId", this.logonId);
+            writer.writeStringValue("logonId", this.logonId);
         }
         if(this.logonIp){
-        writer.writeStringValue("logonIp", this.logonIp);
+            writer.writeStringValue("logonIp", this.logonIp);
         }
         if(this.logonLocation){
-        writer.writeStringValue("logonLocation", this.logonLocation);
+            writer.writeStringValue("logonLocation", this.logonLocation);
         }
         if(this.logonType){
-        writer.writeEnumValue<LogonType>("logonType", this.logonType);
+            writer.writeEnumValue<LogonType>("logonType", this.logonType);
         }
         if(this.onPremisesSecurityIdentifier){
-        writer.writeStringValue("onPremisesSecurityIdentifier", this.onPremisesSecurityIdentifier);
+            writer.writeStringValue("onPremisesSecurityIdentifier", this.onPremisesSecurityIdentifier);
         }
         if(this.riskScore){
-        writer.writeStringValue("riskScore", this.riskScore);
+            writer.writeStringValue("riskScore", this.riskScore);
         }
         if(this.userAccountType){
-        writer.writeEnumValue<UserAccountSecurityType>("userAccountType", this.userAccountType);
+            writer.writeEnumValue<UserAccountSecurityType>("userAccountType", this.userAccountType);
         }
         if(this.userPrincipalName){
-        writer.writeStringValue("userPrincipalName", this.userPrincipalName);
+            writer.writeStringValue("userPrincipalName", this.userPrincipalName);
         }
         writer.writeAdditionalData(this.additionalData);
     };

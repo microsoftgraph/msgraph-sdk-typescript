@@ -5,7 +5,7 @@ import {UnifiedRoleEligibilitySchedule} from './unifiedRoleEligibilitySchedule';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the roleManagement singleton. */
-export class UnifiedRoleEligibilityScheduleImpl extends UnifiedRoleScheduleBaseImpl implements Parsable, UnifiedRoleEligibilitySchedule {
+export class UnifiedRoleEligibilityScheduleImpl extends UnifiedRoleScheduleBaseImpl implements UnifiedRoleEligibilitySchedule {
     /** Membership type of the eligible assignment. It can either be Inherited, Direct, or Group. */
     public memberType?: string | undefined;
     /** The schedule object of the eligible role assignment request. */
@@ -15,9 +15,9 @@ export class UnifiedRoleEligibilityScheduleImpl extends UnifiedRoleScheduleBaseI
      * @param unifiedRoleEligibilityScheduleParameterValue 
      */
     public constructor(unifiedRoleEligibilityScheduleParameterValue?: UnifiedRoleEligibilitySchedule | undefined) {
-        super();
-        this.memberType = unifiedRoleEligibilityScheduleParameterValue?.memberType ;
-        this.scheduleInfo = unifiedRoleEligibilityScheduleParameterValue?.scheduleInfo ;
+        super(unifiedRoleEligibilityScheduleParameterValue);
+        this.memberType = unifiedRoleEligibilityScheduleParameterValue?.memberType;
+        this.scheduleInfo = unifiedRoleEligibilityScheduleParameterValue?.scheduleInfo;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class UnifiedRoleEligibilityScheduleImpl extends UnifiedRoleScheduleBaseI
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.memberType){
-        writer.writeStringValue("memberType", this.memberType);
+            writer.writeStringValue("memberType", this.memberType);
         }
         if(this.scheduleInfo){
-        writer.writeObjectValue<RequestScheduleImpl>("scheduleInfo", new RequestScheduleImpl(this.scheduleInfo));
+            writer.writeObjectValue<RequestScheduleImpl>("scheduleInfo", new RequestScheduleImpl(this.scheduleInfo));
         }
     };
 }

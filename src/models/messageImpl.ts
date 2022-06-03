@@ -21,7 +21,7 @@ import {SingleValueLegacyExtendedProperty} from './singleValueLegacyExtendedProp
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Casts the previous resource to user. */
-export class MessageImpl extends OutlookItemImpl implements Message, Parsable {
+export class MessageImpl extends OutlookItemImpl implements Message {
     /** The fileAttachment and itemAttachment attachments for the message. */
     public attachments?: Attachment[] | undefined;
     /** The Bcc: recipients for the message. */
@@ -87,37 +87,37 @@ export class MessageImpl extends OutlookItemImpl implements Message, Parsable {
      * @param messageParameterValue 
      */
     public constructor(messageParameterValue?: Message | undefined) {
-        super();
-        this.attachments = messageParameterValue?.attachments ;
-        this.bccRecipients = messageParameterValue?.bccRecipients ;
-        this.body = messageParameterValue?.body ;
-        this.bodyPreview = messageParameterValue?.bodyPreview ;
-        this.ccRecipients = messageParameterValue?.ccRecipients ;
-        this.conversationId = messageParameterValue?.conversationId ;
-        this.conversationIndex = messageParameterValue?.conversationIndex ;
-        this.extensions = messageParameterValue?.extensions ;
-        this.flag = messageParameterValue?.flag ;
-        this.from = messageParameterValue?.from ;
-        this.hasAttachments = messageParameterValue?.hasAttachments ;
-        this.importance = messageParameterValue?.importance ;
-        this.inferenceClassification = messageParameterValue?.inferenceClassification ;
-        this.internetMessageHeaders = messageParameterValue?.internetMessageHeaders ;
-        this.internetMessageId = messageParameterValue?.internetMessageId ;
-        this.isDeliveryReceiptRequested = messageParameterValue?.isDeliveryReceiptRequested ;
-        this.isDraft = messageParameterValue?.isDraft ;
-        this.isRead = messageParameterValue?.isRead ;
-        this.isReadReceiptRequested = messageParameterValue?.isReadReceiptRequested ;
-        this.multiValueExtendedProperties = messageParameterValue?.multiValueExtendedProperties ;
-        this.parentFolderId = messageParameterValue?.parentFolderId ;
-        this.receivedDateTime = messageParameterValue?.receivedDateTime ;
-        this.replyTo = messageParameterValue?.replyTo ;
-        this.sender = messageParameterValue?.sender ;
-        this.sentDateTime = messageParameterValue?.sentDateTime ;
-        this.singleValueExtendedProperties = messageParameterValue?.singleValueExtendedProperties ;
-        this.subject = messageParameterValue?.subject ;
-        this.toRecipients = messageParameterValue?.toRecipients ;
-        this.uniqueBody = messageParameterValue?.uniqueBody ;
-        this.webLink = messageParameterValue?.webLink ;
+        super(messageParameterValue);
+        this.attachments = messageParameterValue?.attachments;
+        this.bccRecipients = messageParameterValue?.bccRecipients;
+        this.body = messageParameterValue?.body;
+        this.bodyPreview = messageParameterValue?.bodyPreview;
+        this.ccRecipients = messageParameterValue?.ccRecipients;
+        this.conversationId = messageParameterValue?.conversationId;
+        this.conversationIndex = messageParameterValue?.conversationIndex;
+        this.extensions = messageParameterValue?.extensions;
+        this.flag = messageParameterValue?.flag;
+        this.from = messageParameterValue?.from;
+        this.hasAttachments = messageParameterValue?.hasAttachments;
+        this.importance = messageParameterValue?.importance;
+        this.inferenceClassification = messageParameterValue?.inferenceClassification;
+        this.internetMessageHeaders = messageParameterValue?.internetMessageHeaders;
+        this.internetMessageId = messageParameterValue?.internetMessageId;
+        this.isDeliveryReceiptRequested = messageParameterValue?.isDeliveryReceiptRequested;
+        this.isDraft = messageParameterValue?.isDraft;
+        this.isRead = messageParameterValue?.isRead;
+        this.isReadReceiptRequested = messageParameterValue?.isReadReceiptRequested;
+        this.multiValueExtendedProperties = messageParameterValue?.multiValueExtendedProperties;
+        this.parentFolderId = messageParameterValue?.parentFolderId;
+        this.receivedDateTime = messageParameterValue?.receivedDateTime;
+        this.replyTo = messageParameterValue?.replyTo;
+        this.sender = messageParameterValue?.sender;
+        this.sentDateTime = messageParameterValue?.sentDateTime;
+        this.singleValueExtendedProperties = messageParameterValue?.singleValueExtendedProperties;
+        this.subject = messageParameterValue?.subject;
+        this.toRecipients = messageParameterValue?.toRecipients;
+        this.uniqueBody = messageParameterValue?.uniqueBody;
+        this.webLink = messageParameterValue?.webLink;
     };
     /**
      * The deserialization information for the current model
@@ -165,94 +165,94 @@ export class MessageImpl extends OutlookItemImpl implements Message, Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.attachments && this.attachments.length != 0){        const attachmentsArrValue: AttachmentImpl[] = []; this.attachments?.forEach(element => {attachmentsArrValue.push(new AttachmentImpl(element));});
-        writer.writeCollectionOfObjectValues<AttachmentImpl>("attachments", attachmentsArrValue);
+            writer.writeCollectionOfObjectValues<AttachmentImpl>("attachments", attachmentsArrValue);
         }
         if(this.bccRecipients && this.bccRecipients.length != 0){        const bccRecipientsArrValue: RecipientImpl[] = []; this.bccRecipients?.forEach(element => {bccRecipientsArrValue.push(new RecipientImpl(element));});
-        writer.writeCollectionOfObjectValues<RecipientImpl>("bccRecipients", bccRecipientsArrValue);
+            writer.writeCollectionOfObjectValues<RecipientImpl>("bccRecipients", bccRecipientsArrValue);
         }
         if(this.body){
-        writer.writeObjectValue<ItemBodyImpl>("body", new ItemBodyImpl(this.body));
+            writer.writeObjectValue<ItemBodyImpl>("body", new ItemBodyImpl(this.body));
         }
         if(this.bodyPreview){
-        writer.writeStringValue("bodyPreview", this.bodyPreview);
+            writer.writeStringValue("bodyPreview", this.bodyPreview);
         }
         if(this.ccRecipients && this.ccRecipients.length != 0){        const ccRecipientsArrValue: RecipientImpl[] = []; this.ccRecipients?.forEach(element => {ccRecipientsArrValue.push(new RecipientImpl(element));});
-        writer.writeCollectionOfObjectValues<RecipientImpl>("ccRecipients", ccRecipientsArrValue);
+            writer.writeCollectionOfObjectValues<RecipientImpl>("ccRecipients", ccRecipientsArrValue);
         }
         if(this.conversationId){
-        writer.writeStringValue("conversationId", this.conversationId);
+            writer.writeStringValue("conversationId", this.conversationId);
         }
         if(this.conversationIndex){
-        writer.writeStringValue("conversationIndex", this.conversationIndex);
+            writer.writeStringValue("conversationIndex", this.conversationIndex);
         }
         if(this.extensions && this.extensions.length != 0){        const extensionsArrValue: ExtensionImpl[] = []; this.extensions?.forEach(element => {extensionsArrValue.push(new ExtensionImpl(element));});
-        writer.writeCollectionOfObjectValues<ExtensionImpl>("extensions", extensionsArrValue);
+            writer.writeCollectionOfObjectValues<ExtensionImpl>("extensions", extensionsArrValue);
         }
         if(this.flag){
-        writer.writeObjectValue<FollowupFlagImpl>("flag", new FollowupFlagImpl(this.flag));
+            writer.writeObjectValue<FollowupFlagImpl>("flag", new FollowupFlagImpl(this.flag));
         }
         if(this.from){
-        writer.writeObjectValue<RecipientImpl>("from", new RecipientImpl(this.from));
+            writer.writeObjectValue<RecipientImpl>("from", new RecipientImpl(this.from));
         }
         if(this.hasAttachments){
-        writer.writeBooleanValue("hasAttachments", this.hasAttachments);
+            writer.writeBooleanValue("hasAttachments", this.hasAttachments);
         }
         if(this.importance){
-        writer.writeEnumValue<Importance>("importance", this.importance);
+            writer.writeEnumValue<Importance>("importance", this.importance);
         }
         if(this.inferenceClassification){
-        writer.writeEnumValue<InferenceClassificationType>("inferenceClassification", this.inferenceClassification);
+            writer.writeEnumValue<InferenceClassificationType>("inferenceClassification", this.inferenceClassification);
         }
         if(this.internetMessageHeaders && this.internetMessageHeaders.length != 0){        const internetMessageHeadersArrValue: InternetMessageHeaderImpl[] = []; this.internetMessageHeaders?.forEach(element => {internetMessageHeadersArrValue.push(new InternetMessageHeaderImpl(element));});
-        writer.writeCollectionOfObjectValues<InternetMessageHeaderImpl>("internetMessageHeaders", internetMessageHeadersArrValue);
+            writer.writeCollectionOfObjectValues<InternetMessageHeaderImpl>("internetMessageHeaders", internetMessageHeadersArrValue);
         }
         if(this.internetMessageId){
-        writer.writeStringValue("internetMessageId", this.internetMessageId);
+            writer.writeStringValue("internetMessageId", this.internetMessageId);
         }
         if(this.isDeliveryReceiptRequested){
-        writer.writeBooleanValue("isDeliveryReceiptRequested", this.isDeliveryReceiptRequested);
+            writer.writeBooleanValue("isDeliveryReceiptRequested", this.isDeliveryReceiptRequested);
         }
         if(this.isDraft){
-        writer.writeBooleanValue("isDraft", this.isDraft);
+            writer.writeBooleanValue("isDraft", this.isDraft);
         }
         if(this.isRead){
-        writer.writeBooleanValue("isRead", this.isRead);
+            writer.writeBooleanValue("isRead", this.isRead);
         }
         if(this.isReadReceiptRequested){
-        writer.writeBooleanValue("isReadReceiptRequested", this.isReadReceiptRequested);
+            writer.writeBooleanValue("isReadReceiptRequested", this.isReadReceiptRequested);
         }
         if(this.multiValueExtendedProperties && this.multiValueExtendedProperties.length != 0){        const multiValueExtendedPropertiesArrValue: MultiValueLegacyExtendedPropertyImpl[] = []; this.multiValueExtendedProperties?.forEach(element => {multiValueExtendedPropertiesArrValue.push(new MultiValueLegacyExtendedPropertyImpl(element));});
-        writer.writeCollectionOfObjectValues<MultiValueLegacyExtendedPropertyImpl>("multiValueExtendedProperties", multiValueExtendedPropertiesArrValue);
+            writer.writeCollectionOfObjectValues<MultiValueLegacyExtendedPropertyImpl>("multiValueExtendedProperties", multiValueExtendedPropertiesArrValue);
         }
         if(this.parentFolderId){
-        writer.writeStringValue("parentFolderId", this.parentFolderId);
+            writer.writeStringValue("parentFolderId", this.parentFolderId);
         }
         if(this.receivedDateTime){
-        writer.writeDateValue("receivedDateTime", this.receivedDateTime);
+            writer.writeDateValue("receivedDateTime", this.receivedDateTime);
         }
         if(this.replyTo && this.replyTo.length != 0){        const replyToArrValue: RecipientImpl[] = []; this.replyTo?.forEach(element => {replyToArrValue.push(new RecipientImpl(element));});
-        writer.writeCollectionOfObjectValues<RecipientImpl>("replyTo", replyToArrValue);
+            writer.writeCollectionOfObjectValues<RecipientImpl>("replyTo", replyToArrValue);
         }
         if(this.sender){
-        writer.writeObjectValue<RecipientImpl>("sender", new RecipientImpl(this.sender));
+            writer.writeObjectValue<RecipientImpl>("sender", new RecipientImpl(this.sender));
         }
         if(this.sentDateTime){
-        writer.writeDateValue("sentDateTime", this.sentDateTime);
+            writer.writeDateValue("sentDateTime", this.sentDateTime);
         }
         if(this.singleValueExtendedProperties && this.singleValueExtendedProperties.length != 0){        const singleValueExtendedPropertiesArrValue: SingleValueLegacyExtendedPropertyImpl[] = []; this.singleValueExtendedProperties?.forEach(element => {singleValueExtendedPropertiesArrValue.push(new SingleValueLegacyExtendedPropertyImpl(element));});
-        writer.writeCollectionOfObjectValues<SingleValueLegacyExtendedPropertyImpl>("singleValueExtendedProperties", singleValueExtendedPropertiesArrValue);
+            writer.writeCollectionOfObjectValues<SingleValueLegacyExtendedPropertyImpl>("singleValueExtendedProperties", singleValueExtendedPropertiesArrValue);
         }
         if(this.subject){
-        writer.writeStringValue("subject", this.subject);
+            writer.writeStringValue("subject", this.subject);
         }
         if(this.toRecipients && this.toRecipients.length != 0){        const toRecipientsArrValue: RecipientImpl[] = []; this.toRecipients?.forEach(element => {toRecipientsArrValue.push(new RecipientImpl(element));});
-        writer.writeCollectionOfObjectValues<RecipientImpl>("toRecipients", toRecipientsArrValue);
+            writer.writeCollectionOfObjectValues<RecipientImpl>("toRecipients", toRecipientsArrValue);
         }
         if(this.uniqueBody){
-        writer.writeObjectValue<ItemBodyImpl>("uniqueBody", new ItemBodyImpl(this.uniqueBody));
+            writer.writeObjectValue<ItemBodyImpl>("uniqueBody", new ItemBodyImpl(this.uniqueBody));
         }
         if(this.webLink){
-        writer.writeStringValue("webLink", this.webLink);
+            writer.writeStringValue("webLink", this.webLink);
         }
     };
 }

@@ -4,7 +4,7 @@ import {IdentitySetImpl} from './index';
 import {InvitationParticipantInfo} from './invitationParticipantInfo';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class InvitationParticipantInfoImpl implements AdditionalDataHolder, InvitationParticipantInfo, Parsable {
+export class InvitationParticipantInfoImpl implements InvitationParticipantInfo {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The hidden property */
@@ -22,12 +22,12 @@ export class InvitationParticipantInfoImpl implements AdditionalDataHolder, Invi
      * @param invitationParticipantInfoParameterValue 
      */
     public constructor(invitationParticipantInfoParameterValue?: InvitationParticipantInfo | undefined) {
-        this.additionalData = invitationParticipantInfoParameterValue?.additionalData ? invitationParticipantInfoParameterValue?.additionalData! : {}
-        this.hidden = invitationParticipantInfoParameterValue?.hidden ;
-        this.identity = invitationParticipantInfoParameterValue?.identity ;
-        this.participantId = invitationParticipantInfoParameterValue?.participantId ;
-        this.removeFromDefaultAudioRoutingGroup = invitationParticipantInfoParameterValue?.removeFromDefaultAudioRoutingGroup ;
-        this.replacesCallId = invitationParticipantInfoParameterValue?.replacesCallId ;
+        this.additionalData = invitationParticipantInfoParameterValue?.additionalData ? invitationParticipantInfoParameterValue?.additionalData! : {};
+        this.hidden = invitationParticipantInfoParameterValue?.hidden;
+        this.identity = invitationParticipantInfoParameterValue?.identity;
+        this.participantId = invitationParticipantInfoParameterValue?.participantId;
+        this.removeFromDefaultAudioRoutingGroup = invitationParticipantInfoParameterValue?.removeFromDefaultAudioRoutingGroup;
+        this.replacesCallId = invitationParticipantInfoParameterValue?.replacesCallId;
     };
     /**
      * The deserialization information for the current model
@@ -49,19 +49,19 @@ export class InvitationParticipantInfoImpl implements AdditionalDataHolder, Invi
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.hidden){
-        writer.writeBooleanValue("hidden", this.hidden);
+            writer.writeBooleanValue("hidden", this.hidden);
         }
         if(this.identity){
-        writer.writeObjectValue<IdentitySetImpl>("identity", new IdentitySetImpl(this.identity));
+            writer.writeObjectValue<IdentitySetImpl>("identity", new IdentitySetImpl(this.identity));
         }
         if(this.participantId){
-        writer.writeStringValue("participantId", this.participantId);
+            writer.writeStringValue("participantId", this.participantId);
         }
         if(this.removeFromDefaultAudioRoutingGroup){
-        writer.writeBooleanValue("removeFromDefaultAudioRoutingGroup", this.removeFromDefaultAudioRoutingGroup);
+            writer.writeBooleanValue("removeFromDefaultAudioRoutingGroup", this.removeFromDefaultAudioRoutingGroup);
         }
         if(this.replacesCallId){
-        writer.writeStringValue("replacesCallId", this.replacesCallId);
+            writer.writeStringValue("replacesCallId", this.replacesCallId);
         }
         writer.writeAdditionalData(this.additionalData);
     };

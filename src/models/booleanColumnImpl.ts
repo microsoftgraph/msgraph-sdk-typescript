@@ -1,7 +1,7 @@
 import {BooleanColumn} from './booleanColumn';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class BooleanColumnImpl implements AdditionalDataHolder, BooleanColumn, Parsable {
+export class BooleanColumnImpl implements BooleanColumn {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /**
@@ -9,7 +9,7 @@ export class BooleanColumnImpl implements AdditionalDataHolder, BooleanColumn, P
      * @param booleanColumnParameterValue 
      */
     public constructor(booleanColumnParameterValue?: BooleanColumn | undefined) {
-        this.additionalData = booleanColumnParameterValue?.additionalData ? booleanColumnParameterValue?.additionalData! : {}
+        this.additionalData = booleanColumnParameterValue?.additionalData ? booleanColumnParameterValue?.additionalData! : {};
     };
     /**
      * The deserialization information for the current model

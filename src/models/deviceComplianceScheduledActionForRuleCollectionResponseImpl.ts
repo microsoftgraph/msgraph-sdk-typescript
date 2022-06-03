@@ -4,7 +4,7 @@ import {DeviceComplianceScheduledActionForRuleCollectionResponse} from './device
 import {DeviceComplianceScheduledActionForRuleImpl} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class DeviceComplianceScheduledActionForRuleCollectionResponseImpl implements AdditionalDataHolder, DeviceComplianceScheduledActionForRuleCollectionResponse, Parsable {
+export class DeviceComplianceScheduledActionForRuleCollectionResponseImpl implements DeviceComplianceScheduledActionForRuleCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class DeviceComplianceScheduledActionForRuleCollectionResponseImpl implem
      * @param deviceComplianceScheduledActionForRuleCollectionResponseParameterValue 
      */
     public constructor(deviceComplianceScheduledActionForRuleCollectionResponseParameterValue?: DeviceComplianceScheduledActionForRuleCollectionResponse | undefined) {
-        this.additionalData = deviceComplianceScheduledActionForRuleCollectionResponseParameterValue?.additionalData ? deviceComplianceScheduledActionForRuleCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = deviceComplianceScheduledActionForRuleCollectionResponseParameterValue?.nextLink ;
-        this.value = deviceComplianceScheduledActionForRuleCollectionResponseParameterValue?.value ;
+        this.additionalData = deviceComplianceScheduledActionForRuleCollectionResponseParameterValue?.additionalData ? deviceComplianceScheduledActionForRuleCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = deviceComplianceScheduledActionForRuleCollectionResponseParameterValue?.nextLink;
+        this.value = deviceComplianceScheduledActionForRuleCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class DeviceComplianceScheduledActionForRuleCollectionResponseImpl implem
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: DeviceComplianceScheduledActionForRuleImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new DeviceComplianceScheduledActionForRuleImpl(element));});
-        writer.writeCollectionOfObjectValues<DeviceComplianceScheduledActionForRuleImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<DeviceComplianceScheduledActionForRuleImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

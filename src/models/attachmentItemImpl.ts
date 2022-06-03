@@ -2,7 +2,7 @@ import {AttachmentItem} from './attachmentItem';
 import {AttachmentType} from './attachmentType';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class AttachmentItemImpl implements AdditionalDataHolder, AttachmentItem, Parsable {
+export class AttachmentItemImpl implements AttachmentItem {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The type of attachment. Possible values are: file, item, reference. Required. */
@@ -22,13 +22,13 @@ export class AttachmentItemImpl implements AdditionalDataHolder, AttachmentItem,
      * @param attachmentItemParameterValue 
      */
     public constructor(attachmentItemParameterValue?: AttachmentItem | undefined) {
-        this.additionalData = attachmentItemParameterValue?.additionalData ? attachmentItemParameterValue?.additionalData! : {}
-        this.attachmentType = attachmentItemParameterValue?.attachmentType ;
-        this.contentId = attachmentItemParameterValue?.contentId ;
-        this.contentType = attachmentItemParameterValue?.contentType ;
-        this.isInline = attachmentItemParameterValue?.isInline ;
-        this.name = attachmentItemParameterValue?.name ;
-        this.size = attachmentItemParameterValue?.size ;
+        this.additionalData = attachmentItemParameterValue?.additionalData ? attachmentItemParameterValue?.additionalData! : {};
+        this.attachmentType = attachmentItemParameterValue?.attachmentType;
+        this.contentId = attachmentItemParameterValue?.contentId;
+        this.contentType = attachmentItemParameterValue?.contentType;
+        this.isInline = attachmentItemParameterValue?.isInline;
+        this.name = attachmentItemParameterValue?.name;
+        this.size = attachmentItemParameterValue?.size;
     };
     /**
      * The deserialization information for the current model
@@ -51,22 +51,22 @@ export class AttachmentItemImpl implements AdditionalDataHolder, AttachmentItem,
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.attachmentType){
-        writer.writeEnumValue<AttachmentType>("attachmentType", this.attachmentType);
+            writer.writeEnumValue<AttachmentType>("attachmentType", this.attachmentType);
         }
         if(this.contentId){
-        writer.writeStringValue("contentId", this.contentId);
+            writer.writeStringValue("contentId", this.contentId);
         }
         if(this.contentType){
-        writer.writeStringValue("contentType", this.contentType);
+            writer.writeStringValue("contentType", this.contentType);
         }
         if(this.isInline){
-        writer.writeBooleanValue("isInline", this.isInline);
+            writer.writeBooleanValue("isInline", this.isInline);
         }
         if(this.name){
-        writer.writeStringValue("name", this.name);
+            writer.writeStringValue("name", this.name);
         }
         if(this.size){
-        writer.writeNumberValue("size", this.size);
+            writer.writeNumberValue("size", this.size);
         }
         writer.writeAdditionalData(this.additionalData);
     };

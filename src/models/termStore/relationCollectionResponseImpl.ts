@@ -4,7 +4,7 @@ import {Relation} from './relation';
 import {RelationCollectionResponse} from './relationCollectionResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class RelationCollectionResponseImpl implements AdditionalDataHolder, Parsable, RelationCollectionResponse {
+export class RelationCollectionResponseImpl implements RelationCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class RelationCollectionResponseImpl implements AdditionalDataHolder, Par
      * @param relationCollectionResponseParameterValue 
      */
     public constructor(relationCollectionResponseParameterValue?: RelationCollectionResponse | undefined) {
-        this.additionalData = relationCollectionResponseParameterValue?.additionalData ? relationCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = relationCollectionResponseParameterValue?.nextLink ;
-        this.value = relationCollectionResponseParameterValue?.value ;
+        this.additionalData = relationCollectionResponseParameterValue?.additionalData ? relationCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = relationCollectionResponseParameterValue?.nextLink;
+        this.value = relationCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class RelationCollectionResponseImpl implements AdditionalDataHolder, Par
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: RelationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new RelationImpl(element));});
-        writer.writeCollectionOfObjectValues<RelationImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<RelationImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

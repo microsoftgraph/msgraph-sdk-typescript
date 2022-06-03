@@ -7,7 +7,7 @@ import {createChatMessagePolicyViolationPolicyTipFromDiscriminatorValue} from '.
 import {ChatMessagePolicyViolationPolicyTipImpl} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ChatMessagePolicyViolationImpl implements AdditionalDataHolder, ChatMessagePolicyViolation, Parsable {
+export class ChatMessagePolicyViolationImpl implements ChatMessagePolicyViolation {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The action taken by the DLP provider on the message with sensitive content. Supported values are: NoneNotifySender -- Inform the sender of the violation but allow readers to read the message.BlockAccess -- Block readers from reading the message.BlockAccessExternal -- Block users outside the organization from reading the message, while allowing users within the organization to read the message. */
@@ -25,12 +25,12 @@ export class ChatMessagePolicyViolationImpl implements AdditionalDataHolder, Cha
      * @param chatMessagePolicyViolationParameterValue 
      */
     public constructor(chatMessagePolicyViolationParameterValue?: ChatMessagePolicyViolation | undefined) {
-        this.additionalData = chatMessagePolicyViolationParameterValue?.additionalData ? chatMessagePolicyViolationParameterValue?.additionalData! : {}
-        this.dlpAction = chatMessagePolicyViolationParameterValue?.dlpAction ;
-        this.justificationText = chatMessagePolicyViolationParameterValue?.justificationText ;
-        this.policyTip = chatMessagePolicyViolationParameterValue?.policyTip ;
-        this.userAction = chatMessagePolicyViolationParameterValue?.userAction ;
-        this.verdictDetails = chatMessagePolicyViolationParameterValue?.verdictDetails ;
+        this.additionalData = chatMessagePolicyViolationParameterValue?.additionalData ? chatMessagePolicyViolationParameterValue?.additionalData! : {};
+        this.dlpAction = chatMessagePolicyViolationParameterValue?.dlpAction;
+        this.justificationText = chatMessagePolicyViolationParameterValue?.justificationText;
+        this.policyTip = chatMessagePolicyViolationParameterValue?.policyTip;
+        this.userAction = chatMessagePolicyViolationParameterValue?.userAction;
+        this.verdictDetails = chatMessagePolicyViolationParameterValue?.verdictDetails;
     };
     /**
      * The deserialization information for the current model
@@ -52,19 +52,19 @@ export class ChatMessagePolicyViolationImpl implements AdditionalDataHolder, Cha
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.dlpAction){
-        writer.writeEnumValue<ChatMessagePolicyViolationDlpActionTypes>("dlpAction", this.dlpAction);
+            writer.writeEnumValue<ChatMessagePolicyViolationDlpActionTypes>("dlpAction", this.dlpAction);
         }
         if(this.justificationText){
-        writer.writeStringValue("justificationText", this.justificationText);
+            writer.writeStringValue("justificationText", this.justificationText);
         }
         if(this.policyTip){
-        writer.writeObjectValue<ChatMessagePolicyViolationPolicyTipImpl>("policyTip", new ChatMessagePolicyViolationPolicyTipImpl(this.policyTip));
+            writer.writeObjectValue<ChatMessagePolicyViolationPolicyTipImpl>("policyTip", new ChatMessagePolicyViolationPolicyTipImpl(this.policyTip));
         }
         if(this.userAction){
-        writer.writeEnumValue<ChatMessagePolicyViolationUserActionTypes>("userAction", this.userAction);
+            writer.writeEnumValue<ChatMessagePolicyViolationUserActionTypes>("userAction", this.userAction);
         }
         if(this.verdictDetails){
-        writer.writeEnumValue<ChatMessagePolicyViolationVerdictDetailsTypes>("verdictDetails", this.verdictDetails);
+            writer.writeEnumValue<ChatMessagePolicyViolationVerdictDetailsTypes>("verdictDetails", this.verdictDetails);
         }
         writer.writeAdditionalData(this.additionalData);
     };

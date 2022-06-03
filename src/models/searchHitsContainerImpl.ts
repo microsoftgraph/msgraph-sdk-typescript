@@ -6,7 +6,7 @@ import {SearchHit} from './searchHit';
 import {SearchHitsContainer} from './searchHitsContainer';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class SearchHitsContainerImpl implements AdditionalDataHolder, Parsable, SearchHitsContainer {
+export class SearchHitsContainerImpl implements SearchHitsContainer {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Contains the collection of aggregations computed based on the provided aggregationOption specified in the request. */
@@ -22,11 +22,11 @@ export class SearchHitsContainerImpl implements AdditionalDataHolder, Parsable, 
      * @param searchHitsContainerParameterValue 
      */
     public constructor(searchHitsContainerParameterValue?: SearchHitsContainer | undefined) {
-        this.additionalData = searchHitsContainerParameterValue?.additionalData ? searchHitsContainerParameterValue?.additionalData! : {}
-        this.aggregations = searchHitsContainerParameterValue?.aggregations ;
-        this.hits = searchHitsContainerParameterValue?.hits ;
-        this.moreResultsAvailable = searchHitsContainerParameterValue?.moreResultsAvailable ;
-        this.total = searchHitsContainerParameterValue?.total ;
+        this.additionalData = searchHitsContainerParameterValue?.additionalData ? searchHitsContainerParameterValue?.additionalData! : {};
+        this.aggregations = searchHitsContainerParameterValue?.aggregations;
+        this.hits = searchHitsContainerParameterValue?.hits;
+        this.moreResultsAvailable = searchHitsContainerParameterValue?.moreResultsAvailable;
+        this.total = searchHitsContainerParameterValue?.total;
     };
     /**
      * The deserialization information for the current model
@@ -47,16 +47,16 @@ export class SearchHitsContainerImpl implements AdditionalDataHolder, Parsable, 
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.aggregations && this.aggregations.length != 0){        const aggregationsArrValue: SearchAggregationImpl[] = []; this.aggregations?.forEach(element => {aggregationsArrValue.push(new SearchAggregationImpl(element));});
-        writer.writeCollectionOfObjectValues<SearchAggregationImpl>("aggregations", aggregationsArrValue);
+            writer.writeCollectionOfObjectValues<SearchAggregationImpl>("aggregations", aggregationsArrValue);
         }
         if(this.hits && this.hits.length != 0){        const hitsArrValue: SearchHitImpl[] = []; this.hits?.forEach(element => {hitsArrValue.push(new SearchHitImpl(element));});
-        writer.writeCollectionOfObjectValues<SearchHitImpl>("hits", hitsArrValue);
+            writer.writeCollectionOfObjectValues<SearchHitImpl>("hits", hitsArrValue);
         }
         if(this.moreResultsAvailable){
-        writer.writeBooleanValue("moreResultsAvailable", this.moreResultsAvailable);
+            writer.writeBooleanValue("moreResultsAvailable", this.moreResultsAvailable);
         }
         if(this.total){
-        writer.writeNumberValue("total", this.total);
+            writer.writeNumberValue("total", this.total);
         }
         writer.writeAdditionalData(this.additionalData);
     };

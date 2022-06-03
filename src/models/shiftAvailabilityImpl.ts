@@ -6,7 +6,7 @@ import {ShiftAvailability} from './shiftAvailability';
 import {TimeRange} from './timeRange';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ShiftAvailabilityImpl implements AdditionalDataHolder, Parsable, ShiftAvailability {
+export class ShiftAvailabilityImpl implements ShiftAvailability {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Specifies the pattern for recurrence */
@@ -20,10 +20,10 @@ export class ShiftAvailabilityImpl implements AdditionalDataHolder, Parsable, Sh
      * @param shiftAvailabilityParameterValue 
      */
     public constructor(shiftAvailabilityParameterValue?: ShiftAvailability | undefined) {
-        this.additionalData = shiftAvailabilityParameterValue?.additionalData ? shiftAvailabilityParameterValue?.additionalData! : {}
-        this.recurrence = shiftAvailabilityParameterValue?.recurrence ;
-        this.timeSlots = shiftAvailabilityParameterValue?.timeSlots ;
-        this.timeZone = shiftAvailabilityParameterValue?.timeZone ;
+        this.additionalData = shiftAvailabilityParameterValue?.additionalData ? shiftAvailabilityParameterValue?.additionalData! : {};
+        this.recurrence = shiftAvailabilityParameterValue?.recurrence;
+        this.timeSlots = shiftAvailabilityParameterValue?.timeSlots;
+        this.timeZone = shiftAvailabilityParameterValue?.timeZone;
     };
     /**
      * The deserialization information for the current model
@@ -43,13 +43,13 @@ export class ShiftAvailabilityImpl implements AdditionalDataHolder, Parsable, Sh
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.recurrence){
-        writer.writeObjectValue<PatternedRecurrenceImpl>("recurrence", new PatternedRecurrenceImpl(this.recurrence));
+            writer.writeObjectValue<PatternedRecurrenceImpl>("recurrence", new PatternedRecurrenceImpl(this.recurrence));
         }
         if(this.timeSlots && this.timeSlots.length != 0){        const timeSlotsArrValue: TimeRangeImpl[] = []; this.timeSlots?.forEach(element => {timeSlotsArrValue.push(new TimeRangeImpl(element));});
-        writer.writeCollectionOfObjectValues<TimeRangeImpl>("timeSlots", timeSlotsArrValue);
+            writer.writeCollectionOfObjectValues<TimeRangeImpl>("timeSlots", timeSlotsArrValue);
         }
         if(this.timeZone){
-        writer.writeStringValue("timeZone", this.timeZone);
+            writer.writeStringValue("timeZone", this.timeZone);
         }
         writer.writeAdditionalData(this.additionalData);
     };

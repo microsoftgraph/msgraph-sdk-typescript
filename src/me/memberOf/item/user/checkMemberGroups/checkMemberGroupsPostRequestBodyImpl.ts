@@ -2,7 +2,7 @@ import {CheckMemberGroupsPostRequestBody} from './checkMemberGroupsPostRequestBo
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the checkMemberGroups method. */
-export class CheckMemberGroupsPostRequestBodyImpl implements AdditionalDataHolder, CheckMemberGroupsPostRequestBody, Parsable {
+export class CheckMemberGroupsPostRequestBodyImpl implements CheckMemberGroupsPostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The groupIds property */
@@ -12,8 +12,8 @@ export class CheckMemberGroupsPostRequestBodyImpl implements AdditionalDataHolde
      * @param checkMemberGroupsPostRequestBodyParameterValue 
      */
     public constructor(checkMemberGroupsPostRequestBodyParameterValue?: CheckMemberGroupsPostRequestBody | undefined) {
-        this.additionalData = checkMemberGroupsPostRequestBodyParameterValue?.additionalData ? checkMemberGroupsPostRequestBodyParameterValue?.additionalData! : {}
-        this.groupIds = checkMemberGroupsPostRequestBodyParameterValue?.groupIds ;
+        this.additionalData = checkMemberGroupsPostRequestBodyParameterValue?.additionalData ? checkMemberGroupsPostRequestBodyParameterValue?.additionalData! : {};
+        this.groupIds = checkMemberGroupsPostRequestBodyParameterValue?.groupIds;
     };
     /**
      * The deserialization information for the current model
@@ -31,7 +31,7 @@ export class CheckMemberGroupsPostRequestBodyImpl implements AdditionalDataHolde
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.groupIds){
-        writer.writeCollectionOfPrimitiveValues<string>("groupIds", this.groupIds);
+            writer.writeCollectionOfPrimitiveValues<string>("groupIds", this.groupIds);
         }
         writer.writeAdditionalData(this.additionalData);
     };

@@ -8,8 +8,8 @@ import {OnenoteSection} from './onenoteSection';
 import {PageLinks} from './pageLinks';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to group. */
-export class OnenotePageImpl extends OnenoteEntitySchemaObjectModelImpl implements OnenotePage, Parsable {
+/** Casts the previous resource to user. */
+export class OnenotePageImpl extends OnenoteEntitySchemaObjectModelImpl implements OnenotePage {
     /** The page's HTML content. */
     public content?: string | undefined;
     /** The URL for the page's HTML content.  Read-only. */
@@ -37,18 +37,18 @@ export class OnenotePageImpl extends OnenoteEntitySchemaObjectModelImpl implemen
      * @param onenotePageParameterValue 
      */
     public constructor(onenotePageParameterValue?: OnenotePage | undefined) {
-        super();
-        this.content = onenotePageParameterValue?.content ;
-        this.contentUrl = onenotePageParameterValue?.contentUrl ;
-        this.createdByAppId = onenotePageParameterValue?.createdByAppId ;
-        this.lastModifiedDateTime = onenotePageParameterValue?.lastModifiedDateTime ;
-        this.level = onenotePageParameterValue?.level ;
-        this.links = onenotePageParameterValue?.links ;
-        this.order = onenotePageParameterValue?.order ;
-        this.parentNotebook = onenotePageParameterValue?.parentNotebook ;
-        this.parentSection = onenotePageParameterValue?.parentSection ;
-        this.title = onenotePageParameterValue?.title ;
-        this.userTags = onenotePageParameterValue?.userTags ;
+        super(onenotePageParameterValue);
+        this.content = onenotePageParameterValue?.content;
+        this.contentUrl = onenotePageParameterValue?.contentUrl;
+        this.createdByAppId = onenotePageParameterValue?.createdByAppId;
+        this.lastModifiedDateTime = onenotePageParameterValue?.lastModifiedDateTime;
+        this.level = onenotePageParameterValue?.level;
+        this.links = onenotePageParameterValue?.links;
+        this.order = onenotePageParameterValue?.order;
+        this.parentNotebook = onenotePageParameterValue?.parentNotebook;
+        this.parentSection = onenotePageParameterValue?.parentSection;
+        this.title = onenotePageParameterValue?.title;
+        this.userTags = onenotePageParameterValue?.userTags;
     };
     /**
      * The deserialization information for the current model
@@ -77,37 +77,37 @@ export class OnenotePageImpl extends OnenoteEntitySchemaObjectModelImpl implemen
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.content){
-        writer.writeStringValue("content", this.content);
+            writer.writeStringValue("content", this.content);
         }
         if(this.contentUrl){
-        writer.writeStringValue("contentUrl", this.contentUrl);
+            writer.writeStringValue("contentUrl", this.contentUrl);
         }
         if(this.createdByAppId){
-        writer.writeStringValue("createdByAppId", this.createdByAppId);
+            writer.writeStringValue("createdByAppId", this.createdByAppId);
         }
         if(this.lastModifiedDateTime){
-        writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
+            writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
         }
         if(this.level){
-        writer.writeNumberValue("level", this.level);
+            writer.writeNumberValue("level", this.level);
         }
         if(this.links){
-        writer.writeObjectValue<PageLinksImpl>("links", new PageLinksImpl(this.links));
+            writer.writeObjectValue<PageLinksImpl>("links", new PageLinksImpl(this.links));
         }
         if(this.order){
-        writer.writeNumberValue("order", this.order);
+            writer.writeNumberValue("order", this.order);
         }
         if(this.parentNotebook){
-        writer.writeObjectValue<NotebookImpl>("parentNotebook", new NotebookImpl(this.parentNotebook));
+            writer.writeObjectValue<NotebookImpl>("parentNotebook", new NotebookImpl(this.parentNotebook));
         }
         if(this.parentSection){
-        writer.writeObjectValue<OnenoteSectionImpl>("parentSection", new OnenoteSectionImpl(this.parentSection));
+            writer.writeObjectValue<OnenoteSectionImpl>("parentSection", new OnenoteSectionImpl(this.parentSection));
         }
         if(this.title){
-        writer.writeStringValue("title", this.title);
+            writer.writeStringValue("title", this.title);
         }
         if(this.userTags){
-        writer.writeCollectionOfPrimitiveValues<string>("userTags", this.userTags);
+            writer.writeCollectionOfPrimitiveValues<string>("userTags", this.userTags);
         }
     };
 }

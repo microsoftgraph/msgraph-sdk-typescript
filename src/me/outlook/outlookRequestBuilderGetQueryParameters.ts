@@ -1,5 +1,5 @@
 
-export interface OutlookRequestBuilderGetQueryParameters{
+export interface OutlookRequestBuilderGetQueryParameters {
     /** Select properties to be returned */
-    select?:string[] | undefined;
+    select?: string[] | undefined;
 }

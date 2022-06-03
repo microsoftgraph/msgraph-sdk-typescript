@@ -17,8 +17,8 @@ import {PlannerTask} from './plannerTask';
 import {PlannerTaskDetails} from './plannerTaskDetails';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
-export class PlannerTaskImpl extends EntityImpl implements Parsable, PlannerTask {
+/** Casts the previous resource to group. */
+export class PlannerTaskImpl extends EntityImpl implements PlannerTask {
     /** Number of checklist items with value set to false, representing incomplete items. */
     public activeChecklistItemCount?: number | undefined;
     /** The categories to which the task has been applied. See applied Categories for possible values. */
@@ -74,32 +74,32 @@ export class PlannerTaskImpl extends EntityImpl implements Parsable, PlannerTask
      * @param plannerTaskParameterValue 
      */
     public constructor(plannerTaskParameterValue?: PlannerTask | undefined) {
-        super();
-        this.activeChecklistItemCount = plannerTaskParameterValue?.activeChecklistItemCount ;
-        this.appliedCategories = plannerTaskParameterValue?.appliedCategories ;
-        this.assignedToTaskBoardFormat = plannerTaskParameterValue?.assignedToTaskBoardFormat ;
-        this.assigneePriority = plannerTaskParameterValue?.assigneePriority ;
-        this.assignments = plannerTaskParameterValue?.assignments ;
-        this.bucketId = plannerTaskParameterValue?.bucketId ;
-        this.bucketTaskBoardFormat = plannerTaskParameterValue?.bucketTaskBoardFormat ;
-        this.checklistItemCount = plannerTaskParameterValue?.checklistItemCount ;
-        this.completedBy = plannerTaskParameterValue?.completedBy ;
-        this.completedDateTime = plannerTaskParameterValue?.completedDateTime ;
-        this.conversationThreadId = plannerTaskParameterValue?.conversationThreadId ;
-        this.createdBy = plannerTaskParameterValue?.createdBy ;
-        this.createdDateTime = plannerTaskParameterValue?.createdDateTime ;
-        this.details = plannerTaskParameterValue?.details ;
-        this.dueDateTime = plannerTaskParameterValue?.dueDateTime ;
-        this.hasDescription = plannerTaskParameterValue?.hasDescription ;
-        this.orderHint = plannerTaskParameterValue?.orderHint ;
-        this.percentComplete = plannerTaskParameterValue?.percentComplete ;
-        this.planId = plannerTaskParameterValue?.planId ;
-        this.previewType = plannerTaskParameterValue?.previewType ;
-        this.priority = plannerTaskParameterValue?.priority ;
-        this.progressTaskBoardFormat = plannerTaskParameterValue?.progressTaskBoardFormat ;
-        this.referenceCount = plannerTaskParameterValue?.referenceCount ;
-        this.startDateTime = plannerTaskParameterValue?.startDateTime ;
-        this.title = plannerTaskParameterValue?.title ;
+        super(plannerTaskParameterValue);
+        this.activeChecklistItemCount = plannerTaskParameterValue?.activeChecklistItemCount;
+        this.appliedCategories = plannerTaskParameterValue?.appliedCategories;
+        this.assignedToTaskBoardFormat = plannerTaskParameterValue?.assignedToTaskBoardFormat;
+        this.assigneePriority = plannerTaskParameterValue?.assigneePriority;
+        this.assignments = plannerTaskParameterValue?.assignments;
+        this.bucketId = plannerTaskParameterValue?.bucketId;
+        this.bucketTaskBoardFormat = plannerTaskParameterValue?.bucketTaskBoardFormat;
+        this.checklistItemCount = plannerTaskParameterValue?.checklistItemCount;
+        this.completedBy = plannerTaskParameterValue?.completedBy;
+        this.completedDateTime = plannerTaskParameterValue?.completedDateTime;
+        this.conversationThreadId = plannerTaskParameterValue?.conversationThreadId;
+        this.createdBy = plannerTaskParameterValue?.createdBy;
+        this.createdDateTime = plannerTaskParameterValue?.createdDateTime;
+        this.details = plannerTaskParameterValue?.details;
+        this.dueDateTime = plannerTaskParameterValue?.dueDateTime;
+        this.hasDescription = plannerTaskParameterValue?.hasDescription;
+        this.orderHint = plannerTaskParameterValue?.orderHint;
+        this.percentComplete = plannerTaskParameterValue?.percentComplete;
+        this.planId = plannerTaskParameterValue?.planId;
+        this.previewType = plannerTaskParameterValue?.previewType;
+        this.priority = plannerTaskParameterValue?.priority;
+        this.progressTaskBoardFormat = plannerTaskParameterValue?.progressTaskBoardFormat;
+        this.referenceCount = plannerTaskParameterValue?.referenceCount;
+        this.startDateTime = plannerTaskParameterValue?.startDateTime;
+        this.title = plannerTaskParameterValue?.title;
     };
     /**
      * The deserialization information for the current model
@@ -142,79 +142,79 @@ export class PlannerTaskImpl extends EntityImpl implements Parsable, PlannerTask
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.activeChecklistItemCount){
-        writer.writeNumberValue("activeChecklistItemCount", this.activeChecklistItemCount);
+            writer.writeNumberValue("activeChecklistItemCount", this.activeChecklistItemCount);
         }
         if(this.appliedCategories){
-        writer.writeObjectValue<PlannerAppliedCategoriesImpl>("appliedCategories", new PlannerAppliedCategoriesImpl(this.appliedCategories));
+            writer.writeObjectValue<PlannerAppliedCategoriesImpl>("appliedCategories", new PlannerAppliedCategoriesImpl(this.appliedCategories));
         }
         if(this.assignedToTaskBoardFormat){
-        writer.writeObjectValue<PlannerAssignedToTaskBoardTaskFormatImpl>("assignedToTaskBoardFormat", new PlannerAssignedToTaskBoardTaskFormatImpl(this.assignedToTaskBoardFormat));
+            writer.writeObjectValue<PlannerAssignedToTaskBoardTaskFormatImpl>("assignedToTaskBoardFormat", new PlannerAssignedToTaskBoardTaskFormatImpl(this.assignedToTaskBoardFormat));
         }
         if(this.assigneePriority){
-        writer.writeStringValue("assigneePriority", this.assigneePriority);
+            writer.writeStringValue("assigneePriority", this.assigneePriority);
         }
         if(this.assignments){
-        writer.writeObjectValue<PlannerAssignmentsImpl>("assignments", new PlannerAssignmentsImpl(this.assignments));
+            writer.writeObjectValue<PlannerAssignmentsImpl>("assignments", new PlannerAssignmentsImpl(this.assignments));
         }
         if(this.bucketId){
-        writer.writeStringValue("bucketId", this.bucketId);
+            writer.writeStringValue("bucketId", this.bucketId);
         }
         if(this.bucketTaskBoardFormat){
-        writer.writeObjectValue<PlannerBucketTaskBoardTaskFormatImpl>("bucketTaskBoardFormat", new PlannerBucketTaskBoardTaskFormatImpl(this.bucketTaskBoardFormat));
+            writer.writeObjectValue<PlannerBucketTaskBoardTaskFormatImpl>("bucketTaskBoardFormat", new PlannerBucketTaskBoardTaskFormatImpl(this.bucketTaskBoardFormat));
         }
         if(this.checklistItemCount){
-        writer.writeNumberValue("checklistItemCount", this.checklistItemCount);
+            writer.writeNumberValue("checklistItemCount", this.checklistItemCount);
         }
         if(this.completedBy){
-        writer.writeObjectValue<IdentitySetImpl>("completedBy", new IdentitySetImpl(this.completedBy));
+            writer.writeObjectValue<IdentitySetImpl>("completedBy", new IdentitySetImpl(this.completedBy));
         }
         if(this.completedDateTime){
-        writer.writeDateValue("completedDateTime", this.completedDateTime);
+            writer.writeDateValue("completedDateTime", this.completedDateTime);
         }
         if(this.conversationThreadId){
-        writer.writeStringValue("conversationThreadId", this.conversationThreadId);
+            writer.writeStringValue("conversationThreadId", this.conversationThreadId);
         }
         if(this.createdBy){
-        writer.writeObjectValue<IdentitySetImpl>("createdBy", new IdentitySetImpl(this.createdBy));
+            writer.writeObjectValue<IdentitySetImpl>("createdBy", new IdentitySetImpl(this.createdBy));
         }
         if(this.createdDateTime){
-        writer.writeDateValue("createdDateTime", this.createdDateTime);
+            writer.writeDateValue("createdDateTime", this.createdDateTime);
         }
         if(this.details){
-        writer.writeObjectValue<PlannerTaskDetailsImpl>("details", new PlannerTaskDetailsImpl(this.details));
+            writer.writeObjectValue<PlannerTaskDetailsImpl>("details", new PlannerTaskDetailsImpl(this.details));
         }
         if(this.dueDateTime){
-        writer.writeDateValue("dueDateTime", this.dueDateTime);
+            writer.writeDateValue("dueDateTime", this.dueDateTime);
         }
         if(this.hasDescription){
-        writer.writeBooleanValue("hasDescription", this.hasDescription);
+            writer.writeBooleanValue("hasDescription", this.hasDescription);
         }
         if(this.orderHint){
-        writer.writeStringValue("orderHint", this.orderHint);
+            writer.writeStringValue("orderHint", this.orderHint);
         }
         if(this.percentComplete){
-        writer.writeNumberValue("percentComplete", this.percentComplete);
+            writer.writeNumberValue("percentComplete", this.percentComplete);
         }
         if(this.planId){
-        writer.writeStringValue("planId", this.planId);
+            writer.writeStringValue("planId", this.planId);
         }
         if(this.previewType){
-        writer.writeEnumValue<PlannerPreviewType>("previewType", this.previewType);
+            writer.writeEnumValue<PlannerPreviewType>("previewType", this.previewType);
         }
         if(this.priority){
-        writer.writeNumberValue("priority", this.priority);
+            writer.writeNumberValue("priority", this.priority);
         }
         if(this.progressTaskBoardFormat){
-        writer.writeObjectValue<PlannerProgressTaskBoardTaskFormatImpl>("progressTaskBoardFormat", new PlannerProgressTaskBoardTaskFormatImpl(this.progressTaskBoardFormat));
+            writer.writeObjectValue<PlannerProgressTaskBoardTaskFormatImpl>("progressTaskBoardFormat", new PlannerProgressTaskBoardTaskFormatImpl(this.progressTaskBoardFormat));
         }
         if(this.referenceCount){
-        writer.writeNumberValue("referenceCount", this.referenceCount);
+            writer.writeNumberValue("referenceCount", this.referenceCount);
         }
         if(this.startDateTime){
-        writer.writeDateValue("startDateTime", this.startDateTime);
+            writer.writeDateValue("startDateTime", this.startDateTime);
         }
         if(this.title){
-        writer.writeStringValue("title", this.title);
+            writer.writeStringValue("title", this.title);
         }
     };
 }

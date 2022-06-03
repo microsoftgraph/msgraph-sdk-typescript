@@ -1,7 +1,7 @@
 import {ServiceUpdateMessageViewpoint} from './serviceUpdateMessageViewpoint';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ServiceUpdateMessageViewpointImpl implements AdditionalDataHolder, Parsable, ServiceUpdateMessageViewpoint {
+export class ServiceUpdateMessageViewpointImpl implements ServiceUpdateMessageViewpoint {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Indicates whether the user archived the message. */
@@ -15,10 +15,10 @@ export class ServiceUpdateMessageViewpointImpl implements AdditionalDataHolder, 
      * @param serviceUpdateMessageViewpointParameterValue 
      */
     public constructor(serviceUpdateMessageViewpointParameterValue?: ServiceUpdateMessageViewpoint | undefined) {
-        this.additionalData = serviceUpdateMessageViewpointParameterValue?.additionalData ? serviceUpdateMessageViewpointParameterValue?.additionalData! : {}
-        this.isArchived = serviceUpdateMessageViewpointParameterValue?.isArchived ;
-        this.isFavorited = serviceUpdateMessageViewpointParameterValue?.isFavorited ;
-        this.isRead = serviceUpdateMessageViewpointParameterValue?.isRead ;
+        this.additionalData = serviceUpdateMessageViewpointParameterValue?.additionalData ? serviceUpdateMessageViewpointParameterValue?.additionalData! : {};
+        this.isArchived = serviceUpdateMessageViewpointParameterValue?.isArchived;
+        this.isFavorited = serviceUpdateMessageViewpointParameterValue?.isFavorited;
+        this.isRead = serviceUpdateMessageViewpointParameterValue?.isRead;
     };
     /**
      * The deserialization information for the current model
@@ -38,13 +38,13 @@ export class ServiceUpdateMessageViewpointImpl implements AdditionalDataHolder, 
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.isArchived){
-        writer.writeBooleanValue("isArchived", this.isArchived);
+            writer.writeBooleanValue("isArchived", this.isArchived);
         }
         if(this.isFavorited){
-        writer.writeBooleanValue("isFavorited", this.isFavorited);
+            writer.writeBooleanValue("isFavorited", this.isFavorited);
         }
         if(this.isRead){
-        writer.writeBooleanValue("isRead", this.isRead);
+            writer.writeBooleanValue("isRead", this.isRead);
         }
         writer.writeAdditionalData(this.additionalData);
     };

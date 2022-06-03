@@ -93,7 +93,7 @@ import {UserTeamwork} from './userTeamwork';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Casts the previous resource to user. */
-export class UserImpl extends DirectoryObjectImpl implements Parsable, User {
+export class UserImpl extends DirectoryObjectImpl implements User {
     /** A freeform text entry field for the user to describe themselves. Returned only on $select. */
     public aboutMe?: string | undefined;
     /** true if the account is enabled; otherwise, false. This property is required when a user is created. Supports $filter (eq, ne, not, and in). */
@@ -302,7 +302,7 @@ export class UserImpl extends DirectoryObjectImpl implements Parsable, User {
     public scopedRoleMemberOf?: ScopedRoleMembership[] | undefined;
     /** Read-only. Nullable. */
     public settings?: UserSettings | undefined;
-    /** true if the Outlook global address list should contain this user, otherwise false. If not set, this will be treated as true. For users invited through the invitation manager, this property will be set to false. Supports $filter (eq, ne, not, in). */
+    /** Do not use in Microsoft Graph. Manage this property through the Microsoft 365 admin center instead. Represents whether the user should be included in the Outlook global address list. See Known issue. */
     public showInAddressList?: boolean | undefined;
     /** Any refresh tokens or sessions tokens (session cookies) issued before this time are invalid, and applications will get an error when using an invalid refresh or sessions token to acquire a delegated access token (to access APIs such as Microsoft Graph).  If this happens, the application will need to acquire a new refresh token by making a request to the authorize endpoint. Read-only. Use revokeSignInSessions to reset. */
     public signInSessionsValidFromDateTime?: Date | undefined;
@@ -331,123 +331,123 @@ export class UserImpl extends DirectoryObjectImpl implements Parsable, User {
      * @param userParameterValue 
      */
     public constructor(userParameterValue?: User | undefined) {
-        super();
-        this.aboutMe = userParameterValue?.aboutMe ;
-        this.accountEnabled = userParameterValue?.accountEnabled ;
-        this.activities = userParameterValue?.activities ;
-        this.ageGroup = userParameterValue?.ageGroup ;
-        this.agreementAcceptances = userParameterValue?.agreementAcceptances ;
-        this.appRoleAssignments = userParameterValue?.appRoleAssignments ;
-        this.assignedLicenses = userParameterValue?.assignedLicenses ;
-        this.assignedPlans = userParameterValue?.assignedPlans ;
-        this.authentication = userParameterValue?.authentication ;
-        this.birthday = userParameterValue?.birthday ;
-        this.businessPhones = userParameterValue?.businessPhones ;
-        this.calendar = userParameterValue?.calendar ;
-        this.calendarGroups = userParameterValue?.calendarGroups ;
-        this.calendars = userParameterValue?.calendars ;
-        this.calendarView = userParameterValue?.calendarView ;
-        this.chats = userParameterValue?.chats ;
-        this.city = userParameterValue?.city ;
-        this.companyName = userParameterValue?.companyName ;
-        this.consentProvidedForMinor = userParameterValue?.consentProvidedForMinor ;
-        this.contactFolders = userParameterValue?.contactFolders ;
-        this.contacts = userParameterValue?.contacts ;
-        this.country = userParameterValue?.country ;
-        this.createdDateTime = userParameterValue?.createdDateTime ;
-        this.createdObjects = userParameterValue?.createdObjects ;
-        this.creationType = userParameterValue?.creationType ;
-        this.department = userParameterValue?.department ;
-        this.deviceEnrollmentLimit = userParameterValue?.deviceEnrollmentLimit ;
-        this.deviceManagementTroubleshootingEvents = userParameterValue?.deviceManagementTroubleshootingEvents ;
-        this.directReports = userParameterValue?.directReports ;
-        this.displayName = userParameterValue?.displayName ;
-        this.drive = userParameterValue?.drive ;
-        this.drives = userParameterValue?.drives ;
-        this.employeeHireDate = userParameterValue?.employeeHireDate ;
-        this.employeeId = userParameterValue?.employeeId ;
-        this.employeeOrgData = userParameterValue?.employeeOrgData ;
-        this.employeeType = userParameterValue?.employeeType ;
-        this.events = userParameterValue?.events ;
-        this.extensions = userParameterValue?.extensions ;
-        this.externalUserState = userParameterValue?.externalUserState ;
-        this.externalUserStateChangeDateTime = userParameterValue?.externalUserStateChangeDateTime ;
-        this.faxNumber = userParameterValue?.faxNumber ;
-        this.followedSites = userParameterValue?.followedSites ;
-        this.givenName = userParameterValue?.givenName ;
-        this.hireDate = userParameterValue?.hireDate ;
-        this.identities = userParameterValue?.identities ;
-        this.imAddresses = userParameterValue?.imAddresses ;
-        this.inferenceClassification = userParameterValue?.inferenceClassification ;
-        this.insights = userParameterValue?.insights ;
-        this.interests = userParameterValue?.interests ;
-        this.isResourceAccount = userParameterValue?.isResourceAccount ;
-        this.jobTitle = userParameterValue?.jobTitle ;
-        this.joinedTeams = userParameterValue?.joinedTeams ;
-        this.lastPasswordChangeDateTime = userParameterValue?.lastPasswordChangeDateTime ;
-        this.legalAgeGroupClassification = userParameterValue?.legalAgeGroupClassification ;
-        this.licenseAssignmentStates = userParameterValue?.licenseAssignmentStates ;
-        this.licenseDetails = userParameterValue?.licenseDetails ;
-        this.mail = userParameterValue?.mail ;
-        this.mailboxSettings = userParameterValue?.mailboxSettings ;
-        this.mailFolders = userParameterValue?.mailFolders ;
-        this.mailNickname = userParameterValue?.mailNickname ;
-        this.managedAppRegistrations = userParameterValue?.managedAppRegistrations ;
-        this.managedDevices = userParameterValue?.managedDevices ;
-        this.manager = userParameterValue?.manager ;
-        this.memberOf = userParameterValue?.memberOf ;
-        this.messages = userParameterValue?.messages ;
-        this.mobilePhone = userParameterValue?.mobilePhone ;
-        this.mySite = userParameterValue?.mySite ;
-        this.oauth2PermissionGrants = userParameterValue?.oauth2PermissionGrants ;
-        this.officeLocation = userParameterValue?.officeLocation ;
-        this.onenote = userParameterValue?.onenote ;
-        this.onlineMeetings = userParameterValue?.onlineMeetings ;
-        this.onPremisesDistinguishedName = userParameterValue?.onPremisesDistinguishedName ;
-        this.onPremisesDomainName = userParameterValue?.onPremisesDomainName ;
-        this.onPremisesExtensionAttributes = userParameterValue?.onPremisesExtensionAttributes ;
-        this.onPremisesImmutableId = userParameterValue?.onPremisesImmutableId ;
-        this.onPremisesLastSyncDateTime = userParameterValue?.onPremisesLastSyncDateTime ;
-        this.onPremisesProvisioningErrors = userParameterValue?.onPremisesProvisioningErrors ;
-        this.onPremisesSamAccountName = userParameterValue?.onPremisesSamAccountName ;
-        this.onPremisesSecurityIdentifier = userParameterValue?.onPremisesSecurityIdentifier ;
-        this.onPremisesSyncEnabled = userParameterValue?.onPremisesSyncEnabled ;
-        this.onPremisesUserPrincipalName = userParameterValue?.onPremisesUserPrincipalName ;
-        this.otherMails = userParameterValue?.otherMails ;
-        this.outlook = userParameterValue?.outlook ;
-        this.ownedDevices = userParameterValue?.ownedDevices ;
-        this.ownedObjects = userParameterValue?.ownedObjects ;
-        this.passwordPolicies = userParameterValue?.passwordPolicies ;
-        this.passwordProfile = userParameterValue?.passwordProfile ;
-        this.pastProjects = userParameterValue?.pastProjects ;
-        this.people = userParameterValue?.people ;
-        this.photo = userParameterValue?.photo ;
-        this.photos = userParameterValue?.photos ;
-        this.planner = userParameterValue?.planner ;
-        this.postalCode = userParameterValue?.postalCode ;
-        this.preferredDataLocation = userParameterValue?.preferredDataLocation ;
-        this.preferredLanguage = userParameterValue?.preferredLanguage ;
-        this.preferredName = userParameterValue?.preferredName ;
-        this.presence = userParameterValue?.presence ;
-        this.provisionedPlans = userParameterValue?.provisionedPlans ;
-        this.proxyAddresses = userParameterValue?.proxyAddresses ;
-        this.registeredDevices = userParameterValue?.registeredDevices ;
-        this.responsibilities = userParameterValue?.responsibilities ;
-        this.schools = userParameterValue?.schools ;
-        this.scopedRoleMemberOf = userParameterValue?.scopedRoleMemberOf ;
-        this.settings = userParameterValue?.settings ;
-        this.showInAddressList = userParameterValue?.showInAddressList ;
-        this.signInSessionsValidFromDateTime = userParameterValue?.signInSessionsValidFromDateTime ;
-        this.skills = userParameterValue?.skills ;
-        this.state = userParameterValue?.state ;
-        this.streetAddress = userParameterValue?.streetAddress ;
-        this.surname = userParameterValue?.surname ;
-        this.teamwork = userParameterValue?.teamwork ;
-        this.todo = userParameterValue?.todo ;
-        this.transitiveMemberOf = userParameterValue?.transitiveMemberOf ;
-        this.usageLocation = userParameterValue?.usageLocation ;
-        this.userPrincipalName = userParameterValue?.userPrincipalName ;
-        this.userType = userParameterValue?.userType ;
+        super(userParameterValue);
+        this.aboutMe = userParameterValue?.aboutMe;
+        this.accountEnabled = userParameterValue?.accountEnabled;
+        this.activities = userParameterValue?.activities;
+        this.ageGroup = userParameterValue?.ageGroup;
+        this.agreementAcceptances = userParameterValue?.agreementAcceptances;
+        this.appRoleAssignments = userParameterValue?.appRoleAssignments;
+        this.assignedLicenses = userParameterValue?.assignedLicenses;
+        this.assignedPlans = userParameterValue?.assignedPlans;
+        this.authentication = userParameterValue?.authentication;
+        this.birthday = userParameterValue?.birthday;
+        this.businessPhones = userParameterValue?.businessPhones;
+        this.calendar = userParameterValue?.calendar;
+        this.calendarGroups = userParameterValue?.calendarGroups;
+        this.calendars = userParameterValue?.calendars;
+        this.calendarView = userParameterValue?.calendarView;
+        this.chats = userParameterValue?.chats;
+        this.city = userParameterValue?.city;
+        this.companyName = userParameterValue?.companyName;
+        this.consentProvidedForMinor = userParameterValue?.consentProvidedForMinor;
+        this.contactFolders = userParameterValue?.contactFolders;
+        this.contacts = userParameterValue?.contacts;
+        this.country = userParameterValue?.country;
+        this.createdDateTime = userParameterValue?.createdDateTime;
+        this.createdObjects = userParameterValue?.createdObjects;
+        this.creationType = userParameterValue?.creationType;
+        this.department = userParameterValue?.department;
+        this.deviceEnrollmentLimit = userParameterValue?.deviceEnrollmentLimit;
+        this.deviceManagementTroubleshootingEvents = userParameterValue?.deviceManagementTroubleshootingEvents;
+        this.directReports = userParameterValue?.directReports;
+        this.displayName = userParameterValue?.displayName;
+        this.drive = userParameterValue?.drive;
+        this.drives = userParameterValue?.drives;
+        this.employeeHireDate = userParameterValue?.employeeHireDate;
+        this.employeeId = userParameterValue?.employeeId;
+        this.employeeOrgData = userParameterValue?.employeeOrgData;
+        this.employeeType = userParameterValue?.employeeType;
+        this.events = userParameterValue?.events;
+        this.extensions = userParameterValue?.extensions;
+        this.externalUserState = userParameterValue?.externalUserState;
+        this.externalUserStateChangeDateTime = userParameterValue?.externalUserStateChangeDateTime;
+        this.faxNumber = userParameterValue?.faxNumber;
+        this.followedSites = userParameterValue?.followedSites;
+        this.givenName = userParameterValue?.givenName;
+        this.hireDate = userParameterValue?.hireDate;
+        this.identities = userParameterValue?.identities;
+        this.imAddresses = userParameterValue?.imAddresses;
+        this.inferenceClassification = userParameterValue?.inferenceClassification;
+        this.insights = userParameterValue?.insights;
+        this.interests = userParameterValue?.interests;
+        this.isResourceAccount = userParameterValue?.isResourceAccount;
+        this.jobTitle = userParameterValue?.jobTitle;
+        this.joinedTeams = userParameterValue?.joinedTeams;
+        this.lastPasswordChangeDateTime = userParameterValue?.lastPasswordChangeDateTime;
+        this.legalAgeGroupClassification = userParameterValue?.legalAgeGroupClassification;
+        this.licenseAssignmentStates = userParameterValue?.licenseAssignmentStates;
+        this.licenseDetails = userParameterValue?.licenseDetails;
+        this.mail = userParameterValue?.mail;
+        this.mailboxSettings = userParameterValue?.mailboxSettings;
+        this.mailFolders = userParameterValue?.mailFolders;
+        this.mailNickname = userParameterValue?.mailNickname;
+        this.managedAppRegistrations = userParameterValue?.managedAppRegistrations;
+        this.managedDevices = userParameterValue?.managedDevices;
+        this.manager = userParameterValue?.manager;
+        this.memberOf = userParameterValue?.memberOf;
+        this.messages = userParameterValue?.messages;
+        this.mobilePhone = userParameterValue?.mobilePhone;
+        this.mySite = userParameterValue?.mySite;
+        this.oauth2PermissionGrants = userParameterValue?.oauth2PermissionGrants;
+        this.officeLocation = userParameterValue?.officeLocation;
+        this.onenote = userParameterValue?.onenote;
+        this.onlineMeetings = userParameterValue?.onlineMeetings;
+        this.onPremisesDistinguishedName = userParameterValue?.onPremisesDistinguishedName;
+        this.onPremisesDomainName = userParameterValue?.onPremisesDomainName;
+        this.onPremisesExtensionAttributes = userParameterValue?.onPremisesExtensionAttributes;
+        this.onPremisesImmutableId = userParameterValue?.onPremisesImmutableId;
+        this.onPremisesLastSyncDateTime = userParameterValue?.onPremisesLastSyncDateTime;
+        this.onPremisesProvisioningErrors = userParameterValue?.onPremisesProvisioningErrors;
+        this.onPremisesSamAccountName = userParameterValue?.onPremisesSamAccountName;
+        this.onPremisesSecurityIdentifier = userParameterValue?.onPremisesSecurityIdentifier;
+        this.onPremisesSyncEnabled = userParameterValue?.onPremisesSyncEnabled;
+        this.onPremisesUserPrincipalName = userParameterValue?.onPremisesUserPrincipalName;
+        this.otherMails = userParameterValue?.otherMails;
+        this.outlook = userParameterValue?.outlook;
+        this.ownedDevices = userParameterValue?.ownedDevices;
+        this.ownedObjects = userParameterValue?.ownedObjects;
+        this.passwordPolicies = userParameterValue?.passwordPolicies;
+        this.passwordProfile = userParameterValue?.passwordProfile;
+        this.pastProjects = userParameterValue?.pastProjects;
+        this.people = userParameterValue?.people;
+        this.photo = userParameterValue?.photo;
+        this.photos = userParameterValue?.photos;
+        this.planner = userParameterValue?.planner;
+        this.postalCode = userParameterValue?.postalCode;
+        this.preferredDataLocation = userParameterValue?.preferredDataLocation;
+        this.preferredLanguage = userParameterValue?.preferredLanguage;
+        this.preferredName = userParameterValue?.preferredName;
+        this.presence = userParameterValue?.presence;
+        this.provisionedPlans = userParameterValue?.provisionedPlans;
+        this.proxyAddresses = userParameterValue?.proxyAddresses;
+        this.registeredDevices = userParameterValue?.registeredDevices;
+        this.responsibilities = userParameterValue?.responsibilities;
+        this.schools = userParameterValue?.schools;
+        this.scopedRoleMemberOf = userParameterValue?.scopedRoleMemberOf;
+        this.settings = userParameterValue?.settings;
+        this.showInAddressList = userParameterValue?.showInAddressList;
+        this.signInSessionsValidFromDateTime = userParameterValue?.signInSessionsValidFromDateTime;
+        this.skills = userParameterValue?.skills;
+        this.state = userParameterValue?.state;
+        this.streetAddress = userParameterValue?.streetAddress;
+        this.surname = userParameterValue?.surname;
+        this.teamwork = userParameterValue?.teamwork;
+        this.todo = userParameterValue?.todo;
+        this.transitiveMemberOf = userParameterValue?.transitiveMemberOf;
+        this.usageLocation = userParameterValue?.usageLocation;
+        this.userPrincipalName = userParameterValue?.userPrincipalName;
+        this.userType = userParameterValue?.userType;
     };
     /**
      * The deserialization information for the current model
@@ -581,352 +581,352 @@ export class UserImpl extends DirectoryObjectImpl implements Parsable, User {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.aboutMe){
-        writer.writeStringValue("aboutMe", this.aboutMe);
+            writer.writeStringValue("aboutMe", this.aboutMe);
         }
         if(this.accountEnabled){
-        writer.writeBooleanValue("accountEnabled", this.accountEnabled);
+            writer.writeBooleanValue("accountEnabled", this.accountEnabled);
         }
         if(this.activities && this.activities.length != 0){        const activitiesArrValue: UserActivityImpl[] = []; this.activities?.forEach(element => {activitiesArrValue.push(new UserActivityImpl(element));});
-        writer.writeCollectionOfObjectValues<UserActivityImpl>("activities", activitiesArrValue);
+            writer.writeCollectionOfObjectValues<UserActivityImpl>("activities", activitiesArrValue);
         }
         if(this.ageGroup){
-        writer.writeStringValue("ageGroup", this.ageGroup);
+            writer.writeStringValue("ageGroup", this.ageGroup);
         }
         if(this.agreementAcceptances && this.agreementAcceptances.length != 0){        const agreementAcceptancesArrValue: AgreementAcceptanceImpl[] = []; this.agreementAcceptances?.forEach(element => {agreementAcceptancesArrValue.push(new AgreementAcceptanceImpl(element));});
-        writer.writeCollectionOfObjectValues<AgreementAcceptanceImpl>("agreementAcceptances", agreementAcceptancesArrValue);
+            writer.writeCollectionOfObjectValues<AgreementAcceptanceImpl>("agreementAcceptances", agreementAcceptancesArrValue);
         }
         if(this.appRoleAssignments && this.appRoleAssignments.length != 0){        const appRoleAssignmentsArrValue: AppRoleAssignmentImpl[] = []; this.appRoleAssignments?.forEach(element => {appRoleAssignmentsArrValue.push(new AppRoleAssignmentImpl(element));});
-        writer.writeCollectionOfObjectValues<AppRoleAssignmentImpl>("appRoleAssignments", appRoleAssignmentsArrValue);
+            writer.writeCollectionOfObjectValues<AppRoleAssignmentImpl>("appRoleAssignments", appRoleAssignmentsArrValue);
         }
         if(this.assignedLicenses && this.assignedLicenses.length != 0){        const assignedLicensesArrValue: AssignedLicenseImpl[] = []; this.assignedLicenses?.forEach(element => {assignedLicensesArrValue.push(new AssignedLicenseImpl(element));});
-        writer.writeCollectionOfObjectValues<AssignedLicenseImpl>("assignedLicenses", assignedLicensesArrValue);
+            writer.writeCollectionOfObjectValues<AssignedLicenseImpl>("assignedLicenses", assignedLicensesArrValue);
         }
         if(this.assignedPlans && this.assignedPlans.length != 0){        const assignedPlansArrValue: AssignedPlanImpl[] = []; this.assignedPlans?.forEach(element => {assignedPlansArrValue.push(new AssignedPlanImpl(element));});
-        writer.writeCollectionOfObjectValues<AssignedPlanImpl>("assignedPlans", assignedPlansArrValue);
+            writer.writeCollectionOfObjectValues<AssignedPlanImpl>("assignedPlans", assignedPlansArrValue);
         }
         if(this.authentication){
-        writer.writeObjectValue<AuthenticationImpl>("authentication", new AuthenticationImpl(this.authentication));
+            writer.writeObjectValue<AuthenticationImpl>("authentication", new AuthenticationImpl(this.authentication));
         }
         if(this.birthday){
-        writer.writeDateValue("birthday", this.birthday);
+            writer.writeDateValue("birthday", this.birthday);
         }
         if(this.businessPhones){
-        writer.writeCollectionOfPrimitiveValues<string>("businessPhones", this.businessPhones);
+            writer.writeCollectionOfPrimitiveValues<string>("businessPhones", this.businessPhones);
         }
         if(this.calendar){
-        writer.writeObjectValue<CalendarImpl>("calendar", new CalendarImpl(this.calendar));
+            writer.writeObjectValue<CalendarImpl>("calendar", new CalendarImpl(this.calendar));
         }
         if(this.calendarGroups && this.calendarGroups.length != 0){        const calendarGroupsArrValue: CalendarGroupImpl[] = []; this.calendarGroups?.forEach(element => {calendarGroupsArrValue.push(new CalendarGroupImpl(element));});
-        writer.writeCollectionOfObjectValues<CalendarGroupImpl>("calendarGroups", calendarGroupsArrValue);
+            writer.writeCollectionOfObjectValues<CalendarGroupImpl>("calendarGroups", calendarGroupsArrValue);
         }
         if(this.calendars && this.calendars.length != 0){        const calendarsArrValue: CalendarImpl[] = []; this.calendars?.forEach(element => {calendarsArrValue.push(new CalendarImpl(element));});
-        writer.writeCollectionOfObjectValues<CalendarImpl>("calendars", calendarsArrValue);
+            writer.writeCollectionOfObjectValues<CalendarImpl>("calendars", calendarsArrValue);
         }
         if(this.calendarView && this.calendarView.length != 0){        const calendarViewArrValue: EventImpl[] = []; this.calendarView?.forEach(element => {calendarViewArrValue.push(new EventImpl(element));});
-        writer.writeCollectionOfObjectValues<EventImpl>("calendarView", calendarViewArrValue);
+            writer.writeCollectionOfObjectValues<EventImpl>("calendarView", calendarViewArrValue);
         }
         if(this.chats && this.chats.length != 0){        const chatsArrValue: ChatImpl[] = []; this.chats?.forEach(element => {chatsArrValue.push(new ChatImpl(element));});
-        writer.writeCollectionOfObjectValues<ChatImpl>("chats", chatsArrValue);
+            writer.writeCollectionOfObjectValues<ChatImpl>("chats", chatsArrValue);
         }
         if(this.city){
-        writer.writeStringValue("city", this.city);
+            writer.writeStringValue("city", this.city);
         }
         if(this.companyName){
-        writer.writeStringValue("companyName", this.companyName);
+            writer.writeStringValue("companyName", this.companyName);
         }
         if(this.consentProvidedForMinor){
-        writer.writeStringValue("consentProvidedForMinor", this.consentProvidedForMinor);
+            writer.writeStringValue("consentProvidedForMinor", this.consentProvidedForMinor);
         }
         if(this.contactFolders && this.contactFolders.length != 0){        const contactFoldersArrValue: ContactFolderImpl[] = []; this.contactFolders?.forEach(element => {contactFoldersArrValue.push(new ContactFolderImpl(element));});
-        writer.writeCollectionOfObjectValues<ContactFolderImpl>("contactFolders", contactFoldersArrValue);
+            writer.writeCollectionOfObjectValues<ContactFolderImpl>("contactFolders", contactFoldersArrValue);
         }
         if(this.contacts && this.contacts.length != 0){        const contactsArrValue: ContactImpl[] = []; this.contacts?.forEach(element => {contactsArrValue.push(new ContactImpl(element));});
-        writer.writeCollectionOfObjectValues<ContactImpl>("contacts", contactsArrValue);
+            writer.writeCollectionOfObjectValues<ContactImpl>("contacts", contactsArrValue);
         }
         if(this.country){
-        writer.writeStringValue("country", this.country);
+            writer.writeStringValue("country", this.country);
         }
         if(this.createdDateTime){
-        writer.writeDateValue("createdDateTime", this.createdDateTime);
+            writer.writeDateValue("createdDateTime", this.createdDateTime);
         }
         if(this.createdObjects && this.createdObjects.length != 0){        const createdObjectsArrValue: DirectoryObjectImpl[] = []; this.createdObjects?.forEach(element => {createdObjectsArrValue.push(new DirectoryObjectImpl(element));});
-        writer.writeCollectionOfObjectValues<DirectoryObjectImpl>("createdObjects", createdObjectsArrValue);
+            writer.writeCollectionOfObjectValues<DirectoryObjectImpl>("createdObjects", createdObjectsArrValue);
         }
         if(this.creationType){
-        writer.writeStringValue("creationType", this.creationType);
+            writer.writeStringValue("creationType", this.creationType);
         }
         if(this.department){
-        writer.writeStringValue("department", this.department);
+            writer.writeStringValue("department", this.department);
         }
         if(this.deviceEnrollmentLimit){
-        writer.writeNumberValue("deviceEnrollmentLimit", this.deviceEnrollmentLimit);
+            writer.writeNumberValue("deviceEnrollmentLimit", this.deviceEnrollmentLimit);
         }
         if(this.deviceManagementTroubleshootingEvents && this.deviceManagementTroubleshootingEvents.length != 0){        const deviceManagementTroubleshootingEventsArrValue: DeviceManagementTroubleshootingEventImpl[] = []; this.deviceManagementTroubleshootingEvents?.forEach(element => {deviceManagementTroubleshootingEventsArrValue.push(new DeviceManagementTroubleshootingEventImpl(element));});
-        writer.writeCollectionOfObjectValues<DeviceManagementTroubleshootingEventImpl>("deviceManagementTroubleshootingEvents", deviceManagementTroubleshootingEventsArrValue);
+            writer.writeCollectionOfObjectValues<DeviceManagementTroubleshootingEventImpl>("deviceManagementTroubleshootingEvents", deviceManagementTroubleshootingEventsArrValue);
         }
         if(this.directReports && this.directReports.length != 0){        const directReportsArrValue: DirectoryObjectImpl[] = []; this.directReports?.forEach(element => {directReportsArrValue.push(new DirectoryObjectImpl(element));});
-        writer.writeCollectionOfObjectValues<DirectoryObjectImpl>("directReports", directReportsArrValue);
+            writer.writeCollectionOfObjectValues<DirectoryObjectImpl>("directReports", directReportsArrValue);
         }
         if(this.displayName){
-        writer.writeStringValue("displayName", this.displayName);
+            writer.writeStringValue("displayName", this.displayName);
         }
         if(this.drive){
-        writer.writeObjectValue<DriveImpl>("drive", new DriveImpl(this.drive));
+            writer.writeObjectValue<DriveImpl>("drive", new DriveImpl(this.drive));
         }
         if(this.drives && this.drives.length != 0){        const drivesArrValue: DriveImpl[] = []; this.drives?.forEach(element => {drivesArrValue.push(new DriveImpl(element));});
-        writer.writeCollectionOfObjectValues<DriveImpl>("drives", drivesArrValue);
+            writer.writeCollectionOfObjectValues<DriveImpl>("drives", drivesArrValue);
         }
         if(this.employeeHireDate){
-        writer.writeDateValue("employeeHireDate", this.employeeHireDate);
+            writer.writeDateValue("employeeHireDate", this.employeeHireDate);
         }
         if(this.employeeId){
-        writer.writeStringValue("employeeId", this.employeeId);
+            writer.writeStringValue("employeeId", this.employeeId);
         }
         if(this.employeeOrgData){
-        writer.writeObjectValue<EmployeeOrgDataImpl>("employeeOrgData", new EmployeeOrgDataImpl(this.employeeOrgData));
+            writer.writeObjectValue<EmployeeOrgDataImpl>("employeeOrgData", new EmployeeOrgDataImpl(this.employeeOrgData));
         }
         if(this.employeeType){
-        writer.writeStringValue("employeeType", this.employeeType);
+            writer.writeStringValue("employeeType", this.employeeType);
         }
         if(this.events && this.events.length != 0){        const eventsArrValue: EventImpl[] = []; this.events?.forEach(element => {eventsArrValue.push(new EventImpl(element));});
-        writer.writeCollectionOfObjectValues<EventImpl>("events", eventsArrValue);
+            writer.writeCollectionOfObjectValues<EventImpl>("events", eventsArrValue);
         }
         if(this.extensions && this.extensions.length != 0){        const extensionsArrValue: ExtensionImpl[] = []; this.extensions?.forEach(element => {extensionsArrValue.push(new ExtensionImpl(element));});
-        writer.writeCollectionOfObjectValues<ExtensionImpl>("extensions", extensionsArrValue);
+            writer.writeCollectionOfObjectValues<ExtensionImpl>("extensions", extensionsArrValue);
         }
         if(this.externalUserState){
-        writer.writeStringValue("externalUserState", this.externalUserState);
+            writer.writeStringValue("externalUserState", this.externalUserState);
         }
         if(this.externalUserStateChangeDateTime){
-        writer.writeDateValue("externalUserStateChangeDateTime", this.externalUserStateChangeDateTime);
+            writer.writeDateValue("externalUserStateChangeDateTime", this.externalUserStateChangeDateTime);
         }
         if(this.faxNumber){
-        writer.writeStringValue("faxNumber", this.faxNumber);
+            writer.writeStringValue("faxNumber", this.faxNumber);
         }
         if(this.followedSites && this.followedSites.length != 0){        const followedSitesArrValue: SiteImpl[] = []; this.followedSites?.forEach(element => {followedSitesArrValue.push(new SiteImpl(element));});
-        writer.writeCollectionOfObjectValues<SiteImpl>("followedSites", followedSitesArrValue);
+            writer.writeCollectionOfObjectValues<SiteImpl>("followedSites", followedSitesArrValue);
         }
         if(this.givenName){
-        writer.writeStringValue("givenName", this.givenName);
+            writer.writeStringValue("givenName", this.givenName);
         }
         if(this.hireDate){
-        writer.writeDateValue("hireDate", this.hireDate);
+            writer.writeDateValue("hireDate", this.hireDate);
         }
         if(this.identities && this.identities.length != 0){        const identitiesArrValue: ObjectIdentityImpl[] = []; this.identities?.forEach(element => {identitiesArrValue.push(new ObjectIdentityImpl(element));});
-        writer.writeCollectionOfObjectValues<ObjectIdentityImpl>("identities", identitiesArrValue);
+            writer.writeCollectionOfObjectValues<ObjectIdentityImpl>("identities", identitiesArrValue);
         }
         if(this.imAddresses){
-        writer.writeCollectionOfPrimitiveValues<string>("imAddresses", this.imAddresses);
+            writer.writeCollectionOfPrimitiveValues<string>("imAddresses", this.imAddresses);
         }
         if(this.inferenceClassification){
-        writer.writeObjectValue<InferenceClassificationImpl>("inferenceClassification", new InferenceClassificationImpl(this.inferenceClassification));
+            writer.writeObjectValue<InferenceClassificationImpl>("inferenceClassification", new InferenceClassificationImpl(this.inferenceClassification));
         }
         if(this.insights){
-        writer.writeObjectValue<OfficeGraphInsightsImpl>("insights", new OfficeGraphInsightsImpl(this.insights));
+            writer.writeObjectValue<OfficeGraphInsightsImpl>("insights", new OfficeGraphInsightsImpl(this.insights));
         }
         if(this.interests){
-        writer.writeCollectionOfPrimitiveValues<string>("interests", this.interests);
+            writer.writeCollectionOfPrimitiveValues<string>("interests", this.interests);
         }
         if(this.isResourceAccount){
-        writer.writeBooleanValue("isResourceAccount", this.isResourceAccount);
+            writer.writeBooleanValue("isResourceAccount", this.isResourceAccount);
         }
         if(this.jobTitle){
-        writer.writeStringValue("jobTitle", this.jobTitle);
+            writer.writeStringValue("jobTitle", this.jobTitle);
         }
         if(this.joinedTeams && this.joinedTeams.length != 0){        const joinedTeamsArrValue: TeamImpl[] = []; this.joinedTeams?.forEach(element => {joinedTeamsArrValue.push(new TeamImpl(element));});
-        writer.writeCollectionOfObjectValues<TeamImpl>("joinedTeams", joinedTeamsArrValue);
+            writer.writeCollectionOfObjectValues<TeamImpl>("joinedTeams", joinedTeamsArrValue);
         }
         if(this.lastPasswordChangeDateTime){
-        writer.writeDateValue("lastPasswordChangeDateTime", this.lastPasswordChangeDateTime);
+            writer.writeDateValue("lastPasswordChangeDateTime", this.lastPasswordChangeDateTime);
         }
         if(this.legalAgeGroupClassification){
-        writer.writeStringValue("legalAgeGroupClassification", this.legalAgeGroupClassification);
+            writer.writeStringValue("legalAgeGroupClassification", this.legalAgeGroupClassification);
         }
         if(this.licenseAssignmentStates && this.licenseAssignmentStates.length != 0){        const licenseAssignmentStatesArrValue: LicenseAssignmentStateImpl[] = []; this.licenseAssignmentStates?.forEach(element => {licenseAssignmentStatesArrValue.push(new LicenseAssignmentStateImpl(element));});
-        writer.writeCollectionOfObjectValues<LicenseAssignmentStateImpl>("licenseAssignmentStates", licenseAssignmentStatesArrValue);
+            writer.writeCollectionOfObjectValues<LicenseAssignmentStateImpl>("licenseAssignmentStates", licenseAssignmentStatesArrValue);
         }
         if(this.licenseDetails && this.licenseDetails.length != 0){        const licenseDetailsArrValue: LicenseDetailsImpl[] = []; this.licenseDetails?.forEach(element => {licenseDetailsArrValue.push(new LicenseDetailsImpl(element));});
-        writer.writeCollectionOfObjectValues<LicenseDetailsImpl>("licenseDetails", licenseDetailsArrValue);
+            writer.writeCollectionOfObjectValues<LicenseDetailsImpl>("licenseDetails", licenseDetailsArrValue);
         }
         if(this.mail){
-        writer.writeStringValue("mail", this.mail);
+            writer.writeStringValue("mail", this.mail);
         }
         if(this.mailboxSettings){
-        writer.writeObjectValue<MailboxSettingsImpl>("mailboxSettings", new MailboxSettingsImpl(this.mailboxSettings));
+            writer.writeObjectValue<MailboxSettingsImpl>("mailboxSettings", new MailboxSettingsImpl(this.mailboxSettings));
         }
         if(this.mailFolders && this.mailFolders.length != 0){        const mailFoldersArrValue: MailFolderImpl[] = []; this.mailFolders?.forEach(element => {mailFoldersArrValue.push(new MailFolderImpl(element));});
-        writer.writeCollectionOfObjectValues<MailFolderImpl>("mailFolders", mailFoldersArrValue);
+            writer.writeCollectionOfObjectValues<MailFolderImpl>("mailFolders", mailFoldersArrValue);
         }
         if(this.mailNickname){
-        writer.writeStringValue("mailNickname", this.mailNickname);
+            writer.writeStringValue("mailNickname", this.mailNickname);
         }
         if(this.managedAppRegistrations && this.managedAppRegistrations.length != 0){        const managedAppRegistrationsArrValue: ManagedAppRegistrationImpl[] = []; this.managedAppRegistrations?.forEach(element => {managedAppRegistrationsArrValue.push(new ManagedAppRegistrationImpl(element));});
-        writer.writeCollectionOfObjectValues<ManagedAppRegistrationImpl>("managedAppRegistrations", managedAppRegistrationsArrValue);
+            writer.writeCollectionOfObjectValues<ManagedAppRegistrationImpl>("managedAppRegistrations", managedAppRegistrationsArrValue);
         }
         if(this.managedDevices && this.managedDevices.length != 0){        const managedDevicesArrValue: ManagedDeviceImpl[] = []; this.managedDevices?.forEach(element => {managedDevicesArrValue.push(new ManagedDeviceImpl(element));});
-        writer.writeCollectionOfObjectValues<ManagedDeviceImpl>("managedDevices", managedDevicesArrValue);
+            writer.writeCollectionOfObjectValues<ManagedDeviceImpl>("managedDevices", managedDevicesArrValue);
         }
         if(this.manager){
-        writer.writeObjectValue<DirectoryObjectImpl>("manager", new DirectoryObjectImpl(this.manager));
+            writer.writeObjectValue<DirectoryObjectImpl>("manager", new DirectoryObjectImpl(this.manager));
         }
         if(this.memberOf && this.memberOf.length != 0){        const memberOfArrValue: DirectoryObjectImpl[] = []; this.memberOf?.forEach(element => {memberOfArrValue.push(new DirectoryObjectImpl(element));});
-        writer.writeCollectionOfObjectValues<DirectoryObjectImpl>("memberOf", memberOfArrValue);
+            writer.writeCollectionOfObjectValues<DirectoryObjectImpl>("memberOf", memberOfArrValue);
         }
         if(this.messages && this.messages.length != 0){        const messagesArrValue: MessageImpl[] = []; this.messages?.forEach(element => {messagesArrValue.push(new MessageImpl(element));});
-        writer.writeCollectionOfObjectValues<MessageImpl>("messages", messagesArrValue);
+            writer.writeCollectionOfObjectValues<MessageImpl>("messages", messagesArrValue);
         }
         if(this.mobilePhone){
-        writer.writeStringValue("mobilePhone", this.mobilePhone);
+            writer.writeStringValue("mobilePhone", this.mobilePhone);
         }
         if(this.mySite){
-        writer.writeStringValue("mySite", this.mySite);
+            writer.writeStringValue("mySite", this.mySite);
         }
         if(this.oauth2PermissionGrants && this.oauth2PermissionGrants.length != 0){        const oauth2PermissionGrantsArrValue: OAuth2PermissionGrantImpl[] = []; this.oauth2PermissionGrants?.forEach(element => {oauth2PermissionGrantsArrValue.push(new OAuth2PermissionGrantImpl(element));});
-        writer.writeCollectionOfObjectValues<OAuth2PermissionGrantImpl>("oauth2PermissionGrants", oauth2PermissionGrantsArrValue);
+            writer.writeCollectionOfObjectValues<OAuth2PermissionGrantImpl>("oauth2PermissionGrants", oauth2PermissionGrantsArrValue);
         }
         if(this.officeLocation){
-        writer.writeStringValue("officeLocation", this.officeLocation);
+            writer.writeStringValue("officeLocation", this.officeLocation);
         }
         if(this.onenote){
-        writer.writeObjectValue<OnenoteImpl>("onenote", new OnenoteImpl(this.onenote));
+            writer.writeObjectValue<OnenoteImpl>("onenote", new OnenoteImpl(this.onenote));
         }
         if(this.onlineMeetings && this.onlineMeetings.length != 0){        const onlineMeetingsArrValue: OnlineMeetingImpl[] = []; this.onlineMeetings?.forEach(element => {onlineMeetingsArrValue.push(new OnlineMeetingImpl(element));});
-        writer.writeCollectionOfObjectValues<OnlineMeetingImpl>("onlineMeetings", onlineMeetingsArrValue);
+            writer.writeCollectionOfObjectValues<OnlineMeetingImpl>("onlineMeetings", onlineMeetingsArrValue);
         }
         if(this.onPremisesDistinguishedName){
-        writer.writeStringValue("onPremisesDistinguishedName", this.onPremisesDistinguishedName);
+            writer.writeStringValue("onPremisesDistinguishedName", this.onPremisesDistinguishedName);
         }
         if(this.onPremisesDomainName){
-        writer.writeStringValue("onPremisesDomainName", this.onPremisesDomainName);
+            writer.writeStringValue("onPremisesDomainName", this.onPremisesDomainName);
         }
         if(this.onPremisesExtensionAttributes){
-        writer.writeObjectValue<OnPremisesExtensionAttributesImpl>("onPremisesExtensionAttributes", new OnPremisesExtensionAttributesImpl(this.onPremisesExtensionAttributes));
+            writer.writeObjectValue<OnPremisesExtensionAttributesImpl>("onPremisesExtensionAttributes", new OnPremisesExtensionAttributesImpl(this.onPremisesExtensionAttributes));
         }
         if(this.onPremisesImmutableId){
-        writer.writeStringValue("onPremisesImmutableId", this.onPremisesImmutableId);
+            writer.writeStringValue("onPremisesImmutableId", this.onPremisesImmutableId);
         }
         if(this.onPremisesLastSyncDateTime){
-        writer.writeDateValue("onPremisesLastSyncDateTime", this.onPremisesLastSyncDateTime);
+            writer.writeDateValue("onPremisesLastSyncDateTime", this.onPremisesLastSyncDateTime);
         }
         if(this.onPremisesProvisioningErrors && this.onPremisesProvisioningErrors.length != 0){        const onPremisesProvisioningErrorsArrValue: OnPremisesProvisioningErrorImpl[] = []; this.onPremisesProvisioningErrors?.forEach(element => {onPremisesProvisioningErrorsArrValue.push(new OnPremisesProvisioningErrorImpl(element));});
-        writer.writeCollectionOfObjectValues<OnPremisesProvisioningErrorImpl>("onPremisesProvisioningErrors", onPremisesProvisioningErrorsArrValue);
+            writer.writeCollectionOfObjectValues<OnPremisesProvisioningErrorImpl>("onPremisesProvisioningErrors", onPremisesProvisioningErrorsArrValue);
         }
         if(this.onPremisesSamAccountName){
-        writer.writeStringValue("onPremisesSamAccountName", this.onPremisesSamAccountName);
+            writer.writeStringValue("onPremisesSamAccountName", this.onPremisesSamAccountName);
         }
         if(this.onPremisesSecurityIdentifier){
-        writer.writeStringValue("onPremisesSecurityIdentifier", this.onPremisesSecurityIdentifier);
+            writer.writeStringValue("onPremisesSecurityIdentifier", this.onPremisesSecurityIdentifier);
         }
         if(this.onPremisesSyncEnabled){
-        writer.writeBooleanValue("onPremisesSyncEnabled", this.onPremisesSyncEnabled);
+            writer.writeBooleanValue("onPremisesSyncEnabled", this.onPremisesSyncEnabled);
         }
         if(this.onPremisesUserPrincipalName){
-        writer.writeStringValue("onPremisesUserPrincipalName", this.onPremisesUserPrincipalName);
+            writer.writeStringValue("onPremisesUserPrincipalName", this.onPremisesUserPrincipalName);
         }
         if(this.otherMails){
-        writer.writeCollectionOfPrimitiveValues<string>("otherMails", this.otherMails);
+            writer.writeCollectionOfPrimitiveValues<string>("otherMails", this.otherMails);
         }
         if(this.outlook){
-        writer.writeObjectValue<OutlookUserImpl>("outlook", new OutlookUserImpl(this.outlook));
+            writer.writeObjectValue<OutlookUserImpl>("outlook", new OutlookUserImpl(this.outlook));
         }
         if(this.ownedDevices && this.ownedDevices.length != 0){        const ownedDevicesArrValue: DirectoryObjectImpl[] = []; this.ownedDevices?.forEach(element => {ownedDevicesArrValue.push(new DirectoryObjectImpl(element));});
-        writer.writeCollectionOfObjectValues<DirectoryObjectImpl>("ownedDevices", ownedDevicesArrValue);
+            writer.writeCollectionOfObjectValues<DirectoryObjectImpl>("ownedDevices", ownedDevicesArrValue);
         }
         if(this.ownedObjects && this.ownedObjects.length != 0){        const ownedObjectsArrValue: DirectoryObjectImpl[] = []; this.ownedObjects?.forEach(element => {ownedObjectsArrValue.push(new DirectoryObjectImpl(element));});
-        writer.writeCollectionOfObjectValues<DirectoryObjectImpl>("ownedObjects", ownedObjectsArrValue);
+            writer.writeCollectionOfObjectValues<DirectoryObjectImpl>("ownedObjects", ownedObjectsArrValue);
         }
         if(this.passwordPolicies){
-        writer.writeStringValue("passwordPolicies", this.passwordPolicies);
+            writer.writeStringValue("passwordPolicies", this.passwordPolicies);
         }
         if(this.passwordProfile){
-        writer.writeObjectValue<PasswordProfileImpl>("passwordProfile", new PasswordProfileImpl(this.passwordProfile));
+            writer.writeObjectValue<PasswordProfileImpl>("passwordProfile", new PasswordProfileImpl(this.passwordProfile));
         }
         if(this.pastProjects){
-        writer.writeCollectionOfPrimitiveValues<string>("pastProjects", this.pastProjects);
+            writer.writeCollectionOfPrimitiveValues<string>("pastProjects", this.pastProjects);
         }
         if(this.people && this.people.length != 0){        const peopleArrValue: PersonImpl[] = []; this.people?.forEach(element => {peopleArrValue.push(new PersonImpl(element));});
-        writer.writeCollectionOfObjectValues<PersonImpl>("people", peopleArrValue);
+            writer.writeCollectionOfObjectValues<PersonImpl>("people", peopleArrValue);
         }
         if(this.photo){
-        writer.writeObjectValue<ProfilePhotoImpl>("photo", new ProfilePhotoImpl(this.photo));
+            writer.writeObjectValue<ProfilePhotoImpl>("photo", new ProfilePhotoImpl(this.photo));
         }
         if(this.photos && this.photos.length != 0){        const photosArrValue: ProfilePhotoImpl[] = []; this.photos?.forEach(element => {photosArrValue.push(new ProfilePhotoImpl(element));});
-        writer.writeCollectionOfObjectValues<ProfilePhotoImpl>("photos", photosArrValue);
+            writer.writeCollectionOfObjectValues<ProfilePhotoImpl>("photos", photosArrValue);
         }
         if(this.planner){
-        writer.writeObjectValue<PlannerUserImpl>("planner", new PlannerUserImpl(this.planner));
+            writer.writeObjectValue<PlannerUserImpl>("planner", new PlannerUserImpl(this.planner));
         }
         if(this.postalCode){
-        writer.writeStringValue("postalCode", this.postalCode);
+            writer.writeStringValue("postalCode", this.postalCode);
         }
         if(this.preferredDataLocation){
-        writer.writeStringValue("preferredDataLocation", this.preferredDataLocation);
+            writer.writeStringValue("preferredDataLocation", this.preferredDataLocation);
         }
         if(this.preferredLanguage){
-        writer.writeStringValue("preferredLanguage", this.preferredLanguage);
+            writer.writeStringValue("preferredLanguage", this.preferredLanguage);
         }
         if(this.preferredName){
-        writer.writeStringValue("preferredName", this.preferredName);
+            writer.writeStringValue("preferredName", this.preferredName);
         }
         if(this.presence){
-        writer.writeObjectValue<PresenceImpl>("presence", new PresenceImpl(this.presence));
+            writer.writeObjectValue<PresenceImpl>("presence", new PresenceImpl(this.presence));
         }
         if(this.provisionedPlans && this.provisionedPlans.length != 0){        const provisionedPlansArrValue: ProvisionedPlanImpl[] = []; this.provisionedPlans?.forEach(element => {provisionedPlansArrValue.push(new ProvisionedPlanImpl(element));});
-        writer.writeCollectionOfObjectValues<ProvisionedPlanImpl>("provisionedPlans", provisionedPlansArrValue);
+            writer.writeCollectionOfObjectValues<ProvisionedPlanImpl>("provisionedPlans", provisionedPlansArrValue);
         }
         if(this.proxyAddresses){
-        writer.writeCollectionOfPrimitiveValues<string>("proxyAddresses", this.proxyAddresses);
+            writer.writeCollectionOfPrimitiveValues<string>("proxyAddresses", this.proxyAddresses);
         }
         if(this.registeredDevices && this.registeredDevices.length != 0){        const registeredDevicesArrValue: DirectoryObjectImpl[] = []; this.registeredDevices?.forEach(element => {registeredDevicesArrValue.push(new DirectoryObjectImpl(element));});
-        writer.writeCollectionOfObjectValues<DirectoryObjectImpl>("registeredDevices", registeredDevicesArrValue);
+            writer.writeCollectionOfObjectValues<DirectoryObjectImpl>("registeredDevices", registeredDevicesArrValue);
         }
         if(this.responsibilities){
-        writer.writeCollectionOfPrimitiveValues<string>("responsibilities", this.responsibilities);
+            writer.writeCollectionOfPrimitiveValues<string>("responsibilities", this.responsibilities);
         }
         if(this.schools){
-        writer.writeCollectionOfPrimitiveValues<string>("schools", this.schools);
+            writer.writeCollectionOfPrimitiveValues<string>("schools", this.schools);
         }
         if(this.scopedRoleMemberOf && this.scopedRoleMemberOf.length != 0){        const scopedRoleMemberOfArrValue: ScopedRoleMembershipImpl[] = []; this.scopedRoleMemberOf?.forEach(element => {scopedRoleMemberOfArrValue.push(new ScopedRoleMembershipImpl(element));});
-        writer.writeCollectionOfObjectValues<ScopedRoleMembershipImpl>("scopedRoleMemberOf", scopedRoleMemberOfArrValue);
+            writer.writeCollectionOfObjectValues<ScopedRoleMembershipImpl>("scopedRoleMemberOf", scopedRoleMemberOfArrValue);
         }
         if(this.settings){
-        writer.writeObjectValue<UserSettingsImpl>("settings", new UserSettingsImpl(this.settings));
+            writer.writeObjectValue<UserSettingsImpl>("settings", new UserSettingsImpl(this.settings));
         }
         if(this.showInAddressList){
-        writer.writeBooleanValue("showInAddressList", this.showInAddressList);
+            writer.writeBooleanValue("showInAddressList", this.showInAddressList);
         }
         if(this.signInSessionsValidFromDateTime){
-        writer.writeDateValue("signInSessionsValidFromDateTime", this.signInSessionsValidFromDateTime);
+            writer.writeDateValue("signInSessionsValidFromDateTime", this.signInSessionsValidFromDateTime);
         }
         if(this.skills){
-        writer.writeCollectionOfPrimitiveValues<string>("skills", this.skills);
+            writer.writeCollectionOfPrimitiveValues<string>("skills", this.skills);
         }
         if(this.state){
-        writer.writeStringValue("state", this.state);
+            writer.writeStringValue("state", this.state);
         }
         if(this.streetAddress){
-        writer.writeStringValue("streetAddress", this.streetAddress);
+            writer.writeStringValue("streetAddress", this.streetAddress);
         }
         if(this.surname){
-        writer.writeStringValue("surname", this.surname);
+            writer.writeStringValue("surname", this.surname);
         }
         if(this.teamwork){
-        writer.writeObjectValue<UserTeamworkImpl>("teamwork", new UserTeamworkImpl(this.teamwork));
+            writer.writeObjectValue<UserTeamworkImpl>("teamwork", new UserTeamworkImpl(this.teamwork));
         }
         if(this.todo){
-        writer.writeObjectValue<TodoImpl>("todo", new TodoImpl(this.todo));
+            writer.writeObjectValue<TodoImpl>("todo", new TodoImpl(this.todo));
         }
         if(this.transitiveMemberOf && this.transitiveMemberOf.length != 0){        const transitiveMemberOfArrValue: DirectoryObjectImpl[] = []; this.transitiveMemberOf?.forEach(element => {transitiveMemberOfArrValue.push(new DirectoryObjectImpl(element));});
-        writer.writeCollectionOfObjectValues<DirectoryObjectImpl>("transitiveMemberOf", transitiveMemberOfArrValue);
+            writer.writeCollectionOfObjectValues<DirectoryObjectImpl>("transitiveMemberOf", transitiveMemberOfArrValue);
         }
         if(this.usageLocation){
-        writer.writeStringValue("usageLocation", this.usageLocation);
+            writer.writeStringValue("usageLocation", this.usageLocation);
         }
         if(this.userPrincipalName){
-        writer.writeStringValue("userPrincipalName", this.userPrincipalName);
+            writer.writeStringValue("userPrincipalName", this.userPrincipalName);
         }
         if(this.userType){
-        writer.writeStringValue("userType", this.userType);
+            writer.writeStringValue("userType", this.userType);
         }
     };
 }

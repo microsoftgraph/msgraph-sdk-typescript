@@ -2,7 +2,7 @@ import {ImportedWindowsAutopilotDeviceIdentityImportStatus} from './importedWind
 import {ImportedWindowsAutopilotDeviceIdentityState} from './importedWindowsAutopilotDeviceIdentityState';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ImportedWindowsAutopilotDeviceIdentityStateImpl implements AdditionalDataHolder, ImportedWindowsAutopilotDeviceIdentityState, Parsable {
+export class ImportedWindowsAutopilotDeviceIdentityStateImpl implements ImportedWindowsAutopilotDeviceIdentityState {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Device error code reported by Device Directory Service(DDS). */
@@ -18,11 +18,11 @@ export class ImportedWindowsAutopilotDeviceIdentityStateImpl implements Addition
      * @param importedWindowsAutopilotDeviceIdentityStateParameterValue 
      */
     public constructor(importedWindowsAutopilotDeviceIdentityStateParameterValue?: ImportedWindowsAutopilotDeviceIdentityState | undefined) {
-        this.additionalData = importedWindowsAutopilotDeviceIdentityStateParameterValue?.additionalData ? importedWindowsAutopilotDeviceIdentityStateParameterValue?.additionalData! : {}
-        this.deviceErrorCode = importedWindowsAutopilotDeviceIdentityStateParameterValue?.deviceErrorCode ;
-        this.deviceErrorName = importedWindowsAutopilotDeviceIdentityStateParameterValue?.deviceErrorName ;
-        this.deviceImportStatus = importedWindowsAutopilotDeviceIdentityStateParameterValue?.deviceImportStatus ;
-        this.deviceRegistrationId = importedWindowsAutopilotDeviceIdentityStateParameterValue?.deviceRegistrationId ;
+        this.additionalData = importedWindowsAutopilotDeviceIdentityStateParameterValue?.additionalData ? importedWindowsAutopilotDeviceIdentityStateParameterValue?.additionalData! : {};
+        this.deviceErrorCode = importedWindowsAutopilotDeviceIdentityStateParameterValue?.deviceErrorCode;
+        this.deviceErrorName = importedWindowsAutopilotDeviceIdentityStateParameterValue?.deviceErrorName;
+        this.deviceImportStatus = importedWindowsAutopilotDeviceIdentityStateParameterValue?.deviceImportStatus;
+        this.deviceRegistrationId = importedWindowsAutopilotDeviceIdentityStateParameterValue?.deviceRegistrationId;
     };
     /**
      * The deserialization information for the current model
@@ -43,16 +43,16 @@ export class ImportedWindowsAutopilotDeviceIdentityStateImpl implements Addition
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.deviceErrorCode){
-        writer.writeNumberValue("deviceErrorCode", this.deviceErrorCode);
+            writer.writeNumberValue("deviceErrorCode", this.deviceErrorCode);
         }
         if(this.deviceErrorName){
-        writer.writeStringValue("deviceErrorName", this.deviceErrorName);
+            writer.writeStringValue("deviceErrorName", this.deviceErrorName);
         }
         if(this.deviceImportStatus){
-        writer.writeEnumValue<ImportedWindowsAutopilotDeviceIdentityImportStatus>("deviceImportStatus", this.deviceImportStatus);
+            writer.writeEnumValue<ImportedWindowsAutopilotDeviceIdentityImportStatus>("deviceImportStatus", this.deviceImportStatus);
         }
         if(this.deviceRegistrationId){
-        writer.writeStringValue("deviceRegistrationId", this.deviceRegistrationId);
+            writer.writeStringValue("deviceRegistrationId", this.deviceRegistrationId);
         }
         writer.writeAdditionalData(this.additionalData);
     };

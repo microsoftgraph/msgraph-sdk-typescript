@@ -2,7 +2,7 @@ import {CheckMemberGroupsResponse} from './checkMemberGroupsResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the checkMemberGroups method. */
-export class CheckMemberGroupsResponseImpl implements AdditionalDataHolder, CheckMemberGroupsResponse, Parsable {
+export class CheckMemberGroupsResponseImpl implements CheckMemberGroupsResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The value property */
@@ -12,8 +12,8 @@ export class CheckMemberGroupsResponseImpl implements AdditionalDataHolder, Chec
      * @param checkMemberGroupsResponseParameterValue 
      */
     public constructor(checkMemberGroupsResponseParameterValue?: CheckMemberGroupsResponse | undefined) {
-        this.additionalData = checkMemberGroupsResponseParameterValue?.additionalData ? checkMemberGroupsResponseParameterValue?.additionalData! : {}
-        this.value = checkMemberGroupsResponseParameterValue?.value ;
+        this.additionalData = checkMemberGroupsResponseParameterValue?.additionalData ? checkMemberGroupsResponseParameterValue?.additionalData! : {};
+        this.value = checkMemberGroupsResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -31,7 +31,7 @@ export class CheckMemberGroupsResponseImpl implements AdditionalDataHolder, Chec
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.value){
-        writer.writeCollectionOfPrimitiveValues<string>("value", this.value);
+            writer.writeCollectionOfPrimitiveValues<string>("value", this.value);
         }
         writer.writeAdditionalData(this.additionalData);
     };

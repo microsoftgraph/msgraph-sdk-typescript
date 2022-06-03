@@ -3,7 +3,7 @@ import {EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the collection of applicationTemplate entities. */
-export class ApplicationTemplateImpl extends EntityImpl implements ApplicationTemplate, Parsable {
+export class ApplicationTemplateImpl extends EntityImpl implements ApplicationTemplate {
     /** The list of categories for the application. Supported values can be: Collaboration, Business Management, Consumer, Content management, CRM, Data services, Developer services, E-commerce, Education, ERP, Finance, Health, Human resources, IT infrastructure, Mail, Management, Marketing, Media, Productivity, Project management, Telecommunications, Tools, Travel, and Web design & hosting. */
     public categories?: string[] | undefined;
     /** A description of the application. */
@@ -25,15 +25,15 @@ export class ApplicationTemplateImpl extends EntityImpl implements ApplicationTe
      * @param applicationTemplateParameterValue 
      */
     public constructor(applicationTemplateParameterValue?: ApplicationTemplate | undefined) {
-        super();
-        this.categories = applicationTemplateParameterValue?.categories ;
-        this.description = applicationTemplateParameterValue?.description ;
-        this.displayName = applicationTemplateParameterValue?.displayName ;
-        this.homePageUrl = applicationTemplateParameterValue?.homePageUrl ;
-        this.logoUrl = applicationTemplateParameterValue?.logoUrl ;
-        this.publisher = applicationTemplateParameterValue?.publisher ;
-        this.supportedProvisioningTypes = applicationTemplateParameterValue?.supportedProvisioningTypes ;
-        this.supportedSingleSignOnModes = applicationTemplateParameterValue?.supportedSingleSignOnModes ;
+        super(applicationTemplateParameterValue);
+        this.categories = applicationTemplateParameterValue?.categories;
+        this.description = applicationTemplateParameterValue?.description;
+        this.displayName = applicationTemplateParameterValue?.displayName;
+        this.homePageUrl = applicationTemplateParameterValue?.homePageUrl;
+        this.logoUrl = applicationTemplateParameterValue?.logoUrl;
+        this.publisher = applicationTemplateParameterValue?.publisher;
+        this.supportedProvisioningTypes = applicationTemplateParameterValue?.supportedProvisioningTypes;
+        this.supportedSingleSignOnModes = applicationTemplateParameterValue?.supportedSingleSignOnModes;
     };
     /**
      * The deserialization information for the current model
@@ -59,28 +59,28 @@ export class ApplicationTemplateImpl extends EntityImpl implements ApplicationTe
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.categories){
-        writer.writeCollectionOfPrimitiveValues<string>("categories", this.categories);
+            writer.writeCollectionOfPrimitiveValues<string>("categories", this.categories);
         }
         if(this.description){
-        writer.writeStringValue("description", this.description);
+            writer.writeStringValue("description", this.description);
         }
         if(this.displayName){
-        writer.writeStringValue("displayName", this.displayName);
+            writer.writeStringValue("displayName", this.displayName);
         }
         if(this.homePageUrl){
-        writer.writeStringValue("homePageUrl", this.homePageUrl);
+            writer.writeStringValue("homePageUrl", this.homePageUrl);
         }
         if(this.logoUrl){
-        writer.writeStringValue("logoUrl", this.logoUrl);
+            writer.writeStringValue("logoUrl", this.logoUrl);
         }
         if(this.publisher){
-        writer.writeStringValue("publisher", this.publisher);
+            writer.writeStringValue("publisher", this.publisher);
         }
         if(this.supportedProvisioningTypes){
-        writer.writeCollectionOfPrimitiveValues<string>("supportedProvisioningTypes", this.supportedProvisioningTypes);
+            writer.writeCollectionOfPrimitiveValues<string>("supportedProvisioningTypes", this.supportedProvisioningTypes);
         }
         if(this.supportedSingleSignOnModes){
-        writer.writeCollectionOfPrimitiveValues<string>("supportedSingleSignOnModes", this.supportedSingleSignOnModes);
+            writer.writeCollectionOfPrimitiveValues<string>("supportedSingleSignOnModes", this.supportedSingleSignOnModes);
         }
     };
 }

@@ -7,7 +7,7 @@ import {AccessPackageImpl, EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the identityGovernance singleton. */
-export class AccessPackageCatalogImpl extends EntityImpl implements AccessPackageCatalog, Parsable {
+export class AccessPackageCatalogImpl extends EntityImpl implements AccessPackageCatalog {
     /** The access packages in this catalog. Read-only. Nullable. Supports $expand. */
     public accessPackages?: AccessPackage[] | undefined;
     /** One of UserManaged or ServiceDefault. */
@@ -29,15 +29,15 @@ export class AccessPackageCatalogImpl extends EntityImpl implements AccessPackag
      * @param accessPackageCatalogParameterValue 
      */
     public constructor(accessPackageCatalogParameterValue?: AccessPackageCatalog | undefined) {
-        super();
-        this.accessPackages = accessPackageCatalogParameterValue?.accessPackages ;
-        this.catalogType = accessPackageCatalogParameterValue?.catalogType ;
-        this.createdDateTime = accessPackageCatalogParameterValue?.createdDateTime ;
-        this.description = accessPackageCatalogParameterValue?.description ;
-        this.displayName = accessPackageCatalogParameterValue?.displayName ;
-        this.isExternallyVisible = accessPackageCatalogParameterValue?.isExternallyVisible ;
-        this.modifiedDateTime = accessPackageCatalogParameterValue?.modifiedDateTime ;
-        this.state = accessPackageCatalogParameterValue?.state ;
+        super(accessPackageCatalogParameterValue);
+        this.accessPackages = accessPackageCatalogParameterValue?.accessPackages;
+        this.catalogType = accessPackageCatalogParameterValue?.catalogType;
+        this.createdDateTime = accessPackageCatalogParameterValue?.createdDateTime;
+        this.description = accessPackageCatalogParameterValue?.description;
+        this.displayName = accessPackageCatalogParameterValue?.displayName;
+        this.isExternallyVisible = accessPackageCatalogParameterValue?.isExternallyVisible;
+        this.modifiedDateTime = accessPackageCatalogParameterValue?.modifiedDateTime;
+        this.state = accessPackageCatalogParameterValue?.state;
     };
     /**
      * The deserialization information for the current model
@@ -63,28 +63,28 @@ export class AccessPackageCatalogImpl extends EntityImpl implements AccessPackag
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.accessPackages && this.accessPackages.length != 0){        const accessPackagesArrValue: AccessPackageImpl[] = []; this.accessPackages?.forEach(element => {accessPackagesArrValue.push(new AccessPackageImpl(element));});
-        writer.writeCollectionOfObjectValues<AccessPackageImpl>("accessPackages", accessPackagesArrValue);
+            writer.writeCollectionOfObjectValues<AccessPackageImpl>("accessPackages", accessPackagesArrValue);
         }
         if(this.catalogType){
-        writer.writeEnumValue<AccessPackageCatalogType>("catalogType", this.catalogType);
+            writer.writeEnumValue<AccessPackageCatalogType>("catalogType", this.catalogType);
         }
         if(this.createdDateTime){
-        writer.writeDateValue("createdDateTime", this.createdDateTime);
+            writer.writeDateValue("createdDateTime", this.createdDateTime);
         }
         if(this.description){
-        writer.writeStringValue("description", this.description);
+            writer.writeStringValue("description", this.description);
         }
         if(this.displayName){
-        writer.writeStringValue("displayName", this.displayName);
+            writer.writeStringValue("displayName", this.displayName);
         }
         if(this.isExternallyVisible){
-        writer.writeBooleanValue("isExternallyVisible", this.isExternallyVisible);
+            writer.writeBooleanValue("isExternallyVisible", this.isExternallyVisible);
         }
         if(this.modifiedDateTime){
-        writer.writeDateValue("modifiedDateTime", this.modifiedDateTime);
+            writer.writeDateValue("modifiedDateTime", this.modifiedDateTime);
         }
         if(this.state){
-        writer.writeEnumValue<AccessPackageCatalogState>("state", this.state);
+            writer.writeEnumValue<AccessPackageCatalogState>("state", this.state);
         }
     };
 }

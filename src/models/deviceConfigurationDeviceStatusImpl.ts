@@ -4,7 +4,7 @@ import {EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the deviceManagement singleton. */
-export class DeviceConfigurationDeviceStatusImpl extends EntityImpl implements DeviceConfigurationDeviceStatus, Parsable {
+export class DeviceConfigurationDeviceStatusImpl extends EntityImpl implements DeviceConfigurationDeviceStatus {
     /** The DateTime when device compliance grace period expires */
     public complianceGracePeriodExpirationDateTime?: Date | undefined;
     /** Device name of the DevicePolicyStatus. */
@@ -24,14 +24,14 @@ export class DeviceConfigurationDeviceStatusImpl extends EntityImpl implements D
      * @param deviceConfigurationDeviceStatusParameterValue 
      */
     public constructor(deviceConfigurationDeviceStatusParameterValue?: DeviceConfigurationDeviceStatus | undefined) {
-        super();
-        this.complianceGracePeriodExpirationDateTime = deviceConfigurationDeviceStatusParameterValue?.complianceGracePeriodExpirationDateTime ;
-        this.deviceDisplayName = deviceConfigurationDeviceStatusParameterValue?.deviceDisplayName ;
-        this.deviceModel = deviceConfigurationDeviceStatusParameterValue?.deviceModel ;
-        this.lastReportedDateTime = deviceConfigurationDeviceStatusParameterValue?.lastReportedDateTime ;
-        this.status = deviceConfigurationDeviceStatusParameterValue?.status ;
-        this.userName = deviceConfigurationDeviceStatusParameterValue?.userName ;
-        this.userPrincipalName = deviceConfigurationDeviceStatusParameterValue?.userPrincipalName ;
+        super(deviceConfigurationDeviceStatusParameterValue);
+        this.complianceGracePeriodExpirationDateTime = deviceConfigurationDeviceStatusParameterValue?.complianceGracePeriodExpirationDateTime;
+        this.deviceDisplayName = deviceConfigurationDeviceStatusParameterValue?.deviceDisplayName;
+        this.deviceModel = deviceConfigurationDeviceStatusParameterValue?.deviceModel;
+        this.lastReportedDateTime = deviceConfigurationDeviceStatusParameterValue?.lastReportedDateTime;
+        this.status = deviceConfigurationDeviceStatusParameterValue?.status;
+        this.userName = deviceConfigurationDeviceStatusParameterValue?.userName;
+        this.userPrincipalName = deviceConfigurationDeviceStatusParameterValue?.userPrincipalName;
     };
     /**
      * The deserialization information for the current model
@@ -56,25 +56,25 @@ export class DeviceConfigurationDeviceStatusImpl extends EntityImpl implements D
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.complianceGracePeriodExpirationDateTime){
-        writer.writeDateValue("complianceGracePeriodExpirationDateTime", this.complianceGracePeriodExpirationDateTime);
+            writer.writeDateValue("complianceGracePeriodExpirationDateTime", this.complianceGracePeriodExpirationDateTime);
         }
         if(this.deviceDisplayName){
-        writer.writeStringValue("deviceDisplayName", this.deviceDisplayName);
+            writer.writeStringValue("deviceDisplayName", this.deviceDisplayName);
         }
         if(this.deviceModel){
-        writer.writeStringValue("deviceModel", this.deviceModel);
+            writer.writeStringValue("deviceModel", this.deviceModel);
         }
         if(this.lastReportedDateTime){
-        writer.writeDateValue("lastReportedDateTime", this.lastReportedDateTime);
+            writer.writeDateValue("lastReportedDateTime", this.lastReportedDateTime);
         }
         if(this.status){
-        writer.writeEnumValue<ComplianceStatus>("status", this.status);
+            writer.writeEnumValue<ComplianceStatus>("status", this.status);
         }
         if(this.userName){
-        writer.writeStringValue("userName", this.userName);
+            writer.writeStringValue("userName", this.userName);
         }
         if(this.userPrincipalName){
-        writer.writeStringValue("userPrincipalName", this.userPrincipalName);
+            writer.writeStringValue("userPrincipalName", this.userPrincipalName);
         }
     };
 }

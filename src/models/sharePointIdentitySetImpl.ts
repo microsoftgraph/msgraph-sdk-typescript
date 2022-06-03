@@ -6,8 +6,8 @@ import {SharePointIdentity} from './sharePointIdentity';
 import {SharePointIdentitySet} from './sharePointIdentitySet';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
-export class SharePointIdentitySetImpl extends IdentitySetImpl implements Parsable, SharePointIdentitySet {
+/** Casts the previous resource to group. */
+export class SharePointIdentitySetImpl extends IdentitySetImpl implements SharePointIdentitySet {
     /** The group associated with this action. Optional. */
     public group?: Identity | undefined;
     /** The SharePoint group associated with this action. Optional. */
@@ -19,10 +19,10 @@ export class SharePointIdentitySetImpl extends IdentitySetImpl implements Parsab
      * @param sharePointIdentitySetParameterValue 
      */
     public constructor(sharePointIdentitySetParameterValue?: SharePointIdentitySet | undefined) {
-        super();
-        this.group = sharePointIdentitySetParameterValue?.group ;
-        this.siteGroup = sharePointIdentitySetParameterValue?.siteGroup ;
-        this.siteUser = sharePointIdentitySetParameterValue?.siteUser ;
+        super(sharePointIdentitySetParameterValue);
+        this.group = sharePointIdentitySetParameterValue?.group;
+        this.siteGroup = sharePointIdentitySetParameterValue?.siteGroup;
+        this.siteUser = sharePointIdentitySetParameterValue?.siteUser;
     };
     /**
      * The deserialization information for the current model
@@ -43,13 +43,13 @@ export class SharePointIdentitySetImpl extends IdentitySetImpl implements Parsab
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.group){
-        writer.writeObjectValue<IdentityImpl>("group", new IdentityImpl(this.group));
+            writer.writeObjectValue<IdentityImpl>("group", new IdentityImpl(this.group));
         }
         if(this.siteGroup){
-        writer.writeObjectValue<SharePointIdentityImpl>("siteGroup", new SharePointIdentityImpl(this.siteGroup));
+            writer.writeObjectValue<SharePointIdentityImpl>("siteGroup", new SharePointIdentityImpl(this.siteGroup));
         }
         if(this.siteUser){
-        writer.writeObjectValue<SharePointIdentityImpl>("siteUser", new SharePointIdentityImpl(this.siteUser));
+            writer.writeObjectValue<SharePointIdentityImpl>("siteUser", new SharePointIdentityImpl(this.siteUser));
         }
     };
 }

@@ -1,7 +1,8 @@
 import {Entity} from './entity';
 import {TeamsApp} from './teamsApp';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface AppCatalogs extends Entity{
+export interface AppCatalogs extends Entity, Partial<Parsable> {
     /** The teamsApps property */
-    teamsApps?:TeamsApp[] | undefined;
+    teamsApps?: TeamsApp[] | undefined;
 }

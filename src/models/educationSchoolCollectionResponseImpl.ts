@@ -4,7 +4,7 @@ import {EducationSchoolCollectionResponse} from './educationSchoolCollectionResp
 import {EducationSchoolImpl} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class EducationSchoolCollectionResponseImpl implements AdditionalDataHolder, EducationSchoolCollectionResponse, Parsable {
+export class EducationSchoolCollectionResponseImpl implements EducationSchoolCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class EducationSchoolCollectionResponseImpl implements AdditionalDataHold
      * @param educationSchoolCollectionResponseParameterValue 
      */
     public constructor(educationSchoolCollectionResponseParameterValue?: EducationSchoolCollectionResponse | undefined) {
-        this.additionalData = educationSchoolCollectionResponseParameterValue?.additionalData ? educationSchoolCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = educationSchoolCollectionResponseParameterValue?.nextLink ;
-        this.value = educationSchoolCollectionResponseParameterValue?.value ;
+        this.additionalData = educationSchoolCollectionResponseParameterValue?.additionalData ? educationSchoolCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = educationSchoolCollectionResponseParameterValue?.nextLink;
+        this.value = educationSchoolCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class EducationSchoolCollectionResponseImpl implements AdditionalDataHold
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: EducationSchoolImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new EducationSchoolImpl(element));});
-        writer.writeCollectionOfObjectValues<EducationSchoolImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<EducationSchoolImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

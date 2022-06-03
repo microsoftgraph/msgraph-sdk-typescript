@@ -3,7 +3,7 @@ import {UnifiedRoleEligibilityScheduleInstance} from './unifiedRoleEligibilitySc
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the roleManagement singleton. */
-export class UnifiedRoleEligibilityScheduleInstanceImpl extends UnifiedRoleScheduleInstanceBaseImpl implements Parsable, UnifiedRoleEligibilityScheduleInstance {
+export class UnifiedRoleEligibilityScheduleInstanceImpl extends UnifiedRoleScheduleInstanceBaseImpl implements UnifiedRoleEligibilityScheduleInstance {
     /** Time that the roleEligibilityScheduleInstance will expire. */
     public endDateTime?: Date | undefined;
     /** Membership type of the assignment. It can either be Inherited, Direct, or Group. */
@@ -17,11 +17,11 @@ export class UnifiedRoleEligibilityScheduleInstanceImpl extends UnifiedRoleSched
      * @param unifiedRoleEligibilityScheduleInstanceParameterValue 
      */
     public constructor(unifiedRoleEligibilityScheduleInstanceParameterValue?: UnifiedRoleEligibilityScheduleInstance | undefined) {
-        super();
-        this.endDateTime = unifiedRoleEligibilityScheduleInstanceParameterValue?.endDateTime ;
-        this.memberType = unifiedRoleEligibilityScheduleInstanceParameterValue?.memberType ;
-        this.roleEligibilityScheduleId = unifiedRoleEligibilityScheduleInstanceParameterValue?.roleEligibilityScheduleId ;
-        this.startDateTime = unifiedRoleEligibilityScheduleInstanceParameterValue?.startDateTime ;
+        super(unifiedRoleEligibilityScheduleInstanceParameterValue);
+        this.endDateTime = unifiedRoleEligibilityScheduleInstanceParameterValue?.endDateTime;
+        this.memberType = unifiedRoleEligibilityScheduleInstanceParameterValue?.memberType;
+        this.roleEligibilityScheduleId = unifiedRoleEligibilityScheduleInstanceParameterValue?.roleEligibilityScheduleId;
+        this.startDateTime = unifiedRoleEligibilityScheduleInstanceParameterValue?.startDateTime;
     };
     /**
      * The deserialization information for the current model
@@ -43,16 +43,16 @@ export class UnifiedRoleEligibilityScheduleInstanceImpl extends UnifiedRoleSched
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.endDateTime){
-        writer.writeDateValue("endDateTime", this.endDateTime);
+            writer.writeDateValue("endDateTime", this.endDateTime);
         }
         if(this.memberType){
-        writer.writeStringValue("memberType", this.memberType);
+            writer.writeStringValue("memberType", this.memberType);
         }
         if(this.roleEligibilityScheduleId){
-        writer.writeStringValue("roleEligibilityScheduleId", this.roleEligibilityScheduleId);
+            writer.writeStringValue("roleEligibilityScheduleId", this.roleEligibilityScheduleId);
         }
         if(this.startDateTime){
-        writer.writeDateValue("startDateTime", this.startDateTime);
+            writer.writeDateValue("startDateTime", this.startDateTime);
         }
     };
 }

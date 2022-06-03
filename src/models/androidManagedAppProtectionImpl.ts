@@ -7,7 +7,7 @@ import {ManagedMobileApp} from './managedMobileApp';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Policy used to configure detailed management settings targeted to specific security groups and for a specified set of apps on an Android device */
-export class AndroidManagedAppProtectionImpl extends TargetedManagedAppProtectionImpl implements AndroidManagedAppProtection, Parsable {
+export class AndroidManagedAppProtectionImpl extends TargetedManagedAppProtectionImpl implements AndroidManagedAppProtection {
     /** List of apps to which the policy is deployed. */
     public apps?: ManagedMobileApp[] | undefined;
     /** Friendly name of the preferred custom browser to open weblink on Android. */
@@ -33,17 +33,17 @@ export class AndroidManagedAppProtectionImpl extends TargetedManagedAppProtectio
      * @param androidManagedAppProtectionParameterValue 
      */
     public constructor(androidManagedAppProtectionParameterValue?: AndroidManagedAppProtection | undefined) {
-        super();
-        this.apps = androidManagedAppProtectionParameterValue?.apps ;
-        this.customBrowserDisplayName = androidManagedAppProtectionParameterValue?.customBrowserDisplayName ;
-        this.customBrowserPackageId = androidManagedAppProtectionParameterValue?.customBrowserPackageId ;
-        this.deployedAppCount = androidManagedAppProtectionParameterValue?.deployedAppCount ;
-        this.deploymentSummary = androidManagedAppProtectionParameterValue?.deploymentSummary ;
-        this.disableAppEncryptionIfDeviceEncryptionIsEnabled = androidManagedAppProtectionParameterValue?.disableAppEncryptionIfDeviceEncryptionIsEnabled ;
-        this.encryptAppData = androidManagedAppProtectionParameterValue?.encryptAppData ;
-        this.minimumRequiredPatchVersion = androidManagedAppProtectionParameterValue?.minimumRequiredPatchVersion ;
-        this.minimumWarningPatchVersion = androidManagedAppProtectionParameterValue?.minimumWarningPatchVersion ;
-        this.screenCaptureBlocked = androidManagedAppProtectionParameterValue?.screenCaptureBlocked ;
+        super(androidManagedAppProtectionParameterValue);
+        this.apps = androidManagedAppProtectionParameterValue?.apps;
+        this.customBrowserDisplayName = androidManagedAppProtectionParameterValue?.customBrowserDisplayName;
+        this.customBrowserPackageId = androidManagedAppProtectionParameterValue?.customBrowserPackageId;
+        this.deployedAppCount = androidManagedAppProtectionParameterValue?.deployedAppCount;
+        this.deploymentSummary = androidManagedAppProtectionParameterValue?.deploymentSummary;
+        this.disableAppEncryptionIfDeviceEncryptionIsEnabled = androidManagedAppProtectionParameterValue?.disableAppEncryptionIfDeviceEncryptionIsEnabled;
+        this.encryptAppData = androidManagedAppProtectionParameterValue?.encryptAppData;
+        this.minimumRequiredPatchVersion = androidManagedAppProtectionParameterValue?.minimumRequiredPatchVersion;
+        this.minimumWarningPatchVersion = androidManagedAppProtectionParameterValue?.minimumWarningPatchVersion;
+        this.screenCaptureBlocked = androidManagedAppProtectionParameterValue?.screenCaptureBlocked;
     };
     /**
      * The deserialization information for the current model
@@ -71,34 +71,34 @@ export class AndroidManagedAppProtectionImpl extends TargetedManagedAppProtectio
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.apps && this.apps.length != 0){        const appsArrValue: ManagedMobileAppImpl[] = []; this.apps?.forEach(element => {appsArrValue.push(new ManagedMobileAppImpl(element));});
-        writer.writeCollectionOfObjectValues<ManagedMobileAppImpl>("apps", appsArrValue);
+            writer.writeCollectionOfObjectValues<ManagedMobileAppImpl>("apps", appsArrValue);
         }
         if(this.customBrowserDisplayName){
-        writer.writeStringValue("customBrowserDisplayName", this.customBrowserDisplayName);
+            writer.writeStringValue("customBrowserDisplayName", this.customBrowserDisplayName);
         }
         if(this.customBrowserPackageId){
-        writer.writeStringValue("customBrowserPackageId", this.customBrowserPackageId);
+            writer.writeStringValue("customBrowserPackageId", this.customBrowserPackageId);
         }
         if(this.deployedAppCount){
-        writer.writeNumberValue("deployedAppCount", this.deployedAppCount);
+            writer.writeNumberValue("deployedAppCount", this.deployedAppCount);
         }
         if(this.deploymentSummary){
-        writer.writeObjectValue<ManagedAppPolicyDeploymentSummaryImpl>("deploymentSummary", new ManagedAppPolicyDeploymentSummaryImpl(this.deploymentSummary));
+            writer.writeObjectValue<ManagedAppPolicyDeploymentSummaryImpl>("deploymentSummary", new ManagedAppPolicyDeploymentSummaryImpl(this.deploymentSummary));
         }
         if(this.disableAppEncryptionIfDeviceEncryptionIsEnabled){
-        writer.writeBooleanValue("disableAppEncryptionIfDeviceEncryptionIsEnabled", this.disableAppEncryptionIfDeviceEncryptionIsEnabled);
+            writer.writeBooleanValue("disableAppEncryptionIfDeviceEncryptionIsEnabled", this.disableAppEncryptionIfDeviceEncryptionIsEnabled);
         }
         if(this.encryptAppData){
-        writer.writeBooleanValue("encryptAppData", this.encryptAppData);
+            writer.writeBooleanValue("encryptAppData", this.encryptAppData);
         }
         if(this.minimumRequiredPatchVersion){
-        writer.writeStringValue("minimumRequiredPatchVersion", this.minimumRequiredPatchVersion);
+            writer.writeStringValue("minimumRequiredPatchVersion", this.minimumRequiredPatchVersion);
         }
         if(this.minimumWarningPatchVersion){
-        writer.writeStringValue("minimumWarningPatchVersion", this.minimumWarningPatchVersion);
+            writer.writeStringValue("minimumWarningPatchVersion", this.minimumWarningPatchVersion);
         }
         if(this.screenCaptureBlocked){
-        writer.writeBooleanValue("screenCaptureBlocked", this.screenCaptureBlocked);
+            writer.writeBooleanValue("screenCaptureBlocked", this.screenCaptureBlocked);
         }
     };
 }

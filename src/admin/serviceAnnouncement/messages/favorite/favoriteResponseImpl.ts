@@ -2,7 +2,7 @@ import {FavoriteResponse} from './favoriteResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the favorite method. */
-export class FavoriteResponseImpl implements AdditionalDataHolder, FavoriteResponse, Parsable {
+export class FavoriteResponseImpl implements FavoriteResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The value property */
@@ -12,8 +12,8 @@ export class FavoriteResponseImpl implements AdditionalDataHolder, FavoriteRespo
      * @param favoriteResponseParameterValue 
      */
     public constructor(favoriteResponseParameterValue?: FavoriteResponse | undefined) {
-        this.additionalData = favoriteResponseParameterValue?.additionalData ? favoriteResponseParameterValue?.additionalData! : {}
-        this.value = favoriteResponseParameterValue?.value ;
+        this.additionalData = favoriteResponseParameterValue?.additionalData ? favoriteResponseParameterValue?.additionalData! : {};
+        this.value = favoriteResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -31,7 +31,7 @@ export class FavoriteResponseImpl implements AdditionalDataHolder, FavoriteRespo
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.value){
-        writer.writeBooleanValue("value", this.value);
+            writer.writeBooleanValue("value", this.value);
         }
         writer.writeAdditionalData(this.additionalData);
     };

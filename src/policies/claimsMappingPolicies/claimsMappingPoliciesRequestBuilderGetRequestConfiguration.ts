@@ -1,11 +1,11 @@
 import {ClaimsMappingPoliciesRequestBuilderGetQueryParameters} from './claimsMappingPoliciesRequestBuilderGetQueryParameters';
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
-export interface ClaimsMappingPoliciesRequestBuilderGetRequestConfiguration{
+export interface ClaimsMappingPoliciesRequestBuilderGetRequestConfiguration {
     /** Request headers */
-    headers?:Record<string, string> | undefined;
+    headers?: Record<string, string> | undefined;
     /** Request options */
-    options?:RequestOption[] | undefined;
+    options?: RequestOption[] | undefined;
     /** Request query parameters */
-    queryParameters?:ClaimsMappingPoliciesRequestBuilderGetQueryParameters | undefined;
+    queryParameters?: ClaimsMappingPoliciesRequestBuilderGetQueryParameters | undefined;
 }

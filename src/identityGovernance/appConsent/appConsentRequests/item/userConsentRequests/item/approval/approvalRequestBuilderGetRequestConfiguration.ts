@@ -1,11 +1,11 @@
 import {ApprovalRequestBuilderGetQueryParameters} from './approvalRequestBuilderGetQueryParameters';
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
-export interface ApprovalRequestBuilderGetRequestConfiguration{
+export interface ApprovalRequestBuilderGetRequestConfiguration {
     /** Request headers */
-    headers?:Record<string, string> | undefined;
+    headers?: Record<string, string> | undefined;
     /** Request options */
-    options?:RequestOption[] | undefined;
+    options?: RequestOption[] | undefined;
     /** Request query parameters */
-    queryParameters?:ApprovalRequestBuilderGetQueryParameters | undefined;
+    queryParameters?: ApprovalRequestBuilderGetQueryParameters | undefined;
 }

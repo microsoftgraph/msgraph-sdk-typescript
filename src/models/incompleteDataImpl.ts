@@ -1,7 +1,7 @@
 import {IncompleteData} from './incompleteData';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class IncompleteDataImpl implements AdditionalDataHolder, IncompleteData, Parsable {
+export class IncompleteDataImpl implements IncompleteData {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The service does not have source data before the specified time. */
@@ -13,9 +13,9 @@ export class IncompleteDataImpl implements AdditionalDataHolder, IncompleteData,
      * @param incompleteDataParameterValue 
      */
     public constructor(incompleteDataParameterValue?: IncompleteData | undefined) {
-        this.additionalData = incompleteDataParameterValue?.additionalData ? incompleteDataParameterValue?.additionalData! : {}
-        this.missingDataBeforeDateTime = incompleteDataParameterValue?.missingDataBeforeDateTime ;
-        this.wasThrottled = incompleteDataParameterValue?.wasThrottled ;
+        this.additionalData = incompleteDataParameterValue?.additionalData ? incompleteDataParameterValue?.additionalData! : {};
+        this.missingDataBeforeDateTime = incompleteDataParameterValue?.missingDataBeforeDateTime;
+        this.wasThrottled = incompleteDataParameterValue?.wasThrottled;
     };
     /**
      * The deserialization information for the current model
@@ -34,10 +34,10 @@ export class IncompleteDataImpl implements AdditionalDataHolder, IncompleteData,
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.missingDataBeforeDateTime){
-        writer.writeDateValue("missingDataBeforeDateTime", this.missingDataBeforeDateTime);
+            writer.writeDateValue("missingDataBeforeDateTime", this.missingDataBeforeDateTime);
         }
         if(this.wasThrottled){
-        writer.writeBooleanValue("wasThrottled", this.wasThrottled);
+            writer.writeBooleanValue("wasThrottled", this.wasThrottled);
         }
         writer.writeAdditionalData(this.additionalData);
     };

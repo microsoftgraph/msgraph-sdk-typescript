@@ -9,7 +9,7 @@ import {UserIdentity} from './userIdentity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the identityGovernance singleton. */
-export class AccessReviewInstanceDecisionItemImpl extends EntityImpl implements AccessReviewInstanceDecisionItem, Parsable {
+export class AccessReviewInstanceDecisionItemImpl extends EntityImpl implements AccessReviewInstanceDecisionItem {
     /** The identifier of the accessReviewInstance parent. Supports $select. Read-only. */
     public accessReviewId?: string | undefined;
     /** The identifier of the user who applied the decision. Read-only. */
@@ -41,20 +41,20 @@ export class AccessReviewInstanceDecisionItemImpl extends EntityImpl implements 
      * @param accessReviewInstanceDecisionItemParameterValue 
      */
     public constructor(accessReviewInstanceDecisionItemParameterValue?: AccessReviewInstanceDecisionItem | undefined) {
-        super();
-        this.accessReviewId = accessReviewInstanceDecisionItemParameterValue?.accessReviewId ;
-        this.appliedBy = accessReviewInstanceDecisionItemParameterValue?.appliedBy ;
-        this.appliedDateTime = accessReviewInstanceDecisionItemParameterValue?.appliedDateTime ;
-        this.applyResult = accessReviewInstanceDecisionItemParameterValue?.applyResult ;
-        this.decision = accessReviewInstanceDecisionItemParameterValue?.decision ;
-        this.justification = accessReviewInstanceDecisionItemParameterValue?.justification ;
-        this.principal = accessReviewInstanceDecisionItemParameterValue?.principal ;
-        this.principalLink = accessReviewInstanceDecisionItemParameterValue?.principalLink ;
-        this.recommendation = accessReviewInstanceDecisionItemParameterValue?.recommendation ;
-        this.resource = accessReviewInstanceDecisionItemParameterValue?.resource ;
-        this.resourceLink = accessReviewInstanceDecisionItemParameterValue?.resourceLink ;
-        this.reviewedBy = accessReviewInstanceDecisionItemParameterValue?.reviewedBy ;
-        this.reviewedDateTime = accessReviewInstanceDecisionItemParameterValue?.reviewedDateTime ;
+        super(accessReviewInstanceDecisionItemParameterValue);
+        this.accessReviewId = accessReviewInstanceDecisionItemParameterValue?.accessReviewId;
+        this.appliedBy = accessReviewInstanceDecisionItemParameterValue?.appliedBy;
+        this.appliedDateTime = accessReviewInstanceDecisionItemParameterValue?.appliedDateTime;
+        this.applyResult = accessReviewInstanceDecisionItemParameterValue?.applyResult;
+        this.decision = accessReviewInstanceDecisionItemParameterValue?.decision;
+        this.justification = accessReviewInstanceDecisionItemParameterValue?.justification;
+        this.principal = accessReviewInstanceDecisionItemParameterValue?.principal;
+        this.principalLink = accessReviewInstanceDecisionItemParameterValue?.principalLink;
+        this.recommendation = accessReviewInstanceDecisionItemParameterValue?.recommendation;
+        this.resource = accessReviewInstanceDecisionItemParameterValue?.resource;
+        this.resourceLink = accessReviewInstanceDecisionItemParameterValue?.resourceLink;
+        this.reviewedBy = accessReviewInstanceDecisionItemParameterValue?.reviewedBy;
+        this.reviewedDateTime = accessReviewInstanceDecisionItemParameterValue?.reviewedDateTime;
     };
     /**
      * The deserialization information for the current model
@@ -85,43 +85,43 @@ export class AccessReviewInstanceDecisionItemImpl extends EntityImpl implements 
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.accessReviewId){
-        writer.writeStringValue("accessReviewId", this.accessReviewId);
+            writer.writeStringValue("accessReviewId", this.accessReviewId);
         }
         if(this.appliedBy){
-        writer.writeObjectValue<UserIdentityImpl>("appliedBy", new UserIdentityImpl(this.appliedBy));
+            writer.writeObjectValue<UserIdentityImpl>("appliedBy", new UserIdentityImpl(this.appliedBy));
         }
         if(this.appliedDateTime){
-        writer.writeDateValue("appliedDateTime", this.appliedDateTime);
+            writer.writeDateValue("appliedDateTime", this.appliedDateTime);
         }
         if(this.applyResult){
-        writer.writeStringValue("applyResult", this.applyResult);
+            writer.writeStringValue("applyResult", this.applyResult);
         }
         if(this.decision){
-        writer.writeStringValue("decision", this.decision);
+            writer.writeStringValue("decision", this.decision);
         }
         if(this.justification){
-        writer.writeStringValue("justification", this.justification);
+            writer.writeStringValue("justification", this.justification);
         }
         if(this.principal){
-        writer.writeObjectValue<IdentityImpl>("principal", new IdentityImpl(this.principal));
+            writer.writeObjectValue<IdentityImpl>("principal", new IdentityImpl(this.principal));
         }
         if(this.principalLink){
-        writer.writeStringValue("principalLink", this.principalLink);
+            writer.writeStringValue("principalLink", this.principalLink);
         }
         if(this.recommendation){
-        writer.writeStringValue("recommendation", this.recommendation);
+            writer.writeStringValue("recommendation", this.recommendation);
         }
         if(this.resource){
-        writer.writeObjectValue<AccessReviewInstanceDecisionItemResourceImpl>("resource", new AccessReviewInstanceDecisionItemResourceImpl(this.resource));
+            writer.writeObjectValue<AccessReviewInstanceDecisionItemResourceImpl>("resource", new AccessReviewInstanceDecisionItemResourceImpl(this.resource));
         }
         if(this.resourceLink){
-        writer.writeStringValue("resourceLink", this.resourceLink);
+            writer.writeStringValue("resourceLink", this.resourceLink);
         }
         if(this.reviewedBy){
-        writer.writeObjectValue<UserIdentityImpl>("reviewedBy", new UserIdentityImpl(this.reviewedBy));
+            writer.writeObjectValue<UserIdentityImpl>("reviewedBy", new UserIdentityImpl(this.reviewedBy));
         }
         if(this.reviewedDateTime){
-        writer.writeDateValue("reviewedDateTime", this.reviewedDateTime);
+            writer.writeDateValue("reviewedDateTime", this.reviewedDateTime);
         }
     };
 }

@@ -1,13 +1,14 @@
 import {IdentitySet} from './identitySet';
 import {RoutingType} from './routingType';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface CallRoute{
+export interface CallRoute extends Partial<AdditionalDataHolder>, Partial<Parsable> {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?:Record<string, unknown>;
+    additionalData?: Record<string, unknown>;
     /** The final property */
-    final?:IdentitySet | undefined;
+    final?: IdentitySet | undefined;
     /** The original property */
-    original?:IdentitySet | undefined;
+    original?: IdentitySet | undefined;
     /** Possible values are: forwarded, lookup, selfFork. */
-    routingType?:RoutingType | undefined;
+    routingType?: RoutingType | undefined;
 }

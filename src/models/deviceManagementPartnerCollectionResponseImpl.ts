@@ -4,7 +4,7 @@ import {DeviceManagementPartnerCollectionResponse} from './deviceManagementPartn
 import {DeviceManagementPartnerImpl} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class DeviceManagementPartnerCollectionResponseImpl implements AdditionalDataHolder, DeviceManagementPartnerCollectionResponse, Parsable {
+export class DeviceManagementPartnerCollectionResponseImpl implements DeviceManagementPartnerCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class DeviceManagementPartnerCollectionResponseImpl implements Additional
      * @param deviceManagementPartnerCollectionResponseParameterValue 
      */
     public constructor(deviceManagementPartnerCollectionResponseParameterValue?: DeviceManagementPartnerCollectionResponse | undefined) {
-        this.additionalData = deviceManagementPartnerCollectionResponseParameterValue?.additionalData ? deviceManagementPartnerCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = deviceManagementPartnerCollectionResponseParameterValue?.nextLink ;
-        this.value = deviceManagementPartnerCollectionResponseParameterValue?.value ;
+        this.additionalData = deviceManagementPartnerCollectionResponseParameterValue?.additionalData ? deviceManagementPartnerCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = deviceManagementPartnerCollectionResponseParameterValue?.nextLink;
+        this.value = deviceManagementPartnerCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class DeviceManagementPartnerCollectionResponseImpl implements Additional
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: DeviceManagementPartnerImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new DeviceManagementPartnerImpl(element));});
-        writer.writeCollectionOfObjectValues<DeviceManagementPartnerImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<DeviceManagementPartnerImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

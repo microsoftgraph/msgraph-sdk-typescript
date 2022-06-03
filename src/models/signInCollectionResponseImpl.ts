@@ -4,7 +4,7 @@ import {SignIn} from './signIn';
 import {SignInCollectionResponse} from './signInCollectionResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class SignInCollectionResponseImpl implements AdditionalDataHolder, Parsable, SignInCollectionResponse {
+export class SignInCollectionResponseImpl implements SignInCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class SignInCollectionResponseImpl implements AdditionalDataHolder, Parsa
      * @param signInCollectionResponseParameterValue 
      */
     public constructor(signInCollectionResponseParameterValue?: SignInCollectionResponse | undefined) {
-        this.additionalData = signInCollectionResponseParameterValue?.additionalData ? signInCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = signInCollectionResponseParameterValue?.nextLink ;
-        this.value = signInCollectionResponseParameterValue?.value ;
+        this.additionalData = signInCollectionResponseParameterValue?.additionalData ? signInCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = signInCollectionResponseParameterValue?.nextLink;
+        this.value = signInCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class SignInCollectionResponseImpl implements AdditionalDataHolder, Parsa
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: SignInImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new SignInImpl(element));});
-        writer.writeCollectionOfObjectValues<SignInImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<SignInImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

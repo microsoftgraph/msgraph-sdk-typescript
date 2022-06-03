@@ -5,7 +5,7 @@ import {GetEffectivePermissionsWithScopeResponse} from './getEffectivePermission
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the getEffectivePermissions method. */
-export class GetEffectivePermissionsWithScopeResponseImpl implements AdditionalDataHolder, GetEffectivePermissionsWithScopeResponse, Parsable {
+export class GetEffectivePermissionsWithScopeResponseImpl implements GetEffectivePermissionsWithScopeResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The value property */
@@ -15,8 +15,8 @@ export class GetEffectivePermissionsWithScopeResponseImpl implements AdditionalD
      * @param getEffectivePermissionsWithScopeResponseParameterValue 
      */
     public constructor(getEffectivePermissionsWithScopeResponseParameterValue?: GetEffectivePermissionsWithScopeResponse | undefined) {
-        this.additionalData = getEffectivePermissionsWithScopeResponseParameterValue?.additionalData ? getEffectivePermissionsWithScopeResponseParameterValue?.additionalData! : {}
-        this.value = getEffectivePermissionsWithScopeResponseParameterValue?.value ;
+        this.additionalData = getEffectivePermissionsWithScopeResponseParameterValue?.additionalData ? getEffectivePermissionsWithScopeResponseParameterValue?.additionalData! : {};
+        this.value = getEffectivePermissionsWithScopeResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -34,7 +34,7 @@ export class GetEffectivePermissionsWithScopeResponseImpl implements AdditionalD
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.value && this.value.length != 0){        const valueArrValue: RolePermissionImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new RolePermissionImpl(element));});
-        writer.writeCollectionOfObjectValues<RolePermissionImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<RolePermissionImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

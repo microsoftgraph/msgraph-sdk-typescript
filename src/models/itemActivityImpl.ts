@@ -8,8 +8,8 @@ import {AccessActionImpl, DriveItemImpl, EntityImpl, IdentitySetImpl} from './in
 import {ItemActivity} from './itemActivity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to group. */
-export class ItemActivityImpl extends EntityImpl implements ItemActivity, Parsable {
+/** Casts the previous resource to user. */
+export class ItemActivityImpl extends EntityImpl implements ItemActivity {
     /** An item was accessed. */
     public access?: AccessAction | undefined;
     /** Details about when the activity took place. Read-only. */
@@ -23,11 +23,11 @@ export class ItemActivityImpl extends EntityImpl implements ItemActivity, Parsab
      * @param itemActivityParameterValue 
      */
     public constructor(itemActivityParameterValue?: ItemActivity | undefined) {
-        super();
-        this.access = itemActivityParameterValue?.access ;
-        this.activityDateTime = itemActivityParameterValue?.activityDateTime ;
-        this.actor = itemActivityParameterValue?.actor ;
-        this.driveItem = itemActivityParameterValue?.driveItem ;
+        super(itemActivityParameterValue);
+        this.access = itemActivityParameterValue?.access;
+        this.activityDateTime = itemActivityParameterValue?.activityDateTime;
+        this.actor = itemActivityParameterValue?.actor;
+        this.driveItem = itemActivityParameterValue?.driveItem;
     };
     /**
      * The deserialization information for the current model
@@ -49,16 +49,16 @@ export class ItemActivityImpl extends EntityImpl implements ItemActivity, Parsab
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.access){
-        writer.writeObjectValue<AccessActionImpl>("access", new AccessActionImpl(this.access));
+            writer.writeObjectValue<AccessActionImpl>("access", new AccessActionImpl(this.access));
         }
         if(this.activityDateTime){
-        writer.writeDateValue("activityDateTime", this.activityDateTime);
+            writer.writeDateValue("activityDateTime", this.activityDateTime);
         }
         if(this.actor){
-        writer.writeObjectValue<IdentitySetImpl>("actor", new IdentitySetImpl(this.actor));
+            writer.writeObjectValue<IdentitySetImpl>("actor", new IdentitySetImpl(this.actor));
         }
         if(this.driveItem){
-        writer.writeObjectValue<DriveItemImpl>("driveItem", new DriveItemImpl(this.driveItem));
+            writer.writeObjectValue<DriveItemImpl>("driveItem", new DriveItemImpl(this.driveItem));
         }
     };
 }

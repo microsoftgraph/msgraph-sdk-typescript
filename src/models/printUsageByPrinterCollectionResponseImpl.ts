@@ -4,7 +4,7 @@ import {PrintUsageByPrinter} from './printUsageByPrinter';
 import {PrintUsageByPrinterCollectionResponse} from './printUsageByPrinterCollectionResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class PrintUsageByPrinterCollectionResponseImpl implements AdditionalDataHolder, Parsable, PrintUsageByPrinterCollectionResponse {
+export class PrintUsageByPrinterCollectionResponseImpl implements PrintUsageByPrinterCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class PrintUsageByPrinterCollectionResponseImpl implements AdditionalData
      * @param printUsageByPrinterCollectionResponseParameterValue 
      */
     public constructor(printUsageByPrinterCollectionResponseParameterValue?: PrintUsageByPrinterCollectionResponse | undefined) {
-        this.additionalData = printUsageByPrinterCollectionResponseParameterValue?.additionalData ? printUsageByPrinterCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = printUsageByPrinterCollectionResponseParameterValue?.nextLink ;
-        this.value = printUsageByPrinterCollectionResponseParameterValue?.value ;
+        this.additionalData = printUsageByPrinterCollectionResponseParameterValue?.additionalData ? printUsageByPrinterCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = printUsageByPrinterCollectionResponseParameterValue?.nextLink;
+        this.value = printUsageByPrinterCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class PrintUsageByPrinterCollectionResponseImpl implements AdditionalData
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: PrintUsageByPrinterImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new PrintUsageByPrinterImpl(element));});
-        writer.writeCollectionOfObjectValues<PrintUsageByPrinterImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<PrintUsageByPrinterImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

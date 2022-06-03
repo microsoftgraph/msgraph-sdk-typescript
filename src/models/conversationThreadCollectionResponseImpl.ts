@@ -4,7 +4,7 @@ import {createConversationThreadFromDiscriminatorValue} from './createConversati
 import {ConversationThreadImpl} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ConversationThreadCollectionResponseImpl implements AdditionalDataHolder, ConversationThreadCollectionResponse, Parsable {
+export class ConversationThreadCollectionResponseImpl implements ConversationThreadCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class ConversationThreadCollectionResponseImpl implements AdditionalDataH
      * @param conversationThreadCollectionResponseParameterValue 
      */
     public constructor(conversationThreadCollectionResponseParameterValue?: ConversationThreadCollectionResponse | undefined) {
-        this.additionalData = conversationThreadCollectionResponseParameterValue?.additionalData ? conversationThreadCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = conversationThreadCollectionResponseParameterValue?.nextLink ;
-        this.value = conversationThreadCollectionResponseParameterValue?.value ;
+        this.additionalData = conversationThreadCollectionResponseParameterValue?.additionalData ? conversationThreadCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = conversationThreadCollectionResponseParameterValue?.nextLink;
+        this.value = conversationThreadCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class ConversationThreadCollectionResponseImpl implements AdditionalDataH
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: ConversationThreadImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ConversationThreadImpl(element));});
-        writer.writeCollectionOfObjectValues<ConversationThreadImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<ConversationThreadImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

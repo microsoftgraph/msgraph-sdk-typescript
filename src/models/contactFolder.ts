@@ -2,18 +2,19 @@ import {Contact} from './contact';
 import {Entity} from './entity';
 import {MultiValueLegacyExtendedProperty} from './multiValueLegacyExtendedProperty';
 import {SingleValueLegacyExtendedProperty} from './singleValueLegacyExtendedProperty';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface ContactFolder extends Entity{
+export interface ContactFolder extends Entity, Partial<Parsable> {
     /** The collection of child folders in the folder. Navigation property. Read-only. Nullable. */
-    childFolders?:ContactFolder[] | undefined;
+    childFolders?: ContactFolder[] | undefined;
     /** The contacts in the folder. Navigation property. Read-only. Nullable. */
-    contacts?:Contact[] | undefined;
+    contacts?: Contact[] | undefined;
     /** The folder's display name. */
-    displayName?:string | undefined;
+    displayName?: string | undefined;
     /** The collection of multi-value extended properties defined for the contactFolder. Read-only. Nullable. */
-    multiValueExtendedProperties?:MultiValueLegacyExtendedProperty[] | undefined;
+    multiValueExtendedProperties?: MultiValueLegacyExtendedProperty[] | undefined;
     /** The ID of the folder's parent folder. */
-    parentFolderId?:string | undefined;
+    parentFolderId?: string | undefined;
     /** The collection of single-value extended properties defined for the contactFolder. Read-only. Nullable. */
-    singleValueExtendedProperties?:SingleValueLegacyExtendedProperty[] | undefined;
+    singleValueExtendedProperties?: SingleValueLegacyExtendedProperty[] | undefined;
 }

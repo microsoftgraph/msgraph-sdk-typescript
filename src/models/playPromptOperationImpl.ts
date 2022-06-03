@@ -3,13 +3,13 @@ import {PlayPromptOperation} from './playPromptOperation';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the playPrompt method. */
-export class PlayPromptOperationImpl extends CommsOperationImpl implements Parsable, PlayPromptOperation {
+export class PlayPromptOperationImpl extends CommsOperationImpl implements PlayPromptOperation {
     /**
      * Instantiates a new playPromptOperation and sets the default values.
      * @param playPromptOperationParameterValue 
      */
     public constructor(playPromptOperationParameterValue?: PlayPromptOperation | undefined) {
-        super();
+        super(playPromptOperationParameterValue);
     };
     /**
      * The deserialization information for the current model

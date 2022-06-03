@@ -4,7 +4,7 @@ import {DeviceCompliancePolicyStateCollectionResponse} from './deviceComplianceP
 import {DeviceCompliancePolicyStateImpl} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class DeviceCompliancePolicyStateCollectionResponseImpl implements AdditionalDataHolder, DeviceCompliancePolicyStateCollectionResponse, Parsable {
+export class DeviceCompliancePolicyStateCollectionResponseImpl implements DeviceCompliancePolicyStateCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class DeviceCompliancePolicyStateCollectionResponseImpl implements Additi
      * @param deviceCompliancePolicyStateCollectionResponseParameterValue 
      */
     public constructor(deviceCompliancePolicyStateCollectionResponseParameterValue?: DeviceCompliancePolicyStateCollectionResponse | undefined) {
-        this.additionalData = deviceCompliancePolicyStateCollectionResponseParameterValue?.additionalData ? deviceCompliancePolicyStateCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = deviceCompliancePolicyStateCollectionResponseParameterValue?.nextLink ;
-        this.value = deviceCompliancePolicyStateCollectionResponseParameterValue?.value ;
+        this.additionalData = deviceCompliancePolicyStateCollectionResponseParameterValue?.additionalData ? deviceCompliancePolicyStateCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = deviceCompliancePolicyStateCollectionResponseParameterValue?.nextLink;
+        this.value = deviceCompliancePolicyStateCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class DeviceCompliancePolicyStateCollectionResponseImpl implements Additi
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: DeviceCompliancePolicyStateImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new DeviceCompliancePolicyStateImpl(element));});
-        writer.writeCollectionOfObjectValues<DeviceCompliancePolicyStateImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<DeviceCompliancePolicyStateImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

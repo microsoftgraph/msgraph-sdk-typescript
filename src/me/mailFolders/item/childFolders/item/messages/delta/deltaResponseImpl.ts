@@ -5,7 +5,7 @@ import {DeltaResponse} from './deltaResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the delta method. */
-export class DeltaResponseImpl implements AdditionalDataHolder, DeltaResponse, Parsable {
+export class DeltaResponseImpl implements DeltaResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The value property */
@@ -15,8 +15,8 @@ export class DeltaResponseImpl implements AdditionalDataHolder, DeltaResponse, P
      * @param deltaResponseParameterValue 
      */
     public constructor(deltaResponseParameterValue?: DeltaResponse | undefined) {
-        this.additionalData = deltaResponseParameterValue?.additionalData ? deltaResponseParameterValue?.additionalData! : {}
-        this.value = deltaResponseParameterValue?.value ;
+        this.additionalData = deltaResponseParameterValue?.additionalData ? deltaResponseParameterValue?.additionalData! : {};
+        this.value = deltaResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -34,7 +34,7 @@ export class DeltaResponseImpl implements AdditionalDataHolder, DeltaResponse, P
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.value && this.value.length != 0){        const valueArrValue: MessageImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new MessageImpl(element));});
-        writer.writeCollectionOfObjectValues<MessageImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<MessageImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

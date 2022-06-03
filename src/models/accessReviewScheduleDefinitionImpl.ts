@@ -15,7 +15,7 @@ import {UserIdentity} from './userIdentity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the identityGovernance singleton. */
-export class AccessReviewScheduleDefinitionImpl extends EntityImpl implements AccessReviewScheduleDefinition, Parsable {
+export class AccessReviewScheduleDefinitionImpl extends EntityImpl implements AccessReviewScheduleDefinition {
     /** Defines the list of additional users or group members to be notified of the access review progress. */
     public additionalNotificationRecipients?: AccessReviewNotificationRecipientItem[] | undefined;
     /** User who created this review. Read-only. */
@@ -49,21 +49,21 @@ export class AccessReviewScheduleDefinitionImpl extends EntityImpl implements Ac
      * @param accessReviewScheduleDefinitionParameterValue 
      */
     public constructor(accessReviewScheduleDefinitionParameterValue?: AccessReviewScheduleDefinition | undefined) {
-        super();
-        this.additionalNotificationRecipients = accessReviewScheduleDefinitionParameterValue?.additionalNotificationRecipients ;
-        this.createdBy = accessReviewScheduleDefinitionParameterValue?.createdBy ;
-        this.createdDateTime = accessReviewScheduleDefinitionParameterValue?.createdDateTime ;
-        this.descriptionForAdmins = accessReviewScheduleDefinitionParameterValue?.descriptionForAdmins ;
-        this.descriptionForReviewers = accessReviewScheduleDefinitionParameterValue?.descriptionForReviewers ;
-        this.displayName = accessReviewScheduleDefinitionParameterValue?.displayName ;
-        this.fallbackReviewers = accessReviewScheduleDefinitionParameterValue?.fallbackReviewers ;
-        this.instanceEnumerationScope = accessReviewScheduleDefinitionParameterValue?.instanceEnumerationScope ;
-        this.instances = accessReviewScheduleDefinitionParameterValue?.instances ;
-        this.lastModifiedDateTime = accessReviewScheduleDefinitionParameterValue?.lastModifiedDateTime ;
-        this.reviewers = accessReviewScheduleDefinitionParameterValue?.reviewers ;
-        this.scope = accessReviewScheduleDefinitionParameterValue?.scope ;
-        this.settings = accessReviewScheduleDefinitionParameterValue?.settings ;
-        this.status = accessReviewScheduleDefinitionParameterValue?.status ;
+        super(accessReviewScheduleDefinitionParameterValue);
+        this.additionalNotificationRecipients = accessReviewScheduleDefinitionParameterValue?.additionalNotificationRecipients;
+        this.createdBy = accessReviewScheduleDefinitionParameterValue?.createdBy;
+        this.createdDateTime = accessReviewScheduleDefinitionParameterValue?.createdDateTime;
+        this.descriptionForAdmins = accessReviewScheduleDefinitionParameterValue?.descriptionForAdmins;
+        this.descriptionForReviewers = accessReviewScheduleDefinitionParameterValue?.descriptionForReviewers;
+        this.displayName = accessReviewScheduleDefinitionParameterValue?.displayName;
+        this.fallbackReviewers = accessReviewScheduleDefinitionParameterValue?.fallbackReviewers;
+        this.instanceEnumerationScope = accessReviewScheduleDefinitionParameterValue?.instanceEnumerationScope;
+        this.instances = accessReviewScheduleDefinitionParameterValue?.instances;
+        this.lastModifiedDateTime = accessReviewScheduleDefinitionParameterValue?.lastModifiedDateTime;
+        this.reviewers = accessReviewScheduleDefinitionParameterValue?.reviewers;
+        this.scope = accessReviewScheduleDefinitionParameterValue?.scope;
+        this.settings = accessReviewScheduleDefinitionParameterValue?.settings;
+        this.status = accessReviewScheduleDefinitionParameterValue?.status;
     };
     /**
      * The deserialization information for the current model
@@ -95,46 +95,46 @@ export class AccessReviewScheduleDefinitionImpl extends EntityImpl implements Ac
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.additionalNotificationRecipients && this.additionalNotificationRecipients.length != 0){        const additionalNotificationRecipientsArrValue: AccessReviewNotificationRecipientItemImpl[] = []; this.additionalNotificationRecipients?.forEach(element => {additionalNotificationRecipientsArrValue.push(new AccessReviewNotificationRecipientItemImpl(element));});
-        writer.writeCollectionOfObjectValues<AccessReviewNotificationRecipientItemImpl>("additionalNotificationRecipients", additionalNotificationRecipientsArrValue);
+            writer.writeCollectionOfObjectValues<AccessReviewNotificationRecipientItemImpl>("additionalNotificationRecipients", additionalNotificationRecipientsArrValue);
         }
         if(this.createdBy){
-        writer.writeObjectValue<UserIdentityImpl>("createdBy", new UserIdentityImpl(this.createdBy));
+            writer.writeObjectValue<UserIdentityImpl>("createdBy", new UserIdentityImpl(this.createdBy));
         }
         if(this.createdDateTime){
-        writer.writeDateValue("createdDateTime", this.createdDateTime);
+            writer.writeDateValue("createdDateTime", this.createdDateTime);
         }
         if(this.descriptionForAdmins){
-        writer.writeStringValue("descriptionForAdmins", this.descriptionForAdmins);
+            writer.writeStringValue("descriptionForAdmins", this.descriptionForAdmins);
         }
         if(this.descriptionForReviewers){
-        writer.writeStringValue("descriptionForReviewers", this.descriptionForReviewers);
+            writer.writeStringValue("descriptionForReviewers", this.descriptionForReviewers);
         }
         if(this.displayName){
-        writer.writeStringValue("displayName", this.displayName);
+            writer.writeStringValue("displayName", this.displayName);
         }
         if(this.fallbackReviewers && this.fallbackReviewers.length != 0){        const fallbackReviewersArrValue: AccessReviewReviewerScopeImpl[] = []; this.fallbackReviewers?.forEach(element => {fallbackReviewersArrValue.push(new AccessReviewReviewerScopeImpl(element));});
-        writer.writeCollectionOfObjectValues<AccessReviewReviewerScopeImpl>("fallbackReviewers", fallbackReviewersArrValue);
+            writer.writeCollectionOfObjectValues<AccessReviewReviewerScopeImpl>("fallbackReviewers", fallbackReviewersArrValue);
         }
         if(this.instanceEnumerationScope){
-        writer.writeObjectValue<AccessReviewScopeImpl>("instanceEnumerationScope", new AccessReviewScopeImpl(this.instanceEnumerationScope));
+            writer.writeObjectValue<AccessReviewScopeImpl>("instanceEnumerationScope", new AccessReviewScopeImpl(this.instanceEnumerationScope));
         }
         if(this.instances && this.instances.length != 0){        const instancesArrValue: AccessReviewInstanceImpl[] = []; this.instances?.forEach(element => {instancesArrValue.push(new AccessReviewInstanceImpl(element));});
-        writer.writeCollectionOfObjectValues<AccessReviewInstanceImpl>("instances", instancesArrValue);
+            writer.writeCollectionOfObjectValues<AccessReviewInstanceImpl>("instances", instancesArrValue);
         }
         if(this.lastModifiedDateTime){
-        writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
+            writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
         }
         if(this.reviewers && this.reviewers.length != 0){        const reviewersArrValue: AccessReviewReviewerScopeImpl[] = []; this.reviewers?.forEach(element => {reviewersArrValue.push(new AccessReviewReviewerScopeImpl(element));});
-        writer.writeCollectionOfObjectValues<AccessReviewReviewerScopeImpl>("reviewers", reviewersArrValue);
+            writer.writeCollectionOfObjectValues<AccessReviewReviewerScopeImpl>("reviewers", reviewersArrValue);
         }
         if(this.scope){
-        writer.writeObjectValue<AccessReviewScopeImpl>("scope", new AccessReviewScopeImpl(this.scope));
+            writer.writeObjectValue<AccessReviewScopeImpl>("scope", new AccessReviewScopeImpl(this.scope));
         }
         if(this.settings){
-        writer.writeObjectValue<AccessReviewScheduleSettingsImpl>("settings", new AccessReviewScheduleSettingsImpl(this.settings));
+            writer.writeObjectValue<AccessReviewScheduleSettingsImpl>("settings", new AccessReviewScheduleSettingsImpl(this.settings));
         }
         if(this.status){
-        writer.writeStringValue("status", this.status);
+            writer.writeStringValue("status", this.status);
         }
     };
 }

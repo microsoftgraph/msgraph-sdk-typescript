@@ -2,7 +2,7 @@ import {ExternalItemContent} from './externalItemContent';
 import {ExternalItemContentType} from './externalItemContentType';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ExternalItemContentImpl implements AdditionalDataHolder, ExternalItemContent, Parsable {
+export class ExternalItemContentImpl implements ExternalItemContent {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The type of content in the value property. Possible values are text and html. These are the content types that the indexer supports, and not the file extension types allowed. Required. */
@@ -14,9 +14,9 @@ export class ExternalItemContentImpl implements AdditionalDataHolder, ExternalIt
      * @param externalItemContentParameterValue 
      */
     public constructor(externalItemContentParameterValue?: ExternalItemContent | undefined) {
-        this.additionalData = externalItemContentParameterValue?.additionalData ? externalItemContentParameterValue?.additionalData! : {}
-        this.type = externalItemContentParameterValue?.type ;
-        this.value = externalItemContentParameterValue?.value ;
+        this.additionalData = externalItemContentParameterValue?.additionalData ? externalItemContentParameterValue?.additionalData! : {};
+        this.type = externalItemContentParameterValue?.type;
+        this.value = externalItemContentParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -35,10 +35,10 @@ export class ExternalItemContentImpl implements AdditionalDataHolder, ExternalIt
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.type){
-        writer.writeEnumValue<ExternalItemContentType>("type", this.type);
+            writer.writeEnumValue<ExternalItemContentType>("type", this.type);
         }
         if(this.value){
-        writer.writeStringValue("value", this.value);
+            writer.writeStringValue("value", this.value);
         }
         writer.writeAdditionalData(this.additionalData);
     };

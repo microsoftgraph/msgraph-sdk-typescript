@@ -2,7 +2,7 @@ import {CopyToSectionPostRequestBody} from './copyToSectionPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the copyToSection method. */
-export class CopyToSectionPostRequestBodyImpl implements AdditionalDataHolder, CopyToSectionPostRequestBody, Parsable {
+export class CopyToSectionPostRequestBodyImpl implements CopyToSectionPostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The groupId property */
@@ -18,11 +18,11 @@ export class CopyToSectionPostRequestBodyImpl implements AdditionalDataHolder, C
      * @param copyToSectionPostRequestBodyParameterValue 
      */
     public constructor(copyToSectionPostRequestBodyParameterValue?: CopyToSectionPostRequestBody | undefined) {
-        this.additionalData = copyToSectionPostRequestBodyParameterValue?.additionalData ? copyToSectionPostRequestBodyParameterValue?.additionalData! : {}
-        this.groupId = copyToSectionPostRequestBodyParameterValue?.groupId ;
-        this.id = copyToSectionPostRequestBodyParameterValue?.id ;
-        this.siteCollectionId = copyToSectionPostRequestBodyParameterValue?.siteCollectionId ;
-        this.siteId = copyToSectionPostRequestBodyParameterValue?.siteId ;
+        this.additionalData = copyToSectionPostRequestBodyParameterValue?.additionalData ? copyToSectionPostRequestBodyParameterValue?.additionalData! : {};
+        this.groupId = copyToSectionPostRequestBodyParameterValue?.groupId;
+        this.id = copyToSectionPostRequestBodyParameterValue?.id;
+        this.siteCollectionId = copyToSectionPostRequestBodyParameterValue?.siteCollectionId;
+        this.siteId = copyToSectionPostRequestBodyParameterValue?.siteId;
     };
     /**
      * The deserialization information for the current model
@@ -43,16 +43,16 @@ export class CopyToSectionPostRequestBodyImpl implements AdditionalDataHolder, C
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.groupId){
-        writer.writeStringValue("groupId", this.groupId);
+            writer.writeStringValue("groupId", this.groupId);
         }
         if(this.id){
-        writer.writeStringValue("id", this.id);
+            writer.writeStringValue("id", this.id);
         }
         if(this.siteCollectionId){
-        writer.writeStringValue("siteCollectionId", this.siteCollectionId);
+            writer.writeStringValue("siteCollectionId", this.siteCollectionId);
         }
         if(this.siteId){
-        writer.writeStringValue("siteId", this.siteId);
+            writer.writeStringValue("siteId", this.siteId);
         }
         writer.writeAdditionalData(this.additionalData);
     };

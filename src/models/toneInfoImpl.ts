@@ -2,7 +2,7 @@ import {Tone} from './tone';
 import {ToneInfo} from './toneInfo';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ToneInfoImpl implements AdditionalDataHolder, Parsable, ToneInfo {
+export class ToneInfoImpl implements ToneInfo {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** An incremental identifier used for ordering DTMF events. */
@@ -14,9 +14,9 @@ export class ToneInfoImpl implements AdditionalDataHolder, Parsable, ToneInfo {
      * @param toneInfoParameterValue 
      */
     public constructor(toneInfoParameterValue?: ToneInfo | undefined) {
-        this.additionalData = toneInfoParameterValue?.additionalData ? toneInfoParameterValue?.additionalData! : {}
-        this.sequenceId = toneInfoParameterValue?.sequenceId ;
-        this.tone = toneInfoParameterValue?.tone ;
+        this.additionalData = toneInfoParameterValue?.additionalData ? toneInfoParameterValue?.additionalData! : {};
+        this.sequenceId = toneInfoParameterValue?.sequenceId;
+        this.tone = toneInfoParameterValue?.tone;
     };
     /**
      * The deserialization information for the current model
@@ -35,10 +35,10 @@ export class ToneInfoImpl implements AdditionalDataHolder, Parsable, ToneInfo {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.sequenceId){
-        writer.writeNumberValue("sequenceId", this.sequenceId);
+            writer.writeNumberValue("sequenceId", this.sequenceId);
         }
         if(this.tone){
-        writer.writeEnumValue<Tone>("tone", this.tone);
+            writer.writeEnumValue<Tone>("tone", this.tone);
         }
         writer.writeAdditionalData(this.additionalData);
     };

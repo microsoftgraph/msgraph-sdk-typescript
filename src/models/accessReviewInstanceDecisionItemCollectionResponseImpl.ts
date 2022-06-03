@@ -4,7 +4,7 @@ import {createAccessReviewInstanceDecisionItemFromDiscriminatorValue} from './cr
 import {AccessReviewInstanceDecisionItemImpl} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class AccessReviewInstanceDecisionItemCollectionResponseImpl implements AccessReviewInstanceDecisionItemCollectionResponse, AdditionalDataHolder, Parsable {
+export class AccessReviewInstanceDecisionItemCollectionResponseImpl implements AccessReviewInstanceDecisionItemCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class AccessReviewInstanceDecisionItemCollectionResponseImpl implements A
      * @param accessReviewInstanceDecisionItemCollectionResponseParameterValue 
      */
     public constructor(accessReviewInstanceDecisionItemCollectionResponseParameterValue?: AccessReviewInstanceDecisionItemCollectionResponse | undefined) {
-        this.additionalData = accessReviewInstanceDecisionItemCollectionResponseParameterValue?.additionalData ? accessReviewInstanceDecisionItemCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = accessReviewInstanceDecisionItemCollectionResponseParameterValue?.nextLink ;
-        this.value = accessReviewInstanceDecisionItemCollectionResponseParameterValue?.value ;
+        this.additionalData = accessReviewInstanceDecisionItemCollectionResponseParameterValue?.additionalData ? accessReviewInstanceDecisionItemCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = accessReviewInstanceDecisionItemCollectionResponseParameterValue?.nextLink;
+        this.value = accessReviewInstanceDecisionItemCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class AccessReviewInstanceDecisionItemCollectionResponseImpl implements A
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: AccessReviewInstanceDecisionItemImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new AccessReviewInstanceDecisionItemImpl(element));});
-        writer.writeCollectionOfObjectValues<AccessReviewInstanceDecisionItemImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<AccessReviewInstanceDecisionItemImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

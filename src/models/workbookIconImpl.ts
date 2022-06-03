@@ -1,7 +1,7 @@
 import {WorkbookIcon} from './workbookIcon';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class WorkbookIconImpl implements AdditionalDataHolder, Parsable, WorkbookIcon {
+export class WorkbookIconImpl implements WorkbookIcon {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Represents the index of the icon in the given set. */
@@ -13,9 +13,9 @@ export class WorkbookIconImpl implements AdditionalDataHolder, Parsable, Workboo
      * @param workbookIconParameterValue 
      */
     public constructor(workbookIconParameterValue?: WorkbookIcon | undefined) {
-        this.additionalData = workbookIconParameterValue?.additionalData ? workbookIconParameterValue?.additionalData! : {}
-        this.index = workbookIconParameterValue?.index ;
-        this.set = workbookIconParameterValue?.set ;
+        this.additionalData = workbookIconParameterValue?.additionalData ? workbookIconParameterValue?.additionalData! : {};
+        this.index = workbookIconParameterValue?.index;
+        this.set = workbookIconParameterValue?.set;
     };
     /**
      * The deserialization information for the current model
@@ -34,10 +34,10 @@ export class WorkbookIconImpl implements AdditionalDataHolder, Parsable, Workboo
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.index){
-        writer.writeNumberValue("index", this.index);
+            writer.writeNumberValue("index", this.index);
         }
         if(this.set){
-        writer.writeStringValue("set", this.set);
+            writer.writeStringValue("set", this.set);
         }
         writer.writeAdditionalData(this.additionalData);
     };

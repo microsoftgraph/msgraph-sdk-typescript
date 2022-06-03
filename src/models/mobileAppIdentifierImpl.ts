@@ -2,7 +2,7 @@ import {MobileAppIdentifier} from './mobileAppIdentifier';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** The identifier for a mobile app. */
-export class MobileAppIdentifierImpl implements AdditionalDataHolder, MobileAppIdentifier, Parsable {
+export class MobileAppIdentifierImpl implements MobileAppIdentifier {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /**
@@ -10,7 +10,7 @@ export class MobileAppIdentifierImpl implements AdditionalDataHolder, MobileAppI
      * @param mobileAppIdentifierParameterValue 
      */
     public constructor(mobileAppIdentifierParameterValue?: MobileAppIdentifier | undefined) {
-        this.additionalData = mobileAppIdentifierParameterValue?.additionalData ? mobileAppIdentifierParameterValue?.additionalData! : {}
+        this.additionalData = mobileAppIdentifierParameterValue?.additionalData ? mobileAppIdentifierParameterValue?.additionalData! : {};
     };
     /**
      * The deserialization information for the current model

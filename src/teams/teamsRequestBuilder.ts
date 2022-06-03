@@ -36,7 +36,7 @@ export class TeamsRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * List all [teams](../resources/team.md) in an organization.
+     * List all teams in an organization.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -53,7 +53,7 @@ export class TeamsRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create a new [team](../resources/team.md).
+     * Create a new team.
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -73,7 +73,7 @@ export class TeamsRequestBuilder {
         return requestInfo;
     };
     /**
-     * List all [teams](../resources/team.md) in an organization.
+     * List all teams in an organization.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of TeamCollectionResponse
@@ -96,7 +96,7 @@ export class TeamsRequestBuilder {
         return new GetAllMessagesRequestBuilder(this.pathParameters, this.requestAdapter);
     };
     /**
-     * Create a new [team](../resources/team.md).
+     * Create a new team.
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service

@@ -4,7 +4,7 @@ import {SharedInsight} from './sharedInsight';
 import {SharedInsightCollectionResponse} from './sharedInsightCollectionResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class SharedInsightCollectionResponseImpl implements AdditionalDataHolder, Parsable, SharedInsightCollectionResponse {
+export class SharedInsightCollectionResponseImpl implements SharedInsightCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class SharedInsightCollectionResponseImpl implements AdditionalDataHolder
      * @param sharedInsightCollectionResponseParameterValue 
      */
     public constructor(sharedInsightCollectionResponseParameterValue?: SharedInsightCollectionResponse | undefined) {
-        this.additionalData = sharedInsightCollectionResponseParameterValue?.additionalData ? sharedInsightCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = sharedInsightCollectionResponseParameterValue?.nextLink ;
-        this.value = sharedInsightCollectionResponseParameterValue?.value ;
+        this.additionalData = sharedInsightCollectionResponseParameterValue?.additionalData ? sharedInsightCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = sharedInsightCollectionResponseParameterValue?.nextLink;
+        this.value = sharedInsightCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class SharedInsightCollectionResponseImpl implements AdditionalDataHolder
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: SharedInsightImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new SharedInsightImpl(element));});
-        writer.writeCollectionOfObjectValues<SharedInsightImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<SharedInsightImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

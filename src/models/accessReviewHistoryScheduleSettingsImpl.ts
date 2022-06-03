@@ -4,7 +4,7 @@ import {PatternedRecurrenceImpl} from './index';
 import {PatternedRecurrence} from './patternedRecurrence';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class AccessReviewHistoryScheduleSettingsImpl implements AccessReviewHistoryScheduleSettings, AdditionalDataHolder, Parsable {
+export class AccessReviewHistoryScheduleSettingsImpl implements AccessReviewHistoryScheduleSettings {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The recurrence property */
@@ -16,9 +16,9 @@ export class AccessReviewHistoryScheduleSettingsImpl implements AccessReviewHist
      * @param accessReviewHistoryScheduleSettingsParameterValue 
      */
     public constructor(accessReviewHistoryScheduleSettingsParameterValue?: AccessReviewHistoryScheduleSettings | undefined) {
-        this.additionalData = accessReviewHistoryScheduleSettingsParameterValue?.additionalData ? accessReviewHistoryScheduleSettingsParameterValue?.additionalData! : {}
-        this.recurrence = accessReviewHistoryScheduleSettingsParameterValue?.recurrence ;
-        this.reportRange = accessReviewHistoryScheduleSettingsParameterValue?.reportRange ;
+        this.additionalData = accessReviewHistoryScheduleSettingsParameterValue?.additionalData ? accessReviewHistoryScheduleSettingsParameterValue?.additionalData! : {};
+        this.recurrence = accessReviewHistoryScheduleSettingsParameterValue?.recurrence;
+        this.reportRange = accessReviewHistoryScheduleSettingsParameterValue?.reportRange;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class AccessReviewHistoryScheduleSettingsImpl implements AccessReviewHist
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.recurrence){
-        writer.writeObjectValue<PatternedRecurrenceImpl>("recurrence", new PatternedRecurrenceImpl(this.recurrence));
+            writer.writeObjectValue<PatternedRecurrenceImpl>("recurrence", new PatternedRecurrenceImpl(this.recurrence));
         }
         if(this.reportRange){
-        writer.writeStringValue("reportRange", this.reportRange);
+            writer.writeStringValue("reportRange", this.reportRange);
         }
         writer.writeAdditionalData(this.additionalData);
     };

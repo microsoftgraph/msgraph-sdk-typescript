@@ -11,7 +11,7 @@ import {InternalDomainFederation} from './internalDomainFederation';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the collection of domain entities. */
-export class DomainImpl extends EntityImpl implements Domain, Parsable {
+export class DomainImpl extends EntityImpl implements Domain {
     /** Indicates the configured authentication type for the domain. The value is either Managed or Federated. Managed indicates a cloud managed domain where Azure AD performs user authentication. Federated indicates authentication is federated with an identity provider such as the tenant's on-premises Active Directory via Active Directory Federation Services. This property is read-only and is not nullable. */
     public authenticationType?: string | undefined;
     /** This property is always null except when the verify action is used. When the verify action is used, a domain entity is returned in the response. The availabilityStatus property of the domain entity in the response is either AvailableImmediately or EmailVerifiedDomainTakeoverScheduled. */
@@ -51,24 +51,24 @@ export class DomainImpl extends EntityImpl implements Domain, Parsable {
      * @param domainParameterValue 
      */
     public constructor(domainParameterValue?: Domain | undefined) {
-        super();
-        this.authenticationType = domainParameterValue?.authenticationType ;
-        this.availabilityStatus = domainParameterValue?.availabilityStatus ;
-        this.domainNameReferences = domainParameterValue?.domainNameReferences ;
-        this.federationConfiguration = domainParameterValue?.federationConfiguration ;
-        this.isAdminManaged = domainParameterValue?.isAdminManaged ;
-        this.isDefault = domainParameterValue?.isDefault ;
-        this.isInitial = domainParameterValue?.isInitial ;
-        this.isRoot = domainParameterValue?.isRoot ;
-        this.isVerified = domainParameterValue?.isVerified ;
-        this.manufacturer = domainParameterValue?.manufacturer ;
-        this.model = domainParameterValue?.model ;
-        this.passwordNotificationWindowInDays = domainParameterValue?.passwordNotificationWindowInDays ;
-        this.passwordValidityPeriodInDays = domainParameterValue?.passwordValidityPeriodInDays ;
-        this.serviceConfigurationRecords = domainParameterValue?.serviceConfigurationRecords ;
-        this.state = domainParameterValue?.state ;
-        this.supportedServices = domainParameterValue?.supportedServices ;
-        this.verificationDnsRecords = domainParameterValue?.verificationDnsRecords ;
+        super(domainParameterValue);
+        this.authenticationType = domainParameterValue?.authenticationType;
+        this.availabilityStatus = domainParameterValue?.availabilityStatus;
+        this.domainNameReferences = domainParameterValue?.domainNameReferences;
+        this.federationConfiguration = domainParameterValue?.federationConfiguration;
+        this.isAdminManaged = domainParameterValue?.isAdminManaged;
+        this.isDefault = domainParameterValue?.isDefault;
+        this.isInitial = domainParameterValue?.isInitial;
+        this.isRoot = domainParameterValue?.isRoot;
+        this.isVerified = domainParameterValue?.isVerified;
+        this.manufacturer = domainParameterValue?.manufacturer;
+        this.model = domainParameterValue?.model;
+        this.passwordNotificationWindowInDays = domainParameterValue?.passwordNotificationWindowInDays;
+        this.passwordValidityPeriodInDays = domainParameterValue?.passwordValidityPeriodInDays;
+        this.serviceConfigurationRecords = domainParameterValue?.serviceConfigurationRecords;
+        this.state = domainParameterValue?.state;
+        this.supportedServices = domainParameterValue?.supportedServices;
+        this.verificationDnsRecords = domainParameterValue?.verificationDnsRecords;
     };
     /**
      * The deserialization information for the current model
@@ -103,55 +103,55 @@ export class DomainImpl extends EntityImpl implements Domain, Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.authenticationType){
-        writer.writeStringValue("authenticationType", this.authenticationType);
+            writer.writeStringValue("authenticationType", this.authenticationType);
         }
         if(this.availabilityStatus){
-        writer.writeStringValue("availabilityStatus", this.availabilityStatus);
+            writer.writeStringValue("availabilityStatus", this.availabilityStatus);
         }
         if(this.domainNameReferences && this.domainNameReferences.length != 0){        const domainNameReferencesArrValue: DirectoryObjectImpl[] = []; this.domainNameReferences?.forEach(element => {domainNameReferencesArrValue.push(new DirectoryObjectImpl(element));});
-        writer.writeCollectionOfObjectValues<DirectoryObjectImpl>("domainNameReferences", domainNameReferencesArrValue);
+            writer.writeCollectionOfObjectValues<DirectoryObjectImpl>("domainNameReferences", domainNameReferencesArrValue);
         }
         if(this.federationConfiguration && this.federationConfiguration.length != 0){        const federationConfigurationArrValue: InternalDomainFederationImpl[] = []; this.federationConfiguration?.forEach(element => {federationConfigurationArrValue.push(new InternalDomainFederationImpl(element));});
-        writer.writeCollectionOfObjectValues<InternalDomainFederationImpl>("federationConfiguration", federationConfigurationArrValue);
+            writer.writeCollectionOfObjectValues<InternalDomainFederationImpl>("federationConfiguration", federationConfigurationArrValue);
         }
         if(this.isAdminManaged){
-        writer.writeBooleanValue("isAdminManaged", this.isAdminManaged);
+            writer.writeBooleanValue("isAdminManaged", this.isAdminManaged);
         }
         if(this.isDefault){
-        writer.writeBooleanValue("isDefault", this.isDefault);
+            writer.writeBooleanValue("isDefault", this.isDefault);
         }
         if(this.isInitial){
-        writer.writeBooleanValue("isInitial", this.isInitial);
+            writer.writeBooleanValue("isInitial", this.isInitial);
         }
         if(this.isRoot){
-        writer.writeBooleanValue("isRoot", this.isRoot);
+            writer.writeBooleanValue("isRoot", this.isRoot);
         }
         if(this.isVerified){
-        writer.writeBooleanValue("isVerified", this.isVerified);
+            writer.writeBooleanValue("isVerified", this.isVerified);
         }
         if(this.manufacturer){
-        writer.writeStringValue("manufacturer", this.manufacturer);
+            writer.writeStringValue("manufacturer", this.manufacturer);
         }
         if(this.model){
-        writer.writeStringValue("model", this.model);
+            writer.writeStringValue("model", this.model);
         }
         if(this.passwordNotificationWindowInDays){
-        writer.writeNumberValue("passwordNotificationWindowInDays", this.passwordNotificationWindowInDays);
+            writer.writeNumberValue("passwordNotificationWindowInDays", this.passwordNotificationWindowInDays);
         }
         if(this.passwordValidityPeriodInDays){
-        writer.writeNumberValue("passwordValidityPeriodInDays", this.passwordValidityPeriodInDays);
+            writer.writeNumberValue("passwordValidityPeriodInDays", this.passwordValidityPeriodInDays);
         }
         if(this.serviceConfigurationRecords && this.serviceConfigurationRecords.length != 0){        const serviceConfigurationRecordsArrValue: DomainDnsRecordImpl[] = []; this.serviceConfigurationRecords?.forEach(element => {serviceConfigurationRecordsArrValue.push(new DomainDnsRecordImpl(element));});
-        writer.writeCollectionOfObjectValues<DomainDnsRecordImpl>("serviceConfigurationRecords", serviceConfigurationRecordsArrValue);
+            writer.writeCollectionOfObjectValues<DomainDnsRecordImpl>("serviceConfigurationRecords", serviceConfigurationRecordsArrValue);
         }
         if(this.state){
-        writer.writeObjectValue<DomainStateImpl>("state", new DomainStateImpl(this.state));
+            writer.writeObjectValue<DomainStateImpl>("state", new DomainStateImpl(this.state));
         }
         if(this.supportedServices){
-        writer.writeCollectionOfPrimitiveValues<string>("supportedServices", this.supportedServices);
+            writer.writeCollectionOfPrimitiveValues<string>("supportedServices", this.supportedServices);
         }
         if(this.verificationDnsRecords && this.verificationDnsRecords.length != 0){        const verificationDnsRecordsArrValue: DomainDnsRecordImpl[] = []; this.verificationDnsRecords?.forEach(element => {verificationDnsRecordsArrValue.push(new DomainDnsRecordImpl(element));});
-        writer.writeCollectionOfObjectValues<DomainDnsRecordImpl>("verificationDnsRecords", verificationDnsRecordsArrValue);
+            writer.writeCollectionOfObjectValues<DomainDnsRecordImpl>("verificationDnsRecords", verificationDnsRecordsArrValue);
         }
     };
 }

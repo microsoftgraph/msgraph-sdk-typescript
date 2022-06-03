@@ -1,4 +1,5 @@
 import {Entity} from './entity';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface WorkbookFunctions extends Entity{
+export interface WorkbookFunctions extends Entity, Partial<Parsable> {
 }

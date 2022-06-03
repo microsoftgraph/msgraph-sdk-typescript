@@ -4,7 +4,7 @@ import {MessageRule} from './messageRule';
 import {MessageRuleCollectionResponse} from './messageRuleCollectionResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class MessageRuleCollectionResponseImpl implements AdditionalDataHolder, MessageRuleCollectionResponse, Parsable {
+export class MessageRuleCollectionResponseImpl implements MessageRuleCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class MessageRuleCollectionResponseImpl implements AdditionalDataHolder, 
      * @param messageRuleCollectionResponseParameterValue 
      */
     public constructor(messageRuleCollectionResponseParameterValue?: MessageRuleCollectionResponse | undefined) {
-        this.additionalData = messageRuleCollectionResponseParameterValue?.additionalData ? messageRuleCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = messageRuleCollectionResponseParameterValue?.nextLink ;
-        this.value = messageRuleCollectionResponseParameterValue?.value ;
+        this.additionalData = messageRuleCollectionResponseParameterValue?.additionalData ? messageRuleCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = messageRuleCollectionResponseParameterValue?.nextLink;
+        this.value = messageRuleCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class MessageRuleCollectionResponseImpl implements AdditionalDataHolder, 
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: MessageRuleImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new MessageRuleImpl(element));});
-        writer.writeCollectionOfObjectValues<MessageRuleImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<MessageRuleImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

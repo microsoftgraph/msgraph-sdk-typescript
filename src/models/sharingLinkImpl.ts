@@ -4,7 +4,7 @@ import {IdentityImpl} from './index';
 import {SharingLink} from './sharingLink';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class SharingLinkImpl implements AdditionalDataHolder, Parsable, SharingLink {
+export class SharingLinkImpl implements SharingLink {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The app the link is associated with. */
@@ -24,13 +24,13 @@ export class SharingLinkImpl implements AdditionalDataHolder, Parsable, SharingL
      * @param sharingLinkParameterValue 
      */
     public constructor(sharingLinkParameterValue?: SharingLink | undefined) {
-        this.additionalData = sharingLinkParameterValue?.additionalData ? sharingLinkParameterValue?.additionalData! : {}
-        this.application = sharingLinkParameterValue?.application ;
-        this.preventsDownload = sharingLinkParameterValue?.preventsDownload ;
-        this.scope = sharingLinkParameterValue?.scope ;
-        this.type = sharingLinkParameterValue?.type ;
-        this.webHtml = sharingLinkParameterValue?.webHtml ;
-        this.webUrl = sharingLinkParameterValue?.webUrl ;
+        this.additionalData = sharingLinkParameterValue?.additionalData ? sharingLinkParameterValue?.additionalData! : {};
+        this.application = sharingLinkParameterValue?.application;
+        this.preventsDownload = sharingLinkParameterValue?.preventsDownload;
+        this.scope = sharingLinkParameterValue?.scope;
+        this.type = sharingLinkParameterValue?.type;
+        this.webHtml = sharingLinkParameterValue?.webHtml;
+        this.webUrl = sharingLinkParameterValue?.webUrl;
     };
     /**
      * The deserialization information for the current model
@@ -53,22 +53,22 @@ export class SharingLinkImpl implements AdditionalDataHolder, Parsable, SharingL
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.application){
-        writer.writeObjectValue<IdentityImpl>("application", new IdentityImpl(this.application));
+            writer.writeObjectValue<IdentityImpl>("application", new IdentityImpl(this.application));
         }
         if(this.preventsDownload){
-        writer.writeBooleanValue("preventsDownload", this.preventsDownload);
+            writer.writeBooleanValue("preventsDownload", this.preventsDownload);
         }
         if(this.scope){
-        writer.writeStringValue("scope", this.scope);
+            writer.writeStringValue("scope", this.scope);
         }
         if(this.type){
-        writer.writeStringValue("type", this.type);
+            writer.writeStringValue("type", this.type);
         }
         if(this.webHtml){
-        writer.writeStringValue("webHtml", this.webHtml);
+            writer.writeStringValue("webHtml", this.webHtml);
         }
         if(this.webUrl){
-        writer.writeStringValue("webUrl", this.webUrl);
+            writer.writeStringValue("webUrl", this.webUrl);
         }
         writer.writeAdditionalData(this.additionalData);
     };

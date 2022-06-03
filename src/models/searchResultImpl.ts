@@ -1,7 +1,7 @@
 import {SearchResult} from './searchResult';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class SearchResultImpl implements AdditionalDataHolder, Parsable, SearchResult {
+export class SearchResultImpl implements SearchResult {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** A callback URL that can be used to record telemetry information. The application should issue a GET on this URL if the user interacts with this item to improve the quality of results. */
@@ -11,8 +11,8 @@ export class SearchResultImpl implements AdditionalDataHolder, Parsable, SearchR
      * @param searchResultParameterValue 
      */
     public constructor(searchResultParameterValue?: SearchResult | undefined) {
-        this.additionalData = searchResultParameterValue?.additionalData ? searchResultParameterValue?.additionalData! : {}
-        this.onClickTelemetryUrl = searchResultParameterValue?.onClickTelemetryUrl ;
+        this.additionalData = searchResultParameterValue?.additionalData ? searchResultParameterValue?.additionalData! : {};
+        this.onClickTelemetryUrl = searchResultParameterValue?.onClickTelemetryUrl;
     };
     /**
      * The deserialization information for the current model
@@ -30,7 +30,7 @@ export class SearchResultImpl implements AdditionalDataHolder, Parsable, SearchR
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.onClickTelemetryUrl){
-        writer.writeStringValue("onClickTelemetryUrl", this.onClickTelemetryUrl);
+            writer.writeStringValue("onClickTelemetryUrl", this.onClickTelemetryUrl);
         }
         writer.writeAdditionalData(this.additionalData);
     };

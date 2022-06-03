@@ -9,7 +9,7 @@ import {FindMeetingTimesPostRequestBody} from './findMeetingTimesPostRequestBody
 import {AdditionalDataHolder, Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the findMeetingTimes method. */
-export class FindMeetingTimesPostRequestBodyImpl implements AdditionalDataHolder, FindMeetingTimesPostRequestBody, Parsable {
+export class FindMeetingTimesPostRequestBodyImpl implements FindMeetingTimesPostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The attendees property */
@@ -33,15 +33,15 @@ export class FindMeetingTimesPostRequestBodyImpl implements AdditionalDataHolder
      * @param findMeetingTimesPostRequestBodyParameterValue 
      */
     public constructor(findMeetingTimesPostRequestBodyParameterValue?: FindMeetingTimesPostRequestBody | undefined) {
-        this.additionalData = findMeetingTimesPostRequestBodyParameterValue?.additionalData ? findMeetingTimesPostRequestBodyParameterValue?.additionalData! : {}
-        this.attendees = findMeetingTimesPostRequestBodyParameterValue?.attendees ;
-        this.isOrganizerOptional = findMeetingTimesPostRequestBodyParameterValue?.isOrganizerOptional ;
-        this.locationConstraint = findMeetingTimesPostRequestBodyParameterValue?.locationConstraint ;
-        this.maxCandidates = findMeetingTimesPostRequestBodyParameterValue?.maxCandidates ;
-        this.meetingDuration = findMeetingTimesPostRequestBodyParameterValue?.meetingDuration ;
-        this.minimumAttendeePercentage = findMeetingTimesPostRequestBodyParameterValue?.minimumAttendeePercentage ;
-        this.returnSuggestionReasons = findMeetingTimesPostRequestBodyParameterValue?.returnSuggestionReasons ;
-        this.timeConstraint = findMeetingTimesPostRequestBodyParameterValue?.timeConstraint ;
+        this.additionalData = findMeetingTimesPostRequestBodyParameterValue?.additionalData ? findMeetingTimesPostRequestBodyParameterValue?.additionalData! : {};
+        this.attendees = findMeetingTimesPostRequestBodyParameterValue?.attendees;
+        this.isOrganizerOptional = findMeetingTimesPostRequestBodyParameterValue?.isOrganizerOptional;
+        this.locationConstraint = findMeetingTimesPostRequestBodyParameterValue?.locationConstraint;
+        this.maxCandidates = findMeetingTimesPostRequestBodyParameterValue?.maxCandidates;
+        this.meetingDuration = findMeetingTimesPostRequestBodyParameterValue?.meetingDuration;
+        this.minimumAttendeePercentage = findMeetingTimesPostRequestBodyParameterValue?.minimumAttendeePercentage;
+        this.returnSuggestionReasons = findMeetingTimesPostRequestBodyParameterValue?.returnSuggestionReasons;
+        this.timeConstraint = findMeetingTimesPostRequestBodyParameterValue?.timeConstraint;
     };
     /**
      * The deserialization information for the current model
@@ -66,28 +66,28 @@ export class FindMeetingTimesPostRequestBodyImpl implements AdditionalDataHolder
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.attendees && this.attendees.length != 0){        const attendeesArrValue: AttendeeBaseImpl[] = []; this.attendees?.forEach(element => {attendeesArrValue.push(new AttendeeBaseImpl(element));});
-        writer.writeCollectionOfObjectValues<AttendeeBaseImpl>("attendees", attendeesArrValue);
+            writer.writeCollectionOfObjectValues<AttendeeBaseImpl>("attendees", attendeesArrValue);
         }
         if(this.isOrganizerOptional){
-        writer.writeBooleanValue("isOrganizerOptional", this.isOrganizerOptional);
+            writer.writeBooleanValue("isOrganizerOptional", this.isOrganizerOptional);
         }
         if(this.locationConstraint){
-        writer.writeObjectValue<LocationConstraintImpl>("locationConstraint", new LocationConstraintImpl(this.locationConstraint));
+            writer.writeObjectValue<LocationConstraintImpl>("locationConstraint", new LocationConstraintImpl(this.locationConstraint));
         }
         if(this.maxCandidates){
-        writer.writeNumberValue("maxCandidates", this.maxCandidates);
+            writer.writeNumberValue("maxCandidates", this.maxCandidates);
         }
         if(this.meetingDuration){
-        writer.writeDurationValue("meetingDuration", this.meetingDuration);
+            writer.writeDurationValue("meetingDuration", this.meetingDuration);
         }
         if(this.minimumAttendeePercentage){
-        writer.writeNumberValue("minimumAttendeePercentage", this.minimumAttendeePercentage);
+            writer.writeNumberValue("minimumAttendeePercentage", this.minimumAttendeePercentage);
         }
         if(this.returnSuggestionReasons){
-        writer.writeBooleanValue("returnSuggestionReasons", this.returnSuggestionReasons);
+            writer.writeBooleanValue("returnSuggestionReasons", this.returnSuggestionReasons);
         }
         if(this.timeConstraint){
-        writer.writeObjectValue<TimeConstraintImpl>("timeConstraint", new TimeConstraintImpl(this.timeConstraint));
+            writer.writeObjectValue<TimeConstraintImpl>("timeConstraint", new TimeConstraintImpl(this.timeConstraint));
         }
         writer.writeAdditionalData(this.additionalData);
     };

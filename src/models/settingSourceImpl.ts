@@ -2,7 +2,7 @@ import {SettingSource} from './settingSource';
 import {SettingSourceType} from './settingSourceType';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class SettingSourceImpl implements AdditionalDataHolder, Parsable, SettingSource {
+export class SettingSourceImpl implements SettingSource {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Not yet documented */
@@ -16,10 +16,10 @@ export class SettingSourceImpl implements AdditionalDataHolder, Parsable, Settin
      * @param settingSourceParameterValue 
      */
     public constructor(settingSourceParameterValue?: SettingSource | undefined) {
-        this.additionalData = settingSourceParameterValue?.additionalData ? settingSourceParameterValue?.additionalData! : {}
-        this.displayName = settingSourceParameterValue?.displayName ;
-        this.id = settingSourceParameterValue?.id ;
-        this.sourceType = settingSourceParameterValue?.sourceType ;
+        this.additionalData = settingSourceParameterValue?.additionalData ? settingSourceParameterValue?.additionalData! : {};
+        this.displayName = settingSourceParameterValue?.displayName;
+        this.id = settingSourceParameterValue?.id;
+        this.sourceType = settingSourceParameterValue?.sourceType;
     };
     /**
      * The deserialization information for the current model
@@ -39,13 +39,13 @@ export class SettingSourceImpl implements AdditionalDataHolder, Parsable, Settin
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.displayName){
-        writer.writeStringValue("displayName", this.displayName);
+            writer.writeStringValue("displayName", this.displayName);
         }
         if(this.id){
-        writer.writeStringValue("id", this.id);
+            writer.writeStringValue("id", this.id);
         }
         if(this.sourceType){
-        writer.writeEnumValue<SettingSourceType>("sourceType", this.sourceType);
+            writer.writeEnumValue<SettingSourceType>("sourceType", this.sourceType);
         }
         writer.writeAdditionalData(this.additionalData);
     };

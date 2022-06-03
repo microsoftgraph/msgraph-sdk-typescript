@@ -1,11 +1,11 @@
 import {HostedContentsRequestBuilderGetQueryParameters} from './hostedContentsRequestBuilderGetQueryParameters';
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
-export interface HostedContentsRequestBuilderGetRequestConfiguration{
+export interface HostedContentsRequestBuilderGetRequestConfiguration {
     /** Request headers */
-    headers?:Record<string, string> | undefined;
+    headers?: Record<string, string> | undefined;
     /** Request options */
-    options?:RequestOption[] | undefined;
+    options?: RequestOption[] | undefined;
     /** Request query parameters */
-    queryParameters?:HostedContentsRequestBuilderGetQueryParameters | undefined;
+    queryParameters?: HostedContentsRequestBuilderGetQueryParameters | undefined;
 }

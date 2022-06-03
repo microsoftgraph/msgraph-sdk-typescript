@@ -5,7 +5,7 @@ import {ForwardPostRequestBody} from './forwardPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the forward method. */
-export class ForwardPostRequestBodyImpl implements AdditionalDataHolder, ForwardPostRequestBody, Parsable {
+export class ForwardPostRequestBodyImpl implements ForwardPostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The Comment property */
@@ -17,9 +17,9 @@ export class ForwardPostRequestBodyImpl implements AdditionalDataHolder, Forward
      * @param forwardPostRequestBodyParameterValue 
      */
     public constructor(forwardPostRequestBodyParameterValue?: ForwardPostRequestBody | undefined) {
-        this.additionalData = forwardPostRequestBodyParameterValue?.additionalData ? forwardPostRequestBodyParameterValue?.additionalData! : {}
-        this.comment = forwardPostRequestBodyParameterValue?.comment ;
-        this.toRecipients = forwardPostRequestBodyParameterValue?.toRecipients ;
+        this.additionalData = forwardPostRequestBodyParameterValue?.additionalData ? forwardPostRequestBodyParameterValue?.additionalData! : {};
+        this.comment = forwardPostRequestBodyParameterValue?.comment;
+        this.toRecipients = forwardPostRequestBodyParameterValue?.toRecipients;
     };
     /**
      * The deserialization information for the current model
@@ -38,10 +38,10 @@ export class ForwardPostRequestBodyImpl implements AdditionalDataHolder, Forward
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.comment){
-        writer.writeStringValue("comment", this.comment);
+            writer.writeStringValue("comment", this.comment);
         }
         if(this.toRecipients && this.toRecipients.length != 0){        const toRecipientsArrValue: RecipientImpl[] = []; this.toRecipients?.forEach(element => {toRecipientsArrValue.push(new RecipientImpl(element));});
-        writer.writeCollectionOfObjectValues<RecipientImpl>("toRecipients", toRecipientsArrValue);
+            writer.writeCollectionOfObjectValues<RecipientImpl>("toRecipients", toRecipientsArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

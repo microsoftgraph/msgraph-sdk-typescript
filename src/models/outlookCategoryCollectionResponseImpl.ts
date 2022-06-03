@@ -4,7 +4,7 @@ import {OutlookCategory} from './outlookCategory';
 import {OutlookCategoryCollectionResponse} from './outlookCategoryCollectionResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class OutlookCategoryCollectionResponseImpl implements AdditionalDataHolder, OutlookCategoryCollectionResponse, Parsable {
+export class OutlookCategoryCollectionResponseImpl implements OutlookCategoryCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class OutlookCategoryCollectionResponseImpl implements AdditionalDataHold
      * @param outlookCategoryCollectionResponseParameterValue 
      */
     public constructor(outlookCategoryCollectionResponseParameterValue?: OutlookCategoryCollectionResponse | undefined) {
-        this.additionalData = outlookCategoryCollectionResponseParameterValue?.additionalData ? outlookCategoryCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = outlookCategoryCollectionResponseParameterValue?.nextLink ;
-        this.value = outlookCategoryCollectionResponseParameterValue?.value ;
+        this.additionalData = outlookCategoryCollectionResponseParameterValue?.additionalData ? outlookCategoryCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = outlookCategoryCollectionResponseParameterValue?.nextLink;
+        this.value = outlookCategoryCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class OutlookCategoryCollectionResponseImpl implements AdditionalDataHold
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: OutlookCategoryImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new OutlookCategoryImpl(element));});
-        writer.writeCollectionOfObjectValues<OutlookCategoryImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<OutlookCategoryImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

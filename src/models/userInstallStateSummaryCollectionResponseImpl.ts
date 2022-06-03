@@ -4,7 +4,7 @@ import {UserInstallStateSummary} from './userInstallStateSummary';
 import {UserInstallStateSummaryCollectionResponse} from './userInstallStateSummaryCollectionResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class UserInstallStateSummaryCollectionResponseImpl implements AdditionalDataHolder, Parsable, UserInstallStateSummaryCollectionResponse {
+export class UserInstallStateSummaryCollectionResponseImpl implements UserInstallStateSummaryCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class UserInstallStateSummaryCollectionResponseImpl implements Additional
      * @param userInstallStateSummaryCollectionResponseParameterValue 
      */
     public constructor(userInstallStateSummaryCollectionResponseParameterValue?: UserInstallStateSummaryCollectionResponse | undefined) {
-        this.additionalData = userInstallStateSummaryCollectionResponseParameterValue?.additionalData ? userInstallStateSummaryCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = userInstallStateSummaryCollectionResponseParameterValue?.nextLink ;
-        this.value = userInstallStateSummaryCollectionResponseParameterValue?.value ;
+        this.additionalData = userInstallStateSummaryCollectionResponseParameterValue?.additionalData ? userInstallStateSummaryCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = userInstallStateSummaryCollectionResponseParameterValue?.nextLink;
+        this.value = userInstallStateSummaryCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class UserInstallStateSummaryCollectionResponseImpl implements Additional
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: UserInstallStateSummaryImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new UserInstallStateSummaryImpl(element));});
-        writer.writeCollectionOfObjectValues<UserInstallStateSummaryImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<UserInstallStateSummaryImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

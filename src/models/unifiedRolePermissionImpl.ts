@@ -1,7 +1,7 @@
 import {UnifiedRolePermission} from './unifiedRolePermission';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class UnifiedRolePermissionImpl implements AdditionalDataHolder, Parsable, UnifiedRolePermission {
+export class UnifiedRolePermissionImpl implements UnifiedRolePermission {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Set of tasks that can be performed on a resource. */
@@ -15,10 +15,10 @@ export class UnifiedRolePermissionImpl implements AdditionalDataHolder, Parsable
      * @param unifiedRolePermissionParameterValue 
      */
     public constructor(unifiedRolePermissionParameterValue?: UnifiedRolePermission | undefined) {
-        this.additionalData = unifiedRolePermissionParameterValue?.additionalData ? unifiedRolePermissionParameterValue?.additionalData! : {}
-        this.allowedResourceActions = unifiedRolePermissionParameterValue?.allowedResourceActions ;
-        this.condition = unifiedRolePermissionParameterValue?.condition ;
-        this.excludedResourceActions = unifiedRolePermissionParameterValue?.excludedResourceActions ;
+        this.additionalData = unifiedRolePermissionParameterValue?.additionalData ? unifiedRolePermissionParameterValue?.additionalData! : {};
+        this.allowedResourceActions = unifiedRolePermissionParameterValue?.allowedResourceActions;
+        this.condition = unifiedRolePermissionParameterValue?.condition;
+        this.excludedResourceActions = unifiedRolePermissionParameterValue?.excludedResourceActions;
     };
     /**
      * The deserialization information for the current model
@@ -38,13 +38,13 @@ export class UnifiedRolePermissionImpl implements AdditionalDataHolder, Parsable
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.allowedResourceActions){
-        writer.writeCollectionOfPrimitiveValues<string>("allowedResourceActions", this.allowedResourceActions);
+            writer.writeCollectionOfPrimitiveValues<string>("allowedResourceActions", this.allowedResourceActions);
         }
         if(this.condition){
-        writer.writeStringValue("condition", this.condition);
+            writer.writeStringValue("condition", this.condition);
         }
         if(this.excludedResourceActions){
-        writer.writeCollectionOfPrimitiveValues<string>("excludedResourceActions", this.excludedResourceActions);
+            writer.writeCollectionOfPrimitiveValues<string>("excludedResourceActions", this.excludedResourceActions);
         }
         writer.writeAdditionalData(this.additionalData);
     };

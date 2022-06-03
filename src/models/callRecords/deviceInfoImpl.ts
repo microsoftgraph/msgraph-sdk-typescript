@@ -1,7 +1,7 @@
 import {DeviceInfo} from './deviceInfo';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class DeviceInfoImpl implements AdditionalDataHolder, DeviceInfo, Parsable {
+export class DeviceInfoImpl implements DeviceInfo {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Name of the capture device driver used by the media endpoint. */
@@ -51,28 +51,28 @@ export class DeviceInfoImpl implements AdditionalDataHolder, DeviceInfo, Parsabl
      * @param deviceInfoParameterValue 
      */
     public constructor(deviceInfoParameterValue?: DeviceInfo | undefined) {
-        this.additionalData = deviceInfoParameterValue?.additionalData ? deviceInfoParameterValue?.additionalData! : {}
-        this.captureDeviceDriver = deviceInfoParameterValue?.captureDeviceDriver ;
-        this.captureDeviceName = deviceInfoParameterValue?.captureDeviceName ;
-        this.captureNotFunctioningEventRatio = deviceInfoParameterValue?.captureNotFunctioningEventRatio ;
-        this.cpuInsufficentEventRatio = deviceInfoParameterValue?.cpuInsufficentEventRatio ;
-        this.deviceClippingEventRatio = deviceInfoParameterValue?.deviceClippingEventRatio ;
-        this.deviceGlitchEventRatio = deviceInfoParameterValue?.deviceGlitchEventRatio ;
-        this.howlingEventCount = deviceInfoParameterValue?.howlingEventCount ;
-        this.initialSignalLevelRootMeanSquare = deviceInfoParameterValue?.initialSignalLevelRootMeanSquare ;
-        this.lowSpeechLevelEventRatio = deviceInfoParameterValue?.lowSpeechLevelEventRatio ;
-        this.lowSpeechToNoiseEventRatio = deviceInfoParameterValue?.lowSpeechToNoiseEventRatio ;
-        this.micGlitchRate = deviceInfoParameterValue?.micGlitchRate ;
-        this.receivedNoiseLevel = deviceInfoParameterValue?.receivedNoiseLevel ;
-        this.receivedSignalLevel = deviceInfoParameterValue?.receivedSignalLevel ;
-        this.renderDeviceDriver = deviceInfoParameterValue?.renderDeviceDriver ;
-        this.renderDeviceName = deviceInfoParameterValue?.renderDeviceName ;
-        this.renderMuteEventRatio = deviceInfoParameterValue?.renderMuteEventRatio ;
-        this.renderNotFunctioningEventRatio = deviceInfoParameterValue?.renderNotFunctioningEventRatio ;
-        this.renderZeroVolumeEventRatio = deviceInfoParameterValue?.renderZeroVolumeEventRatio ;
-        this.sentNoiseLevel = deviceInfoParameterValue?.sentNoiseLevel ;
-        this.sentSignalLevel = deviceInfoParameterValue?.sentSignalLevel ;
-        this.speakerGlitchRate = deviceInfoParameterValue?.speakerGlitchRate ;
+        this.additionalData = deviceInfoParameterValue?.additionalData ? deviceInfoParameterValue?.additionalData! : {};
+        this.captureDeviceDriver = deviceInfoParameterValue?.captureDeviceDriver;
+        this.captureDeviceName = deviceInfoParameterValue?.captureDeviceName;
+        this.captureNotFunctioningEventRatio = deviceInfoParameterValue?.captureNotFunctioningEventRatio;
+        this.cpuInsufficentEventRatio = deviceInfoParameterValue?.cpuInsufficentEventRatio;
+        this.deviceClippingEventRatio = deviceInfoParameterValue?.deviceClippingEventRatio;
+        this.deviceGlitchEventRatio = deviceInfoParameterValue?.deviceGlitchEventRatio;
+        this.howlingEventCount = deviceInfoParameterValue?.howlingEventCount;
+        this.initialSignalLevelRootMeanSquare = deviceInfoParameterValue?.initialSignalLevelRootMeanSquare;
+        this.lowSpeechLevelEventRatio = deviceInfoParameterValue?.lowSpeechLevelEventRatio;
+        this.lowSpeechToNoiseEventRatio = deviceInfoParameterValue?.lowSpeechToNoiseEventRatio;
+        this.micGlitchRate = deviceInfoParameterValue?.micGlitchRate;
+        this.receivedNoiseLevel = deviceInfoParameterValue?.receivedNoiseLevel;
+        this.receivedSignalLevel = deviceInfoParameterValue?.receivedSignalLevel;
+        this.renderDeviceDriver = deviceInfoParameterValue?.renderDeviceDriver;
+        this.renderDeviceName = deviceInfoParameterValue?.renderDeviceName;
+        this.renderMuteEventRatio = deviceInfoParameterValue?.renderMuteEventRatio;
+        this.renderNotFunctioningEventRatio = deviceInfoParameterValue?.renderNotFunctioningEventRatio;
+        this.renderZeroVolumeEventRatio = deviceInfoParameterValue?.renderZeroVolumeEventRatio;
+        this.sentNoiseLevel = deviceInfoParameterValue?.sentNoiseLevel;
+        this.sentSignalLevel = deviceInfoParameterValue?.sentSignalLevel;
+        this.speakerGlitchRate = deviceInfoParameterValue?.speakerGlitchRate;
     };
     /**
      * The deserialization information for the current model
@@ -110,67 +110,67 @@ export class DeviceInfoImpl implements AdditionalDataHolder, DeviceInfo, Parsabl
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.captureDeviceDriver){
-        writer.writeStringValue("captureDeviceDriver", this.captureDeviceDriver);
+            writer.writeStringValue("captureDeviceDriver", this.captureDeviceDriver);
         }
         if(this.captureDeviceName){
-        writer.writeStringValue("captureDeviceName", this.captureDeviceName);
+            writer.writeStringValue("captureDeviceName", this.captureDeviceName);
         }
         if(this.captureNotFunctioningEventRatio){
-        writer.writeNumberValue("captureNotFunctioningEventRatio", this.captureNotFunctioningEventRatio);
+            writer.writeNumberValue("captureNotFunctioningEventRatio", this.captureNotFunctioningEventRatio);
         }
         if(this.cpuInsufficentEventRatio){
-        writer.writeNumberValue("cpuInsufficentEventRatio", this.cpuInsufficentEventRatio);
+            writer.writeNumberValue("cpuInsufficentEventRatio", this.cpuInsufficentEventRatio);
         }
         if(this.deviceClippingEventRatio){
-        writer.writeNumberValue("deviceClippingEventRatio", this.deviceClippingEventRatio);
+            writer.writeNumberValue("deviceClippingEventRatio", this.deviceClippingEventRatio);
         }
         if(this.deviceGlitchEventRatio){
-        writer.writeNumberValue("deviceGlitchEventRatio", this.deviceGlitchEventRatio);
+            writer.writeNumberValue("deviceGlitchEventRatio", this.deviceGlitchEventRatio);
         }
         if(this.howlingEventCount){
-        writer.writeNumberValue("howlingEventCount", this.howlingEventCount);
+            writer.writeNumberValue("howlingEventCount", this.howlingEventCount);
         }
         if(this.initialSignalLevelRootMeanSquare){
-        writer.writeNumberValue("initialSignalLevelRootMeanSquare", this.initialSignalLevelRootMeanSquare);
+            writer.writeNumberValue("initialSignalLevelRootMeanSquare", this.initialSignalLevelRootMeanSquare);
         }
         if(this.lowSpeechLevelEventRatio){
-        writer.writeNumberValue("lowSpeechLevelEventRatio", this.lowSpeechLevelEventRatio);
+            writer.writeNumberValue("lowSpeechLevelEventRatio", this.lowSpeechLevelEventRatio);
         }
         if(this.lowSpeechToNoiseEventRatio){
-        writer.writeNumberValue("lowSpeechToNoiseEventRatio", this.lowSpeechToNoiseEventRatio);
+            writer.writeNumberValue("lowSpeechToNoiseEventRatio", this.lowSpeechToNoiseEventRatio);
         }
         if(this.micGlitchRate){
-        writer.writeNumberValue("micGlitchRate", this.micGlitchRate);
+            writer.writeNumberValue("micGlitchRate", this.micGlitchRate);
         }
         if(this.receivedNoiseLevel){
-        writer.writeNumberValue("receivedNoiseLevel", this.receivedNoiseLevel);
+            writer.writeNumberValue("receivedNoiseLevel", this.receivedNoiseLevel);
         }
         if(this.receivedSignalLevel){
-        writer.writeNumberValue("receivedSignalLevel", this.receivedSignalLevel);
+            writer.writeNumberValue("receivedSignalLevel", this.receivedSignalLevel);
         }
         if(this.renderDeviceDriver){
-        writer.writeStringValue("renderDeviceDriver", this.renderDeviceDriver);
+            writer.writeStringValue("renderDeviceDriver", this.renderDeviceDriver);
         }
         if(this.renderDeviceName){
-        writer.writeStringValue("renderDeviceName", this.renderDeviceName);
+            writer.writeStringValue("renderDeviceName", this.renderDeviceName);
         }
         if(this.renderMuteEventRatio){
-        writer.writeNumberValue("renderMuteEventRatio", this.renderMuteEventRatio);
+            writer.writeNumberValue("renderMuteEventRatio", this.renderMuteEventRatio);
         }
         if(this.renderNotFunctioningEventRatio){
-        writer.writeNumberValue("renderNotFunctioningEventRatio", this.renderNotFunctioningEventRatio);
+            writer.writeNumberValue("renderNotFunctioningEventRatio", this.renderNotFunctioningEventRatio);
         }
         if(this.renderZeroVolumeEventRatio){
-        writer.writeNumberValue("renderZeroVolumeEventRatio", this.renderZeroVolumeEventRatio);
+            writer.writeNumberValue("renderZeroVolumeEventRatio", this.renderZeroVolumeEventRatio);
         }
         if(this.sentNoiseLevel){
-        writer.writeNumberValue("sentNoiseLevel", this.sentNoiseLevel);
+            writer.writeNumberValue("sentNoiseLevel", this.sentNoiseLevel);
         }
         if(this.sentSignalLevel){
-        writer.writeNumberValue("sentSignalLevel", this.sentSignalLevel);
+            writer.writeNumberValue("sentSignalLevel", this.sentSignalLevel);
         }
         if(this.speakerGlitchRate){
-        writer.writeNumberValue("speakerGlitchRate", this.speakerGlitchRate);
+            writer.writeNumberValue("speakerGlitchRate", this.speakerGlitchRate);
         }
         writer.writeAdditionalData(this.additionalData);
     };

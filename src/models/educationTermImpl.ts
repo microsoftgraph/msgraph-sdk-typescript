@@ -1,7 +1,7 @@
 import {EducationTerm} from './educationTerm';
 import {AdditionalDataHolder, DateOnly, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class EducationTermImpl implements AdditionalDataHolder, EducationTerm, Parsable {
+export class EducationTermImpl implements EducationTerm {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Display name of the term. */
@@ -17,11 +17,11 @@ export class EducationTermImpl implements AdditionalDataHolder, EducationTerm, P
      * @param educationTermParameterValue 
      */
     public constructor(educationTermParameterValue?: EducationTerm | undefined) {
-        this.additionalData = educationTermParameterValue?.additionalData ? educationTermParameterValue?.additionalData! : {}
-        this.displayName = educationTermParameterValue?.displayName ;
-        this.endDate = educationTermParameterValue?.endDate ;
-        this.externalId = educationTermParameterValue?.externalId ;
-        this.startDate = educationTermParameterValue?.startDate ;
+        this.additionalData = educationTermParameterValue?.additionalData ? educationTermParameterValue?.additionalData! : {};
+        this.displayName = educationTermParameterValue?.displayName;
+        this.endDate = educationTermParameterValue?.endDate;
+        this.externalId = educationTermParameterValue?.externalId;
+        this.startDate = educationTermParameterValue?.startDate;
     };
     /**
      * The deserialization information for the current model
@@ -42,16 +42,16 @@ export class EducationTermImpl implements AdditionalDataHolder, EducationTerm, P
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.displayName){
-        writer.writeStringValue("displayName", this.displayName);
+            writer.writeStringValue("displayName", this.displayName);
         }
         if(this.endDate){
-        writer.writeDateOnlyValue("endDate", this.endDate);
+            writer.writeDateOnlyValue("endDate", this.endDate);
         }
         if(this.externalId){
-        writer.writeStringValue("externalId", this.externalId);
+            writer.writeStringValue("externalId", this.externalId);
         }
         if(this.startDate){
-        writer.writeDateOnlyValue("startDate", this.startDate);
+            writer.writeDateOnlyValue("startDate", this.startDate);
         }
         writer.writeAdditionalData(this.additionalData);
     };

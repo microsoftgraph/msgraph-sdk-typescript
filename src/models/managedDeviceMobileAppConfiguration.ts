@@ -4,28 +4,29 @@ import {ManagedDeviceMobileAppConfigurationDeviceStatus} from './managedDeviceMo
 import {ManagedDeviceMobileAppConfigurationDeviceSummary} from './managedDeviceMobileAppConfigurationDeviceSummary';
 import {ManagedDeviceMobileAppConfigurationUserStatus} from './managedDeviceMobileAppConfigurationUserStatus';
 import {ManagedDeviceMobileAppConfigurationUserSummary} from './managedDeviceMobileAppConfigurationUserSummary';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface ManagedDeviceMobileAppConfiguration extends Entity{
+export interface ManagedDeviceMobileAppConfiguration extends Entity, Partial<Parsable> {
     /** The list of group assignemenets for app configration. */
-    assignments?:ManagedDeviceMobileAppConfigurationAssignment[] | undefined;
+    assignments?: ManagedDeviceMobileAppConfigurationAssignment[] | undefined;
     /** DateTime the object was created. */
-    createdDateTime?:Date | undefined;
+    createdDateTime?: Date | undefined;
     /** Admin provided description of the Device Configuration. */
-    description?:string | undefined;
+    description?: string | undefined;
     /** List of ManagedDeviceMobileAppConfigurationDeviceStatus. */
-    deviceStatuses?:ManagedDeviceMobileAppConfigurationDeviceStatus[] | undefined;
+    deviceStatuses?: ManagedDeviceMobileAppConfigurationDeviceStatus[] | undefined;
     /** App configuration device status summary. */
-    deviceStatusSummary?:ManagedDeviceMobileAppConfigurationDeviceSummary | undefined;
+    deviceStatusSummary?: ManagedDeviceMobileAppConfigurationDeviceSummary | undefined;
     /** Admin provided name of the device configuration. */
-    displayName?:string | undefined;
+    displayName?: string | undefined;
     /** DateTime the object was last modified. */
-    lastModifiedDateTime?:Date | undefined;
+    lastModifiedDateTime?: Date | undefined;
     /** the associated app. */
-    targetedMobileApps?:string[] | undefined;
+    targetedMobileApps?: string[] | undefined;
     /** List of ManagedDeviceMobileAppConfigurationUserStatus. */
-    userStatuses?:ManagedDeviceMobileAppConfigurationUserStatus[] | undefined;
+    userStatuses?: ManagedDeviceMobileAppConfigurationUserStatus[] | undefined;
     /** App configuration user status summary. */
-    userStatusSummary?:ManagedDeviceMobileAppConfigurationUserSummary | undefined;
+    userStatusSummary?: ManagedDeviceMobileAppConfigurationUserSummary | undefined;
     /** Version of the device configuration. */
-    version?:number | undefined;
+    version?: number | undefined;
 }

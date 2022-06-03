@@ -1,7 +1,7 @@
 import {LocaleInfo} from './localeInfo';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class LocaleInfoImpl implements AdditionalDataHolder, LocaleInfo, Parsable {
+export class LocaleInfoImpl implements LocaleInfo {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** A name representing the user's locale in natural language, for example, 'English (United States)'. */
@@ -13,9 +13,9 @@ export class LocaleInfoImpl implements AdditionalDataHolder, LocaleInfo, Parsabl
      * @param localeInfoParameterValue 
      */
     public constructor(localeInfoParameterValue?: LocaleInfo | undefined) {
-        this.additionalData = localeInfoParameterValue?.additionalData ? localeInfoParameterValue?.additionalData! : {}
-        this.displayName = localeInfoParameterValue?.displayName ;
-        this.locale = localeInfoParameterValue?.locale ;
+        this.additionalData = localeInfoParameterValue?.additionalData ? localeInfoParameterValue?.additionalData! : {};
+        this.displayName = localeInfoParameterValue?.displayName;
+        this.locale = localeInfoParameterValue?.locale;
     };
     /**
      * The deserialization information for the current model
@@ -34,10 +34,10 @@ export class LocaleInfoImpl implements AdditionalDataHolder, LocaleInfo, Parsabl
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.displayName){
-        writer.writeStringValue("displayName", this.displayName);
+            writer.writeStringValue("displayName", this.displayName);
         }
         if(this.locale){
-        writer.writeStringValue("locale", this.locale);
+            writer.writeStringValue("locale", this.locale);
         }
         writer.writeAdditionalData(this.additionalData);
     };

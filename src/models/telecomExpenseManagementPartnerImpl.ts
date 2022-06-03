@@ -3,7 +3,7 @@ import {TelecomExpenseManagementPartner} from './telecomExpenseManagementPartner
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** telecomExpenseManagementPartner resources represent the metadata and status of a given TEM service. Once your organization has onboarded with a partner, the partner can be enabled or disabled to switch TEM functionality on or off. */
-export class TelecomExpenseManagementPartnerImpl extends EntityImpl implements Parsable, TelecomExpenseManagementPartner {
+export class TelecomExpenseManagementPartnerImpl extends EntityImpl implements TelecomExpenseManagementPartner {
     /** Whether the partner's AAD app has been authorized to access Intune. */
     public appAuthorized?: boolean | undefined;
     /** Display name of the TEM partner. */
@@ -19,12 +19,12 @@ export class TelecomExpenseManagementPartnerImpl extends EntityImpl implements P
      * @param telecomExpenseManagementPartnerParameterValue 
      */
     public constructor(telecomExpenseManagementPartnerParameterValue?: TelecomExpenseManagementPartner | undefined) {
-        super();
-        this.appAuthorized = telecomExpenseManagementPartnerParameterValue?.appAuthorized ;
-        this.displayName = telecomExpenseManagementPartnerParameterValue?.displayName ;
-        this.enabled = telecomExpenseManagementPartnerParameterValue?.enabled ;
-        this.lastConnectionDateTime = telecomExpenseManagementPartnerParameterValue?.lastConnectionDateTime ;
-        this.url = telecomExpenseManagementPartnerParameterValue?.url ;
+        super(telecomExpenseManagementPartnerParameterValue);
+        this.appAuthorized = telecomExpenseManagementPartnerParameterValue?.appAuthorized;
+        this.displayName = telecomExpenseManagementPartnerParameterValue?.displayName;
+        this.enabled = telecomExpenseManagementPartnerParameterValue?.enabled;
+        this.lastConnectionDateTime = telecomExpenseManagementPartnerParameterValue?.lastConnectionDateTime;
+        this.url = telecomExpenseManagementPartnerParameterValue?.url;
     };
     /**
      * The deserialization information for the current model
@@ -47,19 +47,19 @@ export class TelecomExpenseManagementPartnerImpl extends EntityImpl implements P
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.appAuthorized){
-        writer.writeBooleanValue("appAuthorized", this.appAuthorized);
+            writer.writeBooleanValue("appAuthorized", this.appAuthorized);
         }
         if(this.displayName){
-        writer.writeStringValue("displayName", this.displayName);
+            writer.writeStringValue("displayName", this.displayName);
         }
         if(this.enabled){
-        writer.writeBooleanValue("enabled", this.enabled);
+            writer.writeBooleanValue("enabled", this.enabled);
         }
         if(this.lastConnectionDateTime){
-        writer.writeDateValue("lastConnectionDateTime", this.lastConnectionDateTime);
+            writer.writeDateValue("lastConnectionDateTime", this.lastConnectionDateTime);
         }
         if(this.url){
-        writer.writeStringValue("url", this.url);
+            writer.writeStringValue("url", this.url);
         }
     };
 }

@@ -4,7 +4,7 @@ import {GeoCoordinatesImpl} from './index';
 import {SignInLocation} from './signInLocation';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class SignInLocationImpl implements AdditionalDataHolder, Parsable, SignInLocation {
+export class SignInLocationImpl implements SignInLocation {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Provides the city where the sign-in originated. This is calculated using latitude/longitude information from the sign-in activity. */
@@ -20,11 +20,11 @@ export class SignInLocationImpl implements AdditionalDataHolder, Parsable, SignI
      * @param signInLocationParameterValue 
      */
     public constructor(signInLocationParameterValue?: SignInLocation | undefined) {
-        this.additionalData = signInLocationParameterValue?.additionalData ? signInLocationParameterValue?.additionalData! : {}
-        this.city = signInLocationParameterValue?.city ;
-        this.countryOrRegion = signInLocationParameterValue?.countryOrRegion ;
-        this.geoCoordinates = signInLocationParameterValue?.geoCoordinates ;
-        this.state = signInLocationParameterValue?.state ;
+        this.additionalData = signInLocationParameterValue?.additionalData ? signInLocationParameterValue?.additionalData! : {};
+        this.city = signInLocationParameterValue?.city;
+        this.countryOrRegion = signInLocationParameterValue?.countryOrRegion;
+        this.geoCoordinates = signInLocationParameterValue?.geoCoordinates;
+        this.state = signInLocationParameterValue?.state;
     };
     /**
      * The deserialization information for the current model
@@ -45,16 +45,16 @@ export class SignInLocationImpl implements AdditionalDataHolder, Parsable, SignI
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.city){
-        writer.writeStringValue("city", this.city);
+            writer.writeStringValue("city", this.city);
         }
         if(this.countryOrRegion){
-        writer.writeStringValue("countryOrRegion", this.countryOrRegion);
+            writer.writeStringValue("countryOrRegion", this.countryOrRegion);
         }
         if(this.geoCoordinates){
-        writer.writeObjectValue<GeoCoordinatesImpl>("geoCoordinates", new GeoCoordinatesImpl(this.geoCoordinates));
+            writer.writeObjectValue<GeoCoordinatesImpl>("geoCoordinates", new GeoCoordinatesImpl(this.geoCoordinates));
         }
         if(this.state){
-        writer.writeStringValue("state", this.state);
+            writer.writeStringValue("state", this.state);
         }
         writer.writeAdditionalData(this.additionalData);
     };

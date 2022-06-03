@@ -13,7 +13,7 @@ import {PhysicalAddress} from './physicalAddress';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the educationRoot singleton. */
-export class EducationSchoolImpl extends EducationOrganizationImpl implements EducationSchool, Parsable {
+export class EducationSchoolImpl extends EducationOrganizationImpl implements EducationSchool {
     /** Address of the school. */
     public address?: PhysicalAddress | undefined;
     /** The underlying administrativeUnit for this school. */
@@ -47,21 +47,21 @@ export class EducationSchoolImpl extends EducationOrganizationImpl implements Ed
      * @param educationSchoolParameterValue 
      */
     public constructor(educationSchoolParameterValue?: EducationSchool | undefined) {
-        super();
-        this.address = educationSchoolParameterValue?.address ;
-        this.administrativeUnit = educationSchoolParameterValue?.administrativeUnit ;
-        this.classes = educationSchoolParameterValue?.classes ;
-        this.createdBy = educationSchoolParameterValue?.createdBy ;
-        this.externalId = educationSchoolParameterValue?.externalId ;
-        this.externalPrincipalId = educationSchoolParameterValue?.externalPrincipalId ;
-        this.fax = educationSchoolParameterValue?.fax ;
-        this.highestGrade = educationSchoolParameterValue?.highestGrade ;
-        this.lowestGrade = educationSchoolParameterValue?.lowestGrade ;
-        this.phone = educationSchoolParameterValue?.phone ;
-        this.principalEmail = educationSchoolParameterValue?.principalEmail ;
-        this.principalName = educationSchoolParameterValue?.principalName ;
-        this.schoolNumber = educationSchoolParameterValue?.schoolNumber ;
-        this.users = educationSchoolParameterValue?.users ;
+        super(educationSchoolParameterValue);
+        this.address = educationSchoolParameterValue?.address;
+        this.administrativeUnit = educationSchoolParameterValue?.administrativeUnit;
+        this.classes = educationSchoolParameterValue?.classes;
+        this.createdBy = educationSchoolParameterValue?.createdBy;
+        this.externalId = educationSchoolParameterValue?.externalId;
+        this.externalPrincipalId = educationSchoolParameterValue?.externalPrincipalId;
+        this.fax = educationSchoolParameterValue?.fax;
+        this.highestGrade = educationSchoolParameterValue?.highestGrade;
+        this.lowestGrade = educationSchoolParameterValue?.lowestGrade;
+        this.phone = educationSchoolParameterValue?.phone;
+        this.principalEmail = educationSchoolParameterValue?.principalEmail;
+        this.principalName = educationSchoolParameterValue?.principalName;
+        this.schoolNumber = educationSchoolParameterValue?.schoolNumber;
+        this.users = educationSchoolParameterValue?.users;
     };
     /**
      * The deserialization information for the current model
@@ -93,46 +93,46 @@ export class EducationSchoolImpl extends EducationOrganizationImpl implements Ed
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.address){
-        writer.writeObjectValue<PhysicalAddressImpl>("address", new PhysicalAddressImpl(this.address));
+            writer.writeObjectValue<PhysicalAddressImpl>("address", new PhysicalAddressImpl(this.address));
         }
         if(this.administrativeUnit){
-        writer.writeObjectValue<AdministrativeUnitImpl>("administrativeUnit", new AdministrativeUnitImpl(this.administrativeUnit));
+            writer.writeObjectValue<AdministrativeUnitImpl>("administrativeUnit", new AdministrativeUnitImpl(this.administrativeUnit));
         }
         if(this.classes && this.classes.length != 0){        const classesArrValue: EducationClassImpl[] = []; this.classes?.forEach(element => {classesArrValue.push(new EducationClassImpl(element));});
-        writer.writeCollectionOfObjectValues<EducationClassImpl>("classes", classesArrValue);
+            writer.writeCollectionOfObjectValues<EducationClassImpl>("classes", classesArrValue);
         }
         if(this.createdBy){
-        writer.writeObjectValue<IdentitySetImpl>("createdBy", new IdentitySetImpl(this.createdBy));
+            writer.writeObjectValue<IdentitySetImpl>("createdBy", new IdentitySetImpl(this.createdBy));
         }
         if(this.externalId){
-        writer.writeStringValue("externalId", this.externalId);
+            writer.writeStringValue("externalId", this.externalId);
         }
         if(this.externalPrincipalId){
-        writer.writeStringValue("externalPrincipalId", this.externalPrincipalId);
+            writer.writeStringValue("externalPrincipalId", this.externalPrincipalId);
         }
         if(this.fax){
-        writer.writeStringValue("fax", this.fax);
+            writer.writeStringValue("fax", this.fax);
         }
         if(this.highestGrade){
-        writer.writeStringValue("highestGrade", this.highestGrade);
+            writer.writeStringValue("highestGrade", this.highestGrade);
         }
         if(this.lowestGrade){
-        writer.writeStringValue("lowestGrade", this.lowestGrade);
+            writer.writeStringValue("lowestGrade", this.lowestGrade);
         }
         if(this.phone){
-        writer.writeStringValue("phone", this.phone);
+            writer.writeStringValue("phone", this.phone);
         }
         if(this.principalEmail){
-        writer.writeStringValue("principalEmail", this.principalEmail);
+            writer.writeStringValue("principalEmail", this.principalEmail);
         }
         if(this.principalName){
-        writer.writeStringValue("principalName", this.principalName);
+            writer.writeStringValue("principalName", this.principalName);
         }
         if(this.schoolNumber){
-        writer.writeStringValue("schoolNumber", this.schoolNumber);
+            writer.writeStringValue("schoolNumber", this.schoolNumber);
         }
         if(this.users && this.users.length != 0){        const usersArrValue: EducationUserImpl[] = []; this.users?.forEach(element => {usersArrValue.push(new EducationUserImpl(element));});
-        writer.writeCollectionOfObjectValues<EducationUserImpl>("users", usersArrValue);
+            writer.writeCollectionOfObjectValues<EducationUserImpl>("users", usersArrValue);
         }
     };
 }

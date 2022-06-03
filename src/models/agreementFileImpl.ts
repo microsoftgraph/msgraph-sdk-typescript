@@ -5,7 +5,7 @@ import {AgreementFileLocalizationImpl, AgreementFilePropertiesImpl} from './inde
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the collection of agreement entities. */
-export class AgreementFileImpl extends AgreementFilePropertiesImpl implements AgreementFile, Parsable {
+export class AgreementFileImpl extends AgreementFilePropertiesImpl implements AgreementFile {
     /** The localized version of the terms of use agreement files attached to the agreement. */
     public localizations?: AgreementFileLocalization[] | undefined;
     /**
@@ -13,8 +13,8 @@ export class AgreementFileImpl extends AgreementFilePropertiesImpl implements Ag
      * @param agreementFileParameterValue 
      */
     public constructor(agreementFileParameterValue?: AgreementFile | undefined) {
-        super();
-        this.localizations = agreementFileParameterValue?.localizations ;
+        super(agreementFileParameterValue);
+        this.localizations = agreementFileParameterValue?.localizations;
     };
     /**
      * The deserialization information for the current model
@@ -33,7 +33,7 @@ export class AgreementFileImpl extends AgreementFilePropertiesImpl implements Ag
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.localizations && this.localizations.length != 0){        const localizationsArrValue: AgreementFileLocalizationImpl[] = []; this.localizations?.forEach(element => {localizationsArrValue.push(new AgreementFileLocalizationImpl(element));});
-        writer.writeCollectionOfObjectValues<AgreementFileLocalizationImpl>("localizations", localizationsArrValue);
+            writer.writeCollectionOfObjectValues<AgreementFileLocalizationImpl>("localizations", localizationsArrValue);
         }
     };
 }

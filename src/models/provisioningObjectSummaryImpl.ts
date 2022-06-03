@@ -18,7 +18,7 @@ import {ProvisioningSystem} from './provisioningSystem';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the auditLogRoot singleton. */
-export class ProvisioningObjectSummaryImpl extends EntityImpl implements Parsable, ProvisioningObjectSummary {
+export class ProvisioningObjectSummaryImpl extends EntityImpl implements ProvisioningObjectSummary {
     /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     public activityDateTime?: Date | undefined;
     /** Unique ID of this change in this cycle. */
@@ -56,23 +56,23 @@ export class ProvisioningObjectSummaryImpl extends EntityImpl implements Parsabl
      * @param provisioningObjectSummaryParameterValue 
      */
     public constructor(provisioningObjectSummaryParameterValue?: ProvisioningObjectSummary | undefined) {
-        super();
-        this.activityDateTime = provisioningObjectSummaryParameterValue?.activityDateTime ;
-        this.changeId = provisioningObjectSummaryParameterValue?.changeId ;
-        this.cycleId = provisioningObjectSummaryParameterValue?.cycleId ;
-        this.durationInMilliseconds = provisioningObjectSummaryParameterValue?.durationInMilliseconds ;
-        this.initiatedBy = provisioningObjectSummaryParameterValue?.initiatedBy ;
-        this.jobId = provisioningObjectSummaryParameterValue?.jobId ;
-        this.modifiedProperties = provisioningObjectSummaryParameterValue?.modifiedProperties ;
-        this.provisioningAction = provisioningObjectSummaryParameterValue?.provisioningAction ;
-        this.provisioningStatusInfo = provisioningObjectSummaryParameterValue?.provisioningStatusInfo ;
-        this.provisioningSteps = provisioningObjectSummaryParameterValue?.provisioningSteps ;
-        this.servicePrincipal = provisioningObjectSummaryParameterValue?.servicePrincipal ;
-        this.sourceIdentity = provisioningObjectSummaryParameterValue?.sourceIdentity ;
-        this.sourceSystem = provisioningObjectSummaryParameterValue?.sourceSystem ;
-        this.targetIdentity = provisioningObjectSummaryParameterValue?.targetIdentity ;
-        this.targetSystem = provisioningObjectSummaryParameterValue?.targetSystem ;
-        this.tenantId = provisioningObjectSummaryParameterValue?.tenantId ;
+        super(provisioningObjectSummaryParameterValue);
+        this.activityDateTime = provisioningObjectSummaryParameterValue?.activityDateTime;
+        this.changeId = provisioningObjectSummaryParameterValue?.changeId;
+        this.cycleId = provisioningObjectSummaryParameterValue?.cycleId;
+        this.durationInMilliseconds = provisioningObjectSummaryParameterValue?.durationInMilliseconds;
+        this.initiatedBy = provisioningObjectSummaryParameterValue?.initiatedBy;
+        this.jobId = provisioningObjectSummaryParameterValue?.jobId;
+        this.modifiedProperties = provisioningObjectSummaryParameterValue?.modifiedProperties;
+        this.provisioningAction = provisioningObjectSummaryParameterValue?.provisioningAction;
+        this.provisioningStatusInfo = provisioningObjectSummaryParameterValue?.provisioningStatusInfo;
+        this.provisioningSteps = provisioningObjectSummaryParameterValue?.provisioningSteps;
+        this.servicePrincipal = provisioningObjectSummaryParameterValue?.servicePrincipal;
+        this.sourceIdentity = provisioningObjectSummaryParameterValue?.sourceIdentity;
+        this.sourceSystem = provisioningObjectSummaryParameterValue?.sourceSystem;
+        this.targetIdentity = provisioningObjectSummaryParameterValue?.targetIdentity;
+        this.targetSystem = provisioningObjectSummaryParameterValue?.targetSystem;
+        this.tenantId = provisioningObjectSummaryParameterValue?.tenantId;
     };
     /**
      * The deserialization information for the current model
@@ -106,52 +106,52 @@ export class ProvisioningObjectSummaryImpl extends EntityImpl implements Parsabl
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.activityDateTime){
-        writer.writeDateValue("activityDateTime", this.activityDateTime);
+            writer.writeDateValue("activityDateTime", this.activityDateTime);
         }
         if(this.changeId){
-        writer.writeStringValue("changeId", this.changeId);
+            writer.writeStringValue("changeId", this.changeId);
         }
         if(this.cycleId){
-        writer.writeStringValue("cycleId", this.cycleId);
+            writer.writeStringValue("cycleId", this.cycleId);
         }
         if(this.durationInMilliseconds){
-        writer.writeNumberValue("durationInMilliseconds", this.durationInMilliseconds);
+            writer.writeNumberValue("durationInMilliseconds", this.durationInMilliseconds);
         }
         if(this.initiatedBy){
-        writer.writeObjectValue<InitiatorImpl>("initiatedBy", new InitiatorImpl(this.initiatedBy));
+            writer.writeObjectValue<InitiatorImpl>("initiatedBy", new InitiatorImpl(this.initiatedBy));
         }
         if(this.jobId){
-        writer.writeStringValue("jobId", this.jobId);
+            writer.writeStringValue("jobId", this.jobId);
         }
         if(this.modifiedProperties && this.modifiedProperties.length != 0){        const modifiedPropertiesArrValue: ModifiedPropertyImpl[] = []; this.modifiedProperties?.forEach(element => {modifiedPropertiesArrValue.push(new ModifiedPropertyImpl(element));});
-        writer.writeCollectionOfObjectValues<ModifiedPropertyImpl>("modifiedProperties", modifiedPropertiesArrValue);
+            writer.writeCollectionOfObjectValues<ModifiedPropertyImpl>("modifiedProperties", modifiedPropertiesArrValue);
         }
         if(this.provisioningAction){
-        writer.writeEnumValue<ProvisioningAction>("provisioningAction", this.provisioningAction);
+            writer.writeEnumValue<ProvisioningAction>("provisioningAction", this.provisioningAction);
         }
         if(this.provisioningStatusInfo){
-        writer.writeObjectValue<ProvisioningStatusInfoImpl>("provisioningStatusInfo", new ProvisioningStatusInfoImpl(this.provisioningStatusInfo));
+            writer.writeObjectValue<ProvisioningStatusInfoImpl>("provisioningStatusInfo", new ProvisioningStatusInfoImpl(this.provisioningStatusInfo));
         }
         if(this.provisioningSteps && this.provisioningSteps.length != 0){        const provisioningStepsArrValue: ProvisioningStepImpl[] = []; this.provisioningSteps?.forEach(element => {provisioningStepsArrValue.push(new ProvisioningStepImpl(element));});
-        writer.writeCollectionOfObjectValues<ProvisioningStepImpl>("provisioningSteps", provisioningStepsArrValue);
+            writer.writeCollectionOfObjectValues<ProvisioningStepImpl>("provisioningSteps", provisioningStepsArrValue);
         }
         if(this.servicePrincipal){
-        writer.writeObjectValue<ProvisioningServicePrincipalImpl>("servicePrincipal", new ProvisioningServicePrincipalImpl(this.servicePrincipal));
+            writer.writeObjectValue<ProvisioningServicePrincipalImpl>("servicePrincipal", new ProvisioningServicePrincipalImpl(this.servicePrincipal));
         }
         if(this.sourceIdentity){
-        writer.writeObjectValue<ProvisionedIdentityImpl>("sourceIdentity", new ProvisionedIdentityImpl(this.sourceIdentity));
+            writer.writeObjectValue<ProvisionedIdentityImpl>("sourceIdentity", new ProvisionedIdentityImpl(this.sourceIdentity));
         }
         if(this.sourceSystem){
-        writer.writeObjectValue<ProvisioningSystemImpl>("sourceSystem", new ProvisioningSystemImpl(this.sourceSystem));
+            writer.writeObjectValue<ProvisioningSystemImpl>("sourceSystem", new ProvisioningSystemImpl(this.sourceSystem));
         }
         if(this.targetIdentity){
-        writer.writeObjectValue<ProvisionedIdentityImpl>("targetIdentity", new ProvisionedIdentityImpl(this.targetIdentity));
+            writer.writeObjectValue<ProvisionedIdentityImpl>("targetIdentity", new ProvisionedIdentityImpl(this.targetIdentity));
         }
         if(this.targetSystem){
-        writer.writeObjectValue<ProvisioningSystemImpl>("targetSystem", new ProvisioningSystemImpl(this.targetSystem));
+            writer.writeObjectValue<ProvisioningSystemImpl>("targetSystem", new ProvisioningSystemImpl(this.targetSystem));
         }
         if(this.tenantId){
-        writer.writeStringValue("tenantId", this.tenantId);
+            writer.writeStringValue("tenantId", this.tenantId);
         }
     };
 }

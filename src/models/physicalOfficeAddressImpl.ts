@@ -1,7 +1,7 @@
 import {PhysicalOfficeAddress} from './physicalOfficeAddress';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class PhysicalOfficeAddressImpl implements AdditionalDataHolder, Parsable, PhysicalOfficeAddress {
+export class PhysicalOfficeAddressImpl implements PhysicalOfficeAddress {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The city. */
@@ -21,13 +21,13 @@ export class PhysicalOfficeAddressImpl implements AdditionalDataHolder, Parsable
      * @param physicalOfficeAddressParameterValue 
      */
     public constructor(physicalOfficeAddressParameterValue?: PhysicalOfficeAddress | undefined) {
-        this.additionalData = physicalOfficeAddressParameterValue?.additionalData ? physicalOfficeAddressParameterValue?.additionalData! : {}
-        this.city = physicalOfficeAddressParameterValue?.city ;
-        this.countryOrRegion = physicalOfficeAddressParameterValue?.countryOrRegion ;
-        this.officeLocation = physicalOfficeAddressParameterValue?.officeLocation ;
-        this.postalCode = physicalOfficeAddressParameterValue?.postalCode ;
-        this.state = physicalOfficeAddressParameterValue?.state ;
-        this.street = physicalOfficeAddressParameterValue?.street ;
+        this.additionalData = physicalOfficeAddressParameterValue?.additionalData ? physicalOfficeAddressParameterValue?.additionalData! : {};
+        this.city = physicalOfficeAddressParameterValue?.city;
+        this.countryOrRegion = physicalOfficeAddressParameterValue?.countryOrRegion;
+        this.officeLocation = physicalOfficeAddressParameterValue?.officeLocation;
+        this.postalCode = physicalOfficeAddressParameterValue?.postalCode;
+        this.state = physicalOfficeAddressParameterValue?.state;
+        this.street = physicalOfficeAddressParameterValue?.street;
     };
     /**
      * The deserialization information for the current model
@@ -50,22 +50,22 @@ export class PhysicalOfficeAddressImpl implements AdditionalDataHolder, Parsable
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.city){
-        writer.writeStringValue("city", this.city);
+            writer.writeStringValue("city", this.city);
         }
         if(this.countryOrRegion){
-        writer.writeStringValue("countryOrRegion", this.countryOrRegion);
+            writer.writeStringValue("countryOrRegion", this.countryOrRegion);
         }
         if(this.officeLocation){
-        writer.writeStringValue("officeLocation", this.officeLocation);
+            writer.writeStringValue("officeLocation", this.officeLocation);
         }
         if(this.postalCode){
-        writer.writeStringValue("postalCode", this.postalCode);
+            writer.writeStringValue("postalCode", this.postalCode);
         }
         if(this.state){
-        writer.writeStringValue("state", this.state);
+            writer.writeStringValue("state", this.state);
         }
         if(this.street){
-        writer.writeStringValue("street", this.street);
+            writer.writeStringValue("street", this.street);
         }
         writer.writeAdditionalData(this.additionalData);
     };

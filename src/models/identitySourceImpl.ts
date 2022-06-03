@@ -1,7 +1,7 @@
 import {IdentitySource} from './identitySource';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class IdentitySourceImpl implements AdditionalDataHolder, IdentitySource, Parsable {
+export class IdentitySourceImpl implements IdentitySource {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /**
@@ -9,7 +9,7 @@ export class IdentitySourceImpl implements AdditionalDataHolder, IdentitySource,
      * @param identitySourceParameterValue 
      */
     public constructor(identitySourceParameterValue?: IdentitySource | undefined) {
-        this.additionalData = identitySourceParameterValue?.additionalData ? identitySourceParameterValue?.additionalData! : {}
+        this.additionalData = identitySourceParameterValue?.additionalData ? identitySourceParameterValue?.additionalData! : {};
     };
     /**
      * The deserialization information for the current model

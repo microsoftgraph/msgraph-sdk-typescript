@@ -5,7 +5,7 @@ import {IdentitySetImpl} from './index';
 import {ParticipantInfo} from './participantInfo';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ParticipantInfoImpl implements AdditionalDataHolder, Parsable, ParticipantInfo {
+export class ParticipantInfoImpl implements ParticipantInfo {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The ISO 3166-1 Alpha-2 country code of the participant's best estimated physical location at the start of the call. Read-only. */
@@ -25,13 +25,13 @@ export class ParticipantInfoImpl implements AdditionalDataHolder, Parsable, Part
      * @param participantInfoParameterValue 
      */
     public constructor(participantInfoParameterValue?: ParticipantInfo | undefined) {
-        this.additionalData = participantInfoParameterValue?.additionalData ? participantInfoParameterValue?.additionalData! : {}
-        this.countryCode = participantInfoParameterValue?.countryCode ;
-        this.endpointType = participantInfoParameterValue?.endpointType ;
-        this.identity = participantInfoParameterValue?.identity ;
-        this.languageId = participantInfoParameterValue?.languageId ;
-        this.participantId = participantInfoParameterValue?.participantId ;
-        this.region = participantInfoParameterValue?.region ;
+        this.additionalData = participantInfoParameterValue?.additionalData ? participantInfoParameterValue?.additionalData! : {};
+        this.countryCode = participantInfoParameterValue?.countryCode;
+        this.endpointType = participantInfoParameterValue?.endpointType;
+        this.identity = participantInfoParameterValue?.identity;
+        this.languageId = participantInfoParameterValue?.languageId;
+        this.participantId = participantInfoParameterValue?.participantId;
+        this.region = participantInfoParameterValue?.region;
     };
     /**
      * The deserialization information for the current model
@@ -54,22 +54,22 @@ export class ParticipantInfoImpl implements AdditionalDataHolder, Parsable, Part
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.countryCode){
-        writer.writeStringValue("countryCode", this.countryCode);
+            writer.writeStringValue("countryCode", this.countryCode);
         }
         if(this.endpointType){
-        writer.writeEnumValue<EndpointType>("endpointType", this.endpointType);
+            writer.writeEnumValue<EndpointType>("endpointType", this.endpointType);
         }
         if(this.identity){
-        writer.writeObjectValue<IdentitySetImpl>("identity", new IdentitySetImpl(this.identity));
+            writer.writeObjectValue<IdentitySetImpl>("identity", new IdentitySetImpl(this.identity));
         }
         if(this.languageId){
-        writer.writeStringValue("languageId", this.languageId);
+            writer.writeStringValue("languageId", this.languageId);
         }
         if(this.participantId){
-        writer.writeStringValue("participantId", this.participantId);
+            writer.writeStringValue("participantId", this.participantId);
         }
         if(this.region){
-        writer.writeStringValue("region", this.region);
+            writer.writeStringValue("region", this.region);
         }
         writer.writeAdditionalData(this.additionalData);
     };

@@ -5,7 +5,7 @@ import {RemoveResponse} from './removeResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the remove method. */
-export class RemoveResponseImpl implements AdditionalDataHolder, Parsable, RemoveResponse {
+export class RemoveResponseImpl implements RemoveResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The value property */
@@ -15,8 +15,8 @@ export class RemoveResponseImpl implements AdditionalDataHolder, Parsable, Remov
      * @param removeResponseParameterValue 
      */
     public constructor(removeResponseParameterValue?: RemoveResponse | undefined) {
-        this.additionalData = removeResponseParameterValue?.additionalData ? removeResponseParameterValue?.additionalData! : {}
-        this.value = removeResponseParameterValue?.value ;
+        this.additionalData = removeResponseParameterValue?.additionalData ? removeResponseParameterValue?.additionalData! : {};
+        this.value = removeResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -34,7 +34,7 @@ export class RemoveResponseImpl implements AdditionalDataHolder, Parsable, Remov
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.value && this.value.length != 0){        const valueArrValue: SiteImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new SiteImpl(element));});
-        writer.writeCollectionOfObjectValues<SiteImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<SiteImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

@@ -1,7 +1,7 @@
 import {ImageInfo} from './imageInfo';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ImageInfoImpl implements AdditionalDataHolder, ImageInfo, Parsable {
+export class ImageInfoImpl implements ImageInfo {
     /** Optional; parameter used to indicate the server is able to render image dynamically in response to parameterization. For example – a high contrast image */
     public addImageQuery?: boolean | undefined;
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
@@ -17,11 +17,11 @@ export class ImageInfoImpl implements AdditionalDataHolder, ImageInfo, Parsable 
      * @param imageInfoParameterValue 
      */
     public constructor(imageInfoParameterValue?: ImageInfo | undefined) {
-        this.addImageQuery = imageInfoParameterValue?.addImageQuery ;
-        this.additionalData = imageInfoParameterValue?.additionalData ? imageInfoParameterValue?.additionalData! : {}
-        this.alternateText = imageInfoParameterValue?.alternateText ;
-        this.alternativeText = imageInfoParameterValue?.alternativeText ;
-        this.iconUrl = imageInfoParameterValue?.iconUrl ;
+        this.addImageQuery = imageInfoParameterValue?.addImageQuery;
+        this.additionalData = imageInfoParameterValue?.additionalData ? imageInfoParameterValue?.additionalData! : {};
+        this.alternateText = imageInfoParameterValue?.alternateText;
+        this.alternativeText = imageInfoParameterValue?.alternativeText;
+        this.iconUrl = imageInfoParameterValue?.iconUrl;
     };
     /**
      * The deserialization information for the current model
@@ -42,16 +42,16 @@ export class ImageInfoImpl implements AdditionalDataHolder, ImageInfo, Parsable 
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.addImageQuery){
-        writer.writeBooleanValue("addImageQuery", this.addImageQuery);
+            writer.writeBooleanValue("addImageQuery", this.addImageQuery);
         }
         if(this.alternateText){
-        writer.writeStringValue("alternateText", this.alternateText);
+            writer.writeStringValue("alternateText", this.alternateText);
         }
         if(this.alternativeText){
-        writer.writeStringValue("alternativeText", this.alternativeText);
+            writer.writeStringValue("alternativeText", this.alternativeText);
         }
         if(this.iconUrl){
-        writer.writeStringValue("iconUrl", this.iconUrl);
+            writer.writeStringValue("iconUrl", this.iconUrl);
         }
         writer.writeAdditionalData(this.additionalData);
     };

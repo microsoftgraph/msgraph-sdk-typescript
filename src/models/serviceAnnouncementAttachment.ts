@@ -1,14 +1,15 @@
 import {Entity} from './entity';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface ServiceAnnouncementAttachment extends Entity{
+export interface ServiceAnnouncementAttachment extends Entity, Partial<Parsable> {
     /** The attachment content. */
-    content?:string | undefined;
+    content?: string | undefined;
     /** The contentType property */
-    contentType?:string | undefined;
+    contentType?: string | undefined;
     /** The lastModifiedDateTime property */
-    lastModifiedDateTime?:Date | undefined;
+    lastModifiedDateTime?: Date | undefined;
     /** The name property */
-    name?:string | undefined;
+    name?: string | undefined;
     /** The size property */
-    size?:number | undefined;
+    size?: number | undefined;
 }

@@ -5,7 +5,7 @@ import {OrganizationalBrandingLocalization} from './organizationalBrandingLocali
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the organizationalBranding singleton. */
-export class OrganizationalBrandingImpl extends OrganizationalBrandingPropertiesImpl implements OrganizationalBranding, Parsable {
+export class OrganizationalBrandingImpl extends OrganizationalBrandingPropertiesImpl implements OrganizationalBranding {
     /** Add different branding based on a locale. */
     public localizations?: OrganizationalBrandingLocalization[] | undefined;
     /**
@@ -13,8 +13,8 @@ export class OrganizationalBrandingImpl extends OrganizationalBrandingProperties
      * @param organizationalBrandingParameterValue 
      */
     public constructor(organizationalBrandingParameterValue?: OrganizationalBranding | undefined) {
-        super();
-        this.localizations = organizationalBrandingParameterValue?.localizations ;
+        super(organizationalBrandingParameterValue);
+        this.localizations = organizationalBrandingParameterValue?.localizations;
     };
     /**
      * The deserialization information for the current model
@@ -33,7 +33,7 @@ export class OrganizationalBrandingImpl extends OrganizationalBrandingProperties
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.localizations && this.localizations.length != 0){        const localizationsArrValue: OrganizationalBrandingLocalizationImpl[] = []; this.localizations?.forEach(element => {localizationsArrValue.push(new OrganizationalBrandingLocalizationImpl(element));});
-        writer.writeCollectionOfObjectValues<OrganizationalBrandingLocalizationImpl>("localizations", localizationsArrValue);
+            writer.writeCollectionOfObjectValues<OrganizationalBrandingLocalizationImpl>("localizations", localizationsArrValue);
         }
     };
 }

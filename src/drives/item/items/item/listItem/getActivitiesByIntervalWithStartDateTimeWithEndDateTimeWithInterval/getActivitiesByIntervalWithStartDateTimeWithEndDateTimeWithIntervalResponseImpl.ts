@@ -5,7 +5,7 @@ import {GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRespo
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the getActivitiesByInterval method. */
-export class GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalResponseImpl implements AdditionalDataHolder, GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalResponse, Parsable {
+export class GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalResponseImpl implements GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The value property */
@@ -15,8 +15,8 @@ export class GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInterval
      * @param getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalResponseParameterValue 
      */
     public constructor(getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalResponseParameterValue?: GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalResponse | undefined) {
-        this.additionalData = getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalResponseParameterValue?.additionalData ? getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalResponseParameterValue?.additionalData! : {}
-        this.value = getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalResponseParameterValue?.value ;
+        this.additionalData = getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalResponseParameterValue?.additionalData ? getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalResponseParameterValue?.additionalData! : {};
+        this.value = getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -34,7 +34,7 @@ export class GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInterval
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.value && this.value.length != 0){        const valueArrValue: ItemActivityStatImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ItemActivityStatImpl(element));});
-        writer.writeCollectionOfObjectValues<ItemActivityStatImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<ItemActivityStatImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

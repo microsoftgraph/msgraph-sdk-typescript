@@ -4,7 +4,7 @@ import {SingleValueLegacyExtendedProperty} from './singleValueLegacyExtendedProp
 import {SingleValueLegacyExtendedPropertyCollectionResponse} from './singleValueLegacyExtendedPropertyCollectionResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class SingleValueLegacyExtendedPropertyCollectionResponseImpl implements AdditionalDataHolder, Parsable, SingleValueLegacyExtendedPropertyCollectionResponse {
+export class SingleValueLegacyExtendedPropertyCollectionResponseImpl implements SingleValueLegacyExtendedPropertyCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class SingleValueLegacyExtendedPropertyCollectionResponseImpl implements 
      * @param singleValueLegacyExtendedPropertyCollectionResponseParameterValue 
      */
     public constructor(singleValueLegacyExtendedPropertyCollectionResponseParameterValue?: SingleValueLegacyExtendedPropertyCollectionResponse | undefined) {
-        this.additionalData = singleValueLegacyExtendedPropertyCollectionResponseParameterValue?.additionalData ? singleValueLegacyExtendedPropertyCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = singleValueLegacyExtendedPropertyCollectionResponseParameterValue?.nextLink ;
-        this.value = singleValueLegacyExtendedPropertyCollectionResponseParameterValue?.value ;
+        this.additionalData = singleValueLegacyExtendedPropertyCollectionResponseParameterValue?.additionalData ? singleValueLegacyExtendedPropertyCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = singleValueLegacyExtendedPropertyCollectionResponseParameterValue?.nextLink;
+        this.value = singleValueLegacyExtendedPropertyCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class SingleValueLegacyExtendedPropertyCollectionResponseImpl implements 
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: SingleValueLegacyExtendedPropertyImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new SingleValueLegacyExtendedPropertyImpl(element));});
-        writer.writeCollectionOfObjectValues<SingleValueLegacyExtendedPropertyImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<SingleValueLegacyExtendedPropertyImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

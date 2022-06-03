@@ -1,11 +1,11 @@
 import {PresenceItemRequestBuilderGetQueryParameters} from './presenceItemRequestBuilderGetQueryParameters';
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
-export interface PresenceItemRequestBuilderGetRequestConfiguration{
+export interface PresenceItemRequestBuilderGetRequestConfiguration {
     /** Request headers */
-    headers?:Record<string, string> | undefined;
+    headers?: Record<string, string> | undefined;
     /** Request options */
-    options?:RequestOption[] | undefined;
+    options?: RequestOption[] | undefined;
     /** Request query parameters */
-    queryParameters?:PresenceItemRequestBuilderGetQueryParameters | undefined;
+    queryParameters?: PresenceItemRequestBuilderGetQueryParameters | undefined;
 }

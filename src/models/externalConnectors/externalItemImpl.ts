@@ -10,7 +10,7 @@ import {Properties} from './properties';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the collection of externalConnection entities. */
-export class ExternalItemImpl extends EntityImpl implements ExternalItem, Parsable {
+export class ExternalItemImpl extends EntityImpl implements ExternalItem {
     /** An array of access control entries. Each entry specifies the access granted to a user or group. Required. */
     public acl?: Acl[] | undefined;
     /** A plain-text  representation of the contents of the item. The text in this property is full-text indexed. Optional. */
@@ -22,10 +22,10 @@ export class ExternalItemImpl extends EntityImpl implements ExternalItem, Parsab
      * @param externalItemParameterValue 
      */
     public constructor(externalItemParameterValue?: ExternalItem | undefined) {
-        super();
-        this.acl = externalItemParameterValue?.acl ;
-        this.content = externalItemParameterValue?.content ;
-        this.properties = externalItemParameterValue?.properties ;
+        super(externalItemParameterValue);
+        this.acl = externalItemParameterValue?.acl;
+        this.content = externalItemParameterValue?.content;
+        this.properties = externalItemParameterValue?.properties;
     };
     /**
      * The deserialization information for the current model
@@ -46,13 +46,13 @@ export class ExternalItemImpl extends EntityImpl implements ExternalItem, Parsab
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.acl && this.acl.length != 0){        const aclArrValue: AclImpl[] = []; this.acl?.forEach(element => {aclArrValue.push(new AclImpl(element));});
-        writer.writeCollectionOfObjectValues<AclImpl>("acl", aclArrValue);
+            writer.writeCollectionOfObjectValues<AclImpl>("acl", aclArrValue);
         }
         if(this.content){
-        writer.writeObjectValue<ExternalItemContentImpl>("content", new ExternalItemContentImpl(this.content));
+            writer.writeObjectValue<ExternalItemContentImpl>("content", new ExternalItemContentImpl(this.content));
         }
         if(this.properties){
-        writer.writeObjectValue<PropertiesImpl>("properties", new PropertiesImpl(this.properties));
+            writer.writeObjectValue<PropertiesImpl>("properties", new PropertiesImpl(this.properties));
         }
     };
 }

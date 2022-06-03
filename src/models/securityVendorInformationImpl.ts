@@ -1,7 +1,7 @@
 import {SecurityVendorInformation} from './securityVendorInformation';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class SecurityVendorInformationImpl implements AdditionalDataHolder, Parsable, SecurityVendorInformation {
+export class SecurityVendorInformationImpl implements SecurityVendorInformation {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Specific provider (product/service - not vendor company); for example, WindowsDefenderATP. */
@@ -17,11 +17,11 @@ export class SecurityVendorInformationImpl implements AdditionalDataHolder, Pars
      * @param securityVendorInformationParameterValue 
      */
     public constructor(securityVendorInformationParameterValue?: SecurityVendorInformation | undefined) {
-        this.additionalData = securityVendorInformationParameterValue?.additionalData ? securityVendorInformationParameterValue?.additionalData! : {}
-        this.provider = securityVendorInformationParameterValue?.provider ;
-        this.providerVersion = securityVendorInformationParameterValue?.providerVersion ;
-        this.subProvider = securityVendorInformationParameterValue?.subProvider ;
-        this.vendor = securityVendorInformationParameterValue?.vendor ;
+        this.additionalData = securityVendorInformationParameterValue?.additionalData ? securityVendorInformationParameterValue?.additionalData! : {};
+        this.provider = securityVendorInformationParameterValue?.provider;
+        this.providerVersion = securityVendorInformationParameterValue?.providerVersion;
+        this.subProvider = securityVendorInformationParameterValue?.subProvider;
+        this.vendor = securityVendorInformationParameterValue?.vendor;
     };
     /**
      * The deserialization information for the current model
@@ -42,16 +42,16 @@ export class SecurityVendorInformationImpl implements AdditionalDataHolder, Pars
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.provider){
-        writer.writeStringValue("provider", this.provider);
+            writer.writeStringValue("provider", this.provider);
         }
         if(this.providerVersion){
-        writer.writeStringValue("providerVersion", this.providerVersion);
+            writer.writeStringValue("providerVersion", this.providerVersion);
         }
         if(this.subProvider){
-        writer.writeStringValue("subProvider", this.subProvider);
+            writer.writeStringValue("subProvider", this.subProvider);
         }
         if(this.vendor){
-        writer.writeStringValue("vendor", this.vendor);
+            writer.writeStringValue("vendor", this.vendor);
         }
         writer.writeAdditionalData(this.additionalData);
     };

@@ -3,7 +3,7 @@ import {LocalizedNotificationMessage} from './localizedNotificationMessage';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** The text content of a Notification Message Template for the specified locale. */
-export class LocalizedNotificationMessageImpl extends EntityImpl implements LocalizedNotificationMessage, Parsable {
+export class LocalizedNotificationMessageImpl extends EntityImpl implements LocalizedNotificationMessage {
     /** Flag to indicate whether or not this is the default locale for language fallback. This flag can only be set. To unset, set this property to true on another Localized Notification Message. */
     public isDefault?: boolean | undefined;
     /** DateTime the object was last modified. */
@@ -19,12 +19,12 @@ export class LocalizedNotificationMessageImpl extends EntityImpl implements Loca
      * @param localizedNotificationMessageParameterValue 
      */
     public constructor(localizedNotificationMessageParameterValue?: LocalizedNotificationMessage | undefined) {
-        super();
-        this.isDefault = localizedNotificationMessageParameterValue?.isDefault ;
-        this.lastModifiedDateTime = localizedNotificationMessageParameterValue?.lastModifiedDateTime ;
-        this.locale = localizedNotificationMessageParameterValue?.locale ;
-        this.messageTemplate = localizedNotificationMessageParameterValue?.messageTemplate ;
-        this.subject = localizedNotificationMessageParameterValue?.subject ;
+        super(localizedNotificationMessageParameterValue);
+        this.isDefault = localizedNotificationMessageParameterValue?.isDefault;
+        this.lastModifiedDateTime = localizedNotificationMessageParameterValue?.lastModifiedDateTime;
+        this.locale = localizedNotificationMessageParameterValue?.locale;
+        this.messageTemplate = localizedNotificationMessageParameterValue?.messageTemplate;
+        this.subject = localizedNotificationMessageParameterValue?.subject;
     };
     /**
      * The deserialization information for the current model
@@ -47,19 +47,19 @@ export class LocalizedNotificationMessageImpl extends EntityImpl implements Loca
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.isDefault){
-        writer.writeBooleanValue("isDefault", this.isDefault);
+            writer.writeBooleanValue("isDefault", this.isDefault);
         }
         if(this.lastModifiedDateTime){
-        writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
+            writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
         }
         if(this.locale){
-        writer.writeStringValue("locale", this.locale);
+            writer.writeStringValue("locale", this.locale);
         }
         if(this.messageTemplate){
-        writer.writeStringValue("messageTemplate", this.messageTemplate);
+            writer.writeStringValue("messageTemplate", this.messageTemplate);
         }
         if(this.subject){
-        writer.writeStringValue("subject", this.subject);
+            writer.writeStringValue("subject", this.subject);
         }
     };
 }

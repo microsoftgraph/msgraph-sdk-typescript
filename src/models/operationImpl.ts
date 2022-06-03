@@ -3,8 +3,8 @@ import {Operation} from './operation';
 import {OperationStatus} from './operationStatus';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to group. */
-export class OperationImpl extends EntityImpl implements Operation, Parsable {
+/** Casts the previous resource to user. */
+export class OperationImpl extends EntityImpl implements Operation {
     /** The start time of the operation. */
     public createdDateTime?: Date | undefined;
     /** The time of the last action of the operation. */
@@ -16,10 +16,10 @@ export class OperationImpl extends EntityImpl implements Operation, Parsable {
      * @param operationParameterValue 
      */
     public constructor(operationParameterValue?: Operation | undefined) {
-        super();
-        this.createdDateTime = operationParameterValue?.createdDateTime ;
-        this.lastActionDateTime = operationParameterValue?.lastActionDateTime ;
-        this.status = operationParameterValue?.status ;
+        super(operationParameterValue);
+        this.createdDateTime = operationParameterValue?.createdDateTime;
+        this.lastActionDateTime = operationParameterValue?.lastActionDateTime;
+        this.status = operationParameterValue?.status;
     };
     /**
      * The deserialization information for the current model
@@ -40,13 +40,13 @@ export class OperationImpl extends EntityImpl implements Operation, Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.createdDateTime){
-        writer.writeDateValue("createdDateTime", this.createdDateTime);
+            writer.writeDateValue("createdDateTime", this.createdDateTime);
         }
         if(this.lastActionDateTime){
-        writer.writeDateValue("lastActionDateTime", this.lastActionDateTime);
+            writer.writeDateValue("lastActionDateTime", this.lastActionDateTime);
         }
         if(this.status){
-        writer.writeEnumValue<OperationStatus>("status", this.status);
+            writer.writeEnumValue<OperationStatus>("status", this.status);
         }
     };
 }

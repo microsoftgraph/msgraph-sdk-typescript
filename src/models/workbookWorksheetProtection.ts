@@ -1,9 +1,10 @@
 import {Entity} from './entity';
 import {WorkbookWorksheetProtectionOptions} from './workbookWorksheetProtectionOptions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface WorkbookWorksheetProtection extends Entity{
+export interface WorkbookWorksheetProtection extends Entity, Partial<Parsable> {
     /** Sheet protection options. Read-only. */
-    options?:WorkbookWorksheetProtectionOptions | undefined;
+    options?: WorkbookWorksheetProtectionOptions | undefined;
     /** Indicates if the worksheet is protected.  Read-only. */
-    protected?:boolean | undefined;
+    protected?: boolean | undefined;
 }

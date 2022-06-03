@@ -6,7 +6,7 @@ import {ConnectionOperationStatus} from './connectionOperationStatus';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the collection of externalConnection entities. */
-export class ConnectionOperationImpl extends EntityImpl implements ConnectionOperation, Parsable {
+export class ConnectionOperationImpl extends EntityImpl implements ConnectionOperation {
     /** If status is failed, provides more information about the error that caused the failure. */
     public error_escaped?: PublicError | undefined;
     /** Indicates the status of the asynchronous operation. Possible values are: unspecified, inprogress, completed, failed. */
@@ -16,9 +16,9 @@ export class ConnectionOperationImpl extends EntityImpl implements ConnectionOpe
      * @param connectionOperationParameterValue 
      */
     public constructor(connectionOperationParameterValue?: ConnectionOperation | undefined) {
-        super();
-        this.error_escaped = connectionOperationParameterValue?.error_escaped ;
-        this.status = connectionOperationParameterValue?.status ;
+        super(connectionOperationParameterValue);
+        this.error_escaped = connectionOperationParameterValue?.error_escaped;
+        this.status = connectionOperationParameterValue?.status;
     };
     /**
      * The deserialization information for the current model
@@ -38,10 +38,10 @@ export class ConnectionOperationImpl extends EntityImpl implements ConnectionOpe
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.error_escaped){
-        writer.writeObjectValue<PublicErrorImpl>("error", new PublicErrorImpl(this.error_escaped));
+            writer.writeObjectValue<PublicErrorImpl>("error", new PublicErrorImpl(this.error_escaped));
         }
         if(this.status){
-        writer.writeEnumValue<ConnectionOperationStatus>("status", this.status);
+            writer.writeEnumValue<ConnectionOperationStatus>("status", this.status);
         }
     };
 }

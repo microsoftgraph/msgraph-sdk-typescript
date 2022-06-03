@@ -1,7 +1,7 @@
 import {PasswordProfile} from './passwordProfile';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class PasswordProfileImpl implements AdditionalDataHolder, Parsable, PasswordProfile {
+export class PasswordProfileImpl implements PasswordProfile {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** true if the user must change her password on the next login; otherwise false. If not set, default is false. NOTE:  For Azure B2C tenants, set to false and instead use custom policies and user flows to force password reset at first sign in. See Force password reset at first logon. */
@@ -15,10 +15,10 @@ export class PasswordProfileImpl implements AdditionalDataHolder, Parsable, Pass
      * @param passwordProfileParameterValue 
      */
     public constructor(passwordProfileParameterValue?: PasswordProfile | undefined) {
-        this.additionalData = passwordProfileParameterValue?.additionalData ? passwordProfileParameterValue?.additionalData! : {}
-        this.forceChangePasswordNextSignIn = passwordProfileParameterValue?.forceChangePasswordNextSignIn ;
-        this.forceChangePasswordNextSignInWithMfa = passwordProfileParameterValue?.forceChangePasswordNextSignInWithMfa ;
-        this.password = passwordProfileParameterValue?.password ;
+        this.additionalData = passwordProfileParameterValue?.additionalData ? passwordProfileParameterValue?.additionalData! : {};
+        this.forceChangePasswordNextSignIn = passwordProfileParameterValue?.forceChangePasswordNextSignIn;
+        this.forceChangePasswordNextSignInWithMfa = passwordProfileParameterValue?.forceChangePasswordNextSignInWithMfa;
+        this.password = passwordProfileParameterValue?.password;
     };
     /**
      * The deserialization information for the current model
@@ -38,13 +38,13 @@ export class PasswordProfileImpl implements AdditionalDataHolder, Parsable, Pass
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.forceChangePasswordNextSignIn){
-        writer.writeBooleanValue("forceChangePasswordNextSignIn", this.forceChangePasswordNextSignIn);
+            writer.writeBooleanValue("forceChangePasswordNextSignIn", this.forceChangePasswordNextSignIn);
         }
         if(this.forceChangePasswordNextSignInWithMfa){
-        writer.writeBooleanValue("forceChangePasswordNextSignInWithMfa", this.forceChangePasswordNextSignInWithMfa);
+            writer.writeBooleanValue("forceChangePasswordNextSignInWithMfa", this.forceChangePasswordNextSignInWithMfa);
         }
         if(this.password){
-        writer.writeStringValue("password", this.password);
+            writer.writeStringValue("password", this.password);
         }
         writer.writeAdditionalData(this.additionalData);
     };

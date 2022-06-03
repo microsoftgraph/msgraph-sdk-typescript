@@ -2,7 +2,7 @@ import {GetCachedReportPostRequestBody} from './getCachedReportPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the getCachedReport method. */
-export class GetCachedReportPostRequestBodyImpl implements AdditionalDataHolder, GetCachedReportPostRequestBody, Parsable {
+export class GetCachedReportPostRequestBodyImpl implements GetCachedReportPostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The groupBy property */
@@ -24,14 +24,14 @@ export class GetCachedReportPostRequestBodyImpl implements AdditionalDataHolder,
      * @param getCachedReportPostRequestBodyParameterValue 
      */
     public constructor(getCachedReportPostRequestBodyParameterValue?: GetCachedReportPostRequestBody | undefined) {
-        this.additionalData = getCachedReportPostRequestBodyParameterValue?.additionalData ? getCachedReportPostRequestBodyParameterValue?.additionalData! : {}
-        this.groupBy = getCachedReportPostRequestBodyParameterValue?.groupBy ;
-        this.id = getCachedReportPostRequestBodyParameterValue?.id ;
-        this.orderBy = getCachedReportPostRequestBodyParameterValue?.orderBy ;
-        this.search = getCachedReportPostRequestBodyParameterValue?.search ;
-        this.select = getCachedReportPostRequestBodyParameterValue?.select ;
-        this.skip = getCachedReportPostRequestBodyParameterValue?.skip ;
-        this.top = getCachedReportPostRequestBodyParameterValue?.top ;
+        this.additionalData = getCachedReportPostRequestBodyParameterValue?.additionalData ? getCachedReportPostRequestBodyParameterValue?.additionalData! : {};
+        this.groupBy = getCachedReportPostRequestBodyParameterValue?.groupBy;
+        this.id = getCachedReportPostRequestBodyParameterValue?.id;
+        this.orderBy = getCachedReportPostRequestBodyParameterValue?.orderBy;
+        this.search = getCachedReportPostRequestBodyParameterValue?.search;
+        this.select = getCachedReportPostRequestBodyParameterValue?.select;
+        this.skip = getCachedReportPostRequestBodyParameterValue?.skip;
+        this.top = getCachedReportPostRequestBodyParameterValue?.top;
     };
     /**
      * The deserialization information for the current model
@@ -55,25 +55,25 @@ export class GetCachedReportPostRequestBodyImpl implements AdditionalDataHolder,
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.groupBy){
-        writer.writeCollectionOfPrimitiveValues<string>("groupBy", this.groupBy);
+            writer.writeCollectionOfPrimitiveValues<string>("groupBy", this.groupBy);
         }
         if(this.id){
-        writer.writeStringValue("id", this.id);
+            writer.writeStringValue("id", this.id);
         }
         if(this.orderBy){
-        writer.writeCollectionOfPrimitiveValues<string>("orderBy", this.orderBy);
+            writer.writeCollectionOfPrimitiveValues<string>("orderBy", this.orderBy);
         }
         if(this.search){
-        writer.writeStringValue("search", this.search);
+            writer.writeStringValue("search", this.search);
         }
         if(this.select){
-        writer.writeCollectionOfPrimitiveValues<string>("select", this.select);
+            writer.writeCollectionOfPrimitiveValues<string>("select", this.select);
         }
         if(this.skip){
-        writer.writeNumberValue("skip", this.skip);
+            writer.writeNumberValue("skip", this.skip);
         }
         if(this.top){
-        writer.writeNumberValue("top", this.top);
+            writer.writeNumberValue("top", this.top);
         }
         writer.writeAdditionalData(this.additionalData);
     };

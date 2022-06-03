@@ -5,7 +5,7 @@ import {SelfServiceSignUpAuthenticationFlowConfiguration} from './selfServiceSig
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the policyRoot singleton. */
-export class AuthenticationFlowsPolicyImpl extends EntityImpl implements AuthenticationFlowsPolicy, Parsable {
+export class AuthenticationFlowsPolicyImpl extends EntityImpl implements AuthenticationFlowsPolicy {
     /** Inherited property. A description of the policy. This property is not a key. Optional. Read-only. */
     public description?: string | undefined;
     /** Inherited property. The human-readable name of the policy. This property is not a key. Optional. Read-only. */
@@ -17,10 +17,10 @@ export class AuthenticationFlowsPolicyImpl extends EntityImpl implements Authent
      * @param authenticationFlowsPolicyParameterValue 
      */
     public constructor(authenticationFlowsPolicyParameterValue?: AuthenticationFlowsPolicy | undefined) {
-        super();
-        this.description = authenticationFlowsPolicyParameterValue?.description ;
-        this.displayName = authenticationFlowsPolicyParameterValue?.displayName ;
-        this.selfServiceSignUp = authenticationFlowsPolicyParameterValue?.selfServiceSignUp ;
+        super(authenticationFlowsPolicyParameterValue);
+        this.description = authenticationFlowsPolicyParameterValue?.description;
+        this.displayName = authenticationFlowsPolicyParameterValue?.displayName;
+        this.selfServiceSignUp = authenticationFlowsPolicyParameterValue?.selfServiceSignUp;
     };
     /**
      * The deserialization information for the current model
@@ -41,13 +41,13 @@ export class AuthenticationFlowsPolicyImpl extends EntityImpl implements Authent
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.description){
-        writer.writeStringValue("description", this.description);
+            writer.writeStringValue("description", this.description);
         }
         if(this.displayName){
-        writer.writeStringValue("displayName", this.displayName);
+            writer.writeStringValue("displayName", this.displayName);
         }
         if(this.selfServiceSignUp){
-        writer.writeObjectValue<SelfServiceSignUpAuthenticationFlowConfigurationImpl>("selfServiceSignUp", new SelfServiceSignUpAuthenticationFlowConfigurationImpl(this.selfServiceSignUp));
+            writer.writeObjectValue<SelfServiceSignUpAuthenticationFlowConfigurationImpl>("selfServiceSignUp", new SelfServiceSignUpAuthenticationFlowConfigurationImpl(this.selfServiceSignUp));
         }
     };
 }

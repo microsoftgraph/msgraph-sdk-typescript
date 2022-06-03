@@ -1,7 +1,7 @@
 import {ConditionalAccessSessionControl} from './conditionalAccessSessionControl';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ConditionalAccessSessionControlImpl implements AdditionalDataHolder, ConditionalAccessSessionControl, Parsable {
+export class ConditionalAccessSessionControlImpl implements ConditionalAccessSessionControl {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Specifies whether the session control is enabled. */
@@ -11,8 +11,8 @@ export class ConditionalAccessSessionControlImpl implements AdditionalDataHolder
      * @param conditionalAccessSessionControlParameterValue 
      */
     public constructor(conditionalAccessSessionControlParameterValue?: ConditionalAccessSessionControl | undefined) {
-        this.additionalData = conditionalAccessSessionControlParameterValue?.additionalData ? conditionalAccessSessionControlParameterValue?.additionalData! : {}
-        this.isEnabled = conditionalAccessSessionControlParameterValue?.isEnabled ;
+        this.additionalData = conditionalAccessSessionControlParameterValue?.additionalData ? conditionalAccessSessionControlParameterValue?.additionalData! : {};
+        this.isEnabled = conditionalAccessSessionControlParameterValue?.isEnabled;
     };
     /**
      * The deserialization information for the current model
@@ -30,7 +30,7 @@ export class ConditionalAccessSessionControlImpl implements AdditionalDataHolder
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.isEnabled){
-        writer.writeBooleanValue("isEnabled", this.isEnabled);
+            writer.writeBooleanValue("isEnabled", this.isEnabled);
         }
         writer.writeAdditionalData(this.additionalData);
     };

@@ -7,8 +7,8 @@ import {Set} from './set';
 import {Store} from './store';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to group. */
-export class StoreImpl extends EntityImpl implements Parsable, Store {
+/** Casts the previous resource to user. */
+export class StoreImpl extends EntityImpl implements Store {
     /** Default language of the term store. */
     public defaultLanguageTag?: string | undefined;
     /** Collection of all groups available in the term store. */
@@ -22,11 +22,11 @@ export class StoreImpl extends EntityImpl implements Parsable, Store {
      * @param storeParameterValue 
      */
     public constructor(storeParameterValue?: Store | undefined) {
-        super();
-        this.defaultLanguageTag = storeParameterValue?.defaultLanguageTag ;
-        this.groups = storeParameterValue?.groups ;
-        this.languageTags = storeParameterValue?.languageTags ;
-        this.sets = storeParameterValue?.sets ;
+        super(storeParameterValue);
+        this.defaultLanguageTag = storeParameterValue?.defaultLanguageTag;
+        this.groups = storeParameterValue?.groups;
+        this.languageTags = storeParameterValue?.languageTags;
+        this.sets = storeParameterValue?.sets;
     };
     /**
      * The deserialization information for the current model
@@ -48,16 +48,16 @@ export class StoreImpl extends EntityImpl implements Parsable, Store {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.defaultLanguageTag){
-        writer.writeStringValue("defaultLanguageTag", this.defaultLanguageTag);
+            writer.writeStringValue("defaultLanguageTag", this.defaultLanguageTag);
         }
         if(this.groups && this.groups.length != 0){        const groupsArrValue: GroupImpl[] = []; this.groups?.forEach(element => {groupsArrValue.push(new GroupImpl(element));});
-        writer.writeCollectionOfObjectValues<GroupImpl>("groups", groupsArrValue);
+            writer.writeCollectionOfObjectValues<GroupImpl>("groups", groupsArrValue);
         }
         if(this.languageTags){
-        writer.writeCollectionOfPrimitiveValues<string>("languageTags", this.languageTags);
+            writer.writeCollectionOfPrimitiveValues<string>("languageTags", this.languageTags);
         }
         if(this.sets && this.sets.length != 0){        const setsArrValue: SetImpl[] = []; this.sets?.forEach(element => {setsArrValue.push(new SetImpl(element));});
-        writer.writeCollectionOfObjectValues<SetImpl>("sets", setsArrValue);
+            writer.writeCollectionOfObjectValues<SetImpl>("sets", setsArrValue);
         }
     };
 }

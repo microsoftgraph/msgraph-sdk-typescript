@@ -3,13 +3,13 @@ import {CallOptionsImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the answer method. */
-export class IncomingCallOptionsImpl extends CallOptionsImpl implements IncomingCallOptions, Parsable {
+export class IncomingCallOptionsImpl extends CallOptionsImpl implements IncomingCallOptions {
     /**
      * Instantiates a new incomingCallOptions and sets the default values.
      * @param incomingCallOptionsParameterValue 
      */
     public constructor(incomingCallOptionsParameterValue?: IncomingCallOptions | undefined) {
-        super();
+        super(incomingCallOptionsParameterValue);
     };
     /**
      * The deserialization information for the current model

@@ -6,7 +6,7 @@ import {WorkbookFilterCriteria} from './workbookFilterCriteria';
 import {WorkbookIcon} from './workbookIcon';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class WorkbookFilterCriteriaImpl implements AdditionalDataHolder, Parsable, WorkbookFilterCriteria {
+export class WorkbookFilterCriteriaImpl implements WorkbookFilterCriteria {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The color property */
@@ -30,15 +30,15 @@ export class WorkbookFilterCriteriaImpl implements AdditionalDataHolder, Parsabl
      * @param workbookFilterCriteriaParameterValue 
      */
     public constructor(workbookFilterCriteriaParameterValue?: WorkbookFilterCriteria | undefined) {
-        this.additionalData = workbookFilterCriteriaParameterValue?.additionalData ? workbookFilterCriteriaParameterValue?.additionalData! : {}
-        this.color = workbookFilterCriteriaParameterValue?.color ;
-        this.criterion1 = workbookFilterCriteriaParameterValue?.criterion1 ;
-        this.criterion2 = workbookFilterCriteriaParameterValue?.criterion2 ;
-        this.dynamicCriteria = workbookFilterCriteriaParameterValue?.dynamicCriteria ;
-        this.filterOn = workbookFilterCriteriaParameterValue?.filterOn ;
-        this.icon = workbookFilterCriteriaParameterValue?.icon ;
-        this.operator = workbookFilterCriteriaParameterValue?.operator ;
-        this.values = workbookFilterCriteriaParameterValue?.values ;
+        this.additionalData = workbookFilterCriteriaParameterValue?.additionalData ? workbookFilterCriteriaParameterValue?.additionalData! : {};
+        this.color = workbookFilterCriteriaParameterValue?.color;
+        this.criterion1 = workbookFilterCriteriaParameterValue?.criterion1;
+        this.criterion2 = workbookFilterCriteriaParameterValue?.criterion2;
+        this.dynamicCriteria = workbookFilterCriteriaParameterValue?.dynamicCriteria;
+        this.filterOn = workbookFilterCriteriaParameterValue?.filterOn;
+        this.icon = workbookFilterCriteriaParameterValue?.icon;
+        this.operator = workbookFilterCriteriaParameterValue?.operator;
+        this.values = workbookFilterCriteriaParameterValue?.values;
     };
     /**
      * The deserialization information for the current model
@@ -63,28 +63,28 @@ export class WorkbookFilterCriteriaImpl implements AdditionalDataHolder, Parsabl
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.color){
-        writer.writeStringValue("color", this.color);
+            writer.writeStringValue("color", this.color);
         }
         if(this.criterion1){
-        writer.writeStringValue("criterion1", this.criterion1);
+            writer.writeStringValue("criterion1", this.criterion1);
         }
         if(this.criterion2){
-        writer.writeStringValue("criterion2", this.criterion2);
+            writer.writeStringValue("criterion2", this.criterion2);
         }
         if(this.dynamicCriteria){
-        writer.writeStringValue("dynamicCriteria", this.dynamicCriteria);
+            writer.writeStringValue("dynamicCriteria", this.dynamicCriteria);
         }
         if(this.filterOn){
-        writer.writeStringValue("filterOn", this.filterOn);
+            writer.writeStringValue("filterOn", this.filterOn);
         }
         if(this.icon){
-        writer.writeObjectValue<WorkbookIconImpl>("icon", new WorkbookIconImpl(this.icon));
+            writer.writeObjectValue<WorkbookIconImpl>("icon", new WorkbookIconImpl(this.icon));
         }
         if(this.operator){
-        writer.writeStringValue("operator", this.operator);
+            writer.writeStringValue("operator", this.operator);
         }
         if(this.values){
-        writer.writeObjectValue<JsonImpl>("values", new JsonImpl(this.values));
+            writer.writeObjectValue<JsonImpl>("values", new JsonImpl(this.values));
         }
         writer.writeAdditionalData(this.additionalData);
     };

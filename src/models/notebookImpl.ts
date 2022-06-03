@@ -9,8 +9,8 @@ import {OnenoteUserRole} from './onenoteUserRole';
 import {SectionGroup} from './sectionGroup';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to group. */
-export class NotebookImpl extends OnenoteEntityHierarchyModelImpl implements Notebook, Parsable {
+/** Casts the previous resource to user. */
+export class NotebookImpl extends OnenoteEntityHierarchyModelImpl implements Notebook {
     /** Indicates whether this is the user's default notebook. Read-only. */
     public isDefault?: boolean | undefined;
     /** Indicates whether the notebook is shared. If true, the contents of the notebook can be seen by people other than the owner. Read-only. */
@@ -32,15 +32,15 @@ export class NotebookImpl extends OnenoteEntityHierarchyModelImpl implements Not
      * @param notebookParameterValue 
      */
     public constructor(notebookParameterValue?: Notebook | undefined) {
-        super();
-        this.isDefault = notebookParameterValue?.isDefault ;
-        this.isShared = notebookParameterValue?.isShared ;
-        this.links = notebookParameterValue?.links ;
-        this.sectionGroups = notebookParameterValue?.sectionGroups ;
-        this.sectionGroupsUrl = notebookParameterValue?.sectionGroupsUrl ;
-        this.sections = notebookParameterValue?.sections ;
-        this.sectionsUrl = notebookParameterValue?.sectionsUrl ;
-        this.userRole = notebookParameterValue?.userRole ;
+        super(notebookParameterValue);
+        this.isDefault = notebookParameterValue?.isDefault;
+        this.isShared = notebookParameterValue?.isShared;
+        this.links = notebookParameterValue?.links;
+        this.sectionGroups = notebookParameterValue?.sectionGroups;
+        this.sectionGroupsUrl = notebookParameterValue?.sectionGroupsUrl;
+        this.sections = notebookParameterValue?.sections;
+        this.sectionsUrl = notebookParameterValue?.sectionsUrl;
+        this.userRole = notebookParameterValue?.userRole;
     };
     /**
      * The deserialization information for the current model
@@ -66,28 +66,28 @@ export class NotebookImpl extends OnenoteEntityHierarchyModelImpl implements Not
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.isDefault){
-        writer.writeBooleanValue("isDefault", this.isDefault);
+            writer.writeBooleanValue("isDefault", this.isDefault);
         }
         if(this.isShared){
-        writer.writeBooleanValue("isShared", this.isShared);
+            writer.writeBooleanValue("isShared", this.isShared);
         }
         if(this.links){
-        writer.writeObjectValue<NotebookLinksImpl>("links", new NotebookLinksImpl(this.links));
+            writer.writeObjectValue<NotebookLinksImpl>("links", new NotebookLinksImpl(this.links));
         }
         if(this.sectionGroups && this.sectionGroups.length != 0){        const sectionGroupsArrValue: SectionGroupImpl[] = []; this.sectionGroups?.forEach(element => {sectionGroupsArrValue.push(new SectionGroupImpl(element));});
-        writer.writeCollectionOfObjectValues<SectionGroupImpl>("sectionGroups", sectionGroupsArrValue);
+            writer.writeCollectionOfObjectValues<SectionGroupImpl>("sectionGroups", sectionGroupsArrValue);
         }
         if(this.sectionGroupsUrl){
-        writer.writeStringValue("sectionGroupsUrl", this.sectionGroupsUrl);
+            writer.writeStringValue("sectionGroupsUrl", this.sectionGroupsUrl);
         }
         if(this.sections && this.sections.length != 0){        const sectionsArrValue: OnenoteSectionImpl[] = []; this.sections?.forEach(element => {sectionsArrValue.push(new OnenoteSectionImpl(element));});
-        writer.writeCollectionOfObjectValues<OnenoteSectionImpl>("sections", sectionsArrValue);
+            writer.writeCollectionOfObjectValues<OnenoteSectionImpl>("sections", sectionsArrValue);
         }
         if(this.sectionsUrl){
-        writer.writeStringValue("sectionsUrl", this.sectionsUrl);
+            writer.writeStringValue("sectionsUrl", this.sectionsUrl);
         }
         if(this.userRole){
-        writer.writeEnumValue<OnenoteUserRole>("userRole", this.userRole);
+            writer.writeEnumValue<OnenoteUserRole>("userRole", this.userRole);
         }
     };
 }

@@ -4,7 +4,7 @@ import {OnenoteOperation} from './onenoteOperation';
 import {OnenoteOperationCollectionResponse} from './onenoteOperationCollectionResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class OnenoteOperationCollectionResponseImpl implements AdditionalDataHolder, OnenoteOperationCollectionResponse, Parsable {
+export class OnenoteOperationCollectionResponseImpl implements OnenoteOperationCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class OnenoteOperationCollectionResponseImpl implements AdditionalDataHol
      * @param onenoteOperationCollectionResponseParameterValue 
      */
     public constructor(onenoteOperationCollectionResponseParameterValue?: OnenoteOperationCollectionResponse | undefined) {
-        this.additionalData = onenoteOperationCollectionResponseParameterValue?.additionalData ? onenoteOperationCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = onenoteOperationCollectionResponseParameterValue?.nextLink ;
-        this.value = onenoteOperationCollectionResponseParameterValue?.value ;
+        this.additionalData = onenoteOperationCollectionResponseParameterValue?.additionalData ? onenoteOperationCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = onenoteOperationCollectionResponseParameterValue?.nextLink;
+        this.value = onenoteOperationCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class OnenoteOperationCollectionResponseImpl implements AdditionalDataHol
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: OnenoteOperationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new OnenoteOperationImpl(element));});
-        writer.writeCollectionOfObjectValues<OnenoteOperationImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<OnenoteOperationImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

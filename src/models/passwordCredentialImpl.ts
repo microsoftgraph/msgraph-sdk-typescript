@@ -1,7 +1,7 @@
 import {PasswordCredential} from './passwordCredential';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class PasswordCredentialImpl implements AdditionalDataHolder, Parsable, PasswordCredential {
+export class PasswordCredentialImpl implements PasswordCredential {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Do not use. */
@@ -23,14 +23,14 @@ export class PasswordCredentialImpl implements AdditionalDataHolder, Parsable, P
      * @param passwordCredentialParameterValue 
      */
     public constructor(passwordCredentialParameterValue?: PasswordCredential | undefined) {
-        this.additionalData = passwordCredentialParameterValue?.additionalData ? passwordCredentialParameterValue?.additionalData! : {}
-        this.customKeyIdentifier = passwordCredentialParameterValue?.customKeyIdentifier ;
-        this.displayName = passwordCredentialParameterValue?.displayName ;
-        this.endDateTime = passwordCredentialParameterValue?.endDateTime ;
-        this.hint = passwordCredentialParameterValue?.hint ;
-        this.keyId = passwordCredentialParameterValue?.keyId ;
-        this.secretText = passwordCredentialParameterValue?.secretText ;
-        this.startDateTime = passwordCredentialParameterValue?.startDateTime ;
+        this.additionalData = passwordCredentialParameterValue?.additionalData ? passwordCredentialParameterValue?.additionalData! : {};
+        this.customKeyIdentifier = passwordCredentialParameterValue?.customKeyIdentifier;
+        this.displayName = passwordCredentialParameterValue?.displayName;
+        this.endDateTime = passwordCredentialParameterValue?.endDateTime;
+        this.hint = passwordCredentialParameterValue?.hint;
+        this.keyId = passwordCredentialParameterValue?.keyId;
+        this.secretText = passwordCredentialParameterValue?.secretText;
+        this.startDateTime = passwordCredentialParameterValue?.startDateTime;
     };
     /**
      * The deserialization information for the current model
@@ -54,25 +54,25 @@ export class PasswordCredentialImpl implements AdditionalDataHolder, Parsable, P
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.customKeyIdentifier){
-        writer.writeStringValue("customKeyIdentifier", this.customKeyIdentifier);
+            writer.writeStringValue("customKeyIdentifier", this.customKeyIdentifier);
         }
         if(this.displayName){
-        writer.writeStringValue("displayName", this.displayName);
+            writer.writeStringValue("displayName", this.displayName);
         }
         if(this.endDateTime){
-        writer.writeDateValue("endDateTime", this.endDateTime);
+            writer.writeDateValue("endDateTime", this.endDateTime);
         }
         if(this.hint){
-        writer.writeStringValue("hint", this.hint);
+            writer.writeStringValue("hint", this.hint);
         }
         if(this.keyId){
-        writer.writeStringValue("keyId", this.keyId);
+            writer.writeStringValue("keyId", this.keyId);
         }
         if(this.secretText){
-        writer.writeStringValue("secretText", this.secretText);
+            writer.writeStringValue("secretText", this.secretText);
         }
         if(this.startDateTime){
-        writer.writeDateValue("startDateTime", this.startDateTime);
+            writer.writeDateValue("startDateTime", this.startDateTime);
         }
         writer.writeAdditionalData(this.additionalData);
     };

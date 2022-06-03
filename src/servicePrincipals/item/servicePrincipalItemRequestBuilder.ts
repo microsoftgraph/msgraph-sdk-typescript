@@ -197,7 +197,7 @@ export class ServicePrincipalItemRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Delete a [servicePrincipal](../resources/serviceprincipal.md) object.
+     * Delete a servicePrincipal object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -224,7 +224,7 @@ export class ServicePrincipalItemRequestBuilder {
         return new id0f419ba2af0eea378feefad8f5b20198c7344f82ac59b6fd8fbafacb7581cc6(urlTplParams, this.requestAdapter);
     };
     /**
-     * Retrieve the properties and relationships of a [servicePrincipal](../resources/serviceprincipal.md) object.
+     * Retrieve the properties and relationships of a servicePrincipal object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -241,7 +241,7 @@ export class ServicePrincipalItemRequestBuilder {
         return requestInfo;
     };
     /**
-     * This article provides examples of how to assign, update, or remove different types of custom security attributes for users and applications (service principals). Custom security attributes can be assigned or updated only through a `PATCH` operation in an [Update user](/graph/api/user-update?view=graph-rest-beta&preserve-view=true) or [Update servicePrincipal](/graph/api/serviceprincipal-update?view=graph-rest-beta&preserve-view=true) request.
+     * Update the properties of servicePrincipal object.
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -272,7 +272,7 @@ export class ServicePrincipalItemRequestBuilder {
         return new DelegatedPermissionClassificationItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Delete a [servicePrincipal](../resources/serviceprincipal.md) object.
+     * Delete a servicePrincipal object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
@@ -298,7 +298,7 @@ export class ServicePrincipalItemRequestBuilder {
         return new EndpointItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Retrieve the properties and relationships of a [servicePrincipal](../resources/serviceprincipal.md) object.
+     * Retrieve the properties and relationships of a servicePrincipal object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ServicePrincipal
@@ -369,7 +369,7 @@ export class ServicePrincipalItemRequestBuilder {
         return new i9966bb709202f5d6bbde5c99f7c9562165ad440a5ae3d0e79c9517577de7fd48(urlTplParams, this.requestAdapter);
     };
     /**
-     * This article provides examples of how to assign, update, or remove different types of custom security attributes for users and applications (service principals). Custom security attributes can be assigned or updated only through a `PATCH` operation in an [Update user](/graph/api/user-update?view=graph-rest-beta&preserve-view=true) or [Update servicePrincipal](/graph/api/serviceprincipal-update?view=graph-rest-beta&preserve-view=true) request.
+     * Update the properties of servicePrincipal object.
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service

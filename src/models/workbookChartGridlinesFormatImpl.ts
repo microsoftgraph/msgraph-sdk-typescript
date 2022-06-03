@@ -4,8 +4,8 @@ import {WorkbookChartGridlinesFormat} from './workbookChartGridlinesFormat';
 import {WorkbookChartLineFormat} from './workbookChartLineFormat';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
-export class WorkbookChartGridlinesFormatImpl extends EntityImpl implements Parsable, WorkbookChartGridlinesFormat {
+/** Casts the previous resource to group. */
+export class WorkbookChartGridlinesFormatImpl extends EntityImpl implements WorkbookChartGridlinesFormat {
     /** Represents chart line formatting. Read-only. */
     public line?: WorkbookChartLineFormat | undefined;
     /**
@@ -13,8 +13,8 @@ export class WorkbookChartGridlinesFormatImpl extends EntityImpl implements Pars
      * @param workbookChartGridlinesFormatParameterValue 
      */
     public constructor(workbookChartGridlinesFormatParameterValue?: WorkbookChartGridlinesFormat | undefined) {
-        super();
-        this.line = workbookChartGridlinesFormatParameterValue?.line ;
+        super(workbookChartGridlinesFormatParameterValue);
+        this.line = workbookChartGridlinesFormatParameterValue?.line;
     };
     /**
      * The deserialization information for the current model
@@ -33,7 +33,7 @@ export class WorkbookChartGridlinesFormatImpl extends EntityImpl implements Pars
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.line){
-        writer.writeObjectValue<WorkbookChartLineFormatImpl>("line", new WorkbookChartLineFormatImpl(this.line));
+            writer.writeObjectValue<WorkbookChartLineFormatImpl>("line", new WorkbookChartLineFormatImpl(this.line));
         }
     };
 }

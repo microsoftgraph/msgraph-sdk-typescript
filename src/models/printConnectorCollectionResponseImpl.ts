@@ -4,7 +4,7 @@ import {PrintConnector} from './printConnector';
 import {PrintConnectorCollectionResponse} from './printConnectorCollectionResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class PrintConnectorCollectionResponseImpl implements AdditionalDataHolder, Parsable, PrintConnectorCollectionResponse {
+export class PrintConnectorCollectionResponseImpl implements PrintConnectorCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class PrintConnectorCollectionResponseImpl implements AdditionalDataHolde
      * @param printConnectorCollectionResponseParameterValue 
      */
     public constructor(printConnectorCollectionResponseParameterValue?: PrintConnectorCollectionResponse | undefined) {
-        this.additionalData = printConnectorCollectionResponseParameterValue?.additionalData ? printConnectorCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = printConnectorCollectionResponseParameterValue?.nextLink ;
-        this.value = printConnectorCollectionResponseParameterValue?.value ;
+        this.additionalData = printConnectorCollectionResponseParameterValue?.additionalData ? printConnectorCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = printConnectorCollectionResponseParameterValue?.nextLink;
+        this.value = printConnectorCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class PrintConnectorCollectionResponseImpl implements AdditionalDataHolde
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: PrintConnectorImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new PrintConnectorImpl(element));});
-        writer.writeCollectionOfObjectValues<PrintConnectorImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<PrintConnectorImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

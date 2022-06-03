@@ -1,7 +1,7 @@
 import {Deleted} from './deleted';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class DeletedImpl implements AdditionalDataHolder, Deleted, Parsable {
+export class DeletedImpl implements Deleted {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Represents the state of the deleted item. */
@@ -11,8 +11,8 @@ export class DeletedImpl implements AdditionalDataHolder, Deleted, Parsable {
      * @param deletedParameterValue 
      */
     public constructor(deletedParameterValue?: Deleted | undefined) {
-        this.additionalData = deletedParameterValue?.additionalData ? deletedParameterValue?.additionalData! : {}
-        this.state = deletedParameterValue?.state ;
+        this.additionalData = deletedParameterValue?.additionalData ? deletedParameterValue?.additionalData! : {};
+        this.state = deletedParameterValue?.state;
     };
     /**
      * The deserialization information for the current model
@@ -30,7 +30,7 @@ export class DeletedImpl implements AdditionalDataHolder, Deleted, Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.state){
-        writer.writeStringValue("state", this.state);
+            writer.writeStringValue("state", this.state);
         }
         writer.writeAdditionalData(this.additionalData);
     };

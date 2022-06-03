@@ -1,7 +1,7 @@
 import {AudioConferencing} from './audioConferencing';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class AudioConferencingImpl implements AdditionalDataHolder, AudioConferencing, Parsable {
+export class AudioConferencingImpl implements AudioConferencing {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The conference id of the online meeting. */
@@ -21,13 +21,13 @@ export class AudioConferencingImpl implements AdditionalDataHolder, AudioConfere
      * @param audioConferencingParameterValue 
      */
     public constructor(audioConferencingParameterValue?: AudioConferencing | undefined) {
-        this.additionalData = audioConferencingParameterValue?.additionalData ? audioConferencingParameterValue?.additionalData! : {}
-        this.conferenceId = audioConferencingParameterValue?.conferenceId ;
-        this.dialinUrl = audioConferencingParameterValue?.dialinUrl ;
-        this.tollFreeNumber = audioConferencingParameterValue?.tollFreeNumber ;
-        this.tollFreeNumbers = audioConferencingParameterValue?.tollFreeNumbers ;
-        this.tollNumber = audioConferencingParameterValue?.tollNumber ;
-        this.tollNumbers = audioConferencingParameterValue?.tollNumbers ;
+        this.additionalData = audioConferencingParameterValue?.additionalData ? audioConferencingParameterValue?.additionalData! : {};
+        this.conferenceId = audioConferencingParameterValue?.conferenceId;
+        this.dialinUrl = audioConferencingParameterValue?.dialinUrl;
+        this.tollFreeNumber = audioConferencingParameterValue?.tollFreeNumber;
+        this.tollFreeNumbers = audioConferencingParameterValue?.tollFreeNumbers;
+        this.tollNumber = audioConferencingParameterValue?.tollNumber;
+        this.tollNumbers = audioConferencingParameterValue?.tollNumbers;
     };
     /**
      * The deserialization information for the current model
@@ -50,22 +50,22 @@ export class AudioConferencingImpl implements AdditionalDataHolder, AudioConfere
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.conferenceId){
-        writer.writeStringValue("conferenceId", this.conferenceId);
+            writer.writeStringValue("conferenceId", this.conferenceId);
         }
         if(this.dialinUrl){
-        writer.writeStringValue("dialinUrl", this.dialinUrl);
+            writer.writeStringValue("dialinUrl", this.dialinUrl);
         }
         if(this.tollFreeNumber){
-        writer.writeStringValue("tollFreeNumber", this.tollFreeNumber);
+            writer.writeStringValue("tollFreeNumber", this.tollFreeNumber);
         }
         if(this.tollFreeNumbers){
-        writer.writeCollectionOfPrimitiveValues<string>("tollFreeNumbers", this.tollFreeNumbers);
+            writer.writeCollectionOfPrimitiveValues<string>("tollFreeNumbers", this.tollFreeNumbers);
         }
         if(this.tollNumber){
-        writer.writeStringValue("tollNumber", this.tollNumber);
+            writer.writeStringValue("tollNumber", this.tollNumber);
         }
         if(this.tollNumbers){
-        writer.writeCollectionOfPrimitiveValues<string>("tollNumbers", this.tollNumbers);
+            writer.writeCollectionOfPrimitiveValues<string>("tollNumbers", this.tollNumbers);
         }
         writer.writeAdditionalData(this.additionalData);
     };

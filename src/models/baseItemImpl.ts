@@ -8,8 +8,8 @@ import {ItemReference} from './itemReference';
 import {User} from './user';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
-export class BaseItemImpl extends EntityImpl implements BaseItem, Parsable {
+/** Casts the previous resource to group. */
+export class BaseItemImpl extends EntityImpl implements BaseItem {
     /** Identity of the user, device, or application which created the item. Read-only. */
     public createdBy?: IdentitySet | undefined;
     /** Identity of the user who created the item. Read-only. */
@@ -37,18 +37,18 @@ export class BaseItemImpl extends EntityImpl implements BaseItem, Parsable {
      * @param baseItemParameterValue 
      */
     public constructor(baseItemParameterValue?: BaseItem | undefined) {
-        super();
-        this.createdBy = baseItemParameterValue?.createdBy ;
-        this.createdByUser = baseItemParameterValue?.createdByUser ;
-        this.createdDateTime = baseItemParameterValue?.createdDateTime ;
-        this.description = baseItemParameterValue?.description ;
-        this.eTag = baseItemParameterValue?.eTag ;
-        this.lastModifiedBy = baseItemParameterValue?.lastModifiedBy ;
-        this.lastModifiedByUser = baseItemParameterValue?.lastModifiedByUser ;
-        this.lastModifiedDateTime = baseItemParameterValue?.lastModifiedDateTime ;
-        this.name = baseItemParameterValue?.name ;
-        this.parentReference = baseItemParameterValue?.parentReference ;
-        this.webUrl = baseItemParameterValue?.webUrl ;
+        super(baseItemParameterValue);
+        this.createdBy = baseItemParameterValue?.createdBy;
+        this.createdByUser = baseItemParameterValue?.createdByUser;
+        this.createdDateTime = baseItemParameterValue?.createdDateTime;
+        this.description = baseItemParameterValue?.description;
+        this.eTag = baseItemParameterValue?.eTag;
+        this.lastModifiedBy = baseItemParameterValue?.lastModifiedBy;
+        this.lastModifiedByUser = baseItemParameterValue?.lastModifiedByUser;
+        this.lastModifiedDateTime = baseItemParameterValue?.lastModifiedDateTime;
+        this.name = baseItemParameterValue?.name;
+        this.parentReference = baseItemParameterValue?.parentReference;
+        this.webUrl = baseItemParameterValue?.webUrl;
     };
     /**
      * The deserialization information for the current model
@@ -77,37 +77,37 @@ export class BaseItemImpl extends EntityImpl implements BaseItem, Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.createdBy){
-        writer.writeObjectValue<IdentitySetImpl>("createdBy", new IdentitySetImpl(this.createdBy));
+            writer.writeObjectValue<IdentitySetImpl>("createdBy", new IdentitySetImpl(this.createdBy));
         }
         if(this.createdByUser){
-        writer.writeObjectValue<UserImpl>("createdByUser", new UserImpl(this.createdByUser));
+            writer.writeObjectValue<UserImpl>("createdByUser", new UserImpl(this.createdByUser));
         }
         if(this.createdDateTime){
-        writer.writeDateValue("createdDateTime", this.createdDateTime);
+            writer.writeDateValue("createdDateTime", this.createdDateTime);
         }
         if(this.description){
-        writer.writeStringValue("description", this.description);
+            writer.writeStringValue("description", this.description);
         }
         if(this.eTag){
-        writer.writeStringValue("eTag", this.eTag);
+            writer.writeStringValue("eTag", this.eTag);
         }
         if(this.lastModifiedBy){
-        writer.writeObjectValue<IdentitySetImpl>("lastModifiedBy", new IdentitySetImpl(this.lastModifiedBy));
+            writer.writeObjectValue<IdentitySetImpl>("lastModifiedBy", new IdentitySetImpl(this.lastModifiedBy));
         }
         if(this.lastModifiedByUser){
-        writer.writeObjectValue<UserImpl>("lastModifiedByUser", new UserImpl(this.lastModifiedByUser));
+            writer.writeObjectValue<UserImpl>("lastModifiedByUser", new UserImpl(this.lastModifiedByUser));
         }
         if(this.lastModifiedDateTime){
-        writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
+            writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
         }
         if(this.name){
-        writer.writeStringValue("name", this.name);
+            writer.writeStringValue("name", this.name);
         }
         if(this.parentReference){
-        writer.writeObjectValue<ItemReferenceImpl>("parentReference", new ItemReferenceImpl(this.parentReference));
+            writer.writeObjectValue<ItemReferenceImpl>("parentReference", new ItemReferenceImpl(this.parentReference));
         }
         if(this.webUrl){
-        writer.writeStringValue("webUrl", this.webUrl);
+            writer.writeStringValue("webUrl", this.webUrl);
         }
     };
 }

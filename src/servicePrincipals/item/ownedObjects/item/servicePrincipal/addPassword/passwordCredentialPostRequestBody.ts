@@ -1,8 +1,9 @@
 import {PasswordCredential} from '../../../../../../models/passwordCredential';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface PasswordCredentialPostRequestBody{
+export interface PasswordCredentialPostRequestBody extends Partial<AdditionalDataHolder>, Partial<Parsable> {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?:Record<string, unknown>;
+    additionalData?: Record<string, unknown>;
     /** The passwordCredential property */
-    passwordCredential?:PasswordCredential | undefined;
+    passwordCredential?: PasswordCredential | undefined;
 }

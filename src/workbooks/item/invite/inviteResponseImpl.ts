@@ -5,7 +5,7 @@ import {InviteResponse} from './inviteResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the invite method. */
-export class InviteResponseImpl implements AdditionalDataHolder, InviteResponse, Parsable {
+export class InviteResponseImpl implements InviteResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The value property */
@@ -15,8 +15,8 @@ export class InviteResponseImpl implements AdditionalDataHolder, InviteResponse,
      * @param inviteResponseParameterValue 
      */
     public constructor(inviteResponseParameterValue?: InviteResponse | undefined) {
-        this.additionalData = inviteResponseParameterValue?.additionalData ? inviteResponseParameterValue?.additionalData! : {}
-        this.value = inviteResponseParameterValue?.value ;
+        this.additionalData = inviteResponseParameterValue?.additionalData ? inviteResponseParameterValue?.additionalData! : {};
+        this.value = inviteResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -34,7 +34,7 @@ export class InviteResponseImpl implements AdditionalDataHolder, InviteResponse,
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.value && this.value.length != 0){        const valueArrValue: PermissionImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new PermissionImpl(element));});
-        writer.writeCollectionOfObjectValues<PermissionImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<PermissionImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

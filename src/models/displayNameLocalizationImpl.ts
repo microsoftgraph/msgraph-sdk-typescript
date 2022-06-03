@@ -1,7 +1,7 @@
 import {DisplayNameLocalization} from './displayNameLocalization';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class DisplayNameLocalizationImpl implements AdditionalDataHolder, DisplayNameLocalization, Parsable {
+export class DisplayNameLocalizationImpl implements DisplayNameLocalization {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** If present, the value of this field contains the displayName string that has been set for the language present in the languageTag field. */
@@ -13,9 +13,9 @@ export class DisplayNameLocalizationImpl implements AdditionalDataHolder, Displa
      * @param displayNameLocalizationParameterValue 
      */
     public constructor(displayNameLocalizationParameterValue?: DisplayNameLocalization | undefined) {
-        this.additionalData = displayNameLocalizationParameterValue?.additionalData ? displayNameLocalizationParameterValue?.additionalData! : {}
-        this.displayName = displayNameLocalizationParameterValue?.displayName ;
-        this.languageTag = displayNameLocalizationParameterValue?.languageTag ;
+        this.additionalData = displayNameLocalizationParameterValue?.additionalData ? displayNameLocalizationParameterValue?.additionalData! : {};
+        this.displayName = displayNameLocalizationParameterValue?.displayName;
+        this.languageTag = displayNameLocalizationParameterValue?.languageTag;
     };
     /**
      * The deserialization information for the current model
@@ -34,10 +34,10 @@ export class DisplayNameLocalizationImpl implements AdditionalDataHolder, Displa
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.displayName){
-        writer.writeStringValue("displayName", this.displayName);
+            writer.writeStringValue("displayName", this.displayName);
         }
         if(this.languageTag){
-        writer.writeStringValue("languageTag", this.languageTag);
+            writer.writeStringValue("languageTag", this.languageTag);
         }
         writer.writeAdditionalData(this.additionalData);
     };

@@ -1,7 +1,7 @@
 import {EducationAssignmentRecipient} from './educationAssignmentRecipient';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class EducationAssignmentRecipientImpl implements AdditionalDataHolder, EducationAssignmentRecipient, Parsable {
+export class EducationAssignmentRecipientImpl implements EducationAssignmentRecipient {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /**
@@ -9,7 +9,7 @@ export class EducationAssignmentRecipientImpl implements AdditionalDataHolder, E
      * @param educationAssignmentRecipientParameterValue 
      */
     public constructor(educationAssignmentRecipientParameterValue?: EducationAssignmentRecipient | undefined) {
-        this.additionalData = educationAssignmentRecipientParameterValue?.additionalData ? educationAssignmentRecipientParameterValue?.additionalData! : {}
+        this.additionalData = educationAssignmentRecipientParameterValue?.additionalData ? educationAssignmentRecipientParameterValue?.additionalData! : {};
     };
     /**
      * The deserialization information for the current model

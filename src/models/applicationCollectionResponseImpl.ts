@@ -4,7 +4,7 @@ import {createApplicationFromDiscriminatorValue} from './createApplicationFromDi
 import {ApplicationImpl} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ApplicationCollectionResponseImpl implements AdditionalDataHolder, ApplicationCollectionResponse, Parsable {
+export class ApplicationCollectionResponseImpl implements ApplicationCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class ApplicationCollectionResponseImpl implements AdditionalDataHolder, 
      * @param applicationCollectionResponseParameterValue 
      */
     public constructor(applicationCollectionResponseParameterValue?: ApplicationCollectionResponse | undefined) {
-        this.additionalData = applicationCollectionResponseParameterValue?.additionalData ? applicationCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = applicationCollectionResponseParameterValue?.nextLink ;
-        this.value = applicationCollectionResponseParameterValue?.value ;
+        this.additionalData = applicationCollectionResponseParameterValue?.additionalData ? applicationCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = applicationCollectionResponseParameterValue?.nextLink;
+        this.value = applicationCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class ApplicationCollectionResponseImpl implements AdditionalDataHolder, 
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: ApplicationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ApplicationImpl(element));});
-        writer.writeCollectionOfObjectValues<ApplicationImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<ApplicationImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

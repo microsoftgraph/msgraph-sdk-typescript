@@ -1,10 +1,11 @@
 import {TeamsAppInstallation} from './teamsAppInstallation';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface TeamsAppInstallationCollectionResponse{
+export interface TeamsAppInstallationCollectionResponse extends Partial<AdditionalDataHolder>, Partial<Parsable> {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?:Record<string, unknown>;
+    additionalData?: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?:string | undefined;
+    nextLink?: string | undefined;
     /** The value property */
-    value?:TeamsAppInstallation[] | undefined;
+    value?: TeamsAppInstallation[] | undefined;
 }

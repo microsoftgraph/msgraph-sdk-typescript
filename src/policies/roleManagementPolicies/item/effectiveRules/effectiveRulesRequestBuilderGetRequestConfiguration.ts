@@ -1,11 +1,11 @@
 import {EffectiveRulesRequestBuilderGetQueryParameters} from './effectiveRulesRequestBuilderGetQueryParameters';
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
-export interface EffectiveRulesRequestBuilderGetRequestConfiguration{
+export interface EffectiveRulesRequestBuilderGetRequestConfiguration {
     /** Request headers */
-    headers?:Record<string, string> | undefined;
+    headers?: Record<string, string> | undefined;
     /** Request options */
-    options?:RequestOption[] | undefined;
+    options?: RequestOption[] | undefined;
     /** Request query parameters */
-    queryParameters?:EffectiveRulesRequestBuilderGetQueryParameters | undefined;
+    queryParameters?: EffectiveRulesRequestBuilderGetQueryParameters | undefined;
 }

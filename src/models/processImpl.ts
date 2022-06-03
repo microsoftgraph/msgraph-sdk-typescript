@@ -5,7 +5,7 @@ import {Process} from './process';
 import {ProcessIntegrityLevel} from './processIntegrityLevel';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ProcessImpl implements AdditionalDataHolder, Parsable, Process {
+export class ProcessImpl implements Process {
     /** User account identifier (user account context the process ran under) for example, AccountName, SID, and so on. */
     public accountName?: string | undefined;
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
@@ -37,19 +37,19 @@ export class ProcessImpl implements AdditionalDataHolder, Parsable, Process {
      * @param processParameterValue 
      */
     public constructor(processParameterValue?: Process | undefined) {
-        this.accountName = processParameterValue?.accountName ;
-        this.additionalData = processParameterValue?.additionalData ? processParameterValue?.additionalData! : {}
-        this.commandLine = processParameterValue?.commandLine ;
-        this.createdDateTime = processParameterValue?.createdDateTime ;
-        this.fileHash = processParameterValue?.fileHash ;
-        this.integrityLevel = processParameterValue?.integrityLevel ;
-        this.isElevated = processParameterValue?.isElevated ;
-        this.name = processParameterValue?.name ;
-        this.parentProcessCreatedDateTime = processParameterValue?.parentProcessCreatedDateTime ;
-        this.parentProcessId = processParameterValue?.parentProcessId ;
-        this.parentProcessName = processParameterValue?.parentProcessName ;
-        this.path = processParameterValue?.path ;
-        this.processId = processParameterValue?.processId ;
+        this.accountName = processParameterValue?.accountName;
+        this.additionalData = processParameterValue?.additionalData ? processParameterValue?.additionalData! : {};
+        this.commandLine = processParameterValue?.commandLine;
+        this.createdDateTime = processParameterValue?.createdDateTime;
+        this.fileHash = processParameterValue?.fileHash;
+        this.integrityLevel = processParameterValue?.integrityLevel;
+        this.isElevated = processParameterValue?.isElevated;
+        this.name = processParameterValue?.name;
+        this.parentProcessCreatedDateTime = processParameterValue?.parentProcessCreatedDateTime;
+        this.parentProcessId = processParameterValue?.parentProcessId;
+        this.parentProcessName = processParameterValue?.parentProcessName;
+        this.path = processParameterValue?.path;
+        this.processId = processParameterValue?.processId;
     };
     /**
      * The deserialization information for the current model
@@ -78,40 +78,40 @@ export class ProcessImpl implements AdditionalDataHolder, Parsable, Process {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.accountName){
-        writer.writeStringValue("accountName", this.accountName);
+            writer.writeStringValue("accountName", this.accountName);
         }
         if(this.commandLine){
-        writer.writeStringValue("commandLine", this.commandLine);
+            writer.writeStringValue("commandLine", this.commandLine);
         }
         if(this.createdDateTime){
-        writer.writeDateValue("createdDateTime", this.createdDateTime);
+            writer.writeDateValue("createdDateTime", this.createdDateTime);
         }
         if(this.fileHash){
-        writer.writeObjectValue<FileHashImpl>("fileHash", new FileHashImpl(this.fileHash));
+            writer.writeObjectValue<FileHashImpl>("fileHash", new FileHashImpl(this.fileHash));
         }
         if(this.integrityLevel){
-        writer.writeEnumValue<ProcessIntegrityLevel>("integrityLevel", this.integrityLevel);
+            writer.writeEnumValue<ProcessIntegrityLevel>("integrityLevel", this.integrityLevel);
         }
         if(this.isElevated){
-        writer.writeBooleanValue("isElevated", this.isElevated);
+            writer.writeBooleanValue("isElevated", this.isElevated);
         }
         if(this.name){
-        writer.writeStringValue("name", this.name);
+            writer.writeStringValue("name", this.name);
         }
         if(this.parentProcessCreatedDateTime){
-        writer.writeDateValue("parentProcessCreatedDateTime", this.parentProcessCreatedDateTime);
+            writer.writeDateValue("parentProcessCreatedDateTime", this.parentProcessCreatedDateTime);
         }
         if(this.parentProcessId){
-        writer.writeNumberValue("parentProcessId", this.parentProcessId);
+            writer.writeNumberValue("parentProcessId", this.parentProcessId);
         }
         if(this.parentProcessName){
-        writer.writeStringValue("parentProcessName", this.parentProcessName);
+            writer.writeStringValue("parentProcessName", this.parentProcessName);
         }
         if(this.path){
-        writer.writeStringValue("path", this.path);
+            writer.writeStringValue("path", this.path);
         }
         if(this.processId){
-        writer.writeNumberValue("processId", this.processId);
+            writer.writeNumberValue("processId", this.processId);
         }
         writer.writeAdditionalData(this.additionalData);
     };

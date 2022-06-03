@@ -4,7 +4,7 @@ import {EntityImpl} from './index';
 import {Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the identityGovernance singleton. */
-export class EntitlementManagementSettingsImpl extends EntityImpl implements EntitlementManagementSettings, Parsable {
+export class EntitlementManagementSettingsImpl extends EntityImpl implements EntitlementManagementSettings {
     /** If externalUserLifecycleAction is blockSignInAndDelete, the duration, typically a number of days, after an external user is blocked from sign in before their account is deleted. */
     public durationUntilExternalUserDeletedAfterBlocked?: Duration | undefined;
     /** One of None, BlockSignIn, or BlockSignInAndDelete. */
@@ -14,9 +14,9 @@ export class EntitlementManagementSettingsImpl extends EntityImpl implements Ent
      * @param entitlementManagementSettingsParameterValue 
      */
     public constructor(entitlementManagementSettingsParameterValue?: EntitlementManagementSettings | undefined) {
-        super();
-        this.durationUntilExternalUserDeletedAfterBlocked = entitlementManagementSettingsParameterValue?.durationUntilExternalUserDeletedAfterBlocked ;
-        this.externalUserLifecycleAction = entitlementManagementSettingsParameterValue?.externalUserLifecycleAction ;
+        super(entitlementManagementSettingsParameterValue);
+        this.durationUntilExternalUserDeletedAfterBlocked = entitlementManagementSettingsParameterValue?.durationUntilExternalUserDeletedAfterBlocked;
+        this.externalUserLifecycleAction = entitlementManagementSettingsParameterValue?.externalUserLifecycleAction;
     };
     /**
      * The deserialization information for the current model
@@ -36,10 +36,10 @@ export class EntitlementManagementSettingsImpl extends EntityImpl implements Ent
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.durationUntilExternalUserDeletedAfterBlocked){
-        writer.writeDurationValue("durationUntilExternalUserDeletedAfterBlocked", this.durationUntilExternalUserDeletedAfterBlocked);
+            writer.writeDurationValue("durationUntilExternalUserDeletedAfterBlocked", this.durationUntilExternalUserDeletedAfterBlocked);
         }
         if(this.externalUserLifecycleAction){
-        writer.writeEnumValue<AccessPackageExternalUserLifecycleAction>("externalUserLifecycleAction", this.externalUserLifecycleAction);
+            writer.writeEnumValue<AccessPackageExternalUserLifecycleAction>("externalUserLifecycleAction", this.externalUserLifecycleAction);
         }
     };
 }

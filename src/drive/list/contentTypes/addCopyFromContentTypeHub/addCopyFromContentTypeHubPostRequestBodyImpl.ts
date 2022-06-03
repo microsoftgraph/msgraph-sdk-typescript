@@ -2,7 +2,7 @@ import {AddCopyFromContentTypeHubPostRequestBody} from './addCopyFromContentType
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the addCopyFromContentTypeHub method. */
-export class AddCopyFromContentTypeHubPostRequestBodyImpl implements AddCopyFromContentTypeHubPostRequestBody, AdditionalDataHolder, Parsable {
+export class AddCopyFromContentTypeHubPostRequestBodyImpl implements AddCopyFromContentTypeHubPostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The contentTypeId property */
@@ -12,8 +12,8 @@ export class AddCopyFromContentTypeHubPostRequestBodyImpl implements AddCopyFrom
      * @param addCopyFromContentTypeHubPostRequestBodyParameterValue 
      */
     public constructor(addCopyFromContentTypeHubPostRequestBodyParameterValue?: AddCopyFromContentTypeHubPostRequestBody | undefined) {
-        this.additionalData = addCopyFromContentTypeHubPostRequestBodyParameterValue?.additionalData ? addCopyFromContentTypeHubPostRequestBodyParameterValue?.additionalData! : {}
-        this.contentTypeId = addCopyFromContentTypeHubPostRequestBodyParameterValue?.contentTypeId ;
+        this.additionalData = addCopyFromContentTypeHubPostRequestBodyParameterValue?.additionalData ? addCopyFromContentTypeHubPostRequestBodyParameterValue?.additionalData! : {};
+        this.contentTypeId = addCopyFromContentTypeHubPostRequestBodyParameterValue?.contentTypeId;
     };
     /**
      * The deserialization information for the current model
@@ -31,7 +31,7 @@ export class AddCopyFromContentTypeHubPostRequestBodyImpl implements AddCopyFrom
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.contentTypeId){
-        writer.writeStringValue("contentTypeId", this.contentTypeId);
+            writer.writeStringValue("contentTypeId", this.contentTypeId);
         }
         writer.writeAdditionalData(this.additionalData);
     };

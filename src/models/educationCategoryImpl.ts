@@ -3,7 +3,7 @@ import {EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the educationRoot singleton. */
-export class EducationCategoryImpl extends EntityImpl implements EducationCategory, Parsable {
+export class EducationCategoryImpl extends EntityImpl implements EducationCategory {
     /** Unique identifier for the category. */
     public displayName?: string | undefined;
     /**
@@ -11,8 +11,8 @@ export class EducationCategoryImpl extends EntityImpl implements EducationCatego
      * @param educationCategoryParameterValue 
      */
     public constructor(educationCategoryParameterValue?: EducationCategory | undefined) {
-        super();
-        this.displayName = educationCategoryParameterValue?.displayName ;
+        super(educationCategoryParameterValue);
+        this.displayName = educationCategoryParameterValue?.displayName;
     };
     /**
      * The deserialization information for the current model
@@ -31,7 +31,7 @@ export class EducationCategoryImpl extends EntityImpl implements EducationCatego
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.displayName){
-        writer.writeStringValue("displayName", this.displayName);
+            writer.writeStringValue("displayName", this.displayName);
         }
     };
 }

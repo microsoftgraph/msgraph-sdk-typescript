@@ -4,7 +4,7 @@ import {createAccessPackageCatalogFromDiscriminatorValue} from './createAccessPa
 import {AccessPackageCatalogImpl} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class AccessPackageCatalogCollectionResponseImpl implements AccessPackageCatalogCollectionResponse, AdditionalDataHolder, Parsable {
+export class AccessPackageCatalogCollectionResponseImpl implements AccessPackageCatalogCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class AccessPackageCatalogCollectionResponseImpl implements AccessPackage
      * @param accessPackageCatalogCollectionResponseParameterValue 
      */
     public constructor(accessPackageCatalogCollectionResponseParameterValue?: AccessPackageCatalogCollectionResponse | undefined) {
-        this.additionalData = accessPackageCatalogCollectionResponseParameterValue?.additionalData ? accessPackageCatalogCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = accessPackageCatalogCollectionResponseParameterValue?.nextLink ;
-        this.value = accessPackageCatalogCollectionResponseParameterValue?.value ;
+        this.additionalData = accessPackageCatalogCollectionResponseParameterValue?.additionalData ? accessPackageCatalogCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = accessPackageCatalogCollectionResponseParameterValue?.nextLink;
+        this.value = accessPackageCatalogCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class AccessPackageCatalogCollectionResponseImpl implements AccessPackage
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: AccessPackageCatalogImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new AccessPackageCatalogImpl(element));});
-        writer.writeCollectionOfObjectValues<AccessPackageCatalogImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<AccessPackageCatalogImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

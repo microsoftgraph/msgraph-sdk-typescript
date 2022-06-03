@@ -2,7 +2,7 @@ import {CleanWindowsDevicePostRequestBody} from './cleanWindowsDevicePostRequest
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the cleanWindowsDevice method. */
-export class CleanWindowsDevicePostRequestBodyImpl implements AdditionalDataHolder, CleanWindowsDevicePostRequestBody, Parsable {
+export class CleanWindowsDevicePostRequestBodyImpl implements CleanWindowsDevicePostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The keepUserData property */
@@ -12,8 +12,8 @@ export class CleanWindowsDevicePostRequestBodyImpl implements AdditionalDataHold
      * @param cleanWindowsDevicePostRequestBodyParameterValue 
      */
     public constructor(cleanWindowsDevicePostRequestBodyParameterValue?: CleanWindowsDevicePostRequestBody | undefined) {
-        this.additionalData = cleanWindowsDevicePostRequestBodyParameterValue?.additionalData ? cleanWindowsDevicePostRequestBodyParameterValue?.additionalData! : {}
-        this.keepUserData = cleanWindowsDevicePostRequestBodyParameterValue?.keepUserData ;
+        this.additionalData = cleanWindowsDevicePostRequestBodyParameterValue?.additionalData ? cleanWindowsDevicePostRequestBodyParameterValue?.additionalData! : {};
+        this.keepUserData = cleanWindowsDevicePostRequestBodyParameterValue?.keepUserData;
     };
     /**
      * The deserialization information for the current model
@@ -31,7 +31,7 @@ export class CleanWindowsDevicePostRequestBodyImpl implements AdditionalDataHold
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.keepUserData){
-        writer.writeBooleanValue("keepUserData", this.keepUserData);
+            writer.writeBooleanValue("keepUserData", this.keepUserData);
         }
         writer.writeAdditionalData(this.additionalData);
     };

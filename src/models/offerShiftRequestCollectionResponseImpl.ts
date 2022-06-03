@@ -4,7 +4,7 @@ import {OfferShiftRequest} from './offerShiftRequest';
 import {OfferShiftRequestCollectionResponse} from './offerShiftRequestCollectionResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class OfferShiftRequestCollectionResponseImpl implements AdditionalDataHolder, OfferShiftRequestCollectionResponse, Parsable {
+export class OfferShiftRequestCollectionResponseImpl implements OfferShiftRequestCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class OfferShiftRequestCollectionResponseImpl implements AdditionalDataHo
      * @param offerShiftRequestCollectionResponseParameterValue 
      */
     public constructor(offerShiftRequestCollectionResponseParameterValue?: OfferShiftRequestCollectionResponse | undefined) {
-        this.additionalData = offerShiftRequestCollectionResponseParameterValue?.additionalData ? offerShiftRequestCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = offerShiftRequestCollectionResponseParameterValue?.nextLink ;
-        this.value = offerShiftRequestCollectionResponseParameterValue?.value ;
+        this.additionalData = offerShiftRequestCollectionResponseParameterValue?.additionalData ? offerShiftRequestCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = offerShiftRequestCollectionResponseParameterValue?.nextLink;
+        this.value = offerShiftRequestCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class OfferShiftRequestCollectionResponseImpl implements AdditionalDataHo
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: OfferShiftRequestImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new OfferShiftRequestImpl(element));});
-        writer.writeCollectionOfObjectValues<OfferShiftRequestImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<OfferShiftRequestImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

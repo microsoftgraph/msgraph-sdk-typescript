@@ -3,7 +3,7 @@ import {DeviceActionResult} from './deviceActionResult';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Device action result */
-export class DeviceActionResultImpl implements AdditionalDataHolder, DeviceActionResult, Parsable {
+export class DeviceActionResultImpl implements DeviceActionResult {
     /** Action name */
     public actionName?: string | undefined;
     /** State of the action. Possible values are: none, pending, canceled, active, done, failed, notSupported. */
@@ -19,11 +19,11 @@ export class DeviceActionResultImpl implements AdditionalDataHolder, DeviceActio
      * @param deviceActionResultParameterValue 
      */
     public constructor(deviceActionResultParameterValue?: DeviceActionResult | undefined) {
-        this.actionName = deviceActionResultParameterValue?.actionName ;
-        this.actionState = deviceActionResultParameterValue?.actionState ;
-        this.additionalData = deviceActionResultParameterValue?.additionalData ? deviceActionResultParameterValue?.additionalData! : {}
-        this.lastUpdatedDateTime = deviceActionResultParameterValue?.lastUpdatedDateTime ;
-        this.startDateTime = deviceActionResultParameterValue?.startDateTime ;
+        this.actionName = deviceActionResultParameterValue?.actionName;
+        this.actionState = deviceActionResultParameterValue?.actionState;
+        this.additionalData = deviceActionResultParameterValue?.additionalData ? deviceActionResultParameterValue?.additionalData! : {};
+        this.lastUpdatedDateTime = deviceActionResultParameterValue?.lastUpdatedDateTime;
+        this.startDateTime = deviceActionResultParameterValue?.startDateTime;
     };
     /**
      * The deserialization information for the current model
@@ -44,16 +44,16 @@ export class DeviceActionResultImpl implements AdditionalDataHolder, DeviceActio
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.actionName){
-        writer.writeStringValue("actionName", this.actionName);
+            writer.writeStringValue("actionName", this.actionName);
         }
         if(this.actionState){
-        writer.writeEnumValue<ActionState>("actionState", this.actionState);
+            writer.writeEnumValue<ActionState>("actionState", this.actionState);
         }
         if(this.lastUpdatedDateTime){
-        writer.writeDateValue("lastUpdatedDateTime", this.lastUpdatedDateTime);
+            writer.writeDateValue("lastUpdatedDateTime", this.lastUpdatedDateTime);
         }
         if(this.startDateTime){
-        writer.writeDateValue("startDateTime", this.startDateTime);
+            writer.writeDateValue("startDateTime", this.startDateTime);
         }
         writer.writeAdditionalData(this.additionalData);
     };

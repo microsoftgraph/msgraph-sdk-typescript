@@ -1,7 +1,7 @@
 import {UploadSession} from './uploadSession';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class UploadSessionImpl implements AdditionalDataHolder, Parsable, UploadSession {
+export class UploadSessionImpl implements UploadSession {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The date and time in UTC that the upload session will expire. The complete file must be uploaded before this expiration time is reached. */
@@ -15,10 +15,10 @@ export class UploadSessionImpl implements AdditionalDataHolder, Parsable, Upload
      * @param uploadSessionParameterValue 
      */
     public constructor(uploadSessionParameterValue?: UploadSession | undefined) {
-        this.additionalData = uploadSessionParameterValue?.additionalData ? uploadSessionParameterValue?.additionalData! : {}
-        this.expirationDateTime = uploadSessionParameterValue?.expirationDateTime ;
-        this.nextExpectedRanges = uploadSessionParameterValue?.nextExpectedRanges ;
-        this.uploadUrl = uploadSessionParameterValue?.uploadUrl ;
+        this.additionalData = uploadSessionParameterValue?.additionalData ? uploadSessionParameterValue?.additionalData! : {};
+        this.expirationDateTime = uploadSessionParameterValue?.expirationDateTime;
+        this.nextExpectedRanges = uploadSessionParameterValue?.nextExpectedRanges;
+        this.uploadUrl = uploadSessionParameterValue?.uploadUrl;
     };
     /**
      * The deserialization information for the current model
@@ -38,13 +38,13 @@ export class UploadSessionImpl implements AdditionalDataHolder, Parsable, Upload
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.expirationDateTime){
-        writer.writeDateValue("expirationDateTime", this.expirationDateTime);
+            writer.writeDateValue("expirationDateTime", this.expirationDateTime);
         }
         if(this.nextExpectedRanges){
-        writer.writeCollectionOfPrimitiveValues<string>("nextExpectedRanges", this.nextExpectedRanges);
+            writer.writeCollectionOfPrimitiveValues<string>("nextExpectedRanges", this.nextExpectedRanges);
         }
         if(this.uploadUrl){
-        writer.writeStringValue("uploadUrl", this.uploadUrl);
+            writer.writeStringValue("uploadUrl", this.uploadUrl);
         }
         writer.writeAdditionalData(this.additionalData);
     };

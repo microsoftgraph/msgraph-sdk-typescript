@@ -4,7 +4,7 @@ import {VppToken} from './vppToken';
 import {VppTokenCollectionResponse} from './vppTokenCollectionResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class VppTokenCollectionResponseImpl implements AdditionalDataHolder, Parsable, VppTokenCollectionResponse {
+export class VppTokenCollectionResponseImpl implements VppTokenCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class VppTokenCollectionResponseImpl implements AdditionalDataHolder, Par
      * @param vppTokenCollectionResponseParameterValue 
      */
     public constructor(vppTokenCollectionResponseParameterValue?: VppTokenCollectionResponse | undefined) {
-        this.additionalData = vppTokenCollectionResponseParameterValue?.additionalData ? vppTokenCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = vppTokenCollectionResponseParameterValue?.nextLink ;
-        this.value = vppTokenCollectionResponseParameterValue?.value ;
+        this.additionalData = vppTokenCollectionResponseParameterValue?.additionalData ? vppTokenCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = vppTokenCollectionResponseParameterValue?.nextLink;
+        this.value = vppTokenCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class VppTokenCollectionResponseImpl implements AdditionalDataHolder, Par
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: VppTokenImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new VppTokenImpl(element));});
-        writer.writeCollectionOfObjectValues<VppTokenImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<VppTokenImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

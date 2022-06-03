@@ -11,7 +11,7 @@ import {TermsExpiration} from './termsExpiration';
 import {Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the collection of agreement entities. */
-export class AgreementImpl extends EntityImpl implements Agreement, Parsable {
+export class AgreementImpl extends EntityImpl implements Agreement {
     /** Read-only. Information about acceptances of this agreement. */
     public acceptances?: AgreementAcceptance[] | undefined;
     /** Display name of the agreement. The display name is used for internal tracking of the agreement but is not shown to end users who view the agreement. Supports $filter (eq). */
@@ -33,15 +33,15 @@ export class AgreementImpl extends EntityImpl implements Agreement, Parsable {
      * @param agreementParameterValue 
      */
     public constructor(agreementParameterValue?: Agreement | undefined) {
-        super();
-        this.acceptances = agreementParameterValue?.acceptances ;
-        this.displayName = agreementParameterValue?.displayName ;
-        this.file = agreementParameterValue?.file ;
-        this.files = agreementParameterValue?.files ;
-        this.isPerDeviceAcceptanceRequired = agreementParameterValue?.isPerDeviceAcceptanceRequired ;
-        this.isViewingBeforeAcceptanceRequired = agreementParameterValue?.isViewingBeforeAcceptanceRequired ;
-        this.termsExpiration = agreementParameterValue?.termsExpiration ;
-        this.userReacceptRequiredFrequency = agreementParameterValue?.userReacceptRequiredFrequency ;
+        super(agreementParameterValue);
+        this.acceptances = agreementParameterValue?.acceptances;
+        this.displayName = agreementParameterValue?.displayName;
+        this.file = agreementParameterValue?.file;
+        this.files = agreementParameterValue?.files;
+        this.isPerDeviceAcceptanceRequired = agreementParameterValue?.isPerDeviceAcceptanceRequired;
+        this.isViewingBeforeAcceptanceRequired = agreementParameterValue?.isViewingBeforeAcceptanceRequired;
+        this.termsExpiration = agreementParameterValue?.termsExpiration;
+        this.userReacceptRequiredFrequency = agreementParameterValue?.userReacceptRequiredFrequency;
     };
     /**
      * The deserialization information for the current model
@@ -67,28 +67,28 @@ export class AgreementImpl extends EntityImpl implements Agreement, Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.acceptances && this.acceptances.length != 0){        const acceptancesArrValue: AgreementAcceptanceImpl[] = []; this.acceptances?.forEach(element => {acceptancesArrValue.push(new AgreementAcceptanceImpl(element));});
-        writer.writeCollectionOfObjectValues<AgreementAcceptanceImpl>("acceptances", acceptancesArrValue);
+            writer.writeCollectionOfObjectValues<AgreementAcceptanceImpl>("acceptances", acceptancesArrValue);
         }
         if(this.displayName){
-        writer.writeStringValue("displayName", this.displayName);
+            writer.writeStringValue("displayName", this.displayName);
         }
         if(this.file){
-        writer.writeObjectValue<AgreementFileImpl>("file", new AgreementFileImpl(this.file));
+            writer.writeObjectValue<AgreementFileImpl>("file", new AgreementFileImpl(this.file));
         }
         if(this.files && this.files.length != 0){        const filesArrValue: AgreementFileLocalizationImpl[] = []; this.files?.forEach(element => {filesArrValue.push(new AgreementFileLocalizationImpl(element));});
-        writer.writeCollectionOfObjectValues<AgreementFileLocalizationImpl>("files", filesArrValue);
+            writer.writeCollectionOfObjectValues<AgreementFileLocalizationImpl>("files", filesArrValue);
         }
         if(this.isPerDeviceAcceptanceRequired){
-        writer.writeBooleanValue("isPerDeviceAcceptanceRequired", this.isPerDeviceAcceptanceRequired);
+            writer.writeBooleanValue("isPerDeviceAcceptanceRequired", this.isPerDeviceAcceptanceRequired);
         }
         if(this.isViewingBeforeAcceptanceRequired){
-        writer.writeBooleanValue("isViewingBeforeAcceptanceRequired", this.isViewingBeforeAcceptanceRequired);
+            writer.writeBooleanValue("isViewingBeforeAcceptanceRequired", this.isViewingBeforeAcceptanceRequired);
         }
         if(this.termsExpiration){
-        writer.writeObjectValue<TermsExpirationImpl>("termsExpiration", new TermsExpirationImpl(this.termsExpiration));
+            writer.writeObjectValue<TermsExpirationImpl>("termsExpiration", new TermsExpirationImpl(this.termsExpiration));
         }
         if(this.userReacceptRequiredFrequency){
-        writer.writeDurationValue("userReacceptRequiredFrequency", this.userReacceptRequiredFrequency);
+            writer.writeDurationValue("userReacceptRequiredFrequency", this.userReacceptRequiredFrequency);
         }
     };
 }

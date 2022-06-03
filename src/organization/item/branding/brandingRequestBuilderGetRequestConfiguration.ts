@@ -1,11 +1,11 @@
 import {BrandingRequestBuilderGetQueryParameters} from './brandingRequestBuilderGetQueryParameters';
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
-export interface BrandingRequestBuilderGetRequestConfiguration{
+export interface BrandingRequestBuilderGetRequestConfiguration {
     /** Request headers */
-    headers?:Record<string, string> | undefined;
+    headers?: Record<string, string> | undefined;
     /** Request options */
-    options?:RequestOption[] | undefined;
+    options?: RequestOption[] | undefined;
     /** Request query parameters */
-    queryParameters?:BrandingRequestBuilderGetQueryParameters | undefined;
+    queryParameters?: BrandingRequestBuilderGetQueryParameters | undefined;
 }

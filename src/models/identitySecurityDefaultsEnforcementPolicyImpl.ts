@@ -3,7 +3,7 @@ import {PolicyBaseImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the policyRoot singleton. */
-export class IdentitySecurityDefaultsEnforcementPolicyImpl extends PolicyBaseImpl implements IdentitySecurityDefaultsEnforcementPolicy, Parsable {
+export class IdentitySecurityDefaultsEnforcementPolicyImpl extends PolicyBaseImpl implements IdentitySecurityDefaultsEnforcementPolicy {
     /** If set to true, Azure Active Directory security defaults is enabled for the tenant. */
     public isEnabled?: boolean | undefined;
     /**
@@ -11,8 +11,8 @@ export class IdentitySecurityDefaultsEnforcementPolicyImpl extends PolicyBaseImp
      * @param identitySecurityDefaultsEnforcementPolicyParameterValue 
      */
     public constructor(identitySecurityDefaultsEnforcementPolicyParameterValue?: IdentitySecurityDefaultsEnforcementPolicy | undefined) {
-        super();
-        this.isEnabled = identitySecurityDefaultsEnforcementPolicyParameterValue?.isEnabled ;
+        super(identitySecurityDefaultsEnforcementPolicyParameterValue);
+        this.isEnabled = identitySecurityDefaultsEnforcementPolicyParameterValue?.isEnabled;
     };
     /**
      * The deserialization information for the current model
@@ -31,7 +31,7 @@ export class IdentitySecurityDefaultsEnforcementPolicyImpl extends PolicyBaseImp
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.isEnabled){
-        writer.writeBooleanValue("isEnabled", this.isEnabled);
+            writer.writeBooleanValue("isEnabled", this.isEnabled);
         }
     };
 }

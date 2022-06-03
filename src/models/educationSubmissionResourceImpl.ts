@@ -5,7 +5,7 @@ import {EducationResourceImpl, EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the educationRoot singleton. */
-export class EducationSubmissionResourceImpl extends EntityImpl implements EducationSubmissionResource, Parsable {
+export class EducationSubmissionResourceImpl extends EntityImpl implements EducationSubmissionResource {
     /** Pointer to the assignment from which this resource was copied. If this is null, the student uploaded the resource. */
     public assignmentResourceUrl?: string | undefined;
     /** Resource object. */
@@ -15,9 +15,9 @@ export class EducationSubmissionResourceImpl extends EntityImpl implements Educa
      * @param educationSubmissionResourceParameterValue 
      */
     public constructor(educationSubmissionResourceParameterValue?: EducationSubmissionResource | undefined) {
-        super();
-        this.assignmentResourceUrl = educationSubmissionResourceParameterValue?.assignmentResourceUrl ;
-        this.resource = educationSubmissionResourceParameterValue?.resource ;
+        super(educationSubmissionResourceParameterValue);
+        this.assignmentResourceUrl = educationSubmissionResourceParameterValue?.assignmentResourceUrl;
+        this.resource = educationSubmissionResourceParameterValue?.resource;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class EducationSubmissionResourceImpl extends EntityImpl implements Educa
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.assignmentResourceUrl){
-        writer.writeStringValue("assignmentResourceUrl", this.assignmentResourceUrl);
+            writer.writeStringValue("assignmentResourceUrl", this.assignmentResourceUrl);
         }
         if(this.resource){
-        writer.writeObjectValue<EducationResourceImpl>("resource", new EducationResourceImpl(this.resource));
+            writer.writeObjectValue<EducationResourceImpl>("resource", new EducationResourceImpl(this.resource));
         }
     };
 }

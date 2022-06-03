@@ -6,7 +6,7 @@ import {IdentityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the collection of externalConnection entities. */
-export class ExternalGroupImpl extends EntityImpl implements ExternalGroup, Parsable {
+export class ExternalGroupImpl extends EntityImpl implements ExternalGroup {
     /** The description of the external group. Optional. */
     public description?: string | undefined;
     /** The friendly name of the external group. Optional. */
@@ -18,10 +18,10 @@ export class ExternalGroupImpl extends EntityImpl implements ExternalGroup, Pars
      * @param externalGroupParameterValue 
      */
     public constructor(externalGroupParameterValue?: ExternalGroup | undefined) {
-        super();
-        this.description = externalGroupParameterValue?.description ;
-        this.displayName = externalGroupParameterValue?.displayName ;
-        this.members = externalGroupParameterValue?.members ;
+        super(externalGroupParameterValue);
+        this.description = externalGroupParameterValue?.description;
+        this.displayName = externalGroupParameterValue?.displayName;
+        this.members = externalGroupParameterValue?.members;
     };
     /**
      * The deserialization information for the current model
@@ -42,13 +42,13 @@ export class ExternalGroupImpl extends EntityImpl implements ExternalGroup, Pars
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.description){
-        writer.writeStringValue("description", this.description);
+            writer.writeStringValue("description", this.description);
         }
         if(this.displayName){
-        writer.writeStringValue("displayName", this.displayName);
+            writer.writeStringValue("displayName", this.displayName);
         }
         if(this.members && this.members.length != 0){        const membersArrValue: IdentityImpl[] = []; this.members?.forEach(element => {membersArrValue.push(new IdentityImpl(element));});
-        writer.writeCollectionOfObjectValues<IdentityImpl>("members", membersArrValue);
+            writer.writeCollectionOfObjectValues<IdentityImpl>("members", membersArrValue);
         }
     };
 }

@@ -7,7 +7,7 @@ import {SubscribedSku} from './subscribedSku';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the collection of subscribedSku entities. */
-export class SubscribedSkuImpl extends EntityImpl implements Parsable, SubscribedSku {
+export class SubscribedSkuImpl extends EntityImpl implements SubscribedSku {
     /** For example, 'User' or 'Company'. */
     public appliesTo?: string | undefined;
     /** Possible values are: Enabled, Warning, Suspended, Deleted, LockedOut. The capabilityStatus is Enabled if the prepaidUnits property has at least 1 unit that is enabled, and LockedOut if the customer cancelled their subscription. */
@@ -27,14 +27,14 @@ export class SubscribedSkuImpl extends EntityImpl implements Parsable, Subscribe
      * @param subscribedSkuParameterValue 
      */
     public constructor(subscribedSkuParameterValue?: SubscribedSku | undefined) {
-        super();
-        this.appliesTo = subscribedSkuParameterValue?.appliesTo ;
-        this.capabilityStatus = subscribedSkuParameterValue?.capabilityStatus ;
-        this.consumedUnits = subscribedSkuParameterValue?.consumedUnits ;
-        this.prepaidUnits = subscribedSkuParameterValue?.prepaidUnits ;
-        this.servicePlans = subscribedSkuParameterValue?.servicePlans ;
-        this.skuId = subscribedSkuParameterValue?.skuId ;
-        this.skuPartNumber = subscribedSkuParameterValue?.skuPartNumber ;
+        super(subscribedSkuParameterValue);
+        this.appliesTo = subscribedSkuParameterValue?.appliesTo;
+        this.capabilityStatus = subscribedSkuParameterValue?.capabilityStatus;
+        this.consumedUnits = subscribedSkuParameterValue?.consumedUnits;
+        this.prepaidUnits = subscribedSkuParameterValue?.prepaidUnits;
+        this.servicePlans = subscribedSkuParameterValue?.servicePlans;
+        this.skuId = subscribedSkuParameterValue?.skuId;
+        this.skuPartNumber = subscribedSkuParameterValue?.skuPartNumber;
     };
     /**
      * The deserialization information for the current model
@@ -59,25 +59,25 @@ export class SubscribedSkuImpl extends EntityImpl implements Parsable, Subscribe
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.appliesTo){
-        writer.writeStringValue("appliesTo", this.appliesTo);
+            writer.writeStringValue("appliesTo", this.appliesTo);
         }
         if(this.capabilityStatus){
-        writer.writeStringValue("capabilityStatus", this.capabilityStatus);
+            writer.writeStringValue("capabilityStatus", this.capabilityStatus);
         }
         if(this.consumedUnits){
-        writer.writeNumberValue("consumedUnits", this.consumedUnits);
+            writer.writeNumberValue("consumedUnits", this.consumedUnits);
         }
         if(this.prepaidUnits){
-        writer.writeObjectValue<LicenseUnitsDetailImpl>("prepaidUnits", new LicenseUnitsDetailImpl(this.prepaidUnits));
+            writer.writeObjectValue<LicenseUnitsDetailImpl>("prepaidUnits", new LicenseUnitsDetailImpl(this.prepaidUnits));
         }
         if(this.servicePlans && this.servicePlans.length != 0){        const servicePlansArrValue: ServicePlanInfoImpl[] = []; this.servicePlans?.forEach(element => {servicePlansArrValue.push(new ServicePlanInfoImpl(element));});
-        writer.writeCollectionOfObjectValues<ServicePlanInfoImpl>("servicePlans", servicePlansArrValue);
+            writer.writeCollectionOfObjectValues<ServicePlanInfoImpl>("servicePlans", servicePlansArrValue);
         }
         if(this.skuId){
-        writer.writeStringValue("skuId", this.skuId);
+            writer.writeStringValue("skuId", this.skuId);
         }
         if(this.skuPartNumber){
-        writer.writeStringValue("skuPartNumber", this.skuPartNumber);
+            writer.writeStringValue("skuPartNumber", this.skuPartNumber);
         }
     };
 }

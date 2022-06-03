@@ -1,11 +1,11 @@
 import {UserStateSummaryRequestBuilderGetQueryParameters} from './userStateSummaryRequestBuilderGetQueryParameters';
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
-export interface UserStateSummaryRequestBuilderGetRequestConfiguration{
+export interface UserStateSummaryRequestBuilderGetRequestConfiguration {
     /** Request headers */
-    headers?:Record<string, string> | undefined;
+    headers?: Record<string, string> | undefined;
     /** Request options */
-    options?:RequestOption[] | undefined;
+    options?: RequestOption[] | undefined;
     /** Request query parameters */
-    queryParameters?:UserStateSummaryRequestBuilderGetQueryParameters | undefined;
+    queryParameters?: UserStateSummaryRequestBuilderGetQueryParameters | undefined;
 }

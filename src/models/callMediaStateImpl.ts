@@ -2,7 +2,7 @@ import {CallMediaState} from './callMediaState';
 import {MediaState} from './mediaState';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class CallMediaStateImpl implements AdditionalDataHolder, CallMediaState, Parsable {
+export class CallMediaStateImpl implements CallMediaState {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The audio media state. Possible values are: active, inactive, unknownFutureValue. */
@@ -12,8 +12,8 @@ export class CallMediaStateImpl implements AdditionalDataHolder, CallMediaState,
      * @param callMediaStateParameterValue 
      */
     public constructor(callMediaStateParameterValue?: CallMediaState | undefined) {
-        this.additionalData = callMediaStateParameterValue?.additionalData ? callMediaStateParameterValue?.additionalData! : {}
-        this.audio = callMediaStateParameterValue?.audio ;
+        this.additionalData = callMediaStateParameterValue?.additionalData ? callMediaStateParameterValue?.additionalData! : {};
+        this.audio = callMediaStateParameterValue?.audio;
     };
     /**
      * The deserialization information for the current model
@@ -31,7 +31,7 @@ export class CallMediaStateImpl implements AdditionalDataHolder, CallMediaState,
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.audio){
-        writer.writeEnumValue<MediaState>("audio", this.audio);
+            writer.writeEnumValue<MediaState>("audio", this.audio);
         }
         writer.writeAdditionalData(this.additionalData);
     };

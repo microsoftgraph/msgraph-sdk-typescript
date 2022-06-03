@@ -5,7 +5,7 @@ import {UserInstallStateSummary} from './userInstallStateSummary';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Contains properties for the installation state summary for a user. */
-export class UserInstallStateSummaryImpl extends EntityImpl implements Parsable, UserInstallStateSummary {
+export class UserInstallStateSummaryImpl extends EntityImpl implements UserInstallStateSummary {
     /** The install state of the eBook. */
     public deviceStates?: DeviceInstallState[] | undefined;
     /** Failed Device Count. */
@@ -21,12 +21,12 @@ export class UserInstallStateSummaryImpl extends EntityImpl implements Parsable,
      * @param userInstallStateSummaryParameterValue 
      */
     public constructor(userInstallStateSummaryParameterValue?: UserInstallStateSummary | undefined) {
-        super();
-        this.deviceStates = userInstallStateSummaryParameterValue?.deviceStates ;
-        this.failedDeviceCount = userInstallStateSummaryParameterValue?.failedDeviceCount ;
-        this.installedDeviceCount = userInstallStateSummaryParameterValue?.installedDeviceCount ;
-        this.notInstalledDeviceCount = userInstallStateSummaryParameterValue?.notInstalledDeviceCount ;
-        this.userName = userInstallStateSummaryParameterValue?.userName ;
+        super(userInstallStateSummaryParameterValue);
+        this.deviceStates = userInstallStateSummaryParameterValue?.deviceStates;
+        this.failedDeviceCount = userInstallStateSummaryParameterValue?.failedDeviceCount;
+        this.installedDeviceCount = userInstallStateSummaryParameterValue?.installedDeviceCount;
+        this.notInstalledDeviceCount = userInstallStateSummaryParameterValue?.notInstalledDeviceCount;
+        this.userName = userInstallStateSummaryParameterValue?.userName;
     };
     /**
      * The deserialization information for the current model
@@ -49,19 +49,19 @@ export class UserInstallStateSummaryImpl extends EntityImpl implements Parsable,
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.deviceStates && this.deviceStates.length != 0){        const deviceStatesArrValue: DeviceInstallStateImpl[] = []; this.deviceStates?.forEach(element => {deviceStatesArrValue.push(new DeviceInstallStateImpl(element));});
-        writer.writeCollectionOfObjectValues<DeviceInstallStateImpl>("deviceStates", deviceStatesArrValue);
+            writer.writeCollectionOfObjectValues<DeviceInstallStateImpl>("deviceStates", deviceStatesArrValue);
         }
         if(this.failedDeviceCount){
-        writer.writeNumberValue("failedDeviceCount", this.failedDeviceCount);
+            writer.writeNumberValue("failedDeviceCount", this.failedDeviceCount);
         }
         if(this.installedDeviceCount){
-        writer.writeNumberValue("installedDeviceCount", this.installedDeviceCount);
+            writer.writeNumberValue("installedDeviceCount", this.installedDeviceCount);
         }
         if(this.notInstalledDeviceCount){
-        writer.writeNumberValue("notInstalledDeviceCount", this.notInstalledDeviceCount);
+            writer.writeNumberValue("notInstalledDeviceCount", this.notInstalledDeviceCount);
         }
         if(this.userName){
-        writer.writeStringValue("userName", this.userName);
+            writer.writeStringValue("userName", this.userName);
         }
     };
 }

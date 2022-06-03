@@ -1,7 +1,7 @@
 import {LocalizedName} from './localizedName';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class LocalizedNameImpl implements AdditionalDataHolder, LocalizedName, Parsable {
+export class LocalizedNameImpl implements LocalizedName {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The language tag for the label. */
@@ -13,9 +13,9 @@ export class LocalizedNameImpl implements AdditionalDataHolder, LocalizedName, P
      * @param localizedNameParameterValue 
      */
     public constructor(localizedNameParameterValue?: LocalizedName | undefined) {
-        this.additionalData = localizedNameParameterValue?.additionalData ? localizedNameParameterValue?.additionalData! : {}
-        this.languageTag = localizedNameParameterValue?.languageTag ;
-        this.name = localizedNameParameterValue?.name ;
+        this.additionalData = localizedNameParameterValue?.additionalData ? localizedNameParameterValue?.additionalData! : {};
+        this.languageTag = localizedNameParameterValue?.languageTag;
+        this.name = localizedNameParameterValue?.name;
     };
     /**
      * The deserialization information for the current model
@@ -34,10 +34,10 @@ export class LocalizedNameImpl implements AdditionalDataHolder, LocalizedName, P
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.languageTag){
-        writer.writeStringValue("languageTag", this.languageTag);
+            writer.writeStringValue("languageTag", this.languageTag);
         }
         if(this.name){
-        writer.writeStringValue("name", this.name);
+            writer.writeStringValue("name", this.name);
         }
         writer.writeAdditionalData(this.additionalData);
     };

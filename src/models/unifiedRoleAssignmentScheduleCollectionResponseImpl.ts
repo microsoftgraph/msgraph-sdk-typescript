@@ -4,7 +4,7 @@ import {UnifiedRoleAssignmentSchedule} from './unifiedRoleAssignmentSchedule';
 import {UnifiedRoleAssignmentScheduleCollectionResponse} from './unifiedRoleAssignmentScheduleCollectionResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class UnifiedRoleAssignmentScheduleCollectionResponseImpl implements AdditionalDataHolder, Parsable, UnifiedRoleAssignmentScheduleCollectionResponse {
+export class UnifiedRoleAssignmentScheduleCollectionResponseImpl implements UnifiedRoleAssignmentScheduleCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class UnifiedRoleAssignmentScheduleCollectionResponseImpl implements Addi
      * @param unifiedRoleAssignmentScheduleCollectionResponseParameterValue 
      */
     public constructor(unifiedRoleAssignmentScheduleCollectionResponseParameterValue?: UnifiedRoleAssignmentScheduleCollectionResponse | undefined) {
-        this.additionalData = unifiedRoleAssignmentScheduleCollectionResponseParameterValue?.additionalData ? unifiedRoleAssignmentScheduleCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = unifiedRoleAssignmentScheduleCollectionResponseParameterValue?.nextLink ;
-        this.value = unifiedRoleAssignmentScheduleCollectionResponseParameterValue?.value ;
+        this.additionalData = unifiedRoleAssignmentScheduleCollectionResponseParameterValue?.additionalData ? unifiedRoleAssignmentScheduleCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = unifiedRoleAssignmentScheduleCollectionResponseParameterValue?.nextLink;
+        this.value = unifiedRoleAssignmentScheduleCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class UnifiedRoleAssignmentScheduleCollectionResponseImpl implements Addi
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: UnifiedRoleAssignmentScheduleImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new UnifiedRoleAssignmentScheduleImpl(element));});
-        writer.writeCollectionOfObjectValues<UnifiedRoleAssignmentScheduleImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<UnifiedRoleAssignmentScheduleImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

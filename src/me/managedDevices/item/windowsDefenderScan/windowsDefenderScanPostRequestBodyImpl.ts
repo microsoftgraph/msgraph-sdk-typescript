@@ -2,7 +2,7 @@ import {WindowsDefenderScanPostRequestBody} from './windowsDefenderScanPostReque
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the windowsDefenderScan method. */
-export class WindowsDefenderScanPostRequestBodyImpl implements AdditionalDataHolder, Parsable, WindowsDefenderScanPostRequestBody {
+export class WindowsDefenderScanPostRequestBodyImpl implements WindowsDefenderScanPostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The quickScan property */
@@ -12,8 +12,8 @@ export class WindowsDefenderScanPostRequestBodyImpl implements AdditionalDataHol
      * @param windowsDefenderScanPostRequestBodyParameterValue 
      */
     public constructor(windowsDefenderScanPostRequestBodyParameterValue?: WindowsDefenderScanPostRequestBody | undefined) {
-        this.additionalData = windowsDefenderScanPostRequestBodyParameterValue?.additionalData ? windowsDefenderScanPostRequestBodyParameterValue?.additionalData! : {}
-        this.quickScan = windowsDefenderScanPostRequestBodyParameterValue?.quickScan ;
+        this.additionalData = windowsDefenderScanPostRequestBodyParameterValue?.additionalData ? windowsDefenderScanPostRequestBodyParameterValue?.additionalData! : {};
+        this.quickScan = windowsDefenderScanPostRequestBodyParameterValue?.quickScan;
     };
     /**
      * The deserialization information for the current model
@@ -31,7 +31,7 @@ export class WindowsDefenderScanPostRequestBodyImpl implements AdditionalDataHol
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.quickScan){
-        writer.writeBooleanValue("quickScan", this.quickScan);
+            writer.writeBooleanValue("quickScan", this.quickScan);
         }
         writer.writeAdditionalData(this.additionalData);
     };

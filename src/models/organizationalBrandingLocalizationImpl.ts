@@ -3,13 +3,13 @@ import {OrganizationalBrandingLocalization} from './organizationalBrandingLocali
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the organizationalBranding singleton. */
-export class OrganizationalBrandingLocalizationImpl extends OrganizationalBrandingPropertiesImpl implements OrganizationalBrandingLocalization, Parsable {
+export class OrganizationalBrandingLocalizationImpl extends OrganizationalBrandingPropertiesImpl implements OrganizationalBrandingLocalization {
     /**
      * Instantiates a new organizationalBrandingLocalization and sets the default values.
      * @param organizationalBrandingLocalizationParameterValue 
      */
     public constructor(organizationalBrandingLocalizationParameterValue?: OrganizationalBrandingLocalization | undefined) {
-        super();
+        super(organizationalBrandingLocalizationParameterValue);
     };
     /**
      * The deserialization information for the current model

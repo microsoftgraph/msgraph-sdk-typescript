@@ -4,7 +4,7 @@ import {IntegerRange} from './integerRange';
 import {PrinterCapabilities} from './printerCapabilities';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class PrinterCapabilitiesImpl implements AdditionalDataHolder, Parsable, PrinterCapabilities {
+export class PrinterCapabilitiesImpl implements PrinterCapabilities {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** A list of supported bottom margins(in microns) for the printer. */
@@ -62,32 +62,32 @@ export class PrinterCapabilitiesImpl implements AdditionalDataHolder, Parsable, 
      * @param printerCapabilitiesParameterValue 
      */
     public constructor(printerCapabilitiesParameterValue?: PrinterCapabilities | undefined) {
-        this.additionalData = printerCapabilitiesParameterValue?.additionalData ? printerCapabilitiesParameterValue?.additionalData! : {}
-        this.bottomMargins = printerCapabilitiesParameterValue?.bottomMargins ;
-        this.collation = printerCapabilitiesParameterValue?.collation ;
-        this.colorModes = printerCapabilitiesParameterValue?.colorModes ;
-        this.contentTypes = printerCapabilitiesParameterValue?.contentTypes ;
-        this.copiesPerJob = printerCapabilitiesParameterValue?.copiesPerJob ;
-        this.dpis = printerCapabilitiesParameterValue?.dpis ;
-        this.duplexModes = printerCapabilitiesParameterValue?.duplexModes ;
-        this.feedOrientations = printerCapabilitiesParameterValue?.feedOrientations ;
-        this.finishings = printerCapabilitiesParameterValue?.finishings ;
-        this.inputBins = printerCapabilitiesParameterValue?.inputBins ;
-        this.isColorPrintingSupported = printerCapabilitiesParameterValue?.isColorPrintingSupported ;
-        this.isPageRangeSupported = printerCapabilitiesParameterValue?.isPageRangeSupported ;
-        this.leftMargins = printerCapabilitiesParameterValue?.leftMargins ;
-        this.mediaColors = printerCapabilitiesParameterValue?.mediaColors ;
-        this.mediaSizes = printerCapabilitiesParameterValue?.mediaSizes ;
-        this.mediaTypes = printerCapabilitiesParameterValue?.mediaTypes ;
-        this.multipageLayouts = printerCapabilitiesParameterValue?.multipageLayouts ;
-        this.orientations = printerCapabilitiesParameterValue?.orientations ;
-        this.outputBins = printerCapabilitiesParameterValue?.outputBins ;
-        this.pagesPerSheet = printerCapabilitiesParameterValue?.pagesPerSheet ;
-        this.qualities = printerCapabilitiesParameterValue?.qualities ;
-        this.rightMargins = printerCapabilitiesParameterValue?.rightMargins ;
-        this.scalings = printerCapabilitiesParameterValue?.scalings ;
-        this.supportsFitPdfToPage = printerCapabilitiesParameterValue?.supportsFitPdfToPage ;
-        this.topMargins = printerCapabilitiesParameterValue?.topMargins ;
+        this.additionalData = printerCapabilitiesParameterValue?.additionalData ? printerCapabilitiesParameterValue?.additionalData! : {};
+        this.bottomMargins = printerCapabilitiesParameterValue?.bottomMargins;
+        this.collation = printerCapabilitiesParameterValue?.collation;
+        this.colorModes = printerCapabilitiesParameterValue?.colorModes;
+        this.contentTypes = printerCapabilitiesParameterValue?.contentTypes;
+        this.copiesPerJob = printerCapabilitiesParameterValue?.copiesPerJob;
+        this.dpis = printerCapabilitiesParameterValue?.dpis;
+        this.duplexModes = printerCapabilitiesParameterValue?.duplexModes;
+        this.feedOrientations = printerCapabilitiesParameterValue?.feedOrientations;
+        this.finishings = printerCapabilitiesParameterValue?.finishings;
+        this.inputBins = printerCapabilitiesParameterValue?.inputBins;
+        this.isColorPrintingSupported = printerCapabilitiesParameterValue?.isColorPrintingSupported;
+        this.isPageRangeSupported = printerCapabilitiesParameterValue?.isPageRangeSupported;
+        this.leftMargins = printerCapabilitiesParameterValue?.leftMargins;
+        this.mediaColors = printerCapabilitiesParameterValue?.mediaColors;
+        this.mediaSizes = printerCapabilitiesParameterValue?.mediaSizes;
+        this.mediaTypes = printerCapabilitiesParameterValue?.mediaTypes;
+        this.multipageLayouts = printerCapabilitiesParameterValue?.multipageLayouts;
+        this.orientations = printerCapabilitiesParameterValue?.orientations;
+        this.outputBins = printerCapabilitiesParameterValue?.outputBins;
+        this.pagesPerSheet = printerCapabilitiesParameterValue?.pagesPerSheet;
+        this.qualities = printerCapabilitiesParameterValue?.qualities;
+        this.rightMargins = printerCapabilitiesParameterValue?.rightMargins;
+        this.scalings = printerCapabilitiesParameterValue?.scalings;
+        this.supportsFitPdfToPage = printerCapabilitiesParameterValue?.supportsFitPdfToPage;
+        this.topMargins = printerCapabilitiesParameterValue?.topMargins;
     };
     /**
      * The deserialization information for the current model
@@ -129,79 +129,79 @@ export class PrinterCapabilitiesImpl implements AdditionalDataHolder, Parsable, 
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.bottomMargins){
-        writer.writeCollectionOfPrimitiveValues<number>("bottomMargins", this.bottomMargins);
+            writer.writeCollectionOfPrimitiveValues<number>("bottomMargins", this.bottomMargins);
         }
         if(this.collation){
-        writer.writeBooleanValue("collation", this.collation);
+            writer.writeBooleanValue("collation", this.collation);
         }
         if(this.colorModes){
-        writer.writeCollectionOfPrimitiveValues<string>("colorModes", this.colorModes);
+            writer.writeCollectionOfPrimitiveValues<string>("colorModes", this.colorModes);
         }
         if(this.contentTypes){
-        writer.writeCollectionOfPrimitiveValues<string>("contentTypes", this.contentTypes);
+            writer.writeCollectionOfPrimitiveValues<string>("contentTypes", this.contentTypes);
         }
         if(this.copiesPerJob){
-        writer.writeObjectValue<IntegerRangeImpl>("copiesPerJob", new IntegerRangeImpl(this.copiesPerJob));
+            writer.writeObjectValue<IntegerRangeImpl>("copiesPerJob", new IntegerRangeImpl(this.copiesPerJob));
         }
         if(this.dpis){
-        writer.writeCollectionOfPrimitiveValues<number>("dpis", this.dpis);
+            writer.writeCollectionOfPrimitiveValues<number>("dpis", this.dpis);
         }
         if(this.duplexModes){
-        writer.writeCollectionOfPrimitiveValues<string>("duplexModes", this.duplexModes);
+            writer.writeCollectionOfPrimitiveValues<string>("duplexModes", this.duplexModes);
         }
         if(this.feedOrientations){
-        writer.writeCollectionOfPrimitiveValues<string>("feedOrientations", this.feedOrientations);
+            writer.writeCollectionOfPrimitiveValues<string>("feedOrientations", this.feedOrientations);
         }
         if(this.finishings){
-        writer.writeCollectionOfPrimitiveValues<string>("finishings", this.finishings);
+            writer.writeCollectionOfPrimitiveValues<string>("finishings", this.finishings);
         }
         if(this.inputBins){
-        writer.writeCollectionOfPrimitiveValues<string>("inputBins", this.inputBins);
+            writer.writeCollectionOfPrimitiveValues<string>("inputBins", this.inputBins);
         }
         if(this.isColorPrintingSupported){
-        writer.writeBooleanValue("isColorPrintingSupported", this.isColorPrintingSupported);
+            writer.writeBooleanValue("isColorPrintingSupported", this.isColorPrintingSupported);
         }
         if(this.isPageRangeSupported){
-        writer.writeBooleanValue("isPageRangeSupported", this.isPageRangeSupported);
+            writer.writeBooleanValue("isPageRangeSupported", this.isPageRangeSupported);
         }
         if(this.leftMargins){
-        writer.writeCollectionOfPrimitiveValues<number>("leftMargins", this.leftMargins);
+            writer.writeCollectionOfPrimitiveValues<number>("leftMargins", this.leftMargins);
         }
         if(this.mediaColors){
-        writer.writeCollectionOfPrimitiveValues<string>("mediaColors", this.mediaColors);
+            writer.writeCollectionOfPrimitiveValues<string>("mediaColors", this.mediaColors);
         }
         if(this.mediaSizes){
-        writer.writeCollectionOfPrimitiveValues<string>("mediaSizes", this.mediaSizes);
+            writer.writeCollectionOfPrimitiveValues<string>("mediaSizes", this.mediaSizes);
         }
         if(this.mediaTypes){
-        writer.writeCollectionOfPrimitiveValues<string>("mediaTypes", this.mediaTypes);
+            writer.writeCollectionOfPrimitiveValues<string>("mediaTypes", this.mediaTypes);
         }
         if(this.multipageLayouts){
-        writer.writeCollectionOfPrimitiveValues<string>("multipageLayouts", this.multipageLayouts);
+            writer.writeCollectionOfPrimitiveValues<string>("multipageLayouts", this.multipageLayouts);
         }
         if(this.orientations){
-        writer.writeCollectionOfPrimitiveValues<string>("orientations", this.orientations);
+            writer.writeCollectionOfPrimitiveValues<string>("orientations", this.orientations);
         }
         if(this.outputBins){
-        writer.writeCollectionOfPrimitiveValues<string>("outputBins", this.outputBins);
+            writer.writeCollectionOfPrimitiveValues<string>("outputBins", this.outputBins);
         }
         if(this.pagesPerSheet){
-        writer.writeCollectionOfPrimitiveValues<number>("pagesPerSheet", this.pagesPerSheet);
+            writer.writeCollectionOfPrimitiveValues<number>("pagesPerSheet", this.pagesPerSheet);
         }
         if(this.qualities){
-        writer.writeCollectionOfPrimitiveValues<string>("qualities", this.qualities);
+            writer.writeCollectionOfPrimitiveValues<string>("qualities", this.qualities);
         }
         if(this.rightMargins){
-        writer.writeCollectionOfPrimitiveValues<number>("rightMargins", this.rightMargins);
+            writer.writeCollectionOfPrimitiveValues<number>("rightMargins", this.rightMargins);
         }
         if(this.scalings){
-        writer.writeCollectionOfPrimitiveValues<string>("scalings", this.scalings);
+            writer.writeCollectionOfPrimitiveValues<string>("scalings", this.scalings);
         }
         if(this.supportsFitPdfToPage){
-        writer.writeBooleanValue("supportsFitPdfToPage", this.supportsFitPdfToPage);
+            writer.writeBooleanValue("supportsFitPdfToPage", this.supportsFitPdfToPage);
         }
         if(this.topMargins){
-        writer.writeCollectionOfPrimitiveValues<number>("topMargins", this.topMargins);
+            writer.writeCollectionOfPrimitiveValues<number>("topMargins", this.topMargins);
         }
         writer.writeAdditionalData(this.additionalData);
     };

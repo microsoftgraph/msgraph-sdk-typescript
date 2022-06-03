@@ -2,8 +2,8 @@ import {EntityImpl} from './index';
 import {WorkbookChartFont} from './workbookChartFont';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
-export class WorkbookChartFontImpl extends EntityImpl implements Parsable, WorkbookChartFont {
+/** Casts the previous resource to group. */
+export class WorkbookChartFontImpl extends EntityImpl implements WorkbookChartFont {
     /** Represents the bold status of font. */
     public bold?: boolean | undefined;
     /** HTML color code representation of the text color. E.g. #FF0000 represents Red. */
@@ -21,13 +21,13 @@ export class WorkbookChartFontImpl extends EntityImpl implements Parsable, Workb
      * @param workbookChartFontParameterValue 
      */
     public constructor(workbookChartFontParameterValue?: WorkbookChartFont | undefined) {
-        super();
-        this.bold = workbookChartFontParameterValue?.bold ;
-        this.color = workbookChartFontParameterValue?.color ;
-        this.italic = workbookChartFontParameterValue?.italic ;
-        this.name = workbookChartFontParameterValue?.name ;
-        this.size = workbookChartFontParameterValue?.size ;
-        this.underline = workbookChartFontParameterValue?.underline ;
+        super(workbookChartFontParameterValue);
+        this.bold = workbookChartFontParameterValue?.bold;
+        this.color = workbookChartFontParameterValue?.color;
+        this.italic = workbookChartFontParameterValue?.italic;
+        this.name = workbookChartFontParameterValue?.name;
+        this.size = workbookChartFontParameterValue?.size;
+        this.underline = workbookChartFontParameterValue?.underline;
     };
     /**
      * The deserialization information for the current model
@@ -51,22 +51,22 @@ export class WorkbookChartFontImpl extends EntityImpl implements Parsable, Workb
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.bold){
-        writer.writeBooleanValue("bold", this.bold);
+            writer.writeBooleanValue("bold", this.bold);
         }
         if(this.color){
-        writer.writeStringValue("color", this.color);
+            writer.writeStringValue("color", this.color);
         }
         if(this.italic){
-        writer.writeBooleanValue("italic", this.italic);
+            writer.writeBooleanValue("italic", this.italic);
         }
         if(this.name){
-        writer.writeStringValue("name", this.name);
+            writer.writeStringValue("name", this.name);
         }
         if(this.size){
-        writer.writeNumberValue("size", this.size);
+            writer.writeNumberValue("size", this.size);
         }
         if(this.underline){
-        writer.writeStringValue("underline", this.underline);
+            writer.writeStringValue("underline", this.underline);
         }
     };
 }

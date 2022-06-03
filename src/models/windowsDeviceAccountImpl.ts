@@ -1,7 +1,7 @@
 import {WindowsDeviceAccount} from './windowsDeviceAccount';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class WindowsDeviceAccountImpl implements AdditionalDataHolder, Parsable, WindowsDeviceAccount {
+export class WindowsDeviceAccountImpl implements WindowsDeviceAccount {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Not yet documented */
@@ -11,8 +11,8 @@ export class WindowsDeviceAccountImpl implements AdditionalDataHolder, Parsable,
      * @param windowsDeviceAccountParameterValue 
      */
     public constructor(windowsDeviceAccountParameterValue?: WindowsDeviceAccount | undefined) {
-        this.additionalData = windowsDeviceAccountParameterValue?.additionalData ? windowsDeviceAccountParameterValue?.additionalData! : {}
-        this.password = windowsDeviceAccountParameterValue?.password ;
+        this.additionalData = windowsDeviceAccountParameterValue?.additionalData ? windowsDeviceAccountParameterValue?.additionalData! : {};
+        this.password = windowsDeviceAccountParameterValue?.password;
     };
     /**
      * The deserialization information for the current model
@@ -30,7 +30,7 @@ export class WindowsDeviceAccountImpl implements AdditionalDataHolder, Parsable,
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.password){
-        writer.writeStringValue("password", this.password);
+            writer.writeStringValue("password", this.password);
         }
         writer.writeAdditionalData(this.additionalData);
     };

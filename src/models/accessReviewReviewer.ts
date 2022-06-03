@@ -1,10 +1,11 @@
 import {Entity} from './entity';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface AccessReviewReviewer extends Entity{
+export interface AccessReviewReviewer extends Entity, Partial<Parsable> {
     /** The date when the reviewer was added for the access review. */
-    createdDateTime?:Date | undefined;
+    createdDateTime?: Date | undefined;
     /** Name of reviewer. */
-    displayName?:string | undefined;
+    displayName?: string | undefined;
     /** User principal name of the user. */
-    userPrincipalName?:string | undefined;
+    userPrincipalName?: string | undefined;
 }

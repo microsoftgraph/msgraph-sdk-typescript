@@ -1,7 +1,7 @@
 import {SpecialFolder} from './specialFolder';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class SpecialFolderImpl implements AdditionalDataHolder, Parsable, SpecialFolder {
+export class SpecialFolderImpl implements SpecialFolder {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The unique identifier for this item in the /drive/special collection */
@@ -11,8 +11,8 @@ export class SpecialFolderImpl implements AdditionalDataHolder, Parsable, Specia
      * @param specialFolderParameterValue 
      */
     public constructor(specialFolderParameterValue?: SpecialFolder | undefined) {
-        this.additionalData = specialFolderParameterValue?.additionalData ? specialFolderParameterValue?.additionalData! : {}
-        this.name = specialFolderParameterValue?.name ;
+        this.additionalData = specialFolderParameterValue?.additionalData ? specialFolderParameterValue?.additionalData! : {};
+        this.name = specialFolderParameterValue?.name;
     };
     /**
      * The deserialization information for the current model
@@ -30,7 +30,7 @@ export class SpecialFolderImpl implements AdditionalDataHolder, Parsable, Specia
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.name){
-        writer.writeStringValue("name", this.name);
+            writer.writeStringValue("name", this.name);
         }
         writer.writeAdditionalData(this.additionalData);
     };

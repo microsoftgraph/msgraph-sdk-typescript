@@ -4,7 +4,7 @@ import {OrgContact} from './orgContact';
 import {OrgContactCollectionResponse} from './orgContactCollectionResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class OrgContactCollectionResponseImpl implements AdditionalDataHolder, OrgContactCollectionResponse, Parsable {
+export class OrgContactCollectionResponseImpl implements OrgContactCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class OrgContactCollectionResponseImpl implements AdditionalDataHolder, O
      * @param orgContactCollectionResponseParameterValue 
      */
     public constructor(orgContactCollectionResponseParameterValue?: OrgContactCollectionResponse | undefined) {
-        this.additionalData = orgContactCollectionResponseParameterValue?.additionalData ? orgContactCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = orgContactCollectionResponseParameterValue?.nextLink ;
-        this.value = orgContactCollectionResponseParameterValue?.value ;
+        this.additionalData = orgContactCollectionResponseParameterValue?.additionalData ? orgContactCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = orgContactCollectionResponseParameterValue?.nextLink;
+        this.value = orgContactCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class OrgContactCollectionResponseImpl implements AdditionalDataHolder, O
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: OrgContactImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new OrgContactImpl(element));});
-        writer.writeCollectionOfObjectValues<OrgContactImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<OrgContactImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

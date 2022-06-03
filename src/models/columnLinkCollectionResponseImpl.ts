@@ -4,7 +4,7 @@ import {createColumnLinkFromDiscriminatorValue} from './createColumnLinkFromDisc
 import {ColumnLinkImpl} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ColumnLinkCollectionResponseImpl implements AdditionalDataHolder, ColumnLinkCollectionResponse, Parsable {
+export class ColumnLinkCollectionResponseImpl implements ColumnLinkCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class ColumnLinkCollectionResponseImpl implements AdditionalDataHolder, C
      * @param columnLinkCollectionResponseParameterValue 
      */
     public constructor(columnLinkCollectionResponseParameterValue?: ColumnLinkCollectionResponse | undefined) {
-        this.additionalData = columnLinkCollectionResponseParameterValue?.additionalData ? columnLinkCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = columnLinkCollectionResponseParameterValue?.nextLink ;
-        this.value = columnLinkCollectionResponseParameterValue?.value ;
+        this.additionalData = columnLinkCollectionResponseParameterValue?.additionalData ? columnLinkCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = columnLinkCollectionResponseParameterValue?.nextLink;
+        this.value = columnLinkCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class ColumnLinkCollectionResponseImpl implements AdditionalDataHolder, C
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: ColumnLinkImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ColumnLinkImpl(element));});
-        writer.writeCollectionOfObjectValues<ColumnLinkImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<ColumnLinkImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

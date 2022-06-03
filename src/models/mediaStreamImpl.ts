@@ -3,7 +3,7 @@ import {MediaStream} from './mediaStream';
 import {Modality} from './modality';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class MediaStreamImpl implements AdditionalDataHolder, MediaStream, Parsable {
+export class MediaStreamImpl implements MediaStream {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The direction. The possible values are inactive, sendOnly, receiveOnly, sendReceive. */
@@ -21,12 +21,12 @@ export class MediaStreamImpl implements AdditionalDataHolder, MediaStream, Parsa
      * @param mediaStreamParameterValue 
      */
     public constructor(mediaStreamParameterValue?: MediaStream | undefined) {
-        this.additionalData = mediaStreamParameterValue?.additionalData ? mediaStreamParameterValue?.additionalData! : {}
-        this.direction = mediaStreamParameterValue?.direction ;
-        this.label = mediaStreamParameterValue?.label ;
-        this.mediaType = mediaStreamParameterValue?.mediaType ;
-        this.serverMuted = mediaStreamParameterValue?.serverMuted ;
-        this.sourceId = mediaStreamParameterValue?.sourceId ;
+        this.additionalData = mediaStreamParameterValue?.additionalData ? mediaStreamParameterValue?.additionalData! : {};
+        this.direction = mediaStreamParameterValue?.direction;
+        this.label = mediaStreamParameterValue?.label;
+        this.mediaType = mediaStreamParameterValue?.mediaType;
+        this.serverMuted = mediaStreamParameterValue?.serverMuted;
+        this.sourceId = mediaStreamParameterValue?.sourceId;
     };
     /**
      * The deserialization information for the current model
@@ -48,19 +48,19 @@ export class MediaStreamImpl implements AdditionalDataHolder, MediaStream, Parsa
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.direction){
-        writer.writeEnumValue<MediaDirection>("direction", this.direction);
+            writer.writeEnumValue<MediaDirection>("direction", this.direction);
         }
         if(this.label){
-        writer.writeStringValue("label", this.label);
+            writer.writeStringValue("label", this.label);
         }
         if(this.mediaType){
-        writer.writeEnumValue<Modality>("mediaType", this.mediaType);
+            writer.writeEnumValue<Modality>("mediaType", this.mediaType);
         }
         if(this.serverMuted){
-        writer.writeBooleanValue("serverMuted", this.serverMuted);
+            writer.writeBooleanValue("serverMuted", this.serverMuted);
         }
         if(this.sourceId){
-        writer.writeStringValue("sourceId", this.sourceId);
+            writer.writeStringValue("sourceId", this.sourceId);
         }
         writer.writeAdditionalData(this.additionalData);
     };

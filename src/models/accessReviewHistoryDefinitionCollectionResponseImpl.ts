@@ -4,7 +4,7 @@ import {createAccessReviewHistoryDefinitionFromDiscriminatorValue} from './creat
 import {AccessReviewHistoryDefinitionImpl} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class AccessReviewHistoryDefinitionCollectionResponseImpl implements AccessReviewHistoryDefinitionCollectionResponse, AdditionalDataHolder, Parsable {
+export class AccessReviewHistoryDefinitionCollectionResponseImpl implements AccessReviewHistoryDefinitionCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class AccessReviewHistoryDefinitionCollectionResponseImpl implements Acce
      * @param accessReviewHistoryDefinitionCollectionResponseParameterValue 
      */
     public constructor(accessReviewHistoryDefinitionCollectionResponseParameterValue?: AccessReviewHistoryDefinitionCollectionResponse | undefined) {
-        this.additionalData = accessReviewHistoryDefinitionCollectionResponseParameterValue?.additionalData ? accessReviewHistoryDefinitionCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = accessReviewHistoryDefinitionCollectionResponseParameterValue?.nextLink ;
-        this.value = accessReviewHistoryDefinitionCollectionResponseParameterValue?.value ;
+        this.additionalData = accessReviewHistoryDefinitionCollectionResponseParameterValue?.additionalData ? accessReviewHistoryDefinitionCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = accessReviewHistoryDefinitionCollectionResponseParameterValue?.nextLink;
+        this.value = accessReviewHistoryDefinitionCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class AccessReviewHistoryDefinitionCollectionResponseImpl implements Acce
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: AccessReviewHistoryDefinitionImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new AccessReviewHistoryDefinitionImpl(element));});
-        writer.writeCollectionOfObjectValues<AccessReviewHistoryDefinitionImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<AccessReviewHistoryDefinitionImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

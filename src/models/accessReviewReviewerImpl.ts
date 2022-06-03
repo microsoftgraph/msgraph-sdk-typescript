@@ -3,7 +3,7 @@ import {EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the identityGovernance singleton. */
-export class AccessReviewReviewerImpl extends EntityImpl implements AccessReviewReviewer, Parsable {
+export class AccessReviewReviewerImpl extends EntityImpl implements AccessReviewReviewer {
     /** The date when the reviewer was added for the access review. */
     public createdDateTime?: Date | undefined;
     /** Name of reviewer. */
@@ -15,10 +15,10 @@ export class AccessReviewReviewerImpl extends EntityImpl implements AccessReview
      * @param accessReviewReviewerParameterValue 
      */
     public constructor(accessReviewReviewerParameterValue?: AccessReviewReviewer | undefined) {
-        super();
-        this.createdDateTime = accessReviewReviewerParameterValue?.createdDateTime ;
-        this.displayName = accessReviewReviewerParameterValue?.displayName ;
-        this.userPrincipalName = accessReviewReviewerParameterValue?.userPrincipalName ;
+        super(accessReviewReviewerParameterValue);
+        this.createdDateTime = accessReviewReviewerParameterValue?.createdDateTime;
+        this.displayName = accessReviewReviewerParameterValue?.displayName;
+        this.userPrincipalName = accessReviewReviewerParameterValue?.userPrincipalName;
     };
     /**
      * The deserialization information for the current model
@@ -39,13 +39,13 @@ export class AccessReviewReviewerImpl extends EntityImpl implements AccessReview
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.createdDateTime){
-        writer.writeDateValue("createdDateTime", this.createdDateTime);
+            writer.writeDateValue("createdDateTime", this.createdDateTime);
         }
         if(this.displayName){
-        writer.writeStringValue("displayName", this.displayName);
+            writer.writeStringValue("displayName", this.displayName);
         }
         if(this.userPrincipalName){
-        writer.writeStringValue("userPrincipalName", this.userPrincipalName);
+            writer.writeStringValue("userPrincipalName", this.userPrincipalName);
         }
     };
 }

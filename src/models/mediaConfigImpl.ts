@@ -1,7 +1,7 @@
 import {MediaConfig} from './mediaConfig';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class MediaConfigImpl implements AdditionalDataHolder, MediaConfig, Parsable {
+export class MediaConfigImpl implements MediaConfig {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /**
@@ -9,7 +9,7 @@ export class MediaConfigImpl implements AdditionalDataHolder, MediaConfig, Parsa
      * @param mediaConfigParameterValue 
      */
     public constructor(mediaConfigParameterValue?: MediaConfig | undefined) {
-        this.additionalData = mediaConfigParameterValue?.additionalData ? mediaConfigParameterValue?.additionalData! : {}
+        this.additionalData = mediaConfigParameterValue?.additionalData ? mediaConfigParameterValue?.additionalData! : {};
     };
     /**
      * The deserialization information for the current model

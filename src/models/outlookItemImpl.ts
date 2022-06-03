@@ -3,7 +3,7 @@ import {OutlookItem} from './outlookItem';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Casts the previous resource to user. */
-export class OutlookItemImpl extends EntityImpl implements OutlookItem, Parsable {
+export class OutlookItemImpl extends EntityImpl implements OutlookItem {
     /** The categories associated with the item */
     public categories?: string[] | undefined;
     /** Identifies the version of the item. Every time the item is changed, changeKey changes as well. This allows Exchange to apply changes to the correct version of the object. Read-only. */
@@ -17,11 +17,11 @@ export class OutlookItemImpl extends EntityImpl implements OutlookItem, Parsable
      * @param outlookItemParameterValue 
      */
     public constructor(outlookItemParameterValue?: OutlookItem | undefined) {
-        super();
-        this.categories = outlookItemParameterValue?.categories ;
-        this.changeKey = outlookItemParameterValue?.changeKey ;
-        this.createdDateTime = outlookItemParameterValue?.createdDateTime ;
-        this.lastModifiedDateTime = outlookItemParameterValue?.lastModifiedDateTime ;
+        super(outlookItemParameterValue);
+        this.categories = outlookItemParameterValue?.categories;
+        this.changeKey = outlookItemParameterValue?.changeKey;
+        this.createdDateTime = outlookItemParameterValue?.createdDateTime;
+        this.lastModifiedDateTime = outlookItemParameterValue?.lastModifiedDateTime;
     };
     /**
      * The deserialization information for the current model
@@ -43,16 +43,16 @@ export class OutlookItemImpl extends EntityImpl implements OutlookItem, Parsable
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.categories){
-        writer.writeCollectionOfPrimitiveValues<string>("categories", this.categories);
+            writer.writeCollectionOfPrimitiveValues<string>("categories", this.categories);
         }
         if(this.changeKey){
-        writer.writeStringValue("changeKey", this.changeKey);
+            writer.writeStringValue("changeKey", this.changeKey);
         }
         if(this.createdDateTime){
-        writer.writeDateValue("createdDateTime", this.createdDateTime);
+            writer.writeDateValue("createdDateTime", this.createdDateTime);
         }
         if(this.lastModifiedDateTime){
-        writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
+            writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
         }
     };
 }

@@ -4,7 +4,7 @@ import {RoleAssignment} from './roleAssignment';
 import {RoleAssignmentCollectionResponse} from './roleAssignmentCollectionResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class RoleAssignmentCollectionResponseImpl implements AdditionalDataHolder, Parsable, RoleAssignmentCollectionResponse {
+export class RoleAssignmentCollectionResponseImpl implements RoleAssignmentCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class RoleAssignmentCollectionResponseImpl implements AdditionalDataHolde
      * @param roleAssignmentCollectionResponseParameterValue 
      */
     public constructor(roleAssignmentCollectionResponseParameterValue?: RoleAssignmentCollectionResponse | undefined) {
-        this.additionalData = roleAssignmentCollectionResponseParameterValue?.additionalData ? roleAssignmentCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = roleAssignmentCollectionResponseParameterValue?.nextLink ;
-        this.value = roleAssignmentCollectionResponseParameterValue?.value ;
+        this.additionalData = roleAssignmentCollectionResponseParameterValue?.additionalData ? roleAssignmentCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = roleAssignmentCollectionResponseParameterValue?.nextLink;
+        this.value = roleAssignmentCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class RoleAssignmentCollectionResponseImpl implements AdditionalDataHolde
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: RoleAssignmentImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new RoleAssignmentImpl(element));});
-        writer.writeCollectionOfObjectValues<RoleAssignmentImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<RoleAssignmentImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

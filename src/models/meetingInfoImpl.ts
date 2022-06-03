@@ -1,7 +1,7 @@
 import {MeetingInfo} from './meetingInfo';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class MeetingInfoImpl implements AdditionalDataHolder, MeetingInfo, Parsable {
+export class MeetingInfoImpl implements MeetingInfo {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /**
@@ -9,7 +9,7 @@ export class MeetingInfoImpl implements AdditionalDataHolder, MeetingInfo, Parsa
      * @param meetingInfoParameterValue 
      */
     public constructor(meetingInfoParameterValue?: MeetingInfo | undefined) {
-        this.additionalData = meetingInfoParameterValue?.additionalData ? meetingInfoParameterValue?.additionalData! : {}
+        this.additionalData = meetingInfoParameterValue?.additionalData ? meetingInfoParameterValue?.additionalData! : {};
     };
     /**
      * The deserialization information for the current model

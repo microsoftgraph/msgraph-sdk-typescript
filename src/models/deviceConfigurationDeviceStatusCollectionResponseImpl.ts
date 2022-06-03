@@ -4,7 +4,7 @@ import {DeviceConfigurationDeviceStatusCollectionResponse} from './deviceConfigu
 import {DeviceConfigurationDeviceStatusImpl} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class DeviceConfigurationDeviceStatusCollectionResponseImpl implements AdditionalDataHolder, DeviceConfigurationDeviceStatusCollectionResponse, Parsable {
+export class DeviceConfigurationDeviceStatusCollectionResponseImpl implements DeviceConfigurationDeviceStatusCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class DeviceConfigurationDeviceStatusCollectionResponseImpl implements Ad
      * @param deviceConfigurationDeviceStatusCollectionResponseParameterValue 
      */
     public constructor(deviceConfigurationDeviceStatusCollectionResponseParameterValue?: DeviceConfigurationDeviceStatusCollectionResponse | undefined) {
-        this.additionalData = deviceConfigurationDeviceStatusCollectionResponseParameterValue?.additionalData ? deviceConfigurationDeviceStatusCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = deviceConfigurationDeviceStatusCollectionResponseParameterValue?.nextLink ;
-        this.value = deviceConfigurationDeviceStatusCollectionResponseParameterValue?.value ;
+        this.additionalData = deviceConfigurationDeviceStatusCollectionResponseParameterValue?.additionalData ? deviceConfigurationDeviceStatusCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = deviceConfigurationDeviceStatusCollectionResponseParameterValue?.nextLink;
+        this.value = deviceConfigurationDeviceStatusCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class DeviceConfigurationDeviceStatusCollectionResponseImpl implements Ad
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: DeviceConfigurationDeviceStatusImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new DeviceConfigurationDeviceStatusImpl(element));});
-        writer.writeCollectionOfObjectValues<DeviceConfigurationDeviceStatusImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<DeviceConfigurationDeviceStatusImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

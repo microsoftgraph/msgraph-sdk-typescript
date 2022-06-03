@@ -4,7 +4,7 @@ import {ListItemVersion} from './listItemVersion';
 import {ListItemVersionCollectionResponse} from './listItemVersionCollectionResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ListItemVersionCollectionResponseImpl implements AdditionalDataHolder, ListItemVersionCollectionResponse, Parsable {
+export class ListItemVersionCollectionResponseImpl implements ListItemVersionCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class ListItemVersionCollectionResponseImpl implements AdditionalDataHold
      * @param listItemVersionCollectionResponseParameterValue 
      */
     public constructor(listItemVersionCollectionResponseParameterValue?: ListItemVersionCollectionResponse | undefined) {
-        this.additionalData = listItemVersionCollectionResponseParameterValue?.additionalData ? listItemVersionCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = listItemVersionCollectionResponseParameterValue?.nextLink ;
-        this.value = listItemVersionCollectionResponseParameterValue?.value ;
+        this.additionalData = listItemVersionCollectionResponseParameterValue?.additionalData ? listItemVersionCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = listItemVersionCollectionResponseParameterValue?.nextLink;
+        this.value = listItemVersionCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class ListItemVersionCollectionResponseImpl implements AdditionalDataHold
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: ListItemVersionImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ListItemVersionImpl(element));});
-        writer.writeCollectionOfObjectValues<ListItemVersionImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<ListItemVersionImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

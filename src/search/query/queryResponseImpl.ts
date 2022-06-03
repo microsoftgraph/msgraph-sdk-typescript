@@ -5,7 +5,7 @@ import {QueryResponse} from './queryResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the query method. */
-export class QueryResponseImpl implements AdditionalDataHolder, Parsable, QueryResponse {
+export class QueryResponseImpl implements QueryResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The value property */
@@ -15,8 +15,8 @@ export class QueryResponseImpl implements AdditionalDataHolder, Parsable, QueryR
      * @param queryResponseParameterValue 
      */
     public constructor(queryResponseParameterValue?: QueryResponse | undefined) {
-        this.additionalData = queryResponseParameterValue?.additionalData ? queryResponseParameterValue?.additionalData! : {}
-        this.value = queryResponseParameterValue?.value ;
+        this.additionalData = queryResponseParameterValue?.additionalData ? queryResponseParameterValue?.additionalData! : {};
+        this.value = queryResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -34,7 +34,7 @@ export class QueryResponseImpl implements AdditionalDataHolder, Parsable, QueryR
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.value && this.value.length != 0){        const valueArrValue: SearchResponseImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new SearchResponseImpl(element));});
-        writer.writeCollectionOfObjectValues<SearchResponseImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<SearchResponseImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

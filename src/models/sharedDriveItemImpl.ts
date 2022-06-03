@@ -15,7 +15,7 @@ import {Site} from './site';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the collection of sharedDriveItem entities. */
-export class SharedDriveItemImpl extends BaseItemImpl implements Parsable, SharedDriveItem {
+export class SharedDriveItemImpl extends BaseItemImpl implements SharedDriveItem {
     /** Used to access the underlying driveItem */
     public driveItem?: DriveItem | undefined;
     /** All driveItems contained in the sharing root. This collection cannot be enumerated. */
@@ -37,15 +37,15 @@ export class SharedDriveItemImpl extends BaseItemImpl implements Parsable, Share
      * @param sharedDriveItemParameterValue 
      */
     public constructor(sharedDriveItemParameterValue?: SharedDriveItem | undefined) {
-        super();
-        this.driveItem = sharedDriveItemParameterValue?.driveItem ;
-        this.items = sharedDriveItemParameterValue?.items ;
-        this.list = sharedDriveItemParameterValue?.list ;
-        this.listItem = sharedDriveItemParameterValue?.listItem ;
-        this.owner = sharedDriveItemParameterValue?.owner ;
-        this.permission = sharedDriveItemParameterValue?.permission ;
-        this.root = sharedDriveItemParameterValue?.root ;
-        this.site = sharedDriveItemParameterValue?.site ;
+        super(sharedDriveItemParameterValue);
+        this.driveItem = sharedDriveItemParameterValue?.driveItem;
+        this.items = sharedDriveItemParameterValue?.items;
+        this.list = sharedDriveItemParameterValue?.list;
+        this.listItem = sharedDriveItemParameterValue?.listItem;
+        this.owner = sharedDriveItemParameterValue?.owner;
+        this.permission = sharedDriveItemParameterValue?.permission;
+        this.root = sharedDriveItemParameterValue?.root;
+        this.site = sharedDriveItemParameterValue?.site;
     };
     /**
      * The deserialization information for the current model
@@ -71,28 +71,28 @@ export class SharedDriveItemImpl extends BaseItemImpl implements Parsable, Share
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.driveItem){
-        writer.writeObjectValue<DriveItemImpl>("driveItem", new DriveItemImpl(this.driveItem));
+            writer.writeObjectValue<DriveItemImpl>("driveItem", new DriveItemImpl(this.driveItem));
         }
         if(this.items && this.items.length != 0){        const itemsArrValue: DriveItemImpl[] = []; this.items?.forEach(element => {itemsArrValue.push(new DriveItemImpl(element));});
-        writer.writeCollectionOfObjectValues<DriveItemImpl>("items", itemsArrValue);
+            writer.writeCollectionOfObjectValues<DriveItemImpl>("items", itemsArrValue);
         }
         if(this.list){
-        writer.writeObjectValue<ListImpl>("list", new ListImpl(this.list));
+            writer.writeObjectValue<ListImpl>("list", new ListImpl(this.list));
         }
         if(this.listItem){
-        writer.writeObjectValue<ListItemImpl>("listItem", new ListItemImpl(this.listItem));
+            writer.writeObjectValue<ListItemImpl>("listItem", new ListItemImpl(this.listItem));
         }
         if(this.owner){
-        writer.writeObjectValue<IdentitySetImpl>("owner", new IdentitySetImpl(this.owner));
+            writer.writeObjectValue<IdentitySetImpl>("owner", new IdentitySetImpl(this.owner));
         }
         if(this.permission){
-        writer.writeObjectValue<PermissionImpl>("permission", new PermissionImpl(this.permission));
+            writer.writeObjectValue<PermissionImpl>("permission", new PermissionImpl(this.permission));
         }
         if(this.root){
-        writer.writeObjectValue<DriveItemImpl>("root", new DriveItemImpl(this.root));
+            writer.writeObjectValue<DriveItemImpl>("root", new DriveItemImpl(this.root));
         }
         if(this.site){
-        writer.writeObjectValue<SiteImpl>("site", new SiteImpl(this.site));
+            writer.writeObjectValue<SiteImpl>("site", new SiteImpl(this.site));
         }
     };
 }

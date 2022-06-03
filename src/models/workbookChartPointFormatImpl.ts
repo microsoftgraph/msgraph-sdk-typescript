@@ -4,8 +4,8 @@ import {WorkbookChartFill} from './workbookChartFill';
 import {WorkbookChartPointFormat} from './workbookChartPointFormat';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
-export class WorkbookChartPointFormatImpl extends EntityImpl implements Parsable, WorkbookChartPointFormat {
+/** Casts the previous resource to group. */
+export class WorkbookChartPointFormatImpl extends EntityImpl implements WorkbookChartPointFormat {
     /** Represents the fill format of a chart, which includes background formating information. Read-only. */
     public fill?: WorkbookChartFill | undefined;
     /**
@@ -13,8 +13,8 @@ export class WorkbookChartPointFormatImpl extends EntityImpl implements Parsable
      * @param workbookChartPointFormatParameterValue 
      */
     public constructor(workbookChartPointFormatParameterValue?: WorkbookChartPointFormat | undefined) {
-        super();
-        this.fill = workbookChartPointFormatParameterValue?.fill ;
+        super(workbookChartPointFormatParameterValue);
+        this.fill = workbookChartPointFormatParameterValue?.fill;
     };
     /**
      * The deserialization information for the current model
@@ -33,7 +33,7 @@ export class WorkbookChartPointFormatImpl extends EntityImpl implements Parsable
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.fill){
-        writer.writeObjectValue<WorkbookChartFillImpl>("fill", new WorkbookChartFillImpl(this.fill));
+            writer.writeObjectValue<WorkbookChartFillImpl>("fill", new WorkbookChartFillImpl(this.fill));
         }
     };
 }

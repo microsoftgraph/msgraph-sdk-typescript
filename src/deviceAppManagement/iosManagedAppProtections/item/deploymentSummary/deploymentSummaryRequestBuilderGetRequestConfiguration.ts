@@ -1,11 +1,11 @@
 import {DeploymentSummaryRequestBuilderGetQueryParameters} from './deploymentSummaryRequestBuilderGetQueryParameters';
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
-export interface DeploymentSummaryRequestBuilderGetRequestConfiguration{
+export interface DeploymentSummaryRequestBuilderGetRequestConfiguration {
     /** Request headers */
-    headers?:Record<string, string> | undefined;
+    headers?: Record<string, string> | undefined;
     /** Request options */
-    options?:RequestOption[] | undefined;
+    options?: RequestOption[] | undefined;
     /** Request query parameters */
-    queryParameters?:DeploymentSummaryRequestBuilderGetQueryParameters | undefined;
+    queryParameters?: DeploymentSummaryRequestBuilderGetQueryParameters | undefined;
 }

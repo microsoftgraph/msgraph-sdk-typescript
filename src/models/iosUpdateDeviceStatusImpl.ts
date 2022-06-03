@@ -5,7 +5,7 @@ import {IosUpdatesInstallStatus} from './iosUpdatesInstallStatus';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the deviceManagement singleton. */
-export class IosUpdateDeviceStatusImpl extends EntityImpl implements IosUpdateDeviceStatus, Parsable {
+export class IosUpdateDeviceStatusImpl extends EntityImpl implements IosUpdateDeviceStatus {
     /** The DateTime when device compliance grace period expires */
     public complianceGracePeriodExpirationDateTime?: Date | undefined;
     /** Device name of the DevicePolicyStatus. */
@@ -33,18 +33,18 @@ export class IosUpdateDeviceStatusImpl extends EntityImpl implements IosUpdateDe
      * @param iosUpdateDeviceStatusParameterValue 
      */
     public constructor(iosUpdateDeviceStatusParameterValue?: IosUpdateDeviceStatus | undefined) {
-        super();
-        this.complianceGracePeriodExpirationDateTime = iosUpdateDeviceStatusParameterValue?.complianceGracePeriodExpirationDateTime ;
-        this.deviceDisplayName = iosUpdateDeviceStatusParameterValue?.deviceDisplayName ;
-        this.deviceId = iosUpdateDeviceStatusParameterValue?.deviceId ;
-        this.deviceModel = iosUpdateDeviceStatusParameterValue?.deviceModel ;
-        this.installStatus = iosUpdateDeviceStatusParameterValue?.installStatus ;
-        this.lastReportedDateTime = iosUpdateDeviceStatusParameterValue?.lastReportedDateTime ;
-        this.osVersion = iosUpdateDeviceStatusParameterValue?.osVersion ;
-        this.status = iosUpdateDeviceStatusParameterValue?.status ;
-        this.userId = iosUpdateDeviceStatusParameterValue?.userId ;
-        this.userName = iosUpdateDeviceStatusParameterValue?.userName ;
-        this.userPrincipalName = iosUpdateDeviceStatusParameterValue?.userPrincipalName ;
+        super(iosUpdateDeviceStatusParameterValue);
+        this.complianceGracePeriodExpirationDateTime = iosUpdateDeviceStatusParameterValue?.complianceGracePeriodExpirationDateTime;
+        this.deviceDisplayName = iosUpdateDeviceStatusParameterValue?.deviceDisplayName;
+        this.deviceId = iosUpdateDeviceStatusParameterValue?.deviceId;
+        this.deviceModel = iosUpdateDeviceStatusParameterValue?.deviceModel;
+        this.installStatus = iosUpdateDeviceStatusParameterValue?.installStatus;
+        this.lastReportedDateTime = iosUpdateDeviceStatusParameterValue?.lastReportedDateTime;
+        this.osVersion = iosUpdateDeviceStatusParameterValue?.osVersion;
+        this.status = iosUpdateDeviceStatusParameterValue?.status;
+        this.userId = iosUpdateDeviceStatusParameterValue?.userId;
+        this.userName = iosUpdateDeviceStatusParameterValue?.userName;
+        this.userPrincipalName = iosUpdateDeviceStatusParameterValue?.userPrincipalName;
     };
     /**
      * The deserialization information for the current model
@@ -73,37 +73,37 @@ export class IosUpdateDeviceStatusImpl extends EntityImpl implements IosUpdateDe
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.complianceGracePeriodExpirationDateTime){
-        writer.writeDateValue("complianceGracePeriodExpirationDateTime", this.complianceGracePeriodExpirationDateTime);
+            writer.writeDateValue("complianceGracePeriodExpirationDateTime", this.complianceGracePeriodExpirationDateTime);
         }
         if(this.deviceDisplayName){
-        writer.writeStringValue("deviceDisplayName", this.deviceDisplayName);
+            writer.writeStringValue("deviceDisplayName", this.deviceDisplayName);
         }
         if(this.deviceId){
-        writer.writeStringValue("deviceId", this.deviceId);
+            writer.writeStringValue("deviceId", this.deviceId);
         }
         if(this.deviceModel){
-        writer.writeStringValue("deviceModel", this.deviceModel);
+            writer.writeStringValue("deviceModel", this.deviceModel);
         }
         if(this.installStatus){
-        writer.writeEnumValue<IosUpdatesInstallStatus>("installStatus", this.installStatus);
+            writer.writeEnumValue<IosUpdatesInstallStatus>("installStatus", this.installStatus);
         }
         if(this.lastReportedDateTime){
-        writer.writeDateValue("lastReportedDateTime", this.lastReportedDateTime);
+            writer.writeDateValue("lastReportedDateTime", this.lastReportedDateTime);
         }
         if(this.osVersion){
-        writer.writeStringValue("osVersion", this.osVersion);
+            writer.writeStringValue("osVersion", this.osVersion);
         }
         if(this.status){
-        writer.writeEnumValue<ComplianceStatus>("status", this.status);
+            writer.writeEnumValue<ComplianceStatus>("status", this.status);
         }
         if(this.userId){
-        writer.writeStringValue("userId", this.userId);
+            writer.writeStringValue("userId", this.userId);
         }
         if(this.userName){
-        writer.writeStringValue("userName", this.userName);
+            writer.writeStringValue("userName", this.userName);
         }
         if(this.userPrincipalName){
-        writer.writeStringValue("userPrincipalName", this.userPrincipalName);
+            writer.writeStringValue("userPrincipalName", this.userPrincipalName);
         }
     };
 }

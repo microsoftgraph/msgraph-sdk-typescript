@@ -1,11 +1,11 @@
 import {ExternalColumnsRequestBuilderGetQueryParameters} from './externalColumnsRequestBuilderGetQueryParameters';
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
-export interface ExternalColumnsRequestBuilderGetRequestConfiguration{
+export interface ExternalColumnsRequestBuilderGetRequestConfiguration {
     /** Request headers */
-    headers?:Record<string, string> | undefined;
+    headers?: Record<string, string> | undefined;
     /** Request options */
-    options?:RequestOption[] | undefined;
+    options?: RequestOption[] | undefined;
     /** Request query parameters */
-    queryParameters?:ExternalColumnsRequestBuilderGetQueryParameters | undefined;
+    queryParameters?: ExternalColumnsRequestBuilderGetQueryParameters | undefined;
 }

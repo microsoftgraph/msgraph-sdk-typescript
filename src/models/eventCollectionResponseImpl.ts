@@ -4,7 +4,7 @@ import {EventCollectionResponse} from './eventCollectionResponse';
 import {EventImpl} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class EventCollectionResponseImpl implements AdditionalDataHolder, EventCollectionResponse, Parsable {
+export class EventCollectionResponseImpl implements EventCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class EventCollectionResponseImpl implements AdditionalDataHolder, EventC
      * @param eventCollectionResponseParameterValue 
      */
     public constructor(eventCollectionResponseParameterValue?: EventCollectionResponse | undefined) {
-        this.additionalData = eventCollectionResponseParameterValue?.additionalData ? eventCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = eventCollectionResponseParameterValue?.nextLink ;
-        this.value = eventCollectionResponseParameterValue?.value ;
+        this.additionalData = eventCollectionResponseParameterValue?.additionalData ? eventCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = eventCollectionResponseParameterValue?.nextLink;
+        this.value = eventCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class EventCollectionResponseImpl implements AdditionalDataHolder, EventC
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: EventImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new EventImpl(element));});
-        writer.writeCollectionOfObjectValues<EventImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<EventImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

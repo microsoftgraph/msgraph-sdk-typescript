@@ -4,7 +4,7 @@ import {InternalDomainFederation} from './internalDomainFederation';
 import {InternalDomainFederationCollectionResponse} from './internalDomainFederationCollectionResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class InternalDomainFederationCollectionResponseImpl implements AdditionalDataHolder, InternalDomainFederationCollectionResponse, Parsable {
+export class InternalDomainFederationCollectionResponseImpl implements InternalDomainFederationCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class InternalDomainFederationCollectionResponseImpl implements Additiona
      * @param internalDomainFederationCollectionResponseParameterValue 
      */
     public constructor(internalDomainFederationCollectionResponseParameterValue?: InternalDomainFederationCollectionResponse | undefined) {
-        this.additionalData = internalDomainFederationCollectionResponseParameterValue?.additionalData ? internalDomainFederationCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = internalDomainFederationCollectionResponseParameterValue?.nextLink ;
-        this.value = internalDomainFederationCollectionResponseParameterValue?.value ;
+        this.additionalData = internalDomainFederationCollectionResponseParameterValue?.additionalData ? internalDomainFederationCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = internalDomainFederationCollectionResponseParameterValue?.nextLink;
+        this.value = internalDomainFederationCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class InternalDomainFederationCollectionResponseImpl implements Additiona
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: InternalDomainFederationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new InternalDomainFederationImpl(element));});
-        writer.writeCollectionOfObjectValues<InternalDomainFederationImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<InternalDomainFederationImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

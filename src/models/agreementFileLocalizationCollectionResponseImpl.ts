@@ -4,7 +4,7 @@ import {createAgreementFileLocalizationFromDiscriminatorValue} from './createAgr
 import {AgreementFileLocalizationImpl} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class AgreementFileLocalizationCollectionResponseImpl implements AdditionalDataHolder, AgreementFileLocalizationCollectionResponse, Parsable {
+export class AgreementFileLocalizationCollectionResponseImpl implements AgreementFileLocalizationCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class AgreementFileLocalizationCollectionResponseImpl implements Addition
      * @param agreementFileLocalizationCollectionResponseParameterValue 
      */
     public constructor(agreementFileLocalizationCollectionResponseParameterValue?: AgreementFileLocalizationCollectionResponse | undefined) {
-        this.additionalData = agreementFileLocalizationCollectionResponseParameterValue?.additionalData ? agreementFileLocalizationCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = agreementFileLocalizationCollectionResponseParameterValue?.nextLink ;
-        this.value = agreementFileLocalizationCollectionResponseParameterValue?.value ;
+        this.additionalData = agreementFileLocalizationCollectionResponseParameterValue?.additionalData ? agreementFileLocalizationCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = agreementFileLocalizationCollectionResponseParameterValue?.nextLink;
+        this.value = agreementFileLocalizationCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class AgreementFileLocalizationCollectionResponseImpl implements Addition
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: AgreementFileLocalizationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new AgreementFileLocalizationImpl(element));});
-        writer.writeCollectionOfObjectValues<AgreementFileLocalizationImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<AgreementFileLocalizationImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

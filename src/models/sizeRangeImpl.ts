@@ -1,7 +1,7 @@
 import {SizeRange} from './sizeRange';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class SizeRangeImpl implements AdditionalDataHolder, Parsable, SizeRange {
+export class SizeRangeImpl implements SizeRange {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The maximum size (in kilobytes) that an incoming message must have in order for a condition or exception to apply. */
@@ -13,9 +13,9 @@ export class SizeRangeImpl implements AdditionalDataHolder, Parsable, SizeRange 
      * @param sizeRangeParameterValue 
      */
     public constructor(sizeRangeParameterValue?: SizeRange | undefined) {
-        this.additionalData = sizeRangeParameterValue?.additionalData ? sizeRangeParameterValue?.additionalData! : {}
-        this.maximumSize = sizeRangeParameterValue?.maximumSize ;
-        this.minimumSize = sizeRangeParameterValue?.minimumSize ;
+        this.additionalData = sizeRangeParameterValue?.additionalData ? sizeRangeParameterValue?.additionalData! : {};
+        this.maximumSize = sizeRangeParameterValue?.maximumSize;
+        this.minimumSize = sizeRangeParameterValue?.minimumSize;
     };
     /**
      * The deserialization information for the current model
@@ -34,10 +34,10 @@ export class SizeRangeImpl implements AdditionalDataHolder, Parsable, SizeRange 
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.maximumSize){
-        writer.writeNumberValue("maximumSize", this.maximumSize);
+            writer.writeNumberValue("maximumSize", this.maximumSize);
         }
         if(this.minimumSize){
-        writer.writeNumberValue("minimumSize", this.minimumSize);
+            writer.writeNumberValue("minimumSize", this.minimumSize);
         }
         writer.writeAdditionalData(this.additionalData);
     };

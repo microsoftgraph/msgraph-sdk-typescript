@@ -4,7 +4,7 @@ import {SectionGroup} from './sectionGroup';
 import {SectionGroupCollectionResponse} from './sectionGroupCollectionResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class SectionGroupCollectionResponseImpl implements AdditionalDataHolder, Parsable, SectionGroupCollectionResponse {
+export class SectionGroupCollectionResponseImpl implements SectionGroupCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class SectionGroupCollectionResponseImpl implements AdditionalDataHolder,
      * @param sectionGroupCollectionResponseParameterValue 
      */
     public constructor(sectionGroupCollectionResponseParameterValue?: SectionGroupCollectionResponse | undefined) {
-        this.additionalData = sectionGroupCollectionResponseParameterValue?.additionalData ? sectionGroupCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = sectionGroupCollectionResponseParameterValue?.nextLink ;
-        this.value = sectionGroupCollectionResponseParameterValue?.value ;
+        this.additionalData = sectionGroupCollectionResponseParameterValue?.additionalData ? sectionGroupCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = sectionGroupCollectionResponseParameterValue?.nextLink;
+        this.value = sectionGroupCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class SectionGroupCollectionResponseImpl implements AdditionalDataHolder,
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: SectionGroupImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new SectionGroupImpl(element));});
-        writer.writeCollectionOfObjectValues<SectionGroupImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<SectionGroupImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

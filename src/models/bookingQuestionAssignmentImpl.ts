@@ -1,7 +1,7 @@
 import {BookingQuestionAssignment} from './bookingQuestionAssignment';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class BookingQuestionAssignmentImpl implements AdditionalDataHolder, BookingQuestionAssignment, Parsable {
+export class BookingQuestionAssignmentImpl implements BookingQuestionAssignment {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Indicates whether it is mandatory to answer the custom question. */
@@ -13,9 +13,9 @@ export class BookingQuestionAssignmentImpl implements AdditionalDataHolder, Book
      * @param bookingQuestionAssignmentParameterValue 
      */
     public constructor(bookingQuestionAssignmentParameterValue?: BookingQuestionAssignment | undefined) {
-        this.additionalData = bookingQuestionAssignmentParameterValue?.additionalData ? bookingQuestionAssignmentParameterValue?.additionalData! : {}
-        this.isRequired = bookingQuestionAssignmentParameterValue?.isRequired ;
-        this.questionId = bookingQuestionAssignmentParameterValue?.questionId ;
+        this.additionalData = bookingQuestionAssignmentParameterValue?.additionalData ? bookingQuestionAssignmentParameterValue?.additionalData! : {};
+        this.isRequired = bookingQuestionAssignmentParameterValue?.isRequired;
+        this.questionId = bookingQuestionAssignmentParameterValue?.questionId;
     };
     /**
      * The deserialization information for the current model
@@ -34,10 +34,10 @@ export class BookingQuestionAssignmentImpl implements AdditionalDataHolder, Book
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.isRequired){
-        writer.writeBooleanValue("isRequired", this.isRequired);
+            writer.writeBooleanValue("isRequired", this.isRequired);
         }
         if(this.questionId){
-        writer.writeStringValue("questionId", this.questionId);
+            writer.writeStringValue("questionId", this.questionId);
         }
         writer.writeAdditionalData(this.additionalData);
     };

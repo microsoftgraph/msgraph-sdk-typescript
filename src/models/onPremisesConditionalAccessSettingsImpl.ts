@@ -3,7 +3,7 @@ import {OnPremisesConditionalAccessSettings} from './onPremisesConditionalAccess
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Singleton entity which represents the Exchange OnPremises Conditional Access Settings for a tenant. */
-export class OnPremisesConditionalAccessSettingsImpl extends EntityImpl implements OnPremisesConditionalAccessSettings, Parsable {
+export class OnPremisesConditionalAccessSettingsImpl extends EntityImpl implements OnPremisesConditionalAccessSettings {
     /** Indicates if on premises conditional access is enabled for this organization */
     public enabled?: boolean | undefined;
     /** User groups that will be exempt by on premises conditional access. All users in these groups will be exempt from the conditional access policy. */
@@ -17,11 +17,11 @@ export class OnPremisesConditionalAccessSettingsImpl extends EntityImpl implemen
      * @param onPremisesConditionalAccessSettingsParameterValue 
      */
     public constructor(onPremisesConditionalAccessSettingsParameterValue?: OnPremisesConditionalAccessSettings | undefined) {
-        super();
-        this.enabled = onPremisesConditionalAccessSettingsParameterValue?.enabled ;
-        this.excludedGroups = onPremisesConditionalAccessSettingsParameterValue?.excludedGroups ;
-        this.includedGroups = onPremisesConditionalAccessSettingsParameterValue?.includedGroups ;
-        this.overrideDefaultRule = onPremisesConditionalAccessSettingsParameterValue?.overrideDefaultRule ;
+        super(onPremisesConditionalAccessSettingsParameterValue);
+        this.enabled = onPremisesConditionalAccessSettingsParameterValue?.enabled;
+        this.excludedGroups = onPremisesConditionalAccessSettingsParameterValue?.excludedGroups;
+        this.includedGroups = onPremisesConditionalAccessSettingsParameterValue?.includedGroups;
+        this.overrideDefaultRule = onPremisesConditionalAccessSettingsParameterValue?.overrideDefaultRule;
     };
     /**
      * The deserialization information for the current model
@@ -43,16 +43,16 @@ export class OnPremisesConditionalAccessSettingsImpl extends EntityImpl implemen
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.enabled){
-        writer.writeBooleanValue("enabled", this.enabled);
+            writer.writeBooleanValue("enabled", this.enabled);
         }
         if(this.excludedGroups){
-        writer.writeCollectionOfPrimitiveValues<string>("excludedGroups", this.excludedGroups);
+            writer.writeCollectionOfPrimitiveValues<string>("excludedGroups", this.excludedGroups);
         }
         if(this.includedGroups){
-        writer.writeCollectionOfPrimitiveValues<string>("includedGroups", this.includedGroups);
+            writer.writeCollectionOfPrimitiveValues<string>("includedGroups", this.includedGroups);
         }
         if(this.overrideDefaultRule){
-        writer.writeBooleanValue("overrideDefaultRule", this.overrideDefaultRule);
+            writer.writeBooleanValue("overrideDefaultRule", this.overrideDefaultRule);
         }
     };
 }

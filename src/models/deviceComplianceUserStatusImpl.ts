@@ -4,7 +4,7 @@ import {EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the deviceManagement singleton. */
-export class DeviceComplianceUserStatusImpl extends EntityImpl implements DeviceComplianceUserStatus, Parsable {
+export class DeviceComplianceUserStatusImpl extends EntityImpl implements DeviceComplianceUserStatus {
     /** Devices count for that user. */
     public devicesCount?: number | undefined;
     /** Last modified date time of the policy report. */
@@ -20,12 +20,12 @@ export class DeviceComplianceUserStatusImpl extends EntityImpl implements Device
      * @param deviceComplianceUserStatusParameterValue 
      */
     public constructor(deviceComplianceUserStatusParameterValue?: DeviceComplianceUserStatus | undefined) {
-        super();
-        this.devicesCount = deviceComplianceUserStatusParameterValue?.devicesCount ;
-        this.lastReportedDateTime = deviceComplianceUserStatusParameterValue?.lastReportedDateTime ;
-        this.status = deviceComplianceUserStatusParameterValue?.status ;
-        this.userDisplayName = deviceComplianceUserStatusParameterValue?.userDisplayName ;
-        this.userPrincipalName = deviceComplianceUserStatusParameterValue?.userPrincipalName ;
+        super(deviceComplianceUserStatusParameterValue);
+        this.devicesCount = deviceComplianceUserStatusParameterValue?.devicesCount;
+        this.lastReportedDateTime = deviceComplianceUserStatusParameterValue?.lastReportedDateTime;
+        this.status = deviceComplianceUserStatusParameterValue?.status;
+        this.userDisplayName = deviceComplianceUserStatusParameterValue?.userDisplayName;
+        this.userPrincipalName = deviceComplianceUserStatusParameterValue?.userPrincipalName;
     };
     /**
      * The deserialization information for the current model
@@ -48,19 +48,19 @@ export class DeviceComplianceUserStatusImpl extends EntityImpl implements Device
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.devicesCount){
-        writer.writeNumberValue("devicesCount", this.devicesCount);
+            writer.writeNumberValue("devicesCount", this.devicesCount);
         }
         if(this.lastReportedDateTime){
-        writer.writeDateValue("lastReportedDateTime", this.lastReportedDateTime);
+            writer.writeDateValue("lastReportedDateTime", this.lastReportedDateTime);
         }
         if(this.status){
-        writer.writeEnumValue<ComplianceStatus>("status", this.status);
+            writer.writeEnumValue<ComplianceStatus>("status", this.status);
         }
         if(this.userDisplayName){
-        writer.writeStringValue("userDisplayName", this.userDisplayName);
+            writer.writeStringValue("userDisplayName", this.userDisplayName);
         }
         if(this.userPrincipalName){
-        writer.writeStringValue("userPrincipalName", this.userPrincipalName);
+            writer.writeStringValue("userPrincipalName", this.userPrincipalName);
         }
     };
 }

@@ -6,8 +6,8 @@ import {WorkbookNamedItem} from './workbookNamedItem';
 import {WorkbookWorksheet} from './workbookWorksheet';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
-export class WorkbookNamedItemImpl extends EntityImpl implements Parsable, WorkbookNamedItem {
+/** Casts the previous resource to group. */
+export class WorkbookNamedItemImpl extends EntityImpl implements WorkbookNamedItem {
     /** Represents the comment associated with this name. */
     public comment?: string | undefined;
     /** The name of the object. Read-only. */
@@ -27,14 +27,14 @@ export class WorkbookNamedItemImpl extends EntityImpl implements Parsable, Workb
      * @param workbookNamedItemParameterValue 
      */
     public constructor(workbookNamedItemParameterValue?: WorkbookNamedItem | undefined) {
-        super();
-        this.comment = workbookNamedItemParameterValue?.comment ;
-        this.name = workbookNamedItemParameterValue?.name ;
-        this.scope = workbookNamedItemParameterValue?.scope ;
-        this.type = workbookNamedItemParameterValue?.type ;
-        this.value = workbookNamedItemParameterValue?.value ;
-        this.visible = workbookNamedItemParameterValue?.visible ;
-        this.worksheet = workbookNamedItemParameterValue?.worksheet ;
+        super(workbookNamedItemParameterValue);
+        this.comment = workbookNamedItemParameterValue?.comment;
+        this.name = workbookNamedItemParameterValue?.name;
+        this.scope = workbookNamedItemParameterValue?.scope;
+        this.type = workbookNamedItemParameterValue?.type;
+        this.value = workbookNamedItemParameterValue?.value;
+        this.visible = workbookNamedItemParameterValue?.visible;
+        this.worksheet = workbookNamedItemParameterValue?.worksheet;
     };
     /**
      * The deserialization information for the current model
@@ -59,25 +59,25 @@ export class WorkbookNamedItemImpl extends EntityImpl implements Parsable, Workb
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.comment){
-        writer.writeStringValue("comment", this.comment);
+            writer.writeStringValue("comment", this.comment);
         }
         if(this.name){
-        writer.writeStringValue("name", this.name);
+            writer.writeStringValue("name", this.name);
         }
         if(this.scope){
-        writer.writeStringValue("scope", this.scope);
+            writer.writeStringValue("scope", this.scope);
         }
         if(this.type){
-        writer.writeStringValue("type", this.type);
+            writer.writeStringValue("type", this.type);
         }
         if(this.value){
-        writer.writeObjectValue<JsonImpl>("value", new JsonImpl(this.value));
+            writer.writeObjectValue<JsonImpl>("value", new JsonImpl(this.value));
         }
         if(this.visible){
-        writer.writeBooleanValue("visible", this.visible);
+            writer.writeBooleanValue("visible", this.visible);
         }
         if(this.worksheet){
-        writer.writeObjectValue<WorkbookWorksheetImpl>("worksheet", new WorkbookWorksheetImpl(this.worksheet));
+            writer.writeObjectValue<WorkbookWorksheetImpl>("worksheet", new WorkbookWorksheetImpl(this.worksheet));
         }
     };
 }

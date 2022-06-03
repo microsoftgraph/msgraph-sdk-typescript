@@ -4,8 +4,8 @@ import {WorkbookChartDataLabelFormat} from './workbookChartDataLabelFormat';
 import {WorkbookChartDataLabels} from './workbookChartDataLabels';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
-export class WorkbookChartDataLabelsImpl extends EntityImpl implements Parsable, WorkbookChartDataLabels {
+/** Casts the previous resource to group. */
+export class WorkbookChartDataLabelsImpl extends EntityImpl implements WorkbookChartDataLabels {
     /** Represents the format of chart data labels, which includes fill and font formatting. Read-only. */
     public format?: WorkbookChartDataLabelFormat | undefined;
     /** DataLabelPosition value that represents the position of the data label. The possible values are: None, Center, InsideEnd, InsideBase, OutsideEnd, Left, Right, Top, Bottom, BestFit, Callout. */
@@ -29,16 +29,16 @@ export class WorkbookChartDataLabelsImpl extends EntityImpl implements Parsable,
      * @param workbookChartDataLabelsParameterValue 
      */
     public constructor(workbookChartDataLabelsParameterValue?: WorkbookChartDataLabels | undefined) {
-        super();
-        this.format = workbookChartDataLabelsParameterValue?.format ;
-        this.position = workbookChartDataLabelsParameterValue?.position ;
-        this.separator = workbookChartDataLabelsParameterValue?.separator ;
-        this.showBubbleSize = workbookChartDataLabelsParameterValue?.showBubbleSize ;
-        this.showCategoryName = workbookChartDataLabelsParameterValue?.showCategoryName ;
-        this.showLegendKey = workbookChartDataLabelsParameterValue?.showLegendKey ;
-        this.showPercentage = workbookChartDataLabelsParameterValue?.showPercentage ;
-        this.showSeriesName = workbookChartDataLabelsParameterValue?.showSeriesName ;
-        this.showValue = workbookChartDataLabelsParameterValue?.showValue ;
+        super(workbookChartDataLabelsParameterValue);
+        this.format = workbookChartDataLabelsParameterValue?.format;
+        this.position = workbookChartDataLabelsParameterValue?.position;
+        this.separator = workbookChartDataLabelsParameterValue?.separator;
+        this.showBubbleSize = workbookChartDataLabelsParameterValue?.showBubbleSize;
+        this.showCategoryName = workbookChartDataLabelsParameterValue?.showCategoryName;
+        this.showLegendKey = workbookChartDataLabelsParameterValue?.showLegendKey;
+        this.showPercentage = workbookChartDataLabelsParameterValue?.showPercentage;
+        this.showSeriesName = workbookChartDataLabelsParameterValue?.showSeriesName;
+        this.showValue = workbookChartDataLabelsParameterValue?.showValue;
     };
     /**
      * The deserialization information for the current model
@@ -65,31 +65,31 @@ export class WorkbookChartDataLabelsImpl extends EntityImpl implements Parsable,
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.format){
-        writer.writeObjectValue<WorkbookChartDataLabelFormatImpl>("format", new WorkbookChartDataLabelFormatImpl(this.format));
+            writer.writeObjectValue<WorkbookChartDataLabelFormatImpl>("format", new WorkbookChartDataLabelFormatImpl(this.format));
         }
         if(this.position){
-        writer.writeStringValue("position", this.position);
+            writer.writeStringValue("position", this.position);
         }
         if(this.separator){
-        writer.writeStringValue("separator", this.separator);
+            writer.writeStringValue("separator", this.separator);
         }
         if(this.showBubbleSize){
-        writer.writeBooleanValue("showBubbleSize", this.showBubbleSize);
+            writer.writeBooleanValue("showBubbleSize", this.showBubbleSize);
         }
         if(this.showCategoryName){
-        writer.writeBooleanValue("showCategoryName", this.showCategoryName);
+            writer.writeBooleanValue("showCategoryName", this.showCategoryName);
         }
         if(this.showLegendKey){
-        writer.writeBooleanValue("showLegendKey", this.showLegendKey);
+            writer.writeBooleanValue("showLegendKey", this.showLegendKey);
         }
         if(this.showPercentage){
-        writer.writeBooleanValue("showPercentage", this.showPercentage);
+            writer.writeBooleanValue("showPercentage", this.showPercentage);
         }
         if(this.showSeriesName){
-        writer.writeBooleanValue("showSeriesName", this.showSeriesName);
+            writer.writeBooleanValue("showSeriesName", this.showSeriesName);
         }
         if(this.showValue){
-        writer.writeBooleanValue("showValue", this.showValue);
+            writer.writeBooleanValue("showValue", this.showValue);
         }
     };
 }

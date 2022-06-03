@@ -4,7 +4,7 @@ import {createConnectionOperationFromDiscriminatorValue} from './createConnectio
 import {ConnectionOperationImpl} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ConnectionOperationCollectionResponseImpl implements AdditionalDataHolder, ConnectionOperationCollectionResponse, Parsable {
+export class ConnectionOperationCollectionResponseImpl implements ConnectionOperationCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class ConnectionOperationCollectionResponseImpl implements AdditionalData
      * @param connectionOperationCollectionResponseParameterValue 
      */
     public constructor(connectionOperationCollectionResponseParameterValue?: ConnectionOperationCollectionResponse | undefined) {
-        this.additionalData = connectionOperationCollectionResponseParameterValue?.additionalData ? connectionOperationCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = connectionOperationCollectionResponseParameterValue?.nextLink ;
-        this.value = connectionOperationCollectionResponseParameterValue?.value ;
+        this.additionalData = connectionOperationCollectionResponseParameterValue?.additionalData ? connectionOperationCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = connectionOperationCollectionResponseParameterValue?.nextLink;
+        this.value = connectionOperationCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class ConnectionOperationCollectionResponseImpl implements AdditionalData
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: ConnectionOperationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ConnectionOperationImpl(element));});
-        writer.writeCollectionOfObjectValues<ConnectionOperationImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<ConnectionOperationImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

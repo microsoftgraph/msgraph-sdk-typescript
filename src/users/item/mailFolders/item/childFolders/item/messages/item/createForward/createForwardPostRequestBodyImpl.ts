@@ -7,7 +7,7 @@ import {CreateForwardPostRequestBody} from './createForwardPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the createForward method. */
-export class CreateForwardPostRequestBodyImpl implements AdditionalDataHolder, CreateForwardPostRequestBody, Parsable {
+export class CreateForwardPostRequestBodyImpl implements CreateForwardPostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The Comment property */
@@ -21,10 +21,10 @@ export class CreateForwardPostRequestBodyImpl implements AdditionalDataHolder, C
      * @param createForwardPostRequestBodyParameterValue 
      */
     public constructor(createForwardPostRequestBodyParameterValue?: CreateForwardPostRequestBody | undefined) {
-        this.additionalData = createForwardPostRequestBodyParameterValue?.additionalData ? createForwardPostRequestBodyParameterValue?.additionalData! : {}
-        this.comment = createForwardPostRequestBodyParameterValue?.comment ;
-        this.message = createForwardPostRequestBodyParameterValue?.message ;
-        this.toRecipients = createForwardPostRequestBodyParameterValue?.toRecipients ;
+        this.additionalData = createForwardPostRequestBodyParameterValue?.additionalData ? createForwardPostRequestBodyParameterValue?.additionalData! : {};
+        this.comment = createForwardPostRequestBodyParameterValue?.comment;
+        this.message = createForwardPostRequestBodyParameterValue?.message;
+        this.toRecipients = createForwardPostRequestBodyParameterValue?.toRecipients;
     };
     /**
      * The deserialization information for the current model
@@ -44,13 +44,13 @@ export class CreateForwardPostRequestBodyImpl implements AdditionalDataHolder, C
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.comment){
-        writer.writeStringValue("comment", this.comment);
+            writer.writeStringValue("comment", this.comment);
         }
         if(this.message){
-        writer.writeObjectValue<MessageImpl>("message", new MessageImpl(this.message));
+            writer.writeObjectValue<MessageImpl>("message", new MessageImpl(this.message));
         }
         if(this.toRecipients && this.toRecipients.length != 0){        const toRecipientsArrValue: RecipientImpl[] = []; this.toRecipients?.forEach(element => {toRecipientsArrValue.push(new RecipientImpl(element));});
-        writer.writeCollectionOfObjectValues<RecipientImpl>("toRecipients", toRecipientsArrValue);
+            writer.writeCollectionOfObjectValues<RecipientImpl>("toRecipients", toRecipientsArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

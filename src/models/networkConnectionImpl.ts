@@ -4,7 +4,7 @@ import {NetworkConnection} from './networkConnection';
 import {SecurityNetworkProtocol} from './securityNetworkProtocol';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class NetworkConnectionImpl implements AdditionalDataHolder, NetworkConnection, Parsable {
+export class NetworkConnectionImpl implements NetworkConnection {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Name of the application managing the network connection (for example, Facebook, SMTP, etc.). */
@@ -52,27 +52,27 @@ export class NetworkConnectionImpl implements AdditionalDataHolder, NetworkConne
      * @param networkConnectionParameterValue 
      */
     public constructor(networkConnectionParameterValue?: NetworkConnection | undefined) {
-        this.additionalData = networkConnectionParameterValue?.additionalData ? networkConnectionParameterValue?.additionalData! : {}
-        this.applicationName = networkConnectionParameterValue?.applicationName ;
-        this.destinationAddress = networkConnectionParameterValue?.destinationAddress ;
-        this.destinationDomain = networkConnectionParameterValue?.destinationDomain ;
-        this.destinationLocation = networkConnectionParameterValue?.destinationLocation ;
-        this.destinationPort = networkConnectionParameterValue?.destinationPort ;
-        this.destinationUrl = networkConnectionParameterValue?.destinationUrl ;
-        this.direction = networkConnectionParameterValue?.direction ;
-        this.domainRegisteredDateTime = networkConnectionParameterValue?.domainRegisteredDateTime ;
-        this.localDnsName = networkConnectionParameterValue?.localDnsName ;
-        this.natDestinationAddress = networkConnectionParameterValue?.natDestinationAddress ;
-        this.natDestinationPort = networkConnectionParameterValue?.natDestinationPort ;
-        this.natSourceAddress = networkConnectionParameterValue?.natSourceAddress ;
-        this.natSourcePort = networkConnectionParameterValue?.natSourcePort ;
-        this.protocol = networkConnectionParameterValue?.protocol ;
-        this.riskScore = networkConnectionParameterValue?.riskScore ;
-        this.sourceAddress = networkConnectionParameterValue?.sourceAddress ;
-        this.sourceLocation = networkConnectionParameterValue?.sourceLocation ;
-        this.sourcePort = networkConnectionParameterValue?.sourcePort ;
-        this.status = networkConnectionParameterValue?.status ;
-        this.urlParameters = networkConnectionParameterValue?.urlParameters ;
+        this.additionalData = networkConnectionParameterValue?.additionalData ? networkConnectionParameterValue?.additionalData! : {};
+        this.applicationName = networkConnectionParameterValue?.applicationName;
+        this.destinationAddress = networkConnectionParameterValue?.destinationAddress;
+        this.destinationDomain = networkConnectionParameterValue?.destinationDomain;
+        this.destinationLocation = networkConnectionParameterValue?.destinationLocation;
+        this.destinationPort = networkConnectionParameterValue?.destinationPort;
+        this.destinationUrl = networkConnectionParameterValue?.destinationUrl;
+        this.direction = networkConnectionParameterValue?.direction;
+        this.domainRegisteredDateTime = networkConnectionParameterValue?.domainRegisteredDateTime;
+        this.localDnsName = networkConnectionParameterValue?.localDnsName;
+        this.natDestinationAddress = networkConnectionParameterValue?.natDestinationAddress;
+        this.natDestinationPort = networkConnectionParameterValue?.natDestinationPort;
+        this.natSourceAddress = networkConnectionParameterValue?.natSourceAddress;
+        this.natSourcePort = networkConnectionParameterValue?.natSourcePort;
+        this.protocol = networkConnectionParameterValue?.protocol;
+        this.riskScore = networkConnectionParameterValue?.riskScore;
+        this.sourceAddress = networkConnectionParameterValue?.sourceAddress;
+        this.sourceLocation = networkConnectionParameterValue?.sourceLocation;
+        this.sourcePort = networkConnectionParameterValue?.sourcePort;
+        this.status = networkConnectionParameterValue?.status;
+        this.urlParameters = networkConnectionParameterValue?.urlParameters;
     };
     /**
      * The deserialization information for the current model
@@ -109,64 +109,64 @@ export class NetworkConnectionImpl implements AdditionalDataHolder, NetworkConne
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.applicationName){
-        writer.writeStringValue("applicationName", this.applicationName);
+            writer.writeStringValue("applicationName", this.applicationName);
         }
         if(this.destinationAddress){
-        writer.writeStringValue("destinationAddress", this.destinationAddress);
+            writer.writeStringValue("destinationAddress", this.destinationAddress);
         }
         if(this.destinationDomain){
-        writer.writeStringValue("destinationDomain", this.destinationDomain);
+            writer.writeStringValue("destinationDomain", this.destinationDomain);
         }
         if(this.destinationLocation){
-        writer.writeStringValue("destinationLocation", this.destinationLocation);
+            writer.writeStringValue("destinationLocation", this.destinationLocation);
         }
         if(this.destinationPort){
-        writer.writeStringValue("destinationPort", this.destinationPort);
+            writer.writeStringValue("destinationPort", this.destinationPort);
         }
         if(this.destinationUrl){
-        writer.writeStringValue("destinationUrl", this.destinationUrl);
+            writer.writeStringValue("destinationUrl", this.destinationUrl);
         }
         if(this.direction){
-        writer.writeEnumValue<ConnectionDirection>("direction", this.direction);
+            writer.writeEnumValue<ConnectionDirection>("direction", this.direction);
         }
         if(this.domainRegisteredDateTime){
-        writer.writeDateValue("domainRegisteredDateTime", this.domainRegisteredDateTime);
+            writer.writeDateValue("domainRegisteredDateTime", this.domainRegisteredDateTime);
         }
         if(this.localDnsName){
-        writer.writeStringValue("localDnsName", this.localDnsName);
+            writer.writeStringValue("localDnsName", this.localDnsName);
         }
         if(this.natDestinationAddress){
-        writer.writeStringValue("natDestinationAddress", this.natDestinationAddress);
+            writer.writeStringValue("natDestinationAddress", this.natDestinationAddress);
         }
         if(this.natDestinationPort){
-        writer.writeStringValue("natDestinationPort", this.natDestinationPort);
+            writer.writeStringValue("natDestinationPort", this.natDestinationPort);
         }
         if(this.natSourceAddress){
-        writer.writeStringValue("natSourceAddress", this.natSourceAddress);
+            writer.writeStringValue("natSourceAddress", this.natSourceAddress);
         }
         if(this.natSourcePort){
-        writer.writeStringValue("natSourcePort", this.natSourcePort);
+            writer.writeStringValue("natSourcePort", this.natSourcePort);
         }
         if(this.protocol){
-        writer.writeEnumValue<SecurityNetworkProtocol>("protocol", this.protocol);
+            writer.writeEnumValue<SecurityNetworkProtocol>("protocol", this.protocol);
         }
         if(this.riskScore){
-        writer.writeStringValue("riskScore", this.riskScore);
+            writer.writeStringValue("riskScore", this.riskScore);
         }
         if(this.sourceAddress){
-        writer.writeStringValue("sourceAddress", this.sourceAddress);
+            writer.writeStringValue("sourceAddress", this.sourceAddress);
         }
         if(this.sourceLocation){
-        writer.writeStringValue("sourceLocation", this.sourceLocation);
+            writer.writeStringValue("sourceLocation", this.sourceLocation);
         }
         if(this.sourcePort){
-        writer.writeStringValue("sourcePort", this.sourcePort);
+            writer.writeStringValue("sourcePort", this.sourcePort);
         }
         if(this.status){
-        writer.writeEnumValue<ConnectionStatus>("status", this.status);
+            writer.writeEnumValue<ConnectionStatus>("status", this.status);
         }
         if(this.urlParameters){
-        writer.writeStringValue("urlParameters", this.urlParameters);
+            writer.writeStringValue("urlParameters", this.urlParameters);
         }
         writer.writeAdditionalData(this.additionalData);
     };

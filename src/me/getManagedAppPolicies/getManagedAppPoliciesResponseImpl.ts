@@ -5,7 +5,7 @@ import {GetManagedAppPoliciesResponse} from './getManagedAppPoliciesResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the getManagedAppPolicies method. */
-export class GetManagedAppPoliciesResponseImpl implements AdditionalDataHolder, GetManagedAppPoliciesResponse, Parsable {
+export class GetManagedAppPoliciesResponseImpl implements GetManagedAppPoliciesResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The value property */
@@ -15,8 +15,8 @@ export class GetManagedAppPoliciesResponseImpl implements AdditionalDataHolder, 
      * @param getManagedAppPoliciesResponseParameterValue 
      */
     public constructor(getManagedAppPoliciesResponseParameterValue?: GetManagedAppPoliciesResponse | undefined) {
-        this.additionalData = getManagedAppPoliciesResponseParameterValue?.additionalData ? getManagedAppPoliciesResponseParameterValue?.additionalData! : {}
-        this.value = getManagedAppPoliciesResponseParameterValue?.value ;
+        this.additionalData = getManagedAppPoliciesResponseParameterValue?.additionalData ? getManagedAppPoliciesResponseParameterValue?.additionalData! : {};
+        this.value = getManagedAppPoliciesResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -34,7 +34,7 @@ export class GetManagedAppPoliciesResponseImpl implements AdditionalDataHolder, 
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.value && this.value.length != 0){        const valueArrValue: ManagedAppPolicyImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ManagedAppPolicyImpl(element));});
-        writer.writeCollectionOfObjectValues<ManagedAppPolicyImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<ManagedAppPolicyImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

@@ -1,7 +1,7 @@
 import {DeviceHealthAttestationState} from './deviceHealthAttestationState';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class DeviceHealthAttestationStateImpl implements AdditionalDataHolder, DeviceHealthAttestationState, Parsable {
+export class DeviceHealthAttestationStateImpl implements DeviceHealthAttestationState {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** TWhen an Attestation Identity Key (AIK) is present on a device, it indicates that the device has an endorsement key (EK) certificate. */
@@ -73,39 +73,39 @@ export class DeviceHealthAttestationStateImpl implements AdditionalDataHolder, D
      * @param deviceHealthAttestationStateParameterValue 
      */
     public constructor(deviceHealthAttestationStateParameterValue?: DeviceHealthAttestationState | undefined) {
-        this.additionalData = deviceHealthAttestationStateParameterValue?.additionalData ? deviceHealthAttestationStateParameterValue?.additionalData! : {}
-        this.attestationIdentityKey = deviceHealthAttestationStateParameterValue?.attestationIdentityKey ;
-        this.bitLockerStatus = deviceHealthAttestationStateParameterValue?.bitLockerStatus ;
-        this.bootAppSecurityVersion = deviceHealthAttestationStateParameterValue?.bootAppSecurityVersion ;
-        this.bootDebugging = deviceHealthAttestationStateParameterValue?.bootDebugging ;
-        this.bootManagerSecurityVersion = deviceHealthAttestationStateParameterValue?.bootManagerSecurityVersion ;
-        this.bootManagerVersion = deviceHealthAttestationStateParameterValue?.bootManagerVersion ;
-        this.bootRevisionListInfo = deviceHealthAttestationStateParameterValue?.bootRevisionListInfo ;
-        this.codeIntegrity = deviceHealthAttestationStateParameterValue?.codeIntegrity ;
-        this.codeIntegrityCheckVersion = deviceHealthAttestationStateParameterValue?.codeIntegrityCheckVersion ;
-        this.codeIntegrityPolicy = deviceHealthAttestationStateParameterValue?.codeIntegrityPolicy ;
-        this.contentNamespaceUrl = deviceHealthAttestationStateParameterValue?.contentNamespaceUrl ;
-        this.contentVersion = deviceHealthAttestationStateParameterValue?.contentVersion ;
-        this.dataExcutionPolicy = deviceHealthAttestationStateParameterValue?.dataExcutionPolicy ;
-        this.deviceHealthAttestationStatus = deviceHealthAttestationStateParameterValue?.deviceHealthAttestationStatus ;
-        this.earlyLaunchAntiMalwareDriverProtection = deviceHealthAttestationStateParameterValue?.earlyLaunchAntiMalwareDriverProtection ;
-        this.healthAttestationSupportedStatus = deviceHealthAttestationStateParameterValue?.healthAttestationSupportedStatus ;
-        this.healthStatusMismatchInfo = deviceHealthAttestationStateParameterValue?.healthStatusMismatchInfo ;
-        this.issuedDateTime = deviceHealthAttestationStateParameterValue?.issuedDateTime ;
-        this.lastUpdateDateTime = deviceHealthAttestationStateParameterValue?.lastUpdateDateTime ;
-        this.operatingSystemKernelDebugging = deviceHealthAttestationStateParameterValue?.operatingSystemKernelDebugging ;
-        this.operatingSystemRevListInfo = deviceHealthAttestationStateParameterValue?.operatingSystemRevListInfo ;
-        this.pcr0 = deviceHealthAttestationStateParameterValue?.pcr0 ;
-        this.pcrHashAlgorithm = deviceHealthAttestationStateParameterValue?.pcrHashAlgorithm ;
-        this.resetCount = deviceHealthAttestationStateParameterValue?.resetCount ;
-        this.restartCount = deviceHealthAttestationStateParameterValue?.restartCount ;
-        this.safeMode = deviceHealthAttestationStateParameterValue?.safeMode ;
-        this.secureBoot = deviceHealthAttestationStateParameterValue?.secureBoot ;
-        this.secureBootConfigurationPolicyFingerPrint = deviceHealthAttestationStateParameterValue?.secureBootConfigurationPolicyFingerPrint ;
-        this.testSigning = deviceHealthAttestationStateParameterValue?.testSigning ;
-        this.tpmVersion = deviceHealthAttestationStateParameterValue?.tpmVersion ;
-        this.virtualSecureMode = deviceHealthAttestationStateParameterValue?.virtualSecureMode ;
-        this.windowsPE = deviceHealthAttestationStateParameterValue?.windowsPE ;
+        this.additionalData = deviceHealthAttestationStateParameterValue?.additionalData ? deviceHealthAttestationStateParameterValue?.additionalData! : {};
+        this.attestationIdentityKey = deviceHealthAttestationStateParameterValue?.attestationIdentityKey;
+        this.bitLockerStatus = deviceHealthAttestationStateParameterValue?.bitLockerStatus;
+        this.bootAppSecurityVersion = deviceHealthAttestationStateParameterValue?.bootAppSecurityVersion;
+        this.bootDebugging = deviceHealthAttestationStateParameterValue?.bootDebugging;
+        this.bootManagerSecurityVersion = deviceHealthAttestationStateParameterValue?.bootManagerSecurityVersion;
+        this.bootManagerVersion = deviceHealthAttestationStateParameterValue?.bootManagerVersion;
+        this.bootRevisionListInfo = deviceHealthAttestationStateParameterValue?.bootRevisionListInfo;
+        this.codeIntegrity = deviceHealthAttestationStateParameterValue?.codeIntegrity;
+        this.codeIntegrityCheckVersion = deviceHealthAttestationStateParameterValue?.codeIntegrityCheckVersion;
+        this.codeIntegrityPolicy = deviceHealthAttestationStateParameterValue?.codeIntegrityPolicy;
+        this.contentNamespaceUrl = deviceHealthAttestationStateParameterValue?.contentNamespaceUrl;
+        this.contentVersion = deviceHealthAttestationStateParameterValue?.contentVersion;
+        this.dataExcutionPolicy = deviceHealthAttestationStateParameterValue?.dataExcutionPolicy;
+        this.deviceHealthAttestationStatus = deviceHealthAttestationStateParameterValue?.deviceHealthAttestationStatus;
+        this.earlyLaunchAntiMalwareDriverProtection = deviceHealthAttestationStateParameterValue?.earlyLaunchAntiMalwareDriverProtection;
+        this.healthAttestationSupportedStatus = deviceHealthAttestationStateParameterValue?.healthAttestationSupportedStatus;
+        this.healthStatusMismatchInfo = deviceHealthAttestationStateParameterValue?.healthStatusMismatchInfo;
+        this.issuedDateTime = deviceHealthAttestationStateParameterValue?.issuedDateTime;
+        this.lastUpdateDateTime = deviceHealthAttestationStateParameterValue?.lastUpdateDateTime;
+        this.operatingSystemKernelDebugging = deviceHealthAttestationStateParameterValue?.operatingSystemKernelDebugging;
+        this.operatingSystemRevListInfo = deviceHealthAttestationStateParameterValue?.operatingSystemRevListInfo;
+        this.pcr0 = deviceHealthAttestationStateParameterValue?.pcr0;
+        this.pcrHashAlgorithm = deviceHealthAttestationStateParameterValue?.pcrHashAlgorithm;
+        this.resetCount = deviceHealthAttestationStateParameterValue?.resetCount;
+        this.restartCount = deviceHealthAttestationStateParameterValue?.restartCount;
+        this.safeMode = deviceHealthAttestationStateParameterValue?.safeMode;
+        this.secureBoot = deviceHealthAttestationStateParameterValue?.secureBoot;
+        this.secureBootConfigurationPolicyFingerPrint = deviceHealthAttestationStateParameterValue?.secureBootConfigurationPolicyFingerPrint;
+        this.testSigning = deviceHealthAttestationStateParameterValue?.testSigning;
+        this.tpmVersion = deviceHealthAttestationStateParameterValue?.tpmVersion;
+        this.virtualSecureMode = deviceHealthAttestationStateParameterValue?.virtualSecureMode;
+        this.windowsPE = deviceHealthAttestationStateParameterValue?.windowsPE;
     };
     /**
      * The deserialization information for the current model
@@ -154,100 +154,100 @@ export class DeviceHealthAttestationStateImpl implements AdditionalDataHolder, D
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.attestationIdentityKey){
-        writer.writeStringValue("attestationIdentityKey", this.attestationIdentityKey);
+            writer.writeStringValue("attestationIdentityKey", this.attestationIdentityKey);
         }
         if(this.bitLockerStatus){
-        writer.writeStringValue("bitLockerStatus", this.bitLockerStatus);
+            writer.writeStringValue("bitLockerStatus", this.bitLockerStatus);
         }
         if(this.bootAppSecurityVersion){
-        writer.writeStringValue("bootAppSecurityVersion", this.bootAppSecurityVersion);
+            writer.writeStringValue("bootAppSecurityVersion", this.bootAppSecurityVersion);
         }
         if(this.bootDebugging){
-        writer.writeStringValue("bootDebugging", this.bootDebugging);
+            writer.writeStringValue("bootDebugging", this.bootDebugging);
         }
         if(this.bootManagerSecurityVersion){
-        writer.writeStringValue("bootManagerSecurityVersion", this.bootManagerSecurityVersion);
+            writer.writeStringValue("bootManagerSecurityVersion", this.bootManagerSecurityVersion);
         }
         if(this.bootManagerVersion){
-        writer.writeStringValue("bootManagerVersion", this.bootManagerVersion);
+            writer.writeStringValue("bootManagerVersion", this.bootManagerVersion);
         }
         if(this.bootRevisionListInfo){
-        writer.writeStringValue("bootRevisionListInfo", this.bootRevisionListInfo);
+            writer.writeStringValue("bootRevisionListInfo", this.bootRevisionListInfo);
         }
         if(this.codeIntegrity){
-        writer.writeStringValue("codeIntegrity", this.codeIntegrity);
+            writer.writeStringValue("codeIntegrity", this.codeIntegrity);
         }
         if(this.codeIntegrityCheckVersion){
-        writer.writeStringValue("codeIntegrityCheckVersion", this.codeIntegrityCheckVersion);
+            writer.writeStringValue("codeIntegrityCheckVersion", this.codeIntegrityCheckVersion);
         }
         if(this.codeIntegrityPolicy){
-        writer.writeStringValue("codeIntegrityPolicy", this.codeIntegrityPolicy);
+            writer.writeStringValue("codeIntegrityPolicy", this.codeIntegrityPolicy);
         }
         if(this.contentNamespaceUrl){
-        writer.writeStringValue("contentNamespaceUrl", this.contentNamespaceUrl);
+            writer.writeStringValue("contentNamespaceUrl", this.contentNamespaceUrl);
         }
         if(this.contentVersion){
-        writer.writeStringValue("contentVersion", this.contentVersion);
+            writer.writeStringValue("contentVersion", this.contentVersion);
         }
         if(this.dataExcutionPolicy){
-        writer.writeStringValue("dataExcutionPolicy", this.dataExcutionPolicy);
+            writer.writeStringValue("dataExcutionPolicy", this.dataExcutionPolicy);
         }
         if(this.deviceHealthAttestationStatus){
-        writer.writeStringValue("deviceHealthAttestationStatus", this.deviceHealthAttestationStatus);
+            writer.writeStringValue("deviceHealthAttestationStatus", this.deviceHealthAttestationStatus);
         }
         if(this.earlyLaunchAntiMalwareDriverProtection){
-        writer.writeStringValue("earlyLaunchAntiMalwareDriverProtection", this.earlyLaunchAntiMalwareDriverProtection);
+            writer.writeStringValue("earlyLaunchAntiMalwareDriverProtection", this.earlyLaunchAntiMalwareDriverProtection);
         }
         if(this.healthAttestationSupportedStatus){
-        writer.writeStringValue("healthAttestationSupportedStatus", this.healthAttestationSupportedStatus);
+            writer.writeStringValue("healthAttestationSupportedStatus", this.healthAttestationSupportedStatus);
         }
         if(this.healthStatusMismatchInfo){
-        writer.writeStringValue("healthStatusMismatchInfo", this.healthStatusMismatchInfo);
+            writer.writeStringValue("healthStatusMismatchInfo", this.healthStatusMismatchInfo);
         }
         if(this.issuedDateTime){
-        writer.writeDateValue("issuedDateTime", this.issuedDateTime);
+            writer.writeDateValue("issuedDateTime", this.issuedDateTime);
         }
         if(this.lastUpdateDateTime){
-        writer.writeStringValue("lastUpdateDateTime", this.lastUpdateDateTime);
+            writer.writeStringValue("lastUpdateDateTime", this.lastUpdateDateTime);
         }
         if(this.operatingSystemKernelDebugging){
-        writer.writeStringValue("operatingSystemKernelDebugging", this.operatingSystemKernelDebugging);
+            writer.writeStringValue("operatingSystemKernelDebugging", this.operatingSystemKernelDebugging);
         }
         if(this.operatingSystemRevListInfo){
-        writer.writeStringValue("operatingSystemRevListInfo", this.operatingSystemRevListInfo);
+            writer.writeStringValue("operatingSystemRevListInfo", this.operatingSystemRevListInfo);
         }
         if(this.pcr0){
-        writer.writeStringValue("pcr0", this.pcr0);
+            writer.writeStringValue("pcr0", this.pcr0);
         }
         if(this.pcrHashAlgorithm){
-        writer.writeStringValue("pcrHashAlgorithm", this.pcrHashAlgorithm);
+            writer.writeStringValue("pcrHashAlgorithm", this.pcrHashAlgorithm);
         }
         if(this.resetCount){
-        writer.writeNumberValue("resetCount", this.resetCount);
+            writer.writeNumberValue("resetCount", this.resetCount);
         }
         if(this.restartCount){
-        writer.writeNumberValue("restartCount", this.restartCount);
+            writer.writeNumberValue("restartCount", this.restartCount);
         }
         if(this.safeMode){
-        writer.writeStringValue("safeMode", this.safeMode);
+            writer.writeStringValue("safeMode", this.safeMode);
         }
         if(this.secureBoot){
-        writer.writeStringValue("secureBoot", this.secureBoot);
+            writer.writeStringValue("secureBoot", this.secureBoot);
         }
         if(this.secureBootConfigurationPolicyFingerPrint){
-        writer.writeStringValue("secureBootConfigurationPolicyFingerPrint", this.secureBootConfigurationPolicyFingerPrint);
+            writer.writeStringValue("secureBootConfigurationPolicyFingerPrint", this.secureBootConfigurationPolicyFingerPrint);
         }
         if(this.testSigning){
-        writer.writeStringValue("testSigning", this.testSigning);
+            writer.writeStringValue("testSigning", this.testSigning);
         }
         if(this.tpmVersion){
-        writer.writeStringValue("tpmVersion", this.tpmVersion);
+            writer.writeStringValue("tpmVersion", this.tpmVersion);
         }
         if(this.virtualSecureMode){
-        writer.writeStringValue("virtualSecureMode", this.virtualSecureMode);
+            writer.writeStringValue("virtualSecureMode", this.virtualSecureMode);
         }
         if(this.windowsPE){
-        writer.writeStringValue("windowsPE", this.windowsPE);
+            writer.writeStringValue("windowsPE", this.windowsPE);
         }
         writer.writeAdditionalData(this.additionalData);
     };

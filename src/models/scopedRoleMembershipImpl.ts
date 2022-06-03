@@ -5,7 +5,7 @@ import {ScopedRoleMembership} from './scopedRoleMembership';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Casts the previous resource to user. */
-export class ScopedRoleMembershipImpl extends EntityImpl implements Parsable, ScopedRoleMembership {
+export class ScopedRoleMembershipImpl extends EntityImpl implements ScopedRoleMembership {
     /** Unique identifier for the administrative unit that the directory role is scoped to */
     public administrativeUnitId?: string | undefined;
     /** Unique identifier for the directory role that the member is in. */
@@ -17,10 +17,10 @@ export class ScopedRoleMembershipImpl extends EntityImpl implements Parsable, Sc
      * @param scopedRoleMembershipParameterValue 
      */
     public constructor(scopedRoleMembershipParameterValue?: ScopedRoleMembership | undefined) {
-        super();
-        this.administrativeUnitId = scopedRoleMembershipParameterValue?.administrativeUnitId ;
-        this.roleId = scopedRoleMembershipParameterValue?.roleId ;
-        this.roleMemberInfo = scopedRoleMembershipParameterValue?.roleMemberInfo ;
+        super(scopedRoleMembershipParameterValue);
+        this.administrativeUnitId = scopedRoleMembershipParameterValue?.administrativeUnitId;
+        this.roleId = scopedRoleMembershipParameterValue?.roleId;
+        this.roleMemberInfo = scopedRoleMembershipParameterValue?.roleMemberInfo;
     };
     /**
      * The deserialization information for the current model
@@ -41,13 +41,13 @@ export class ScopedRoleMembershipImpl extends EntityImpl implements Parsable, Sc
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.administrativeUnitId){
-        writer.writeStringValue("administrativeUnitId", this.administrativeUnitId);
+            writer.writeStringValue("administrativeUnitId", this.administrativeUnitId);
         }
         if(this.roleId){
-        writer.writeStringValue("roleId", this.roleId);
+            writer.writeStringValue("roleId", this.roleId);
         }
         if(this.roleMemberInfo){
-        writer.writeObjectValue<IdentityImpl>("roleMemberInfo", new IdentityImpl(this.roleMemberInfo));
+            writer.writeObjectValue<IdentityImpl>("roleMemberInfo", new IdentityImpl(this.roleMemberInfo));
         }
     };
 }

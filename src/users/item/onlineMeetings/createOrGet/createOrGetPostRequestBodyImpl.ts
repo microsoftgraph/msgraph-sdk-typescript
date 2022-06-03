@@ -7,7 +7,7 @@ import {CreateOrGetPostRequestBody} from './createOrGetPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the createOrGet method. */
-export class CreateOrGetPostRequestBodyImpl implements AdditionalDataHolder, CreateOrGetPostRequestBody, Parsable {
+export class CreateOrGetPostRequestBodyImpl implements CreateOrGetPostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The chatInfo property */
@@ -27,13 +27,13 @@ export class CreateOrGetPostRequestBodyImpl implements AdditionalDataHolder, Cre
      * @param createOrGetPostRequestBodyParameterValue 
      */
     public constructor(createOrGetPostRequestBodyParameterValue?: CreateOrGetPostRequestBody | undefined) {
-        this.additionalData = createOrGetPostRequestBodyParameterValue?.additionalData ? createOrGetPostRequestBodyParameterValue?.additionalData! : {}
-        this.chatInfo = createOrGetPostRequestBodyParameterValue?.chatInfo ;
-        this.endDateTime = createOrGetPostRequestBodyParameterValue?.endDateTime ;
-        this.externalId = createOrGetPostRequestBodyParameterValue?.externalId ;
-        this.participants = createOrGetPostRequestBodyParameterValue?.participants ;
-        this.startDateTime = createOrGetPostRequestBodyParameterValue?.startDateTime ;
-        this.subject = createOrGetPostRequestBodyParameterValue?.subject ;
+        this.additionalData = createOrGetPostRequestBodyParameterValue?.additionalData ? createOrGetPostRequestBodyParameterValue?.additionalData! : {};
+        this.chatInfo = createOrGetPostRequestBodyParameterValue?.chatInfo;
+        this.endDateTime = createOrGetPostRequestBodyParameterValue?.endDateTime;
+        this.externalId = createOrGetPostRequestBodyParameterValue?.externalId;
+        this.participants = createOrGetPostRequestBodyParameterValue?.participants;
+        this.startDateTime = createOrGetPostRequestBodyParameterValue?.startDateTime;
+        this.subject = createOrGetPostRequestBodyParameterValue?.subject;
     };
     /**
      * The deserialization information for the current model
@@ -56,22 +56,22 @@ export class CreateOrGetPostRequestBodyImpl implements AdditionalDataHolder, Cre
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.chatInfo){
-        writer.writeObjectValue<ChatInfoImpl>("chatInfo", new ChatInfoImpl(this.chatInfo));
+            writer.writeObjectValue<ChatInfoImpl>("chatInfo", new ChatInfoImpl(this.chatInfo));
         }
         if(this.endDateTime){
-        writer.writeDateValue("endDateTime", this.endDateTime);
+            writer.writeDateValue("endDateTime", this.endDateTime);
         }
         if(this.externalId){
-        writer.writeStringValue("externalId", this.externalId);
+            writer.writeStringValue("externalId", this.externalId);
         }
         if(this.participants){
-        writer.writeObjectValue<MeetingParticipantsImpl>("participants", new MeetingParticipantsImpl(this.participants));
+            writer.writeObjectValue<MeetingParticipantsImpl>("participants", new MeetingParticipantsImpl(this.participants));
         }
         if(this.startDateTime){
-        writer.writeDateValue("startDateTime", this.startDateTime);
+            writer.writeDateValue("startDateTime", this.startDateTime);
         }
         if(this.subject){
-        writer.writeStringValue("subject", this.subject);
+            writer.writeStringValue("subject", this.subject);
         }
         writer.writeAdditionalData(this.additionalData);
     };

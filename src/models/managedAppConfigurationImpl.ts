@@ -5,7 +5,7 @@ import {ManagedAppConfiguration} from './managedAppConfiguration';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Configuration used to deliver a set of custom settings as-is to apps for users to whom the configuration is scoped */
-export class ManagedAppConfigurationImpl extends ManagedAppPolicyImpl implements ManagedAppConfiguration, Parsable {
+export class ManagedAppConfigurationImpl extends ManagedAppPolicyImpl implements ManagedAppConfiguration {
     /** A set of string key and string value pairs to be sent to apps for users to whom the configuration is scoped, unalterned by this service */
     public customSettings?: KeyValuePair[] | undefined;
     /**
@@ -13,8 +13,8 @@ export class ManagedAppConfigurationImpl extends ManagedAppPolicyImpl implements
      * @param managedAppConfigurationParameterValue 
      */
     public constructor(managedAppConfigurationParameterValue?: ManagedAppConfiguration | undefined) {
-        super();
-        this.customSettings = managedAppConfigurationParameterValue?.customSettings ;
+        super(managedAppConfigurationParameterValue);
+        this.customSettings = managedAppConfigurationParameterValue?.customSettings;
     };
     /**
      * The deserialization information for the current model
@@ -33,7 +33,7 @@ export class ManagedAppConfigurationImpl extends ManagedAppPolicyImpl implements
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.customSettings && this.customSettings.length != 0){        const customSettingsArrValue: KeyValuePairImpl[] = []; this.customSettings?.forEach(element => {customSettingsArrValue.push(new KeyValuePairImpl(element));});
-        writer.writeCollectionOfObjectValues<KeyValuePairImpl>("customSettings", customSettingsArrValue);
+            writer.writeCollectionOfObjectValues<KeyValuePairImpl>("customSettings", customSettingsArrValue);
         }
     };
 }

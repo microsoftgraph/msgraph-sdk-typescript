@@ -6,7 +6,7 @@ import {ApplicationImpl, ServicePrincipalImpl} from './index';
 import {ServicePrincipal} from './servicePrincipal';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ApplicationServicePrincipalImpl implements AdditionalDataHolder, ApplicationServicePrincipal, Parsable {
+export class ApplicationServicePrincipalImpl implements ApplicationServicePrincipal {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The application property */
@@ -18,9 +18,9 @@ export class ApplicationServicePrincipalImpl implements AdditionalDataHolder, Ap
      * @param applicationServicePrincipalParameterValue 
      */
     public constructor(applicationServicePrincipalParameterValue?: ApplicationServicePrincipal | undefined) {
-        this.additionalData = applicationServicePrincipalParameterValue?.additionalData ? applicationServicePrincipalParameterValue?.additionalData! : {}
-        this.application = applicationServicePrincipalParameterValue?.application ;
-        this.servicePrincipal = applicationServicePrincipalParameterValue?.servicePrincipal ;
+        this.additionalData = applicationServicePrincipalParameterValue?.additionalData ? applicationServicePrincipalParameterValue?.additionalData! : {};
+        this.application = applicationServicePrincipalParameterValue?.application;
+        this.servicePrincipal = applicationServicePrincipalParameterValue?.servicePrincipal;
     };
     /**
      * The deserialization information for the current model
@@ -39,10 +39,10 @@ export class ApplicationServicePrincipalImpl implements AdditionalDataHolder, Ap
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.application){
-        writer.writeObjectValue<ApplicationImpl>("application", new ApplicationImpl(this.application));
+            writer.writeObjectValue<ApplicationImpl>("application", new ApplicationImpl(this.application));
         }
         if(this.servicePrincipal){
-        writer.writeObjectValue<ServicePrincipalImpl>("servicePrincipal", new ServicePrincipalImpl(this.servicePrincipal));
+            writer.writeObjectValue<ServicePrincipalImpl>("servicePrincipal", new ServicePrincipalImpl(this.servicePrincipal));
         }
         writer.writeAdditionalData(this.additionalData);
     };

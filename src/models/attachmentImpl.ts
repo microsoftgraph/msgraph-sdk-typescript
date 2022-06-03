@@ -3,7 +3,7 @@ import {EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Casts the previous resource to user. */
-export class AttachmentImpl extends EntityImpl implements Attachment, Parsable {
+export class AttachmentImpl extends EntityImpl implements Attachment {
     /** The MIME type. */
     public contentType?: string | undefined;
     /** true if the attachment is an inline attachment; otherwise, false. */
@@ -19,12 +19,12 @@ export class AttachmentImpl extends EntityImpl implements Attachment, Parsable {
      * @param attachmentParameterValue 
      */
     public constructor(attachmentParameterValue?: Attachment | undefined) {
-        super();
-        this.contentType = attachmentParameterValue?.contentType ;
-        this.isInline = attachmentParameterValue?.isInline ;
-        this.lastModifiedDateTime = attachmentParameterValue?.lastModifiedDateTime ;
-        this.name = attachmentParameterValue?.name ;
-        this.size = attachmentParameterValue?.size ;
+        super(attachmentParameterValue);
+        this.contentType = attachmentParameterValue?.contentType;
+        this.isInline = attachmentParameterValue?.isInline;
+        this.lastModifiedDateTime = attachmentParameterValue?.lastModifiedDateTime;
+        this.name = attachmentParameterValue?.name;
+        this.size = attachmentParameterValue?.size;
     };
     /**
      * The deserialization information for the current model
@@ -47,19 +47,19 @@ export class AttachmentImpl extends EntityImpl implements Attachment, Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.contentType){
-        writer.writeStringValue("contentType", this.contentType);
+            writer.writeStringValue("contentType", this.contentType);
         }
         if(this.isInline){
-        writer.writeBooleanValue("isInline", this.isInline);
+            writer.writeBooleanValue("isInline", this.isInline);
         }
         if(this.lastModifiedDateTime){
-        writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
+            writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
         }
         if(this.name){
-        writer.writeStringValue("name", this.name);
+            writer.writeStringValue("name", this.name);
         }
         if(this.size){
-        writer.writeNumberValue("size", this.size);
+            writer.writeNumberValue("size", this.size);
         }
     };
 }

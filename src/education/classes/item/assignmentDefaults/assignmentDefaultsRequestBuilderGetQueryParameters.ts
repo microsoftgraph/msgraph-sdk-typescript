@@ -1,7 +1,7 @@
 
-export interface AssignmentDefaultsRequestBuilderGetQueryParameters{
+export interface AssignmentDefaultsRequestBuilderGetQueryParameters {
     /** Expand related entities */
-    expand?:string[] | undefined;
+    expand?: string[] | undefined;
     /** Select properties to be returned */
-    select?:string[] | undefined;
+    select?: string[] | undefined;
 }

@@ -1,7 +1,7 @@
 import {ChatMessagePolicyViolationPolicyTip} from './chatMessagePolicyViolationPolicyTip';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ChatMessagePolicyViolationPolicyTipImpl implements AdditionalDataHolder, ChatMessagePolicyViolationPolicyTip, Parsable {
+export class ChatMessagePolicyViolationPolicyTipImpl implements ChatMessagePolicyViolationPolicyTip {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The URL a user can visit to read about the data loss prevention policies for the organization. (ie, policies about what users shouldn't say in chats) */
@@ -15,10 +15,10 @@ export class ChatMessagePolicyViolationPolicyTipImpl implements AdditionalDataHo
      * @param chatMessagePolicyViolationPolicyTipParameterValue 
      */
     public constructor(chatMessagePolicyViolationPolicyTipParameterValue?: ChatMessagePolicyViolationPolicyTip | undefined) {
-        this.additionalData = chatMessagePolicyViolationPolicyTipParameterValue?.additionalData ? chatMessagePolicyViolationPolicyTipParameterValue?.additionalData! : {}
-        this.complianceUrl = chatMessagePolicyViolationPolicyTipParameterValue?.complianceUrl ;
-        this.generalText = chatMessagePolicyViolationPolicyTipParameterValue?.generalText ;
-        this.matchedConditionDescriptions = chatMessagePolicyViolationPolicyTipParameterValue?.matchedConditionDescriptions ;
+        this.additionalData = chatMessagePolicyViolationPolicyTipParameterValue?.additionalData ? chatMessagePolicyViolationPolicyTipParameterValue?.additionalData! : {};
+        this.complianceUrl = chatMessagePolicyViolationPolicyTipParameterValue?.complianceUrl;
+        this.generalText = chatMessagePolicyViolationPolicyTipParameterValue?.generalText;
+        this.matchedConditionDescriptions = chatMessagePolicyViolationPolicyTipParameterValue?.matchedConditionDescriptions;
     };
     /**
      * The deserialization information for the current model
@@ -38,13 +38,13 @@ export class ChatMessagePolicyViolationPolicyTipImpl implements AdditionalDataHo
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.complianceUrl){
-        writer.writeStringValue("complianceUrl", this.complianceUrl);
+            writer.writeStringValue("complianceUrl", this.complianceUrl);
         }
         if(this.generalText){
-        writer.writeStringValue("generalText", this.generalText);
+            writer.writeStringValue("generalText", this.generalText);
         }
         if(this.matchedConditionDescriptions){
-        writer.writeCollectionOfPrimitiveValues<string>("matchedConditionDescriptions", this.matchedConditionDescriptions);
+            writer.writeCollectionOfPrimitiveValues<string>("matchedConditionDescriptions", this.matchedConditionDescriptions);
         }
         writer.writeAdditionalData(this.additionalData);
     };

@@ -4,7 +4,7 @@ import {AlteredQueryTokenImpl} from './index';
 import {SearchAlteration} from './searchAlteration';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class SearchAlterationImpl implements AdditionalDataHolder, Parsable, SearchAlteration {
+export class SearchAlterationImpl implements SearchAlteration {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Defines the altered highlighted query string with spelling correction. The annotation around the corrected segment is (/ue000, /ue001) */
@@ -18,10 +18,10 @@ export class SearchAlterationImpl implements AdditionalDataHolder, Parsable, Sea
      * @param searchAlterationParameterValue 
      */
     public constructor(searchAlterationParameterValue?: SearchAlteration | undefined) {
-        this.additionalData = searchAlterationParameterValue?.additionalData ? searchAlterationParameterValue?.additionalData! : {}
-        this.alteredHighlightedQueryString = searchAlterationParameterValue?.alteredHighlightedQueryString ;
-        this.alteredQueryString = searchAlterationParameterValue?.alteredQueryString ;
-        this.alteredQueryTokens = searchAlterationParameterValue?.alteredQueryTokens ;
+        this.additionalData = searchAlterationParameterValue?.additionalData ? searchAlterationParameterValue?.additionalData! : {};
+        this.alteredHighlightedQueryString = searchAlterationParameterValue?.alteredHighlightedQueryString;
+        this.alteredQueryString = searchAlterationParameterValue?.alteredQueryString;
+        this.alteredQueryTokens = searchAlterationParameterValue?.alteredQueryTokens;
     };
     /**
      * The deserialization information for the current model
@@ -41,13 +41,13 @@ export class SearchAlterationImpl implements AdditionalDataHolder, Parsable, Sea
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.alteredHighlightedQueryString){
-        writer.writeStringValue("alteredHighlightedQueryString", this.alteredHighlightedQueryString);
+            writer.writeStringValue("alteredHighlightedQueryString", this.alteredHighlightedQueryString);
         }
         if(this.alteredQueryString){
-        writer.writeStringValue("alteredQueryString", this.alteredQueryString);
+            writer.writeStringValue("alteredQueryString", this.alteredQueryString);
         }
         if(this.alteredQueryTokens && this.alteredQueryTokens.length != 0){        const alteredQueryTokensArrValue: AlteredQueryTokenImpl[] = []; this.alteredQueryTokens?.forEach(element => {alteredQueryTokensArrValue.push(new AlteredQueryTokenImpl(element));});
-        writer.writeCollectionOfObjectValues<AlteredQueryTokenImpl>("alteredQueryTokens", alteredQueryTokensArrValue);
+            writer.writeCollectionOfObjectValues<AlteredQueryTokenImpl>("alteredQueryTokens", alteredQueryTokensArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

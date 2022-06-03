@@ -1,13 +1,14 @@
 import {Entity} from './entity';
 import {Thumbnail} from './thumbnail';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface ThumbnailSet extends Entity{
+export interface ThumbnailSet extends Entity, Partial<Parsable> {
     /** A 1920x1920 scaled thumbnail. */
-    large?:Thumbnail | undefined;
+    large?: Thumbnail | undefined;
     /** A 176x176 scaled thumbnail. */
-    medium?:Thumbnail | undefined;
+    medium?: Thumbnail | undefined;
     /** A 48x48 cropped thumbnail. */
-    small?:Thumbnail | undefined;
+    small?: Thumbnail | undefined;
     /** A custom thumbnail image or the original image used to generate other thumbnails. */
-    source?:Thumbnail | undefined;
+    source?: Thumbnail | undefined;
 }

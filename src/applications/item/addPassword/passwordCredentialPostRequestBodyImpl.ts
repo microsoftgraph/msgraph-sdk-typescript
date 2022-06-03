@@ -5,7 +5,7 @@ import {PasswordCredentialPostRequestBody} from './passwordCredentialPostRequest
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the addPassword method. */
-export class PasswordCredentialPostRequestBodyImpl implements AdditionalDataHolder, Parsable, PasswordCredentialPostRequestBody {
+export class PasswordCredentialPostRequestBodyImpl implements PasswordCredentialPostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The passwordCredential property */
@@ -15,8 +15,8 @@ export class PasswordCredentialPostRequestBodyImpl implements AdditionalDataHold
      * @param passwordCredentialPostRequestBodyParameterValue 
      */
     public constructor(passwordCredentialPostRequestBodyParameterValue?: PasswordCredentialPostRequestBody | undefined) {
-        this.additionalData = passwordCredentialPostRequestBodyParameterValue?.additionalData ? passwordCredentialPostRequestBodyParameterValue?.additionalData! : {}
-        this.passwordCredential = passwordCredentialPostRequestBodyParameterValue?.passwordCredential ;
+        this.additionalData = passwordCredentialPostRequestBodyParameterValue?.additionalData ? passwordCredentialPostRequestBodyParameterValue?.additionalData! : {};
+        this.passwordCredential = passwordCredentialPostRequestBodyParameterValue?.passwordCredential;
     };
     /**
      * The deserialization information for the current model
@@ -34,7 +34,7 @@ export class PasswordCredentialPostRequestBodyImpl implements AdditionalDataHold
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.passwordCredential){
-        writer.writeObjectValue<PasswordCredentialImpl>("passwordCredential", new PasswordCredentialImpl(this.passwordCredential));
+            writer.writeObjectValue<PasswordCredentialImpl>("passwordCredential", new PasswordCredentialImpl(this.passwordCredential));
         }
         writer.writeAdditionalData(this.additionalData);
     };

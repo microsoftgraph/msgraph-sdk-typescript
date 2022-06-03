@@ -5,7 +5,7 @@ import {QueryPostRequestBody} from './queryPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the query method. */
-export class QueryPostRequestBodyImpl implements AdditionalDataHolder, Parsable, QueryPostRequestBody {
+export class QueryPostRequestBodyImpl implements QueryPostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The requests property */
@@ -15,8 +15,8 @@ export class QueryPostRequestBodyImpl implements AdditionalDataHolder, Parsable,
      * @param queryPostRequestBodyParameterValue 
      */
     public constructor(queryPostRequestBodyParameterValue?: QueryPostRequestBody | undefined) {
-        this.additionalData = queryPostRequestBodyParameterValue?.additionalData ? queryPostRequestBodyParameterValue?.additionalData! : {}
-        this.requests = queryPostRequestBodyParameterValue?.requests ;
+        this.additionalData = queryPostRequestBodyParameterValue?.additionalData ? queryPostRequestBodyParameterValue?.additionalData! : {};
+        this.requests = queryPostRequestBodyParameterValue?.requests;
     };
     /**
      * The deserialization information for the current model
@@ -34,7 +34,7 @@ export class QueryPostRequestBodyImpl implements AdditionalDataHolder, Parsable,
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.requests && this.requests.length != 0){        const requestsArrValue: SearchRequestImpl[] = []; this.requests?.forEach(element => {requestsArrValue.push(new SearchRequestImpl(element));});
-        writer.writeCollectionOfObjectValues<SearchRequestImpl>("requests", requestsArrValue);
+            writer.writeCollectionOfObjectValues<SearchRequestImpl>("requests", requestsArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

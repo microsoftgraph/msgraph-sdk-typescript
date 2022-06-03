@@ -4,7 +4,7 @@ import {ServiceUpdateMessage} from './serviceUpdateMessage';
 import {ServiceUpdateMessageCollectionResponse} from './serviceUpdateMessageCollectionResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ServiceUpdateMessageCollectionResponseImpl implements AdditionalDataHolder, Parsable, ServiceUpdateMessageCollectionResponse {
+export class ServiceUpdateMessageCollectionResponseImpl implements ServiceUpdateMessageCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class ServiceUpdateMessageCollectionResponseImpl implements AdditionalDat
      * @param serviceUpdateMessageCollectionResponseParameterValue 
      */
     public constructor(serviceUpdateMessageCollectionResponseParameterValue?: ServiceUpdateMessageCollectionResponse | undefined) {
-        this.additionalData = serviceUpdateMessageCollectionResponseParameterValue?.additionalData ? serviceUpdateMessageCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = serviceUpdateMessageCollectionResponseParameterValue?.nextLink ;
-        this.value = serviceUpdateMessageCollectionResponseParameterValue?.value ;
+        this.additionalData = serviceUpdateMessageCollectionResponseParameterValue?.additionalData ? serviceUpdateMessageCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = serviceUpdateMessageCollectionResponseParameterValue?.nextLink;
+        this.value = serviceUpdateMessageCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class ServiceUpdateMessageCollectionResponseImpl implements AdditionalDat
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: ServiceUpdateMessageImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ServiceUpdateMessageImpl(element));});
-        writer.writeCollectionOfObjectValues<ServiceUpdateMessageImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<ServiceUpdateMessageImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

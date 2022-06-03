@@ -5,7 +5,7 @@ import {ScheduleActionsForRulesPostRequestBody} from './scheduleActionsForRulesP
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the scheduleActionsForRules method. */
-export class ScheduleActionsForRulesPostRequestBodyImpl implements AdditionalDataHolder, Parsable, ScheduleActionsForRulesPostRequestBody {
+export class ScheduleActionsForRulesPostRequestBodyImpl implements ScheduleActionsForRulesPostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The deviceComplianceScheduledActionForRules property */
@@ -15,8 +15,8 @@ export class ScheduleActionsForRulesPostRequestBodyImpl implements AdditionalDat
      * @param scheduleActionsForRulesPostRequestBodyParameterValue 
      */
     public constructor(scheduleActionsForRulesPostRequestBodyParameterValue?: ScheduleActionsForRulesPostRequestBody | undefined) {
-        this.additionalData = scheduleActionsForRulesPostRequestBodyParameterValue?.additionalData ? scheduleActionsForRulesPostRequestBodyParameterValue?.additionalData! : {}
-        this.deviceComplianceScheduledActionForRules = scheduleActionsForRulesPostRequestBodyParameterValue?.deviceComplianceScheduledActionForRules ;
+        this.additionalData = scheduleActionsForRulesPostRequestBodyParameterValue?.additionalData ? scheduleActionsForRulesPostRequestBodyParameterValue?.additionalData! : {};
+        this.deviceComplianceScheduledActionForRules = scheduleActionsForRulesPostRequestBodyParameterValue?.deviceComplianceScheduledActionForRules;
     };
     /**
      * The deserialization information for the current model
@@ -34,7 +34,7 @@ export class ScheduleActionsForRulesPostRequestBodyImpl implements AdditionalDat
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.deviceComplianceScheduledActionForRules && this.deviceComplianceScheduledActionForRules.length != 0){        const deviceComplianceScheduledActionForRulesArrValue: DeviceComplianceScheduledActionForRuleImpl[] = []; this.deviceComplianceScheduledActionForRules?.forEach(element => {deviceComplianceScheduledActionForRulesArrValue.push(new DeviceComplianceScheduledActionForRuleImpl(element));});
-        writer.writeCollectionOfObjectValues<DeviceComplianceScheduledActionForRuleImpl>("deviceComplianceScheduledActionForRules", deviceComplianceScheduledActionForRulesArrValue);
+            writer.writeCollectionOfObjectValues<DeviceComplianceScheduledActionForRuleImpl>("deviceComplianceScheduledActionForRules", deviceComplianceScheduledActionForRulesArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

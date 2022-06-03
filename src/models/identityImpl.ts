@@ -1,7 +1,7 @@
 import {Identity} from './identity';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class IdentityImpl implements AdditionalDataHolder, Identity, Parsable {
+export class IdentityImpl implements Identity {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta. */
@@ -13,9 +13,9 @@ export class IdentityImpl implements AdditionalDataHolder, Identity, Parsable {
      * @param identityParameterValue 
      */
     public constructor(identityParameterValue?: Identity | undefined) {
-        this.additionalData = identityParameterValue?.additionalData ? identityParameterValue?.additionalData! : {}
-        this.displayName = identityParameterValue?.displayName ;
-        this.id = identityParameterValue?.id ;
+        this.additionalData = identityParameterValue?.additionalData ? identityParameterValue?.additionalData! : {};
+        this.displayName = identityParameterValue?.displayName;
+        this.id = identityParameterValue?.id;
     };
     /**
      * The deserialization information for the current model
@@ -34,10 +34,10 @@ export class IdentityImpl implements AdditionalDataHolder, Identity, Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.displayName){
-        writer.writeStringValue("displayName", this.displayName);
+            writer.writeStringValue("displayName", this.displayName);
         }
         if(this.id){
-        writer.writeStringValue("id", this.id);
+            writer.writeStringValue("id", this.id);
         }
         writer.writeAdditionalData(this.additionalData);
     };

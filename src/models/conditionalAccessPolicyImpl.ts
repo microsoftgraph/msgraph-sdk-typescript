@@ -10,7 +10,7 @@ import {ConditionalAccessConditionSetImpl, ConditionalAccessGrantControlsImpl, C
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the identityContainer singleton. */
-export class ConditionalAccessPolicyImpl extends EntityImpl implements ConditionalAccessPolicy, Parsable {
+export class ConditionalAccessPolicyImpl extends EntityImpl implements ConditionalAccessPolicy {
     /** The conditions property */
     public conditions?: ConditionalAccessConditionSet | undefined;
     /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Readonly. */
@@ -32,15 +32,15 @@ export class ConditionalAccessPolicyImpl extends EntityImpl implements Condition
      * @param conditionalAccessPolicyParameterValue 
      */
     public constructor(conditionalAccessPolicyParameterValue?: ConditionalAccessPolicy | undefined) {
-        super();
-        this.conditions = conditionalAccessPolicyParameterValue?.conditions ;
-        this.createdDateTime = conditionalAccessPolicyParameterValue?.createdDateTime ;
-        this.description = conditionalAccessPolicyParameterValue?.description ;
-        this.displayName = conditionalAccessPolicyParameterValue?.displayName ;
-        this.grantControls = conditionalAccessPolicyParameterValue?.grantControls ;
-        this.modifiedDateTime = conditionalAccessPolicyParameterValue?.modifiedDateTime ;
-        this.sessionControls = conditionalAccessPolicyParameterValue?.sessionControls ;
-        this.state = conditionalAccessPolicyParameterValue?.state ;
+        super(conditionalAccessPolicyParameterValue);
+        this.conditions = conditionalAccessPolicyParameterValue?.conditions;
+        this.createdDateTime = conditionalAccessPolicyParameterValue?.createdDateTime;
+        this.description = conditionalAccessPolicyParameterValue?.description;
+        this.displayName = conditionalAccessPolicyParameterValue?.displayName;
+        this.grantControls = conditionalAccessPolicyParameterValue?.grantControls;
+        this.modifiedDateTime = conditionalAccessPolicyParameterValue?.modifiedDateTime;
+        this.sessionControls = conditionalAccessPolicyParameterValue?.sessionControls;
+        this.state = conditionalAccessPolicyParameterValue?.state;
     };
     /**
      * The deserialization information for the current model
@@ -66,28 +66,28 @@ export class ConditionalAccessPolicyImpl extends EntityImpl implements Condition
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.conditions){
-        writer.writeObjectValue<ConditionalAccessConditionSetImpl>("conditions", new ConditionalAccessConditionSetImpl(this.conditions));
+            writer.writeObjectValue<ConditionalAccessConditionSetImpl>("conditions", new ConditionalAccessConditionSetImpl(this.conditions));
         }
         if(this.createdDateTime){
-        writer.writeDateValue("createdDateTime", this.createdDateTime);
+            writer.writeDateValue("createdDateTime", this.createdDateTime);
         }
         if(this.description){
-        writer.writeStringValue("description", this.description);
+            writer.writeStringValue("description", this.description);
         }
         if(this.displayName){
-        writer.writeStringValue("displayName", this.displayName);
+            writer.writeStringValue("displayName", this.displayName);
         }
         if(this.grantControls){
-        writer.writeObjectValue<ConditionalAccessGrantControlsImpl>("grantControls", new ConditionalAccessGrantControlsImpl(this.grantControls));
+            writer.writeObjectValue<ConditionalAccessGrantControlsImpl>("grantControls", new ConditionalAccessGrantControlsImpl(this.grantControls));
         }
         if(this.modifiedDateTime){
-        writer.writeDateValue("modifiedDateTime", this.modifiedDateTime);
+            writer.writeDateValue("modifiedDateTime", this.modifiedDateTime);
         }
         if(this.sessionControls){
-        writer.writeObjectValue<ConditionalAccessSessionControlsImpl>("sessionControls", new ConditionalAccessSessionControlsImpl(this.sessionControls));
+            writer.writeObjectValue<ConditionalAccessSessionControlsImpl>("sessionControls", new ConditionalAccessSessionControlsImpl(this.sessionControls));
         }
         if(this.state){
-        writer.writeEnumValue<ConditionalAccessPolicyState>("state", this.state);
+            writer.writeEnumValue<ConditionalAccessPolicyState>("state", this.state);
         }
     };
 }

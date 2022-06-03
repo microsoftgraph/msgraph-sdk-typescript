@@ -6,7 +6,7 @@ import {DateTimeTimeZoneImpl, LocaleInfoImpl} from './index';
 import {LocaleInfo} from './localeInfo';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class AutomaticRepliesMailTipsImpl implements AdditionalDataHolder, AutomaticRepliesMailTips, Parsable {
+export class AutomaticRepliesMailTipsImpl implements AutomaticRepliesMailTips {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The automatic reply message. */
@@ -22,11 +22,11 @@ export class AutomaticRepliesMailTipsImpl implements AdditionalDataHolder, Autom
      * @param automaticRepliesMailTipsParameterValue 
      */
     public constructor(automaticRepliesMailTipsParameterValue?: AutomaticRepliesMailTips | undefined) {
-        this.additionalData = automaticRepliesMailTipsParameterValue?.additionalData ? automaticRepliesMailTipsParameterValue?.additionalData! : {}
-        this.message = automaticRepliesMailTipsParameterValue?.message ;
-        this.messageLanguage = automaticRepliesMailTipsParameterValue?.messageLanguage ;
-        this.scheduledEndTime = automaticRepliesMailTipsParameterValue?.scheduledEndTime ;
-        this.scheduledStartTime = automaticRepliesMailTipsParameterValue?.scheduledStartTime ;
+        this.additionalData = automaticRepliesMailTipsParameterValue?.additionalData ? automaticRepliesMailTipsParameterValue?.additionalData! : {};
+        this.message = automaticRepliesMailTipsParameterValue?.message;
+        this.messageLanguage = automaticRepliesMailTipsParameterValue?.messageLanguage;
+        this.scheduledEndTime = automaticRepliesMailTipsParameterValue?.scheduledEndTime;
+        this.scheduledStartTime = automaticRepliesMailTipsParameterValue?.scheduledStartTime;
     };
     /**
      * The deserialization information for the current model
@@ -47,16 +47,16 @@ export class AutomaticRepliesMailTipsImpl implements AdditionalDataHolder, Autom
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.message){
-        writer.writeStringValue("message", this.message);
+            writer.writeStringValue("message", this.message);
         }
         if(this.messageLanguage){
-        writer.writeObjectValue<LocaleInfoImpl>("messageLanguage", new LocaleInfoImpl(this.messageLanguage));
+            writer.writeObjectValue<LocaleInfoImpl>("messageLanguage", new LocaleInfoImpl(this.messageLanguage));
         }
         if(this.scheduledEndTime){
-        writer.writeObjectValue<DateTimeTimeZoneImpl>("scheduledEndTime", new DateTimeTimeZoneImpl(this.scheduledEndTime));
+            writer.writeObjectValue<DateTimeTimeZoneImpl>("scheduledEndTime", new DateTimeTimeZoneImpl(this.scheduledEndTime));
         }
         if(this.scheduledStartTime){
-        writer.writeObjectValue<DateTimeTimeZoneImpl>("scheduledStartTime", new DateTimeTimeZoneImpl(this.scheduledStartTime));
+            writer.writeObjectValue<DateTimeTimeZoneImpl>("scheduledStartTime", new DateTimeTimeZoneImpl(this.scheduledStartTime));
         }
         writer.writeAdditionalData(this.additionalData);
     };

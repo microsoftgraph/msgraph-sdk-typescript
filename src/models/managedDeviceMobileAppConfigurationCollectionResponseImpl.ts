@@ -4,7 +4,7 @@ import {ManagedDeviceMobileAppConfiguration} from './managedDeviceMobileAppConfi
 import {ManagedDeviceMobileAppConfigurationCollectionResponse} from './managedDeviceMobileAppConfigurationCollectionResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ManagedDeviceMobileAppConfigurationCollectionResponseImpl implements AdditionalDataHolder, ManagedDeviceMobileAppConfigurationCollectionResponse, Parsable {
+export class ManagedDeviceMobileAppConfigurationCollectionResponseImpl implements ManagedDeviceMobileAppConfigurationCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class ManagedDeviceMobileAppConfigurationCollectionResponseImpl implement
      * @param managedDeviceMobileAppConfigurationCollectionResponseParameterValue 
      */
     public constructor(managedDeviceMobileAppConfigurationCollectionResponseParameterValue?: ManagedDeviceMobileAppConfigurationCollectionResponse | undefined) {
-        this.additionalData = managedDeviceMobileAppConfigurationCollectionResponseParameterValue?.additionalData ? managedDeviceMobileAppConfigurationCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = managedDeviceMobileAppConfigurationCollectionResponseParameterValue?.nextLink ;
-        this.value = managedDeviceMobileAppConfigurationCollectionResponseParameterValue?.value ;
+        this.additionalData = managedDeviceMobileAppConfigurationCollectionResponseParameterValue?.additionalData ? managedDeviceMobileAppConfigurationCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = managedDeviceMobileAppConfigurationCollectionResponseParameterValue?.nextLink;
+        this.value = managedDeviceMobileAppConfigurationCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class ManagedDeviceMobileAppConfigurationCollectionResponseImpl implement
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: ManagedDeviceMobileAppConfigurationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ManagedDeviceMobileAppConfigurationImpl(element));});
-        writer.writeCollectionOfObjectValues<ManagedDeviceMobileAppConfigurationImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<ManagedDeviceMobileAppConfigurationImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

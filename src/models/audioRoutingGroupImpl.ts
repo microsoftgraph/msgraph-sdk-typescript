@@ -4,7 +4,7 @@ import {RoutingMode} from './routingMode';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the cloudCommunications singleton. */
-export class AudioRoutingGroupImpl extends EntityImpl implements AudioRoutingGroup, Parsable {
+export class AudioRoutingGroupImpl extends EntityImpl implements AudioRoutingGroup {
     /** List of receiving participant ids. */
     public receivers?: string[] | undefined;
     /** Routing group mode.  Possible values are: oneToOne, multicast. */
@@ -16,10 +16,10 @@ export class AudioRoutingGroupImpl extends EntityImpl implements AudioRoutingGro
      * @param audioRoutingGroupParameterValue 
      */
     public constructor(audioRoutingGroupParameterValue?: AudioRoutingGroup | undefined) {
-        super();
-        this.receivers = audioRoutingGroupParameterValue?.receivers ;
-        this.routingMode = audioRoutingGroupParameterValue?.routingMode ;
-        this.sources = audioRoutingGroupParameterValue?.sources ;
+        super(audioRoutingGroupParameterValue);
+        this.receivers = audioRoutingGroupParameterValue?.receivers;
+        this.routingMode = audioRoutingGroupParameterValue?.routingMode;
+        this.sources = audioRoutingGroupParameterValue?.sources;
     };
     /**
      * The deserialization information for the current model
@@ -40,13 +40,13 @@ export class AudioRoutingGroupImpl extends EntityImpl implements AudioRoutingGro
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.receivers){
-        writer.writeCollectionOfPrimitiveValues<string>("receivers", this.receivers);
+            writer.writeCollectionOfPrimitiveValues<string>("receivers", this.receivers);
         }
         if(this.routingMode){
-        writer.writeEnumValue<RoutingMode>("routingMode", this.routingMode);
+            writer.writeEnumValue<RoutingMode>("routingMode", this.routingMode);
         }
         if(this.sources){
-        writer.writeCollectionOfPrimitiveValues<string>("sources", this.sources);
+            writer.writeCollectionOfPrimitiveValues<string>("sources", this.sources);
         }
     };
 }

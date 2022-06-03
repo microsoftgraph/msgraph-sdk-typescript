@@ -2,7 +2,7 @@ import {Report} from './report';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Device Configuration profile History reports. */
-export class ReportImpl implements AdditionalDataHolder, Parsable, Report {
+export class ReportImpl implements Report {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Report content; details vary by report type. */
@@ -12,8 +12,8 @@ export class ReportImpl implements AdditionalDataHolder, Parsable, Report {
      * @param reportParameterValue 
      */
     public constructor(reportParameterValue?: Report | undefined) {
-        this.additionalData = reportParameterValue?.additionalData ? reportParameterValue?.additionalData! : {}
-        this.content = reportParameterValue?.content ;
+        this.additionalData = reportParameterValue?.additionalData ? reportParameterValue?.additionalData! : {};
+        this.content = reportParameterValue?.content;
     };
     /**
      * The deserialization information for the current model
@@ -31,7 +31,7 @@ export class ReportImpl implements AdditionalDataHolder, Parsable, Report {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.content){
-        writer.writeStringValue("content", this.content);
+            writer.writeStringValue("content", this.content);
         }
         writer.writeAdditionalData(this.additionalData);
     };

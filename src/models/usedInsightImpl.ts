@@ -11,7 +11,7 @@ import {UsedInsight} from './usedInsight';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Casts the previous resource to user. */
-export class UsedInsightImpl extends EntityImpl implements Parsable, UsedInsight {
+export class UsedInsightImpl extends EntityImpl implements UsedInsight {
     /** Information about when the item was last viewed or modified by the user. Read only. */
     public lastUsed?: UsageDetails | undefined;
     /** Used for navigating to the item that was used. For file attachments, the type is fileAttachment. For linked attachments, the type is driveItem. */
@@ -25,11 +25,11 @@ export class UsedInsightImpl extends EntityImpl implements Parsable, UsedInsight
      * @param usedInsightParameterValue 
      */
     public constructor(usedInsightParameterValue?: UsedInsight | undefined) {
-        super();
-        this.lastUsed = usedInsightParameterValue?.lastUsed ;
-        this.resource = usedInsightParameterValue?.resource ;
-        this.resourceReference = usedInsightParameterValue?.resourceReference ;
-        this.resourceVisualization = usedInsightParameterValue?.resourceVisualization ;
+        super(usedInsightParameterValue);
+        this.lastUsed = usedInsightParameterValue?.lastUsed;
+        this.resource = usedInsightParameterValue?.resource;
+        this.resourceReference = usedInsightParameterValue?.resourceReference;
+        this.resourceVisualization = usedInsightParameterValue?.resourceVisualization;
     };
     /**
      * The deserialization information for the current model
@@ -51,16 +51,16 @@ export class UsedInsightImpl extends EntityImpl implements Parsable, UsedInsight
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.lastUsed){
-        writer.writeObjectValue<UsageDetailsImpl>("lastUsed", new UsageDetailsImpl(this.lastUsed));
+            writer.writeObjectValue<UsageDetailsImpl>("lastUsed", new UsageDetailsImpl(this.lastUsed));
         }
         if(this.resource){
-        writer.writeObjectValue<EntityImpl>("resource", new EntityImpl(this.resource));
+            writer.writeObjectValue<EntityImpl>("resource", new EntityImpl(this.resource));
         }
         if(this.resourceReference){
-        writer.writeObjectValue<ResourceReferenceImpl>("resourceReference", new ResourceReferenceImpl(this.resourceReference));
+            writer.writeObjectValue<ResourceReferenceImpl>("resourceReference", new ResourceReferenceImpl(this.resourceReference));
         }
         if(this.resourceVisualization){
-        writer.writeObjectValue<ResourceVisualizationImpl>("resourceVisualization", new ResourceVisualizationImpl(this.resourceVisualization));
+            writer.writeObjectValue<ResourceVisualizationImpl>("resourceVisualization", new ResourceVisualizationImpl(this.resourceVisualization));
         }
     };
 }

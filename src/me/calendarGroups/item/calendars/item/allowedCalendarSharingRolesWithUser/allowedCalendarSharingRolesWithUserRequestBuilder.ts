@@ -22,7 +22,7 @@ export class AllowedCalendarSharingRolesWithUserRequestBuilder {
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/me/calendarGroups/{calendarGroup%2Did}/calendars/{calendar%2Did}/microsoft.graph.allowedCalendarSharingRoles(User='{User}')";
         const urlTplParams = getPathParameters(pathParameters);
-        urlTplParams[""] = user
+        urlTplParams["User"] = user
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };

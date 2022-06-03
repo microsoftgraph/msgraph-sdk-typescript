@@ -6,7 +6,7 @@ import {ResourceReference} from './resourceReference';
 import {SharingDetail} from './sharingDetail';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class SharingDetailImpl implements AdditionalDataHolder, Parsable, SharingDetail {
+export class SharingDetailImpl implements SharingDetail {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The user who shared the document. */
@@ -24,12 +24,12 @@ export class SharingDetailImpl implements AdditionalDataHolder, Parsable, Sharin
      * @param sharingDetailParameterValue 
      */
     public constructor(sharingDetailParameterValue?: SharingDetail | undefined) {
-        this.additionalData = sharingDetailParameterValue?.additionalData ? sharingDetailParameterValue?.additionalData! : {}
-        this.sharedBy = sharingDetailParameterValue?.sharedBy ;
-        this.sharedDateTime = sharingDetailParameterValue?.sharedDateTime ;
-        this.sharingReference = sharingDetailParameterValue?.sharingReference ;
-        this.sharingSubject = sharingDetailParameterValue?.sharingSubject ;
-        this.sharingType = sharingDetailParameterValue?.sharingType ;
+        this.additionalData = sharingDetailParameterValue?.additionalData ? sharingDetailParameterValue?.additionalData! : {};
+        this.sharedBy = sharingDetailParameterValue?.sharedBy;
+        this.sharedDateTime = sharingDetailParameterValue?.sharedDateTime;
+        this.sharingReference = sharingDetailParameterValue?.sharingReference;
+        this.sharingSubject = sharingDetailParameterValue?.sharingSubject;
+        this.sharingType = sharingDetailParameterValue?.sharingType;
     };
     /**
      * The deserialization information for the current model
@@ -51,19 +51,19 @@ export class SharingDetailImpl implements AdditionalDataHolder, Parsable, Sharin
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.sharedBy){
-        writer.writeObjectValue<InsightIdentityImpl>("sharedBy", new InsightIdentityImpl(this.sharedBy));
+            writer.writeObjectValue<InsightIdentityImpl>("sharedBy", new InsightIdentityImpl(this.sharedBy));
         }
         if(this.sharedDateTime){
-        writer.writeDateValue("sharedDateTime", this.sharedDateTime);
+            writer.writeDateValue("sharedDateTime", this.sharedDateTime);
         }
         if(this.sharingReference){
-        writer.writeObjectValue<ResourceReferenceImpl>("sharingReference", new ResourceReferenceImpl(this.sharingReference));
+            writer.writeObjectValue<ResourceReferenceImpl>("sharingReference", new ResourceReferenceImpl(this.sharingReference));
         }
         if(this.sharingSubject){
-        writer.writeStringValue("sharingSubject", this.sharingSubject);
+            writer.writeStringValue("sharingSubject", this.sharingSubject);
         }
         if(this.sharingType){
-        writer.writeStringValue("sharingType", this.sharingType);
+            writer.writeStringValue("sharingType", this.sharingType);
         }
         writer.writeAdditionalData(this.additionalData);
     };

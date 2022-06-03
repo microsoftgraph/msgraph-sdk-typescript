@@ -4,7 +4,7 @@ import {OnenoteSection} from './onenoteSection';
 import {OnenoteSectionCollectionResponse} from './onenoteSectionCollectionResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class OnenoteSectionCollectionResponseImpl implements AdditionalDataHolder, OnenoteSectionCollectionResponse, Parsable {
+export class OnenoteSectionCollectionResponseImpl implements OnenoteSectionCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class OnenoteSectionCollectionResponseImpl implements AdditionalDataHolde
      * @param onenoteSectionCollectionResponseParameterValue 
      */
     public constructor(onenoteSectionCollectionResponseParameterValue?: OnenoteSectionCollectionResponse | undefined) {
-        this.additionalData = onenoteSectionCollectionResponseParameterValue?.additionalData ? onenoteSectionCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = onenoteSectionCollectionResponseParameterValue?.nextLink ;
-        this.value = onenoteSectionCollectionResponseParameterValue?.value ;
+        this.additionalData = onenoteSectionCollectionResponseParameterValue?.additionalData ? onenoteSectionCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = onenoteSectionCollectionResponseParameterValue?.nextLink;
+        this.value = onenoteSectionCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class OnenoteSectionCollectionResponseImpl implements AdditionalDataHolde
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: OnenoteSectionImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new OnenoteSectionImpl(element));});
-        writer.writeCollectionOfObjectValues<OnenoteSectionImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<OnenoteSectionImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

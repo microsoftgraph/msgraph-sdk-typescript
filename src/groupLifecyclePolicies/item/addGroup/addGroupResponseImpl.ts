@@ -2,7 +2,7 @@ import {AddGroupResponse} from './addGroupResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the addGroup method. */
-export class AddGroupResponseImpl implements AddGroupResponse, AdditionalDataHolder, Parsable {
+export class AddGroupResponseImpl implements AddGroupResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The value property */
@@ -12,8 +12,8 @@ export class AddGroupResponseImpl implements AddGroupResponse, AdditionalDataHol
      * @param addGroupResponseParameterValue 
      */
     public constructor(addGroupResponseParameterValue?: AddGroupResponse | undefined) {
-        this.additionalData = addGroupResponseParameterValue?.additionalData ? addGroupResponseParameterValue?.additionalData! : {}
-        this.value = addGroupResponseParameterValue?.value ;
+        this.additionalData = addGroupResponseParameterValue?.additionalData ? addGroupResponseParameterValue?.additionalData! : {};
+        this.value = addGroupResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -31,7 +31,7 @@ export class AddGroupResponseImpl implements AddGroupResponse, AdditionalDataHol
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.value){
-        writer.writeBooleanValue("value", this.value);
+            writer.writeBooleanValue("value", this.value);
         }
         writer.writeAdditionalData(this.additionalData);
     };

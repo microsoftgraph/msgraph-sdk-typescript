@@ -2,7 +2,7 @@ import {WorkforceIntegrationEncryption} from './workforceIntegrationEncryption';
 import {WorkforceIntegrationEncryptionProtocol} from './workforceIntegrationEncryptionProtocol';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class WorkforceIntegrationEncryptionImpl implements AdditionalDataHolder, Parsable, WorkforceIntegrationEncryption {
+export class WorkforceIntegrationEncryptionImpl implements WorkforceIntegrationEncryption {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Possible values are: sharedSecret, unknownFutureValue. */
@@ -14,9 +14,9 @@ export class WorkforceIntegrationEncryptionImpl implements AdditionalDataHolder,
      * @param workforceIntegrationEncryptionParameterValue 
      */
     public constructor(workforceIntegrationEncryptionParameterValue?: WorkforceIntegrationEncryption | undefined) {
-        this.additionalData = workforceIntegrationEncryptionParameterValue?.additionalData ? workforceIntegrationEncryptionParameterValue?.additionalData! : {}
-        this.protocol = workforceIntegrationEncryptionParameterValue?.protocol ;
-        this.secret = workforceIntegrationEncryptionParameterValue?.secret ;
+        this.additionalData = workforceIntegrationEncryptionParameterValue?.additionalData ? workforceIntegrationEncryptionParameterValue?.additionalData! : {};
+        this.protocol = workforceIntegrationEncryptionParameterValue?.protocol;
+        this.secret = workforceIntegrationEncryptionParameterValue?.secret;
     };
     /**
      * The deserialization information for the current model
@@ -35,10 +35,10 @@ export class WorkforceIntegrationEncryptionImpl implements AdditionalDataHolder,
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.protocol){
-        writer.writeEnumValue<WorkforceIntegrationEncryptionProtocol>("protocol", this.protocol);
+            writer.writeEnumValue<WorkforceIntegrationEncryptionProtocol>("protocol", this.protocol);
         }
         if(this.secret){
-        writer.writeStringValue("secret", this.secret);
+            writer.writeStringValue("secret", this.secret);
         }
         writer.writeAdditionalData(this.additionalData);
     };

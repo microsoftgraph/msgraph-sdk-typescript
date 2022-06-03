@@ -4,7 +4,7 @@ import {UnifiedRoleAssignmentScheduleInstance} from './unifiedRoleAssignmentSche
 import {UnifiedRoleAssignmentScheduleInstanceCollectionResponse} from './unifiedRoleAssignmentScheduleInstanceCollectionResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class UnifiedRoleAssignmentScheduleInstanceCollectionResponseImpl implements AdditionalDataHolder, Parsable, UnifiedRoleAssignmentScheduleInstanceCollectionResponse {
+export class UnifiedRoleAssignmentScheduleInstanceCollectionResponseImpl implements UnifiedRoleAssignmentScheduleInstanceCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class UnifiedRoleAssignmentScheduleInstanceCollectionResponseImpl impleme
      * @param unifiedRoleAssignmentScheduleInstanceCollectionResponseParameterValue 
      */
     public constructor(unifiedRoleAssignmentScheduleInstanceCollectionResponseParameterValue?: UnifiedRoleAssignmentScheduleInstanceCollectionResponse | undefined) {
-        this.additionalData = unifiedRoleAssignmentScheduleInstanceCollectionResponseParameterValue?.additionalData ? unifiedRoleAssignmentScheduleInstanceCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = unifiedRoleAssignmentScheduleInstanceCollectionResponseParameterValue?.nextLink ;
-        this.value = unifiedRoleAssignmentScheduleInstanceCollectionResponseParameterValue?.value ;
+        this.additionalData = unifiedRoleAssignmentScheduleInstanceCollectionResponseParameterValue?.additionalData ? unifiedRoleAssignmentScheduleInstanceCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = unifiedRoleAssignmentScheduleInstanceCollectionResponseParameterValue?.nextLink;
+        this.value = unifiedRoleAssignmentScheduleInstanceCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class UnifiedRoleAssignmentScheduleInstanceCollectionResponseImpl impleme
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: UnifiedRoleAssignmentScheduleInstanceImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new UnifiedRoleAssignmentScheduleInstanceImpl(element));});
-        writer.writeCollectionOfObjectValues<UnifiedRoleAssignmentScheduleInstanceImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<UnifiedRoleAssignmentScheduleInstanceImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

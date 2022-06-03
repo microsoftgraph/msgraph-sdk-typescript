@@ -4,7 +4,7 @@ import {KeyValueImpl} from './index';
 import {KeyValue} from './keyValue';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class AddInImpl implements AddIn, AdditionalDataHolder, Parsable {
+export class AddInImpl implements AddIn {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The id property */
@@ -18,10 +18,10 @@ export class AddInImpl implements AddIn, AdditionalDataHolder, Parsable {
      * @param addInParameterValue 
      */
     public constructor(addInParameterValue?: AddIn | undefined) {
-        this.additionalData = addInParameterValue?.additionalData ? addInParameterValue?.additionalData! : {}
-        this.id = addInParameterValue?.id ;
-        this.properties = addInParameterValue?.properties ;
-        this.type = addInParameterValue?.type ;
+        this.additionalData = addInParameterValue?.additionalData ? addInParameterValue?.additionalData! : {};
+        this.id = addInParameterValue?.id;
+        this.properties = addInParameterValue?.properties;
+        this.type = addInParameterValue?.type;
     };
     /**
      * The deserialization information for the current model
@@ -41,13 +41,13 @@ export class AddInImpl implements AddIn, AdditionalDataHolder, Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.id){
-        writer.writeStringValue("id", this.id);
+            writer.writeStringValue("id", this.id);
         }
         if(this.properties && this.properties.length != 0){        const propertiesArrValue: KeyValueImpl[] = []; this.properties?.forEach(element => {propertiesArrValue.push(new KeyValueImpl(element));});
-        writer.writeCollectionOfObjectValues<KeyValueImpl>("properties", propertiesArrValue);
+            writer.writeCollectionOfObjectValues<KeyValueImpl>("properties", propertiesArrValue);
         }
         if(this.type){
-        writer.writeStringValue("type", this.type);
+            writer.writeStringValue("type", this.type);
         }
         writer.writeAdditionalData(this.additionalData);
     };

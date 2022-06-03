@@ -4,7 +4,7 @@ import {ManagedDeviceMobileAppConfigurationDeviceStatus} from './managedDeviceMo
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Contains properties, inherited properties and actions for an MDM mobile app configuration status for a device. */
-export class ManagedDeviceMobileAppConfigurationDeviceStatusImpl extends EntityImpl implements ManagedDeviceMobileAppConfigurationDeviceStatus, Parsable {
+export class ManagedDeviceMobileAppConfigurationDeviceStatusImpl extends EntityImpl implements ManagedDeviceMobileAppConfigurationDeviceStatus {
     /** The DateTime when device compliance grace period expires */
     public complianceGracePeriodExpirationDateTime?: Date | undefined;
     /** Device name of the DevicePolicyStatus. */
@@ -24,14 +24,14 @@ export class ManagedDeviceMobileAppConfigurationDeviceStatusImpl extends EntityI
      * @param managedDeviceMobileAppConfigurationDeviceStatusParameterValue 
      */
     public constructor(managedDeviceMobileAppConfigurationDeviceStatusParameterValue?: ManagedDeviceMobileAppConfigurationDeviceStatus | undefined) {
-        super();
-        this.complianceGracePeriodExpirationDateTime = managedDeviceMobileAppConfigurationDeviceStatusParameterValue?.complianceGracePeriodExpirationDateTime ;
-        this.deviceDisplayName = managedDeviceMobileAppConfigurationDeviceStatusParameterValue?.deviceDisplayName ;
-        this.deviceModel = managedDeviceMobileAppConfigurationDeviceStatusParameterValue?.deviceModel ;
-        this.lastReportedDateTime = managedDeviceMobileAppConfigurationDeviceStatusParameterValue?.lastReportedDateTime ;
-        this.status = managedDeviceMobileAppConfigurationDeviceStatusParameterValue?.status ;
-        this.userName = managedDeviceMobileAppConfigurationDeviceStatusParameterValue?.userName ;
-        this.userPrincipalName = managedDeviceMobileAppConfigurationDeviceStatusParameterValue?.userPrincipalName ;
+        super(managedDeviceMobileAppConfigurationDeviceStatusParameterValue);
+        this.complianceGracePeriodExpirationDateTime = managedDeviceMobileAppConfigurationDeviceStatusParameterValue?.complianceGracePeriodExpirationDateTime;
+        this.deviceDisplayName = managedDeviceMobileAppConfigurationDeviceStatusParameterValue?.deviceDisplayName;
+        this.deviceModel = managedDeviceMobileAppConfigurationDeviceStatusParameterValue?.deviceModel;
+        this.lastReportedDateTime = managedDeviceMobileAppConfigurationDeviceStatusParameterValue?.lastReportedDateTime;
+        this.status = managedDeviceMobileAppConfigurationDeviceStatusParameterValue?.status;
+        this.userName = managedDeviceMobileAppConfigurationDeviceStatusParameterValue?.userName;
+        this.userPrincipalName = managedDeviceMobileAppConfigurationDeviceStatusParameterValue?.userPrincipalName;
     };
     /**
      * The deserialization information for the current model
@@ -56,25 +56,25 @@ export class ManagedDeviceMobileAppConfigurationDeviceStatusImpl extends EntityI
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.complianceGracePeriodExpirationDateTime){
-        writer.writeDateValue("complianceGracePeriodExpirationDateTime", this.complianceGracePeriodExpirationDateTime);
+            writer.writeDateValue("complianceGracePeriodExpirationDateTime", this.complianceGracePeriodExpirationDateTime);
         }
         if(this.deviceDisplayName){
-        writer.writeStringValue("deviceDisplayName", this.deviceDisplayName);
+            writer.writeStringValue("deviceDisplayName", this.deviceDisplayName);
         }
         if(this.deviceModel){
-        writer.writeStringValue("deviceModel", this.deviceModel);
+            writer.writeStringValue("deviceModel", this.deviceModel);
         }
         if(this.lastReportedDateTime){
-        writer.writeDateValue("lastReportedDateTime", this.lastReportedDateTime);
+            writer.writeDateValue("lastReportedDateTime", this.lastReportedDateTime);
         }
         if(this.status){
-        writer.writeEnumValue<ComplianceStatus>("status", this.status);
+            writer.writeEnumValue<ComplianceStatus>("status", this.status);
         }
         if(this.userName){
-        writer.writeStringValue("userName", this.userName);
+            writer.writeStringValue("userName", this.userName);
         }
         if(this.userPrincipalName){
-        writer.writeStringValue("userPrincipalName", this.userPrincipalName);
+            writer.writeStringValue("userPrincipalName", this.userPrincipalName);
         }
     };
 }

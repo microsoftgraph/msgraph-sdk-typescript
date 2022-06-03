@@ -10,7 +10,7 @@ import {UserPurpose} from './userPurpose';
 import {WorkingHours} from './workingHours';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class MailboxSettingsImpl implements AdditionalDataHolder, MailboxSettings, Parsable {
+export class MailboxSettingsImpl implements MailboxSettings {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Folder ID of an archive folder for the user. Read only. */
@@ -36,16 +36,16 @@ export class MailboxSettingsImpl implements AdditionalDataHolder, MailboxSetting
      * @param mailboxSettingsParameterValue 
      */
     public constructor(mailboxSettingsParameterValue?: MailboxSettings | undefined) {
-        this.additionalData = mailboxSettingsParameterValue?.additionalData ? mailboxSettingsParameterValue?.additionalData! : {}
-        this.archiveFolder = mailboxSettingsParameterValue?.archiveFolder ;
-        this.automaticRepliesSetting = mailboxSettingsParameterValue?.automaticRepliesSetting ;
-        this.dateFormat = mailboxSettingsParameterValue?.dateFormat ;
-        this.delegateMeetingMessageDeliveryOptions = mailboxSettingsParameterValue?.delegateMeetingMessageDeliveryOptions ;
-        this.language = mailboxSettingsParameterValue?.language ;
-        this.timeFormat = mailboxSettingsParameterValue?.timeFormat ;
-        this.timeZone = mailboxSettingsParameterValue?.timeZone ;
-        this.userPurpose = mailboxSettingsParameterValue?.userPurpose ;
-        this.workingHours = mailboxSettingsParameterValue?.workingHours ;
+        this.additionalData = mailboxSettingsParameterValue?.additionalData ? mailboxSettingsParameterValue?.additionalData! : {};
+        this.archiveFolder = mailboxSettingsParameterValue?.archiveFolder;
+        this.automaticRepliesSetting = mailboxSettingsParameterValue?.automaticRepliesSetting;
+        this.dateFormat = mailboxSettingsParameterValue?.dateFormat;
+        this.delegateMeetingMessageDeliveryOptions = mailboxSettingsParameterValue?.delegateMeetingMessageDeliveryOptions;
+        this.language = mailboxSettingsParameterValue?.language;
+        this.timeFormat = mailboxSettingsParameterValue?.timeFormat;
+        this.timeZone = mailboxSettingsParameterValue?.timeZone;
+        this.userPurpose = mailboxSettingsParameterValue?.userPurpose;
+        this.workingHours = mailboxSettingsParameterValue?.workingHours;
     };
     /**
      * The deserialization information for the current model
@@ -71,31 +71,31 @@ export class MailboxSettingsImpl implements AdditionalDataHolder, MailboxSetting
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.archiveFolder){
-        writer.writeStringValue("archiveFolder", this.archiveFolder);
+            writer.writeStringValue("archiveFolder", this.archiveFolder);
         }
         if(this.automaticRepliesSetting){
-        writer.writeObjectValue<AutomaticRepliesSettingImpl>("automaticRepliesSetting", new AutomaticRepliesSettingImpl(this.automaticRepliesSetting));
+            writer.writeObjectValue<AutomaticRepliesSettingImpl>("automaticRepliesSetting", new AutomaticRepliesSettingImpl(this.automaticRepliesSetting));
         }
         if(this.dateFormat){
-        writer.writeStringValue("dateFormat", this.dateFormat);
+            writer.writeStringValue("dateFormat", this.dateFormat);
         }
         if(this.delegateMeetingMessageDeliveryOptions){
-        writer.writeEnumValue<DelegateMeetingMessageDeliveryOptions>("delegateMeetingMessageDeliveryOptions", this.delegateMeetingMessageDeliveryOptions);
+            writer.writeEnumValue<DelegateMeetingMessageDeliveryOptions>("delegateMeetingMessageDeliveryOptions", this.delegateMeetingMessageDeliveryOptions);
         }
         if(this.language){
-        writer.writeObjectValue<LocaleInfoImpl>("language", new LocaleInfoImpl(this.language));
+            writer.writeObjectValue<LocaleInfoImpl>("language", new LocaleInfoImpl(this.language));
         }
         if(this.timeFormat){
-        writer.writeStringValue("timeFormat", this.timeFormat);
+            writer.writeStringValue("timeFormat", this.timeFormat);
         }
         if(this.timeZone){
-        writer.writeStringValue("timeZone", this.timeZone);
+            writer.writeStringValue("timeZone", this.timeZone);
         }
         if(this.userPurpose){
-        writer.writeEnumValue<UserPurpose>("userPurpose", this.userPurpose);
+            writer.writeEnumValue<UserPurpose>("userPurpose", this.userPurpose);
         }
         if(this.workingHours){
-        writer.writeObjectValue<WorkingHoursImpl>("workingHours", new WorkingHoursImpl(this.workingHours));
+            writer.writeObjectValue<WorkingHoursImpl>("workingHours", new WorkingHoursImpl(this.workingHours));
         }
         writer.writeAdditionalData(this.additionalData);
     };

@@ -5,7 +5,7 @@ import {RemovePostRequestBody} from './removePostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the remove method. */
-export class RemovePostRequestBodyImpl implements AdditionalDataHolder, Parsable, RemovePostRequestBody {
+export class RemovePostRequestBodyImpl implements RemovePostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The value property */
@@ -15,8 +15,8 @@ export class RemovePostRequestBodyImpl implements AdditionalDataHolder, Parsable
      * @param removePostRequestBodyParameterValue 
      */
     public constructor(removePostRequestBodyParameterValue?: RemovePostRequestBody | undefined) {
-        this.additionalData = removePostRequestBodyParameterValue?.additionalData ? removePostRequestBodyParameterValue?.additionalData! : {}
-        this.value = removePostRequestBodyParameterValue?.value ;
+        this.additionalData = removePostRequestBodyParameterValue?.additionalData ? removePostRequestBodyParameterValue?.additionalData! : {};
+        this.value = removePostRequestBodyParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -34,7 +34,7 @@ export class RemovePostRequestBodyImpl implements AdditionalDataHolder, Parsable
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.value && this.value.length != 0){        const valueArrValue: SiteImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new SiteImpl(element));});
-        writer.writeCollectionOfObjectValues<SiteImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<SiteImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

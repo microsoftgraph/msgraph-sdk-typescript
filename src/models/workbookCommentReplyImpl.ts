@@ -2,8 +2,8 @@ import {EntityImpl} from './index';
 import {WorkbookCommentReply} from './workbookCommentReply';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
-export class WorkbookCommentReplyImpl extends EntityImpl implements Parsable, WorkbookCommentReply {
+/** Casts the previous resource to group. */
+export class WorkbookCommentReplyImpl extends EntityImpl implements WorkbookCommentReply {
     /** The content of replied comment. */
     public content?: string | undefined;
     /** Indicates the type for the replied comment. */
@@ -13,9 +13,9 @@ export class WorkbookCommentReplyImpl extends EntityImpl implements Parsable, Wo
      * @param workbookCommentReplyParameterValue 
      */
     public constructor(workbookCommentReplyParameterValue?: WorkbookCommentReply | undefined) {
-        super();
-        this.content = workbookCommentReplyParameterValue?.content ;
-        this.contentType = workbookCommentReplyParameterValue?.contentType ;
+        super(workbookCommentReplyParameterValue);
+        this.content = workbookCommentReplyParameterValue?.content;
+        this.contentType = workbookCommentReplyParameterValue?.contentType;
     };
     /**
      * The deserialization information for the current model
@@ -35,10 +35,10 @@ export class WorkbookCommentReplyImpl extends EntityImpl implements Parsable, Wo
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.content){
-        writer.writeStringValue("content", this.content);
+            writer.writeStringValue("content", this.content);
         }
         if(this.contentType){
-        writer.writeStringValue("contentType", this.contentType);
+            writer.writeStringValue("contentType", this.contentType);
         }
     };
 }

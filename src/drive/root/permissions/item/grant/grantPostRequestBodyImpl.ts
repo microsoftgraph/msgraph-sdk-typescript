@@ -5,7 +5,7 @@ import {GrantPostRequestBody} from './grantPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the grant method. */
-export class GrantPostRequestBodyImpl implements AdditionalDataHolder, GrantPostRequestBody, Parsable {
+export class GrantPostRequestBodyImpl implements GrantPostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The recipients property */
@@ -17,9 +17,9 @@ export class GrantPostRequestBodyImpl implements AdditionalDataHolder, GrantPost
      * @param grantPostRequestBodyParameterValue 
      */
     public constructor(grantPostRequestBodyParameterValue?: GrantPostRequestBody | undefined) {
-        this.additionalData = grantPostRequestBodyParameterValue?.additionalData ? grantPostRequestBodyParameterValue?.additionalData! : {}
-        this.recipients = grantPostRequestBodyParameterValue?.recipients ;
-        this.roles = grantPostRequestBodyParameterValue?.roles ;
+        this.additionalData = grantPostRequestBodyParameterValue?.additionalData ? grantPostRequestBodyParameterValue?.additionalData! : {};
+        this.recipients = grantPostRequestBodyParameterValue?.recipients;
+        this.roles = grantPostRequestBodyParameterValue?.roles;
     };
     /**
      * The deserialization information for the current model
@@ -38,10 +38,10 @@ export class GrantPostRequestBodyImpl implements AdditionalDataHolder, GrantPost
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.recipients && this.recipients.length != 0){        const recipientsArrValue: DriveRecipientImpl[] = []; this.recipients?.forEach(element => {recipientsArrValue.push(new DriveRecipientImpl(element));});
-        writer.writeCollectionOfObjectValues<DriveRecipientImpl>("recipients", recipientsArrValue);
+            writer.writeCollectionOfObjectValues<DriveRecipientImpl>("recipients", recipientsArrValue);
         }
         if(this.roles){
-        writer.writeCollectionOfPrimitiveValues<string>("roles", this.roles);
+            writer.writeCollectionOfPrimitiveValues<string>("roles", this.roles);
         }
         writer.writeAdditionalData(this.additionalData);
     };

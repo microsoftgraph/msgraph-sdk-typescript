@@ -9,7 +9,7 @@ import {UnifiedRoleScheduleBase} from './unifiedRoleScheduleBase';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the roleManagement singleton. */
-export class UnifiedRoleScheduleBaseImpl extends EntityImpl implements Parsable, UnifiedRoleScheduleBase {
+export class UnifiedRoleScheduleBaseImpl extends EntityImpl implements UnifiedRoleScheduleBase {
     /** Read-only property with details of the app specific scope when the assignment scope is app specific. Containment entity. */
     public appScope?: AppScope | undefined;
     /** Identifier of the app-specific scope when the assignment scope is app-specific. The scope of an assignment determines the set of resources for which the principal has been granted access. App scopes are scopes that are defined and understood by this application only. Use / for tenant-wide app scopes. Use directoryScopeId to limit the scope to particular directory objects, for example, administrative units or all users. */
@@ -39,19 +39,19 @@ export class UnifiedRoleScheduleBaseImpl extends EntityImpl implements Parsable,
      * @param unifiedRoleScheduleBaseParameterValue 
      */
     public constructor(unifiedRoleScheduleBaseParameterValue?: UnifiedRoleScheduleBase | undefined) {
-        super();
-        this.appScope = unifiedRoleScheduleBaseParameterValue?.appScope ;
-        this.appScopeId = unifiedRoleScheduleBaseParameterValue?.appScopeId ;
-        this.createdDateTime = unifiedRoleScheduleBaseParameterValue?.createdDateTime ;
-        this.createdUsing = unifiedRoleScheduleBaseParameterValue?.createdUsing ;
-        this.directoryScope = unifiedRoleScheduleBaseParameterValue?.directoryScope ;
-        this.directoryScopeId = unifiedRoleScheduleBaseParameterValue?.directoryScopeId ;
-        this.modifiedDateTime = unifiedRoleScheduleBaseParameterValue?.modifiedDateTime ;
-        this.principal = unifiedRoleScheduleBaseParameterValue?.principal ;
-        this.principalId = unifiedRoleScheduleBaseParameterValue?.principalId ;
-        this.roleDefinition = unifiedRoleScheduleBaseParameterValue?.roleDefinition ;
-        this.roleDefinitionId = unifiedRoleScheduleBaseParameterValue?.roleDefinitionId ;
-        this.status = unifiedRoleScheduleBaseParameterValue?.status ;
+        super(unifiedRoleScheduleBaseParameterValue);
+        this.appScope = unifiedRoleScheduleBaseParameterValue?.appScope;
+        this.appScopeId = unifiedRoleScheduleBaseParameterValue?.appScopeId;
+        this.createdDateTime = unifiedRoleScheduleBaseParameterValue?.createdDateTime;
+        this.createdUsing = unifiedRoleScheduleBaseParameterValue?.createdUsing;
+        this.directoryScope = unifiedRoleScheduleBaseParameterValue?.directoryScope;
+        this.directoryScopeId = unifiedRoleScheduleBaseParameterValue?.directoryScopeId;
+        this.modifiedDateTime = unifiedRoleScheduleBaseParameterValue?.modifiedDateTime;
+        this.principal = unifiedRoleScheduleBaseParameterValue?.principal;
+        this.principalId = unifiedRoleScheduleBaseParameterValue?.principalId;
+        this.roleDefinition = unifiedRoleScheduleBaseParameterValue?.roleDefinition;
+        this.roleDefinitionId = unifiedRoleScheduleBaseParameterValue?.roleDefinitionId;
+        this.status = unifiedRoleScheduleBaseParameterValue?.status;
     };
     /**
      * The deserialization information for the current model
@@ -81,40 +81,40 @@ export class UnifiedRoleScheduleBaseImpl extends EntityImpl implements Parsable,
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.appScope){
-        writer.writeObjectValue<AppScopeImpl>("appScope", new AppScopeImpl(this.appScope));
+            writer.writeObjectValue<AppScopeImpl>("appScope", new AppScopeImpl(this.appScope));
         }
         if(this.appScopeId){
-        writer.writeStringValue("appScopeId", this.appScopeId);
+            writer.writeStringValue("appScopeId", this.appScopeId);
         }
         if(this.createdDateTime){
-        writer.writeDateValue("createdDateTime", this.createdDateTime);
+            writer.writeDateValue("createdDateTime", this.createdDateTime);
         }
         if(this.createdUsing){
-        writer.writeStringValue("createdUsing", this.createdUsing);
+            writer.writeStringValue("createdUsing", this.createdUsing);
         }
         if(this.directoryScope){
-        writer.writeObjectValue<DirectoryObjectImpl>("directoryScope", new DirectoryObjectImpl(this.directoryScope));
+            writer.writeObjectValue<DirectoryObjectImpl>("directoryScope", new DirectoryObjectImpl(this.directoryScope));
         }
         if(this.directoryScopeId){
-        writer.writeStringValue("directoryScopeId", this.directoryScopeId);
+            writer.writeStringValue("directoryScopeId", this.directoryScopeId);
         }
         if(this.modifiedDateTime){
-        writer.writeDateValue("modifiedDateTime", this.modifiedDateTime);
+            writer.writeDateValue("modifiedDateTime", this.modifiedDateTime);
         }
         if(this.principal){
-        writer.writeObjectValue<DirectoryObjectImpl>("principal", new DirectoryObjectImpl(this.principal));
+            writer.writeObjectValue<DirectoryObjectImpl>("principal", new DirectoryObjectImpl(this.principal));
         }
         if(this.principalId){
-        writer.writeStringValue("principalId", this.principalId);
+            writer.writeStringValue("principalId", this.principalId);
         }
         if(this.roleDefinition){
-        writer.writeObjectValue<UnifiedRoleDefinitionImpl>("roleDefinition", new UnifiedRoleDefinitionImpl(this.roleDefinition));
+            writer.writeObjectValue<UnifiedRoleDefinitionImpl>("roleDefinition", new UnifiedRoleDefinitionImpl(this.roleDefinition));
         }
         if(this.roleDefinitionId){
-        writer.writeStringValue("roleDefinitionId", this.roleDefinitionId);
+            writer.writeStringValue("roleDefinitionId", this.roleDefinitionId);
         }
         if(this.status){
-        writer.writeStringValue("status", this.status);
+            writer.writeStringValue("status", this.status);
         }
     };
 }

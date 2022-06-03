@@ -1,7 +1,7 @@
 import {ConditionalAccessPlatforms} from './conditionalAccessPlatforms';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ConditionalAccessPlatformsImpl implements AdditionalDataHolder, ConditionalAccessPlatforms, Parsable {
+export class ConditionalAccessPlatformsImpl implements ConditionalAccessPlatforms {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Possible values are: android, iOS, windows, windowsPhone, macOS, all, unknownFutureValue, linux. */
@@ -13,9 +13,9 @@ export class ConditionalAccessPlatformsImpl implements AdditionalDataHolder, Con
      * @param conditionalAccessPlatformsParameterValue 
      */
     public constructor(conditionalAccessPlatformsParameterValue?: ConditionalAccessPlatforms | undefined) {
-        this.additionalData = conditionalAccessPlatformsParameterValue?.additionalData ? conditionalAccessPlatformsParameterValue?.additionalData! : {}
-        this.excludePlatforms = conditionalAccessPlatformsParameterValue?.excludePlatforms ;
-        this.includePlatforms = conditionalAccessPlatformsParameterValue?.includePlatforms ;
+        this.additionalData = conditionalAccessPlatformsParameterValue?.additionalData ? conditionalAccessPlatformsParameterValue?.additionalData! : {};
+        this.excludePlatforms = conditionalAccessPlatformsParameterValue?.excludePlatforms;
+        this.includePlatforms = conditionalAccessPlatformsParameterValue?.includePlatforms;
     };
     /**
      * The deserialization information for the current model
@@ -34,10 +34,10 @@ export class ConditionalAccessPlatformsImpl implements AdditionalDataHolder, Con
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.excludePlatforms){
-        writer.writeCollectionOfPrimitiveValues<string>("excludePlatforms", this.excludePlatforms);
+            writer.writeCollectionOfPrimitiveValues<string>("excludePlatforms", this.excludePlatforms);
         }
         if(this.includePlatforms){
-        writer.writeCollectionOfPrimitiveValues<string>("includePlatforms", this.includePlatforms);
+            writer.writeCollectionOfPrimitiveValues<string>("includePlatforms", this.includePlatforms);
         }
         writer.writeAdditionalData(this.additionalData);
     };

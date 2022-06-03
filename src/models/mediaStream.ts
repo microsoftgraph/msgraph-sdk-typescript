@@ -1,17 +1,18 @@
 import {MediaDirection} from './mediaDirection';
 import {Modality} from './modality';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface MediaStream{
+export interface MediaStream extends Partial<AdditionalDataHolder>, Partial<Parsable> {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?:Record<string, unknown>;
+    additionalData?: Record<string, unknown>;
     /** The direction. The possible values are inactive, sendOnly, receiveOnly, sendReceive. */
-    direction?:MediaDirection | undefined;
+    direction?: MediaDirection | undefined;
     /** The media stream label. */
-    label?:string | undefined;
+    label?: string | undefined;
     /** The media type. The possible value are unknown, audio, video, videoBasedScreenSharing, data. */
-    mediaType?:Modality | undefined;
+    mediaType?: Modality | undefined;
     /** Indicates whether the media is muted by the server. */
-    serverMuted?:boolean | undefined;
+    serverMuted?: boolean | undefined;
     /** The source ID. */
-    sourceId?:string | undefined;
+    sourceId?: string | undefined;
 }

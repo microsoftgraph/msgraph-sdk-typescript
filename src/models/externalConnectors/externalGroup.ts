@@ -1,11 +1,12 @@
 import {Entity} from '../entity';
 import {Identity} from './identity';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface ExternalGroup extends Entity{
+export interface ExternalGroup extends Entity, Partial<Parsable> {
     /** The description of the external group. Optional. */
-    description?:string | undefined;
+    description?: string | undefined;
     /** The friendly name of the external group. Optional. */
-    displayName?:string | undefined;
+    displayName?: string | undefined;
     /** A member added to an externalGroup. You can add Azure Active Directory users, Azure Active Directory groups, or other externalGroups as members. */
-    members?:Identity[] | undefined;
+    members?: Identity[] | undefined;
 }

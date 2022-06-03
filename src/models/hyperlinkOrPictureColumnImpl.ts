@@ -1,7 +1,7 @@
 import {HyperlinkOrPictureColumn} from './hyperlinkOrPictureColumn';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class HyperlinkOrPictureColumnImpl implements AdditionalDataHolder, HyperlinkOrPictureColumn, Parsable {
+export class HyperlinkOrPictureColumnImpl implements HyperlinkOrPictureColumn {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Specifies whether the display format used for URL columns is an image or a hyperlink. */
@@ -11,8 +11,8 @@ export class HyperlinkOrPictureColumnImpl implements AdditionalDataHolder, Hyper
      * @param hyperlinkOrPictureColumnParameterValue 
      */
     public constructor(hyperlinkOrPictureColumnParameterValue?: HyperlinkOrPictureColumn | undefined) {
-        this.additionalData = hyperlinkOrPictureColumnParameterValue?.additionalData ? hyperlinkOrPictureColumnParameterValue?.additionalData! : {}
-        this.isPicture = hyperlinkOrPictureColumnParameterValue?.isPicture ;
+        this.additionalData = hyperlinkOrPictureColumnParameterValue?.additionalData ? hyperlinkOrPictureColumnParameterValue?.additionalData! : {};
+        this.isPicture = hyperlinkOrPictureColumnParameterValue?.isPicture;
     };
     /**
      * The deserialization information for the current model
@@ -30,7 +30,7 @@ export class HyperlinkOrPictureColumnImpl implements AdditionalDataHolder, Hyper
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.isPicture){
-        writer.writeBooleanValue("isPicture", this.isPicture);
+            writer.writeBooleanValue("isPicture", this.isPicture);
         }
         writer.writeAdditionalData(this.additionalData);
     };

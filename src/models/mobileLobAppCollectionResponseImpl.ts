@@ -4,7 +4,7 @@ import {MobileLobApp} from './mobileLobApp';
 import {MobileLobAppCollectionResponse} from './mobileLobAppCollectionResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class MobileLobAppCollectionResponseImpl implements AdditionalDataHolder, MobileLobAppCollectionResponse, Parsable {
+export class MobileLobAppCollectionResponseImpl implements MobileLobAppCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class MobileLobAppCollectionResponseImpl implements AdditionalDataHolder,
      * @param mobileLobAppCollectionResponseParameterValue 
      */
     public constructor(mobileLobAppCollectionResponseParameterValue?: MobileLobAppCollectionResponse | undefined) {
-        this.additionalData = mobileLobAppCollectionResponseParameterValue?.additionalData ? mobileLobAppCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = mobileLobAppCollectionResponseParameterValue?.nextLink ;
-        this.value = mobileLobAppCollectionResponseParameterValue?.value ;
+        this.additionalData = mobileLobAppCollectionResponseParameterValue?.additionalData ? mobileLobAppCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = mobileLobAppCollectionResponseParameterValue?.nextLink;
+        this.value = mobileLobAppCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class MobileLobAppCollectionResponseImpl implements AdditionalDataHolder,
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: MobileLobAppImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new MobileLobAppImpl(element));});
-        writer.writeCollectionOfObjectValues<MobileLobAppImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<MobileLobAppImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

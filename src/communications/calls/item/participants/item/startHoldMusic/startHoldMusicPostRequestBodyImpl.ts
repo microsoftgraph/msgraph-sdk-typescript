@@ -5,7 +5,7 @@ import {StartHoldMusicPostRequestBody} from './startHoldMusicPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the startHoldMusic method. */
-export class StartHoldMusicPostRequestBodyImpl implements AdditionalDataHolder, Parsable, StartHoldMusicPostRequestBody {
+export class StartHoldMusicPostRequestBodyImpl implements StartHoldMusicPostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The clientContext property */
@@ -17,9 +17,9 @@ export class StartHoldMusicPostRequestBodyImpl implements AdditionalDataHolder, 
      * @param startHoldMusicPostRequestBodyParameterValue 
      */
     public constructor(startHoldMusicPostRequestBodyParameterValue?: StartHoldMusicPostRequestBody | undefined) {
-        this.additionalData = startHoldMusicPostRequestBodyParameterValue?.additionalData ? startHoldMusicPostRequestBodyParameterValue?.additionalData! : {}
-        this.clientContext = startHoldMusicPostRequestBodyParameterValue?.clientContext ;
-        this.customPrompt = startHoldMusicPostRequestBodyParameterValue?.customPrompt ;
+        this.additionalData = startHoldMusicPostRequestBodyParameterValue?.additionalData ? startHoldMusicPostRequestBodyParameterValue?.additionalData! : {};
+        this.clientContext = startHoldMusicPostRequestBodyParameterValue?.clientContext;
+        this.customPrompt = startHoldMusicPostRequestBodyParameterValue?.customPrompt;
     };
     /**
      * The deserialization information for the current model
@@ -38,10 +38,10 @@ export class StartHoldMusicPostRequestBodyImpl implements AdditionalDataHolder, 
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.clientContext){
-        writer.writeStringValue("clientContext", this.clientContext);
+            writer.writeStringValue("clientContext", this.clientContext);
         }
         if(this.customPrompt){
-        writer.writeObjectValue<PromptImpl>("customPrompt", new PromptImpl(this.customPrompt));
+            writer.writeObjectValue<PromptImpl>("customPrompt", new PromptImpl(this.customPrompt));
         }
         writer.writeAdditionalData(this.additionalData);
     };

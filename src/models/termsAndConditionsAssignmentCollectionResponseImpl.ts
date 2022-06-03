@@ -4,7 +4,7 @@ import {TermsAndConditionsAssignment} from './termsAndConditionsAssignment';
 import {TermsAndConditionsAssignmentCollectionResponse} from './termsAndConditionsAssignmentCollectionResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class TermsAndConditionsAssignmentCollectionResponseImpl implements AdditionalDataHolder, Parsable, TermsAndConditionsAssignmentCollectionResponse {
+export class TermsAndConditionsAssignmentCollectionResponseImpl implements TermsAndConditionsAssignmentCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class TermsAndConditionsAssignmentCollectionResponseImpl implements Addit
      * @param termsAndConditionsAssignmentCollectionResponseParameterValue 
      */
     public constructor(termsAndConditionsAssignmentCollectionResponseParameterValue?: TermsAndConditionsAssignmentCollectionResponse | undefined) {
-        this.additionalData = termsAndConditionsAssignmentCollectionResponseParameterValue?.additionalData ? termsAndConditionsAssignmentCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = termsAndConditionsAssignmentCollectionResponseParameterValue?.nextLink ;
-        this.value = termsAndConditionsAssignmentCollectionResponseParameterValue?.value ;
+        this.additionalData = termsAndConditionsAssignmentCollectionResponseParameterValue?.additionalData ? termsAndConditionsAssignmentCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = termsAndConditionsAssignmentCollectionResponseParameterValue?.nextLink;
+        this.value = termsAndConditionsAssignmentCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class TermsAndConditionsAssignmentCollectionResponseImpl implements Addit
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: TermsAndConditionsAssignmentImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new TermsAndConditionsAssignmentImpl(element));});
-        writer.writeCollectionOfObjectValues<TermsAndConditionsAssignmentImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<TermsAndConditionsAssignmentImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

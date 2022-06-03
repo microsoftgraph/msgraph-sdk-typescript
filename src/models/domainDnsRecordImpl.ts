@@ -3,7 +3,7 @@ import {EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the collection of domainDnsRecord entities. */
-export class DomainDnsRecordImpl extends EntityImpl implements DomainDnsRecord, Parsable {
+export class DomainDnsRecordImpl extends EntityImpl implements DomainDnsRecord {
     /** If false, this record must be configured by the customer at the DNS host for Microsoft Online Services to operate correctly with the domain. */
     public isOptional?: boolean | undefined;
     /** Value used when configuring the name of the DNS record at the DNS host. */
@@ -19,12 +19,12 @@ export class DomainDnsRecordImpl extends EntityImpl implements DomainDnsRecord, 
      * @param domainDnsRecordParameterValue 
      */
     public constructor(domainDnsRecordParameterValue?: DomainDnsRecord | undefined) {
-        super();
-        this.isOptional = domainDnsRecordParameterValue?.isOptional ;
-        this.label = domainDnsRecordParameterValue?.label ;
-        this.recordType = domainDnsRecordParameterValue?.recordType ;
-        this.supportedService = domainDnsRecordParameterValue?.supportedService ;
-        this.ttl = domainDnsRecordParameterValue?.ttl ;
+        super(domainDnsRecordParameterValue);
+        this.isOptional = domainDnsRecordParameterValue?.isOptional;
+        this.label = domainDnsRecordParameterValue?.label;
+        this.recordType = domainDnsRecordParameterValue?.recordType;
+        this.supportedService = domainDnsRecordParameterValue?.supportedService;
+        this.ttl = domainDnsRecordParameterValue?.ttl;
     };
     /**
      * The deserialization information for the current model
@@ -47,19 +47,19 @@ export class DomainDnsRecordImpl extends EntityImpl implements DomainDnsRecord, 
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.isOptional){
-        writer.writeBooleanValue("isOptional", this.isOptional);
+            writer.writeBooleanValue("isOptional", this.isOptional);
         }
         if(this.label){
-        writer.writeStringValue("label", this.label);
+            writer.writeStringValue("label", this.label);
         }
         if(this.recordType){
-        writer.writeStringValue("recordType", this.recordType);
+            writer.writeStringValue("recordType", this.recordType);
         }
         if(this.supportedService){
-        writer.writeStringValue("supportedService", this.supportedService);
+            writer.writeStringValue("supportedService", this.supportedService);
         }
         if(this.ttl){
-        writer.writeNumberValue("ttl", this.ttl);
+            writer.writeNumberValue("ttl", this.ttl);
         }
     };
 }

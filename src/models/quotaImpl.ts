@@ -4,7 +4,7 @@ import {Quota} from './quota';
 import {StoragePlanInformation} from './storagePlanInformation';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class QuotaImpl implements AdditionalDataHolder, Parsable, Quota {
+export class QuotaImpl implements Quota {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Total space consumed by files in the recycle bin, in bytes. Read-only. */
@@ -24,13 +24,13 @@ export class QuotaImpl implements AdditionalDataHolder, Parsable, Quota {
      * @param quotaParameterValue 
      */
     public constructor(quotaParameterValue?: Quota | undefined) {
-        this.additionalData = quotaParameterValue?.additionalData ? quotaParameterValue?.additionalData! : {}
-        this.deleted = quotaParameterValue?.deleted ;
-        this.remaining = quotaParameterValue?.remaining ;
-        this.state = quotaParameterValue?.state ;
-        this.storagePlanInformation = quotaParameterValue?.storagePlanInformation ;
-        this.total = quotaParameterValue?.total ;
-        this.used = quotaParameterValue?.used ;
+        this.additionalData = quotaParameterValue?.additionalData ? quotaParameterValue?.additionalData! : {};
+        this.deleted = quotaParameterValue?.deleted;
+        this.remaining = quotaParameterValue?.remaining;
+        this.state = quotaParameterValue?.state;
+        this.storagePlanInformation = quotaParameterValue?.storagePlanInformation;
+        this.total = quotaParameterValue?.total;
+        this.used = quotaParameterValue?.used;
     };
     /**
      * The deserialization information for the current model
@@ -53,22 +53,22 @@ export class QuotaImpl implements AdditionalDataHolder, Parsable, Quota {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.deleted){
-        writer.writeNumberValue("deleted", this.deleted);
+            writer.writeNumberValue("deleted", this.deleted);
         }
         if(this.remaining){
-        writer.writeNumberValue("remaining", this.remaining);
+            writer.writeNumberValue("remaining", this.remaining);
         }
         if(this.state){
-        writer.writeStringValue("state", this.state);
+            writer.writeStringValue("state", this.state);
         }
         if(this.storagePlanInformation){
-        writer.writeObjectValue<StoragePlanInformationImpl>("storagePlanInformation", new StoragePlanInformationImpl(this.storagePlanInformation));
+            writer.writeObjectValue<StoragePlanInformationImpl>("storagePlanInformation", new StoragePlanInformationImpl(this.storagePlanInformation));
         }
         if(this.total){
-        writer.writeNumberValue("total", this.total);
+            writer.writeNumberValue("total", this.total);
         }
         if(this.used){
-        writer.writeNumberValue("used", this.used);
+            writer.writeNumberValue("used", this.used);
         }
         writer.writeAdditionalData(this.additionalData);
     };

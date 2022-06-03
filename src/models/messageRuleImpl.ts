@@ -7,7 +7,7 @@ import {MessageRulePredicates} from './messageRulePredicates';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Casts the previous resource to user. */
-export class MessageRuleImpl extends EntityImpl implements MessageRule, Parsable {
+export class MessageRuleImpl extends EntityImpl implements MessageRule {
     /** Actions to be taken on a message when the corresponding conditions are fulfilled. */
     public actions?: MessageRuleActions | undefined;
     /** Conditions that when fulfilled, will trigger the corresponding actions for that rule. */
@@ -29,15 +29,15 @@ export class MessageRuleImpl extends EntityImpl implements MessageRule, Parsable
      * @param messageRuleParameterValue 
      */
     public constructor(messageRuleParameterValue?: MessageRule | undefined) {
-        super();
-        this.actions = messageRuleParameterValue?.actions ;
-        this.conditions = messageRuleParameterValue?.conditions ;
-        this.displayName = messageRuleParameterValue?.displayName ;
-        this.exceptions = messageRuleParameterValue?.exceptions ;
-        this.hasError = messageRuleParameterValue?.hasError ;
-        this.isEnabled = messageRuleParameterValue?.isEnabled ;
-        this.isReadOnly = messageRuleParameterValue?.isReadOnly ;
-        this.sequence = messageRuleParameterValue?.sequence ;
+        super(messageRuleParameterValue);
+        this.actions = messageRuleParameterValue?.actions;
+        this.conditions = messageRuleParameterValue?.conditions;
+        this.displayName = messageRuleParameterValue?.displayName;
+        this.exceptions = messageRuleParameterValue?.exceptions;
+        this.hasError = messageRuleParameterValue?.hasError;
+        this.isEnabled = messageRuleParameterValue?.isEnabled;
+        this.isReadOnly = messageRuleParameterValue?.isReadOnly;
+        this.sequence = messageRuleParameterValue?.sequence;
     };
     /**
      * The deserialization information for the current model
@@ -63,28 +63,28 @@ export class MessageRuleImpl extends EntityImpl implements MessageRule, Parsable
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.actions){
-        writer.writeObjectValue<MessageRuleActionsImpl>("actions", new MessageRuleActionsImpl(this.actions));
+            writer.writeObjectValue<MessageRuleActionsImpl>("actions", new MessageRuleActionsImpl(this.actions));
         }
         if(this.conditions){
-        writer.writeObjectValue<MessageRulePredicatesImpl>("conditions", new MessageRulePredicatesImpl(this.conditions));
+            writer.writeObjectValue<MessageRulePredicatesImpl>("conditions", new MessageRulePredicatesImpl(this.conditions));
         }
         if(this.displayName){
-        writer.writeStringValue("displayName", this.displayName);
+            writer.writeStringValue("displayName", this.displayName);
         }
         if(this.exceptions){
-        writer.writeObjectValue<MessageRulePredicatesImpl>("exceptions", new MessageRulePredicatesImpl(this.exceptions));
+            writer.writeObjectValue<MessageRulePredicatesImpl>("exceptions", new MessageRulePredicatesImpl(this.exceptions));
         }
         if(this.hasError){
-        writer.writeBooleanValue("hasError", this.hasError);
+            writer.writeBooleanValue("hasError", this.hasError);
         }
         if(this.isEnabled){
-        writer.writeBooleanValue("isEnabled", this.isEnabled);
+            writer.writeBooleanValue("isEnabled", this.isEnabled);
         }
         if(this.isReadOnly){
-        writer.writeBooleanValue("isReadOnly", this.isReadOnly);
+            writer.writeBooleanValue("isReadOnly", this.isReadOnly);
         }
         if(this.sequence){
-        writer.writeNumberValue("sequence", this.sequence);
+            writer.writeNumberValue("sequence", this.sequence);
         }
     };
 }

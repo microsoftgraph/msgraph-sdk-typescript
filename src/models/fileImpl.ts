@@ -4,7 +4,7 @@ import {Hashes} from './hashes';
 import {HashesImpl} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class FileImpl implements AdditionalDataHolder, File, Parsable {
+export class FileImpl implements File {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Hashes of the file's binary content, if available. Read-only. */
@@ -18,10 +18,10 @@ export class FileImpl implements AdditionalDataHolder, File, Parsable {
      * @param fileParameterValue 
      */
     public constructor(fileParameterValue?: File | undefined) {
-        this.additionalData = fileParameterValue?.additionalData ? fileParameterValue?.additionalData! : {}
-        this.hashes = fileParameterValue?.hashes ;
-        this.mimeType = fileParameterValue?.mimeType ;
-        this.processingMetadata = fileParameterValue?.processingMetadata ;
+        this.additionalData = fileParameterValue?.additionalData ? fileParameterValue?.additionalData! : {};
+        this.hashes = fileParameterValue?.hashes;
+        this.mimeType = fileParameterValue?.mimeType;
+        this.processingMetadata = fileParameterValue?.processingMetadata;
     };
     /**
      * The deserialization information for the current model
@@ -41,13 +41,13 @@ export class FileImpl implements AdditionalDataHolder, File, Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.hashes){
-        writer.writeObjectValue<HashesImpl>("hashes", new HashesImpl(this.hashes));
+            writer.writeObjectValue<HashesImpl>("hashes", new HashesImpl(this.hashes));
         }
         if(this.mimeType){
-        writer.writeStringValue("mimeType", this.mimeType);
+            writer.writeStringValue("mimeType", this.mimeType);
         }
         if(this.processingMetadata){
-        writer.writeBooleanValue("processingMetadata", this.processingMetadata);
+            writer.writeBooleanValue("processingMetadata", this.processingMetadata);
         }
         writer.writeAdditionalData(this.additionalData);
     };

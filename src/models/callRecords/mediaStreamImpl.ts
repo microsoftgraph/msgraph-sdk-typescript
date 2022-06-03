@@ -2,7 +2,7 @@ import {MediaStream} from './mediaStream';
 import {MediaStreamDirection} from './mediaStreamDirection';
 import {AdditionalDataHolder, Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class MediaStreamImpl implements AdditionalDataHolder, MediaStream, Parsable {
+export class MediaStreamImpl implements MediaStream {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Average Network Mean Opinion Score degradation for stream. Represents how much the network loss and jitter has impacted the quality of received audio. */
@@ -60,32 +60,32 @@ export class MediaStreamImpl implements AdditionalDataHolder, MediaStream, Parsa
      * @param mediaStreamParameterValue 
      */
     public constructor(mediaStreamParameterValue?: MediaStream | undefined) {
-        this.additionalData = mediaStreamParameterValue?.additionalData ? mediaStreamParameterValue?.additionalData! : {}
-        this.averageAudioDegradation = mediaStreamParameterValue?.averageAudioDegradation ;
-        this.averageAudioNetworkJitter = mediaStreamParameterValue?.averageAudioNetworkJitter ;
-        this.averageBandwidthEstimate = mediaStreamParameterValue?.averageBandwidthEstimate ;
-        this.averageJitter = mediaStreamParameterValue?.averageJitter ;
-        this.averagePacketLossRate = mediaStreamParameterValue?.averagePacketLossRate ;
-        this.averageRatioOfConcealedSamples = mediaStreamParameterValue?.averageRatioOfConcealedSamples ;
-        this.averageReceivedFrameRate = mediaStreamParameterValue?.averageReceivedFrameRate ;
-        this.averageRoundTripTime = mediaStreamParameterValue?.averageRoundTripTime ;
-        this.averageVideoFrameLossPercentage = mediaStreamParameterValue?.averageVideoFrameLossPercentage ;
-        this.averageVideoFrameRate = mediaStreamParameterValue?.averageVideoFrameRate ;
-        this.averageVideoPacketLossRate = mediaStreamParameterValue?.averageVideoPacketLossRate ;
-        this.endDateTime = mediaStreamParameterValue?.endDateTime ;
-        this.lowFrameRateRatio = mediaStreamParameterValue?.lowFrameRateRatio ;
-        this.lowVideoProcessingCapabilityRatio = mediaStreamParameterValue?.lowVideoProcessingCapabilityRatio ;
-        this.maxAudioNetworkJitter = mediaStreamParameterValue?.maxAudioNetworkJitter ;
-        this.maxJitter = mediaStreamParameterValue?.maxJitter ;
-        this.maxPacketLossRate = mediaStreamParameterValue?.maxPacketLossRate ;
-        this.maxRatioOfConcealedSamples = mediaStreamParameterValue?.maxRatioOfConcealedSamples ;
-        this.maxRoundTripTime = mediaStreamParameterValue?.maxRoundTripTime ;
-        this.packetUtilization = mediaStreamParameterValue?.packetUtilization ;
-        this.postForwardErrorCorrectionPacketLossRate = mediaStreamParameterValue?.postForwardErrorCorrectionPacketLossRate ;
-        this.startDateTime = mediaStreamParameterValue?.startDateTime ;
-        this.streamDirection = mediaStreamParameterValue?.streamDirection ;
-        this.streamId = mediaStreamParameterValue?.streamId ;
-        this.wasMediaBypassed = mediaStreamParameterValue?.wasMediaBypassed ;
+        this.additionalData = mediaStreamParameterValue?.additionalData ? mediaStreamParameterValue?.additionalData! : {};
+        this.averageAudioDegradation = mediaStreamParameterValue?.averageAudioDegradation;
+        this.averageAudioNetworkJitter = mediaStreamParameterValue?.averageAudioNetworkJitter;
+        this.averageBandwidthEstimate = mediaStreamParameterValue?.averageBandwidthEstimate;
+        this.averageJitter = mediaStreamParameterValue?.averageJitter;
+        this.averagePacketLossRate = mediaStreamParameterValue?.averagePacketLossRate;
+        this.averageRatioOfConcealedSamples = mediaStreamParameterValue?.averageRatioOfConcealedSamples;
+        this.averageReceivedFrameRate = mediaStreamParameterValue?.averageReceivedFrameRate;
+        this.averageRoundTripTime = mediaStreamParameterValue?.averageRoundTripTime;
+        this.averageVideoFrameLossPercentage = mediaStreamParameterValue?.averageVideoFrameLossPercentage;
+        this.averageVideoFrameRate = mediaStreamParameterValue?.averageVideoFrameRate;
+        this.averageVideoPacketLossRate = mediaStreamParameterValue?.averageVideoPacketLossRate;
+        this.endDateTime = mediaStreamParameterValue?.endDateTime;
+        this.lowFrameRateRatio = mediaStreamParameterValue?.lowFrameRateRatio;
+        this.lowVideoProcessingCapabilityRatio = mediaStreamParameterValue?.lowVideoProcessingCapabilityRatio;
+        this.maxAudioNetworkJitter = mediaStreamParameterValue?.maxAudioNetworkJitter;
+        this.maxJitter = mediaStreamParameterValue?.maxJitter;
+        this.maxPacketLossRate = mediaStreamParameterValue?.maxPacketLossRate;
+        this.maxRatioOfConcealedSamples = mediaStreamParameterValue?.maxRatioOfConcealedSamples;
+        this.maxRoundTripTime = mediaStreamParameterValue?.maxRoundTripTime;
+        this.packetUtilization = mediaStreamParameterValue?.packetUtilization;
+        this.postForwardErrorCorrectionPacketLossRate = mediaStreamParameterValue?.postForwardErrorCorrectionPacketLossRate;
+        this.startDateTime = mediaStreamParameterValue?.startDateTime;
+        this.streamDirection = mediaStreamParameterValue?.streamDirection;
+        this.streamId = mediaStreamParameterValue?.streamId;
+        this.wasMediaBypassed = mediaStreamParameterValue?.wasMediaBypassed;
     };
     /**
      * The deserialization information for the current model
@@ -127,79 +127,79 @@ export class MediaStreamImpl implements AdditionalDataHolder, MediaStream, Parsa
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.averageAudioDegradation){
-        writer.writeNumberValue("averageAudioDegradation", this.averageAudioDegradation);
+            writer.writeNumberValue("averageAudioDegradation", this.averageAudioDegradation);
         }
         if(this.averageAudioNetworkJitter){
-        writer.writeDurationValue("averageAudioNetworkJitter", this.averageAudioNetworkJitter);
+            writer.writeDurationValue("averageAudioNetworkJitter", this.averageAudioNetworkJitter);
         }
         if(this.averageBandwidthEstimate){
-        writer.writeNumberValue("averageBandwidthEstimate", this.averageBandwidthEstimate);
+            writer.writeNumberValue("averageBandwidthEstimate", this.averageBandwidthEstimate);
         }
         if(this.averageJitter){
-        writer.writeDurationValue("averageJitter", this.averageJitter);
+            writer.writeDurationValue("averageJitter", this.averageJitter);
         }
         if(this.averagePacketLossRate){
-        writer.writeNumberValue("averagePacketLossRate", this.averagePacketLossRate);
+            writer.writeNumberValue("averagePacketLossRate", this.averagePacketLossRate);
         }
         if(this.averageRatioOfConcealedSamples){
-        writer.writeNumberValue("averageRatioOfConcealedSamples", this.averageRatioOfConcealedSamples);
+            writer.writeNumberValue("averageRatioOfConcealedSamples", this.averageRatioOfConcealedSamples);
         }
         if(this.averageReceivedFrameRate){
-        writer.writeNumberValue("averageReceivedFrameRate", this.averageReceivedFrameRate);
+            writer.writeNumberValue("averageReceivedFrameRate", this.averageReceivedFrameRate);
         }
         if(this.averageRoundTripTime){
-        writer.writeDurationValue("averageRoundTripTime", this.averageRoundTripTime);
+            writer.writeDurationValue("averageRoundTripTime", this.averageRoundTripTime);
         }
         if(this.averageVideoFrameLossPercentage){
-        writer.writeNumberValue("averageVideoFrameLossPercentage", this.averageVideoFrameLossPercentage);
+            writer.writeNumberValue("averageVideoFrameLossPercentage", this.averageVideoFrameLossPercentage);
         }
         if(this.averageVideoFrameRate){
-        writer.writeNumberValue("averageVideoFrameRate", this.averageVideoFrameRate);
+            writer.writeNumberValue("averageVideoFrameRate", this.averageVideoFrameRate);
         }
         if(this.averageVideoPacketLossRate){
-        writer.writeNumberValue("averageVideoPacketLossRate", this.averageVideoPacketLossRate);
+            writer.writeNumberValue("averageVideoPacketLossRate", this.averageVideoPacketLossRate);
         }
         if(this.endDateTime){
-        writer.writeDateValue("endDateTime", this.endDateTime);
+            writer.writeDateValue("endDateTime", this.endDateTime);
         }
         if(this.lowFrameRateRatio){
-        writer.writeNumberValue("lowFrameRateRatio", this.lowFrameRateRatio);
+            writer.writeNumberValue("lowFrameRateRatio", this.lowFrameRateRatio);
         }
         if(this.lowVideoProcessingCapabilityRatio){
-        writer.writeNumberValue("lowVideoProcessingCapabilityRatio", this.lowVideoProcessingCapabilityRatio);
+            writer.writeNumberValue("lowVideoProcessingCapabilityRatio", this.lowVideoProcessingCapabilityRatio);
         }
         if(this.maxAudioNetworkJitter){
-        writer.writeDurationValue("maxAudioNetworkJitter", this.maxAudioNetworkJitter);
+            writer.writeDurationValue("maxAudioNetworkJitter", this.maxAudioNetworkJitter);
         }
         if(this.maxJitter){
-        writer.writeDurationValue("maxJitter", this.maxJitter);
+            writer.writeDurationValue("maxJitter", this.maxJitter);
         }
         if(this.maxPacketLossRate){
-        writer.writeNumberValue("maxPacketLossRate", this.maxPacketLossRate);
+            writer.writeNumberValue("maxPacketLossRate", this.maxPacketLossRate);
         }
         if(this.maxRatioOfConcealedSamples){
-        writer.writeNumberValue("maxRatioOfConcealedSamples", this.maxRatioOfConcealedSamples);
+            writer.writeNumberValue("maxRatioOfConcealedSamples", this.maxRatioOfConcealedSamples);
         }
         if(this.maxRoundTripTime){
-        writer.writeDurationValue("maxRoundTripTime", this.maxRoundTripTime);
+            writer.writeDurationValue("maxRoundTripTime", this.maxRoundTripTime);
         }
         if(this.packetUtilization){
-        writer.writeNumberValue("packetUtilization", this.packetUtilization);
+            writer.writeNumberValue("packetUtilization", this.packetUtilization);
         }
         if(this.postForwardErrorCorrectionPacketLossRate){
-        writer.writeNumberValue("postForwardErrorCorrectionPacketLossRate", this.postForwardErrorCorrectionPacketLossRate);
+            writer.writeNumberValue("postForwardErrorCorrectionPacketLossRate", this.postForwardErrorCorrectionPacketLossRate);
         }
         if(this.startDateTime){
-        writer.writeDateValue("startDateTime", this.startDateTime);
+            writer.writeDateValue("startDateTime", this.startDateTime);
         }
         if(this.streamDirection){
-        writer.writeEnumValue<MediaStreamDirection>("streamDirection", this.streamDirection);
+            writer.writeEnumValue<MediaStreamDirection>("streamDirection", this.streamDirection);
         }
         if(this.streamId){
-        writer.writeStringValue("streamId", this.streamId);
+            writer.writeStringValue("streamId", this.streamId);
         }
         if(this.wasMediaBypassed){
-        writer.writeBooleanValue("wasMediaBypassed", this.wasMediaBypassed);
+            writer.writeBooleanValue("wasMediaBypassed", this.wasMediaBypassed);
         }
         writer.writeAdditionalData(this.additionalData);
     };

@@ -4,7 +4,7 @@ import {ManagedAppRegistration} from './managedAppRegistration';
 import {ManagedAppRegistrationCollectionResponse} from './managedAppRegistrationCollectionResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ManagedAppRegistrationCollectionResponseImpl implements AdditionalDataHolder, ManagedAppRegistrationCollectionResponse, Parsable {
+export class ManagedAppRegistrationCollectionResponseImpl implements ManagedAppRegistrationCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class ManagedAppRegistrationCollectionResponseImpl implements AdditionalD
      * @param managedAppRegistrationCollectionResponseParameterValue 
      */
     public constructor(managedAppRegistrationCollectionResponseParameterValue?: ManagedAppRegistrationCollectionResponse | undefined) {
-        this.additionalData = managedAppRegistrationCollectionResponseParameterValue?.additionalData ? managedAppRegistrationCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = managedAppRegistrationCollectionResponseParameterValue?.nextLink ;
-        this.value = managedAppRegistrationCollectionResponseParameterValue?.value ;
+        this.additionalData = managedAppRegistrationCollectionResponseParameterValue?.additionalData ? managedAppRegistrationCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = managedAppRegistrationCollectionResponseParameterValue?.nextLink;
+        this.value = managedAppRegistrationCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class ManagedAppRegistrationCollectionResponseImpl implements AdditionalD
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: ManagedAppRegistrationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ManagedAppRegistrationImpl(element));});
-        writer.writeCollectionOfObjectValues<ManagedAppRegistrationImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<ManagedAppRegistrationImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

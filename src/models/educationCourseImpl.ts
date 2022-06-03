@@ -1,7 +1,7 @@
 import {EducationCourse} from './educationCourse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class EducationCourseImpl implements AdditionalDataHolder, EducationCourse, Parsable {
+export class EducationCourseImpl implements EducationCourse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Unique identifier for the course. */
@@ -19,12 +19,12 @@ export class EducationCourseImpl implements AdditionalDataHolder, EducationCours
      * @param educationCourseParameterValue 
      */
     public constructor(educationCourseParameterValue?: EducationCourse | undefined) {
-        this.additionalData = educationCourseParameterValue?.additionalData ? educationCourseParameterValue?.additionalData! : {}
-        this.courseNumber = educationCourseParameterValue?.courseNumber ;
-        this.description = educationCourseParameterValue?.description ;
-        this.displayName = educationCourseParameterValue?.displayName ;
-        this.externalId = educationCourseParameterValue?.externalId ;
-        this.subject = educationCourseParameterValue?.subject ;
+        this.additionalData = educationCourseParameterValue?.additionalData ? educationCourseParameterValue?.additionalData! : {};
+        this.courseNumber = educationCourseParameterValue?.courseNumber;
+        this.description = educationCourseParameterValue?.description;
+        this.displayName = educationCourseParameterValue?.displayName;
+        this.externalId = educationCourseParameterValue?.externalId;
+        this.subject = educationCourseParameterValue?.subject;
     };
     /**
      * The deserialization information for the current model
@@ -46,19 +46,19 @@ export class EducationCourseImpl implements AdditionalDataHolder, EducationCours
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.courseNumber){
-        writer.writeStringValue("courseNumber", this.courseNumber);
+            writer.writeStringValue("courseNumber", this.courseNumber);
         }
         if(this.description){
-        writer.writeStringValue("description", this.description);
+            writer.writeStringValue("description", this.description);
         }
         if(this.displayName){
-        writer.writeStringValue("displayName", this.displayName);
+            writer.writeStringValue("displayName", this.displayName);
         }
         if(this.externalId){
-        writer.writeStringValue("externalId", this.externalId);
+            writer.writeStringValue("externalId", this.externalId);
         }
         if(this.subject){
-        writer.writeStringValue("subject", this.subject);
+            writer.writeStringValue("subject", this.subject);
         }
         writer.writeAdditionalData(this.additionalData);
     };

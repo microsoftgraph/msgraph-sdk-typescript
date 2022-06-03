@@ -4,7 +4,7 @@ import {Invitation} from './invitation';
 import {InvitationCollectionResponse} from './invitationCollectionResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class InvitationCollectionResponseImpl implements AdditionalDataHolder, InvitationCollectionResponse, Parsable {
+export class InvitationCollectionResponseImpl implements InvitationCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class InvitationCollectionResponseImpl implements AdditionalDataHolder, I
      * @param invitationCollectionResponseParameterValue 
      */
     public constructor(invitationCollectionResponseParameterValue?: InvitationCollectionResponse | undefined) {
-        this.additionalData = invitationCollectionResponseParameterValue?.additionalData ? invitationCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = invitationCollectionResponseParameterValue?.nextLink ;
-        this.value = invitationCollectionResponseParameterValue?.value ;
+        this.additionalData = invitationCollectionResponseParameterValue?.additionalData ? invitationCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = invitationCollectionResponseParameterValue?.nextLink;
+        this.value = invitationCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class InvitationCollectionResponseImpl implements AdditionalDataHolder, I
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: InvitationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new InvitationImpl(element));});
-        writer.writeCollectionOfObjectValues<InvitationImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<InvitationImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

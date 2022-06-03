@@ -1,7 +1,7 @@
 
-export interface TeamItemRequestBuilderGetQueryParameters{
+export interface TeamItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
-    expand?:string[] | undefined;
+    expand?: string[] | undefined;
     /** Select properties to be returned */
-    select?:string[] | undefined;
+    select?: string[] | undefined;
 }

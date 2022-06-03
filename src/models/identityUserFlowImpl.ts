@@ -4,7 +4,7 @@ import {UserFlowType} from './userFlowType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the identityContainer singleton. */
-export class IdentityUserFlowImpl extends EntityImpl implements IdentityUserFlow, Parsable {
+export class IdentityUserFlowImpl extends EntityImpl implements IdentityUserFlow {
     /** The userFlowType property */
     public userFlowType?: UserFlowType | undefined;
     /** The userFlowTypeVersion property */
@@ -14,9 +14,9 @@ export class IdentityUserFlowImpl extends EntityImpl implements IdentityUserFlow
      * @param identityUserFlowParameterValue 
      */
     public constructor(identityUserFlowParameterValue?: IdentityUserFlow | undefined) {
-        super();
-        this.userFlowType = identityUserFlowParameterValue?.userFlowType ;
-        this.userFlowTypeVersion = identityUserFlowParameterValue?.userFlowTypeVersion ;
+        super(identityUserFlowParameterValue);
+        this.userFlowType = identityUserFlowParameterValue?.userFlowType;
+        this.userFlowTypeVersion = identityUserFlowParameterValue?.userFlowTypeVersion;
     };
     /**
      * The deserialization information for the current model
@@ -36,10 +36,10 @@ export class IdentityUserFlowImpl extends EntityImpl implements IdentityUserFlow
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.userFlowType){
-        writer.writeEnumValue<UserFlowType>("userFlowType", this.userFlowType);
+            writer.writeEnumValue<UserFlowType>("userFlowType", this.userFlowType);
         }
         if(this.userFlowTypeVersion){
-        writer.writeNumberValue("userFlowTypeVersion", this.userFlowTypeVersion);
+            writer.writeNumberValue("userFlowTypeVersion", this.userFlowTypeVersion);
         }
     };
 }

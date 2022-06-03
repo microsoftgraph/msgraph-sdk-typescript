@@ -6,7 +6,7 @@ import {ConnectedOrganizationImpl, EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the identityGovernance singleton. */
-export class AccessPackageSubjectImpl extends EntityImpl implements AccessPackageSubject, Parsable {
+export class AccessPackageSubjectImpl extends EntityImpl implements AccessPackageSubject {
     /** The connected organization of the subject. Read-only. Nullable. */
     public connectedOrganization?: ConnectedOrganization | undefined;
     /** The display name of the subject. */
@@ -26,14 +26,14 @@ export class AccessPackageSubjectImpl extends EntityImpl implements AccessPackag
      * @param accessPackageSubjectParameterValue 
      */
     public constructor(accessPackageSubjectParameterValue?: AccessPackageSubject | undefined) {
-        super();
-        this.connectedOrganization = accessPackageSubjectParameterValue?.connectedOrganization ;
-        this.displayName = accessPackageSubjectParameterValue?.displayName ;
-        this.email = accessPackageSubjectParameterValue?.email ;
-        this.objectId = accessPackageSubjectParameterValue?.objectId ;
-        this.onPremisesSecurityIdentifier = accessPackageSubjectParameterValue?.onPremisesSecurityIdentifier ;
-        this.principalName = accessPackageSubjectParameterValue?.principalName ;
-        this.subjectType = accessPackageSubjectParameterValue?.subjectType ;
+        super(accessPackageSubjectParameterValue);
+        this.connectedOrganization = accessPackageSubjectParameterValue?.connectedOrganization;
+        this.displayName = accessPackageSubjectParameterValue?.displayName;
+        this.email = accessPackageSubjectParameterValue?.email;
+        this.objectId = accessPackageSubjectParameterValue?.objectId;
+        this.onPremisesSecurityIdentifier = accessPackageSubjectParameterValue?.onPremisesSecurityIdentifier;
+        this.principalName = accessPackageSubjectParameterValue?.principalName;
+        this.subjectType = accessPackageSubjectParameterValue?.subjectType;
     };
     /**
      * The deserialization information for the current model
@@ -58,25 +58,25 @@ export class AccessPackageSubjectImpl extends EntityImpl implements AccessPackag
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.connectedOrganization){
-        writer.writeObjectValue<ConnectedOrganizationImpl>("connectedOrganization", new ConnectedOrganizationImpl(this.connectedOrganization));
+            writer.writeObjectValue<ConnectedOrganizationImpl>("connectedOrganization", new ConnectedOrganizationImpl(this.connectedOrganization));
         }
         if(this.displayName){
-        writer.writeStringValue("displayName", this.displayName);
+            writer.writeStringValue("displayName", this.displayName);
         }
         if(this.email){
-        writer.writeStringValue("email", this.email);
+            writer.writeStringValue("email", this.email);
         }
         if(this.objectId){
-        writer.writeStringValue("objectId", this.objectId);
+            writer.writeStringValue("objectId", this.objectId);
         }
         if(this.onPremisesSecurityIdentifier){
-        writer.writeStringValue("onPremisesSecurityIdentifier", this.onPremisesSecurityIdentifier);
+            writer.writeStringValue("onPremisesSecurityIdentifier", this.onPremisesSecurityIdentifier);
         }
         if(this.principalName){
-        writer.writeStringValue("principalName", this.principalName);
+            writer.writeStringValue("principalName", this.principalName);
         }
         if(this.subjectType){
-        writer.writeEnumValue<AccessPackageSubjectType>("subjectType", this.subjectType);
+            writer.writeEnumValue<AccessPackageSubjectType>("subjectType", this.subjectType);
         }
     };
 }

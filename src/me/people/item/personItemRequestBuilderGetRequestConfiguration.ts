@@ -1,11 +1,11 @@
 import {PersonItemRequestBuilderGetQueryParameters} from './personItemRequestBuilderGetQueryParameters';
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
-export interface PersonItemRequestBuilderGetRequestConfiguration{
+export interface PersonItemRequestBuilderGetRequestConfiguration {
     /** Request headers */
-    headers?:Record<string, string> | undefined;
+    headers?: Record<string, string> | undefined;
     /** Request options */
-    options?:RequestOption[] | undefined;
+    options?: RequestOption[] | undefined;
     /** Request query parameters */
-    queryParameters?:PersonItemRequestBuilderGetQueryParameters | undefined;
+    queryParameters?: PersonItemRequestBuilderGetQueryParameters | undefined;
 }

@@ -1,7 +1,7 @@
 import {AppRole} from './appRole';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class AppRoleImpl implements AdditionalDataHolder, AppRole, Parsable {
+export class AppRoleImpl implements AppRole {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Specifies whether this app role can be assigned to users and groups (by setting to ['User']), to other application's (by setting to ['Application'], or both (by setting to ['User', 'Application']). App roles supporting assignment to other applications' service principals are also known as application permissions. The 'Application' value is only supported for app roles defined on application entities. */
@@ -23,14 +23,14 @@ export class AppRoleImpl implements AdditionalDataHolder, AppRole, Parsable {
      * @param appRoleParameterValue 
      */
     public constructor(appRoleParameterValue?: AppRole | undefined) {
-        this.additionalData = appRoleParameterValue?.additionalData ? appRoleParameterValue?.additionalData! : {}
-        this.allowedMemberTypes = appRoleParameterValue?.allowedMemberTypes ;
-        this.description = appRoleParameterValue?.description ;
-        this.displayName = appRoleParameterValue?.displayName ;
-        this.id = appRoleParameterValue?.id ;
-        this.isEnabled = appRoleParameterValue?.isEnabled ;
-        this.origin = appRoleParameterValue?.origin ;
-        this.value = appRoleParameterValue?.value ;
+        this.additionalData = appRoleParameterValue?.additionalData ? appRoleParameterValue?.additionalData! : {};
+        this.allowedMemberTypes = appRoleParameterValue?.allowedMemberTypes;
+        this.description = appRoleParameterValue?.description;
+        this.displayName = appRoleParameterValue?.displayName;
+        this.id = appRoleParameterValue?.id;
+        this.isEnabled = appRoleParameterValue?.isEnabled;
+        this.origin = appRoleParameterValue?.origin;
+        this.value = appRoleParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -54,25 +54,25 @@ export class AppRoleImpl implements AdditionalDataHolder, AppRole, Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.allowedMemberTypes){
-        writer.writeCollectionOfPrimitiveValues<string>("allowedMemberTypes", this.allowedMemberTypes);
+            writer.writeCollectionOfPrimitiveValues<string>("allowedMemberTypes", this.allowedMemberTypes);
         }
         if(this.description){
-        writer.writeStringValue("description", this.description);
+            writer.writeStringValue("description", this.description);
         }
         if(this.displayName){
-        writer.writeStringValue("displayName", this.displayName);
+            writer.writeStringValue("displayName", this.displayName);
         }
         if(this.id){
-        writer.writeStringValue("id", this.id);
+            writer.writeStringValue("id", this.id);
         }
         if(this.isEnabled){
-        writer.writeBooleanValue("isEnabled", this.isEnabled);
+            writer.writeBooleanValue("isEnabled", this.isEnabled);
         }
         if(this.origin){
-        writer.writeStringValue("origin", this.origin);
+            writer.writeStringValue("origin", this.origin);
         }
         if(this.value){
-        writer.writeStringValue("value", this.value);
+            writer.writeStringValue("value", this.value);
         }
         writer.writeAdditionalData(this.additionalData);
     };

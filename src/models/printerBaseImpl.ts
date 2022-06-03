@@ -13,7 +13,7 @@ import {PrintJob} from './printJob';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the print singleton. */
-export class PrinterBaseImpl extends EntityImpl implements Parsable, PrinterBase {
+export class PrinterBaseImpl extends EntityImpl implements PrinterBase {
     /** The capabilities of the printer/printerShare. */
     public capabilities?: PrinterCapabilities | undefined;
     /** The default print settings of printer/printerShare. */
@@ -37,16 +37,16 @@ export class PrinterBaseImpl extends EntityImpl implements Parsable, PrinterBase
      * @param printerBaseParameterValue 
      */
     public constructor(printerBaseParameterValue?: PrinterBase | undefined) {
-        super();
-        this.capabilities = printerBaseParameterValue?.capabilities ;
-        this.defaults = printerBaseParameterValue?.defaults ;
-        this.displayName = printerBaseParameterValue?.displayName ;
-        this.isAcceptingJobs = printerBaseParameterValue?.isAcceptingJobs ;
-        this.jobs = printerBaseParameterValue?.jobs ;
-        this.location = printerBaseParameterValue?.location ;
-        this.manufacturer = printerBaseParameterValue?.manufacturer ;
-        this.model = printerBaseParameterValue?.model ;
-        this.status = printerBaseParameterValue?.status ;
+        super(printerBaseParameterValue);
+        this.capabilities = printerBaseParameterValue?.capabilities;
+        this.defaults = printerBaseParameterValue?.defaults;
+        this.displayName = printerBaseParameterValue?.displayName;
+        this.isAcceptingJobs = printerBaseParameterValue?.isAcceptingJobs;
+        this.jobs = printerBaseParameterValue?.jobs;
+        this.location = printerBaseParameterValue?.location;
+        this.manufacturer = printerBaseParameterValue?.manufacturer;
+        this.model = printerBaseParameterValue?.model;
+        this.status = printerBaseParameterValue?.status;
     };
     /**
      * The deserialization information for the current model
@@ -73,31 +73,31 @@ export class PrinterBaseImpl extends EntityImpl implements Parsable, PrinterBase
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.capabilities){
-        writer.writeObjectValue<PrinterCapabilitiesImpl>("capabilities", new PrinterCapabilitiesImpl(this.capabilities));
+            writer.writeObjectValue<PrinterCapabilitiesImpl>("capabilities", new PrinterCapabilitiesImpl(this.capabilities));
         }
         if(this.defaults){
-        writer.writeObjectValue<PrinterDefaultsImpl>("defaults", new PrinterDefaultsImpl(this.defaults));
+            writer.writeObjectValue<PrinterDefaultsImpl>("defaults", new PrinterDefaultsImpl(this.defaults));
         }
         if(this.displayName){
-        writer.writeStringValue("displayName", this.displayName);
+            writer.writeStringValue("displayName", this.displayName);
         }
         if(this.isAcceptingJobs){
-        writer.writeBooleanValue("isAcceptingJobs", this.isAcceptingJobs);
+            writer.writeBooleanValue("isAcceptingJobs", this.isAcceptingJobs);
         }
         if(this.jobs && this.jobs.length != 0){        const jobsArrValue: PrintJobImpl[] = []; this.jobs?.forEach(element => {jobsArrValue.push(new PrintJobImpl(element));});
-        writer.writeCollectionOfObjectValues<PrintJobImpl>("jobs", jobsArrValue);
+            writer.writeCollectionOfObjectValues<PrintJobImpl>("jobs", jobsArrValue);
         }
         if(this.location){
-        writer.writeObjectValue<PrinterLocationImpl>("location", new PrinterLocationImpl(this.location));
+            writer.writeObjectValue<PrinterLocationImpl>("location", new PrinterLocationImpl(this.location));
         }
         if(this.manufacturer){
-        writer.writeStringValue("manufacturer", this.manufacturer);
+            writer.writeStringValue("manufacturer", this.manufacturer);
         }
         if(this.model){
-        writer.writeStringValue("model", this.model);
+            writer.writeStringValue("model", this.model);
         }
         if(this.status){
-        writer.writeObjectValue<PrinterStatusImpl>("status", new PrinterStatusImpl(this.status));
+            writer.writeObjectValue<PrinterStatusImpl>("status", new PrinterStatusImpl(this.status));
         }
     };
 }

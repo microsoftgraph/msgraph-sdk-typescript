@@ -2,7 +2,7 @@ import {CancelMediaProcessingPostRequestBody} from './cancelMediaProcessingPostR
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the cancelMediaProcessing method. */
-export class CancelMediaProcessingPostRequestBodyImpl implements AdditionalDataHolder, CancelMediaProcessingPostRequestBody, Parsable {
+export class CancelMediaProcessingPostRequestBodyImpl implements CancelMediaProcessingPostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The clientContext property */
@@ -12,8 +12,8 @@ export class CancelMediaProcessingPostRequestBodyImpl implements AdditionalDataH
      * @param cancelMediaProcessingPostRequestBodyParameterValue 
      */
     public constructor(cancelMediaProcessingPostRequestBodyParameterValue?: CancelMediaProcessingPostRequestBody | undefined) {
-        this.additionalData = cancelMediaProcessingPostRequestBodyParameterValue?.additionalData ? cancelMediaProcessingPostRequestBodyParameterValue?.additionalData! : {}
-        this.clientContext = cancelMediaProcessingPostRequestBodyParameterValue?.clientContext ;
+        this.additionalData = cancelMediaProcessingPostRequestBodyParameterValue?.additionalData ? cancelMediaProcessingPostRequestBodyParameterValue?.additionalData! : {};
+        this.clientContext = cancelMediaProcessingPostRequestBodyParameterValue?.clientContext;
     };
     /**
      * The deserialization information for the current model
@@ -31,7 +31,7 @@ export class CancelMediaProcessingPostRequestBodyImpl implements AdditionalDataH
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.clientContext){
-        writer.writeStringValue("clientContext", this.clientContext);
+            writer.writeStringValue("clientContext", this.clientContext);
         }
         writer.writeAdditionalData(this.additionalData);
     };

@@ -6,7 +6,7 @@ import {AppIdentityImpl, UserIdentityImpl} from './index';
 import {UserIdentity} from './userIdentity';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class AuditActivityInitiatorImpl implements AdditionalDataHolder, AuditActivityInitiator, Parsable {
+export class AuditActivityInitiatorImpl implements AuditActivityInitiator {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** If the actor initiating the activity is an app, this property indicates all its identification information including appId, displayName, servicePrincipalId, and servicePrincipalName. */
@@ -18,9 +18,9 @@ export class AuditActivityInitiatorImpl implements AdditionalDataHolder, AuditAc
      * @param auditActivityInitiatorParameterValue 
      */
     public constructor(auditActivityInitiatorParameterValue?: AuditActivityInitiator | undefined) {
-        this.additionalData = auditActivityInitiatorParameterValue?.additionalData ? auditActivityInitiatorParameterValue?.additionalData! : {}
-        this.app = auditActivityInitiatorParameterValue?.app ;
-        this.user = auditActivityInitiatorParameterValue?.user ;
+        this.additionalData = auditActivityInitiatorParameterValue?.additionalData ? auditActivityInitiatorParameterValue?.additionalData! : {};
+        this.app = auditActivityInitiatorParameterValue?.app;
+        this.user = auditActivityInitiatorParameterValue?.user;
     };
     /**
      * The deserialization information for the current model
@@ -39,10 +39,10 @@ export class AuditActivityInitiatorImpl implements AdditionalDataHolder, AuditAc
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.app){
-        writer.writeObjectValue<AppIdentityImpl>("app", new AppIdentityImpl(this.app));
+            writer.writeObjectValue<AppIdentityImpl>("app", new AppIdentityImpl(this.app));
         }
         if(this.user){
-        writer.writeObjectValue<UserIdentityImpl>("user", new UserIdentityImpl(this.user));
+            writer.writeObjectValue<UserIdentityImpl>("user", new UserIdentityImpl(this.user));
         }
         writer.writeAdditionalData(this.additionalData);
     };

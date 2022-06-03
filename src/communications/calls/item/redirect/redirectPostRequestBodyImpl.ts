@@ -5,7 +5,7 @@ import {RedirectPostRequestBody} from './redirectPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the redirect method. */
-export class RedirectPostRequestBodyImpl implements AdditionalDataHolder, Parsable, RedirectPostRequestBody {
+export class RedirectPostRequestBodyImpl implements RedirectPostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The callbackUri property */
@@ -19,10 +19,10 @@ export class RedirectPostRequestBodyImpl implements AdditionalDataHolder, Parsab
      * @param redirectPostRequestBodyParameterValue 
      */
     public constructor(redirectPostRequestBodyParameterValue?: RedirectPostRequestBody | undefined) {
-        this.additionalData = redirectPostRequestBodyParameterValue?.additionalData ? redirectPostRequestBodyParameterValue?.additionalData! : {}
-        this.callbackUri = redirectPostRequestBodyParameterValue?.callbackUri ;
-        this.targets = redirectPostRequestBodyParameterValue?.targets ;
-        this.timeout = redirectPostRequestBodyParameterValue?.timeout ;
+        this.additionalData = redirectPostRequestBodyParameterValue?.additionalData ? redirectPostRequestBodyParameterValue?.additionalData! : {};
+        this.callbackUri = redirectPostRequestBodyParameterValue?.callbackUri;
+        this.targets = redirectPostRequestBodyParameterValue?.targets;
+        this.timeout = redirectPostRequestBodyParameterValue?.timeout;
     };
     /**
      * The deserialization information for the current model
@@ -42,13 +42,13 @@ export class RedirectPostRequestBodyImpl implements AdditionalDataHolder, Parsab
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.callbackUri){
-        writer.writeStringValue("callbackUri", this.callbackUri);
+            writer.writeStringValue("callbackUri", this.callbackUri);
         }
         if(this.targets && this.targets.length != 0){        const targetsArrValue: InvitationParticipantInfoImpl[] = []; this.targets?.forEach(element => {targetsArrValue.push(new InvitationParticipantInfoImpl(element));});
-        writer.writeCollectionOfObjectValues<InvitationParticipantInfoImpl>("targets", targetsArrValue);
+            writer.writeCollectionOfObjectValues<InvitationParticipantInfoImpl>("targets", targetsArrValue);
         }
         if(this.timeout){
-        writer.writeNumberValue("timeout", this.timeout);
+            writer.writeNumberValue("timeout", this.timeout);
         }
         writer.writeAdditionalData(this.additionalData);
     };

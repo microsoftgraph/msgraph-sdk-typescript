@@ -1,7 +1,7 @@
 import {StoragePlanInformation} from './storagePlanInformation';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class StoragePlanInformationImpl implements AdditionalDataHolder, Parsable, StoragePlanInformation {
+export class StoragePlanInformationImpl implements StoragePlanInformation {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Indicates if there are higher storage quota plans available. Read-only. */
@@ -11,8 +11,8 @@ export class StoragePlanInformationImpl implements AdditionalDataHolder, Parsabl
      * @param storagePlanInformationParameterValue 
      */
     public constructor(storagePlanInformationParameterValue?: StoragePlanInformation | undefined) {
-        this.additionalData = storagePlanInformationParameterValue?.additionalData ? storagePlanInformationParameterValue?.additionalData! : {}
-        this.upgradeAvailable = storagePlanInformationParameterValue?.upgradeAvailable ;
+        this.additionalData = storagePlanInformationParameterValue?.additionalData ? storagePlanInformationParameterValue?.additionalData! : {};
+        this.upgradeAvailable = storagePlanInformationParameterValue?.upgradeAvailable;
     };
     /**
      * The deserialization information for the current model
@@ -30,7 +30,7 @@ export class StoragePlanInformationImpl implements AdditionalDataHolder, Parsabl
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.upgradeAvailable){
-        writer.writeBooleanValue("upgradeAvailable", this.upgradeAvailable);
+            writer.writeBooleanValue("upgradeAvailable", this.upgradeAvailable);
         }
         writer.writeAdditionalData(this.additionalData);
     };

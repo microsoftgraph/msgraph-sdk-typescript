@@ -1,7 +1,7 @@
 import {TextColumn} from './textColumn';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class TextColumnImpl implements AdditionalDataHolder, Parsable, TextColumn {
+export class TextColumnImpl implements TextColumn {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Whether to allow multiple lines of text. */
@@ -19,12 +19,12 @@ export class TextColumnImpl implements AdditionalDataHolder, Parsable, TextColum
      * @param textColumnParameterValue 
      */
     public constructor(textColumnParameterValue?: TextColumn | undefined) {
-        this.additionalData = textColumnParameterValue?.additionalData ? textColumnParameterValue?.additionalData! : {}
-        this.allowMultipleLines = textColumnParameterValue?.allowMultipleLines ;
-        this.appendChangesToExistingText = textColumnParameterValue?.appendChangesToExistingText ;
-        this.linesForEditing = textColumnParameterValue?.linesForEditing ;
-        this.maxLength = textColumnParameterValue?.maxLength ;
-        this.textType = textColumnParameterValue?.textType ;
+        this.additionalData = textColumnParameterValue?.additionalData ? textColumnParameterValue?.additionalData! : {};
+        this.allowMultipleLines = textColumnParameterValue?.allowMultipleLines;
+        this.appendChangesToExistingText = textColumnParameterValue?.appendChangesToExistingText;
+        this.linesForEditing = textColumnParameterValue?.linesForEditing;
+        this.maxLength = textColumnParameterValue?.maxLength;
+        this.textType = textColumnParameterValue?.textType;
     };
     /**
      * The deserialization information for the current model
@@ -46,19 +46,19 @@ export class TextColumnImpl implements AdditionalDataHolder, Parsable, TextColum
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.allowMultipleLines){
-        writer.writeBooleanValue("allowMultipleLines", this.allowMultipleLines);
+            writer.writeBooleanValue("allowMultipleLines", this.allowMultipleLines);
         }
         if(this.appendChangesToExistingText){
-        writer.writeBooleanValue("appendChangesToExistingText", this.appendChangesToExistingText);
+            writer.writeBooleanValue("appendChangesToExistingText", this.appendChangesToExistingText);
         }
         if(this.linesForEditing){
-        writer.writeNumberValue("linesForEditing", this.linesForEditing);
+            writer.writeNumberValue("linesForEditing", this.linesForEditing);
         }
         if(this.maxLength){
-        writer.writeNumberValue("maxLength", this.maxLength);
+            writer.writeNumberValue("maxLength", this.maxLength);
         }
         if(this.textType){
-        writer.writeStringValue("textType", this.textType);
+            writer.writeStringValue("textType", this.textType);
         }
         writer.writeAdditionalData(this.additionalData);
     };

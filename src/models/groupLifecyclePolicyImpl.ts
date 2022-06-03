@@ -3,7 +3,7 @@ import {EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Casts the previous resource to group. */
-export class GroupLifecyclePolicyImpl extends EntityImpl implements GroupLifecyclePolicy, Parsable {
+export class GroupLifecyclePolicyImpl extends EntityImpl implements GroupLifecyclePolicy {
     /** List of email address to send notifications for groups without owners. Multiple email address can be defined by separating email address with a semicolon. */
     public alternateNotificationEmails?: string | undefined;
     /** Number of days before a group expires and needs to be renewed. Once renewed, the group expiration is extended by the number of days defined. */
@@ -15,10 +15,10 @@ export class GroupLifecyclePolicyImpl extends EntityImpl implements GroupLifecyc
      * @param groupLifecyclePolicyParameterValue 
      */
     public constructor(groupLifecyclePolicyParameterValue?: GroupLifecyclePolicy | undefined) {
-        super();
-        this.alternateNotificationEmails = groupLifecyclePolicyParameterValue?.alternateNotificationEmails ;
-        this.groupLifetimeInDays = groupLifecyclePolicyParameterValue?.groupLifetimeInDays ;
-        this.managedGroupTypes = groupLifecyclePolicyParameterValue?.managedGroupTypes ;
+        super(groupLifecyclePolicyParameterValue);
+        this.alternateNotificationEmails = groupLifecyclePolicyParameterValue?.alternateNotificationEmails;
+        this.groupLifetimeInDays = groupLifecyclePolicyParameterValue?.groupLifetimeInDays;
+        this.managedGroupTypes = groupLifecyclePolicyParameterValue?.managedGroupTypes;
     };
     /**
      * The deserialization information for the current model
@@ -39,13 +39,13 @@ export class GroupLifecyclePolicyImpl extends EntityImpl implements GroupLifecyc
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.alternateNotificationEmails){
-        writer.writeStringValue("alternateNotificationEmails", this.alternateNotificationEmails);
+            writer.writeStringValue("alternateNotificationEmails", this.alternateNotificationEmails);
         }
         if(this.groupLifetimeInDays){
-        writer.writeNumberValue("groupLifetimeInDays", this.groupLifetimeInDays);
+            writer.writeNumberValue("groupLifetimeInDays", this.groupLifetimeInDays);
         }
         if(this.managedGroupTypes){
-        writer.writeStringValue("managedGroupTypes", this.managedGroupTypes);
+            writer.writeStringValue("managedGroupTypes", this.managedGroupTypes);
         }
     };
 }

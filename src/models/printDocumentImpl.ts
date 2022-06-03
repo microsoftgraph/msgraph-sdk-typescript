@@ -3,7 +3,7 @@ import {PrintDocument} from './printDocument';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the print singleton. */
-export class PrintDocumentImpl extends EntityImpl implements Parsable, PrintDocument {
+export class PrintDocumentImpl extends EntityImpl implements PrintDocument {
     /** The document's content (MIME) type. Read-only. */
     public contentType?: string | undefined;
     /** The document's name. Read-only. */
@@ -15,10 +15,10 @@ export class PrintDocumentImpl extends EntityImpl implements Parsable, PrintDocu
      * @param printDocumentParameterValue 
      */
     public constructor(printDocumentParameterValue?: PrintDocument | undefined) {
-        super();
-        this.contentType = printDocumentParameterValue?.contentType ;
-        this.displayName = printDocumentParameterValue?.displayName ;
-        this.size = printDocumentParameterValue?.size ;
+        super(printDocumentParameterValue);
+        this.contentType = printDocumentParameterValue?.contentType;
+        this.displayName = printDocumentParameterValue?.displayName;
+        this.size = printDocumentParameterValue?.size;
     };
     /**
      * The deserialization information for the current model
@@ -39,13 +39,13 @@ export class PrintDocumentImpl extends EntityImpl implements Parsable, PrintDocu
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.contentType){
-        writer.writeStringValue("contentType", this.contentType);
+            writer.writeStringValue("contentType", this.contentType);
         }
         if(this.displayName){
-        writer.writeStringValue("displayName", this.displayName);
+            writer.writeStringValue("displayName", this.displayName);
         }
         if(this.size){
-        writer.writeNumberValue("size", this.size);
+            writer.writeNumberValue("size", this.size);
         }
     };
 }

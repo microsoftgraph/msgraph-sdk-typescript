@@ -6,7 +6,7 @@ import {Location} from './location';
 import {Reminder} from './reminder';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ReminderImpl implements AdditionalDataHolder, Parsable, Reminder {
+export class ReminderImpl implements Reminder {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Identifies the version of the reminder. Every time the reminder is changed, changeKey changes as well. This allows Exchange to apply changes to the correct version of the object. */
@@ -30,15 +30,15 @@ export class ReminderImpl implements AdditionalDataHolder, Parsable, Reminder {
      * @param reminderParameterValue 
      */
     public constructor(reminderParameterValue?: Reminder | undefined) {
-        this.additionalData = reminderParameterValue?.additionalData ? reminderParameterValue?.additionalData! : {}
-        this.changeKey = reminderParameterValue?.changeKey ;
-        this.eventEndTime = reminderParameterValue?.eventEndTime ;
-        this.eventId = reminderParameterValue?.eventId ;
-        this.eventLocation = reminderParameterValue?.eventLocation ;
-        this.eventStartTime = reminderParameterValue?.eventStartTime ;
-        this.eventSubject = reminderParameterValue?.eventSubject ;
-        this.eventWebLink = reminderParameterValue?.eventWebLink ;
-        this.reminderFireTime = reminderParameterValue?.reminderFireTime ;
+        this.additionalData = reminderParameterValue?.additionalData ? reminderParameterValue?.additionalData! : {};
+        this.changeKey = reminderParameterValue?.changeKey;
+        this.eventEndTime = reminderParameterValue?.eventEndTime;
+        this.eventId = reminderParameterValue?.eventId;
+        this.eventLocation = reminderParameterValue?.eventLocation;
+        this.eventStartTime = reminderParameterValue?.eventStartTime;
+        this.eventSubject = reminderParameterValue?.eventSubject;
+        this.eventWebLink = reminderParameterValue?.eventWebLink;
+        this.reminderFireTime = reminderParameterValue?.reminderFireTime;
     };
     /**
      * The deserialization information for the current model
@@ -63,28 +63,28 @@ export class ReminderImpl implements AdditionalDataHolder, Parsable, Reminder {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.changeKey){
-        writer.writeStringValue("changeKey", this.changeKey);
+            writer.writeStringValue("changeKey", this.changeKey);
         }
         if(this.eventEndTime){
-        writer.writeObjectValue<DateTimeTimeZoneImpl>("eventEndTime", new DateTimeTimeZoneImpl(this.eventEndTime));
+            writer.writeObjectValue<DateTimeTimeZoneImpl>("eventEndTime", new DateTimeTimeZoneImpl(this.eventEndTime));
         }
         if(this.eventId){
-        writer.writeStringValue("eventId", this.eventId);
+            writer.writeStringValue("eventId", this.eventId);
         }
         if(this.eventLocation){
-        writer.writeObjectValue<LocationImpl>("eventLocation", new LocationImpl(this.eventLocation));
+            writer.writeObjectValue<LocationImpl>("eventLocation", new LocationImpl(this.eventLocation));
         }
         if(this.eventStartTime){
-        writer.writeObjectValue<DateTimeTimeZoneImpl>("eventStartTime", new DateTimeTimeZoneImpl(this.eventStartTime));
+            writer.writeObjectValue<DateTimeTimeZoneImpl>("eventStartTime", new DateTimeTimeZoneImpl(this.eventStartTime));
         }
         if(this.eventSubject){
-        writer.writeStringValue("eventSubject", this.eventSubject);
+            writer.writeStringValue("eventSubject", this.eventSubject);
         }
         if(this.eventWebLink){
-        writer.writeStringValue("eventWebLink", this.eventWebLink);
+            writer.writeStringValue("eventWebLink", this.eventWebLink);
         }
         if(this.reminderFireTime){
-        writer.writeObjectValue<DateTimeTimeZoneImpl>("reminderFireTime", new DateTimeTimeZoneImpl(this.reminderFireTime));
+            writer.writeObjectValue<DateTimeTimeZoneImpl>("reminderFireTime", new DateTimeTimeZoneImpl(this.reminderFireTime));
         }
         writer.writeAdditionalData(this.additionalData);
     };

@@ -5,7 +5,7 @@ import {FollowupFlagStatus} from './followupFlagStatus';
 import {DateTimeTimeZoneImpl} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class FollowupFlagImpl implements AdditionalDataHolder, FollowupFlag, Parsable {
+export class FollowupFlagImpl implements FollowupFlag {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The date and time that the follow-up was finished. */
@@ -21,11 +21,11 @@ export class FollowupFlagImpl implements AdditionalDataHolder, FollowupFlag, Par
      * @param followupFlagParameterValue 
      */
     public constructor(followupFlagParameterValue?: FollowupFlag | undefined) {
-        this.additionalData = followupFlagParameterValue?.additionalData ? followupFlagParameterValue?.additionalData! : {}
-        this.completedDateTime = followupFlagParameterValue?.completedDateTime ;
-        this.dueDateTime = followupFlagParameterValue?.dueDateTime ;
-        this.flagStatus = followupFlagParameterValue?.flagStatus ;
-        this.startDateTime = followupFlagParameterValue?.startDateTime ;
+        this.additionalData = followupFlagParameterValue?.additionalData ? followupFlagParameterValue?.additionalData! : {};
+        this.completedDateTime = followupFlagParameterValue?.completedDateTime;
+        this.dueDateTime = followupFlagParameterValue?.dueDateTime;
+        this.flagStatus = followupFlagParameterValue?.flagStatus;
+        this.startDateTime = followupFlagParameterValue?.startDateTime;
     };
     /**
      * The deserialization information for the current model
@@ -46,16 +46,16 @@ export class FollowupFlagImpl implements AdditionalDataHolder, FollowupFlag, Par
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.completedDateTime){
-        writer.writeObjectValue<DateTimeTimeZoneImpl>("completedDateTime", new DateTimeTimeZoneImpl(this.completedDateTime));
+            writer.writeObjectValue<DateTimeTimeZoneImpl>("completedDateTime", new DateTimeTimeZoneImpl(this.completedDateTime));
         }
         if(this.dueDateTime){
-        writer.writeObjectValue<DateTimeTimeZoneImpl>("dueDateTime", new DateTimeTimeZoneImpl(this.dueDateTime));
+            writer.writeObjectValue<DateTimeTimeZoneImpl>("dueDateTime", new DateTimeTimeZoneImpl(this.dueDateTime));
         }
         if(this.flagStatus){
-        writer.writeEnumValue<FollowupFlagStatus>("flagStatus", this.flagStatus);
+            writer.writeEnumValue<FollowupFlagStatus>("flagStatus", this.flagStatus);
         }
         if(this.startDateTime){
-        writer.writeObjectValue<DateTimeTimeZoneImpl>("startDateTime", new DateTimeTimeZoneImpl(this.startDateTime));
+            writer.writeObjectValue<DateTimeTimeZoneImpl>("startDateTime", new DateTimeTimeZoneImpl(this.startDateTime));
         }
         writer.writeAdditionalData(this.additionalData);
     };

@@ -3,7 +3,7 @@ import {GetMailTipsPostRequestBody} from './getMailTipsPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the getMailTips method. */
-export class GetMailTipsPostRequestBodyImpl implements AdditionalDataHolder, GetMailTipsPostRequestBody, Parsable {
+export class GetMailTipsPostRequestBodyImpl implements GetMailTipsPostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The EmailAddresses property */
@@ -15,9 +15,9 @@ export class GetMailTipsPostRequestBodyImpl implements AdditionalDataHolder, Get
      * @param getMailTipsPostRequestBodyParameterValue 
      */
     public constructor(getMailTipsPostRequestBodyParameterValue?: GetMailTipsPostRequestBody | undefined) {
-        this.additionalData = getMailTipsPostRequestBodyParameterValue?.additionalData ? getMailTipsPostRequestBodyParameterValue?.additionalData! : {}
-        this.emailAddresses = getMailTipsPostRequestBodyParameterValue?.emailAddresses ;
-        this.mailTipsOptions = getMailTipsPostRequestBodyParameterValue?.mailTipsOptions ;
+        this.additionalData = getMailTipsPostRequestBodyParameterValue?.additionalData ? getMailTipsPostRequestBodyParameterValue?.additionalData! : {};
+        this.emailAddresses = getMailTipsPostRequestBodyParameterValue?.emailAddresses;
+        this.mailTipsOptions = getMailTipsPostRequestBodyParameterValue?.mailTipsOptions;
     };
     /**
      * The deserialization information for the current model
@@ -36,10 +36,10 @@ export class GetMailTipsPostRequestBodyImpl implements AdditionalDataHolder, Get
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.emailAddresses){
-        writer.writeCollectionOfPrimitiveValues<string>("emailAddresses", this.emailAddresses);
+            writer.writeCollectionOfPrimitiveValues<string>("emailAddresses", this.emailAddresses);
         }
         if(this.mailTipsOptions){
-        writer.writeEnumValue<MailTipsType>("mailTipsOptions", this.mailTipsOptions);
+            writer.writeEnumValue<MailTipsType>("mailTipsOptions", this.mailTipsOptions);
         }
         writer.writeAdditionalData(this.additionalData);
     };

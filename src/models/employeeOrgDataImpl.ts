@@ -1,7 +1,7 @@
 import {EmployeeOrgData} from './employeeOrgData';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class EmployeeOrgDataImpl implements AdditionalDataHolder, EmployeeOrgData, Parsable {
+export class EmployeeOrgDataImpl implements EmployeeOrgData {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The cost center associated with the user. Returned only on $select. Supports $filter. */
@@ -13,9 +13,9 @@ export class EmployeeOrgDataImpl implements AdditionalDataHolder, EmployeeOrgDat
      * @param employeeOrgDataParameterValue 
      */
     public constructor(employeeOrgDataParameterValue?: EmployeeOrgData | undefined) {
-        this.additionalData = employeeOrgDataParameterValue?.additionalData ? employeeOrgDataParameterValue?.additionalData! : {}
-        this.costCenter = employeeOrgDataParameterValue?.costCenter ;
-        this.division = employeeOrgDataParameterValue?.division ;
+        this.additionalData = employeeOrgDataParameterValue?.additionalData ? employeeOrgDataParameterValue?.additionalData! : {};
+        this.costCenter = employeeOrgDataParameterValue?.costCenter;
+        this.division = employeeOrgDataParameterValue?.division;
     };
     /**
      * The deserialization information for the current model
@@ -34,10 +34,10 @@ export class EmployeeOrgDataImpl implements AdditionalDataHolder, EmployeeOrgDat
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.costCenter){
-        writer.writeStringValue("costCenter", this.costCenter);
+            writer.writeStringValue("costCenter", this.costCenter);
         }
         if(this.division){
-        writer.writeStringValue("division", this.division);
+            writer.writeStringValue("division", this.division);
         }
         writer.writeAdditionalData(this.additionalData);
     };

@@ -2,7 +2,7 @@ import {BroadcastMeetingAudience} from './broadcastMeetingAudience';
 import {BroadcastMeetingSettings} from './broadcastMeetingSettings';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class BroadcastMeetingSettingsImpl implements AdditionalDataHolder, BroadcastMeetingSettings, Parsable {
+export class BroadcastMeetingSettingsImpl implements BroadcastMeetingSettings {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Defines who can join the Teams live event. Possible values are listed in the following table. */
@@ -20,12 +20,12 @@ export class BroadcastMeetingSettingsImpl implements AdditionalDataHolder, Broad
      * @param broadcastMeetingSettingsParameterValue 
      */
     public constructor(broadcastMeetingSettingsParameterValue?: BroadcastMeetingSettings | undefined) {
-        this.additionalData = broadcastMeetingSettingsParameterValue?.additionalData ? broadcastMeetingSettingsParameterValue?.additionalData! : {}
-        this.allowedAudience = broadcastMeetingSettingsParameterValue?.allowedAudience ;
-        this.isAttendeeReportEnabled = broadcastMeetingSettingsParameterValue?.isAttendeeReportEnabled ;
-        this.isQuestionAndAnswerEnabled = broadcastMeetingSettingsParameterValue?.isQuestionAndAnswerEnabled ;
-        this.isRecordingEnabled = broadcastMeetingSettingsParameterValue?.isRecordingEnabled ;
-        this.isVideoOnDemandEnabled = broadcastMeetingSettingsParameterValue?.isVideoOnDemandEnabled ;
+        this.additionalData = broadcastMeetingSettingsParameterValue?.additionalData ? broadcastMeetingSettingsParameterValue?.additionalData! : {};
+        this.allowedAudience = broadcastMeetingSettingsParameterValue?.allowedAudience;
+        this.isAttendeeReportEnabled = broadcastMeetingSettingsParameterValue?.isAttendeeReportEnabled;
+        this.isQuestionAndAnswerEnabled = broadcastMeetingSettingsParameterValue?.isQuestionAndAnswerEnabled;
+        this.isRecordingEnabled = broadcastMeetingSettingsParameterValue?.isRecordingEnabled;
+        this.isVideoOnDemandEnabled = broadcastMeetingSettingsParameterValue?.isVideoOnDemandEnabled;
     };
     /**
      * The deserialization information for the current model
@@ -47,19 +47,19 @@ export class BroadcastMeetingSettingsImpl implements AdditionalDataHolder, Broad
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.allowedAudience){
-        writer.writeEnumValue<BroadcastMeetingAudience>("allowedAudience", this.allowedAudience);
+            writer.writeEnumValue<BroadcastMeetingAudience>("allowedAudience", this.allowedAudience);
         }
         if(this.isAttendeeReportEnabled){
-        writer.writeBooleanValue("isAttendeeReportEnabled", this.isAttendeeReportEnabled);
+            writer.writeBooleanValue("isAttendeeReportEnabled", this.isAttendeeReportEnabled);
         }
         if(this.isQuestionAndAnswerEnabled){
-        writer.writeBooleanValue("isQuestionAndAnswerEnabled", this.isQuestionAndAnswerEnabled);
+            writer.writeBooleanValue("isQuestionAndAnswerEnabled", this.isQuestionAndAnswerEnabled);
         }
         if(this.isRecordingEnabled){
-        writer.writeBooleanValue("isRecordingEnabled", this.isRecordingEnabled);
+            writer.writeBooleanValue("isRecordingEnabled", this.isRecordingEnabled);
         }
         if(this.isVideoOnDemandEnabled){
-        writer.writeBooleanValue("isVideoOnDemandEnabled", this.isVideoOnDemandEnabled);
+            writer.writeBooleanValue("isVideoOnDemandEnabled", this.isVideoOnDemandEnabled);
         }
         writer.writeAdditionalData(this.additionalData);
     };

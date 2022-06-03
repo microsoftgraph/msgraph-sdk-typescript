@@ -7,7 +7,7 @@ import {PrintTaskDefinition} from './printTaskDefinition';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the print singleton. */
-export class PrintTaskDefinitionImpl extends EntityImpl implements Parsable, PrintTaskDefinition {
+export class PrintTaskDefinitionImpl extends EntityImpl implements PrintTaskDefinition {
     /** The createdBy property */
     public createdBy?: AppIdentity | undefined;
     /** The name of the printTaskDefinition. */
@@ -19,10 +19,10 @@ export class PrintTaskDefinitionImpl extends EntityImpl implements Parsable, Pri
      * @param printTaskDefinitionParameterValue 
      */
     public constructor(printTaskDefinitionParameterValue?: PrintTaskDefinition | undefined) {
-        super();
-        this.createdBy = printTaskDefinitionParameterValue?.createdBy ;
-        this.displayName = printTaskDefinitionParameterValue?.displayName ;
-        this.tasks = printTaskDefinitionParameterValue?.tasks ;
+        super(printTaskDefinitionParameterValue);
+        this.createdBy = printTaskDefinitionParameterValue?.createdBy;
+        this.displayName = printTaskDefinitionParameterValue?.displayName;
+        this.tasks = printTaskDefinitionParameterValue?.tasks;
     };
     /**
      * The deserialization information for the current model
@@ -43,13 +43,13 @@ export class PrintTaskDefinitionImpl extends EntityImpl implements Parsable, Pri
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.createdBy){
-        writer.writeObjectValue<AppIdentityImpl>("createdBy", new AppIdentityImpl(this.createdBy));
+            writer.writeObjectValue<AppIdentityImpl>("createdBy", new AppIdentityImpl(this.createdBy));
         }
         if(this.displayName){
-        writer.writeStringValue("displayName", this.displayName);
+            writer.writeStringValue("displayName", this.displayName);
         }
         if(this.tasks && this.tasks.length != 0){        const tasksArrValue: PrintTaskImpl[] = []; this.tasks?.forEach(element => {tasksArrValue.push(new PrintTaskImpl(element));});
-        writer.writeCollectionOfObjectValues<PrintTaskImpl>("tasks", tasksArrValue);
+            writer.writeCollectionOfObjectValues<PrintTaskImpl>("tasks", tasksArrValue);
         }
     };
 }

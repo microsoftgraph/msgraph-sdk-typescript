@@ -7,7 +7,7 @@ import {ManagedDeviceOverview} from './managedDeviceOverview';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Summary data for managed devices */
-export class ManagedDeviceOverviewImpl extends EntityImpl implements ManagedDeviceOverview, Parsable {
+export class ManagedDeviceOverviewImpl extends EntityImpl implements ManagedDeviceOverview {
     /** Distribution of Exchange Access State in Intune */
     public deviceExchangeAccessStateSummary?: DeviceExchangeAccessStateSummary | undefined;
     /** Device operating system summary. */
@@ -23,12 +23,12 @@ export class ManagedDeviceOverviewImpl extends EntityImpl implements ManagedDevi
      * @param managedDeviceOverviewParameterValue 
      */
     public constructor(managedDeviceOverviewParameterValue?: ManagedDeviceOverview | undefined) {
-        super();
-        this.deviceExchangeAccessStateSummary = managedDeviceOverviewParameterValue?.deviceExchangeAccessStateSummary ;
-        this.deviceOperatingSystemSummary = managedDeviceOverviewParameterValue?.deviceOperatingSystemSummary ;
-        this.dualEnrolledDeviceCount = managedDeviceOverviewParameterValue?.dualEnrolledDeviceCount ;
-        this.enrolledDeviceCount = managedDeviceOverviewParameterValue?.enrolledDeviceCount ;
-        this.mdmEnrolledCount = managedDeviceOverviewParameterValue?.mdmEnrolledCount ;
+        super(managedDeviceOverviewParameterValue);
+        this.deviceExchangeAccessStateSummary = managedDeviceOverviewParameterValue?.deviceExchangeAccessStateSummary;
+        this.deviceOperatingSystemSummary = managedDeviceOverviewParameterValue?.deviceOperatingSystemSummary;
+        this.dualEnrolledDeviceCount = managedDeviceOverviewParameterValue?.dualEnrolledDeviceCount;
+        this.enrolledDeviceCount = managedDeviceOverviewParameterValue?.enrolledDeviceCount;
+        this.mdmEnrolledCount = managedDeviceOverviewParameterValue?.mdmEnrolledCount;
     };
     /**
      * The deserialization information for the current model
@@ -51,19 +51,19 @@ export class ManagedDeviceOverviewImpl extends EntityImpl implements ManagedDevi
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.deviceExchangeAccessStateSummary){
-        writer.writeObjectValue<DeviceExchangeAccessStateSummaryImpl>("deviceExchangeAccessStateSummary", new DeviceExchangeAccessStateSummaryImpl(this.deviceExchangeAccessStateSummary));
+            writer.writeObjectValue<DeviceExchangeAccessStateSummaryImpl>("deviceExchangeAccessStateSummary", new DeviceExchangeAccessStateSummaryImpl(this.deviceExchangeAccessStateSummary));
         }
         if(this.deviceOperatingSystemSummary){
-        writer.writeObjectValue<DeviceOperatingSystemSummaryImpl>("deviceOperatingSystemSummary", new DeviceOperatingSystemSummaryImpl(this.deviceOperatingSystemSummary));
+            writer.writeObjectValue<DeviceOperatingSystemSummaryImpl>("deviceOperatingSystemSummary", new DeviceOperatingSystemSummaryImpl(this.deviceOperatingSystemSummary));
         }
         if(this.dualEnrolledDeviceCount){
-        writer.writeNumberValue("dualEnrolledDeviceCount", this.dualEnrolledDeviceCount);
+            writer.writeNumberValue("dualEnrolledDeviceCount", this.dualEnrolledDeviceCount);
         }
         if(this.enrolledDeviceCount){
-        writer.writeNumberValue("enrolledDeviceCount", this.enrolledDeviceCount);
+            writer.writeNumberValue("enrolledDeviceCount", this.enrolledDeviceCount);
         }
         if(this.mdmEnrolledCount){
-        writer.writeNumberValue("mdmEnrolledCount", this.mdmEnrolledCount);
+            writer.writeNumberValue("mdmEnrolledCount", this.mdmEnrolledCount);
         }
     };
 }

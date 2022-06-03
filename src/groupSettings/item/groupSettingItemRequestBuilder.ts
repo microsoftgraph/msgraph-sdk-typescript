@@ -30,7 +30,7 @@ export class GroupSettingItemRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Delete a tenant-level or group-specific [groupSetting](../resources/groupsetting.md) object.
+     * Delete a tenant-level or group-specific groupSetting object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -63,7 +63,7 @@ export class GroupSettingItemRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the properties of a [groupSetting](../resources/groupsetting.md) object for tenant-wide [group](../resources/group.md) settings or a specific group setting.
+     * Update the properties of a groupSetting object for tenant-wide group settings or a specific group setting.
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -83,7 +83,7 @@ export class GroupSettingItemRequestBuilder {
         return requestInfo;
     };
     /**
-     * Delete a tenant-level or group-specific [groupSetting](../resources/groupsetting.md) object.
+     * Delete a tenant-level or group-specific groupSetting object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
@@ -114,7 +114,7 @@ export class GroupSettingItemRequestBuilder {
         return this.requestAdapter?.sendAsync<GroupSettingImpl>(requestInfo, createGroupSettingFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Update the properties of a [groupSetting](../resources/groupsetting.md) object for tenant-wide [group](../resources/group.md) settings or a specific group setting.
+     * Update the properties of a groupSetting object for tenant-wide group settings or a specific group setting.
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service

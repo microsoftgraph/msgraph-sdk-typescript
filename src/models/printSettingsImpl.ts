@@ -1,7 +1,7 @@
 import {PrintSettings} from './printSettings';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class PrintSettingsImpl implements AdditionalDataHolder, Parsable, PrintSettings {
+export class PrintSettingsImpl implements PrintSettings {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Specifies whether document conversion is enabled for the tenant. If document conversion is enabled, Universal Print service will automatically convert documents into a format compatible with the printer (xps to pdf) when needed. */
@@ -11,8 +11,8 @@ export class PrintSettingsImpl implements AdditionalDataHolder, Parsable, PrintS
      * @param printSettingsParameterValue 
      */
     public constructor(printSettingsParameterValue?: PrintSettings | undefined) {
-        this.additionalData = printSettingsParameterValue?.additionalData ? printSettingsParameterValue?.additionalData! : {}
-        this.documentConversionEnabled = printSettingsParameterValue?.documentConversionEnabled ;
+        this.additionalData = printSettingsParameterValue?.additionalData ? printSettingsParameterValue?.additionalData! : {};
+        this.documentConversionEnabled = printSettingsParameterValue?.documentConversionEnabled;
     };
     /**
      * The deserialization information for the current model
@@ -30,7 +30,7 @@ export class PrintSettingsImpl implements AdditionalDataHolder, Parsable, PrintS
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.documentConversionEnabled){
-        writer.writeBooleanValue("documentConversionEnabled", this.documentConversionEnabled);
+            writer.writeBooleanValue("documentConversionEnabled", this.documentConversionEnabled);
         }
         writer.writeAdditionalData(this.additionalData);
     };

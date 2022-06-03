@@ -22,7 +22,7 @@ import {TimeOffRequest} from './timeOffRequest';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Casts the previous resource to group. */
-export class ScheduleImpl extends EntityImpl implements Parsable, Schedule {
+export class ScheduleImpl extends EntityImpl implements Schedule {
     /** Indicates whether the schedule is enabled for the team. Required. */
     public enabled?: boolean | undefined;
     /** The offerShiftRequests property */
@@ -66,26 +66,26 @@ export class ScheduleImpl extends EntityImpl implements Parsable, Schedule {
      * @param scheduleParameterValue 
      */
     public constructor(scheduleParameterValue?: Schedule | undefined) {
-        super();
-        this.enabled = scheduleParameterValue?.enabled ;
-        this.offerShiftRequests = scheduleParameterValue?.offerShiftRequests ;
-        this.offerShiftRequestsEnabled = scheduleParameterValue?.offerShiftRequestsEnabled ;
-        this.openShiftChangeRequests = scheduleParameterValue?.openShiftChangeRequests ;
-        this.openShifts = scheduleParameterValue?.openShifts ;
-        this.openShiftsEnabled = scheduleParameterValue?.openShiftsEnabled ;
-        this.provisionStatus = scheduleParameterValue?.provisionStatus ;
-        this.provisionStatusCode = scheduleParameterValue?.provisionStatusCode ;
-        this.schedulingGroups = scheduleParameterValue?.schedulingGroups ;
-        this.shifts = scheduleParameterValue?.shifts ;
-        this.swapShiftsChangeRequests = scheduleParameterValue?.swapShiftsChangeRequests ;
-        this.swapShiftsRequestsEnabled = scheduleParameterValue?.swapShiftsRequestsEnabled ;
-        this.timeClockEnabled = scheduleParameterValue?.timeClockEnabled ;
-        this.timeOffReasons = scheduleParameterValue?.timeOffReasons ;
-        this.timeOffRequests = scheduleParameterValue?.timeOffRequests ;
-        this.timeOffRequestsEnabled = scheduleParameterValue?.timeOffRequestsEnabled ;
-        this.timesOff = scheduleParameterValue?.timesOff ;
-        this.timeZone = scheduleParameterValue?.timeZone ;
-        this.workforceIntegrationIds = scheduleParameterValue?.workforceIntegrationIds ;
+        super(scheduleParameterValue);
+        this.enabled = scheduleParameterValue?.enabled;
+        this.offerShiftRequests = scheduleParameterValue?.offerShiftRequests;
+        this.offerShiftRequestsEnabled = scheduleParameterValue?.offerShiftRequestsEnabled;
+        this.openShiftChangeRequests = scheduleParameterValue?.openShiftChangeRequests;
+        this.openShifts = scheduleParameterValue?.openShifts;
+        this.openShiftsEnabled = scheduleParameterValue?.openShiftsEnabled;
+        this.provisionStatus = scheduleParameterValue?.provisionStatus;
+        this.provisionStatusCode = scheduleParameterValue?.provisionStatusCode;
+        this.schedulingGroups = scheduleParameterValue?.schedulingGroups;
+        this.shifts = scheduleParameterValue?.shifts;
+        this.swapShiftsChangeRequests = scheduleParameterValue?.swapShiftsChangeRequests;
+        this.swapShiftsRequestsEnabled = scheduleParameterValue?.swapShiftsRequestsEnabled;
+        this.timeClockEnabled = scheduleParameterValue?.timeClockEnabled;
+        this.timeOffReasons = scheduleParameterValue?.timeOffReasons;
+        this.timeOffRequests = scheduleParameterValue?.timeOffRequests;
+        this.timeOffRequestsEnabled = scheduleParameterValue?.timeOffRequestsEnabled;
+        this.timesOff = scheduleParameterValue?.timesOff;
+        this.timeZone = scheduleParameterValue?.timeZone;
+        this.workforceIntegrationIds = scheduleParameterValue?.workforceIntegrationIds;
     };
     /**
      * The deserialization information for the current model
@@ -122,61 +122,61 @@ export class ScheduleImpl extends EntityImpl implements Parsable, Schedule {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.enabled){
-        writer.writeBooleanValue("enabled", this.enabled);
+            writer.writeBooleanValue("enabled", this.enabled);
         }
         if(this.offerShiftRequests && this.offerShiftRequests.length != 0){        const offerShiftRequestsArrValue: OfferShiftRequestImpl[] = []; this.offerShiftRequests?.forEach(element => {offerShiftRequestsArrValue.push(new OfferShiftRequestImpl(element));});
-        writer.writeCollectionOfObjectValues<OfferShiftRequestImpl>("offerShiftRequests", offerShiftRequestsArrValue);
+            writer.writeCollectionOfObjectValues<OfferShiftRequestImpl>("offerShiftRequests", offerShiftRequestsArrValue);
         }
         if(this.offerShiftRequestsEnabled){
-        writer.writeBooleanValue("offerShiftRequestsEnabled", this.offerShiftRequestsEnabled);
+            writer.writeBooleanValue("offerShiftRequestsEnabled", this.offerShiftRequestsEnabled);
         }
         if(this.openShiftChangeRequests && this.openShiftChangeRequests.length != 0){        const openShiftChangeRequestsArrValue: OpenShiftChangeRequestImpl[] = []; this.openShiftChangeRequests?.forEach(element => {openShiftChangeRequestsArrValue.push(new OpenShiftChangeRequestImpl(element));});
-        writer.writeCollectionOfObjectValues<OpenShiftChangeRequestImpl>("openShiftChangeRequests", openShiftChangeRequestsArrValue);
+            writer.writeCollectionOfObjectValues<OpenShiftChangeRequestImpl>("openShiftChangeRequests", openShiftChangeRequestsArrValue);
         }
         if(this.openShifts && this.openShifts.length != 0){        const openShiftsArrValue: OpenShiftImpl[] = []; this.openShifts?.forEach(element => {openShiftsArrValue.push(new OpenShiftImpl(element));});
-        writer.writeCollectionOfObjectValues<OpenShiftImpl>("openShifts", openShiftsArrValue);
+            writer.writeCollectionOfObjectValues<OpenShiftImpl>("openShifts", openShiftsArrValue);
         }
         if(this.openShiftsEnabled){
-        writer.writeBooleanValue("openShiftsEnabled", this.openShiftsEnabled);
+            writer.writeBooleanValue("openShiftsEnabled", this.openShiftsEnabled);
         }
         if(this.provisionStatus){
-        writer.writeEnumValue<OperationStatus>("provisionStatus", this.provisionStatus);
+            writer.writeEnumValue<OperationStatus>("provisionStatus", this.provisionStatus);
         }
         if(this.provisionStatusCode){
-        writer.writeStringValue("provisionStatusCode", this.provisionStatusCode);
+            writer.writeStringValue("provisionStatusCode", this.provisionStatusCode);
         }
         if(this.schedulingGroups && this.schedulingGroups.length != 0){        const schedulingGroupsArrValue: SchedulingGroupImpl[] = []; this.schedulingGroups?.forEach(element => {schedulingGroupsArrValue.push(new SchedulingGroupImpl(element));});
-        writer.writeCollectionOfObjectValues<SchedulingGroupImpl>("schedulingGroups", schedulingGroupsArrValue);
+            writer.writeCollectionOfObjectValues<SchedulingGroupImpl>("schedulingGroups", schedulingGroupsArrValue);
         }
         if(this.shifts && this.shifts.length != 0){        const shiftsArrValue: ShiftImpl[] = []; this.shifts?.forEach(element => {shiftsArrValue.push(new ShiftImpl(element));});
-        writer.writeCollectionOfObjectValues<ShiftImpl>("shifts", shiftsArrValue);
+            writer.writeCollectionOfObjectValues<ShiftImpl>("shifts", shiftsArrValue);
         }
         if(this.swapShiftsChangeRequests && this.swapShiftsChangeRequests.length != 0){        const swapShiftsChangeRequestsArrValue: SwapShiftsChangeRequestImpl[] = []; this.swapShiftsChangeRequests?.forEach(element => {swapShiftsChangeRequestsArrValue.push(new SwapShiftsChangeRequestImpl(element));});
-        writer.writeCollectionOfObjectValues<SwapShiftsChangeRequestImpl>("swapShiftsChangeRequests", swapShiftsChangeRequestsArrValue);
+            writer.writeCollectionOfObjectValues<SwapShiftsChangeRequestImpl>("swapShiftsChangeRequests", swapShiftsChangeRequestsArrValue);
         }
         if(this.swapShiftsRequestsEnabled){
-        writer.writeBooleanValue("swapShiftsRequestsEnabled", this.swapShiftsRequestsEnabled);
+            writer.writeBooleanValue("swapShiftsRequestsEnabled", this.swapShiftsRequestsEnabled);
         }
         if(this.timeClockEnabled){
-        writer.writeBooleanValue("timeClockEnabled", this.timeClockEnabled);
+            writer.writeBooleanValue("timeClockEnabled", this.timeClockEnabled);
         }
         if(this.timeOffReasons && this.timeOffReasons.length != 0){        const timeOffReasonsArrValue: TimeOffReasonImpl[] = []; this.timeOffReasons?.forEach(element => {timeOffReasonsArrValue.push(new TimeOffReasonImpl(element));});
-        writer.writeCollectionOfObjectValues<TimeOffReasonImpl>("timeOffReasons", timeOffReasonsArrValue);
+            writer.writeCollectionOfObjectValues<TimeOffReasonImpl>("timeOffReasons", timeOffReasonsArrValue);
         }
         if(this.timeOffRequests && this.timeOffRequests.length != 0){        const timeOffRequestsArrValue: TimeOffRequestImpl[] = []; this.timeOffRequests?.forEach(element => {timeOffRequestsArrValue.push(new TimeOffRequestImpl(element));});
-        writer.writeCollectionOfObjectValues<TimeOffRequestImpl>("timeOffRequests", timeOffRequestsArrValue);
+            writer.writeCollectionOfObjectValues<TimeOffRequestImpl>("timeOffRequests", timeOffRequestsArrValue);
         }
         if(this.timeOffRequestsEnabled){
-        writer.writeBooleanValue("timeOffRequestsEnabled", this.timeOffRequestsEnabled);
+            writer.writeBooleanValue("timeOffRequestsEnabled", this.timeOffRequestsEnabled);
         }
         if(this.timesOff && this.timesOff.length != 0){        const timesOffArrValue: TimeOffImpl[] = []; this.timesOff?.forEach(element => {timesOffArrValue.push(new TimeOffImpl(element));});
-        writer.writeCollectionOfObjectValues<TimeOffImpl>("timesOff", timesOffArrValue);
+            writer.writeCollectionOfObjectValues<TimeOffImpl>("timesOff", timesOffArrValue);
         }
         if(this.timeZone){
-        writer.writeStringValue("timeZone", this.timeZone);
+            writer.writeStringValue("timeZone", this.timeZone);
         }
         if(this.workforceIntegrationIds){
-        writer.writeCollectionOfPrimitiveValues<string>("workforceIntegrationIds", this.workforceIntegrationIds);
+            writer.writeCollectionOfPrimitiveValues<string>("workforceIntegrationIds", this.workforceIntegrationIds);
         }
     };
 }

@@ -3,7 +3,7 @@ import {OnenotePatchContentCommand} from './onenotePatchContentCommand';
 import {OnenotePatchInsertPosition} from './onenotePatchInsertPosition';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class OnenotePatchContentCommandImpl implements AdditionalDataHolder, OnenotePatchContentCommand, Parsable {
+export class OnenotePatchContentCommandImpl implements OnenotePatchContentCommand {
     /** The action to perform on the target element. Possible values are: replace, append, delete, insert, or prepend. */
     public action?: OnenotePatchActionType | undefined;
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
@@ -19,11 +19,11 @@ export class OnenotePatchContentCommandImpl implements AdditionalDataHolder, One
      * @param onenotePatchContentCommandParameterValue 
      */
     public constructor(onenotePatchContentCommandParameterValue?: OnenotePatchContentCommand | undefined) {
-        this.action = onenotePatchContentCommandParameterValue?.action ;
-        this.additionalData = onenotePatchContentCommandParameterValue?.additionalData ? onenotePatchContentCommandParameterValue?.additionalData! : {}
-        this.content = onenotePatchContentCommandParameterValue?.content ;
-        this.position = onenotePatchContentCommandParameterValue?.position ;
-        this.target = onenotePatchContentCommandParameterValue?.target ;
+        this.action = onenotePatchContentCommandParameterValue?.action;
+        this.additionalData = onenotePatchContentCommandParameterValue?.additionalData ? onenotePatchContentCommandParameterValue?.additionalData! : {};
+        this.content = onenotePatchContentCommandParameterValue?.content;
+        this.position = onenotePatchContentCommandParameterValue?.position;
+        this.target = onenotePatchContentCommandParameterValue?.target;
     };
     /**
      * The deserialization information for the current model
@@ -44,16 +44,16 @@ export class OnenotePatchContentCommandImpl implements AdditionalDataHolder, One
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.action){
-        writer.writeEnumValue<OnenotePatchActionType>("action", this.action);
+            writer.writeEnumValue<OnenotePatchActionType>("action", this.action);
         }
         if(this.content){
-        writer.writeStringValue("content", this.content);
+            writer.writeStringValue("content", this.content);
         }
         if(this.position){
-        writer.writeEnumValue<OnenotePatchInsertPosition>("position", this.position);
+            writer.writeEnumValue<OnenotePatchInsertPosition>("position", this.position);
         }
         if(this.target){
-        writer.writeStringValue("target", this.target);
+            writer.writeStringValue("target", this.target);
         }
         writer.writeAdditionalData(this.additionalData);
     };

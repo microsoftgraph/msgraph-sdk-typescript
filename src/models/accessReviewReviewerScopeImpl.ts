@@ -1,7 +1,7 @@
 import {AccessReviewReviewerScope} from './accessReviewReviewerScope';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class AccessReviewReviewerScopeImpl implements AccessReviewReviewerScope, AdditionalDataHolder, Parsable {
+export class AccessReviewReviewerScopeImpl implements AccessReviewReviewerScope {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The query specifying who will be the reviewer. See table for examples. */
@@ -15,10 +15,10 @@ export class AccessReviewReviewerScopeImpl implements AccessReviewReviewerScope,
      * @param accessReviewReviewerScopeParameterValue 
      */
     public constructor(accessReviewReviewerScopeParameterValue?: AccessReviewReviewerScope | undefined) {
-        this.additionalData = accessReviewReviewerScopeParameterValue?.additionalData ? accessReviewReviewerScopeParameterValue?.additionalData! : {}
-        this.query = accessReviewReviewerScopeParameterValue?.query ;
-        this.queryRoot = accessReviewReviewerScopeParameterValue?.queryRoot ;
-        this.queryType = accessReviewReviewerScopeParameterValue?.queryType ;
+        this.additionalData = accessReviewReviewerScopeParameterValue?.additionalData ? accessReviewReviewerScopeParameterValue?.additionalData! : {};
+        this.query = accessReviewReviewerScopeParameterValue?.query;
+        this.queryRoot = accessReviewReviewerScopeParameterValue?.queryRoot;
+        this.queryType = accessReviewReviewerScopeParameterValue?.queryType;
     };
     /**
      * The deserialization information for the current model
@@ -38,13 +38,13 @@ export class AccessReviewReviewerScopeImpl implements AccessReviewReviewerScope,
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.query){
-        writer.writeStringValue("query", this.query);
+            writer.writeStringValue("query", this.query);
         }
         if(this.queryRoot){
-        writer.writeStringValue("queryRoot", this.queryRoot);
+            writer.writeStringValue("queryRoot", this.queryRoot);
         }
         if(this.queryType){
-        writer.writeStringValue("queryType", this.queryType);
+            writer.writeStringValue("queryType", this.queryType);
         }
         writer.writeAdditionalData(this.additionalData);
     };

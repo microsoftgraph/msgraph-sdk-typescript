@@ -10,7 +10,7 @@ import {Segment} from './segment';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the cloudCommunications singleton. */
-export class SegmentImpl extends EntityImpl implements Parsable, Segment {
+export class SegmentImpl extends EntityImpl implements Segment {
     /** Endpoint that answered this segment. */
     public callee?: Endpoint | undefined;
     /** Endpoint that initiated this segment. */
@@ -28,13 +28,13 @@ export class SegmentImpl extends EntityImpl implements Parsable, Segment {
      * @param segmentParameterValue 
      */
     public constructor(segmentParameterValue?: Segment | undefined) {
-        super();
-        this.callee = segmentParameterValue?.callee ;
-        this.caller = segmentParameterValue?.caller ;
-        this.endDateTime = segmentParameterValue?.endDateTime ;
-        this.failureInfo = segmentParameterValue?.failureInfo ;
-        this.media = segmentParameterValue?.media ;
-        this.startDateTime = segmentParameterValue?.startDateTime ;
+        super(segmentParameterValue);
+        this.callee = segmentParameterValue?.callee;
+        this.caller = segmentParameterValue?.caller;
+        this.endDateTime = segmentParameterValue?.endDateTime;
+        this.failureInfo = segmentParameterValue?.failureInfo;
+        this.media = segmentParameterValue?.media;
+        this.startDateTime = segmentParameterValue?.startDateTime;
     };
     /**
      * The deserialization information for the current model
@@ -58,22 +58,22 @@ export class SegmentImpl extends EntityImpl implements Parsable, Segment {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.callee){
-        writer.writeObjectValue<EndpointImpl>("callee", new EndpointImpl(this.callee));
+            writer.writeObjectValue<EndpointImpl>("callee", new EndpointImpl(this.callee));
         }
         if(this.caller){
-        writer.writeObjectValue<EndpointImpl>("caller", new EndpointImpl(this.caller));
+            writer.writeObjectValue<EndpointImpl>("caller", new EndpointImpl(this.caller));
         }
         if(this.endDateTime){
-        writer.writeDateValue("endDateTime", this.endDateTime);
+            writer.writeDateValue("endDateTime", this.endDateTime);
         }
         if(this.failureInfo){
-        writer.writeObjectValue<FailureInfoImpl>("failureInfo", new FailureInfoImpl(this.failureInfo));
+            writer.writeObjectValue<FailureInfoImpl>("failureInfo", new FailureInfoImpl(this.failureInfo));
         }
         if(this.media && this.media.length != 0){        const mediaArrValue: MediaImpl[] = []; this.media?.forEach(element => {mediaArrValue.push(new MediaImpl(element));});
-        writer.writeCollectionOfObjectValues<MediaImpl>("media", mediaArrValue);
+            writer.writeCollectionOfObjectValues<MediaImpl>("media", mediaArrValue);
         }
         if(this.startDateTime){
-        writer.writeDateValue("startDateTime", this.startDateTime);
+            writer.writeDateValue("startDateTime", this.startDateTime);
         }
     };
 }

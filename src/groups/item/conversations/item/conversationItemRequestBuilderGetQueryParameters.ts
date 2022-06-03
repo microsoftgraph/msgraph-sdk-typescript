@@ -1,5 +1,5 @@
 
-export interface ConversationItemRequestBuilderGetQueryParameters{
+export interface ConversationItemRequestBuilderGetQueryParameters {
     /** Select properties to be returned */
-    select?:string[] | undefined;
+    select?: string[] | undefined;
 }

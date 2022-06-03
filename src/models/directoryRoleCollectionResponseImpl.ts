@@ -4,7 +4,7 @@ import {DirectoryRoleCollectionResponse} from './directoryRoleCollectionResponse
 import {DirectoryRoleImpl} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class DirectoryRoleCollectionResponseImpl implements AdditionalDataHolder, DirectoryRoleCollectionResponse, Parsable {
+export class DirectoryRoleCollectionResponseImpl implements DirectoryRoleCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class DirectoryRoleCollectionResponseImpl implements AdditionalDataHolder
      * @param directoryRoleCollectionResponseParameterValue 
      */
     public constructor(directoryRoleCollectionResponseParameterValue?: DirectoryRoleCollectionResponse | undefined) {
-        this.additionalData = directoryRoleCollectionResponseParameterValue?.additionalData ? directoryRoleCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = directoryRoleCollectionResponseParameterValue?.nextLink ;
-        this.value = directoryRoleCollectionResponseParameterValue?.value ;
+        this.additionalData = directoryRoleCollectionResponseParameterValue?.additionalData ? directoryRoleCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = directoryRoleCollectionResponseParameterValue?.nextLink;
+        this.value = directoryRoleCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class DirectoryRoleCollectionResponseImpl implements AdditionalDataHolder
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: DirectoryRoleImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new DirectoryRoleImpl(element));});
-        writer.writeCollectionOfObjectValues<DirectoryRoleImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<DirectoryRoleImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

@@ -2,7 +2,7 @@ import {BookingSchedulingPolicy} from './bookingSchedulingPolicy';
 import {AdditionalDataHolder, Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** This type represents the set of policies that dictate how bookings can be created in a Booking Calendar. */
-export class BookingSchedulingPolicyImpl implements AdditionalDataHolder, BookingSchedulingPolicy, Parsable {
+export class BookingSchedulingPolicyImpl implements BookingSchedulingPolicy {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** True if to allow customers to choose a specific person for the booking. */
@@ -20,12 +20,12 @@ export class BookingSchedulingPolicyImpl implements AdditionalDataHolder, Bookin
      * @param bookingSchedulingPolicyParameterValue 
      */
     public constructor(bookingSchedulingPolicyParameterValue?: BookingSchedulingPolicy | undefined) {
-        this.additionalData = bookingSchedulingPolicyParameterValue?.additionalData ? bookingSchedulingPolicyParameterValue?.additionalData! : {}
-        this.allowStaffSelection = bookingSchedulingPolicyParameterValue?.allowStaffSelection ;
-        this.maximumAdvance = bookingSchedulingPolicyParameterValue?.maximumAdvance ;
-        this.minimumLeadTime = bookingSchedulingPolicyParameterValue?.minimumLeadTime ;
-        this.sendConfirmationsToOwner = bookingSchedulingPolicyParameterValue?.sendConfirmationsToOwner ;
-        this.timeSlotInterval = bookingSchedulingPolicyParameterValue?.timeSlotInterval ;
+        this.additionalData = bookingSchedulingPolicyParameterValue?.additionalData ? bookingSchedulingPolicyParameterValue?.additionalData! : {};
+        this.allowStaffSelection = bookingSchedulingPolicyParameterValue?.allowStaffSelection;
+        this.maximumAdvance = bookingSchedulingPolicyParameterValue?.maximumAdvance;
+        this.minimumLeadTime = bookingSchedulingPolicyParameterValue?.minimumLeadTime;
+        this.sendConfirmationsToOwner = bookingSchedulingPolicyParameterValue?.sendConfirmationsToOwner;
+        this.timeSlotInterval = bookingSchedulingPolicyParameterValue?.timeSlotInterval;
     };
     /**
      * The deserialization information for the current model
@@ -47,19 +47,19 @@ export class BookingSchedulingPolicyImpl implements AdditionalDataHolder, Bookin
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.allowStaffSelection){
-        writer.writeBooleanValue("allowStaffSelection", this.allowStaffSelection);
+            writer.writeBooleanValue("allowStaffSelection", this.allowStaffSelection);
         }
         if(this.maximumAdvance){
-        writer.writeDurationValue("maximumAdvance", this.maximumAdvance);
+            writer.writeDurationValue("maximumAdvance", this.maximumAdvance);
         }
         if(this.minimumLeadTime){
-        writer.writeDurationValue("minimumLeadTime", this.minimumLeadTime);
+            writer.writeDurationValue("minimumLeadTime", this.minimumLeadTime);
         }
         if(this.sendConfirmationsToOwner){
-        writer.writeBooleanValue("sendConfirmationsToOwner", this.sendConfirmationsToOwner);
+            writer.writeBooleanValue("sendConfirmationsToOwner", this.sendConfirmationsToOwner);
         }
         if(this.timeSlotInterval){
-        writer.writeDurationValue("timeSlotInterval", this.timeSlotInterval);
+            writer.writeDurationValue("timeSlotInterval", this.timeSlotInterval);
         }
         writer.writeAdditionalData(this.additionalData);
     };

@@ -3,7 +3,7 @@ import {DirectoryObjectImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the collection of contract entities. */
-export class ContractImpl extends DirectoryObjectImpl implements Contract, Parsable {
+export class ContractImpl extends DirectoryObjectImpl implements Contract {
     /** Type of contract. Possible values are:  SyndicationPartner, BreadthPartner, ResellerPartner. See more in the table below. */
     public contractType?: string | undefined;
     /** The unique identifier for the customer tenant referenced by this partnership. Corresponds to the id property of the customer tenant's organization resource. */
@@ -17,11 +17,11 @@ export class ContractImpl extends DirectoryObjectImpl implements Contract, Parsa
      * @param contractParameterValue 
      */
     public constructor(contractParameterValue?: Contract | undefined) {
-        super();
-        this.contractType = contractParameterValue?.contractType ;
-        this.customerId = contractParameterValue?.customerId ;
-        this.defaultDomainName = contractParameterValue?.defaultDomainName ;
-        this.displayName = contractParameterValue?.displayName ;
+        super(contractParameterValue);
+        this.contractType = contractParameterValue?.contractType;
+        this.customerId = contractParameterValue?.customerId;
+        this.defaultDomainName = contractParameterValue?.defaultDomainName;
+        this.displayName = contractParameterValue?.displayName;
     };
     /**
      * The deserialization information for the current model
@@ -43,16 +43,16 @@ export class ContractImpl extends DirectoryObjectImpl implements Contract, Parsa
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.contractType){
-        writer.writeStringValue("contractType", this.contractType);
+            writer.writeStringValue("contractType", this.contractType);
         }
         if(this.customerId){
-        writer.writeStringValue("customerId", this.customerId);
+            writer.writeStringValue("customerId", this.customerId);
         }
         if(this.defaultDomainName){
-        writer.writeStringValue("defaultDomainName", this.defaultDomainName);
+            writer.writeStringValue("defaultDomainName", this.defaultDomainName);
         }
         if(this.displayName){
-        writer.writeStringValue("displayName", this.displayName);
+            writer.writeStringValue("displayName", this.displayName);
         }
     };
 }

@@ -1,7 +1,7 @@
 import {ProvisionChannelEmailResult} from './provisionChannelEmailResult';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ProvisionChannelEmailResultImpl implements AdditionalDataHolder, Parsable, ProvisionChannelEmailResult {
+export class ProvisionChannelEmailResultImpl implements ProvisionChannelEmailResult {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Represents the provisioned email address. */
@@ -11,8 +11,8 @@ export class ProvisionChannelEmailResultImpl implements AdditionalDataHolder, Pa
      * @param provisionChannelEmailResultParameterValue 
      */
     public constructor(provisionChannelEmailResultParameterValue?: ProvisionChannelEmailResult | undefined) {
-        this.additionalData = provisionChannelEmailResultParameterValue?.additionalData ? provisionChannelEmailResultParameterValue?.additionalData! : {}
-        this.email = provisionChannelEmailResultParameterValue?.email ;
+        this.additionalData = provisionChannelEmailResultParameterValue?.additionalData ? provisionChannelEmailResultParameterValue?.additionalData! : {};
+        this.email = provisionChannelEmailResultParameterValue?.email;
     };
     /**
      * The deserialization information for the current model
@@ -30,7 +30,7 @@ export class ProvisionChannelEmailResultImpl implements AdditionalDataHolder, Pa
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.email){
-        writer.writeStringValue("email", this.email);
+            writer.writeStringValue("email", this.email);
         }
         writer.writeAdditionalData(this.additionalData);
     };

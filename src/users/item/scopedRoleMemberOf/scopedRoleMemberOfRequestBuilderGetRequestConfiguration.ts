@@ -1,11 +1,11 @@
 import {ScopedRoleMemberOfRequestBuilderGetQueryParameters} from './scopedRoleMemberOfRequestBuilderGetQueryParameters';
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
-export interface ScopedRoleMemberOfRequestBuilderGetRequestConfiguration{
+export interface ScopedRoleMemberOfRequestBuilderGetRequestConfiguration {
     /** Request headers */
-    headers?:Record<string, string> | undefined;
+    headers?: Record<string, string> | undefined;
     /** Request options */
-    options?:RequestOption[] | undefined;
+    options?: RequestOption[] | undefined;
     /** Request query parameters */
-    queryParameters?:ScopedRoleMemberOfRequestBuilderGetQueryParameters | undefined;
+    queryParameters?: ScopedRoleMemberOfRequestBuilderGetQueryParameters | undefined;
 }

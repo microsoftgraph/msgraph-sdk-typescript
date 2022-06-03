@@ -12,8 +12,8 @@ import {WorkbookWorksheet} from './workbookWorksheet';
 import {WorkbookWorksheetProtection} from './workbookWorksheetProtection';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
-export class WorkbookWorksheetImpl extends EntityImpl implements Parsable, WorkbookWorksheet {
+/** Casts the previous resource to group. */
+export class WorkbookWorksheetImpl extends EntityImpl implements WorkbookWorksheet {
     /** Returns collection of charts that are part of the worksheet. Read-only. */
     public charts?: WorkbookChart[] | undefined;
     /** The display name of the worksheet. */
@@ -35,15 +35,15 @@ export class WorkbookWorksheetImpl extends EntityImpl implements Parsable, Workb
      * @param workbookWorksheetParameterValue 
      */
     public constructor(workbookWorksheetParameterValue?: WorkbookWorksheet | undefined) {
-        super();
-        this.charts = workbookWorksheetParameterValue?.charts ;
-        this.name = workbookWorksheetParameterValue?.name ;
-        this.names = workbookWorksheetParameterValue?.names ;
-        this.pivotTables = workbookWorksheetParameterValue?.pivotTables ;
-        this.position = workbookWorksheetParameterValue?.position ;
-        this.protection = workbookWorksheetParameterValue?.protection ;
-        this.tables = workbookWorksheetParameterValue?.tables ;
-        this.visibility = workbookWorksheetParameterValue?.visibility ;
+        super(workbookWorksheetParameterValue);
+        this.charts = workbookWorksheetParameterValue?.charts;
+        this.name = workbookWorksheetParameterValue?.name;
+        this.names = workbookWorksheetParameterValue?.names;
+        this.pivotTables = workbookWorksheetParameterValue?.pivotTables;
+        this.position = workbookWorksheetParameterValue?.position;
+        this.protection = workbookWorksheetParameterValue?.protection;
+        this.tables = workbookWorksheetParameterValue?.tables;
+        this.visibility = workbookWorksheetParameterValue?.visibility;
     };
     /**
      * The deserialization information for the current model
@@ -69,28 +69,28 @@ export class WorkbookWorksheetImpl extends EntityImpl implements Parsable, Workb
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.charts && this.charts.length != 0){        const chartsArrValue: WorkbookChartImpl[] = []; this.charts?.forEach(element => {chartsArrValue.push(new WorkbookChartImpl(element));});
-        writer.writeCollectionOfObjectValues<WorkbookChartImpl>("charts", chartsArrValue);
+            writer.writeCollectionOfObjectValues<WorkbookChartImpl>("charts", chartsArrValue);
         }
         if(this.name){
-        writer.writeStringValue("name", this.name);
+            writer.writeStringValue("name", this.name);
         }
         if(this.names && this.names.length != 0){        const namesArrValue: WorkbookNamedItemImpl[] = []; this.names?.forEach(element => {namesArrValue.push(new WorkbookNamedItemImpl(element));});
-        writer.writeCollectionOfObjectValues<WorkbookNamedItemImpl>("names", namesArrValue);
+            writer.writeCollectionOfObjectValues<WorkbookNamedItemImpl>("names", namesArrValue);
         }
         if(this.pivotTables && this.pivotTables.length != 0){        const pivotTablesArrValue: WorkbookPivotTableImpl[] = []; this.pivotTables?.forEach(element => {pivotTablesArrValue.push(new WorkbookPivotTableImpl(element));});
-        writer.writeCollectionOfObjectValues<WorkbookPivotTableImpl>("pivotTables", pivotTablesArrValue);
+            writer.writeCollectionOfObjectValues<WorkbookPivotTableImpl>("pivotTables", pivotTablesArrValue);
         }
         if(this.position){
-        writer.writeNumberValue("position", this.position);
+            writer.writeNumberValue("position", this.position);
         }
         if(this.protection){
-        writer.writeObjectValue<WorkbookWorksheetProtectionImpl>("protection", new WorkbookWorksheetProtectionImpl(this.protection));
+            writer.writeObjectValue<WorkbookWorksheetProtectionImpl>("protection", new WorkbookWorksheetProtectionImpl(this.protection));
         }
         if(this.tables && this.tables.length != 0){        const tablesArrValue: WorkbookTableImpl[] = []; this.tables?.forEach(element => {tablesArrValue.push(new WorkbookTableImpl(element));});
-        writer.writeCollectionOfObjectValues<WorkbookTableImpl>("tables", tablesArrValue);
+            writer.writeCollectionOfObjectValues<WorkbookTableImpl>("tables", tablesArrValue);
         }
         if(this.visibility){
-        writer.writeStringValue("visibility", this.visibility);
+            writer.writeStringValue("visibility", this.visibility);
         }
     };
 }

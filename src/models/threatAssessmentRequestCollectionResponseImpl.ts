@@ -4,7 +4,7 @@ import {ThreatAssessmentRequest} from './threatAssessmentRequest';
 import {ThreatAssessmentRequestCollectionResponse} from './threatAssessmentRequestCollectionResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ThreatAssessmentRequestCollectionResponseImpl implements AdditionalDataHolder, Parsable, ThreatAssessmentRequestCollectionResponse {
+export class ThreatAssessmentRequestCollectionResponseImpl implements ThreatAssessmentRequestCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class ThreatAssessmentRequestCollectionResponseImpl implements Additional
      * @param threatAssessmentRequestCollectionResponseParameterValue 
      */
     public constructor(threatAssessmentRequestCollectionResponseParameterValue?: ThreatAssessmentRequestCollectionResponse | undefined) {
-        this.additionalData = threatAssessmentRequestCollectionResponseParameterValue?.additionalData ? threatAssessmentRequestCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = threatAssessmentRequestCollectionResponseParameterValue?.nextLink ;
-        this.value = threatAssessmentRequestCollectionResponseParameterValue?.value ;
+        this.additionalData = threatAssessmentRequestCollectionResponseParameterValue?.additionalData ? threatAssessmentRequestCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = threatAssessmentRequestCollectionResponseParameterValue?.nextLink;
+        this.value = threatAssessmentRequestCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class ThreatAssessmentRequestCollectionResponseImpl implements Additional
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: ThreatAssessmentRequestImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ThreatAssessmentRequestImpl(element));});
-        writer.writeCollectionOfObjectValues<ThreatAssessmentRequestImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<ThreatAssessmentRequestImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

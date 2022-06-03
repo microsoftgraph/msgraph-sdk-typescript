@@ -4,7 +4,7 @@ import {ProfilePhoto} from './profilePhoto';
 import {ProfilePhotoCollectionResponse} from './profilePhotoCollectionResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ProfilePhotoCollectionResponseImpl implements AdditionalDataHolder, Parsable, ProfilePhotoCollectionResponse {
+export class ProfilePhotoCollectionResponseImpl implements ProfilePhotoCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class ProfilePhotoCollectionResponseImpl implements AdditionalDataHolder,
      * @param profilePhotoCollectionResponseParameterValue 
      */
     public constructor(profilePhotoCollectionResponseParameterValue?: ProfilePhotoCollectionResponse | undefined) {
-        this.additionalData = profilePhotoCollectionResponseParameterValue?.additionalData ? profilePhotoCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = profilePhotoCollectionResponseParameterValue?.nextLink ;
-        this.value = profilePhotoCollectionResponseParameterValue?.value ;
+        this.additionalData = profilePhotoCollectionResponseParameterValue?.additionalData ? profilePhotoCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = profilePhotoCollectionResponseParameterValue?.nextLink;
+        this.value = profilePhotoCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class ProfilePhotoCollectionResponseImpl implements AdditionalDataHolder,
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: ProfilePhotoImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ProfilePhotoImpl(element));});
-        writer.writeCollectionOfObjectValues<ProfilePhotoImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<ProfilePhotoImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

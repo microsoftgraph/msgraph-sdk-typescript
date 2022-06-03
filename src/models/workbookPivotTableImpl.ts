@@ -4,8 +4,8 @@ import {WorkbookPivotTable} from './workbookPivotTable';
 import {WorkbookWorksheet} from './workbookWorksheet';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
-export class WorkbookPivotTableImpl extends EntityImpl implements Parsable, WorkbookPivotTable {
+/** Casts the previous resource to group. */
+export class WorkbookPivotTableImpl extends EntityImpl implements WorkbookPivotTable {
     /** Name of the PivotTable. */
     public name?: string | undefined;
     /** The worksheet containing the current PivotTable. Read-only. */
@@ -15,9 +15,9 @@ export class WorkbookPivotTableImpl extends EntityImpl implements Parsable, Work
      * @param workbookPivotTableParameterValue 
      */
     public constructor(workbookPivotTableParameterValue?: WorkbookPivotTable | undefined) {
-        super();
-        this.name = workbookPivotTableParameterValue?.name ;
-        this.worksheet = workbookPivotTableParameterValue?.worksheet ;
+        super(workbookPivotTableParameterValue);
+        this.name = workbookPivotTableParameterValue?.name;
+        this.worksheet = workbookPivotTableParameterValue?.worksheet;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class WorkbookPivotTableImpl extends EntityImpl implements Parsable, Work
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.name){
-        writer.writeStringValue("name", this.name);
+            writer.writeStringValue("name", this.name);
         }
         if(this.worksheet){
-        writer.writeObjectValue<WorkbookWorksheetImpl>("worksheet", new WorkbookWorksheetImpl(this.worksheet));
+            writer.writeObjectValue<WorkbookWorksheetImpl>("worksheet", new WorkbookWorksheetImpl(this.worksheet));
         }
     };
 }

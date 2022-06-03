@@ -6,7 +6,7 @@ import {Json} from './json';
 import {VisualInfo} from './visualInfo';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class VisualInfoImpl implements AdditionalDataHolder, Parsable, VisualInfo {
+export class VisualInfoImpl implements VisualInfo {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Optional. JSON object used to represent an icon which represents the application used to generate the activity */
@@ -24,12 +24,12 @@ export class VisualInfoImpl implements AdditionalDataHolder, Parsable, VisualInf
      * @param visualInfoParameterValue 
      */
     public constructor(visualInfoParameterValue?: VisualInfo | undefined) {
-        this.additionalData = visualInfoParameterValue?.additionalData ? visualInfoParameterValue?.additionalData! : {}
-        this.attribution = visualInfoParameterValue?.attribution ;
-        this.backgroundColor = visualInfoParameterValue?.backgroundColor ;
-        this.content = visualInfoParameterValue?.content ;
-        this.description = visualInfoParameterValue?.description ;
-        this.displayText = visualInfoParameterValue?.displayText ;
+        this.additionalData = visualInfoParameterValue?.additionalData ? visualInfoParameterValue?.additionalData! : {};
+        this.attribution = visualInfoParameterValue?.attribution;
+        this.backgroundColor = visualInfoParameterValue?.backgroundColor;
+        this.content = visualInfoParameterValue?.content;
+        this.description = visualInfoParameterValue?.description;
+        this.displayText = visualInfoParameterValue?.displayText;
     };
     /**
      * The deserialization information for the current model
@@ -51,19 +51,19 @@ export class VisualInfoImpl implements AdditionalDataHolder, Parsable, VisualInf
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.attribution){
-        writer.writeObjectValue<ImageInfoImpl>("attribution", new ImageInfoImpl(this.attribution));
+            writer.writeObjectValue<ImageInfoImpl>("attribution", new ImageInfoImpl(this.attribution));
         }
         if(this.backgroundColor){
-        writer.writeStringValue("backgroundColor", this.backgroundColor);
+            writer.writeStringValue("backgroundColor", this.backgroundColor);
         }
         if(this.content){
-        writer.writeObjectValue<JsonImpl>("content", new JsonImpl(this.content));
+            writer.writeObjectValue<JsonImpl>("content", new JsonImpl(this.content));
         }
         if(this.description){
-        writer.writeStringValue("description", this.description);
+            writer.writeStringValue("description", this.description);
         }
         if(this.displayText){
-        writer.writeStringValue("displayText", this.displayText);
+            writer.writeStringValue("displayText", this.displayText);
         }
         writer.writeAdditionalData(this.additionalData);
     };

@@ -5,7 +5,7 @@ import {ImportResponse} from './importResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the import method. */
-export class ImportResponseImpl implements AdditionalDataHolder, ImportResponse, Parsable {
+export class ImportResponseImpl implements ImportResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The value property */
@@ -15,8 +15,8 @@ export class ImportResponseImpl implements AdditionalDataHolder, ImportResponse,
      * @param importResponseParameterValue 
      */
     public constructor(importResponseParameterValue?: ImportResponse | undefined) {
-        this.additionalData = importResponseParameterValue?.additionalData ? importResponseParameterValue?.additionalData! : {}
-        this.value = importResponseParameterValue?.value ;
+        this.additionalData = importResponseParameterValue?.additionalData ? importResponseParameterValue?.additionalData! : {};
+        this.value = importResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -34,7 +34,7 @@ export class ImportResponseImpl implements AdditionalDataHolder, ImportResponse,
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.value && this.value.length != 0){        const valueArrValue: ImportedWindowsAutopilotDeviceIdentityImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ImportedWindowsAutopilotDeviceIdentityImpl(element));});
-        writer.writeCollectionOfObjectValues<ImportedWindowsAutopilotDeviceIdentityImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<ImportedWindowsAutopilotDeviceIdentityImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

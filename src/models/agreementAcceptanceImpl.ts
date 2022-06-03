@@ -3,8 +3,8 @@ import {AgreementAcceptanceState} from './agreementAcceptanceState';
 import {EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of agreementAcceptance entities. */
-export class AgreementAcceptanceImpl extends EntityImpl implements AgreementAcceptance, Parsable {
+/** Provides operations to manage the collection of agreement entities. */
+export class AgreementAcceptanceImpl extends EntityImpl implements AgreementAcceptance {
     /** ID of the agreement file accepted by the user. */
     public agreementFileId?: string | undefined;
     /** ID of the agreement. */
@@ -36,20 +36,20 @@ export class AgreementAcceptanceImpl extends EntityImpl implements AgreementAcce
      * @param agreementAcceptanceParameterValue 
      */
     public constructor(agreementAcceptanceParameterValue?: AgreementAcceptance | undefined) {
-        super();
-        this.agreementFileId = agreementAcceptanceParameterValue?.agreementFileId ;
-        this.agreementId = agreementAcceptanceParameterValue?.agreementId ;
-        this.deviceDisplayName = agreementAcceptanceParameterValue?.deviceDisplayName ;
-        this.deviceId = agreementAcceptanceParameterValue?.deviceId ;
-        this.deviceOSType = agreementAcceptanceParameterValue?.deviceOSType ;
-        this.deviceOSVersion = agreementAcceptanceParameterValue?.deviceOSVersion ;
-        this.expirationDateTime = agreementAcceptanceParameterValue?.expirationDateTime ;
-        this.recordedDateTime = agreementAcceptanceParameterValue?.recordedDateTime ;
-        this.state = agreementAcceptanceParameterValue?.state ;
-        this.userDisplayName = agreementAcceptanceParameterValue?.userDisplayName ;
-        this.userEmail = agreementAcceptanceParameterValue?.userEmail ;
-        this.userId = agreementAcceptanceParameterValue?.userId ;
-        this.userPrincipalName = agreementAcceptanceParameterValue?.userPrincipalName ;
+        super(agreementAcceptanceParameterValue);
+        this.agreementFileId = agreementAcceptanceParameterValue?.agreementFileId;
+        this.agreementId = agreementAcceptanceParameterValue?.agreementId;
+        this.deviceDisplayName = agreementAcceptanceParameterValue?.deviceDisplayName;
+        this.deviceId = agreementAcceptanceParameterValue?.deviceId;
+        this.deviceOSType = agreementAcceptanceParameterValue?.deviceOSType;
+        this.deviceOSVersion = agreementAcceptanceParameterValue?.deviceOSVersion;
+        this.expirationDateTime = agreementAcceptanceParameterValue?.expirationDateTime;
+        this.recordedDateTime = agreementAcceptanceParameterValue?.recordedDateTime;
+        this.state = agreementAcceptanceParameterValue?.state;
+        this.userDisplayName = agreementAcceptanceParameterValue?.userDisplayName;
+        this.userEmail = agreementAcceptanceParameterValue?.userEmail;
+        this.userId = agreementAcceptanceParameterValue?.userId;
+        this.userPrincipalName = agreementAcceptanceParameterValue?.userPrincipalName;
     };
     /**
      * The deserialization information for the current model
@@ -80,43 +80,43 @@ export class AgreementAcceptanceImpl extends EntityImpl implements AgreementAcce
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.agreementFileId){
-        writer.writeStringValue("agreementFileId", this.agreementFileId);
+            writer.writeStringValue("agreementFileId", this.agreementFileId);
         }
         if(this.agreementId){
-        writer.writeStringValue("agreementId", this.agreementId);
+            writer.writeStringValue("agreementId", this.agreementId);
         }
         if(this.deviceDisplayName){
-        writer.writeStringValue("deviceDisplayName", this.deviceDisplayName);
+            writer.writeStringValue("deviceDisplayName", this.deviceDisplayName);
         }
         if(this.deviceId){
-        writer.writeStringValue("deviceId", this.deviceId);
+            writer.writeStringValue("deviceId", this.deviceId);
         }
         if(this.deviceOSType){
-        writer.writeStringValue("deviceOSType", this.deviceOSType);
+            writer.writeStringValue("deviceOSType", this.deviceOSType);
         }
         if(this.deviceOSVersion){
-        writer.writeStringValue("deviceOSVersion", this.deviceOSVersion);
+            writer.writeStringValue("deviceOSVersion", this.deviceOSVersion);
         }
         if(this.expirationDateTime){
-        writer.writeDateValue("expirationDateTime", this.expirationDateTime);
+            writer.writeDateValue("expirationDateTime", this.expirationDateTime);
         }
         if(this.recordedDateTime){
-        writer.writeDateValue("recordedDateTime", this.recordedDateTime);
+            writer.writeDateValue("recordedDateTime", this.recordedDateTime);
         }
         if(this.state){
-        writer.writeEnumValue<AgreementAcceptanceState>("state", this.state);
+            writer.writeEnumValue<AgreementAcceptanceState>("state", this.state);
         }
         if(this.userDisplayName){
-        writer.writeStringValue("userDisplayName", this.userDisplayName);
+            writer.writeStringValue("userDisplayName", this.userDisplayName);
         }
         if(this.userEmail){
-        writer.writeStringValue("userEmail", this.userEmail);
+            writer.writeStringValue("userEmail", this.userEmail);
         }
         if(this.userId){
-        writer.writeStringValue("userId", this.userId);
+            writer.writeStringValue("userId", this.userId);
         }
         if(this.userPrincipalName){
-        writer.writeStringValue("userPrincipalName", this.userPrincipalName);
+            writer.writeStringValue("userPrincipalName", this.userPrincipalName);
         }
     };
 }

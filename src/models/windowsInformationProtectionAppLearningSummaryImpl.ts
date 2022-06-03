@@ -4,7 +4,7 @@ import {WindowsInformationProtectionAppLearningSummary} from './windowsInformati
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Windows Information Protection AppLearning Summary entity. */
-export class WindowsInformationProtectionAppLearningSummaryImpl extends EntityImpl implements Parsable, WindowsInformationProtectionAppLearningSummary {
+export class WindowsInformationProtectionAppLearningSummaryImpl extends EntityImpl implements WindowsInformationProtectionAppLearningSummary {
     /** Application Name */
     public applicationName?: string | undefined;
     /** Application Type. Possible values are: universal, desktop. */
@@ -16,10 +16,10 @@ export class WindowsInformationProtectionAppLearningSummaryImpl extends EntityIm
      * @param windowsInformationProtectionAppLearningSummaryParameterValue 
      */
     public constructor(windowsInformationProtectionAppLearningSummaryParameterValue?: WindowsInformationProtectionAppLearningSummary | undefined) {
-        super();
-        this.applicationName = windowsInformationProtectionAppLearningSummaryParameterValue?.applicationName ;
-        this.applicationType = windowsInformationProtectionAppLearningSummaryParameterValue?.applicationType ;
-        this.deviceCount = windowsInformationProtectionAppLearningSummaryParameterValue?.deviceCount ;
+        super(windowsInformationProtectionAppLearningSummaryParameterValue);
+        this.applicationName = windowsInformationProtectionAppLearningSummaryParameterValue?.applicationName;
+        this.applicationType = windowsInformationProtectionAppLearningSummaryParameterValue?.applicationType;
+        this.deviceCount = windowsInformationProtectionAppLearningSummaryParameterValue?.deviceCount;
     };
     /**
      * The deserialization information for the current model
@@ -40,13 +40,13 @@ export class WindowsInformationProtectionAppLearningSummaryImpl extends EntityIm
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.applicationName){
-        writer.writeStringValue("applicationName", this.applicationName);
+            writer.writeStringValue("applicationName", this.applicationName);
         }
         if(this.applicationType){
-        writer.writeEnumValue<ApplicationType>("applicationType", this.applicationType);
+            writer.writeEnumValue<ApplicationType>("applicationType", this.applicationType);
         }
         if(this.deviceCount){
-        writer.writeNumberValue("deviceCount", this.deviceCount);
+            writer.writeNumberValue("deviceCount", this.deviceCount);
         }
     };
 }

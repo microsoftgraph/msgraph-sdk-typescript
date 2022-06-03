@@ -4,7 +4,7 @@ import {ManagedAppAvailability} from './managedAppAvailability';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Abstract class that contains properties and inherited properties for apps that you can manage with an Intune app protection policy. */
-export class ManagedAppImpl extends MobileAppImpl implements ManagedApp, Parsable {
+export class ManagedAppImpl extends MobileAppImpl implements ManagedApp {
     /** The Application's availability. Possible values are: global, lineOfBusiness. */
     public appAvailability?: ManagedAppAvailability | undefined;
     /** The Application's version. */
@@ -14,9 +14,9 @@ export class ManagedAppImpl extends MobileAppImpl implements ManagedApp, Parsabl
      * @param managedAppParameterValue 
      */
     public constructor(managedAppParameterValue?: ManagedApp | undefined) {
-        super();
-        this.appAvailability = managedAppParameterValue?.appAvailability ;
-        this.version = managedAppParameterValue?.version ;
+        super(managedAppParameterValue);
+        this.appAvailability = managedAppParameterValue?.appAvailability;
+        this.version = managedAppParameterValue?.version;
     };
     /**
      * The deserialization information for the current model
@@ -36,10 +36,10 @@ export class ManagedAppImpl extends MobileAppImpl implements ManagedApp, Parsabl
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.appAvailability){
-        writer.writeEnumValue<ManagedAppAvailability>("appAvailability", this.appAvailability);
+            writer.writeEnumValue<ManagedAppAvailability>("appAvailability", this.appAvailability);
         }
         if(this.version){
-        writer.writeStringValue("version", this.version);
+            writer.writeStringValue("version", this.version);
         }
     };
 }

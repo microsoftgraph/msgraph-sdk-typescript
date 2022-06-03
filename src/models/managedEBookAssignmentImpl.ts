@@ -6,7 +6,7 @@ import {ManagedEBookAssignment} from './managedEBookAssignment';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Contains properties used to assign a eBook to a group. */
-export class ManagedEBookAssignmentImpl extends EntityImpl implements ManagedEBookAssignment, Parsable {
+export class ManagedEBookAssignmentImpl extends EntityImpl implements ManagedEBookAssignment {
     /** The install intent for eBook. Possible values are: available, required, uninstall, availableWithoutEnrollment. */
     public installIntent?: InstallIntent | undefined;
     /** The assignment target for eBook. */
@@ -16,9 +16,9 @@ export class ManagedEBookAssignmentImpl extends EntityImpl implements ManagedEBo
      * @param managedEBookAssignmentParameterValue 
      */
     public constructor(managedEBookAssignmentParameterValue?: ManagedEBookAssignment | undefined) {
-        super();
-        this.installIntent = managedEBookAssignmentParameterValue?.installIntent ;
-        this.target = managedEBookAssignmentParameterValue?.target ;
+        super(managedEBookAssignmentParameterValue);
+        this.installIntent = managedEBookAssignmentParameterValue?.installIntent;
+        this.target = managedEBookAssignmentParameterValue?.target;
     };
     /**
      * The deserialization information for the current model
@@ -38,10 +38,10 @@ export class ManagedEBookAssignmentImpl extends EntityImpl implements ManagedEBo
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.installIntent){
-        writer.writeEnumValue<InstallIntent>("installIntent", this.installIntent);
+            writer.writeEnumValue<InstallIntent>("installIntent", this.installIntent);
         }
         if(this.target){
-        writer.writeObjectValue<DeviceAndAppManagementAssignmentTargetImpl>("target", new DeviceAndAppManagementAssignmentTargetImpl(this.target));
+            writer.writeObjectValue<DeviceAndAppManagementAssignmentTargetImpl>("target", new DeviceAndAppManagementAssignmentTargetImpl(this.target));
         }
     };
 }

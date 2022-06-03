@@ -11,7 +11,7 @@ import {ServiceUpdateSeverity} from './serviceUpdateSeverity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the admin singleton. */
-export class ServiceUpdateMessageImpl extends ServiceAnnouncementBaseImpl implements Parsable, ServiceUpdateMessage {
+export class ServiceUpdateMessageImpl extends ServiceAnnouncementBaseImpl implements ServiceUpdateMessage {
     /** The expected deadline of the action for the message. */
     public actionRequiredByDateTime?: Date | undefined;
     /** A collection of serviceAnnouncementAttachments. */
@@ -39,18 +39,18 @@ export class ServiceUpdateMessageImpl extends ServiceAnnouncementBaseImpl implem
      * @param serviceUpdateMessageParameterValue 
      */
     public constructor(serviceUpdateMessageParameterValue?: ServiceUpdateMessage | undefined) {
-        super();
-        this.actionRequiredByDateTime = serviceUpdateMessageParameterValue?.actionRequiredByDateTime ;
-        this.attachments = serviceUpdateMessageParameterValue?.attachments ;
-        this.attachmentsArchive = serviceUpdateMessageParameterValue?.attachmentsArchive ;
-        this.body = serviceUpdateMessageParameterValue?.body ;
-        this.category = serviceUpdateMessageParameterValue?.category ;
-        this.hasAttachments = serviceUpdateMessageParameterValue?.hasAttachments ;
-        this.isMajorChange = serviceUpdateMessageParameterValue?.isMajorChange ;
-        this.services = serviceUpdateMessageParameterValue?.services ;
-        this.severity = serviceUpdateMessageParameterValue?.severity ;
-        this.tags = serviceUpdateMessageParameterValue?.tags ;
-        this.viewPoint = serviceUpdateMessageParameterValue?.viewPoint ;
+        super(serviceUpdateMessageParameterValue);
+        this.actionRequiredByDateTime = serviceUpdateMessageParameterValue?.actionRequiredByDateTime;
+        this.attachments = serviceUpdateMessageParameterValue?.attachments;
+        this.attachmentsArchive = serviceUpdateMessageParameterValue?.attachmentsArchive;
+        this.body = serviceUpdateMessageParameterValue?.body;
+        this.category = serviceUpdateMessageParameterValue?.category;
+        this.hasAttachments = serviceUpdateMessageParameterValue?.hasAttachments;
+        this.isMajorChange = serviceUpdateMessageParameterValue?.isMajorChange;
+        this.services = serviceUpdateMessageParameterValue?.services;
+        this.severity = serviceUpdateMessageParameterValue?.severity;
+        this.tags = serviceUpdateMessageParameterValue?.tags;
+        this.viewPoint = serviceUpdateMessageParameterValue?.viewPoint;
     };
     /**
      * The deserialization information for the current model
@@ -79,37 +79,37 @@ export class ServiceUpdateMessageImpl extends ServiceAnnouncementBaseImpl implem
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.actionRequiredByDateTime){
-        writer.writeDateValue("actionRequiredByDateTime", this.actionRequiredByDateTime);
+            writer.writeDateValue("actionRequiredByDateTime", this.actionRequiredByDateTime);
         }
         if(this.attachments && this.attachments.length != 0){        const attachmentsArrValue: ServiceAnnouncementAttachmentImpl[] = []; this.attachments?.forEach(element => {attachmentsArrValue.push(new ServiceAnnouncementAttachmentImpl(element));});
-        writer.writeCollectionOfObjectValues<ServiceAnnouncementAttachmentImpl>("attachments", attachmentsArrValue);
+            writer.writeCollectionOfObjectValues<ServiceAnnouncementAttachmentImpl>("attachments", attachmentsArrValue);
         }
         if(this.attachmentsArchive){
-        writer.writeStringValue("attachmentsArchive", this.attachmentsArchive);
+            writer.writeStringValue("attachmentsArchive", this.attachmentsArchive);
         }
         if(this.body){
-        writer.writeObjectValue<ItemBodyImpl>("body", new ItemBodyImpl(this.body));
+            writer.writeObjectValue<ItemBodyImpl>("body", new ItemBodyImpl(this.body));
         }
         if(this.category){
-        writer.writeEnumValue<ServiceUpdateCategory>("category", this.category);
+            writer.writeEnumValue<ServiceUpdateCategory>("category", this.category);
         }
         if(this.hasAttachments){
-        writer.writeBooleanValue("hasAttachments", this.hasAttachments);
+            writer.writeBooleanValue("hasAttachments", this.hasAttachments);
         }
         if(this.isMajorChange){
-        writer.writeBooleanValue("isMajorChange", this.isMajorChange);
+            writer.writeBooleanValue("isMajorChange", this.isMajorChange);
         }
         if(this.services){
-        writer.writeCollectionOfPrimitiveValues<string>("services", this.services);
+            writer.writeCollectionOfPrimitiveValues<string>("services", this.services);
         }
         if(this.severity){
-        writer.writeEnumValue<ServiceUpdateSeverity>("severity", this.severity);
+            writer.writeEnumValue<ServiceUpdateSeverity>("severity", this.severity);
         }
         if(this.tags){
-        writer.writeCollectionOfPrimitiveValues<string>("tags", this.tags);
+            writer.writeCollectionOfPrimitiveValues<string>("tags", this.tags);
         }
         if(this.viewPoint){
-        writer.writeObjectValue<ServiceUpdateMessageViewpointImpl>("viewPoint", new ServiceUpdateMessageViewpointImpl(this.viewPoint));
+            writer.writeObjectValue<ServiceUpdateMessageViewpointImpl>("viewPoint", new ServiceUpdateMessageViewpointImpl(this.viewPoint));
         }
     };
 }

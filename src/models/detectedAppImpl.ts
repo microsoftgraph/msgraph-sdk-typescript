@@ -5,7 +5,7 @@ import {ManagedDevice} from './managedDevice';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** A managed or unmanaged app that is installed on a managed device. Unmanaged apps will only appear for devices marked as corporate owned. */
-export class DetectedAppImpl extends EntityImpl implements DetectedApp, Parsable {
+export class DetectedAppImpl extends EntityImpl implements DetectedApp {
     /** The number of devices that have installed this application */
     public deviceCount?: number | undefined;
     /** Name of the discovered application. Read-only */
@@ -21,12 +21,12 @@ export class DetectedAppImpl extends EntityImpl implements DetectedApp, Parsable
      * @param detectedAppParameterValue 
      */
     public constructor(detectedAppParameterValue?: DetectedApp | undefined) {
-        super();
-        this.deviceCount = detectedAppParameterValue?.deviceCount ;
-        this.displayName = detectedAppParameterValue?.displayName ;
-        this.managedDevices = detectedAppParameterValue?.managedDevices ;
-        this.sizeInByte = detectedAppParameterValue?.sizeInByte ;
-        this.version = detectedAppParameterValue?.version ;
+        super(detectedAppParameterValue);
+        this.deviceCount = detectedAppParameterValue?.deviceCount;
+        this.displayName = detectedAppParameterValue?.displayName;
+        this.managedDevices = detectedAppParameterValue?.managedDevices;
+        this.sizeInByte = detectedAppParameterValue?.sizeInByte;
+        this.version = detectedAppParameterValue?.version;
     };
     /**
      * The deserialization information for the current model
@@ -49,19 +49,19 @@ export class DetectedAppImpl extends EntityImpl implements DetectedApp, Parsable
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.deviceCount){
-        writer.writeNumberValue("deviceCount", this.deviceCount);
+            writer.writeNumberValue("deviceCount", this.deviceCount);
         }
         if(this.displayName){
-        writer.writeStringValue("displayName", this.displayName);
+            writer.writeStringValue("displayName", this.displayName);
         }
         if(this.managedDevices && this.managedDevices.length != 0){        const managedDevicesArrValue: ManagedDeviceImpl[] = []; this.managedDevices?.forEach(element => {managedDevicesArrValue.push(new ManagedDeviceImpl(element));});
-        writer.writeCollectionOfObjectValues<ManagedDeviceImpl>("managedDevices", managedDevicesArrValue);
+            writer.writeCollectionOfObjectValues<ManagedDeviceImpl>("managedDevices", managedDevicesArrValue);
         }
         if(this.sizeInByte){
-        writer.writeNumberValue("sizeInByte", this.sizeInByte);
+            writer.writeNumberValue("sizeInByte", this.sizeInByte);
         }
         if(this.version){
-        writer.writeStringValue("version", this.version);
+            writer.writeStringValue("version", this.version);
         }
     };
 }

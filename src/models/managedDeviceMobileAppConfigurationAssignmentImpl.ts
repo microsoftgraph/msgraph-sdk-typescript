@@ -5,7 +5,7 @@ import {ManagedDeviceMobileAppConfigurationAssignment} from './managedDeviceMobi
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Contains the properties used to assign an MDM app configuration to a group. */
-export class ManagedDeviceMobileAppConfigurationAssignmentImpl extends EntityImpl implements ManagedDeviceMobileAppConfigurationAssignment, Parsable {
+export class ManagedDeviceMobileAppConfigurationAssignmentImpl extends EntityImpl implements ManagedDeviceMobileAppConfigurationAssignment {
     /** Assignment target that the T&C policy is assigned to. */
     public target?: DeviceAndAppManagementAssignmentTarget | undefined;
     /**
@@ -13,8 +13,8 @@ export class ManagedDeviceMobileAppConfigurationAssignmentImpl extends EntityImp
      * @param managedDeviceMobileAppConfigurationAssignmentParameterValue 
      */
     public constructor(managedDeviceMobileAppConfigurationAssignmentParameterValue?: ManagedDeviceMobileAppConfigurationAssignment | undefined) {
-        super();
-        this.target = managedDeviceMobileAppConfigurationAssignmentParameterValue?.target ;
+        super(managedDeviceMobileAppConfigurationAssignmentParameterValue);
+        this.target = managedDeviceMobileAppConfigurationAssignmentParameterValue?.target;
     };
     /**
      * The deserialization information for the current model
@@ -33,7 +33,7 @@ export class ManagedDeviceMobileAppConfigurationAssignmentImpl extends EntityImp
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.target){
-        writer.writeObjectValue<DeviceAndAppManagementAssignmentTargetImpl>("target", new DeviceAndAppManagementAssignmentTargetImpl(this.target));
+            writer.writeObjectValue<DeviceAndAppManagementAssignmentTargetImpl>("target", new DeviceAndAppManagementAssignmentTargetImpl(this.target));
         }
     };
 }

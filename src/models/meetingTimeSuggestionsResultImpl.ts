@@ -4,7 +4,7 @@ import {MeetingTimeSuggestion} from './meetingTimeSuggestion';
 import {MeetingTimeSuggestionsResult} from './meetingTimeSuggestionsResult';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class MeetingTimeSuggestionsResultImpl implements AdditionalDataHolder, MeetingTimeSuggestionsResult, Parsable {
+export class MeetingTimeSuggestionsResultImpl implements MeetingTimeSuggestionsResult {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** A reason for not returning any meeting suggestions. Possible values are: attendeesUnavailable, attendeesUnavailableOrUnknown, locationsUnavailable, organizerUnavailable, or unknown. This property is an empty string if the meetingTimeSuggestions property does include any meeting suggestions. */
@@ -16,9 +16,9 @@ export class MeetingTimeSuggestionsResultImpl implements AdditionalDataHolder, M
      * @param meetingTimeSuggestionsResultParameterValue 
      */
     public constructor(meetingTimeSuggestionsResultParameterValue?: MeetingTimeSuggestionsResult | undefined) {
-        this.additionalData = meetingTimeSuggestionsResultParameterValue?.additionalData ? meetingTimeSuggestionsResultParameterValue?.additionalData! : {}
-        this.emptySuggestionsReason = meetingTimeSuggestionsResultParameterValue?.emptySuggestionsReason ;
-        this.meetingTimeSuggestions = meetingTimeSuggestionsResultParameterValue?.meetingTimeSuggestions ;
+        this.additionalData = meetingTimeSuggestionsResultParameterValue?.additionalData ? meetingTimeSuggestionsResultParameterValue?.additionalData! : {};
+        this.emptySuggestionsReason = meetingTimeSuggestionsResultParameterValue?.emptySuggestionsReason;
+        this.meetingTimeSuggestions = meetingTimeSuggestionsResultParameterValue?.meetingTimeSuggestions;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class MeetingTimeSuggestionsResultImpl implements AdditionalDataHolder, M
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.emptySuggestionsReason){
-        writer.writeStringValue("emptySuggestionsReason", this.emptySuggestionsReason);
+            writer.writeStringValue("emptySuggestionsReason", this.emptySuggestionsReason);
         }
         if(this.meetingTimeSuggestions && this.meetingTimeSuggestions.length != 0){        const meetingTimeSuggestionsArrValue: MeetingTimeSuggestionImpl[] = []; this.meetingTimeSuggestions?.forEach(element => {meetingTimeSuggestionsArrValue.push(new MeetingTimeSuggestionImpl(element));});
-        writer.writeCollectionOfObjectValues<MeetingTimeSuggestionImpl>("meetingTimeSuggestions", meetingTimeSuggestionsArrValue);
+            writer.writeCollectionOfObjectValues<MeetingTimeSuggestionImpl>("meetingTimeSuggestions", meetingTimeSuggestionsArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

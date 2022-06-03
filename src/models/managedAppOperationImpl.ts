@@ -3,7 +3,7 @@ import {ManagedAppOperation} from './managedAppOperation';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Represents an operation applied against an app registration. */
-export class ManagedAppOperationImpl extends EntityImpl implements ManagedAppOperation, Parsable {
+export class ManagedAppOperationImpl extends EntityImpl implements ManagedAppOperation {
     /** The operation name. */
     public displayName?: string | undefined;
     /** The last time the app operation was modified. */
@@ -17,11 +17,11 @@ export class ManagedAppOperationImpl extends EntityImpl implements ManagedAppOpe
      * @param managedAppOperationParameterValue 
      */
     public constructor(managedAppOperationParameterValue?: ManagedAppOperation | undefined) {
-        super();
-        this.displayName = managedAppOperationParameterValue?.displayName ;
-        this.lastModifiedDateTime = managedAppOperationParameterValue?.lastModifiedDateTime ;
-        this.state = managedAppOperationParameterValue?.state ;
-        this.version = managedAppOperationParameterValue?.version ;
+        super(managedAppOperationParameterValue);
+        this.displayName = managedAppOperationParameterValue?.displayName;
+        this.lastModifiedDateTime = managedAppOperationParameterValue?.lastModifiedDateTime;
+        this.state = managedAppOperationParameterValue?.state;
+        this.version = managedAppOperationParameterValue?.version;
     };
     /**
      * The deserialization information for the current model
@@ -43,16 +43,16 @@ export class ManagedAppOperationImpl extends EntityImpl implements ManagedAppOpe
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.displayName){
-        writer.writeStringValue("displayName", this.displayName);
+            writer.writeStringValue("displayName", this.displayName);
         }
         if(this.lastModifiedDateTime){
-        writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
+            writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
         }
         if(this.state){
-        writer.writeStringValue("state", this.state);
+            writer.writeStringValue("state", this.state);
         }
         if(this.version){
-        writer.writeStringValue("version", this.version);
+            writer.writeStringValue("version", this.version);
         }
     };
 }

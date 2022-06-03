@@ -1,7 +1,7 @@
 import {SecureScoreControlStateUpdate} from './secureScoreControlStateUpdate';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class SecureScoreControlStateUpdateImpl implements AdditionalDataHolder, Parsable, SecureScoreControlStateUpdate {
+export class SecureScoreControlStateUpdateImpl implements SecureScoreControlStateUpdate {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Assigns the control to the user who will take the action. */
@@ -19,12 +19,12 @@ export class SecureScoreControlStateUpdateImpl implements AdditionalDataHolder, 
      * @param secureScoreControlStateUpdateParameterValue 
      */
     public constructor(secureScoreControlStateUpdateParameterValue?: SecureScoreControlStateUpdate | undefined) {
-        this.additionalData = secureScoreControlStateUpdateParameterValue?.additionalData ? secureScoreControlStateUpdateParameterValue?.additionalData! : {}
-        this.assignedTo = secureScoreControlStateUpdateParameterValue?.assignedTo ;
-        this.comment = secureScoreControlStateUpdateParameterValue?.comment ;
-        this.state = secureScoreControlStateUpdateParameterValue?.state ;
-        this.updatedBy = secureScoreControlStateUpdateParameterValue?.updatedBy ;
-        this.updatedDateTime = secureScoreControlStateUpdateParameterValue?.updatedDateTime ;
+        this.additionalData = secureScoreControlStateUpdateParameterValue?.additionalData ? secureScoreControlStateUpdateParameterValue?.additionalData! : {};
+        this.assignedTo = secureScoreControlStateUpdateParameterValue?.assignedTo;
+        this.comment = secureScoreControlStateUpdateParameterValue?.comment;
+        this.state = secureScoreControlStateUpdateParameterValue?.state;
+        this.updatedBy = secureScoreControlStateUpdateParameterValue?.updatedBy;
+        this.updatedDateTime = secureScoreControlStateUpdateParameterValue?.updatedDateTime;
     };
     /**
      * The deserialization information for the current model
@@ -46,19 +46,19 @@ export class SecureScoreControlStateUpdateImpl implements AdditionalDataHolder, 
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.assignedTo){
-        writer.writeStringValue("assignedTo", this.assignedTo);
+            writer.writeStringValue("assignedTo", this.assignedTo);
         }
         if(this.comment){
-        writer.writeStringValue("comment", this.comment);
+            writer.writeStringValue("comment", this.comment);
         }
         if(this.state){
-        writer.writeStringValue("state", this.state);
+            writer.writeStringValue("state", this.state);
         }
         if(this.updatedBy){
-        writer.writeStringValue("updatedBy", this.updatedBy);
+            writer.writeStringValue("updatedBy", this.updatedBy);
         }
         if(this.updatedDateTime){
-        writer.writeDateValue("updatedDateTime", this.updatedDateTime);
+            writer.writeDateValue("updatedDateTime", this.updatedDateTime);
         }
         writer.writeAdditionalData(this.additionalData);
     };

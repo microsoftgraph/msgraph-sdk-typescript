@@ -3,13 +3,13 @@ import {UnmuteParticipantOperation} from './unmuteParticipantOperation';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the unmute method. */
-export class UnmuteParticipantOperationImpl extends CommsOperationImpl implements Parsable, UnmuteParticipantOperation {
+export class UnmuteParticipantOperationImpl extends CommsOperationImpl implements UnmuteParticipantOperation {
     /**
      * Instantiates a new unmuteParticipantOperation and sets the default values.
      * @param unmuteParticipantOperationParameterValue 
      */
     public constructor(unmuteParticipantOperationParameterValue?: UnmuteParticipantOperation | undefined) {
-        super();
+        super(unmuteParticipantOperationParameterValue);
     };
     /**
      * The deserialization information for the current model

@@ -6,8 +6,8 @@ import {WorkbookChartFont} from './workbookChartFont';
 import {WorkbookChartLegendFormat} from './workbookChartLegendFormat';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
-export class WorkbookChartLegendFormatImpl extends EntityImpl implements Parsable, WorkbookChartLegendFormat {
+/** Casts the previous resource to group. */
+export class WorkbookChartLegendFormatImpl extends EntityImpl implements WorkbookChartLegendFormat {
     /** Represents the fill format of an object, which includes background formating information. Read-only. */
     public fill?: WorkbookChartFill | undefined;
     /** Represents the font attributes such as font name, font size, color, etc. of a chart legend. Read-only. */
@@ -17,9 +17,9 @@ export class WorkbookChartLegendFormatImpl extends EntityImpl implements Parsabl
      * @param workbookChartLegendFormatParameterValue 
      */
     public constructor(workbookChartLegendFormatParameterValue?: WorkbookChartLegendFormat | undefined) {
-        super();
-        this.fill = workbookChartLegendFormatParameterValue?.fill ;
-        this.font = workbookChartLegendFormatParameterValue?.font ;
+        super(workbookChartLegendFormatParameterValue);
+        this.fill = workbookChartLegendFormatParameterValue?.fill;
+        this.font = workbookChartLegendFormatParameterValue?.font;
     };
     /**
      * The deserialization information for the current model
@@ -39,10 +39,10 @@ export class WorkbookChartLegendFormatImpl extends EntityImpl implements Parsabl
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.fill){
-        writer.writeObjectValue<WorkbookChartFillImpl>("fill", new WorkbookChartFillImpl(this.fill));
+            writer.writeObjectValue<WorkbookChartFillImpl>("fill", new WorkbookChartFillImpl(this.fill));
         }
         if(this.font){
-        writer.writeObjectValue<WorkbookChartFontImpl>("font", new WorkbookChartFontImpl(this.font));
+            writer.writeObjectValue<WorkbookChartFontImpl>("font", new WorkbookChartFontImpl(this.font));
         }
     };
 }

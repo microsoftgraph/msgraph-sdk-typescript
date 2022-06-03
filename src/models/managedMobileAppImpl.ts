@@ -5,7 +5,7 @@ import {MobileAppIdentifier} from './mobileAppIdentifier';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** The identifier for the deployment an app. */
-export class ManagedMobileAppImpl extends EntityImpl implements ManagedMobileApp, Parsable {
+export class ManagedMobileAppImpl extends EntityImpl implements ManagedMobileApp {
     /** The identifier for an app with it's operating system type. */
     public mobileAppIdentifier?: MobileAppIdentifier | undefined;
     /** Version of the entity. */
@@ -15,9 +15,9 @@ export class ManagedMobileAppImpl extends EntityImpl implements ManagedMobileApp
      * @param managedMobileAppParameterValue 
      */
     public constructor(managedMobileAppParameterValue?: ManagedMobileApp | undefined) {
-        super();
-        this.mobileAppIdentifier = managedMobileAppParameterValue?.mobileAppIdentifier ;
-        this.version = managedMobileAppParameterValue?.version ;
+        super(managedMobileAppParameterValue);
+        this.mobileAppIdentifier = managedMobileAppParameterValue?.mobileAppIdentifier;
+        this.version = managedMobileAppParameterValue?.version;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class ManagedMobileAppImpl extends EntityImpl implements ManagedMobileApp
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.mobileAppIdentifier){
-        writer.writeObjectValue<MobileAppIdentifierImpl>("mobileAppIdentifier", new MobileAppIdentifierImpl(this.mobileAppIdentifier));
+            writer.writeObjectValue<MobileAppIdentifierImpl>("mobileAppIdentifier", new MobileAppIdentifierImpl(this.mobileAppIdentifier));
         }
         if(this.version){
-        writer.writeStringValue("version", this.version);
+            writer.writeStringValue("version", this.version);
         }
     };
 }

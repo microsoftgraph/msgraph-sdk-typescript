@@ -7,7 +7,7 @@ import {ManagedBrowserType} from './managedBrowserType';
 import {Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Policy used to configure detailed management settings for a specified set of apps */
-export class ManagedAppProtectionImpl extends ManagedAppPolicyImpl implements ManagedAppProtection, Parsable {
+export class ManagedAppProtectionImpl extends ManagedAppPolicyImpl implements ManagedAppProtection {
     /** Data storage locations where a user may store managed data. */
     public allowedDataStorageLocations?: string[] | undefined;
     /** Sources from which data is allowed to be transferred. Possible values are: allApps, managedApps, none. */
@@ -67,34 +67,34 @@ export class ManagedAppProtectionImpl extends ManagedAppPolicyImpl implements Ma
      * @param managedAppProtectionParameterValue 
      */
     public constructor(managedAppProtectionParameterValue?: ManagedAppProtection | undefined) {
-        super();
-        this.allowedDataStorageLocations = managedAppProtectionParameterValue?.allowedDataStorageLocations ;
-        this.allowedInboundDataTransferSources = managedAppProtectionParameterValue?.allowedInboundDataTransferSources ;
-        this.allowedOutboundClipboardSharingLevel = managedAppProtectionParameterValue?.allowedOutboundClipboardSharingLevel ;
-        this.allowedOutboundDataTransferDestinations = managedAppProtectionParameterValue?.allowedOutboundDataTransferDestinations ;
-        this.contactSyncBlocked = managedAppProtectionParameterValue?.contactSyncBlocked ;
-        this.dataBackupBlocked = managedAppProtectionParameterValue?.dataBackupBlocked ;
-        this.deviceComplianceRequired = managedAppProtectionParameterValue?.deviceComplianceRequired ;
-        this.disableAppPinIfDevicePinIsSet = managedAppProtectionParameterValue?.disableAppPinIfDevicePinIsSet ;
-        this.fingerprintBlocked = managedAppProtectionParameterValue?.fingerprintBlocked ;
-        this.managedBrowser = managedAppProtectionParameterValue?.managedBrowser ;
-        this.managedBrowserToOpenLinksRequired = managedAppProtectionParameterValue?.managedBrowserToOpenLinksRequired ;
-        this.maximumPinRetries = managedAppProtectionParameterValue?.maximumPinRetries ;
-        this.minimumPinLength = managedAppProtectionParameterValue?.minimumPinLength ;
-        this.minimumRequiredAppVersion = managedAppProtectionParameterValue?.minimumRequiredAppVersion ;
-        this.minimumRequiredOsVersion = managedAppProtectionParameterValue?.minimumRequiredOsVersion ;
-        this.minimumWarningAppVersion = managedAppProtectionParameterValue?.minimumWarningAppVersion ;
-        this.minimumWarningOsVersion = managedAppProtectionParameterValue?.minimumWarningOsVersion ;
-        this.organizationalCredentialsRequired = managedAppProtectionParameterValue?.organizationalCredentialsRequired ;
-        this.periodBeforePinReset = managedAppProtectionParameterValue?.periodBeforePinReset ;
-        this.periodOfflineBeforeAccessCheck = managedAppProtectionParameterValue?.periodOfflineBeforeAccessCheck ;
-        this.periodOfflineBeforeWipeIsEnforced = managedAppProtectionParameterValue?.periodOfflineBeforeWipeIsEnforced ;
-        this.periodOnlineBeforeAccessCheck = managedAppProtectionParameterValue?.periodOnlineBeforeAccessCheck ;
-        this.pinCharacterSet = managedAppProtectionParameterValue?.pinCharacterSet ;
-        this.pinRequired = managedAppProtectionParameterValue?.pinRequired ;
-        this.printBlocked = managedAppProtectionParameterValue?.printBlocked ;
-        this.saveAsBlocked = managedAppProtectionParameterValue?.saveAsBlocked ;
-        this.simplePinBlocked = managedAppProtectionParameterValue?.simplePinBlocked ;
+        super(managedAppProtectionParameterValue);
+        this.allowedDataStorageLocations = managedAppProtectionParameterValue?.allowedDataStorageLocations;
+        this.allowedInboundDataTransferSources = managedAppProtectionParameterValue?.allowedInboundDataTransferSources;
+        this.allowedOutboundClipboardSharingLevel = managedAppProtectionParameterValue?.allowedOutboundClipboardSharingLevel;
+        this.allowedOutboundDataTransferDestinations = managedAppProtectionParameterValue?.allowedOutboundDataTransferDestinations;
+        this.contactSyncBlocked = managedAppProtectionParameterValue?.contactSyncBlocked;
+        this.dataBackupBlocked = managedAppProtectionParameterValue?.dataBackupBlocked;
+        this.deviceComplianceRequired = managedAppProtectionParameterValue?.deviceComplianceRequired;
+        this.disableAppPinIfDevicePinIsSet = managedAppProtectionParameterValue?.disableAppPinIfDevicePinIsSet;
+        this.fingerprintBlocked = managedAppProtectionParameterValue?.fingerprintBlocked;
+        this.managedBrowser = managedAppProtectionParameterValue?.managedBrowser;
+        this.managedBrowserToOpenLinksRequired = managedAppProtectionParameterValue?.managedBrowserToOpenLinksRequired;
+        this.maximumPinRetries = managedAppProtectionParameterValue?.maximumPinRetries;
+        this.minimumPinLength = managedAppProtectionParameterValue?.minimumPinLength;
+        this.minimumRequiredAppVersion = managedAppProtectionParameterValue?.minimumRequiredAppVersion;
+        this.minimumRequiredOsVersion = managedAppProtectionParameterValue?.minimumRequiredOsVersion;
+        this.minimumWarningAppVersion = managedAppProtectionParameterValue?.minimumWarningAppVersion;
+        this.minimumWarningOsVersion = managedAppProtectionParameterValue?.minimumWarningOsVersion;
+        this.organizationalCredentialsRequired = managedAppProtectionParameterValue?.organizationalCredentialsRequired;
+        this.periodBeforePinReset = managedAppProtectionParameterValue?.periodBeforePinReset;
+        this.periodOfflineBeforeAccessCheck = managedAppProtectionParameterValue?.periodOfflineBeforeAccessCheck;
+        this.periodOfflineBeforeWipeIsEnforced = managedAppProtectionParameterValue?.periodOfflineBeforeWipeIsEnforced;
+        this.periodOnlineBeforeAccessCheck = managedAppProtectionParameterValue?.periodOnlineBeforeAccessCheck;
+        this.pinCharacterSet = managedAppProtectionParameterValue?.pinCharacterSet;
+        this.pinRequired = managedAppProtectionParameterValue?.pinRequired;
+        this.printBlocked = managedAppProtectionParameterValue?.printBlocked;
+        this.saveAsBlocked = managedAppProtectionParameterValue?.saveAsBlocked;
+        this.simplePinBlocked = managedAppProtectionParameterValue?.simplePinBlocked;
     };
     /**
      * The deserialization information for the current model
@@ -139,85 +139,85 @@ export class ManagedAppProtectionImpl extends ManagedAppPolicyImpl implements Ma
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.allowedDataStorageLocations){
-        writer.writeCollectionOfPrimitiveValues<string>("allowedDataStorageLocations", this.allowedDataStorageLocations);
+            writer.writeCollectionOfPrimitiveValues<string>("allowedDataStorageLocations", this.allowedDataStorageLocations);
         }
         if(this.allowedInboundDataTransferSources){
-        writer.writeEnumValue<ManagedAppDataTransferLevel>("allowedInboundDataTransferSources", this.allowedInboundDataTransferSources);
+            writer.writeEnumValue<ManagedAppDataTransferLevel>("allowedInboundDataTransferSources", this.allowedInboundDataTransferSources);
         }
         if(this.allowedOutboundClipboardSharingLevel){
-        writer.writeEnumValue<ManagedAppClipboardSharingLevel>("allowedOutboundClipboardSharingLevel", this.allowedOutboundClipboardSharingLevel);
+            writer.writeEnumValue<ManagedAppClipboardSharingLevel>("allowedOutboundClipboardSharingLevel", this.allowedOutboundClipboardSharingLevel);
         }
         if(this.allowedOutboundDataTransferDestinations){
-        writer.writeEnumValue<ManagedAppDataTransferLevel>("allowedOutboundDataTransferDestinations", this.allowedOutboundDataTransferDestinations);
+            writer.writeEnumValue<ManagedAppDataTransferLevel>("allowedOutboundDataTransferDestinations", this.allowedOutboundDataTransferDestinations);
         }
         if(this.contactSyncBlocked){
-        writer.writeBooleanValue("contactSyncBlocked", this.contactSyncBlocked);
+            writer.writeBooleanValue("contactSyncBlocked", this.contactSyncBlocked);
         }
         if(this.dataBackupBlocked){
-        writer.writeBooleanValue("dataBackupBlocked", this.dataBackupBlocked);
+            writer.writeBooleanValue("dataBackupBlocked", this.dataBackupBlocked);
         }
         if(this.deviceComplianceRequired){
-        writer.writeBooleanValue("deviceComplianceRequired", this.deviceComplianceRequired);
+            writer.writeBooleanValue("deviceComplianceRequired", this.deviceComplianceRequired);
         }
         if(this.disableAppPinIfDevicePinIsSet){
-        writer.writeBooleanValue("disableAppPinIfDevicePinIsSet", this.disableAppPinIfDevicePinIsSet);
+            writer.writeBooleanValue("disableAppPinIfDevicePinIsSet", this.disableAppPinIfDevicePinIsSet);
         }
         if(this.fingerprintBlocked){
-        writer.writeBooleanValue("fingerprintBlocked", this.fingerprintBlocked);
+            writer.writeBooleanValue("fingerprintBlocked", this.fingerprintBlocked);
         }
         if(this.managedBrowser){
-        writer.writeEnumValue<ManagedBrowserType>("managedBrowser", this.managedBrowser);
+            writer.writeEnumValue<ManagedBrowserType>("managedBrowser", this.managedBrowser);
         }
         if(this.managedBrowserToOpenLinksRequired){
-        writer.writeBooleanValue("managedBrowserToOpenLinksRequired", this.managedBrowserToOpenLinksRequired);
+            writer.writeBooleanValue("managedBrowserToOpenLinksRequired", this.managedBrowserToOpenLinksRequired);
         }
         if(this.maximumPinRetries){
-        writer.writeNumberValue("maximumPinRetries", this.maximumPinRetries);
+            writer.writeNumberValue("maximumPinRetries", this.maximumPinRetries);
         }
         if(this.minimumPinLength){
-        writer.writeNumberValue("minimumPinLength", this.minimumPinLength);
+            writer.writeNumberValue("minimumPinLength", this.minimumPinLength);
         }
         if(this.minimumRequiredAppVersion){
-        writer.writeStringValue("minimumRequiredAppVersion", this.minimumRequiredAppVersion);
+            writer.writeStringValue("minimumRequiredAppVersion", this.minimumRequiredAppVersion);
         }
         if(this.minimumRequiredOsVersion){
-        writer.writeStringValue("minimumRequiredOsVersion", this.minimumRequiredOsVersion);
+            writer.writeStringValue("minimumRequiredOsVersion", this.minimumRequiredOsVersion);
         }
         if(this.minimumWarningAppVersion){
-        writer.writeStringValue("minimumWarningAppVersion", this.minimumWarningAppVersion);
+            writer.writeStringValue("minimumWarningAppVersion", this.minimumWarningAppVersion);
         }
         if(this.minimumWarningOsVersion){
-        writer.writeStringValue("minimumWarningOsVersion", this.minimumWarningOsVersion);
+            writer.writeStringValue("minimumWarningOsVersion", this.minimumWarningOsVersion);
         }
         if(this.organizationalCredentialsRequired){
-        writer.writeBooleanValue("organizationalCredentialsRequired", this.organizationalCredentialsRequired);
+            writer.writeBooleanValue("organizationalCredentialsRequired", this.organizationalCredentialsRequired);
         }
         if(this.periodBeforePinReset){
-        writer.writeDurationValue("periodBeforePinReset", this.periodBeforePinReset);
+            writer.writeDurationValue("periodBeforePinReset", this.periodBeforePinReset);
         }
         if(this.periodOfflineBeforeAccessCheck){
-        writer.writeDurationValue("periodOfflineBeforeAccessCheck", this.periodOfflineBeforeAccessCheck);
+            writer.writeDurationValue("periodOfflineBeforeAccessCheck", this.periodOfflineBeforeAccessCheck);
         }
         if(this.periodOfflineBeforeWipeIsEnforced){
-        writer.writeDurationValue("periodOfflineBeforeWipeIsEnforced", this.periodOfflineBeforeWipeIsEnforced);
+            writer.writeDurationValue("periodOfflineBeforeWipeIsEnforced", this.periodOfflineBeforeWipeIsEnforced);
         }
         if(this.periodOnlineBeforeAccessCheck){
-        writer.writeDurationValue("periodOnlineBeforeAccessCheck", this.periodOnlineBeforeAccessCheck);
+            writer.writeDurationValue("periodOnlineBeforeAccessCheck", this.periodOnlineBeforeAccessCheck);
         }
         if(this.pinCharacterSet){
-        writer.writeEnumValue<ManagedAppPinCharacterSet>("pinCharacterSet", this.pinCharacterSet);
+            writer.writeEnumValue<ManagedAppPinCharacterSet>("pinCharacterSet", this.pinCharacterSet);
         }
         if(this.pinRequired){
-        writer.writeBooleanValue("pinRequired", this.pinRequired);
+            writer.writeBooleanValue("pinRequired", this.pinRequired);
         }
         if(this.printBlocked){
-        writer.writeBooleanValue("printBlocked", this.printBlocked);
+            writer.writeBooleanValue("printBlocked", this.printBlocked);
         }
         if(this.saveAsBlocked){
-        writer.writeBooleanValue("saveAsBlocked", this.saveAsBlocked);
+            writer.writeBooleanValue("saveAsBlocked", this.saveAsBlocked);
         }
         if(this.simplePinBlocked){
-        writer.writeBooleanValue("simplePinBlocked", this.simplePinBlocked);
+            writer.writeBooleanValue("simplePinBlocked", this.simplePinBlocked);
         }
     };
 }

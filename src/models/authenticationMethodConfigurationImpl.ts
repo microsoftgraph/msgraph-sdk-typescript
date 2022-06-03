@@ -4,7 +4,7 @@ import {EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the collection of authenticationMethodConfiguration entities. */
-export class AuthenticationMethodConfigurationImpl extends EntityImpl implements AuthenticationMethodConfiguration, Parsable {
+export class AuthenticationMethodConfigurationImpl extends EntityImpl implements AuthenticationMethodConfiguration {
     /** The state of the policy. Possible values are: enabled, disabled. */
     public state?: AuthenticationMethodState | undefined;
     /**
@@ -12,8 +12,8 @@ export class AuthenticationMethodConfigurationImpl extends EntityImpl implements
      * @param authenticationMethodConfigurationParameterValue 
      */
     public constructor(authenticationMethodConfigurationParameterValue?: AuthenticationMethodConfiguration | undefined) {
-        super();
-        this.state = authenticationMethodConfigurationParameterValue?.state ;
+        super(authenticationMethodConfigurationParameterValue);
+        this.state = authenticationMethodConfigurationParameterValue?.state;
     };
     /**
      * The deserialization information for the current model
@@ -32,7 +32,7 @@ export class AuthenticationMethodConfigurationImpl extends EntityImpl implements
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.state){
-        writer.writeEnumValue<AuthenticationMethodState>("state", this.state);
+            writer.writeEnumValue<AuthenticationMethodState>("state", this.state);
         }
     };
 }

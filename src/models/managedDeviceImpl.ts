@@ -23,7 +23,7 @@ import {ManagementAgentType} from './managementAgentType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Devices that are managed or pre-enrolled through Intune */
-export class ManagedDeviceImpl extends EntityImpl implements ManagedDevice, Parsable {
+export class ManagedDeviceImpl extends EntityImpl implements ManagedDevice {
     /** Code that allows the Activation Lock on a device to be bypassed. This property is read-only. */
     public activationLockBypassCode?: string | undefined;
     /** Android security patch level. This property is read-only. */
@@ -137,61 +137,61 @@ export class ManagedDeviceImpl extends EntityImpl implements ManagedDevice, Pars
      * @param managedDeviceParameterValue 
      */
     public constructor(managedDeviceParameterValue?: ManagedDevice | undefined) {
-        super();
-        this.activationLockBypassCode = managedDeviceParameterValue?.activationLockBypassCode ;
-        this.androidSecurityPatchLevel = managedDeviceParameterValue?.androidSecurityPatchLevel ;
-        this.azureADDeviceId = managedDeviceParameterValue?.azureADDeviceId ;
-        this.azureADRegistered = managedDeviceParameterValue?.azureADRegistered ;
-        this.complianceGracePeriodExpirationDateTime = managedDeviceParameterValue?.complianceGracePeriodExpirationDateTime ;
-        this.complianceState = managedDeviceParameterValue?.complianceState ;
-        this.configurationManagerClientEnabledFeatures = managedDeviceParameterValue?.configurationManagerClientEnabledFeatures ;
-        this.deviceActionResults = managedDeviceParameterValue?.deviceActionResults ;
-        this.deviceCategory = managedDeviceParameterValue?.deviceCategory ;
-        this.deviceCategoryDisplayName = managedDeviceParameterValue?.deviceCategoryDisplayName ;
-        this.deviceCompliancePolicyStates = managedDeviceParameterValue?.deviceCompliancePolicyStates ;
-        this.deviceConfigurationStates = managedDeviceParameterValue?.deviceConfigurationStates ;
-        this.deviceEnrollmentType = managedDeviceParameterValue?.deviceEnrollmentType ;
-        this.deviceHealthAttestationState = managedDeviceParameterValue?.deviceHealthAttestationState ;
-        this.deviceName = managedDeviceParameterValue?.deviceName ;
-        this.deviceRegistrationState = managedDeviceParameterValue?.deviceRegistrationState ;
-        this.easActivated = managedDeviceParameterValue?.easActivated ;
-        this.easActivationDateTime = managedDeviceParameterValue?.easActivationDateTime ;
-        this.easDeviceId = managedDeviceParameterValue?.easDeviceId ;
-        this.emailAddress = managedDeviceParameterValue?.emailAddress ;
-        this.enrolledDateTime = managedDeviceParameterValue?.enrolledDateTime ;
-        this.ethernetMacAddress = managedDeviceParameterValue?.ethernetMacAddress ;
-        this.exchangeAccessState = managedDeviceParameterValue?.exchangeAccessState ;
-        this.exchangeAccessStateReason = managedDeviceParameterValue?.exchangeAccessStateReason ;
-        this.exchangeLastSuccessfulSyncDateTime = managedDeviceParameterValue?.exchangeLastSuccessfulSyncDateTime ;
-        this.freeStorageSpaceInBytes = managedDeviceParameterValue?.freeStorageSpaceInBytes ;
-        this.iccid = managedDeviceParameterValue?.iccid ;
-        this.imei = managedDeviceParameterValue?.imei ;
-        this.isEncrypted = managedDeviceParameterValue?.isEncrypted ;
-        this.isSupervised = managedDeviceParameterValue?.isSupervised ;
-        this.jailBroken = managedDeviceParameterValue?.jailBroken ;
-        this.lastSyncDateTime = managedDeviceParameterValue?.lastSyncDateTime ;
-        this.managedDeviceName = managedDeviceParameterValue?.managedDeviceName ;
-        this.managedDeviceOwnerType = managedDeviceParameterValue?.managedDeviceOwnerType ;
-        this.managementAgent = managedDeviceParameterValue?.managementAgent ;
-        this.manufacturer = managedDeviceParameterValue?.manufacturer ;
-        this.meid = managedDeviceParameterValue?.meid ;
-        this.model = managedDeviceParameterValue?.model ;
-        this.notes = managedDeviceParameterValue?.notes ;
-        this.operatingSystem = managedDeviceParameterValue?.operatingSystem ;
-        this.osVersion = managedDeviceParameterValue?.osVersion ;
-        this.partnerReportedThreatState = managedDeviceParameterValue?.partnerReportedThreatState ;
-        this.phoneNumber = managedDeviceParameterValue?.phoneNumber ;
-        this.physicalMemoryInBytes = managedDeviceParameterValue?.physicalMemoryInBytes ;
-        this.remoteAssistanceSessionErrorDetails = managedDeviceParameterValue?.remoteAssistanceSessionErrorDetails ;
-        this.remoteAssistanceSessionUrl = managedDeviceParameterValue?.remoteAssistanceSessionUrl ;
-        this.serialNumber = managedDeviceParameterValue?.serialNumber ;
-        this.subscriberCarrier = managedDeviceParameterValue?.subscriberCarrier ;
-        this.totalStorageSpaceInBytes = managedDeviceParameterValue?.totalStorageSpaceInBytes ;
-        this.udid = managedDeviceParameterValue?.udid ;
-        this.userDisplayName = managedDeviceParameterValue?.userDisplayName ;
-        this.userId = managedDeviceParameterValue?.userId ;
-        this.userPrincipalName = managedDeviceParameterValue?.userPrincipalName ;
-        this.wiFiMacAddress = managedDeviceParameterValue?.wiFiMacAddress ;
+        super(managedDeviceParameterValue);
+        this.activationLockBypassCode = managedDeviceParameterValue?.activationLockBypassCode;
+        this.androidSecurityPatchLevel = managedDeviceParameterValue?.androidSecurityPatchLevel;
+        this.azureADDeviceId = managedDeviceParameterValue?.azureADDeviceId;
+        this.azureADRegistered = managedDeviceParameterValue?.azureADRegistered;
+        this.complianceGracePeriodExpirationDateTime = managedDeviceParameterValue?.complianceGracePeriodExpirationDateTime;
+        this.complianceState = managedDeviceParameterValue?.complianceState;
+        this.configurationManagerClientEnabledFeatures = managedDeviceParameterValue?.configurationManagerClientEnabledFeatures;
+        this.deviceActionResults = managedDeviceParameterValue?.deviceActionResults;
+        this.deviceCategory = managedDeviceParameterValue?.deviceCategory;
+        this.deviceCategoryDisplayName = managedDeviceParameterValue?.deviceCategoryDisplayName;
+        this.deviceCompliancePolicyStates = managedDeviceParameterValue?.deviceCompliancePolicyStates;
+        this.deviceConfigurationStates = managedDeviceParameterValue?.deviceConfigurationStates;
+        this.deviceEnrollmentType = managedDeviceParameterValue?.deviceEnrollmentType;
+        this.deviceHealthAttestationState = managedDeviceParameterValue?.deviceHealthAttestationState;
+        this.deviceName = managedDeviceParameterValue?.deviceName;
+        this.deviceRegistrationState = managedDeviceParameterValue?.deviceRegistrationState;
+        this.easActivated = managedDeviceParameterValue?.easActivated;
+        this.easActivationDateTime = managedDeviceParameterValue?.easActivationDateTime;
+        this.easDeviceId = managedDeviceParameterValue?.easDeviceId;
+        this.emailAddress = managedDeviceParameterValue?.emailAddress;
+        this.enrolledDateTime = managedDeviceParameterValue?.enrolledDateTime;
+        this.ethernetMacAddress = managedDeviceParameterValue?.ethernetMacAddress;
+        this.exchangeAccessState = managedDeviceParameterValue?.exchangeAccessState;
+        this.exchangeAccessStateReason = managedDeviceParameterValue?.exchangeAccessStateReason;
+        this.exchangeLastSuccessfulSyncDateTime = managedDeviceParameterValue?.exchangeLastSuccessfulSyncDateTime;
+        this.freeStorageSpaceInBytes = managedDeviceParameterValue?.freeStorageSpaceInBytes;
+        this.iccid = managedDeviceParameterValue?.iccid;
+        this.imei = managedDeviceParameterValue?.imei;
+        this.isEncrypted = managedDeviceParameterValue?.isEncrypted;
+        this.isSupervised = managedDeviceParameterValue?.isSupervised;
+        this.jailBroken = managedDeviceParameterValue?.jailBroken;
+        this.lastSyncDateTime = managedDeviceParameterValue?.lastSyncDateTime;
+        this.managedDeviceName = managedDeviceParameterValue?.managedDeviceName;
+        this.managedDeviceOwnerType = managedDeviceParameterValue?.managedDeviceOwnerType;
+        this.managementAgent = managedDeviceParameterValue?.managementAgent;
+        this.manufacturer = managedDeviceParameterValue?.manufacturer;
+        this.meid = managedDeviceParameterValue?.meid;
+        this.model = managedDeviceParameterValue?.model;
+        this.notes = managedDeviceParameterValue?.notes;
+        this.operatingSystem = managedDeviceParameterValue?.operatingSystem;
+        this.osVersion = managedDeviceParameterValue?.osVersion;
+        this.partnerReportedThreatState = managedDeviceParameterValue?.partnerReportedThreatState;
+        this.phoneNumber = managedDeviceParameterValue?.phoneNumber;
+        this.physicalMemoryInBytes = managedDeviceParameterValue?.physicalMemoryInBytes;
+        this.remoteAssistanceSessionErrorDetails = managedDeviceParameterValue?.remoteAssistanceSessionErrorDetails;
+        this.remoteAssistanceSessionUrl = managedDeviceParameterValue?.remoteAssistanceSessionUrl;
+        this.serialNumber = managedDeviceParameterValue?.serialNumber;
+        this.subscriberCarrier = managedDeviceParameterValue?.subscriberCarrier;
+        this.totalStorageSpaceInBytes = managedDeviceParameterValue?.totalStorageSpaceInBytes;
+        this.udid = managedDeviceParameterValue?.udid;
+        this.userDisplayName = managedDeviceParameterValue?.userDisplayName;
+        this.userId = managedDeviceParameterValue?.userId;
+        this.userPrincipalName = managedDeviceParameterValue?.userPrincipalName;
+        this.wiFiMacAddress = managedDeviceParameterValue?.wiFiMacAddress;
     };
     /**
      * The deserialization information for the current model
@@ -263,166 +263,166 @@ export class ManagedDeviceImpl extends EntityImpl implements ManagedDevice, Pars
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.activationLockBypassCode){
-        writer.writeStringValue("activationLockBypassCode", this.activationLockBypassCode);
+            writer.writeStringValue("activationLockBypassCode", this.activationLockBypassCode);
         }
         if(this.androidSecurityPatchLevel){
-        writer.writeStringValue("androidSecurityPatchLevel", this.androidSecurityPatchLevel);
+            writer.writeStringValue("androidSecurityPatchLevel", this.androidSecurityPatchLevel);
         }
         if(this.azureADDeviceId){
-        writer.writeStringValue("azureADDeviceId", this.azureADDeviceId);
+            writer.writeStringValue("azureADDeviceId", this.azureADDeviceId);
         }
         if(this.azureADRegistered){
-        writer.writeBooleanValue("azureADRegistered", this.azureADRegistered);
+            writer.writeBooleanValue("azureADRegistered", this.azureADRegistered);
         }
         if(this.complianceGracePeriodExpirationDateTime){
-        writer.writeDateValue("complianceGracePeriodExpirationDateTime", this.complianceGracePeriodExpirationDateTime);
+            writer.writeDateValue("complianceGracePeriodExpirationDateTime", this.complianceGracePeriodExpirationDateTime);
         }
         if(this.complianceState){
-        writer.writeEnumValue<ComplianceState>("complianceState", this.complianceState);
+            writer.writeEnumValue<ComplianceState>("complianceState", this.complianceState);
         }
         if(this.configurationManagerClientEnabledFeatures){
-        writer.writeObjectValue<ConfigurationManagerClientEnabledFeaturesImpl>("configurationManagerClientEnabledFeatures", new ConfigurationManagerClientEnabledFeaturesImpl(this.configurationManagerClientEnabledFeatures));
+            writer.writeObjectValue<ConfigurationManagerClientEnabledFeaturesImpl>("configurationManagerClientEnabledFeatures", new ConfigurationManagerClientEnabledFeaturesImpl(this.configurationManagerClientEnabledFeatures));
         }
         if(this.deviceActionResults && this.deviceActionResults.length != 0){        const deviceActionResultsArrValue: DeviceActionResultImpl[] = []; this.deviceActionResults?.forEach(element => {deviceActionResultsArrValue.push(new DeviceActionResultImpl(element));});
-        writer.writeCollectionOfObjectValues<DeviceActionResultImpl>("deviceActionResults", deviceActionResultsArrValue);
+            writer.writeCollectionOfObjectValues<DeviceActionResultImpl>("deviceActionResults", deviceActionResultsArrValue);
         }
         if(this.deviceCategory){
-        writer.writeObjectValue<DeviceCategoryImpl>("deviceCategory", new DeviceCategoryImpl(this.deviceCategory));
+            writer.writeObjectValue<DeviceCategoryImpl>("deviceCategory", new DeviceCategoryImpl(this.deviceCategory));
         }
         if(this.deviceCategoryDisplayName){
-        writer.writeStringValue("deviceCategoryDisplayName", this.deviceCategoryDisplayName);
+            writer.writeStringValue("deviceCategoryDisplayName", this.deviceCategoryDisplayName);
         }
         if(this.deviceCompliancePolicyStates && this.deviceCompliancePolicyStates.length != 0){        const deviceCompliancePolicyStatesArrValue: DeviceCompliancePolicyStateImpl[] = []; this.deviceCompliancePolicyStates?.forEach(element => {deviceCompliancePolicyStatesArrValue.push(new DeviceCompliancePolicyStateImpl(element));});
-        writer.writeCollectionOfObjectValues<DeviceCompliancePolicyStateImpl>("deviceCompliancePolicyStates", deviceCompliancePolicyStatesArrValue);
+            writer.writeCollectionOfObjectValues<DeviceCompliancePolicyStateImpl>("deviceCompliancePolicyStates", deviceCompliancePolicyStatesArrValue);
         }
         if(this.deviceConfigurationStates && this.deviceConfigurationStates.length != 0){        const deviceConfigurationStatesArrValue: DeviceConfigurationStateImpl[] = []; this.deviceConfigurationStates?.forEach(element => {deviceConfigurationStatesArrValue.push(new DeviceConfigurationStateImpl(element));});
-        writer.writeCollectionOfObjectValues<DeviceConfigurationStateImpl>("deviceConfigurationStates", deviceConfigurationStatesArrValue);
+            writer.writeCollectionOfObjectValues<DeviceConfigurationStateImpl>("deviceConfigurationStates", deviceConfigurationStatesArrValue);
         }
         if(this.deviceEnrollmentType){
-        writer.writeEnumValue<DeviceEnrollmentType>("deviceEnrollmentType", this.deviceEnrollmentType);
+            writer.writeEnumValue<DeviceEnrollmentType>("deviceEnrollmentType", this.deviceEnrollmentType);
         }
         if(this.deviceHealthAttestationState){
-        writer.writeObjectValue<DeviceHealthAttestationStateImpl>("deviceHealthAttestationState", new DeviceHealthAttestationStateImpl(this.deviceHealthAttestationState));
+            writer.writeObjectValue<DeviceHealthAttestationStateImpl>("deviceHealthAttestationState", new DeviceHealthAttestationStateImpl(this.deviceHealthAttestationState));
         }
         if(this.deviceName){
-        writer.writeStringValue("deviceName", this.deviceName);
+            writer.writeStringValue("deviceName", this.deviceName);
         }
         if(this.deviceRegistrationState){
-        writer.writeEnumValue<DeviceRegistrationState>("deviceRegistrationState", this.deviceRegistrationState);
+            writer.writeEnumValue<DeviceRegistrationState>("deviceRegistrationState", this.deviceRegistrationState);
         }
         if(this.easActivated){
-        writer.writeBooleanValue("easActivated", this.easActivated);
+            writer.writeBooleanValue("easActivated", this.easActivated);
         }
         if(this.easActivationDateTime){
-        writer.writeDateValue("easActivationDateTime", this.easActivationDateTime);
+            writer.writeDateValue("easActivationDateTime", this.easActivationDateTime);
         }
         if(this.easDeviceId){
-        writer.writeStringValue("easDeviceId", this.easDeviceId);
+            writer.writeStringValue("easDeviceId", this.easDeviceId);
         }
         if(this.emailAddress){
-        writer.writeStringValue("emailAddress", this.emailAddress);
+            writer.writeStringValue("emailAddress", this.emailAddress);
         }
         if(this.enrolledDateTime){
-        writer.writeDateValue("enrolledDateTime", this.enrolledDateTime);
+            writer.writeDateValue("enrolledDateTime", this.enrolledDateTime);
         }
         if(this.ethernetMacAddress){
-        writer.writeStringValue("ethernetMacAddress", this.ethernetMacAddress);
+            writer.writeStringValue("ethernetMacAddress", this.ethernetMacAddress);
         }
         if(this.exchangeAccessState){
-        writer.writeEnumValue<DeviceManagementExchangeAccessState>("exchangeAccessState", this.exchangeAccessState);
+            writer.writeEnumValue<DeviceManagementExchangeAccessState>("exchangeAccessState", this.exchangeAccessState);
         }
         if(this.exchangeAccessStateReason){
-        writer.writeEnumValue<DeviceManagementExchangeAccessStateReason>("exchangeAccessStateReason", this.exchangeAccessStateReason);
+            writer.writeEnumValue<DeviceManagementExchangeAccessStateReason>("exchangeAccessStateReason", this.exchangeAccessStateReason);
         }
         if(this.exchangeLastSuccessfulSyncDateTime){
-        writer.writeDateValue("exchangeLastSuccessfulSyncDateTime", this.exchangeLastSuccessfulSyncDateTime);
+            writer.writeDateValue("exchangeLastSuccessfulSyncDateTime", this.exchangeLastSuccessfulSyncDateTime);
         }
         if(this.freeStorageSpaceInBytes){
-        writer.writeNumberValue("freeStorageSpaceInBytes", this.freeStorageSpaceInBytes);
+            writer.writeNumberValue("freeStorageSpaceInBytes", this.freeStorageSpaceInBytes);
         }
         if(this.iccid){
-        writer.writeStringValue("iccid", this.iccid);
+            writer.writeStringValue("iccid", this.iccid);
         }
         if(this.imei){
-        writer.writeStringValue("imei", this.imei);
+            writer.writeStringValue("imei", this.imei);
         }
         if(this.isEncrypted){
-        writer.writeBooleanValue("isEncrypted", this.isEncrypted);
+            writer.writeBooleanValue("isEncrypted", this.isEncrypted);
         }
         if(this.isSupervised){
-        writer.writeBooleanValue("isSupervised", this.isSupervised);
+            writer.writeBooleanValue("isSupervised", this.isSupervised);
         }
         if(this.jailBroken){
-        writer.writeStringValue("jailBroken", this.jailBroken);
+            writer.writeStringValue("jailBroken", this.jailBroken);
         }
         if(this.lastSyncDateTime){
-        writer.writeDateValue("lastSyncDateTime", this.lastSyncDateTime);
+            writer.writeDateValue("lastSyncDateTime", this.lastSyncDateTime);
         }
         if(this.managedDeviceName){
-        writer.writeStringValue("managedDeviceName", this.managedDeviceName);
+            writer.writeStringValue("managedDeviceName", this.managedDeviceName);
         }
         if(this.managedDeviceOwnerType){
-        writer.writeEnumValue<ManagedDeviceOwnerType>("managedDeviceOwnerType", this.managedDeviceOwnerType);
+            writer.writeEnumValue<ManagedDeviceOwnerType>("managedDeviceOwnerType", this.managedDeviceOwnerType);
         }
         if(this.managementAgent){
-        writer.writeEnumValue<ManagementAgentType>("managementAgent", this.managementAgent);
+            writer.writeEnumValue<ManagementAgentType>("managementAgent", this.managementAgent);
         }
         if(this.manufacturer){
-        writer.writeStringValue("manufacturer", this.manufacturer);
+            writer.writeStringValue("manufacturer", this.manufacturer);
         }
         if(this.meid){
-        writer.writeStringValue("meid", this.meid);
+            writer.writeStringValue("meid", this.meid);
         }
         if(this.model){
-        writer.writeStringValue("model", this.model);
+            writer.writeStringValue("model", this.model);
         }
         if(this.notes){
-        writer.writeStringValue("notes", this.notes);
+            writer.writeStringValue("notes", this.notes);
         }
         if(this.operatingSystem){
-        writer.writeStringValue("operatingSystem", this.operatingSystem);
+            writer.writeStringValue("operatingSystem", this.operatingSystem);
         }
         if(this.osVersion){
-        writer.writeStringValue("osVersion", this.osVersion);
+            writer.writeStringValue("osVersion", this.osVersion);
         }
         if(this.partnerReportedThreatState){
-        writer.writeEnumValue<ManagedDevicePartnerReportedHealthState>("partnerReportedThreatState", this.partnerReportedThreatState);
+            writer.writeEnumValue<ManagedDevicePartnerReportedHealthState>("partnerReportedThreatState", this.partnerReportedThreatState);
         }
         if(this.phoneNumber){
-        writer.writeStringValue("phoneNumber", this.phoneNumber);
+            writer.writeStringValue("phoneNumber", this.phoneNumber);
         }
         if(this.physicalMemoryInBytes){
-        writer.writeNumberValue("physicalMemoryInBytes", this.physicalMemoryInBytes);
+            writer.writeNumberValue("physicalMemoryInBytes", this.physicalMemoryInBytes);
         }
         if(this.remoteAssistanceSessionErrorDetails){
-        writer.writeStringValue("remoteAssistanceSessionErrorDetails", this.remoteAssistanceSessionErrorDetails);
+            writer.writeStringValue("remoteAssistanceSessionErrorDetails", this.remoteAssistanceSessionErrorDetails);
         }
         if(this.remoteAssistanceSessionUrl){
-        writer.writeStringValue("remoteAssistanceSessionUrl", this.remoteAssistanceSessionUrl);
+            writer.writeStringValue("remoteAssistanceSessionUrl", this.remoteAssistanceSessionUrl);
         }
         if(this.serialNumber){
-        writer.writeStringValue("serialNumber", this.serialNumber);
+            writer.writeStringValue("serialNumber", this.serialNumber);
         }
         if(this.subscriberCarrier){
-        writer.writeStringValue("subscriberCarrier", this.subscriberCarrier);
+            writer.writeStringValue("subscriberCarrier", this.subscriberCarrier);
         }
         if(this.totalStorageSpaceInBytes){
-        writer.writeNumberValue("totalStorageSpaceInBytes", this.totalStorageSpaceInBytes);
+            writer.writeNumberValue("totalStorageSpaceInBytes", this.totalStorageSpaceInBytes);
         }
         if(this.udid){
-        writer.writeStringValue("udid", this.udid);
+            writer.writeStringValue("udid", this.udid);
         }
         if(this.userDisplayName){
-        writer.writeStringValue("userDisplayName", this.userDisplayName);
+            writer.writeStringValue("userDisplayName", this.userDisplayName);
         }
         if(this.userId){
-        writer.writeStringValue("userId", this.userId);
+            writer.writeStringValue("userId", this.userId);
         }
         if(this.userPrincipalName){
-        writer.writeStringValue("userPrincipalName", this.userPrincipalName);
+            writer.writeStringValue("userPrincipalName", this.userPrincipalName);
         }
         if(this.wiFiMacAddress){
-        writer.writeStringValue("wiFiMacAddress", this.wiFiMacAddress);
+            writer.writeStringValue("wiFiMacAddress", this.wiFiMacAddress);
         }
     };
 }

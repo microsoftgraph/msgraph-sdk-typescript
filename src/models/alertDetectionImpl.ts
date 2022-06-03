@@ -1,7 +1,7 @@
 import {AlertDetection} from './alertDetection';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class AlertDetectionImpl implements AdditionalDataHolder, AlertDetection, Parsable {
+export class AlertDetectionImpl implements AlertDetection {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The detectionType property */
@@ -15,10 +15,10 @@ export class AlertDetectionImpl implements AdditionalDataHolder, AlertDetection,
      * @param alertDetectionParameterValue 
      */
     public constructor(alertDetectionParameterValue?: AlertDetection | undefined) {
-        this.additionalData = alertDetectionParameterValue?.additionalData ? alertDetectionParameterValue?.additionalData! : {}
-        this.detectionType = alertDetectionParameterValue?.detectionType ;
-        this.method = alertDetectionParameterValue?.method ;
-        this.name = alertDetectionParameterValue?.name ;
+        this.additionalData = alertDetectionParameterValue?.additionalData ? alertDetectionParameterValue?.additionalData! : {};
+        this.detectionType = alertDetectionParameterValue?.detectionType;
+        this.method = alertDetectionParameterValue?.method;
+        this.name = alertDetectionParameterValue?.name;
     };
     /**
      * The deserialization information for the current model
@@ -38,13 +38,13 @@ export class AlertDetectionImpl implements AdditionalDataHolder, AlertDetection,
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.detectionType){
-        writer.writeStringValue("detectionType", this.detectionType);
+            writer.writeStringValue("detectionType", this.detectionType);
         }
         if(this.method){
-        writer.writeStringValue("method", this.method);
+            writer.writeStringValue("method", this.method);
         }
         if(this.name){
-        writer.writeStringValue("name", this.name);
+            writer.writeStringValue("name", this.name);
         }
         writer.writeAdditionalData(this.additionalData);
     };

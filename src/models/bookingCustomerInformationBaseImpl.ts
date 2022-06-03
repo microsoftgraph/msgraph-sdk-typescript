@@ -1,7 +1,7 @@
 import {BookingCustomerInformationBase} from './bookingCustomerInformationBase';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class BookingCustomerInformationBaseImpl implements AdditionalDataHolder, BookingCustomerInformationBase, Parsable {
+export class BookingCustomerInformationBaseImpl implements BookingCustomerInformationBase {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /**
@@ -9,7 +9,7 @@ export class BookingCustomerInformationBaseImpl implements AdditionalDataHolder,
      * @param bookingCustomerInformationBaseParameterValue 
      */
     public constructor(bookingCustomerInformationBaseParameterValue?: BookingCustomerInformationBase | undefined) {
-        this.additionalData = bookingCustomerInformationBaseParameterValue?.additionalData ? bookingCustomerInformationBaseParameterValue?.additionalData! : {}
+        this.additionalData = bookingCustomerInformationBaseParameterValue?.additionalData ? bookingCustomerInformationBaseParameterValue?.additionalData! : {};
     };
     /**
      * The deserialization information for the current model

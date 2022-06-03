@@ -4,7 +4,7 @@ import {createCallFromDiscriminatorValue} from './createCallFromDiscriminatorVal
 import {CallImpl} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class CallCollectionResponseImpl implements AdditionalDataHolder, CallCollectionResponse, Parsable {
+export class CallCollectionResponseImpl implements CallCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class CallCollectionResponseImpl implements AdditionalDataHolder, CallCol
      * @param callCollectionResponseParameterValue 
      */
     public constructor(callCollectionResponseParameterValue?: CallCollectionResponse | undefined) {
-        this.additionalData = callCollectionResponseParameterValue?.additionalData ? callCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = callCollectionResponseParameterValue?.nextLink ;
-        this.value = callCollectionResponseParameterValue?.value ;
+        this.additionalData = callCollectionResponseParameterValue?.additionalData ? callCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = callCollectionResponseParameterValue?.nextLink;
+        this.value = callCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class CallCollectionResponseImpl implements AdditionalDataHolder, CallCol
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: CallImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new CallImpl(element));});
-        writer.writeCollectionOfObjectValues<CallImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<CallImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

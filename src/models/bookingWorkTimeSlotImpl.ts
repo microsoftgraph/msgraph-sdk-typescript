@@ -1,7 +1,7 @@
 import {BookingWorkTimeSlot} from './bookingWorkTimeSlot';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter, TimeOnly} from '@microsoft/kiota-abstractions';
 
-export class BookingWorkTimeSlotImpl implements AdditionalDataHolder, BookingWorkTimeSlot, Parsable {
+export class BookingWorkTimeSlotImpl implements BookingWorkTimeSlot {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The time of the day when work stops. For example, 17:00:00.0000000. */
@@ -13,9 +13,9 @@ export class BookingWorkTimeSlotImpl implements AdditionalDataHolder, BookingWor
      * @param bookingWorkTimeSlotParameterValue 
      */
     public constructor(bookingWorkTimeSlotParameterValue?: BookingWorkTimeSlot | undefined) {
-        this.additionalData = bookingWorkTimeSlotParameterValue?.additionalData ? bookingWorkTimeSlotParameterValue?.additionalData! : {}
-        this.endTime = bookingWorkTimeSlotParameterValue?.endTime ;
-        this.startTime = bookingWorkTimeSlotParameterValue?.startTime ;
+        this.additionalData = bookingWorkTimeSlotParameterValue?.additionalData ? bookingWorkTimeSlotParameterValue?.additionalData! : {};
+        this.endTime = bookingWorkTimeSlotParameterValue?.endTime;
+        this.startTime = bookingWorkTimeSlotParameterValue?.startTime;
     };
     /**
      * The deserialization information for the current model
@@ -34,10 +34,10 @@ export class BookingWorkTimeSlotImpl implements AdditionalDataHolder, BookingWor
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.endTime){
-        writer.writeTimeOnlyValue("endTime", this.endTime);
+            writer.writeTimeOnlyValue("endTime", this.endTime);
         }
         if(this.startTime){
-        writer.writeTimeOnlyValue("startTime", this.startTime);
+            writer.writeTimeOnlyValue("startTime", this.startTime);
         }
         writer.writeAdditionalData(this.additionalData);
     };

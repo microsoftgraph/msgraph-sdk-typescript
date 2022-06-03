@@ -2,7 +2,7 @@ import {CancelPostRequestBody} from './cancelPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the cancel method. */
-export class CancelPostRequestBodyImpl implements AdditionalDataHolder, CancelPostRequestBody, Parsable {
+export class CancelPostRequestBodyImpl implements CancelPostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The Comment property */
@@ -12,8 +12,8 @@ export class CancelPostRequestBodyImpl implements AdditionalDataHolder, CancelPo
      * @param cancelPostRequestBodyParameterValue 
      */
     public constructor(cancelPostRequestBodyParameterValue?: CancelPostRequestBody | undefined) {
-        this.additionalData = cancelPostRequestBodyParameterValue?.additionalData ? cancelPostRequestBodyParameterValue?.additionalData! : {}
-        this.comment = cancelPostRequestBodyParameterValue?.comment ;
+        this.additionalData = cancelPostRequestBodyParameterValue?.additionalData ? cancelPostRequestBodyParameterValue?.additionalData! : {};
+        this.comment = cancelPostRequestBodyParameterValue?.comment;
     };
     /**
      * The deserialization information for the current model
@@ -31,7 +31,7 @@ export class CancelPostRequestBodyImpl implements AdditionalDataHolder, CancelPo
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.comment){
-        writer.writeStringValue("comment", this.comment);
+            writer.writeStringValue("comment", this.comment);
         }
         writer.writeAdditionalData(this.additionalData);
     };

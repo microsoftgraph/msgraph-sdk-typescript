@@ -1,7 +1,7 @@
 import {Dictionary} from './dictionary';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class DictionaryImpl implements AdditionalDataHolder, Dictionary, Parsable {
+export class DictionaryImpl implements Dictionary {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /**
@@ -9,7 +9,7 @@ export class DictionaryImpl implements AdditionalDataHolder, Dictionary, Parsabl
      * @param dictionaryParameterValue 
      */
     public constructor(dictionaryParameterValue?: Dictionary | undefined) {
-        this.additionalData = dictionaryParameterValue?.additionalData ? dictionaryParameterValue?.additionalData! : {}
+        this.additionalData = dictionaryParameterValue?.additionalData ? dictionaryParameterValue?.additionalData! : {};
     };
     /**
      * The deserialization information for the current model

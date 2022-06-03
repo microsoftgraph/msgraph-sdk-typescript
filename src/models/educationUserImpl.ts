@@ -35,7 +35,7 @@ import {User} from './user';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the educationRoot singleton. */
-export class EducationUserImpl extends EntityImpl implements EducationUser, Parsable {
+export class EducationUserImpl extends EntityImpl implements EducationUser {
     /** True if the account is enabled; otherwise, false. This property is required when a user is created. Supports /$filter. */
     public accountEnabled?: boolean | undefined;
     /** The licenses that are assigned to the user. Not nullable. */
@@ -117,45 +117,45 @@ export class EducationUserImpl extends EntityImpl implements EducationUser, Pars
      * @param educationUserParameterValue 
      */
     public constructor(educationUserParameterValue?: EducationUser | undefined) {
-        super();
-        this.accountEnabled = educationUserParameterValue?.accountEnabled ;
-        this.assignedLicenses = educationUserParameterValue?.assignedLicenses ;
-        this.assignedPlans = educationUserParameterValue?.assignedPlans ;
-        this.assignments = educationUserParameterValue?.assignments ;
-        this.businessPhones = educationUserParameterValue?.businessPhones ;
-        this.classes = educationUserParameterValue?.classes ;
-        this.createdBy = educationUserParameterValue?.createdBy ;
-        this.department = educationUserParameterValue?.department ;
-        this.displayName = educationUserParameterValue?.displayName ;
-        this.externalSource = educationUserParameterValue?.externalSource ;
-        this.externalSourceDetail = educationUserParameterValue?.externalSourceDetail ;
-        this.givenName = educationUserParameterValue?.givenName ;
-        this.mail = educationUserParameterValue?.mail ;
-        this.mailingAddress = educationUserParameterValue?.mailingAddress ;
-        this.mailNickname = educationUserParameterValue?.mailNickname ;
-        this.middleName = educationUserParameterValue?.middleName ;
-        this.mobilePhone = educationUserParameterValue?.mobilePhone ;
-        this.officeLocation = educationUserParameterValue?.officeLocation ;
-        this.onPremisesInfo = educationUserParameterValue?.onPremisesInfo ;
-        this.passwordPolicies = educationUserParameterValue?.passwordPolicies ;
-        this.passwordProfile = educationUserParameterValue?.passwordProfile ;
-        this.preferredLanguage = educationUserParameterValue?.preferredLanguage ;
-        this.primaryRole = educationUserParameterValue?.primaryRole ;
-        this.provisionedPlans = educationUserParameterValue?.provisionedPlans ;
-        this.refreshTokensValidFromDateTime = educationUserParameterValue?.refreshTokensValidFromDateTime ;
-        this.relatedContacts = educationUserParameterValue?.relatedContacts ;
-        this.residenceAddress = educationUserParameterValue?.residenceAddress ;
-        this.rubrics = educationUserParameterValue?.rubrics ;
-        this.schools = educationUserParameterValue?.schools ;
-        this.showInAddressList = educationUserParameterValue?.showInAddressList ;
-        this.student = educationUserParameterValue?.student ;
-        this.surname = educationUserParameterValue?.surname ;
-        this.taughtClasses = educationUserParameterValue?.taughtClasses ;
-        this.teacher = educationUserParameterValue?.teacher ;
-        this.usageLocation = educationUserParameterValue?.usageLocation ;
-        this.user = educationUserParameterValue?.user ;
-        this.userPrincipalName = educationUserParameterValue?.userPrincipalName ;
-        this.userType = educationUserParameterValue?.userType ;
+        super(educationUserParameterValue);
+        this.accountEnabled = educationUserParameterValue?.accountEnabled;
+        this.assignedLicenses = educationUserParameterValue?.assignedLicenses;
+        this.assignedPlans = educationUserParameterValue?.assignedPlans;
+        this.assignments = educationUserParameterValue?.assignments;
+        this.businessPhones = educationUserParameterValue?.businessPhones;
+        this.classes = educationUserParameterValue?.classes;
+        this.createdBy = educationUserParameterValue?.createdBy;
+        this.department = educationUserParameterValue?.department;
+        this.displayName = educationUserParameterValue?.displayName;
+        this.externalSource = educationUserParameterValue?.externalSource;
+        this.externalSourceDetail = educationUserParameterValue?.externalSourceDetail;
+        this.givenName = educationUserParameterValue?.givenName;
+        this.mail = educationUserParameterValue?.mail;
+        this.mailingAddress = educationUserParameterValue?.mailingAddress;
+        this.mailNickname = educationUserParameterValue?.mailNickname;
+        this.middleName = educationUserParameterValue?.middleName;
+        this.mobilePhone = educationUserParameterValue?.mobilePhone;
+        this.officeLocation = educationUserParameterValue?.officeLocation;
+        this.onPremisesInfo = educationUserParameterValue?.onPremisesInfo;
+        this.passwordPolicies = educationUserParameterValue?.passwordPolicies;
+        this.passwordProfile = educationUserParameterValue?.passwordProfile;
+        this.preferredLanguage = educationUserParameterValue?.preferredLanguage;
+        this.primaryRole = educationUserParameterValue?.primaryRole;
+        this.provisionedPlans = educationUserParameterValue?.provisionedPlans;
+        this.refreshTokensValidFromDateTime = educationUserParameterValue?.refreshTokensValidFromDateTime;
+        this.relatedContacts = educationUserParameterValue?.relatedContacts;
+        this.residenceAddress = educationUserParameterValue?.residenceAddress;
+        this.rubrics = educationUserParameterValue?.rubrics;
+        this.schools = educationUserParameterValue?.schools;
+        this.showInAddressList = educationUserParameterValue?.showInAddressList;
+        this.student = educationUserParameterValue?.student;
+        this.surname = educationUserParameterValue?.surname;
+        this.taughtClasses = educationUserParameterValue?.taughtClasses;
+        this.teacher = educationUserParameterValue?.teacher;
+        this.usageLocation = educationUserParameterValue?.usageLocation;
+        this.user = educationUserParameterValue?.user;
+        this.userPrincipalName = educationUserParameterValue?.userPrincipalName;
+        this.userType = educationUserParameterValue?.userType;
     };
     /**
      * The deserialization information for the current model
@@ -211,118 +211,118 @@ export class EducationUserImpl extends EntityImpl implements EducationUser, Pars
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.accountEnabled){
-        writer.writeBooleanValue("accountEnabled", this.accountEnabled);
+            writer.writeBooleanValue("accountEnabled", this.accountEnabled);
         }
         if(this.assignedLicenses && this.assignedLicenses.length != 0){        const assignedLicensesArrValue: AssignedLicenseImpl[] = []; this.assignedLicenses?.forEach(element => {assignedLicensesArrValue.push(new AssignedLicenseImpl(element));});
-        writer.writeCollectionOfObjectValues<AssignedLicenseImpl>("assignedLicenses", assignedLicensesArrValue);
+            writer.writeCollectionOfObjectValues<AssignedLicenseImpl>("assignedLicenses", assignedLicensesArrValue);
         }
         if(this.assignedPlans && this.assignedPlans.length != 0){        const assignedPlansArrValue: AssignedPlanImpl[] = []; this.assignedPlans?.forEach(element => {assignedPlansArrValue.push(new AssignedPlanImpl(element));});
-        writer.writeCollectionOfObjectValues<AssignedPlanImpl>("assignedPlans", assignedPlansArrValue);
+            writer.writeCollectionOfObjectValues<AssignedPlanImpl>("assignedPlans", assignedPlansArrValue);
         }
         if(this.assignments && this.assignments.length != 0){        const assignmentsArrValue: EducationAssignmentImpl[] = []; this.assignments?.forEach(element => {assignmentsArrValue.push(new EducationAssignmentImpl(element));});
-        writer.writeCollectionOfObjectValues<EducationAssignmentImpl>("assignments", assignmentsArrValue);
+            writer.writeCollectionOfObjectValues<EducationAssignmentImpl>("assignments", assignmentsArrValue);
         }
         if(this.businessPhones){
-        writer.writeCollectionOfPrimitiveValues<string>("businessPhones", this.businessPhones);
+            writer.writeCollectionOfPrimitiveValues<string>("businessPhones", this.businessPhones);
         }
         if(this.classes && this.classes.length != 0){        const classesArrValue: EducationClassImpl[] = []; this.classes?.forEach(element => {classesArrValue.push(new EducationClassImpl(element));});
-        writer.writeCollectionOfObjectValues<EducationClassImpl>("classes", classesArrValue);
+            writer.writeCollectionOfObjectValues<EducationClassImpl>("classes", classesArrValue);
         }
         if(this.createdBy){
-        writer.writeObjectValue<IdentitySetImpl>("createdBy", new IdentitySetImpl(this.createdBy));
+            writer.writeObjectValue<IdentitySetImpl>("createdBy", new IdentitySetImpl(this.createdBy));
         }
         if(this.department){
-        writer.writeStringValue("department", this.department);
+            writer.writeStringValue("department", this.department);
         }
         if(this.displayName){
-        writer.writeStringValue("displayName", this.displayName);
+            writer.writeStringValue("displayName", this.displayName);
         }
         if(this.externalSource){
-        writer.writeEnumValue<EducationExternalSource>("externalSource", this.externalSource);
+            writer.writeEnumValue<EducationExternalSource>("externalSource", this.externalSource);
         }
         if(this.externalSourceDetail){
-        writer.writeStringValue("externalSourceDetail", this.externalSourceDetail);
+            writer.writeStringValue("externalSourceDetail", this.externalSourceDetail);
         }
         if(this.givenName){
-        writer.writeStringValue("givenName", this.givenName);
+            writer.writeStringValue("givenName", this.givenName);
         }
         if(this.mail){
-        writer.writeStringValue("mail", this.mail);
+            writer.writeStringValue("mail", this.mail);
         }
         if(this.mailingAddress){
-        writer.writeObjectValue<PhysicalAddressImpl>("mailingAddress", new PhysicalAddressImpl(this.mailingAddress));
+            writer.writeObjectValue<PhysicalAddressImpl>("mailingAddress", new PhysicalAddressImpl(this.mailingAddress));
         }
         if(this.mailNickname){
-        writer.writeStringValue("mailNickname", this.mailNickname);
+            writer.writeStringValue("mailNickname", this.mailNickname);
         }
         if(this.middleName){
-        writer.writeStringValue("middleName", this.middleName);
+            writer.writeStringValue("middleName", this.middleName);
         }
         if(this.mobilePhone){
-        writer.writeStringValue("mobilePhone", this.mobilePhone);
+            writer.writeStringValue("mobilePhone", this.mobilePhone);
         }
         if(this.officeLocation){
-        writer.writeStringValue("officeLocation", this.officeLocation);
+            writer.writeStringValue("officeLocation", this.officeLocation);
         }
         if(this.onPremisesInfo){
-        writer.writeObjectValue<EducationOnPremisesInfoImpl>("onPremisesInfo", new EducationOnPremisesInfoImpl(this.onPremisesInfo));
+            writer.writeObjectValue<EducationOnPremisesInfoImpl>("onPremisesInfo", new EducationOnPremisesInfoImpl(this.onPremisesInfo));
         }
         if(this.passwordPolicies){
-        writer.writeStringValue("passwordPolicies", this.passwordPolicies);
+            writer.writeStringValue("passwordPolicies", this.passwordPolicies);
         }
         if(this.passwordProfile){
-        writer.writeObjectValue<PasswordProfileImpl>("passwordProfile", new PasswordProfileImpl(this.passwordProfile));
+            writer.writeObjectValue<PasswordProfileImpl>("passwordProfile", new PasswordProfileImpl(this.passwordProfile));
         }
         if(this.preferredLanguage){
-        writer.writeStringValue("preferredLanguage", this.preferredLanguage);
+            writer.writeStringValue("preferredLanguage", this.preferredLanguage);
         }
         if(this.primaryRole){
-        writer.writeEnumValue<EducationUserRole>("primaryRole", this.primaryRole);
+            writer.writeEnumValue<EducationUserRole>("primaryRole", this.primaryRole);
         }
         if(this.provisionedPlans && this.provisionedPlans.length != 0){        const provisionedPlansArrValue: ProvisionedPlanImpl[] = []; this.provisionedPlans?.forEach(element => {provisionedPlansArrValue.push(new ProvisionedPlanImpl(element));});
-        writer.writeCollectionOfObjectValues<ProvisionedPlanImpl>("provisionedPlans", provisionedPlansArrValue);
+            writer.writeCollectionOfObjectValues<ProvisionedPlanImpl>("provisionedPlans", provisionedPlansArrValue);
         }
         if(this.refreshTokensValidFromDateTime){
-        writer.writeDateValue("refreshTokensValidFromDateTime", this.refreshTokensValidFromDateTime);
+            writer.writeDateValue("refreshTokensValidFromDateTime", this.refreshTokensValidFromDateTime);
         }
         if(this.relatedContacts && this.relatedContacts.length != 0){        const relatedContactsArrValue: RelatedContactImpl[] = []; this.relatedContacts?.forEach(element => {relatedContactsArrValue.push(new RelatedContactImpl(element));});
-        writer.writeCollectionOfObjectValues<RelatedContactImpl>("relatedContacts", relatedContactsArrValue);
+            writer.writeCollectionOfObjectValues<RelatedContactImpl>("relatedContacts", relatedContactsArrValue);
         }
         if(this.residenceAddress){
-        writer.writeObjectValue<PhysicalAddressImpl>("residenceAddress", new PhysicalAddressImpl(this.residenceAddress));
+            writer.writeObjectValue<PhysicalAddressImpl>("residenceAddress", new PhysicalAddressImpl(this.residenceAddress));
         }
         if(this.rubrics && this.rubrics.length != 0){        const rubricsArrValue: EducationRubricImpl[] = []; this.rubrics?.forEach(element => {rubricsArrValue.push(new EducationRubricImpl(element));});
-        writer.writeCollectionOfObjectValues<EducationRubricImpl>("rubrics", rubricsArrValue);
+            writer.writeCollectionOfObjectValues<EducationRubricImpl>("rubrics", rubricsArrValue);
         }
         if(this.schools && this.schools.length != 0){        const schoolsArrValue: EducationSchoolImpl[] = []; this.schools?.forEach(element => {schoolsArrValue.push(new EducationSchoolImpl(element));});
-        writer.writeCollectionOfObjectValues<EducationSchoolImpl>("schools", schoolsArrValue);
+            writer.writeCollectionOfObjectValues<EducationSchoolImpl>("schools", schoolsArrValue);
         }
         if(this.showInAddressList){
-        writer.writeBooleanValue("showInAddressList", this.showInAddressList);
+            writer.writeBooleanValue("showInAddressList", this.showInAddressList);
         }
         if(this.student){
-        writer.writeObjectValue<EducationStudentImpl>("student", new EducationStudentImpl(this.student));
+            writer.writeObjectValue<EducationStudentImpl>("student", new EducationStudentImpl(this.student));
         }
         if(this.surname){
-        writer.writeStringValue("surname", this.surname);
+            writer.writeStringValue("surname", this.surname);
         }
         if(this.taughtClasses && this.taughtClasses.length != 0){        const taughtClassesArrValue: EducationClassImpl[] = []; this.taughtClasses?.forEach(element => {taughtClassesArrValue.push(new EducationClassImpl(element));});
-        writer.writeCollectionOfObjectValues<EducationClassImpl>("taughtClasses", taughtClassesArrValue);
+            writer.writeCollectionOfObjectValues<EducationClassImpl>("taughtClasses", taughtClassesArrValue);
         }
         if(this.teacher){
-        writer.writeObjectValue<EducationTeacherImpl>("teacher", new EducationTeacherImpl(this.teacher));
+            writer.writeObjectValue<EducationTeacherImpl>("teacher", new EducationTeacherImpl(this.teacher));
         }
         if(this.usageLocation){
-        writer.writeStringValue("usageLocation", this.usageLocation);
+            writer.writeStringValue("usageLocation", this.usageLocation);
         }
         if(this.user){
-        writer.writeObjectValue<UserImpl>("user", new UserImpl(this.user));
+            writer.writeObjectValue<UserImpl>("user", new UserImpl(this.user));
         }
         if(this.userPrincipalName){
-        writer.writeStringValue("userPrincipalName", this.userPrincipalName);
+            writer.writeStringValue("userPrincipalName", this.userPrincipalName);
         }
         if(this.userType){
-        writer.writeStringValue("userType", this.userType);
+            writer.writeStringValue("userType", this.userType);
         }
     };
 }

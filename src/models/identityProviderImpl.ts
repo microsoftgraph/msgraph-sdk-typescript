@@ -2,8 +2,8 @@ import {IdentityProvider} from './identityProvider';
 import {EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the identityContainer singleton. */
-export class IdentityProviderImpl extends EntityImpl implements IdentityProvider, Parsable {
+/** Provides operations to manage the collection of identityProvider entities. */
+export class IdentityProviderImpl extends EntityImpl implements IdentityProvider {
     /** The client ID for the application obtained when registering the application with the identity provider. This is a required field.  Required. Not nullable. */
     public clientId?: string | undefined;
     /** The client secret for the application obtained when registering the application with the identity provider. This is write-only. A read operation will return ****. This is a required field. Required. Not nullable. */
@@ -17,11 +17,11 @@ export class IdentityProviderImpl extends EntityImpl implements IdentityProvider
      * @param identityProviderParameterValue 
      */
     public constructor(identityProviderParameterValue?: IdentityProvider | undefined) {
-        super();
-        this.clientId = identityProviderParameterValue?.clientId ;
-        this.clientSecret = identityProviderParameterValue?.clientSecret ;
-        this.name = identityProviderParameterValue?.name ;
-        this.type = identityProviderParameterValue?.type ;
+        super(identityProviderParameterValue);
+        this.clientId = identityProviderParameterValue?.clientId;
+        this.clientSecret = identityProviderParameterValue?.clientSecret;
+        this.name = identityProviderParameterValue?.name;
+        this.type = identityProviderParameterValue?.type;
     };
     /**
      * The deserialization information for the current model
@@ -43,16 +43,16 @@ export class IdentityProviderImpl extends EntityImpl implements IdentityProvider
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.clientId){
-        writer.writeStringValue("clientId", this.clientId);
+            writer.writeStringValue("clientId", this.clientId);
         }
         if(this.clientSecret){
-        writer.writeStringValue("clientSecret", this.clientSecret);
+            writer.writeStringValue("clientSecret", this.clientSecret);
         }
         if(this.name){
-        writer.writeStringValue("name", this.name);
+            writer.writeStringValue("name", this.name);
         }
         if(this.type){
-        writer.writeStringValue("type", this.type);
+            writer.writeStringValue("type", this.type);
         }
     };
 }

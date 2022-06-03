@@ -1,7 +1,7 @@
 import {ConditionalAccessClientApplications} from './conditionalAccessClientApplications';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ConditionalAccessClientApplicationsImpl implements AdditionalDataHolder, ConditionalAccessClientApplications, Parsable {
+export class ConditionalAccessClientApplicationsImpl implements ConditionalAccessClientApplications {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Service principal IDs excluded from the policy scope. */
@@ -13,9 +13,9 @@ export class ConditionalAccessClientApplicationsImpl implements AdditionalDataHo
      * @param conditionalAccessClientApplicationsParameterValue 
      */
     public constructor(conditionalAccessClientApplicationsParameterValue?: ConditionalAccessClientApplications | undefined) {
-        this.additionalData = conditionalAccessClientApplicationsParameterValue?.additionalData ? conditionalAccessClientApplicationsParameterValue?.additionalData! : {}
-        this.excludeServicePrincipals = conditionalAccessClientApplicationsParameterValue?.excludeServicePrincipals ;
-        this.includeServicePrincipals = conditionalAccessClientApplicationsParameterValue?.includeServicePrincipals ;
+        this.additionalData = conditionalAccessClientApplicationsParameterValue?.additionalData ? conditionalAccessClientApplicationsParameterValue?.additionalData! : {};
+        this.excludeServicePrincipals = conditionalAccessClientApplicationsParameterValue?.excludeServicePrincipals;
+        this.includeServicePrincipals = conditionalAccessClientApplicationsParameterValue?.includeServicePrincipals;
     };
     /**
      * The deserialization information for the current model
@@ -34,10 +34,10 @@ export class ConditionalAccessClientApplicationsImpl implements AdditionalDataHo
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.excludeServicePrincipals){
-        writer.writeCollectionOfPrimitiveValues<string>("excludeServicePrincipals", this.excludeServicePrincipals);
+            writer.writeCollectionOfPrimitiveValues<string>("excludeServicePrincipals", this.excludeServicePrincipals);
         }
         if(this.includeServicePrincipals){
-        writer.writeCollectionOfPrimitiveValues<string>("includeServicePrincipals", this.includeServicePrincipals);
+            writer.writeCollectionOfPrimitiveValues<string>("includeServicePrincipals", this.includeServicePrincipals);
         }
         writer.writeAdditionalData(this.additionalData);
     };

@@ -4,7 +4,7 @@ import {DeviceCompliancePolicySettingStateSummaryCollectionResponse} from './dev
 import {DeviceCompliancePolicySettingStateSummaryImpl} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class DeviceCompliancePolicySettingStateSummaryCollectionResponseImpl implements AdditionalDataHolder, DeviceCompliancePolicySettingStateSummaryCollectionResponse, Parsable {
+export class DeviceCompliancePolicySettingStateSummaryCollectionResponseImpl implements DeviceCompliancePolicySettingStateSummaryCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class DeviceCompliancePolicySettingStateSummaryCollectionResponseImpl imp
      * @param deviceCompliancePolicySettingStateSummaryCollectionResponseParameterValue 
      */
     public constructor(deviceCompliancePolicySettingStateSummaryCollectionResponseParameterValue?: DeviceCompliancePolicySettingStateSummaryCollectionResponse | undefined) {
-        this.additionalData = deviceCompliancePolicySettingStateSummaryCollectionResponseParameterValue?.additionalData ? deviceCompliancePolicySettingStateSummaryCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = deviceCompliancePolicySettingStateSummaryCollectionResponseParameterValue?.nextLink ;
-        this.value = deviceCompliancePolicySettingStateSummaryCollectionResponseParameterValue?.value ;
+        this.additionalData = deviceCompliancePolicySettingStateSummaryCollectionResponseParameterValue?.additionalData ? deviceCompliancePolicySettingStateSummaryCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = deviceCompliancePolicySettingStateSummaryCollectionResponseParameterValue?.nextLink;
+        this.value = deviceCompliancePolicySettingStateSummaryCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class DeviceCompliancePolicySettingStateSummaryCollectionResponseImpl imp
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: DeviceCompliancePolicySettingStateSummaryImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new DeviceCompliancePolicySettingStateSummaryImpl(element));});
-        writer.writeCollectionOfObjectValues<DeviceCompliancePolicySettingStateSummaryImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<DeviceCompliancePolicySettingStateSummaryImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

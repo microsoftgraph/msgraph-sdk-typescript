@@ -1,15 +1,16 @@
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface DeviceExchangeAccessStateSummary{
+export interface DeviceExchangeAccessStateSummary extends Partial<AdditionalDataHolder>, Partial<Parsable> {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?:Record<string, unknown>;
+    additionalData?: Record<string, unknown>;
     /** Total count of devices with Exchange Access State: Allowed. */
-    allowedDeviceCount?:number | undefined;
+    allowedDeviceCount?: number | undefined;
     /** Total count of devices with Exchange Access State: Blocked. */
-    blockedDeviceCount?:number | undefined;
+    blockedDeviceCount?: number | undefined;
     /** Total count of devices with Exchange Access State: Quarantined. */
-    quarantinedDeviceCount?:number | undefined;
+    quarantinedDeviceCount?: number | undefined;
     /** Total count of devices for which no Exchange Access State could be found. */
-    unavailableDeviceCount?:number | undefined;
+    unavailableDeviceCount?: number | undefined;
     /** Total count of devices with Exchange Access State: Unknown. */
-    unknownDeviceCount?:number | undefined;
+    unknownDeviceCount?: number | undefined;
 }

@@ -4,8 +4,8 @@ import {PlannerBucket} from './plannerBucket';
 import {PlannerTask} from './plannerTask';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
-export class PlannerBucketImpl extends EntityImpl implements Parsable, PlannerBucket {
+/** Casts the previous resource to group. */
+export class PlannerBucketImpl extends EntityImpl implements PlannerBucket {
     /** Name of the bucket. */
     public name?: string | undefined;
     /** Hint used to order items of this type in a list view. The format is defined as outlined here. */
@@ -19,11 +19,11 @@ export class PlannerBucketImpl extends EntityImpl implements Parsable, PlannerBu
      * @param plannerBucketParameterValue 
      */
     public constructor(plannerBucketParameterValue?: PlannerBucket | undefined) {
-        super();
-        this.name = plannerBucketParameterValue?.name ;
-        this.orderHint = plannerBucketParameterValue?.orderHint ;
-        this.planId = plannerBucketParameterValue?.planId ;
-        this.tasks = plannerBucketParameterValue?.tasks ;
+        super(plannerBucketParameterValue);
+        this.name = plannerBucketParameterValue?.name;
+        this.orderHint = plannerBucketParameterValue?.orderHint;
+        this.planId = plannerBucketParameterValue?.planId;
+        this.tasks = plannerBucketParameterValue?.tasks;
     };
     /**
      * The deserialization information for the current model
@@ -45,16 +45,16 @@ export class PlannerBucketImpl extends EntityImpl implements Parsable, PlannerBu
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.name){
-        writer.writeStringValue("name", this.name);
+            writer.writeStringValue("name", this.name);
         }
         if(this.orderHint){
-        writer.writeStringValue("orderHint", this.orderHint);
+            writer.writeStringValue("orderHint", this.orderHint);
         }
         if(this.planId){
-        writer.writeStringValue("planId", this.planId);
+            writer.writeStringValue("planId", this.planId);
         }
         if(this.tasks && this.tasks.length != 0){        const tasksArrValue: PlannerTaskImpl[] = []; this.tasks?.forEach(element => {tasksArrValue.push(new PlannerTaskImpl(element));});
-        writer.writeCollectionOfObjectValues<PlannerTaskImpl>("tasks", tasksArrValue);
+            writer.writeCollectionOfObjectValues<PlannerTaskImpl>("tasks", tasksArrValue);
         }
     };
 }

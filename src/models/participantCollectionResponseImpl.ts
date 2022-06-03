@@ -4,7 +4,7 @@ import {Participant} from './participant';
 import {ParticipantCollectionResponse} from './participantCollectionResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ParticipantCollectionResponseImpl implements AdditionalDataHolder, Parsable, ParticipantCollectionResponse {
+export class ParticipantCollectionResponseImpl implements ParticipantCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class ParticipantCollectionResponseImpl implements AdditionalDataHolder, 
      * @param participantCollectionResponseParameterValue 
      */
     public constructor(participantCollectionResponseParameterValue?: ParticipantCollectionResponse | undefined) {
-        this.additionalData = participantCollectionResponseParameterValue?.additionalData ? participantCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = participantCollectionResponseParameterValue?.nextLink ;
-        this.value = participantCollectionResponseParameterValue?.value ;
+        this.additionalData = participantCollectionResponseParameterValue?.additionalData ? participantCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = participantCollectionResponseParameterValue?.nextLink;
+        this.value = participantCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class ParticipantCollectionResponseImpl implements AdditionalDataHolder, 
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: ParticipantImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ParticipantImpl(element));});
-        writer.writeCollectionOfObjectValues<ParticipantImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<ParticipantImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

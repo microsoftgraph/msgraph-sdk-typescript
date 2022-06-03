@@ -7,7 +7,7 @@ import {UserConsentRequest} from './userConsentRequest';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the identityGovernance singleton. */
-export class AppConsentRequestImpl extends EntityImpl implements AppConsentRequest, Parsable {
+export class AppConsentRequestImpl extends EntityImpl implements AppConsentRequest {
     /** The display name of the app for which consent is requested. Required. Supports $filter (eq only) and $orderby. */
     public appDisplayName?: string | undefined;
     /** The identifier of the application. Required. Supports $filter (eq only) and $orderby. */
@@ -21,11 +21,11 @@ export class AppConsentRequestImpl extends EntityImpl implements AppConsentReque
      * @param appConsentRequestParameterValue 
      */
     public constructor(appConsentRequestParameterValue?: AppConsentRequest | undefined) {
-        super();
-        this.appDisplayName = appConsentRequestParameterValue?.appDisplayName ;
-        this.appId = appConsentRequestParameterValue?.appId ;
-        this.pendingScopes = appConsentRequestParameterValue?.pendingScopes ;
-        this.userConsentRequests = appConsentRequestParameterValue?.userConsentRequests ;
+        super(appConsentRequestParameterValue);
+        this.appDisplayName = appConsentRequestParameterValue?.appDisplayName;
+        this.appId = appConsentRequestParameterValue?.appId;
+        this.pendingScopes = appConsentRequestParameterValue?.pendingScopes;
+        this.userConsentRequests = appConsentRequestParameterValue?.userConsentRequests;
     };
     /**
      * The deserialization information for the current model
@@ -47,16 +47,16 @@ export class AppConsentRequestImpl extends EntityImpl implements AppConsentReque
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.appDisplayName){
-        writer.writeStringValue("appDisplayName", this.appDisplayName);
+            writer.writeStringValue("appDisplayName", this.appDisplayName);
         }
         if(this.appId){
-        writer.writeStringValue("appId", this.appId);
+            writer.writeStringValue("appId", this.appId);
         }
         if(this.pendingScopes && this.pendingScopes.length != 0){        const pendingScopesArrValue: AppConsentRequestScopeImpl[] = []; this.pendingScopes?.forEach(element => {pendingScopesArrValue.push(new AppConsentRequestScopeImpl(element));});
-        writer.writeCollectionOfObjectValues<AppConsentRequestScopeImpl>("pendingScopes", pendingScopesArrValue);
+            writer.writeCollectionOfObjectValues<AppConsentRequestScopeImpl>("pendingScopes", pendingScopesArrValue);
         }
         if(this.userConsentRequests && this.userConsentRequests.length != 0){        const userConsentRequestsArrValue: UserConsentRequestImpl[] = []; this.userConsentRequests?.forEach(element => {userConsentRequestsArrValue.push(new UserConsentRequestImpl(element));});
-        writer.writeCollectionOfObjectValues<UserConsentRequestImpl>("userConsentRequests", userConsentRequestsArrValue);
+            writer.writeCollectionOfObjectValues<UserConsentRequestImpl>("userConsentRequests", userConsentRequestsArrValue);
         }
     };
 }

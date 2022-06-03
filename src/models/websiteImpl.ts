@@ -2,7 +2,7 @@ import {Website} from './website';
 import {WebsiteType} from './websiteType';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class WebsiteImpl implements AdditionalDataHolder, Parsable, Website {
+export class WebsiteImpl implements Website {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The URL of the website. */
@@ -16,10 +16,10 @@ export class WebsiteImpl implements AdditionalDataHolder, Parsable, Website {
      * @param websiteParameterValue 
      */
     public constructor(websiteParameterValue?: Website | undefined) {
-        this.additionalData = websiteParameterValue?.additionalData ? websiteParameterValue?.additionalData! : {}
-        this.address = websiteParameterValue?.address ;
-        this.displayName = websiteParameterValue?.displayName ;
-        this.type = websiteParameterValue?.type ;
+        this.additionalData = websiteParameterValue?.additionalData ? websiteParameterValue?.additionalData! : {};
+        this.address = websiteParameterValue?.address;
+        this.displayName = websiteParameterValue?.displayName;
+        this.type = websiteParameterValue?.type;
     };
     /**
      * The deserialization information for the current model
@@ -39,13 +39,13 @@ export class WebsiteImpl implements AdditionalDataHolder, Parsable, Website {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.address){
-        writer.writeStringValue("address", this.address);
+            writer.writeStringValue("address", this.address);
         }
         if(this.displayName){
-        writer.writeStringValue("displayName", this.displayName);
+            writer.writeStringValue("displayName", this.displayName);
         }
         if(this.type){
-        writer.writeEnumValue<WebsiteType>("type", this.type);
+            writer.writeEnumValue<WebsiteType>("type", this.type);
         }
         writer.writeAdditionalData(this.additionalData);
     };

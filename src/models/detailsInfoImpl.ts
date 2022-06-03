@@ -1,7 +1,7 @@
 import {DetailsInfo} from './detailsInfo';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class DetailsInfoImpl implements AdditionalDataHolder, DetailsInfo, Parsable {
+export class DetailsInfoImpl implements DetailsInfo {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /**
@@ -9,7 +9,7 @@ export class DetailsInfoImpl implements AdditionalDataHolder, DetailsInfo, Parsa
      * @param detailsInfoParameterValue 
      */
     public constructor(detailsInfoParameterValue?: DetailsInfo | undefined) {
-        this.additionalData = detailsInfoParameterValue?.additionalData ? detailsInfoParameterValue?.additionalData! : {}
+        this.additionalData = detailsInfoParameterValue?.additionalData ? detailsInfoParameterValue?.additionalData! : {};
     };
     /**
      * The deserialization information for the current model

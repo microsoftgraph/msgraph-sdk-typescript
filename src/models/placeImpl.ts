@@ -7,7 +7,7 @@ import {Place} from './place';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the collection of place entities. */
-export class PlaceImpl extends EntityImpl implements Parsable, Place {
+export class PlaceImpl extends EntityImpl implements Place {
     /** The street address of the place. */
     public address?: PhysicalAddress | undefined;
     /** The name associated with the place. */
@@ -21,11 +21,11 @@ export class PlaceImpl extends EntityImpl implements Parsable, Place {
      * @param placeParameterValue 
      */
     public constructor(placeParameterValue?: Place | undefined) {
-        super();
-        this.address = placeParameterValue?.address ;
-        this.displayName = placeParameterValue?.displayName ;
-        this.geoCoordinates = placeParameterValue?.geoCoordinates ;
-        this.phone = placeParameterValue?.phone ;
+        super(placeParameterValue);
+        this.address = placeParameterValue?.address;
+        this.displayName = placeParameterValue?.displayName;
+        this.geoCoordinates = placeParameterValue?.geoCoordinates;
+        this.phone = placeParameterValue?.phone;
     };
     /**
      * The deserialization information for the current model
@@ -47,16 +47,16 @@ export class PlaceImpl extends EntityImpl implements Parsable, Place {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.address){
-        writer.writeObjectValue<PhysicalAddressImpl>("address", new PhysicalAddressImpl(this.address));
+            writer.writeObjectValue<PhysicalAddressImpl>("address", new PhysicalAddressImpl(this.address));
         }
         if(this.displayName){
-        writer.writeStringValue("displayName", this.displayName);
+            writer.writeStringValue("displayName", this.displayName);
         }
         if(this.geoCoordinates){
-        writer.writeObjectValue<OutlookGeoCoordinatesImpl>("geoCoordinates", new OutlookGeoCoordinatesImpl(this.geoCoordinates));
+            writer.writeObjectValue<OutlookGeoCoordinatesImpl>("geoCoordinates", new OutlookGeoCoordinatesImpl(this.geoCoordinates));
         }
         if(this.phone){
-        writer.writeStringValue("phone", this.phone);
+            writer.writeStringValue("phone", this.phone);
         }
     };
 }

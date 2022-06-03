@@ -4,7 +4,7 @@ import {RiskDetection} from './riskDetection';
 import {RiskDetectionCollectionResponse} from './riskDetectionCollectionResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class RiskDetectionCollectionResponseImpl implements AdditionalDataHolder, Parsable, RiskDetectionCollectionResponse {
+export class RiskDetectionCollectionResponseImpl implements RiskDetectionCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class RiskDetectionCollectionResponseImpl implements AdditionalDataHolder
      * @param riskDetectionCollectionResponseParameterValue 
      */
     public constructor(riskDetectionCollectionResponseParameterValue?: RiskDetectionCollectionResponse | undefined) {
-        this.additionalData = riskDetectionCollectionResponseParameterValue?.additionalData ? riskDetectionCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = riskDetectionCollectionResponseParameterValue?.nextLink ;
-        this.value = riskDetectionCollectionResponseParameterValue?.value ;
+        this.additionalData = riskDetectionCollectionResponseParameterValue?.additionalData ? riskDetectionCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = riskDetectionCollectionResponseParameterValue?.nextLink;
+        this.value = riskDetectionCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class RiskDetectionCollectionResponseImpl implements AdditionalDataHolder
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: RiskDetectionImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new RiskDetectionImpl(element));});
-        writer.writeCollectionOfObjectValues<RiskDetectionImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<RiskDetectionImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

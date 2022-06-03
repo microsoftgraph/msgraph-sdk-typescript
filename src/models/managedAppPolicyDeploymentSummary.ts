@@ -1,15 +1,16 @@
 import {Entity} from './entity';
 import {ManagedAppPolicyDeploymentSummaryPerApp} from './managedAppPolicyDeploymentSummaryPerApp';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface ManagedAppPolicyDeploymentSummary extends Entity{
+export interface ManagedAppPolicyDeploymentSummary extends Entity, Partial<Parsable> {
     /** Not yet documented */
-    configurationDeployedUserCount?:number | undefined;
+    configurationDeployedUserCount?: number | undefined;
     /** Not yet documented */
-    configurationDeploymentSummaryPerApp?:ManagedAppPolicyDeploymentSummaryPerApp[] | undefined;
+    configurationDeploymentSummaryPerApp?: ManagedAppPolicyDeploymentSummaryPerApp[] | undefined;
     /** Not yet documented */
-    displayName?:string | undefined;
+    displayName?: string | undefined;
     /** Not yet documented */
-    lastRefreshTime?:Date | undefined;
+    lastRefreshTime?: Date | undefined;
     /** Version of the entity. */
-    version?:string | undefined;
+    version?: string | undefined;
 }

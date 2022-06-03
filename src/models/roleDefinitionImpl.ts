@@ -7,7 +7,7 @@ import {RolePermission} from './rolePermission';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** The Role Definition resource. The role definition is the foundation of role based access in Intune. The role combines an Intune resource such as a Mobile App and associated role permissions such as Create or Read for the resource. There are two types of roles, built-in and custom. Built-in roles cannot be modified. Both built-in roles and custom roles must have assignments to be enforced. Create custom roles if you want to define a role that allows any of the available resources and role permissions to be combined into a single role. */
-export class RoleDefinitionImpl extends EntityImpl implements Parsable, RoleDefinition {
+export class RoleDefinitionImpl extends EntityImpl implements RoleDefinition {
     /** Description of the Role definition. */
     public description?: string | undefined;
     /** Display Name of the Role definition. */
@@ -23,12 +23,12 @@ export class RoleDefinitionImpl extends EntityImpl implements Parsable, RoleDefi
      * @param roleDefinitionParameterValue 
      */
     public constructor(roleDefinitionParameterValue?: RoleDefinition | undefined) {
-        super();
-        this.description = roleDefinitionParameterValue?.description ;
-        this.displayName = roleDefinitionParameterValue?.displayName ;
-        this.isBuiltIn = roleDefinitionParameterValue?.isBuiltIn ;
-        this.roleAssignments = roleDefinitionParameterValue?.roleAssignments ;
-        this.rolePermissions = roleDefinitionParameterValue?.rolePermissions ;
+        super(roleDefinitionParameterValue);
+        this.description = roleDefinitionParameterValue?.description;
+        this.displayName = roleDefinitionParameterValue?.displayName;
+        this.isBuiltIn = roleDefinitionParameterValue?.isBuiltIn;
+        this.roleAssignments = roleDefinitionParameterValue?.roleAssignments;
+        this.rolePermissions = roleDefinitionParameterValue?.rolePermissions;
     };
     /**
      * The deserialization information for the current model
@@ -51,19 +51,19 @@ export class RoleDefinitionImpl extends EntityImpl implements Parsable, RoleDefi
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.description){
-        writer.writeStringValue("description", this.description);
+            writer.writeStringValue("description", this.description);
         }
         if(this.displayName){
-        writer.writeStringValue("displayName", this.displayName);
+            writer.writeStringValue("displayName", this.displayName);
         }
         if(this.isBuiltIn){
-        writer.writeBooleanValue("isBuiltIn", this.isBuiltIn);
+            writer.writeBooleanValue("isBuiltIn", this.isBuiltIn);
         }
         if(this.roleAssignments && this.roleAssignments.length != 0){        const roleAssignmentsArrValue: RoleAssignmentImpl[] = []; this.roleAssignments?.forEach(element => {roleAssignmentsArrValue.push(new RoleAssignmentImpl(element));});
-        writer.writeCollectionOfObjectValues<RoleAssignmentImpl>("roleAssignments", roleAssignmentsArrValue);
+            writer.writeCollectionOfObjectValues<RoleAssignmentImpl>("roleAssignments", roleAssignmentsArrValue);
         }
         if(this.rolePermissions && this.rolePermissions.length != 0){        const rolePermissionsArrValue: RolePermissionImpl[] = []; this.rolePermissions?.forEach(element => {rolePermissionsArrValue.push(new RolePermissionImpl(element));});
-        writer.writeCollectionOfObjectValues<RolePermissionImpl>("rolePermissions", rolePermissionsArrValue);
+            writer.writeCollectionOfObjectValues<RolePermissionImpl>("rolePermissions", rolePermissionsArrValue);
         }
     };
 }

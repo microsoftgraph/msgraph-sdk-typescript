@@ -4,7 +4,7 @@ import {createChatMessageReactionIdentitySetFromDiscriminatorValue} from './crea
 import {ChatMessageReactionIdentitySetImpl} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ChatMessageReactionImpl implements AdditionalDataHolder, ChatMessageReaction, Parsable {
+export class ChatMessageReactionImpl implements ChatMessageReaction {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
@@ -18,10 +18,10 @@ export class ChatMessageReactionImpl implements AdditionalDataHolder, ChatMessag
      * @param chatMessageReactionParameterValue 
      */
     public constructor(chatMessageReactionParameterValue?: ChatMessageReaction | undefined) {
-        this.additionalData = chatMessageReactionParameterValue?.additionalData ? chatMessageReactionParameterValue?.additionalData! : {}
-        this.createdDateTime = chatMessageReactionParameterValue?.createdDateTime ;
-        this.reactionType = chatMessageReactionParameterValue?.reactionType ;
-        this.user = chatMessageReactionParameterValue?.user ;
+        this.additionalData = chatMessageReactionParameterValue?.additionalData ? chatMessageReactionParameterValue?.additionalData! : {};
+        this.createdDateTime = chatMessageReactionParameterValue?.createdDateTime;
+        this.reactionType = chatMessageReactionParameterValue?.reactionType;
+        this.user = chatMessageReactionParameterValue?.user;
     };
     /**
      * The deserialization information for the current model
@@ -41,13 +41,13 @@ export class ChatMessageReactionImpl implements AdditionalDataHolder, ChatMessag
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.createdDateTime){
-        writer.writeDateValue("createdDateTime", this.createdDateTime);
+            writer.writeDateValue("createdDateTime", this.createdDateTime);
         }
         if(this.reactionType){
-        writer.writeStringValue("reactionType", this.reactionType);
+            writer.writeStringValue("reactionType", this.reactionType);
         }
         if(this.user){
-        writer.writeObjectValue<ChatMessageReactionIdentitySetImpl>("user", new ChatMessageReactionIdentitySetImpl(this.user));
+            writer.writeObjectValue<ChatMessageReactionIdentitySetImpl>("user", new ChatMessageReactionIdentitySetImpl(this.user));
         }
         writer.writeAdditionalData(this.additionalData);
     };

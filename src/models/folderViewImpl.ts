@@ -1,7 +1,7 @@
 import {FolderView} from './folderView';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class FolderViewImpl implements AdditionalDataHolder, FolderView, Parsable {
+export class FolderViewImpl implements FolderView {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The method by which the folder should be sorted. */
@@ -15,10 +15,10 @@ export class FolderViewImpl implements AdditionalDataHolder, FolderView, Parsabl
      * @param folderViewParameterValue 
      */
     public constructor(folderViewParameterValue?: FolderView | undefined) {
-        this.additionalData = folderViewParameterValue?.additionalData ? folderViewParameterValue?.additionalData! : {}
-        this.sortBy = folderViewParameterValue?.sortBy ;
-        this.sortOrder = folderViewParameterValue?.sortOrder ;
-        this.viewType = folderViewParameterValue?.viewType ;
+        this.additionalData = folderViewParameterValue?.additionalData ? folderViewParameterValue?.additionalData! : {};
+        this.sortBy = folderViewParameterValue?.sortBy;
+        this.sortOrder = folderViewParameterValue?.sortOrder;
+        this.viewType = folderViewParameterValue?.viewType;
     };
     /**
      * The deserialization information for the current model
@@ -38,13 +38,13 @@ export class FolderViewImpl implements AdditionalDataHolder, FolderView, Parsabl
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.sortBy){
-        writer.writeStringValue("sortBy", this.sortBy);
+            writer.writeStringValue("sortBy", this.sortBy);
         }
         if(this.sortOrder){
-        writer.writeStringValue("sortOrder", this.sortOrder);
+            writer.writeStringValue("sortOrder", this.sortOrder);
         }
         if(this.viewType){
-        writer.writeStringValue("viewType", this.viewType);
+            writer.writeStringValue("viewType", this.viewType);
         }
         writer.writeAdditionalData(this.additionalData);
     };

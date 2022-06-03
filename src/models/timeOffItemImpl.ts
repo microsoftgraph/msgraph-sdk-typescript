@@ -3,7 +3,7 @@ import {TimeOffItem} from './timeOffItem';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Casts the previous resource to group. */
-export class TimeOffItemImpl extends ScheduleEntityImpl implements Parsable, TimeOffItem {
+export class TimeOffItemImpl extends ScheduleEntityImpl implements TimeOffItem {
     /** ID of the timeOffReason for this timeOffItem. Required. */
     public timeOffReasonId?: string | undefined;
     /**
@@ -11,8 +11,8 @@ export class TimeOffItemImpl extends ScheduleEntityImpl implements Parsable, Tim
      * @param timeOffItemParameterValue 
      */
     public constructor(timeOffItemParameterValue?: TimeOffItem | undefined) {
-        super();
-        this.timeOffReasonId = timeOffItemParameterValue?.timeOffReasonId ;
+        super(timeOffItemParameterValue);
+        this.timeOffReasonId = timeOffItemParameterValue?.timeOffReasonId;
     };
     /**
      * The deserialization information for the current model
@@ -31,7 +31,7 @@ export class TimeOffItemImpl extends ScheduleEntityImpl implements Parsable, Tim
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.timeOffReasonId){
-        writer.writeStringValue("timeOffReasonId", this.timeOffReasonId);
+            writer.writeStringValue("timeOffReasonId", this.timeOffReasonId);
         }
     };
 }

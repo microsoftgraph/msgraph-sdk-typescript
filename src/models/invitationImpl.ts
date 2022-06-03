@@ -7,7 +7,7 @@ import {User} from './user';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the collection of invitation entities. */
-export class InvitationImpl extends EntityImpl implements Invitation, Parsable {
+export class InvitationImpl extends EntityImpl implements Invitation {
     /** The user created as part of the invitation creation. Read-Only */
     public invitedUser?: User | undefined;
     /** The display name of the user being invited. */
@@ -31,16 +31,16 @@ export class InvitationImpl extends EntityImpl implements Invitation, Parsable {
      * @param invitationParameterValue 
      */
     public constructor(invitationParameterValue?: Invitation | undefined) {
-        super();
-        this.invitedUser = invitationParameterValue?.invitedUser ;
-        this.invitedUserDisplayName = invitationParameterValue?.invitedUserDisplayName ;
-        this.invitedUserEmailAddress = invitationParameterValue?.invitedUserEmailAddress ;
-        this.invitedUserMessageInfo = invitationParameterValue?.invitedUserMessageInfo ;
-        this.invitedUserType = invitationParameterValue?.invitedUserType ;
-        this.inviteRedeemUrl = invitationParameterValue?.inviteRedeemUrl ;
-        this.inviteRedirectUrl = invitationParameterValue?.inviteRedirectUrl ;
-        this.sendInvitationMessage = invitationParameterValue?.sendInvitationMessage ;
-        this.status = invitationParameterValue?.status ;
+        super(invitationParameterValue);
+        this.invitedUser = invitationParameterValue?.invitedUser;
+        this.invitedUserDisplayName = invitationParameterValue?.invitedUserDisplayName;
+        this.invitedUserEmailAddress = invitationParameterValue?.invitedUserEmailAddress;
+        this.invitedUserMessageInfo = invitationParameterValue?.invitedUserMessageInfo;
+        this.invitedUserType = invitationParameterValue?.invitedUserType;
+        this.inviteRedeemUrl = invitationParameterValue?.inviteRedeemUrl;
+        this.inviteRedirectUrl = invitationParameterValue?.inviteRedirectUrl;
+        this.sendInvitationMessage = invitationParameterValue?.sendInvitationMessage;
+        this.status = invitationParameterValue?.status;
     };
     /**
      * The deserialization information for the current model
@@ -67,31 +67,31 @@ export class InvitationImpl extends EntityImpl implements Invitation, Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.invitedUser){
-        writer.writeObjectValue<UserImpl>("invitedUser", new UserImpl(this.invitedUser));
+            writer.writeObjectValue<UserImpl>("invitedUser", new UserImpl(this.invitedUser));
         }
         if(this.invitedUserDisplayName){
-        writer.writeStringValue("invitedUserDisplayName", this.invitedUserDisplayName);
+            writer.writeStringValue("invitedUserDisplayName", this.invitedUserDisplayName);
         }
         if(this.invitedUserEmailAddress){
-        writer.writeStringValue("invitedUserEmailAddress", this.invitedUserEmailAddress);
+            writer.writeStringValue("invitedUserEmailAddress", this.invitedUserEmailAddress);
         }
         if(this.invitedUserMessageInfo){
-        writer.writeObjectValue<InvitedUserMessageInfoImpl>("invitedUserMessageInfo", new InvitedUserMessageInfoImpl(this.invitedUserMessageInfo));
+            writer.writeObjectValue<InvitedUserMessageInfoImpl>("invitedUserMessageInfo", new InvitedUserMessageInfoImpl(this.invitedUserMessageInfo));
         }
         if(this.invitedUserType){
-        writer.writeStringValue("invitedUserType", this.invitedUserType);
+            writer.writeStringValue("invitedUserType", this.invitedUserType);
         }
         if(this.inviteRedeemUrl){
-        writer.writeStringValue("inviteRedeemUrl", this.inviteRedeemUrl);
+            writer.writeStringValue("inviteRedeemUrl", this.inviteRedeemUrl);
         }
         if(this.inviteRedirectUrl){
-        writer.writeStringValue("inviteRedirectUrl", this.inviteRedirectUrl);
+            writer.writeStringValue("inviteRedirectUrl", this.inviteRedirectUrl);
         }
         if(this.sendInvitationMessage){
-        writer.writeBooleanValue("sendInvitationMessage", this.sendInvitationMessage);
+            writer.writeBooleanValue("sendInvitationMessage", this.sendInvitationMessage);
         }
         if(this.status){
-        writer.writeStringValue("status", this.status);
+            writer.writeStringValue("status", this.status);
         }
     };
 }

@@ -9,7 +9,7 @@ import {Session} from './session';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the cloudCommunications singleton. */
-export class CallRecordImpl extends EntityImpl implements CallRecord, Parsable {
+export class CallRecordImpl extends EntityImpl implements CallRecord {
     /** UTC time when the last user left the call. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     public endDateTime?: Date | undefined;
     /** Meeting URL associated to the call. May not be available for a peerToPeer call record type. */
@@ -35,17 +35,17 @@ export class CallRecordImpl extends EntityImpl implements CallRecord, Parsable {
      * @param callRecordParameterValue 
      */
     public constructor(callRecordParameterValue?: CallRecord | undefined) {
-        super();
-        this.endDateTime = callRecordParameterValue?.endDateTime ;
-        this.joinWebUrl = callRecordParameterValue?.joinWebUrl ;
-        this.lastModifiedDateTime = callRecordParameterValue?.lastModifiedDateTime ;
-        this.modalities = callRecordParameterValue?.modalities ;
-        this.organizer = callRecordParameterValue?.organizer ;
-        this.participants = callRecordParameterValue?.participants ;
-        this.sessions = callRecordParameterValue?.sessions ;
-        this.startDateTime = callRecordParameterValue?.startDateTime ;
-        this.type = callRecordParameterValue?.type ;
-        this.version = callRecordParameterValue?.version ;
+        super(callRecordParameterValue);
+        this.endDateTime = callRecordParameterValue?.endDateTime;
+        this.joinWebUrl = callRecordParameterValue?.joinWebUrl;
+        this.lastModifiedDateTime = callRecordParameterValue?.lastModifiedDateTime;
+        this.modalities = callRecordParameterValue?.modalities;
+        this.organizer = callRecordParameterValue?.organizer;
+        this.participants = callRecordParameterValue?.participants;
+        this.sessions = callRecordParameterValue?.sessions;
+        this.startDateTime = callRecordParameterValue?.startDateTime;
+        this.type = callRecordParameterValue?.type;
+        this.version = callRecordParameterValue?.version;
     };
     /**
      * The deserialization information for the current model
@@ -73,34 +73,34 @@ export class CallRecordImpl extends EntityImpl implements CallRecord, Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.endDateTime){
-        writer.writeDateValue("endDateTime", this.endDateTime);
+            writer.writeDateValue("endDateTime", this.endDateTime);
         }
         if(this.joinWebUrl){
-        writer.writeStringValue("joinWebUrl", this.joinWebUrl);
+            writer.writeStringValue("joinWebUrl", this.joinWebUrl);
         }
         if(this.lastModifiedDateTime){
-        writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
+            writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
         }
         if(this.modalities){
-        writer.writeCollectionOfPrimitiveValues<string>("modalities", this.modalities);
+            writer.writeCollectionOfPrimitiveValues<string>("modalities", this.modalities);
         }
         if(this.organizer){
-        writer.writeObjectValue<IdentitySetImpl>("organizer", new IdentitySetImpl(this.organizer));
+            writer.writeObjectValue<IdentitySetImpl>("organizer", new IdentitySetImpl(this.organizer));
         }
         if(this.participants && this.participants.length != 0){        const participantsArrValue: IdentitySetImpl[] = []; this.participants?.forEach(element => {participantsArrValue.push(new IdentitySetImpl(element));});
-        writer.writeCollectionOfObjectValues<IdentitySetImpl>("participants", participantsArrValue);
+            writer.writeCollectionOfObjectValues<IdentitySetImpl>("participants", participantsArrValue);
         }
         if(this.sessions && this.sessions.length != 0){        const sessionsArrValue: SessionImpl[] = []; this.sessions?.forEach(element => {sessionsArrValue.push(new SessionImpl(element));});
-        writer.writeCollectionOfObjectValues<SessionImpl>("sessions", sessionsArrValue);
+            writer.writeCollectionOfObjectValues<SessionImpl>("sessions", sessionsArrValue);
         }
         if(this.startDateTime){
-        writer.writeDateValue("startDateTime", this.startDateTime);
+            writer.writeDateValue("startDateTime", this.startDateTime);
         }
         if(this.type){
-        writer.writeEnumValue<CallType>("type", this.type);
+            writer.writeEnumValue<CallType>("type", this.type);
         }
         if(this.version){
-        writer.writeNumberValue("version", this.version);
+            writer.writeNumberValue("version", this.version);
         }
     };
 }

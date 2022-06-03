@@ -3,7 +3,7 @@ import {SchedulingGroup} from './schedulingGroup';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Casts the previous resource to group. */
-export class SchedulingGroupImpl extends ChangeTrackedEntityImpl implements Parsable, SchedulingGroup {
+export class SchedulingGroupImpl extends ChangeTrackedEntityImpl implements SchedulingGroup {
     /** The display name for the schedulingGroup. Required. */
     public displayName?: string | undefined;
     /** Indicates whether the schedulingGroup can be used when creating new entities or updating existing ones. Required. */
@@ -15,10 +15,10 @@ export class SchedulingGroupImpl extends ChangeTrackedEntityImpl implements Pars
      * @param schedulingGroupParameterValue 
      */
     public constructor(schedulingGroupParameterValue?: SchedulingGroup | undefined) {
-        super();
-        this.displayName = schedulingGroupParameterValue?.displayName ;
-        this.isActive = schedulingGroupParameterValue?.isActive ;
-        this.userIds = schedulingGroupParameterValue?.userIds ;
+        super(schedulingGroupParameterValue);
+        this.displayName = schedulingGroupParameterValue?.displayName;
+        this.isActive = schedulingGroupParameterValue?.isActive;
+        this.userIds = schedulingGroupParameterValue?.userIds;
     };
     /**
      * The deserialization information for the current model
@@ -39,13 +39,13 @@ export class SchedulingGroupImpl extends ChangeTrackedEntityImpl implements Pars
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.displayName){
-        writer.writeStringValue("displayName", this.displayName);
+            writer.writeStringValue("displayName", this.displayName);
         }
         if(this.isActive){
-        writer.writeBooleanValue("isActive", this.isActive);
+            writer.writeBooleanValue("isActive", this.isActive);
         }
         if(this.userIds){
-        writer.writeCollectionOfPrimitiveValues<string>("userIds", this.userIds);
+            writer.writeCollectionOfPrimitiveValues<string>("userIds", this.userIds);
         }
     };
 }

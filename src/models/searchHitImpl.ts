@@ -4,7 +4,7 @@ import {EntityImpl} from './index';
 import {SearchHit} from './searchHit';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class SearchHitImpl implements AdditionalDataHolder, Parsable, SearchHit {
+export class SearchHitImpl implements SearchHit {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The name of the content source which the externalItem is part of . */
@@ -24,13 +24,13 @@ export class SearchHitImpl implements AdditionalDataHolder, Parsable, SearchHit 
      * @param searchHitParameterValue 
      */
     public constructor(searchHitParameterValue?: SearchHit | undefined) {
-        this.additionalData = searchHitParameterValue?.additionalData ? searchHitParameterValue?.additionalData! : {}
-        this.contentSource = searchHitParameterValue?.contentSource ;
-        this.hitId = searchHitParameterValue?.hitId ;
-        this.rank = searchHitParameterValue?.rank ;
-        this.resource = searchHitParameterValue?.resource ;
-        this.resultTemplateId = searchHitParameterValue?.resultTemplateId ;
-        this.summary = searchHitParameterValue?.summary ;
+        this.additionalData = searchHitParameterValue?.additionalData ? searchHitParameterValue?.additionalData! : {};
+        this.contentSource = searchHitParameterValue?.contentSource;
+        this.hitId = searchHitParameterValue?.hitId;
+        this.rank = searchHitParameterValue?.rank;
+        this.resource = searchHitParameterValue?.resource;
+        this.resultTemplateId = searchHitParameterValue?.resultTemplateId;
+        this.summary = searchHitParameterValue?.summary;
     };
     /**
      * The deserialization information for the current model
@@ -53,22 +53,22 @@ export class SearchHitImpl implements AdditionalDataHolder, Parsable, SearchHit 
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.contentSource){
-        writer.writeStringValue("contentSource", this.contentSource);
+            writer.writeStringValue("contentSource", this.contentSource);
         }
         if(this.hitId){
-        writer.writeStringValue("hitId", this.hitId);
+            writer.writeStringValue("hitId", this.hitId);
         }
         if(this.rank){
-        writer.writeNumberValue("rank", this.rank);
+            writer.writeNumberValue("rank", this.rank);
         }
         if(this.resource){
-        writer.writeObjectValue<EntityImpl>("resource", new EntityImpl(this.resource));
+            writer.writeObjectValue<EntityImpl>("resource", new EntityImpl(this.resource));
         }
         if(this.resultTemplateId){
-        writer.writeStringValue("resultTemplateId", this.resultTemplateId);
+            writer.writeStringValue("resultTemplateId", this.resultTemplateId);
         }
         if(this.summary){
-        writer.writeStringValue("summary", this.summary);
+            writer.writeStringValue("summary", this.summary);
         }
         writer.writeAdditionalData(this.additionalData);
     };

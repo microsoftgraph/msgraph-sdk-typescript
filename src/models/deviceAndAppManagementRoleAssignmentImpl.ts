@@ -3,7 +3,7 @@ import {RoleAssignmentImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** The Role Assignment resource. Role assignments tie together a role definition with members and scopes. There can be one or more role assignments per role. This applies to custom and built-in roles. */
-export class DeviceAndAppManagementRoleAssignmentImpl extends RoleAssignmentImpl implements DeviceAndAppManagementRoleAssignment, Parsable {
+export class DeviceAndAppManagementRoleAssignmentImpl extends RoleAssignmentImpl implements DeviceAndAppManagementRoleAssignment {
     /** The list of ids of role member security groups. These are IDs from Azure Active Directory. */
     public members?: string[] | undefined;
     /**
@@ -11,8 +11,8 @@ export class DeviceAndAppManagementRoleAssignmentImpl extends RoleAssignmentImpl
      * @param deviceAndAppManagementRoleAssignmentParameterValue 
      */
     public constructor(deviceAndAppManagementRoleAssignmentParameterValue?: DeviceAndAppManagementRoleAssignment | undefined) {
-        super();
-        this.members = deviceAndAppManagementRoleAssignmentParameterValue?.members ;
+        super(deviceAndAppManagementRoleAssignmentParameterValue);
+        this.members = deviceAndAppManagementRoleAssignmentParameterValue?.members;
     };
     /**
      * The deserialization information for the current model
@@ -31,7 +31,7 @@ export class DeviceAndAppManagementRoleAssignmentImpl extends RoleAssignmentImpl
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.members){
-        writer.writeCollectionOfPrimitiveValues<string>("members", this.members);
+            writer.writeCollectionOfPrimitiveValues<string>("members", this.members);
         }
     };
 }

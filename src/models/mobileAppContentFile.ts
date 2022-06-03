@@ -1,23 +1,24 @@
 import {Entity} from './entity';
 import {MobileAppContentFileUploadState} from './mobileAppContentFileUploadState';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface MobileAppContentFile extends Entity{
+export interface MobileAppContentFile extends Entity, Partial<Parsable> {
     /** The Azure Storage URI. */
-    azureStorageUri?:string | undefined;
+    azureStorageUri?: string | undefined;
     /** The time the Azure storage Uri expires. */
-    azureStorageUriExpirationDateTime?:Date | undefined;
+    azureStorageUriExpirationDateTime?: Date | undefined;
     /** The time the file was created. */
-    createdDateTime?:Date | undefined;
+    createdDateTime?: Date | undefined;
     /** A value indicating whether the file is committed. */
-    isCommitted?:boolean | undefined;
+    isCommitted?: boolean | undefined;
     /** The manifest information. */
-    manifest?:string | undefined;
+    manifest?: string | undefined;
     /** the file name. */
-    name?:string | undefined;
+    name?: string | undefined;
     /** The size of the file prior to encryption. */
-    size?:number | undefined;
+    size?: number | undefined;
     /** The size of the file after encryption. */
-    sizeEncrypted?:number | undefined;
+    sizeEncrypted?: number | undefined;
     /** The state of the current upload request. Possible values are: success, transientError, error, unknown, azureStorageUriRequestSuccess, azureStorageUriRequestPending, azureStorageUriRequestFailed, azureStorageUriRequestTimedOut, azureStorageUriRenewalSuccess, azureStorageUriRenewalPending, azureStorageUriRenewalFailed, azureStorageUriRenewalTimedOut, commitFileSuccess, commitFilePending, commitFileFailed, commitFileTimedOut. */
-    uploadState?:MobileAppContentFileUploadState | undefined;
+    uploadState?: MobileAppContentFileUploadState | undefined;
 }

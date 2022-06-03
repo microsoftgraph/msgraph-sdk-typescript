@@ -27,7 +27,7 @@ import {TeamVisibilityType} from './teamVisibilityType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Casts the previous resource to group. */
-export class TeamImpl extends EntityImpl implements Parsable, Team {
+export class TeamImpl extends EntityImpl implements Team {
     /** The collection of channels and messages associated with the team. */
     public channels?: Channel[] | undefined;
     /** An optional label. Typically describes the data or business sensitivity of the team. Must match one of a pre-configured set in the tenant's directory. */
@@ -75,28 +75,28 @@ export class TeamImpl extends EntityImpl implements Parsable, Team {
      * @param teamParameterValue 
      */
     public constructor(teamParameterValue?: Team | undefined) {
-        super();
-        this.channels = teamParameterValue?.channels ;
-        this.classification = teamParameterValue?.classification ;
-        this.createdDateTime = teamParameterValue?.createdDateTime ;
-        this.description = teamParameterValue?.description ;
-        this.displayName = teamParameterValue?.displayName ;
-        this.funSettings = teamParameterValue?.funSettings ;
-        this.group = teamParameterValue?.group ;
-        this.guestSettings = teamParameterValue?.guestSettings ;
-        this.installedApps = teamParameterValue?.installedApps ;
-        this.internalId = teamParameterValue?.internalId ;
-        this.isArchived = teamParameterValue?.isArchived ;
-        this.members = teamParameterValue?.members ;
-        this.memberSettings = teamParameterValue?.memberSettings ;
-        this.messagingSettings = teamParameterValue?.messagingSettings ;
-        this.operations = teamParameterValue?.operations ;
-        this.primaryChannel = teamParameterValue?.primaryChannel ;
-        this.schedule = teamParameterValue?.schedule ;
-        this.specialization = teamParameterValue?.specialization ;
-        this.template = teamParameterValue?.template ;
-        this.visibility = teamParameterValue?.visibility ;
-        this.webUrl = teamParameterValue?.webUrl ;
+        super(teamParameterValue);
+        this.channels = teamParameterValue?.channels;
+        this.classification = teamParameterValue?.classification;
+        this.createdDateTime = teamParameterValue?.createdDateTime;
+        this.description = teamParameterValue?.description;
+        this.displayName = teamParameterValue?.displayName;
+        this.funSettings = teamParameterValue?.funSettings;
+        this.group = teamParameterValue?.group;
+        this.guestSettings = teamParameterValue?.guestSettings;
+        this.installedApps = teamParameterValue?.installedApps;
+        this.internalId = teamParameterValue?.internalId;
+        this.isArchived = teamParameterValue?.isArchived;
+        this.members = teamParameterValue?.members;
+        this.memberSettings = teamParameterValue?.memberSettings;
+        this.messagingSettings = teamParameterValue?.messagingSettings;
+        this.operations = teamParameterValue?.operations;
+        this.primaryChannel = teamParameterValue?.primaryChannel;
+        this.schedule = teamParameterValue?.schedule;
+        this.specialization = teamParameterValue?.specialization;
+        this.template = teamParameterValue?.template;
+        this.visibility = teamParameterValue?.visibility;
+        this.webUrl = teamParameterValue?.webUrl;
     };
     /**
      * The deserialization information for the current model
@@ -135,67 +135,67 @@ export class TeamImpl extends EntityImpl implements Parsable, Team {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.channels && this.channels.length != 0){        const channelsArrValue: ChannelImpl[] = []; this.channels?.forEach(element => {channelsArrValue.push(new ChannelImpl(element));});
-        writer.writeCollectionOfObjectValues<ChannelImpl>("channels", channelsArrValue);
+            writer.writeCollectionOfObjectValues<ChannelImpl>("channels", channelsArrValue);
         }
         if(this.classification){
-        writer.writeStringValue("classification", this.classification);
+            writer.writeStringValue("classification", this.classification);
         }
         if(this.createdDateTime){
-        writer.writeDateValue("createdDateTime", this.createdDateTime);
+            writer.writeDateValue("createdDateTime", this.createdDateTime);
         }
         if(this.description){
-        writer.writeStringValue("description", this.description);
+            writer.writeStringValue("description", this.description);
         }
         if(this.displayName){
-        writer.writeStringValue("displayName", this.displayName);
+            writer.writeStringValue("displayName", this.displayName);
         }
         if(this.funSettings){
-        writer.writeObjectValue<TeamFunSettingsImpl>("funSettings", new TeamFunSettingsImpl(this.funSettings));
+            writer.writeObjectValue<TeamFunSettingsImpl>("funSettings", new TeamFunSettingsImpl(this.funSettings));
         }
         if(this.group){
-        writer.writeObjectValue<GroupImpl>("group", new GroupImpl(this.group));
+            writer.writeObjectValue<GroupImpl>("group", new GroupImpl(this.group));
         }
         if(this.guestSettings){
-        writer.writeObjectValue<TeamGuestSettingsImpl>("guestSettings", new TeamGuestSettingsImpl(this.guestSettings));
+            writer.writeObjectValue<TeamGuestSettingsImpl>("guestSettings", new TeamGuestSettingsImpl(this.guestSettings));
         }
         if(this.installedApps && this.installedApps.length != 0){        const installedAppsArrValue: TeamsAppInstallationImpl[] = []; this.installedApps?.forEach(element => {installedAppsArrValue.push(new TeamsAppInstallationImpl(element));});
-        writer.writeCollectionOfObjectValues<TeamsAppInstallationImpl>("installedApps", installedAppsArrValue);
+            writer.writeCollectionOfObjectValues<TeamsAppInstallationImpl>("installedApps", installedAppsArrValue);
         }
         if(this.internalId){
-        writer.writeStringValue("internalId", this.internalId);
+            writer.writeStringValue("internalId", this.internalId);
         }
         if(this.isArchived){
-        writer.writeBooleanValue("isArchived", this.isArchived);
+            writer.writeBooleanValue("isArchived", this.isArchived);
         }
         if(this.members && this.members.length != 0){        const membersArrValue: ConversationMemberImpl[] = []; this.members?.forEach(element => {membersArrValue.push(new ConversationMemberImpl(element));});
-        writer.writeCollectionOfObjectValues<ConversationMemberImpl>("members", membersArrValue);
+            writer.writeCollectionOfObjectValues<ConversationMemberImpl>("members", membersArrValue);
         }
         if(this.memberSettings){
-        writer.writeObjectValue<TeamMemberSettingsImpl>("memberSettings", new TeamMemberSettingsImpl(this.memberSettings));
+            writer.writeObjectValue<TeamMemberSettingsImpl>("memberSettings", new TeamMemberSettingsImpl(this.memberSettings));
         }
         if(this.messagingSettings){
-        writer.writeObjectValue<TeamMessagingSettingsImpl>("messagingSettings", new TeamMessagingSettingsImpl(this.messagingSettings));
+            writer.writeObjectValue<TeamMessagingSettingsImpl>("messagingSettings", new TeamMessagingSettingsImpl(this.messagingSettings));
         }
         if(this.operations && this.operations.length != 0){        const operationsArrValue: TeamsAsyncOperationImpl[] = []; this.operations?.forEach(element => {operationsArrValue.push(new TeamsAsyncOperationImpl(element));});
-        writer.writeCollectionOfObjectValues<TeamsAsyncOperationImpl>("operations", operationsArrValue);
+            writer.writeCollectionOfObjectValues<TeamsAsyncOperationImpl>("operations", operationsArrValue);
         }
         if(this.primaryChannel){
-        writer.writeObjectValue<ChannelImpl>("primaryChannel", new ChannelImpl(this.primaryChannel));
+            writer.writeObjectValue<ChannelImpl>("primaryChannel", new ChannelImpl(this.primaryChannel));
         }
         if(this.schedule){
-        writer.writeObjectValue<ScheduleImpl>("schedule", new ScheduleImpl(this.schedule));
+            writer.writeObjectValue<ScheduleImpl>("schedule", new ScheduleImpl(this.schedule));
         }
         if(this.specialization){
-        writer.writeEnumValue<TeamSpecialization>("specialization", this.specialization);
+            writer.writeEnumValue<TeamSpecialization>("specialization", this.specialization);
         }
         if(this.template){
-        writer.writeObjectValue<TeamsTemplateImpl>("template", new TeamsTemplateImpl(this.template));
+            writer.writeObjectValue<TeamsTemplateImpl>("template", new TeamsTemplateImpl(this.template));
         }
         if(this.visibility){
-        writer.writeEnumValue<TeamVisibilityType>("visibility", this.visibility);
+            writer.writeEnumValue<TeamVisibilityType>("visibility", this.visibility);
         }
         if(this.webUrl){
-        writer.writeStringValue("webUrl", this.webUrl);
+            writer.writeStringValue("webUrl", this.webUrl);
         }
     };
 }

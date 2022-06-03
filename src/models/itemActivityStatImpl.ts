@@ -8,8 +8,8 @@ import {ItemActivity} from './itemActivity';
 import {ItemActivityStat} from './itemActivityStat';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to group. */
-export class ItemActivityStatImpl extends EntityImpl implements ItemActivityStat, Parsable {
+/** Casts the previous resource to user. */
+export class ItemActivityStatImpl extends EntityImpl implements ItemActivityStat {
     /** Statistics about the access actions in this interval. Read-only. */
     public access?: ItemActionStat | undefined;
     /** Exposes the itemActivities represented in this itemActivityStat resource. */
@@ -35,17 +35,17 @@ export class ItemActivityStatImpl extends EntityImpl implements ItemActivityStat
      * @param itemActivityStatParameterValue 
      */
     public constructor(itemActivityStatParameterValue?: ItemActivityStat | undefined) {
-        super();
-        this.access = itemActivityStatParameterValue?.access ;
-        this.activities = itemActivityStatParameterValue?.activities ;
-        this.create = itemActivityStatParameterValue?.create ;
-        this.delete = itemActivityStatParameterValue?.delete ;
-        this.edit = itemActivityStatParameterValue?.edit ;
-        this.endDateTime = itemActivityStatParameterValue?.endDateTime ;
-        this.incompleteData = itemActivityStatParameterValue?.incompleteData ;
-        this.isTrending = itemActivityStatParameterValue?.isTrending ;
-        this.move = itemActivityStatParameterValue?.move ;
-        this.startDateTime = itemActivityStatParameterValue?.startDateTime ;
+        super(itemActivityStatParameterValue);
+        this.access = itemActivityStatParameterValue?.access;
+        this.activities = itemActivityStatParameterValue?.activities;
+        this.create = itemActivityStatParameterValue?.create;
+        this.delete = itemActivityStatParameterValue?.delete;
+        this.edit = itemActivityStatParameterValue?.edit;
+        this.endDateTime = itemActivityStatParameterValue?.endDateTime;
+        this.incompleteData = itemActivityStatParameterValue?.incompleteData;
+        this.isTrending = itemActivityStatParameterValue?.isTrending;
+        this.move = itemActivityStatParameterValue?.move;
+        this.startDateTime = itemActivityStatParameterValue?.startDateTime;
     };
     /**
      * The deserialization information for the current model
@@ -73,34 +73,34 @@ export class ItemActivityStatImpl extends EntityImpl implements ItemActivityStat
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.access){
-        writer.writeObjectValue<ItemActionStatImpl>("access", new ItemActionStatImpl(this.access));
+            writer.writeObjectValue<ItemActionStatImpl>("access", new ItemActionStatImpl(this.access));
         }
         if(this.activities && this.activities.length != 0){        const activitiesArrValue: ItemActivityImpl[] = []; this.activities?.forEach(element => {activitiesArrValue.push(new ItemActivityImpl(element));});
-        writer.writeCollectionOfObjectValues<ItemActivityImpl>("activities", activitiesArrValue);
+            writer.writeCollectionOfObjectValues<ItemActivityImpl>("activities", activitiesArrValue);
         }
         if(this.create){
-        writer.writeObjectValue<ItemActionStatImpl>("create", new ItemActionStatImpl(this.create));
+            writer.writeObjectValue<ItemActionStatImpl>("create", new ItemActionStatImpl(this.create));
         }
         if(this.delete){
-        writer.writeObjectValue<ItemActionStatImpl>("delete", new ItemActionStatImpl(this.delete));
+            writer.writeObjectValue<ItemActionStatImpl>("delete", new ItemActionStatImpl(this.delete));
         }
         if(this.edit){
-        writer.writeObjectValue<ItemActionStatImpl>("edit", new ItemActionStatImpl(this.edit));
+            writer.writeObjectValue<ItemActionStatImpl>("edit", new ItemActionStatImpl(this.edit));
         }
         if(this.endDateTime){
-        writer.writeDateValue("endDateTime", this.endDateTime);
+            writer.writeDateValue("endDateTime", this.endDateTime);
         }
         if(this.incompleteData){
-        writer.writeObjectValue<IncompleteDataImpl>("incompleteData", new IncompleteDataImpl(this.incompleteData));
+            writer.writeObjectValue<IncompleteDataImpl>("incompleteData", new IncompleteDataImpl(this.incompleteData));
         }
         if(this.isTrending){
-        writer.writeBooleanValue("isTrending", this.isTrending);
+            writer.writeBooleanValue("isTrending", this.isTrending);
         }
         if(this.move){
-        writer.writeObjectValue<ItemActionStatImpl>("move", new ItemActionStatImpl(this.move));
+            writer.writeObjectValue<ItemActionStatImpl>("move", new ItemActionStatImpl(this.move));
         }
         if(this.startDateTime){
-        writer.writeDateValue("startDateTime", this.startDateTime);
+            writer.writeDateValue("startDateTime", this.startDateTime);
         }
     };
 }

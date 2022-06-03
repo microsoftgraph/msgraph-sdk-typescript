@@ -4,7 +4,7 @@ import {LicenseDetails} from './licenseDetails';
 import {LicenseDetailsCollectionResponse} from './licenseDetailsCollectionResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class LicenseDetailsCollectionResponseImpl implements AdditionalDataHolder, LicenseDetailsCollectionResponse, Parsable {
+export class LicenseDetailsCollectionResponseImpl implements LicenseDetailsCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class LicenseDetailsCollectionResponseImpl implements AdditionalDataHolde
      * @param licenseDetailsCollectionResponseParameterValue 
      */
     public constructor(licenseDetailsCollectionResponseParameterValue?: LicenseDetailsCollectionResponse | undefined) {
-        this.additionalData = licenseDetailsCollectionResponseParameterValue?.additionalData ? licenseDetailsCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = licenseDetailsCollectionResponseParameterValue?.nextLink ;
-        this.value = licenseDetailsCollectionResponseParameterValue?.value ;
+        this.additionalData = licenseDetailsCollectionResponseParameterValue?.additionalData ? licenseDetailsCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = licenseDetailsCollectionResponseParameterValue?.nextLink;
+        this.value = licenseDetailsCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class LicenseDetailsCollectionResponseImpl implements AdditionalDataHolde
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: LicenseDetailsImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new LicenseDetailsImpl(element));});
-        writer.writeCollectionOfObjectValues<LicenseDetailsImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<LicenseDetailsImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

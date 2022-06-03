@@ -1,10 +1,11 @@
 import {AudioRoutingGroup} from './audioRoutingGroup';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface AudioRoutingGroupCollectionResponse{
+export interface AudioRoutingGroupCollectionResponse extends Partial<AdditionalDataHolder>, Partial<Parsable> {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?:Record<string, unknown>;
+    additionalData?: Record<string, unknown>;
     /** The nextLink property */
-    nextLink?:string | undefined;
+    nextLink?: string | undefined;
     /** The value property */
-    value?:AudioRoutingGroup[] | undefined;
+    value?: AudioRoutingGroup[] | undefined;
 }

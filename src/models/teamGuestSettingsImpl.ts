@@ -1,7 +1,7 @@
 import {TeamGuestSettings} from './teamGuestSettings';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class TeamGuestSettingsImpl implements AdditionalDataHolder, Parsable, TeamGuestSettings {
+export class TeamGuestSettingsImpl implements TeamGuestSettings {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** If set to true, guests can add and update channels. */
@@ -13,9 +13,9 @@ export class TeamGuestSettingsImpl implements AdditionalDataHolder, Parsable, Te
      * @param teamGuestSettingsParameterValue 
      */
     public constructor(teamGuestSettingsParameterValue?: TeamGuestSettings | undefined) {
-        this.additionalData = teamGuestSettingsParameterValue?.additionalData ? teamGuestSettingsParameterValue?.additionalData! : {}
-        this.allowCreateUpdateChannels = teamGuestSettingsParameterValue?.allowCreateUpdateChannels ;
-        this.allowDeleteChannels = teamGuestSettingsParameterValue?.allowDeleteChannels ;
+        this.additionalData = teamGuestSettingsParameterValue?.additionalData ? teamGuestSettingsParameterValue?.additionalData! : {};
+        this.allowCreateUpdateChannels = teamGuestSettingsParameterValue?.allowCreateUpdateChannels;
+        this.allowDeleteChannels = teamGuestSettingsParameterValue?.allowDeleteChannels;
     };
     /**
      * The deserialization information for the current model
@@ -34,10 +34,10 @@ export class TeamGuestSettingsImpl implements AdditionalDataHolder, Parsable, Te
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.allowCreateUpdateChannels){
-        writer.writeBooleanValue("allowCreateUpdateChannels", this.allowCreateUpdateChannels);
+            writer.writeBooleanValue("allowCreateUpdateChannels", this.allowCreateUpdateChannels);
         }
         if(this.allowDeleteChannels){
-        writer.writeBooleanValue("allowDeleteChannels", this.allowDeleteChannels);
+            writer.writeBooleanValue("allowDeleteChannels", this.allowDeleteChannels);
         }
         writer.writeAdditionalData(this.additionalData);
     };

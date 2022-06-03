@@ -1,9 +1,10 @@
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface LocalizedDescription{
+export interface LocalizedDescription extends Partial<AdditionalDataHolder>, Partial<Parsable> {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?:Record<string, unknown>;
+    additionalData?: Record<string, unknown>;
     /** The description in the localized language. */
-    description?:string | undefined;
+    description?: string | undefined;
     /** The language tag for the label. */
-    languageTag?:string | undefined;
+    languageTag?: string | undefined;
 }

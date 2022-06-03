@@ -2,7 +2,7 @@ import {EducationGender} from './educationGender';
 import {EducationStudent} from './educationStudent';
 import {AdditionalDataHolder, DateOnly, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class EducationStudentImpl implements AdditionalDataHolder, EducationStudent, Parsable {
+export class EducationStudentImpl implements EducationStudent {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Birth date of the student. */
@@ -22,13 +22,13 @@ export class EducationStudentImpl implements AdditionalDataHolder, EducationStud
      * @param educationStudentParameterValue 
      */
     public constructor(educationStudentParameterValue?: EducationStudent | undefined) {
-        this.additionalData = educationStudentParameterValue?.additionalData ? educationStudentParameterValue?.additionalData! : {}
-        this.birthDate = educationStudentParameterValue?.birthDate ;
-        this.externalId = educationStudentParameterValue?.externalId ;
-        this.gender = educationStudentParameterValue?.gender ;
-        this.grade = educationStudentParameterValue?.grade ;
-        this.graduationYear = educationStudentParameterValue?.graduationYear ;
-        this.studentNumber = educationStudentParameterValue?.studentNumber ;
+        this.additionalData = educationStudentParameterValue?.additionalData ? educationStudentParameterValue?.additionalData! : {};
+        this.birthDate = educationStudentParameterValue?.birthDate;
+        this.externalId = educationStudentParameterValue?.externalId;
+        this.gender = educationStudentParameterValue?.gender;
+        this.grade = educationStudentParameterValue?.grade;
+        this.graduationYear = educationStudentParameterValue?.graduationYear;
+        this.studentNumber = educationStudentParameterValue?.studentNumber;
     };
     /**
      * The deserialization information for the current model
@@ -51,22 +51,22 @@ export class EducationStudentImpl implements AdditionalDataHolder, EducationStud
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.birthDate){
-        writer.writeDateOnlyValue("birthDate", this.birthDate);
+            writer.writeDateOnlyValue("birthDate", this.birthDate);
         }
         if(this.externalId){
-        writer.writeStringValue("externalId", this.externalId);
+            writer.writeStringValue("externalId", this.externalId);
         }
         if(this.gender){
-        writer.writeEnumValue<EducationGender>("gender", this.gender);
+            writer.writeEnumValue<EducationGender>("gender", this.gender);
         }
         if(this.grade){
-        writer.writeStringValue("grade", this.grade);
+            writer.writeStringValue("grade", this.grade);
         }
         if(this.graduationYear){
-        writer.writeStringValue("graduationYear", this.graduationYear);
+            writer.writeStringValue("graduationYear", this.graduationYear);
         }
         if(this.studentNumber){
-        writer.writeStringValue("studentNumber", this.studentNumber);
+            writer.writeStringValue("studentNumber", this.studentNumber);
         }
         writer.writeAdditionalData(this.additionalData);
     };

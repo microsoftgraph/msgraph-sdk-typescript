@@ -4,7 +4,7 @@ import {UserFlowLanguagePage} from './userFlowLanguagePage';
 import {UserFlowLanguagePageCollectionResponse} from './userFlowLanguagePageCollectionResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class UserFlowLanguagePageCollectionResponseImpl implements AdditionalDataHolder, Parsable, UserFlowLanguagePageCollectionResponse {
+export class UserFlowLanguagePageCollectionResponseImpl implements UserFlowLanguagePageCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class UserFlowLanguagePageCollectionResponseImpl implements AdditionalDat
      * @param userFlowLanguagePageCollectionResponseParameterValue 
      */
     public constructor(userFlowLanguagePageCollectionResponseParameterValue?: UserFlowLanguagePageCollectionResponse | undefined) {
-        this.additionalData = userFlowLanguagePageCollectionResponseParameterValue?.additionalData ? userFlowLanguagePageCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = userFlowLanguagePageCollectionResponseParameterValue?.nextLink ;
-        this.value = userFlowLanguagePageCollectionResponseParameterValue?.value ;
+        this.additionalData = userFlowLanguagePageCollectionResponseParameterValue?.additionalData ? userFlowLanguagePageCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = userFlowLanguagePageCollectionResponseParameterValue?.nextLink;
+        this.value = userFlowLanguagePageCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class UserFlowLanguagePageCollectionResponseImpl implements AdditionalDat
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: UserFlowLanguagePageImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new UserFlowLanguagePageImpl(element));});
-        writer.writeCollectionOfObjectValues<UserFlowLanguagePageImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<UserFlowLanguagePageImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

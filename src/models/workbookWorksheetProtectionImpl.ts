@@ -4,8 +4,8 @@ import {WorkbookWorksheetProtection} from './workbookWorksheetProtection';
 import {WorkbookWorksheetProtectionOptions} from './workbookWorksheetProtectionOptions';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
-export class WorkbookWorksheetProtectionImpl extends EntityImpl implements Parsable, WorkbookWorksheetProtection {
+/** Casts the previous resource to group. */
+export class WorkbookWorksheetProtectionImpl extends EntityImpl implements WorkbookWorksheetProtection {
     /** Sheet protection options. Read-only. */
     public options?: WorkbookWorksheetProtectionOptions | undefined;
     /** Indicates if the worksheet is protected.  Read-only. */
@@ -15,9 +15,9 @@ export class WorkbookWorksheetProtectionImpl extends EntityImpl implements Parsa
      * @param workbookWorksheetProtectionParameterValue 
      */
     public constructor(workbookWorksheetProtectionParameterValue?: WorkbookWorksheetProtection | undefined) {
-        super();
-        this.options = workbookWorksheetProtectionParameterValue?.options ;
-        this.protected = workbookWorksheetProtectionParameterValue?.protected ;
+        super(workbookWorksheetProtectionParameterValue);
+        this.options = workbookWorksheetProtectionParameterValue?.options;
+        this.protected = workbookWorksheetProtectionParameterValue?.protected;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class WorkbookWorksheetProtectionImpl extends EntityImpl implements Parsa
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.options){
-        writer.writeObjectValue<WorkbookWorksheetProtectionOptionsImpl>("options", new WorkbookWorksheetProtectionOptionsImpl(this.options));
+            writer.writeObjectValue<WorkbookWorksheetProtectionOptionsImpl>("options", new WorkbookWorksheetProtectionOptionsImpl(this.options));
         }
         if(this.protected){
-        writer.writeBooleanValue("protected", this.protected);
+            writer.writeBooleanValue("protected", this.protected);
         }
     };
 }

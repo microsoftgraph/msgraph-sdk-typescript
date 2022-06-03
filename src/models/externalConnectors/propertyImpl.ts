@@ -2,7 +2,7 @@ import {Property} from './property';
 import {PropertyType} from './propertyType';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class PropertyImpl implements AdditionalDataHolder, Parsable, Property {
+export class PropertyImpl implements Property {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** A set of aliases or a friendly names for the property. Maximum 32 characters. Only alphanumeric characters allowed. For example, each string may not contain control characters, whitespace, or any of the following: :, ;, ,, (, ), [, ], {, }, %, $, +, !, *, =, &, ?, @, #, /, ~, ', ', <, >, `, ^. Optional. */
@@ -26,15 +26,15 @@ export class PropertyImpl implements AdditionalDataHolder, Parsable, Property {
      * @param propertyParameterValue 
      */
     public constructor(propertyParameterValue?: Property | undefined) {
-        this.additionalData = propertyParameterValue?.additionalData ? propertyParameterValue?.additionalData! : {}
-        this.aliases = propertyParameterValue?.aliases ;
-        this.isQueryable = propertyParameterValue?.isQueryable ;
-        this.isRefinable = propertyParameterValue?.isRefinable ;
-        this.isRetrievable = propertyParameterValue?.isRetrievable ;
-        this.isSearchable = propertyParameterValue?.isSearchable ;
-        this.labels = propertyParameterValue?.labels ;
-        this.name = propertyParameterValue?.name ;
-        this.type = propertyParameterValue?.type ;
+        this.additionalData = propertyParameterValue?.additionalData ? propertyParameterValue?.additionalData! : {};
+        this.aliases = propertyParameterValue?.aliases;
+        this.isQueryable = propertyParameterValue?.isQueryable;
+        this.isRefinable = propertyParameterValue?.isRefinable;
+        this.isRetrievable = propertyParameterValue?.isRetrievable;
+        this.isSearchable = propertyParameterValue?.isSearchable;
+        this.labels = propertyParameterValue?.labels;
+        this.name = propertyParameterValue?.name;
+        this.type = propertyParameterValue?.type;
     };
     /**
      * The deserialization information for the current model
@@ -59,28 +59,28 @@ export class PropertyImpl implements AdditionalDataHolder, Parsable, Property {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.aliases){
-        writer.writeCollectionOfPrimitiveValues<string>("aliases", this.aliases);
+            writer.writeCollectionOfPrimitiveValues<string>("aliases", this.aliases);
         }
         if(this.isQueryable){
-        writer.writeBooleanValue("isQueryable", this.isQueryable);
+            writer.writeBooleanValue("isQueryable", this.isQueryable);
         }
         if(this.isRefinable){
-        writer.writeBooleanValue("isRefinable", this.isRefinable);
+            writer.writeBooleanValue("isRefinable", this.isRefinable);
         }
         if(this.isRetrievable){
-        writer.writeBooleanValue("isRetrievable", this.isRetrievable);
+            writer.writeBooleanValue("isRetrievable", this.isRetrievable);
         }
         if(this.isSearchable){
-        writer.writeBooleanValue("isSearchable", this.isSearchable);
+            writer.writeBooleanValue("isSearchable", this.isSearchable);
         }
         if(this.labels){
-        writer.writeCollectionOfPrimitiveValues<string>("labels", this.labels);
+            writer.writeCollectionOfPrimitiveValues<string>("labels", this.labels);
         }
         if(this.name){
-        writer.writeStringValue("name", this.name);
+            writer.writeStringValue("name", this.name);
         }
         if(this.type){
-        writer.writeEnumValue<PropertyType>("type", this.type);
+            writer.writeEnumValue<PropertyType>("type", this.type);
         }
         writer.writeAdditionalData(this.additionalData);
     };

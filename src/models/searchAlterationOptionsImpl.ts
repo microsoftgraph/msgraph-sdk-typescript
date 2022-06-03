@@ -1,7 +1,7 @@
 import {SearchAlterationOptions} from './searchAlterationOptions';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class SearchAlterationOptionsImpl implements AdditionalDataHolder, Parsable, SearchAlterationOptions {
+export class SearchAlterationOptionsImpl implements SearchAlterationOptions {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Indicates whether spelling modifications are enabled. If enabled, user will get the search results for corrected query when there are no results for the original query with typos and get the spelling modification information in queryAlterationResponse property of the response. Optional. */
@@ -13,9 +13,9 @@ export class SearchAlterationOptionsImpl implements AdditionalDataHolder, Parsab
      * @param searchAlterationOptionsParameterValue 
      */
     public constructor(searchAlterationOptionsParameterValue?: SearchAlterationOptions | undefined) {
-        this.additionalData = searchAlterationOptionsParameterValue?.additionalData ? searchAlterationOptionsParameterValue?.additionalData! : {}
-        this.enableModification = searchAlterationOptionsParameterValue?.enableModification ;
-        this.enableSuggestion = searchAlterationOptionsParameterValue?.enableSuggestion ;
+        this.additionalData = searchAlterationOptionsParameterValue?.additionalData ? searchAlterationOptionsParameterValue?.additionalData! : {};
+        this.enableModification = searchAlterationOptionsParameterValue?.enableModification;
+        this.enableSuggestion = searchAlterationOptionsParameterValue?.enableSuggestion;
     };
     /**
      * The deserialization information for the current model
@@ -34,10 +34,10 @@ export class SearchAlterationOptionsImpl implements AdditionalDataHolder, Parsab
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.enableModification){
-        writer.writeBooleanValue("enableModification", this.enableModification);
+            writer.writeBooleanValue("enableModification", this.enableModification);
         }
         if(this.enableSuggestion){
-        writer.writeBooleanValue("enableSuggestion", this.enableSuggestion);
+            writer.writeBooleanValue("enableSuggestion", this.enableSuggestion);
         }
         writer.writeAdditionalData(this.additionalData);
     };

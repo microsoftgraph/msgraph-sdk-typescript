@@ -1,4 +1,5 @@
 import {CommsOperation} from './commsOperation';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface StartHoldMusicOperation extends CommsOperation{
+export interface StartHoldMusicOperation extends CommsOperation, Partial<Parsable> {
 }

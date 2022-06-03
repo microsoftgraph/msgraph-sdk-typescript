@@ -1,7 +1,7 @@
 import {Configuration} from './configuration';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ConfigurationImpl implements AdditionalDataHolder, Configuration, Parsable {
+export class ConfigurationImpl implements Configuration {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** A collection of application IDs for registered Azure Active Directory apps that are allowed to manage the externalConnection and to index content in the externalConnection. */
@@ -11,8 +11,8 @@ export class ConfigurationImpl implements AdditionalDataHolder, Configuration, P
      * @param configurationParameterValue 
      */
     public constructor(configurationParameterValue?: Configuration | undefined) {
-        this.additionalData = configurationParameterValue?.additionalData ? configurationParameterValue?.additionalData! : {}
-        this.authorizedAppIds = configurationParameterValue?.authorizedAppIds ;
+        this.additionalData = configurationParameterValue?.additionalData ? configurationParameterValue?.additionalData! : {};
+        this.authorizedAppIds = configurationParameterValue?.authorizedAppIds;
     };
     /**
      * The deserialization information for the current model
@@ -30,7 +30,7 @@ export class ConfigurationImpl implements AdditionalDataHolder, Configuration, P
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.authorizedAppIds){
-        writer.writeCollectionOfPrimitiveValues<string>("authorizedAppIds", this.authorizedAppIds);
+            writer.writeCollectionOfPrimitiveValues<string>("authorizedAppIds", this.authorizedAppIds);
         }
         writer.writeAdditionalData(this.additionalData);
     };

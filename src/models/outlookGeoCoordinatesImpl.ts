@@ -1,7 +1,7 @@
 import {OutlookGeoCoordinates} from './outlookGeoCoordinates';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class OutlookGeoCoordinatesImpl implements AdditionalDataHolder, OutlookGeoCoordinates, Parsable {
+export class OutlookGeoCoordinatesImpl implements OutlookGeoCoordinates {
     /** The accuracy of the latitude and longitude. As an example, the accuracy can be measured in meters, such as the latitude and longitude are accurate to within 50 meters. */
     public accuracy?: number | undefined;
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
@@ -19,12 +19,12 @@ export class OutlookGeoCoordinatesImpl implements AdditionalDataHolder, OutlookG
      * @param outlookGeoCoordinatesParameterValue 
      */
     public constructor(outlookGeoCoordinatesParameterValue?: OutlookGeoCoordinates | undefined) {
-        this.accuracy = outlookGeoCoordinatesParameterValue?.accuracy ;
-        this.additionalData = outlookGeoCoordinatesParameterValue?.additionalData ? outlookGeoCoordinatesParameterValue?.additionalData! : {}
-        this.altitude = outlookGeoCoordinatesParameterValue?.altitude ;
-        this.altitudeAccuracy = outlookGeoCoordinatesParameterValue?.altitudeAccuracy ;
-        this.latitude = outlookGeoCoordinatesParameterValue?.latitude ;
-        this.longitude = outlookGeoCoordinatesParameterValue?.longitude ;
+        this.accuracy = outlookGeoCoordinatesParameterValue?.accuracy;
+        this.additionalData = outlookGeoCoordinatesParameterValue?.additionalData ? outlookGeoCoordinatesParameterValue?.additionalData! : {};
+        this.altitude = outlookGeoCoordinatesParameterValue?.altitude;
+        this.altitudeAccuracy = outlookGeoCoordinatesParameterValue?.altitudeAccuracy;
+        this.latitude = outlookGeoCoordinatesParameterValue?.latitude;
+        this.longitude = outlookGeoCoordinatesParameterValue?.longitude;
     };
     /**
      * The deserialization information for the current model
@@ -46,19 +46,19 @@ export class OutlookGeoCoordinatesImpl implements AdditionalDataHolder, OutlookG
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.accuracy){
-        writer.writeNumberValue("accuracy", this.accuracy);
+            writer.writeNumberValue("accuracy", this.accuracy);
         }
         if(this.altitude){
-        writer.writeNumberValue("altitude", this.altitude);
+            writer.writeNumberValue("altitude", this.altitude);
         }
         if(this.altitudeAccuracy){
-        writer.writeNumberValue("altitudeAccuracy", this.altitudeAccuracy);
+            writer.writeNumberValue("altitudeAccuracy", this.altitudeAccuracy);
         }
         if(this.latitude){
-        writer.writeNumberValue("latitude", this.latitude);
+            writer.writeNumberValue("latitude", this.latitude);
         }
         if(this.longitude){
-        writer.writeNumberValue("longitude", this.longitude);
+            writer.writeNumberValue("longitude", this.longitude);
         }
         writer.writeAdditionalData(this.additionalData);
     };

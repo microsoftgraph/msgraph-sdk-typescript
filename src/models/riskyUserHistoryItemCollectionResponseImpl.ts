@@ -4,7 +4,7 @@ import {RiskyUserHistoryItem} from './riskyUserHistoryItem';
 import {RiskyUserHistoryItemCollectionResponse} from './riskyUserHistoryItemCollectionResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class RiskyUserHistoryItemCollectionResponseImpl implements AdditionalDataHolder, Parsable, RiskyUserHistoryItemCollectionResponse {
+export class RiskyUserHistoryItemCollectionResponseImpl implements RiskyUserHistoryItemCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class RiskyUserHistoryItemCollectionResponseImpl implements AdditionalDat
      * @param riskyUserHistoryItemCollectionResponseParameterValue 
      */
     public constructor(riskyUserHistoryItemCollectionResponseParameterValue?: RiskyUserHistoryItemCollectionResponse | undefined) {
-        this.additionalData = riskyUserHistoryItemCollectionResponseParameterValue?.additionalData ? riskyUserHistoryItemCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = riskyUserHistoryItemCollectionResponseParameterValue?.nextLink ;
-        this.value = riskyUserHistoryItemCollectionResponseParameterValue?.value ;
+        this.additionalData = riskyUserHistoryItemCollectionResponseParameterValue?.additionalData ? riskyUserHistoryItemCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = riskyUserHistoryItemCollectionResponseParameterValue?.nextLink;
+        this.value = riskyUserHistoryItemCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class RiskyUserHistoryItemCollectionResponseImpl implements AdditionalDat
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: RiskyUserHistoryItemImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new RiskyUserHistoryItemImpl(element));});
-        writer.writeCollectionOfObjectValues<RiskyUserHistoryItemImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<RiskyUserHistoryItemImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

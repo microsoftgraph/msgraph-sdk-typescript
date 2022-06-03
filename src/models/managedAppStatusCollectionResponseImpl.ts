@@ -4,7 +4,7 @@ import {ManagedAppStatus} from './managedAppStatus';
 import {ManagedAppStatusCollectionResponse} from './managedAppStatusCollectionResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ManagedAppStatusCollectionResponseImpl implements AdditionalDataHolder, ManagedAppStatusCollectionResponse, Parsable {
+export class ManagedAppStatusCollectionResponseImpl implements ManagedAppStatusCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class ManagedAppStatusCollectionResponseImpl implements AdditionalDataHol
      * @param managedAppStatusCollectionResponseParameterValue 
      */
     public constructor(managedAppStatusCollectionResponseParameterValue?: ManagedAppStatusCollectionResponse | undefined) {
-        this.additionalData = managedAppStatusCollectionResponseParameterValue?.additionalData ? managedAppStatusCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = managedAppStatusCollectionResponseParameterValue?.nextLink ;
-        this.value = managedAppStatusCollectionResponseParameterValue?.value ;
+        this.additionalData = managedAppStatusCollectionResponseParameterValue?.additionalData ? managedAppStatusCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = managedAppStatusCollectionResponseParameterValue?.nextLink;
+        this.value = managedAppStatusCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class ManagedAppStatusCollectionResponseImpl implements AdditionalDataHol
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: ManagedAppStatusImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ManagedAppStatusImpl(element));});
-        writer.writeCollectionOfObjectValues<ManagedAppStatusImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<ManagedAppStatusImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

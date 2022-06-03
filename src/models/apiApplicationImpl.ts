@@ -6,7 +6,7 @@ import {PermissionScope} from './permissionScope';
 import {PreAuthorizedApplication} from './preAuthorizedApplication';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ApiApplicationImpl implements AdditionalDataHolder, ApiApplication, Parsable {
+export class ApiApplicationImpl implements ApiApplication {
     /** When true, allows an application to use claims mapping without specifying a custom signing key. */
     public acceptMappedClaims?: boolean | undefined;
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
@@ -24,12 +24,12 @@ export class ApiApplicationImpl implements AdditionalDataHolder, ApiApplication,
      * @param apiApplicationParameterValue 
      */
     public constructor(apiApplicationParameterValue?: ApiApplication | undefined) {
-        this.acceptMappedClaims = apiApplicationParameterValue?.acceptMappedClaims ;
-        this.additionalData = apiApplicationParameterValue?.additionalData ? apiApplicationParameterValue?.additionalData! : {}
-        this.knownClientApplications = apiApplicationParameterValue?.knownClientApplications ;
-        this.oauth2PermissionScopes = apiApplicationParameterValue?.oauth2PermissionScopes ;
-        this.preAuthorizedApplications = apiApplicationParameterValue?.preAuthorizedApplications ;
-        this.requestedAccessTokenVersion = apiApplicationParameterValue?.requestedAccessTokenVersion ;
+        this.acceptMappedClaims = apiApplicationParameterValue?.acceptMappedClaims;
+        this.additionalData = apiApplicationParameterValue?.additionalData ? apiApplicationParameterValue?.additionalData! : {};
+        this.knownClientApplications = apiApplicationParameterValue?.knownClientApplications;
+        this.oauth2PermissionScopes = apiApplicationParameterValue?.oauth2PermissionScopes;
+        this.preAuthorizedApplications = apiApplicationParameterValue?.preAuthorizedApplications;
+        this.requestedAccessTokenVersion = apiApplicationParameterValue?.requestedAccessTokenVersion;
     };
     /**
      * The deserialization information for the current model
@@ -51,19 +51,19 @@ export class ApiApplicationImpl implements AdditionalDataHolder, ApiApplication,
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.acceptMappedClaims){
-        writer.writeBooleanValue("acceptMappedClaims", this.acceptMappedClaims);
+            writer.writeBooleanValue("acceptMappedClaims", this.acceptMappedClaims);
         }
         if(this.knownClientApplications){
-        writer.writeCollectionOfPrimitiveValues<string>("knownClientApplications", this.knownClientApplications);
+            writer.writeCollectionOfPrimitiveValues<string>("knownClientApplications", this.knownClientApplications);
         }
         if(this.oauth2PermissionScopes && this.oauth2PermissionScopes.length != 0){        const oauth2PermissionScopesArrValue: PermissionScopeImpl[] = []; this.oauth2PermissionScopes?.forEach(element => {oauth2PermissionScopesArrValue.push(new PermissionScopeImpl(element));});
-        writer.writeCollectionOfObjectValues<PermissionScopeImpl>("oauth2PermissionScopes", oauth2PermissionScopesArrValue);
+            writer.writeCollectionOfObjectValues<PermissionScopeImpl>("oauth2PermissionScopes", oauth2PermissionScopesArrValue);
         }
         if(this.preAuthorizedApplications && this.preAuthorizedApplications.length != 0){        const preAuthorizedApplicationsArrValue: PreAuthorizedApplicationImpl[] = []; this.preAuthorizedApplications?.forEach(element => {preAuthorizedApplicationsArrValue.push(new PreAuthorizedApplicationImpl(element));});
-        writer.writeCollectionOfObjectValues<PreAuthorizedApplicationImpl>("preAuthorizedApplications", preAuthorizedApplicationsArrValue);
+            writer.writeCollectionOfObjectValues<PreAuthorizedApplicationImpl>("preAuthorizedApplications", preAuthorizedApplicationsArrValue);
         }
         if(this.requestedAccessTokenVersion){
-        writer.writeNumberValue("requestedAccessTokenVersion", this.requestedAccessTokenVersion);
+            writer.writeNumberValue("requestedAccessTokenVersion", this.requestedAccessTokenVersion);
         }
         writer.writeAdditionalData(this.additionalData);
     };

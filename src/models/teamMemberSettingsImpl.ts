@@ -1,7 +1,7 @@
 import {TeamMemberSettings} from './teamMemberSettings';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class TeamMemberSettingsImpl implements AdditionalDataHolder, Parsable, TeamMemberSettings {
+export class TeamMemberSettingsImpl implements TeamMemberSettings {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** If set to true, members can add and remove apps. */
@@ -21,13 +21,13 @@ export class TeamMemberSettingsImpl implements AdditionalDataHolder, Parsable, T
      * @param teamMemberSettingsParameterValue 
      */
     public constructor(teamMemberSettingsParameterValue?: TeamMemberSettings | undefined) {
-        this.additionalData = teamMemberSettingsParameterValue?.additionalData ? teamMemberSettingsParameterValue?.additionalData! : {}
-        this.allowAddRemoveApps = teamMemberSettingsParameterValue?.allowAddRemoveApps ;
-        this.allowCreatePrivateChannels = teamMemberSettingsParameterValue?.allowCreatePrivateChannels ;
-        this.allowCreateUpdateChannels = teamMemberSettingsParameterValue?.allowCreateUpdateChannels ;
-        this.allowCreateUpdateRemoveConnectors = teamMemberSettingsParameterValue?.allowCreateUpdateRemoveConnectors ;
-        this.allowCreateUpdateRemoveTabs = teamMemberSettingsParameterValue?.allowCreateUpdateRemoveTabs ;
-        this.allowDeleteChannels = teamMemberSettingsParameterValue?.allowDeleteChannels ;
+        this.additionalData = teamMemberSettingsParameterValue?.additionalData ? teamMemberSettingsParameterValue?.additionalData! : {};
+        this.allowAddRemoveApps = teamMemberSettingsParameterValue?.allowAddRemoveApps;
+        this.allowCreatePrivateChannels = teamMemberSettingsParameterValue?.allowCreatePrivateChannels;
+        this.allowCreateUpdateChannels = teamMemberSettingsParameterValue?.allowCreateUpdateChannels;
+        this.allowCreateUpdateRemoveConnectors = teamMemberSettingsParameterValue?.allowCreateUpdateRemoveConnectors;
+        this.allowCreateUpdateRemoveTabs = teamMemberSettingsParameterValue?.allowCreateUpdateRemoveTabs;
+        this.allowDeleteChannels = teamMemberSettingsParameterValue?.allowDeleteChannels;
     };
     /**
      * The deserialization information for the current model
@@ -50,22 +50,22 @@ export class TeamMemberSettingsImpl implements AdditionalDataHolder, Parsable, T
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.allowAddRemoveApps){
-        writer.writeBooleanValue("allowAddRemoveApps", this.allowAddRemoveApps);
+            writer.writeBooleanValue("allowAddRemoveApps", this.allowAddRemoveApps);
         }
         if(this.allowCreatePrivateChannels){
-        writer.writeBooleanValue("allowCreatePrivateChannels", this.allowCreatePrivateChannels);
+            writer.writeBooleanValue("allowCreatePrivateChannels", this.allowCreatePrivateChannels);
         }
         if(this.allowCreateUpdateChannels){
-        writer.writeBooleanValue("allowCreateUpdateChannels", this.allowCreateUpdateChannels);
+            writer.writeBooleanValue("allowCreateUpdateChannels", this.allowCreateUpdateChannels);
         }
         if(this.allowCreateUpdateRemoveConnectors){
-        writer.writeBooleanValue("allowCreateUpdateRemoveConnectors", this.allowCreateUpdateRemoveConnectors);
+            writer.writeBooleanValue("allowCreateUpdateRemoveConnectors", this.allowCreateUpdateRemoveConnectors);
         }
         if(this.allowCreateUpdateRemoveTabs){
-        writer.writeBooleanValue("allowCreateUpdateRemoveTabs", this.allowCreateUpdateRemoveTabs);
+            writer.writeBooleanValue("allowCreateUpdateRemoveTabs", this.allowCreateUpdateRemoveTabs);
         }
         if(this.allowDeleteChannels){
-        writer.writeBooleanValue("allowDeleteChannels", this.allowDeleteChannels);
+            writer.writeBooleanValue("allowDeleteChannels", this.allowDeleteChannels);
         }
         writer.writeAdditionalData(this.additionalData);
     };

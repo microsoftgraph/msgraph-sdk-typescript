@@ -2,7 +2,7 @@ import {TeamworkActivityTopic} from './teamworkActivityTopic';
 import {TeamworkActivityTopicSource} from './teamworkActivityTopicSource';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class TeamworkActivityTopicImpl implements AdditionalDataHolder, Parsable, TeamworkActivityTopic {
+export class TeamworkActivityTopicImpl implements TeamworkActivityTopic {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Type of source. Possible values are: entityUrl, text. For supported Microsoft Graph URLs, use entityUrl. For custom text, use text. */
@@ -16,10 +16,10 @@ export class TeamworkActivityTopicImpl implements AdditionalDataHolder, Parsable
      * @param teamworkActivityTopicParameterValue 
      */
     public constructor(teamworkActivityTopicParameterValue?: TeamworkActivityTopic | undefined) {
-        this.additionalData = teamworkActivityTopicParameterValue?.additionalData ? teamworkActivityTopicParameterValue?.additionalData! : {}
-        this.source = teamworkActivityTopicParameterValue?.source ;
-        this.value = teamworkActivityTopicParameterValue?.value ;
-        this.webUrl = teamworkActivityTopicParameterValue?.webUrl ;
+        this.additionalData = teamworkActivityTopicParameterValue?.additionalData ? teamworkActivityTopicParameterValue?.additionalData! : {};
+        this.source = teamworkActivityTopicParameterValue?.source;
+        this.value = teamworkActivityTopicParameterValue?.value;
+        this.webUrl = teamworkActivityTopicParameterValue?.webUrl;
     };
     /**
      * The deserialization information for the current model
@@ -39,13 +39,13 @@ export class TeamworkActivityTopicImpl implements AdditionalDataHolder, Parsable
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.source){
-        writer.writeEnumValue<TeamworkActivityTopicSource>("source", this.source);
+            writer.writeEnumValue<TeamworkActivityTopicSource>("source", this.source);
         }
         if(this.value){
-        writer.writeStringValue("value", this.value);
+            writer.writeStringValue("value", this.value);
         }
         if(this.webUrl){
-        writer.writeStringValue("webUrl", this.webUrl);
+            writer.writeStringValue("webUrl", this.webUrl);
         }
         writer.writeAdditionalData(this.additionalData);
     };

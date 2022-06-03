@@ -4,7 +4,7 @@ import {DeviceInstallStateCollectionResponse} from './deviceInstallStateCollecti
 import {DeviceInstallStateImpl} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class DeviceInstallStateCollectionResponseImpl implements AdditionalDataHolder, DeviceInstallStateCollectionResponse, Parsable {
+export class DeviceInstallStateCollectionResponseImpl implements DeviceInstallStateCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class DeviceInstallStateCollectionResponseImpl implements AdditionalDataH
      * @param deviceInstallStateCollectionResponseParameterValue 
      */
     public constructor(deviceInstallStateCollectionResponseParameterValue?: DeviceInstallStateCollectionResponse | undefined) {
-        this.additionalData = deviceInstallStateCollectionResponseParameterValue?.additionalData ? deviceInstallStateCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = deviceInstallStateCollectionResponseParameterValue?.nextLink ;
-        this.value = deviceInstallStateCollectionResponseParameterValue?.value ;
+        this.additionalData = deviceInstallStateCollectionResponseParameterValue?.additionalData ? deviceInstallStateCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = deviceInstallStateCollectionResponseParameterValue?.nextLink;
+        this.value = deviceInstallStateCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class DeviceInstallStateCollectionResponseImpl implements AdditionalDataH
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: DeviceInstallStateImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new DeviceInstallStateImpl(element));});
-        writer.writeCollectionOfObjectValues<DeviceInstallStateImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<DeviceInstallStateImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

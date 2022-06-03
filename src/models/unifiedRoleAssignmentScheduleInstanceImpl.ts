@@ -5,7 +5,7 @@ import {UnifiedRoleEligibilityScheduleInstance} from './unifiedRoleEligibilitySc
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the roleManagement singleton. */
-export class UnifiedRoleAssignmentScheduleInstanceImpl extends UnifiedRoleScheduleInstanceBaseImpl implements Parsable, UnifiedRoleAssignmentScheduleInstance {
+export class UnifiedRoleAssignmentScheduleInstanceImpl extends UnifiedRoleScheduleInstanceBaseImpl implements UnifiedRoleAssignmentScheduleInstance {
     /** If the roleAssignmentScheduleInstance is activated by a roleEligibilityScheduleRequest, this is the link to the related schedule instance. */
     public activatedUsing?: UnifiedRoleEligibilityScheduleInstance | undefined;
     /** Type of the assignment. It can either be Assigned or Activated. */
@@ -25,14 +25,14 @@ export class UnifiedRoleAssignmentScheduleInstanceImpl extends UnifiedRoleSchedu
      * @param unifiedRoleAssignmentScheduleInstanceParameterValue 
      */
     public constructor(unifiedRoleAssignmentScheduleInstanceParameterValue?: UnifiedRoleAssignmentScheduleInstance | undefined) {
-        super();
-        this.activatedUsing = unifiedRoleAssignmentScheduleInstanceParameterValue?.activatedUsing ;
-        this.assignmentType = unifiedRoleAssignmentScheduleInstanceParameterValue?.assignmentType ;
-        this.endDateTime = unifiedRoleAssignmentScheduleInstanceParameterValue?.endDateTime ;
-        this.memberType = unifiedRoleAssignmentScheduleInstanceParameterValue?.memberType ;
-        this.roleAssignmentOriginId = unifiedRoleAssignmentScheduleInstanceParameterValue?.roleAssignmentOriginId ;
-        this.roleAssignmentScheduleId = unifiedRoleAssignmentScheduleInstanceParameterValue?.roleAssignmentScheduleId ;
-        this.startDateTime = unifiedRoleAssignmentScheduleInstanceParameterValue?.startDateTime ;
+        super(unifiedRoleAssignmentScheduleInstanceParameterValue);
+        this.activatedUsing = unifiedRoleAssignmentScheduleInstanceParameterValue?.activatedUsing;
+        this.assignmentType = unifiedRoleAssignmentScheduleInstanceParameterValue?.assignmentType;
+        this.endDateTime = unifiedRoleAssignmentScheduleInstanceParameterValue?.endDateTime;
+        this.memberType = unifiedRoleAssignmentScheduleInstanceParameterValue?.memberType;
+        this.roleAssignmentOriginId = unifiedRoleAssignmentScheduleInstanceParameterValue?.roleAssignmentOriginId;
+        this.roleAssignmentScheduleId = unifiedRoleAssignmentScheduleInstanceParameterValue?.roleAssignmentScheduleId;
+        this.startDateTime = unifiedRoleAssignmentScheduleInstanceParameterValue?.startDateTime;
     };
     /**
      * The deserialization information for the current model
@@ -57,25 +57,25 @@ export class UnifiedRoleAssignmentScheduleInstanceImpl extends UnifiedRoleSchedu
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.activatedUsing){
-        writer.writeObjectValue<UnifiedRoleEligibilityScheduleInstanceImpl>("activatedUsing", new UnifiedRoleEligibilityScheduleInstanceImpl(this.activatedUsing));
+            writer.writeObjectValue<UnifiedRoleEligibilityScheduleInstanceImpl>("activatedUsing", new UnifiedRoleEligibilityScheduleInstanceImpl(this.activatedUsing));
         }
         if(this.assignmentType){
-        writer.writeStringValue("assignmentType", this.assignmentType);
+            writer.writeStringValue("assignmentType", this.assignmentType);
         }
         if(this.endDateTime){
-        writer.writeDateValue("endDateTime", this.endDateTime);
+            writer.writeDateValue("endDateTime", this.endDateTime);
         }
         if(this.memberType){
-        writer.writeStringValue("memberType", this.memberType);
+            writer.writeStringValue("memberType", this.memberType);
         }
         if(this.roleAssignmentOriginId){
-        writer.writeStringValue("roleAssignmentOriginId", this.roleAssignmentOriginId);
+            writer.writeStringValue("roleAssignmentOriginId", this.roleAssignmentOriginId);
         }
         if(this.roleAssignmentScheduleId){
-        writer.writeStringValue("roleAssignmentScheduleId", this.roleAssignmentScheduleId);
+            writer.writeStringValue("roleAssignmentScheduleId", this.roleAssignmentScheduleId);
         }
         if(this.startDateTime){
-        writer.writeDateValue("startDateTime", this.startDateTime);
+            writer.writeDateValue("startDateTime", this.startDateTime);
         }
     };
 }

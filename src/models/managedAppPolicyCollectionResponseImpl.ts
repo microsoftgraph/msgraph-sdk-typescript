@@ -4,7 +4,7 @@ import {ManagedAppPolicy} from './managedAppPolicy';
 import {ManagedAppPolicyCollectionResponse} from './managedAppPolicyCollectionResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ManagedAppPolicyCollectionResponseImpl implements AdditionalDataHolder, ManagedAppPolicyCollectionResponse, Parsable {
+export class ManagedAppPolicyCollectionResponseImpl implements ManagedAppPolicyCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class ManagedAppPolicyCollectionResponseImpl implements AdditionalDataHol
      * @param managedAppPolicyCollectionResponseParameterValue 
      */
     public constructor(managedAppPolicyCollectionResponseParameterValue?: ManagedAppPolicyCollectionResponse | undefined) {
-        this.additionalData = managedAppPolicyCollectionResponseParameterValue?.additionalData ? managedAppPolicyCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = managedAppPolicyCollectionResponseParameterValue?.nextLink ;
-        this.value = managedAppPolicyCollectionResponseParameterValue?.value ;
+        this.additionalData = managedAppPolicyCollectionResponseParameterValue?.additionalData ? managedAppPolicyCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = managedAppPolicyCollectionResponseParameterValue?.nextLink;
+        this.value = managedAppPolicyCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class ManagedAppPolicyCollectionResponseImpl implements AdditionalDataHol
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: ManagedAppPolicyImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ManagedAppPolicyImpl(element));});
-        writer.writeCollectionOfObjectValues<ManagedAppPolicyImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<ManagedAppPolicyImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

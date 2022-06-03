@@ -1,14 +1,15 @@
 import {Entity} from './entity';
 import {PrintUsageByPrinter} from './printUsageByPrinter';
 import {PrintUsageByUser} from './printUsageByUser';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface ReportRoot extends Entity{
+export interface ReportRoot extends Entity, Partial<Parsable> {
     /** The dailyPrintUsageByPrinter property */
-    dailyPrintUsageByPrinter?:PrintUsageByPrinter[] | undefined;
+    dailyPrintUsageByPrinter?: PrintUsageByPrinter[] | undefined;
     /** The dailyPrintUsageByUser property */
-    dailyPrintUsageByUser?:PrintUsageByUser[] | undefined;
+    dailyPrintUsageByUser?: PrintUsageByUser[] | undefined;
     /** The monthlyPrintUsageByPrinter property */
-    monthlyPrintUsageByPrinter?:PrintUsageByPrinter[] | undefined;
+    monthlyPrintUsageByPrinter?: PrintUsageByPrinter[] | undefined;
     /** The monthlyPrintUsageByUser property */
-    monthlyPrintUsageByUser?:PrintUsageByUser[] | undefined;
+    monthlyPrintUsageByUser?: PrintUsageByUser[] | undefined;
 }

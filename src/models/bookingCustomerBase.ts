@@ -1,4 +1,5 @@
 import {Entity} from './entity';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface BookingCustomerBase extends Entity{
+export interface BookingCustomerBase extends Entity, Partial<Parsable> {
 }

@@ -3,7 +3,7 @@ import {DirectoryObjectImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the collection of directoryRoleTemplate entities. */
-export class DirectoryRoleTemplateImpl extends DirectoryObjectImpl implements DirectoryRoleTemplate, Parsable {
+export class DirectoryRoleTemplateImpl extends DirectoryObjectImpl implements DirectoryRoleTemplate {
     /** The description to set for the directory role. Read-only. */
     public description?: string | undefined;
     /** The display name to set for the directory role. Read-only. */
@@ -13,9 +13,9 @@ export class DirectoryRoleTemplateImpl extends DirectoryObjectImpl implements Di
      * @param directoryRoleTemplateParameterValue 
      */
     public constructor(directoryRoleTemplateParameterValue?: DirectoryRoleTemplate | undefined) {
-        super();
-        this.description = directoryRoleTemplateParameterValue?.description ;
-        this.displayName = directoryRoleTemplateParameterValue?.displayName ;
+        super(directoryRoleTemplateParameterValue);
+        this.description = directoryRoleTemplateParameterValue?.description;
+        this.displayName = directoryRoleTemplateParameterValue?.displayName;
     };
     /**
      * The deserialization information for the current model
@@ -35,10 +35,10 @@ export class DirectoryRoleTemplateImpl extends DirectoryObjectImpl implements Di
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.description){
-        writer.writeStringValue("description", this.description);
+            writer.writeStringValue("description", this.description);
         }
         if(this.displayName){
-        writer.writeStringValue("displayName", this.displayName);
+            writer.writeStringValue("displayName", this.displayName);
         }
     };
 }

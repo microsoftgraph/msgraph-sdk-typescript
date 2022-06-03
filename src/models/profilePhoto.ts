@@ -1,8 +1,9 @@
 import {Entity} from './entity';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface ProfilePhoto extends Entity{
+export interface ProfilePhoto extends Entity, Partial<Parsable> {
     /** The height of the photo. Read-only. */
-    height?:number | undefined;
+    height?: number | undefined;
     /** The width of the photo. Read-only. */
-    width?:number | undefined;
+    width?: number | undefined;
 }

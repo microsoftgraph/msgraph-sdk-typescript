@@ -15,8 +15,8 @@ import {ColumnDefinitionImpl, ColumnLinkImpl, ContentTypeOrderImpl, DocumentSetC
 import {ItemReference} from './itemReference';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to group. */
-export class ContentTypeImpl extends EntityImpl implements ContentType, Parsable {
+/** Casts the previous resource to user. */
+export class ContentTypeImpl extends EntityImpl implements ContentType {
     /** List of canonical URLs for hub sites with which this content type is associated to. This will contain all hubsites where this content type is queued to be enforced or is already enforced. Enforcing a content type means that the content type will be applied to the lists in the enforced sites. */
     public associatedHubsUrls?: string[] | undefined;
     /** Parent contentType from which this content type is derived. */
@@ -60,26 +60,26 @@ export class ContentTypeImpl extends EntityImpl implements ContentType, Parsable
      * @param contentTypeParameterValue 
      */
     public constructor(contentTypeParameterValue?: ContentType | undefined) {
-        super();
-        this.associatedHubsUrls = contentTypeParameterValue?.associatedHubsUrls ;
-        this.base = contentTypeParameterValue?.base ;
-        this.baseTypes = contentTypeParameterValue?.baseTypes ;
-        this.columnLinks = contentTypeParameterValue?.columnLinks ;
-        this.columnPositions = contentTypeParameterValue?.columnPositions ;
-        this.columns = contentTypeParameterValue?.columns ;
-        this.description = contentTypeParameterValue?.description ;
-        this.documentSet = contentTypeParameterValue?.documentSet ;
-        this.documentTemplate = contentTypeParameterValue?.documentTemplate ;
-        this.group = contentTypeParameterValue?.group ;
-        this.hidden = contentTypeParameterValue?.hidden ;
-        this.inheritedFrom = contentTypeParameterValue?.inheritedFrom ;
-        this.isBuiltIn = contentTypeParameterValue?.isBuiltIn ;
-        this.name = contentTypeParameterValue?.name ;
-        this.order = contentTypeParameterValue?.order ;
-        this.parentId = contentTypeParameterValue?.parentId ;
-        this.propagateChanges = contentTypeParameterValue?.propagateChanges ;
-        this.readOnly = contentTypeParameterValue?.readOnly ;
-        this.sealed = contentTypeParameterValue?.sealed ;
+        super(contentTypeParameterValue);
+        this.associatedHubsUrls = contentTypeParameterValue?.associatedHubsUrls;
+        this.base = contentTypeParameterValue?.base;
+        this.baseTypes = contentTypeParameterValue?.baseTypes;
+        this.columnLinks = contentTypeParameterValue?.columnLinks;
+        this.columnPositions = contentTypeParameterValue?.columnPositions;
+        this.columns = contentTypeParameterValue?.columns;
+        this.description = contentTypeParameterValue?.description;
+        this.documentSet = contentTypeParameterValue?.documentSet;
+        this.documentTemplate = contentTypeParameterValue?.documentTemplate;
+        this.group = contentTypeParameterValue?.group;
+        this.hidden = contentTypeParameterValue?.hidden;
+        this.inheritedFrom = contentTypeParameterValue?.inheritedFrom;
+        this.isBuiltIn = contentTypeParameterValue?.isBuiltIn;
+        this.name = contentTypeParameterValue?.name;
+        this.order = contentTypeParameterValue?.order;
+        this.parentId = contentTypeParameterValue?.parentId;
+        this.propagateChanges = contentTypeParameterValue?.propagateChanges;
+        this.readOnly = contentTypeParameterValue?.readOnly;
+        this.sealed = contentTypeParameterValue?.sealed;
     };
     /**
      * The deserialization information for the current model
@@ -116,61 +116,61 @@ export class ContentTypeImpl extends EntityImpl implements ContentType, Parsable
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.associatedHubsUrls){
-        writer.writeCollectionOfPrimitiveValues<string>("associatedHubsUrls", this.associatedHubsUrls);
+            writer.writeCollectionOfPrimitiveValues<string>("associatedHubsUrls", this.associatedHubsUrls);
         }
         if(this.base){
-        writer.writeObjectValue<ContentTypeImpl>("base", new ContentTypeImpl(this.base));
+            writer.writeObjectValue<ContentTypeImpl>("base", new ContentTypeImpl(this.base));
         }
         if(this.baseTypes && this.baseTypes.length != 0){        const baseTypesArrValue: ContentTypeImpl[] = []; this.baseTypes?.forEach(element => {baseTypesArrValue.push(new ContentTypeImpl(element));});
-        writer.writeCollectionOfObjectValues<ContentTypeImpl>("baseTypes", baseTypesArrValue);
+            writer.writeCollectionOfObjectValues<ContentTypeImpl>("baseTypes", baseTypesArrValue);
         }
         if(this.columnLinks && this.columnLinks.length != 0){        const columnLinksArrValue: ColumnLinkImpl[] = []; this.columnLinks?.forEach(element => {columnLinksArrValue.push(new ColumnLinkImpl(element));});
-        writer.writeCollectionOfObjectValues<ColumnLinkImpl>("columnLinks", columnLinksArrValue);
+            writer.writeCollectionOfObjectValues<ColumnLinkImpl>("columnLinks", columnLinksArrValue);
         }
         if(this.columnPositions && this.columnPositions.length != 0){        const columnPositionsArrValue: ColumnDefinitionImpl[] = []; this.columnPositions?.forEach(element => {columnPositionsArrValue.push(new ColumnDefinitionImpl(element));});
-        writer.writeCollectionOfObjectValues<ColumnDefinitionImpl>("columnPositions", columnPositionsArrValue);
+            writer.writeCollectionOfObjectValues<ColumnDefinitionImpl>("columnPositions", columnPositionsArrValue);
         }
         if(this.columns && this.columns.length != 0){        const columnsArrValue: ColumnDefinitionImpl[] = []; this.columns?.forEach(element => {columnsArrValue.push(new ColumnDefinitionImpl(element));});
-        writer.writeCollectionOfObjectValues<ColumnDefinitionImpl>("columns", columnsArrValue);
+            writer.writeCollectionOfObjectValues<ColumnDefinitionImpl>("columns", columnsArrValue);
         }
         if(this.description){
-        writer.writeStringValue("description", this.description);
+            writer.writeStringValue("description", this.description);
         }
         if(this.documentSet){
-        writer.writeObjectValue<DocumentSetImpl>("documentSet", new DocumentSetImpl(this.documentSet));
+            writer.writeObjectValue<DocumentSetImpl>("documentSet", new DocumentSetImpl(this.documentSet));
         }
         if(this.documentTemplate){
-        writer.writeObjectValue<DocumentSetContentImpl>("documentTemplate", new DocumentSetContentImpl(this.documentTemplate));
+            writer.writeObjectValue<DocumentSetContentImpl>("documentTemplate", new DocumentSetContentImpl(this.documentTemplate));
         }
         if(this.group){
-        writer.writeStringValue("group", this.group);
+            writer.writeStringValue("group", this.group);
         }
         if(this.hidden){
-        writer.writeBooleanValue("hidden", this.hidden);
+            writer.writeBooleanValue("hidden", this.hidden);
         }
         if(this.inheritedFrom){
-        writer.writeObjectValue<ItemReferenceImpl>("inheritedFrom", new ItemReferenceImpl(this.inheritedFrom));
+            writer.writeObjectValue<ItemReferenceImpl>("inheritedFrom", new ItemReferenceImpl(this.inheritedFrom));
         }
         if(this.isBuiltIn){
-        writer.writeBooleanValue("isBuiltIn", this.isBuiltIn);
+            writer.writeBooleanValue("isBuiltIn", this.isBuiltIn);
         }
         if(this.name){
-        writer.writeStringValue("name", this.name);
+            writer.writeStringValue("name", this.name);
         }
         if(this.order){
-        writer.writeObjectValue<ContentTypeOrderImpl>("order", new ContentTypeOrderImpl(this.order));
+            writer.writeObjectValue<ContentTypeOrderImpl>("order", new ContentTypeOrderImpl(this.order));
         }
         if(this.parentId){
-        writer.writeStringValue("parentId", this.parentId);
+            writer.writeStringValue("parentId", this.parentId);
         }
         if(this.propagateChanges){
-        writer.writeBooleanValue("propagateChanges", this.propagateChanges);
+            writer.writeBooleanValue("propagateChanges", this.propagateChanges);
         }
         if(this.readOnly){
-        writer.writeBooleanValue("readOnly", this.readOnly);
+            writer.writeBooleanValue("readOnly", this.readOnly);
         }
         if(this.sealed){
-        writer.writeBooleanValue("sealed", this.sealed);
+            writer.writeBooleanValue("sealed", this.sealed);
         }
     };
 }

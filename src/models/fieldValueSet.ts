@@ -1,4 +1,5 @@
 import {Entity} from './entity';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface FieldValueSet extends Entity{
+export interface FieldValueSet extends Entity, Partial<Parsable> {
 }

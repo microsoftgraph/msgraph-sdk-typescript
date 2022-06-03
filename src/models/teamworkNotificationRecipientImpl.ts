@@ -1,7 +1,7 @@
 import {TeamworkNotificationRecipient} from './teamworkNotificationRecipient';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class TeamworkNotificationRecipientImpl implements AdditionalDataHolder, Parsable, TeamworkNotificationRecipient {
+export class TeamworkNotificationRecipientImpl implements TeamworkNotificationRecipient {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /**
@@ -9,7 +9,7 @@ export class TeamworkNotificationRecipientImpl implements AdditionalDataHolder, 
      * @param teamworkNotificationRecipientParameterValue 
      */
     public constructor(teamworkNotificationRecipientParameterValue?: TeamworkNotificationRecipient | undefined) {
-        this.additionalData = teamworkNotificationRecipientParameterValue?.additionalData ? teamworkNotificationRecipientParameterValue?.additionalData! : {}
+        this.additionalData = teamworkNotificationRecipientParameterValue?.additionalData ? teamworkNotificationRecipientParameterValue?.additionalData! : {};
     };
     /**
      * The deserialization information for the current model

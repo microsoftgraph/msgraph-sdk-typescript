@@ -1,7 +1,7 @@
 import {AccessReviewInstanceDecisionItemResource} from './accessReviewInstanceDecisionItemResource';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class AccessReviewInstanceDecisionItemResourceImpl implements AccessReviewInstanceDecisionItemResource, AdditionalDataHolder, Parsable {
+export class AccessReviewInstanceDecisionItemResourceImpl implements AccessReviewInstanceDecisionItemResource {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Display name of the resource */
@@ -15,10 +15,10 @@ export class AccessReviewInstanceDecisionItemResourceImpl implements AccessRevie
      * @param accessReviewInstanceDecisionItemResourceParameterValue 
      */
     public constructor(accessReviewInstanceDecisionItemResourceParameterValue?: AccessReviewInstanceDecisionItemResource | undefined) {
-        this.additionalData = accessReviewInstanceDecisionItemResourceParameterValue?.additionalData ? accessReviewInstanceDecisionItemResourceParameterValue?.additionalData! : {}
-        this.displayName = accessReviewInstanceDecisionItemResourceParameterValue?.displayName ;
-        this.id = accessReviewInstanceDecisionItemResourceParameterValue?.id ;
-        this.type = accessReviewInstanceDecisionItemResourceParameterValue?.type ;
+        this.additionalData = accessReviewInstanceDecisionItemResourceParameterValue?.additionalData ? accessReviewInstanceDecisionItemResourceParameterValue?.additionalData! : {};
+        this.displayName = accessReviewInstanceDecisionItemResourceParameterValue?.displayName;
+        this.id = accessReviewInstanceDecisionItemResourceParameterValue?.id;
+        this.type = accessReviewInstanceDecisionItemResourceParameterValue?.type;
     };
     /**
      * The deserialization information for the current model
@@ -38,13 +38,13 @@ export class AccessReviewInstanceDecisionItemResourceImpl implements AccessRevie
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.displayName){
-        writer.writeStringValue("displayName", this.displayName);
+            writer.writeStringValue("displayName", this.displayName);
         }
         if(this.id){
-        writer.writeStringValue("id", this.id);
+            writer.writeStringValue("id", this.id);
         }
         if(this.type){
-        writer.writeStringValue("type", this.type);
+            writer.writeStringValue("type", this.type);
         }
         writer.writeAdditionalData(this.additionalData);
     };

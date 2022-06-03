@@ -1,7 +1,7 @@
 import {TimeRange} from './timeRange';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter, TimeOnly} from '@microsoft/kiota-abstractions';
 
-export class TimeRangeImpl implements AdditionalDataHolder, Parsable, TimeRange {
+export class TimeRangeImpl implements TimeRange {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** End time for the time range. */
@@ -13,9 +13,9 @@ export class TimeRangeImpl implements AdditionalDataHolder, Parsable, TimeRange 
      * @param timeRangeParameterValue 
      */
     public constructor(timeRangeParameterValue?: TimeRange | undefined) {
-        this.additionalData = timeRangeParameterValue?.additionalData ? timeRangeParameterValue?.additionalData! : {}
-        this.endTime = timeRangeParameterValue?.endTime ;
-        this.startTime = timeRangeParameterValue?.startTime ;
+        this.additionalData = timeRangeParameterValue?.additionalData ? timeRangeParameterValue?.additionalData! : {};
+        this.endTime = timeRangeParameterValue?.endTime;
+        this.startTime = timeRangeParameterValue?.startTime;
     };
     /**
      * The deserialization information for the current model
@@ -34,10 +34,10 @@ export class TimeRangeImpl implements AdditionalDataHolder, Parsable, TimeRange 
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.endTime){
-        writer.writeTimeOnlyValue("endTime", this.endTime);
+            writer.writeTimeOnlyValue("endTime", this.endTime);
         }
         if(this.startTime){
-        writer.writeTimeOnlyValue("startTime", this.startTime);
+            writer.writeTimeOnlyValue("startTime", this.startTime);
         }
         writer.writeAdditionalData(this.additionalData);
     };

@@ -1,7 +1,7 @@
 import {NumberColumn} from './numberColumn';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class NumberColumnImpl implements AdditionalDataHolder, NumberColumn, Parsable {
+export class NumberColumnImpl implements NumberColumn {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** How many decimal places to display. See below for information about the possible values. */
@@ -17,11 +17,11 @@ export class NumberColumnImpl implements AdditionalDataHolder, NumberColumn, Par
      * @param numberColumnParameterValue 
      */
     public constructor(numberColumnParameterValue?: NumberColumn | undefined) {
-        this.additionalData = numberColumnParameterValue?.additionalData ? numberColumnParameterValue?.additionalData! : {}
-        this.decimalPlaces = numberColumnParameterValue?.decimalPlaces ;
-        this.displayAs = numberColumnParameterValue?.displayAs ;
-        this.maximum = numberColumnParameterValue?.maximum ;
-        this.minimum = numberColumnParameterValue?.minimum ;
+        this.additionalData = numberColumnParameterValue?.additionalData ? numberColumnParameterValue?.additionalData! : {};
+        this.decimalPlaces = numberColumnParameterValue?.decimalPlaces;
+        this.displayAs = numberColumnParameterValue?.displayAs;
+        this.maximum = numberColumnParameterValue?.maximum;
+        this.minimum = numberColumnParameterValue?.minimum;
     };
     /**
      * The deserialization information for the current model
@@ -42,16 +42,16 @@ export class NumberColumnImpl implements AdditionalDataHolder, NumberColumn, Par
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.decimalPlaces){
-        writer.writeStringValue("decimalPlaces", this.decimalPlaces);
+            writer.writeStringValue("decimalPlaces", this.decimalPlaces);
         }
         if(this.displayAs){
-        writer.writeStringValue("displayAs", this.displayAs);
+            writer.writeStringValue("displayAs", this.displayAs);
         }
         if(this.maximum){
-        writer.writeNumberValue("maximum", this.maximum);
+            writer.writeNumberValue("maximum", this.maximum);
         }
         if(this.minimum){
-        writer.writeNumberValue("minimum", this.minimum);
+            writer.writeNumberValue("minimum", this.minimum);
         }
         writer.writeAdditionalData(this.additionalData);
     };

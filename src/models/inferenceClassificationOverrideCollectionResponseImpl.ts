@@ -4,7 +4,7 @@ import {InferenceClassificationOverride} from './inferenceClassificationOverride
 import {InferenceClassificationOverrideCollectionResponse} from './inferenceClassificationOverrideCollectionResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class InferenceClassificationOverrideCollectionResponseImpl implements AdditionalDataHolder, InferenceClassificationOverrideCollectionResponse, Parsable {
+export class InferenceClassificationOverrideCollectionResponseImpl implements InferenceClassificationOverrideCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class InferenceClassificationOverrideCollectionResponseImpl implements Ad
      * @param inferenceClassificationOverrideCollectionResponseParameterValue 
      */
     public constructor(inferenceClassificationOverrideCollectionResponseParameterValue?: InferenceClassificationOverrideCollectionResponse | undefined) {
-        this.additionalData = inferenceClassificationOverrideCollectionResponseParameterValue?.additionalData ? inferenceClassificationOverrideCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = inferenceClassificationOverrideCollectionResponseParameterValue?.nextLink ;
-        this.value = inferenceClassificationOverrideCollectionResponseParameterValue?.value ;
+        this.additionalData = inferenceClassificationOverrideCollectionResponseParameterValue?.additionalData ? inferenceClassificationOverrideCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = inferenceClassificationOverrideCollectionResponseParameterValue?.nextLink;
+        this.value = inferenceClassificationOverrideCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class InferenceClassificationOverrideCollectionResponseImpl implements Ad
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: InferenceClassificationOverrideImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new InferenceClassificationOverrideImpl(element));});
-        writer.writeCollectionOfObjectValues<InferenceClassificationOverrideImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<InferenceClassificationOverrideImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

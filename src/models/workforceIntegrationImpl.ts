@@ -6,7 +6,7 @@ import {WorkforceIntegrationSupportedEntities} from './workforceIntegrationSuppo
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the teamwork singleton. */
-export class WorkforceIntegrationImpl extends ChangeTrackedEntityImpl implements Parsable, WorkforceIntegration {
+export class WorkforceIntegrationImpl extends ChangeTrackedEntityImpl implements WorkforceIntegration {
     /** API version for the call back URL. Start with 1. */
     public apiVersion?: number | undefined;
     /** Name of the workforce integration. */
@@ -24,13 +24,13 @@ export class WorkforceIntegrationImpl extends ChangeTrackedEntityImpl implements
      * @param workforceIntegrationParameterValue 
      */
     public constructor(workforceIntegrationParameterValue?: WorkforceIntegration | undefined) {
-        super();
-        this.apiVersion = workforceIntegrationParameterValue?.apiVersion ;
-        this.displayName = workforceIntegrationParameterValue?.displayName ;
-        this.encryption = workforceIntegrationParameterValue?.encryption ;
-        this.isActive = workforceIntegrationParameterValue?.isActive ;
-        this.supportedEntities = workforceIntegrationParameterValue?.supportedEntities ;
-        this.url = workforceIntegrationParameterValue?.url ;
+        super(workforceIntegrationParameterValue);
+        this.apiVersion = workforceIntegrationParameterValue?.apiVersion;
+        this.displayName = workforceIntegrationParameterValue?.displayName;
+        this.encryption = workforceIntegrationParameterValue?.encryption;
+        this.isActive = workforceIntegrationParameterValue?.isActive;
+        this.supportedEntities = workforceIntegrationParameterValue?.supportedEntities;
+        this.url = workforceIntegrationParameterValue?.url;
     };
     /**
      * The deserialization information for the current model
@@ -54,22 +54,22 @@ export class WorkforceIntegrationImpl extends ChangeTrackedEntityImpl implements
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.apiVersion){
-        writer.writeNumberValue("apiVersion", this.apiVersion);
+            writer.writeNumberValue("apiVersion", this.apiVersion);
         }
         if(this.displayName){
-        writer.writeStringValue("displayName", this.displayName);
+            writer.writeStringValue("displayName", this.displayName);
         }
         if(this.encryption){
-        writer.writeObjectValue<WorkforceIntegrationEncryptionImpl>("encryption", new WorkforceIntegrationEncryptionImpl(this.encryption));
+            writer.writeObjectValue<WorkforceIntegrationEncryptionImpl>("encryption", new WorkforceIntegrationEncryptionImpl(this.encryption));
         }
         if(this.isActive){
-        writer.writeBooleanValue("isActive", this.isActive);
+            writer.writeBooleanValue("isActive", this.isActive);
         }
         if(this.supportedEntities){
-        writer.writeEnumValue<WorkforceIntegrationSupportedEntities>("supportedEntities", this.supportedEntities);
+            writer.writeEnumValue<WorkforceIntegrationSupportedEntities>("supportedEntities", this.supportedEntities);
         }
         if(this.url){
-        writer.writeStringValue("url", this.url);
+            writer.writeStringValue("url", this.url);
         }
     };
 }

@@ -1,11 +1,11 @@
 import {WindowsAutopilotDeviceIdentitiesRequestBuilderGetQueryParameters} from './windowsAutopilotDeviceIdentitiesRequestBuilderGetQueryParameters';
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
-export interface WindowsAutopilotDeviceIdentitiesRequestBuilderGetRequestConfiguration{
+export interface WindowsAutopilotDeviceIdentitiesRequestBuilderGetRequestConfiguration {
     /** Request headers */
-    headers?:Record<string, string> | undefined;
+    headers?: Record<string, string> | undefined;
     /** Request options */
-    options?:RequestOption[] | undefined;
+    options?: RequestOption[] | undefined;
     /** Request query parameters */
-    queryParameters?:WindowsAutopilotDeviceIdentitiesRequestBuilderGetQueryParameters | undefined;
+    queryParameters?: WindowsAutopilotDeviceIdentitiesRequestBuilderGetQueryParameters | undefined;
 }

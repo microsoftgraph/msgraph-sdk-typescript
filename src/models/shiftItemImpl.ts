@@ -5,7 +5,7 @@ import {ShiftItem} from './shiftItem';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Casts the previous resource to group. */
-export class ShiftItemImpl extends ScheduleEntityImpl implements Parsable, ShiftItem {
+export class ShiftItemImpl extends ScheduleEntityImpl implements ShiftItem {
     /** An incremental part of a shift which can cover details of when and where an employee is during their shift. For example, an assignment or a scheduled break or lunch. Required. */
     public activities?: ShiftActivity[] | undefined;
     /** The shift label of the shiftItem. */
@@ -17,10 +17,10 @@ export class ShiftItemImpl extends ScheduleEntityImpl implements Parsable, Shift
      * @param shiftItemParameterValue 
      */
     public constructor(shiftItemParameterValue?: ShiftItem | undefined) {
-        super();
-        this.activities = shiftItemParameterValue?.activities ;
-        this.displayName = shiftItemParameterValue?.displayName ;
-        this.notes = shiftItemParameterValue?.notes ;
+        super(shiftItemParameterValue);
+        this.activities = shiftItemParameterValue?.activities;
+        this.displayName = shiftItemParameterValue?.displayName;
+        this.notes = shiftItemParameterValue?.notes;
     };
     /**
      * The deserialization information for the current model
@@ -41,13 +41,13 @@ export class ShiftItemImpl extends ScheduleEntityImpl implements Parsable, Shift
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.activities && this.activities.length != 0){        const activitiesArrValue: ShiftActivityImpl[] = []; this.activities?.forEach(element => {activitiesArrValue.push(new ShiftActivityImpl(element));});
-        writer.writeCollectionOfObjectValues<ShiftActivityImpl>("activities", activitiesArrValue);
+            writer.writeCollectionOfObjectValues<ShiftActivityImpl>("activities", activitiesArrValue);
         }
         if(this.displayName){
-        writer.writeStringValue("displayName", this.displayName);
+            writer.writeStringValue("displayName", this.displayName);
         }
         if(this.notes){
-        writer.writeStringValue("notes", this.notes);
+            writer.writeStringValue("notes", this.notes);
         }
     };
 }

@@ -4,7 +4,7 @@ import {AuthenticationMethodImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Casts the previous resource to user. */
-export class Fido2AuthenticationMethodImpl extends AuthenticationMethodImpl implements Fido2AuthenticationMethod, Parsable {
+export class Fido2AuthenticationMethodImpl extends AuthenticationMethodImpl implements Fido2AuthenticationMethod {
     /** Authenticator Attestation GUID, an identifier that indicates the type (e.g. make and model) of the authenticator. */
     public aaGuid?: string | undefined;
     /** The attestation certificate(s) attached to this security key. */
@@ -22,13 +22,13 @@ export class Fido2AuthenticationMethodImpl extends AuthenticationMethodImpl impl
      * @param fido2AuthenticationMethodParameterValue 
      */
     public constructor(fido2AuthenticationMethodParameterValue?: Fido2AuthenticationMethod | undefined) {
-        super();
-        this.aaGuid = fido2AuthenticationMethodParameterValue?.aaGuid ;
-        this.attestationCertificates = fido2AuthenticationMethodParameterValue?.attestationCertificates ;
-        this.attestationLevel = fido2AuthenticationMethodParameterValue?.attestationLevel ;
-        this.createdDateTime = fido2AuthenticationMethodParameterValue?.createdDateTime ;
-        this.displayName = fido2AuthenticationMethodParameterValue?.displayName ;
-        this.model = fido2AuthenticationMethodParameterValue?.model ;
+        super(fido2AuthenticationMethodParameterValue);
+        this.aaGuid = fido2AuthenticationMethodParameterValue?.aaGuid;
+        this.attestationCertificates = fido2AuthenticationMethodParameterValue?.attestationCertificates;
+        this.attestationLevel = fido2AuthenticationMethodParameterValue?.attestationLevel;
+        this.createdDateTime = fido2AuthenticationMethodParameterValue?.createdDateTime;
+        this.displayName = fido2AuthenticationMethodParameterValue?.displayName;
+        this.model = fido2AuthenticationMethodParameterValue?.model;
     };
     /**
      * The deserialization information for the current model
@@ -52,22 +52,22 @@ export class Fido2AuthenticationMethodImpl extends AuthenticationMethodImpl impl
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.aaGuid){
-        writer.writeStringValue("aaGuid", this.aaGuid);
+            writer.writeStringValue("aaGuid", this.aaGuid);
         }
         if(this.attestationCertificates){
-        writer.writeCollectionOfPrimitiveValues<string>("attestationCertificates", this.attestationCertificates);
+            writer.writeCollectionOfPrimitiveValues<string>("attestationCertificates", this.attestationCertificates);
         }
         if(this.attestationLevel){
-        writer.writeEnumValue<AttestationLevel>("attestationLevel", this.attestationLevel);
+            writer.writeEnumValue<AttestationLevel>("attestationLevel", this.attestationLevel);
         }
         if(this.createdDateTime){
-        writer.writeDateValue("createdDateTime", this.createdDateTime);
+            writer.writeDateValue("createdDateTime", this.createdDateTime);
         }
         if(this.displayName){
-        writer.writeStringValue("displayName", this.displayName);
+            writer.writeStringValue("displayName", this.displayName);
         }
         if(this.model){
-        writer.writeStringValue("model", this.model);
+            writer.writeStringValue("model", this.model);
         }
     };
 }

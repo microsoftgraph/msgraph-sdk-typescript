@@ -1,11 +1,11 @@
 import {TroubleshootingEventsRequestBuilderGetQueryParameters} from './troubleshootingEventsRequestBuilderGetQueryParameters';
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
-export interface TroubleshootingEventsRequestBuilderGetRequestConfiguration{
+export interface TroubleshootingEventsRequestBuilderGetRequestConfiguration {
     /** Request headers */
-    headers?:Record<string, string> | undefined;
+    headers?: Record<string, string> | undefined;
     /** Request options */
-    options?:RequestOption[] | undefined;
+    options?: RequestOption[] | undefined;
     /** Request query parameters */
-    queryParameters?:TroubleshootingEventsRequestBuilderGetQueryParameters | undefined;
+    queryParameters?: TroubleshootingEventsRequestBuilderGetQueryParameters | undefined;
 }

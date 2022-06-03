@@ -1,11 +1,11 @@
 import {RemoteAssistancePartnerItemRequestBuilderGetQueryParameters} from './remoteAssistancePartnerItemRequestBuilderGetQueryParameters';
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
-export interface RemoteAssistancePartnerItemRequestBuilderGetRequestConfiguration{
+export interface RemoteAssistancePartnerItemRequestBuilderGetRequestConfiguration {
     /** Request headers */
-    headers?:Record<string, string> | undefined;
+    headers?: Record<string, string> | undefined;
     /** Request options */
-    options?:RequestOption[] | undefined;
+    options?: RequestOption[] | undefined;
     /** Request query parameters */
-    queryParameters?:RemoteAssistancePartnerItemRequestBuilderGetQueryParameters | undefined;
+    queryParameters?: RemoteAssistancePartnerItemRequestBuilderGetQueryParameters | undefined;
 }

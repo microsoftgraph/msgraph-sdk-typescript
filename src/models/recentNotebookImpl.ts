@@ -5,7 +5,7 @@ import {RecentNotebook} from './recentNotebook';
 import {RecentNotebookLinks} from './recentNotebookLinks';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class RecentNotebookImpl implements AdditionalDataHolder, Parsable, RecentNotebook {
+export class RecentNotebookImpl implements RecentNotebook {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The name of the notebook. */
@@ -21,11 +21,11 @@ export class RecentNotebookImpl implements AdditionalDataHolder, Parsable, Recen
      * @param recentNotebookParameterValue 
      */
     public constructor(recentNotebookParameterValue?: RecentNotebook | undefined) {
-        this.additionalData = recentNotebookParameterValue?.additionalData ? recentNotebookParameterValue?.additionalData! : {}
-        this.displayName = recentNotebookParameterValue?.displayName ;
-        this.lastAccessedTime = recentNotebookParameterValue?.lastAccessedTime ;
-        this.links = recentNotebookParameterValue?.links ;
-        this.sourceService = recentNotebookParameterValue?.sourceService ;
+        this.additionalData = recentNotebookParameterValue?.additionalData ? recentNotebookParameterValue?.additionalData! : {};
+        this.displayName = recentNotebookParameterValue?.displayName;
+        this.lastAccessedTime = recentNotebookParameterValue?.lastAccessedTime;
+        this.links = recentNotebookParameterValue?.links;
+        this.sourceService = recentNotebookParameterValue?.sourceService;
     };
     /**
      * The deserialization information for the current model
@@ -46,16 +46,16 @@ export class RecentNotebookImpl implements AdditionalDataHolder, Parsable, Recen
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.displayName){
-        writer.writeStringValue("displayName", this.displayName);
+            writer.writeStringValue("displayName", this.displayName);
         }
         if(this.lastAccessedTime){
-        writer.writeDateValue("lastAccessedTime", this.lastAccessedTime);
+            writer.writeDateValue("lastAccessedTime", this.lastAccessedTime);
         }
         if(this.links){
-        writer.writeObjectValue<RecentNotebookLinksImpl>("links", new RecentNotebookLinksImpl(this.links));
+            writer.writeObjectValue<RecentNotebookLinksImpl>("links", new RecentNotebookLinksImpl(this.links));
         }
         if(this.sourceService){
-        writer.writeEnumValue<OnenoteSourceService>("sourceService", this.sourceService);
+            writer.writeEnumValue<OnenoteSourceService>("sourceService", this.sourceService);
         }
         writer.writeAdditionalData(this.additionalData);
     };

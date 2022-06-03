@@ -1,11 +1,11 @@
 import {TargetScheduleRequestBuilderGetQueryParameters} from './targetScheduleRequestBuilderGetQueryParameters';
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
-export interface TargetScheduleRequestBuilderGetRequestConfiguration{
+export interface TargetScheduleRequestBuilderGetRequestConfiguration {
     /** Request headers */
-    headers?:Record<string, string> | undefined;
+    headers?: Record<string, string> | undefined;
     /** Request options */
-    options?:RequestOption[] | undefined;
+    options?: RequestOption[] | undefined;
     /** Request query parameters */
-    queryParameters?:TargetScheduleRequestBuilderGetQueryParameters | undefined;
+    queryParameters?: TargetScheduleRequestBuilderGetQueryParameters | undefined;
 }

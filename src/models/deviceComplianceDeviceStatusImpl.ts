@@ -4,7 +4,7 @@ import {EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the deviceManagement singleton. */
-export class DeviceComplianceDeviceStatusImpl extends EntityImpl implements DeviceComplianceDeviceStatus, Parsable {
+export class DeviceComplianceDeviceStatusImpl extends EntityImpl implements DeviceComplianceDeviceStatus {
     /** The DateTime when device compliance grace period expires */
     public complianceGracePeriodExpirationDateTime?: Date | undefined;
     /** Device name of the DevicePolicyStatus. */
@@ -24,14 +24,14 @@ export class DeviceComplianceDeviceStatusImpl extends EntityImpl implements Devi
      * @param deviceComplianceDeviceStatusParameterValue 
      */
     public constructor(deviceComplianceDeviceStatusParameterValue?: DeviceComplianceDeviceStatus | undefined) {
-        super();
-        this.complianceGracePeriodExpirationDateTime = deviceComplianceDeviceStatusParameterValue?.complianceGracePeriodExpirationDateTime ;
-        this.deviceDisplayName = deviceComplianceDeviceStatusParameterValue?.deviceDisplayName ;
-        this.deviceModel = deviceComplianceDeviceStatusParameterValue?.deviceModel ;
-        this.lastReportedDateTime = deviceComplianceDeviceStatusParameterValue?.lastReportedDateTime ;
-        this.status = deviceComplianceDeviceStatusParameterValue?.status ;
-        this.userName = deviceComplianceDeviceStatusParameterValue?.userName ;
-        this.userPrincipalName = deviceComplianceDeviceStatusParameterValue?.userPrincipalName ;
+        super(deviceComplianceDeviceStatusParameterValue);
+        this.complianceGracePeriodExpirationDateTime = deviceComplianceDeviceStatusParameterValue?.complianceGracePeriodExpirationDateTime;
+        this.deviceDisplayName = deviceComplianceDeviceStatusParameterValue?.deviceDisplayName;
+        this.deviceModel = deviceComplianceDeviceStatusParameterValue?.deviceModel;
+        this.lastReportedDateTime = deviceComplianceDeviceStatusParameterValue?.lastReportedDateTime;
+        this.status = deviceComplianceDeviceStatusParameterValue?.status;
+        this.userName = deviceComplianceDeviceStatusParameterValue?.userName;
+        this.userPrincipalName = deviceComplianceDeviceStatusParameterValue?.userPrincipalName;
     };
     /**
      * The deserialization information for the current model
@@ -56,25 +56,25 @@ export class DeviceComplianceDeviceStatusImpl extends EntityImpl implements Devi
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.complianceGracePeriodExpirationDateTime){
-        writer.writeDateValue("complianceGracePeriodExpirationDateTime", this.complianceGracePeriodExpirationDateTime);
+            writer.writeDateValue("complianceGracePeriodExpirationDateTime", this.complianceGracePeriodExpirationDateTime);
         }
         if(this.deviceDisplayName){
-        writer.writeStringValue("deviceDisplayName", this.deviceDisplayName);
+            writer.writeStringValue("deviceDisplayName", this.deviceDisplayName);
         }
         if(this.deviceModel){
-        writer.writeStringValue("deviceModel", this.deviceModel);
+            writer.writeStringValue("deviceModel", this.deviceModel);
         }
         if(this.lastReportedDateTime){
-        writer.writeDateValue("lastReportedDateTime", this.lastReportedDateTime);
+            writer.writeDateValue("lastReportedDateTime", this.lastReportedDateTime);
         }
         if(this.status){
-        writer.writeEnumValue<ComplianceStatus>("status", this.status);
+            writer.writeEnumValue<ComplianceStatus>("status", this.status);
         }
         if(this.userName){
-        writer.writeStringValue("userName", this.userName);
+            writer.writeStringValue("userName", this.userName);
         }
         if(this.userPrincipalName){
-        writer.writeStringValue("userPrincipalName", this.userPrincipalName);
+            writer.writeStringValue("userPrincipalName", this.userPrincipalName);
         }
     };
 }

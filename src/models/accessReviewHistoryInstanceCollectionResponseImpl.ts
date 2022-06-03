@@ -4,7 +4,7 @@ import {createAccessReviewHistoryInstanceFromDiscriminatorValue} from './createA
 import {AccessReviewHistoryInstanceImpl} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class AccessReviewHistoryInstanceCollectionResponseImpl implements AccessReviewHistoryInstanceCollectionResponse, AdditionalDataHolder, Parsable {
+export class AccessReviewHistoryInstanceCollectionResponseImpl implements AccessReviewHistoryInstanceCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class AccessReviewHistoryInstanceCollectionResponseImpl implements Access
      * @param accessReviewHistoryInstanceCollectionResponseParameterValue 
      */
     public constructor(accessReviewHistoryInstanceCollectionResponseParameterValue?: AccessReviewHistoryInstanceCollectionResponse | undefined) {
-        this.additionalData = accessReviewHistoryInstanceCollectionResponseParameterValue?.additionalData ? accessReviewHistoryInstanceCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = accessReviewHistoryInstanceCollectionResponseParameterValue?.nextLink ;
-        this.value = accessReviewHistoryInstanceCollectionResponseParameterValue?.value ;
+        this.additionalData = accessReviewHistoryInstanceCollectionResponseParameterValue?.additionalData ? accessReviewHistoryInstanceCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = accessReviewHistoryInstanceCollectionResponseParameterValue?.nextLink;
+        this.value = accessReviewHistoryInstanceCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class AccessReviewHistoryInstanceCollectionResponseImpl implements Access
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: AccessReviewHistoryInstanceImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new AccessReviewHistoryInstanceImpl(element));});
-        writer.writeCollectionOfObjectValues<AccessReviewHistoryInstanceImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<AccessReviewHistoryInstanceImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

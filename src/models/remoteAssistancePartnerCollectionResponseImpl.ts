@@ -4,7 +4,7 @@ import {RemoteAssistancePartner} from './remoteAssistancePartner';
 import {RemoteAssistancePartnerCollectionResponse} from './remoteAssistancePartnerCollectionResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class RemoteAssistancePartnerCollectionResponseImpl implements AdditionalDataHolder, Parsable, RemoteAssistancePartnerCollectionResponse {
+export class RemoteAssistancePartnerCollectionResponseImpl implements RemoteAssistancePartnerCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class RemoteAssistancePartnerCollectionResponseImpl implements Additional
      * @param remoteAssistancePartnerCollectionResponseParameterValue 
      */
     public constructor(remoteAssistancePartnerCollectionResponseParameterValue?: RemoteAssistancePartnerCollectionResponse | undefined) {
-        this.additionalData = remoteAssistancePartnerCollectionResponseParameterValue?.additionalData ? remoteAssistancePartnerCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = remoteAssistancePartnerCollectionResponseParameterValue?.nextLink ;
-        this.value = remoteAssistancePartnerCollectionResponseParameterValue?.value ;
+        this.additionalData = remoteAssistancePartnerCollectionResponseParameterValue?.additionalData ? remoteAssistancePartnerCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = remoteAssistancePartnerCollectionResponseParameterValue?.nextLink;
+        this.value = remoteAssistancePartnerCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class RemoteAssistancePartnerCollectionResponseImpl implements Additional
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: RemoteAssistancePartnerImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new RemoteAssistancePartnerImpl(element));});
-        writer.writeCollectionOfObjectValues<RemoteAssistancePartnerImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<RemoteAssistancePartnerImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

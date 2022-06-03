@@ -4,7 +4,7 @@ import {OnenotePage} from './onenotePage';
 import {OnenotePageCollectionResponse} from './onenotePageCollectionResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class OnenotePageCollectionResponseImpl implements AdditionalDataHolder, OnenotePageCollectionResponse, Parsable {
+export class OnenotePageCollectionResponseImpl implements OnenotePageCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class OnenotePageCollectionResponseImpl implements AdditionalDataHolder, 
      * @param onenotePageCollectionResponseParameterValue 
      */
     public constructor(onenotePageCollectionResponseParameterValue?: OnenotePageCollectionResponse | undefined) {
-        this.additionalData = onenotePageCollectionResponseParameterValue?.additionalData ? onenotePageCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = onenotePageCollectionResponseParameterValue?.nextLink ;
-        this.value = onenotePageCollectionResponseParameterValue?.value ;
+        this.additionalData = onenotePageCollectionResponseParameterValue?.additionalData ? onenotePageCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = onenotePageCollectionResponseParameterValue?.nextLink;
+        this.value = onenotePageCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class OnenotePageCollectionResponseImpl implements AdditionalDataHolder, 
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: OnenotePageImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new OnenotePageImpl(element));});
-        writer.writeCollectionOfObjectValues<OnenotePageImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<OnenotePageImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

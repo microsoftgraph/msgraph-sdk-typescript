@@ -4,7 +4,7 @@ import {RbacApplication} from './rbacApplication';
 import {RoleManagement} from './roleManagement';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class RoleManagementImpl implements AdditionalDataHolder, Parsable, RoleManagement {
+export class RoleManagementImpl implements RoleManagement {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Read-only. Nullable. */
@@ -16,9 +16,9 @@ export class RoleManagementImpl implements AdditionalDataHolder, Parsable, RoleM
      * @param roleManagementParameterValue 
      */
     public constructor(roleManagementParameterValue?: RoleManagement | undefined) {
-        this.additionalData = roleManagementParameterValue?.additionalData ? roleManagementParameterValue?.additionalData! : {}
-        this.directory = roleManagementParameterValue?.directory ;
-        this.entitlementManagement = roleManagementParameterValue?.entitlementManagement ;
+        this.additionalData = roleManagementParameterValue?.additionalData ? roleManagementParameterValue?.additionalData! : {};
+        this.directory = roleManagementParameterValue?.directory;
+        this.entitlementManagement = roleManagementParameterValue?.entitlementManagement;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class RoleManagementImpl implements AdditionalDataHolder, Parsable, RoleM
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.directory){
-        writer.writeObjectValue<RbacApplicationImpl>("directory", new RbacApplicationImpl(this.directory));
+            writer.writeObjectValue<RbacApplicationImpl>("directory", new RbacApplicationImpl(this.directory));
         }
         if(this.entitlementManagement){
-        writer.writeObjectValue<RbacApplicationImpl>("entitlementManagement", new RbacApplicationImpl(this.entitlementManagement));
+            writer.writeObjectValue<RbacApplicationImpl>("entitlementManagement", new RbacApplicationImpl(this.entitlementManagement));
         }
         writer.writeAdditionalData(this.additionalData);
     };

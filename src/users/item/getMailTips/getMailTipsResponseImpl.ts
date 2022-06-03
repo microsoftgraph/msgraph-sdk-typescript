@@ -5,7 +5,7 @@ import {GetMailTipsResponse} from './getMailTipsResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the getMailTips method. */
-export class GetMailTipsResponseImpl implements AdditionalDataHolder, GetMailTipsResponse, Parsable {
+export class GetMailTipsResponseImpl implements GetMailTipsResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The value property */
@@ -15,8 +15,8 @@ export class GetMailTipsResponseImpl implements AdditionalDataHolder, GetMailTip
      * @param getMailTipsResponseParameterValue 
      */
     public constructor(getMailTipsResponseParameterValue?: GetMailTipsResponse | undefined) {
-        this.additionalData = getMailTipsResponseParameterValue?.additionalData ? getMailTipsResponseParameterValue?.additionalData! : {}
-        this.value = getMailTipsResponseParameterValue?.value ;
+        this.additionalData = getMailTipsResponseParameterValue?.additionalData ? getMailTipsResponseParameterValue?.additionalData! : {};
+        this.value = getMailTipsResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -34,7 +34,7 @@ export class GetMailTipsResponseImpl implements AdditionalDataHolder, GetMailTip
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.value && this.value.length != 0){        const valueArrValue: MailTipsImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new MailTipsImpl(element));});
-        writer.writeCollectionOfObjectValues<MailTipsImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<MailTipsImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

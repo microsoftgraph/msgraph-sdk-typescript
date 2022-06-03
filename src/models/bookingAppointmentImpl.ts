@@ -12,7 +12,7 @@ import {Location} from './location';
 import {Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Represents a booked appointment of a service by a customer in a business. */
-export class BookingAppointmentImpl extends EntityImpl implements BookingAppointment, Parsable {
+export class BookingAppointmentImpl extends EntityImpl implements BookingAppointment {
     /** Additional information that is sent to the customer when an appointment is confirmed. */
     public additionalInformation?: string | undefined;
     /** It lists down the customer properties for an appointment. An appointment will contain a list of customer information and each unit will indicate the properties of a customer who is part of that appointment. Optional. */
@@ -64,30 +64,30 @@ export class BookingAppointmentImpl extends EntityImpl implements BookingAppoint
      * @param bookingAppointmentParameterValue 
      */
     public constructor(bookingAppointmentParameterValue?: BookingAppointment | undefined) {
-        super();
-        this.additionalInformation = bookingAppointmentParameterValue?.additionalInformation ;
-        this.customers = bookingAppointmentParameterValue?.customers ;
-        this.customerTimeZone = bookingAppointmentParameterValue?.customerTimeZone ;
-        this.duration = bookingAppointmentParameterValue?.duration ;
-        this.endDateTime = bookingAppointmentParameterValue?.endDateTime ;
-        this.filledAttendeesCount = bookingAppointmentParameterValue?.filledAttendeesCount ;
-        this.isLocationOnline = bookingAppointmentParameterValue?.isLocationOnline ;
-        this.joinWebUrl = bookingAppointmentParameterValue?.joinWebUrl ;
-        this.maximumAttendeesCount = bookingAppointmentParameterValue?.maximumAttendeesCount ;
-        this.optOutOfCustomerEmail = bookingAppointmentParameterValue?.optOutOfCustomerEmail ;
-        this.postBuffer = bookingAppointmentParameterValue?.postBuffer ;
-        this.preBuffer = bookingAppointmentParameterValue?.preBuffer ;
-        this.price = bookingAppointmentParameterValue?.price ;
-        this.priceType = bookingAppointmentParameterValue?.priceType ;
-        this.reminders = bookingAppointmentParameterValue?.reminders ;
-        this.selfServiceAppointmentId = bookingAppointmentParameterValue?.selfServiceAppointmentId ;
-        this.serviceId = bookingAppointmentParameterValue?.serviceId ;
-        this.serviceLocation = bookingAppointmentParameterValue?.serviceLocation ;
-        this.serviceName = bookingAppointmentParameterValue?.serviceName ;
-        this.serviceNotes = bookingAppointmentParameterValue?.serviceNotes ;
-        this.smsNotificationsEnabled = bookingAppointmentParameterValue?.smsNotificationsEnabled ;
-        this.staffMemberIds = bookingAppointmentParameterValue?.staffMemberIds ;
-        this.startDateTime = bookingAppointmentParameterValue?.startDateTime ;
+        super(bookingAppointmentParameterValue);
+        this.additionalInformation = bookingAppointmentParameterValue?.additionalInformation;
+        this.customers = bookingAppointmentParameterValue?.customers;
+        this.customerTimeZone = bookingAppointmentParameterValue?.customerTimeZone;
+        this.duration = bookingAppointmentParameterValue?.duration;
+        this.endDateTime = bookingAppointmentParameterValue?.endDateTime;
+        this.filledAttendeesCount = bookingAppointmentParameterValue?.filledAttendeesCount;
+        this.isLocationOnline = bookingAppointmentParameterValue?.isLocationOnline;
+        this.joinWebUrl = bookingAppointmentParameterValue?.joinWebUrl;
+        this.maximumAttendeesCount = bookingAppointmentParameterValue?.maximumAttendeesCount;
+        this.optOutOfCustomerEmail = bookingAppointmentParameterValue?.optOutOfCustomerEmail;
+        this.postBuffer = bookingAppointmentParameterValue?.postBuffer;
+        this.preBuffer = bookingAppointmentParameterValue?.preBuffer;
+        this.price = bookingAppointmentParameterValue?.price;
+        this.priceType = bookingAppointmentParameterValue?.priceType;
+        this.reminders = bookingAppointmentParameterValue?.reminders;
+        this.selfServiceAppointmentId = bookingAppointmentParameterValue?.selfServiceAppointmentId;
+        this.serviceId = bookingAppointmentParameterValue?.serviceId;
+        this.serviceLocation = bookingAppointmentParameterValue?.serviceLocation;
+        this.serviceName = bookingAppointmentParameterValue?.serviceName;
+        this.serviceNotes = bookingAppointmentParameterValue?.serviceNotes;
+        this.smsNotificationsEnabled = bookingAppointmentParameterValue?.smsNotificationsEnabled;
+        this.staffMemberIds = bookingAppointmentParameterValue?.staffMemberIds;
+        this.startDateTime = bookingAppointmentParameterValue?.startDateTime;
     };
     /**
      * The deserialization information for the current model
@@ -128,73 +128,73 @@ export class BookingAppointmentImpl extends EntityImpl implements BookingAppoint
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.additionalInformation){
-        writer.writeStringValue("additionalInformation", this.additionalInformation);
+            writer.writeStringValue("additionalInformation", this.additionalInformation);
         }
         if(this.customers && this.customers.length != 0){        const customersArrValue: BookingCustomerInformationBaseImpl[] = []; this.customers?.forEach(element => {customersArrValue.push(new BookingCustomerInformationBaseImpl(element));});
-        writer.writeCollectionOfObjectValues<BookingCustomerInformationBaseImpl>("customers", customersArrValue);
+            writer.writeCollectionOfObjectValues<BookingCustomerInformationBaseImpl>("customers", customersArrValue);
         }
         if(this.customerTimeZone){
-        writer.writeStringValue("customerTimeZone", this.customerTimeZone);
+            writer.writeStringValue("customerTimeZone", this.customerTimeZone);
         }
         if(this.duration){
-        writer.writeDurationValue("duration", this.duration);
+            writer.writeDurationValue("duration", this.duration);
         }
         if(this.endDateTime){
-        writer.writeObjectValue<DateTimeTimeZoneImpl>("endDateTime", new DateTimeTimeZoneImpl(this.endDateTime));
+            writer.writeObjectValue<DateTimeTimeZoneImpl>("endDateTime", new DateTimeTimeZoneImpl(this.endDateTime));
         }
         if(this.filledAttendeesCount){
-        writer.writeNumberValue("filledAttendeesCount", this.filledAttendeesCount);
+            writer.writeNumberValue("filledAttendeesCount", this.filledAttendeesCount);
         }
         if(this.isLocationOnline){
-        writer.writeBooleanValue("isLocationOnline", this.isLocationOnline);
+            writer.writeBooleanValue("isLocationOnline", this.isLocationOnline);
         }
         if(this.joinWebUrl){
-        writer.writeStringValue("joinWebUrl", this.joinWebUrl);
+            writer.writeStringValue("joinWebUrl", this.joinWebUrl);
         }
         if(this.maximumAttendeesCount){
-        writer.writeNumberValue("maximumAttendeesCount", this.maximumAttendeesCount);
+            writer.writeNumberValue("maximumAttendeesCount", this.maximumAttendeesCount);
         }
         if(this.optOutOfCustomerEmail){
-        writer.writeBooleanValue("optOutOfCustomerEmail", this.optOutOfCustomerEmail);
+            writer.writeBooleanValue("optOutOfCustomerEmail", this.optOutOfCustomerEmail);
         }
         if(this.postBuffer){
-        writer.writeDurationValue("postBuffer", this.postBuffer);
+            writer.writeDurationValue("postBuffer", this.postBuffer);
         }
         if(this.preBuffer){
-        writer.writeDurationValue("preBuffer", this.preBuffer);
+            writer.writeDurationValue("preBuffer", this.preBuffer);
         }
         if(this.price){
-        writer.writeNumberValue("price", this.price);
+            writer.writeNumberValue("price", this.price);
         }
         if(this.priceType){
-        writer.writeEnumValue<BookingPriceType>("priceType", this.priceType);
+            writer.writeEnumValue<BookingPriceType>("priceType", this.priceType);
         }
         if(this.reminders && this.reminders.length != 0){        const remindersArrValue: BookingReminderImpl[] = []; this.reminders?.forEach(element => {remindersArrValue.push(new BookingReminderImpl(element));});
-        writer.writeCollectionOfObjectValues<BookingReminderImpl>("reminders", remindersArrValue);
+            writer.writeCollectionOfObjectValues<BookingReminderImpl>("reminders", remindersArrValue);
         }
         if(this.selfServiceAppointmentId){
-        writer.writeStringValue("selfServiceAppointmentId", this.selfServiceAppointmentId);
+            writer.writeStringValue("selfServiceAppointmentId", this.selfServiceAppointmentId);
         }
         if(this.serviceId){
-        writer.writeStringValue("serviceId", this.serviceId);
+            writer.writeStringValue("serviceId", this.serviceId);
         }
         if(this.serviceLocation){
-        writer.writeObjectValue<LocationImpl>("serviceLocation", new LocationImpl(this.serviceLocation));
+            writer.writeObjectValue<LocationImpl>("serviceLocation", new LocationImpl(this.serviceLocation));
         }
         if(this.serviceName){
-        writer.writeStringValue("serviceName", this.serviceName);
+            writer.writeStringValue("serviceName", this.serviceName);
         }
         if(this.serviceNotes){
-        writer.writeStringValue("serviceNotes", this.serviceNotes);
+            writer.writeStringValue("serviceNotes", this.serviceNotes);
         }
         if(this.smsNotificationsEnabled){
-        writer.writeBooleanValue("smsNotificationsEnabled", this.smsNotificationsEnabled);
+            writer.writeBooleanValue("smsNotificationsEnabled", this.smsNotificationsEnabled);
         }
         if(this.staffMemberIds){
-        writer.writeCollectionOfPrimitiveValues<string>("staffMemberIds", this.staffMemberIds);
+            writer.writeCollectionOfPrimitiveValues<string>("staffMemberIds", this.staffMemberIds);
         }
         if(this.startDateTime){
-        writer.writeObjectValue<DateTimeTimeZoneImpl>("startDateTime", new DateTimeTimeZoneImpl(this.startDateTime));
+            writer.writeObjectValue<DateTimeTimeZoneImpl>("startDateTime", new DateTimeTimeZoneImpl(this.startDateTime));
         }
     };
 }

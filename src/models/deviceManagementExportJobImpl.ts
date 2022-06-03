@@ -6,7 +6,7 @@ import {EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Entity representing a job to export a report */
-export class DeviceManagementExportJobImpl extends EntityImpl implements DeviceManagementExportJob, Parsable {
+export class DeviceManagementExportJobImpl extends EntityImpl implements DeviceManagementExportJob {
     /** Time that the exported report expires */
     public expirationDateTime?: Date | undefined;
     /** Filters applied on the report */
@@ -32,17 +32,17 @@ export class DeviceManagementExportJobImpl extends EntityImpl implements DeviceM
      * @param deviceManagementExportJobParameterValue 
      */
     public constructor(deviceManagementExportJobParameterValue?: DeviceManagementExportJob | undefined) {
-        super();
-        this.expirationDateTime = deviceManagementExportJobParameterValue?.expirationDateTime ;
-        this.filter = deviceManagementExportJobParameterValue?.filter ;
-        this.format = deviceManagementExportJobParameterValue?.format ;
-        this.localizationType = deviceManagementExportJobParameterValue?.localizationType ;
-        this.reportName = deviceManagementExportJobParameterValue?.reportName ;
-        this.requestDateTime = deviceManagementExportJobParameterValue?.requestDateTime ;
-        this.select = deviceManagementExportJobParameterValue?.select ;
-        this.snapshotId = deviceManagementExportJobParameterValue?.snapshotId ;
-        this.status = deviceManagementExportJobParameterValue?.status ;
-        this.url = deviceManagementExportJobParameterValue?.url ;
+        super(deviceManagementExportJobParameterValue);
+        this.expirationDateTime = deviceManagementExportJobParameterValue?.expirationDateTime;
+        this.filter = deviceManagementExportJobParameterValue?.filter;
+        this.format = deviceManagementExportJobParameterValue?.format;
+        this.localizationType = deviceManagementExportJobParameterValue?.localizationType;
+        this.reportName = deviceManagementExportJobParameterValue?.reportName;
+        this.requestDateTime = deviceManagementExportJobParameterValue?.requestDateTime;
+        this.select = deviceManagementExportJobParameterValue?.select;
+        this.snapshotId = deviceManagementExportJobParameterValue?.snapshotId;
+        this.status = deviceManagementExportJobParameterValue?.status;
+        this.url = deviceManagementExportJobParameterValue?.url;
     };
     /**
      * The deserialization information for the current model
@@ -70,34 +70,34 @@ export class DeviceManagementExportJobImpl extends EntityImpl implements DeviceM
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.expirationDateTime){
-        writer.writeDateValue("expirationDateTime", this.expirationDateTime);
+            writer.writeDateValue("expirationDateTime", this.expirationDateTime);
         }
         if(this.filter){
-        writer.writeStringValue("filter", this.filter);
+            writer.writeStringValue("filter", this.filter);
         }
         if(this.format){
-        writer.writeEnumValue<DeviceManagementReportFileFormat>("format", this.format);
+            writer.writeEnumValue<DeviceManagementReportFileFormat>("format", this.format);
         }
         if(this.localizationType){
-        writer.writeEnumValue<DeviceManagementExportJobLocalizationType>("localizationType", this.localizationType);
+            writer.writeEnumValue<DeviceManagementExportJobLocalizationType>("localizationType", this.localizationType);
         }
         if(this.reportName){
-        writer.writeStringValue("reportName", this.reportName);
+            writer.writeStringValue("reportName", this.reportName);
         }
         if(this.requestDateTime){
-        writer.writeDateValue("requestDateTime", this.requestDateTime);
+            writer.writeDateValue("requestDateTime", this.requestDateTime);
         }
         if(this.select){
-        writer.writeCollectionOfPrimitiveValues<string>("select", this.select);
+            writer.writeCollectionOfPrimitiveValues<string>("select", this.select);
         }
         if(this.snapshotId){
-        writer.writeStringValue("snapshotId", this.snapshotId);
+            writer.writeStringValue("snapshotId", this.snapshotId);
         }
         if(this.status){
-        writer.writeEnumValue<DeviceManagementReportStatus>("status", this.status);
+            writer.writeEnumValue<DeviceManagementReportStatus>("status", this.status);
         }
         if(this.url){
-        writer.writeStringValue("url", this.url);
+            writer.writeStringValue("url", this.url);
         }
     };
 }

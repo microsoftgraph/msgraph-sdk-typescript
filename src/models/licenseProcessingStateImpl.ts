@@ -1,7 +1,7 @@
 import {LicenseProcessingState} from './licenseProcessingState';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class LicenseProcessingStateImpl implements AdditionalDataHolder, LicenseProcessingState, Parsable {
+export class LicenseProcessingStateImpl implements LicenseProcessingState {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The state property */
@@ -11,8 +11,8 @@ export class LicenseProcessingStateImpl implements AdditionalDataHolder, License
      * @param licenseProcessingStateParameterValue 
      */
     public constructor(licenseProcessingStateParameterValue?: LicenseProcessingState | undefined) {
-        this.additionalData = licenseProcessingStateParameterValue?.additionalData ? licenseProcessingStateParameterValue?.additionalData! : {}
-        this.state = licenseProcessingStateParameterValue?.state ;
+        this.additionalData = licenseProcessingStateParameterValue?.additionalData ? licenseProcessingStateParameterValue?.additionalData! : {};
+        this.state = licenseProcessingStateParameterValue?.state;
     };
     /**
      * The deserialization information for the current model
@@ -30,7 +30,7 @@ export class LicenseProcessingStateImpl implements AdditionalDataHolder, License
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.state){
-        writer.writeStringValue("state", this.state);
+            writer.writeStringValue("state", this.state);
         }
         writer.writeAdditionalData(this.additionalData);
     };

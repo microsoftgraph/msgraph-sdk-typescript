@@ -4,7 +4,7 @@ import {createCalendarFromDiscriminatorValue} from './createCalendarFromDiscrimi
 import {CalendarImpl} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class CalendarCollectionResponseImpl implements AdditionalDataHolder, CalendarCollectionResponse, Parsable {
+export class CalendarCollectionResponseImpl implements CalendarCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class CalendarCollectionResponseImpl implements AdditionalDataHolder, Cal
      * @param calendarCollectionResponseParameterValue 
      */
     public constructor(calendarCollectionResponseParameterValue?: CalendarCollectionResponse | undefined) {
-        this.additionalData = calendarCollectionResponseParameterValue?.additionalData ? calendarCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = calendarCollectionResponseParameterValue?.nextLink ;
-        this.value = calendarCollectionResponseParameterValue?.value ;
+        this.additionalData = calendarCollectionResponseParameterValue?.additionalData ? calendarCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = calendarCollectionResponseParameterValue?.nextLink;
+        this.value = calendarCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class CalendarCollectionResponseImpl implements AdditionalDataHolder, Cal
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: CalendarImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new CalendarImpl(element));});
-        writer.writeCollectionOfObjectValues<CalendarImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<CalendarImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

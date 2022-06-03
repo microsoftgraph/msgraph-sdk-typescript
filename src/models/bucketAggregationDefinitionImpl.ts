@@ -5,7 +5,7 @@ import {createBucketAggregationRangeFromDiscriminatorValue} from './createBucket
 import {BucketAggregationRangeImpl} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class BucketAggregationDefinitionImpl implements AdditionalDataHolder, BucketAggregationDefinition, Parsable {
+export class BucketAggregationDefinitionImpl implements BucketAggregationDefinition {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** True to specify the sort order as descending. The default is false, with the sort order as ascending. Optional. */
@@ -23,12 +23,12 @@ export class BucketAggregationDefinitionImpl implements AdditionalDataHolder, Bu
      * @param bucketAggregationDefinitionParameterValue 
      */
     public constructor(bucketAggregationDefinitionParameterValue?: BucketAggregationDefinition | undefined) {
-        this.additionalData = bucketAggregationDefinitionParameterValue?.additionalData ? bucketAggregationDefinitionParameterValue?.additionalData! : {}
-        this.isDescending = bucketAggregationDefinitionParameterValue?.isDescending ;
-        this.minimumCount = bucketAggregationDefinitionParameterValue?.minimumCount ;
-        this.prefixFilter = bucketAggregationDefinitionParameterValue?.prefixFilter ;
-        this.ranges = bucketAggregationDefinitionParameterValue?.ranges ;
-        this.sortBy = bucketAggregationDefinitionParameterValue?.sortBy ;
+        this.additionalData = bucketAggregationDefinitionParameterValue?.additionalData ? bucketAggregationDefinitionParameterValue?.additionalData! : {};
+        this.isDescending = bucketAggregationDefinitionParameterValue?.isDescending;
+        this.minimumCount = bucketAggregationDefinitionParameterValue?.minimumCount;
+        this.prefixFilter = bucketAggregationDefinitionParameterValue?.prefixFilter;
+        this.ranges = bucketAggregationDefinitionParameterValue?.ranges;
+        this.sortBy = bucketAggregationDefinitionParameterValue?.sortBy;
     };
     /**
      * The deserialization information for the current model
@@ -50,19 +50,19 @@ export class BucketAggregationDefinitionImpl implements AdditionalDataHolder, Bu
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.isDescending){
-        writer.writeBooleanValue("isDescending", this.isDescending);
+            writer.writeBooleanValue("isDescending", this.isDescending);
         }
         if(this.minimumCount){
-        writer.writeNumberValue("minimumCount", this.minimumCount);
+            writer.writeNumberValue("minimumCount", this.minimumCount);
         }
         if(this.prefixFilter){
-        writer.writeStringValue("prefixFilter", this.prefixFilter);
+            writer.writeStringValue("prefixFilter", this.prefixFilter);
         }
         if(this.ranges && this.ranges.length != 0){        const rangesArrValue: BucketAggregationRangeImpl[] = []; this.ranges?.forEach(element => {rangesArrValue.push(new BucketAggregationRangeImpl(element));});
-        writer.writeCollectionOfObjectValues<BucketAggregationRangeImpl>("ranges", rangesArrValue);
+            writer.writeCollectionOfObjectValues<BucketAggregationRangeImpl>("ranges", rangesArrValue);
         }
         if(this.sortBy){
-        writer.writeEnumValue<BucketAggregationSortProperty>("sortBy", this.sortBy);
+            writer.writeEnumValue<BucketAggregationSortProperty>("sortBy", this.sortBy);
         }
         writer.writeAdditionalData(this.additionalData);
     };

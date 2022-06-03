@@ -16,7 +16,7 @@ import {SingleValueLegacyExtendedProperty} from './singleValueLegacyExtendedProp
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Casts the previous resource to group. */
-export class PostImpl extends OutlookItemImpl implements Parsable, Post {
+export class PostImpl extends OutlookItemImpl implements Post {
     /** The collection of fileAttachment, itemAttachment, and referenceAttachment attachments for the post. Read-only. Nullable. Supports $expand. */
     public attachments?: Attachment[] | undefined;
     /** The contents of the post. This is a default property. This property can be null. */
@@ -48,20 +48,20 @@ export class PostImpl extends OutlookItemImpl implements Parsable, Post {
      * @param postParameterValue 
      */
     public constructor(postParameterValue?: Post | undefined) {
-        super();
-        this.attachments = postParameterValue?.attachments ;
-        this.body = postParameterValue?.body ;
-        this.conversationId = postParameterValue?.conversationId ;
-        this.conversationThreadId = postParameterValue?.conversationThreadId ;
-        this.extensions = postParameterValue?.extensions ;
-        this.from = postParameterValue?.from ;
-        this.hasAttachments = postParameterValue?.hasAttachments ;
-        this.inReplyTo = postParameterValue?.inReplyTo ;
-        this.multiValueExtendedProperties = postParameterValue?.multiValueExtendedProperties ;
-        this.newParticipants = postParameterValue?.newParticipants ;
-        this.receivedDateTime = postParameterValue?.receivedDateTime ;
-        this.sender = postParameterValue?.sender ;
-        this.singleValueExtendedProperties = postParameterValue?.singleValueExtendedProperties ;
+        super(postParameterValue);
+        this.attachments = postParameterValue?.attachments;
+        this.body = postParameterValue?.body;
+        this.conversationId = postParameterValue?.conversationId;
+        this.conversationThreadId = postParameterValue?.conversationThreadId;
+        this.extensions = postParameterValue?.extensions;
+        this.from = postParameterValue?.from;
+        this.hasAttachments = postParameterValue?.hasAttachments;
+        this.inReplyTo = postParameterValue?.inReplyTo;
+        this.multiValueExtendedProperties = postParameterValue?.multiValueExtendedProperties;
+        this.newParticipants = postParameterValue?.newParticipants;
+        this.receivedDateTime = postParameterValue?.receivedDateTime;
+        this.sender = postParameterValue?.sender;
+        this.singleValueExtendedProperties = postParameterValue?.singleValueExtendedProperties;
     };
     /**
      * The deserialization information for the current model
@@ -92,43 +92,43 @@ export class PostImpl extends OutlookItemImpl implements Parsable, Post {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.attachments && this.attachments.length != 0){        const attachmentsArrValue: AttachmentImpl[] = []; this.attachments?.forEach(element => {attachmentsArrValue.push(new AttachmentImpl(element));});
-        writer.writeCollectionOfObjectValues<AttachmentImpl>("attachments", attachmentsArrValue);
+            writer.writeCollectionOfObjectValues<AttachmentImpl>("attachments", attachmentsArrValue);
         }
         if(this.body){
-        writer.writeObjectValue<ItemBodyImpl>("body", new ItemBodyImpl(this.body));
+            writer.writeObjectValue<ItemBodyImpl>("body", new ItemBodyImpl(this.body));
         }
         if(this.conversationId){
-        writer.writeStringValue("conversationId", this.conversationId);
+            writer.writeStringValue("conversationId", this.conversationId);
         }
         if(this.conversationThreadId){
-        writer.writeStringValue("conversationThreadId", this.conversationThreadId);
+            writer.writeStringValue("conversationThreadId", this.conversationThreadId);
         }
         if(this.extensions && this.extensions.length != 0){        const extensionsArrValue: ExtensionImpl[] = []; this.extensions?.forEach(element => {extensionsArrValue.push(new ExtensionImpl(element));});
-        writer.writeCollectionOfObjectValues<ExtensionImpl>("extensions", extensionsArrValue);
+            writer.writeCollectionOfObjectValues<ExtensionImpl>("extensions", extensionsArrValue);
         }
         if(this.from){
-        writer.writeObjectValue<RecipientImpl>("from", new RecipientImpl(this.from));
+            writer.writeObjectValue<RecipientImpl>("from", new RecipientImpl(this.from));
         }
         if(this.hasAttachments){
-        writer.writeBooleanValue("hasAttachments", this.hasAttachments);
+            writer.writeBooleanValue("hasAttachments", this.hasAttachments);
         }
         if(this.inReplyTo){
-        writer.writeObjectValue<PostImpl>("inReplyTo", new PostImpl(this.inReplyTo));
+            writer.writeObjectValue<PostImpl>("inReplyTo", new PostImpl(this.inReplyTo));
         }
         if(this.multiValueExtendedProperties && this.multiValueExtendedProperties.length != 0){        const multiValueExtendedPropertiesArrValue: MultiValueLegacyExtendedPropertyImpl[] = []; this.multiValueExtendedProperties?.forEach(element => {multiValueExtendedPropertiesArrValue.push(new MultiValueLegacyExtendedPropertyImpl(element));});
-        writer.writeCollectionOfObjectValues<MultiValueLegacyExtendedPropertyImpl>("multiValueExtendedProperties", multiValueExtendedPropertiesArrValue);
+            writer.writeCollectionOfObjectValues<MultiValueLegacyExtendedPropertyImpl>("multiValueExtendedProperties", multiValueExtendedPropertiesArrValue);
         }
         if(this.newParticipants && this.newParticipants.length != 0){        const newParticipantsArrValue: RecipientImpl[] = []; this.newParticipants?.forEach(element => {newParticipantsArrValue.push(new RecipientImpl(element));});
-        writer.writeCollectionOfObjectValues<RecipientImpl>("newParticipants", newParticipantsArrValue);
+            writer.writeCollectionOfObjectValues<RecipientImpl>("newParticipants", newParticipantsArrValue);
         }
         if(this.receivedDateTime){
-        writer.writeDateValue("receivedDateTime", this.receivedDateTime);
+            writer.writeDateValue("receivedDateTime", this.receivedDateTime);
         }
         if(this.sender){
-        writer.writeObjectValue<RecipientImpl>("sender", new RecipientImpl(this.sender));
+            writer.writeObjectValue<RecipientImpl>("sender", new RecipientImpl(this.sender));
         }
         if(this.singleValueExtendedProperties && this.singleValueExtendedProperties.length != 0){        const singleValueExtendedPropertiesArrValue: SingleValueLegacyExtendedPropertyImpl[] = []; this.singleValueExtendedProperties?.forEach(element => {singleValueExtendedPropertiesArrValue.push(new SingleValueLegacyExtendedPropertyImpl(element));});
-        writer.writeCollectionOfObjectValues<SingleValueLegacyExtendedPropertyImpl>("singleValueExtendedProperties", singleValueExtendedPropertiesArrValue);
+            writer.writeCollectionOfObjectValues<SingleValueLegacyExtendedPropertyImpl>("singleValueExtendedProperties", singleValueExtendedPropertiesArrValue);
         }
     };
 }

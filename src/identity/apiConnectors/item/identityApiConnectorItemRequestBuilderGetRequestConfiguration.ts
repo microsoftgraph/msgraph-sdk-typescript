@@ -1,11 +1,11 @@
 import {IdentityApiConnectorItemRequestBuilderGetQueryParameters} from './identityApiConnectorItemRequestBuilderGetQueryParameters';
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
-export interface IdentityApiConnectorItemRequestBuilderGetRequestConfiguration{
+export interface IdentityApiConnectorItemRequestBuilderGetRequestConfiguration {
     /** Request headers */
-    headers?:Record<string, string> | undefined;
+    headers?: Record<string, string> | undefined;
     /** Request options */
-    options?:RequestOption[] | undefined;
+    options?: RequestOption[] | undefined;
     /** Request query parameters */
-    queryParameters?:IdentityApiConnectorItemRequestBuilderGetQueryParameters | undefined;
+    queryParameters?: IdentityApiConnectorItemRequestBuilderGetQueryParameters | undefined;
 }

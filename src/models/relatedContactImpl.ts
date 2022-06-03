@@ -2,7 +2,7 @@ import {ContactRelationship} from './contactRelationship';
 import {RelatedContact} from './relatedContact';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class RelatedContactImpl implements AdditionalDataHolder, Parsable, RelatedContact {
+export class RelatedContactImpl implements RelatedContact {
     /** Indicates whether the user has been consented to access student data. */
     public accessConsent?: boolean | undefined;
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
@@ -20,12 +20,12 @@ export class RelatedContactImpl implements AdditionalDataHolder, Parsable, Relat
      * @param relatedContactParameterValue 
      */
     public constructor(relatedContactParameterValue?: RelatedContact | undefined) {
-        this.accessConsent = relatedContactParameterValue?.accessConsent ;
-        this.additionalData = relatedContactParameterValue?.additionalData ? relatedContactParameterValue?.additionalData! : {}
-        this.displayName = relatedContactParameterValue?.displayName ;
-        this.emailAddress = relatedContactParameterValue?.emailAddress ;
-        this.mobilePhone = relatedContactParameterValue?.mobilePhone ;
-        this.relationship = relatedContactParameterValue?.relationship ;
+        this.accessConsent = relatedContactParameterValue?.accessConsent;
+        this.additionalData = relatedContactParameterValue?.additionalData ? relatedContactParameterValue?.additionalData! : {};
+        this.displayName = relatedContactParameterValue?.displayName;
+        this.emailAddress = relatedContactParameterValue?.emailAddress;
+        this.mobilePhone = relatedContactParameterValue?.mobilePhone;
+        this.relationship = relatedContactParameterValue?.relationship;
     };
     /**
      * The deserialization information for the current model
@@ -47,19 +47,19 @@ export class RelatedContactImpl implements AdditionalDataHolder, Parsable, Relat
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.accessConsent){
-        writer.writeBooleanValue("accessConsent", this.accessConsent);
+            writer.writeBooleanValue("accessConsent", this.accessConsent);
         }
         if(this.displayName){
-        writer.writeStringValue("displayName", this.displayName);
+            writer.writeStringValue("displayName", this.displayName);
         }
         if(this.emailAddress){
-        writer.writeStringValue("emailAddress", this.emailAddress);
+            writer.writeStringValue("emailAddress", this.emailAddress);
         }
         if(this.mobilePhone){
-        writer.writeStringValue("mobilePhone", this.mobilePhone);
+            writer.writeStringValue("mobilePhone", this.mobilePhone);
         }
         if(this.relationship){
-        writer.writeEnumValue<ContactRelationship>("relationship", this.relationship);
+            writer.writeEnumValue<ContactRelationship>("relationship", this.relationship);
         }
         writer.writeAdditionalData(this.additionalData);
     };

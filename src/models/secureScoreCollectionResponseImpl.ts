@@ -4,7 +4,7 @@ import {SecureScore} from './secureScore';
 import {SecureScoreCollectionResponse} from './secureScoreCollectionResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class SecureScoreCollectionResponseImpl implements AdditionalDataHolder, Parsable, SecureScoreCollectionResponse {
+export class SecureScoreCollectionResponseImpl implements SecureScoreCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class SecureScoreCollectionResponseImpl implements AdditionalDataHolder, 
      * @param secureScoreCollectionResponseParameterValue 
      */
     public constructor(secureScoreCollectionResponseParameterValue?: SecureScoreCollectionResponse | undefined) {
-        this.additionalData = secureScoreCollectionResponseParameterValue?.additionalData ? secureScoreCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = secureScoreCollectionResponseParameterValue?.nextLink ;
-        this.value = secureScoreCollectionResponseParameterValue?.value ;
+        this.additionalData = secureScoreCollectionResponseParameterValue?.additionalData ? secureScoreCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = secureScoreCollectionResponseParameterValue?.nextLink;
+        this.value = secureScoreCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class SecureScoreCollectionResponseImpl implements AdditionalDataHolder, 
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: SecureScoreImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new SecureScoreImpl(element));});
-        writer.writeCollectionOfObjectValues<SecureScoreImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<SecureScoreImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

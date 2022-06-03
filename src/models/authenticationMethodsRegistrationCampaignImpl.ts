@@ -7,7 +7,7 @@ import {ExcludeTarget} from './excludeTarget';
 import {AuthenticationMethodsRegistrationCampaignIncludeTargetImpl, ExcludeTargetImpl} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class AuthenticationMethodsRegistrationCampaignImpl implements AdditionalDataHolder, AuthenticationMethodsRegistrationCampaign, Parsable {
+export class AuthenticationMethodsRegistrationCampaignImpl implements AuthenticationMethodsRegistrationCampaign {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Users and groups of users that are excluded from being prompted to set up the authentication method. */
@@ -23,11 +23,11 @@ export class AuthenticationMethodsRegistrationCampaignImpl implements Additional
      * @param authenticationMethodsRegistrationCampaignParameterValue 
      */
     public constructor(authenticationMethodsRegistrationCampaignParameterValue?: AuthenticationMethodsRegistrationCampaign | undefined) {
-        this.additionalData = authenticationMethodsRegistrationCampaignParameterValue?.additionalData ? authenticationMethodsRegistrationCampaignParameterValue?.additionalData! : {}
-        this.excludeTargets = authenticationMethodsRegistrationCampaignParameterValue?.excludeTargets ;
-        this.includeTargets = authenticationMethodsRegistrationCampaignParameterValue?.includeTargets ;
-        this.snoozeDurationInDays = authenticationMethodsRegistrationCampaignParameterValue?.snoozeDurationInDays ;
-        this.state = authenticationMethodsRegistrationCampaignParameterValue?.state ;
+        this.additionalData = authenticationMethodsRegistrationCampaignParameterValue?.additionalData ? authenticationMethodsRegistrationCampaignParameterValue?.additionalData! : {};
+        this.excludeTargets = authenticationMethodsRegistrationCampaignParameterValue?.excludeTargets;
+        this.includeTargets = authenticationMethodsRegistrationCampaignParameterValue?.includeTargets;
+        this.snoozeDurationInDays = authenticationMethodsRegistrationCampaignParameterValue?.snoozeDurationInDays;
+        this.state = authenticationMethodsRegistrationCampaignParameterValue?.state;
     };
     /**
      * The deserialization information for the current model
@@ -48,16 +48,16 @@ export class AuthenticationMethodsRegistrationCampaignImpl implements Additional
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.excludeTargets && this.excludeTargets.length != 0){        const excludeTargetsArrValue: ExcludeTargetImpl[] = []; this.excludeTargets?.forEach(element => {excludeTargetsArrValue.push(new ExcludeTargetImpl(element));});
-        writer.writeCollectionOfObjectValues<ExcludeTargetImpl>("excludeTargets", excludeTargetsArrValue);
+            writer.writeCollectionOfObjectValues<ExcludeTargetImpl>("excludeTargets", excludeTargetsArrValue);
         }
         if(this.includeTargets && this.includeTargets.length != 0){        const includeTargetsArrValue: AuthenticationMethodsRegistrationCampaignIncludeTargetImpl[] = []; this.includeTargets?.forEach(element => {includeTargetsArrValue.push(new AuthenticationMethodsRegistrationCampaignIncludeTargetImpl(element));});
-        writer.writeCollectionOfObjectValues<AuthenticationMethodsRegistrationCampaignIncludeTargetImpl>("includeTargets", includeTargetsArrValue);
+            writer.writeCollectionOfObjectValues<AuthenticationMethodsRegistrationCampaignIncludeTargetImpl>("includeTargets", includeTargetsArrValue);
         }
         if(this.snoozeDurationInDays){
-        writer.writeNumberValue("snoozeDurationInDays", this.snoozeDurationInDays);
+            writer.writeNumberValue("snoozeDurationInDays", this.snoozeDurationInDays);
         }
         if(this.state){
-        writer.writeEnumValue<AdvancedConfigState>("state", this.state);
+            writer.writeEnumValue<AdvancedConfigState>("state", this.state);
         }
         writer.writeAdditionalData(this.additionalData);
     };

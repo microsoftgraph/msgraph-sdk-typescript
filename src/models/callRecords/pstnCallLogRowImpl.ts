@@ -2,7 +2,7 @@ import {PstnCallDurationSource} from './pstnCallDurationSource';
 import {PstnCallLogRow} from './pstnCallLogRow';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class PstnCallLogRowImpl implements AdditionalDataHolder, Parsable, PstnCallLogRow {
+export class PstnCallLogRowImpl implements PstnCallLogRow {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The source of the call duration data. If the call uses a third-party telecommunications operator via the Operator Connect Program, the operator may provide their own call duration data. In this case, the property value is operator. Otherwise, the value is microsoft. */
@@ -56,30 +56,30 @@ export class PstnCallLogRowImpl implements AdditionalDataHolder, Parsable, PstnC
      * @param pstnCallLogRowParameterValue 
      */
     public constructor(pstnCallLogRowParameterValue?: PstnCallLogRow | undefined) {
-        this.additionalData = pstnCallLogRowParameterValue?.additionalData ? pstnCallLogRowParameterValue?.additionalData! : {}
-        this.callDurationSource = pstnCallLogRowParameterValue?.callDurationSource ;
-        this.calleeNumber = pstnCallLogRowParameterValue?.calleeNumber ;
-        this.callerNumber = pstnCallLogRowParameterValue?.callerNumber ;
-        this.callId = pstnCallLogRowParameterValue?.callId ;
-        this.callType = pstnCallLogRowParameterValue?.callType ;
-        this.charge = pstnCallLogRowParameterValue?.charge ;
-        this.conferenceId = pstnCallLogRowParameterValue?.conferenceId ;
-        this.connectionCharge = pstnCallLogRowParameterValue?.connectionCharge ;
-        this.currency = pstnCallLogRowParameterValue?.currency ;
-        this.destinationContext = pstnCallLogRowParameterValue?.destinationContext ;
-        this.destinationName = pstnCallLogRowParameterValue?.destinationName ;
-        this.duration = pstnCallLogRowParameterValue?.duration ;
-        this.endDateTime = pstnCallLogRowParameterValue?.endDateTime ;
-        this.id = pstnCallLogRowParameterValue?.id ;
-        this.inventoryType = pstnCallLogRowParameterValue?.inventoryType ;
-        this.licenseCapability = pstnCallLogRowParameterValue?.licenseCapability ;
-        this.operator = pstnCallLogRowParameterValue?.operator ;
-        this.startDateTime = pstnCallLogRowParameterValue?.startDateTime ;
-        this.tenantCountryCode = pstnCallLogRowParameterValue?.tenantCountryCode ;
-        this.usageCountryCode = pstnCallLogRowParameterValue?.usageCountryCode ;
-        this.userDisplayName = pstnCallLogRowParameterValue?.userDisplayName ;
-        this.userId = pstnCallLogRowParameterValue?.userId ;
-        this.userPrincipalName = pstnCallLogRowParameterValue?.userPrincipalName ;
+        this.additionalData = pstnCallLogRowParameterValue?.additionalData ? pstnCallLogRowParameterValue?.additionalData! : {};
+        this.callDurationSource = pstnCallLogRowParameterValue?.callDurationSource;
+        this.calleeNumber = pstnCallLogRowParameterValue?.calleeNumber;
+        this.callerNumber = pstnCallLogRowParameterValue?.callerNumber;
+        this.callId = pstnCallLogRowParameterValue?.callId;
+        this.callType = pstnCallLogRowParameterValue?.callType;
+        this.charge = pstnCallLogRowParameterValue?.charge;
+        this.conferenceId = pstnCallLogRowParameterValue?.conferenceId;
+        this.connectionCharge = pstnCallLogRowParameterValue?.connectionCharge;
+        this.currency = pstnCallLogRowParameterValue?.currency;
+        this.destinationContext = pstnCallLogRowParameterValue?.destinationContext;
+        this.destinationName = pstnCallLogRowParameterValue?.destinationName;
+        this.duration = pstnCallLogRowParameterValue?.duration;
+        this.endDateTime = pstnCallLogRowParameterValue?.endDateTime;
+        this.id = pstnCallLogRowParameterValue?.id;
+        this.inventoryType = pstnCallLogRowParameterValue?.inventoryType;
+        this.licenseCapability = pstnCallLogRowParameterValue?.licenseCapability;
+        this.operator = pstnCallLogRowParameterValue?.operator;
+        this.startDateTime = pstnCallLogRowParameterValue?.startDateTime;
+        this.tenantCountryCode = pstnCallLogRowParameterValue?.tenantCountryCode;
+        this.usageCountryCode = pstnCallLogRowParameterValue?.usageCountryCode;
+        this.userDisplayName = pstnCallLogRowParameterValue?.userDisplayName;
+        this.userId = pstnCallLogRowParameterValue?.userId;
+        this.userPrincipalName = pstnCallLogRowParameterValue?.userPrincipalName;
     };
     /**
      * The deserialization information for the current model
@@ -119,73 +119,73 @@ export class PstnCallLogRowImpl implements AdditionalDataHolder, Parsable, PstnC
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.callDurationSource){
-        writer.writeEnumValue<PstnCallDurationSource>("callDurationSource", this.callDurationSource);
+            writer.writeEnumValue<PstnCallDurationSource>("callDurationSource", this.callDurationSource);
         }
         if(this.calleeNumber){
-        writer.writeStringValue("calleeNumber", this.calleeNumber);
+            writer.writeStringValue("calleeNumber", this.calleeNumber);
         }
         if(this.callerNumber){
-        writer.writeStringValue("callerNumber", this.callerNumber);
+            writer.writeStringValue("callerNumber", this.callerNumber);
         }
         if(this.callId){
-        writer.writeStringValue("callId", this.callId);
+            writer.writeStringValue("callId", this.callId);
         }
         if(this.callType){
-        writer.writeStringValue("callType", this.callType);
+            writer.writeStringValue("callType", this.callType);
         }
         if(this.charge){
-        writer.writeNumberValue("charge", this.charge);
+            writer.writeNumberValue("charge", this.charge);
         }
         if(this.conferenceId){
-        writer.writeStringValue("conferenceId", this.conferenceId);
+            writer.writeStringValue("conferenceId", this.conferenceId);
         }
         if(this.connectionCharge){
-        writer.writeNumberValue("connectionCharge", this.connectionCharge);
+            writer.writeNumberValue("connectionCharge", this.connectionCharge);
         }
         if(this.currency){
-        writer.writeStringValue("currency", this.currency);
+            writer.writeStringValue("currency", this.currency);
         }
         if(this.destinationContext){
-        writer.writeStringValue("destinationContext", this.destinationContext);
+            writer.writeStringValue("destinationContext", this.destinationContext);
         }
         if(this.destinationName){
-        writer.writeStringValue("destinationName", this.destinationName);
+            writer.writeStringValue("destinationName", this.destinationName);
         }
         if(this.duration){
-        writer.writeNumberValue("duration", this.duration);
+            writer.writeNumberValue("duration", this.duration);
         }
         if(this.endDateTime){
-        writer.writeDateValue("endDateTime", this.endDateTime);
+            writer.writeDateValue("endDateTime", this.endDateTime);
         }
         if(this.id){
-        writer.writeStringValue("id", this.id);
+            writer.writeStringValue("id", this.id);
         }
         if(this.inventoryType){
-        writer.writeStringValue("inventoryType", this.inventoryType);
+            writer.writeStringValue("inventoryType", this.inventoryType);
         }
         if(this.licenseCapability){
-        writer.writeStringValue("licenseCapability", this.licenseCapability);
+            writer.writeStringValue("licenseCapability", this.licenseCapability);
         }
         if(this.operator){
-        writer.writeStringValue("operator", this.operator);
+            writer.writeStringValue("operator", this.operator);
         }
         if(this.startDateTime){
-        writer.writeDateValue("startDateTime", this.startDateTime);
+            writer.writeDateValue("startDateTime", this.startDateTime);
         }
         if(this.tenantCountryCode){
-        writer.writeStringValue("tenantCountryCode", this.tenantCountryCode);
+            writer.writeStringValue("tenantCountryCode", this.tenantCountryCode);
         }
         if(this.usageCountryCode){
-        writer.writeStringValue("usageCountryCode", this.usageCountryCode);
+            writer.writeStringValue("usageCountryCode", this.usageCountryCode);
         }
         if(this.userDisplayName){
-        writer.writeStringValue("userDisplayName", this.userDisplayName);
+            writer.writeStringValue("userDisplayName", this.userDisplayName);
         }
         if(this.userId){
-        writer.writeStringValue("userId", this.userId);
+            writer.writeStringValue("userId", this.userId);
         }
         if(this.userPrincipalName){
-        writer.writeStringValue("userPrincipalName", this.userPrincipalName);
+            writer.writeStringValue("userPrincipalName", this.userPrincipalName);
         }
         writer.writeAdditionalData(this.additionalData);
     };

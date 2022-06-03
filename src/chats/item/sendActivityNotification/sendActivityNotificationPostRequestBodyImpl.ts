@@ -11,7 +11,7 @@ import {SendActivityNotificationPostRequestBody} from './sendActivityNotificatio
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the sendActivityNotification method. */
-export class SendActivityNotificationPostRequestBodyImpl implements AdditionalDataHolder, Parsable, SendActivityNotificationPostRequestBody {
+export class SendActivityNotificationPostRequestBodyImpl implements SendActivityNotificationPostRequestBody {
     /** The activityType property */
     public activityType?: string | undefined;
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
@@ -31,13 +31,13 @@ export class SendActivityNotificationPostRequestBodyImpl implements AdditionalDa
      * @param sendActivityNotificationPostRequestBodyParameterValue 
      */
     public constructor(sendActivityNotificationPostRequestBodyParameterValue?: SendActivityNotificationPostRequestBody | undefined) {
-        this.activityType = sendActivityNotificationPostRequestBodyParameterValue?.activityType ;
-        this.additionalData = sendActivityNotificationPostRequestBodyParameterValue?.additionalData ? sendActivityNotificationPostRequestBodyParameterValue?.additionalData! : {}
-        this.chainId = sendActivityNotificationPostRequestBodyParameterValue?.chainId ;
-        this.previewText = sendActivityNotificationPostRequestBodyParameterValue?.previewText ;
-        this.recipient = sendActivityNotificationPostRequestBodyParameterValue?.recipient ;
-        this.templateParameters = sendActivityNotificationPostRequestBodyParameterValue?.templateParameters ;
-        this.topic = sendActivityNotificationPostRequestBodyParameterValue?.topic ;
+        this.activityType = sendActivityNotificationPostRequestBodyParameterValue?.activityType;
+        this.additionalData = sendActivityNotificationPostRequestBodyParameterValue?.additionalData ? sendActivityNotificationPostRequestBodyParameterValue?.additionalData! : {};
+        this.chainId = sendActivityNotificationPostRequestBodyParameterValue?.chainId;
+        this.previewText = sendActivityNotificationPostRequestBodyParameterValue?.previewText;
+        this.recipient = sendActivityNotificationPostRequestBodyParameterValue?.recipient;
+        this.templateParameters = sendActivityNotificationPostRequestBodyParameterValue?.templateParameters;
+        this.topic = sendActivityNotificationPostRequestBodyParameterValue?.topic;
     };
     /**
      * The deserialization information for the current model
@@ -60,22 +60,22 @@ export class SendActivityNotificationPostRequestBodyImpl implements AdditionalDa
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.activityType){
-        writer.writeStringValue("activityType", this.activityType);
+            writer.writeStringValue("activityType", this.activityType);
         }
         if(this.chainId){
-        writer.writeNumberValue("chainId", this.chainId);
+            writer.writeNumberValue("chainId", this.chainId);
         }
         if(this.previewText){
-        writer.writeObjectValue<ItemBodyImpl>("previewText", new ItemBodyImpl(this.previewText));
+            writer.writeObjectValue<ItemBodyImpl>("previewText", new ItemBodyImpl(this.previewText));
         }
         if(this.recipient){
-        writer.writeObjectValue<TeamworkNotificationRecipientImpl>("recipient", new TeamworkNotificationRecipientImpl(this.recipient));
+            writer.writeObjectValue<TeamworkNotificationRecipientImpl>("recipient", new TeamworkNotificationRecipientImpl(this.recipient));
         }
         if(this.templateParameters && this.templateParameters.length != 0){        const templateParametersArrValue: KeyValuePairImpl[] = []; this.templateParameters?.forEach(element => {templateParametersArrValue.push(new KeyValuePairImpl(element));});
-        writer.writeCollectionOfObjectValues<KeyValuePairImpl>("templateParameters", templateParametersArrValue);
+            writer.writeCollectionOfObjectValues<KeyValuePairImpl>("templateParameters", templateParametersArrValue);
         }
         if(this.topic){
-        writer.writeObjectValue<TeamworkActivityTopicImpl>("topic", new TeamworkActivityTopicImpl(this.topic));
+            writer.writeObjectValue<TeamworkActivityTopicImpl>("topic", new TeamworkActivityTopicImpl(this.topic));
         }
         writer.writeAdditionalData(this.additionalData);
     };

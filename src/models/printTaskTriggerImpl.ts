@@ -6,7 +6,7 @@ import {PrintTaskTrigger} from './printTaskTrigger';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the print singleton. */
-export class PrintTaskTriggerImpl extends EntityImpl implements Parsable, PrintTaskTrigger {
+export class PrintTaskTriggerImpl extends EntityImpl implements PrintTaskTrigger {
     /** The definition property */
     public definition?: PrintTaskDefinition | undefined;
     /** The Universal Print event that will cause a new printTask to be triggered. Valid values are described in the following table. */
@@ -16,9 +16,9 @@ export class PrintTaskTriggerImpl extends EntityImpl implements Parsable, PrintT
      * @param printTaskTriggerParameterValue 
      */
     public constructor(printTaskTriggerParameterValue?: PrintTaskTrigger | undefined) {
-        super();
-        this.definition = printTaskTriggerParameterValue?.definition ;
-        this.event = printTaskTriggerParameterValue?.event ;
+        super(printTaskTriggerParameterValue);
+        this.definition = printTaskTriggerParameterValue?.definition;
+        this.event = printTaskTriggerParameterValue?.event;
     };
     /**
      * The deserialization information for the current model
@@ -38,10 +38,10 @@ export class PrintTaskTriggerImpl extends EntityImpl implements Parsable, PrintT
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.definition){
-        writer.writeObjectValue<PrintTaskDefinitionImpl>("definition", new PrintTaskDefinitionImpl(this.definition));
+            writer.writeObjectValue<PrintTaskDefinitionImpl>("definition", new PrintTaskDefinitionImpl(this.definition));
         }
         if(this.event){
-        writer.writeEnumValue<PrintEvent>("event", this.event);
+            writer.writeEnumValue<PrintEvent>("event", this.event);
         }
     };
 }

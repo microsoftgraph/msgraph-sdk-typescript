@@ -4,7 +4,7 @@ import {DeviceManagementExportJobCollectionResponse} from './deviceManagementExp
 import {DeviceManagementExportJobImpl} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class DeviceManagementExportJobCollectionResponseImpl implements AdditionalDataHolder, DeviceManagementExportJobCollectionResponse, Parsable {
+export class DeviceManagementExportJobCollectionResponseImpl implements DeviceManagementExportJobCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class DeviceManagementExportJobCollectionResponseImpl implements Addition
      * @param deviceManagementExportJobCollectionResponseParameterValue 
      */
     public constructor(deviceManagementExportJobCollectionResponseParameterValue?: DeviceManagementExportJobCollectionResponse | undefined) {
-        this.additionalData = deviceManagementExportJobCollectionResponseParameterValue?.additionalData ? deviceManagementExportJobCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = deviceManagementExportJobCollectionResponseParameterValue?.nextLink ;
-        this.value = deviceManagementExportJobCollectionResponseParameterValue?.value ;
+        this.additionalData = deviceManagementExportJobCollectionResponseParameterValue?.additionalData ? deviceManagementExportJobCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = deviceManagementExportJobCollectionResponseParameterValue?.nextLink;
+        this.value = deviceManagementExportJobCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class DeviceManagementExportJobCollectionResponseImpl implements Addition
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: DeviceManagementExportJobImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new DeviceManagementExportJobImpl(element));});
-        writer.writeCollectionOfObjectValues<DeviceManagementExportJobImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<DeviceManagementExportJobImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

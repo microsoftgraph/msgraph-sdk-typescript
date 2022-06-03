@@ -4,7 +4,7 @@ import {Site} from './site';
 import {SiteCollectionResponse} from './siteCollectionResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class SiteCollectionResponseImpl implements AdditionalDataHolder, Parsable, SiteCollectionResponse {
+export class SiteCollectionResponseImpl implements SiteCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class SiteCollectionResponseImpl implements AdditionalDataHolder, Parsabl
      * @param siteCollectionResponseParameterValue 
      */
     public constructor(siteCollectionResponseParameterValue?: SiteCollectionResponse | undefined) {
-        this.additionalData = siteCollectionResponseParameterValue?.additionalData ? siteCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = siteCollectionResponseParameterValue?.nextLink ;
-        this.value = siteCollectionResponseParameterValue?.value ;
+        this.additionalData = siteCollectionResponseParameterValue?.additionalData ? siteCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = siteCollectionResponseParameterValue?.nextLink;
+        this.value = siteCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class SiteCollectionResponseImpl implements AdditionalDataHolder, Parsabl
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: SiteImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new SiteImpl(element));});
-        writer.writeCollectionOfObjectValues<SiteImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<SiteImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

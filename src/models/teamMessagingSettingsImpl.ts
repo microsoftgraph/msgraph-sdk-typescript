@@ -1,7 +1,7 @@
 import {TeamMessagingSettings} from './teamMessagingSettings';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class TeamMessagingSettingsImpl implements AdditionalDataHolder, Parsable, TeamMessagingSettings {
+export class TeamMessagingSettingsImpl implements TeamMessagingSettings {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** If set to true, @channel mentions are allowed. */
@@ -19,12 +19,12 @@ export class TeamMessagingSettingsImpl implements AdditionalDataHolder, Parsable
      * @param teamMessagingSettingsParameterValue 
      */
     public constructor(teamMessagingSettingsParameterValue?: TeamMessagingSettings | undefined) {
-        this.additionalData = teamMessagingSettingsParameterValue?.additionalData ? teamMessagingSettingsParameterValue?.additionalData! : {}
-        this.allowChannelMentions = teamMessagingSettingsParameterValue?.allowChannelMentions ;
-        this.allowOwnerDeleteMessages = teamMessagingSettingsParameterValue?.allowOwnerDeleteMessages ;
-        this.allowTeamMentions = teamMessagingSettingsParameterValue?.allowTeamMentions ;
-        this.allowUserDeleteMessages = teamMessagingSettingsParameterValue?.allowUserDeleteMessages ;
-        this.allowUserEditMessages = teamMessagingSettingsParameterValue?.allowUserEditMessages ;
+        this.additionalData = teamMessagingSettingsParameterValue?.additionalData ? teamMessagingSettingsParameterValue?.additionalData! : {};
+        this.allowChannelMentions = teamMessagingSettingsParameterValue?.allowChannelMentions;
+        this.allowOwnerDeleteMessages = teamMessagingSettingsParameterValue?.allowOwnerDeleteMessages;
+        this.allowTeamMentions = teamMessagingSettingsParameterValue?.allowTeamMentions;
+        this.allowUserDeleteMessages = teamMessagingSettingsParameterValue?.allowUserDeleteMessages;
+        this.allowUserEditMessages = teamMessagingSettingsParameterValue?.allowUserEditMessages;
     };
     /**
      * The deserialization information for the current model
@@ -46,19 +46,19 @@ export class TeamMessagingSettingsImpl implements AdditionalDataHolder, Parsable
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.allowChannelMentions){
-        writer.writeBooleanValue("allowChannelMentions", this.allowChannelMentions);
+            writer.writeBooleanValue("allowChannelMentions", this.allowChannelMentions);
         }
         if(this.allowOwnerDeleteMessages){
-        writer.writeBooleanValue("allowOwnerDeleteMessages", this.allowOwnerDeleteMessages);
+            writer.writeBooleanValue("allowOwnerDeleteMessages", this.allowOwnerDeleteMessages);
         }
         if(this.allowTeamMentions){
-        writer.writeBooleanValue("allowTeamMentions", this.allowTeamMentions);
+            writer.writeBooleanValue("allowTeamMentions", this.allowTeamMentions);
         }
         if(this.allowUserDeleteMessages){
-        writer.writeBooleanValue("allowUserDeleteMessages", this.allowUserDeleteMessages);
+            writer.writeBooleanValue("allowUserDeleteMessages", this.allowUserDeleteMessages);
         }
         if(this.allowUserEditMessages){
-        writer.writeBooleanValue("allowUserEditMessages", this.allowUserEditMessages);
+            writer.writeBooleanValue("allowUserEditMessages", this.allowUserEditMessages);
         }
         writer.writeAdditionalData(this.additionalData);
     };

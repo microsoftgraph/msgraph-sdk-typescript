@@ -1,7 +1,7 @@
 import {Compliance} from './compliance';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ComplianceImpl implements AdditionalDataHolder, Compliance, Parsable {
+export class ComplianceImpl implements Compliance {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /**
@@ -9,7 +9,7 @@ export class ComplianceImpl implements AdditionalDataHolder, Compliance, Parsabl
      * @param complianceParameterValue 
      */
     public constructor(complianceParameterValue?: Compliance | undefined) {
-        this.additionalData = complianceParameterValue?.additionalData ? complianceParameterValue?.additionalData! : {}
+        this.additionalData = complianceParameterValue?.additionalData ? complianceParameterValue?.additionalData! : {};
     };
     /**
      * The deserialization information for the current model

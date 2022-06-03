@@ -1,7 +1,7 @@
 import {ConditionalAccessUsers} from './conditionalAccessUsers';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ConditionalAccessUsersImpl implements AdditionalDataHolder, ConditionalAccessUsers, Parsable {
+export class ConditionalAccessUsersImpl implements ConditionalAccessUsers {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Group IDs excluded from scope of policy. */
@@ -21,13 +21,13 @@ export class ConditionalAccessUsersImpl implements AdditionalDataHolder, Conditi
      * @param conditionalAccessUsersParameterValue 
      */
     public constructor(conditionalAccessUsersParameterValue?: ConditionalAccessUsers | undefined) {
-        this.additionalData = conditionalAccessUsersParameterValue?.additionalData ? conditionalAccessUsersParameterValue?.additionalData! : {}
-        this.excludeGroups = conditionalAccessUsersParameterValue?.excludeGroups ;
-        this.excludeRoles = conditionalAccessUsersParameterValue?.excludeRoles ;
-        this.excludeUsers = conditionalAccessUsersParameterValue?.excludeUsers ;
-        this.includeGroups = conditionalAccessUsersParameterValue?.includeGroups ;
-        this.includeRoles = conditionalAccessUsersParameterValue?.includeRoles ;
-        this.includeUsers = conditionalAccessUsersParameterValue?.includeUsers ;
+        this.additionalData = conditionalAccessUsersParameterValue?.additionalData ? conditionalAccessUsersParameterValue?.additionalData! : {};
+        this.excludeGroups = conditionalAccessUsersParameterValue?.excludeGroups;
+        this.excludeRoles = conditionalAccessUsersParameterValue?.excludeRoles;
+        this.excludeUsers = conditionalAccessUsersParameterValue?.excludeUsers;
+        this.includeGroups = conditionalAccessUsersParameterValue?.includeGroups;
+        this.includeRoles = conditionalAccessUsersParameterValue?.includeRoles;
+        this.includeUsers = conditionalAccessUsersParameterValue?.includeUsers;
     };
     /**
      * The deserialization information for the current model
@@ -50,22 +50,22 @@ export class ConditionalAccessUsersImpl implements AdditionalDataHolder, Conditi
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.excludeGroups){
-        writer.writeCollectionOfPrimitiveValues<string>("excludeGroups", this.excludeGroups);
+            writer.writeCollectionOfPrimitiveValues<string>("excludeGroups", this.excludeGroups);
         }
         if(this.excludeRoles){
-        writer.writeCollectionOfPrimitiveValues<string>("excludeRoles", this.excludeRoles);
+            writer.writeCollectionOfPrimitiveValues<string>("excludeRoles", this.excludeRoles);
         }
         if(this.excludeUsers){
-        writer.writeCollectionOfPrimitiveValues<string>("excludeUsers", this.excludeUsers);
+            writer.writeCollectionOfPrimitiveValues<string>("excludeUsers", this.excludeUsers);
         }
         if(this.includeGroups){
-        writer.writeCollectionOfPrimitiveValues<string>("includeGroups", this.includeGroups);
+            writer.writeCollectionOfPrimitiveValues<string>("includeGroups", this.includeGroups);
         }
         if(this.includeRoles){
-        writer.writeCollectionOfPrimitiveValues<string>("includeRoles", this.includeRoles);
+            writer.writeCollectionOfPrimitiveValues<string>("includeRoles", this.includeRoles);
         }
         if(this.includeUsers){
-        writer.writeCollectionOfPrimitiveValues<string>("includeUsers", this.includeUsers);
+            writer.writeCollectionOfPrimitiveValues<string>("includeUsers", this.includeUsers);
         }
         writer.writeAdditionalData(this.additionalData);
     };

@@ -5,7 +5,7 @@ import {ApprovalStageImpl, EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the identityGovernance singleton. */
-export class ApprovalImpl extends EntityImpl implements Approval, Parsable {
+export class ApprovalImpl extends EntityImpl implements Approval {
     /** Used for the approvalStages property of approval settings in the requestApprovalSettings property of an access package assignment policy. Specifies the primary, fallback, and escalation approvers of each stage. */
     public stages?: ApprovalStage[] | undefined;
     /**
@@ -13,8 +13,8 @@ export class ApprovalImpl extends EntityImpl implements Approval, Parsable {
      * @param approvalParameterValue 
      */
     public constructor(approvalParameterValue?: Approval | undefined) {
-        super();
-        this.stages = approvalParameterValue?.stages ;
+        super(approvalParameterValue);
+        this.stages = approvalParameterValue?.stages;
     };
     /**
      * The deserialization information for the current model
@@ -33,7 +33,7 @@ export class ApprovalImpl extends EntityImpl implements Approval, Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.stages && this.stages.length != 0){        const stagesArrValue: ApprovalStageImpl[] = []; this.stages?.forEach(element => {stagesArrValue.push(new ApprovalStageImpl(element));});
-        writer.writeCollectionOfObjectValues<ApprovalStageImpl>("stages", stagesArrValue);
+            writer.writeCollectionOfObjectValues<ApprovalStageImpl>("stages", stagesArrValue);
         }
     };
 }

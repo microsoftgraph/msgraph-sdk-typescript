@@ -4,7 +4,7 @@ import {createAppConsentRequestFromDiscriminatorValue} from './createAppConsentR
 import {AppConsentRequestImpl} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class AppConsentRequestCollectionResponseImpl implements AdditionalDataHolder, AppConsentRequestCollectionResponse, Parsable {
+export class AppConsentRequestCollectionResponseImpl implements AppConsentRequestCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class AppConsentRequestCollectionResponseImpl implements AdditionalDataHo
      * @param appConsentRequestCollectionResponseParameterValue 
      */
     public constructor(appConsentRequestCollectionResponseParameterValue?: AppConsentRequestCollectionResponse | undefined) {
-        this.additionalData = appConsentRequestCollectionResponseParameterValue?.additionalData ? appConsentRequestCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = appConsentRequestCollectionResponseParameterValue?.nextLink ;
-        this.value = appConsentRequestCollectionResponseParameterValue?.value ;
+        this.additionalData = appConsentRequestCollectionResponseParameterValue?.additionalData ? appConsentRequestCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = appConsentRequestCollectionResponseParameterValue?.nextLink;
+        this.value = appConsentRequestCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class AppConsentRequestCollectionResponseImpl implements AdditionalDataHo
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: AppConsentRequestImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new AppConsentRequestImpl(element));});
-        writer.writeCollectionOfObjectValues<AppConsentRequestImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<AppConsentRequestImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

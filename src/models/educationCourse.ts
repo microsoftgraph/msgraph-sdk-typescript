@@ -1,15 +1,16 @@
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface EducationCourse{
+export interface EducationCourse extends Partial<AdditionalDataHolder>, Partial<Parsable> {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?:Record<string, unknown>;
+    additionalData?: Record<string, unknown>;
     /** Unique identifier for the course. */
-    courseNumber?:string | undefined;
+    courseNumber?: string | undefined;
     /** Description of the course. */
-    description?:string | undefined;
+    description?: string | undefined;
     /** Name of the course. */
-    displayName?:string | undefined;
+    displayName?: string | undefined;
     /** ID of the course from the syncing system. */
-    externalId?:string | undefined;
+    externalId?: string | undefined;
     /** Subject of the course. */
-    subject?:string | undefined;
+    subject?: string | undefined;
 }

@@ -9,7 +9,7 @@ import {PrintTaskTrigger} from './printTaskTrigger';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the print singleton. */
-export class PrintTaskImpl extends EntityImpl implements Parsable, PrintTask {
+export class PrintTaskImpl extends EntityImpl implements PrintTask {
     /** The definition property */
     public definition?: PrintTaskDefinition | undefined;
     /** The URL for the print entity that triggered this task. For example, https://graph.microsoft.com/beta/print/printers/{printerId}/jobs/{jobId}. Read-only. */
@@ -23,11 +23,11 @@ export class PrintTaskImpl extends EntityImpl implements Parsable, PrintTask {
      * @param printTaskParameterValue 
      */
     public constructor(printTaskParameterValue?: PrintTask | undefined) {
-        super();
-        this.definition = printTaskParameterValue?.definition ;
-        this.parentUrl = printTaskParameterValue?.parentUrl ;
-        this.status = printTaskParameterValue?.status ;
-        this.trigger = printTaskParameterValue?.trigger ;
+        super(printTaskParameterValue);
+        this.definition = printTaskParameterValue?.definition;
+        this.parentUrl = printTaskParameterValue?.parentUrl;
+        this.status = printTaskParameterValue?.status;
+        this.trigger = printTaskParameterValue?.trigger;
     };
     /**
      * The deserialization information for the current model
@@ -49,16 +49,16 @@ export class PrintTaskImpl extends EntityImpl implements Parsable, PrintTask {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.definition){
-        writer.writeObjectValue<PrintTaskDefinitionImpl>("definition", new PrintTaskDefinitionImpl(this.definition));
+            writer.writeObjectValue<PrintTaskDefinitionImpl>("definition", new PrintTaskDefinitionImpl(this.definition));
         }
         if(this.parentUrl){
-        writer.writeStringValue("parentUrl", this.parentUrl);
+            writer.writeStringValue("parentUrl", this.parentUrl);
         }
         if(this.status){
-        writer.writeObjectValue<PrintTaskStatusImpl>("status", new PrintTaskStatusImpl(this.status));
+            writer.writeObjectValue<PrintTaskStatusImpl>("status", new PrintTaskStatusImpl(this.status));
         }
         if(this.trigger){
-        writer.writeObjectValue<PrintTaskTriggerImpl>("trigger", new PrintTaskTriggerImpl(this.trigger));
+            writer.writeObjectValue<PrintTaskTriggerImpl>("trigger", new PrintTaskTriggerImpl(this.trigger));
         }
     };
 }

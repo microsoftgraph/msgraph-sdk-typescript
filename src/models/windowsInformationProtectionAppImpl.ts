@@ -2,7 +2,7 @@ import {WindowsInformationProtectionApp} from './windowsInformationProtectionApp
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** App for Windows information protection */
-export class WindowsInformationProtectionAppImpl implements AdditionalDataHolder, Parsable, WindowsInformationProtectionApp {
+export class WindowsInformationProtectionAppImpl implements WindowsInformationProtectionApp {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** If true, app is denied protection or exemption. */
@@ -20,12 +20,12 @@ export class WindowsInformationProtectionAppImpl implements AdditionalDataHolder
      * @param windowsInformationProtectionAppParameterValue 
      */
     public constructor(windowsInformationProtectionAppParameterValue?: WindowsInformationProtectionApp | undefined) {
-        this.additionalData = windowsInformationProtectionAppParameterValue?.additionalData ? windowsInformationProtectionAppParameterValue?.additionalData! : {}
-        this.denied = windowsInformationProtectionAppParameterValue?.denied ;
-        this.description = windowsInformationProtectionAppParameterValue?.description ;
-        this.displayName = windowsInformationProtectionAppParameterValue?.displayName ;
-        this.productName = windowsInformationProtectionAppParameterValue?.productName ;
-        this.publisherName = windowsInformationProtectionAppParameterValue?.publisherName ;
+        this.additionalData = windowsInformationProtectionAppParameterValue?.additionalData ? windowsInformationProtectionAppParameterValue?.additionalData! : {};
+        this.denied = windowsInformationProtectionAppParameterValue?.denied;
+        this.description = windowsInformationProtectionAppParameterValue?.description;
+        this.displayName = windowsInformationProtectionAppParameterValue?.displayName;
+        this.productName = windowsInformationProtectionAppParameterValue?.productName;
+        this.publisherName = windowsInformationProtectionAppParameterValue?.publisherName;
     };
     /**
      * The deserialization information for the current model
@@ -47,19 +47,19 @@ export class WindowsInformationProtectionAppImpl implements AdditionalDataHolder
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.denied){
-        writer.writeBooleanValue("denied", this.denied);
+            writer.writeBooleanValue("denied", this.denied);
         }
         if(this.description){
-        writer.writeStringValue("description", this.description);
+            writer.writeStringValue("description", this.description);
         }
         if(this.displayName){
-        writer.writeStringValue("displayName", this.displayName);
+            writer.writeStringValue("displayName", this.displayName);
         }
         if(this.productName){
-        writer.writeStringValue("productName", this.productName);
+            writer.writeStringValue("productName", this.productName);
         }
         if(this.publisherName){
-        writer.writeStringValue("publisherName", this.publisherName);
+            writer.writeStringValue("publisherName", this.publisherName);
         }
         writer.writeAdditionalData(this.additionalData);
     };

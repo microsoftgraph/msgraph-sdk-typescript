@@ -9,7 +9,7 @@ import {Trending} from './trending';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Casts the previous resource to user. */
-export class TrendingImpl extends EntityImpl implements Parsable, Trending {
+export class TrendingImpl extends EntityImpl implements Trending {
     /** The lastModifiedDateTime property */
     public lastModifiedDateTime?: Date | undefined;
     /** Used for navigating to the trending document. */
@@ -25,12 +25,12 @@ export class TrendingImpl extends EntityImpl implements Parsable, Trending {
      * @param trendingParameterValue 
      */
     public constructor(trendingParameterValue?: Trending | undefined) {
-        super();
-        this.lastModifiedDateTime = trendingParameterValue?.lastModifiedDateTime ;
-        this.resource = trendingParameterValue?.resource ;
-        this.resourceReference = trendingParameterValue?.resourceReference ;
-        this.resourceVisualization = trendingParameterValue?.resourceVisualization ;
-        this.weight = trendingParameterValue?.weight ;
+        super(trendingParameterValue);
+        this.lastModifiedDateTime = trendingParameterValue?.lastModifiedDateTime;
+        this.resource = trendingParameterValue?.resource;
+        this.resourceReference = trendingParameterValue?.resourceReference;
+        this.resourceVisualization = trendingParameterValue?.resourceVisualization;
+        this.weight = trendingParameterValue?.weight;
     };
     /**
      * The deserialization information for the current model
@@ -53,19 +53,19 @@ export class TrendingImpl extends EntityImpl implements Parsable, Trending {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.lastModifiedDateTime){
-        writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
+            writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
         }
         if(this.resource){
-        writer.writeObjectValue<EntityImpl>("resource", new EntityImpl(this.resource));
+            writer.writeObjectValue<EntityImpl>("resource", new EntityImpl(this.resource));
         }
         if(this.resourceReference){
-        writer.writeObjectValue<ResourceReferenceImpl>("resourceReference", new ResourceReferenceImpl(this.resourceReference));
+            writer.writeObjectValue<ResourceReferenceImpl>("resourceReference", new ResourceReferenceImpl(this.resourceReference));
         }
         if(this.resourceVisualization){
-        writer.writeObjectValue<ResourceVisualizationImpl>("resourceVisualization", new ResourceVisualizationImpl(this.resourceVisualization));
+            writer.writeObjectValue<ResourceVisualizationImpl>("resourceVisualization", new ResourceVisualizationImpl(this.resourceVisualization));
         }
         if(this.weight){
-        writer.writeNumberValue("weight", this.weight);
+            writer.writeNumberValue("weight", this.weight);
         }
     };
 }

@@ -5,7 +5,7 @@ import {RecordingInfo} from './recordingInfo';
 import {RecordingStatus} from './recordingStatus';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class RecordingInfoImpl implements AdditionalDataHolder, Parsable, RecordingInfo {
+export class RecordingInfoImpl implements RecordingInfo {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The identities of recording initiator. */
@@ -17,9 +17,9 @@ export class RecordingInfoImpl implements AdditionalDataHolder, Parsable, Record
      * @param recordingInfoParameterValue 
      */
     public constructor(recordingInfoParameterValue?: RecordingInfo | undefined) {
-        this.additionalData = recordingInfoParameterValue?.additionalData ? recordingInfoParameterValue?.additionalData! : {}
-        this.initiator = recordingInfoParameterValue?.initiator ;
-        this.recordingStatus = recordingInfoParameterValue?.recordingStatus ;
+        this.additionalData = recordingInfoParameterValue?.additionalData ? recordingInfoParameterValue?.additionalData! : {};
+        this.initiator = recordingInfoParameterValue?.initiator;
+        this.recordingStatus = recordingInfoParameterValue?.recordingStatus;
     };
     /**
      * The deserialization information for the current model
@@ -38,10 +38,10 @@ export class RecordingInfoImpl implements AdditionalDataHolder, Parsable, Record
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.initiator){
-        writer.writeObjectValue<IdentitySetImpl>("initiator", new IdentitySetImpl(this.initiator));
+            writer.writeObjectValue<IdentitySetImpl>("initiator", new IdentitySetImpl(this.initiator));
         }
         if(this.recordingStatus){
-        writer.writeEnumValue<RecordingStatus>("recordingStatus", this.recordingStatus);
+            writer.writeEnumValue<RecordingStatus>("recordingStatus", this.recordingStatus);
         }
         writer.writeAdditionalData(this.additionalData);
     };

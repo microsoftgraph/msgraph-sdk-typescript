@@ -5,7 +5,7 @@ import {WorkforceIntegration} from './workforceIntegration';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the teamwork singleton. */
-export class TeamworkImpl extends EntityImpl implements Parsable, Teamwork {
+export class TeamworkImpl extends EntityImpl implements Teamwork {
     /** A workforce integration with shifts. */
     public workforceIntegrations?: WorkforceIntegration[] | undefined;
     /**
@@ -13,8 +13,8 @@ export class TeamworkImpl extends EntityImpl implements Parsable, Teamwork {
      * @param teamworkParameterValue 
      */
     public constructor(teamworkParameterValue?: Teamwork | undefined) {
-        super();
-        this.workforceIntegrations = teamworkParameterValue?.workforceIntegrations ;
+        super(teamworkParameterValue);
+        this.workforceIntegrations = teamworkParameterValue?.workforceIntegrations;
     };
     /**
      * The deserialization information for the current model
@@ -33,7 +33,7 @@ export class TeamworkImpl extends EntityImpl implements Parsable, Teamwork {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.workforceIntegrations && this.workforceIntegrations.length != 0){        const workforceIntegrationsArrValue: WorkforceIntegrationImpl[] = []; this.workforceIntegrations?.forEach(element => {workforceIntegrationsArrValue.push(new WorkforceIntegrationImpl(element));});
-        writer.writeCollectionOfObjectValues<WorkforceIntegrationImpl>("workforceIntegrations", workforceIntegrationsArrValue);
+            writer.writeCollectionOfObjectValues<WorkforceIntegrationImpl>("workforceIntegrations", workforceIntegrationsArrValue);
         }
     };
 }

@@ -2,7 +2,7 @@ import {PreviewPostRequestBody} from './previewPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the preview method. */
-export class PreviewPostRequestBodyImpl implements AdditionalDataHolder, Parsable, PreviewPostRequestBody {
+export class PreviewPostRequestBodyImpl implements PreviewPostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The page property */
@@ -14,9 +14,9 @@ export class PreviewPostRequestBodyImpl implements AdditionalDataHolder, Parsabl
      * @param previewPostRequestBodyParameterValue 
      */
     public constructor(previewPostRequestBodyParameterValue?: PreviewPostRequestBody | undefined) {
-        this.additionalData = previewPostRequestBodyParameterValue?.additionalData ? previewPostRequestBodyParameterValue?.additionalData! : {}
-        this.page = previewPostRequestBodyParameterValue?.page ;
-        this.zoom = previewPostRequestBodyParameterValue?.zoom ;
+        this.additionalData = previewPostRequestBodyParameterValue?.additionalData ? previewPostRequestBodyParameterValue?.additionalData! : {};
+        this.page = previewPostRequestBodyParameterValue?.page;
+        this.zoom = previewPostRequestBodyParameterValue?.zoom;
     };
     /**
      * The deserialization information for the current model
@@ -35,10 +35,10 @@ export class PreviewPostRequestBodyImpl implements AdditionalDataHolder, Parsabl
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.page){
-        writer.writeStringValue("page", this.page);
+            writer.writeStringValue("page", this.page);
         }
         if(this.zoom){
-        writer.writeNumberValue("zoom", this.zoom);
+            writer.writeNumberValue("zoom", this.zoom);
         }
         writer.writeAdditionalData(this.additionalData);
     };

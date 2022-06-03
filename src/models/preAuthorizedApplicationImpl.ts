@@ -1,7 +1,7 @@
 import {PreAuthorizedApplication} from './preAuthorizedApplication';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class PreAuthorizedApplicationImpl implements AdditionalDataHolder, Parsable, PreAuthorizedApplication {
+export class PreAuthorizedApplicationImpl implements PreAuthorizedApplication {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The unique identifier for the application. */
@@ -13,9 +13,9 @@ export class PreAuthorizedApplicationImpl implements AdditionalDataHolder, Parsa
      * @param preAuthorizedApplicationParameterValue 
      */
     public constructor(preAuthorizedApplicationParameterValue?: PreAuthorizedApplication | undefined) {
-        this.additionalData = preAuthorizedApplicationParameterValue?.additionalData ? preAuthorizedApplicationParameterValue?.additionalData! : {}
-        this.appId = preAuthorizedApplicationParameterValue?.appId ;
-        this.delegatedPermissionIds = preAuthorizedApplicationParameterValue?.delegatedPermissionIds ;
+        this.additionalData = preAuthorizedApplicationParameterValue?.additionalData ? preAuthorizedApplicationParameterValue?.additionalData! : {};
+        this.appId = preAuthorizedApplicationParameterValue?.appId;
+        this.delegatedPermissionIds = preAuthorizedApplicationParameterValue?.delegatedPermissionIds;
     };
     /**
      * The deserialization information for the current model
@@ -34,10 +34,10 @@ export class PreAuthorizedApplicationImpl implements AdditionalDataHolder, Parsa
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.appId){
-        writer.writeStringValue("appId", this.appId);
+            writer.writeStringValue("appId", this.appId);
         }
         if(this.delegatedPermissionIds){
-        writer.writeCollectionOfPrimitiveValues<string>("delegatedPermissionIds", this.delegatedPermissionIds);
+            writer.writeCollectionOfPrimitiveValues<string>("delegatedPermissionIds", this.delegatedPermissionIds);
         }
         writer.writeAdditionalData(this.additionalData);
     };

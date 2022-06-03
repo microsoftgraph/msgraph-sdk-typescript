@@ -4,7 +4,7 @@ import {createBookingCustomerBaseFromDiscriminatorValue} from './createBookingCu
 import {BookingCustomerBaseImpl} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class BookingCustomerBaseCollectionResponseImpl implements AdditionalDataHolder, BookingCustomerBaseCollectionResponse, Parsable {
+export class BookingCustomerBaseCollectionResponseImpl implements BookingCustomerBaseCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class BookingCustomerBaseCollectionResponseImpl implements AdditionalData
      * @param bookingCustomerBaseCollectionResponseParameterValue 
      */
     public constructor(bookingCustomerBaseCollectionResponseParameterValue?: BookingCustomerBaseCollectionResponse | undefined) {
-        this.additionalData = bookingCustomerBaseCollectionResponseParameterValue?.additionalData ? bookingCustomerBaseCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = bookingCustomerBaseCollectionResponseParameterValue?.nextLink ;
-        this.value = bookingCustomerBaseCollectionResponseParameterValue?.value ;
+        this.additionalData = bookingCustomerBaseCollectionResponseParameterValue?.additionalData ? bookingCustomerBaseCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = bookingCustomerBaseCollectionResponseParameterValue?.nextLink;
+        this.value = bookingCustomerBaseCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class BookingCustomerBaseCollectionResponseImpl implements AdditionalData
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: BookingCustomerBaseImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new BookingCustomerBaseImpl(element));});
-        writer.writeCollectionOfObjectValues<BookingCustomerBaseImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<BookingCustomerBaseImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

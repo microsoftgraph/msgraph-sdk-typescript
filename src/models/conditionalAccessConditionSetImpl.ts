@@ -14,7 +14,7 @@ import {createConditionalAccessUsersFromDiscriminatorValue} from './createCondit
 import {ConditionalAccessApplicationsImpl, ConditionalAccessClientApplicationsImpl, ConditionalAccessDevicesImpl, ConditionalAccessLocationsImpl, ConditionalAccessPlatformsImpl, ConditionalAccessUsersImpl} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ConditionalAccessConditionSetImpl implements AdditionalDataHolder, ConditionalAccessConditionSet, Parsable {
+export class ConditionalAccessConditionSetImpl implements ConditionalAccessConditionSet {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Applications and user actions included in and excluded from the policy. Required. */
@@ -40,16 +40,16 @@ export class ConditionalAccessConditionSetImpl implements AdditionalDataHolder, 
      * @param conditionalAccessConditionSetParameterValue 
      */
     public constructor(conditionalAccessConditionSetParameterValue?: ConditionalAccessConditionSet | undefined) {
-        this.additionalData = conditionalAccessConditionSetParameterValue?.additionalData ? conditionalAccessConditionSetParameterValue?.additionalData! : {}
-        this.applications = conditionalAccessConditionSetParameterValue?.applications ;
-        this.clientApplications = conditionalAccessConditionSetParameterValue?.clientApplications ;
-        this.clientAppTypes = conditionalAccessConditionSetParameterValue?.clientAppTypes ;
-        this.devices = conditionalAccessConditionSetParameterValue?.devices ;
-        this.locations = conditionalAccessConditionSetParameterValue?.locations ;
-        this.platforms = conditionalAccessConditionSetParameterValue?.platforms ;
-        this.signInRiskLevels = conditionalAccessConditionSetParameterValue?.signInRiskLevels ;
-        this.userRiskLevels = conditionalAccessConditionSetParameterValue?.userRiskLevels ;
-        this.users = conditionalAccessConditionSetParameterValue?.users ;
+        this.additionalData = conditionalAccessConditionSetParameterValue?.additionalData ? conditionalAccessConditionSetParameterValue?.additionalData! : {};
+        this.applications = conditionalAccessConditionSetParameterValue?.applications;
+        this.clientApplications = conditionalAccessConditionSetParameterValue?.clientApplications;
+        this.clientAppTypes = conditionalAccessConditionSetParameterValue?.clientAppTypes;
+        this.devices = conditionalAccessConditionSetParameterValue?.devices;
+        this.locations = conditionalAccessConditionSetParameterValue?.locations;
+        this.platforms = conditionalAccessConditionSetParameterValue?.platforms;
+        this.signInRiskLevels = conditionalAccessConditionSetParameterValue?.signInRiskLevels;
+        this.userRiskLevels = conditionalAccessConditionSetParameterValue?.userRiskLevels;
+        this.users = conditionalAccessConditionSetParameterValue?.users;
     };
     /**
      * The deserialization information for the current model
@@ -75,31 +75,31 @@ export class ConditionalAccessConditionSetImpl implements AdditionalDataHolder, 
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.applications){
-        writer.writeObjectValue<ConditionalAccessApplicationsImpl>("applications", new ConditionalAccessApplicationsImpl(this.applications));
+            writer.writeObjectValue<ConditionalAccessApplicationsImpl>("applications", new ConditionalAccessApplicationsImpl(this.applications));
         }
         if(this.clientApplications){
-        writer.writeObjectValue<ConditionalAccessClientApplicationsImpl>("clientApplications", new ConditionalAccessClientApplicationsImpl(this.clientApplications));
+            writer.writeObjectValue<ConditionalAccessClientApplicationsImpl>("clientApplications", new ConditionalAccessClientApplicationsImpl(this.clientApplications));
         }
         if(this.clientAppTypes){
-        writer.writeCollectionOfPrimitiveValues<string>("clientAppTypes", this.clientAppTypes);
+            writer.writeCollectionOfPrimitiveValues<string>("clientAppTypes", this.clientAppTypes);
         }
         if(this.devices){
-        writer.writeObjectValue<ConditionalAccessDevicesImpl>("devices", new ConditionalAccessDevicesImpl(this.devices));
+            writer.writeObjectValue<ConditionalAccessDevicesImpl>("devices", new ConditionalAccessDevicesImpl(this.devices));
         }
         if(this.locations){
-        writer.writeObjectValue<ConditionalAccessLocationsImpl>("locations", new ConditionalAccessLocationsImpl(this.locations));
+            writer.writeObjectValue<ConditionalAccessLocationsImpl>("locations", new ConditionalAccessLocationsImpl(this.locations));
         }
         if(this.platforms){
-        writer.writeObjectValue<ConditionalAccessPlatformsImpl>("platforms", new ConditionalAccessPlatformsImpl(this.platforms));
+            writer.writeObjectValue<ConditionalAccessPlatformsImpl>("platforms", new ConditionalAccessPlatformsImpl(this.platforms));
         }
         if(this.signInRiskLevels){
-        writer.writeCollectionOfPrimitiveValues<string>("signInRiskLevels", this.signInRiskLevels);
+            writer.writeCollectionOfPrimitiveValues<string>("signInRiskLevels", this.signInRiskLevels);
         }
         if(this.userRiskLevels){
-        writer.writeCollectionOfPrimitiveValues<string>("userRiskLevels", this.userRiskLevels);
+            writer.writeCollectionOfPrimitiveValues<string>("userRiskLevels", this.userRiskLevels);
         }
         if(this.users){
-        writer.writeObjectValue<ConditionalAccessUsersImpl>("users", new ConditionalAccessUsersImpl(this.users));
+            writer.writeObjectValue<ConditionalAccessUsersImpl>("users", new ConditionalAccessUsersImpl(this.users));
         }
         writer.writeAdditionalData(this.additionalData);
     };

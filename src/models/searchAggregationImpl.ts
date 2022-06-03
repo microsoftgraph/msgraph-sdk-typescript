@@ -4,7 +4,7 @@ import {SearchAggregation} from './searchAggregation';
 import {SearchBucket} from './searchBucket';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class SearchAggregationImpl implements AdditionalDataHolder, Parsable, SearchAggregation {
+export class SearchAggregationImpl implements SearchAggregation {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Defines the actual buckets of the computed aggregation. */
@@ -16,9 +16,9 @@ export class SearchAggregationImpl implements AdditionalDataHolder, Parsable, Se
      * @param searchAggregationParameterValue 
      */
     public constructor(searchAggregationParameterValue?: SearchAggregation | undefined) {
-        this.additionalData = searchAggregationParameterValue?.additionalData ? searchAggregationParameterValue?.additionalData! : {}
-        this.buckets = searchAggregationParameterValue?.buckets ;
-        this.field = searchAggregationParameterValue?.field ;
+        this.additionalData = searchAggregationParameterValue?.additionalData ? searchAggregationParameterValue?.additionalData! : {};
+        this.buckets = searchAggregationParameterValue?.buckets;
+        this.field = searchAggregationParameterValue?.field;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class SearchAggregationImpl implements AdditionalDataHolder, Parsable, Se
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.buckets && this.buckets.length != 0){        const bucketsArrValue: SearchBucketImpl[] = []; this.buckets?.forEach(element => {bucketsArrValue.push(new SearchBucketImpl(element));});
-        writer.writeCollectionOfObjectValues<SearchBucketImpl>("buckets", bucketsArrValue);
+            writer.writeCollectionOfObjectValues<SearchBucketImpl>("buckets", bucketsArrValue);
         }
         if(this.field){
-        writer.writeStringValue("field", this.field);
+            writer.writeStringValue("field", this.field);
         }
         writer.writeAdditionalData(this.additionalData);
     };

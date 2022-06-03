@@ -1,11 +1,11 @@
 import {IdentitySecurityDefaultsEnforcementPolicyRequestBuilderGetQueryParameters} from './identitySecurityDefaultsEnforcementPolicyRequestBuilderGetQueryParameters';
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
-export interface IdentitySecurityDefaultsEnforcementPolicyRequestBuilderGetRequestConfiguration{
+export interface IdentitySecurityDefaultsEnforcementPolicyRequestBuilderGetRequestConfiguration {
     /** Request headers */
-    headers?:Record<string, string> | undefined;
+    headers?: Record<string, string> | undefined;
     /** Request options */
-    options?:RequestOption[] | undefined;
+    options?: RequestOption[] | undefined;
     /** Request query parameters */
-    queryParameters?:IdentitySecurityDefaultsEnforcementPolicyRequestBuilderGetQueryParameters | undefined;
+    queryParameters?: IdentitySecurityDefaultsEnforcementPolicyRequestBuilderGetQueryParameters | undefined;
 }

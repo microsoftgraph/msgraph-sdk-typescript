@@ -1,13 +1,14 @@
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface UpdateDevicePropertiesPostRequestBody{
+export interface UpdateDevicePropertiesPostRequestBody extends Partial<AdditionalDataHolder>, Partial<Parsable> {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?:Record<string, unknown>;
+    additionalData?: Record<string, unknown>;
     /** The addressableUserName property */
-    addressableUserName?:string | undefined;
+    addressableUserName?: string | undefined;
     /** The displayName property */
-    displayName?:string | undefined;
+    displayName?: string | undefined;
     /** The groupTag property */
-    groupTag?:string | undefined;
+    groupTag?: string | undefined;
     /** The userPrincipalName property */
-    userPrincipalName?:string | undefined;
+    userPrincipalName?: string | undefined;
 }

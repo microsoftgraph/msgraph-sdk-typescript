@@ -39,7 +39,7 @@ import {WebApplication} from './webApplication';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the collection of application entities. */
-export class ApplicationImpl extends DirectoryObjectImpl implements Application, Parsable {
+export class ApplicationImpl extends DirectoryObjectImpl implements Application {
     /** Defines custom behavior that a consuming service can use to call an app in specific contexts. For example, applications that can render file streams may set the addIns property for its 'FileHandler' functionality. This will let services like Office 365 call the application in the context of a document the user is working on. */
     public addIns?: AddIn[] | undefined;
     /** Specifies settings for an application that implements a web API. */
@@ -119,44 +119,44 @@ export class ApplicationImpl extends DirectoryObjectImpl implements Application,
      * @param applicationParameterValue 
      */
     public constructor(applicationParameterValue?: Application | undefined) {
-        super();
-        this.addIns = applicationParameterValue?.addIns ;
-        this.api = applicationParameterValue?.api ;
-        this.appId = applicationParameterValue?.appId ;
-        this.applicationTemplateId = applicationParameterValue?.applicationTemplateId ;
-        this.appRoles = applicationParameterValue?.appRoles ;
-        this.createdDateTime = applicationParameterValue?.createdDateTime ;
-        this.createdOnBehalfOf = applicationParameterValue?.createdOnBehalfOf ;
-        this.description = applicationParameterValue?.description ;
-        this.disabledByMicrosoftStatus = applicationParameterValue?.disabledByMicrosoftStatus ;
-        this.displayName = applicationParameterValue?.displayName ;
-        this.extensionProperties = applicationParameterValue?.extensionProperties ;
-        this.groupMembershipClaims = applicationParameterValue?.groupMembershipClaims ;
-        this.homeRealmDiscoveryPolicies = applicationParameterValue?.homeRealmDiscoveryPolicies ;
-        this.identifierUris = applicationParameterValue?.identifierUris ;
-        this.info = applicationParameterValue?.info ;
-        this.isDeviceOnlyAuthSupported = applicationParameterValue?.isDeviceOnlyAuthSupported ;
-        this.isFallbackPublicClient = applicationParameterValue?.isFallbackPublicClient ;
-        this.keyCredentials = applicationParameterValue?.keyCredentials ;
-        this.logo = applicationParameterValue?.logo ;
-        this.notes = applicationParameterValue?.notes ;
-        this.oauth2RequirePostResponse = applicationParameterValue?.oauth2RequirePostResponse ;
-        this.optionalClaims = applicationParameterValue?.optionalClaims ;
-        this.owners = applicationParameterValue?.owners ;
-        this.parentalControlSettings = applicationParameterValue?.parentalControlSettings ;
-        this.passwordCredentials = applicationParameterValue?.passwordCredentials ;
-        this.publicClient = applicationParameterValue?.publicClient ;
-        this.publisherDomain = applicationParameterValue?.publisherDomain ;
-        this.requiredResourceAccess = applicationParameterValue?.requiredResourceAccess ;
-        this.serviceManagementReference = applicationParameterValue?.serviceManagementReference ;
-        this.signInAudience = applicationParameterValue?.signInAudience ;
-        this.spa = applicationParameterValue?.spa ;
-        this.tags = applicationParameterValue?.tags ;
-        this.tokenEncryptionKeyId = applicationParameterValue?.tokenEncryptionKeyId ;
-        this.tokenIssuancePolicies = applicationParameterValue?.tokenIssuancePolicies ;
-        this.tokenLifetimePolicies = applicationParameterValue?.tokenLifetimePolicies ;
-        this.verifiedPublisher = applicationParameterValue?.verifiedPublisher ;
-        this.web = applicationParameterValue?.web ;
+        super(applicationParameterValue);
+        this.addIns = applicationParameterValue?.addIns;
+        this.api = applicationParameterValue?.api;
+        this.appId = applicationParameterValue?.appId;
+        this.applicationTemplateId = applicationParameterValue?.applicationTemplateId;
+        this.appRoles = applicationParameterValue?.appRoles;
+        this.createdDateTime = applicationParameterValue?.createdDateTime;
+        this.createdOnBehalfOf = applicationParameterValue?.createdOnBehalfOf;
+        this.description = applicationParameterValue?.description;
+        this.disabledByMicrosoftStatus = applicationParameterValue?.disabledByMicrosoftStatus;
+        this.displayName = applicationParameterValue?.displayName;
+        this.extensionProperties = applicationParameterValue?.extensionProperties;
+        this.groupMembershipClaims = applicationParameterValue?.groupMembershipClaims;
+        this.homeRealmDiscoveryPolicies = applicationParameterValue?.homeRealmDiscoveryPolicies;
+        this.identifierUris = applicationParameterValue?.identifierUris;
+        this.info = applicationParameterValue?.info;
+        this.isDeviceOnlyAuthSupported = applicationParameterValue?.isDeviceOnlyAuthSupported;
+        this.isFallbackPublicClient = applicationParameterValue?.isFallbackPublicClient;
+        this.keyCredentials = applicationParameterValue?.keyCredentials;
+        this.logo = applicationParameterValue?.logo;
+        this.notes = applicationParameterValue?.notes;
+        this.oauth2RequirePostResponse = applicationParameterValue?.oauth2RequirePostResponse;
+        this.optionalClaims = applicationParameterValue?.optionalClaims;
+        this.owners = applicationParameterValue?.owners;
+        this.parentalControlSettings = applicationParameterValue?.parentalControlSettings;
+        this.passwordCredentials = applicationParameterValue?.passwordCredentials;
+        this.publicClient = applicationParameterValue?.publicClient;
+        this.publisherDomain = applicationParameterValue?.publisherDomain;
+        this.requiredResourceAccess = applicationParameterValue?.requiredResourceAccess;
+        this.serviceManagementReference = applicationParameterValue?.serviceManagementReference;
+        this.signInAudience = applicationParameterValue?.signInAudience;
+        this.spa = applicationParameterValue?.spa;
+        this.tags = applicationParameterValue?.tags;
+        this.tokenEncryptionKeyId = applicationParameterValue?.tokenEncryptionKeyId;
+        this.tokenIssuancePolicies = applicationParameterValue?.tokenIssuancePolicies;
+        this.tokenLifetimePolicies = applicationParameterValue?.tokenLifetimePolicies;
+        this.verifiedPublisher = applicationParameterValue?.verifiedPublisher;
+        this.web = applicationParameterValue?.web;
     };
     /**
      * The deserialization information for the current model
@@ -211,115 +211,115 @@ export class ApplicationImpl extends DirectoryObjectImpl implements Application,
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.addIns && this.addIns.length != 0){        const addInsArrValue: AddInImpl[] = []; this.addIns?.forEach(element => {addInsArrValue.push(new AddInImpl(element));});
-        writer.writeCollectionOfObjectValues<AddInImpl>("addIns", addInsArrValue);
+            writer.writeCollectionOfObjectValues<AddInImpl>("addIns", addInsArrValue);
         }
         if(this.api){
-        writer.writeObjectValue<ApiApplicationImpl>("api", new ApiApplicationImpl(this.api));
+            writer.writeObjectValue<ApiApplicationImpl>("api", new ApiApplicationImpl(this.api));
         }
         if(this.appId){
-        writer.writeStringValue("appId", this.appId);
+            writer.writeStringValue("appId", this.appId);
         }
         if(this.applicationTemplateId){
-        writer.writeStringValue("applicationTemplateId", this.applicationTemplateId);
+            writer.writeStringValue("applicationTemplateId", this.applicationTemplateId);
         }
         if(this.appRoles && this.appRoles.length != 0){        const appRolesArrValue: AppRoleImpl[] = []; this.appRoles?.forEach(element => {appRolesArrValue.push(new AppRoleImpl(element));});
-        writer.writeCollectionOfObjectValues<AppRoleImpl>("appRoles", appRolesArrValue);
+            writer.writeCollectionOfObjectValues<AppRoleImpl>("appRoles", appRolesArrValue);
         }
         if(this.createdDateTime){
-        writer.writeDateValue("createdDateTime", this.createdDateTime);
+            writer.writeDateValue("createdDateTime", this.createdDateTime);
         }
         if(this.createdOnBehalfOf){
-        writer.writeObjectValue<DirectoryObjectImpl>("createdOnBehalfOf", new DirectoryObjectImpl(this.createdOnBehalfOf));
+            writer.writeObjectValue<DirectoryObjectImpl>("createdOnBehalfOf", new DirectoryObjectImpl(this.createdOnBehalfOf));
         }
         if(this.description){
-        writer.writeStringValue("description", this.description);
+            writer.writeStringValue("description", this.description);
         }
         if(this.disabledByMicrosoftStatus){
-        writer.writeStringValue("disabledByMicrosoftStatus", this.disabledByMicrosoftStatus);
+            writer.writeStringValue("disabledByMicrosoftStatus", this.disabledByMicrosoftStatus);
         }
         if(this.displayName){
-        writer.writeStringValue("displayName", this.displayName);
+            writer.writeStringValue("displayName", this.displayName);
         }
         if(this.extensionProperties && this.extensionProperties.length != 0){        const extensionPropertiesArrValue: ExtensionPropertyImpl[] = []; this.extensionProperties?.forEach(element => {extensionPropertiesArrValue.push(new ExtensionPropertyImpl(element));});
-        writer.writeCollectionOfObjectValues<ExtensionPropertyImpl>("extensionProperties", extensionPropertiesArrValue);
+            writer.writeCollectionOfObjectValues<ExtensionPropertyImpl>("extensionProperties", extensionPropertiesArrValue);
         }
         if(this.groupMembershipClaims){
-        writer.writeStringValue("groupMembershipClaims", this.groupMembershipClaims);
+            writer.writeStringValue("groupMembershipClaims", this.groupMembershipClaims);
         }
         if(this.homeRealmDiscoveryPolicies && this.homeRealmDiscoveryPolicies.length != 0){        const homeRealmDiscoveryPoliciesArrValue: HomeRealmDiscoveryPolicyImpl[] = []; this.homeRealmDiscoveryPolicies?.forEach(element => {homeRealmDiscoveryPoliciesArrValue.push(new HomeRealmDiscoveryPolicyImpl(element));});
-        writer.writeCollectionOfObjectValues<HomeRealmDiscoveryPolicyImpl>("homeRealmDiscoveryPolicies", homeRealmDiscoveryPoliciesArrValue);
+            writer.writeCollectionOfObjectValues<HomeRealmDiscoveryPolicyImpl>("homeRealmDiscoveryPolicies", homeRealmDiscoveryPoliciesArrValue);
         }
         if(this.identifierUris){
-        writer.writeCollectionOfPrimitiveValues<string>("identifierUris", this.identifierUris);
+            writer.writeCollectionOfPrimitiveValues<string>("identifierUris", this.identifierUris);
         }
         if(this.info){
-        writer.writeObjectValue<InformationalUrlImpl>("info", new InformationalUrlImpl(this.info));
+            writer.writeObjectValue<InformationalUrlImpl>("info", new InformationalUrlImpl(this.info));
         }
         if(this.isDeviceOnlyAuthSupported){
-        writer.writeBooleanValue("isDeviceOnlyAuthSupported", this.isDeviceOnlyAuthSupported);
+            writer.writeBooleanValue("isDeviceOnlyAuthSupported", this.isDeviceOnlyAuthSupported);
         }
         if(this.isFallbackPublicClient){
-        writer.writeBooleanValue("isFallbackPublicClient", this.isFallbackPublicClient);
+            writer.writeBooleanValue("isFallbackPublicClient", this.isFallbackPublicClient);
         }
         if(this.keyCredentials && this.keyCredentials.length != 0){        const keyCredentialsArrValue: KeyCredentialImpl[] = []; this.keyCredentials?.forEach(element => {keyCredentialsArrValue.push(new KeyCredentialImpl(element));});
-        writer.writeCollectionOfObjectValues<KeyCredentialImpl>("keyCredentials", keyCredentialsArrValue);
+            writer.writeCollectionOfObjectValues<KeyCredentialImpl>("keyCredentials", keyCredentialsArrValue);
         }
         if(this.logo){
-        writer.writeStringValue("logo", this.logo);
+            writer.writeStringValue("logo", this.logo);
         }
         if(this.notes){
-        writer.writeStringValue("notes", this.notes);
+            writer.writeStringValue("notes", this.notes);
         }
         if(this.oauth2RequirePostResponse){
-        writer.writeBooleanValue("oauth2RequirePostResponse", this.oauth2RequirePostResponse);
+            writer.writeBooleanValue("oauth2RequirePostResponse", this.oauth2RequirePostResponse);
         }
         if(this.optionalClaims){
-        writer.writeObjectValue<OptionalClaimsImpl>("optionalClaims", new OptionalClaimsImpl(this.optionalClaims));
+            writer.writeObjectValue<OptionalClaimsImpl>("optionalClaims", new OptionalClaimsImpl(this.optionalClaims));
         }
         if(this.owners && this.owners.length != 0){        const ownersArrValue: DirectoryObjectImpl[] = []; this.owners?.forEach(element => {ownersArrValue.push(new DirectoryObjectImpl(element));});
-        writer.writeCollectionOfObjectValues<DirectoryObjectImpl>("owners", ownersArrValue);
+            writer.writeCollectionOfObjectValues<DirectoryObjectImpl>("owners", ownersArrValue);
         }
         if(this.parentalControlSettings){
-        writer.writeObjectValue<ParentalControlSettingsImpl>("parentalControlSettings", new ParentalControlSettingsImpl(this.parentalControlSettings));
+            writer.writeObjectValue<ParentalControlSettingsImpl>("parentalControlSettings", new ParentalControlSettingsImpl(this.parentalControlSettings));
         }
         if(this.passwordCredentials && this.passwordCredentials.length != 0){        const passwordCredentialsArrValue: PasswordCredentialImpl[] = []; this.passwordCredentials?.forEach(element => {passwordCredentialsArrValue.push(new PasswordCredentialImpl(element));});
-        writer.writeCollectionOfObjectValues<PasswordCredentialImpl>("passwordCredentials", passwordCredentialsArrValue);
+            writer.writeCollectionOfObjectValues<PasswordCredentialImpl>("passwordCredentials", passwordCredentialsArrValue);
         }
         if(this.publicClient){
-        writer.writeObjectValue<PublicClientApplicationImpl>("publicClient", new PublicClientApplicationImpl(this.publicClient));
+            writer.writeObjectValue<PublicClientApplicationImpl>("publicClient", new PublicClientApplicationImpl(this.publicClient));
         }
         if(this.publisherDomain){
-        writer.writeStringValue("publisherDomain", this.publisherDomain);
+            writer.writeStringValue("publisherDomain", this.publisherDomain);
         }
         if(this.requiredResourceAccess && this.requiredResourceAccess.length != 0){        const requiredResourceAccessArrValue: RequiredResourceAccessImpl[] = []; this.requiredResourceAccess?.forEach(element => {requiredResourceAccessArrValue.push(new RequiredResourceAccessImpl(element));});
-        writer.writeCollectionOfObjectValues<RequiredResourceAccessImpl>("requiredResourceAccess", requiredResourceAccessArrValue);
+            writer.writeCollectionOfObjectValues<RequiredResourceAccessImpl>("requiredResourceAccess", requiredResourceAccessArrValue);
         }
         if(this.serviceManagementReference){
-        writer.writeStringValue("serviceManagementReference", this.serviceManagementReference);
+            writer.writeStringValue("serviceManagementReference", this.serviceManagementReference);
         }
         if(this.signInAudience){
-        writer.writeStringValue("signInAudience", this.signInAudience);
+            writer.writeStringValue("signInAudience", this.signInAudience);
         }
         if(this.spa){
-        writer.writeObjectValue<SpaApplicationImpl>("spa", new SpaApplicationImpl(this.spa));
+            writer.writeObjectValue<SpaApplicationImpl>("spa", new SpaApplicationImpl(this.spa));
         }
         if(this.tags){
-        writer.writeCollectionOfPrimitiveValues<string>("tags", this.tags);
+            writer.writeCollectionOfPrimitiveValues<string>("tags", this.tags);
         }
         if(this.tokenEncryptionKeyId){
-        writer.writeStringValue("tokenEncryptionKeyId", this.tokenEncryptionKeyId);
+            writer.writeStringValue("tokenEncryptionKeyId", this.tokenEncryptionKeyId);
         }
         if(this.tokenIssuancePolicies && this.tokenIssuancePolicies.length != 0){        const tokenIssuancePoliciesArrValue: TokenIssuancePolicyImpl[] = []; this.tokenIssuancePolicies?.forEach(element => {tokenIssuancePoliciesArrValue.push(new TokenIssuancePolicyImpl(element));});
-        writer.writeCollectionOfObjectValues<TokenIssuancePolicyImpl>("tokenIssuancePolicies", tokenIssuancePoliciesArrValue);
+            writer.writeCollectionOfObjectValues<TokenIssuancePolicyImpl>("tokenIssuancePolicies", tokenIssuancePoliciesArrValue);
         }
         if(this.tokenLifetimePolicies && this.tokenLifetimePolicies.length != 0){        const tokenLifetimePoliciesArrValue: TokenLifetimePolicyImpl[] = []; this.tokenLifetimePolicies?.forEach(element => {tokenLifetimePoliciesArrValue.push(new TokenLifetimePolicyImpl(element));});
-        writer.writeCollectionOfObjectValues<TokenLifetimePolicyImpl>("tokenLifetimePolicies", tokenLifetimePoliciesArrValue);
+            writer.writeCollectionOfObjectValues<TokenLifetimePolicyImpl>("tokenLifetimePolicies", tokenLifetimePoliciesArrValue);
         }
         if(this.verifiedPublisher){
-        writer.writeObjectValue<VerifiedPublisherImpl>("verifiedPublisher", new VerifiedPublisherImpl(this.verifiedPublisher));
+            writer.writeObjectValue<VerifiedPublisherImpl>("verifiedPublisher", new VerifiedPublisherImpl(this.verifiedPublisher));
         }
         if(this.web){
-        writer.writeObjectValue<WebApplicationImpl>("web", new WebApplicationImpl(this.web));
+            writer.writeObjectValue<WebApplicationImpl>("web", new WebApplicationImpl(this.web));
         }
     };
 }

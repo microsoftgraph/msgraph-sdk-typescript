@@ -4,7 +4,7 @@ import {EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Represents a custom question of the business. */
-export class BookingCustomQuestionImpl extends EntityImpl implements BookingCustomQuestion, Parsable {
+export class BookingCustomQuestionImpl extends EntityImpl implements BookingCustomQuestion {
     /** The expected answer type. The possible values are: text, radioButton, unknownFutureValue. */
     public answerInputType?: AnswerInputType | undefined;
     /** List of possible answer values. */
@@ -16,10 +16,10 @@ export class BookingCustomQuestionImpl extends EntityImpl implements BookingCust
      * @param bookingCustomQuestionParameterValue 
      */
     public constructor(bookingCustomQuestionParameterValue?: BookingCustomQuestion | undefined) {
-        super();
-        this.answerInputType = bookingCustomQuestionParameterValue?.answerInputType ;
-        this.answerOptions = bookingCustomQuestionParameterValue?.answerOptions ;
-        this.displayName = bookingCustomQuestionParameterValue?.displayName ;
+        super(bookingCustomQuestionParameterValue);
+        this.answerInputType = bookingCustomQuestionParameterValue?.answerInputType;
+        this.answerOptions = bookingCustomQuestionParameterValue?.answerOptions;
+        this.displayName = bookingCustomQuestionParameterValue?.displayName;
     };
     /**
      * The deserialization information for the current model
@@ -40,13 +40,13 @@ export class BookingCustomQuestionImpl extends EntityImpl implements BookingCust
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.answerInputType){
-        writer.writeEnumValue<AnswerInputType>("answerInputType", this.answerInputType);
+            writer.writeEnumValue<AnswerInputType>("answerInputType", this.answerInputType);
         }
         if(this.answerOptions){
-        writer.writeCollectionOfPrimitiveValues<string>("answerOptions", this.answerOptions);
+            writer.writeCollectionOfPrimitiveValues<string>("answerOptions", this.answerOptions);
         }
         if(this.displayName){
-        writer.writeStringValue("displayName", this.displayName);
+            writer.writeStringValue("displayName", this.displayName);
         }
     };
 }

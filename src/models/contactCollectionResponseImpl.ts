@@ -4,7 +4,7 @@ import {createContactFromDiscriminatorValue} from './createContactFromDiscrimina
 import {ContactImpl} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ContactCollectionResponseImpl implements AdditionalDataHolder, ContactCollectionResponse, Parsable {
+export class ContactCollectionResponseImpl implements ContactCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class ContactCollectionResponseImpl implements AdditionalDataHolder, Cont
      * @param contactCollectionResponseParameterValue 
      */
     public constructor(contactCollectionResponseParameterValue?: ContactCollectionResponse | undefined) {
-        this.additionalData = contactCollectionResponseParameterValue?.additionalData ? contactCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = contactCollectionResponseParameterValue?.nextLink ;
-        this.value = contactCollectionResponseParameterValue?.value ;
+        this.additionalData = contactCollectionResponseParameterValue?.additionalData ? contactCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = contactCollectionResponseParameterValue?.nextLink;
+        this.value = contactCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class ContactCollectionResponseImpl implements AdditionalDataHolder, Cont
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: ContactImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ContactImpl(element));});
-        writer.writeCollectionOfObjectValues<ContactImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<ContactImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

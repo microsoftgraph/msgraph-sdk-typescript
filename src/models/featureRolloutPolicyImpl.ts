@@ -6,7 +6,7 @@ import {StagedFeatureName} from './stagedFeatureName';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the policyRoot singleton. */
-export class FeatureRolloutPolicyImpl extends EntityImpl implements FeatureRolloutPolicy, Parsable {
+export class FeatureRolloutPolicyImpl extends EntityImpl implements FeatureRolloutPolicy {
     /** Nullable. Specifies a list of directoryObjects that feature is enabled for. */
     public appliesTo?: DirectoryObject[] | undefined;
     /** A description for this feature rollout policy. */
@@ -24,13 +24,13 @@ export class FeatureRolloutPolicyImpl extends EntityImpl implements FeatureRollo
      * @param featureRolloutPolicyParameterValue 
      */
     public constructor(featureRolloutPolicyParameterValue?: FeatureRolloutPolicy | undefined) {
-        super();
-        this.appliesTo = featureRolloutPolicyParameterValue?.appliesTo ;
-        this.description = featureRolloutPolicyParameterValue?.description ;
-        this.displayName = featureRolloutPolicyParameterValue?.displayName ;
-        this.feature = featureRolloutPolicyParameterValue?.feature ;
-        this.isAppliedToOrganization = featureRolloutPolicyParameterValue?.isAppliedToOrganization ;
-        this.isEnabled = featureRolloutPolicyParameterValue?.isEnabled ;
+        super(featureRolloutPolicyParameterValue);
+        this.appliesTo = featureRolloutPolicyParameterValue?.appliesTo;
+        this.description = featureRolloutPolicyParameterValue?.description;
+        this.displayName = featureRolloutPolicyParameterValue?.displayName;
+        this.feature = featureRolloutPolicyParameterValue?.feature;
+        this.isAppliedToOrganization = featureRolloutPolicyParameterValue?.isAppliedToOrganization;
+        this.isEnabled = featureRolloutPolicyParameterValue?.isEnabled;
     };
     /**
      * The deserialization information for the current model
@@ -54,22 +54,22 @@ export class FeatureRolloutPolicyImpl extends EntityImpl implements FeatureRollo
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.appliesTo && this.appliesTo.length != 0){        const appliesToArrValue: DirectoryObjectImpl[] = []; this.appliesTo?.forEach(element => {appliesToArrValue.push(new DirectoryObjectImpl(element));});
-        writer.writeCollectionOfObjectValues<DirectoryObjectImpl>("appliesTo", appliesToArrValue);
+            writer.writeCollectionOfObjectValues<DirectoryObjectImpl>("appliesTo", appliesToArrValue);
         }
         if(this.description){
-        writer.writeStringValue("description", this.description);
+            writer.writeStringValue("description", this.description);
         }
         if(this.displayName){
-        writer.writeStringValue("displayName", this.displayName);
+            writer.writeStringValue("displayName", this.displayName);
         }
         if(this.feature){
-        writer.writeEnumValue<StagedFeatureName>("feature", this.feature);
+            writer.writeEnumValue<StagedFeatureName>("feature", this.feature);
         }
         if(this.isAppliedToOrganization){
-        writer.writeBooleanValue("isAppliedToOrganization", this.isAppliedToOrganization);
+            writer.writeBooleanValue("isAppliedToOrganization", this.isAppliedToOrganization);
         }
         if(this.isEnabled){
-        writer.writeBooleanValue("isEnabled", this.isEnabled);
+            writer.writeBooleanValue("isEnabled", this.isEnabled);
         }
     };
 }

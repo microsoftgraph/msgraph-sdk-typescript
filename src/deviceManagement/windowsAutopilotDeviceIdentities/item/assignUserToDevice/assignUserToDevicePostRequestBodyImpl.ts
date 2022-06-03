@@ -2,7 +2,7 @@ import {AssignUserToDevicePostRequestBody} from './assignUserToDevicePostRequest
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the assignUserToDevice method. */
-export class AssignUserToDevicePostRequestBodyImpl implements AdditionalDataHolder, AssignUserToDevicePostRequestBody, Parsable {
+export class AssignUserToDevicePostRequestBodyImpl implements AssignUserToDevicePostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The addressableUserName property */
@@ -14,9 +14,9 @@ export class AssignUserToDevicePostRequestBodyImpl implements AdditionalDataHold
      * @param assignUserToDevicePostRequestBodyParameterValue 
      */
     public constructor(assignUserToDevicePostRequestBodyParameterValue?: AssignUserToDevicePostRequestBody | undefined) {
-        this.additionalData = assignUserToDevicePostRequestBodyParameterValue?.additionalData ? assignUserToDevicePostRequestBodyParameterValue?.additionalData! : {}
-        this.addressableUserName = assignUserToDevicePostRequestBodyParameterValue?.addressableUserName ;
-        this.userPrincipalName = assignUserToDevicePostRequestBodyParameterValue?.userPrincipalName ;
+        this.additionalData = assignUserToDevicePostRequestBodyParameterValue?.additionalData ? assignUserToDevicePostRequestBodyParameterValue?.additionalData! : {};
+        this.addressableUserName = assignUserToDevicePostRequestBodyParameterValue?.addressableUserName;
+        this.userPrincipalName = assignUserToDevicePostRequestBodyParameterValue?.userPrincipalName;
     };
     /**
      * The deserialization information for the current model
@@ -35,10 +35,10 @@ export class AssignUserToDevicePostRequestBodyImpl implements AdditionalDataHold
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.addressableUserName){
-        writer.writeStringValue("addressableUserName", this.addressableUserName);
+            writer.writeStringValue("addressableUserName", this.addressableUserName);
         }
         if(this.userPrincipalName){
-        writer.writeStringValue("userPrincipalName", this.userPrincipalName);
+            writer.writeStringValue("userPrincipalName", this.userPrincipalName);
         }
         writer.writeAdditionalData(this.additionalData);
     };

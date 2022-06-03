@@ -1,27 +1,28 @@
 import {AccessReviewApplyAction} from './accessReviewApplyAction';
 import {PatternedRecurrence} from './patternedRecurrence';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface AccessReviewScheduleSettings{
+export interface AccessReviewScheduleSettings extends Partial<AdditionalDataHolder>, Partial<Parsable> {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?:Record<string, unknown>;
+    additionalData?: Record<string, unknown>;
     /** Optional field. Describes the  actions to take once a review is complete. There are two types that are currently supported: removeAccessApplyAction (default) and disableAndDeleteUserApplyAction. Field only needs to be specified in the case of disableAndDeleteUserApplyAction. */
-    applyActions?:AccessReviewApplyAction[] | undefined;
+    applyActions?: AccessReviewApplyAction[] | undefined;
     /** Indicates whether decisions are automatically applied. When set to false, an admin must apply the decisions manually once the reviewer completes the access review. When set to true, decisions are applied automatically after the access review instance duration ends, whether or not the reviewers have responded. Default value is false. */
-    autoApplyDecisionsEnabled?:boolean | undefined;
+    autoApplyDecisionsEnabled?: boolean | undefined;
     /** Decision chosen if defaultDecisionEnabled is enabled. Can be one of Approve, Deny, or Recommendation. */
-    defaultDecision?:string | undefined;
+    defaultDecision?: string | undefined;
     /** Indicates whether the default decision is enabled or disabled when reviewers do not respond. Default value is false. */
-    defaultDecisionEnabled?:boolean | undefined;
+    defaultDecisionEnabled?: boolean | undefined;
     /** Duration of each recurrence of review (accessReviewInstance) in number of days. NOTE: If the stageSettings of the accessReviewScheduleDefinition object is defined, its durationInDays setting will be used instead of the value of this property. */
-    instanceDurationInDays?:number | undefined;
+    instanceDurationInDays?: number | undefined;
     /** Indicates whether reviewers are required to provide justification with their decision. Default value is false. */
-    justificationRequiredOnApproval?:boolean | undefined;
+    justificationRequiredOnApproval?: boolean | undefined;
     /** Indicates whether emails are enabled or disabled. Default value is false. */
-    mailNotificationsEnabled?:boolean | undefined;
+    mailNotificationsEnabled?: boolean | undefined;
     /** Indicates whether decision recommendations are enabled or disabled. NOTE: If the stageSettings of the accessReviewScheduleDefinition object is defined, its recommendationsEnabled setting will be used instead of the value of this property. */
-    recommendationsEnabled?:boolean | undefined;
+    recommendationsEnabled?: boolean | undefined;
     /** Detailed settings for recurrence using the standard Outlook recurrence object. Note: Only dayOfMonth, interval, and type (weekly, absoluteMonthly) properties are supported. Use the property startDate on recurrenceRange to determine the day the review starts. */
-    recurrence?:PatternedRecurrence | undefined;
+    recurrence?: PatternedRecurrence | undefined;
     /** Indicates whether reminders are enabled or disabled. Default value is false. */
-    reminderNotificationsEnabled?:boolean | undefined;
+    reminderNotificationsEnabled?: boolean | undefined;
 }

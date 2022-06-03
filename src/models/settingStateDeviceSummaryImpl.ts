@@ -3,7 +3,7 @@ import {SettingStateDeviceSummary} from './settingStateDeviceSummary';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Device Compilance Policy and Configuration for a Setting State summary */
-export class SettingStateDeviceSummaryImpl extends EntityImpl implements Parsable, SettingStateDeviceSummary {
+export class SettingStateDeviceSummaryImpl extends EntityImpl implements SettingStateDeviceSummary {
     /** Device Compliant count for the setting */
     public compliantDeviceCount?: number | undefined;
     /** Device conflict error count for the setting */
@@ -27,16 +27,16 @@ export class SettingStateDeviceSummaryImpl extends EntityImpl implements Parsabl
      * @param settingStateDeviceSummaryParameterValue 
      */
     public constructor(settingStateDeviceSummaryParameterValue?: SettingStateDeviceSummary | undefined) {
-        super();
-        this.compliantDeviceCount = settingStateDeviceSummaryParameterValue?.compliantDeviceCount ;
-        this.conflictDeviceCount = settingStateDeviceSummaryParameterValue?.conflictDeviceCount ;
-        this.errorDeviceCount = settingStateDeviceSummaryParameterValue?.errorDeviceCount ;
-        this.instancePath = settingStateDeviceSummaryParameterValue?.instancePath ;
-        this.nonCompliantDeviceCount = settingStateDeviceSummaryParameterValue?.nonCompliantDeviceCount ;
-        this.notApplicableDeviceCount = settingStateDeviceSummaryParameterValue?.notApplicableDeviceCount ;
-        this.remediatedDeviceCount = settingStateDeviceSummaryParameterValue?.remediatedDeviceCount ;
-        this.settingName = settingStateDeviceSummaryParameterValue?.settingName ;
-        this.unknownDeviceCount = settingStateDeviceSummaryParameterValue?.unknownDeviceCount ;
+        super(settingStateDeviceSummaryParameterValue);
+        this.compliantDeviceCount = settingStateDeviceSummaryParameterValue?.compliantDeviceCount;
+        this.conflictDeviceCount = settingStateDeviceSummaryParameterValue?.conflictDeviceCount;
+        this.errorDeviceCount = settingStateDeviceSummaryParameterValue?.errorDeviceCount;
+        this.instancePath = settingStateDeviceSummaryParameterValue?.instancePath;
+        this.nonCompliantDeviceCount = settingStateDeviceSummaryParameterValue?.nonCompliantDeviceCount;
+        this.notApplicableDeviceCount = settingStateDeviceSummaryParameterValue?.notApplicableDeviceCount;
+        this.remediatedDeviceCount = settingStateDeviceSummaryParameterValue?.remediatedDeviceCount;
+        this.settingName = settingStateDeviceSummaryParameterValue?.settingName;
+        this.unknownDeviceCount = settingStateDeviceSummaryParameterValue?.unknownDeviceCount;
     };
     /**
      * The deserialization information for the current model
@@ -63,31 +63,31 @@ export class SettingStateDeviceSummaryImpl extends EntityImpl implements Parsabl
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.compliantDeviceCount){
-        writer.writeNumberValue("compliantDeviceCount", this.compliantDeviceCount);
+            writer.writeNumberValue("compliantDeviceCount", this.compliantDeviceCount);
         }
         if(this.conflictDeviceCount){
-        writer.writeNumberValue("conflictDeviceCount", this.conflictDeviceCount);
+            writer.writeNumberValue("conflictDeviceCount", this.conflictDeviceCount);
         }
         if(this.errorDeviceCount){
-        writer.writeNumberValue("errorDeviceCount", this.errorDeviceCount);
+            writer.writeNumberValue("errorDeviceCount", this.errorDeviceCount);
         }
         if(this.instancePath){
-        writer.writeStringValue("instancePath", this.instancePath);
+            writer.writeStringValue("instancePath", this.instancePath);
         }
         if(this.nonCompliantDeviceCount){
-        writer.writeNumberValue("nonCompliantDeviceCount", this.nonCompliantDeviceCount);
+            writer.writeNumberValue("nonCompliantDeviceCount", this.nonCompliantDeviceCount);
         }
         if(this.notApplicableDeviceCount){
-        writer.writeNumberValue("notApplicableDeviceCount", this.notApplicableDeviceCount);
+            writer.writeNumberValue("notApplicableDeviceCount", this.notApplicableDeviceCount);
         }
         if(this.remediatedDeviceCount){
-        writer.writeNumberValue("remediatedDeviceCount", this.remediatedDeviceCount);
+            writer.writeNumberValue("remediatedDeviceCount", this.remediatedDeviceCount);
         }
         if(this.settingName){
-        writer.writeStringValue("settingName", this.settingName);
+            writer.writeStringValue("settingName", this.settingName);
         }
         if(this.unknownDeviceCount){
-        writer.writeNumberValue("unknownDeviceCount", this.unknownDeviceCount);
+            writer.writeNumberValue("unknownDeviceCount", this.unknownDeviceCount);
         }
     };
 }

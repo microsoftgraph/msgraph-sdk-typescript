@@ -7,7 +7,7 @@ import {TeamsAppInstallation} from './teamsAppInstallation';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the collection of chat entities. */
-export class TeamsAppInstallationImpl extends EntityImpl implements Parsable, TeamsAppInstallation {
+export class TeamsAppInstallationImpl extends EntityImpl implements TeamsAppInstallation {
     /** The app that is installed. */
     public teamsApp?: TeamsApp | undefined;
     /** The details of this version of the app. */
@@ -17,9 +17,9 @@ export class TeamsAppInstallationImpl extends EntityImpl implements Parsable, Te
      * @param teamsAppInstallationParameterValue 
      */
     public constructor(teamsAppInstallationParameterValue?: TeamsAppInstallation | undefined) {
-        super();
-        this.teamsApp = teamsAppInstallationParameterValue?.teamsApp ;
-        this.teamsAppDefinition = teamsAppInstallationParameterValue?.teamsAppDefinition ;
+        super(teamsAppInstallationParameterValue);
+        this.teamsApp = teamsAppInstallationParameterValue?.teamsApp;
+        this.teamsAppDefinition = teamsAppInstallationParameterValue?.teamsAppDefinition;
     };
     /**
      * The deserialization information for the current model
@@ -39,10 +39,10 @@ export class TeamsAppInstallationImpl extends EntityImpl implements Parsable, Te
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.teamsApp){
-        writer.writeObjectValue<TeamsAppImpl>("teamsApp", new TeamsAppImpl(this.teamsApp));
+            writer.writeObjectValue<TeamsAppImpl>("teamsApp", new TeamsAppImpl(this.teamsApp));
         }
         if(this.teamsAppDefinition){
-        writer.writeObjectValue<TeamsAppDefinitionImpl>("teamsAppDefinition", new TeamsAppDefinitionImpl(this.teamsAppDefinition));
+            writer.writeObjectValue<TeamsAppDefinitionImpl>("teamsAppDefinition", new TeamsAppDefinitionImpl(this.teamsAppDefinition));
         }
     };
 }

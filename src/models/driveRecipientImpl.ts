@@ -1,7 +1,7 @@
 import {DriveRecipient} from './driveRecipient';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class DriveRecipientImpl implements AdditionalDataHolder, DriveRecipient, Parsable {
+export class DriveRecipientImpl implements DriveRecipient {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The alias of the domain object, for cases where an email address is unavailable (e.g. security groups). */
@@ -15,10 +15,10 @@ export class DriveRecipientImpl implements AdditionalDataHolder, DriveRecipient,
      * @param driveRecipientParameterValue 
      */
     public constructor(driveRecipientParameterValue?: DriveRecipient | undefined) {
-        this.additionalData = driveRecipientParameterValue?.additionalData ? driveRecipientParameterValue?.additionalData! : {}
-        this.alias = driveRecipientParameterValue?.alias ;
-        this.email = driveRecipientParameterValue?.email ;
-        this.objectId = driveRecipientParameterValue?.objectId ;
+        this.additionalData = driveRecipientParameterValue?.additionalData ? driveRecipientParameterValue?.additionalData! : {};
+        this.alias = driveRecipientParameterValue?.alias;
+        this.email = driveRecipientParameterValue?.email;
+        this.objectId = driveRecipientParameterValue?.objectId;
     };
     /**
      * The deserialization information for the current model
@@ -38,13 +38,13 @@ export class DriveRecipientImpl implements AdditionalDataHolder, DriveRecipient,
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.alias){
-        writer.writeStringValue("alias", this.alias);
+            writer.writeStringValue("alias", this.alias);
         }
         if(this.email){
-        writer.writeStringValue("email", this.email);
+            writer.writeStringValue("email", this.email);
         }
         if(this.objectId){
-        writer.writeStringValue("objectId", this.objectId);
+            writer.writeStringValue("objectId", this.objectId);
         }
         writer.writeAdditionalData(this.additionalData);
     };

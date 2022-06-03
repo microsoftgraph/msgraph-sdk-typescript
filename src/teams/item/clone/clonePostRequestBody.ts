@@ -1,19 +1,20 @@
 import {ClonableTeamParts} from '../../../models/clonableTeamParts';
 import {TeamVisibilityType} from '../../../models/teamVisibilityType';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface ClonePostRequestBody{
+export interface ClonePostRequestBody extends Partial<AdditionalDataHolder>, Partial<Parsable> {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?:Record<string, unknown>;
+    additionalData?: Record<string, unknown>;
     /** The classification property */
-    classification?:string | undefined;
+    classification?: string | undefined;
     /** The description property */
-    description?:string | undefined;
+    description?: string | undefined;
     /** The displayName property */
-    displayName?:string | undefined;
+    displayName?: string | undefined;
     /** The mailNickname property */
-    mailNickname?:string | undefined;
+    mailNickname?: string | undefined;
     /** The partsToClone property */
-    partsToClone?:ClonableTeamParts | undefined;
+    partsToClone?: ClonableTeamParts | undefined;
     /** The visibility property */
-    visibility?:TeamVisibilityType | undefined;
+    visibility?: TeamVisibilityType | undefined;
 }

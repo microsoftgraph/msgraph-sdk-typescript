@@ -4,7 +4,7 @@ import {Organization} from './organization';
 import {OrganizationCollectionResponse} from './organizationCollectionResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class OrganizationCollectionResponseImpl implements AdditionalDataHolder, OrganizationCollectionResponse, Parsable {
+export class OrganizationCollectionResponseImpl implements OrganizationCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class OrganizationCollectionResponseImpl implements AdditionalDataHolder,
      * @param organizationCollectionResponseParameterValue 
      */
     public constructor(organizationCollectionResponseParameterValue?: OrganizationCollectionResponse | undefined) {
-        this.additionalData = organizationCollectionResponseParameterValue?.additionalData ? organizationCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = organizationCollectionResponseParameterValue?.nextLink ;
-        this.value = organizationCollectionResponseParameterValue?.value ;
+        this.additionalData = organizationCollectionResponseParameterValue?.additionalData ? organizationCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = organizationCollectionResponseParameterValue?.nextLink;
+        this.value = organizationCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class OrganizationCollectionResponseImpl implements AdditionalDataHolder,
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: OrganizationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new OrganizationImpl(element));});
-        writer.writeCollectionOfObjectValues<OrganizationImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<OrganizationImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

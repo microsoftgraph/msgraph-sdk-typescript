@@ -4,7 +4,7 @@ import {createAgreementAcceptanceFromDiscriminatorValue} from './createAgreement
 import {AgreementAcceptanceImpl} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class AgreementAcceptanceCollectionResponseImpl implements AdditionalDataHolder, AgreementAcceptanceCollectionResponse, Parsable {
+export class AgreementAcceptanceCollectionResponseImpl implements AgreementAcceptanceCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class AgreementAcceptanceCollectionResponseImpl implements AdditionalData
      * @param agreementAcceptanceCollectionResponseParameterValue 
      */
     public constructor(agreementAcceptanceCollectionResponseParameterValue?: AgreementAcceptanceCollectionResponse | undefined) {
-        this.additionalData = agreementAcceptanceCollectionResponseParameterValue?.additionalData ? agreementAcceptanceCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = agreementAcceptanceCollectionResponseParameterValue?.nextLink ;
-        this.value = agreementAcceptanceCollectionResponseParameterValue?.value ;
+        this.additionalData = agreementAcceptanceCollectionResponseParameterValue?.additionalData ? agreementAcceptanceCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = agreementAcceptanceCollectionResponseParameterValue?.nextLink;
+        this.value = agreementAcceptanceCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class AgreementAcceptanceCollectionResponseImpl implements AdditionalData
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: AgreementAcceptanceImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new AgreementAcceptanceImpl(element));});
-        writer.writeCollectionOfObjectValues<AgreementAcceptanceImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<AgreementAcceptanceImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

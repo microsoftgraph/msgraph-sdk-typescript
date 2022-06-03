@@ -6,7 +6,7 @@ import {EducationAssignmentGradeTypeImpl, EducationItemBodyImpl} from './index';
 import {RubricLevel} from './rubricLevel';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class RubricLevelImpl implements AdditionalDataHolder, Parsable, RubricLevel {
+export class RubricLevelImpl implements RubricLevel {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The description of this rubric level. */
@@ -22,11 +22,11 @@ export class RubricLevelImpl implements AdditionalDataHolder, Parsable, RubricLe
      * @param rubricLevelParameterValue 
      */
     public constructor(rubricLevelParameterValue?: RubricLevel | undefined) {
-        this.additionalData = rubricLevelParameterValue?.additionalData ? rubricLevelParameterValue?.additionalData! : {}
-        this.description = rubricLevelParameterValue?.description ;
-        this.displayName = rubricLevelParameterValue?.displayName ;
-        this.grading = rubricLevelParameterValue?.grading ;
-        this.levelId = rubricLevelParameterValue?.levelId ;
+        this.additionalData = rubricLevelParameterValue?.additionalData ? rubricLevelParameterValue?.additionalData! : {};
+        this.description = rubricLevelParameterValue?.description;
+        this.displayName = rubricLevelParameterValue?.displayName;
+        this.grading = rubricLevelParameterValue?.grading;
+        this.levelId = rubricLevelParameterValue?.levelId;
     };
     /**
      * The deserialization information for the current model
@@ -47,16 +47,16 @@ export class RubricLevelImpl implements AdditionalDataHolder, Parsable, RubricLe
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.description){
-        writer.writeObjectValue<EducationItemBodyImpl>("description", new EducationItemBodyImpl(this.description));
+            writer.writeObjectValue<EducationItemBodyImpl>("description", new EducationItemBodyImpl(this.description));
         }
         if(this.displayName){
-        writer.writeStringValue("displayName", this.displayName);
+            writer.writeStringValue("displayName", this.displayName);
         }
         if(this.grading){
-        writer.writeObjectValue<EducationAssignmentGradeTypeImpl>("grading", new EducationAssignmentGradeTypeImpl(this.grading));
+            writer.writeObjectValue<EducationAssignmentGradeTypeImpl>("grading", new EducationAssignmentGradeTypeImpl(this.grading));
         }
         if(this.levelId){
-        writer.writeStringValue("levelId", this.levelId);
+            writer.writeStringValue("levelId", this.levelId);
         }
         writer.writeAdditionalData(this.additionalData);
     };

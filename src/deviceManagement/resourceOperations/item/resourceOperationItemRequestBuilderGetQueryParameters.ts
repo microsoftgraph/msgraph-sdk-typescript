@@ -1,7 +1,7 @@
 
-export interface ResourceOperationItemRequestBuilderGetQueryParameters{
+export interface ResourceOperationItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
-    expand?:string[] | undefined;
+    expand?: string[] | undefined;
     /** Select properties to be returned */
-    select?:string[] | undefined;
+    select?: string[] | undefined;
 }

@@ -1,7 +1,7 @@
 import {CallOptions} from './callOptions';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class CallOptionsImpl implements AdditionalDataHolder, CallOptions, Parsable {
+export class CallOptionsImpl implements CallOptions {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The hideBotAfterEscalation property */
@@ -11,8 +11,8 @@ export class CallOptionsImpl implements AdditionalDataHolder, CallOptions, Parsa
      * @param callOptionsParameterValue 
      */
     public constructor(callOptionsParameterValue?: CallOptions | undefined) {
-        this.additionalData = callOptionsParameterValue?.additionalData ? callOptionsParameterValue?.additionalData! : {}
-        this.hideBotAfterEscalation = callOptionsParameterValue?.hideBotAfterEscalation ;
+        this.additionalData = callOptionsParameterValue?.additionalData ? callOptionsParameterValue?.additionalData! : {};
+        this.hideBotAfterEscalation = callOptionsParameterValue?.hideBotAfterEscalation;
     };
     /**
      * The deserialization information for the current model
@@ -30,7 +30,7 @@ export class CallOptionsImpl implements AdditionalDataHolder, CallOptions, Parsa
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.hideBotAfterEscalation){
-        writer.writeBooleanValue("hideBotAfterEscalation", this.hideBotAfterEscalation);
+            writer.writeBooleanValue("hideBotAfterEscalation", this.hideBotAfterEscalation);
         }
         writer.writeAdditionalData(this.additionalData);
     };

@@ -1,7 +1,7 @@
 import {SettingValue} from './settingValue';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class SettingValueImpl implements AdditionalDataHolder, Parsable, SettingValue {
+export class SettingValueImpl implements SettingValue {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Name of the setting (as defined by the directorySettingTemplate). */
@@ -13,9 +13,9 @@ export class SettingValueImpl implements AdditionalDataHolder, Parsable, Setting
      * @param settingValueParameterValue 
      */
     public constructor(settingValueParameterValue?: SettingValue | undefined) {
-        this.additionalData = settingValueParameterValue?.additionalData ? settingValueParameterValue?.additionalData! : {}
-        this.name = settingValueParameterValue?.name ;
-        this.value = settingValueParameterValue?.value ;
+        this.additionalData = settingValueParameterValue?.additionalData ? settingValueParameterValue?.additionalData! : {};
+        this.name = settingValueParameterValue?.name;
+        this.value = settingValueParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -34,10 +34,10 @@ export class SettingValueImpl implements AdditionalDataHolder, Parsable, Setting
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.name){
-        writer.writeStringValue("name", this.name);
+            writer.writeStringValue("name", this.name);
         }
         if(this.value){
-        writer.writeStringValue("value", this.value);
+            writer.writeStringValue("value", this.value);
         }
         writer.writeAdditionalData(this.additionalData);
     };

@@ -4,7 +4,7 @@ import {TeleconferenceDeviceMediaQuality} from './teleconferenceDeviceMediaQuali
 import {TeleconferenceDeviceQuality} from './teleconferenceDeviceQuality';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class TeleconferenceDeviceQualityImpl implements AdditionalDataHolder, Parsable, TeleconferenceDeviceQuality {
+export class TeleconferenceDeviceQualityImpl implements TeleconferenceDeviceQuality {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** A unique identifier for all  the participant calls in a conference or a unique identifier for two participant calls in P2P call. This needs to be copied over from Microsoft.Graph.Call.CallChainId. */
@@ -32,17 +32,17 @@ export class TeleconferenceDeviceQualityImpl implements AdditionalDataHolder, Pa
      * @param teleconferenceDeviceQualityParameterValue 
      */
     public constructor(teleconferenceDeviceQualityParameterValue?: TeleconferenceDeviceQuality | undefined) {
-        this.additionalData = teleconferenceDeviceQualityParameterValue?.additionalData ? teleconferenceDeviceQualityParameterValue?.additionalData! : {}
-        this.callChainId = teleconferenceDeviceQualityParameterValue?.callChainId ;
-        this.cloudServiceDeploymentEnvironment = teleconferenceDeviceQualityParameterValue?.cloudServiceDeploymentEnvironment ;
-        this.cloudServiceDeploymentId = teleconferenceDeviceQualityParameterValue?.cloudServiceDeploymentId ;
-        this.cloudServiceInstanceName = teleconferenceDeviceQualityParameterValue?.cloudServiceInstanceName ;
-        this.cloudServiceName = teleconferenceDeviceQualityParameterValue?.cloudServiceName ;
-        this.deviceDescription = teleconferenceDeviceQualityParameterValue?.deviceDescription ;
-        this.deviceName = teleconferenceDeviceQualityParameterValue?.deviceName ;
-        this.mediaLegId = teleconferenceDeviceQualityParameterValue?.mediaLegId ;
-        this.mediaQualityList = teleconferenceDeviceQualityParameterValue?.mediaQualityList ;
-        this.participantId = teleconferenceDeviceQualityParameterValue?.participantId ;
+        this.additionalData = teleconferenceDeviceQualityParameterValue?.additionalData ? teleconferenceDeviceQualityParameterValue?.additionalData! : {};
+        this.callChainId = teleconferenceDeviceQualityParameterValue?.callChainId;
+        this.cloudServiceDeploymentEnvironment = teleconferenceDeviceQualityParameterValue?.cloudServiceDeploymentEnvironment;
+        this.cloudServiceDeploymentId = teleconferenceDeviceQualityParameterValue?.cloudServiceDeploymentId;
+        this.cloudServiceInstanceName = teleconferenceDeviceQualityParameterValue?.cloudServiceInstanceName;
+        this.cloudServiceName = teleconferenceDeviceQualityParameterValue?.cloudServiceName;
+        this.deviceDescription = teleconferenceDeviceQualityParameterValue?.deviceDescription;
+        this.deviceName = teleconferenceDeviceQualityParameterValue?.deviceName;
+        this.mediaLegId = teleconferenceDeviceQualityParameterValue?.mediaLegId;
+        this.mediaQualityList = teleconferenceDeviceQualityParameterValue?.mediaQualityList;
+        this.participantId = teleconferenceDeviceQualityParameterValue?.participantId;
     };
     /**
      * The deserialization information for the current model
@@ -69,34 +69,34 @@ export class TeleconferenceDeviceQualityImpl implements AdditionalDataHolder, Pa
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.callChainId){
-        writer.writeStringValue("callChainId", this.callChainId);
+            writer.writeStringValue("callChainId", this.callChainId);
         }
         if(this.cloudServiceDeploymentEnvironment){
-        writer.writeStringValue("cloudServiceDeploymentEnvironment", this.cloudServiceDeploymentEnvironment);
+            writer.writeStringValue("cloudServiceDeploymentEnvironment", this.cloudServiceDeploymentEnvironment);
         }
         if(this.cloudServiceDeploymentId){
-        writer.writeStringValue("cloudServiceDeploymentId", this.cloudServiceDeploymentId);
+            writer.writeStringValue("cloudServiceDeploymentId", this.cloudServiceDeploymentId);
         }
         if(this.cloudServiceInstanceName){
-        writer.writeStringValue("cloudServiceInstanceName", this.cloudServiceInstanceName);
+            writer.writeStringValue("cloudServiceInstanceName", this.cloudServiceInstanceName);
         }
         if(this.cloudServiceName){
-        writer.writeStringValue("cloudServiceName", this.cloudServiceName);
+            writer.writeStringValue("cloudServiceName", this.cloudServiceName);
         }
         if(this.deviceDescription){
-        writer.writeStringValue("deviceDescription", this.deviceDescription);
+            writer.writeStringValue("deviceDescription", this.deviceDescription);
         }
         if(this.deviceName){
-        writer.writeStringValue("deviceName", this.deviceName);
+            writer.writeStringValue("deviceName", this.deviceName);
         }
         if(this.mediaLegId){
-        writer.writeStringValue("mediaLegId", this.mediaLegId);
+            writer.writeStringValue("mediaLegId", this.mediaLegId);
         }
         if(this.mediaQualityList && this.mediaQualityList.length != 0){        const mediaQualityListArrValue: TeleconferenceDeviceMediaQualityImpl[] = []; this.mediaQualityList?.forEach(element => {mediaQualityListArrValue.push(new TeleconferenceDeviceMediaQualityImpl(element));});
-        writer.writeCollectionOfObjectValues<TeleconferenceDeviceMediaQualityImpl>("mediaQualityList", mediaQualityListArrValue);
+            writer.writeCollectionOfObjectValues<TeleconferenceDeviceMediaQualityImpl>("mediaQualityList", mediaQualityListArrValue);
         }
         if(this.participantId){
-        writer.writeStringValue("participantId", this.participantId);
+            writer.writeStringValue("participantId", this.participantId);
         }
         writer.writeAdditionalData(this.additionalData);
     };

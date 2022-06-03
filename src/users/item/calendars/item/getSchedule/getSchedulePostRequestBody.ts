@@ -1,14 +1,15 @@
 import {DateTimeTimeZone} from '../../../../../models/dateTimeTimeZone';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface GetSchedulePostRequestBody{
+export interface GetSchedulePostRequestBody extends Partial<AdditionalDataHolder>, Partial<Parsable> {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?:Record<string, unknown>;
+    additionalData?: Record<string, unknown>;
     /** The AvailabilityViewInterval property */
-    availabilityViewInterval?:number | undefined;
+    availabilityViewInterval?: number | undefined;
     /** The EndTime property */
-    endTime?:DateTimeTimeZone | undefined;
+    endTime?: DateTimeTimeZone | undefined;
     /** The Schedules property */
-    schedules?:string[] | undefined;
+    schedules?: string[] | undefined;
     /** The StartTime property */
-    startTime?:DateTimeTimeZone | undefined;
+    startTime?: DateTimeTimeZone | undefined;
 }

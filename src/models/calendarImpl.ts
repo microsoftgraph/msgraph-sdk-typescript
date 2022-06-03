@@ -15,7 +15,7 @@ import {SingleValueLegacyExtendedProperty} from './singleValueLegacyExtendedProp
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Casts the previous resource to user. */
-export class CalendarImpl extends EntityImpl implements Calendar, Parsable {
+export class CalendarImpl extends EntityImpl implements Calendar {
     /** Represent the online meeting service providers that can be used to create online meetings in this calendar. Possible values are: unknown, skypeForBusiness, skypeForConsumer, teamsForBusiness. */
     public allowedOnlineMeetingProviders?: string[] | undefined;
     /** The permissions of the users with whom the calendar is shared. */
@@ -57,25 +57,25 @@ export class CalendarImpl extends EntityImpl implements Calendar, Parsable {
      * @param calendarParameterValue 
      */
     public constructor(calendarParameterValue?: Calendar | undefined) {
-        super();
-        this.allowedOnlineMeetingProviders = calendarParameterValue?.allowedOnlineMeetingProviders ;
-        this.calendarPermissions = calendarParameterValue?.calendarPermissions ;
-        this.calendarView = calendarParameterValue?.calendarView ;
-        this.canEdit = calendarParameterValue?.canEdit ;
-        this.canShare = calendarParameterValue?.canShare ;
-        this.canViewPrivateItems = calendarParameterValue?.canViewPrivateItems ;
-        this.changeKey = calendarParameterValue?.changeKey ;
-        this.color = calendarParameterValue?.color ;
-        this.defaultOnlineMeetingProvider = calendarParameterValue?.defaultOnlineMeetingProvider ;
-        this.events = calendarParameterValue?.events ;
-        this.hexColor = calendarParameterValue?.hexColor ;
-        this.isDefaultCalendar = calendarParameterValue?.isDefaultCalendar ;
-        this.isRemovable = calendarParameterValue?.isRemovable ;
-        this.isTallyingResponses = calendarParameterValue?.isTallyingResponses ;
-        this.multiValueExtendedProperties = calendarParameterValue?.multiValueExtendedProperties ;
-        this.name = calendarParameterValue?.name ;
-        this.owner = calendarParameterValue?.owner ;
-        this.singleValueExtendedProperties = calendarParameterValue?.singleValueExtendedProperties ;
+        super(calendarParameterValue);
+        this.allowedOnlineMeetingProviders = calendarParameterValue?.allowedOnlineMeetingProviders;
+        this.calendarPermissions = calendarParameterValue?.calendarPermissions;
+        this.calendarView = calendarParameterValue?.calendarView;
+        this.canEdit = calendarParameterValue?.canEdit;
+        this.canShare = calendarParameterValue?.canShare;
+        this.canViewPrivateItems = calendarParameterValue?.canViewPrivateItems;
+        this.changeKey = calendarParameterValue?.changeKey;
+        this.color = calendarParameterValue?.color;
+        this.defaultOnlineMeetingProvider = calendarParameterValue?.defaultOnlineMeetingProvider;
+        this.events = calendarParameterValue?.events;
+        this.hexColor = calendarParameterValue?.hexColor;
+        this.isDefaultCalendar = calendarParameterValue?.isDefaultCalendar;
+        this.isRemovable = calendarParameterValue?.isRemovable;
+        this.isTallyingResponses = calendarParameterValue?.isTallyingResponses;
+        this.multiValueExtendedProperties = calendarParameterValue?.multiValueExtendedProperties;
+        this.name = calendarParameterValue?.name;
+        this.owner = calendarParameterValue?.owner;
+        this.singleValueExtendedProperties = calendarParameterValue?.singleValueExtendedProperties;
     };
     /**
      * The deserialization information for the current model
@@ -111,58 +111,58 @@ export class CalendarImpl extends EntityImpl implements Calendar, Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.allowedOnlineMeetingProviders){
-        writer.writeCollectionOfPrimitiveValues<string>("allowedOnlineMeetingProviders", this.allowedOnlineMeetingProviders);
+            writer.writeCollectionOfPrimitiveValues<string>("allowedOnlineMeetingProviders", this.allowedOnlineMeetingProviders);
         }
         if(this.calendarPermissions && this.calendarPermissions.length != 0){        const calendarPermissionsArrValue: CalendarPermissionImpl[] = []; this.calendarPermissions?.forEach(element => {calendarPermissionsArrValue.push(new CalendarPermissionImpl(element));});
-        writer.writeCollectionOfObjectValues<CalendarPermissionImpl>("calendarPermissions", calendarPermissionsArrValue);
+            writer.writeCollectionOfObjectValues<CalendarPermissionImpl>("calendarPermissions", calendarPermissionsArrValue);
         }
         if(this.calendarView && this.calendarView.length != 0){        const calendarViewArrValue: EventImpl[] = []; this.calendarView?.forEach(element => {calendarViewArrValue.push(new EventImpl(element));});
-        writer.writeCollectionOfObjectValues<EventImpl>("calendarView", calendarViewArrValue);
+            writer.writeCollectionOfObjectValues<EventImpl>("calendarView", calendarViewArrValue);
         }
         if(this.canEdit){
-        writer.writeBooleanValue("canEdit", this.canEdit);
+            writer.writeBooleanValue("canEdit", this.canEdit);
         }
         if(this.canShare){
-        writer.writeBooleanValue("canShare", this.canShare);
+            writer.writeBooleanValue("canShare", this.canShare);
         }
         if(this.canViewPrivateItems){
-        writer.writeBooleanValue("canViewPrivateItems", this.canViewPrivateItems);
+            writer.writeBooleanValue("canViewPrivateItems", this.canViewPrivateItems);
         }
         if(this.changeKey){
-        writer.writeStringValue("changeKey", this.changeKey);
+            writer.writeStringValue("changeKey", this.changeKey);
         }
         if(this.color){
-        writer.writeEnumValue<CalendarColor>("color", this.color);
+            writer.writeEnumValue<CalendarColor>("color", this.color);
         }
         if(this.defaultOnlineMeetingProvider){
-        writer.writeEnumValue<OnlineMeetingProviderType>("defaultOnlineMeetingProvider", this.defaultOnlineMeetingProvider);
+            writer.writeEnumValue<OnlineMeetingProviderType>("defaultOnlineMeetingProvider", this.defaultOnlineMeetingProvider);
         }
         if(this.events && this.events.length != 0){        const eventsArrValue: EventImpl[] = []; this.events?.forEach(element => {eventsArrValue.push(new EventImpl(element));});
-        writer.writeCollectionOfObjectValues<EventImpl>("events", eventsArrValue);
+            writer.writeCollectionOfObjectValues<EventImpl>("events", eventsArrValue);
         }
         if(this.hexColor){
-        writer.writeStringValue("hexColor", this.hexColor);
+            writer.writeStringValue("hexColor", this.hexColor);
         }
         if(this.isDefaultCalendar){
-        writer.writeBooleanValue("isDefaultCalendar", this.isDefaultCalendar);
+            writer.writeBooleanValue("isDefaultCalendar", this.isDefaultCalendar);
         }
         if(this.isRemovable){
-        writer.writeBooleanValue("isRemovable", this.isRemovable);
+            writer.writeBooleanValue("isRemovable", this.isRemovable);
         }
         if(this.isTallyingResponses){
-        writer.writeBooleanValue("isTallyingResponses", this.isTallyingResponses);
+            writer.writeBooleanValue("isTallyingResponses", this.isTallyingResponses);
         }
         if(this.multiValueExtendedProperties && this.multiValueExtendedProperties.length != 0){        const multiValueExtendedPropertiesArrValue: MultiValueLegacyExtendedPropertyImpl[] = []; this.multiValueExtendedProperties?.forEach(element => {multiValueExtendedPropertiesArrValue.push(new MultiValueLegacyExtendedPropertyImpl(element));});
-        writer.writeCollectionOfObjectValues<MultiValueLegacyExtendedPropertyImpl>("multiValueExtendedProperties", multiValueExtendedPropertiesArrValue);
+            writer.writeCollectionOfObjectValues<MultiValueLegacyExtendedPropertyImpl>("multiValueExtendedProperties", multiValueExtendedPropertiesArrValue);
         }
         if(this.name){
-        writer.writeStringValue("name", this.name);
+            writer.writeStringValue("name", this.name);
         }
         if(this.owner){
-        writer.writeObjectValue<EmailAddressImpl>("owner", new EmailAddressImpl(this.owner));
+            writer.writeObjectValue<EmailAddressImpl>("owner", new EmailAddressImpl(this.owner));
         }
         if(this.singleValueExtendedProperties && this.singleValueExtendedProperties.length != 0){        const singleValueExtendedPropertiesArrValue: SingleValueLegacyExtendedPropertyImpl[] = []; this.singleValueExtendedProperties?.forEach(element => {singleValueExtendedPropertiesArrValue.push(new SingleValueLegacyExtendedPropertyImpl(element));});
-        writer.writeCollectionOfObjectValues<SingleValueLegacyExtendedPropertyImpl>("singleValueExtendedProperties", singleValueExtendedPropertiesArrValue);
+            writer.writeCollectionOfObjectValues<SingleValueLegacyExtendedPropertyImpl>("singleValueExtendedProperties", singleValueExtendedPropertiesArrValue);
         }
     };
 }

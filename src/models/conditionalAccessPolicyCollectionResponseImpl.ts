@@ -4,7 +4,7 @@ import {createConditionalAccessPolicyFromDiscriminatorValue} from './createCondi
 import {ConditionalAccessPolicyImpl} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ConditionalAccessPolicyCollectionResponseImpl implements AdditionalDataHolder, ConditionalAccessPolicyCollectionResponse, Parsable {
+export class ConditionalAccessPolicyCollectionResponseImpl implements ConditionalAccessPolicyCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class ConditionalAccessPolicyCollectionResponseImpl implements Additional
      * @param conditionalAccessPolicyCollectionResponseParameterValue 
      */
     public constructor(conditionalAccessPolicyCollectionResponseParameterValue?: ConditionalAccessPolicyCollectionResponse | undefined) {
-        this.additionalData = conditionalAccessPolicyCollectionResponseParameterValue?.additionalData ? conditionalAccessPolicyCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = conditionalAccessPolicyCollectionResponseParameterValue?.nextLink ;
-        this.value = conditionalAccessPolicyCollectionResponseParameterValue?.value ;
+        this.additionalData = conditionalAccessPolicyCollectionResponseParameterValue?.additionalData ? conditionalAccessPolicyCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = conditionalAccessPolicyCollectionResponseParameterValue?.nextLink;
+        this.value = conditionalAccessPolicyCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class ConditionalAccessPolicyCollectionResponseImpl implements Additional
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: ConditionalAccessPolicyImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ConditionalAccessPolicyImpl(element));});
-        writer.writeCollectionOfObjectValues<ConditionalAccessPolicyImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<ConditionalAccessPolicyImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

@@ -2,7 +2,7 @@ import {GetByIdsPostRequestBody} from './getByIdsPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the getByIds method. */
-export class GetByIdsPostRequestBodyImpl implements AdditionalDataHolder, GetByIdsPostRequestBody, Parsable {
+export class GetByIdsPostRequestBodyImpl implements GetByIdsPostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The ids property */
@@ -14,9 +14,9 @@ export class GetByIdsPostRequestBodyImpl implements AdditionalDataHolder, GetByI
      * @param getByIdsPostRequestBodyParameterValue 
      */
     public constructor(getByIdsPostRequestBodyParameterValue?: GetByIdsPostRequestBody | undefined) {
-        this.additionalData = getByIdsPostRequestBodyParameterValue?.additionalData ? getByIdsPostRequestBodyParameterValue?.additionalData! : {}
-        this.ids = getByIdsPostRequestBodyParameterValue?.ids ;
-        this.types = getByIdsPostRequestBodyParameterValue?.types ;
+        this.additionalData = getByIdsPostRequestBodyParameterValue?.additionalData ? getByIdsPostRequestBodyParameterValue?.additionalData! : {};
+        this.ids = getByIdsPostRequestBodyParameterValue?.ids;
+        this.types = getByIdsPostRequestBodyParameterValue?.types;
     };
     /**
      * The deserialization information for the current model
@@ -35,10 +35,10 @@ export class GetByIdsPostRequestBodyImpl implements AdditionalDataHolder, GetByI
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.ids){
-        writer.writeCollectionOfPrimitiveValues<string>("ids", this.ids);
+            writer.writeCollectionOfPrimitiveValues<string>("ids", this.ids);
         }
         if(this.types){
-        writer.writeCollectionOfPrimitiveValues<string>("types", this.types);
+            writer.writeCollectionOfPrimitiveValues<string>("types", this.types);
         }
         writer.writeAdditionalData(this.additionalData);
     };

@@ -5,7 +5,7 @@ import {ProvisionedIdentity} from './provisionedIdentity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the auditLogRoot singleton. */
-export class ProvisionedIdentityImpl extends IdentityImpl implements Parsable, ProvisionedIdentity {
+export class ProvisionedIdentityImpl extends IdentityImpl implements ProvisionedIdentity {
     /** Details of the identity. */
     public details?: DetailsInfo | undefined;
     /** Type of identity that has been provisioned, such as 'user' or 'group'. */
@@ -15,9 +15,9 @@ export class ProvisionedIdentityImpl extends IdentityImpl implements Parsable, P
      * @param provisionedIdentityParameterValue 
      */
     public constructor(provisionedIdentityParameterValue?: ProvisionedIdentity | undefined) {
-        super();
-        this.details = provisionedIdentityParameterValue?.details ;
-        this.identityType = provisionedIdentityParameterValue?.identityType ;
+        super(provisionedIdentityParameterValue);
+        this.details = provisionedIdentityParameterValue?.details;
+        this.identityType = provisionedIdentityParameterValue?.identityType;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class ProvisionedIdentityImpl extends IdentityImpl implements Parsable, P
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.details){
-        writer.writeObjectValue<DetailsInfoImpl>("details", new DetailsInfoImpl(this.details));
+            writer.writeObjectValue<DetailsInfoImpl>("details", new DetailsInfoImpl(this.details));
         }
         if(this.identityType){
-        writer.writeStringValue("identityType", this.identityType);
+            writer.writeStringValue("identityType", this.identityType);
         }
     };
 }

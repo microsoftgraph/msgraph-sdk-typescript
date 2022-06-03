@@ -1,11 +1,11 @@
 import {UserConsentRequestItemRequestBuilderGetQueryParameters} from './userConsentRequestItemRequestBuilderGetQueryParameters';
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
-export interface UserConsentRequestItemRequestBuilderGetRequestConfiguration{
+export interface UserConsentRequestItemRequestBuilderGetRequestConfiguration {
     /** Request headers */
-    headers?:Record<string, string> | undefined;
+    headers?: Record<string, string> | undefined;
     /** Request options */
-    options?:RequestOption[] | undefined;
+    options?: RequestOption[] | undefined;
     /** Request query parameters */
-    queryParameters?:UserConsentRequestItemRequestBuilderGetQueryParameters | undefined;
+    queryParameters?: UserConsentRequestItemRequestBuilderGetQueryParameters | undefined;
 }

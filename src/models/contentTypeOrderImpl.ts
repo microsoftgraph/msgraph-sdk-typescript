@@ -1,7 +1,7 @@
 import {ContentTypeOrder} from './contentTypeOrder';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ContentTypeOrderImpl implements AdditionalDataHolder, ContentTypeOrder, Parsable {
+export class ContentTypeOrderImpl implements ContentTypeOrder {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Whether this is the default Content Type */
@@ -13,9 +13,9 @@ export class ContentTypeOrderImpl implements AdditionalDataHolder, ContentTypeOr
      * @param contentTypeOrderParameterValue 
      */
     public constructor(contentTypeOrderParameterValue?: ContentTypeOrder | undefined) {
-        this.additionalData = contentTypeOrderParameterValue?.additionalData ? contentTypeOrderParameterValue?.additionalData! : {}
-        this.default_escaped = contentTypeOrderParameterValue?.default_escaped ;
-        this.position = contentTypeOrderParameterValue?.position ;
+        this.additionalData = contentTypeOrderParameterValue?.additionalData ? contentTypeOrderParameterValue?.additionalData! : {};
+        this.default_escaped = contentTypeOrderParameterValue?.default_escaped;
+        this.position = contentTypeOrderParameterValue?.position;
     };
     /**
      * The deserialization information for the current model
@@ -34,10 +34,10 @@ export class ContentTypeOrderImpl implements AdditionalDataHolder, ContentTypeOr
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.default_escaped){
-        writer.writeBooleanValue("default", this.default_escaped);
+            writer.writeBooleanValue("default", this.default_escaped);
         }
         if(this.position){
-        writer.writeNumberValue("position", this.position);
+            writer.writeNumberValue("position", this.position);
         }
         writer.writeAdditionalData(this.additionalData);
     };

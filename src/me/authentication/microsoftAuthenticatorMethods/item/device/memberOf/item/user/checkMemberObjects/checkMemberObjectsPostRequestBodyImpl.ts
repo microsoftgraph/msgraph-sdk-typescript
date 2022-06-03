@@ -2,7 +2,7 @@ import {CheckMemberObjectsPostRequestBody} from './checkMemberObjectsPostRequest
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the checkMemberObjects method. */
-export class CheckMemberObjectsPostRequestBodyImpl implements AdditionalDataHolder, CheckMemberObjectsPostRequestBody, Parsable {
+export class CheckMemberObjectsPostRequestBodyImpl implements CheckMemberObjectsPostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The ids property */
@@ -12,8 +12,8 @@ export class CheckMemberObjectsPostRequestBodyImpl implements AdditionalDataHold
      * @param checkMemberObjectsPostRequestBodyParameterValue 
      */
     public constructor(checkMemberObjectsPostRequestBodyParameterValue?: CheckMemberObjectsPostRequestBody | undefined) {
-        this.additionalData = checkMemberObjectsPostRequestBodyParameterValue?.additionalData ? checkMemberObjectsPostRequestBodyParameterValue?.additionalData! : {}
-        this.ids = checkMemberObjectsPostRequestBodyParameterValue?.ids ;
+        this.additionalData = checkMemberObjectsPostRequestBodyParameterValue?.additionalData ? checkMemberObjectsPostRequestBodyParameterValue?.additionalData! : {};
+        this.ids = checkMemberObjectsPostRequestBodyParameterValue?.ids;
     };
     /**
      * The deserialization information for the current model
@@ -31,7 +31,7 @@ export class CheckMemberObjectsPostRequestBodyImpl implements AdditionalDataHold
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.ids){
-        writer.writeCollectionOfPrimitiveValues<string>("ids", this.ids);
+            writer.writeCollectionOfPrimitiveValues<string>("ids", this.ids);
         }
         writer.writeAdditionalData(this.additionalData);
     };

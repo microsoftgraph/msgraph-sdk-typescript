@@ -7,7 +7,7 @@ import {PolicyPlatformType} from './policyPlatformType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Device Configuration State for a given device. */
-export class DeviceConfigurationStateImpl extends EntityImpl implements DeviceConfigurationState, Parsable {
+export class DeviceConfigurationStateImpl extends EntityImpl implements DeviceConfigurationState {
     /** The name of the policy for this policyBase */
     public displayName?: string | undefined;
     /** Platform type that the policy applies to */
@@ -25,13 +25,13 @@ export class DeviceConfigurationStateImpl extends EntityImpl implements DeviceCo
      * @param deviceConfigurationStateParameterValue 
      */
     public constructor(deviceConfigurationStateParameterValue?: DeviceConfigurationState | undefined) {
-        super();
-        this.displayName = deviceConfigurationStateParameterValue?.displayName ;
-        this.platformType = deviceConfigurationStateParameterValue?.platformType ;
-        this.settingCount = deviceConfigurationStateParameterValue?.settingCount ;
-        this.settingStates = deviceConfigurationStateParameterValue?.settingStates ;
-        this.state = deviceConfigurationStateParameterValue?.state ;
-        this.version = deviceConfigurationStateParameterValue?.version ;
+        super(deviceConfigurationStateParameterValue);
+        this.displayName = deviceConfigurationStateParameterValue?.displayName;
+        this.platformType = deviceConfigurationStateParameterValue?.platformType;
+        this.settingCount = deviceConfigurationStateParameterValue?.settingCount;
+        this.settingStates = deviceConfigurationStateParameterValue?.settingStates;
+        this.state = deviceConfigurationStateParameterValue?.state;
+        this.version = deviceConfigurationStateParameterValue?.version;
     };
     /**
      * The deserialization information for the current model
@@ -55,22 +55,22 @@ export class DeviceConfigurationStateImpl extends EntityImpl implements DeviceCo
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.displayName){
-        writer.writeStringValue("displayName", this.displayName);
+            writer.writeStringValue("displayName", this.displayName);
         }
         if(this.platformType){
-        writer.writeEnumValue<PolicyPlatformType>("platformType", this.platformType);
+            writer.writeEnumValue<PolicyPlatformType>("platformType", this.platformType);
         }
         if(this.settingCount){
-        writer.writeNumberValue("settingCount", this.settingCount);
+            writer.writeNumberValue("settingCount", this.settingCount);
         }
         if(this.settingStates && this.settingStates.length != 0){        const settingStatesArrValue: DeviceConfigurationSettingStateImpl[] = []; this.settingStates?.forEach(element => {settingStatesArrValue.push(new DeviceConfigurationSettingStateImpl(element));});
-        writer.writeCollectionOfObjectValues<DeviceConfigurationSettingStateImpl>("settingStates", settingStatesArrValue);
+            writer.writeCollectionOfObjectValues<DeviceConfigurationSettingStateImpl>("settingStates", settingStatesArrValue);
         }
         if(this.state){
-        writer.writeEnumValue<ComplianceStatus>("state", this.state);
+            writer.writeEnumValue<ComplianceStatus>("state", this.state);
         }
         if(this.version){
-        writer.writeNumberValue("version", this.version);
+            writer.writeNumberValue("version", this.version);
         }
     };
 }

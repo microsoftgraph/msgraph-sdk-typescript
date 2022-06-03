@@ -16,8 +16,8 @@ import {WorkbookTable} from './workbookTable';
 import {WorkbookWorksheet} from './workbookWorksheet';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
-export class WorkbookImpl extends EntityImpl implements Parsable, Workbook {
+/** Casts the previous resource to group. */
+export class WorkbookImpl extends EntityImpl implements Workbook {
     /** The application property */
     public application?: WorkbookApplication | undefined;
     /** The comments property */
@@ -37,14 +37,14 @@ export class WorkbookImpl extends EntityImpl implements Parsable, Workbook {
      * @param workbookParameterValue 
      */
     public constructor(workbookParameterValue?: Workbook | undefined) {
-        super();
-        this.application = workbookParameterValue?.application ;
-        this.comments = workbookParameterValue?.comments ;
-        this.functions = workbookParameterValue?.functions ;
-        this.names = workbookParameterValue?.names ;
-        this.operations = workbookParameterValue?.operations ;
-        this.tables = workbookParameterValue?.tables ;
-        this.worksheets = workbookParameterValue?.worksheets ;
+        super(workbookParameterValue);
+        this.application = workbookParameterValue?.application;
+        this.comments = workbookParameterValue?.comments;
+        this.functions = workbookParameterValue?.functions;
+        this.names = workbookParameterValue?.names;
+        this.operations = workbookParameterValue?.operations;
+        this.tables = workbookParameterValue?.tables;
+        this.worksheets = workbookParameterValue?.worksheets;
     };
     /**
      * The deserialization information for the current model
@@ -69,25 +69,25 @@ export class WorkbookImpl extends EntityImpl implements Parsable, Workbook {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.application){
-        writer.writeObjectValue<WorkbookApplicationImpl>("application", new WorkbookApplicationImpl(this.application));
+            writer.writeObjectValue<WorkbookApplicationImpl>("application", new WorkbookApplicationImpl(this.application));
         }
         if(this.comments && this.comments.length != 0){        const commentsArrValue: WorkbookCommentImpl[] = []; this.comments?.forEach(element => {commentsArrValue.push(new WorkbookCommentImpl(element));});
-        writer.writeCollectionOfObjectValues<WorkbookCommentImpl>("comments", commentsArrValue);
+            writer.writeCollectionOfObjectValues<WorkbookCommentImpl>("comments", commentsArrValue);
         }
         if(this.functions){
-        writer.writeObjectValue<WorkbookFunctionsImpl>("functions", new WorkbookFunctionsImpl(this.functions));
+            writer.writeObjectValue<WorkbookFunctionsImpl>("functions", new WorkbookFunctionsImpl(this.functions));
         }
         if(this.names && this.names.length != 0){        const namesArrValue: WorkbookNamedItemImpl[] = []; this.names?.forEach(element => {namesArrValue.push(new WorkbookNamedItemImpl(element));});
-        writer.writeCollectionOfObjectValues<WorkbookNamedItemImpl>("names", namesArrValue);
+            writer.writeCollectionOfObjectValues<WorkbookNamedItemImpl>("names", namesArrValue);
         }
         if(this.operations && this.operations.length != 0){        const operationsArrValue: WorkbookOperationImpl[] = []; this.operations?.forEach(element => {operationsArrValue.push(new WorkbookOperationImpl(element));});
-        writer.writeCollectionOfObjectValues<WorkbookOperationImpl>("operations", operationsArrValue);
+            writer.writeCollectionOfObjectValues<WorkbookOperationImpl>("operations", operationsArrValue);
         }
         if(this.tables && this.tables.length != 0){        const tablesArrValue: WorkbookTableImpl[] = []; this.tables?.forEach(element => {tablesArrValue.push(new WorkbookTableImpl(element));});
-        writer.writeCollectionOfObjectValues<WorkbookTableImpl>("tables", tablesArrValue);
+            writer.writeCollectionOfObjectValues<WorkbookTableImpl>("tables", tablesArrValue);
         }
         if(this.worksheets && this.worksheets.length != 0){        const worksheetsArrValue: WorkbookWorksheetImpl[] = []; this.worksheets?.forEach(element => {worksheetsArrValue.push(new WorkbookWorksheetImpl(element));});
-        writer.writeCollectionOfObjectValues<WorkbookWorksheetImpl>("worksheets", worksheetsArrValue);
+            writer.writeCollectionOfObjectValues<WorkbookWorksheetImpl>("worksheets", worksheetsArrValue);
         }
     };
 }

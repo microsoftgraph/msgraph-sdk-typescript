@@ -1,7 +1,7 @@
 import {SelfSignedCertificate} from './selfSignedCertificate';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class SelfSignedCertificateImpl implements AdditionalDataHolder, Parsable, SelfSignedCertificate {
+export class SelfSignedCertificateImpl implements SelfSignedCertificate {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Custom key identifier. */
@@ -27,16 +27,16 @@ export class SelfSignedCertificateImpl implements AdditionalDataHolder, Parsable
      * @param selfSignedCertificateParameterValue 
      */
     public constructor(selfSignedCertificateParameterValue?: SelfSignedCertificate | undefined) {
-        this.additionalData = selfSignedCertificateParameterValue?.additionalData ? selfSignedCertificateParameterValue?.additionalData! : {}
-        this.customKeyIdentifier = selfSignedCertificateParameterValue?.customKeyIdentifier ;
-        this.displayName = selfSignedCertificateParameterValue?.displayName ;
-        this.endDateTime = selfSignedCertificateParameterValue?.endDateTime ;
-        this.key = selfSignedCertificateParameterValue?.key ;
-        this.keyId = selfSignedCertificateParameterValue?.keyId ;
-        this.startDateTime = selfSignedCertificateParameterValue?.startDateTime ;
-        this.thumbprint = selfSignedCertificateParameterValue?.thumbprint ;
-        this.type = selfSignedCertificateParameterValue?.type ;
-        this.usage = selfSignedCertificateParameterValue?.usage ;
+        this.additionalData = selfSignedCertificateParameterValue?.additionalData ? selfSignedCertificateParameterValue?.additionalData! : {};
+        this.customKeyIdentifier = selfSignedCertificateParameterValue?.customKeyIdentifier;
+        this.displayName = selfSignedCertificateParameterValue?.displayName;
+        this.endDateTime = selfSignedCertificateParameterValue?.endDateTime;
+        this.key = selfSignedCertificateParameterValue?.key;
+        this.keyId = selfSignedCertificateParameterValue?.keyId;
+        this.startDateTime = selfSignedCertificateParameterValue?.startDateTime;
+        this.thumbprint = selfSignedCertificateParameterValue?.thumbprint;
+        this.type = selfSignedCertificateParameterValue?.type;
+        this.usage = selfSignedCertificateParameterValue?.usage;
     };
     /**
      * The deserialization information for the current model
@@ -62,31 +62,31 @@ export class SelfSignedCertificateImpl implements AdditionalDataHolder, Parsable
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.customKeyIdentifier){
-        writer.writeStringValue("customKeyIdentifier", this.customKeyIdentifier);
+            writer.writeStringValue("customKeyIdentifier", this.customKeyIdentifier);
         }
         if(this.displayName){
-        writer.writeStringValue("displayName", this.displayName);
+            writer.writeStringValue("displayName", this.displayName);
         }
         if(this.endDateTime){
-        writer.writeDateValue("endDateTime", this.endDateTime);
+            writer.writeDateValue("endDateTime", this.endDateTime);
         }
         if(this.key){
-        writer.writeStringValue("key", this.key);
+            writer.writeStringValue("key", this.key);
         }
         if(this.keyId){
-        writer.writeStringValue("keyId", this.keyId);
+            writer.writeStringValue("keyId", this.keyId);
         }
         if(this.startDateTime){
-        writer.writeDateValue("startDateTime", this.startDateTime);
+            writer.writeDateValue("startDateTime", this.startDateTime);
         }
         if(this.thumbprint){
-        writer.writeStringValue("thumbprint", this.thumbprint);
+            writer.writeStringValue("thumbprint", this.thumbprint);
         }
         if(this.type){
-        writer.writeStringValue("type", this.type);
+            writer.writeStringValue("type", this.type);
         }
         if(this.usage){
-        writer.writeStringValue("usage", this.usage);
+            writer.writeStringValue("usage", this.usage);
         }
         writer.writeAdditionalData(this.additionalData);
     };

@@ -1,11 +1,11 @@
 import {PrimaryChannelRequestBuilderGetQueryParameters} from './primaryChannelRequestBuilderGetQueryParameters';
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
-export interface PrimaryChannelRequestBuilderGetRequestConfiguration{
+export interface PrimaryChannelRequestBuilderGetRequestConfiguration {
     /** Request headers */
-    headers?:Record<string, string> | undefined;
+    headers?: Record<string, string> | undefined;
     /** Request options */
-    options?:RequestOption[] | undefined;
+    options?: RequestOption[] | undefined;
     /** Request query parameters */
-    queryParameters?:PrimaryChannelRequestBuilderGetQueryParameters | undefined;
+    queryParameters?: PrimaryChannelRequestBuilderGetQueryParameters | undefined;
 }

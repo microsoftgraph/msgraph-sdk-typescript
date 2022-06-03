@@ -1,11 +1,11 @@
 import {OrgContactItemRequestBuilderGetQueryParameters} from './orgContactItemRequestBuilderGetQueryParameters';
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
-export interface OrgContactItemRequestBuilderGetRequestConfiguration{
+export interface OrgContactItemRequestBuilderGetRequestConfiguration {
     /** Request headers */
-    headers?:Record<string, string> | undefined;
+    headers?: Record<string, string> | undefined;
     /** Request options */
-    options?:RequestOption[] | undefined;
+    options?: RequestOption[] | undefined;
     /** Request query parameters */
-    queryParameters?:OrgContactItemRequestBuilderGetQueryParameters | undefined;
+    queryParameters?: OrgContactItemRequestBuilderGetQueryParameters | undefined;
 }

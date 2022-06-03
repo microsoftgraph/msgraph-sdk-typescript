@@ -1,7 +1,7 @@
 import {ModifiedProperty} from './modifiedProperty';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ModifiedPropertyImpl implements AdditionalDataHolder, ModifiedProperty, Parsable {
+export class ModifiedPropertyImpl implements ModifiedProperty {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Name of property that was modified. */
@@ -15,10 +15,10 @@ export class ModifiedPropertyImpl implements AdditionalDataHolder, ModifiedPrope
      * @param modifiedPropertyParameterValue 
      */
     public constructor(modifiedPropertyParameterValue?: ModifiedProperty | undefined) {
-        this.additionalData = modifiedPropertyParameterValue?.additionalData ? modifiedPropertyParameterValue?.additionalData! : {}
-        this.displayName = modifiedPropertyParameterValue?.displayName ;
-        this.newValue = modifiedPropertyParameterValue?.newValue ;
-        this.oldValue = modifiedPropertyParameterValue?.oldValue ;
+        this.additionalData = modifiedPropertyParameterValue?.additionalData ? modifiedPropertyParameterValue?.additionalData! : {};
+        this.displayName = modifiedPropertyParameterValue?.displayName;
+        this.newValue = modifiedPropertyParameterValue?.newValue;
+        this.oldValue = modifiedPropertyParameterValue?.oldValue;
     };
     /**
      * The deserialization information for the current model
@@ -38,13 +38,13 @@ export class ModifiedPropertyImpl implements AdditionalDataHolder, ModifiedPrope
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.displayName){
-        writer.writeStringValue("displayName", this.displayName);
+            writer.writeStringValue("displayName", this.displayName);
         }
         if(this.newValue){
-        writer.writeStringValue("newValue", this.newValue);
+            writer.writeStringValue("newValue", this.newValue);
         }
         if(this.oldValue){
-        writer.writeStringValue("oldValue", this.oldValue);
+            writer.writeStringValue("oldValue", this.oldValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

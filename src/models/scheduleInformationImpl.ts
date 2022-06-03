@@ -8,7 +8,7 @@ import {ScheduleItem} from './scheduleItem';
 import {WorkingHours} from './workingHours';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ScheduleInformationImpl implements AdditionalDataHolder, Parsable, ScheduleInformation {
+export class ScheduleInformationImpl implements ScheduleInformation {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Represents a merged view of availability of all the items in scheduleItems. The view consists of time slots. Availability during each time slot is indicated with: 0= free, 1= tentative, 2= busy, 3= out of office, 4= working elsewhere. */
@@ -26,12 +26,12 @@ export class ScheduleInformationImpl implements AdditionalDataHolder, Parsable, 
      * @param scheduleInformationParameterValue 
      */
     public constructor(scheduleInformationParameterValue?: ScheduleInformation | undefined) {
-        this.additionalData = scheduleInformationParameterValue?.additionalData ? scheduleInformationParameterValue?.additionalData! : {}
-        this.availabilityView = scheduleInformationParameterValue?.availabilityView ;
-        this.error_escaped = scheduleInformationParameterValue?.error_escaped ;
-        this.scheduleId = scheduleInformationParameterValue?.scheduleId ;
-        this.scheduleItems = scheduleInformationParameterValue?.scheduleItems ;
-        this.workingHours = scheduleInformationParameterValue?.workingHours ;
+        this.additionalData = scheduleInformationParameterValue?.additionalData ? scheduleInformationParameterValue?.additionalData! : {};
+        this.availabilityView = scheduleInformationParameterValue?.availabilityView;
+        this.error_escaped = scheduleInformationParameterValue?.error_escaped;
+        this.scheduleId = scheduleInformationParameterValue?.scheduleId;
+        this.scheduleItems = scheduleInformationParameterValue?.scheduleItems;
+        this.workingHours = scheduleInformationParameterValue?.workingHours;
     };
     /**
      * The deserialization information for the current model
@@ -53,19 +53,19 @@ export class ScheduleInformationImpl implements AdditionalDataHolder, Parsable, 
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.availabilityView){
-        writer.writeStringValue("availabilityView", this.availabilityView);
+            writer.writeStringValue("availabilityView", this.availabilityView);
         }
         if(this.error_escaped){
-        writer.writeObjectValue<FreeBusyErrorImpl>("error", new FreeBusyErrorImpl(this.error_escaped));
+            writer.writeObjectValue<FreeBusyErrorImpl>("error", new FreeBusyErrorImpl(this.error_escaped));
         }
         if(this.scheduleId){
-        writer.writeStringValue("scheduleId", this.scheduleId);
+            writer.writeStringValue("scheduleId", this.scheduleId);
         }
         if(this.scheduleItems && this.scheduleItems.length != 0){        const scheduleItemsArrValue: ScheduleItemImpl[] = []; this.scheduleItems?.forEach(element => {scheduleItemsArrValue.push(new ScheduleItemImpl(element));});
-        writer.writeCollectionOfObjectValues<ScheduleItemImpl>("scheduleItems", scheduleItemsArrValue);
+            writer.writeCollectionOfObjectValues<ScheduleItemImpl>("scheduleItems", scheduleItemsArrValue);
         }
         if(this.workingHours){
-        writer.writeObjectValue<WorkingHoursImpl>("workingHours", new WorkingHoursImpl(this.workingHours));
+            writer.writeObjectValue<WorkingHoursImpl>("workingHours", new WorkingHoursImpl(this.workingHours));
         }
         writer.writeAdditionalData(this.additionalData);
     };

@@ -4,7 +4,7 @@ import {VolumeType} from './volumeType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the informationProtection singleton. */
-export class BitlockerRecoveryKeyImpl extends EntityImpl implements BitlockerRecoveryKey, Parsable {
+export class BitlockerRecoveryKeyImpl extends EntityImpl implements BitlockerRecoveryKey {
     /** The date and time when the key was originally backed up to Azure Active Directory. */
     public createdDateTime?: Date | undefined;
     /** ID of the device the BitLocker key is originally backed up from. */
@@ -18,11 +18,11 @@ export class BitlockerRecoveryKeyImpl extends EntityImpl implements BitlockerRec
      * @param bitlockerRecoveryKeyParameterValue 
      */
     public constructor(bitlockerRecoveryKeyParameterValue?: BitlockerRecoveryKey | undefined) {
-        super();
-        this.createdDateTime = bitlockerRecoveryKeyParameterValue?.createdDateTime ;
-        this.deviceId = bitlockerRecoveryKeyParameterValue?.deviceId ;
-        this.key = bitlockerRecoveryKeyParameterValue?.key ;
-        this.volumeType = bitlockerRecoveryKeyParameterValue?.volumeType ;
+        super(bitlockerRecoveryKeyParameterValue);
+        this.createdDateTime = bitlockerRecoveryKeyParameterValue?.createdDateTime;
+        this.deviceId = bitlockerRecoveryKeyParameterValue?.deviceId;
+        this.key = bitlockerRecoveryKeyParameterValue?.key;
+        this.volumeType = bitlockerRecoveryKeyParameterValue?.volumeType;
     };
     /**
      * The deserialization information for the current model
@@ -44,16 +44,16 @@ export class BitlockerRecoveryKeyImpl extends EntityImpl implements BitlockerRec
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.createdDateTime){
-        writer.writeDateValue("createdDateTime", this.createdDateTime);
+            writer.writeDateValue("createdDateTime", this.createdDateTime);
         }
         if(this.deviceId){
-        writer.writeStringValue("deviceId", this.deviceId);
+            writer.writeStringValue("deviceId", this.deviceId);
         }
         if(this.key){
-        writer.writeStringValue("key", this.key);
+            writer.writeStringValue("key", this.key);
         }
         if(this.volumeType){
-        writer.writeEnumValue<VolumeType>("volumeType", this.volumeType);
+            writer.writeEnumValue<VolumeType>("volumeType", this.volumeType);
         }
     };
 }

@@ -1,11 +1,11 @@
 import {TeamsTabItemRequestBuilderGetQueryParameters} from './teamsTabItemRequestBuilderGetQueryParameters';
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
-export interface TeamsTabItemRequestBuilderGetRequestConfiguration{
+export interface TeamsTabItemRequestBuilderGetRequestConfiguration {
     /** Request headers */
-    headers?:Record<string, string> | undefined;
+    headers?: Record<string, string> | undefined;
     /** Request options */
-    options?:RequestOption[] | undefined;
+    options?: RequestOption[] | undefined;
     /** Request query parameters */
-    queryParameters?:TeamsTabItemRequestBuilderGetQueryParameters | undefined;
+    queryParameters?: TeamsTabItemRequestBuilderGetQueryParameters | undefined;
 }

@@ -4,7 +4,7 @@ import {OutlookCategory} from './outlookCategory';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Casts the previous resource to user. */
-export class OutlookCategoryImpl extends EntityImpl implements OutlookCategory, Parsable {
+export class OutlookCategoryImpl extends EntityImpl implements OutlookCategory {
     /** A pre-set color constant that characterizes a category, and that is mapped to one of 25 predefined colors. See the note below. */
     public color?: CategoryColor | undefined;
     /** A unique name that identifies a category in the user's mailbox. After a category is created, the name cannot be changed. Read-only. */
@@ -14,9 +14,9 @@ export class OutlookCategoryImpl extends EntityImpl implements OutlookCategory, 
      * @param outlookCategoryParameterValue 
      */
     public constructor(outlookCategoryParameterValue?: OutlookCategory | undefined) {
-        super();
-        this.color = outlookCategoryParameterValue?.color ;
-        this.displayName = outlookCategoryParameterValue?.displayName ;
+        super(outlookCategoryParameterValue);
+        this.color = outlookCategoryParameterValue?.color;
+        this.displayName = outlookCategoryParameterValue?.displayName;
     };
     /**
      * The deserialization information for the current model
@@ -36,10 +36,10 @@ export class OutlookCategoryImpl extends EntityImpl implements OutlookCategory, 
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.color){
-        writer.writeEnumValue<CategoryColor>("color", this.color);
+            writer.writeEnumValue<CategoryColor>("color", this.color);
         }
         if(this.displayName){
-        writer.writeStringValue("displayName", this.displayName);
+            writer.writeStringValue("displayName", this.displayName);
         }
     };
 }

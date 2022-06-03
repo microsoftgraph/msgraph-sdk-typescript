@@ -8,8 +8,8 @@ import {Set} from './set';
 import {Term} from './term';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to group. */
-export class RelationImpl extends EntityImpl implements Parsable, Relation {
+/** Casts the previous resource to user. */
+export class RelationImpl extends EntityImpl implements Relation {
     /** The from [term] of the relation. The term from which the relationship is defined. A null value would indicate the relation is directly with the [set]. */
     public fromTerm?: Term | undefined;
     /** The type of relation. Possible values are: pin, reuse. */
@@ -23,11 +23,11 @@ export class RelationImpl extends EntityImpl implements Parsable, Relation {
      * @param relationParameterValue 
      */
     public constructor(relationParameterValue?: Relation | undefined) {
-        super();
-        this.fromTerm = relationParameterValue?.fromTerm ;
-        this.relationship = relationParameterValue?.relationship ;
-        this.set = relationParameterValue?.set ;
-        this.toTerm = relationParameterValue?.toTerm ;
+        super(relationParameterValue);
+        this.fromTerm = relationParameterValue?.fromTerm;
+        this.relationship = relationParameterValue?.relationship;
+        this.set = relationParameterValue?.set;
+        this.toTerm = relationParameterValue?.toTerm;
     };
     /**
      * The deserialization information for the current model
@@ -49,16 +49,16 @@ export class RelationImpl extends EntityImpl implements Parsable, Relation {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.fromTerm){
-        writer.writeObjectValue<TermImpl>("fromTerm", new TermImpl(this.fromTerm));
+            writer.writeObjectValue<TermImpl>("fromTerm", new TermImpl(this.fromTerm));
         }
         if(this.relationship){
-        writer.writeEnumValue<RelationType>("relationship", this.relationship);
+            writer.writeEnumValue<RelationType>("relationship", this.relationship);
         }
         if(this.set){
-        writer.writeObjectValue<SetImpl>("set", new SetImpl(this.set));
+            writer.writeObjectValue<SetImpl>("set", new SetImpl(this.set));
         }
         if(this.toTerm){
-        writer.writeObjectValue<TermImpl>("toTerm", new TermImpl(this.toTerm));
+            writer.writeObjectValue<TermImpl>("toTerm", new TermImpl(this.toTerm));
         }
     };
 }

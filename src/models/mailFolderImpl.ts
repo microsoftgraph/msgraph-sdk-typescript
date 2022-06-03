@@ -12,7 +12,7 @@ import {SingleValueLegacyExtendedProperty} from './singleValueLegacyExtendedProp
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Casts the previous resource to user. */
-export class MailFolderImpl extends EntityImpl implements MailFolder, Parsable {
+export class MailFolderImpl extends EntityImpl implements MailFolder {
     /** The number of immediate child mailFolders in the current mailFolder. */
     public childFolderCount?: number | undefined;
     /** The collection of child folders in the mailFolder. */
@@ -40,18 +40,18 @@ export class MailFolderImpl extends EntityImpl implements MailFolder, Parsable {
      * @param mailFolderParameterValue 
      */
     public constructor(mailFolderParameterValue?: MailFolder | undefined) {
-        super();
-        this.childFolderCount = mailFolderParameterValue?.childFolderCount ;
-        this.childFolders = mailFolderParameterValue?.childFolders ;
-        this.displayName = mailFolderParameterValue?.displayName ;
-        this.isHidden = mailFolderParameterValue?.isHidden ;
-        this.messageRules = mailFolderParameterValue?.messageRules ;
-        this.messages = mailFolderParameterValue?.messages ;
-        this.multiValueExtendedProperties = mailFolderParameterValue?.multiValueExtendedProperties ;
-        this.parentFolderId = mailFolderParameterValue?.parentFolderId ;
-        this.singleValueExtendedProperties = mailFolderParameterValue?.singleValueExtendedProperties ;
-        this.totalItemCount = mailFolderParameterValue?.totalItemCount ;
-        this.unreadItemCount = mailFolderParameterValue?.unreadItemCount ;
+        super(mailFolderParameterValue);
+        this.childFolderCount = mailFolderParameterValue?.childFolderCount;
+        this.childFolders = mailFolderParameterValue?.childFolders;
+        this.displayName = mailFolderParameterValue?.displayName;
+        this.isHidden = mailFolderParameterValue?.isHidden;
+        this.messageRules = mailFolderParameterValue?.messageRules;
+        this.messages = mailFolderParameterValue?.messages;
+        this.multiValueExtendedProperties = mailFolderParameterValue?.multiValueExtendedProperties;
+        this.parentFolderId = mailFolderParameterValue?.parentFolderId;
+        this.singleValueExtendedProperties = mailFolderParameterValue?.singleValueExtendedProperties;
+        this.totalItemCount = mailFolderParameterValue?.totalItemCount;
+        this.unreadItemCount = mailFolderParameterValue?.unreadItemCount;
     };
     /**
      * The deserialization information for the current model
@@ -80,37 +80,37 @@ export class MailFolderImpl extends EntityImpl implements MailFolder, Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.childFolderCount){
-        writer.writeNumberValue("childFolderCount", this.childFolderCount);
+            writer.writeNumberValue("childFolderCount", this.childFolderCount);
         }
         if(this.childFolders && this.childFolders.length != 0){        const childFoldersArrValue: MailFolderImpl[] = []; this.childFolders?.forEach(element => {childFoldersArrValue.push(new MailFolderImpl(element));});
-        writer.writeCollectionOfObjectValues<MailFolderImpl>("childFolders", childFoldersArrValue);
+            writer.writeCollectionOfObjectValues<MailFolderImpl>("childFolders", childFoldersArrValue);
         }
         if(this.displayName){
-        writer.writeStringValue("displayName", this.displayName);
+            writer.writeStringValue("displayName", this.displayName);
         }
         if(this.isHidden){
-        writer.writeBooleanValue("isHidden", this.isHidden);
+            writer.writeBooleanValue("isHidden", this.isHidden);
         }
         if(this.messageRules && this.messageRules.length != 0){        const messageRulesArrValue: MessageRuleImpl[] = []; this.messageRules?.forEach(element => {messageRulesArrValue.push(new MessageRuleImpl(element));});
-        writer.writeCollectionOfObjectValues<MessageRuleImpl>("messageRules", messageRulesArrValue);
+            writer.writeCollectionOfObjectValues<MessageRuleImpl>("messageRules", messageRulesArrValue);
         }
         if(this.messages && this.messages.length != 0){        const messagesArrValue: MessageImpl[] = []; this.messages?.forEach(element => {messagesArrValue.push(new MessageImpl(element));});
-        writer.writeCollectionOfObjectValues<MessageImpl>("messages", messagesArrValue);
+            writer.writeCollectionOfObjectValues<MessageImpl>("messages", messagesArrValue);
         }
         if(this.multiValueExtendedProperties && this.multiValueExtendedProperties.length != 0){        const multiValueExtendedPropertiesArrValue: MultiValueLegacyExtendedPropertyImpl[] = []; this.multiValueExtendedProperties?.forEach(element => {multiValueExtendedPropertiesArrValue.push(new MultiValueLegacyExtendedPropertyImpl(element));});
-        writer.writeCollectionOfObjectValues<MultiValueLegacyExtendedPropertyImpl>("multiValueExtendedProperties", multiValueExtendedPropertiesArrValue);
+            writer.writeCollectionOfObjectValues<MultiValueLegacyExtendedPropertyImpl>("multiValueExtendedProperties", multiValueExtendedPropertiesArrValue);
         }
         if(this.parentFolderId){
-        writer.writeStringValue("parentFolderId", this.parentFolderId);
+            writer.writeStringValue("parentFolderId", this.parentFolderId);
         }
         if(this.singleValueExtendedProperties && this.singleValueExtendedProperties.length != 0){        const singleValueExtendedPropertiesArrValue: SingleValueLegacyExtendedPropertyImpl[] = []; this.singleValueExtendedProperties?.forEach(element => {singleValueExtendedPropertiesArrValue.push(new SingleValueLegacyExtendedPropertyImpl(element));});
-        writer.writeCollectionOfObjectValues<SingleValueLegacyExtendedPropertyImpl>("singleValueExtendedProperties", singleValueExtendedPropertiesArrValue);
+            writer.writeCollectionOfObjectValues<SingleValueLegacyExtendedPropertyImpl>("singleValueExtendedProperties", singleValueExtendedPropertiesArrValue);
         }
         if(this.totalItemCount){
-        writer.writeNumberValue("totalItemCount", this.totalItemCount);
+            writer.writeNumberValue("totalItemCount", this.totalItemCount);
         }
         if(this.unreadItemCount){
-        writer.writeNumberValue("unreadItemCount", this.unreadItemCount);
+            writer.writeNumberValue("unreadItemCount", this.unreadItemCount);
         }
     };
 }

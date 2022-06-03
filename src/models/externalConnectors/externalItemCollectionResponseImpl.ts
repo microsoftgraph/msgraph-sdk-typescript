@@ -4,7 +4,7 @@ import {ExternalItemCollectionResponse} from './externalItemCollectionResponse';
 import {ExternalItemImpl} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ExternalItemCollectionResponseImpl implements AdditionalDataHolder, ExternalItemCollectionResponse, Parsable {
+export class ExternalItemCollectionResponseImpl implements ExternalItemCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class ExternalItemCollectionResponseImpl implements AdditionalDataHolder,
      * @param externalItemCollectionResponseParameterValue 
      */
     public constructor(externalItemCollectionResponseParameterValue?: ExternalItemCollectionResponse | undefined) {
-        this.additionalData = externalItemCollectionResponseParameterValue?.additionalData ? externalItemCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = externalItemCollectionResponseParameterValue?.nextLink ;
-        this.value = externalItemCollectionResponseParameterValue?.value ;
+        this.additionalData = externalItemCollectionResponseParameterValue?.additionalData ? externalItemCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = externalItemCollectionResponseParameterValue?.nextLink;
+        this.value = externalItemCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class ExternalItemCollectionResponseImpl implements AdditionalDataHolder,
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: ExternalItemImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ExternalItemImpl(element));});
-        writer.writeCollectionOfObjectValues<ExternalItemImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<ExternalItemImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

@@ -1,7 +1,7 @@
 import {Audio} from './audio';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class AudioImpl implements AdditionalDataHolder, Audio, Parsable {
+export class AudioImpl implements Audio {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The title of the album for this audio file. */
@@ -41,23 +41,23 @@ export class AudioImpl implements AdditionalDataHolder, Audio, Parsable {
      * @param audioParameterValue 
      */
     public constructor(audioParameterValue?: Audio | undefined) {
-        this.additionalData = audioParameterValue?.additionalData ? audioParameterValue?.additionalData! : {}
-        this.album = audioParameterValue?.album ;
-        this.albumArtist = audioParameterValue?.albumArtist ;
-        this.artist = audioParameterValue?.artist ;
-        this.bitrate = audioParameterValue?.bitrate ;
-        this.composers = audioParameterValue?.composers ;
-        this.copyright = audioParameterValue?.copyright ;
-        this.disc = audioParameterValue?.disc ;
-        this.discCount = audioParameterValue?.discCount ;
-        this.duration = audioParameterValue?.duration ;
-        this.genre = audioParameterValue?.genre ;
-        this.hasDrm = audioParameterValue?.hasDrm ;
-        this.isVariableBitrate = audioParameterValue?.isVariableBitrate ;
-        this.title = audioParameterValue?.title ;
-        this.track = audioParameterValue?.track ;
-        this.trackCount = audioParameterValue?.trackCount ;
-        this.year = audioParameterValue?.year ;
+        this.additionalData = audioParameterValue?.additionalData ? audioParameterValue?.additionalData! : {};
+        this.album = audioParameterValue?.album;
+        this.albumArtist = audioParameterValue?.albumArtist;
+        this.artist = audioParameterValue?.artist;
+        this.bitrate = audioParameterValue?.bitrate;
+        this.composers = audioParameterValue?.composers;
+        this.copyright = audioParameterValue?.copyright;
+        this.disc = audioParameterValue?.disc;
+        this.discCount = audioParameterValue?.discCount;
+        this.duration = audioParameterValue?.duration;
+        this.genre = audioParameterValue?.genre;
+        this.hasDrm = audioParameterValue?.hasDrm;
+        this.isVariableBitrate = audioParameterValue?.isVariableBitrate;
+        this.title = audioParameterValue?.title;
+        this.track = audioParameterValue?.track;
+        this.trackCount = audioParameterValue?.trackCount;
+        this.year = audioParameterValue?.year;
     };
     /**
      * The deserialization information for the current model
@@ -90,52 +90,52 @@ export class AudioImpl implements AdditionalDataHolder, Audio, Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.album){
-        writer.writeStringValue("album", this.album);
+            writer.writeStringValue("album", this.album);
         }
         if(this.albumArtist){
-        writer.writeStringValue("albumArtist", this.albumArtist);
+            writer.writeStringValue("albumArtist", this.albumArtist);
         }
         if(this.artist){
-        writer.writeStringValue("artist", this.artist);
+            writer.writeStringValue("artist", this.artist);
         }
         if(this.bitrate){
-        writer.writeNumberValue("bitrate", this.bitrate);
+            writer.writeNumberValue("bitrate", this.bitrate);
         }
         if(this.composers){
-        writer.writeStringValue("composers", this.composers);
+            writer.writeStringValue("composers", this.composers);
         }
         if(this.copyright){
-        writer.writeStringValue("copyright", this.copyright);
+            writer.writeStringValue("copyright", this.copyright);
         }
         if(this.disc){
-        writer.writeNumberValue("disc", this.disc);
+            writer.writeNumberValue("disc", this.disc);
         }
         if(this.discCount){
-        writer.writeNumberValue("discCount", this.discCount);
+            writer.writeNumberValue("discCount", this.discCount);
         }
         if(this.duration){
-        writer.writeNumberValue("duration", this.duration);
+            writer.writeNumberValue("duration", this.duration);
         }
         if(this.genre){
-        writer.writeStringValue("genre", this.genre);
+            writer.writeStringValue("genre", this.genre);
         }
         if(this.hasDrm){
-        writer.writeBooleanValue("hasDrm", this.hasDrm);
+            writer.writeBooleanValue("hasDrm", this.hasDrm);
         }
         if(this.isVariableBitrate){
-        writer.writeBooleanValue("isVariableBitrate", this.isVariableBitrate);
+            writer.writeBooleanValue("isVariableBitrate", this.isVariableBitrate);
         }
         if(this.title){
-        writer.writeStringValue("title", this.title);
+            writer.writeStringValue("title", this.title);
         }
         if(this.track){
-        writer.writeNumberValue("track", this.track);
+            writer.writeNumberValue("track", this.track);
         }
         if(this.trackCount){
-        writer.writeNumberValue("trackCount", this.trackCount);
+            writer.writeNumberValue("trackCount", this.trackCount);
         }
         if(this.year){
-        writer.writeNumberValue("year", this.year);
+            writer.writeNumberValue("year", this.year);
         }
         writer.writeAdditionalData(this.additionalData);
     };

@@ -3,7 +3,7 @@ import {EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the educationRoot singleton. */
-export class EducationAssignmentSettingsImpl extends EntityImpl implements EducationAssignmentSettings, Parsable {
+export class EducationAssignmentSettingsImpl extends EntityImpl implements EducationAssignmentSettings {
     /** Indicates whether turn-in celebration animation will be shown. A value of true indicates that the animation will not be shown. Default value is false. */
     public submissionAnimationDisabled?: boolean | undefined;
     /**
@@ -11,8 +11,8 @@ export class EducationAssignmentSettingsImpl extends EntityImpl implements Educa
      * @param educationAssignmentSettingsParameterValue 
      */
     public constructor(educationAssignmentSettingsParameterValue?: EducationAssignmentSettings | undefined) {
-        super();
-        this.submissionAnimationDisabled = educationAssignmentSettingsParameterValue?.submissionAnimationDisabled ;
+        super(educationAssignmentSettingsParameterValue);
+        this.submissionAnimationDisabled = educationAssignmentSettingsParameterValue?.submissionAnimationDisabled;
     };
     /**
      * The deserialization information for the current model
@@ -31,7 +31,7 @@ export class EducationAssignmentSettingsImpl extends EntityImpl implements Educa
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.submissionAnimationDisabled){
-        writer.writeBooleanValue("submissionAnimationDisabled", this.submissionAnimationDisabled);
+            writer.writeBooleanValue("submissionAnimationDisabled", this.submissionAnimationDisabled);
         }
     };
 }

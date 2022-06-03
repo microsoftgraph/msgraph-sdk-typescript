@@ -7,7 +7,7 @@ import {PlannerUser} from './plannerUser';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Casts the previous resource to user. */
-export class PlannerUserImpl extends EntityImpl implements Parsable, PlannerUser {
+export class PlannerUserImpl extends EntityImpl implements PlannerUser {
     /** Read-only. Nullable. Returns the plannerTasks assigned to the user. */
     public plans?: PlannerPlan[] | undefined;
     /** Read-only. Nullable. Returns the plannerTasks assigned to the user. */
@@ -17,9 +17,9 @@ export class PlannerUserImpl extends EntityImpl implements Parsable, PlannerUser
      * @param plannerUserParameterValue 
      */
     public constructor(plannerUserParameterValue?: PlannerUser | undefined) {
-        super();
-        this.plans = plannerUserParameterValue?.plans ;
-        this.tasks = plannerUserParameterValue?.tasks ;
+        super(plannerUserParameterValue);
+        this.plans = plannerUserParameterValue?.plans;
+        this.tasks = plannerUserParameterValue?.tasks;
     };
     /**
      * The deserialization information for the current model
@@ -39,10 +39,10 @@ export class PlannerUserImpl extends EntityImpl implements Parsable, PlannerUser
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.plans && this.plans.length != 0){        const plansArrValue: PlannerPlanImpl[] = []; this.plans?.forEach(element => {plansArrValue.push(new PlannerPlanImpl(element));});
-        writer.writeCollectionOfObjectValues<PlannerPlanImpl>("plans", plansArrValue);
+            writer.writeCollectionOfObjectValues<PlannerPlanImpl>("plans", plansArrValue);
         }
         if(this.tasks && this.tasks.length != 0){        const tasksArrValue: PlannerTaskImpl[] = []; this.tasks?.forEach(element => {tasksArrValue.push(new PlannerTaskImpl(element));});
-        writer.writeCollectionOfObjectValues<PlannerTaskImpl>("tasks", tasksArrValue);
+            writer.writeCollectionOfObjectValues<PlannerTaskImpl>("tasks", tasksArrValue);
         }
     };
 }

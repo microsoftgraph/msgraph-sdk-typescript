@@ -2,7 +2,7 @@ import {PrintJobProcessingState} from './printJobProcessingState';
 import {PrintJobStatus} from './printJobStatus';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class PrintJobStatusImpl implements AdditionalDataHolder, Parsable, PrintJobStatus {
+export class PrintJobStatusImpl implements PrintJobStatus {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** A human-readable description of the print job's current processing state. Read-only. */
@@ -18,11 +18,11 @@ export class PrintJobStatusImpl implements AdditionalDataHolder, Parsable, Print
      * @param printJobStatusParameterValue 
      */
     public constructor(printJobStatusParameterValue?: PrintJobStatus | undefined) {
-        this.additionalData = printJobStatusParameterValue?.additionalData ? printJobStatusParameterValue?.additionalData! : {}
-        this.description = printJobStatusParameterValue?.description ;
-        this.details = printJobStatusParameterValue?.details ;
-        this.isAcquiredByPrinter = printJobStatusParameterValue?.isAcquiredByPrinter ;
-        this.state = printJobStatusParameterValue?.state ;
+        this.additionalData = printJobStatusParameterValue?.additionalData ? printJobStatusParameterValue?.additionalData! : {};
+        this.description = printJobStatusParameterValue?.description;
+        this.details = printJobStatusParameterValue?.details;
+        this.isAcquiredByPrinter = printJobStatusParameterValue?.isAcquiredByPrinter;
+        this.state = printJobStatusParameterValue?.state;
     };
     /**
      * The deserialization information for the current model
@@ -43,16 +43,16 @@ export class PrintJobStatusImpl implements AdditionalDataHolder, Parsable, Print
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.description){
-        writer.writeStringValue("description", this.description);
+            writer.writeStringValue("description", this.description);
         }
         if(this.details){
-        writer.writeCollectionOfPrimitiveValues<string>("details", this.details);
+            writer.writeCollectionOfPrimitiveValues<string>("details", this.details);
         }
         if(this.isAcquiredByPrinter){
-        writer.writeBooleanValue("isAcquiredByPrinter", this.isAcquiredByPrinter);
+            writer.writeBooleanValue("isAcquiredByPrinter", this.isAcquiredByPrinter);
         }
         if(this.state){
-        writer.writeEnumValue<PrintJobProcessingState>("state", this.state);
+            writer.writeEnumValue<PrintJobProcessingState>("state", this.state);
         }
         writer.writeAdditionalData(this.additionalData);
     };

@@ -1,13 +1,14 @@
 import {AttendanceRecord} from './attendanceRecord';
 import {Entity} from './entity';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface MeetingAttendanceReport extends Entity{
+export interface MeetingAttendanceReport extends Entity, Partial<Parsable> {
     /** List of attendance records of an attendance report. Read-only. */
-    attendanceRecords?:AttendanceRecord[] | undefined;
+    attendanceRecords?: AttendanceRecord[] | undefined;
     /** UTC time when the meeting ended. Read-only. */
-    meetingEndDateTime?:Date | undefined;
+    meetingEndDateTime?: Date | undefined;
     /** UTC time when the meeting started. Read-only. */
-    meetingStartDateTime?:Date | undefined;
+    meetingStartDateTime?: Date | undefined;
     /** Total number of participants. Read-only. */
-    totalParticipantCount?:number | undefined;
+    totalParticipantCount?: number | undefined;
 }

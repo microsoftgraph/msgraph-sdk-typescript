@@ -5,7 +5,7 @@ import {FreeBusyStatus} from './freeBusyStatus';
 import {AttendeeBaseImpl} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class AttendeeAvailabilityImpl implements AdditionalDataHolder, AttendeeAvailability, Parsable {
+export class AttendeeAvailabilityImpl implements AttendeeAvailability {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The email address and type of attendee - whether it's a person or a resource, and whether required or optional if it's a person. */
@@ -17,9 +17,9 @@ export class AttendeeAvailabilityImpl implements AdditionalDataHolder, AttendeeA
      * @param attendeeAvailabilityParameterValue 
      */
     public constructor(attendeeAvailabilityParameterValue?: AttendeeAvailability | undefined) {
-        this.additionalData = attendeeAvailabilityParameterValue?.additionalData ? attendeeAvailabilityParameterValue?.additionalData! : {}
-        this.attendee = attendeeAvailabilityParameterValue?.attendee ;
-        this.availability = attendeeAvailabilityParameterValue?.availability ;
+        this.additionalData = attendeeAvailabilityParameterValue?.additionalData ? attendeeAvailabilityParameterValue?.additionalData! : {};
+        this.attendee = attendeeAvailabilityParameterValue?.attendee;
+        this.availability = attendeeAvailabilityParameterValue?.availability;
     };
     /**
      * The deserialization information for the current model
@@ -38,10 +38,10 @@ export class AttendeeAvailabilityImpl implements AdditionalDataHolder, AttendeeA
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.attendee){
-        writer.writeObjectValue<AttendeeBaseImpl>("attendee", new AttendeeBaseImpl(this.attendee));
+            writer.writeObjectValue<AttendeeBaseImpl>("attendee", new AttendeeBaseImpl(this.attendee));
         }
         if(this.availability){
-        writer.writeEnumValue<FreeBusyStatus>("availability", this.availability);
+            writer.writeEnumValue<FreeBusyStatus>("availability", this.availability);
         }
         writer.writeAdditionalData(this.additionalData);
     };

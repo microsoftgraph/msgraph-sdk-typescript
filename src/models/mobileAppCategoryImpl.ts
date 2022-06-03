@@ -3,7 +3,7 @@ import {MobileAppCategory} from './mobileAppCategory';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Contains properties for a single Intune app category. */
-export class MobileAppCategoryImpl extends EntityImpl implements MobileAppCategory, Parsable {
+export class MobileAppCategoryImpl extends EntityImpl implements MobileAppCategory {
     /** The name of the app category. */
     public displayName?: string | undefined;
     /** The date and time the mobileAppCategory was last modified. */
@@ -13,9 +13,9 @@ export class MobileAppCategoryImpl extends EntityImpl implements MobileAppCatego
      * @param mobileAppCategoryParameterValue 
      */
     public constructor(mobileAppCategoryParameterValue?: MobileAppCategory | undefined) {
-        super();
-        this.displayName = mobileAppCategoryParameterValue?.displayName ;
-        this.lastModifiedDateTime = mobileAppCategoryParameterValue?.lastModifiedDateTime ;
+        super(mobileAppCategoryParameterValue);
+        this.displayName = mobileAppCategoryParameterValue?.displayName;
+        this.lastModifiedDateTime = mobileAppCategoryParameterValue?.lastModifiedDateTime;
     };
     /**
      * The deserialization information for the current model
@@ -35,10 +35,10 @@ export class MobileAppCategoryImpl extends EntityImpl implements MobileAppCatego
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.displayName){
-        writer.writeStringValue("displayName", this.displayName);
+            writer.writeStringValue("displayName", this.displayName);
         }
         if(this.lastModifiedDateTime){
-        writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
+            writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
         }
     };
 }

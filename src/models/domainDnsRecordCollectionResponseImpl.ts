@@ -4,7 +4,7 @@ import {DomainDnsRecordCollectionResponse} from './domainDnsRecordCollectionResp
 import {DomainDnsRecordImpl} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class DomainDnsRecordCollectionResponseImpl implements AdditionalDataHolder, DomainDnsRecordCollectionResponse, Parsable {
+export class DomainDnsRecordCollectionResponseImpl implements DomainDnsRecordCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class DomainDnsRecordCollectionResponseImpl implements AdditionalDataHold
      * @param domainDnsRecordCollectionResponseParameterValue 
      */
     public constructor(domainDnsRecordCollectionResponseParameterValue?: DomainDnsRecordCollectionResponse | undefined) {
-        this.additionalData = domainDnsRecordCollectionResponseParameterValue?.additionalData ? domainDnsRecordCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = domainDnsRecordCollectionResponseParameterValue?.nextLink ;
-        this.value = domainDnsRecordCollectionResponseParameterValue?.value ;
+        this.additionalData = domainDnsRecordCollectionResponseParameterValue?.additionalData ? domainDnsRecordCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = domainDnsRecordCollectionResponseParameterValue?.nextLink;
+        this.value = domainDnsRecordCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class DomainDnsRecordCollectionResponseImpl implements AdditionalDataHold
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: DomainDnsRecordImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new DomainDnsRecordImpl(element));});
-        writer.writeCollectionOfObjectValues<DomainDnsRecordImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<DomainDnsRecordImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

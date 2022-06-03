@@ -4,7 +4,7 @@ import {NotificationMessageTemplate} from './notificationMessageTemplate';
 import {NotificationMessageTemplateCollectionResponse} from './notificationMessageTemplateCollectionResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class NotificationMessageTemplateCollectionResponseImpl implements AdditionalDataHolder, NotificationMessageTemplateCollectionResponse, Parsable {
+export class NotificationMessageTemplateCollectionResponseImpl implements NotificationMessageTemplateCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class NotificationMessageTemplateCollectionResponseImpl implements Additi
      * @param notificationMessageTemplateCollectionResponseParameterValue 
      */
     public constructor(notificationMessageTemplateCollectionResponseParameterValue?: NotificationMessageTemplateCollectionResponse | undefined) {
-        this.additionalData = notificationMessageTemplateCollectionResponseParameterValue?.additionalData ? notificationMessageTemplateCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = notificationMessageTemplateCollectionResponseParameterValue?.nextLink ;
-        this.value = notificationMessageTemplateCollectionResponseParameterValue?.value ;
+        this.additionalData = notificationMessageTemplateCollectionResponseParameterValue?.additionalData ? notificationMessageTemplateCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = notificationMessageTemplateCollectionResponseParameterValue?.nextLink;
+        this.value = notificationMessageTemplateCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class NotificationMessageTemplateCollectionResponseImpl implements Additi
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: NotificationMessageTemplateImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new NotificationMessageTemplateImpl(element));});
-        writer.writeCollectionOfObjectValues<NotificationMessageTemplateImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<NotificationMessageTemplateImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

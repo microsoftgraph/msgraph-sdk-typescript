@@ -3,7 +3,7 @@ import {OpenShiftChangeRequest} from './openShiftChangeRequest';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Casts the previous resource to group. */
-export class OpenShiftChangeRequestImpl extends ScheduleChangeRequestImpl implements OpenShiftChangeRequest, Parsable {
+export class OpenShiftChangeRequestImpl extends ScheduleChangeRequestImpl implements OpenShiftChangeRequest {
     /** ID for the open shift. */
     public openShiftId?: string | undefined;
     /**
@@ -11,8 +11,8 @@ export class OpenShiftChangeRequestImpl extends ScheduleChangeRequestImpl implem
      * @param openShiftChangeRequestParameterValue 
      */
     public constructor(openShiftChangeRequestParameterValue?: OpenShiftChangeRequest | undefined) {
-        super();
-        this.openShiftId = openShiftChangeRequestParameterValue?.openShiftId ;
+        super(openShiftChangeRequestParameterValue);
+        this.openShiftId = openShiftChangeRequestParameterValue?.openShiftId;
     };
     /**
      * The deserialization information for the current model
@@ -31,7 +31,7 @@ export class OpenShiftChangeRequestImpl extends ScheduleChangeRequestImpl implem
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.openShiftId){
-        writer.writeStringValue("openShiftId", this.openShiftId);
+            writer.writeStringValue("openShiftId", this.openShiftId);
         }
     };
 }

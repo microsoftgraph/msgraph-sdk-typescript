@@ -3,7 +3,7 @@ import {SwapShiftsChangeRequest} from './swapShiftsChangeRequest';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Casts the previous resource to group. */
-export class SwapShiftsChangeRequestImpl extends OfferShiftRequestImpl implements Parsable, SwapShiftsChangeRequest {
+export class SwapShiftsChangeRequestImpl extends OfferShiftRequestImpl implements SwapShiftsChangeRequest {
     /** Shift ID for the recipient user with whom the request is to swap. */
     public recipientShiftId?: string | undefined;
     /**
@@ -11,8 +11,8 @@ export class SwapShiftsChangeRequestImpl extends OfferShiftRequestImpl implement
      * @param swapShiftsChangeRequestParameterValue 
      */
     public constructor(swapShiftsChangeRequestParameterValue?: SwapShiftsChangeRequest | undefined) {
-        super();
-        this.recipientShiftId = swapShiftsChangeRequestParameterValue?.recipientShiftId ;
+        super(swapShiftsChangeRequestParameterValue);
+        this.recipientShiftId = swapShiftsChangeRequestParameterValue?.recipientShiftId;
     };
     /**
      * The deserialization information for the current model
@@ -31,7 +31,7 @@ export class SwapShiftsChangeRequestImpl extends OfferShiftRequestImpl implement
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.recipientShiftId){
-        writer.writeStringValue("recipientShiftId", this.recipientShiftId);
+            writer.writeStringValue("recipientShiftId", this.recipientShiftId);
         }
     };
 }

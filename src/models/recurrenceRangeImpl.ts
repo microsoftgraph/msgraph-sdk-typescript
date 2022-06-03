@@ -2,7 +2,7 @@ import {RecurrenceRange} from './recurrenceRange';
 import {RecurrenceRangeType} from './recurrenceRangeType';
 import {AdditionalDataHolder, DateOnly, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class RecurrenceRangeImpl implements AdditionalDataHolder, Parsable, RecurrenceRange {
+export class RecurrenceRangeImpl implements RecurrenceRange {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The date to stop applying the recurrence pattern. Depending on the recurrence pattern of the event, the last occurrence of the meeting may not be this date. Required if type is endDate. */
@@ -20,12 +20,12 @@ export class RecurrenceRangeImpl implements AdditionalDataHolder, Parsable, Recu
      * @param recurrenceRangeParameterValue 
      */
     public constructor(recurrenceRangeParameterValue?: RecurrenceRange | undefined) {
-        this.additionalData = recurrenceRangeParameterValue?.additionalData ? recurrenceRangeParameterValue?.additionalData! : {}
-        this.endDate = recurrenceRangeParameterValue?.endDate ;
-        this.numberOfOccurrences = recurrenceRangeParameterValue?.numberOfOccurrences ;
-        this.recurrenceTimeZone = recurrenceRangeParameterValue?.recurrenceTimeZone ;
-        this.startDate = recurrenceRangeParameterValue?.startDate ;
-        this.type = recurrenceRangeParameterValue?.type ;
+        this.additionalData = recurrenceRangeParameterValue?.additionalData ? recurrenceRangeParameterValue?.additionalData! : {};
+        this.endDate = recurrenceRangeParameterValue?.endDate;
+        this.numberOfOccurrences = recurrenceRangeParameterValue?.numberOfOccurrences;
+        this.recurrenceTimeZone = recurrenceRangeParameterValue?.recurrenceTimeZone;
+        this.startDate = recurrenceRangeParameterValue?.startDate;
+        this.type = recurrenceRangeParameterValue?.type;
     };
     /**
      * The deserialization information for the current model
@@ -47,19 +47,19 @@ export class RecurrenceRangeImpl implements AdditionalDataHolder, Parsable, Recu
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.endDate){
-        writer.writeDateOnlyValue("endDate", this.endDate);
+            writer.writeDateOnlyValue("endDate", this.endDate);
         }
         if(this.numberOfOccurrences){
-        writer.writeNumberValue("numberOfOccurrences", this.numberOfOccurrences);
+            writer.writeNumberValue("numberOfOccurrences", this.numberOfOccurrences);
         }
         if(this.recurrenceTimeZone){
-        writer.writeStringValue("recurrenceTimeZone", this.recurrenceTimeZone);
+            writer.writeStringValue("recurrenceTimeZone", this.recurrenceTimeZone);
         }
         if(this.startDate){
-        writer.writeDateOnlyValue("startDate", this.startDate);
+            writer.writeDateOnlyValue("startDate", this.startDate);
         }
         if(this.type){
-        writer.writeEnumValue<RecurrenceRangeType>("type", this.type);
+            writer.writeEnumValue<RecurrenceRangeType>("type", this.type);
         }
         writer.writeAdditionalData(this.additionalData);
     };

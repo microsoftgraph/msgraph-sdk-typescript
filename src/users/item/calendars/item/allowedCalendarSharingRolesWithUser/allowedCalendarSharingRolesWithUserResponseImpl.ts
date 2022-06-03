@@ -2,7 +2,7 @@ import {AllowedCalendarSharingRolesWithUserResponse} from './allowedCalendarShar
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the allowedCalendarSharingRoles method. */
-export class AllowedCalendarSharingRolesWithUserResponseImpl implements AdditionalDataHolder, AllowedCalendarSharingRolesWithUserResponse, Parsable {
+export class AllowedCalendarSharingRolesWithUserResponseImpl implements AllowedCalendarSharingRolesWithUserResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The value property */
@@ -12,8 +12,8 @@ export class AllowedCalendarSharingRolesWithUserResponseImpl implements Addition
      * @param allowedCalendarSharingRolesWithUserResponseParameterValue 
      */
     public constructor(allowedCalendarSharingRolesWithUserResponseParameterValue?: AllowedCalendarSharingRolesWithUserResponse | undefined) {
-        this.additionalData = allowedCalendarSharingRolesWithUserResponseParameterValue?.additionalData ? allowedCalendarSharingRolesWithUserResponseParameterValue?.additionalData! : {}
-        this.value = allowedCalendarSharingRolesWithUserResponseParameterValue?.value ;
+        this.additionalData = allowedCalendarSharingRolesWithUserResponseParameterValue?.additionalData ? allowedCalendarSharingRolesWithUserResponseParameterValue?.additionalData! : {};
+        this.value = allowedCalendarSharingRolesWithUserResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -31,7 +31,7 @@ export class AllowedCalendarSharingRolesWithUserResponseImpl implements Addition
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.value){
-        writer.writeCollectionOfPrimitiveValues<string>("value", this.value);
+            writer.writeCollectionOfPrimitiveValues<string>("value", this.value);
         }
         writer.writeAdditionalData(this.additionalData);
     };

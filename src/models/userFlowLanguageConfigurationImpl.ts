@@ -5,7 +5,7 @@ import {UserFlowLanguagePage} from './userFlowLanguagePage';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the identityContainer singleton. */
-export class UserFlowLanguageConfigurationImpl extends EntityImpl implements Parsable, UserFlowLanguageConfiguration {
+export class UserFlowLanguageConfigurationImpl extends EntityImpl implements UserFlowLanguageConfiguration {
     /** Collection of pages with the default content to display in a user flow for a specified language. This collection does not allow any kind of modification. */
     public defaultPages?: UserFlowLanguagePage[] | undefined;
     /** The language name to display. This property is read-only. */
@@ -19,11 +19,11 @@ export class UserFlowLanguageConfigurationImpl extends EntityImpl implements Par
      * @param userFlowLanguageConfigurationParameterValue 
      */
     public constructor(userFlowLanguageConfigurationParameterValue?: UserFlowLanguageConfiguration | undefined) {
-        super();
-        this.defaultPages = userFlowLanguageConfigurationParameterValue?.defaultPages ;
-        this.displayName = userFlowLanguageConfigurationParameterValue?.displayName ;
-        this.isEnabled = userFlowLanguageConfigurationParameterValue?.isEnabled ;
-        this.overridesPages = userFlowLanguageConfigurationParameterValue?.overridesPages ;
+        super(userFlowLanguageConfigurationParameterValue);
+        this.defaultPages = userFlowLanguageConfigurationParameterValue?.defaultPages;
+        this.displayName = userFlowLanguageConfigurationParameterValue?.displayName;
+        this.isEnabled = userFlowLanguageConfigurationParameterValue?.isEnabled;
+        this.overridesPages = userFlowLanguageConfigurationParameterValue?.overridesPages;
     };
     /**
      * The deserialization information for the current model
@@ -45,16 +45,16 @@ export class UserFlowLanguageConfigurationImpl extends EntityImpl implements Par
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.defaultPages && this.defaultPages.length != 0){        const defaultPagesArrValue: UserFlowLanguagePageImpl[] = []; this.defaultPages?.forEach(element => {defaultPagesArrValue.push(new UserFlowLanguagePageImpl(element));});
-        writer.writeCollectionOfObjectValues<UserFlowLanguagePageImpl>("defaultPages", defaultPagesArrValue);
+            writer.writeCollectionOfObjectValues<UserFlowLanguagePageImpl>("defaultPages", defaultPagesArrValue);
         }
         if(this.displayName){
-        writer.writeStringValue("displayName", this.displayName);
+            writer.writeStringValue("displayName", this.displayName);
         }
         if(this.isEnabled){
-        writer.writeBooleanValue("isEnabled", this.isEnabled);
+            writer.writeBooleanValue("isEnabled", this.isEnabled);
         }
         if(this.overridesPages && this.overridesPages.length != 0){        const overridesPagesArrValue: UserFlowLanguagePageImpl[] = []; this.overridesPages?.forEach(element => {overridesPagesArrValue.push(new UserFlowLanguagePageImpl(element));});
-        writer.writeCollectionOfObjectValues<UserFlowLanguagePageImpl>("overridesPages", overridesPagesArrValue);
+            writer.writeCollectionOfObjectValues<UserFlowLanguagePageImpl>("overridesPages", overridesPagesArrValue);
         }
     };
 }

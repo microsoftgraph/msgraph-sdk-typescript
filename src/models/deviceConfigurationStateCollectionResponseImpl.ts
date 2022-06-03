@@ -4,7 +4,7 @@ import {DeviceConfigurationStateCollectionResponse} from './deviceConfigurationS
 import {DeviceConfigurationStateImpl} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class DeviceConfigurationStateCollectionResponseImpl implements AdditionalDataHolder, DeviceConfigurationStateCollectionResponse, Parsable {
+export class DeviceConfigurationStateCollectionResponseImpl implements DeviceConfigurationStateCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class DeviceConfigurationStateCollectionResponseImpl implements Additiona
      * @param deviceConfigurationStateCollectionResponseParameterValue 
      */
     public constructor(deviceConfigurationStateCollectionResponseParameterValue?: DeviceConfigurationStateCollectionResponse | undefined) {
-        this.additionalData = deviceConfigurationStateCollectionResponseParameterValue?.additionalData ? deviceConfigurationStateCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = deviceConfigurationStateCollectionResponseParameterValue?.nextLink ;
-        this.value = deviceConfigurationStateCollectionResponseParameterValue?.value ;
+        this.additionalData = deviceConfigurationStateCollectionResponseParameterValue?.additionalData ? deviceConfigurationStateCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = deviceConfigurationStateCollectionResponseParameterValue?.nextLink;
+        this.value = deviceConfigurationStateCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class DeviceConfigurationStateCollectionResponseImpl implements Additiona
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: DeviceConfigurationStateImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new DeviceConfigurationStateImpl(element));});
-        writer.writeCollectionOfObjectValues<DeviceConfigurationStateImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<DeviceConfigurationStateImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

@@ -4,7 +4,7 @@ import {SubjectRightsRequest} from './subjectRightsRequest';
 import {SubjectRightsRequestCollectionResponse} from './subjectRightsRequestCollectionResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class SubjectRightsRequestCollectionResponseImpl implements AdditionalDataHolder, Parsable, SubjectRightsRequestCollectionResponse {
+export class SubjectRightsRequestCollectionResponseImpl implements SubjectRightsRequestCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class SubjectRightsRequestCollectionResponseImpl implements AdditionalDat
      * @param subjectRightsRequestCollectionResponseParameterValue 
      */
     public constructor(subjectRightsRequestCollectionResponseParameterValue?: SubjectRightsRequestCollectionResponse | undefined) {
-        this.additionalData = subjectRightsRequestCollectionResponseParameterValue?.additionalData ? subjectRightsRequestCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = subjectRightsRequestCollectionResponseParameterValue?.nextLink ;
-        this.value = subjectRightsRequestCollectionResponseParameterValue?.value ;
+        this.additionalData = subjectRightsRequestCollectionResponseParameterValue?.additionalData ? subjectRightsRequestCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = subjectRightsRequestCollectionResponseParameterValue?.nextLink;
+        this.value = subjectRightsRequestCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class SubjectRightsRequestCollectionResponseImpl implements AdditionalDat
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: SubjectRightsRequestImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new SubjectRightsRequestImpl(element));});
-        writer.writeCollectionOfObjectValues<SubjectRightsRequestImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<SubjectRightsRequestImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

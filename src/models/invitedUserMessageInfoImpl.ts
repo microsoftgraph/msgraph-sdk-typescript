@@ -4,7 +4,7 @@ import {InvitedUserMessageInfo} from './invitedUserMessageInfo';
 import {Recipient} from './recipient';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class InvitedUserMessageInfoImpl implements AdditionalDataHolder, InvitedUserMessageInfo, Parsable {
+export class InvitedUserMessageInfoImpl implements InvitedUserMessageInfo {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Additional recipients the invitation message should be sent to. Currently only 1 additional recipient is supported. */
@@ -18,10 +18,10 @@ export class InvitedUserMessageInfoImpl implements AdditionalDataHolder, Invited
      * @param invitedUserMessageInfoParameterValue 
      */
     public constructor(invitedUserMessageInfoParameterValue?: InvitedUserMessageInfo | undefined) {
-        this.additionalData = invitedUserMessageInfoParameterValue?.additionalData ? invitedUserMessageInfoParameterValue?.additionalData! : {}
-        this.ccRecipients = invitedUserMessageInfoParameterValue?.ccRecipients ;
-        this.customizedMessageBody = invitedUserMessageInfoParameterValue?.customizedMessageBody ;
-        this.messageLanguage = invitedUserMessageInfoParameterValue?.messageLanguage ;
+        this.additionalData = invitedUserMessageInfoParameterValue?.additionalData ? invitedUserMessageInfoParameterValue?.additionalData! : {};
+        this.ccRecipients = invitedUserMessageInfoParameterValue?.ccRecipients;
+        this.customizedMessageBody = invitedUserMessageInfoParameterValue?.customizedMessageBody;
+        this.messageLanguage = invitedUserMessageInfoParameterValue?.messageLanguage;
     };
     /**
      * The deserialization information for the current model
@@ -41,13 +41,13 @@ export class InvitedUserMessageInfoImpl implements AdditionalDataHolder, Invited
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.ccRecipients && this.ccRecipients.length != 0){        const ccRecipientsArrValue: RecipientImpl[] = []; this.ccRecipients?.forEach(element => {ccRecipientsArrValue.push(new RecipientImpl(element));});
-        writer.writeCollectionOfObjectValues<RecipientImpl>("ccRecipients", ccRecipientsArrValue);
+            writer.writeCollectionOfObjectValues<RecipientImpl>("ccRecipients", ccRecipientsArrValue);
         }
         if(this.customizedMessageBody){
-        writer.writeStringValue("customizedMessageBody", this.customizedMessageBody);
+            writer.writeStringValue("customizedMessageBody", this.customizedMessageBody);
         }
         if(this.messageLanguage){
-        writer.writeStringValue("messageLanguage", this.messageLanguage);
+            writer.writeStringValue("messageLanguage", this.messageLanguage);
         }
         writer.writeAdditionalData(this.additionalData);
     };

@@ -4,7 +4,7 @@ import {PrintUsageByUser} from './printUsageByUser';
 import {PrintUsageByUserCollectionResponse} from './printUsageByUserCollectionResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class PrintUsageByUserCollectionResponseImpl implements AdditionalDataHolder, Parsable, PrintUsageByUserCollectionResponse {
+export class PrintUsageByUserCollectionResponseImpl implements PrintUsageByUserCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class PrintUsageByUserCollectionResponseImpl implements AdditionalDataHol
      * @param printUsageByUserCollectionResponseParameterValue 
      */
     public constructor(printUsageByUserCollectionResponseParameterValue?: PrintUsageByUserCollectionResponse | undefined) {
-        this.additionalData = printUsageByUserCollectionResponseParameterValue?.additionalData ? printUsageByUserCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = printUsageByUserCollectionResponseParameterValue?.nextLink ;
-        this.value = printUsageByUserCollectionResponseParameterValue?.value ;
+        this.additionalData = printUsageByUserCollectionResponseParameterValue?.additionalData ? printUsageByUserCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = printUsageByUserCollectionResponseParameterValue?.nextLink;
+        this.value = printUsageByUserCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class PrintUsageByUserCollectionResponseImpl implements AdditionalDataHol
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: PrintUsageByUserImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new PrintUsageByUserImpl(element));});
-        writer.writeCollectionOfObjectValues<PrintUsageByUserImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<PrintUsageByUserImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

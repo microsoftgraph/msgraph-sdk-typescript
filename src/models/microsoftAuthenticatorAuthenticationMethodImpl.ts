@@ -5,7 +5,7 @@ import {MicrosoftAuthenticatorAuthenticationMethod} from './microsoftAuthenticat
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Casts the previous resource to user. */
-export class MicrosoftAuthenticatorAuthenticationMethodImpl extends AuthenticationMethodImpl implements MicrosoftAuthenticatorAuthenticationMethod, Parsable {
+export class MicrosoftAuthenticatorAuthenticationMethodImpl extends AuthenticationMethodImpl implements MicrosoftAuthenticatorAuthenticationMethod {
     /** The date and time that this app was registered. This property is null if the device is not registered for passwordless Phone Sign-In. */
     public createdDateTime?: Date | undefined;
     /** The registered device on which Microsoft Authenticator resides. This property is null if the device is not registered for passwordless Phone Sign-In. */
@@ -21,12 +21,12 @@ export class MicrosoftAuthenticatorAuthenticationMethodImpl extends Authenticati
      * @param microsoftAuthenticatorAuthenticationMethodParameterValue 
      */
     public constructor(microsoftAuthenticatorAuthenticationMethodParameterValue?: MicrosoftAuthenticatorAuthenticationMethod | undefined) {
-        super();
-        this.createdDateTime = microsoftAuthenticatorAuthenticationMethodParameterValue?.createdDateTime ;
-        this.device = microsoftAuthenticatorAuthenticationMethodParameterValue?.device ;
-        this.deviceTag = microsoftAuthenticatorAuthenticationMethodParameterValue?.deviceTag ;
-        this.displayName = microsoftAuthenticatorAuthenticationMethodParameterValue?.displayName ;
-        this.phoneAppVersion = microsoftAuthenticatorAuthenticationMethodParameterValue?.phoneAppVersion ;
+        super(microsoftAuthenticatorAuthenticationMethodParameterValue);
+        this.createdDateTime = microsoftAuthenticatorAuthenticationMethodParameterValue?.createdDateTime;
+        this.device = microsoftAuthenticatorAuthenticationMethodParameterValue?.device;
+        this.deviceTag = microsoftAuthenticatorAuthenticationMethodParameterValue?.deviceTag;
+        this.displayName = microsoftAuthenticatorAuthenticationMethodParameterValue?.displayName;
+        this.phoneAppVersion = microsoftAuthenticatorAuthenticationMethodParameterValue?.phoneAppVersion;
     };
     /**
      * The deserialization information for the current model
@@ -49,19 +49,19 @@ export class MicrosoftAuthenticatorAuthenticationMethodImpl extends Authenticati
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.createdDateTime){
-        writer.writeDateValue("createdDateTime", this.createdDateTime);
+            writer.writeDateValue("createdDateTime", this.createdDateTime);
         }
         if(this.device){
-        writer.writeObjectValue<DeviceImpl>("device", new DeviceImpl(this.device));
+            writer.writeObjectValue<DeviceImpl>("device", new DeviceImpl(this.device));
         }
         if(this.deviceTag){
-        writer.writeStringValue("deviceTag", this.deviceTag);
+            writer.writeStringValue("deviceTag", this.deviceTag);
         }
         if(this.displayName){
-        writer.writeStringValue("displayName", this.displayName);
+            writer.writeStringValue("displayName", this.displayName);
         }
         if(this.phoneAppVersion){
-        writer.writeStringValue("phoneAppVersion", this.phoneAppVersion);
+            writer.writeStringValue("phoneAppVersion", this.phoneAppVersion);
         }
     };
 }

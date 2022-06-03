@@ -3,7 +3,7 @@ import {EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the collection of chat entities. */
-export class ConversationMemberImpl extends EntityImpl implements ConversationMember, Parsable {
+export class ConversationMemberImpl extends EntityImpl implements ConversationMember {
     /** The display name of the user. */
     public displayName?: string | undefined;
     /** The roles for that user. */
@@ -15,10 +15,10 @@ export class ConversationMemberImpl extends EntityImpl implements ConversationMe
      * @param conversationMemberParameterValue 
      */
     public constructor(conversationMemberParameterValue?: ConversationMember | undefined) {
-        super();
-        this.displayName = conversationMemberParameterValue?.displayName ;
-        this.roles = conversationMemberParameterValue?.roles ;
-        this.visibleHistoryStartDateTime = conversationMemberParameterValue?.visibleHistoryStartDateTime ;
+        super(conversationMemberParameterValue);
+        this.displayName = conversationMemberParameterValue?.displayName;
+        this.roles = conversationMemberParameterValue?.roles;
+        this.visibleHistoryStartDateTime = conversationMemberParameterValue?.visibleHistoryStartDateTime;
     };
     /**
      * The deserialization information for the current model
@@ -39,13 +39,13 @@ export class ConversationMemberImpl extends EntityImpl implements ConversationMe
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.displayName){
-        writer.writeStringValue("displayName", this.displayName);
+            writer.writeStringValue("displayName", this.displayName);
         }
         if(this.roles){
-        writer.writeCollectionOfPrimitiveValues<string>("roles", this.roles);
+            writer.writeCollectionOfPrimitiveValues<string>("roles", this.roles);
         }
         if(this.visibleHistoryStartDateTime){
-        writer.writeDateValue("visibleHistoryStartDateTime", this.visibleHistoryStartDateTime);
+            writer.writeDateValue("visibleHistoryStartDateTime", this.visibleHistoryStartDateTime);
         }
     };
 }

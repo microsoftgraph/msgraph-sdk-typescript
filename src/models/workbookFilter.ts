@@ -1,7 +1,8 @@
 import {Entity} from './entity';
 import {WorkbookFilterCriteria} from './workbookFilterCriteria';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface WorkbookFilter extends Entity{
+export interface WorkbookFilter extends Entity, Partial<Parsable> {
     /** The currently applied filter on the given column. Read-only. */
-    criteria?:WorkbookFilterCriteria | undefined;
+    criteria?: WorkbookFilterCriteria | undefined;
 }

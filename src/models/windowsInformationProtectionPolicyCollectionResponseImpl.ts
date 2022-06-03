@@ -4,7 +4,7 @@ import {WindowsInformationProtectionPolicy} from './windowsInformationProtection
 import {WindowsInformationProtectionPolicyCollectionResponse} from './windowsInformationProtectionPolicyCollectionResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class WindowsInformationProtectionPolicyCollectionResponseImpl implements AdditionalDataHolder, Parsable, WindowsInformationProtectionPolicyCollectionResponse {
+export class WindowsInformationProtectionPolicyCollectionResponseImpl implements WindowsInformationProtectionPolicyCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class WindowsInformationProtectionPolicyCollectionResponseImpl implements
      * @param windowsInformationProtectionPolicyCollectionResponseParameterValue 
      */
     public constructor(windowsInformationProtectionPolicyCollectionResponseParameterValue?: WindowsInformationProtectionPolicyCollectionResponse | undefined) {
-        this.additionalData = windowsInformationProtectionPolicyCollectionResponseParameterValue?.additionalData ? windowsInformationProtectionPolicyCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = windowsInformationProtectionPolicyCollectionResponseParameterValue?.nextLink ;
-        this.value = windowsInformationProtectionPolicyCollectionResponseParameterValue?.value ;
+        this.additionalData = windowsInformationProtectionPolicyCollectionResponseParameterValue?.additionalData ? windowsInformationProtectionPolicyCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = windowsInformationProtectionPolicyCollectionResponseParameterValue?.nextLink;
+        this.value = windowsInformationProtectionPolicyCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class WindowsInformationProtectionPolicyCollectionResponseImpl implements
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: WindowsInformationProtectionPolicyImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new WindowsInformationProtectionPolicyImpl(element));});
-        writer.writeCollectionOfObjectValues<WindowsInformationProtectionPolicyImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<WindowsInformationProtectionPolicyImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

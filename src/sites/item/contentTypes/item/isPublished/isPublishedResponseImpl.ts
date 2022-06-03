@@ -2,7 +2,7 @@ import {IsPublishedResponse} from './isPublishedResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the isPublished method. */
-export class IsPublishedResponseImpl implements AdditionalDataHolder, IsPublishedResponse, Parsable {
+export class IsPublishedResponseImpl implements IsPublishedResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The value property */
@@ -12,8 +12,8 @@ export class IsPublishedResponseImpl implements AdditionalDataHolder, IsPublishe
      * @param isPublishedResponseParameterValue 
      */
     public constructor(isPublishedResponseParameterValue?: IsPublishedResponse | undefined) {
-        this.additionalData = isPublishedResponseParameterValue?.additionalData ? isPublishedResponseParameterValue?.additionalData! : {}
-        this.value = isPublishedResponseParameterValue?.value ;
+        this.additionalData = isPublishedResponseParameterValue?.additionalData ? isPublishedResponseParameterValue?.additionalData! : {};
+        this.value = isPublishedResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -31,7 +31,7 @@ export class IsPublishedResponseImpl implements AdditionalDataHolder, IsPublishe
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.value){
-        writer.writeBooleanValue("value", this.value);
+            writer.writeBooleanValue("value", this.value);
         }
         writer.writeAdditionalData(this.additionalData);
     };

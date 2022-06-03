@@ -8,7 +8,7 @@ import {SearchHitsContainer} from './searchHitsContainer';
 import {SearchResponse} from './searchResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class SearchResponseImpl implements AdditionalDataHolder, Parsable, SearchResponse {
+export class SearchResponseImpl implements SearchResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** A collection of search results. */
@@ -24,11 +24,11 @@ export class SearchResponseImpl implements AdditionalDataHolder, Parsable, Searc
      * @param searchResponseParameterValue 
      */
     public constructor(searchResponseParameterValue?: SearchResponse | undefined) {
-        this.additionalData = searchResponseParameterValue?.additionalData ? searchResponseParameterValue?.additionalData! : {}
-        this.hitsContainers = searchResponseParameterValue?.hitsContainers ;
-        this.queryAlterationResponse = searchResponseParameterValue?.queryAlterationResponse ;
-        this.resultTemplates = searchResponseParameterValue?.resultTemplates ;
-        this.searchTerms = searchResponseParameterValue?.searchTerms ;
+        this.additionalData = searchResponseParameterValue?.additionalData ? searchResponseParameterValue?.additionalData! : {};
+        this.hitsContainers = searchResponseParameterValue?.hitsContainers;
+        this.queryAlterationResponse = searchResponseParameterValue?.queryAlterationResponse;
+        this.resultTemplates = searchResponseParameterValue?.resultTemplates;
+        this.searchTerms = searchResponseParameterValue?.searchTerms;
     };
     /**
      * The deserialization information for the current model
@@ -49,16 +49,16 @@ export class SearchResponseImpl implements AdditionalDataHolder, Parsable, Searc
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.hitsContainers && this.hitsContainers.length != 0){        const hitsContainersArrValue: SearchHitsContainerImpl[] = []; this.hitsContainers?.forEach(element => {hitsContainersArrValue.push(new SearchHitsContainerImpl(element));});
-        writer.writeCollectionOfObjectValues<SearchHitsContainerImpl>("hitsContainers", hitsContainersArrValue);
+            writer.writeCollectionOfObjectValues<SearchHitsContainerImpl>("hitsContainers", hitsContainersArrValue);
         }
         if(this.queryAlterationResponse){
-        writer.writeObjectValue<AlterationResponseImpl>("queryAlterationResponse", new AlterationResponseImpl(this.queryAlterationResponse));
+            writer.writeObjectValue<AlterationResponseImpl>("queryAlterationResponse", new AlterationResponseImpl(this.queryAlterationResponse));
         }
         if(this.resultTemplates){
-        writer.writeObjectValue<ResultTemplateDictionaryImpl>("resultTemplates", new ResultTemplateDictionaryImpl(this.resultTemplates));
+            writer.writeObjectValue<ResultTemplateDictionaryImpl>("resultTemplates", new ResultTemplateDictionaryImpl(this.resultTemplates));
         }
         if(this.searchTerms){
-        writer.writeCollectionOfPrimitiveValues<string>("searchTerms", this.searchTerms);
+            writer.writeCollectionOfPrimitiveValues<string>("searchTerms", this.searchTerms);
         }
         writer.writeAdditionalData(this.additionalData);
     };

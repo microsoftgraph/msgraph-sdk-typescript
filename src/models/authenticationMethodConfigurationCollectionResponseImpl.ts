@@ -4,7 +4,7 @@ import {createAuthenticationMethodConfigurationFromDiscriminatorValue} from './c
 import {AuthenticationMethodConfigurationImpl} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class AuthenticationMethodConfigurationCollectionResponseImpl implements AdditionalDataHolder, AuthenticationMethodConfigurationCollectionResponse, Parsable {
+export class AuthenticationMethodConfigurationCollectionResponseImpl implements AuthenticationMethodConfigurationCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class AuthenticationMethodConfigurationCollectionResponseImpl implements 
      * @param authenticationMethodConfigurationCollectionResponseParameterValue 
      */
     public constructor(authenticationMethodConfigurationCollectionResponseParameterValue?: AuthenticationMethodConfigurationCollectionResponse | undefined) {
-        this.additionalData = authenticationMethodConfigurationCollectionResponseParameterValue?.additionalData ? authenticationMethodConfigurationCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = authenticationMethodConfigurationCollectionResponseParameterValue?.nextLink ;
-        this.value = authenticationMethodConfigurationCollectionResponseParameterValue?.value ;
+        this.additionalData = authenticationMethodConfigurationCollectionResponseParameterValue?.additionalData ? authenticationMethodConfigurationCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = authenticationMethodConfigurationCollectionResponseParameterValue?.nextLink;
+        this.value = authenticationMethodConfigurationCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class AuthenticationMethodConfigurationCollectionResponseImpl implements 
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: AuthenticationMethodConfigurationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new AuthenticationMethodConfigurationImpl(element));});
-        writer.writeCollectionOfObjectValues<AuthenticationMethodConfigurationImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<AuthenticationMethodConfigurationImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

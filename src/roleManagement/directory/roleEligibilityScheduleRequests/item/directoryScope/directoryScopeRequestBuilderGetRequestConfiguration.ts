@@ -1,11 +1,11 @@
 import {DirectoryScopeRequestBuilderGetQueryParameters} from './directoryScopeRequestBuilderGetQueryParameters';
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
-export interface DirectoryScopeRequestBuilderGetRequestConfiguration{
+export interface DirectoryScopeRequestBuilderGetRequestConfiguration {
     /** Request headers */
-    headers?:Record<string, string> | undefined;
+    headers?: Record<string, string> | undefined;
     /** Request options */
-    options?:RequestOption[] | undefined;
+    options?: RequestOption[] | undefined;
     /** Request query parameters */
-    queryParameters?:DirectoryScopeRequestBuilderGetQueryParameters | undefined;
+    queryParameters?: DirectoryScopeRequestBuilderGetQueryParameters | undefined;
 }

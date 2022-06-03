@@ -4,7 +4,7 @@ import {DomainCollectionResponse} from './domainCollectionResponse';
 import {DomainImpl} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class DomainCollectionResponseImpl implements AdditionalDataHolder, DomainCollectionResponse, Parsable {
+export class DomainCollectionResponseImpl implements DomainCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class DomainCollectionResponseImpl implements AdditionalDataHolder, Domai
      * @param domainCollectionResponseParameterValue 
      */
     public constructor(domainCollectionResponseParameterValue?: DomainCollectionResponse | undefined) {
-        this.additionalData = domainCollectionResponseParameterValue?.additionalData ? domainCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = domainCollectionResponseParameterValue?.nextLink ;
-        this.value = domainCollectionResponseParameterValue?.value ;
+        this.additionalData = domainCollectionResponseParameterValue?.additionalData ? domainCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = domainCollectionResponseParameterValue?.nextLink;
+        this.value = domainCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class DomainCollectionResponseImpl implements AdditionalDataHolder, Domai
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: DomainImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new DomainImpl(element));});
-        writer.writeCollectionOfObjectValues<DomainImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<DomainImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

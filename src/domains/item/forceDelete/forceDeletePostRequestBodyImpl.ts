@@ -2,7 +2,7 @@ import {ForceDeletePostRequestBody} from './forceDeletePostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the forceDelete method. */
-export class ForceDeletePostRequestBodyImpl implements AdditionalDataHolder, ForceDeletePostRequestBody, Parsable {
+export class ForceDeletePostRequestBodyImpl implements ForceDeletePostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The disableUserAccounts property */
@@ -12,8 +12,8 @@ export class ForceDeletePostRequestBodyImpl implements AdditionalDataHolder, For
      * @param forceDeletePostRequestBodyParameterValue 
      */
     public constructor(forceDeletePostRequestBodyParameterValue?: ForceDeletePostRequestBody | undefined) {
-        this.additionalData = forceDeletePostRequestBodyParameterValue?.additionalData ? forceDeletePostRequestBodyParameterValue?.additionalData! : {}
-        this.disableUserAccounts = forceDeletePostRequestBodyParameterValue?.disableUserAccounts ;
+        this.additionalData = forceDeletePostRequestBodyParameterValue?.additionalData ? forceDeletePostRequestBodyParameterValue?.additionalData! : {};
+        this.disableUserAccounts = forceDeletePostRequestBodyParameterValue?.disableUserAccounts;
     };
     /**
      * The deserialization information for the current model
@@ -31,7 +31,7 @@ export class ForceDeletePostRequestBodyImpl implements AdditionalDataHolder, For
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.disableUserAccounts){
-        writer.writeBooleanValue("disableUserAccounts", this.disableUserAccounts);
+            writer.writeBooleanValue("disableUserAccounts", this.disableUserAccounts);
         }
         writer.writeAdditionalData(this.additionalData);
     };

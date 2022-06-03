@@ -1,7 +1,7 @@
 import {ControlScore} from './controlScore';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ControlScoreImpl implements AdditionalDataHolder, ControlScore, Parsable {
+export class ControlScoreImpl implements ControlScore {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Control action category (Identity, Data, Device, Apps, Infrastructure). */
@@ -17,11 +17,11 @@ export class ControlScoreImpl implements AdditionalDataHolder, ControlScore, Par
      * @param controlScoreParameterValue 
      */
     public constructor(controlScoreParameterValue?: ControlScore | undefined) {
-        this.additionalData = controlScoreParameterValue?.additionalData ? controlScoreParameterValue?.additionalData! : {}
-        this.controlCategory = controlScoreParameterValue?.controlCategory ;
-        this.controlName = controlScoreParameterValue?.controlName ;
-        this.description = controlScoreParameterValue?.description ;
-        this.score = controlScoreParameterValue?.score ;
+        this.additionalData = controlScoreParameterValue?.additionalData ? controlScoreParameterValue?.additionalData! : {};
+        this.controlCategory = controlScoreParameterValue?.controlCategory;
+        this.controlName = controlScoreParameterValue?.controlName;
+        this.description = controlScoreParameterValue?.description;
+        this.score = controlScoreParameterValue?.score;
     };
     /**
      * The deserialization information for the current model
@@ -42,16 +42,16 @@ export class ControlScoreImpl implements AdditionalDataHolder, ControlScore, Par
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.controlCategory){
-        writer.writeStringValue("controlCategory", this.controlCategory);
+            writer.writeStringValue("controlCategory", this.controlCategory);
         }
         if(this.controlName){
-        writer.writeStringValue("controlName", this.controlName);
+            writer.writeStringValue("controlName", this.controlName);
         }
         if(this.description){
-        writer.writeStringValue("description", this.description);
+            writer.writeStringValue("description", this.description);
         }
         if(this.score){
-        writer.writeNumberValue("score", this.score);
+            writer.writeNumberValue("score", this.score);
         }
         writer.writeAdditionalData(this.additionalData);
     };

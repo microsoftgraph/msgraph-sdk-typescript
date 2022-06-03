@@ -5,7 +5,7 @@ import {MeetingParticipantInfo} from './meetingParticipantInfo';
 import {OnlineMeetingRole} from './onlineMeetingRole';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class MeetingParticipantInfoImpl implements AdditionalDataHolder, MeetingParticipantInfo, Parsable {
+export class MeetingParticipantInfoImpl implements MeetingParticipantInfo {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Identity information of the participant. */
@@ -19,10 +19,10 @@ export class MeetingParticipantInfoImpl implements AdditionalDataHolder, Meeting
      * @param meetingParticipantInfoParameterValue 
      */
     public constructor(meetingParticipantInfoParameterValue?: MeetingParticipantInfo | undefined) {
-        this.additionalData = meetingParticipantInfoParameterValue?.additionalData ? meetingParticipantInfoParameterValue?.additionalData! : {}
-        this.identity = meetingParticipantInfoParameterValue?.identity ;
-        this.role = meetingParticipantInfoParameterValue?.role ;
-        this.upn = meetingParticipantInfoParameterValue?.upn ;
+        this.additionalData = meetingParticipantInfoParameterValue?.additionalData ? meetingParticipantInfoParameterValue?.additionalData! : {};
+        this.identity = meetingParticipantInfoParameterValue?.identity;
+        this.role = meetingParticipantInfoParameterValue?.role;
+        this.upn = meetingParticipantInfoParameterValue?.upn;
     };
     /**
      * The deserialization information for the current model
@@ -42,13 +42,13 @@ export class MeetingParticipantInfoImpl implements AdditionalDataHolder, Meeting
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.identity){
-        writer.writeObjectValue<IdentitySetImpl>("identity", new IdentitySetImpl(this.identity));
+            writer.writeObjectValue<IdentitySetImpl>("identity", new IdentitySetImpl(this.identity));
         }
         if(this.role){
-        writer.writeEnumValue<OnlineMeetingRole>("role", this.role);
+            writer.writeEnumValue<OnlineMeetingRole>("role", this.role);
         }
         if(this.upn){
-        writer.writeStringValue("upn", this.upn);
+            writer.writeStringValue("upn", this.upn);
         }
         writer.writeAdditionalData(this.additionalData);
     };

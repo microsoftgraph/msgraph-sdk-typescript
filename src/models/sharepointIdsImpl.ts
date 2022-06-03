@@ -1,7 +1,7 @@
 import {SharepointIds} from './sharepointIds';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class SharepointIdsImpl implements AdditionalDataHolder, Parsable, SharepointIds {
+export class SharepointIdsImpl implements SharepointIds {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The unique identifier (guid) for the item's list in SharePoint. */
@@ -23,14 +23,14 @@ export class SharepointIdsImpl implements AdditionalDataHolder, Parsable, Sharep
      * @param sharepointIdsParameterValue 
      */
     public constructor(sharepointIdsParameterValue?: SharepointIds | undefined) {
-        this.additionalData = sharepointIdsParameterValue?.additionalData ? sharepointIdsParameterValue?.additionalData! : {}
-        this.listId = sharepointIdsParameterValue?.listId ;
-        this.listItemId = sharepointIdsParameterValue?.listItemId ;
-        this.listItemUniqueId = sharepointIdsParameterValue?.listItemUniqueId ;
-        this.siteId = sharepointIdsParameterValue?.siteId ;
-        this.siteUrl = sharepointIdsParameterValue?.siteUrl ;
-        this.tenantId = sharepointIdsParameterValue?.tenantId ;
-        this.webId = sharepointIdsParameterValue?.webId ;
+        this.additionalData = sharepointIdsParameterValue?.additionalData ? sharepointIdsParameterValue?.additionalData! : {};
+        this.listId = sharepointIdsParameterValue?.listId;
+        this.listItemId = sharepointIdsParameterValue?.listItemId;
+        this.listItemUniqueId = sharepointIdsParameterValue?.listItemUniqueId;
+        this.siteId = sharepointIdsParameterValue?.siteId;
+        this.siteUrl = sharepointIdsParameterValue?.siteUrl;
+        this.tenantId = sharepointIdsParameterValue?.tenantId;
+        this.webId = sharepointIdsParameterValue?.webId;
     };
     /**
      * The deserialization information for the current model
@@ -54,25 +54,25 @@ export class SharepointIdsImpl implements AdditionalDataHolder, Parsable, Sharep
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.listId){
-        writer.writeStringValue("listId", this.listId);
+            writer.writeStringValue("listId", this.listId);
         }
         if(this.listItemId){
-        writer.writeStringValue("listItemId", this.listItemId);
+            writer.writeStringValue("listItemId", this.listItemId);
         }
         if(this.listItemUniqueId){
-        writer.writeStringValue("listItemUniqueId", this.listItemUniqueId);
+            writer.writeStringValue("listItemUniqueId", this.listItemUniqueId);
         }
         if(this.siteId){
-        writer.writeStringValue("siteId", this.siteId);
+            writer.writeStringValue("siteId", this.siteId);
         }
         if(this.siteUrl){
-        writer.writeStringValue("siteUrl", this.siteUrl);
+            writer.writeStringValue("siteUrl", this.siteUrl);
         }
         if(this.tenantId){
-        writer.writeStringValue("tenantId", this.tenantId);
+            writer.writeStringValue("tenantId", this.tenantId);
         }
         if(this.webId){
-        writer.writeStringValue("webId", this.webId);
+            writer.writeStringValue("webId", this.webId);
         }
         writer.writeAdditionalData(this.additionalData);
     };

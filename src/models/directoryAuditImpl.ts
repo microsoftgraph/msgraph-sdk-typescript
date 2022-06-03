@@ -10,7 +10,7 @@ import {TargetResource} from './targetResource';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the auditLogRoot singleton. */
-export class DirectoryAuditImpl extends EntityImpl implements DirectoryAudit, Parsable {
+export class DirectoryAuditImpl extends EntityImpl implements DirectoryAudit {
     /** Indicates the date and time the activity was performed. The Timestamp type is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
     public activityDateTime?: Date | undefined;
     /** Indicates the activity name or the operation name (E.g. 'Create User', 'Add member to group'). For a list of activities logged, refer to Azure Ad activity list. */
@@ -38,18 +38,18 @@ export class DirectoryAuditImpl extends EntityImpl implements DirectoryAudit, Pa
      * @param directoryAuditParameterValue 
      */
     public constructor(directoryAuditParameterValue?: DirectoryAudit | undefined) {
-        super();
-        this.activityDateTime = directoryAuditParameterValue?.activityDateTime ;
-        this.activityDisplayName = directoryAuditParameterValue?.activityDisplayName ;
-        this.additionalDetails = directoryAuditParameterValue?.additionalDetails ;
-        this.category = directoryAuditParameterValue?.category ;
-        this.correlationId = directoryAuditParameterValue?.correlationId ;
-        this.initiatedBy = directoryAuditParameterValue?.initiatedBy ;
-        this.loggedByService = directoryAuditParameterValue?.loggedByService ;
-        this.operationType = directoryAuditParameterValue?.operationType ;
-        this.result = directoryAuditParameterValue?.result ;
-        this.resultReason = directoryAuditParameterValue?.resultReason ;
-        this.targetResources = directoryAuditParameterValue?.targetResources ;
+        super(directoryAuditParameterValue);
+        this.activityDateTime = directoryAuditParameterValue?.activityDateTime;
+        this.activityDisplayName = directoryAuditParameterValue?.activityDisplayName;
+        this.additionalDetails = directoryAuditParameterValue?.additionalDetails;
+        this.category = directoryAuditParameterValue?.category;
+        this.correlationId = directoryAuditParameterValue?.correlationId;
+        this.initiatedBy = directoryAuditParameterValue?.initiatedBy;
+        this.loggedByService = directoryAuditParameterValue?.loggedByService;
+        this.operationType = directoryAuditParameterValue?.operationType;
+        this.result = directoryAuditParameterValue?.result;
+        this.resultReason = directoryAuditParameterValue?.resultReason;
+        this.targetResources = directoryAuditParameterValue?.targetResources;
     };
     /**
      * The deserialization information for the current model
@@ -78,37 +78,37 @@ export class DirectoryAuditImpl extends EntityImpl implements DirectoryAudit, Pa
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.activityDateTime){
-        writer.writeDateValue("activityDateTime", this.activityDateTime);
+            writer.writeDateValue("activityDateTime", this.activityDateTime);
         }
         if(this.activityDisplayName){
-        writer.writeStringValue("activityDisplayName", this.activityDisplayName);
+            writer.writeStringValue("activityDisplayName", this.activityDisplayName);
         }
         if(this.additionalDetails && this.additionalDetails.length != 0){        const additionalDetailsArrValue: KeyValueImpl[] = []; this.additionalDetails?.forEach(element => {additionalDetailsArrValue.push(new KeyValueImpl(element));});
-        writer.writeCollectionOfObjectValues<KeyValueImpl>("additionalDetails", additionalDetailsArrValue);
+            writer.writeCollectionOfObjectValues<KeyValueImpl>("additionalDetails", additionalDetailsArrValue);
         }
         if(this.category){
-        writer.writeStringValue("category", this.category);
+            writer.writeStringValue("category", this.category);
         }
         if(this.correlationId){
-        writer.writeStringValue("correlationId", this.correlationId);
+            writer.writeStringValue("correlationId", this.correlationId);
         }
         if(this.initiatedBy){
-        writer.writeObjectValue<AuditActivityInitiatorImpl>("initiatedBy", new AuditActivityInitiatorImpl(this.initiatedBy));
+            writer.writeObjectValue<AuditActivityInitiatorImpl>("initiatedBy", new AuditActivityInitiatorImpl(this.initiatedBy));
         }
         if(this.loggedByService){
-        writer.writeStringValue("loggedByService", this.loggedByService);
+            writer.writeStringValue("loggedByService", this.loggedByService);
         }
         if(this.operationType){
-        writer.writeStringValue("operationType", this.operationType);
+            writer.writeStringValue("operationType", this.operationType);
         }
         if(this.result){
-        writer.writeEnumValue<OperationResult>("result", this.result);
+            writer.writeEnumValue<OperationResult>("result", this.result);
         }
         if(this.resultReason){
-        writer.writeStringValue("resultReason", this.resultReason);
+            writer.writeStringValue("resultReason", this.resultReason);
         }
         if(this.targetResources && this.targetResources.length != 0){        const targetResourcesArrValue: TargetResourceImpl[] = []; this.targetResources?.forEach(element => {targetResourcesArrValue.push(new TargetResourceImpl(element));});
-        writer.writeCollectionOfObjectValues<TargetResourceImpl>("targetResources", targetResourcesArrValue);
+            writer.writeCollectionOfObjectValues<TargetResourceImpl>("targetResources", targetResourcesArrValue);
         }
     };
 }

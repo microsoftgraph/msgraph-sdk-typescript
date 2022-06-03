@@ -3,7 +3,7 @@ import {TranslateExchangeIdsPostRequestBody} from './translateExchangeIdsPostReq
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the translateExchangeIds method. */
-export class TranslateExchangeIdsPostRequestBodyImpl implements AdditionalDataHolder, Parsable, TranslateExchangeIdsPostRequestBody {
+export class TranslateExchangeIdsPostRequestBodyImpl implements TranslateExchangeIdsPostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The InputIds property */
@@ -17,10 +17,10 @@ export class TranslateExchangeIdsPostRequestBodyImpl implements AdditionalDataHo
      * @param translateExchangeIdsPostRequestBodyParameterValue 
      */
     public constructor(translateExchangeIdsPostRequestBodyParameterValue?: TranslateExchangeIdsPostRequestBody | undefined) {
-        this.additionalData = translateExchangeIdsPostRequestBodyParameterValue?.additionalData ? translateExchangeIdsPostRequestBodyParameterValue?.additionalData! : {}
-        this.inputIds = translateExchangeIdsPostRequestBodyParameterValue?.inputIds ;
-        this.sourceIdType = translateExchangeIdsPostRequestBodyParameterValue?.sourceIdType ;
-        this.targetIdType = translateExchangeIdsPostRequestBodyParameterValue?.targetIdType ;
+        this.additionalData = translateExchangeIdsPostRequestBodyParameterValue?.additionalData ? translateExchangeIdsPostRequestBodyParameterValue?.additionalData! : {};
+        this.inputIds = translateExchangeIdsPostRequestBodyParameterValue?.inputIds;
+        this.sourceIdType = translateExchangeIdsPostRequestBodyParameterValue?.sourceIdType;
+        this.targetIdType = translateExchangeIdsPostRequestBodyParameterValue?.targetIdType;
     };
     /**
      * The deserialization information for the current model
@@ -40,13 +40,13 @@ export class TranslateExchangeIdsPostRequestBodyImpl implements AdditionalDataHo
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.inputIds){
-        writer.writeCollectionOfPrimitiveValues<string>("inputIds", this.inputIds);
+            writer.writeCollectionOfPrimitiveValues<string>("inputIds", this.inputIds);
         }
         if(this.sourceIdType){
-        writer.writeEnumValue<ExchangeIdFormat>("sourceIdType", this.sourceIdType);
+            writer.writeEnumValue<ExchangeIdFormat>("sourceIdType", this.sourceIdType);
         }
         if(this.targetIdType){
-        writer.writeEnumValue<ExchangeIdFormat>("targetIdType", this.targetIdType);
+            writer.writeEnumValue<ExchangeIdFormat>("targetIdType", this.targetIdType);
         }
         writer.writeAdditionalData(this.additionalData);
     };

@@ -4,7 +4,7 @@ import {SchemaExtension} from './schemaExtension';
 import {SchemaExtensionCollectionResponse} from './schemaExtensionCollectionResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class SchemaExtensionCollectionResponseImpl implements AdditionalDataHolder, Parsable, SchemaExtensionCollectionResponse {
+export class SchemaExtensionCollectionResponseImpl implements SchemaExtensionCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class SchemaExtensionCollectionResponseImpl implements AdditionalDataHold
      * @param schemaExtensionCollectionResponseParameterValue 
      */
     public constructor(schemaExtensionCollectionResponseParameterValue?: SchemaExtensionCollectionResponse | undefined) {
-        this.additionalData = schemaExtensionCollectionResponseParameterValue?.additionalData ? schemaExtensionCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = schemaExtensionCollectionResponseParameterValue?.nextLink ;
-        this.value = schemaExtensionCollectionResponseParameterValue?.value ;
+        this.additionalData = schemaExtensionCollectionResponseParameterValue?.additionalData ? schemaExtensionCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = schemaExtensionCollectionResponseParameterValue?.nextLink;
+        this.value = schemaExtensionCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class SchemaExtensionCollectionResponseImpl implements AdditionalDataHold
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: SchemaExtensionImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new SchemaExtensionImpl(element));});
-        writer.writeCollectionOfObjectValues<SchemaExtensionImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<SchemaExtensionImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

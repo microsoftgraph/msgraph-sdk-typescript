@@ -3,13 +3,13 @@ import {TokenLifetimePolicy} from './tokenLifetimePolicy';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the collection of application entities. */
-export class TokenLifetimePolicyImpl extends StsPolicyImpl implements Parsable, TokenLifetimePolicy {
+export class TokenLifetimePolicyImpl extends StsPolicyImpl implements TokenLifetimePolicy {
     /**
      * Instantiates a new tokenLifetimePolicy and sets the default values.
      * @param tokenLifetimePolicyParameterValue 
      */
     public constructor(tokenLifetimePolicyParameterValue?: TokenLifetimePolicy | undefined) {
-        super();
+        super(tokenLifetimePolicyParameterValue);
     };
     /**
      * The deserialization information for the current model

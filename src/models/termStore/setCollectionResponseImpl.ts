@@ -4,7 +4,7 @@ import {Set} from './set';
 import {SetCollectionResponse} from './setCollectionResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class SetCollectionResponseImpl implements AdditionalDataHolder, Parsable, SetCollectionResponse {
+export class SetCollectionResponseImpl implements SetCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class SetCollectionResponseImpl implements AdditionalDataHolder, Parsable
      * @param setCollectionResponseParameterValue 
      */
     public constructor(setCollectionResponseParameterValue?: SetCollectionResponse | undefined) {
-        this.additionalData = setCollectionResponseParameterValue?.additionalData ? setCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = setCollectionResponseParameterValue?.nextLink ;
-        this.value = setCollectionResponseParameterValue?.value ;
+        this.additionalData = setCollectionResponseParameterValue?.additionalData ? setCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = setCollectionResponseParameterValue?.nextLink;
+        this.value = setCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class SetCollectionResponseImpl implements AdditionalDataHolder, Parsable
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: SetImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new SetImpl(element));});
-        writer.writeCollectionOfObjectValues<SetImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<SetImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

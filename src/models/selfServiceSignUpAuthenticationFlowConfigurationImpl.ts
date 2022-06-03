@@ -1,7 +1,7 @@
 import {SelfServiceSignUpAuthenticationFlowConfiguration} from './selfServiceSignUpAuthenticationFlowConfiguration';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class SelfServiceSignUpAuthenticationFlowConfigurationImpl implements AdditionalDataHolder, Parsable, SelfServiceSignUpAuthenticationFlowConfiguration {
+export class SelfServiceSignUpAuthenticationFlowConfigurationImpl implements SelfServiceSignUpAuthenticationFlowConfiguration {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Indicates whether self-service sign-up flow is enabled or disabled. The default value is false. This property is not a key. Required. */
@@ -11,8 +11,8 @@ export class SelfServiceSignUpAuthenticationFlowConfigurationImpl implements Add
      * @param selfServiceSignUpAuthenticationFlowConfigurationParameterValue 
      */
     public constructor(selfServiceSignUpAuthenticationFlowConfigurationParameterValue?: SelfServiceSignUpAuthenticationFlowConfiguration | undefined) {
-        this.additionalData = selfServiceSignUpAuthenticationFlowConfigurationParameterValue?.additionalData ? selfServiceSignUpAuthenticationFlowConfigurationParameterValue?.additionalData! : {}
-        this.isEnabled = selfServiceSignUpAuthenticationFlowConfigurationParameterValue?.isEnabled ;
+        this.additionalData = selfServiceSignUpAuthenticationFlowConfigurationParameterValue?.additionalData ? selfServiceSignUpAuthenticationFlowConfigurationParameterValue?.additionalData! : {};
+        this.isEnabled = selfServiceSignUpAuthenticationFlowConfigurationParameterValue?.isEnabled;
     };
     /**
      * The deserialization information for the current model
@@ -30,7 +30,7 @@ export class SelfServiceSignUpAuthenticationFlowConfigurationImpl implements Add
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.isEnabled){
-        writer.writeBooleanValue("isEnabled", this.isEnabled);
+            writer.writeBooleanValue("isEnabled", this.isEnabled);
         }
         writer.writeAdditionalData(this.additionalData);
     };

@@ -1,11 +1,12 @@
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface AlteredQueryToken{
+export interface AlteredQueryToken extends Partial<AdditionalDataHolder>, Partial<Parsable> {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?:Record<string, unknown>;
+    additionalData?: Record<string, unknown>;
     /** Defines the length of a changed segment. */
-    length?:number | undefined;
+    length?: number | undefined;
     /** Defines the offset of a changed segment. */
-    offset?:number | undefined;
+    offset?: number | undefined;
     /** Represents the corrected segment string. */
-    suggestion?:string | undefined;
+    suggestion?: string | undefined;
 }

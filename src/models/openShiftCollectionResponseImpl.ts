@@ -4,7 +4,7 @@ import {OpenShift} from './openShift';
 import {OpenShiftCollectionResponse} from './openShiftCollectionResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class OpenShiftCollectionResponseImpl implements AdditionalDataHolder, OpenShiftCollectionResponse, Parsable {
+export class OpenShiftCollectionResponseImpl implements OpenShiftCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class OpenShiftCollectionResponseImpl implements AdditionalDataHolder, Op
      * @param openShiftCollectionResponseParameterValue 
      */
     public constructor(openShiftCollectionResponseParameterValue?: OpenShiftCollectionResponse | undefined) {
-        this.additionalData = openShiftCollectionResponseParameterValue?.additionalData ? openShiftCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = openShiftCollectionResponseParameterValue?.nextLink ;
-        this.value = openShiftCollectionResponseParameterValue?.value ;
+        this.additionalData = openShiftCollectionResponseParameterValue?.additionalData ? openShiftCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = openShiftCollectionResponseParameterValue?.nextLink;
+        this.value = openShiftCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class OpenShiftCollectionResponseImpl implements AdditionalDataHolder, Op
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: OpenShiftImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new OpenShiftImpl(element));});
-        writer.writeCollectionOfObjectValues<OpenShiftImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<OpenShiftImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

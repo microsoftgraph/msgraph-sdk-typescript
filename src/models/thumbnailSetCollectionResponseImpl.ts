@@ -4,7 +4,7 @@ import {ThumbnailSet} from './thumbnailSet';
 import {ThumbnailSetCollectionResponse} from './thumbnailSetCollectionResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ThumbnailSetCollectionResponseImpl implements AdditionalDataHolder, Parsable, ThumbnailSetCollectionResponse {
+export class ThumbnailSetCollectionResponseImpl implements ThumbnailSetCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class ThumbnailSetCollectionResponseImpl implements AdditionalDataHolder,
      * @param thumbnailSetCollectionResponseParameterValue 
      */
     public constructor(thumbnailSetCollectionResponseParameterValue?: ThumbnailSetCollectionResponse | undefined) {
-        this.additionalData = thumbnailSetCollectionResponseParameterValue?.additionalData ? thumbnailSetCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = thumbnailSetCollectionResponseParameterValue?.nextLink ;
-        this.value = thumbnailSetCollectionResponseParameterValue?.value ;
+        this.additionalData = thumbnailSetCollectionResponseParameterValue?.additionalData ? thumbnailSetCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = thumbnailSetCollectionResponseParameterValue?.nextLink;
+        this.value = thumbnailSetCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class ThumbnailSetCollectionResponseImpl implements AdditionalDataHolder,
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: ThumbnailSetImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ThumbnailSetImpl(element));});
-        writer.writeCollectionOfObjectValues<ThumbnailSetImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<ThumbnailSetImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

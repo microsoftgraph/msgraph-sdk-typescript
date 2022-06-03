@@ -13,7 +13,7 @@ import {UserFlowLanguageConfiguration} from './userFlowLanguageConfiguration';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the identityContainer singleton. */
-export class B2xIdentityUserFlowImpl extends IdentityUserFlowImpl implements B2xIdentityUserFlow, Parsable {
+export class B2xIdentityUserFlowImpl extends IdentityUserFlowImpl implements B2xIdentityUserFlow {
     /** Configuration for enabling an API connector for use as part of the self-service sign up user flow. You can only obtain the value of this object using Get userFlowApiConnectorConfiguration. */
     public apiConnectorConfiguration?: UserFlowApiConnectorConfiguration | undefined;
     /** The identity providers included in the user flow. */
@@ -29,12 +29,12 @@ export class B2xIdentityUserFlowImpl extends IdentityUserFlowImpl implements B2x
      * @param b2xIdentityUserFlowParameterValue 
      */
     public constructor(b2xIdentityUserFlowParameterValue?: B2xIdentityUserFlow | undefined) {
-        super();
-        this.apiConnectorConfiguration = b2xIdentityUserFlowParameterValue?.apiConnectorConfiguration ;
-        this.identityProviders = b2xIdentityUserFlowParameterValue?.identityProviders ;
-        this.languages = b2xIdentityUserFlowParameterValue?.languages ;
-        this.userAttributeAssignments = b2xIdentityUserFlowParameterValue?.userAttributeAssignments ;
-        this.userFlowIdentityProviders = b2xIdentityUserFlowParameterValue?.userFlowIdentityProviders ;
+        super(b2xIdentityUserFlowParameterValue);
+        this.apiConnectorConfiguration = b2xIdentityUserFlowParameterValue?.apiConnectorConfiguration;
+        this.identityProviders = b2xIdentityUserFlowParameterValue?.identityProviders;
+        this.languages = b2xIdentityUserFlowParameterValue?.languages;
+        this.userAttributeAssignments = b2xIdentityUserFlowParameterValue?.userAttributeAssignments;
+        this.userFlowIdentityProviders = b2xIdentityUserFlowParameterValue?.userFlowIdentityProviders;
     };
     /**
      * The deserialization information for the current model
@@ -57,19 +57,19 @@ export class B2xIdentityUserFlowImpl extends IdentityUserFlowImpl implements B2x
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.apiConnectorConfiguration){
-        writer.writeObjectValue<UserFlowApiConnectorConfigurationImpl>("apiConnectorConfiguration", new UserFlowApiConnectorConfigurationImpl(this.apiConnectorConfiguration));
+            writer.writeObjectValue<UserFlowApiConnectorConfigurationImpl>("apiConnectorConfiguration", new UserFlowApiConnectorConfigurationImpl(this.apiConnectorConfiguration));
         }
         if(this.identityProviders && this.identityProviders.length != 0){        const identityProvidersArrValue: IdentityProviderImpl[] = []; this.identityProviders?.forEach(element => {identityProvidersArrValue.push(new IdentityProviderImpl(element));});
-        writer.writeCollectionOfObjectValues<IdentityProviderImpl>("identityProviders", identityProvidersArrValue);
+            writer.writeCollectionOfObjectValues<IdentityProviderImpl>("identityProviders", identityProvidersArrValue);
         }
         if(this.languages && this.languages.length != 0){        const languagesArrValue: UserFlowLanguageConfigurationImpl[] = []; this.languages?.forEach(element => {languagesArrValue.push(new UserFlowLanguageConfigurationImpl(element));});
-        writer.writeCollectionOfObjectValues<UserFlowLanguageConfigurationImpl>("languages", languagesArrValue);
+            writer.writeCollectionOfObjectValues<UserFlowLanguageConfigurationImpl>("languages", languagesArrValue);
         }
         if(this.userAttributeAssignments && this.userAttributeAssignments.length != 0){        const userAttributeAssignmentsArrValue: IdentityUserFlowAttributeAssignmentImpl[] = []; this.userAttributeAssignments?.forEach(element => {userAttributeAssignmentsArrValue.push(new IdentityUserFlowAttributeAssignmentImpl(element));});
-        writer.writeCollectionOfObjectValues<IdentityUserFlowAttributeAssignmentImpl>("userAttributeAssignments", userAttributeAssignmentsArrValue);
+            writer.writeCollectionOfObjectValues<IdentityUserFlowAttributeAssignmentImpl>("userAttributeAssignments", userAttributeAssignmentsArrValue);
         }
         if(this.userFlowIdentityProviders && this.userFlowIdentityProviders.length != 0){        const userFlowIdentityProvidersArrValue: IdentityProviderBaseImpl[] = []; this.userFlowIdentityProviders?.forEach(element => {userFlowIdentityProvidersArrValue.push(new IdentityProviderBaseImpl(element));});
-        writer.writeCollectionOfObjectValues<IdentityProviderBaseImpl>("userFlowIdentityProviders", userFlowIdentityProvidersArrValue);
+            writer.writeCollectionOfObjectValues<IdentityProviderBaseImpl>("userFlowIdentityProviders", userFlowIdentityProvidersArrValue);
         }
     };
 }

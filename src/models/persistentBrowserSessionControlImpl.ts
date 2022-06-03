@@ -4,7 +4,7 @@ import {PersistentBrowserSessionMode} from './persistentBrowserSessionMode';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the identityContainer singleton. */
-export class PersistentBrowserSessionControlImpl extends ConditionalAccessSessionControlImpl implements Parsable, PersistentBrowserSessionControl {
+export class PersistentBrowserSessionControlImpl extends ConditionalAccessSessionControlImpl implements PersistentBrowserSessionControl {
     /** Possible values are: always, never. */
     public mode?: PersistentBrowserSessionMode | undefined;
     /**
@@ -12,8 +12,8 @@ export class PersistentBrowserSessionControlImpl extends ConditionalAccessSessio
      * @param persistentBrowserSessionControlParameterValue 
      */
     public constructor(persistentBrowserSessionControlParameterValue?: PersistentBrowserSessionControl | undefined) {
-        super();
-        this.mode = persistentBrowserSessionControlParameterValue?.mode ;
+        super(persistentBrowserSessionControlParameterValue);
+        this.mode = persistentBrowserSessionControlParameterValue?.mode;
     };
     /**
      * The deserialization information for the current model
@@ -32,7 +32,7 @@ export class PersistentBrowserSessionControlImpl extends ConditionalAccessSessio
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.mode){
-        writer.writeEnumValue<PersistentBrowserSessionMode>("mode", this.mode);
+            writer.writeEnumValue<PersistentBrowserSessionMode>("mode", this.mode);
         }
     };
 }

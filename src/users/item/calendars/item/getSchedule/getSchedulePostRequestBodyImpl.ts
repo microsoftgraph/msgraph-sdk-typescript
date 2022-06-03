@@ -5,7 +5,7 @@ import {GetSchedulePostRequestBody} from './getSchedulePostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the getSchedule method. */
-export class GetSchedulePostRequestBodyImpl implements AdditionalDataHolder, GetSchedulePostRequestBody, Parsable {
+export class GetSchedulePostRequestBodyImpl implements GetSchedulePostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The AvailabilityViewInterval property */
@@ -21,11 +21,11 @@ export class GetSchedulePostRequestBodyImpl implements AdditionalDataHolder, Get
      * @param getSchedulePostRequestBodyParameterValue 
      */
     public constructor(getSchedulePostRequestBodyParameterValue?: GetSchedulePostRequestBody | undefined) {
-        this.additionalData = getSchedulePostRequestBodyParameterValue?.additionalData ? getSchedulePostRequestBodyParameterValue?.additionalData! : {}
-        this.availabilityViewInterval = getSchedulePostRequestBodyParameterValue?.availabilityViewInterval ;
-        this.endTime = getSchedulePostRequestBodyParameterValue?.endTime ;
-        this.schedules = getSchedulePostRequestBodyParameterValue?.schedules ;
-        this.startTime = getSchedulePostRequestBodyParameterValue?.startTime ;
+        this.additionalData = getSchedulePostRequestBodyParameterValue?.additionalData ? getSchedulePostRequestBodyParameterValue?.additionalData! : {};
+        this.availabilityViewInterval = getSchedulePostRequestBodyParameterValue?.availabilityViewInterval;
+        this.endTime = getSchedulePostRequestBodyParameterValue?.endTime;
+        this.schedules = getSchedulePostRequestBodyParameterValue?.schedules;
+        this.startTime = getSchedulePostRequestBodyParameterValue?.startTime;
     };
     /**
      * The deserialization information for the current model
@@ -46,16 +46,16 @@ export class GetSchedulePostRequestBodyImpl implements AdditionalDataHolder, Get
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.availabilityViewInterval){
-        writer.writeNumberValue("availabilityViewInterval", this.availabilityViewInterval);
+            writer.writeNumberValue("availabilityViewInterval", this.availabilityViewInterval);
         }
         if(this.endTime){
-        writer.writeObjectValue<DateTimeTimeZoneImpl>("endTime", new DateTimeTimeZoneImpl(this.endTime));
+            writer.writeObjectValue<DateTimeTimeZoneImpl>("endTime", new DateTimeTimeZoneImpl(this.endTime));
         }
         if(this.schedules){
-        writer.writeCollectionOfPrimitiveValues<string>("schedules", this.schedules);
+            writer.writeCollectionOfPrimitiveValues<string>("schedules", this.schedules);
         }
         if(this.startTime){
-        writer.writeObjectValue<DateTimeTimeZoneImpl>("startTime", new DateTimeTimeZoneImpl(this.startTime));
+            writer.writeObjectValue<DateTimeTimeZoneImpl>("startTime", new DateTimeTimeZoneImpl(this.startTime));
         }
         writer.writeAdditionalData(this.additionalData);
     };

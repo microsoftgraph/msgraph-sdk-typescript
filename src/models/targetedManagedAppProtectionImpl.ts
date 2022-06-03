@@ -5,7 +5,7 @@ import {TargetedManagedAppProtection} from './targetedManagedAppProtection';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Policy used to configure detailed management settings targeted to specific security groups */
-export class TargetedManagedAppProtectionImpl extends ManagedAppProtectionImpl implements Parsable, TargetedManagedAppProtection {
+export class TargetedManagedAppProtectionImpl extends ManagedAppProtectionImpl implements TargetedManagedAppProtection {
     /** Navigation property to list of inclusion and exclusion groups to which the policy is deployed. */
     public assignments?: TargetedManagedAppPolicyAssignment[] | undefined;
     /** Indicates if the policy is deployed to any inclusion groups or not. */
@@ -15,9 +15,9 @@ export class TargetedManagedAppProtectionImpl extends ManagedAppProtectionImpl i
      * @param targetedManagedAppProtectionParameterValue 
      */
     public constructor(targetedManagedAppProtectionParameterValue?: TargetedManagedAppProtection | undefined) {
-        super();
-        this.assignments = targetedManagedAppProtectionParameterValue?.assignments ;
-        this.isAssigned = targetedManagedAppProtectionParameterValue?.isAssigned ;
+        super(targetedManagedAppProtectionParameterValue);
+        this.assignments = targetedManagedAppProtectionParameterValue?.assignments;
+        this.isAssigned = targetedManagedAppProtectionParameterValue?.isAssigned;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class TargetedManagedAppProtectionImpl extends ManagedAppProtectionImpl i
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.assignments && this.assignments.length != 0){        const assignmentsArrValue: TargetedManagedAppPolicyAssignmentImpl[] = []; this.assignments?.forEach(element => {assignmentsArrValue.push(new TargetedManagedAppPolicyAssignmentImpl(element));});
-        writer.writeCollectionOfObjectValues<TargetedManagedAppPolicyAssignmentImpl>("assignments", assignmentsArrValue);
+            writer.writeCollectionOfObjectValues<TargetedManagedAppPolicyAssignmentImpl>("assignments", assignmentsArrValue);
         }
         if(this.isAssigned){
-        writer.writeBooleanValue("isAssigned", this.isAssigned);
+            writer.writeBooleanValue("isAssigned", this.isAssigned);
         }
     };
 }

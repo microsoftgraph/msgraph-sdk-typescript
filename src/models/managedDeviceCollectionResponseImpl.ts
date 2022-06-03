@@ -4,7 +4,7 @@ import {ManagedDevice} from './managedDevice';
 import {ManagedDeviceCollectionResponse} from './managedDeviceCollectionResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ManagedDeviceCollectionResponseImpl implements AdditionalDataHolder, ManagedDeviceCollectionResponse, Parsable {
+export class ManagedDeviceCollectionResponseImpl implements ManagedDeviceCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** The nextLink property */
@@ -16,9 +16,9 @@ export class ManagedDeviceCollectionResponseImpl implements AdditionalDataHolder
      * @param managedDeviceCollectionResponseParameterValue 
      */
     public constructor(managedDeviceCollectionResponseParameterValue?: ManagedDeviceCollectionResponse | undefined) {
-        this.additionalData = managedDeviceCollectionResponseParameterValue?.additionalData ? managedDeviceCollectionResponseParameterValue?.additionalData! : {}
-        this.nextLink = managedDeviceCollectionResponseParameterValue?.nextLink ;
-        this.value = managedDeviceCollectionResponseParameterValue?.value ;
+        this.additionalData = managedDeviceCollectionResponseParameterValue?.additionalData ? managedDeviceCollectionResponseParameterValue?.additionalData! : {};
+        this.nextLink = managedDeviceCollectionResponseParameterValue?.nextLink;
+        this.value = managedDeviceCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +37,10 @@ export class ManagedDeviceCollectionResponseImpl implements AdditionalDataHolder
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.nextLink){
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+            writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
         if(this.value && this.value.length != 0){        const valueArrValue: ManagedDeviceImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ManagedDeviceImpl(element));});
-        writer.writeCollectionOfObjectValues<ManagedDeviceImpl>("value", valueArrValue);
+            writer.writeCollectionOfObjectValues<ManagedDeviceImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };

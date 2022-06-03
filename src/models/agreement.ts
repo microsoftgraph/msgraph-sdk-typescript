@@ -3,23 +3,23 @@ import {AgreementFile} from './agreementFile';
 import {AgreementFileLocalization} from './agreementFileLocalization';
 import {Entity} from './entity';
 import {TermsExpiration} from './termsExpiration';
-import {Duration} from '@microsoft/kiota-abstractions';
+import {Duration, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface Agreement extends Entity{
+export interface Agreement extends Entity, Partial<Parsable> {
     /** Read-only. Information about acceptances of this agreement. */
-    acceptances?:AgreementAcceptance[] | undefined;
+    acceptances?: AgreementAcceptance[] | undefined;
     /** Display name of the agreement. The display name is used for internal tracking of the agreement but is not shown to end users who view the agreement. Supports $filter (eq). */
-    displayName?:string | undefined;
+    displayName?: string | undefined;
     /** Default PDF linked to this agreement. */
-    file?:AgreementFile | undefined;
+    file?: AgreementFile | undefined;
     /** PDFs linked to this agreement. Note: This property is in the process of being deprecated. Use the  file property instead. */
-    files?:AgreementFileLocalization[] | undefined;
+    files?: AgreementFileLocalization[] | undefined;
     /** This setting enables you to require end users to accept this agreement on every device that they are accessing it from. The end user will be required to register their device in Azure AD, if they haven't already done so. Supports $filter (eq). */
-    isPerDeviceAcceptanceRequired?:boolean | undefined;
+    isPerDeviceAcceptanceRequired?: boolean | undefined;
     /** Indicates whether the user has to expand the agreement before accepting. Supports $filter (eq). */
-    isViewingBeforeAcceptanceRequired?:boolean | undefined;
+    isViewingBeforeAcceptanceRequired?: boolean | undefined;
     /** Expiration schedule and frequency of agreement for all users.  Supports $filter (eq). */
-    termsExpiration?:TermsExpiration | undefined;
+    termsExpiration?: TermsExpiration | undefined;
     /** The duration after which the user must re-accept the terms of use. The value is represented in ISO 8601 format for durations. */
-    userReacceptRequiredFrequency?:Duration | undefined;
+    userReacceptRequiredFrequency?: Duration | undefined;
 }

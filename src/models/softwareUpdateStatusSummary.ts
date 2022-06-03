@@ -1,34 +1,35 @@
 import {Entity} from './entity';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface SoftwareUpdateStatusSummary extends Entity{
+export interface SoftwareUpdateStatusSummary extends Entity, Partial<Parsable> {
     /** Number of compliant devices. */
-    compliantDeviceCount?:number | undefined;
+    compliantDeviceCount?: number | undefined;
     /** Number of compliant users. */
-    compliantUserCount?:number | undefined;
+    compliantUserCount?: number | undefined;
     /** Number of conflict devices. */
-    conflictDeviceCount?:number | undefined;
+    conflictDeviceCount?: number | undefined;
     /** Number of conflict users. */
-    conflictUserCount?:number | undefined;
+    conflictUserCount?: number | undefined;
     /** The name of the policy. */
-    displayName?:string | undefined;
+    displayName?: string | undefined;
     /** Number of devices had error. */
-    errorDeviceCount?:number | undefined;
+    errorDeviceCount?: number | undefined;
     /** Number of users had error. */
-    errorUserCount?:number | undefined;
+    errorUserCount?: number | undefined;
     /** Number of non compliant devices. */
-    nonCompliantDeviceCount?:number | undefined;
+    nonCompliantDeviceCount?: number | undefined;
     /** Number of non compliant users. */
-    nonCompliantUserCount?:number | undefined;
+    nonCompliantUserCount?: number | undefined;
     /** Number of not applicable devices. */
-    notApplicableDeviceCount?:number | undefined;
+    notApplicableDeviceCount?: number | undefined;
     /** Number of not applicable users. */
-    notApplicableUserCount?:number | undefined;
+    notApplicableUserCount?: number | undefined;
     /** Number of remediated devices. */
-    remediatedDeviceCount?:number | undefined;
+    remediatedDeviceCount?: number | undefined;
     /** Number of remediated users. */
-    remediatedUserCount?:number | undefined;
+    remediatedUserCount?: number | undefined;
     /** Number of unknown devices. */
-    unknownDeviceCount?:number | undefined;
+    unknownDeviceCount?: number | undefined;
     /** Number of unknown users. */
-    unknownUserCount?:number | undefined;
+    unknownUserCount?: number | undefined;
 }

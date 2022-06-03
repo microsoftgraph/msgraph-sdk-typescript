@@ -12,7 +12,7 @@ import {SearchRequest} from './searchRequest';
 import {SortProperty} from './sortProperty';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class SearchRequestImpl implements AdditionalDataHolder, Parsable, SearchRequest {
+export class SearchRequestImpl implements SearchRequest {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
     /** Contains one or more filters to obtain search results aggregated and filtered to a specific value of a field. Optional.Build this filter based on a prior search that aggregates by the same field. From the response of the prior search, identify the searchBucket that filters results to the specific value of the field, use the string in its aggregationFilterToken property, and build an aggregation filter string in the format '{field}:/'{aggregationFilterToken}/''. If multiple values for the same field need to be provided, use the strings in its aggregationFilterToken property and build an aggregation filter string in the format '{field}:or(/'{aggregationFilterToken1}/',/'{aggregationFilterToken2}/')'. For example, searching and aggregating drive items by file type returns a searchBucket for the file type docx in the response. You can conveniently use the aggregationFilterToken returned for this searchBucket in a subsequent search query and filter matches down to drive items of the docx file type. Example 1 and example 2 show the actual requests and responses. */
@@ -44,19 +44,19 @@ export class SearchRequestImpl implements AdditionalDataHolder, Parsable, Search
      * @param searchRequestParameterValue 
      */
     public constructor(searchRequestParameterValue?: SearchRequest | undefined) {
-        this.additionalData = searchRequestParameterValue?.additionalData ? searchRequestParameterValue?.additionalData! : {}
-        this.aggregationFilters = searchRequestParameterValue?.aggregationFilters ;
-        this.aggregations = searchRequestParameterValue?.aggregations ;
-        this.contentSources = searchRequestParameterValue?.contentSources ;
-        this.enableTopResults = searchRequestParameterValue?.enableTopResults ;
-        this.entityTypes = searchRequestParameterValue?.entityTypes ;
-        this.fields = searchRequestParameterValue?.fields ;
-        this.from = searchRequestParameterValue?.from ;
-        this.query = searchRequestParameterValue?.query ;
-        this.queryAlterationOptions = searchRequestParameterValue?.queryAlterationOptions ;
-        this.resultTemplateOptions = searchRequestParameterValue?.resultTemplateOptions ;
-        this.size = searchRequestParameterValue?.size ;
-        this.sortProperties = searchRequestParameterValue?.sortProperties ;
+        this.additionalData = searchRequestParameterValue?.additionalData ? searchRequestParameterValue?.additionalData! : {};
+        this.aggregationFilters = searchRequestParameterValue?.aggregationFilters;
+        this.aggregations = searchRequestParameterValue?.aggregations;
+        this.contentSources = searchRequestParameterValue?.contentSources;
+        this.enableTopResults = searchRequestParameterValue?.enableTopResults;
+        this.entityTypes = searchRequestParameterValue?.entityTypes;
+        this.fields = searchRequestParameterValue?.fields;
+        this.from = searchRequestParameterValue?.from;
+        this.query = searchRequestParameterValue?.query;
+        this.queryAlterationOptions = searchRequestParameterValue?.queryAlterationOptions;
+        this.resultTemplateOptions = searchRequestParameterValue?.resultTemplateOptions;
+        this.size = searchRequestParameterValue?.size;
+        this.sortProperties = searchRequestParameterValue?.sortProperties;
     };
     /**
      * The deserialization information for the current model
@@ -85,40 +85,40 @@ export class SearchRequestImpl implements AdditionalDataHolder, Parsable, Search
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.aggregationFilters){
-        writer.writeCollectionOfPrimitiveValues<string>("aggregationFilters", this.aggregationFilters);
+            writer.writeCollectionOfPrimitiveValues<string>("aggregationFilters", this.aggregationFilters);
         }
         if(this.aggregations && this.aggregations.length != 0){        const aggregationsArrValue: AggregationOptionImpl[] = []; this.aggregations?.forEach(element => {aggregationsArrValue.push(new AggregationOptionImpl(element));});
-        writer.writeCollectionOfObjectValues<AggregationOptionImpl>("aggregations", aggregationsArrValue);
+            writer.writeCollectionOfObjectValues<AggregationOptionImpl>("aggregations", aggregationsArrValue);
         }
         if(this.contentSources){
-        writer.writeCollectionOfPrimitiveValues<string>("contentSources", this.contentSources);
+            writer.writeCollectionOfPrimitiveValues<string>("contentSources", this.contentSources);
         }
         if(this.enableTopResults){
-        writer.writeBooleanValue("enableTopResults", this.enableTopResults);
+            writer.writeBooleanValue("enableTopResults", this.enableTopResults);
         }
         if(this.entityTypes){
-        writer.writeCollectionOfPrimitiveValues<string>("entityTypes", this.entityTypes);
+            writer.writeCollectionOfPrimitiveValues<string>("entityTypes", this.entityTypes);
         }
         if(this.fields){
-        writer.writeCollectionOfPrimitiveValues<string>("fields", this.fields);
+            writer.writeCollectionOfPrimitiveValues<string>("fields", this.fields);
         }
         if(this.from){
-        writer.writeNumberValue("from", this.from);
+            writer.writeNumberValue("from", this.from);
         }
         if(this.query){
-        writer.writeObjectValue<SearchQueryImpl>("query", new SearchQueryImpl(this.query));
+            writer.writeObjectValue<SearchQueryImpl>("query", new SearchQueryImpl(this.query));
         }
         if(this.queryAlterationOptions){
-        writer.writeObjectValue<SearchAlterationOptionsImpl>("queryAlterationOptions", new SearchAlterationOptionsImpl(this.queryAlterationOptions));
+            writer.writeObjectValue<SearchAlterationOptionsImpl>("queryAlterationOptions", new SearchAlterationOptionsImpl(this.queryAlterationOptions));
         }
         if(this.resultTemplateOptions){
-        writer.writeObjectValue<ResultTemplateOptionImpl>("resultTemplateOptions", new ResultTemplateOptionImpl(this.resultTemplateOptions));
+            writer.writeObjectValue<ResultTemplateOptionImpl>("resultTemplateOptions", new ResultTemplateOptionImpl(this.resultTemplateOptions));
         }
         if(this.size){
-        writer.writeNumberValue("size", this.size);
+            writer.writeNumberValue("size", this.size);
         }
         if(this.sortProperties && this.sortProperties.length != 0){        const sortPropertiesArrValue: SortPropertyImpl[] = []; this.sortProperties?.forEach(element => {sortPropertiesArrValue.push(new SortPropertyImpl(element));});
-        writer.writeCollectionOfObjectValues<SortPropertyImpl>("sortProperties", sortPropertiesArrValue);
+            writer.writeCollectionOfObjectValues<SortPropertyImpl>("sortProperties", sortPropertiesArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
     };
