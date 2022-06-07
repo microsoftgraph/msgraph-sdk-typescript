@@ -22,7 +22,7 @@ export class GetOmaSettingPlainTextValueWithSecretReferenceValueIdRequestBuilder
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/deviceManagement/deviceConfigurations/{deviceConfiguration%2Did}/microsoft.graph.getOmaSettingPlainTextValue(secretReferenceValueId='{secretReferenceValueId}')";
         const urlTplParams = getPathParameters(pathParameters);
-        urlTplParams[""] = secretReferenceValueId
+        urlTplParams["secretReferenceValueId"] = secretReferenceValueId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };
@@ -36,6 +36,7 @@ export class GetOmaSettingPlainTextValueWithSecretReferenceValueIdRequestBuilder
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);

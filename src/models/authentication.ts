@@ -1,8 +1,9 @@
 import {createAuthenticationMethodFromDiscriminatorValue} from './createAuthenticationMethodFromDiscriminatorValue';
 import {createFido2AuthenticationMethodFromDiscriminatorValue} from './createFido2AuthenticationMethodFromDiscriminatorValue';
 import {createMicrosoftAuthenticatorAuthenticationMethodFromDiscriminatorValue} from './createMicrosoftAuthenticatorAuthenticationMethodFromDiscriminatorValue';
+import {createTemporaryAccessPassAuthenticationMethodFromDiscriminatorValue} from './createTemporaryAccessPassAuthenticationMethodFromDiscriminatorValue';
 import {createWindowsHelloForBusinessAuthenticationMethodFromDiscriminatorValue} from './createWindowsHelloForBusinessAuthenticationMethodFromDiscriminatorValue';
-import {AuthenticationMethod, Entity, Fido2AuthenticationMethod, MicrosoftAuthenticatorAuthenticationMethod, WindowsHelloForBusinessAuthenticationMethod} from './index';
+import {AuthenticationMethod, Entity, Fido2AuthenticationMethod, MicrosoftAuthenticatorAuthenticationMethod, TemporaryAccessPassAuthenticationMethod, WindowsHelloForBusinessAuthenticationMethod} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Casts the previous resource to user. */
@@ -13,6 +14,8 @@ export class Authentication extends Entity implements Parsable {
     private _methods?: AuthenticationMethod[] | undefined;
     /** The details of the Microsoft Authenticator app registered to a user for authentication. */
     private _microsoftAuthenticatorMethods?: MicrosoftAuthenticatorAuthenticationMethod[] | undefined;
+    /** Represents a Temporary Access Pass registered to a user for authentication through time-limited passcodes. */
+    private _temporaryAccessPassMethods?: TemporaryAccessPassAuthenticationMethod[] | undefined;
     /** Represents the Windows Hello for Business authentication method registered to a user for authentication. */
     private _windowsHelloForBusinessMethods?: WindowsHelloForBusinessAuthenticationMethod[] | undefined;
     /**
@@ -44,6 +47,7 @@ export class Authentication extends Entity implements Parsable {
             "fido2Methods": n => { this.fido2Methods = n.getCollectionOfObjectValues<Fido2AuthenticationMethod>(createFido2AuthenticationMethodFromDiscriminatorValue); },
             "methods": n => { this.methods = n.getCollectionOfObjectValues<AuthenticationMethod>(createAuthenticationMethodFromDiscriminatorValue); },
             "microsoftAuthenticatorMethods": n => { this.microsoftAuthenticatorMethods = n.getCollectionOfObjectValues<MicrosoftAuthenticatorAuthenticationMethod>(createMicrosoftAuthenticatorAuthenticationMethodFromDiscriminatorValue); },
+            "temporaryAccessPassMethods": n => { this.temporaryAccessPassMethods = n.getCollectionOfObjectValues<TemporaryAccessPassAuthenticationMethod>(createTemporaryAccessPassAuthenticationMethodFromDiscriminatorValue); },
             "windowsHelloForBusinessMethods": n => { this.windowsHelloForBusinessMethods = n.getCollectionOfObjectValues<WindowsHelloForBusinessAuthenticationMethod>(createWindowsHelloForBusinessAuthenticationMethodFromDiscriminatorValue); },
         };
     };
@@ -85,7 +89,22 @@ export class Authentication extends Entity implements Parsable {
         writer.writeCollectionOfObjectValues<Fido2AuthenticationMethod>("fido2Methods", this.fido2Methods);
         writer.writeCollectionOfObjectValues<AuthenticationMethod>("methods", this.methods);
         writer.writeCollectionOfObjectValues<MicrosoftAuthenticatorAuthenticationMethod>("microsoftAuthenticatorMethods", this.microsoftAuthenticatorMethods);
+        writer.writeCollectionOfObjectValues<TemporaryAccessPassAuthenticationMethod>("temporaryAccessPassMethods", this.temporaryAccessPassMethods);
         writer.writeCollectionOfObjectValues<WindowsHelloForBusinessAuthenticationMethod>("windowsHelloForBusinessMethods", this.windowsHelloForBusinessMethods);
+    };
+    /**
+     * Gets the temporaryAccessPassMethods property value. Represents a Temporary Access Pass registered to a user for authentication through time-limited passcodes.
+     * @returns a temporaryAccessPassAuthenticationMethod
+     */
+    public get temporaryAccessPassMethods() {
+        return this._temporaryAccessPassMethods;
+    };
+    /**
+     * Sets the temporaryAccessPassMethods property value. Represents a Temporary Access Pass registered to a user for authentication through time-limited passcodes.
+     * @param value Value to set for the temporaryAccessPassMethods property.
+     */
+    public set temporaryAccessPassMethods(value: TemporaryAccessPassAuthenticationMethod[] | undefined) {
+        this._temporaryAccessPassMethods = value;
     };
     /**
      * Gets the windowsHelloForBusinessMethods property value. Represents the Windows Hello for Business authentication method registered to a user for authentication.

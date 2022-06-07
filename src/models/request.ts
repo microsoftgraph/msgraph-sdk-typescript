@@ -8,7 +8,7 @@ export class Request extends Entity implements Parsable {
     private _approvalId?: string | undefined;
     /** The request completion date time. */
     private _completedDateTime?: Date | undefined;
-    /** The user who created this request. */
+    /** The principal that created the request. */
     private _createdBy?: IdentitySet | undefined;
     /** The request creation date time. */
     private _createdDateTime?: Date | undefined;
@@ -51,14 +51,14 @@ export class Request extends Entity implements Parsable {
         super();
     };
     /**
-     * Gets the createdBy property value. The user who created this request.
+     * Gets the createdBy property value. The principal that created the request.
      * @returns a identitySet
      */
     public get createdBy() {
         return this._createdBy;
     };
     /**
-     * Sets the createdBy property value. The user who created this request.
+     * Sets the createdBy property value. The principal that created the request.
      * @param value Value to set for the createdBy property.
      */
     public set createdBy(value: IdentitySet | undefined) {

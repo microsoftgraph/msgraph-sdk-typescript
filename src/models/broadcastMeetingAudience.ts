@@ -1,4 +1,4 @@
-/** Provides operations to manage the cloudCommunications singleton. */
+/** Casts the previous resource to user. */
 export enum BroadcastMeetingAudience {
     RoleIsAttendee = "roleIsAttendee",
     Organization = "organization",

@@ -10,7 +10,7 @@ import {MeetingChatMode} from './meetingChatMode';
 import {OnlineMeetingPresenters} from './onlineMeetingPresenters';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the cloudCommunications singleton. */
+/** Casts the previous resource to user. */
 export class OnlineMeeting extends Entity implements Parsable {
     /** Indicates whether attendees can turn on their camera. */
     private _allowAttendeeToEnableCamera?: boolean | undefined;

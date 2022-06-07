@@ -25,10 +25,10 @@ export class ManagedDeviceEnrollmentFailureDetailsWithSkipWithTopWithFilterWithS
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/reports/microsoft.graph.managedDeviceEnrollmentFailureDetails(skip={skip},top={top},filter='{filter}',skipToken='{skipToken}')";
         const urlTplParams = getPathParameters(pathParameters);
-        urlTplParams[""] = filter
-        urlTplParams[""] = skip
-        urlTplParams[""] = skipToken
-        urlTplParams[""] = top
+        urlTplParams["filter"] = filter
+        urlTplParams["skip"] = skip
+        urlTplParams["skipToken"] = skipToken
+        urlTplParams["top"] = top
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };
@@ -42,6 +42,7 @@ export class ManagedDeviceEnrollmentFailureDetailsWithSkipWithTopWithFilterWithS
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);

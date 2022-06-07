@@ -1,4 +1,4 @@
-/** Provides operations to manage the collection of orgContact entities. */
+/** Casts the previous resource to user. */
 export enum PhoneType {
     Home = "home",
     Business = "business",
