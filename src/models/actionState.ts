@@ -1,4 +1,4 @@
-/** Provides operations to manage the deviceManagement singleton. */
+/** Casts the previous resource to user. */
 export enum ActionState {
     /** Not a valid action state */
     None = "none",

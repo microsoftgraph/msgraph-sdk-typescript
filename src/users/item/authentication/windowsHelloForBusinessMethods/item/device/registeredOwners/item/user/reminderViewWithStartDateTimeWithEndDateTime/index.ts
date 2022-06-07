@@ -1,3 +1,3 @@
 export * from './reminderViewWithStartDateTimeWithEndDateTimeResponseImpl'
-export * from './reminderViewWithStartDateTimeWithEndDateTimeResponse'
 export * from './reminderViewWithStartDateTimeWithEndDateTimeRequestBuilderGetRequestConfiguration'
+export * from './reminderViewWithStartDateTimeWithEndDateTimeResponse'

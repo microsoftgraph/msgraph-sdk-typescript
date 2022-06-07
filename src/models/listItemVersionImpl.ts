@@ -4,7 +4,7 @@ import {BaseItemVersionImpl, FieldValueSetImpl} from './index';
 import {ListItemVersion} from './listItemVersion';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Casts the previous resource to group. */
 export class ListItemVersionImpl extends BaseItemVersionImpl implements ListItemVersion {
     /** A collection of the fields and values for this version of the list item. */
     public fields?: FieldValueSet | undefined;

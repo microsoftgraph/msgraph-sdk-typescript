@@ -8,7 +8,7 @@ import {DirectoryObjectImpl, ExtensionImpl, ScopedRoleMembershipImpl} from './in
 import {ScopedRoleMembership} from './scopedRoleMembership';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the educationRoot singleton. */
+/** Provides operations to manage the directory singleton. */
 export class AdministrativeUnitImpl extends DirectoryObjectImpl implements AdministrativeUnit {
     /** An optional description for the administrative unit. Supports $filter (eq, ne, in, startsWith), $search. */
     public description?: string | undefined;

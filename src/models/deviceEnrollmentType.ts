@@ -1,4 +1,4 @@
-/** Provides operations to manage the deviceManagement singleton. */
+/** Casts the previous resource to user. */
 export enum DeviceEnrollmentType {
     /** Default value, enrollment type was not collected. */
     Unknown = "unknown",

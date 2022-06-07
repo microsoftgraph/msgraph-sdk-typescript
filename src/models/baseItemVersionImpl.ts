@@ -6,7 +6,7 @@ import {EntityImpl, IdentitySetImpl, PublicationFacetImpl} from './index';
 import {PublicationFacet} from './publicationFacet';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Casts the previous resource to group. */
 export class BaseItemVersionImpl extends EntityImpl implements BaseItemVersion {
     /** Identity of the user which last modified the version. Read-only. */
     public lastModifiedBy?: IdentitySet | undefined;

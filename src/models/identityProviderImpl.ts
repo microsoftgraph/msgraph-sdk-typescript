@@ -2,7 +2,7 @@ import {IdentityProvider} from './identityProvider';
 import {EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of identityProvider entities. */
+/** Provides operations to manage the identityContainer singleton. */
 export class IdentityProviderImpl extends EntityImpl implements IdentityProvider {
     /** The client ID for the application obtained when registering the application with the identity provider. This is a required field.  Required. Not nullable. */
     public clientId?: string | undefined;

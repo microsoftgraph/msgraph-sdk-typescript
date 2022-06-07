@@ -14,7 +14,7 @@ import {ListItemVersion} from './listItemVersion';
 import {SharepointIds} from './sharepointIds';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Casts the previous resource to group. */
 export class ListItemImpl extends BaseItemImpl implements ListItem {
     /** Analytics about the view activities that took place on this item. */
     public analytics?: ItemAnalytics | undefined;

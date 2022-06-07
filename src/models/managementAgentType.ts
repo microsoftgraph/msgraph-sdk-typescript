@@ -1,4 +1,4 @@
-/** Provides operations to manage the deviceManagement singleton. */
+/** Casts the previous resource to user. */
 export enum ManagementAgentType {
     /** The device is managed by Exchange server. */
     Eas = "eas",

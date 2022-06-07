@@ -2,7 +2,7 @@ import {EntityImpl} from './index';
 import {ProfilePhoto} from './profilePhoto';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Casts the previous resource to group. */
 export class ProfilePhotoImpl extends EntityImpl implements ProfilePhoto {
     /** The height of the photo. Read-only. */
     public height?: number | undefined;
