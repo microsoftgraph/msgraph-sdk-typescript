@@ -18,7 +18,7 @@ export class SecureScore extends Entity implements Parsable {
     private _createdDateTime?: Date | undefined;
     /** Tenant current attained score on specified date. */
     private _currentScore?: number | undefined;
-    /** Microsoft-provided services for the tenant (for example, Exchange online, Skype, Sharepoint). */
+    /** Microsoft-provided services for the tenant (for example, Exchange online, Skype, SharePoint). */
     private _enabledServices?: string[] | undefined;
     /** Licensed user count of the given tenant. */
     private _licensedUserCount?: number | undefined;
@@ -117,14 +117,14 @@ export class SecureScore extends Entity implements Parsable {
         this._currentScore = value;
     };
     /**
-     * Gets the enabledServices property value. Microsoft-provided services for the tenant (for example, Exchange online, Skype, Sharepoint).
+     * Gets the enabledServices property value. Microsoft-provided services for the tenant (for example, Exchange online, Skype, SharePoint).
      * @returns a string
      */
     public get enabledServices() {
         return this._enabledServices;
     };
     /**
-     * Sets the enabledServices property value. Microsoft-provided services for the tenant (for example, Exchange online, Skype, Sharepoint).
+     * Sets the enabledServices property value. Microsoft-provided services for the tenant (for example, Exchange online, Skype, SharePoint).
      * @param value Value to set for the enabledServices property.
      */
     public set enabledServices(value: string[] | undefined) {

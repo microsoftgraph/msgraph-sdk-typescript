@@ -21,7 +21,7 @@ import {createTeamFromDiscriminatorValue} from './createTeamFromDiscriminatorVal
 import {AppRoleAssignment, AssignedLabel, AssignedLicense, Calendar, Conversation, ConversationThread, DirectoryObject, Drive, Event, Extension, GroupLifecyclePolicy, GroupSetting, LicenseProcessingState, Onenote, OnPremisesProvisioningError, PlannerGroup, ProfilePhoto, ResourceSpecificPermissionGrant, Site, Team} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the collection of application entities. */
 export class Group extends DirectoryObject implements Parsable {
     /** The list of users or groups that are allowed to create post's or calendar events in this group. If this list is non-empty then only users or groups listed here are allowed to post. */
     private _acceptedSenders?: DirectoryObject[] | undefined;
@@ -95,7 +95,7 @@ export class Group extends DirectoryObject implements Parsable {
     private _membershipRuleProcessingState?: string | undefined;
     /** A list of group members with license errors from this group-based license assignment. Read-only. */
     private _membersWithLicenseErrors?: DirectoryObject[] | undefined;
-    /** Read-only. */
+    /** The onenote property */
     private _onenote?: Onenote | undefined;
     /** Contains the on-premises domain FQDN, also called dnsDomainName synchronized from the on-premises directory. The property is only populated for customers who are synchronizing their on-premises directory to Azure Active Directory via Azure AD Connect.Returned by default. Read-only. */
     private _onPremisesDomainName?: string | undefined;
@@ -737,14 +737,14 @@ export class Group extends DirectoryObject implements Parsable {
         this._membersWithLicenseErrors = value;
     };
     /**
-     * Gets the onenote property value. Read-only.
+     * Gets the onenote property value. The onenote property
      * @returns a onenote
      */
     public get onenote() {
         return this._onenote;
     };
     /**
-     * Sets the onenote property value. Read-only.
+     * Sets the onenote property value. The onenote property
      * @param value Value to set for the onenote property.
      */
     public set onenote(value: Onenote | undefined) {

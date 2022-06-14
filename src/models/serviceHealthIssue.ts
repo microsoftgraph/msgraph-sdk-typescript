@@ -5,7 +5,6 @@ import {ServiceHealthOrigin} from './serviceHealthOrigin';
 import {ServiceHealthStatus} from './serviceHealthStatus';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the admin singleton. */
 export class ServiceHealthIssue extends ServiceAnnouncementBase implements Parsable {
     /** The type of service health issue. Possible values are: advisory, incident, unknownFutureValue. */
     private _classification?: ServiceHealthClassificationType | undefined;
@@ -40,7 +39,7 @@ export class ServiceHealthIssue extends ServiceAnnouncementBase implements Parsa
         this._classification = value;
     };
     /**
-     * Instantiates a new serviceHealthIssue and sets the default values.
+     * Instantiates a new ServiceHealthIssue and sets the default values.
      */
     public constructor() {
         super();

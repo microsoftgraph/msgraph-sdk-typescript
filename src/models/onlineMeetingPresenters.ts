@@ -1,4 +1,4 @@
-/** Provides operations to manage the cloudCommunications singleton. */
+/** Provides operations to manage the collection of application entities. */
 export enum OnlineMeetingPresenters {
     Everyone = "everyone",
     Organization = "organization",

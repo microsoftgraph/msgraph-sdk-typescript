@@ -3,7 +3,7 @@ import {createWorkbookChartFontFromDiscriminatorValue} from './createWorkbookCha
 import {Entity, WorkbookChartFill, WorkbookChartFont} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the collection of application entities. */
 export class WorkbookChartDataLabelFormat extends Entity implements Parsable {
     /** Represents the fill format of the current chart data label. Read-only. */
     private _fill?: WorkbookChartFill | undefined;

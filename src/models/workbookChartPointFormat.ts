@@ -2,7 +2,7 @@ import {createWorkbookChartFillFromDiscriminatorValue} from './createWorkbookCha
 import {Entity, WorkbookChartFill} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the collection of application entities. */
 export class WorkbookChartPointFormat extends Entity implements Parsable {
     /** Represents the fill format of a chart, which includes background formating information. Read-only. */
     private _fill?: WorkbookChartFill | undefined;

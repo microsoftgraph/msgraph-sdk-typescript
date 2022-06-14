@@ -3,7 +3,7 @@ import {EmailAddress, Entity} from './index';
 import {InferenceClassificationType} from './inferenceClassificationType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the collection of application entities. */
 export class InferenceClassificationOverride extends Entity implements Parsable {
     /** Specifies how incoming messages from a specific sender should always be classified as. Possible values are: focused, other. */
     private _classifyAs?: InferenceClassificationType | undefined;

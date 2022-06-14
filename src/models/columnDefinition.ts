@@ -20,7 +20,7 @@ import {createThumbnailColumnFromDiscriminatorValue} from './createThumbnailColu
 import {BooleanColumn, CalculatedColumn, ChoiceColumn, ColumnValidation, ContentApprovalStatusColumn, ContentTypeInfo, CurrencyColumn, DateTimeColumn, DefaultColumnValue, Entity, GeolocationColumn, HyperlinkOrPictureColumn, LookupColumn, NumberColumn, PersonOrGroupColumn, TermColumn, TextColumn, ThumbnailColumn} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the collection of application entities. */
 export class ColumnDefinition extends Entity implements Parsable {
     /** This column stores boolean values. */
     private _boolean?: BooleanColumn | undefined;

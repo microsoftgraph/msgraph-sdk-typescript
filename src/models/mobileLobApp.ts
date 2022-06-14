@@ -2,7 +2,6 @@ import {createMobileAppContentFromDiscriminatorValue} from './createMobileAppCon
 import {MobileApp, MobileAppContent} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** An abstract base class containing properties for all mobile line of business apps. */
 export class MobileLobApp extends MobileApp implements Parsable {
     /** The internal committed content version. */
     private _committedContentVersion?: string | undefined;
@@ -27,7 +26,7 @@ export class MobileLobApp extends MobileApp implements Parsable {
         this._committedContentVersion = value;
     };
     /**
-     * Instantiates a new mobileLobApp and sets the default values.
+     * Instantiates a new MobileLobApp and sets the default values.
      */
     public constructor() {
         super();

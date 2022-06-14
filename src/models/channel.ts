@@ -6,7 +6,7 @@ import {createTeamsTabFromDiscriminatorValue} from './createTeamsTabFromDiscrimi
 import {ChatMessage, ConversationMember, DriveItem, Entity, TeamsTab} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the collection of application entities. */
 export class Channel extends Entity implements Parsable {
     /** Read only. Timestamp at which the channel was created. */
     private _createdDateTime?: Date | undefined;

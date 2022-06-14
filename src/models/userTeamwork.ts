@@ -2,7 +2,7 @@ import {createUserScopeTeamsAppInstallationFromDiscriminatorValue} from './creat
 import {Entity, UserScopeTeamsAppInstallation} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the collection of application entities. */
 export class UserTeamwork extends Entity implements Parsable {
     /** The apps installed in the personal scope of this user. */
     private _installedApps?: UserScopeTeamsAppInstallation[] | undefined;

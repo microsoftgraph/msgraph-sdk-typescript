@@ -5,18 +5,11 @@ import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataError
 import {ManagedAppPolicyItemRequestBuilderDeleteRequestConfiguration} from './managedAppPolicyItemRequestBuilderDeleteRequestConfiguration';
 import {ManagedAppPolicyItemRequestBuilderGetRequestConfiguration} from './managedAppPolicyItemRequestBuilderGetRequestConfiguration';
 import {ManagedAppPolicyItemRequestBuilderPatchRequestConfiguration} from './managedAppPolicyItemRequestBuilderPatchRequestConfiguration';
-import {ManagedAppProtectionRequestBuilder} from './managedAppProtection/managedAppProtectionRequestBuilder';
 import {TargetAppsRequestBuilder} from './targetApps/targetAppsRequestBuilder';
-import {TargetedManagedAppProtectionRequestBuilder} from './targetedManagedAppProtection/targetedManagedAppProtectionRequestBuilder';
-import {WindowsInformationProtectionRequestBuilder} from './windowsInformationProtection/windowsInformationProtectionRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the managedAppPolicies property of the microsoft.graph.deviceAppManagement entity. */
 export class ManagedAppPolicyItemRequestBuilder {
-    /** The managedAppProtection property */
-    public get managedAppProtection(): ManagedAppProtectionRequestBuilder {
-        return new ManagedAppProtectionRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
@@ -25,16 +18,8 @@ export class ManagedAppPolicyItemRequestBuilder {
     public get targetApps(): TargetAppsRequestBuilder {
         return new TargetAppsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The targetedManagedAppProtection property */
-    public get targetedManagedAppProtection(): TargetedManagedAppProtectionRequestBuilder {
-        return new TargetedManagedAppProtectionRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
-    /** The windowsInformationProtection property */
-    public get windowsInformationProtection(): WindowsInformationProtectionRequestBuilder {
-        return new WindowsInformationProtectionRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /**
      * Instantiates a new ManagedAppPolicyItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
@@ -74,6 +59,7 @@ export class ManagedAppPolicyItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);

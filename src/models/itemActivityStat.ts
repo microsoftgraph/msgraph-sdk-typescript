@@ -4,7 +4,7 @@ import {createItemActivityFromDiscriminatorValue} from './createItemActivityFrom
 import {Entity, IncompleteData, ItemActionStat, ItemActivity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the collection of application entities. */
 export class ItemActivityStat extends Entity implements Parsable {
     /** Statistics about the access actions in this interval. Read-only. */
     private _access?: ItemActionStat | undefined;

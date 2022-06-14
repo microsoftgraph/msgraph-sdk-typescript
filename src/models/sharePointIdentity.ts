@@ -1,7 +1,7 @@
 import {Identity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the collection of application entities. */
 export class SharePointIdentity extends Identity implements Parsable {
     /** The sign in name of the SharePoint identity. */
     private _loginName?: string | undefined;

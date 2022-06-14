@@ -4,7 +4,7 @@ import {createIdentitySetFromDiscriminatorValue} from './createIdentitySetFromDi
 import {AccessAction, DriveItem, Entity, IdentitySet} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the collection of application entities. */
 export class ItemActivity extends Entity implements Parsable {
     /** An item was accessed. */
     private _access?: AccessAction | undefined;

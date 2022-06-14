@@ -1,7 +1,7 @@
 import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the directory singleton. */
+/** Provides operations to manage the collection of domain entities. */
 export class IdentityProviderBase extends Entity implements Parsable {
     /** The display name of the identity provider. */
     private _displayName?: string | undefined;

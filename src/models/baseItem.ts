@@ -4,7 +4,7 @@ import {createUserFromDiscriminatorValue} from './createUserFromDiscriminatorVal
 import {Entity, IdentitySet, ItemReference, User} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the collection of application entities. */
 export class BaseItem extends Entity implements Parsable {
     /** Identity of the user, device, or application which created the item. Read-only. */
     private _createdBy?: IdentitySet | undefined;

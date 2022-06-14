@@ -1,7 +1,7 @@
 import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the collection of application entities. */
 export class PlannerProgressTaskBoardTaskFormat extends Entity implements Parsable {
     /** Hint value used to order the task on the Progress view of the Task Board. The format is defined as outlined here. */
     private _orderHint?: string | undefined;

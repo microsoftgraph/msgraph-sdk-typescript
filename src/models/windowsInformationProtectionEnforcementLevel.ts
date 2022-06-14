@@ -1,4 +1,4 @@
-/** Provides operations to manage the deviceAppManagement singleton. */
+/** Provides operations to manage the collection of application entities. */
 export enum WindowsInformationProtectionEnforcementLevel {
     /** No protection enforcement */
     NoProtection = "noProtection",

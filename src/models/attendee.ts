@@ -3,7 +3,7 @@ import {createTimeSlotFromDiscriminatorValue} from './createTimeSlotFromDiscrimi
 import {AttendeeBase, ResponseStatus, TimeSlot} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the collection of application entities. */
 export class Attendee extends AttendeeBase implements Parsable {
     /** An alternate date/time proposed by the attendee for a meeting request to start and end. If the attendee hasn't proposed another time, then this property is not included in a response of a GET event. */
     private _proposedNewTime?: TimeSlot | undefined;

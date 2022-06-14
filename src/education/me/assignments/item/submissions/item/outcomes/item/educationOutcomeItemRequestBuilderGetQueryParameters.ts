@@ -1,5 +1,5 @@
 
-/** Read-Write. Nullable. */
+/** Get outcomes from education */
 export class EducationOutcomeItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

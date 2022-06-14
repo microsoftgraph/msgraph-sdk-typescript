@@ -4,7 +4,7 @@ import {createResourceVisualizationFromDiscriminatorValue} from './createResourc
 import {Entity, ResourceReference, ResourceVisualization} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the collection of application entities. */
 export class Trending extends Entity implements Parsable {
     /** The lastModifiedDateTime property */
     private _lastModifiedDateTime?: Date | undefined;

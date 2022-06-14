@@ -1,4 +1,4 @@
-/** Casts the previous resource to user. */
+/** Provides operations to manage the collection of application entities. */
 export enum CategoryColor {
     None = "none",
     Preset0 = "preset0",

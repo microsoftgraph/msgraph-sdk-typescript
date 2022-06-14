@@ -2,7 +2,7 @@ import {createWorkbookChartLegendFormatFromDiscriminatorValue} from './createWor
 import {Entity, WorkbookChartLegendFormat} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the collection of application entities. */
 export class WorkbookChartLegend extends Entity implements Parsable {
     /** Represents the formatting of a chart legend, which includes fill and font formatting. Read-only. */
     private _format?: WorkbookChartLegendFormat | undefined;

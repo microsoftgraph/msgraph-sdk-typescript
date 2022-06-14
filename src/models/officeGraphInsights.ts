@@ -4,7 +4,7 @@ import {createUsedInsightFromDiscriminatorValue} from './createUsedInsightFromDi
 import {Entity, SharedInsight, Trending, UsedInsight} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the collection of application entities. */
 export class OfficeGraphInsights extends Entity implements Parsable {
     /** Access this property from the derived type itemInsights. */
     private _shared?: SharedInsight[] | undefined;

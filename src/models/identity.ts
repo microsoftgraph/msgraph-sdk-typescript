@@ -3,9 +3,9 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class Identity implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta. */
+    /** The display name of the identity. This property is read-only. */
     private _displayName?: string | undefined;
-    /** Unique identifier for the identity. */
+    /** The identifier of the identity. This property is read-only. */
     private _id?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -28,14 +28,14 @@ export class Identity implements AdditionalDataHolder, Parsable {
         this._additionalData = {};
     };
     /**
-     * Gets the displayName property value. The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.
+     * Gets the displayName property value. The display name of the identity. This property is read-only.
      * @returns a string
      */
     public get displayName() {
         return this._displayName;
     };
     /**
-     * Sets the displayName property value. The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.
+     * Sets the displayName property value. The display name of the identity. This property is read-only.
      * @param value Value to set for the displayName property.
      */
     public set displayName(value: string | undefined) {
@@ -52,14 +52,14 @@ export class Identity implements AdditionalDataHolder, Parsable {
         };
     };
     /**
-     * Gets the id property value. Unique identifier for the identity.
+     * Gets the id property value. The identifier of the identity. This property is read-only.
      * @returns a string
      */
     public get id() {
         return this._id;
     };
     /**
-     * Sets the id property value. Unique identifier for the identity.
+     * Sets the id property value. The identifier of the identity. This property is read-only.
      * @param value Value to set for the id property.
      */
     public set id(value: string | undefined) {

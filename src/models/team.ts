@@ -14,7 +14,7 @@ import {TeamSpecialization} from './teamSpecialization';
 import {TeamVisibilityType} from './teamVisibilityType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the collection of application entities. */
 export class Team extends Entity implements Parsable {
     /** The collection of channels and messages associated with the team. */
     private _channels?: Channel[] | undefined;

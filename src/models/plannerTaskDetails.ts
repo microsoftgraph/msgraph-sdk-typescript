@@ -4,7 +4,7 @@ import {Entity, PlannerChecklistItems, PlannerExternalReferences} from './index'
 import {PlannerPreviewType} from './plannerPreviewType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the collection of application entities. */
 export class PlannerTaskDetails extends Entity implements Parsable {
     /** The collection of checklist items on the task. */
     private _checklist?: PlannerChecklistItems | undefined;

@@ -2,12 +2,11 @@ import {createFieldValueSetFromDiscriminatorValue} from './createFieldValueSetFr
 import {BaseItemVersion, FieldValueSet} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class ListItemVersion extends BaseItemVersion implements Parsable {
     /** A collection of the fields and values for this version of the list item. */
     private _fields?: FieldValueSet | undefined;
     /**
-     * Instantiates a new listItemVersion and sets the default values.
+     * Instantiates a new ListItemVersion and sets the default values.
      */
     public constructor() {
         super();

@@ -1,4 +1,4 @@
-import {PolicyBase} from './index';
+import {AuthorizationPolicy, IdentitySecurityDefaultsEnforcementPolicy, PermissionGrantPolicy, PolicyBase, StsPolicy} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
 export function createPolicyBaseFromDiscriminatorValue(parseNode: ParseNode | undefined) : PolicyBase {
@@ -8,8 +8,14 @@ export function createPolicyBaseFromDiscriminatorValue(parseNode: ParseNode | un
         const mappingValue = mappingValueNode.getStringValue();
         if (mappingValue) {
             switch (mappingValue) {
-                case "#microsoft.graph.policyBase":
-                    return new PolicyBase();
+                case "#microsoft.graph.authorizationPolicy":
+                    return new AuthorizationPolicy();
+                case "#microsoft.graph.identitySecurityDefaultsEnforcementPolicy":
+                    return new IdentitySecurityDefaultsEnforcementPolicy();
+                case "#microsoft.graph.permissionGrantPolicy":
+                    return new PermissionGrantPolicy();
+                case "#microsoft.graph.stsPolicy":
+                    return new StsPolicy();
             }
         }
     }

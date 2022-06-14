@@ -8,7 +8,7 @@ import {CalendarPermission, EmailAddress, Entity, Event, MultiValueLegacyExtende
 import {OnlineMeetingProviderType} from './onlineMeetingProviderType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the collection of application entities. */
 export class Calendar extends Entity implements Parsable {
     /** Represent the online meeting service providers that can be used to create online meetings in this calendar. Possible values are: unknown, skypeForBusiness, skypeForConsumer, teamsForBusiness. */
     private _allowedOnlineMeetingProviders?: string[] | undefined;

@@ -3,7 +3,7 @@ import {createPublicationFacetFromDiscriminatorValue} from './createPublicationF
 import {Entity, IdentitySet, PublicationFacet} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the collection of application entities. */
 export class BaseItemVersion extends Entity implements Parsable {
     /** Identity of the user which last modified the version. Read-only. */
     private _lastModifiedBy?: IdentitySet | undefined;

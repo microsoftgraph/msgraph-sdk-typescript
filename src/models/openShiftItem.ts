@@ -1,7 +1,7 @@
 import {ShiftItem} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the collection of application entities. */
 export class OpenShiftItem extends ShiftItem implements Parsable {
     /** Count of the number of slots for the given open shift. */
     private _openSlotCount?: number | undefined;

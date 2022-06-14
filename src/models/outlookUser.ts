@@ -2,7 +2,7 @@ import {createOutlookCategoryFromDiscriminatorValue} from './createOutlookCatego
 import {Entity, OutlookCategory} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the collection of application entities. */
 export class OutlookUser extends Entity implements Parsable {
     /** A list of categories defined for the user. */
     private _masterCategories?: OutlookCategory[] | undefined;

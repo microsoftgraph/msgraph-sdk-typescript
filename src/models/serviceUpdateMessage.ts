@@ -6,7 +6,6 @@ import {ServiceUpdateCategory} from './serviceUpdateCategory';
 import {ServiceUpdateSeverity} from './serviceUpdateSeverity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the admin singleton. */
 export class ServiceUpdateMessage extends ServiceAnnouncementBase implements Parsable {
     /** The expected deadline of the action for the message. */
     private _actionRequiredByDateTime?: Date | undefined;
@@ -101,7 +100,7 @@ export class ServiceUpdateMessage extends ServiceAnnouncementBase implements Par
         this._category = value;
     };
     /**
-     * Instantiates a new serviceUpdateMessage and sets the default values.
+     * Instantiates a new ServiceUpdateMessage and sets the default values.
      */
     public constructor() {
         super();

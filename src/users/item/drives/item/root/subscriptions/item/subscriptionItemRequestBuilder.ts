@@ -2,6 +2,7 @@ import {Subscription} from '../../../../../../../models/';
 import {createSubscriptionFromDiscriminatorValue} from '../../../../../../../models/createSubscriptionFromDiscriminatorValue';
 import {ODataError} from '../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {ReauthorizeRequestBuilder} from './reauthorize/reauthorizeRequestBuilder';
 import {SubscriptionItemRequestBuilderDeleteRequestConfiguration} from './subscriptionItemRequestBuilderDeleteRequestConfiguration';
 import {SubscriptionItemRequestBuilderGetRequestConfiguration} from './subscriptionItemRequestBuilderGetRequestConfiguration';
 import {SubscriptionItemRequestBuilderPatchRequestConfiguration} from './subscriptionItemRequestBuilderPatchRequestConfiguration';
@@ -11,6 +12,10 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
 export class SubscriptionItemRequestBuilder {
     /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
+    /** The reauthorize property */
+    public get reauthorize(): ReauthorizeRequestBuilder {
+        return new ReauthorizeRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
     /** Url template to use to build the URL for the current request builder */
@@ -54,6 +59,7 @@ export class SubscriptionItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);

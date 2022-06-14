@@ -1,4 +1,4 @@
-/** Casts the previous resource to user. */
+/** Provides operations to manage the collection of application entities. */
 export enum WeekIndex {
     First = "first",
     Second = "second",

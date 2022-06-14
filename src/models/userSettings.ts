@@ -2,7 +2,7 @@ import {createShiftPreferencesFromDiscriminatorValue} from './createShiftPrefere
 import {Entity, ShiftPreferences} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the collection of application entities. */
 export class UserSettings extends Entity implements Parsable {
     /** Reflects the Office Delve organization level setting. When set to true, the organization doesn't have access to Office Delve. This setting is read-only and can only be changed by administrators in the SharePoint admin center. */
     private _contributionToContentDiscoveryAsOrganizationDisabled?: boolean | undefined;
