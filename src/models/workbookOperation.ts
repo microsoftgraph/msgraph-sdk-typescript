@@ -3,7 +3,7 @@ import {Entity, WorkbookOperationError} from './index';
 import {WorkbookOperationStatus} from './workbookOperationStatus';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the collection of application entities. */
 export class WorkbookOperation extends Entity implements Parsable {
     /** The error returned by the operation. */
     private _error_escaped?: WorkbookOperationError | undefined;

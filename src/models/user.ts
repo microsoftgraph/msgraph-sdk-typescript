@@ -46,7 +46,6 @@ import {createUserTeamworkFromDiscriminatorValue} from './createUserTeamworkFrom
 import {AgreementAcceptance, AppRoleAssignment, AssignedLicense, AssignedPlan, Authentication, Calendar, CalendarGroup, Chat, Contact, ContactFolder, DeviceManagementTroubleshootingEvent, DirectoryObject, Drive, EmployeeOrgData, Event, Extension, InferenceClassification, LicenseAssignmentState, LicenseDetails, MailboxSettings, MailFolder, ManagedAppRegistration, ManagedDevice, Message, OAuth2PermissionGrant, ObjectIdentity, OfficeGraphInsights, Onenote, OnlineMeeting, OnPremisesExtensionAttributes, OnPremisesProvisioningError, OutlookUser, PasswordProfile, Person, PlannerUser, Presence, ProfilePhoto, ProvisionedPlan, ScopedRoleMembership, Site, Team, Todo, UserActivity, UserSettings, UserTeamwork} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class User extends DirectoryObject implements Parsable {
     /** A freeform text entry field for the user to describe themselves. Returned only on $select. */
     private _aboutMe?: string | undefined;
@@ -64,7 +63,7 @@ export class User extends DirectoryObject implements Parsable {
     private _assignedLicenses?: AssignedLicense[] | undefined;
     /** The plans that are assigned to the user. Read-only. Not nullable.Supports $filter (eq and not). */
     private _assignedPlans?: AssignedPlan[] | undefined;
-    /** TODO: Add Description */
+    /** The authentication methods that are supported for the user. */
     private _authentication?: Authentication | undefined;
     /** The birthday of the user. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z Returned only on $select. */
     private _birthday?: Date | undefined;
@@ -142,7 +141,7 @@ export class User extends DirectoryObject implements Parsable {
     private _imAddresses?: string[] | undefined;
     /** Relevance classification of the user's messages based on explicit designations which override inferred relevance or importance. */
     private _inferenceClassification?: InferenceClassification | undefined;
-    /** Read-only. Nullable. */
+    /** The insights property */
     private _insights?: OfficeGraphInsights | undefined;
     /** A list for the user to describe their interests. Returned only on $select. */
     private _interests?: string[] | undefined;
@@ -186,7 +185,7 @@ export class User extends DirectoryObject implements Parsable {
     private _oauth2PermissionGrants?: OAuth2PermissionGrant[] | undefined;
     /** The office location in the user's place of business. Maximum length is 128 characters. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values). */
     private _officeLocation?: string | undefined;
-    /** Read-only. */
+    /** The onenote property */
     private _onenote?: Onenote | undefined;
     /** The onlineMeetings property */
     private _onlineMeetings?: OnlineMeeting[] | undefined;
@@ -228,7 +227,7 @@ export class User extends DirectoryObject implements Parsable {
     private _people?: Person[] | undefined;
     /** The user's profile photo. Read-only. */
     private _photo?: ProfilePhoto | undefined;
-    /** Read-only. Nullable. */
+    /** The photos property */
     private _photos?: ProfilePhoto[] | undefined;
     /** Selective Planner services available to the user. Read-only. Nullable. */
     private _planner?: PlannerUser | undefined;
@@ -254,7 +253,7 @@ export class User extends DirectoryObject implements Parsable {
     private _schools?: string[] | undefined;
     /** The scoped-role administrative unit memberships for this user. Read-only. Nullable. */
     private _scopedRoleMemberOf?: ScopedRoleMembership[] | undefined;
-    /** Read-only. Nullable. */
+    /** The settings property */
     private _settings?: UserSettings | undefined;
     /** Do not use in Microsoft Graph. Manage this property through the Microsoft 365 admin center instead. Represents whether the user should be included in the Outlook global address list. See Known issue. */
     private _showInAddressList?: boolean | undefined;
@@ -393,14 +392,14 @@ export class User extends DirectoryObject implements Parsable {
         this._assignedPlans = value;
     };
     /**
-     * Gets the authentication property value. TODO: Add Description
+     * Gets the authentication property value. The authentication methods that are supported for the user.
      * @returns a authentication
      */
     public get authentication() {
         return this._authentication;
     };
     /**
-     * Sets the authentication property value. TODO: Add Description
+     * Sets the authentication property value. The authentication methods that are supported for the user.
      * @param value Value to set for the authentication property.
      */
     public set authentication(value: Authentication | undefined) {
@@ -547,7 +546,7 @@ export class User extends DirectoryObject implements Parsable {
         this._consentProvidedForMinor = value;
     };
     /**
-     * Instantiates a new user and sets the default values.
+     * Instantiates a new User and sets the default values.
      */
     public constructor() {
         super();
@@ -1069,14 +1068,14 @@ export class User extends DirectoryObject implements Parsable {
         this._inferenceClassification = value;
     };
     /**
-     * Gets the insights property value. Read-only. Nullable.
+     * Gets the insights property value. The insights property
      * @returns a officeGraphInsights
      */
     public get insights() {
         return this._insights;
     };
     /**
-     * Sets the insights property value. Read-only. Nullable.
+     * Sets the insights property value. The insights property
      * @param value Value to set for the insights property.
      */
     public set insights(value: OfficeGraphInsights | undefined) {
@@ -1377,14 +1376,14 @@ export class User extends DirectoryObject implements Parsable {
         this._officeLocation = value;
     };
     /**
-     * Gets the onenote property value. Read-only.
+     * Gets the onenote property value. The onenote property
      * @returns a onenote
      */
     public get onenote() {
         return this._onenote;
     };
     /**
-     * Sets the onenote property value. Read-only.
+     * Sets the onenote property value. The onenote property
      * @param value Value to set for the onenote property.
      */
     public set onenote(value: Onenote | undefined) {
@@ -1671,14 +1670,14 @@ export class User extends DirectoryObject implements Parsable {
         this._photo = value;
     };
     /**
-     * Gets the photos property value. Read-only. Nullable.
+     * Gets the photos property value. The photos property
      * @returns a profilePhoto
      */
     public get photos() {
         return this._photos;
     };
     /**
-     * Sets the photos property value. Read-only. Nullable.
+     * Sets the photos property value. The photos property
      * @param value Value to set for the photos property.
      */
     public set photos(value: ProfilePhoto[] | undefined) {
@@ -1977,14 +1976,14 @@ export class User extends DirectoryObject implements Parsable {
         writer.writeStringValue("userType", this.userType);
     };
     /**
-     * Gets the settings property value. Read-only. Nullable.
+     * Gets the settings property value. The settings property
      * @returns a userSettings
      */
     public get settings() {
         return this._settings;
     };
     /**
-     * Sets the settings property value. Read-only. Nullable.
+     * Sets the settings property value. The settings property
      * @param value Value to set for the settings property.
      */
     public set settings(value: UserSettings | undefined) {

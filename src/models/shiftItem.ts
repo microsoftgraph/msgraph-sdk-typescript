@@ -2,7 +2,7 @@ import {createShiftActivityFromDiscriminatorValue} from './createShiftActivityFr
 import {ScheduleEntity, ShiftActivity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the collection of application entities. */
 export class ShiftItem extends ScheduleEntity implements Parsable {
     /** An incremental part of a shift which can cover details of when and where an employee is during their shift. For example, an assignment or a scheduled break or lunch. Required. */
     private _activities?: ShiftActivity[] | undefined;

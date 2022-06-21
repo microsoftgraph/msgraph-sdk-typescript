@@ -3,7 +3,7 @@ import {createSharePointIdentityFromDiscriminatorValue} from './createSharePoint
 import {Identity, IdentitySet, SharePointIdentity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the collection of application entities. */
 export class SharePointIdentitySet extends IdentitySet implements Parsable {
     /** The group associated with this action. Optional. */
     private _group?: Identity | undefined;

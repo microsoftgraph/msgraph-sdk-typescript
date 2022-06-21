@@ -7,7 +7,7 @@ import {createSharepointIdsFromDiscriminatorValue} from './createSharepointIdsFr
 import {BaseItem, ContentTypeInfo, DriveItem, FieldValueSet, ItemAnalytics, ListItemVersion, SharepointIds} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the collection of application entities. */
 export class ListItem extends BaseItem implements Parsable {
     /** Analytics about the view activities that took place on this item. */
     private _analytics?: ItemAnalytics | undefined;

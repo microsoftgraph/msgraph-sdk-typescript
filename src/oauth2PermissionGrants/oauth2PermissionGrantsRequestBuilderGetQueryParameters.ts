@@ -1,5 +1,5 @@
 
-/** Retrieve a list of [oAuth2PermissionGrant](../resources/oauth2permissiongrant.md) objects, representing delegated permissions which have been granted for client applications to access APIs on behalf of signed-in users. */
+/** Retrieve a list of oAuth2PermissionGrant objects, representing delegated permissions which have been granted for client applications to access APIs on behalf of signed-in users. */
 export class Oauth2PermissionGrantsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

@@ -8,7 +8,6 @@ import {AppScope, DirectoryObject, Request, RequestSchedule, TicketInfo, Unified
 import {UnifiedRoleScheduleRequestActions} from './unifiedRoleScheduleRequestActions';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the roleManagement singleton. */
 export class UnifiedRoleEligibilityScheduleRequest extends Request implements Parsable {
     /** Represents the type of the operation on the role eligibility assignment. The possible values are: AdminAssign: For administrators to assign role eligibility to users or groups to roles.AdminExtend: For administrators to extend expiring assignments.AdminUpdate: For administrators to change existing role assignments.AdminRenew: For administrators to renew expired assignments.AdminRemove: For administrators to remove users or groups from eligible roles.UserAdd: For users to activate their eligible assignments.UserExtend: For users to request to extend their expiring eligible assignments.UserRemove: For users to deactivate their active eligible assignments.UserRenew: For users to request to renew their expired eligible assignments. */
     private _action?: UnifiedRoleScheduleRequestActions | undefined;
@@ -83,7 +82,7 @@ export class UnifiedRoleEligibilityScheduleRequest extends Request implements Pa
         this._appScopeId = value;
     };
     /**
-     * Instantiates a new unifiedRoleEligibilityScheduleRequest and sets the default values.
+     * Instantiates a new UnifiedRoleEligibilityScheduleRequest and sets the default values.
      */
     public constructor() {
         super();

@@ -9,15 +9,15 @@ import {ChecklistItem, DateTimeTimeZone, Entity, Extension, ItemBody, LinkedReso
 import {TaskStatus} from './taskStatus';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the collection of application entities. */
 export class TodoTask extends Entity implements Parsable {
     /** The task body that typically contains information about the task. */
     private _body?: ItemBody | undefined;
     /** The date and time when the task was last modified. By default, it is in UTC. You can provide a custom time zone in the request header. The property value uses ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2020 would look like this: '2020-01-01T00:00:00Z'. */
     private _bodyLastModifiedDateTime?: Date | undefined;
-    /** The categories property */
+    /** The categories associated with the task. Each category corresponds to the displayName property of an outlookCategory that the user has defined. */
     private _categories?: string[] | undefined;
-    /** The checklistItems property */
+    /** A collection of smaller subtasks linked to the more complex parent task. */
     private _checklistItems?: ChecklistItem[] | undefined;
     /** The date in the specified time zone that the task was finished. */
     private _completedDateTime?: DateTimeTimeZone | undefined;
@@ -72,28 +72,28 @@ export class TodoTask extends Entity implements Parsable {
         this._bodyLastModifiedDateTime = value;
     };
     /**
-     * Gets the categories property value. The categories property
+     * Gets the categories property value. The categories associated with the task. Each category corresponds to the displayName property of an outlookCategory that the user has defined.
      * @returns a string
      */
     public get categories() {
         return this._categories;
     };
     /**
-     * Sets the categories property value. The categories property
+     * Sets the categories property value. The categories associated with the task. Each category corresponds to the displayName property of an outlookCategory that the user has defined.
      * @param value Value to set for the categories property.
      */
     public set categories(value: string[] | undefined) {
         this._categories = value;
     };
     /**
-     * Gets the checklistItems property value. The checklistItems property
+     * Gets the checklistItems property value. A collection of smaller subtasks linked to the more complex parent task.
      * @returns a checklistItem
      */
     public get checklistItems() {
         return this._checklistItems;
     };
     /**
-     * Sets the checklistItems property value. The checklistItems property
+     * Sets the checklistItems property value. A collection of smaller subtasks linked to the more complex parent task.
      * @param value Value to set for the checklistItems property.
      */
     public set checklistItems(value: ChecklistItem[] | undefined) {

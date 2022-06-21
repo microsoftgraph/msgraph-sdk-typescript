@@ -9,7 +9,6 @@ import {ManagedAppPolicy, TargetedManagedAppPolicyAssignment, WindowsInformation
 import {WindowsInformationProtectionEnforcementLevel} from './windowsInformationProtectionEnforcementLevel';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Policy for Windows information protection to configure detailed management settings */
 export class WindowsInformationProtection extends ManagedAppPolicy implements Parsable {
     /** Navigation property to list of security groups targeted for policy. */
     private _assignments?: TargetedManagedAppPolicyAssignment[] | undefined;
@@ -90,7 +89,7 @@ export class WindowsInformationProtection extends ManagedAppPolicy implements Pa
         this._azureRightsManagementServicesAllowed = value;
     };
     /**
-     * Instantiates a new windowsInformationProtection and sets the default values.
+     * Instantiates a new WindowsInformationProtection and sets the default values.
      */
     public constructor() {
         super();

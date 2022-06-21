@@ -5,7 +5,6 @@ import {ManagedAppPinCharacterSet} from './managedAppPinCharacterSet';
 import {ManagedBrowserType} from './managedBrowserType';
 import {Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Policy used to configure detailed management settings for a specified set of apps */
 export class ManagedAppProtection extends ManagedAppPolicy implements Parsable {
     /** Data storage locations where a user may store managed data. */
     private _allowedDataStorageLocations?: string[] | undefined;
@@ -118,7 +117,7 @@ export class ManagedAppProtection extends ManagedAppPolicy implements Parsable {
         this._allowedOutboundDataTransferDestinations = value;
     };
     /**
-     * Instantiates a new managedAppProtection and sets the default values.
+     * Instantiates a new ManagedAppProtection and sets the default values.
      */
     public constructor() {
         super();

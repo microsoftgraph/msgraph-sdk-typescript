@@ -4,7 +4,7 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 
 /** Provides operations to manage the policyRoot singleton. */
 export class UnifiedRoleManagementPolicyRule extends Entity implements Parsable {
-    /** The target for the policy rule. */
+    /** Not implemented. Defines details of scope that's targeted by role management policy rule. The details can include the principal type, the role assignment type, and actions affecting a role. Supports $filter (eq, ne). */
     private _target?: UnifiedRoleManagementPolicyRuleTarget | undefined;
     /**
      * Instantiates a new unifiedRoleManagementPolicyRule and sets the default values.
@@ -31,14 +31,14 @@ export class UnifiedRoleManagementPolicyRule extends Entity implements Parsable 
         writer.writeObjectValue<UnifiedRoleManagementPolicyRuleTarget>("target", this.target);
     };
     /**
-     * Gets the target property value. The target for the policy rule.
+     * Gets the target property value. Not implemented. Defines details of scope that's targeted by role management policy rule. The details can include the principal type, the role assignment type, and actions affecting a role. Supports $filter (eq, ne).
      * @returns a unifiedRoleManagementPolicyRuleTarget
      */
     public get target() {
         return this._target;
     };
     /**
-     * Sets the target property value. The target for the policy rule.
+     * Sets the target property value. Not implemented. Defines details of scope that's targeted by role management policy rule. The details can include the principal type, the role assignment type, and actions affecting a role. Supports $filter (eq, ne).
      * @param value Value to set for the target property.
      */
     public set target(value: UnifiedRoleManagementPolicyRuleTarget | undefined) {

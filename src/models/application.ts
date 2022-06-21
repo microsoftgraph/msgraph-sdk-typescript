@@ -1,6 +1,7 @@
 import {createAddInFromDiscriminatorValue} from './createAddInFromDiscriminatorValue';
 import {createApiApplicationFromDiscriminatorValue} from './createApiApplicationFromDiscriminatorValue';
 import {createAppRoleFromDiscriminatorValue} from './createAppRoleFromDiscriminatorValue';
+import {createCertificationFromDiscriminatorValue} from './createCertificationFromDiscriminatorValue';
 import {createDirectoryObjectFromDiscriminatorValue} from './createDirectoryObjectFromDiscriminatorValue';
 import {createExtensionPropertyFromDiscriminatorValue} from './createExtensionPropertyFromDiscriminatorValue';
 import {createHomeRealmDiscoveryPolicyFromDiscriminatorValue} from './createHomeRealmDiscoveryPolicyFromDiscriminatorValue';
@@ -16,10 +17,10 @@ import {createTokenIssuancePolicyFromDiscriminatorValue} from './createTokenIssu
 import {createTokenLifetimePolicyFromDiscriminatorValue} from './createTokenLifetimePolicyFromDiscriminatorValue';
 import {createVerifiedPublisherFromDiscriminatorValue} from './createVerifiedPublisherFromDiscriminatorValue';
 import {createWebApplicationFromDiscriminatorValue} from './createWebApplicationFromDiscriminatorValue';
-import {AddIn, ApiApplication, AppRole, DirectoryObject, ExtensionProperty, HomeRealmDiscoveryPolicy, InformationalUrl, KeyCredential, OptionalClaims, ParentalControlSettings, PasswordCredential, PublicClientApplication, RequiredResourceAccess, SpaApplication, TokenIssuancePolicy, TokenLifetimePolicy, VerifiedPublisher, WebApplication} from './index';
+import {AddIn, ApiApplication, AppRole, Certification, DirectoryObject, ExtensionProperty, HomeRealmDiscoveryPolicy, InformationalUrl, KeyCredential, OptionalClaims, ParentalControlSettings, PasswordCredential, PublicClientApplication, RequiredResourceAccess, SpaApplication, TokenIssuancePolicy, TokenLifetimePolicy, VerifiedPublisher, WebApplication} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of application entities. */
+/** Provides operations to call the instantiate method. */
 export class Application extends DirectoryObject implements Parsable {
     /** Defines custom behavior that a consuming service can use to call an app in specific contexts. For example, applications that can render file streams may set the addIns property for its 'FileHandler' functionality. This will let services like Office 365 call the application in the context of a document the user is working on. */
     private _addIns?: AddIn[] | undefined;
@@ -31,9 +32,11 @@ export class Application extends DirectoryObject implements Parsable {
     private _applicationTemplateId?: string | undefined;
     /** The collection of roles assigned to the application. With app role assignments, these roles can be assigned to users, groups, or service principals associated with other applications. Not nullable. */
     private _appRoles?: AppRole[] | undefined;
+    /** Specifies the certification status of the application. */
+    private _certification?: Certification | undefined;
     /** The date and time the application was registered. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.  Supports $filter (eq, ne, not, ge, le, in, and eq on null values) and $orderBy. */
     private _createdDateTime?: Date | undefined;
-    /** Read-only. */
+    /** The createdOnBehalfOf property */
     private _createdOnBehalfOf?: DirectoryObject | undefined;
     /** Free text field to provide a description of the application object to end users. The maximum allowed size is 1024 characters. Returned by default. Supports $filter (eq, ne, not, ge, le, startsWith) and $search. */
     private _description?: string | undefined;
@@ -166,6 +169,20 @@ export class Application extends DirectoryObject implements Parsable {
         this._appRoles = value;
     };
     /**
+     * Gets the certification property value. Specifies the certification status of the application.
+     * @returns a certification
+     */
+    public get certification() {
+        return this._certification;
+    };
+    /**
+     * Sets the certification property value. Specifies the certification status of the application.
+     * @param value Value to set for the certification property.
+     */
+    public set certification(value: Certification | undefined) {
+        this._certification = value;
+    };
+    /**
      * Instantiates a new application and sets the default values.
      */
     public constructor() {
@@ -186,14 +203,14 @@ export class Application extends DirectoryObject implements Parsable {
         this._createdDateTime = value;
     };
     /**
-     * Gets the createdOnBehalfOf property value. Read-only.
+     * Gets the createdOnBehalfOf property value. The createdOnBehalfOf property
      * @returns a directoryObject
      */
     public get createdOnBehalfOf() {
         return this._createdOnBehalfOf;
     };
     /**
-     * Sets the createdOnBehalfOf property value. Read-only.
+     * Sets the createdOnBehalfOf property value. The createdOnBehalfOf property
      * @param value Value to set for the createdOnBehalfOf property.
      */
     public set createdOnBehalfOf(value: DirectoryObject | undefined) {
@@ -266,6 +283,7 @@ export class Application extends DirectoryObject implements Parsable {
             "appId": n => { this.appId = n.getStringValue(); },
             "applicationTemplateId": n => { this.applicationTemplateId = n.getStringValue(); },
             "appRoles": n => { this.appRoles = n.getCollectionOfObjectValues<AppRole>(createAppRoleFromDiscriminatorValue); },
+            "certification": n => { this.certification = n.getObjectValue<Certification>(createCertificationFromDiscriminatorValue); },
             "createdDateTime": n => { this.createdDateTime = n.getDateValue(); },
             "createdOnBehalfOf": n => { this.createdOnBehalfOf = n.getObjectValue<DirectoryObject>(createDirectoryObjectFromDiscriminatorValue); },
             "description": n => { this.description = n.getStringValue(); },
@@ -550,6 +568,7 @@ export class Application extends DirectoryObject implements Parsable {
         writer.writeStringValue("appId", this.appId);
         writer.writeStringValue("applicationTemplateId", this.applicationTemplateId);
         writer.writeCollectionOfObjectValues<AppRole>("appRoles", this.appRoles);
+        writer.writeObjectValue<Certification>("certification", this.certification);
         writer.writeDateValue("createdDateTime", this.createdDateTime);
         writer.writeObjectValue<DirectoryObject>("createdOnBehalfOf", this.createdOnBehalfOf);
         writer.writeStringValue("description", this.description);

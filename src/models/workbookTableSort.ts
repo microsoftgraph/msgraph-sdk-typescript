@@ -2,7 +2,7 @@ import {createWorkbookSortFieldFromDiscriminatorValue} from './createWorkbookSor
 import {Entity, WorkbookSortField} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the collection of application entities. */
 export class WorkbookTableSort extends Entity implements Parsable {
     /** Represents the current conditions used to last sort the table. Read-only. */
     private _fields?: WorkbookSortField[] | undefined;

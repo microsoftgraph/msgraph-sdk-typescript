@@ -1,4 +1,4 @@
-import {DeviceEnrollmentConfiguration} from './index';
+import {DeviceEnrollmentConfiguration, DeviceEnrollmentLimitConfiguration, DeviceEnrollmentPlatformRestrictionsConfiguration, DeviceEnrollmentWindowsHelloForBusinessConfiguration} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
 export function createDeviceEnrollmentConfigurationFromDiscriminatorValue(parseNode: ParseNode | undefined) : DeviceEnrollmentConfiguration {
@@ -8,8 +8,12 @@ export function createDeviceEnrollmentConfigurationFromDiscriminatorValue(parseN
         const mappingValue = mappingValueNode.getStringValue();
         if (mappingValue) {
             switch (mappingValue) {
-                case "#microsoft.graph.deviceEnrollmentConfiguration":
-                    return new DeviceEnrollmentConfiguration();
+                case "#microsoft.graph.deviceEnrollmentLimitConfiguration":
+                    return new DeviceEnrollmentLimitConfiguration();
+                case "#microsoft.graph.deviceEnrollmentPlatformRestrictionsConfiguration":
+                    return new DeviceEnrollmentPlatformRestrictionsConfiguration();
+                case "#microsoft.graph.deviceEnrollmentWindowsHelloForBusinessConfiguration":
+                    return new DeviceEnrollmentWindowsHelloForBusinessConfiguration();
             }
         }
     }

@@ -14,8 +14,10 @@ import {TeamSpecialization} from './teamSpecialization';
 import {TeamVisibilityType} from './teamVisibilityType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the collection of application entities. */
 export class Team extends Entity implements Parsable {
+    /** List of channels either hosted in or shared with the team (incoming channels). */
+    private _allChannels?: Channel[] | undefined;
     /** The collection of channels and messages associated with the team. */
     private _channels?: Channel[] | undefined;
     /** An optional label. Typically describes the data or business sensitivity of the team. Must match one of a pre-configured set in the tenant's directory. */
@@ -32,6 +34,8 @@ export class Team extends Entity implements Parsable {
     private _group?: Group | undefined;
     /** Settings to configure whether guests can create, update, or delete channels in the team. */
     private _guestSettings?: TeamGuestSettings | undefined;
+    /** List of channels shared with the team. */
+    private _incomingChannels?: Channel[] | undefined;
     /** The apps installed in this team. */
     private _installedApps?: TeamsAppInstallation[] | undefined;
     /** A unique ID for the team that has been used in a few places such as the audit log/Office 365 Management Activity API. */
@@ -54,10 +58,26 @@ export class Team extends Entity implements Parsable {
     private _specialization?: TeamSpecialization | undefined;
     /** The template this team was created from. See available templates. */
     private _template?: TeamsTemplate | undefined;
+    /** The ID of the Azure Active Directory tenant. */
+    private _tenantId?: string | undefined;
     /** The visibility of the group and team. Defaults to Public. */
     private _visibility?: TeamVisibilityType | undefined;
     /** A hyperlink that will go to the team in the Microsoft Teams client. This is the URL that you get when you right-click a team in the Microsoft Teams client and select Get link to team. This URL should be treated as an opaque blob, and not parsed. */
     private _webUrl?: string | undefined;
+    /**
+     * Gets the allChannels property value. List of channels either hosted in or shared with the team (incoming channels).
+     * @returns a channel
+     */
+    public get allChannels() {
+        return this._allChannels;
+    };
+    /**
+     * Sets the allChannels property value. List of channels either hosted in or shared with the team (incoming channels).
+     * @param value Value to set for the allChannels property.
+     */
+    public set allChannels(value: Channel[] | undefined) {
+        this._allChannels = value;
+    };
     /**
      * Gets the channels property value. The collection of channels and messages associated with the team.
      * @returns a channel
@@ -154,6 +174,7 @@ export class Team extends Entity implements Parsable {
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {...super.getFieldDeserializers(),
+            "allChannels": n => { this.allChannels = n.getCollectionOfObjectValues<Channel>(createChannelFromDiscriminatorValue); },
             "channels": n => { this.channels = n.getCollectionOfObjectValues<Channel>(createChannelFromDiscriminatorValue); },
             "classification": n => { this.classification = n.getStringValue(); },
             "createdDateTime": n => { this.createdDateTime = n.getDateValue(); },
@@ -162,6 +183,7 @@ export class Team extends Entity implements Parsable {
             "funSettings": n => { this.funSettings = n.getObjectValue<TeamFunSettings>(createTeamFunSettingsFromDiscriminatorValue); },
             "group": n => { this.group = n.getObjectValue<Group>(createGroupFromDiscriminatorValue); },
             "guestSettings": n => { this.guestSettings = n.getObjectValue<TeamGuestSettings>(createTeamGuestSettingsFromDiscriminatorValue); },
+            "incomingChannels": n => { this.incomingChannels = n.getCollectionOfObjectValues<Channel>(createChannelFromDiscriminatorValue); },
             "installedApps": n => { this.installedApps = n.getCollectionOfObjectValues<TeamsAppInstallation>(createTeamsAppInstallationFromDiscriminatorValue); },
             "internalId": n => { this.internalId = n.getStringValue(); },
             "isArchived": n => { this.isArchived = n.getBooleanValue(); },
@@ -173,6 +195,7 @@ export class Team extends Entity implements Parsable {
             "schedule": n => { this.schedule = n.getObjectValue<Schedule>(createScheduleFromDiscriminatorValue); },
             "specialization": n => { this.specialization = n.getEnumValue<TeamSpecialization>(TeamSpecialization); },
             "template": n => { this.template = n.getObjectValue<TeamsTemplate>(createTeamsTemplateFromDiscriminatorValue); },
+            "tenantId": n => { this.tenantId = n.getStringValue(); },
             "visibility": n => { this.visibility = n.getEnumValue<TeamVisibilityType>(TeamVisibilityType); },
             "webUrl": n => { this.webUrl = n.getStringValue(); },
         };
@@ -204,6 +227,20 @@ export class Team extends Entity implements Parsable {
      */
     public set guestSettings(value: TeamGuestSettings | undefined) {
         this._guestSettings = value;
+    };
+    /**
+     * Gets the incomingChannels property value. List of channels shared with the team.
+     * @returns a channel
+     */
+    public get incomingChannels() {
+        return this._incomingChannels;
+    };
+    /**
+     * Sets the incomingChannels property value. List of channels shared with the team.
+     * @param value Value to set for the incomingChannels property.
+     */
+    public set incomingChannels(value: Channel[] | undefined) {
+        this._incomingChannels = value;
     };
     /**
      * Gets the installedApps property value. The apps installed in this team.
@@ -338,6 +375,7 @@ export class Team extends Entity implements Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
+        writer.writeCollectionOfObjectValues<Channel>("allChannels", this.allChannels);
         writer.writeCollectionOfObjectValues<Channel>("channels", this.channels);
         writer.writeStringValue("classification", this.classification);
         writer.writeDateValue("createdDateTime", this.createdDateTime);
@@ -346,6 +384,7 @@ export class Team extends Entity implements Parsable {
         writer.writeObjectValue<TeamFunSettings>("funSettings", this.funSettings);
         writer.writeObjectValue<Group>("group", this.group);
         writer.writeObjectValue<TeamGuestSettings>("guestSettings", this.guestSettings);
+        writer.writeCollectionOfObjectValues<Channel>("incomingChannels", this.incomingChannels);
         writer.writeCollectionOfObjectValues<TeamsAppInstallation>("installedApps", this.installedApps);
         writer.writeStringValue("internalId", this.internalId);
         writer.writeBooleanValue("isArchived", this.isArchived);
@@ -357,6 +396,7 @@ export class Team extends Entity implements Parsable {
         writer.writeObjectValue<Schedule>("schedule", this.schedule);
         writer.writeEnumValue<TeamSpecialization>("specialization", this.specialization);
         writer.writeObjectValue<TeamsTemplate>("template", this.template);
+        writer.writeStringValue("tenantId", this.tenantId);
         writer.writeEnumValue<TeamVisibilityType>("visibility", this.visibility);
         writer.writeStringValue("webUrl", this.webUrl);
     };
@@ -387,6 +427,20 @@ export class Team extends Entity implements Parsable {
      */
     public set template(value: TeamsTemplate | undefined) {
         this._template = value;
+    };
+    /**
+     * Gets the tenantId property value. The ID of the Azure Active Directory tenant.
+     * @returns a string
+     */
+    public get tenantId() {
+        return this._tenantId;
+    };
+    /**
+     * Sets the tenantId property value. The ID of the Azure Active Directory tenant.
+     * @param value Value to set for the tenantId property.
+     */
+    public set tenantId(value: string | undefined) {
+        this._tenantId = value;
     };
     /**
      * Gets the visibility property value. The visibility of the group and team. Defaults to Public.

@@ -2,7 +2,7 @@ import {createWorkbookChartAxisFromDiscriminatorValue} from './createWorkbookCha
 import {Entity, WorkbookChartAxis} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the collection of application entities. */
 export class WorkbookChartAxes extends Entity implements Parsable {
     /** Represents the category axis in a chart. Read-only. */
     private _categoryAxis?: WorkbookChartAxis | undefined;

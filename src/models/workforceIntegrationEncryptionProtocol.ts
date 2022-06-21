@@ -1,4 +1,4 @@
-/** Provides operations to manage the teamwork singleton. */
+/** Provides operations to manage the collection of application entities. */
 export enum WorkforceIntegrationEncryptionProtocol {
     SharedSecret = "sharedSecret",
     UnknownFutureValue = "unknownFutureValue",

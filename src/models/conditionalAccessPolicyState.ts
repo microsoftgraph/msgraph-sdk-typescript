@@ -1,4 +1,4 @@
-/** Provides operations to manage the identityContainer singleton. */
+/** Provides operations to manage the policyRoot singleton. */
 export enum ConditionalAccessPolicyState {
     Enabled = "enabled",
     Disabled = "disabled",

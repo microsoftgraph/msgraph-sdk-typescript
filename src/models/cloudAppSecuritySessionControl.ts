@@ -2,7 +2,7 @@ import {CloudAppSecuritySessionControlType} from './cloudAppSecuritySessionContr
 import {ConditionalAccessSessionControl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the identityContainer singleton. */
+/** Provides operations to manage the policyRoot singleton. */
 export class CloudAppSecuritySessionControl extends ConditionalAccessSessionControl implements Parsable {
     /** Possible values are: mcasConfigured, monitorOnly, blockDownloads. To learn more about these values, Deploy Conditional Access App Control for featured apps. */
     private _cloudAppSecurityType?: CloudAppSecuritySessionControlType | undefined;

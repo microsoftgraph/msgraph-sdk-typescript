@@ -4,7 +4,6 @@ import {createScopedRoleMembershipFromDiscriminatorValue} from './createScopedRo
 import {DirectoryObject, Extension, ScopedRoleMembership} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the directory singleton. */
 export class AdministrativeUnit extends DirectoryObject implements Parsable {
     /** An optional description for the administrative unit. Supports $filter (eq, ne, in, startsWith), $search. */
     private _description?: string | undefined;
@@ -19,7 +18,7 @@ export class AdministrativeUnit extends DirectoryObject implements Parsable {
     /** Controls whether the administrative unit and its members are hidden or public. Can be set to HiddenMembership. If not set (value is null), the default behavior is public. When set to HiddenMembership, only members of the administrative unit can list other members of the administrative unit. */
     private _visibility?: string | undefined;
     /**
-     * Instantiates a new administrativeUnit and sets the default values.
+     * Instantiates a new AdministrativeUnit and sets the default values.
      */
     public constructor() {
         super();
