@@ -18,7 +18,7 @@ export class SwapShiftsChangeRequestCollectionResponseImpl implements SwapShifts
     public constructor(swapShiftsChangeRequestCollectionResponseParameterValue?: SwapShiftsChangeRequestCollectionResponse | undefined) {
         this.additionalData = swapShiftsChangeRequestCollectionResponseParameterValue?.additionalData ? swapShiftsChangeRequestCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = swapShiftsChangeRequestCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: SwapShiftsChangeRequestImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof SwapShiftsChangeRequestImpl? element : new SwapShiftsChangeRequestImpl(element));});
+        const valueArrValue: SwapShiftsChangeRequestImpl[] = []; swapShiftsChangeRequestCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof SwapShiftsChangeRequestImpl? element : new SwapShiftsChangeRequestImpl(element));});
         this.value = valueArrValue;
     };
     /**

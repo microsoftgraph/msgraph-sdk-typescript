@@ -18,7 +18,7 @@ export class AccessReviewHistoryDefinitionCollectionResponseImpl implements Acce
     public constructor(accessReviewHistoryDefinitionCollectionResponseParameterValue?: AccessReviewHistoryDefinitionCollectionResponse | undefined) {
         this.additionalData = accessReviewHistoryDefinitionCollectionResponseParameterValue?.additionalData ? accessReviewHistoryDefinitionCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = accessReviewHistoryDefinitionCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: AccessReviewHistoryDefinitionImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof AccessReviewHistoryDefinitionImpl? element : new AccessReviewHistoryDefinitionImpl(element));});
+        const valueArrValue: AccessReviewHistoryDefinitionImpl[] = []; accessReviewHistoryDefinitionCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof AccessReviewHistoryDefinitionImpl? element : new AccessReviewHistoryDefinitionImpl(element));});
         this.value = valueArrValue;
     };
     /**

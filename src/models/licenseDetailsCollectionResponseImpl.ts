@@ -18,7 +18,7 @@ export class LicenseDetailsCollectionResponseImpl implements LicenseDetailsColle
     public constructor(licenseDetailsCollectionResponseParameterValue?: LicenseDetailsCollectionResponse | undefined) {
         this.additionalData = licenseDetailsCollectionResponseParameterValue?.additionalData ? licenseDetailsCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = licenseDetailsCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: LicenseDetailsImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof LicenseDetailsImpl? element : new LicenseDetailsImpl(element));});
+        const valueArrValue: LicenseDetailsImpl[] = []; licenseDetailsCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof LicenseDetailsImpl? element : new LicenseDetailsImpl(element));});
         this.value = valueArrValue;
     };
     /**

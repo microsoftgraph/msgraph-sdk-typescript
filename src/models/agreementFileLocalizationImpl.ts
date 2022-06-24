@@ -14,7 +14,7 @@ export class AgreementFileLocalizationImpl extends AgreementFilePropertiesImpl i
      */
     public constructor(agreementFileLocalizationParameterValue?: AgreementFileLocalization | undefined) {
         super(agreementFileLocalizationParameterValue);
-        const versionsArrValue: AgreementFileVersionImpl[] = []; this.versions?.forEach(element => {versionsArrValue.push(element instanceof AgreementFileVersionImpl? element : new AgreementFileVersionImpl(element));});
+        const versionsArrValue: AgreementFileVersionImpl[] = []; agreementFileLocalizationParameterValue.versions?.forEach(element => {versionsArrValue.push(element instanceof AgreementFileVersionImpl? element : new AgreementFileVersionImpl(element));});
         this.versions = versionsArrValue;
     };
     /**

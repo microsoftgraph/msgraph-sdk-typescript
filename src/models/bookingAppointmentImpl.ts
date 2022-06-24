@@ -66,7 +66,7 @@ export class BookingAppointmentImpl extends EntityImpl implements BookingAppoint
     public constructor(bookingAppointmentParameterValue?: BookingAppointment | undefined) {
         super(bookingAppointmentParameterValue);
         this.additionalInformation = bookingAppointmentParameterValue?.additionalInformation;
-        const customersArrValue: BookingCustomerInformationBaseImpl[] = []; this.customers?.forEach(element => {customersArrValue.push(element instanceof BookingCustomerInformationBaseImpl? element : new BookingCustomerInformationBaseImpl(element));});
+        const customersArrValue: BookingCustomerInformationBaseImpl[] = []; bookingAppointmentParameterValue.customers?.forEach(element => {customersArrValue.push(element instanceof BookingCustomerInformationBaseImpl? element : new BookingCustomerInformationBaseImpl(element));});
         this.customers = customersArrValue;
         this.customerTimeZone = bookingAppointmentParameterValue?.customerTimeZone;
         this.duration = bookingAppointmentParameterValue?.duration;
@@ -80,7 +80,7 @@ export class BookingAppointmentImpl extends EntityImpl implements BookingAppoint
         this.preBuffer = bookingAppointmentParameterValue?.preBuffer;
         this.price = bookingAppointmentParameterValue?.price;
         this.priceType = bookingAppointmentParameterValue?.priceType;
-        const remindersArrValue: BookingReminderImpl[] = []; this.reminders?.forEach(element => {remindersArrValue.push(element instanceof BookingReminderImpl? element : new BookingReminderImpl(element));});
+        const remindersArrValue: BookingReminderImpl[] = []; bookingAppointmentParameterValue.reminders?.forEach(element => {remindersArrValue.push(element instanceof BookingReminderImpl? element : new BookingReminderImpl(element));});
         this.reminders = remindersArrValue;
         this.selfServiceAppointmentId = bookingAppointmentParameterValue?.selfServiceAppointmentId;
         this.serviceId = bookingAppointmentParameterValue?.serviceId;

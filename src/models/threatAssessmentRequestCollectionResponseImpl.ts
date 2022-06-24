@@ -18,7 +18,7 @@ export class ThreatAssessmentRequestCollectionResponseImpl implements ThreatAsse
     public constructor(threatAssessmentRequestCollectionResponseParameterValue?: ThreatAssessmentRequestCollectionResponse | undefined) {
         this.additionalData = threatAssessmentRequestCollectionResponseParameterValue?.additionalData ? threatAssessmentRequestCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = threatAssessmentRequestCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: ThreatAssessmentRequestImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ThreatAssessmentRequestImpl? element : new ThreatAssessmentRequestImpl(element));});
+        const valueArrValue: ThreatAssessmentRequestImpl[] = []; threatAssessmentRequestCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof ThreatAssessmentRequestImpl? element : new ThreatAssessmentRequestImpl(element));});
         this.value = valueArrValue;
     };
     /**

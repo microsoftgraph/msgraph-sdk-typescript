@@ -18,7 +18,7 @@ export class TeamsAppCollectionResponseImpl implements TeamsAppCollectionRespons
     public constructor(teamsAppCollectionResponseParameterValue?: TeamsAppCollectionResponse | undefined) {
         this.additionalData = teamsAppCollectionResponseParameterValue?.additionalData ? teamsAppCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = teamsAppCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: TeamsAppImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof TeamsAppImpl? element : new TeamsAppImpl(element));});
+        const valueArrValue: TeamsAppImpl[] = []; teamsAppCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof TeamsAppImpl? element : new TeamsAppImpl(element));});
         this.value = valueArrValue;
     };
     /**

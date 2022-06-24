@@ -2,10 +2,9 @@ import {StsPolicyImpl} from './index';
 import {TokenIssuancePolicy} from './tokenIssuancePolicy';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the instantiate method. */
 export class TokenIssuancePolicyImpl extends StsPolicyImpl implements TokenIssuancePolicy {
     /**
-     * Instantiates a new tokenIssuancePolicy and sets the default values.
+     * Instantiates a new TokenIssuancePolicy and sets the default values.
      * @param tokenIssuancePolicyParameterValue 
      */
     public constructor(tokenIssuancePolicyParameterValue?: TokenIssuancePolicy | undefined) {

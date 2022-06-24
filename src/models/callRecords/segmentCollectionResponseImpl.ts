@@ -18,7 +18,7 @@ export class SegmentCollectionResponseImpl implements SegmentCollectionResponse 
     public constructor(segmentCollectionResponseParameterValue?: SegmentCollectionResponse | undefined) {
         this.additionalData = segmentCollectionResponseParameterValue?.additionalData ? segmentCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = segmentCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: SegmentImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof SegmentImpl? element : new SegmentImpl(element));});
+        const valueArrValue: SegmentImpl[] = []; segmentCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof SegmentImpl? element : new SegmentImpl(element));});
         this.value = valueArrValue;
     };
     /**

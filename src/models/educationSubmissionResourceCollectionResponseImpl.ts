@@ -18,7 +18,7 @@ export class EducationSubmissionResourceCollectionResponseImpl implements Educat
     public constructor(educationSubmissionResourceCollectionResponseParameterValue?: EducationSubmissionResourceCollectionResponse | undefined) {
         this.additionalData = educationSubmissionResourceCollectionResponseParameterValue?.additionalData ? educationSubmissionResourceCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = educationSubmissionResourceCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: EducationSubmissionResourceImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof EducationSubmissionResourceImpl? element : new EducationSubmissionResourceImpl(element));});
+        const valueArrValue: EducationSubmissionResourceImpl[] = []; educationSubmissionResourceCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof EducationSubmissionResourceImpl? element : new EducationSubmissionResourceImpl(element));});
         this.value = valueArrValue;
     };
     /**

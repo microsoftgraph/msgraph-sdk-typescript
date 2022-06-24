@@ -18,7 +18,7 @@ export class CalendarCollectionResponseImpl implements CalendarCollectionRespons
     public constructor(calendarCollectionResponseParameterValue?: CalendarCollectionResponse | undefined) {
         this.additionalData = calendarCollectionResponseParameterValue?.additionalData ? calendarCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = calendarCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: CalendarImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof CalendarImpl? element : new CalendarImpl(element));});
+        const valueArrValue: CalendarImpl[] = []; calendarCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof CalendarImpl? element : new CalendarImpl(element));});
         this.value = valueArrValue;
     };
     /**

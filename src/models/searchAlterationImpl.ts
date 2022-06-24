@@ -21,7 +21,7 @@ export class SearchAlterationImpl implements SearchAlteration {
         this.additionalData = searchAlterationParameterValue?.additionalData ? searchAlterationParameterValue?.additionalData! : {};
         this.alteredHighlightedQueryString = searchAlterationParameterValue?.alteredHighlightedQueryString;
         this.alteredQueryString = searchAlterationParameterValue?.alteredQueryString;
-        const alteredQueryTokensArrValue: AlteredQueryTokenImpl[] = []; this.alteredQueryTokens?.forEach(element => {alteredQueryTokensArrValue.push(element instanceof AlteredQueryTokenImpl? element : new AlteredQueryTokenImpl(element));});
+        const alteredQueryTokensArrValue: AlteredQueryTokenImpl[] = []; searchAlterationParameterValue.alteredQueryTokens?.forEach(element => {alteredQueryTokensArrValue.push(element instanceof AlteredQueryTokenImpl? element : new AlteredQueryTokenImpl(element));});
         this.alteredQueryTokens = alteredQueryTokensArrValue;
     };
     /**

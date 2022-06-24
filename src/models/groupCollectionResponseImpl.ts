@@ -18,7 +18,7 @@ export class GroupCollectionResponseImpl implements GroupCollectionResponse {
     public constructor(groupCollectionResponseParameterValue?: GroupCollectionResponse | undefined) {
         this.additionalData = groupCollectionResponseParameterValue?.additionalData ? groupCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = groupCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: GroupImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof GroupImpl? element : new GroupImpl(element));});
+        const valueArrValue: GroupImpl[] = []; groupCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof GroupImpl? element : new GroupImpl(element));});
         this.value = valueArrValue;
     };
     /**

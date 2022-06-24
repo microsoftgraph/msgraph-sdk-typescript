@@ -18,7 +18,7 @@ export class UnifiedRoleManagementPolicyRuleCollectionResponseImpl implements Un
     public constructor(unifiedRoleManagementPolicyRuleCollectionResponseParameterValue?: UnifiedRoleManagementPolicyRuleCollectionResponse | undefined) {
         this.additionalData = unifiedRoleManagementPolicyRuleCollectionResponseParameterValue?.additionalData ? unifiedRoleManagementPolicyRuleCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = unifiedRoleManagementPolicyRuleCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: UnifiedRoleManagementPolicyRuleImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof UnifiedRoleManagementPolicyRuleImpl? element : new UnifiedRoleManagementPolicyRuleImpl(element));});
+        const valueArrValue: UnifiedRoleManagementPolicyRuleImpl[] = []; unifiedRoleManagementPolicyRuleCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof UnifiedRoleManagementPolicyRuleImpl? element : new UnifiedRoleManagementPolicyRuleImpl(element));});
         this.value = valueArrValue;
     };
     /**

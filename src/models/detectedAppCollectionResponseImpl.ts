@@ -18,7 +18,7 @@ export class DetectedAppCollectionResponseImpl implements DetectedAppCollectionR
     public constructor(detectedAppCollectionResponseParameterValue?: DetectedAppCollectionResponse | undefined) {
         this.additionalData = detectedAppCollectionResponseParameterValue?.additionalData ? detectedAppCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = detectedAppCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: DetectedAppImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof DetectedAppImpl? element : new DetectedAppImpl(element));});
+        const valueArrValue: DetectedAppImpl[] = []; detectedAppCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof DetectedAppImpl? element : new DetectedAppImpl(element));});
         this.value = valueArrValue;
     };
     /**

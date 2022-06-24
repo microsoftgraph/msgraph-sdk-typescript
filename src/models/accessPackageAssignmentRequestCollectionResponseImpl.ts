@@ -18,7 +18,7 @@ export class AccessPackageAssignmentRequestCollectionResponseImpl implements Acc
     public constructor(accessPackageAssignmentRequestCollectionResponseParameterValue?: AccessPackageAssignmentRequestCollectionResponse | undefined) {
         this.additionalData = accessPackageAssignmentRequestCollectionResponseParameterValue?.additionalData ? accessPackageAssignmentRequestCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = accessPackageAssignmentRequestCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: AccessPackageAssignmentRequestImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof AccessPackageAssignmentRequestImpl? element : new AccessPackageAssignmentRequestImpl(element));});
+        const valueArrValue: AccessPackageAssignmentRequestImpl[] = []; accessPackageAssignmentRequestCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof AccessPackageAssignmentRequestImpl? element : new AccessPackageAssignmentRequestImpl(element));});
         this.value = valueArrValue;
     };
     /**

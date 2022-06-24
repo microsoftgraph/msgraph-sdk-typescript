@@ -36,7 +36,7 @@ export class AccessPackageAssignmentRequestorSettingsImpl implements AccessPacka
         this.enableTargetsToSelfAddAccess = accessPackageAssignmentRequestorSettingsParameterValue?.enableTargetsToSelfAddAccess;
         this.enableTargetsToSelfRemoveAccess = accessPackageAssignmentRequestorSettingsParameterValue?.enableTargetsToSelfRemoveAccess;
         this.enableTargetsToSelfUpdateAccess = accessPackageAssignmentRequestorSettingsParameterValue?.enableTargetsToSelfUpdateAccess;
-        const onBehalfRequestorsArrValue: SubjectSetImpl[] = []; this.onBehalfRequestors?.forEach(element => {onBehalfRequestorsArrValue.push(element instanceof SubjectSetImpl? element : new SubjectSetImpl(element));});
+        const onBehalfRequestorsArrValue: SubjectSetImpl[] = []; accessPackageAssignmentRequestorSettingsParameterValue.onBehalfRequestors?.forEach(element => {onBehalfRequestorsArrValue.push(element instanceof SubjectSetImpl? element : new SubjectSetImpl(element));});
         this.onBehalfRequestors = onBehalfRequestorsArrValue;
     };
     /**

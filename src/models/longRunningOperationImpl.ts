@@ -3,7 +3,7 @@ import {LongRunningOperation} from './longRunningOperation';
 import {LongRunningOperationStatus} from './longRunningOperationStatus';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to group. */
+/** Provides operations to manage the collection of application entities. */
 export class LongRunningOperationImpl extends EntityImpl implements LongRunningOperation {
     /** The createdDateTime property */
     public createdDateTime?: Date | undefined;

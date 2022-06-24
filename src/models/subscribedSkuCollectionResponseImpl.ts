@@ -18,7 +18,7 @@ export class SubscribedSkuCollectionResponseImpl implements SubscribedSkuCollect
     public constructor(subscribedSkuCollectionResponseParameterValue?: SubscribedSkuCollectionResponse | undefined) {
         this.additionalData = subscribedSkuCollectionResponseParameterValue?.additionalData ? subscribedSkuCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = subscribedSkuCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: SubscribedSkuImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof SubscribedSkuImpl? element : new SubscribedSkuImpl(element));});
+        const valueArrValue: SubscribedSkuImpl[] = []; subscribedSkuCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof SubscribedSkuImpl? element : new SubscribedSkuImpl(element));});
         this.value = valueArrValue;
     };
     /**

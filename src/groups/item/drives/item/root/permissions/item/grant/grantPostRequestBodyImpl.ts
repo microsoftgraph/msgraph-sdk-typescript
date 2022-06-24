@@ -18,7 +18,7 @@ export class GrantPostRequestBodyImpl implements GrantPostRequestBody {
      */
     public constructor(grantPostRequestBodyParameterValue?: GrantPostRequestBody | undefined) {
         this.additionalData = grantPostRequestBodyParameterValue?.additionalData ? grantPostRequestBodyParameterValue?.additionalData! : {};
-        const recipientsArrValue: DriveRecipientImpl[] = []; this.recipients?.forEach(element => {recipientsArrValue.push(element instanceof DriveRecipientImpl? element : new DriveRecipientImpl(element));});
+        const recipientsArrValue: DriveRecipientImpl[] = []; grantPostRequestBodyParameterValue.recipients?.forEach(element => {recipientsArrValue.push(element instanceof DriveRecipientImpl? element : new DriveRecipientImpl(element));});
         this.recipients = recipientsArrValue;
         this.roles = grantPostRequestBodyParameterValue?.roles;
     };

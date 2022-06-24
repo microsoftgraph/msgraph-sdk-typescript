@@ -61,16 +61,16 @@ export class BookingBusinessImpl extends EntityImpl implements BookingBusiness {
     public constructor(bookingBusinessParameterValue?: BookingBusiness | undefined) {
         super(bookingBusinessParameterValue);
         this.address = bookingBusinessParameterValue?.address instanceof PhysicalAddressImpl? bookingBusinessParameterValue?.address:new PhysicalAddressImpl(bookingBusinessParameterValue?.address);
-        const appointmentsArrValue: BookingAppointmentImpl[] = []; this.appointments?.forEach(element => {appointmentsArrValue.push(element instanceof BookingAppointmentImpl? element : new BookingAppointmentImpl(element));});
+        const appointmentsArrValue: BookingAppointmentImpl[] = []; bookingBusinessParameterValue.appointments?.forEach(element => {appointmentsArrValue.push(element instanceof BookingAppointmentImpl? element : new BookingAppointmentImpl(element));});
         this.appointments = appointmentsArrValue;
-        const businessHoursArrValue: BookingWorkHoursImpl[] = []; this.businessHours?.forEach(element => {businessHoursArrValue.push(element instanceof BookingWorkHoursImpl? element : new BookingWorkHoursImpl(element));});
+        const businessHoursArrValue: BookingWorkHoursImpl[] = []; bookingBusinessParameterValue.businessHours?.forEach(element => {businessHoursArrValue.push(element instanceof BookingWorkHoursImpl? element : new BookingWorkHoursImpl(element));});
         this.businessHours = businessHoursArrValue;
         this.businessType = bookingBusinessParameterValue?.businessType;
-        const calendarViewArrValue: BookingAppointmentImpl[] = []; this.calendarView?.forEach(element => {calendarViewArrValue.push(element instanceof BookingAppointmentImpl? element : new BookingAppointmentImpl(element));});
+        const calendarViewArrValue: BookingAppointmentImpl[] = []; bookingBusinessParameterValue.calendarView?.forEach(element => {calendarViewArrValue.push(element instanceof BookingAppointmentImpl? element : new BookingAppointmentImpl(element));});
         this.calendarView = calendarViewArrValue;
-        const customersArrValue: BookingCustomerBaseImpl[] = []; this.customers?.forEach(element => {customersArrValue.push(element instanceof BookingCustomerBaseImpl? element : new BookingCustomerBaseImpl(element));});
+        const customersArrValue: BookingCustomerBaseImpl[] = []; bookingBusinessParameterValue.customers?.forEach(element => {customersArrValue.push(element instanceof BookingCustomerBaseImpl? element : new BookingCustomerBaseImpl(element));});
         this.customers = customersArrValue;
-        const customQuestionsArrValue: BookingCustomQuestionImpl[] = []; this.customQuestions?.forEach(element => {customQuestionsArrValue.push(element instanceof BookingCustomQuestionImpl? element : new BookingCustomQuestionImpl(element));});
+        const customQuestionsArrValue: BookingCustomQuestionImpl[] = []; bookingBusinessParameterValue.customQuestions?.forEach(element => {customQuestionsArrValue.push(element instanceof BookingCustomQuestionImpl? element : new BookingCustomQuestionImpl(element));});
         this.customQuestions = customQuestionsArrValue;
         this.defaultCurrencyIso = bookingBusinessParameterValue?.defaultCurrencyIso;
         this.displayName = bookingBusinessParameterValue?.displayName;
@@ -79,9 +79,9 @@ export class BookingBusinessImpl extends EntityImpl implements BookingBusiness {
         this.phone = bookingBusinessParameterValue?.phone;
         this.publicUrl = bookingBusinessParameterValue?.publicUrl;
         this.schedulingPolicy = bookingBusinessParameterValue?.schedulingPolicy instanceof BookingSchedulingPolicyImpl? bookingBusinessParameterValue?.schedulingPolicy:new BookingSchedulingPolicyImpl(bookingBusinessParameterValue?.schedulingPolicy);
-        const servicesArrValue: BookingServiceImpl[] = []; this.services?.forEach(element => {servicesArrValue.push(element instanceof BookingServiceImpl? element : new BookingServiceImpl(element));});
+        const servicesArrValue: BookingServiceImpl[] = []; bookingBusinessParameterValue.services?.forEach(element => {servicesArrValue.push(element instanceof BookingServiceImpl? element : new BookingServiceImpl(element));});
         this.services = servicesArrValue;
-        const staffMembersArrValue: BookingStaffMemberBaseImpl[] = []; this.staffMembers?.forEach(element => {staffMembersArrValue.push(element instanceof BookingStaffMemberBaseImpl? element : new BookingStaffMemberBaseImpl(element));});
+        const staffMembersArrValue: BookingStaffMemberBaseImpl[] = []; bookingBusinessParameterValue.staffMembers?.forEach(element => {staffMembersArrValue.push(element instanceof BookingStaffMemberBaseImpl? element : new BookingStaffMemberBaseImpl(element));});
         this.staffMembers = staffMembersArrValue;
         this.webSiteUrl = bookingBusinessParameterValue?.webSiteUrl;
     };

@@ -18,7 +18,7 @@ export class MessageCollectionResponseImpl implements MessageCollectionResponse 
     public constructor(messageCollectionResponseParameterValue?: MessageCollectionResponse | undefined) {
         this.additionalData = messageCollectionResponseParameterValue?.additionalData ? messageCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = messageCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: MessageImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof MessageImpl? element : new MessageImpl(element));});
+        const valueArrValue: MessageImpl[] = []; messageCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof MessageImpl? element : new MessageImpl(element));});
         this.value = valueArrValue;
     };
     /**

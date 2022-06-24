@@ -16,7 +16,7 @@ export class RecentResponseImpl implements RecentResponse {
      */
     public constructor(recentResponseParameterValue?: RecentResponse | undefined) {
         this.additionalData = recentResponseParameterValue?.additionalData ? recentResponseParameterValue?.additionalData! : {};
-        const valueArrValue: UserActivityImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof UserActivityImpl? element : new UserActivityImpl(element));});
+        const valueArrValue: UserActivityImpl[] = []; recentResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof UserActivityImpl? element : new UserActivityImpl(element));});
         this.value = valueArrValue;
     };
     /**

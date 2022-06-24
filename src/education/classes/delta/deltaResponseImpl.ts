@@ -16,7 +16,7 @@ export class DeltaResponseImpl implements DeltaResponse {
      */
     public constructor(deltaResponseParameterValue?: DeltaResponse | undefined) {
         this.additionalData = deltaResponseParameterValue?.additionalData ? deltaResponseParameterValue?.additionalData! : {};
-        const valueArrValue: EducationClassImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof EducationClassImpl? element : new EducationClassImpl(element));});
+        const valueArrValue: EducationClassImpl[] = []; deltaResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof EducationClassImpl? element : new EducationClassImpl(element));});
         this.value = valueArrValue;
     };
     /**

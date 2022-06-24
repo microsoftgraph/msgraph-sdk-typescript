@@ -22,7 +22,7 @@ export class WorkbookChartSeriesImpl extends EntityImpl implements WorkbookChart
         super(workbookChartSeriesParameterValue);
         this.format = workbookChartSeriesParameterValue?.format instanceof WorkbookChartSeriesFormatImpl? workbookChartSeriesParameterValue?.format:new WorkbookChartSeriesFormatImpl(workbookChartSeriesParameterValue?.format);
         this.name = workbookChartSeriesParameterValue?.name;
-        const pointsArrValue: WorkbookChartPointImpl[] = []; this.points?.forEach(element => {pointsArrValue.push(element instanceof WorkbookChartPointImpl? element : new WorkbookChartPointImpl(element));});
+        const pointsArrValue: WorkbookChartPointImpl[] = []; workbookChartSeriesParameterValue.points?.forEach(element => {pointsArrValue.push(element instanceof WorkbookChartPointImpl? element : new WorkbookChartPointImpl(element));});
         this.points = pointsArrValue;
     };
     /**

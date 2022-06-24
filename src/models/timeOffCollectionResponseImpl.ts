@@ -18,7 +18,7 @@ export class TimeOffCollectionResponseImpl implements TimeOffCollectionResponse 
     public constructor(timeOffCollectionResponseParameterValue?: TimeOffCollectionResponse | undefined) {
         this.additionalData = timeOffCollectionResponseParameterValue?.additionalData ? timeOffCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = timeOffCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: TimeOffImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof TimeOffImpl? element : new TimeOffImpl(element));});
+        const valueArrValue: TimeOffImpl[] = []; timeOffCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof TimeOffImpl? element : new TimeOffImpl(element));});
         this.value = valueArrValue;
     };
     /**

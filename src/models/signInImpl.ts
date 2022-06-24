@@ -70,7 +70,7 @@ export class SignInImpl extends EntityImpl implements SignIn {
         super(signInParameterValue);
         this.appDisplayName = signInParameterValue?.appDisplayName;
         this.appId = signInParameterValue?.appId;
-        const appliedConditionalAccessPoliciesArrValue: AppliedConditionalAccessPolicyImpl[] = []; this.appliedConditionalAccessPolicies?.forEach(element => {appliedConditionalAccessPoliciesArrValue.push(element instanceof AppliedConditionalAccessPolicyImpl? element : new AppliedConditionalAccessPolicyImpl(element));});
+        const appliedConditionalAccessPoliciesArrValue: AppliedConditionalAccessPolicyImpl[] = []; signInParameterValue.appliedConditionalAccessPolicies?.forEach(element => {appliedConditionalAccessPoliciesArrValue.push(element instanceof AppliedConditionalAccessPolicyImpl? element : new AppliedConditionalAccessPolicyImpl(element));});
         this.appliedConditionalAccessPolicies = appliedConditionalAccessPoliciesArrValue;
         this.clientAppUsed = signInParameterValue?.clientAppUsed;
         this.conditionalAccessStatus = signInParameterValue?.conditionalAccessStatus;

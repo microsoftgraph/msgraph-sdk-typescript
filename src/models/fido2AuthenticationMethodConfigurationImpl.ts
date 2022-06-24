@@ -21,7 +21,7 @@ export class Fido2AuthenticationMethodConfigurationImpl extends AuthenticationMe
      */
     public constructor(fido2AuthenticationMethodConfigurationParameterValue?: Fido2AuthenticationMethodConfiguration | undefined) {
         super(fido2AuthenticationMethodConfigurationParameterValue);
-        const includeTargetsArrValue: AuthenticationMethodTargetImpl[] = []; this.includeTargets?.forEach(element => {includeTargetsArrValue.push(element instanceof AuthenticationMethodTargetImpl? element : new AuthenticationMethodTargetImpl(element));});
+        const includeTargetsArrValue: AuthenticationMethodTargetImpl[] = []; fido2AuthenticationMethodConfigurationParameterValue.includeTargets?.forEach(element => {includeTargetsArrValue.push(element instanceof AuthenticationMethodTargetImpl? element : new AuthenticationMethodTargetImpl(element));});
         this.includeTargets = includeTargetsArrValue;
         this.isAttestationEnforced = fido2AuthenticationMethodConfigurationParameterValue?.isAttestationEnforced;
         this.isSelfServiceRegistrationAllowed = fido2AuthenticationMethodConfigurationParameterValue?.isSelfServiceRegistrationAllowed;

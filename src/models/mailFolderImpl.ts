@@ -42,18 +42,18 @@ export class MailFolderImpl extends EntityImpl implements MailFolder {
     public constructor(mailFolderParameterValue?: MailFolder | undefined) {
         super(mailFolderParameterValue);
         this.childFolderCount = mailFolderParameterValue?.childFolderCount;
-        const childFoldersArrValue: MailFolderImpl[] = []; this.childFolders?.forEach(element => {childFoldersArrValue.push(element instanceof MailFolderImpl? element : new MailFolderImpl(element));});
+        const childFoldersArrValue: MailFolderImpl[] = []; mailFolderParameterValue.childFolders?.forEach(element => {childFoldersArrValue.push(element instanceof MailFolderImpl? element : new MailFolderImpl(element));});
         this.childFolders = childFoldersArrValue;
         this.displayName = mailFolderParameterValue?.displayName;
         this.isHidden = mailFolderParameterValue?.isHidden;
-        const messageRulesArrValue: MessageRuleImpl[] = []; this.messageRules?.forEach(element => {messageRulesArrValue.push(element instanceof MessageRuleImpl? element : new MessageRuleImpl(element));});
+        const messageRulesArrValue: MessageRuleImpl[] = []; mailFolderParameterValue.messageRules?.forEach(element => {messageRulesArrValue.push(element instanceof MessageRuleImpl? element : new MessageRuleImpl(element));});
         this.messageRules = messageRulesArrValue;
-        const messagesArrValue: MessageImpl[] = []; this.messages?.forEach(element => {messagesArrValue.push(element instanceof MessageImpl? element : new MessageImpl(element));});
+        const messagesArrValue: MessageImpl[] = []; mailFolderParameterValue.messages?.forEach(element => {messagesArrValue.push(element instanceof MessageImpl? element : new MessageImpl(element));});
         this.messages = messagesArrValue;
-        const multiValueExtendedPropertiesArrValue: MultiValueLegacyExtendedPropertyImpl[] = []; this.multiValueExtendedProperties?.forEach(element => {multiValueExtendedPropertiesArrValue.push(element instanceof MultiValueLegacyExtendedPropertyImpl? element : new MultiValueLegacyExtendedPropertyImpl(element));});
+        const multiValueExtendedPropertiesArrValue: MultiValueLegacyExtendedPropertyImpl[] = []; mailFolderParameterValue.multiValueExtendedProperties?.forEach(element => {multiValueExtendedPropertiesArrValue.push(element instanceof MultiValueLegacyExtendedPropertyImpl? element : new MultiValueLegacyExtendedPropertyImpl(element));});
         this.multiValueExtendedProperties = multiValueExtendedPropertiesArrValue;
         this.parentFolderId = mailFolderParameterValue?.parentFolderId;
-        const singleValueExtendedPropertiesArrValue: SingleValueLegacyExtendedPropertyImpl[] = []; this.singleValueExtendedProperties?.forEach(element => {singleValueExtendedPropertiesArrValue.push(element instanceof SingleValueLegacyExtendedPropertyImpl? element : new SingleValueLegacyExtendedPropertyImpl(element));});
+        const singleValueExtendedPropertiesArrValue: SingleValueLegacyExtendedPropertyImpl[] = []; mailFolderParameterValue.singleValueExtendedProperties?.forEach(element => {singleValueExtendedPropertiesArrValue.push(element instanceof SingleValueLegacyExtendedPropertyImpl? element : new SingleValueLegacyExtendedPropertyImpl(element));});
         this.singleValueExtendedProperties = singleValueExtendedPropertiesArrValue;
         this.totalItemCount = mailFolderParameterValue?.totalItemCount;
         this.unreadItemCount = mailFolderParameterValue?.unreadItemCount;

@@ -15,7 +15,7 @@ export class PrivacyImpl implements Privacy {
      */
     public constructor(privacyParameterValue?: Privacy | undefined) {
         this.additionalData = privacyParameterValue?.additionalData ? privacyParameterValue?.additionalData! : {};
-        const subjectRightsRequestsArrValue: SubjectRightsRequestImpl[] = []; this.subjectRightsRequests?.forEach(element => {subjectRightsRequestsArrValue.push(element instanceof SubjectRightsRequestImpl? element : new SubjectRightsRequestImpl(element));});
+        const subjectRightsRequestsArrValue: SubjectRightsRequestImpl[] = []; privacyParameterValue.subjectRightsRequests?.forEach(element => {subjectRightsRequestsArrValue.push(element instanceof SubjectRightsRequestImpl? element : new SubjectRightsRequestImpl(element));});
         this.subjectRightsRequests = subjectRightsRequestsArrValue;
     };
     /**

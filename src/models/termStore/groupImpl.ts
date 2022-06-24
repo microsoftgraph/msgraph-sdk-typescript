@@ -31,7 +31,7 @@ export class GroupImpl extends EntityImpl implements Group {
         this.displayName = groupParameterValue?.displayName;
         this.parentSiteId = groupParameterValue?.parentSiteId;
         this.scope = groupParameterValue?.scope;
-        const setsArrValue: SetImpl[] = []; this.sets?.forEach(element => {setsArrValue.push(element instanceof SetImpl? element : new SetImpl(element));});
+        const setsArrValue: SetImpl[] = []; groupParameterValue.sets?.forEach(element => {setsArrValue.push(element instanceof SetImpl? element : new SetImpl(element));});
         this.sets = setsArrValue;
     };
     /**

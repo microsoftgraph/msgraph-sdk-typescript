@@ -18,7 +18,7 @@ export class EventCollectionResponseImpl implements EventCollectionResponse {
     public constructor(eventCollectionResponseParameterValue?: EventCollectionResponse | undefined) {
         this.additionalData = eventCollectionResponseParameterValue?.additionalData ? eventCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = eventCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: EventImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof EventImpl? element : new EventImpl(element));});
+        const valueArrValue: EventImpl[] = []; eventCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof EventImpl? element : new EventImpl(element));});
         this.value = valueArrValue;
     };
     /**

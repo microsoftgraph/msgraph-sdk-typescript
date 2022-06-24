@@ -22,11 +22,11 @@ export class PlannerImpl extends EntityImpl implements Planner {
      */
     public constructor(plannerParameterValue?: Planner | undefined) {
         super(plannerParameterValue);
-        const bucketsArrValue: PlannerBucketImpl[] = []; this.buckets?.forEach(element => {bucketsArrValue.push(element instanceof PlannerBucketImpl? element : new PlannerBucketImpl(element));});
+        const bucketsArrValue: PlannerBucketImpl[] = []; plannerParameterValue.buckets?.forEach(element => {bucketsArrValue.push(element instanceof PlannerBucketImpl? element : new PlannerBucketImpl(element));});
         this.buckets = bucketsArrValue;
-        const plansArrValue: PlannerPlanImpl[] = []; this.plans?.forEach(element => {plansArrValue.push(element instanceof PlannerPlanImpl? element : new PlannerPlanImpl(element));});
+        const plansArrValue: PlannerPlanImpl[] = []; plannerParameterValue.plans?.forEach(element => {plansArrValue.push(element instanceof PlannerPlanImpl? element : new PlannerPlanImpl(element));});
         this.plans = plansArrValue;
-        const tasksArrValue: PlannerTaskImpl[] = []; this.tasks?.forEach(element => {tasksArrValue.push(element instanceof PlannerTaskImpl? element : new PlannerTaskImpl(element));});
+        const tasksArrValue: PlannerTaskImpl[] = []; plannerParameterValue.tasks?.forEach(element => {tasksArrValue.push(element instanceof PlannerTaskImpl? element : new PlannerTaskImpl(element));});
         this.tasks = tasksArrValue;
     };
     /**

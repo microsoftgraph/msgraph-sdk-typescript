@@ -18,7 +18,7 @@ export class ServiceHealthIssueCollectionResponseImpl implements ServiceHealthIs
     public constructor(serviceHealthIssueCollectionResponseParameterValue?: ServiceHealthIssueCollectionResponse | undefined) {
         this.additionalData = serviceHealthIssueCollectionResponseParameterValue?.additionalData ? serviceHealthIssueCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = serviceHealthIssueCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: ServiceHealthIssueImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ServiceHealthIssueImpl? element : new ServiceHealthIssueImpl(element));});
+        const valueArrValue: ServiceHealthIssueImpl[] = []; serviceHealthIssueCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof ServiceHealthIssueImpl? element : new ServiceHealthIssueImpl(element));});
         this.value = valueArrValue;
     };
     /**

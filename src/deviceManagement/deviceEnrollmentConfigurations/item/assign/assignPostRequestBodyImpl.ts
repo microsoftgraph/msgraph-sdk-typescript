@@ -16,7 +16,7 @@ export class AssignPostRequestBodyImpl implements AssignPostRequestBody {
      */
     public constructor(assignPostRequestBodyParameterValue?: AssignPostRequestBody | undefined) {
         this.additionalData = assignPostRequestBodyParameterValue?.additionalData ? assignPostRequestBodyParameterValue?.additionalData! : {};
-        const enrollmentConfigurationAssignmentsArrValue: EnrollmentConfigurationAssignmentImpl[] = []; this.enrollmentConfigurationAssignments?.forEach(element => {enrollmentConfigurationAssignmentsArrValue.push(element instanceof EnrollmentConfigurationAssignmentImpl? element : new EnrollmentConfigurationAssignmentImpl(element));});
+        const enrollmentConfigurationAssignmentsArrValue: EnrollmentConfigurationAssignmentImpl[] = []; assignPostRequestBodyParameterValue.enrollmentConfigurationAssignments?.forEach(element => {enrollmentConfigurationAssignmentsArrValue.push(element instanceof EnrollmentConfigurationAssignmentImpl? element : new EnrollmentConfigurationAssignmentImpl(element));});
         this.enrollmentConfigurationAssignments = enrollmentConfigurationAssignmentsArrValue;
     };
     /**

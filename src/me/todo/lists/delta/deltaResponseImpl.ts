@@ -16,7 +16,7 @@ export class DeltaResponseImpl implements DeltaResponse {
      */
     public constructor(deltaResponseParameterValue?: DeltaResponse | undefined) {
         this.additionalData = deltaResponseParameterValue?.additionalData ? deltaResponseParameterValue?.additionalData! : {};
-        const valueArrValue: TodoTaskListImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof TodoTaskListImpl? element : new TodoTaskListImpl(element));});
+        const valueArrValue: TodoTaskListImpl[] = []; deltaResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof TodoTaskListImpl? element : new TodoTaskListImpl(element));});
         this.value = valueArrValue;
     };
     /**

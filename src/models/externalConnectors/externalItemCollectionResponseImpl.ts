@@ -18,7 +18,7 @@ export class ExternalItemCollectionResponseImpl implements ExternalItemCollectio
     public constructor(externalItemCollectionResponseParameterValue?: ExternalItemCollectionResponse | undefined) {
         this.additionalData = externalItemCollectionResponseParameterValue?.additionalData ? externalItemCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = externalItemCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: ExternalItemImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ExternalItemImpl? element : new ExternalItemImpl(element));});
+        const valueArrValue: ExternalItemImpl[] = []; externalItemCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof ExternalItemImpl? element : new ExternalItemImpl(element));});
         this.value = valueArrValue;
     };
     /**

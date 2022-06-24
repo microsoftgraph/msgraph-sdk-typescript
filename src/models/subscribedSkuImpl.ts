@@ -32,7 +32,7 @@ export class SubscribedSkuImpl extends EntityImpl implements SubscribedSku {
         this.capabilityStatus = subscribedSkuParameterValue?.capabilityStatus;
         this.consumedUnits = subscribedSkuParameterValue?.consumedUnits;
         this.prepaidUnits = subscribedSkuParameterValue?.prepaidUnits instanceof LicenseUnitsDetailImpl? subscribedSkuParameterValue?.prepaidUnits:new LicenseUnitsDetailImpl(subscribedSkuParameterValue?.prepaidUnits);
-        const servicePlansArrValue: ServicePlanInfoImpl[] = []; this.servicePlans?.forEach(element => {servicePlansArrValue.push(element instanceof ServicePlanInfoImpl? element : new ServicePlanInfoImpl(element));});
+        const servicePlansArrValue: ServicePlanInfoImpl[] = []; subscribedSkuParameterValue.servicePlans?.forEach(element => {servicePlansArrValue.push(element instanceof ServicePlanInfoImpl? element : new ServicePlanInfoImpl(element));});
         this.servicePlans = servicePlansArrValue;
         this.skuId = subscribedSkuParameterValue?.skuId;
         this.skuPartNumber = subscribedSkuParameterValue?.skuPartNumber;

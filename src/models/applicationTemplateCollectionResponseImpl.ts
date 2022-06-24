@@ -18,7 +18,7 @@ export class ApplicationTemplateCollectionResponseImpl implements ApplicationTem
     public constructor(applicationTemplateCollectionResponseParameterValue?: ApplicationTemplateCollectionResponse | undefined) {
         this.additionalData = applicationTemplateCollectionResponseParameterValue?.additionalData ? applicationTemplateCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = applicationTemplateCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: ApplicationTemplateImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ApplicationTemplateImpl? element : new ApplicationTemplateImpl(element));});
+        const valueArrValue: ApplicationTemplateImpl[] = []; applicationTemplateCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof ApplicationTemplateImpl? element : new ApplicationTemplateImpl(element));});
         this.value = valueArrValue;
     };
     /**

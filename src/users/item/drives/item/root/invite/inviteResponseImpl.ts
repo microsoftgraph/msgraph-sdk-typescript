@@ -16,7 +16,7 @@ export class InviteResponseImpl implements InviteResponse {
      */
     public constructor(inviteResponseParameterValue?: InviteResponse | undefined) {
         this.additionalData = inviteResponseParameterValue?.additionalData ? inviteResponseParameterValue?.additionalData! : {};
-        const valueArrValue: PermissionImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof PermissionImpl? element : new PermissionImpl(element));});
+        const valueArrValue: PermissionImpl[] = []; inviteResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof PermissionImpl? element : new PermissionImpl(element));});
         this.value = valueArrValue;
     };
     /**

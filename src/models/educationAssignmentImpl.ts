@@ -86,7 +86,7 @@ export class EducationAssignmentImpl extends EntityImpl implements EducationAssi
         this.assignDateTime = educationAssignmentParameterValue?.assignDateTime;
         this.assignedDateTime = educationAssignmentParameterValue?.assignedDateTime;
         this.assignTo = educationAssignmentParameterValue?.assignTo instanceof EducationAssignmentRecipientImpl? educationAssignmentParameterValue?.assignTo:new EducationAssignmentRecipientImpl(educationAssignmentParameterValue?.assignTo);
-        const categoriesArrValue: EducationCategoryImpl[] = []; this.categories?.forEach(element => {categoriesArrValue.push(element instanceof EducationCategoryImpl? element : new EducationCategoryImpl(element));});
+        const categoriesArrValue: EducationCategoryImpl[] = []; educationAssignmentParameterValue.categories?.forEach(element => {categoriesArrValue.push(element instanceof EducationCategoryImpl? element : new EducationCategoryImpl(element));});
         this.categories = categoriesArrValue;
         this.classId = educationAssignmentParameterValue?.classId;
         this.closeDateTime = educationAssignmentParameterValue?.closeDateTime;
@@ -99,12 +99,12 @@ export class EducationAssignmentImpl extends EntityImpl implements EducationAssi
         this.lastModifiedBy = educationAssignmentParameterValue?.lastModifiedBy instanceof IdentitySetImpl? educationAssignmentParameterValue?.lastModifiedBy:new IdentitySetImpl(educationAssignmentParameterValue?.lastModifiedBy);
         this.lastModifiedDateTime = educationAssignmentParameterValue?.lastModifiedDateTime;
         this.notificationChannelUrl = educationAssignmentParameterValue?.notificationChannelUrl;
-        const resourcesArrValue: EducationAssignmentResourceImpl[] = []; this.resources?.forEach(element => {resourcesArrValue.push(element instanceof EducationAssignmentResourceImpl? element : new EducationAssignmentResourceImpl(element));});
+        const resourcesArrValue: EducationAssignmentResourceImpl[] = []; educationAssignmentParameterValue.resources?.forEach(element => {resourcesArrValue.push(element instanceof EducationAssignmentResourceImpl? element : new EducationAssignmentResourceImpl(element));});
         this.resources = resourcesArrValue;
         this.resourcesFolderUrl = educationAssignmentParameterValue?.resourcesFolderUrl;
         this.rubric = educationAssignmentParameterValue?.rubric instanceof EducationRubricImpl? educationAssignmentParameterValue?.rubric:new EducationRubricImpl(educationAssignmentParameterValue?.rubric);
         this.status = educationAssignmentParameterValue?.status;
-        const submissionsArrValue: EducationSubmissionImpl[] = []; this.submissions?.forEach(element => {submissionsArrValue.push(element instanceof EducationSubmissionImpl? element : new EducationSubmissionImpl(element));});
+        const submissionsArrValue: EducationSubmissionImpl[] = []; educationAssignmentParameterValue.submissions?.forEach(element => {submissionsArrValue.push(element instanceof EducationSubmissionImpl? element : new EducationSubmissionImpl(element));});
         this.submissions = submissionsArrValue;
         this.webUrl = educationAssignmentParameterValue?.webUrl;
     };

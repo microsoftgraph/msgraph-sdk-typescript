@@ -42,7 +42,7 @@ export class PrinterBaseImpl extends EntityImpl implements PrinterBase {
         this.defaults = printerBaseParameterValue?.defaults instanceof PrinterDefaultsImpl? printerBaseParameterValue?.defaults:new PrinterDefaultsImpl(printerBaseParameterValue?.defaults);
         this.displayName = printerBaseParameterValue?.displayName;
         this.isAcceptingJobs = printerBaseParameterValue?.isAcceptingJobs;
-        const jobsArrValue: PrintJobImpl[] = []; this.jobs?.forEach(element => {jobsArrValue.push(element instanceof PrintJobImpl? element : new PrintJobImpl(element));});
+        const jobsArrValue: PrintJobImpl[] = []; printerBaseParameterValue.jobs?.forEach(element => {jobsArrValue.push(element instanceof PrintJobImpl? element : new PrintJobImpl(element));});
         this.jobs = jobsArrValue;
         this.location = printerBaseParameterValue?.location instanceof PrinterLocationImpl? printerBaseParameterValue?.location:new PrinterLocationImpl(printerBaseParameterValue?.location);
         this.manufacturer = printerBaseParameterValue?.manufacturer;

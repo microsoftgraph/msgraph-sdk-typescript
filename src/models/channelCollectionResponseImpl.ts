@@ -18,7 +18,7 @@ export class ChannelCollectionResponseImpl implements ChannelCollectionResponse 
     public constructor(channelCollectionResponseParameterValue?: ChannelCollectionResponse | undefined) {
         this.additionalData = channelCollectionResponseParameterValue?.additionalData ? channelCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = channelCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: ChannelImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ChannelImpl? element : new ChannelImpl(element));});
+        const valueArrValue: ChannelImpl[] = []; channelCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof ChannelImpl? element : new ChannelImpl(element));});
         this.value = valueArrValue;
     };
     /**

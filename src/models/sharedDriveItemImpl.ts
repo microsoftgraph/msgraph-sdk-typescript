@@ -38,7 +38,7 @@ export class SharedDriveItemImpl extends BaseItemImpl implements SharedDriveItem
     public constructor(sharedDriveItemParameterValue?: SharedDriveItem | undefined) {
         super(sharedDriveItemParameterValue);
         this.driveItem = sharedDriveItemParameterValue?.driveItem instanceof DriveItemImpl? sharedDriveItemParameterValue?.driveItem:new DriveItemImpl(sharedDriveItemParameterValue?.driveItem);
-        const itemsArrValue: DriveItemImpl[] = []; this.items?.forEach(element => {itemsArrValue.push(element instanceof DriveItemImpl? element : new DriveItemImpl(element));});
+        const itemsArrValue: DriveItemImpl[] = []; sharedDriveItemParameterValue.items?.forEach(element => {itemsArrValue.push(element instanceof DriveItemImpl? element : new DriveItemImpl(element));});
         this.items = itemsArrValue;
         this.list = sharedDriveItemParameterValue?.list instanceof ListImpl? sharedDriveItemParameterValue?.list:new ListImpl(sharedDriveItemParameterValue?.list);
         this.listItem = sharedDriveItemParameterValue?.listItem instanceof ListItemImpl? sharedDriveItemParameterValue?.listItem:new ListItemImpl(sharedDriveItemParameterValue?.listItem);

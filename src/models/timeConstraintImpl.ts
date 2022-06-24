@@ -19,7 +19,7 @@ export class TimeConstraintImpl implements TimeConstraint {
     public constructor(timeConstraintParameterValue?: TimeConstraint | undefined) {
         this.activityDomain = timeConstraintParameterValue?.activityDomain;
         this.additionalData = timeConstraintParameterValue?.additionalData ? timeConstraintParameterValue?.additionalData! : {};
-        const timeSlotsArrValue: TimeSlotImpl[] = []; this.timeSlots?.forEach(element => {timeSlotsArrValue.push(element instanceof TimeSlotImpl? element : new TimeSlotImpl(element));});
+        const timeSlotsArrValue: TimeSlotImpl[] = []; timeConstraintParameterValue.timeSlots?.forEach(element => {timeSlotsArrValue.push(element instanceof TimeSlotImpl? element : new TimeSlotImpl(element));});
         this.timeSlots = timeSlotsArrValue;
     };
     /**

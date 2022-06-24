@@ -16,7 +16,7 @@ export class CheckGrantedPermissionsForAppResponseImpl implements CheckGrantedPe
      */
     public constructor(checkGrantedPermissionsForAppResponseParameterValue?: CheckGrantedPermissionsForAppResponse | undefined) {
         this.additionalData = checkGrantedPermissionsForAppResponseParameterValue?.additionalData ? checkGrantedPermissionsForAppResponseParameterValue?.additionalData! : {};
-        const valueArrValue: ResourceSpecificPermissionGrantImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ResourceSpecificPermissionGrantImpl? element : new ResourceSpecificPermissionGrantImpl(element));});
+        const valueArrValue: ResourceSpecificPermissionGrantImpl[] = []; checkGrantedPermissionsForAppResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof ResourceSpecificPermissionGrantImpl? element : new ResourceSpecificPermissionGrantImpl(element));});
         this.value = valueArrValue;
     };
     /**

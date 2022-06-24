@@ -35,10 +35,10 @@ export class NotebookImpl extends OnenoteEntityHierarchyModelImpl implements Not
         this.isDefault = notebookParameterValue?.isDefault;
         this.isShared = notebookParameterValue?.isShared;
         this.links = notebookParameterValue?.links instanceof NotebookLinksImpl? notebookParameterValue?.links:new NotebookLinksImpl(notebookParameterValue?.links);
-        const sectionGroupsArrValue: SectionGroupImpl[] = []; this.sectionGroups?.forEach(element => {sectionGroupsArrValue.push(element instanceof SectionGroupImpl? element : new SectionGroupImpl(element));});
+        const sectionGroupsArrValue: SectionGroupImpl[] = []; notebookParameterValue.sectionGroups?.forEach(element => {sectionGroupsArrValue.push(element instanceof SectionGroupImpl? element : new SectionGroupImpl(element));});
         this.sectionGroups = sectionGroupsArrValue;
         this.sectionGroupsUrl = notebookParameterValue?.sectionGroupsUrl;
-        const sectionsArrValue: OnenoteSectionImpl[] = []; this.sections?.forEach(element => {sectionsArrValue.push(element instanceof OnenoteSectionImpl? element : new OnenoteSectionImpl(element));});
+        const sectionsArrValue: OnenoteSectionImpl[] = []; notebookParameterValue.sections?.forEach(element => {sectionsArrValue.push(element instanceof OnenoteSectionImpl? element : new OnenoteSectionImpl(element));});
         this.sections = sectionsArrValue;
         this.sectionsUrl = notebookParameterValue?.sectionsUrl;
         this.userRole = notebookParameterValue?.userRole;

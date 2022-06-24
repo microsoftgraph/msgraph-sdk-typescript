@@ -18,9 +18,9 @@ export class UserTeamworkImpl extends EntityImpl implements UserTeamwork {
      */
     public constructor(userTeamworkParameterValue?: UserTeamwork | undefined) {
         super(userTeamworkParameterValue);
-        const associatedTeamsArrValue: AssociatedTeamInfoImpl[] = []; this.associatedTeams?.forEach(element => {associatedTeamsArrValue.push(element instanceof AssociatedTeamInfoImpl? element : new AssociatedTeamInfoImpl(element));});
+        const associatedTeamsArrValue: AssociatedTeamInfoImpl[] = []; userTeamworkParameterValue.associatedTeams?.forEach(element => {associatedTeamsArrValue.push(element instanceof AssociatedTeamInfoImpl? element : new AssociatedTeamInfoImpl(element));});
         this.associatedTeams = associatedTeamsArrValue;
-        const installedAppsArrValue: UserScopeTeamsAppInstallationImpl[] = []; this.installedApps?.forEach(element => {installedAppsArrValue.push(element instanceof UserScopeTeamsAppInstallationImpl? element : new UserScopeTeamsAppInstallationImpl(element));});
+        const installedAppsArrValue: UserScopeTeamsAppInstallationImpl[] = []; userTeamworkParameterValue.installedApps?.forEach(element => {installedAppsArrValue.push(element instanceof UserScopeTeamsAppInstallationImpl? element : new UserScopeTeamsAppInstallationImpl(element));});
         this.installedApps = installedAppsArrValue;
     };
     /**

@@ -18,7 +18,7 @@ export class IdentityProviderBaseCollectionResponseImpl implements IdentityProvi
     public constructor(identityProviderBaseCollectionResponseParameterValue?: IdentityProviderBaseCollectionResponse | undefined) {
         this.additionalData = identityProviderBaseCollectionResponseParameterValue?.additionalData ? identityProviderBaseCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = identityProviderBaseCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: IdentityProviderBaseImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof IdentityProviderBaseImpl? element : new IdentityProviderBaseImpl(element));});
+        const valueArrValue: IdentityProviderBaseImpl[] = []; identityProviderBaseCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof IdentityProviderBaseImpl? element : new IdentityProviderBaseImpl(element));});
         this.value = valueArrValue;
     };
     /**

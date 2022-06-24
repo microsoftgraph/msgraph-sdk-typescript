@@ -54,9 +54,9 @@ export class DomainImpl extends EntityImpl implements Domain {
         super(domainParameterValue);
         this.authenticationType = domainParameterValue?.authenticationType;
         this.availabilityStatus = domainParameterValue?.availabilityStatus;
-        const domainNameReferencesArrValue: DirectoryObjectImpl[] = []; this.domainNameReferences?.forEach(element => {domainNameReferencesArrValue.push(element instanceof DirectoryObjectImpl? element : new DirectoryObjectImpl(element));});
+        const domainNameReferencesArrValue: DirectoryObjectImpl[] = []; domainParameterValue.domainNameReferences?.forEach(element => {domainNameReferencesArrValue.push(element instanceof DirectoryObjectImpl? element : new DirectoryObjectImpl(element));});
         this.domainNameReferences = domainNameReferencesArrValue;
-        const federationConfigurationArrValue: InternalDomainFederationImpl[] = []; this.federationConfiguration?.forEach(element => {federationConfigurationArrValue.push(element instanceof InternalDomainFederationImpl? element : new InternalDomainFederationImpl(element));});
+        const federationConfigurationArrValue: InternalDomainFederationImpl[] = []; domainParameterValue.federationConfiguration?.forEach(element => {federationConfigurationArrValue.push(element instanceof InternalDomainFederationImpl? element : new InternalDomainFederationImpl(element));});
         this.federationConfiguration = federationConfigurationArrValue;
         this.isAdminManaged = domainParameterValue?.isAdminManaged;
         this.isDefault = domainParameterValue?.isDefault;
@@ -67,11 +67,11 @@ export class DomainImpl extends EntityImpl implements Domain {
         this.model = domainParameterValue?.model;
         this.passwordNotificationWindowInDays = domainParameterValue?.passwordNotificationWindowInDays;
         this.passwordValidityPeriodInDays = domainParameterValue?.passwordValidityPeriodInDays;
-        const serviceConfigurationRecordsArrValue: DomainDnsRecordImpl[] = []; this.serviceConfigurationRecords?.forEach(element => {serviceConfigurationRecordsArrValue.push(element instanceof DomainDnsRecordImpl? element : new DomainDnsRecordImpl(element));});
+        const serviceConfigurationRecordsArrValue: DomainDnsRecordImpl[] = []; domainParameterValue.serviceConfigurationRecords?.forEach(element => {serviceConfigurationRecordsArrValue.push(element instanceof DomainDnsRecordImpl? element : new DomainDnsRecordImpl(element));});
         this.serviceConfigurationRecords = serviceConfigurationRecordsArrValue;
         this.state = domainParameterValue?.state instanceof DomainStateImpl? domainParameterValue?.state:new DomainStateImpl(domainParameterValue?.state);
         this.supportedServices = domainParameterValue?.supportedServices;
-        const verificationDnsRecordsArrValue: DomainDnsRecordImpl[] = []; this.verificationDnsRecords?.forEach(element => {verificationDnsRecordsArrValue.push(element instanceof DomainDnsRecordImpl? element : new DomainDnsRecordImpl(element));});
+        const verificationDnsRecordsArrValue: DomainDnsRecordImpl[] = []; domainParameterValue.verificationDnsRecords?.forEach(element => {verificationDnsRecordsArrValue.push(element instanceof DomainDnsRecordImpl? element : new DomainDnsRecordImpl(element));});
         this.verificationDnsRecords = verificationDnsRecordsArrValue;
     };
     /**

@@ -18,7 +18,7 @@ export class AudioRoutingGroupCollectionResponseImpl implements AudioRoutingGrou
     public constructor(audioRoutingGroupCollectionResponseParameterValue?: AudioRoutingGroupCollectionResponse | undefined) {
         this.additionalData = audioRoutingGroupCollectionResponseParameterValue?.additionalData ? audioRoutingGroupCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = audioRoutingGroupCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: AudioRoutingGroupImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof AudioRoutingGroupImpl? element : new AudioRoutingGroupImpl(element));});
+        const valueArrValue: AudioRoutingGroupImpl[] = []; audioRoutingGroupCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof AudioRoutingGroupImpl? element : new AudioRoutingGroupImpl(element));});
         this.value = valueArrValue;
     };
     /**

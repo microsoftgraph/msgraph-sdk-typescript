@@ -33,7 +33,7 @@ export class AndroidManagedAppProtectionImpl extends TargetedManagedAppProtectio
      */
     public constructor(androidManagedAppProtectionParameterValue?: AndroidManagedAppProtection | undefined) {
         super(androidManagedAppProtectionParameterValue);
-        const appsArrValue: ManagedMobileAppImpl[] = []; this.apps?.forEach(element => {appsArrValue.push(element instanceof ManagedMobileAppImpl? element : new ManagedMobileAppImpl(element));});
+        const appsArrValue: ManagedMobileAppImpl[] = []; androidManagedAppProtectionParameterValue.apps?.forEach(element => {appsArrValue.push(element instanceof ManagedMobileAppImpl? element : new ManagedMobileAppImpl(element));});
         this.apps = appsArrValue;
         this.customBrowserDisplayName = androidManagedAppProtectionParameterValue?.customBrowserDisplayName;
         this.customBrowserPackageId = androidManagedAppProtectionParameterValue?.customBrowserPackageId;

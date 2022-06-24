@@ -18,7 +18,7 @@ export class VppTokenCollectionResponseImpl implements VppTokenCollectionRespons
     public constructor(vppTokenCollectionResponseParameterValue?: VppTokenCollectionResponse | undefined) {
         this.additionalData = vppTokenCollectionResponseParameterValue?.additionalData ? vppTokenCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = vppTokenCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: VppTokenImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof VppTokenImpl? element : new VppTokenImpl(element));});
+        const valueArrValue: VppTokenImpl[] = []; vppTokenCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof VppTokenImpl? element : new VppTokenImpl(element));});
         this.value = valueArrValue;
     };
     /**

@@ -16,7 +16,7 @@ export class QueryPostRequestBodyImpl implements QueryPostRequestBody {
      */
     public constructor(queryPostRequestBodyParameterValue?: QueryPostRequestBody | undefined) {
         this.additionalData = queryPostRequestBodyParameterValue?.additionalData ? queryPostRequestBodyParameterValue?.additionalData! : {};
-        const requestsArrValue: SearchRequestImpl[] = []; this.requests?.forEach(element => {requestsArrValue.push(element instanceof SearchRequestImpl? element : new SearchRequestImpl(element));});
+        const requestsArrValue: SearchRequestImpl[] = []; queryPostRequestBodyParameterValue.requests?.forEach(element => {requestsArrValue.push(element instanceof SearchRequestImpl? element : new SearchRequestImpl(element));});
         this.requests = requestsArrValue;
     };
     /**

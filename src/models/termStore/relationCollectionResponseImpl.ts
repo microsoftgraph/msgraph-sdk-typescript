@@ -18,7 +18,7 @@ export class RelationCollectionResponseImpl implements RelationCollectionRespons
     public constructor(relationCollectionResponseParameterValue?: RelationCollectionResponse | undefined) {
         this.additionalData = relationCollectionResponseParameterValue?.additionalData ? relationCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = relationCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: RelationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof RelationImpl? element : new RelationImpl(element));});
+        const valueArrValue: RelationImpl[] = []; relationCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof RelationImpl? element : new RelationImpl(element));});
         this.value = valueArrValue;
     };
     /**

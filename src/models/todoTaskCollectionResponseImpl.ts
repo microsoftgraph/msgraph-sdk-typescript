@@ -18,7 +18,7 @@ export class TodoTaskCollectionResponseImpl implements TodoTaskCollectionRespons
     public constructor(todoTaskCollectionResponseParameterValue?: TodoTaskCollectionResponse | undefined) {
         this.additionalData = todoTaskCollectionResponseParameterValue?.additionalData ? todoTaskCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = todoTaskCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: TodoTaskImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof TodoTaskImpl? element : new TodoTaskImpl(element));});
+        const valueArrValue: TodoTaskImpl[] = []; todoTaskCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof TodoTaskImpl? element : new TodoTaskImpl(element));});
         this.value = valueArrValue;
     };
     /**

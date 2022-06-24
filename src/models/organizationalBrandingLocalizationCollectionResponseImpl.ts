@@ -18,7 +18,7 @@ export class OrganizationalBrandingLocalizationCollectionResponseImpl implements
     public constructor(organizationalBrandingLocalizationCollectionResponseParameterValue?: OrganizationalBrandingLocalizationCollectionResponse | undefined) {
         this.additionalData = organizationalBrandingLocalizationCollectionResponseParameterValue?.additionalData ? organizationalBrandingLocalizationCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = organizationalBrandingLocalizationCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: OrganizationalBrandingLocalizationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof OrganizationalBrandingLocalizationImpl? element : new OrganizationalBrandingLocalizationImpl(element));});
+        const valueArrValue: OrganizationalBrandingLocalizationImpl[] = []; organizationalBrandingLocalizationCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof OrganizationalBrandingLocalizationImpl? element : new OrganizationalBrandingLocalizationImpl(element));});
         this.value = valueArrValue;
     };
     /**

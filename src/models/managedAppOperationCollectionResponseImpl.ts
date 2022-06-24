@@ -18,7 +18,7 @@ export class ManagedAppOperationCollectionResponseImpl implements ManagedAppOper
     public constructor(managedAppOperationCollectionResponseParameterValue?: ManagedAppOperationCollectionResponse | undefined) {
         this.additionalData = managedAppOperationCollectionResponseParameterValue?.additionalData ? managedAppOperationCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = managedAppOperationCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: ManagedAppOperationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ManagedAppOperationImpl? element : new ManagedAppOperationImpl(element));});
+        const valueArrValue: ManagedAppOperationImpl[] = []; managedAppOperationCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof ManagedAppOperationImpl? element : new ManagedAppOperationImpl(element));});
         this.value = valueArrValue;
     };
     /**

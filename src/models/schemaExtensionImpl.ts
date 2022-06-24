@@ -24,7 +24,7 @@ export class SchemaExtensionImpl extends EntityImpl implements SchemaExtension {
         super(schemaExtensionParameterValue);
         this.description = schemaExtensionParameterValue?.description;
         this.owner = schemaExtensionParameterValue?.owner;
-        const propertiesArrValue: ExtensionSchemaPropertyImpl[] = []; this.properties?.forEach(element => {propertiesArrValue.push(element instanceof ExtensionSchemaPropertyImpl? element : new ExtensionSchemaPropertyImpl(element));});
+        const propertiesArrValue: ExtensionSchemaPropertyImpl[] = []; schemaExtensionParameterValue.properties?.forEach(element => {propertiesArrValue.push(element instanceof ExtensionSchemaPropertyImpl? element : new ExtensionSchemaPropertyImpl(element));});
         this.properties = propertiesArrValue;
         this.status = schemaExtensionParameterValue?.status;
         this.targetTypes = schemaExtensionParameterValue?.targetTypes;

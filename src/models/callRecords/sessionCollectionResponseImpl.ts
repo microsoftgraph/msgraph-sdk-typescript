@@ -18,7 +18,7 @@ export class SessionCollectionResponseImpl implements SessionCollectionResponse 
     public constructor(sessionCollectionResponseParameterValue?: SessionCollectionResponse | undefined) {
         this.additionalData = sessionCollectionResponseParameterValue?.additionalData ? sessionCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = sessionCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: SessionImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof SessionImpl? element : new SessionImpl(element));});
+        const valueArrValue: SessionImpl[] = []; sessionCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof SessionImpl? element : new SessionImpl(element));});
         this.value = valueArrValue;
     };
     /**

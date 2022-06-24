@@ -13,7 +13,7 @@ import {Set} from './set';
 import {Term} from './term';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of application entities. */
+/** Casts the previous resource to group. */
 export class SetImpl extends EntityImpl implements Set {
     /** Children terms of set in term [store]. */
     public children?: Term[] | undefined;
@@ -37,18 +37,18 @@ export class SetImpl extends EntityImpl implements Set {
      */
     public constructor(setParameterValue?: Set | undefined) {
         super(setParameterValue);
-        const childrenArrValue: TermImpl[] = []; this.children?.forEach(element => {childrenArrValue.push(element instanceof TermImpl? element : new TermImpl(element));});
+        const childrenArrValue: TermImpl[] = []; setParameterValue.children?.forEach(element => {childrenArrValue.push(element instanceof TermImpl? element : new TermImpl(element));});
         this.children = childrenArrValue;
         this.createdDateTime = setParameterValue?.createdDateTime;
         this.description = setParameterValue?.description;
-        const localizedNamesArrValue: LocalizedNameImpl[] = []; this.localizedNames?.forEach(element => {localizedNamesArrValue.push(element instanceof LocalizedNameImpl? element : new LocalizedNameImpl(element));});
+        const localizedNamesArrValue: LocalizedNameImpl[] = []; setParameterValue.localizedNames?.forEach(element => {localizedNamesArrValue.push(element instanceof LocalizedNameImpl? element : new LocalizedNameImpl(element));});
         this.localizedNames = localizedNamesArrValue;
         this.parentGroup = setParameterValue?.parentGroup instanceof GroupImpl? setParameterValue?.parentGroup:new GroupImpl(setParameterValue?.parentGroup);
-        const propertiesArrValue: KeyValueImpl[] = []; this.properties?.forEach(element => {propertiesArrValue.push(element instanceof KeyValueImpl? element : new KeyValueImpl(element));});
+        const propertiesArrValue: KeyValueImpl[] = []; setParameterValue.properties?.forEach(element => {propertiesArrValue.push(element instanceof KeyValueImpl? element : new KeyValueImpl(element));});
         this.properties = propertiesArrValue;
-        const relationsArrValue: RelationImpl[] = []; this.relations?.forEach(element => {relationsArrValue.push(element instanceof RelationImpl? element : new RelationImpl(element));});
+        const relationsArrValue: RelationImpl[] = []; setParameterValue.relations?.forEach(element => {relationsArrValue.push(element instanceof RelationImpl? element : new RelationImpl(element));});
         this.relations = relationsArrValue;
-        const termsArrValue: TermImpl[] = []; this.terms?.forEach(element => {termsArrValue.push(element instanceof TermImpl? element : new TermImpl(element));});
+        const termsArrValue: TermImpl[] = []; setParameterValue.terms?.forEach(element => {termsArrValue.push(element instanceof TermImpl? element : new TermImpl(element));});
         this.terms = termsArrValue;
     };
     /**

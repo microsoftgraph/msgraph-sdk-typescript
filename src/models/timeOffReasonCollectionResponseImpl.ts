@@ -18,7 +18,7 @@ export class TimeOffReasonCollectionResponseImpl implements TimeOffReasonCollect
     public constructor(timeOffReasonCollectionResponseParameterValue?: TimeOffReasonCollectionResponse | undefined) {
         this.additionalData = timeOffReasonCollectionResponseParameterValue?.additionalData ? timeOffReasonCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = timeOffReasonCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: TimeOffReasonImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof TimeOffReasonImpl? element : new TimeOffReasonImpl(element));});
+        const valueArrValue: TimeOffReasonImpl[] = []; timeOffReasonCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof TimeOffReasonImpl? element : new TimeOffReasonImpl(element));});
         this.value = valueArrValue;
     };
     /**

@@ -9,7 +9,6 @@ import {ManagedAppPolicyDeploymentSummary} from './managedAppPolicyDeploymentSum
 import {ManagedMobileApp} from './managedMobileApp';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Policy used to configure detailed management settings for a specified set of apps for all users not targeted by a TargetedManagedAppProtection Policy */
 export class DefaultManagedAppProtectionImpl extends ManagedAppProtectionImpl implements DefaultManagedAppProtection {
     /** Type of encryption which should be used for data in a managed app. (iOS Only). Possible values are: useDeviceSettings, afterDeviceRestart, whenDeviceLockedExceptOpenFiles, whenDeviceLocked. */
     public appDataEncryptionType?: ManagedAppDataEncryptionType | undefined;
@@ -36,15 +35,15 @@ export class DefaultManagedAppProtectionImpl extends ManagedAppProtectionImpl im
     /** Indicates whether screen capture is blocked. (Android only) */
     public screenCaptureBlocked?: boolean | undefined;
     /**
-     * Instantiates a new defaultManagedAppProtection and sets the default values.
+     * Instantiates a new DefaultManagedAppProtection and sets the default values.
      * @param defaultManagedAppProtectionParameterValue 
      */
     public constructor(defaultManagedAppProtectionParameterValue?: DefaultManagedAppProtection | undefined) {
         super(defaultManagedAppProtectionParameterValue);
         this.appDataEncryptionType = defaultManagedAppProtectionParameterValue?.appDataEncryptionType;
-        const appsArrValue: ManagedMobileAppImpl[] = []; this.apps?.forEach(element => {appsArrValue.push(element instanceof ManagedMobileAppImpl? element : new ManagedMobileAppImpl(element));});
+        const appsArrValue: ManagedMobileAppImpl[] = []; defaultManagedAppProtectionParameterValue.apps?.forEach(element => {appsArrValue.push(element instanceof ManagedMobileAppImpl? element : new ManagedMobileAppImpl(element));});
         this.apps = appsArrValue;
-        const customSettingsArrValue: KeyValuePairImpl[] = []; this.customSettings?.forEach(element => {customSettingsArrValue.push(element instanceof KeyValuePairImpl? element : new KeyValuePairImpl(element));});
+        const customSettingsArrValue: KeyValuePairImpl[] = []; defaultManagedAppProtectionParameterValue.customSettings?.forEach(element => {customSettingsArrValue.push(element instanceof KeyValuePairImpl? element : new KeyValuePairImpl(element));});
         this.customSettings = customSettingsArrValue;
         this.deployedAppCount = defaultManagedAppProtectionParameterValue?.deployedAppCount;
         this.deploymentSummary = defaultManagedAppProtectionParameterValue?.deploymentSummary instanceof ManagedAppPolicyDeploymentSummaryImpl? defaultManagedAppProtectionParameterValue?.deploymentSummary:new ManagedAppPolicyDeploymentSummaryImpl(defaultManagedAppProtectionParameterValue?.deploymentSummary);

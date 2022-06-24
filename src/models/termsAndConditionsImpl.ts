@@ -35,9 +35,9 @@ export class TermsAndConditionsImpl extends EntityImpl implements TermsAndCondit
     public constructor(termsAndConditionsParameterValue?: TermsAndConditions | undefined) {
         super(termsAndConditionsParameterValue);
         this.acceptanceStatement = termsAndConditionsParameterValue?.acceptanceStatement;
-        const acceptanceStatusesArrValue: TermsAndConditionsAcceptanceStatusImpl[] = []; this.acceptanceStatuses?.forEach(element => {acceptanceStatusesArrValue.push(element instanceof TermsAndConditionsAcceptanceStatusImpl? element : new TermsAndConditionsAcceptanceStatusImpl(element));});
+        const acceptanceStatusesArrValue: TermsAndConditionsAcceptanceStatusImpl[] = []; termsAndConditionsParameterValue.acceptanceStatuses?.forEach(element => {acceptanceStatusesArrValue.push(element instanceof TermsAndConditionsAcceptanceStatusImpl? element : new TermsAndConditionsAcceptanceStatusImpl(element));});
         this.acceptanceStatuses = acceptanceStatusesArrValue;
-        const assignmentsArrValue: TermsAndConditionsAssignmentImpl[] = []; this.assignments?.forEach(element => {assignmentsArrValue.push(element instanceof TermsAndConditionsAssignmentImpl? element : new TermsAndConditionsAssignmentImpl(element));});
+        const assignmentsArrValue: TermsAndConditionsAssignmentImpl[] = []; termsAndConditionsParameterValue.assignments?.forEach(element => {assignmentsArrValue.push(element instanceof TermsAndConditionsAssignmentImpl? element : new TermsAndConditionsAssignmentImpl(element));});
         this.assignments = assignmentsArrValue;
         this.bodyText = termsAndConditionsParameterValue?.bodyText;
         this.createdDateTime = termsAndConditionsParameterValue?.createdDateTime;

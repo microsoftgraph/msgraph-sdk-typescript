@@ -41,13 +41,13 @@ export class PrintJobImpl extends EntityImpl implements PrintJob {
         this.configuration = printJobParameterValue?.configuration instanceof PrintJobConfigurationImpl? printJobParameterValue?.configuration:new PrintJobConfigurationImpl(printJobParameterValue?.configuration);
         this.createdBy = printJobParameterValue?.createdBy instanceof UserIdentityImpl? printJobParameterValue?.createdBy:new UserIdentityImpl(printJobParameterValue?.createdBy);
         this.createdDateTime = printJobParameterValue?.createdDateTime;
-        const documentsArrValue: PrintDocumentImpl[] = []; this.documents?.forEach(element => {documentsArrValue.push(element instanceof PrintDocumentImpl? element : new PrintDocumentImpl(element));});
+        const documentsArrValue: PrintDocumentImpl[] = []; printJobParameterValue.documents?.forEach(element => {documentsArrValue.push(element instanceof PrintDocumentImpl? element : new PrintDocumentImpl(element));});
         this.documents = documentsArrValue;
         this.isFetchable = printJobParameterValue?.isFetchable;
         this.redirectedFrom = printJobParameterValue?.redirectedFrom;
         this.redirectedTo = printJobParameterValue?.redirectedTo;
         this.status = printJobParameterValue?.status instanceof PrintJobStatusImpl? printJobParameterValue?.status:new PrintJobStatusImpl(printJobParameterValue?.status);
-        const tasksArrValue: PrintTaskImpl[] = []; this.tasks?.forEach(element => {tasksArrValue.push(element instanceof PrintTaskImpl? element : new PrintTaskImpl(element));});
+        const tasksArrValue: PrintTaskImpl[] = []; printJobParameterValue.tasks?.forEach(element => {tasksArrValue.push(element instanceof PrintTaskImpl? element : new PrintTaskImpl(element));});
         this.tasks = tasksArrValue;
     };
     /**

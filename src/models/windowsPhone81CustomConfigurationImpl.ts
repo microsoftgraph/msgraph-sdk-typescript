@@ -13,7 +13,7 @@ export class WindowsPhone81CustomConfigurationImpl extends DeviceConfigurationIm
      */
     public constructor(windowsPhone81CustomConfigurationParameterValue?: WindowsPhone81CustomConfiguration | undefined) {
         super(windowsPhone81CustomConfigurationParameterValue);
-        const omaSettingsArrValue: OmaSettingImpl[] = []; this.omaSettings?.forEach(element => {omaSettingsArrValue.push(element instanceof OmaSettingImpl? element : new OmaSettingImpl(element));});
+        const omaSettingsArrValue: OmaSettingImpl[] = []; windowsPhone81CustomConfigurationParameterValue.omaSettings?.forEach(element => {omaSettingsArrValue.push(element instanceof OmaSettingImpl? element : new OmaSettingImpl(element));});
         this.omaSettings = omaSettingsArrValue;
     };
     /**

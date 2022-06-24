@@ -18,7 +18,7 @@ export class ListItemVersionCollectionResponseImpl implements ListItemVersionCol
     public constructor(listItemVersionCollectionResponseParameterValue?: ListItemVersionCollectionResponse | undefined) {
         this.additionalData = listItemVersionCollectionResponseParameterValue?.additionalData ? listItemVersionCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = listItemVersionCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: ListItemVersionImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ListItemVersionImpl? element : new ListItemVersionImpl(element));});
+        const valueArrValue: ListItemVersionImpl[] = []; listItemVersionCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof ListItemVersionImpl? element : new ListItemVersionImpl(element));});
         this.value = valueArrValue;
     };
     /**

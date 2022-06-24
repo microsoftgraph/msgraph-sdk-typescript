@@ -18,7 +18,7 @@ export class ChatMessageHostedContentCollectionResponseImpl implements ChatMessa
     public constructor(chatMessageHostedContentCollectionResponseParameterValue?: ChatMessageHostedContentCollectionResponse | undefined) {
         this.additionalData = chatMessageHostedContentCollectionResponseParameterValue?.additionalData ? chatMessageHostedContentCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = chatMessageHostedContentCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: ChatMessageHostedContentImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ChatMessageHostedContentImpl? element : new ChatMessageHostedContentImpl(element));});
+        const valueArrValue: ChatMessageHostedContentImpl[] = []; chatMessageHostedContentCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof ChatMessageHostedContentImpl? element : new ChatMessageHostedContentImpl(element));});
         this.value = valueArrValue;
     };
     /**

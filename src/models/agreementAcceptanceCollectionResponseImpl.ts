@@ -18,7 +18,7 @@ export class AgreementAcceptanceCollectionResponseImpl implements AgreementAccep
     public constructor(agreementAcceptanceCollectionResponseParameterValue?: AgreementAcceptanceCollectionResponse | undefined) {
         this.additionalData = agreementAcceptanceCollectionResponseParameterValue?.additionalData ? agreementAcceptanceCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = agreementAcceptanceCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: AgreementAcceptanceImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof AgreementAcceptanceImpl? element : new AgreementAcceptanceImpl(element));});
+        const valueArrValue: AgreementAcceptanceImpl[] = []; agreementAcceptanceCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof AgreementAcceptanceImpl? element : new AgreementAcceptanceImpl(element));});
         this.value = valueArrValue;
     };
     /**

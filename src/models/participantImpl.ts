@@ -31,7 +31,7 @@ export class ParticipantImpl extends EntityImpl implements Participant {
         this.info = participantParameterValue?.info instanceof ParticipantInfoImpl? participantParameterValue?.info:new ParticipantInfoImpl(participantParameterValue?.info);
         this.isInLobby = participantParameterValue?.isInLobby;
         this.isMuted = participantParameterValue?.isMuted;
-        const mediaStreamsArrValue: MediaStreamImpl[] = []; this.mediaStreams?.forEach(element => {mediaStreamsArrValue.push(element instanceof MediaStreamImpl? element : new MediaStreamImpl(element));});
+        const mediaStreamsArrValue: MediaStreamImpl[] = []; participantParameterValue.mediaStreams?.forEach(element => {mediaStreamsArrValue.push(element instanceof MediaStreamImpl? element : new MediaStreamImpl(element));});
         this.mediaStreams = mediaStreamsArrValue;
         this.metadata = participantParameterValue?.metadata;
         this.recordingInfo = participantParameterValue?.recordingInfo instanceof RecordingInfoImpl? participantParameterValue?.recordingInfo:new RecordingInfoImpl(participantParameterValue?.recordingInfo);

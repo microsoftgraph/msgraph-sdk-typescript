@@ -18,7 +18,7 @@ export class UserActivityCollectionResponseImpl implements UserActivityCollectio
     public constructor(userActivityCollectionResponseParameterValue?: UserActivityCollectionResponse | undefined) {
         this.additionalData = userActivityCollectionResponseParameterValue?.additionalData ? userActivityCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = userActivityCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: UserActivityImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof UserActivityImpl? element : new UserActivityImpl(element));});
+        const valueArrValue: UserActivityImpl[] = []; userActivityCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof UserActivityImpl? element : new UserActivityImpl(element));});
         this.value = valueArrValue;
     };
     /**

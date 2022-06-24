@@ -18,7 +18,7 @@ export class SchemaExtensionCollectionResponseImpl implements SchemaExtensionCol
     public constructor(schemaExtensionCollectionResponseParameterValue?: SchemaExtensionCollectionResponse | undefined) {
         this.additionalData = schemaExtensionCollectionResponseParameterValue?.additionalData ? schemaExtensionCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = schemaExtensionCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: SchemaExtensionImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof SchemaExtensionImpl? element : new SchemaExtensionImpl(element));});
+        const valueArrValue: SchemaExtensionImpl[] = []; schemaExtensionCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof SchemaExtensionImpl? element : new SchemaExtensionImpl(element));});
         this.value = valueArrValue;
     };
     /**

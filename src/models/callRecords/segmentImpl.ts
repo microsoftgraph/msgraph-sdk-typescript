@@ -33,7 +33,7 @@ export class SegmentImpl extends EntityImpl implements Segment {
         this.caller = segmentParameterValue?.caller instanceof EndpointImpl? segmentParameterValue?.caller:new EndpointImpl(segmentParameterValue?.caller);
         this.endDateTime = segmentParameterValue?.endDateTime;
         this.failureInfo = segmentParameterValue?.failureInfo instanceof FailureInfoImpl? segmentParameterValue?.failureInfo:new FailureInfoImpl(segmentParameterValue?.failureInfo);
-        const mediaArrValue: MediaImpl[] = []; this.media?.forEach(element => {mediaArrValue.push(element instanceof MediaImpl? element : new MediaImpl(element));});
+        const mediaArrValue: MediaImpl[] = []; segmentParameterValue.media?.forEach(element => {mediaArrValue.push(element instanceof MediaImpl? element : new MediaImpl(element));});
         this.media = mediaArrValue;
         this.startDateTime = segmentParameterValue?.startDateTime;
     };

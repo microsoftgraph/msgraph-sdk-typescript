@@ -18,7 +18,7 @@ export class DriveCollectionResponseImpl implements DriveCollectionResponse {
     public constructor(driveCollectionResponseParameterValue?: DriveCollectionResponse | undefined) {
         this.additionalData = driveCollectionResponseParameterValue?.additionalData ? driveCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = driveCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: DriveImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof DriveImpl? element : new DriveImpl(element));});
+        const valueArrValue: DriveImpl[] = []; driveCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof DriveImpl? element : new DriveImpl(element));});
         this.value = valueArrValue;
     };
     /**

@@ -18,7 +18,7 @@ export class PlannerTaskCollectionResponseImpl implements PlannerTaskCollectionR
     public constructor(plannerTaskCollectionResponseParameterValue?: PlannerTaskCollectionResponse | undefined) {
         this.additionalData = plannerTaskCollectionResponseParameterValue?.additionalData ? plannerTaskCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = plannerTaskCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: PlannerTaskImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof PlannerTaskImpl? element : new PlannerTaskImpl(element));});
+        const valueArrValue: PlannerTaskImpl[] = []; plannerTaskCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof PlannerTaskImpl? element : new PlannerTaskImpl(element));});
         this.value = valueArrValue;
     };
     /**

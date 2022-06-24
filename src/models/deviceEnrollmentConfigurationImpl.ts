@@ -26,7 +26,7 @@ export class DeviceEnrollmentConfigurationImpl extends EntityImpl implements Dev
      */
     public constructor(deviceEnrollmentConfigurationParameterValue?: DeviceEnrollmentConfiguration | undefined) {
         super(deviceEnrollmentConfigurationParameterValue);
-        const assignmentsArrValue: EnrollmentConfigurationAssignmentImpl[] = []; this.assignments?.forEach(element => {assignmentsArrValue.push(element instanceof EnrollmentConfigurationAssignmentImpl? element : new EnrollmentConfigurationAssignmentImpl(element));});
+        const assignmentsArrValue: EnrollmentConfigurationAssignmentImpl[] = []; deviceEnrollmentConfigurationParameterValue.assignments?.forEach(element => {assignmentsArrValue.push(element instanceof EnrollmentConfigurationAssignmentImpl? element : new EnrollmentConfigurationAssignmentImpl(element));});
         this.assignments = assignmentsArrValue;
         this.createdDateTime = deviceEnrollmentConfigurationParameterValue?.createdDateTime;
         this.description = deviceEnrollmentConfigurationParameterValue?.description;

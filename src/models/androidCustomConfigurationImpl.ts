@@ -13,7 +13,7 @@ export class AndroidCustomConfigurationImpl extends DeviceConfigurationImpl impl
      */
     public constructor(androidCustomConfigurationParameterValue?: AndroidCustomConfiguration | undefined) {
         super(androidCustomConfigurationParameterValue);
-        const omaSettingsArrValue: OmaSettingImpl[] = []; this.omaSettings?.forEach(element => {omaSettingsArrValue.push(element instanceof OmaSettingImpl? element : new OmaSettingImpl(element));});
+        const omaSettingsArrValue: OmaSettingImpl[] = []; androidCustomConfigurationParameterValue.omaSettings?.forEach(element => {omaSettingsArrValue.push(element instanceof OmaSettingImpl? element : new OmaSettingImpl(element));});
         this.omaSettings = omaSettingsArrValue;
     };
     /**

@@ -19,7 +19,7 @@ export class WindowsInformationProtectionIPRangeCollectionImpl implements Window
     public constructor(windowsInformationProtectionIPRangeCollectionParameterValue?: WindowsInformationProtectionIPRangeCollection | undefined) {
         this.additionalData = windowsInformationProtectionIPRangeCollectionParameterValue?.additionalData ? windowsInformationProtectionIPRangeCollectionParameterValue?.additionalData! : {};
         this.displayName = windowsInformationProtectionIPRangeCollectionParameterValue?.displayName;
-        const rangesArrValue: IpRangeImpl[] = []; this.ranges?.forEach(element => {rangesArrValue.push(element instanceof IpRangeImpl? element : new IpRangeImpl(element));});
+        const rangesArrValue: IpRangeImpl[] = []; windowsInformationProtectionIPRangeCollectionParameterValue.ranges?.forEach(element => {rangesArrValue.push(element instanceof IpRangeImpl? element : new IpRangeImpl(element));});
         this.ranges = rangesArrValue;
     };
     /**

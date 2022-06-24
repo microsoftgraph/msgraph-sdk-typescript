@@ -18,7 +18,7 @@ export class TeamsTemplateCollectionResponseImpl implements TeamsTemplateCollect
     public constructor(teamsTemplateCollectionResponseParameterValue?: TeamsTemplateCollectionResponse | undefined) {
         this.additionalData = teamsTemplateCollectionResponseParameterValue?.additionalData ? teamsTemplateCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = teamsTemplateCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: TeamsTemplateImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof TeamsTemplateImpl? element : new TeamsTemplateImpl(element));});
+        const valueArrValue: TeamsTemplateImpl[] = []; teamsTemplateCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof TeamsTemplateImpl? element : new TeamsTemplateImpl(element));});
         this.value = valueArrValue;
     };
     /**

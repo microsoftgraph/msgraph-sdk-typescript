@@ -18,7 +18,7 @@ export class GroupLifecyclePolicyCollectionResponseImpl implements GroupLifecycl
     public constructor(groupLifecyclePolicyCollectionResponseParameterValue?: GroupLifecyclePolicyCollectionResponse | undefined) {
         this.additionalData = groupLifecyclePolicyCollectionResponseParameterValue?.additionalData ? groupLifecyclePolicyCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = groupLifecyclePolicyCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: GroupLifecyclePolicyImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof GroupLifecyclePolicyImpl? element : new GroupLifecyclePolicyImpl(element));});
+        const valueArrValue: GroupLifecyclePolicyImpl[] = []; groupLifecyclePolicyCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof GroupLifecyclePolicyImpl? element : new GroupLifecyclePolicyImpl(element));});
         this.value = valueArrValue;
     };
     /**

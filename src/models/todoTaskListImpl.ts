@@ -28,11 +28,11 @@ export class TodoTaskListImpl extends EntityImpl implements TodoTaskList {
     public constructor(todoTaskListParameterValue?: TodoTaskList | undefined) {
         super(todoTaskListParameterValue);
         this.displayName = todoTaskListParameterValue?.displayName;
-        const extensionsArrValue: ExtensionImpl[] = []; this.extensions?.forEach(element => {extensionsArrValue.push(element instanceof ExtensionImpl? element : new ExtensionImpl(element));});
+        const extensionsArrValue: ExtensionImpl[] = []; todoTaskListParameterValue.extensions?.forEach(element => {extensionsArrValue.push(element instanceof ExtensionImpl? element : new ExtensionImpl(element));});
         this.extensions = extensionsArrValue;
         this.isOwner = todoTaskListParameterValue?.isOwner;
         this.isShared = todoTaskListParameterValue?.isShared;
-        const tasksArrValue: TodoTaskImpl[] = []; this.tasks?.forEach(element => {tasksArrValue.push(element instanceof TodoTaskImpl? element : new TodoTaskImpl(element));});
+        const tasksArrValue: TodoTaskImpl[] = []; todoTaskListParameterValue.tasks?.forEach(element => {tasksArrValue.push(element instanceof TodoTaskImpl? element : new TodoTaskImpl(element));});
         this.tasks = tasksArrValue;
         this.wellknownListName = todoTaskListParameterValue?.wellknownListName;
     };

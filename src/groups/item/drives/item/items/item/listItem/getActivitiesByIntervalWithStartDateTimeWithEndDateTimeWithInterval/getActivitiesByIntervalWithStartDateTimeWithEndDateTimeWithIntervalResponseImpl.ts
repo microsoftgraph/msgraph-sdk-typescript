@@ -16,7 +16,7 @@ export class GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInterval
      */
     public constructor(getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalResponseParameterValue?: GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalResponse | undefined) {
         this.additionalData = getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalResponseParameterValue?.additionalData ? getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalResponseParameterValue?.additionalData! : {};
-        const valueArrValue: ItemActivityStatImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ItemActivityStatImpl? element : new ItemActivityStatImpl(element));});
+        const valueArrValue: ItemActivityStatImpl[] = []; getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof ItemActivityStatImpl? element : new ItemActivityStatImpl(element));});
         this.value = valueArrValue;
     };
     /**

@@ -22,11 +22,11 @@ export class ServiceAnnouncementImpl extends EntityImpl implements ServiceAnnoun
      */
     public constructor(serviceAnnouncementParameterValue?: ServiceAnnouncement | undefined) {
         super(serviceAnnouncementParameterValue);
-        const healthOverviewsArrValue: ServiceHealthImpl[] = []; this.healthOverviews?.forEach(element => {healthOverviewsArrValue.push(element instanceof ServiceHealthImpl? element : new ServiceHealthImpl(element));});
+        const healthOverviewsArrValue: ServiceHealthImpl[] = []; serviceAnnouncementParameterValue.healthOverviews?.forEach(element => {healthOverviewsArrValue.push(element instanceof ServiceHealthImpl? element : new ServiceHealthImpl(element));});
         this.healthOverviews = healthOverviewsArrValue;
-        const issuesArrValue: ServiceHealthIssueImpl[] = []; this.issues?.forEach(element => {issuesArrValue.push(element instanceof ServiceHealthIssueImpl? element : new ServiceHealthIssueImpl(element));});
+        const issuesArrValue: ServiceHealthIssueImpl[] = []; serviceAnnouncementParameterValue.issues?.forEach(element => {issuesArrValue.push(element instanceof ServiceHealthIssueImpl? element : new ServiceHealthIssueImpl(element));});
         this.issues = issuesArrValue;
-        const messagesArrValue: ServiceUpdateMessageImpl[] = []; this.messages?.forEach(element => {messagesArrValue.push(element instanceof ServiceUpdateMessageImpl? element : new ServiceUpdateMessageImpl(element));});
+        const messagesArrValue: ServiceUpdateMessageImpl[] = []; serviceAnnouncementParameterValue.messages?.forEach(element => {messagesArrValue.push(element instanceof ServiceUpdateMessageImpl? element : new ServiceUpdateMessageImpl(element));});
         this.messages = messagesArrValue;
     };
     /**

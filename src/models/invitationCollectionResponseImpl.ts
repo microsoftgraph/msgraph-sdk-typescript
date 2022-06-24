@@ -18,7 +18,7 @@ export class InvitationCollectionResponseImpl implements InvitationCollectionRes
     public constructor(invitationCollectionResponseParameterValue?: InvitationCollectionResponse | undefined) {
         this.additionalData = invitationCollectionResponseParameterValue?.additionalData ? invitationCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = invitationCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: InvitationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof InvitationImpl? element : new InvitationImpl(element));});
+        const valueArrValue: InvitationImpl[] = []; invitationCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof InvitationImpl? element : new InvitationImpl(element));});
         this.value = valueArrValue;
     };
     /**

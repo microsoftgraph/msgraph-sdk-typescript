@@ -21,7 +21,7 @@ export class AccessPackageAssignmentApprovalSettingsImpl implements AccessPackag
         this.additionalData = accessPackageAssignmentApprovalSettingsParameterValue?.additionalData ? accessPackageAssignmentApprovalSettingsParameterValue?.additionalData! : {};
         this.isApprovalRequiredForAdd = accessPackageAssignmentApprovalSettingsParameterValue?.isApprovalRequiredForAdd;
         this.isApprovalRequiredForUpdate = accessPackageAssignmentApprovalSettingsParameterValue?.isApprovalRequiredForUpdate;
-        const stagesArrValue: AccessPackageApprovalStageImpl[] = []; this.stages?.forEach(element => {stagesArrValue.push(element instanceof AccessPackageApprovalStageImpl? element : new AccessPackageApprovalStageImpl(element));});
+        const stagesArrValue: AccessPackageApprovalStageImpl[] = []; accessPackageAssignmentApprovalSettingsParameterValue.stages?.forEach(element => {stagesArrValue.push(element instanceof AccessPackageApprovalStageImpl? element : new AccessPackageApprovalStageImpl(element));});
         this.stages = stagesArrValue;
     };
     /**

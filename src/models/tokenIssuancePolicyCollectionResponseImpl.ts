@@ -18,7 +18,7 @@ export class TokenIssuancePolicyCollectionResponseImpl implements TokenIssuanceP
     public constructor(tokenIssuancePolicyCollectionResponseParameterValue?: TokenIssuancePolicyCollectionResponse | undefined) {
         this.additionalData = tokenIssuancePolicyCollectionResponseParameterValue?.additionalData ? tokenIssuancePolicyCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = tokenIssuancePolicyCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: TokenIssuancePolicyImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof TokenIssuancePolicyImpl? element : new TokenIssuancePolicyImpl(element));});
+        const valueArrValue: TokenIssuancePolicyImpl[] = []; tokenIssuancePolicyCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof TokenIssuancePolicyImpl? element : new TokenIssuancePolicyImpl(element));});
         this.value = valueArrValue;
     };
     /**

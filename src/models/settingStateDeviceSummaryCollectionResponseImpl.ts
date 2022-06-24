@@ -18,7 +18,7 @@ export class SettingStateDeviceSummaryCollectionResponseImpl implements SettingS
     public constructor(settingStateDeviceSummaryCollectionResponseParameterValue?: SettingStateDeviceSummaryCollectionResponse | undefined) {
         this.additionalData = settingStateDeviceSummaryCollectionResponseParameterValue?.additionalData ? settingStateDeviceSummaryCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = settingStateDeviceSummaryCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: SettingStateDeviceSummaryImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof SettingStateDeviceSummaryImpl? element : new SettingStateDeviceSummaryImpl(element));});
+        const valueArrValue: SettingStateDeviceSummaryImpl[] = []; settingStateDeviceSummaryCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof SettingStateDeviceSummaryImpl? element : new SettingStateDeviceSummaryImpl(element));});
         this.value = valueArrValue;
     };
     /**

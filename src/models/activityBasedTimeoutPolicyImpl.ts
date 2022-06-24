@@ -2,10 +2,9 @@ import {ActivityBasedTimeoutPolicy} from './activityBasedTimeoutPolicy';
 import {StsPolicyImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the policyRoot singleton. */
 export class ActivityBasedTimeoutPolicyImpl extends StsPolicyImpl implements ActivityBasedTimeoutPolicy {
     /**
-     * Instantiates a new activityBasedTimeoutPolicy and sets the default values.
+     * Instantiates a new ActivityBasedTimeoutPolicy and sets the default values.
      * @param activityBasedTimeoutPolicyParameterValue 
      */
     public constructor(activityBasedTimeoutPolicyParameterValue?: ActivityBasedTimeoutPolicy | undefined) {

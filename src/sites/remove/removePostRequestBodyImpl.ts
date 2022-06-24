@@ -16,7 +16,7 @@ export class RemovePostRequestBodyImpl implements RemovePostRequestBody {
      */
     public constructor(removePostRequestBodyParameterValue?: RemovePostRequestBody | undefined) {
         this.additionalData = removePostRequestBodyParameterValue?.additionalData ? removePostRequestBodyParameterValue?.additionalData! : {};
-        const valueArrValue: SiteImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof SiteImpl? element : new SiteImpl(element));});
+        const valueArrValue: SiteImpl[] = []; removePostRequestBodyParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof SiteImpl? element : new SiteImpl(element));});
         this.value = valueArrValue;
     };
     /**

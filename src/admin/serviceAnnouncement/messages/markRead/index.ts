@@ -1,5 +1,5 @@
 export * from './markReadResponseImpl'
 export * from './markReadPostRequestBodyImpl'
-export * from './markReadPostRequestBody'
 export * from './markReadRequestBuilderPostRequestConfiguration'
+export * from './markReadPostRequestBody'
 export * from './markReadResponse'

@@ -30,10 +30,10 @@ export class AccessReviewStageSettingsImpl implements AccessReviewStageSettings 
         this.decisionsThatWillMoveToNextStage = accessReviewStageSettingsParameterValue?.decisionsThatWillMoveToNextStage;
         this.dependsOn = accessReviewStageSettingsParameterValue?.dependsOn;
         this.durationInDays = accessReviewStageSettingsParameterValue?.durationInDays;
-        const fallbackReviewersArrValue: AccessReviewReviewerScopeImpl[] = []; this.fallbackReviewers?.forEach(element => {fallbackReviewersArrValue.push(element instanceof AccessReviewReviewerScopeImpl? element : new AccessReviewReviewerScopeImpl(element));});
+        const fallbackReviewersArrValue: AccessReviewReviewerScopeImpl[] = []; accessReviewStageSettingsParameterValue.fallbackReviewers?.forEach(element => {fallbackReviewersArrValue.push(element instanceof AccessReviewReviewerScopeImpl? element : new AccessReviewReviewerScopeImpl(element));});
         this.fallbackReviewers = fallbackReviewersArrValue;
         this.recommendationsEnabled = accessReviewStageSettingsParameterValue?.recommendationsEnabled;
-        const reviewersArrValue: AccessReviewReviewerScopeImpl[] = []; this.reviewers?.forEach(element => {reviewersArrValue.push(element instanceof AccessReviewReviewerScopeImpl? element : new AccessReviewReviewerScopeImpl(element));});
+        const reviewersArrValue: AccessReviewReviewerScopeImpl[] = []; accessReviewStageSettingsParameterValue.reviewers?.forEach(element => {reviewersArrValue.push(element instanceof AccessReviewReviewerScopeImpl? element : new AccessReviewReviewerScopeImpl(element));});
         this.reviewers = reviewersArrValue;
         this.stageId = accessReviewStageSettingsParameterValue?.stageId;
     };

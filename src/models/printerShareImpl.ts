@@ -27,9 +27,9 @@ export class PrinterShareImpl extends PrinterBaseImpl implements PrinterShare {
     public constructor(printerShareParameterValue?: PrinterShare | undefined) {
         super(printerShareParameterValue);
         this.allowAllUsers = printerShareParameterValue?.allowAllUsers;
-        const allowedGroupsArrValue: GroupImpl[] = []; this.allowedGroups?.forEach(element => {allowedGroupsArrValue.push(element instanceof GroupImpl? element : new GroupImpl(element));});
+        const allowedGroupsArrValue: GroupImpl[] = []; printerShareParameterValue.allowedGroups?.forEach(element => {allowedGroupsArrValue.push(element instanceof GroupImpl? element : new GroupImpl(element));});
         this.allowedGroups = allowedGroupsArrValue;
-        const allowedUsersArrValue: UserImpl[] = []; this.allowedUsers?.forEach(element => {allowedUsersArrValue.push(element instanceof UserImpl? element : new UserImpl(element));});
+        const allowedUsersArrValue: UserImpl[] = []; printerShareParameterValue.allowedUsers?.forEach(element => {allowedUsersArrValue.push(element instanceof UserImpl? element : new UserImpl(element));});
         this.allowedUsers = allowedUsersArrValue;
         this.createdDateTime = printerShareParameterValue?.createdDateTime;
         this.printer = printerShareParameterValue?.printer instanceof PrinterImpl? printerShareParameterValue?.printer:new PrinterImpl(printerShareParameterValue?.printer);

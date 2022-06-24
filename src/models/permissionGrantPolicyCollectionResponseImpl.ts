@@ -18,7 +18,7 @@ export class PermissionGrantPolicyCollectionResponseImpl implements PermissionGr
     public constructor(permissionGrantPolicyCollectionResponseParameterValue?: PermissionGrantPolicyCollectionResponse | undefined) {
         this.additionalData = permissionGrantPolicyCollectionResponseParameterValue?.additionalData ? permissionGrantPolicyCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = permissionGrantPolicyCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: PermissionGrantPolicyImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof PermissionGrantPolicyImpl? element : new PermissionGrantPolicyImpl(element));});
+        const valueArrValue: PermissionGrantPolicyImpl[] = []; permissionGrantPolicyCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof PermissionGrantPolicyImpl? element : new PermissionGrantPolicyImpl(element));});
         this.value = valueArrValue;
     };
     /**

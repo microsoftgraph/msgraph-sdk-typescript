@@ -18,7 +18,7 @@ export class PresenceCollectionResponseImpl implements PresenceCollectionRespons
     public constructor(presenceCollectionResponseParameterValue?: PresenceCollectionResponse | undefined) {
         this.additionalData = presenceCollectionResponseParameterValue?.additionalData ? presenceCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = presenceCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: PresenceImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof PresenceImpl? element : new PresenceImpl(element));});
+        const valueArrValue: PresenceImpl[] = []; presenceCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof PresenceImpl? element : new PresenceImpl(element));});
         this.value = valueArrValue;
     };
     /**

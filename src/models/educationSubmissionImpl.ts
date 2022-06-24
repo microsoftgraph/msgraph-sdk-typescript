@@ -47,12 +47,12 @@ export class EducationSubmissionImpl extends EntityImpl implements EducationSubm
      */
     public constructor(educationSubmissionParameterValue?: EducationSubmission | undefined) {
         super(educationSubmissionParameterValue);
-        const outcomesArrValue: EducationOutcomeImpl[] = []; this.outcomes?.forEach(element => {outcomesArrValue.push(element instanceof EducationOutcomeImpl? element : new EducationOutcomeImpl(element));});
+        const outcomesArrValue: EducationOutcomeImpl[] = []; educationSubmissionParameterValue.outcomes?.forEach(element => {outcomesArrValue.push(element instanceof EducationOutcomeImpl? element : new EducationOutcomeImpl(element));});
         this.outcomes = outcomesArrValue;
         this.reassignedBy = educationSubmissionParameterValue?.reassignedBy instanceof IdentitySetImpl? educationSubmissionParameterValue?.reassignedBy:new IdentitySetImpl(educationSubmissionParameterValue?.reassignedBy);
         this.reassignedDateTime = educationSubmissionParameterValue?.reassignedDateTime;
         this.recipient = educationSubmissionParameterValue?.recipient instanceof EducationSubmissionRecipientImpl? educationSubmissionParameterValue?.recipient:new EducationSubmissionRecipientImpl(educationSubmissionParameterValue?.recipient);
-        const resourcesArrValue: EducationSubmissionResourceImpl[] = []; this.resources?.forEach(element => {resourcesArrValue.push(element instanceof EducationSubmissionResourceImpl? element : new EducationSubmissionResourceImpl(element));});
+        const resourcesArrValue: EducationSubmissionResourceImpl[] = []; educationSubmissionParameterValue.resources?.forEach(element => {resourcesArrValue.push(element instanceof EducationSubmissionResourceImpl? element : new EducationSubmissionResourceImpl(element));});
         this.resources = resourcesArrValue;
         this.resourcesFolderUrl = educationSubmissionParameterValue?.resourcesFolderUrl;
         this.returnedBy = educationSubmissionParameterValue?.returnedBy instanceof IdentitySetImpl? educationSubmissionParameterValue?.returnedBy:new IdentitySetImpl(educationSubmissionParameterValue?.returnedBy);
@@ -60,7 +60,7 @@ export class EducationSubmissionImpl extends EntityImpl implements EducationSubm
         this.status = educationSubmissionParameterValue?.status;
         this.submittedBy = educationSubmissionParameterValue?.submittedBy instanceof IdentitySetImpl? educationSubmissionParameterValue?.submittedBy:new IdentitySetImpl(educationSubmissionParameterValue?.submittedBy);
         this.submittedDateTime = educationSubmissionParameterValue?.submittedDateTime;
-        const submittedResourcesArrValue: EducationSubmissionResourceImpl[] = []; this.submittedResources?.forEach(element => {submittedResourcesArrValue.push(element instanceof EducationSubmissionResourceImpl? element : new EducationSubmissionResourceImpl(element));});
+        const submittedResourcesArrValue: EducationSubmissionResourceImpl[] = []; educationSubmissionParameterValue.submittedResources?.forEach(element => {submittedResourcesArrValue.push(element instanceof EducationSubmissionResourceImpl? element : new EducationSubmissionResourceImpl(element));});
         this.submittedResources = submittedResourcesArrValue;
         this.unsubmittedBy = educationSubmissionParameterValue?.unsubmittedBy instanceof IdentitySetImpl? educationSubmissionParameterValue?.unsubmittedBy:new IdentitySetImpl(educationSubmissionParameterValue?.unsubmittedBy);
         this.unsubmittedDateTime = educationSubmissionParameterValue?.unsubmittedDateTime;

@@ -18,7 +18,7 @@ export class TeamsAsyncOperationCollectionResponseImpl implements TeamsAsyncOper
     public constructor(teamsAsyncOperationCollectionResponseParameterValue?: TeamsAsyncOperationCollectionResponse | undefined) {
         this.additionalData = teamsAsyncOperationCollectionResponseParameterValue?.additionalData ? teamsAsyncOperationCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = teamsAsyncOperationCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: TeamsAsyncOperationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof TeamsAsyncOperationImpl? element : new TeamsAsyncOperationImpl(element));});
+        const valueArrValue: TeamsAsyncOperationImpl[] = []; teamsAsyncOperationCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof TeamsAsyncOperationImpl? element : new TeamsAsyncOperationImpl(element));});
         this.value = valueArrValue;
     };
     /**

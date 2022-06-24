@@ -18,7 +18,7 @@ export class DeviceConfigurationDeviceStatusCollectionResponseImpl implements De
     public constructor(deviceConfigurationDeviceStatusCollectionResponseParameterValue?: DeviceConfigurationDeviceStatusCollectionResponse | undefined) {
         this.additionalData = deviceConfigurationDeviceStatusCollectionResponseParameterValue?.additionalData ? deviceConfigurationDeviceStatusCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = deviceConfigurationDeviceStatusCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: DeviceConfigurationDeviceStatusImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof DeviceConfigurationDeviceStatusImpl? element : new DeviceConfigurationDeviceStatusImpl(element));});
+        const valueArrValue: DeviceConfigurationDeviceStatusImpl[] = []; deviceConfigurationDeviceStatusCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof DeviceConfigurationDeviceStatusImpl? element : new DeviceConfigurationDeviceStatusImpl(element));});
         this.value = valueArrValue;
     };
     /**

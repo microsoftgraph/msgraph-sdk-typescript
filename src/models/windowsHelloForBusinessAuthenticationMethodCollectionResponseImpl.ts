@@ -18,7 +18,7 @@ export class WindowsHelloForBusinessAuthenticationMethodCollectionResponseImpl i
     public constructor(windowsHelloForBusinessAuthenticationMethodCollectionResponseParameterValue?: WindowsHelloForBusinessAuthenticationMethodCollectionResponse | undefined) {
         this.additionalData = windowsHelloForBusinessAuthenticationMethodCollectionResponseParameterValue?.additionalData ? windowsHelloForBusinessAuthenticationMethodCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = windowsHelloForBusinessAuthenticationMethodCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: WindowsHelloForBusinessAuthenticationMethodImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof WindowsHelloForBusinessAuthenticationMethodImpl? element : new WindowsHelloForBusinessAuthenticationMethodImpl(element));});
+        const valueArrValue: WindowsHelloForBusinessAuthenticationMethodImpl[] = []; windowsHelloForBusinessAuthenticationMethodCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof WindowsHelloForBusinessAuthenticationMethodImpl? element : new WindowsHelloForBusinessAuthenticationMethodImpl(element));});
         this.value = valueArrValue;
     };
     /**

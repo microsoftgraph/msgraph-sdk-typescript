@@ -1,3 +1,3 @@
 export * from './archivePostRequestBodyImpl'
-export * from './archiveRequestBuilderPostRequestConfiguration'
 export * from './archivePostRequestBody'
+export * from './archiveRequestBuilderPostRequestConfiguration'

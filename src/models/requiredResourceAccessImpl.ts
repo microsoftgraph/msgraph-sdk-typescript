@@ -17,7 +17,7 @@ export class RequiredResourceAccessImpl implements RequiredResourceAccess {
      */
     public constructor(requiredResourceAccessParameterValue?: RequiredResourceAccess | undefined) {
         this.additionalData = requiredResourceAccessParameterValue?.additionalData ? requiredResourceAccessParameterValue?.additionalData! : {};
-        const resourceAccessArrValue: ResourceAccessImpl[] = []; this.resourceAccess?.forEach(element => {resourceAccessArrValue.push(element instanceof ResourceAccessImpl? element : new ResourceAccessImpl(element));});
+        const resourceAccessArrValue: ResourceAccessImpl[] = []; requiredResourceAccessParameterValue.resourceAccess?.forEach(element => {resourceAccessArrValue.push(element instanceof ResourceAccessImpl? element : new ResourceAccessImpl(element));});
         this.resourceAccess = resourceAccessArrValue;
         this.resourceAppId = requiredResourceAccessParameterValue?.resourceAppId;
     };

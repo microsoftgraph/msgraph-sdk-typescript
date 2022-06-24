@@ -22,7 +22,7 @@ export class ServiceAnnouncementBaseImpl extends EntityImpl implements ServiceAn
      */
     public constructor(serviceAnnouncementBaseParameterValue?: ServiceAnnouncementBase | undefined) {
         super(serviceAnnouncementBaseParameterValue);
-        const detailsArrValue: KeyValuePairImpl[] = []; this.details?.forEach(element => {detailsArrValue.push(element instanceof KeyValuePairImpl? element : new KeyValuePairImpl(element));});
+        const detailsArrValue: KeyValuePairImpl[] = []; serviceAnnouncementBaseParameterValue.details?.forEach(element => {detailsArrValue.push(element instanceof KeyValuePairImpl? element : new KeyValuePairImpl(element));});
         this.details = detailsArrValue;
         this.endDateTime = serviceAnnouncementBaseParameterValue?.endDateTime;
         this.lastModifiedDateTime = serviceAnnouncementBaseParameterValue?.lastModifiedDateTime;

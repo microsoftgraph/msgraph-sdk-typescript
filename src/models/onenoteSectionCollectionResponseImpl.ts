@@ -18,7 +18,7 @@ export class OnenoteSectionCollectionResponseImpl implements OnenoteSectionColle
     public constructor(onenoteSectionCollectionResponseParameterValue?: OnenoteSectionCollectionResponse | undefined) {
         this.additionalData = onenoteSectionCollectionResponseParameterValue?.additionalData ? onenoteSectionCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = onenoteSectionCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: OnenoteSectionImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof OnenoteSectionImpl? element : new OnenoteSectionImpl(element));});
+        const valueArrValue: OnenoteSectionImpl[] = []; onenoteSectionCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof OnenoteSectionImpl? element : new OnenoteSectionImpl(element));});
         this.value = valueArrValue;
     };
     /**

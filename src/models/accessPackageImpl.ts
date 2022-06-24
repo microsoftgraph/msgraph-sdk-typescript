@@ -28,7 +28,7 @@ export class AccessPackageImpl extends EntityImpl implements AccessPackage {
      */
     public constructor(accessPackageParameterValue?: AccessPackage | undefined) {
         super(accessPackageParameterValue);
-        const assignmentPoliciesArrValue: AccessPackageAssignmentPolicyImpl[] = []; this.assignmentPolicies?.forEach(element => {assignmentPoliciesArrValue.push(element instanceof AccessPackageAssignmentPolicyImpl? element : new AccessPackageAssignmentPolicyImpl(element));});
+        const assignmentPoliciesArrValue: AccessPackageAssignmentPolicyImpl[] = []; accessPackageParameterValue.assignmentPolicies?.forEach(element => {assignmentPoliciesArrValue.push(element instanceof AccessPackageAssignmentPolicyImpl? element : new AccessPackageAssignmentPolicyImpl(element));});
         this.assignmentPolicies = assignmentPoliciesArrValue;
         this.catalog = accessPackageParameterValue?.catalog instanceof AccessPackageCatalogImpl? accessPackageParameterValue?.catalog:new AccessPackageCatalogImpl(accessPackageParameterValue?.catalog);
         this.createdDateTime = accessPackageParameterValue?.createdDateTime;

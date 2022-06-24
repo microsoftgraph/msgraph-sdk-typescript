@@ -18,7 +18,7 @@ export class TermsAndConditionsAssignmentCollectionResponseImpl implements Terms
     public constructor(termsAndConditionsAssignmentCollectionResponseParameterValue?: TermsAndConditionsAssignmentCollectionResponse | undefined) {
         this.additionalData = termsAndConditionsAssignmentCollectionResponseParameterValue?.additionalData ? termsAndConditionsAssignmentCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = termsAndConditionsAssignmentCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: TermsAndConditionsAssignmentImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof TermsAndConditionsAssignmentImpl? element : new TermsAndConditionsAssignmentImpl(element));});
+        const valueArrValue: TermsAndConditionsAssignmentImpl[] = []; termsAndConditionsAssignmentCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof TermsAndConditionsAssignmentImpl? element : new TermsAndConditionsAssignmentImpl(element));});
         this.value = valueArrValue;
     };
     /**

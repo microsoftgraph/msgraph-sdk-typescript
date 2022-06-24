@@ -54,11 +54,11 @@ export class OrgContactImpl extends DirectoryObjectImpl implements OrgContact {
      */
     public constructor(orgContactParameterValue?: OrgContact | undefined) {
         super(orgContactParameterValue);
-        const addressesArrValue: PhysicalOfficeAddressImpl[] = []; this.addresses?.forEach(element => {addressesArrValue.push(element instanceof PhysicalOfficeAddressImpl? element : new PhysicalOfficeAddressImpl(element));});
+        const addressesArrValue: PhysicalOfficeAddressImpl[] = []; orgContactParameterValue.addresses?.forEach(element => {addressesArrValue.push(element instanceof PhysicalOfficeAddressImpl? element : new PhysicalOfficeAddressImpl(element));});
         this.addresses = addressesArrValue;
         this.companyName = orgContactParameterValue?.companyName;
         this.department = orgContactParameterValue?.department;
-        const directReportsArrValue: DirectoryObjectImpl[] = []; this.directReports?.forEach(element => {directReportsArrValue.push(element instanceof DirectoryObjectImpl? element : new DirectoryObjectImpl(element));});
+        const directReportsArrValue: DirectoryObjectImpl[] = []; orgContactParameterValue.directReports?.forEach(element => {directReportsArrValue.push(element instanceof DirectoryObjectImpl? element : new DirectoryObjectImpl(element));});
         this.directReports = directReportsArrValue;
         this.displayName = orgContactParameterValue?.displayName;
         this.givenName = orgContactParameterValue?.givenName;
@@ -66,17 +66,17 @@ export class OrgContactImpl extends DirectoryObjectImpl implements OrgContact {
         this.mail = orgContactParameterValue?.mail;
         this.mailNickname = orgContactParameterValue?.mailNickname;
         this.manager = orgContactParameterValue?.manager instanceof DirectoryObjectImpl? orgContactParameterValue?.manager:new DirectoryObjectImpl(orgContactParameterValue?.manager);
-        const memberOfArrValue: DirectoryObjectImpl[] = []; this.memberOf?.forEach(element => {memberOfArrValue.push(element instanceof DirectoryObjectImpl? element : new DirectoryObjectImpl(element));});
+        const memberOfArrValue: DirectoryObjectImpl[] = []; orgContactParameterValue.memberOf?.forEach(element => {memberOfArrValue.push(element instanceof DirectoryObjectImpl? element : new DirectoryObjectImpl(element));});
         this.memberOf = memberOfArrValue;
         this.onPremisesLastSyncDateTime = orgContactParameterValue?.onPremisesLastSyncDateTime;
-        const onPremisesProvisioningErrorsArrValue: OnPremisesProvisioningErrorImpl[] = []; this.onPremisesProvisioningErrors?.forEach(element => {onPremisesProvisioningErrorsArrValue.push(element instanceof OnPremisesProvisioningErrorImpl? element : new OnPremisesProvisioningErrorImpl(element));});
+        const onPremisesProvisioningErrorsArrValue: OnPremisesProvisioningErrorImpl[] = []; orgContactParameterValue.onPremisesProvisioningErrors?.forEach(element => {onPremisesProvisioningErrorsArrValue.push(element instanceof OnPremisesProvisioningErrorImpl? element : new OnPremisesProvisioningErrorImpl(element));});
         this.onPremisesProvisioningErrors = onPremisesProvisioningErrorsArrValue;
         this.onPremisesSyncEnabled = orgContactParameterValue?.onPremisesSyncEnabled;
-        const phonesArrValue: PhoneImpl[] = []; this.phones?.forEach(element => {phonesArrValue.push(element instanceof PhoneImpl? element : new PhoneImpl(element));});
+        const phonesArrValue: PhoneImpl[] = []; orgContactParameterValue.phones?.forEach(element => {phonesArrValue.push(element instanceof PhoneImpl? element : new PhoneImpl(element));});
         this.phones = phonesArrValue;
         this.proxyAddresses = orgContactParameterValue?.proxyAddresses;
         this.surname = orgContactParameterValue?.surname;
-        const transitiveMemberOfArrValue: DirectoryObjectImpl[] = []; this.transitiveMemberOf?.forEach(element => {transitiveMemberOfArrValue.push(element instanceof DirectoryObjectImpl? element : new DirectoryObjectImpl(element));});
+        const transitiveMemberOfArrValue: DirectoryObjectImpl[] = []; orgContactParameterValue.transitiveMemberOf?.forEach(element => {transitiveMemberOfArrValue.push(element instanceof DirectoryObjectImpl? element : new DirectoryObjectImpl(element));});
         this.transitiveMemberOf = transitiveMemberOfArrValue;
     };
     /**

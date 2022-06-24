@@ -14,7 +14,7 @@ export class ApprovalImpl extends EntityImpl implements Approval {
      */
     public constructor(approvalParameterValue?: Approval | undefined) {
         super(approvalParameterValue);
-        const stagesArrValue: ApprovalStageImpl[] = []; this.stages?.forEach(element => {stagesArrValue.push(element instanceof ApprovalStageImpl? element : new ApprovalStageImpl(element));});
+        const stagesArrValue: ApprovalStageImpl[] = []; approvalParameterValue.stages?.forEach(element => {stagesArrValue.push(element instanceof ApprovalStageImpl? element : new ApprovalStageImpl(element));});
         this.stages = stagesArrValue;
     };
     /**

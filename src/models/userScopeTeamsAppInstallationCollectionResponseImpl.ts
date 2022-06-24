@@ -18,7 +18,7 @@ export class UserScopeTeamsAppInstallationCollectionResponseImpl implements User
     public constructor(userScopeTeamsAppInstallationCollectionResponseParameterValue?: UserScopeTeamsAppInstallationCollectionResponse | undefined) {
         this.additionalData = userScopeTeamsAppInstallationCollectionResponseParameterValue?.additionalData ? userScopeTeamsAppInstallationCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = userScopeTeamsAppInstallationCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: UserScopeTeamsAppInstallationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof UserScopeTeamsAppInstallationImpl? element : new UserScopeTeamsAppInstallationImpl(element));});
+        const valueArrValue: UserScopeTeamsAppInstallationImpl[] = []; userScopeTeamsAppInstallationCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof UserScopeTeamsAppInstallationImpl? element : new UserScopeTeamsAppInstallationImpl(element));});
         this.value = valueArrValue;
     };
     /**

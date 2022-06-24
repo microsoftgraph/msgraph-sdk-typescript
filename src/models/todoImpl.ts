@@ -14,7 +14,7 @@ export class TodoImpl extends EntityImpl implements Todo {
      */
     public constructor(todoParameterValue?: Todo | undefined) {
         super(todoParameterValue);
-        const listsArrValue: TodoTaskListImpl[] = []; this.lists?.forEach(element => {listsArrValue.push(element instanceof TodoTaskListImpl? element : new TodoTaskListImpl(element));});
+        const listsArrValue: TodoTaskListImpl[] = []; todoParameterValue.lists?.forEach(element => {listsArrValue.push(element instanceof TodoTaskListImpl? element : new TodoTaskListImpl(element));});
         this.lists = listsArrValue;
     };
     /**

@@ -19,7 +19,7 @@ export class PlayPromptPostRequestBodyImpl implements PlayPromptPostRequestBody 
     public constructor(playPromptPostRequestBodyParameterValue?: PlayPromptPostRequestBody | undefined) {
         this.additionalData = playPromptPostRequestBodyParameterValue?.additionalData ? playPromptPostRequestBodyParameterValue?.additionalData! : {};
         this.clientContext = playPromptPostRequestBodyParameterValue?.clientContext;
-        const promptsArrValue: PromptImpl[] = []; this.prompts?.forEach(element => {promptsArrValue.push(element instanceof PromptImpl? element : new PromptImpl(element));});
+        const promptsArrValue: PromptImpl[] = []; playPromptPostRequestBodyParameterValue.prompts?.forEach(element => {promptsArrValue.push(element instanceof PromptImpl? element : new PromptImpl(element));});
         this.prompts = promptsArrValue;
     };
     /**

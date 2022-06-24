@@ -18,7 +18,7 @@ export class EducationSubmissionCollectionResponseImpl implements EducationSubmi
     public constructor(educationSubmissionCollectionResponseParameterValue?: EducationSubmissionCollectionResponse | undefined) {
         this.additionalData = educationSubmissionCollectionResponseParameterValue?.additionalData ? educationSubmissionCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = educationSubmissionCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: EducationSubmissionImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof EducationSubmissionImpl? element : new EducationSubmissionImpl(element));});
+        const valueArrValue: EducationSubmissionImpl[] = []; educationSubmissionCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof EducationSubmissionImpl? element : new EducationSubmissionImpl(element));});
         this.value = valueArrValue;
     };
     /**

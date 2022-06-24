@@ -13,7 +13,7 @@ export class AgreementFileImpl extends AgreementFilePropertiesImpl implements Ag
      */
     public constructor(agreementFileParameterValue?: AgreementFile | undefined) {
         super(agreementFileParameterValue);
-        const localizationsArrValue: AgreementFileLocalizationImpl[] = []; this.localizations?.forEach(element => {localizationsArrValue.push(element instanceof AgreementFileLocalizationImpl? element : new AgreementFileLocalizationImpl(element));});
+        const localizationsArrValue: AgreementFileLocalizationImpl[] = []; agreementFileParameterValue.localizations?.forEach(element => {localizationsArrValue.push(element instanceof AgreementFileLocalizationImpl? element : new AgreementFileLocalizationImpl(element));});
         this.localizations = localizationsArrValue;
     };
     /**

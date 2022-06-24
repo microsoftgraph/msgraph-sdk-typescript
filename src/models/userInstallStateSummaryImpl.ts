@@ -22,7 +22,7 @@ export class UserInstallStateSummaryImpl extends EntityImpl implements UserInsta
      */
     public constructor(userInstallStateSummaryParameterValue?: UserInstallStateSummary | undefined) {
         super(userInstallStateSummaryParameterValue);
-        const deviceStatesArrValue: DeviceInstallStateImpl[] = []; this.deviceStates?.forEach(element => {deviceStatesArrValue.push(element instanceof DeviceInstallStateImpl? element : new DeviceInstallStateImpl(element));});
+        const deviceStatesArrValue: DeviceInstallStateImpl[] = []; userInstallStateSummaryParameterValue.deviceStates?.forEach(element => {deviceStatesArrValue.push(element instanceof DeviceInstallStateImpl? element : new DeviceInstallStateImpl(element));});
         this.deviceStates = deviceStatesArrValue;
         this.failedDeviceCount = userInstallStateSummaryParameterValue?.failedDeviceCount;
         this.installedDeviceCount = userInstallStateSummaryParameterValue?.installedDeviceCount;

@@ -18,7 +18,7 @@ export class SchedulingGroupCollectionResponseImpl implements SchedulingGroupCol
     public constructor(schedulingGroupCollectionResponseParameterValue?: SchedulingGroupCollectionResponse | undefined) {
         this.additionalData = schedulingGroupCollectionResponseParameterValue?.additionalData ? schedulingGroupCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = schedulingGroupCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: SchedulingGroupImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof SchedulingGroupImpl? element : new SchedulingGroupImpl(element));});
+        const valueArrValue: SchedulingGroupImpl[] = []; schedulingGroupCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof SchedulingGroupImpl? element : new SchedulingGroupImpl(element));});
         this.value = valueArrValue;
     };
     /**

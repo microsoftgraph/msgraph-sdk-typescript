@@ -18,7 +18,7 @@ export class PrinterShareCollectionResponseImpl implements PrinterShareCollectio
     public constructor(printerShareCollectionResponseParameterValue?: PrinterShareCollectionResponse | undefined) {
         this.additionalData = printerShareCollectionResponseParameterValue?.additionalData ? printerShareCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = printerShareCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: PrinterShareImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof PrinterShareImpl? element : new PrinterShareImpl(element));});
+        const valueArrValue: PrinterShareImpl[] = []; printerShareCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof PrinterShareImpl? element : new PrinterShareImpl(element));});
         this.value = valueArrValue;
     };
     /**

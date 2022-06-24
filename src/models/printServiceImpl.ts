@@ -14,7 +14,7 @@ export class PrintServiceImpl extends EntityImpl implements PrintService {
      */
     public constructor(printServiceParameterValue?: PrintService | undefined) {
         super(printServiceParameterValue);
-        const endpointsArrValue: PrintServiceEndpointImpl[] = []; this.endpoints?.forEach(element => {endpointsArrValue.push(element instanceof PrintServiceEndpointImpl? element : new PrintServiceEndpointImpl(element));});
+        const endpointsArrValue: PrintServiceEndpointImpl[] = []; printServiceParameterValue.endpoints?.forEach(element => {endpointsArrValue.push(element instanceof PrintServiceEndpointImpl? element : new PrintServiceEndpointImpl(element));});
         this.endpoints = endpointsArrValue;
     };
     /**

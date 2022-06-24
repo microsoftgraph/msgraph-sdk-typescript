@@ -16,7 +16,7 @@ export class GetScheduleResponseImpl implements GetScheduleResponse {
      */
     public constructor(getScheduleResponseParameterValue?: GetScheduleResponse | undefined) {
         this.additionalData = getScheduleResponseParameterValue?.additionalData ? getScheduleResponseParameterValue?.additionalData! : {};
-        const valueArrValue: ScheduleInformationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ScheduleInformationImpl? element : new ScheduleInformationImpl(element));});
+        const valueArrValue: ScheduleInformationImpl[] = []; getScheduleResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof ScheduleInformationImpl? element : new ScheduleInformationImpl(element));});
         this.value = valueArrValue;
     };
     /**

@@ -18,7 +18,7 @@ export class ContactFolderCollectionResponseImpl implements ContactFolderCollect
     public constructor(contactFolderCollectionResponseParameterValue?: ContactFolderCollectionResponse | undefined) {
         this.additionalData = contactFolderCollectionResponseParameterValue?.additionalData ? contactFolderCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = contactFolderCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: ContactFolderImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ContactFolderImpl? element : new ContactFolderImpl(element));});
+        const valueArrValue: ContactFolderImpl[] = []; contactFolderCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof ContactFolderImpl? element : new ContactFolderImpl(element));});
         this.value = valueArrValue;
     };
     /**

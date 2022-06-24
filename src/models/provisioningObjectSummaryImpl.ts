@@ -63,11 +63,11 @@ export class ProvisioningObjectSummaryImpl extends EntityImpl implements Provisi
         this.durationInMilliseconds = provisioningObjectSummaryParameterValue?.durationInMilliseconds;
         this.initiatedBy = provisioningObjectSummaryParameterValue?.initiatedBy instanceof InitiatorImpl? provisioningObjectSummaryParameterValue?.initiatedBy:new InitiatorImpl(provisioningObjectSummaryParameterValue?.initiatedBy);
         this.jobId = provisioningObjectSummaryParameterValue?.jobId;
-        const modifiedPropertiesArrValue: ModifiedPropertyImpl[] = []; this.modifiedProperties?.forEach(element => {modifiedPropertiesArrValue.push(element instanceof ModifiedPropertyImpl? element : new ModifiedPropertyImpl(element));});
+        const modifiedPropertiesArrValue: ModifiedPropertyImpl[] = []; provisioningObjectSummaryParameterValue.modifiedProperties?.forEach(element => {modifiedPropertiesArrValue.push(element instanceof ModifiedPropertyImpl? element : new ModifiedPropertyImpl(element));});
         this.modifiedProperties = modifiedPropertiesArrValue;
         this.provisioningAction = provisioningObjectSummaryParameterValue?.provisioningAction;
         this.provisioningStatusInfo = provisioningObjectSummaryParameterValue?.provisioningStatusInfo instanceof ProvisioningStatusInfoImpl? provisioningObjectSummaryParameterValue?.provisioningStatusInfo:new ProvisioningStatusInfoImpl(provisioningObjectSummaryParameterValue?.provisioningStatusInfo);
-        const provisioningStepsArrValue: ProvisioningStepImpl[] = []; this.provisioningSteps?.forEach(element => {provisioningStepsArrValue.push(element instanceof ProvisioningStepImpl? element : new ProvisioningStepImpl(element));});
+        const provisioningStepsArrValue: ProvisioningStepImpl[] = []; provisioningObjectSummaryParameterValue.provisioningSteps?.forEach(element => {provisioningStepsArrValue.push(element instanceof ProvisioningStepImpl? element : new ProvisioningStepImpl(element));});
         this.provisioningSteps = provisioningStepsArrValue;
         this.servicePrincipal = provisioningObjectSummaryParameterValue?.servicePrincipal instanceof ProvisioningServicePrincipalImpl? provisioningObjectSummaryParameterValue?.servicePrincipal:new ProvisioningServicePrincipalImpl(provisioningObjectSummaryParameterValue?.servicePrincipal);
         this.sourceIdentity = provisioningObjectSummaryParameterValue?.sourceIdentity instanceof ProvisionedIdentityImpl? provisioningObjectSummaryParameterValue?.sourceIdentity:new ProvisionedIdentityImpl(provisioningObjectSummaryParameterValue?.sourceIdentity);

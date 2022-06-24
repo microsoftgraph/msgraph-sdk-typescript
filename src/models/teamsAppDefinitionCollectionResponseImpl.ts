@@ -18,7 +18,7 @@ export class TeamsAppDefinitionCollectionResponseImpl implements TeamsAppDefinit
     public constructor(teamsAppDefinitionCollectionResponseParameterValue?: TeamsAppDefinitionCollectionResponse | undefined) {
         this.additionalData = teamsAppDefinitionCollectionResponseParameterValue?.additionalData ? teamsAppDefinitionCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = teamsAppDefinitionCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: TeamsAppDefinitionImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof TeamsAppDefinitionImpl? element : new TeamsAppDefinitionImpl(element));});
+        const valueArrValue: TeamsAppDefinitionImpl[] = []; teamsAppDefinitionCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof TeamsAppDefinitionImpl? element : new TeamsAppDefinitionImpl(element));});
         this.value = valueArrValue;
     };
     /**

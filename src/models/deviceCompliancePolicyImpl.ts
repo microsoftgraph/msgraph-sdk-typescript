@@ -48,20 +48,20 @@ export class DeviceCompliancePolicyImpl extends EntityImpl implements DeviceComp
      */
     public constructor(deviceCompliancePolicyParameterValue?: DeviceCompliancePolicy | undefined) {
         super(deviceCompliancePolicyParameterValue);
-        const assignmentsArrValue: DeviceCompliancePolicyAssignmentImpl[] = []; this.assignments?.forEach(element => {assignmentsArrValue.push(element instanceof DeviceCompliancePolicyAssignmentImpl? element : new DeviceCompliancePolicyAssignmentImpl(element));});
+        const assignmentsArrValue: DeviceCompliancePolicyAssignmentImpl[] = []; deviceCompliancePolicyParameterValue.assignments?.forEach(element => {assignmentsArrValue.push(element instanceof DeviceCompliancePolicyAssignmentImpl? element : new DeviceCompliancePolicyAssignmentImpl(element));});
         this.assignments = assignmentsArrValue;
         this.createdDateTime = deviceCompliancePolicyParameterValue?.createdDateTime;
         this.description = deviceCompliancePolicyParameterValue?.description;
-        const deviceSettingStateSummariesArrValue: SettingStateDeviceSummaryImpl[] = []; this.deviceSettingStateSummaries?.forEach(element => {deviceSettingStateSummariesArrValue.push(element instanceof SettingStateDeviceSummaryImpl? element : new SettingStateDeviceSummaryImpl(element));});
+        const deviceSettingStateSummariesArrValue: SettingStateDeviceSummaryImpl[] = []; deviceCompliancePolicyParameterValue.deviceSettingStateSummaries?.forEach(element => {deviceSettingStateSummariesArrValue.push(element instanceof SettingStateDeviceSummaryImpl? element : new SettingStateDeviceSummaryImpl(element));});
         this.deviceSettingStateSummaries = deviceSettingStateSummariesArrValue;
-        const deviceStatusesArrValue: DeviceComplianceDeviceStatusImpl[] = []; this.deviceStatuses?.forEach(element => {deviceStatusesArrValue.push(element instanceof DeviceComplianceDeviceStatusImpl? element : new DeviceComplianceDeviceStatusImpl(element));});
+        const deviceStatusesArrValue: DeviceComplianceDeviceStatusImpl[] = []; deviceCompliancePolicyParameterValue.deviceStatuses?.forEach(element => {deviceStatusesArrValue.push(element instanceof DeviceComplianceDeviceStatusImpl? element : new DeviceComplianceDeviceStatusImpl(element));});
         this.deviceStatuses = deviceStatusesArrValue;
         this.deviceStatusOverview = deviceCompliancePolicyParameterValue?.deviceStatusOverview instanceof DeviceComplianceDeviceOverviewImpl? deviceCompliancePolicyParameterValue?.deviceStatusOverview:new DeviceComplianceDeviceOverviewImpl(deviceCompliancePolicyParameterValue?.deviceStatusOverview);
         this.displayName = deviceCompliancePolicyParameterValue?.displayName;
         this.lastModifiedDateTime = deviceCompliancePolicyParameterValue?.lastModifiedDateTime;
-        const scheduledActionsForRuleArrValue: DeviceComplianceScheduledActionForRuleImpl[] = []; this.scheduledActionsForRule?.forEach(element => {scheduledActionsForRuleArrValue.push(element instanceof DeviceComplianceScheduledActionForRuleImpl? element : new DeviceComplianceScheduledActionForRuleImpl(element));});
+        const scheduledActionsForRuleArrValue: DeviceComplianceScheduledActionForRuleImpl[] = []; deviceCompliancePolicyParameterValue.scheduledActionsForRule?.forEach(element => {scheduledActionsForRuleArrValue.push(element instanceof DeviceComplianceScheduledActionForRuleImpl? element : new DeviceComplianceScheduledActionForRuleImpl(element));});
         this.scheduledActionsForRule = scheduledActionsForRuleArrValue;
-        const userStatusesArrValue: DeviceComplianceUserStatusImpl[] = []; this.userStatuses?.forEach(element => {userStatusesArrValue.push(element instanceof DeviceComplianceUserStatusImpl? element : new DeviceComplianceUserStatusImpl(element));});
+        const userStatusesArrValue: DeviceComplianceUserStatusImpl[] = []; deviceCompliancePolicyParameterValue.userStatuses?.forEach(element => {userStatusesArrValue.push(element instanceof DeviceComplianceUserStatusImpl? element : new DeviceComplianceUserStatusImpl(element));});
         this.userStatuses = userStatusesArrValue;
         this.userStatusOverview = deviceCompliancePolicyParameterValue?.userStatusOverview instanceof DeviceComplianceUserOverviewImpl? deviceCompliancePolicyParameterValue?.userStatusOverview:new DeviceComplianceUserOverviewImpl(deviceCompliancePolicyParameterValue?.userStatusOverview);
         this.version = deviceCompliancePolicyParameterValue?.version;

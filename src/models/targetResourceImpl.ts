@@ -29,7 +29,7 @@ export class TargetResourceImpl implements TargetResource {
         this.displayName = targetResourceParameterValue?.displayName;
         this.groupType = targetResourceParameterValue?.groupType;
         this.id = targetResourceParameterValue?.id;
-        const modifiedPropertiesArrValue: ModifiedPropertyImpl[] = []; this.modifiedProperties?.forEach(element => {modifiedPropertiesArrValue.push(element instanceof ModifiedPropertyImpl? element : new ModifiedPropertyImpl(element));});
+        const modifiedPropertiesArrValue: ModifiedPropertyImpl[] = []; targetResourceParameterValue.modifiedProperties?.forEach(element => {modifiedPropertiesArrValue.push(element instanceof ModifiedPropertyImpl? element : new ModifiedPropertyImpl(element));});
         this.modifiedProperties = modifiedPropertiesArrValue;
         this.type = targetResourceParameterValue?.type;
         this.userPrincipalName = targetResourceParameterValue?.userPrincipalName;

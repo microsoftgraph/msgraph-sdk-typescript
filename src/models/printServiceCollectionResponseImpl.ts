@@ -18,7 +18,7 @@ export class PrintServiceCollectionResponseImpl implements PrintServiceCollectio
     public constructor(printServiceCollectionResponseParameterValue?: PrintServiceCollectionResponse | undefined) {
         this.additionalData = printServiceCollectionResponseParameterValue?.additionalData ? printServiceCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = printServiceCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: PrintServiceImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof PrintServiceImpl? element : new PrintServiceImpl(element));});
+        const valueArrValue: PrintServiceImpl[] = []; printServiceCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof PrintServiceImpl? element : new PrintServiceImpl(element));});
         this.value = valueArrValue;
     };
     /**

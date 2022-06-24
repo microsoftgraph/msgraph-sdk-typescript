@@ -18,7 +18,7 @@ export class DeviceConfigurationAssignmentCollectionResponseImpl implements Devi
     public constructor(deviceConfigurationAssignmentCollectionResponseParameterValue?: DeviceConfigurationAssignmentCollectionResponse | undefined) {
         this.additionalData = deviceConfigurationAssignmentCollectionResponseParameterValue?.additionalData ? deviceConfigurationAssignmentCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = deviceConfigurationAssignmentCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: DeviceConfigurationAssignmentImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof DeviceConfigurationAssignmentImpl? element : new DeviceConfigurationAssignmentImpl(element));});
+        const valueArrValue: DeviceConfigurationAssignmentImpl[] = []; deviceConfigurationAssignmentCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof DeviceConfigurationAssignmentImpl? element : new DeviceConfigurationAssignmentImpl(element));});
         this.value = valueArrValue;
     };
     /**

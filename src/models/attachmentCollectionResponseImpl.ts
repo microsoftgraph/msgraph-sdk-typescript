@@ -18,7 +18,7 @@ export class AttachmentCollectionResponseImpl implements AttachmentCollectionRes
     public constructor(attachmentCollectionResponseParameterValue?: AttachmentCollectionResponse | undefined) {
         this.additionalData = attachmentCollectionResponseParameterValue?.additionalData ? attachmentCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = attachmentCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: AttachmentImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof AttachmentImpl? element : new AttachmentImpl(element));});
+        const valueArrValue: AttachmentImpl[] = []; attachmentCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof AttachmentImpl? element : new AttachmentImpl(element));});
         this.value = valueArrValue;
     };
     /**

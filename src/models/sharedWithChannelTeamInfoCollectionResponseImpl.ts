@@ -18,7 +18,7 @@ export class SharedWithChannelTeamInfoCollectionResponseImpl implements SharedWi
     public constructor(sharedWithChannelTeamInfoCollectionResponseParameterValue?: SharedWithChannelTeamInfoCollectionResponse | undefined) {
         this.additionalData = sharedWithChannelTeamInfoCollectionResponseParameterValue?.additionalData ? sharedWithChannelTeamInfoCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = sharedWithChannelTeamInfoCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: SharedWithChannelTeamInfoImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof SharedWithChannelTeamInfoImpl? element : new SharedWithChannelTeamInfoImpl(element));});
+        const valueArrValue: SharedWithChannelTeamInfoImpl[] = []; sharedWithChannelTeamInfoCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof SharedWithChannelTeamInfoImpl? element : new SharedWithChannelTeamInfoImpl(element));});
         this.value = valueArrValue;
     };
     /**

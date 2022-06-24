@@ -18,7 +18,7 @@ export class WorkforceIntegrationCollectionResponseImpl implements WorkforceInte
     public constructor(workforceIntegrationCollectionResponseParameterValue?: WorkforceIntegrationCollectionResponse | undefined) {
         this.additionalData = workforceIntegrationCollectionResponseParameterValue?.additionalData ? workforceIntegrationCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = workforceIntegrationCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: WorkforceIntegrationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof WorkforceIntegrationImpl? element : new WorkforceIntegrationImpl(element));});
+        const valueArrValue: WorkforceIntegrationImpl[] = []; workforceIntegrationCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof WorkforceIntegrationImpl? element : new WorkforceIntegrationImpl(element));});
         this.value = valueArrValue;
     };
     /**

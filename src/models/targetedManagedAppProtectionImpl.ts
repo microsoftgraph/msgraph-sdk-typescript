@@ -4,19 +4,18 @@ import {TargetedManagedAppPolicyAssignment} from './targetedManagedAppPolicyAssi
 import {TargetedManagedAppProtection} from './targetedManagedAppProtection';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Policy used to configure detailed management settings targeted to specific security groups */
 export class TargetedManagedAppProtectionImpl extends ManagedAppProtectionImpl implements TargetedManagedAppProtection {
     /** Navigation property to list of inclusion and exclusion groups to which the policy is deployed. */
     public assignments?: TargetedManagedAppPolicyAssignment[] | undefined;
     /** Indicates if the policy is deployed to any inclusion groups or not. */
     public isAssigned?: boolean | undefined;
     /**
-     * Instantiates a new targetedManagedAppProtection and sets the default values.
+     * Instantiates a new TargetedManagedAppProtection and sets the default values.
      * @param targetedManagedAppProtectionParameterValue 
      */
     public constructor(targetedManagedAppProtectionParameterValue?: TargetedManagedAppProtection | undefined) {
         super(targetedManagedAppProtectionParameterValue);
-        const assignmentsArrValue: TargetedManagedAppPolicyAssignmentImpl[] = []; this.assignments?.forEach(element => {assignmentsArrValue.push(element instanceof TargetedManagedAppPolicyAssignmentImpl? element : new TargetedManagedAppPolicyAssignmentImpl(element));});
+        const assignmentsArrValue: TargetedManagedAppPolicyAssignmentImpl[] = []; targetedManagedAppProtectionParameterValue.assignments?.forEach(element => {assignmentsArrValue.push(element instanceof TargetedManagedAppPolicyAssignmentImpl? element : new TargetedManagedAppPolicyAssignmentImpl(element));});
         this.assignments = assignmentsArrValue;
         this.isAssigned = targetedManagedAppProtectionParameterValue?.isAssigned;
     };

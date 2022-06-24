@@ -16,7 +16,7 @@ export class GetRecentNotebooksWithIncludePersonalNotebooksResponseImpl implemen
      */
     public constructor(getRecentNotebooksWithIncludePersonalNotebooksResponseParameterValue?: GetRecentNotebooksWithIncludePersonalNotebooksResponse | undefined) {
         this.additionalData = getRecentNotebooksWithIncludePersonalNotebooksResponseParameterValue?.additionalData ? getRecentNotebooksWithIncludePersonalNotebooksResponseParameterValue?.additionalData! : {};
-        const valueArrValue: RecentNotebookImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof RecentNotebookImpl? element : new RecentNotebookImpl(element));});
+        const valueArrValue: RecentNotebookImpl[] = []; getRecentNotebooksWithIncludePersonalNotebooksResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof RecentNotebookImpl? element : new RecentNotebookImpl(element));});
         this.value = valueArrValue;
     };
     /**

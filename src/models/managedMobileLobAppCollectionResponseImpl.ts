@@ -18,7 +18,7 @@ export class ManagedMobileLobAppCollectionResponseImpl implements ManagedMobileL
     public constructor(managedMobileLobAppCollectionResponseParameterValue?: ManagedMobileLobAppCollectionResponse | undefined) {
         this.additionalData = managedMobileLobAppCollectionResponseParameterValue?.additionalData ? managedMobileLobAppCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = managedMobileLobAppCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: ManagedMobileLobAppImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ManagedMobileLobAppImpl? element : new ManagedMobileLobAppImpl(element));});
+        const valueArrValue: ManagedMobileLobAppImpl[] = []; managedMobileLobAppCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof ManagedMobileLobAppImpl? element : new ManagedMobileLobAppImpl(element));});
         this.value = valueArrValue;
     };
     /**

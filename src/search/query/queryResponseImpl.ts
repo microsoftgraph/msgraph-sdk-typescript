@@ -16,7 +16,7 @@ export class QueryResponseImpl implements QueryResponse {
      */
     public constructor(queryResponseParameterValue?: QueryResponse | undefined) {
         this.additionalData = queryResponseParameterValue?.additionalData ? queryResponseParameterValue?.additionalData! : {};
-        const valueArrValue: SearchResponseImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof SearchResponseImpl? element : new SearchResponseImpl(element));});
+        const valueArrValue: SearchResponseImpl[] = []; queryResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof SearchResponseImpl? element : new SearchResponseImpl(element));});
         this.value = valueArrValue;
     };
     /**

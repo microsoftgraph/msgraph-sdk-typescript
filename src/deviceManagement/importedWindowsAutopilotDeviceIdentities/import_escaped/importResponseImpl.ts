@@ -16,7 +16,7 @@ export class ImportResponseImpl implements ImportResponse {
      */
     public constructor(importResponseParameterValue?: ImportResponse | undefined) {
         this.additionalData = importResponseParameterValue?.additionalData ? importResponseParameterValue?.additionalData! : {};
-        const valueArrValue: ImportedWindowsAutopilotDeviceIdentityImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ImportedWindowsAutopilotDeviceIdentityImpl? element : new ImportedWindowsAutopilotDeviceIdentityImpl(element));});
+        const valueArrValue: ImportedWindowsAutopilotDeviceIdentityImpl[] = []; importResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof ImportedWindowsAutopilotDeviceIdentityImpl? element : new ImportedWindowsAutopilotDeviceIdentityImpl(element));});
         this.value = valueArrValue;
     };
     /**

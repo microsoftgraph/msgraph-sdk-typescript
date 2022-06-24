@@ -18,7 +18,7 @@ export class UserConsentRequestCollectionResponseImpl implements UserConsentRequ
     public constructor(userConsentRequestCollectionResponseParameterValue?: UserConsentRequestCollectionResponse | undefined) {
         this.additionalData = userConsentRequestCollectionResponseParameterValue?.additionalData ? userConsentRequestCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = userConsentRequestCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: UserConsentRequestImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof UserConsentRequestImpl? element : new UserConsentRequestImpl(element));});
+        const valueArrValue: UserConsentRequestImpl[] = []; userConsentRequestCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof UserConsentRequestImpl? element : new UserConsentRequestImpl(element));});
         this.value = valueArrValue;
     };
     /**

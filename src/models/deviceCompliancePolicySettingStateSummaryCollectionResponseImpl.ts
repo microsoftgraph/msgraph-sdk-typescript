@@ -18,7 +18,7 @@ export class DeviceCompliancePolicySettingStateSummaryCollectionResponseImpl imp
     public constructor(deviceCompliancePolicySettingStateSummaryCollectionResponseParameterValue?: DeviceCompliancePolicySettingStateSummaryCollectionResponse | undefined) {
         this.additionalData = deviceCompliancePolicySettingStateSummaryCollectionResponseParameterValue?.additionalData ? deviceCompliancePolicySettingStateSummaryCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = deviceCompliancePolicySettingStateSummaryCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: DeviceCompliancePolicySettingStateSummaryImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof DeviceCompliancePolicySettingStateSummaryImpl? element : new DeviceCompliancePolicySettingStateSummaryImpl(element));});
+        const valueArrValue: DeviceCompliancePolicySettingStateSummaryImpl[] = []; deviceCompliancePolicySettingStateSummaryCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof DeviceCompliancePolicySettingStateSummaryImpl? element : new DeviceCompliancePolicySettingStateSummaryImpl(element));});
         this.value = valueArrValue;
     };
     /**

@@ -42,19 +42,19 @@ export class EntitlementManagementImpl extends EntityImpl implements Entitlement
      */
     public constructor(entitlementManagementParameterValue?: EntitlementManagement | undefined) {
         super(entitlementManagementParameterValue);
-        const accessPackageAssignmentApprovalsArrValue: ApprovalImpl[] = []; this.accessPackageAssignmentApprovals?.forEach(element => {accessPackageAssignmentApprovalsArrValue.push(element instanceof ApprovalImpl? element : new ApprovalImpl(element));});
+        const accessPackageAssignmentApprovalsArrValue: ApprovalImpl[] = []; entitlementManagementParameterValue.accessPackageAssignmentApprovals?.forEach(element => {accessPackageAssignmentApprovalsArrValue.push(element instanceof ApprovalImpl? element : new ApprovalImpl(element));});
         this.accessPackageAssignmentApprovals = accessPackageAssignmentApprovalsArrValue;
-        const accessPackagesArrValue: AccessPackageImpl[] = []; this.accessPackages?.forEach(element => {accessPackagesArrValue.push(element instanceof AccessPackageImpl? element : new AccessPackageImpl(element));});
+        const accessPackagesArrValue: AccessPackageImpl[] = []; entitlementManagementParameterValue.accessPackages?.forEach(element => {accessPackagesArrValue.push(element instanceof AccessPackageImpl? element : new AccessPackageImpl(element));});
         this.accessPackages = accessPackagesArrValue;
-        const assignmentPoliciesArrValue: AccessPackageAssignmentPolicyImpl[] = []; this.assignmentPolicies?.forEach(element => {assignmentPoliciesArrValue.push(element instanceof AccessPackageAssignmentPolicyImpl? element : new AccessPackageAssignmentPolicyImpl(element));});
+        const assignmentPoliciesArrValue: AccessPackageAssignmentPolicyImpl[] = []; entitlementManagementParameterValue.assignmentPolicies?.forEach(element => {assignmentPoliciesArrValue.push(element instanceof AccessPackageAssignmentPolicyImpl? element : new AccessPackageAssignmentPolicyImpl(element));});
         this.assignmentPolicies = assignmentPoliciesArrValue;
-        const assignmentRequestsArrValue: AccessPackageAssignmentRequestImpl[] = []; this.assignmentRequests?.forEach(element => {assignmentRequestsArrValue.push(element instanceof AccessPackageAssignmentRequestImpl? element : new AccessPackageAssignmentRequestImpl(element));});
+        const assignmentRequestsArrValue: AccessPackageAssignmentRequestImpl[] = []; entitlementManagementParameterValue.assignmentRequests?.forEach(element => {assignmentRequestsArrValue.push(element instanceof AccessPackageAssignmentRequestImpl? element : new AccessPackageAssignmentRequestImpl(element));});
         this.assignmentRequests = assignmentRequestsArrValue;
-        const assignmentsArrValue: AccessPackageAssignmentImpl[] = []; this.assignments?.forEach(element => {assignmentsArrValue.push(element instanceof AccessPackageAssignmentImpl? element : new AccessPackageAssignmentImpl(element));});
+        const assignmentsArrValue: AccessPackageAssignmentImpl[] = []; entitlementManagementParameterValue.assignments?.forEach(element => {assignmentsArrValue.push(element instanceof AccessPackageAssignmentImpl? element : new AccessPackageAssignmentImpl(element));});
         this.assignments = assignmentsArrValue;
-        const catalogsArrValue: AccessPackageCatalogImpl[] = []; this.catalogs?.forEach(element => {catalogsArrValue.push(element instanceof AccessPackageCatalogImpl? element : new AccessPackageCatalogImpl(element));});
+        const catalogsArrValue: AccessPackageCatalogImpl[] = []; entitlementManagementParameterValue.catalogs?.forEach(element => {catalogsArrValue.push(element instanceof AccessPackageCatalogImpl? element : new AccessPackageCatalogImpl(element));});
         this.catalogs = catalogsArrValue;
-        const connectedOrganizationsArrValue: ConnectedOrganizationImpl[] = []; this.connectedOrganizations?.forEach(element => {connectedOrganizationsArrValue.push(element instanceof ConnectedOrganizationImpl? element : new ConnectedOrganizationImpl(element));});
+        const connectedOrganizationsArrValue: ConnectedOrganizationImpl[] = []; entitlementManagementParameterValue.connectedOrganizations?.forEach(element => {connectedOrganizationsArrValue.push(element instanceof ConnectedOrganizationImpl? element : new ConnectedOrganizationImpl(element));});
         this.connectedOrganizations = connectedOrganizationsArrValue;
         this.settings = entitlementManagementParameterValue?.settings instanceof EntitlementManagementSettingsImpl? entitlementManagementParameterValue?.settings:new EntitlementManagementSettingsImpl(entitlementManagementParameterValue?.settings);
     };

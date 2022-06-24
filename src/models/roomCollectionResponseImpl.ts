@@ -18,7 +18,7 @@ export class RoomCollectionResponseImpl implements RoomCollectionResponse {
     public constructor(roomCollectionResponseParameterValue?: RoomCollectionResponse | undefined) {
         this.additionalData = roomCollectionResponseParameterValue?.additionalData ? roomCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = roomCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: RoomImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof RoomImpl? element : new RoomImpl(element));});
+        const valueArrValue: RoomImpl[] = []; roomCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof RoomImpl? element : new RoomImpl(element));});
         this.value = valueArrValue;
     };
     /**

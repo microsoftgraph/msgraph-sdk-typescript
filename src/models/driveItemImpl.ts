@@ -132,7 +132,7 @@ export class DriveItemImpl extends BaseItemImpl implements DriveItem {
         this.analytics = driveItemParameterValue?.analytics instanceof ItemAnalyticsImpl? driveItemParameterValue?.analytics:new ItemAnalyticsImpl(driveItemParameterValue?.analytics);
         this.audio = driveItemParameterValue?.audio instanceof AudioImpl? driveItemParameterValue?.audio:new AudioImpl(driveItemParameterValue?.audio);
         this.bundle = driveItemParameterValue?.bundle instanceof BundleImpl? driveItemParameterValue?.bundle:new BundleImpl(driveItemParameterValue?.bundle);
-        const childrenArrValue: DriveItemImpl[] = []; this.children?.forEach(element => {childrenArrValue.push(element instanceof DriveItemImpl? element : new DriveItemImpl(element));});
+        const childrenArrValue: DriveItemImpl[] = []; driveItemParameterValue.children?.forEach(element => {childrenArrValue.push(element instanceof DriveItemImpl? element : new DriveItemImpl(element));});
         this.children = childrenArrValue;
         this.content = driveItemParameterValue?.content;
         this.cTag = driveItemParameterValue?.cTag;
@@ -146,7 +146,7 @@ export class DriveItemImpl extends BaseItemImpl implements DriveItem {
         this.malware = driveItemParameterValue?.malware instanceof MalwareImpl? driveItemParameterValue?.malware:new MalwareImpl(driveItemParameterValue?.malware);
         this.package = driveItemParameterValue?.package instanceof PackageImpl? driveItemParameterValue?.package:new PackageImpl(driveItemParameterValue?.package);
         this.pendingOperations = driveItemParameterValue?.pendingOperations instanceof PendingOperationsImpl? driveItemParameterValue?.pendingOperations:new PendingOperationsImpl(driveItemParameterValue?.pendingOperations);
-        const permissionsArrValue: PermissionImpl[] = []; this.permissions?.forEach(element => {permissionsArrValue.push(element instanceof PermissionImpl? element : new PermissionImpl(element));});
+        const permissionsArrValue: PermissionImpl[] = []; driveItemParameterValue.permissions?.forEach(element => {permissionsArrValue.push(element instanceof PermissionImpl? element : new PermissionImpl(element));});
         this.permissions = permissionsArrValue;
         this.photo = driveItemParameterValue?.photo instanceof PhotoImpl? driveItemParameterValue?.photo:new PhotoImpl(driveItemParameterValue?.photo);
         this.publication = driveItemParameterValue?.publication instanceof PublicationFacetImpl? driveItemParameterValue?.publication:new PublicationFacetImpl(driveItemParameterValue?.publication);
@@ -157,11 +157,11 @@ export class DriveItemImpl extends BaseItemImpl implements DriveItem {
         this.sharepointIds = driveItemParameterValue?.sharepointIds instanceof SharepointIdsImpl? driveItemParameterValue?.sharepointIds:new SharepointIdsImpl(driveItemParameterValue?.sharepointIds);
         this.size = driveItemParameterValue?.size;
         this.specialFolder = driveItemParameterValue?.specialFolder instanceof SpecialFolderImpl? driveItemParameterValue?.specialFolder:new SpecialFolderImpl(driveItemParameterValue?.specialFolder);
-        const subscriptionsArrValue: SubscriptionImpl[] = []; this.subscriptions?.forEach(element => {subscriptionsArrValue.push(element instanceof SubscriptionImpl? element : new SubscriptionImpl(element));});
+        const subscriptionsArrValue: SubscriptionImpl[] = []; driveItemParameterValue.subscriptions?.forEach(element => {subscriptionsArrValue.push(element instanceof SubscriptionImpl? element : new SubscriptionImpl(element));});
         this.subscriptions = subscriptionsArrValue;
-        const thumbnailsArrValue: ThumbnailSetImpl[] = []; this.thumbnails?.forEach(element => {thumbnailsArrValue.push(element instanceof ThumbnailSetImpl? element : new ThumbnailSetImpl(element));});
+        const thumbnailsArrValue: ThumbnailSetImpl[] = []; driveItemParameterValue.thumbnails?.forEach(element => {thumbnailsArrValue.push(element instanceof ThumbnailSetImpl? element : new ThumbnailSetImpl(element));});
         this.thumbnails = thumbnailsArrValue;
-        const versionsArrValue: DriveItemVersionImpl[] = []; this.versions?.forEach(element => {versionsArrValue.push(element instanceof DriveItemVersionImpl? element : new DriveItemVersionImpl(element));});
+        const versionsArrValue: DriveItemVersionImpl[] = []; driveItemParameterValue.versions?.forEach(element => {versionsArrValue.push(element instanceof DriveItemVersionImpl? element : new DriveItemVersionImpl(element));});
         this.versions = versionsArrValue;
         this.video = driveItemParameterValue?.video instanceof VideoImpl? driveItemParameterValue?.video:new VideoImpl(driveItemParameterValue?.video);
         this.webDavUrl = driveItemParameterValue?.webDavUrl;

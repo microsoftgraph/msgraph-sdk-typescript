@@ -30,7 +30,7 @@ export class ScheduleInformationImpl implements ScheduleInformation {
         this.availabilityView = scheduleInformationParameterValue?.availabilityView;
         this.error_escaped = scheduleInformationParameterValue?.error_escaped instanceof FreeBusyErrorImpl? scheduleInformationParameterValue?.error_escaped:new FreeBusyErrorImpl(scheduleInformationParameterValue?.error_escaped);
         this.scheduleId = scheduleInformationParameterValue?.scheduleId;
-        const scheduleItemsArrValue: ScheduleItemImpl[] = []; this.scheduleItems?.forEach(element => {scheduleItemsArrValue.push(element instanceof ScheduleItemImpl? element : new ScheduleItemImpl(element));});
+        const scheduleItemsArrValue: ScheduleItemImpl[] = []; scheduleInformationParameterValue.scheduleItems?.forEach(element => {scheduleItemsArrValue.push(element instanceof ScheduleItemImpl? element : new ScheduleItemImpl(element));});
         this.scheduleItems = scheduleItemsArrValue;
         this.workingHours = scheduleInformationParameterValue?.workingHours instanceof WorkingHoursImpl? scheduleInformationParameterValue?.workingHours:new WorkingHoursImpl(scheduleInformationParameterValue?.workingHours);
     };

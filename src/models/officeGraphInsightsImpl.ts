@@ -22,11 +22,11 @@ export class OfficeGraphInsightsImpl extends EntityImpl implements OfficeGraphIn
      */
     public constructor(officeGraphInsightsParameterValue?: OfficeGraphInsights | undefined) {
         super(officeGraphInsightsParameterValue);
-        const sharedArrValue: SharedInsightImpl[] = []; this.shared?.forEach(element => {sharedArrValue.push(element instanceof SharedInsightImpl? element : new SharedInsightImpl(element));});
+        const sharedArrValue: SharedInsightImpl[] = []; officeGraphInsightsParameterValue.shared?.forEach(element => {sharedArrValue.push(element instanceof SharedInsightImpl? element : new SharedInsightImpl(element));});
         this.shared = sharedArrValue;
-        const trendingArrValue: TrendingImpl[] = []; this.trending?.forEach(element => {trendingArrValue.push(element instanceof TrendingImpl? element : new TrendingImpl(element));});
+        const trendingArrValue: TrendingImpl[] = []; officeGraphInsightsParameterValue.trending?.forEach(element => {trendingArrValue.push(element instanceof TrendingImpl? element : new TrendingImpl(element));});
         this.trending = trendingArrValue;
-        const usedArrValue: UsedInsightImpl[] = []; this.used?.forEach(element => {usedArrValue.push(element instanceof UsedInsightImpl? element : new UsedInsightImpl(element));});
+        const usedArrValue: UsedInsightImpl[] = []; officeGraphInsightsParameterValue.used?.forEach(element => {usedArrValue.push(element instanceof UsedInsightImpl? element : new UsedInsightImpl(element));});
         this.used = usedArrValue;
     };
     /**

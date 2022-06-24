@@ -1,5 +1,5 @@
-export * from './inviteResponseImpl'
 export * from './invitePostRequestBodyImpl'
+export * from './inviteResponseImpl'
+export * from './invitePostRequestBody'
 export * from './inviteRequestBuilderPostRequestConfiguration'
 export * from './inviteResponse'
-export * from './invitePostRequestBody'

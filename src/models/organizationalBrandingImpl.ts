@@ -13,7 +13,7 @@ export class OrganizationalBrandingImpl extends OrganizationalBrandingProperties
      */
     public constructor(organizationalBrandingParameterValue?: OrganizationalBranding | undefined) {
         super(organizationalBrandingParameterValue);
-        const localizationsArrValue: OrganizationalBrandingLocalizationImpl[] = []; this.localizations?.forEach(element => {localizationsArrValue.push(element instanceof OrganizationalBrandingLocalizationImpl? element : new OrganizationalBrandingLocalizationImpl(element));});
+        const localizationsArrValue: OrganizationalBrandingLocalizationImpl[] = []; organizationalBrandingParameterValue.localizations?.forEach(element => {localizationsArrValue.push(element instanceof OrganizationalBrandingLocalizationImpl? element : new OrganizationalBrandingLocalizationImpl(element));});
         this.localizations = localizationsArrValue;
     };
     /**

@@ -18,7 +18,7 @@ export class OnenoteOperationCollectionResponseImpl implements OnenoteOperationC
     public constructor(onenoteOperationCollectionResponseParameterValue?: OnenoteOperationCollectionResponse | undefined) {
         this.additionalData = onenoteOperationCollectionResponseParameterValue?.additionalData ? onenoteOperationCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = onenoteOperationCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: OnenoteOperationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof OnenoteOperationImpl? element : new OnenoteOperationImpl(element));});
+        const valueArrValue: OnenoteOperationImpl[] = []; onenoteOperationCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof OnenoteOperationImpl? element : new OnenoteOperationImpl(element));});
         this.value = valueArrValue;
     };
     /**

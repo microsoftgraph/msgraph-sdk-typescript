@@ -8,7 +8,6 @@ import {TargetedManagedAppConfiguration} from './targetedManagedAppConfiguration
 import {TargetedManagedAppPolicyAssignment} from './targetedManagedAppPolicyAssignment';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Configuration used to deliver a set of custom settings as-is to all users in the targeted security group */
 export class TargetedManagedAppConfigurationImpl extends ManagedAppConfigurationImpl implements TargetedManagedAppConfiguration {
     /** List of apps to which the policy is deployed. */
     public apps?: ManagedMobileApp[] | undefined;
@@ -21,14 +20,14 @@ export class TargetedManagedAppConfigurationImpl extends ManagedAppConfiguration
     /** Indicates if the policy is deployed to any inclusion groups or not. */
     public isAssigned?: boolean | undefined;
     /**
-     * Instantiates a new targetedManagedAppConfiguration and sets the default values.
+     * Instantiates a new TargetedManagedAppConfiguration and sets the default values.
      * @param targetedManagedAppConfigurationParameterValue 
      */
     public constructor(targetedManagedAppConfigurationParameterValue?: TargetedManagedAppConfiguration | undefined) {
         super(targetedManagedAppConfigurationParameterValue);
-        const appsArrValue: ManagedMobileAppImpl[] = []; this.apps?.forEach(element => {appsArrValue.push(element instanceof ManagedMobileAppImpl? element : new ManagedMobileAppImpl(element));});
+        const appsArrValue: ManagedMobileAppImpl[] = []; targetedManagedAppConfigurationParameterValue.apps?.forEach(element => {appsArrValue.push(element instanceof ManagedMobileAppImpl? element : new ManagedMobileAppImpl(element));});
         this.apps = appsArrValue;
-        const assignmentsArrValue: TargetedManagedAppPolicyAssignmentImpl[] = []; this.assignments?.forEach(element => {assignmentsArrValue.push(element instanceof TargetedManagedAppPolicyAssignmentImpl? element : new TargetedManagedAppPolicyAssignmentImpl(element));});
+        const assignmentsArrValue: TargetedManagedAppPolicyAssignmentImpl[] = []; targetedManagedAppConfigurationParameterValue.assignments?.forEach(element => {assignmentsArrValue.push(element instanceof TargetedManagedAppPolicyAssignmentImpl? element : new TargetedManagedAppPolicyAssignmentImpl(element));});
         this.assignments = assignmentsArrValue;
         this.deployedAppCount = targetedManagedAppConfigurationParameterValue?.deployedAppCount;
         this.deploymentSummary = targetedManagedAppConfigurationParameterValue?.deploymentSummary instanceof ManagedAppPolicyDeploymentSummaryImpl? targetedManagedAppConfigurationParameterValue?.deploymentSummary:new ManagedAppPolicyDeploymentSummaryImpl(targetedManagedAppConfigurationParameterValue?.deploymentSummary);

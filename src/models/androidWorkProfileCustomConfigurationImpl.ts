@@ -13,7 +13,7 @@ export class AndroidWorkProfileCustomConfigurationImpl extends DeviceConfigurati
      */
     public constructor(androidWorkProfileCustomConfigurationParameterValue?: AndroidWorkProfileCustomConfiguration | undefined) {
         super(androidWorkProfileCustomConfigurationParameterValue);
-        const omaSettingsArrValue: OmaSettingImpl[] = []; this.omaSettings?.forEach(element => {omaSettingsArrValue.push(element instanceof OmaSettingImpl? element : new OmaSettingImpl(element));});
+        const omaSettingsArrValue: OmaSettingImpl[] = []; androidWorkProfileCustomConfigurationParameterValue.omaSettings?.forEach(element => {omaSettingsArrValue.push(element instanceof OmaSettingImpl? element : new OmaSettingImpl(element));});
         this.omaSettings = omaSettingsArrValue;
     };
     /**

@@ -18,7 +18,7 @@ export class TermCollectionResponseImpl implements TermCollectionResponse {
     public constructor(termCollectionResponseParameterValue?: TermCollectionResponse | undefined) {
         this.additionalData = termCollectionResponseParameterValue?.additionalData ? termCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = termCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: TermImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof TermImpl? element : new TermImpl(element));});
+        const valueArrValue: TermImpl[] = []; termCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof TermImpl? element : new TermImpl(element));});
         this.value = valueArrValue;
     };
     /**

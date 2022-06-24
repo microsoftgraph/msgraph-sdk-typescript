@@ -16,7 +16,7 @@ export class GetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeR
      */
     public constructor(getUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeResponseParameterValue?: GetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeResponse | undefined) {
         this.additionalData = getUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeResponseParameterValue?.additionalData ? getUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeResponseParameterValue?.additionalData! : {};
-        const valueArrValue: ArchivedPrintJobImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ArchivedPrintJobImpl? element : new ArchivedPrintJobImpl(element));});
+        const valueArrValue: ArchivedPrintJobImpl[] = []; getUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof ArchivedPrintJobImpl? element : new ArchivedPrintJobImpl(element));});
         this.value = valueArrValue;
     };
     /**

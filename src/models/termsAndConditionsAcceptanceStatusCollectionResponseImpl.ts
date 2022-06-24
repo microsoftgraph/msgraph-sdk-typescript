@@ -18,7 +18,7 @@ export class TermsAndConditionsAcceptanceStatusCollectionResponseImpl implements
     public constructor(termsAndConditionsAcceptanceStatusCollectionResponseParameterValue?: TermsAndConditionsAcceptanceStatusCollectionResponse | undefined) {
         this.additionalData = termsAndConditionsAcceptanceStatusCollectionResponseParameterValue?.additionalData ? termsAndConditionsAcceptanceStatusCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = termsAndConditionsAcceptanceStatusCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: TermsAndConditionsAcceptanceStatusImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof TermsAndConditionsAcceptanceStatusImpl? element : new TermsAndConditionsAcceptanceStatusImpl(element));});
+        const valueArrValue: TermsAndConditionsAcceptanceStatusImpl[] = []; termsAndConditionsAcceptanceStatusCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof TermsAndConditionsAcceptanceStatusImpl? element : new TermsAndConditionsAcceptanceStatusImpl(element));});
         this.value = valueArrValue;
     };
     /**

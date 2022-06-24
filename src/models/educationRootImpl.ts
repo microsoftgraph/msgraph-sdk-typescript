@@ -25,12 +25,12 @@ export class EducationRootImpl implements EducationRoot {
      */
     public constructor(educationRootParameterValue?: EducationRoot | undefined) {
         this.additionalData = educationRootParameterValue?.additionalData ? educationRootParameterValue?.additionalData! : {};
-        const classesArrValue: EducationClassImpl[] = []; this.classes?.forEach(element => {classesArrValue.push(element instanceof EducationClassImpl? element : new EducationClassImpl(element));});
+        const classesArrValue: EducationClassImpl[] = []; educationRootParameterValue.classes?.forEach(element => {classesArrValue.push(element instanceof EducationClassImpl? element : new EducationClassImpl(element));});
         this.classes = classesArrValue;
         this.me = educationRootParameterValue?.me instanceof EducationUserImpl? educationRootParameterValue?.me:new EducationUserImpl(educationRootParameterValue?.me);
-        const schoolsArrValue: EducationSchoolImpl[] = []; this.schools?.forEach(element => {schoolsArrValue.push(element instanceof EducationSchoolImpl? element : new EducationSchoolImpl(element));});
+        const schoolsArrValue: EducationSchoolImpl[] = []; educationRootParameterValue.schools?.forEach(element => {schoolsArrValue.push(element instanceof EducationSchoolImpl? element : new EducationSchoolImpl(element));});
         this.schools = schoolsArrValue;
-        const usersArrValue: EducationUserImpl[] = []; this.users?.forEach(element => {usersArrValue.push(element instanceof EducationUserImpl? element : new EducationUserImpl(element));});
+        const usersArrValue: EducationUserImpl[] = []; educationRootParameterValue.users?.forEach(element => {usersArrValue.push(element instanceof EducationUserImpl? element : new EducationUserImpl(element));});
         this.users = usersArrValue;
     };
     /**

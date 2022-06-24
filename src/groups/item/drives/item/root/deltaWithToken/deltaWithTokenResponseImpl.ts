@@ -16,7 +16,7 @@ export class DeltaWithTokenResponseImpl implements DeltaWithTokenResponse {
      */
     public constructor(deltaWithTokenResponseParameterValue?: DeltaWithTokenResponse | undefined) {
         this.additionalData = deltaWithTokenResponseParameterValue?.additionalData ? deltaWithTokenResponseParameterValue?.additionalData! : {};
-        const valueArrValue: DriveItemImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof DriveItemImpl? element : new DriveItemImpl(element));});
+        const valueArrValue: DriveItemImpl[] = []; deltaWithTokenResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof DriveItemImpl? element : new DriveItemImpl(element));});
         this.value = valueArrValue;
     };
     /**

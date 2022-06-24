@@ -18,7 +18,7 @@ export class IdentityProviderCollectionResponseImpl implements IdentityProviderC
     public constructor(identityProviderCollectionResponseParameterValue?: IdentityProviderCollectionResponse | undefined) {
         this.additionalData = identityProviderCollectionResponseParameterValue?.additionalData ? identityProviderCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = identityProviderCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: IdentityProviderImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof IdentityProviderImpl? element : new IdentityProviderImpl(element));});
+        const valueArrValue: IdentityProviderImpl[] = []; identityProviderCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof IdentityProviderImpl? element : new IdentityProviderImpl(element));});
         this.value = valueArrValue;
     };
     /**

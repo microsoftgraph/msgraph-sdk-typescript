@@ -20,7 +20,7 @@ export class GroupSettingImpl extends EntityImpl implements GroupSetting {
         super(groupSettingParameterValue);
         this.displayName = groupSettingParameterValue?.displayName;
         this.templateId = groupSettingParameterValue?.templateId;
-        const valuesArrValue: SettingValueImpl[] = []; this.values?.forEach(element => {valuesArrValue.push(element instanceof SettingValueImpl? element : new SettingValueImpl(element));});
+        const valuesArrValue: SettingValueImpl[] = []; groupSettingParameterValue.values?.forEach(element => {valuesArrValue.push(element instanceof SettingValueImpl? element : new SettingValueImpl(element));});
         this.values = valuesArrValue;
     };
     /**

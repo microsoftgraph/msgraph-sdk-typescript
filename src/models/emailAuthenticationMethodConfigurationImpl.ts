@@ -17,7 +17,7 @@ export class EmailAuthenticationMethodConfigurationImpl extends AuthenticationMe
     public constructor(emailAuthenticationMethodConfigurationParameterValue?: EmailAuthenticationMethodConfiguration | undefined) {
         super(emailAuthenticationMethodConfigurationParameterValue);
         this.allowExternalIdToUseEmailOtp = emailAuthenticationMethodConfigurationParameterValue?.allowExternalIdToUseEmailOtp;
-        const includeTargetsArrValue: AuthenticationMethodTargetImpl[] = []; this.includeTargets?.forEach(element => {includeTargetsArrValue.push(element instanceof AuthenticationMethodTargetImpl? element : new AuthenticationMethodTargetImpl(element));});
+        const includeTargetsArrValue: AuthenticationMethodTargetImpl[] = []; emailAuthenticationMethodConfigurationParameterValue.includeTargets?.forEach(element => {includeTargetsArrValue.push(element instanceof AuthenticationMethodTargetImpl? element : new AuthenticationMethodTargetImpl(element));});
         this.includeTargets = includeTargetsArrValue;
     };
     /**

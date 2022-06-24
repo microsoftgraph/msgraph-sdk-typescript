@@ -18,7 +18,7 @@ export class PlaceCollectionResponseImpl implements PlaceCollectionResponse {
     public constructor(placeCollectionResponseParameterValue?: PlaceCollectionResponse | undefined) {
         this.additionalData = placeCollectionResponseParameterValue?.additionalData ? placeCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = placeCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: PlaceImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof PlaceImpl? element : new PlaceImpl(element));});
+        const valueArrValue: PlaceImpl[] = []; placeCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof PlaceImpl? element : new PlaceImpl(element));});
         this.value = valueArrValue;
     };
     /**

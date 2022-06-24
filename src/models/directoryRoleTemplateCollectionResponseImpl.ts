@@ -18,7 +18,7 @@ export class DirectoryRoleTemplateCollectionResponseImpl implements DirectoryRol
     public constructor(directoryRoleTemplateCollectionResponseParameterValue?: DirectoryRoleTemplateCollectionResponse | undefined) {
         this.additionalData = directoryRoleTemplateCollectionResponseParameterValue?.additionalData ? directoryRoleTemplateCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = directoryRoleTemplateCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: DirectoryRoleTemplateImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof DirectoryRoleTemplateImpl? element : new DirectoryRoleTemplateImpl(element));});
+        const valueArrValue: DirectoryRoleTemplateImpl[] = []; directoryRoleTemplateCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof DirectoryRoleTemplateImpl? element : new DirectoryRoleTemplateImpl(element));});
         this.value = valueArrValue;
     };
     /**

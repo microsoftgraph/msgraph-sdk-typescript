@@ -14,7 +14,7 @@ export class BitlockerImpl extends EntityImpl implements Bitlocker {
      */
     public constructor(bitlockerParameterValue?: Bitlocker | undefined) {
         super(bitlockerParameterValue);
-        const recoveryKeysArrValue: BitlockerRecoveryKeyImpl[] = []; this.recoveryKeys?.forEach(element => {recoveryKeysArrValue.push(element instanceof BitlockerRecoveryKeyImpl? element : new BitlockerRecoveryKeyImpl(element));});
+        const recoveryKeysArrValue: BitlockerRecoveryKeyImpl[] = []; bitlockerParameterValue.recoveryKeys?.forEach(element => {recoveryKeysArrValue.push(element instanceof BitlockerRecoveryKeyImpl? element : new BitlockerRecoveryKeyImpl(element));});
         this.recoveryKeys = recoveryKeysArrValue;
     };
     /**

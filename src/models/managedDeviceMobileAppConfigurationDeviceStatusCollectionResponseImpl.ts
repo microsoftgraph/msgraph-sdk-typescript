@@ -18,7 +18,7 @@ export class ManagedDeviceMobileAppConfigurationDeviceStatusCollectionResponseIm
     public constructor(managedDeviceMobileAppConfigurationDeviceStatusCollectionResponseParameterValue?: ManagedDeviceMobileAppConfigurationDeviceStatusCollectionResponse | undefined) {
         this.additionalData = managedDeviceMobileAppConfigurationDeviceStatusCollectionResponseParameterValue?.additionalData ? managedDeviceMobileAppConfigurationDeviceStatusCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = managedDeviceMobileAppConfigurationDeviceStatusCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: ManagedDeviceMobileAppConfigurationDeviceStatusImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ManagedDeviceMobileAppConfigurationDeviceStatusImpl? element : new ManagedDeviceMobileAppConfigurationDeviceStatusImpl(element));});
+        const valueArrValue: ManagedDeviceMobileAppConfigurationDeviceStatusImpl[] = []; managedDeviceMobileAppConfigurationDeviceStatusCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof ManagedDeviceMobileAppConfigurationDeviceStatusImpl? element : new ManagedDeviceMobileAppConfigurationDeviceStatusImpl(element));});
         this.value = valueArrValue;
     };
     /**

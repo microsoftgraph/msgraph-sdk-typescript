@@ -32,10 +32,10 @@ export class MeetingTimeSuggestionImpl implements MeetingTimeSuggestion {
      */
     public constructor(meetingTimeSuggestionParameterValue?: MeetingTimeSuggestion | undefined) {
         this.additionalData = meetingTimeSuggestionParameterValue?.additionalData ? meetingTimeSuggestionParameterValue?.additionalData! : {};
-        const attendeeAvailabilityArrValue: AttendeeAvailabilityImpl[] = []; this.attendeeAvailability?.forEach(element => {attendeeAvailabilityArrValue.push(element instanceof AttendeeAvailabilityImpl? element : new AttendeeAvailabilityImpl(element));});
+        const attendeeAvailabilityArrValue: AttendeeAvailabilityImpl[] = []; meetingTimeSuggestionParameterValue.attendeeAvailability?.forEach(element => {attendeeAvailabilityArrValue.push(element instanceof AttendeeAvailabilityImpl? element : new AttendeeAvailabilityImpl(element));});
         this.attendeeAvailability = attendeeAvailabilityArrValue;
         this.confidence = meetingTimeSuggestionParameterValue?.confidence;
-        const locationsArrValue: LocationImpl[] = []; this.locations?.forEach(element => {locationsArrValue.push(element instanceof LocationImpl? element : new LocationImpl(element));});
+        const locationsArrValue: LocationImpl[] = []; meetingTimeSuggestionParameterValue.locations?.forEach(element => {locationsArrValue.push(element instanceof LocationImpl? element : new LocationImpl(element));});
         this.locations = locationsArrValue;
         this.meetingTimeSlot = meetingTimeSuggestionParameterValue?.meetingTimeSlot instanceof TimeSlotImpl? meetingTimeSuggestionParameterValue?.meetingTimeSlot:new TimeSlotImpl(meetingTimeSuggestionParameterValue?.meetingTimeSlot);
         this.order = meetingTimeSuggestionParameterValue?.order;

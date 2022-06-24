@@ -2,7 +2,7 @@ import {ShiftItemImpl} from './index';
 import {OpenShiftItem} from './openShiftItem';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to group. */
+/** Provides operations to manage the collection of application entities. */
 export class OpenShiftItemImpl extends ShiftItemImpl implements OpenShiftItem {
     /** Count of the number of slots for the given open shift. */
     public openSlotCount?: number | undefined;

@@ -14,7 +14,7 @@ export class AppCatalogsImpl extends EntityImpl implements AppCatalogs {
      */
     public constructor(appCatalogsParameterValue?: AppCatalogs | undefined) {
         super(appCatalogsParameterValue);
-        const teamsAppsArrValue: TeamsAppImpl[] = []; this.teamsApps?.forEach(element => {teamsAppsArrValue.push(element instanceof TeamsAppImpl? element : new TeamsAppImpl(element));});
+        const teamsAppsArrValue: TeamsAppImpl[] = []; appCatalogsParameterValue.teamsApps?.forEach(element => {teamsAppsArrValue.push(element instanceof TeamsAppImpl? element : new TeamsAppImpl(element));});
         this.teamsApps = teamsAppsArrValue;
     };
     /**

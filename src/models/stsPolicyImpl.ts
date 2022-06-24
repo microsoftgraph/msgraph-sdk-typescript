@@ -17,7 +17,7 @@ export class StsPolicyImpl extends PolicyBaseImpl implements StsPolicy {
      */
     public constructor(stsPolicyParameterValue?: StsPolicy | undefined) {
         super(stsPolicyParameterValue);
-        const appliesToArrValue: DirectoryObjectImpl[] = []; this.appliesTo?.forEach(element => {appliesToArrValue.push(element instanceof DirectoryObjectImpl? element : new DirectoryObjectImpl(element));});
+        const appliesToArrValue: DirectoryObjectImpl[] = []; stsPolicyParameterValue.appliesTo?.forEach(element => {appliesToArrValue.push(element instanceof DirectoryObjectImpl? element : new DirectoryObjectImpl(element));});
         this.appliesTo = appliesToArrValue;
         this.definition = stsPolicyParameterValue?.definition;
         this.isOrganizationDefault = stsPolicyParameterValue?.isOrganizationDefault;

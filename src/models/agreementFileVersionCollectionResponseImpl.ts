@@ -18,7 +18,7 @@ export class AgreementFileVersionCollectionResponseImpl implements AgreementFile
     public constructor(agreementFileVersionCollectionResponseParameterValue?: AgreementFileVersionCollectionResponse | undefined) {
         this.additionalData = agreementFileVersionCollectionResponseParameterValue?.additionalData ? agreementFileVersionCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = agreementFileVersionCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: AgreementFileVersionImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof AgreementFileVersionImpl? element : new AgreementFileVersionImpl(element));});
+        const valueArrValue: AgreementFileVersionImpl[] = []; agreementFileVersionCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof AgreementFileVersionImpl? element : new AgreementFileVersionImpl(element));});
         this.value = valueArrValue;
     };
     /**

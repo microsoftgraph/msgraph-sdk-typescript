@@ -18,7 +18,7 @@ export class ConversationCollectionResponseImpl implements ConversationCollectio
     public constructor(conversationCollectionResponseParameterValue?: ConversationCollectionResponse | undefined) {
         this.additionalData = conversationCollectionResponseParameterValue?.additionalData ? conversationCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = conversationCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: ConversationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ConversationImpl? element : new ConversationImpl(element));});
+        const valueArrValue: ConversationImpl[] = []; conversationCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof ConversationImpl? element : new ConversationImpl(element));});
         this.value = valueArrValue;
     };
     /**

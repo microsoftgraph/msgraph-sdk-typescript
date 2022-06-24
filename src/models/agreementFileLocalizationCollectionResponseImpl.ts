@@ -18,7 +18,7 @@ export class AgreementFileLocalizationCollectionResponseImpl implements Agreemen
     public constructor(agreementFileLocalizationCollectionResponseParameterValue?: AgreementFileLocalizationCollectionResponse | undefined) {
         this.additionalData = agreementFileLocalizationCollectionResponseParameterValue?.additionalData ? agreementFileLocalizationCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = agreementFileLocalizationCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: AgreementFileLocalizationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof AgreementFileLocalizationImpl? element : new AgreementFileLocalizationImpl(element));});
+        const valueArrValue: AgreementFileLocalizationImpl[] = []; agreementFileLocalizationCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof AgreementFileLocalizationImpl? element : new AgreementFileLocalizationImpl(element));});
         this.value = valueArrValue;
     };
     /**

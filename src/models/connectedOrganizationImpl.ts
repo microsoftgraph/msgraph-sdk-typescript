@@ -34,11 +34,11 @@ export class ConnectedOrganizationImpl extends EntityImpl implements ConnectedOr
         this.createdDateTime = connectedOrganizationParameterValue?.createdDateTime;
         this.description = connectedOrganizationParameterValue?.description;
         this.displayName = connectedOrganizationParameterValue?.displayName;
-        const externalSponsorsArrValue: DirectoryObjectImpl[] = []; this.externalSponsors?.forEach(element => {externalSponsorsArrValue.push(element instanceof DirectoryObjectImpl? element : new DirectoryObjectImpl(element));});
+        const externalSponsorsArrValue: DirectoryObjectImpl[] = []; connectedOrganizationParameterValue.externalSponsors?.forEach(element => {externalSponsorsArrValue.push(element instanceof DirectoryObjectImpl? element : new DirectoryObjectImpl(element));});
         this.externalSponsors = externalSponsorsArrValue;
-        const identitySourcesArrValue: IdentitySourceImpl[] = []; this.identitySources?.forEach(element => {identitySourcesArrValue.push(element instanceof IdentitySourceImpl? element : new IdentitySourceImpl(element));});
+        const identitySourcesArrValue: IdentitySourceImpl[] = []; connectedOrganizationParameterValue.identitySources?.forEach(element => {identitySourcesArrValue.push(element instanceof IdentitySourceImpl? element : new IdentitySourceImpl(element));});
         this.identitySources = identitySourcesArrValue;
-        const internalSponsorsArrValue: DirectoryObjectImpl[] = []; this.internalSponsors?.forEach(element => {internalSponsorsArrValue.push(element instanceof DirectoryObjectImpl? element : new DirectoryObjectImpl(element));});
+        const internalSponsorsArrValue: DirectoryObjectImpl[] = []; connectedOrganizationParameterValue.internalSponsors?.forEach(element => {internalSponsorsArrValue.push(element instanceof DirectoryObjectImpl? element : new DirectoryObjectImpl(element));});
         this.internalSponsors = internalSponsorsArrValue;
         this.modifiedDateTime = connectedOrganizationParameterValue?.modifiedDateTime;
         this.state = connectedOrganizationParameterValue?.state;

@@ -24,7 +24,7 @@ export class CreateForwardPostRequestBodyImpl implements CreateForwardPostReques
         this.additionalData = createForwardPostRequestBodyParameterValue?.additionalData ? createForwardPostRequestBodyParameterValue?.additionalData! : {};
         this.comment = createForwardPostRequestBodyParameterValue?.comment;
         this.message = createForwardPostRequestBodyParameterValue?.message instanceof MessageImpl? createForwardPostRequestBodyParameterValue?.message:new MessageImpl(createForwardPostRequestBodyParameterValue?.message);
-        const toRecipientsArrValue: RecipientImpl[] = []; this.ToRecipients?.forEach(element => {toRecipientsArrValue.push(element instanceof RecipientImpl? element : new RecipientImpl(element));});
+        const toRecipientsArrValue: RecipientImpl[] = []; createForwardPostRequestBodyParameterValue.toRecipients?.forEach(element => {toRecipientsArrValue.push(element instanceof RecipientImpl? element : new RecipientImpl(element));});
         this.toRecipients = toRecipientsArrValue;
     };
     /**

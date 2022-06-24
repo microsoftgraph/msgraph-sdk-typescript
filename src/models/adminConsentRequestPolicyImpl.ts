@@ -28,7 +28,7 @@ export class AdminConsentRequestPolicyImpl extends EntityImpl implements AdminCo
         this.notifyReviewers = adminConsentRequestPolicyParameterValue?.notifyReviewers;
         this.remindersEnabled = adminConsentRequestPolicyParameterValue?.remindersEnabled;
         this.requestDurationInDays = adminConsentRequestPolicyParameterValue?.requestDurationInDays;
-        const reviewersArrValue: AccessReviewReviewerScopeImpl[] = []; this.reviewers?.forEach(element => {reviewersArrValue.push(element instanceof AccessReviewReviewerScopeImpl? element : new AccessReviewReviewerScopeImpl(element));});
+        const reviewersArrValue: AccessReviewReviewerScopeImpl[] = []; adminConsentRequestPolicyParameterValue.reviewers?.forEach(element => {reviewersArrValue.push(element instanceof AccessReviewReviewerScopeImpl? element : new AccessReviewReviewerScopeImpl(element));});
         this.reviewers = reviewersArrValue;
         this.version = adminConsentRequestPolicyParameterValue?.version;
     };

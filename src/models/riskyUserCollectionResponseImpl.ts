@@ -18,7 +18,7 @@ export class RiskyUserCollectionResponseImpl implements RiskyUserCollectionRespo
     public constructor(riskyUserCollectionResponseParameterValue?: RiskyUserCollectionResponse | undefined) {
         this.additionalData = riskyUserCollectionResponseParameterValue?.additionalData ? riskyUserCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = riskyUserCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: RiskyUserImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof RiskyUserImpl? element : new RiskyUserImpl(element));});
+        const valueArrValue: RiskyUserImpl[] = []; riskyUserCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof RiskyUserImpl? element : new RiskyUserImpl(element));});
         this.value = valueArrValue;
     };
     /**

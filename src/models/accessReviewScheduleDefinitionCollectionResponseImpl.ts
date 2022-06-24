@@ -18,7 +18,7 @@ export class AccessReviewScheduleDefinitionCollectionResponseImpl implements Acc
     public constructor(accessReviewScheduleDefinitionCollectionResponseParameterValue?: AccessReviewScheduleDefinitionCollectionResponse | undefined) {
         this.additionalData = accessReviewScheduleDefinitionCollectionResponseParameterValue?.additionalData ? accessReviewScheduleDefinitionCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = accessReviewScheduleDefinitionCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: AccessReviewScheduleDefinitionImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof AccessReviewScheduleDefinitionImpl? element : new AccessReviewScheduleDefinitionImpl(element));});
+        const valueArrValue: AccessReviewScheduleDefinitionImpl[] = []; accessReviewScheduleDefinitionCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof AccessReviewScheduleDefinitionImpl? element : new AccessReviewScheduleDefinitionImpl(element));});
         this.value = valueArrValue;
     };
     /**

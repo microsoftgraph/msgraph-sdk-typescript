@@ -23,7 +23,7 @@ export class ExternalItemImpl extends EntityImpl implements ExternalItem {
      */
     public constructor(externalItemParameterValue?: ExternalItem | undefined) {
         super(externalItemParameterValue);
-        const aclArrValue: AclImpl[] = []; this.acl?.forEach(element => {aclArrValue.push(element instanceof AclImpl? element : new AclImpl(element));});
+        const aclArrValue: AclImpl[] = []; externalItemParameterValue.acl?.forEach(element => {aclArrValue.push(element instanceof AclImpl? element : new AclImpl(element));});
         this.acl = aclArrValue;
         this.content = externalItemParameterValue?.content instanceof ExternalItemContentImpl? externalItemParameterValue?.content:new ExternalItemContentImpl(externalItemParameterValue?.content);
         this.properties = externalItemParameterValue?.properties instanceof PropertiesImpl? externalItemParameterValue?.properties:new PropertiesImpl(externalItemParameterValue?.properties);

@@ -15,7 +15,7 @@ export class SharedWithChannelTeamInfoImpl extends TeamInfoImpl implements Share
      */
     public constructor(sharedWithChannelTeamInfoParameterValue?: SharedWithChannelTeamInfo | undefined) {
         super(sharedWithChannelTeamInfoParameterValue);
-        const allowedMembersArrValue: ConversationMemberImpl[] = []; this.allowedMembers?.forEach(element => {allowedMembersArrValue.push(element instanceof ConversationMemberImpl? element : new ConversationMemberImpl(element));});
+        const allowedMembersArrValue: ConversationMemberImpl[] = []; sharedWithChannelTeamInfoParameterValue.allowedMembers?.forEach(element => {allowedMembersArrValue.push(element instanceof ConversationMemberImpl? element : new ConversationMemberImpl(element));});
         this.allowedMembers = allowedMembersArrValue;
         this.isHostTeam = sharedWithChannelTeamInfoParameterValue?.isHostTeam;
     };

@@ -22,7 +22,7 @@ export class PrintTaskDefinitionImpl extends EntityImpl implements PrintTaskDefi
         super(printTaskDefinitionParameterValue);
         this.createdBy = printTaskDefinitionParameterValue?.createdBy instanceof AppIdentityImpl? printTaskDefinitionParameterValue?.createdBy:new AppIdentityImpl(printTaskDefinitionParameterValue?.createdBy);
         this.displayName = printTaskDefinitionParameterValue?.displayName;
-        const tasksArrValue: PrintTaskImpl[] = []; this.tasks?.forEach(element => {tasksArrValue.push(element instanceof PrintTaskImpl? element : new PrintTaskImpl(element));});
+        const tasksArrValue: PrintTaskImpl[] = []; printTaskDefinitionParameterValue.tasks?.forEach(element => {tasksArrValue.push(element instanceof PrintTaskImpl? element : new PrintTaskImpl(element));});
         this.tasks = tasksArrValue;
     };
     /**

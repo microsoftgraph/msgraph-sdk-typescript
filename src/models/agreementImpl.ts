@@ -34,11 +34,11 @@ export class AgreementImpl extends EntityImpl implements Agreement {
      */
     public constructor(agreementParameterValue?: Agreement | undefined) {
         super(agreementParameterValue);
-        const acceptancesArrValue: AgreementAcceptanceImpl[] = []; this.acceptances?.forEach(element => {acceptancesArrValue.push(element instanceof AgreementAcceptanceImpl? element : new AgreementAcceptanceImpl(element));});
+        const acceptancesArrValue: AgreementAcceptanceImpl[] = []; agreementParameterValue.acceptances?.forEach(element => {acceptancesArrValue.push(element instanceof AgreementAcceptanceImpl? element : new AgreementAcceptanceImpl(element));});
         this.acceptances = acceptancesArrValue;
         this.displayName = agreementParameterValue?.displayName;
         this.file = agreementParameterValue?.file instanceof AgreementFileImpl? agreementParameterValue?.file:new AgreementFileImpl(agreementParameterValue?.file);
-        const filesArrValue: AgreementFileLocalizationImpl[] = []; this.files?.forEach(element => {filesArrValue.push(element instanceof AgreementFileLocalizationImpl? element : new AgreementFileLocalizationImpl(element));});
+        const filesArrValue: AgreementFileLocalizationImpl[] = []; agreementParameterValue.files?.forEach(element => {filesArrValue.push(element instanceof AgreementFileLocalizationImpl? element : new AgreementFileLocalizationImpl(element));});
         this.files = filesArrValue;
         this.isPerDeviceAcceptanceRequired = agreementParameterValue?.isPerDeviceAcceptanceRequired;
         this.isViewingBeforeAcceptanceRequired = agreementParameterValue?.isViewingBeforeAcceptanceRequired;

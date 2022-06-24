@@ -65,7 +65,7 @@ export class DeviceImpl extends DirectoryObjectImpl implements Device {
     public constructor(deviceParameterValue?: Device | undefined) {
         super(deviceParameterValue);
         this.accountEnabled = deviceParameterValue?.accountEnabled;
-        const alternativeSecurityIdsArrValue: AlternativeSecurityIdImpl[] = []; this.alternativeSecurityIds?.forEach(element => {alternativeSecurityIdsArrValue.push(element instanceof AlternativeSecurityIdImpl? element : new AlternativeSecurityIdImpl(element));});
+        const alternativeSecurityIdsArrValue: AlternativeSecurityIdImpl[] = []; deviceParameterValue.alternativeSecurityIds?.forEach(element => {alternativeSecurityIdsArrValue.push(element instanceof AlternativeSecurityIdImpl? element : new AlternativeSecurityIdImpl(element));});
         this.alternativeSecurityIds = alternativeSecurityIdsArrValue;
         this.approximateLastSignInDateTime = deviceParameterValue?.approximateLastSignInDateTime;
         this.complianceExpirationDateTime = deviceParameterValue?.complianceExpirationDateTime;
@@ -73,12 +73,12 @@ export class DeviceImpl extends DirectoryObjectImpl implements Device {
         this.deviceMetadata = deviceParameterValue?.deviceMetadata;
         this.deviceVersion = deviceParameterValue?.deviceVersion;
         this.displayName = deviceParameterValue?.displayName;
-        const extensionsArrValue: ExtensionImpl[] = []; this.extensions?.forEach(element => {extensionsArrValue.push(element instanceof ExtensionImpl? element : new ExtensionImpl(element));});
+        const extensionsArrValue: ExtensionImpl[] = []; deviceParameterValue.extensions?.forEach(element => {extensionsArrValue.push(element instanceof ExtensionImpl? element : new ExtensionImpl(element));});
         this.extensions = extensionsArrValue;
         this.isCompliant = deviceParameterValue?.isCompliant;
         this.isManaged = deviceParameterValue?.isManaged;
         this.mdmAppId = deviceParameterValue?.mdmAppId;
-        const memberOfArrValue: DirectoryObjectImpl[] = []; this.memberOf?.forEach(element => {memberOfArrValue.push(element instanceof DirectoryObjectImpl? element : new DirectoryObjectImpl(element));});
+        const memberOfArrValue: DirectoryObjectImpl[] = []; deviceParameterValue.memberOf?.forEach(element => {memberOfArrValue.push(element instanceof DirectoryObjectImpl? element : new DirectoryObjectImpl(element));});
         this.memberOf = memberOfArrValue;
         this.onPremisesLastSyncDateTime = deviceParameterValue?.onPremisesLastSyncDateTime;
         this.onPremisesSyncEnabled = deviceParameterValue?.onPremisesSyncEnabled;
@@ -86,12 +86,12 @@ export class DeviceImpl extends DirectoryObjectImpl implements Device {
         this.operatingSystemVersion = deviceParameterValue?.operatingSystemVersion;
         this.physicalIds = deviceParameterValue?.physicalIds;
         this.profileType = deviceParameterValue?.profileType;
-        const registeredOwnersArrValue: DirectoryObjectImpl[] = []; this.registeredOwners?.forEach(element => {registeredOwnersArrValue.push(element instanceof DirectoryObjectImpl? element : new DirectoryObjectImpl(element));});
+        const registeredOwnersArrValue: DirectoryObjectImpl[] = []; deviceParameterValue.registeredOwners?.forEach(element => {registeredOwnersArrValue.push(element instanceof DirectoryObjectImpl? element : new DirectoryObjectImpl(element));});
         this.registeredOwners = registeredOwnersArrValue;
-        const registeredUsersArrValue: DirectoryObjectImpl[] = []; this.registeredUsers?.forEach(element => {registeredUsersArrValue.push(element instanceof DirectoryObjectImpl? element : new DirectoryObjectImpl(element));});
+        const registeredUsersArrValue: DirectoryObjectImpl[] = []; deviceParameterValue.registeredUsers?.forEach(element => {registeredUsersArrValue.push(element instanceof DirectoryObjectImpl? element : new DirectoryObjectImpl(element));});
         this.registeredUsers = registeredUsersArrValue;
         this.systemLabels = deviceParameterValue?.systemLabels;
-        const transitiveMemberOfArrValue: DirectoryObjectImpl[] = []; this.transitiveMemberOf?.forEach(element => {transitiveMemberOfArrValue.push(element instanceof DirectoryObjectImpl? element : new DirectoryObjectImpl(element));});
+        const transitiveMemberOfArrValue: DirectoryObjectImpl[] = []; deviceParameterValue.transitiveMemberOf?.forEach(element => {transitiveMemberOfArrValue.push(element instanceof DirectoryObjectImpl? element : new DirectoryObjectImpl(element));});
         this.transitiveMemberOf = transitiveMemberOfArrValue;
         this.trustType = deviceParameterValue?.trustType;
     };

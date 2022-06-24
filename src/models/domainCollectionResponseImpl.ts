@@ -18,7 +18,7 @@ export class DomainCollectionResponseImpl implements DomainCollectionResponse {
     public constructor(domainCollectionResponseParameterValue?: DomainCollectionResponse | undefined) {
         this.additionalData = domainCollectionResponseParameterValue?.additionalData ? domainCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = domainCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: DomainImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof DomainImpl? element : new DomainImpl(element));});
+        const valueArrValue: DomainImpl[] = []; domainCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof DomainImpl? element : new DomainImpl(element));});
         this.value = valueArrValue;
     };
     /**

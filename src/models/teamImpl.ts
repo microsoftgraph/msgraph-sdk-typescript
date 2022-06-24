@@ -82,9 +82,9 @@ export class TeamImpl extends EntityImpl implements Team {
      */
     public constructor(teamParameterValue?: Team | undefined) {
         super(teamParameterValue);
-        const allChannelsArrValue: ChannelImpl[] = []; this.allChannels?.forEach(element => {allChannelsArrValue.push(element instanceof ChannelImpl? element : new ChannelImpl(element));});
+        const allChannelsArrValue: ChannelImpl[] = []; teamParameterValue.allChannels?.forEach(element => {allChannelsArrValue.push(element instanceof ChannelImpl? element : new ChannelImpl(element));});
         this.allChannels = allChannelsArrValue;
-        const channelsArrValue: ChannelImpl[] = []; this.channels?.forEach(element => {channelsArrValue.push(element instanceof ChannelImpl? element : new ChannelImpl(element));});
+        const channelsArrValue: ChannelImpl[] = []; teamParameterValue.channels?.forEach(element => {channelsArrValue.push(element instanceof ChannelImpl? element : new ChannelImpl(element));});
         this.channels = channelsArrValue;
         this.classification = teamParameterValue?.classification;
         this.createdDateTime = teamParameterValue?.createdDateTime;
@@ -93,17 +93,17 @@ export class TeamImpl extends EntityImpl implements Team {
         this.funSettings = teamParameterValue?.funSettings instanceof TeamFunSettingsImpl? teamParameterValue?.funSettings:new TeamFunSettingsImpl(teamParameterValue?.funSettings);
         this.group = teamParameterValue?.group instanceof GroupImpl? teamParameterValue?.group:new GroupImpl(teamParameterValue?.group);
         this.guestSettings = teamParameterValue?.guestSettings instanceof TeamGuestSettingsImpl? teamParameterValue?.guestSettings:new TeamGuestSettingsImpl(teamParameterValue?.guestSettings);
-        const incomingChannelsArrValue: ChannelImpl[] = []; this.incomingChannels?.forEach(element => {incomingChannelsArrValue.push(element instanceof ChannelImpl? element : new ChannelImpl(element));});
+        const incomingChannelsArrValue: ChannelImpl[] = []; teamParameterValue.incomingChannels?.forEach(element => {incomingChannelsArrValue.push(element instanceof ChannelImpl? element : new ChannelImpl(element));});
         this.incomingChannels = incomingChannelsArrValue;
-        const installedAppsArrValue: TeamsAppInstallationImpl[] = []; this.installedApps?.forEach(element => {installedAppsArrValue.push(element instanceof TeamsAppInstallationImpl? element : new TeamsAppInstallationImpl(element));});
+        const installedAppsArrValue: TeamsAppInstallationImpl[] = []; teamParameterValue.installedApps?.forEach(element => {installedAppsArrValue.push(element instanceof TeamsAppInstallationImpl? element : new TeamsAppInstallationImpl(element));});
         this.installedApps = installedAppsArrValue;
         this.internalId = teamParameterValue?.internalId;
         this.isArchived = teamParameterValue?.isArchived;
-        const membersArrValue: ConversationMemberImpl[] = []; this.members?.forEach(element => {membersArrValue.push(element instanceof ConversationMemberImpl? element : new ConversationMemberImpl(element));});
+        const membersArrValue: ConversationMemberImpl[] = []; teamParameterValue.members?.forEach(element => {membersArrValue.push(element instanceof ConversationMemberImpl? element : new ConversationMemberImpl(element));});
         this.members = membersArrValue;
         this.memberSettings = teamParameterValue?.memberSettings instanceof TeamMemberSettingsImpl? teamParameterValue?.memberSettings:new TeamMemberSettingsImpl(teamParameterValue?.memberSettings);
         this.messagingSettings = teamParameterValue?.messagingSettings instanceof TeamMessagingSettingsImpl? teamParameterValue?.messagingSettings:new TeamMessagingSettingsImpl(teamParameterValue?.messagingSettings);
-        const operationsArrValue: TeamsAsyncOperationImpl[] = []; this.operations?.forEach(element => {operationsArrValue.push(element instanceof TeamsAsyncOperationImpl? element : new TeamsAsyncOperationImpl(element));});
+        const operationsArrValue: TeamsAsyncOperationImpl[] = []; teamParameterValue.operations?.forEach(element => {operationsArrValue.push(element instanceof TeamsAsyncOperationImpl? element : new TeamsAsyncOperationImpl(element));});
         this.operations = operationsArrValue;
         this.primaryChannel = teamParameterValue?.primaryChannel instanceof ChannelImpl? teamParameterValue?.primaryChannel:new ChannelImpl(teamParameterValue?.primaryChannel);
         this.schedule = teamParameterValue?.schedule instanceof ScheduleImpl? teamParameterValue?.schedule:new ScheduleImpl(teamParameterValue?.schedule);

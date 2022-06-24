@@ -18,7 +18,7 @@ export class MailFolderCollectionResponseImpl implements MailFolderCollectionRes
     public constructor(mailFolderCollectionResponseParameterValue?: MailFolderCollectionResponse | undefined) {
         this.additionalData = mailFolderCollectionResponseParameterValue?.additionalData ? mailFolderCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = mailFolderCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: MailFolderImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof MailFolderImpl? element : new MailFolderImpl(element));});
+        const valueArrValue: MailFolderImpl[] = []; mailFolderCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof MailFolderImpl? element : new MailFolderImpl(element));});
         this.value = valueArrValue;
     };
     /**

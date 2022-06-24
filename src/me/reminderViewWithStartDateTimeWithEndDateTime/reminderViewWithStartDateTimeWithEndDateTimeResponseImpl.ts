@@ -16,7 +16,7 @@ export class ReminderViewWithStartDateTimeWithEndDateTimeResponseImpl implements
      */
     public constructor(reminderViewWithStartDateTimeWithEndDateTimeResponseParameterValue?: ReminderViewWithStartDateTimeWithEndDateTimeResponse | undefined) {
         this.additionalData = reminderViewWithStartDateTimeWithEndDateTimeResponseParameterValue?.additionalData ? reminderViewWithStartDateTimeWithEndDateTimeResponseParameterValue?.additionalData! : {};
-        const valueArrValue: ReminderImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ReminderImpl? element : new ReminderImpl(element));});
+        const valueArrValue: ReminderImpl[] = []; reminderViewWithStartDateTimeWithEndDateTimeResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof ReminderImpl? element : new ReminderImpl(element));});
         this.value = valueArrValue;
     };
     /**

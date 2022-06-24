@@ -18,7 +18,7 @@ export class ListItemCollectionResponseImpl implements ListItemCollectionRespons
     public constructor(listItemCollectionResponseParameterValue?: ListItemCollectionResponse | undefined) {
         this.additionalData = listItemCollectionResponseParameterValue?.additionalData ? listItemCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = listItemCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: ListItemImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ListItemImpl? element : new ListItemImpl(element));});
+        const valueArrValue: ListItemImpl[] = []; listItemCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof ListItemImpl? element : new ListItemImpl(element));});
         this.value = valueArrValue;
     };
     /**

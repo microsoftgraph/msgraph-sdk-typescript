@@ -18,7 +18,7 @@ export class NamedLocationCollectionResponseImpl implements NamedLocationCollect
     public constructor(namedLocationCollectionResponseParameterValue?: NamedLocationCollectionResponse | undefined) {
         this.additionalData = namedLocationCollectionResponseParameterValue?.additionalData ? namedLocationCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = namedLocationCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: NamedLocationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof NamedLocationImpl? element : new NamedLocationImpl(element));});
+        const valueArrValue: NamedLocationImpl[] = []; namedLocationCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof NamedLocationImpl? element : new NamedLocationImpl(element));});
         this.value = valueArrValue;
     };
     /**

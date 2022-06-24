@@ -40,12 +40,12 @@ export class ExternalConnectionImpl extends EntityImpl implements ExternalConnec
         super(externalConnectionParameterValue);
         this.configuration = externalConnectionParameterValue?.configuration instanceof ConfigurationImpl? externalConnectionParameterValue?.configuration:new ConfigurationImpl(externalConnectionParameterValue?.configuration);
         this.description = externalConnectionParameterValue?.description;
-        const groupsArrValue: ExternalGroupImpl[] = []; this.groups?.forEach(element => {groupsArrValue.push(element instanceof ExternalGroupImpl? element : new ExternalGroupImpl(element));});
+        const groupsArrValue: ExternalGroupImpl[] = []; externalConnectionParameterValue.groups?.forEach(element => {groupsArrValue.push(element instanceof ExternalGroupImpl? element : new ExternalGroupImpl(element));});
         this.groups = groupsArrValue;
-        const itemsArrValue: ExternalItemImpl[] = []; this.items?.forEach(element => {itemsArrValue.push(element instanceof ExternalItemImpl? element : new ExternalItemImpl(element));});
+        const itemsArrValue: ExternalItemImpl[] = []; externalConnectionParameterValue.items?.forEach(element => {itemsArrValue.push(element instanceof ExternalItemImpl? element : new ExternalItemImpl(element));});
         this.items = itemsArrValue;
         this.name = externalConnectionParameterValue?.name;
-        const operationsArrValue: ConnectionOperationImpl[] = []; this.operations?.forEach(element => {operationsArrValue.push(element instanceof ConnectionOperationImpl? element : new ConnectionOperationImpl(element));});
+        const operationsArrValue: ConnectionOperationImpl[] = []; externalConnectionParameterValue.operations?.forEach(element => {operationsArrValue.push(element instanceof ConnectionOperationImpl? element : new ConnectionOperationImpl(element));});
         this.operations = operationsArrValue;
         this.schema = externalConnectionParameterValue?.schema instanceof SchemaImpl? externalConnectionParameterValue?.schema:new SchemaImpl(externalConnectionParameterValue?.schema);
         this.state = externalConnectionParameterValue?.state;

@@ -2,12 +2,11 @@ import {ScheduleChangeRequestImpl} from './index';
 import {OpenShiftChangeRequest} from './openShiftChangeRequest';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to group. */
 export class OpenShiftChangeRequestImpl extends ScheduleChangeRequestImpl implements OpenShiftChangeRequest {
     /** ID for the open shift. */
     public openShiftId?: string | undefined;
     /**
-     * Instantiates a new openShiftChangeRequest and sets the default values.
+     * Instantiates a new OpenShiftChangeRequest and sets the default values.
      * @param openShiftChangeRequestParameterValue 
      */
     public constructor(openShiftChangeRequestParameterValue?: OpenShiftChangeRequest | undefined) {

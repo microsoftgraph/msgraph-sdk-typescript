@@ -31,15 +31,15 @@ export class DocumentSetImpl implements DocumentSet {
      */
     public constructor(documentSetParameterValue?: DocumentSet | undefined) {
         this.additionalData = documentSetParameterValue?.additionalData ? documentSetParameterValue?.additionalData! : {};
-        const allowedContentTypesArrValue: ContentTypeInfoImpl[] = []; this.allowedContentTypes?.forEach(element => {allowedContentTypesArrValue.push(element instanceof ContentTypeInfoImpl? element : new ContentTypeInfoImpl(element));});
+        const allowedContentTypesArrValue: ContentTypeInfoImpl[] = []; documentSetParameterValue.allowedContentTypes?.forEach(element => {allowedContentTypesArrValue.push(element instanceof ContentTypeInfoImpl? element : new ContentTypeInfoImpl(element));});
         this.allowedContentTypes = allowedContentTypesArrValue;
-        const defaultContentsArrValue: DocumentSetContentImpl[] = []; this.defaultContents?.forEach(element => {defaultContentsArrValue.push(element instanceof DocumentSetContentImpl? element : new DocumentSetContentImpl(element));});
+        const defaultContentsArrValue: DocumentSetContentImpl[] = []; documentSetParameterValue.defaultContents?.forEach(element => {defaultContentsArrValue.push(element instanceof DocumentSetContentImpl? element : new DocumentSetContentImpl(element));});
         this.defaultContents = defaultContentsArrValue;
         this.propagateWelcomePageChanges = documentSetParameterValue?.propagateWelcomePageChanges;
-        const sharedColumnsArrValue: ColumnDefinitionImpl[] = []; this.sharedColumns?.forEach(element => {sharedColumnsArrValue.push(element instanceof ColumnDefinitionImpl? element : new ColumnDefinitionImpl(element));});
+        const sharedColumnsArrValue: ColumnDefinitionImpl[] = []; documentSetParameterValue.sharedColumns?.forEach(element => {sharedColumnsArrValue.push(element instanceof ColumnDefinitionImpl? element : new ColumnDefinitionImpl(element));});
         this.sharedColumns = sharedColumnsArrValue;
         this.shouldPrefixNameToFile = documentSetParameterValue?.shouldPrefixNameToFile;
-        const welcomePageColumnsArrValue: ColumnDefinitionImpl[] = []; this.welcomePageColumns?.forEach(element => {welcomePageColumnsArrValue.push(element instanceof ColumnDefinitionImpl? element : new ColumnDefinitionImpl(element));});
+        const welcomePageColumnsArrValue: ColumnDefinitionImpl[] = []; documentSetParameterValue.welcomePageColumns?.forEach(element => {welcomePageColumnsArrValue.push(element instanceof ColumnDefinitionImpl? element : new ColumnDefinitionImpl(element));});
         this.welcomePageColumns = welcomePageColumnsArrValue;
         this.welcomePageUrl = documentSetParameterValue?.welcomePageUrl;
     };

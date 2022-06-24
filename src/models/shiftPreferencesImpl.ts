@@ -13,7 +13,7 @@ export class ShiftPreferencesImpl extends ChangeTrackedEntityImpl implements Shi
      */
     public constructor(shiftPreferencesParameterValue?: ShiftPreferences | undefined) {
         super(shiftPreferencesParameterValue);
-        const availabilityArrValue: ShiftAvailabilityImpl[] = []; this.availability?.forEach(element => {availabilityArrValue.push(element instanceof ShiftAvailabilityImpl? element : new ShiftAvailabilityImpl(element));});
+        const availabilityArrValue: ShiftAvailabilityImpl[] = []; shiftPreferencesParameterValue.availability?.forEach(element => {availabilityArrValue.push(element instanceof ShiftAvailabilityImpl? element : new ShiftAvailabilityImpl(element));});
         this.availability = availabilityArrValue;
     };
     /**

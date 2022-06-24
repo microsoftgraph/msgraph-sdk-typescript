@@ -18,7 +18,7 @@ export class NotificationMessageTemplateCollectionResponseImpl implements Notifi
     public constructor(notificationMessageTemplateCollectionResponseParameterValue?: NotificationMessageTemplateCollectionResponse | undefined) {
         this.additionalData = notificationMessageTemplateCollectionResponseParameterValue?.additionalData ? notificationMessageTemplateCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = notificationMessageTemplateCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: NotificationMessageTemplateImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof NotificationMessageTemplateImpl? element : new NotificationMessageTemplateImpl(element));});
+        const valueArrValue: NotificationMessageTemplateImpl[] = []; notificationMessageTemplateCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof NotificationMessageTemplateImpl? element : new NotificationMessageTemplateImpl(element));});
         this.value = valueArrValue;
     };
     /**

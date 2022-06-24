@@ -14,7 +14,7 @@ export class TeamworkImpl extends EntityImpl implements Teamwork {
      */
     public constructor(teamworkParameterValue?: Teamwork | undefined) {
         super(teamworkParameterValue);
-        const workforceIntegrationsArrValue: WorkforceIntegrationImpl[] = []; this.workforceIntegrations?.forEach(element => {workforceIntegrationsArrValue.push(element instanceof WorkforceIntegrationImpl? element : new WorkforceIntegrationImpl(element));});
+        const workforceIntegrationsArrValue: WorkforceIntegrationImpl[] = []; teamworkParameterValue.workforceIntegrations?.forEach(element => {workforceIntegrationsArrValue.push(element instanceof WorkforceIntegrationImpl? element : new WorkforceIntegrationImpl(element));});
         this.workforceIntegrations = workforceIntegrationsArrValue;
     };
     /**

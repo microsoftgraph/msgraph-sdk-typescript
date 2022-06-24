@@ -26,12 +26,12 @@ export class AccessReviewStageImpl extends EntityImpl implements AccessReviewSta
      */
     public constructor(accessReviewStageParameterValue?: AccessReviewStage | undefined) {
         super(accessReviewStageParameterValue);
-        const decisionsArrValue: AccessReviewInstanceDecisionItemImpl[] = []; this.decisions?.forEach(element => {decisionsArrValue.push(element instanceof AccessReviewInstanceDecisionItemImpl? element : new AccessReviewInstanceDecisionItemImpl(element));});
+        const decisionsArrValue: AccessReviewInstanceDecisionItemImpl[] = []; accessReviewStageParameterValue.decisions?.forEach(element => {decisionsArrValue.push(element instanceof AccessReviewInstanceDecisionItemImpl? element : new AccessReviewInstanceDecisionItemImpl(element));});
         this.decisions = decisionsArrValue;
         this.endDateTime = accessReviewStageParameterValue?.endDateTime;
-        const fallbackReviewersArrValue: AccessReviewReviewerScopeImpl[] = []; this.fallbackReviewers?.forEach(element => {fallbackReviewersArrValue.push(element instanceof AccessReviewReviewerScopeImpl? element : new AccessReviewReviewerScopeImpl(element));});
+        const fallbackReviewersArrValue: AccessReviewReviewerScopeImpl[] = []; accessReviewStageParameterValue.fallbackReviewers?.forEach(element => {fallbackReviewersArrValue.push(element instanceof AccessReviewReviewerScopeImpl? element : new AccessReviewReviewerScopeImpl(element));});
         this.fallbackReviewers = fallbackReviewersArrValue;
-        const reviewersArrValue: AccessReviewReviewerScopeImpl[] = []; this.reviewers?.forEach(element => {reviewersArrValue.push(element instanceof AccessReviewReviewerScopeImpl? element : new AccessReviewReviewerScopeImpl(element));});
+        const reviewersArrValue: AccessReviewReviewerScopeImpl[] = []; accessReviewStageParameterValue.reviewers?.forEach(element => {reviewersArrValue.push(element instanceof AccessReviewReviewerScopeImpl? element : new AccessReviewReviewerScopeImpl(element));});
         this.reviewers = reviewersArrValue;
         this.startDateTime = accessReviewStageParameterValue?.startDateTime;
         this.status = accessReviewStageParameterValue?.status;

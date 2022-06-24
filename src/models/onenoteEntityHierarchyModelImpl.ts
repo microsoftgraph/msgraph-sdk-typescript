@@ -4,7 +4,6 @@ import {IdentitySetImpl, OnenoteEntitySchemaObjectModelImpl} from './index';
 import {OnenoteEntityHierarchyModel} from './onenoteEntityHierarchyModel';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to group. */
 export class OnenoteEntityHierarchyModelImpl extends OnenoteEntitySchemaObjectModelImpl implements OnenoteEntityHierarchyModel {
     /** Identity of the user, device, and application which created the item. Read-only. */
     public createdBy?: IdentitySet | undefined;
@@ -15,7 +14,7 @@ export class OnenoteEntityHierarchyModelImpl extends OnenoteEntitySchemaObjectMo
     /** The date and time when the notebook was last modified. The timestamp represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. */
     public lastModifiedDateTime?: Date | undefined;
     /**
-     * Instantiates a new onenoteEntityHierarchyModel and sets the default values.
+     * Instantiates a new OnenoteEntityHierarchyModel and sets the default values.
      * @param onenoteEntityHierarchyModelParameterValue 
      */
     public constructor(onenoteEntityHierarchyModelParameterValue?: OnenoteEntityHierarchyModel | undefined) {

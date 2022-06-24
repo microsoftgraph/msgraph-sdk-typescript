@@ -16,7 +16,7 @@ export class SupportedTimeZonesWithTimeZoneStandardResponseImpl implements Suppo
      */
     public constructor(supportedTimeZonesWithTimeZoneStandardResponseParameterValue?: SupportedTimeZonesWithTimeZoneStandardResponse | undefined) {
         this.additionalData = supportedTimeZonesWithTimeZoneStandardResponseParameterValue?.additionalData ? supportedTimeZonesWithTimeZoneStandardResponseParameterValue?.additionalData! : {};
-        const valueArrValue: TimeZoneInformationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof TimeZoneInformationImpl? element : new TimeZoneInformationImpl(element));});
+        const valueArrValue: TimeZoneInformationImpl[] = []; supportedTimeZonesWithTimeZoneStandardResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof TimeZoneInformationImpl? element : new TimeZoneInformationImpl(element));});
         this.value = valueArrValue;
     };
     /**

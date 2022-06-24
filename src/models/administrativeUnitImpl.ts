@@ -30,11 +30,11 @@ export class AdministrativeUnitImpl extends DirectoryObjectImpl implements Admin
         super(administrativeUnitParameterValue);
         this.description = administrativeUnitParameterValue?.description;
         this.displayName = administrativeUnitParameterValue?.displayName;
-        const extensionsArrValue: ExtensionImpl[] = []; this.extensions?.forEach(element => {extensionsArrValue.push(element instanceof ExtensionImpl? element : new ExtensionImpl(element));});
+        const extensionsArrValue: ExtensionImpl[] = []; administrativeUnitParameterValue.extensions?.forEach(element => {extensionsArrValue.push(element instanceof ExtensionImpl? element : new ExtensionImpl(element));});
         this.extensions = extensionsArrValue;
-        const membersArrValue: DirectoryObjectImpl[] = []; this.members?.forEach(element => {membersArrValue.push(element instanceof DirectoryObjectImpl? element : new DirectoryObjectImpl(element));});
+        const membersArrValue: DirectoryObjectImpl[] = []; administrativeUnitParameterValue.members?.forEach(element => {membersArrValue.push(element instanceof DirectoryObjectImpl? element : new DirectoryObjectImpl(element));});
         this.members = membersArrValue;
-        const scopedRoleMembersArrValue: ScopedRoleMembershipImpl[] = []; this.scopedRoleMembers?.forEach(element => {scopedRoleMembersArrValue.push(element instanceof ScopedRoleMembershipImpl? element : new ScopedRoleMembershipImpl(element));});
+        const scopedRoleMembersArrValue: ScopedRoleMembershipImpl[] = []; administrativeUnitParameterValue.scopedRoleMembers?.forEach(element => {scopedRoleMembersArrValue.push(element instanceof ScopedRoleMembershipImpl? element : new ScopedRoleMembershipImpl(element));});
         this.scopedRoleMembers = scopedRoleMembersArrValue;
         this.visibility = administrativeUnitParameterValue?.visibility;
     };

@@ -18,7 +18,7 @@ export class TemporaryAccessPassAuthenticationMethodCollectionResponseImpl imple
     public constructor(temporaryAccessPassAuthenticationMethodCollectionResponseParameterValue?: TemporaryAccessPassAuthenticationMethodCollectionResponse | undefined) {
         this.additionalData = temporaryAccessPassAuthenticationMethodCollectionResponseParameterValue?.additionalData ? temporaryAccessPassAuthenticationMethodCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = temporaryAccessPassAuthenticationMethodCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: TemporaryAccessPassAuthenticationMethodImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof TemporaryAccessPassAuthenticationMethodImpl? element : new TemporaryAccessPassAuthenticationMethodImpl(element));});
+        const valueArrValue: TemporaryAccessPassAuthenticationMethodImpl[] = []; temporaryAccessPassAuthenticationMethodCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof TemporaryAccessPassAuthenticationMethodImpl? element : new TemporaryAccessPassAuthenticationMethodImpl(element));});
         this.value = valueArrValue;
     };
     /**

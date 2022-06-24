@@ -15,7 +15,7 @@ export class ExternalImpl implements External {
      */
     public constructor(externalParameterValue?: External | undefined) {
         this.additionalData = externalParameterValue?.additionalData ? externalParameterValue?.additionalData! : {};
-        const connectionsArrValue: ExternalConnectionImpl[] = []; this.connections?.forEach(element => {connectionsArrValue.push(element instanceof ExternalConnectionImpl? element : new ExternalConnectionImpl(element));});
+        const connectionsArrValue: ExternalConnectionImpl[] = []; externalParameterValue.connections?.forEach(element => {connectionsArrValue.push(element instanceof ExternalConnectionImpl? element : new ExternalConnectionImpl(element));});
         this.connections = connectionsArrValue;
     };
     /**

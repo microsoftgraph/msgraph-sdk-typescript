@@ -18,7 +18,7 @@ export class ActivityBasedTimeoutPolicyCollectionResponseImpl implements Activit
     public constructor(activityBasedTimeoutPolicyCollectionResponseParameterValue?: ActivityBasedTimeoutPolicyCollectionResponse | undefined) {
         this.additionalData = activityBasedTimeoutPolicyCollectionResponseParameterValue?.additionalData ? activityBasedTimeoutPolicyCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = activityBasedTimeoutPolicyCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: ActivityBasedTimeoutPolicyImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ActivityBasedTimeoutPolicyImpl? element : new ActivityBasedTimeoutPolicyImpl(element));});
+        const valueArrValue: ActivityBasedTimeoutPolicyImpl[] = []; activityBasedTimeoutPolicyCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof ActivityBasedTimeoutPolicyImpl? element : new ActivityBasedTimeoutPolicyImpl(element));});
         this.value = valueArrValue;
     };
     /**

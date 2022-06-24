@@ -18,7 +18,7 @@ export class MobileAppCollectionResponseImpl implements MobileAppCollectionRespo
     public constructor(mobileAppCollectionResponseParameterValue?: MobileAppCollectionResponse | undefined) {
         this.additionalData = mobileAppCollectionResponseParameterValue?.additionalData ? mobileAppCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = mobileAppCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: MobileAppImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof MobileAppImpl? element : new MobileAppImpl(element));});
+        const valueArrValue: MobileAppImpl[] = []; mobileAppCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof MobileAppImpl? element : new MobileAppImpl(element));});
         this.value = valueArrValue;
     };
     /**

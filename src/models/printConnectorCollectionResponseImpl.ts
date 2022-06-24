@@ -18,7 +18,7 @@ export class PrintConnectorCollectionResponseImpl implements PrintConnectorColle
     public constructor(printConnectorCollectionResponseParameterValue?: PrintConnectorCollectionResponse | undefined) {
         this.additionalData = printConnectorCollectionResponseParameterValue?.additionalData ? printConnectorCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = printConnectorCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: PrintConnectorImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof PrintConnectorImpl? element : new PrintConnectorImpl(element));});
+        const valueArrValue: PrintConnectorImpl[] = []; printConnectorCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof PrintConnectorImpl? element : new PrintConnectorImpl(element));});
         this.value = valueArrValue;
     };
     /**

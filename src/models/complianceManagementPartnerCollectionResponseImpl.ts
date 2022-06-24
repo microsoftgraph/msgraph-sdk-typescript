@@ -18,7 +18,7 @@ export class ComplianceManagementPartnerCollectionResponseImpl implements Compli
     public constructor(complianceManagementPartnerCollectionResponseParameterValue?: ComplianceManagementPartnerCollectionResponse | undefined) {
         this.additionalData = complianceManagementPartnerCollectionResponseParameterValue?.additionalData ? complianceManagementPartnerCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = complianceManagementPartnerCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: ComplianceManagementPartnerImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ComplianceManagementPartnerImpl? element : new ComplianceManagementPartnerImpl(element));});
+        const valueArrValue: ComplianceManagementPartnerImpl[] = []; complianceManagementPartnerCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof ComplianceManagementPartnerImpl? element : new ComplianceManagementPartnerImpl(element));});
         this.value = valueArrValue;
     };
     /**

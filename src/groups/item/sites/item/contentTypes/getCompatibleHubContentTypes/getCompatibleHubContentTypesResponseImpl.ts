@@ -16,7 +16,7 @@ export class GetCompatibleHubContentTypesResponseImpl implements GetCompatibleHu
      */
     public constructor(getCompatibleHubContentTypesResponseParameterValue?: GetCompatibleHubContentTypesResponse | undefined) {
         this.additionalData = getCompatibleHubContentTypesResponseParameterValue?.additionalData ? getCompatibleHubContentTypesResponseParameterValue?.additionalData! : {};
-        const valueArrValue: ContentTypeImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ContentTypeImpl? element : new ContentTypeImpl(element));});
+        const valueArrValue: ContentTypeImpl[] = []; getCompatibleHubContentTypesResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof ContentTypeImpl? element : new ContentTypeImpl(element));});
         this.value = valueArrValue;
     };
     /**

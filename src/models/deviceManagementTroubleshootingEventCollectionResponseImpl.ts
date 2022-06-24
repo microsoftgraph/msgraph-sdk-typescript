@@ -18,7 +18,7 @@ export class DeviceManagementTroubleshootingEventCollectionResponseImpl implemen
     public constructor(deviceManagementTroubleshootingEventCollectionResponseParameterValue?: DeviceManagementTroubleshootingEventCollectionResponse | undefined) {
         this.additionalData = deviceManagementTroubleshootingEventCollectionResponseParameterValue?.additionalData ? deviceManagementTroubleshootingEventCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = deviceManagementTroubleshootingEventCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: DeviceManagementTroubleshootingEventImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof DeviceManagementTroubleshootingEventImpl? element : new DeviceManagementTroubleshootingEventImpl(element));});
+        const valueArrValue: DeviceManagementTroubleshootingEventImpl[] = []; deviceManagementTroubleshootingEventCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof DeviceManagementTroubleshootingEventImpl? element : new DeviceManagementTroubleshootingEventImpl(element));});
         this.value = valueArrValue;
     };
     /**

@@ -18,7 +18,7 @@ export class RiskyUserHistoryItemCollectionResponseImpl implements RiskyUserHist
     public constructor(riskyUserHistoryItemCollectionResponseParameterValue?: RiskyUserHistoryItemCollectionResponse | undefined) {
         this.additionalData = riskyUserHistoryItemCollectionResponseParameterValue?.additionalData ? riskyUserHistoryItemCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = riskyUserHistoryItemCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: RiskyUserHistoryItemImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof RiskyUserHistoryItemImpl? element : new RiskyUserHistoryItemImpl(element));});
+        const valueArrValue: RiskyUserHistoryItemImpl[] = []; riskyUserHistoryItemCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof RiskyUserHistoryItemImpl? element : new RiskyUserHistoryItemImpl(element));});
         this.value = valueArrValue;
     };
     /**

@@ -18,7 +18,7 @@ export class OnenoteResourceCollectionResponseImpl implements OnenoteResourceCol
     public constructor(onenoteResourceCollectionResponseParameterValue?: OnenoteResourceCollectionResponse | undefined) {
         this.additionalData = onenoteResourceCollectionResponseParameterValue?.additionalData ? onenoteResourceCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = onenoteResourceCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: OnenoteResourceImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof OnenoteResourceImpl? element : new OnenoteResourceImpl(element));});
+        const valueArrValue: OnenoteResourceImpl[] = []; onenoteResourceCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof OnenoteResourceImpl? element : new OnenoteResourceImpl(element));});
         this.value = valueArrValue;
     };
     /**

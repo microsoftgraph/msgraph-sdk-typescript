@@ -126,21 +126,21 @@ export class EventImpl extends OutlookItemImpl implements Event {
     public constructor(eventParameterValue?: Event | undefined) {
         super(eventParameterValue);
         this.allowNewTimeProposals = eventParameterValue?.allowNewTimeProposals;
-        const attachmentsArrValue: AttachmentImpl[] = []; this.attachments?.forEach(element => {attachmentsArrValue.push(element instanceof AttachmentImpl? element : new AttachmentImpl(element));});
+        const attachmentsArrValue: AttachmentImpl[] = []; eventParameterValue.attachments?.forEach(element => {attachmentsArrValue.push(element instanceof AttachmentImpl? element : new AttachmentImpl(element));});
         this.attachments = attachmentsArrValue;
-        const attendeesArrValue: AttendeeImpl[] = []; this.attendees?.forEach(element => {attendeesArrValue.push(element instanceof AttendeeImpl? element : new AttendeeImpl(element));});
+        const attendeesArrValue: AttendeeImpl[] = []; eventParameterValue.attendees?.forEach(element => {attendeesArrValue.push(element instanceof AttendeeImpl? element : new AttendeeImpl(element));});
         this.attendees = attendeesArrValue;
         this.body = eventParameterValue?.body instanceof ItemBodyImpl? eventParameterValue?.body:new ItemBodyImpl(eventParameterValue?.body);
         this.bodyPreview = eventParameterValue?.bodyPreview;
         this.calendar = eventParameterValue?.calendar instanceof CalendarImpl? eventParameterValue?.calendar:new CalendarImpl(eventParameterValue?.calendar);
         this.end = eventParameterValue?.end instanceof DateTimeTimeZoneImpl? eventParameterValue?.end:new DateTimeTimeZoneImpl(eventParameterValue?.end);
-        const extensionsArrValue: ExtensionImpl[] = []; this.extensions?.forEach(element => {extensionsArrValue.push(element instanceof ExtensionImpl? element : new ExtensionImpl(element));});
+        const extensionsArrValue: ExtensionImpl[] = []; eventParameterValue.extensions?.forEach(element => {extensionsArrValue.push(element instanceof ExtensionImpl? element : new ExtensionImpl(element));});
         this.extensions = extensionsArrValue;
         this.hasAttachments = eventParameterValue?.hasAttachments;
         this.hideAttendees = eventParameterValue?.hideAttendees;
         this.iCalUId = eventParameterValue?.iCalUId;
         this.importance = eventParameterValue?.importance;
-        const instancesArrValue: EventImpl[] = []; this.instances?.forEach(element => {instancesArrValue.push(element instanceof EventImpl? element : new EventImpl(element));});
+        const instancesArrValue: EventImpl[] = []; eventParameterValue.instances?.forEach(element => {instancesArrValue.push(element instanceof EventImpl? element : new EventImpl(element));});
         this.instances = instancesArrValue;
         this.isAllDay = eventParameterValue?.isAllDay;
         this.isCancelled = eventParameterValue?.isCancelled;
@@ -149,9 +149,9 @@ export class EventImpl extends OutlookItemImpl implements Event {
         this.isOrganizer = eventParameterValue?.isOrganizer;
         this.isReminderOn = eventParameterValue?.isReminderOn;
         this.location = eventParameterValue?.location instanceof LocationImpl? eventParameterValue?.location:new LocationImpl(eventParameterValue?.location);
-        const locationsArrValue: LocationImpl[] = []; this.locations?.forEach(element => {locationsArrValue.push(element instanceof LocationImpl? element : new LocationImpl(element));});
+        const locationsArrValue: LocationImpl[] = []; eventParameterValue.locations?.forEach(element => {locationsArrValue.push(element instanceof LocationImpl? element : new LocationImpl(element));});
         this.locations = locationsArrValue;
-        const multiValueExtendedPropertiesArrValue: MultiValueLegacyExtendedPropertyImpl[] = []; this.multiValueExtendedProperties?.forEach(element => {multiValueExtendedPropertiesArrValue.push(element instanceof MultiValueLegacyExtendedPropertyImpl? element : new MultiValueLegacyExtendedPropertyImpl(element));});
+        const multiValueExtendedPropertiesArrValue: MultiValueLegacyExtendedPropertyImpl[] = []; eventParameterValue.multiValueExtendedProperties?.forEach(element => {multiValueExtendedPropertiesArrValue.push(element instanceof MultiValueLegacyExtendedPropertyImpl? element : new MultiValueLegacyExtendedPropertyImpl(element));});
         this.multiValueExtendedProperties = multiValueExtendedPropertiesArrValue;
         this.onlineMeeting = eventParameterValue?.onlineMeeting instanceof OnlineMeetingInfoImpl? eventParameterValue?.onlineMeeting:new OnlineMeetingInfoImpl(eventParameterValue?.onlineMeeting);
         this.onlineMeetingProvider = eventParameterValue?.onlineMeetingProvider;
@@ -167,7 +167,7 @@ export class EventImpl extends OutlookItemImpl implements Event {
         this.sensitivity = eventParameterValue?.sensitivity;
         this.seriesMasterId = eventParameterValue?.seriesMasterId;
         this.showAs = eventParameterValue?.showAs;
-        const singleValueExtendedPropertiesArrValue: SingleValueLegacyExtendedPropertyImpl[] = []; this.singleValueExtendedProperties?.forEach(element => {singleValueExtendedPropertiesArrValue.push(element instanceof SingleValueLegacyExtendedPropertyImpl? element : new SingleValueLegacyExtendedPropertyImpl(element));});
+        const singleValueExtendedPropertiesArrValue: SingleValueLegacyExtendedPropertyImpl[] = []; eventParameterValue.singleValueExtendedProperties?.forEach(element => {singleValueExtendedPropertiesArrValue.push(element instanceof SingleValueLegacyExtendedPropertyImpl? element : new SingleValueLegacyExtendedPropertyImpl(element));});
         this.singleValueExtendedProperties = singleValueExtendedPropertiesArrValue;
         this.start = eventParameterValue?.start instanceof DateTimeTimeZoneImpl? eventParameterValue?.start:new DateTimeTimeZoneImpl(eventParameterValue?.start);
         this.subject = eventParameterValue?.subject;

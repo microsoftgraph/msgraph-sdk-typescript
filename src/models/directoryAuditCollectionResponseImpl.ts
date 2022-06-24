@@ -18,7 +18,7 @@ export class DirectoryAuditCollectionResponseImpl implements DirectoryAuditColle
     public constructor(directoryAuditCollectionResponseParameterValue?: DirectoryAuditCollectionResponse | undefined) {
         this.additionalData = directoryAuditCollectionResponseParameterValue?.additionalData ? directoryAuditCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = directoryAuditCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: DirectoryAuditImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof DirectoryAuditImpl? element : new DirectoryAuditImpl(element));});
+        const valueArrValue: DirectoryAuditImpl[] = []; directoryAuditCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof DirectoryAuditImpl? element : new DirectoryAuditImpl(element));});
         this.value = valueArrValue;
     };
     /**

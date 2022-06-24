@@ -36,7 +36,7 @@ export class SessionImpl extends EntityImpl implements Session {
         this.endDateTime = sessionParameterValue?.endDateTime;
         this.failureInfo = sessionParameterValue?.failureInfo instanceof FailureInfoImpl? sessionParameterValue?.failureInfo:new FailureInfoImpl(sessionParameterValue?.failureInfo);
         this.modalities = sessionParameterValue?.modalities;
-        const segmentsArrValue: SegmentImpl[] = []; this.segments?.forEach(element => {segmentsArrValue.push(element instanceof SegmentImpl? element : new SegmentImpl(element));});
+        const segmentsArrValue: SegmentImpl[] = []; sessionParameterValue.segments?.forEach(element => {segmentsArrValue.push(element instanceof SegmentImpl? element : new SegmentImpl(element));});
         this.segments = segmentsArrValue;
         this.startDateTime = sessionParameterValue?.startDateTime;
     };

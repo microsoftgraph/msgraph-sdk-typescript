@@ -35,7 +35,7 @@ export class SharedInsightImpl extends EntityImpl implements SharedInsight {
         this.resource = sharedInsightParameterValue?.resource instanceof EntityImpl? sharedInsightParameterValue?.resource:new EntityImpl(sharedInsightParameterValue?.resource);
         this.resourceReference = sharedInsightParameterValue?.resourceReference instanceof ResourceReferenceImpl? sharedInsightParameterValue?.resourceReference:new ResourceReferenceImpl(sharedInsightParameterValue?.resourceReference);
         this.resourceVisualization = sharedInsightParameterValue?.resourceVisualization instanceof ResourceVisualizationImpl? sharedInsightParameterValue?.resourceVisualization:new ResourceVisualizationImpl(sharedInsightParameterValue?.resourceVisualization);
-        const sharingHistoryArrValue: SharingDetailImpl[] = []; this.sharingHistory?.forEach(element => {sharingHistoryArrValue.push(element instanceof SharingDetailImpl? element : new SharingDetailImpl(element));});
+        const sharingHistoryArrValue: SharingDetailImpl[] = []; sharedInsightParameterValue.sharingHistory?.forEach(element => {sharingHistoryArrValue.push(element instanceof SharingDetailImpl? element : new SharingDetailImpl(element));});
         this.sharingHistory = sharingHistoryArrValue;
     };
     /**

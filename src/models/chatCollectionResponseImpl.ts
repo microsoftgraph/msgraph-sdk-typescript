@@ -18,7 +18,7 @@ export class ChatCollectionResponseImpl implements ChatCollectionResponse {
     public constructor(chatCollectionResponseParameterValue?: ChatCollectionResponse | undefined) {
         this.additionalData = chatCollectionResponseParameterValue?.additionalData ? chatCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = chatCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: ChatImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ChatImpl? element : new ChatImpl(element));});
+        const valueArrValue: ChatImpl[] = []; chatCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof ChatImpl? element : new ChatImpl(element));});
         this.value = valueArrValue;
     };
     /**

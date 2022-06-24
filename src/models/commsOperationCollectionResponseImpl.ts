@@ -18,7 +18,7 @@ export class CommsOperationCollectionResponseImpl implements CommsOperationColle
     public constructor(commsOperationCollectionResponseParameterValue?: CommsOperationCollectionResponse | undefined) {
         this.additionalData = commsOperationCollectionResponseParameterValue?.additionalData ? commsOperationCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = commsOperationCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: CommsOperationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof CommsOperationImpl? element : new CommsOperationImpl(element));});
+        const valueArrValue: CommsOperationImpl[] = []; commsOperationCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof CommsOperationImpl? element : new CommsOperationImpl(element));});
         this.value = valueArrValue;
     };
     /**

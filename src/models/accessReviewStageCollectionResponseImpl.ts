@@ -18,7 +18,7 @@ export class AccessReviewStageCollectionResponseImpl implements AccessReviewStag
     public constructor(accessReviewStageCollectionResponseParameterValue?: AccessReviewStageCollectionResponse | undefined) {
         this.additionalData = accessReviewStageCollectionResponseParameterValue?.additionalData ? accessReviewStageCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = accessReviewStageCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: AccessReviewStageImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof AccessReviewStageImpl? element : new AccessReviewStageImpl(element));});
+        const valueArrValue: AccessReviewStageImpl[] = []; accessReviewStageCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof AccessReviewStageImpl? element : new AccessReviewStageImpl(element));});
         this.value = valueArrValue;
     };
     /**

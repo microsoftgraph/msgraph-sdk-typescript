@@ -18,7 +18,7 @@ export class PostCollectionResponseImpl implements PostCollectionResponse {
     public constructor(postCollectionResponseParameterValue?: PostCollectionResponse | undefined) {
         this.additionalData = postCollectionResponseParameterValue?.additionalData ? postCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = postCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: PostImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof PostImpl? element : new PostImpl(element));});
+        const valueArrValue: PostImpl[] = []; postCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof PostImpl? element : new PostImpl(element));});
         this.value = valueArrValue;
     };
     /**

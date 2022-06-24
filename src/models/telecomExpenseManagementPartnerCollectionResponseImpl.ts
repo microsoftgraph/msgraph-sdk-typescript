@@ -18,7 +18,7 @@ export class TelecomExpenseManagementPartnerCollectionResponseImpl implements Te
     public constructor(telecomExpenseManagementPartnerCollectionResponseParameterValue?: TelecomExpenseManagementPartnerCollectionResponse | undefined) {
         this.additionalData = telecomExpenseManagementPartnerCollectionResponseParameterValue?.additionalData ? telecomExpenseManagementPartnerCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = telecomExpenseManagementPartnerCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: TelecomExpenseManagementPartnerImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof TelecomExpenseManagementPartnerImpl? element : new TelecomExpenseManagementPartnerImpl(element));});
+        const valueArrValue: TelecomExpenseManagementPartnerImpl[] = []; telecomExpenseManagementPartnerCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof TelecomExpenseManagementPartnerImpl? element : new TelecomExpenseManagementPartnerImpl(element));});
         this.value = valueArrValue;
     };
     /**

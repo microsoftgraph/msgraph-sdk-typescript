@@ -18,7 +18,7 @@ export class UnifiedRoleEligibilityScheduleCollectionResponseImpl implements Uni
     public constructor(unifiedRoleEligibilityScheduleCollectionResponseParameterValue?: UnifiedRoleEligibilityScheduleCollectionResponse | undefined) {
         this.additionalData = unifiedRoleEligibilityScheduleCollectionResponseParameterValue?.additionalData ? unifiedRoleEligibilityScheduleCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = unifiedRoleEligibilityScheduleCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: UnifiedRoleEligibilityScheduleImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof UnifiedRoleEligibilityScheduleImpl? element : new UnifiedRoleEligibilityScheduleImpl(element));});
+        const valueArrValue: UnifiedRoleEligibilityScheduleImpl[] = []; unifiedRoleEligibilityScheduleCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof UnifiedRoleEligibilityScheduleImpl? element : new UnifiedRoleEligibilityScheduleImpl(element));});
         this.value = valueArrValue;
     };
     /**

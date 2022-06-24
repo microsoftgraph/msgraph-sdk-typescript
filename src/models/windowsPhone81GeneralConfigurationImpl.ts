@@ -77,7 +77,7 @@ export class WindowsPhone81GeneralConfigurationImpl extends DeviceConfigurationI
         this.cameraBlocked = windowsPhone81GeneralConfigurationParameterValue?.cameraBlocked;
         this.cellularBlockWifiTethering = windowsPhone81GeneralConfigurationParameterValue?.cellularBlockWifiTethering;
         this.compliantAppListType = windowsPhone81GeneralConfigurationParameterValue?.compliantAppListType;
-        const compliantAppsListArrValue: AppListItemImpl[] = []; this.compliantAppsList?.forEach(element => {compliantAppsListArrValue.push(element instanceof AppListItemImpl? element : new AppListItemImpl(element));});
+        const compliantAppsListArrValue: AppListItemImpl[] = []; windowsPhone81GeneralConfigurationParameterValue.compliantAppsList?.forEach(element => {compliantAppsListArrValue.push(element instanceof AppListItemImpl? element : new AppListItemImpl(element));});
         this.compliantAppsList = compliantAppsListArrValue;
         this.diagnosticDataBlockSubmission = windowsPhone81GeneralConfigurationParameterValue?.diagnosticDataBlockSubmission;
         this.emailBlockAddingAccounts = windowsPhone81GeneralConfigurationParameterValue?.emailBlockAddingAccounts;

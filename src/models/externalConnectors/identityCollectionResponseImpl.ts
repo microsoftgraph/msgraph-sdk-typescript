@@ -18,7 +18,7 @@ export class IdentityCollectionResponseImpl implements IdentityCollectionRespons
     public constructor(identityCollectionResponseParameterValue?: IdentityCollectionResponse | undefined) {
         this.additionalData = identityCollectionResponseParameterValue?.additionalData ? identityCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = identityCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: IdentityImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof IdentityImpl? element : new IdentityImpl(element));});
+        const valueArrValue: IdentityImpl[] = []; identityCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof IdentityImpl? element : new IdentityImpl(element));});
         this.value = valueArrValue;
     };
     /**

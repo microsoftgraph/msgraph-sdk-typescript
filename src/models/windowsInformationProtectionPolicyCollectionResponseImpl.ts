@@ -18,7 +18,7 @@ export class WindowsInformationProtectionPolicyCollectionResponseImpl implements
     public constructor(windowsInformationProtectionPolicyCollectionResponseParameterValue?: WindowsInformationProtectionPolicyCollectionResponse | undefined) {
         this.additionalData = windowsInformationProtectionPolicyCollectionResponseParameterValue?.additionalData ? windowsInformationProtectionPolicyCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = windowsInformationProtectionPolicyCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: WindowsInformationProtectionPolicyImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof WindowsInformationProtectionPolicyImpl? element : new WindowsInformationProtectionPolicyImpl(element));});
+        const valueArrValue: WindowsInformationProtectionPolicyImpl[] = []; windowsInformationProtectionPolicyCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof WindowsInformationProtectionPolicyImpl? element : new WindowsInformationProtectionPolicyImpl(element));});
         this.value = valueArrValue;
     };
     /**

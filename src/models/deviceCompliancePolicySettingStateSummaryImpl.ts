@@ -37,7 +37,7 @@ export class DeviceCompliancePolicySettingStateSummaryImpl extends EntityImpl im
         super(deviceCompliancePolicySettingStateSummaryParameterValue);
         this.compliantDeviceCount = deviceCompliancePolicySettingStateSummaryParameterValue?.compliantDeviceCount;
         this.conflictDeviceCount = deviceCompliancePolicySettingStateSummaryParameterValue?.conflictDeviceCount;
-        const deviceComplianceSettingStatesArrValue: DeviceComplianceSettingStateImpl[] = []; this.deviceComplianceSettingStates?.forEach(element => {deviceComplianceSettingStatesArrValue.push(element instanceof DeviceComplianceSettingStateImpl? element : new DeviceComplianceSettingStateImpl(element));});
+        const deviceComplianceSettingStatesArrValue: DeviceComplianceSettingStateImpl[] = []; deviceCompliancePolicySettingStateSummaryParameterValue.deviceComplianceSettingStates?.forEach(element => {deviceComplianceSettingStatesArrValue.push(element instanceof DeviceComplianceSettingStateImpl? element : new DeviceComplianceSettingStateImpl(element));});
         this.deviceComplianceSettingStates = deviceComplianceSettingStatesArrValue;
         this.errorDeviceCount = deviceCompliancePolicySettingStateSummaryParameterValue?.errorDeviceCount;
         this.nonCompliantDeviceCount = deviceCompliancePolicySettingStateSummaryParameterValue?.nonCompliantDeviceCount;

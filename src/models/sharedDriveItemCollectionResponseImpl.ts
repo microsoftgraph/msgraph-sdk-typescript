@@ -18,7 +18,7 @@ export class SharedDriveItemCollectionResponseImpl implements SharedDriveItemCol
     public constructor(sharedDriveItemCollectionResponseParameterValue?: SharedDriveItemCollectionResponse | undefined) {
         this.additionalData = sharedDriveItemCollectionResponseParameterValue?.additionalData ? sharedDriveItemCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = sharedDriveItemCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: SharedDriveItemImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof SharedDriveItemImpl? element : new SharedDriveItemImpl(element));});
+        const valueArrValue: SharedDriveItemImpl[] = []; sharedDriveItemCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof SharedDriveItemImpl? element : new SharedDriveItemImpl(element));});
         this.value = valueArrValue;
     };
     /**

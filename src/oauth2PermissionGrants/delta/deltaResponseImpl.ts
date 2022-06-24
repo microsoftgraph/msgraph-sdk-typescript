@@ -16,7 +16,7 @@ export class DeltaResponseImpl implements DeltaResponse {
      */
     public constructor(deltaResponseParameterValue?: DeltaResponse | undefined) {
         this.additionalData = deltaResponseParameterValue?.additionalData ? deltaResponseParameterValue?.additionalData! : {};
-        const valueArrValue: OAuth2PermissionGrantImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof OAuth2PermissionGrantImpl? element : new OAuth2PermissionGrantImpl(element));});
+        const valueArrValue: OAuth2PermissionGrantImpl[] = []; deltaResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof OAuth2PermissionGrantImpl? element : new OAuth2PermissionGrantImpl(element));});
         this.value = valueArrValue;
     };
     /**

@@ -18,7 +18,7 @@ export class WindowsAutopilotDeviceIdentityCollectionResponseImpl implements Win
     public constructor(windowsAutopilotDeviceIdentityCollectionResponseParameterValue?: WindowsAutopilotDeviceIdentityCollectionResponse | undefined) {
         this.additionalData = windowsAutopilotDeviceIdentityCollectionResponseParameterValue?.additionalData ? windowsAutopilotDeviceIdentityCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = windowsAutopilotDeviceIdentityCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: WindowsAutopilotDeviceIdentityImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof WindowsAutopilotDeviceIdentityImpl? element : new WindowsAutopilotDeviceIdentityImpl(element));});
+        const valueArrValue: WindowsAutopilotDeviceIdentityImpl[] = []; windowsAutopilotDeviceIdentityCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof WindowsAutopilotDeviceIdentityImpl? element : new WindowsAutopilotDeviceIdentityImpl(element));});
         this.value = valueArrValue;
     };
     /**

@@ -19,9 +19,9 @@ export class IdentityProtectionRootImpl implements IdentityProtectionRoot {
      */
     public constructor(identityProtectionRootParameterValue?: IdentityProtectionRoot | undefined) {
         this.additionalData = identityProtectionRootParameterValue?.additionalData ? identityProtectionRootParameterValue?.additionalData! : {};
-        const riskDetectionsArrValue: RiskDetectionImpl[] = []; this.riskDetections?.forEach(element => {riskDetectionsArrValue.push(element instanceof RiskDetectionImpl? element : new RiskDetectionImpl(element));});
+        const riskDetectionsArrValue: RiskDetectionImpl[] = []; identityProtectionRootParameterValue.riskDetections?.forEach(element => {riskDetectionsArrValue.push(element instanceof RiskDetectionImpl? element : new RiskDetectionImpl(element));});
         this.riskDetections = riskDetectionsArrValue;
-        const riskyUsersArrValue: RiskyUserImpl[] = []; this.riskyUsers?.forEach(element => {riskyUsersArrValue.push(element instanceof RiskyUserImpl? element : new RiskyUserImpl(element));});
+        const riskyUsersArrValue: RiskyUserImpl[] = []; identityProtectionRootParameterValue.riskyUsers?.forEach(element => {riskyUsersArrValue.push(element instanceof RiskyUserImpl? element : new RiskyUserImpl(element));});
         this.riskyUsers = riskyUsersArrValue;
     };
     /**

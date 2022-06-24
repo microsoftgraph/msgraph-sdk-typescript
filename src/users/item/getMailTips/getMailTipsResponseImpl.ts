@@ -16,7 +16,7 @@ export class GetMailTipsResponseImpl implements GetMailTipsResponse {
      */
     public constructor(getMailTipsResponseParameterValue?: GetMailTipsResponse | undefined) {
         this.additionalData = getMailTipsResponseParameterValue?.additionalData ? getMailTipsResponseParameterValue?.additionalData! : {};
-        const valueArrValue: MailTipsImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof MailTipsImpl? element : new MailTipsImpl(element));});
+        const valueArrValue: MailTipsImpl[] = []; getMailTipsResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof MailTipsImpl? element : new MailTipsImpl(element));});
         this.value = valueArrValue;
     };
     /**

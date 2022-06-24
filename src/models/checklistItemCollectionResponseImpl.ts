@@ -18,7 +18,7 @@ export class ChecklistItemCollectionResponseImpl implements ChecklistItemCollect
     public constructor(checklistItemCollectionResponseParameterValue?: ChecklistItemCollectionResponse | undefined) {
         this.additionalData = checklistItemCollectionResponseParameterValue?.additionalData ? checklistItemCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = checklistItemCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: ChecklistItemImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ChecklistItemImpl? element : new ChecklistItemImpl(element));});
+        const valueArrValue: ChecklistItemImpl[] = []; checklistItemCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof ChecklistItemImpl? element : new ChecklistItemImpl(element));});
         this.value = valueArrValue;
     };
     /**

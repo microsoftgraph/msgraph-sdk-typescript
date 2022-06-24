@@ -18,7 +18,7 @@ export class SchemaImpl extends EntityImpl implements Schema {
     public constructor(schemaParameterValue?: Schema | undefined) {
         super(schemaParameterValue);
         this.baseType = schemaParameterValue?.baseType;
-        const propertiesArrValue: PropertyImpl[] = []; this.properties?.forEach(element => {propertiesArrValue.push(element instanceof PropertyImpl? element : new PropertyImpl(element));});
+        const propertiesArrValue: PropertyImpl[] = []; schemaParameterValue.properties?.forEach(element => {propertiesArrValue.push(element instanceof PropertyImpl? element : new PropertyImpl(element));});
         this.properties = propertiesArrValue;
     };
     /**

@@ -30,7 +30,7 @@ export class UnifiedRoleManagementPolicyRuleTargetImpl implements UnifiedRoleMan
         this.inheritableSettings = unifiedRoleManagementPolicyRuleTargetParameterValue?.inheritableSettings;
         this.level = unifiedRoleManagementPolicyRuleTargetParameterValue?.level;
         this.operations = unifiedRoleManagementPolicyRuleTargetParameterValue?.operations;
-        const targetObjectsArrValue: DirectoryObjectImpl[] = []; this.targetObjects?.forEach(element => {targetObjectsArrValue.push(element instanceof DirectoryObjectImpl? element : new DirectoryObjectImpl(element));});
+        const targetObjectsArrValue: DirectoryObjectImpl[] = []; unifiedRoleManagementPolicyRuleTargetParameterValue.targetObjects?.forEach(element => {targetObjectsArrValue.push(element instanceof DirectoryObjectImpl? element : new DirectoryObjectImpl(element));});
         this.targetObjects = targetObjectsArrValue;
     };
     /**

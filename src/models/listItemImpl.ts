@@ -39,7 +39,7 @@ export class ListItemImpl extends BaseItemImpl implements ListItem {
         this.driveItem = listItemParameterValue?.driveItem instanceof DriveItemImpl? listItemParameterValue?.driveItem:new DriveItemImpl(listItemParameterValue?.driveItem);
         this.fields = listItemParameterValue?.fields instanceof FieldValueSetImpl? listItemParameterValue?.fields:new FieldValueSetImpl(listItemParameterValue?.fields);
         this.sharepointIds = listItemParameterValue?.sharepointIds instanceof SharepointIdsImpl? listItemParameterValue?.sharepointIds:new SharepointIdsImpl(listItemParameterValue?.sharepointIds);
-        const versionsArrValue: ListItemVersionImpl[] = []; this.versions?.forEach(element => {versionsArrValue.push(element instanceof ListItemVersionImpl? element : new ListItemVersionImpl(element));});
+        const versionsArrValue: ListItemVersionImpl[] = []; listItemParameterValue.versions?.forEach(element => {versionsArrValue.push(element instanceof ListItemVersionImpl? element : new ListItemVersionImpl(element));});
         this.versions = versionsArrValue;
     };
     /**

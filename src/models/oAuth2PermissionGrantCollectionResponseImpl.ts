@@ -18,7 +18,7 @@ export class OAuth2PermissionGrantCollectionResponseImpl implements OAuth2Permis
     public constructor(oAuth2PermissionGrantCollectionResponseParameterValue?: OAuth2PermissionGrantCollectionResponse | undefined) {
         this.additionalData = oAuth2PermissionGrantCollectionResponseParameterValue?.additionalData ? oAuth2PermissionGrantCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = oAuth2PermissionGrantCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: OAuth2PermissionGrantImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof OAuth2PermissionGrantImpl? element : new OAuth2PermissionGrantImpl(element));});
+        const valueArrValue: OAuth2PermissionGrantImpl[] = []; oAuth2PermissionGrantCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof OAuth2PermissionGrantImpl? element : new OAuth2PermissionGrantImpl(element));});
         this.value = valueArrValue;
     };
     /**

@@ -18,7 +18,7 @@ export class BookingServiceCollectionResponseImpl implements BookingServiceColle
     public constructor(bookingServiceCollectionResponseParameterValue?: BookingServiceCollectionResponse | undefined) {
         this.additionalData = bookingServiceCollectionResponseParameterValue?.additionalData ? bookingServiceCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = bookingServiceCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: BookingServiceImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof BookingServiceImpl? element : new BookingServiceImpl(element));});
+        const valueArrValue: BookingServiceImpl[] = []; bookingServiceCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof BookingServiceImpl? element : new BookingServiceImpl(element));});
         this.value = valueArrValue;
     };
     /**

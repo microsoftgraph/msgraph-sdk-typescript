@@ -18,7 +18,7 @@ export class LicenseDetailsImpl extends EntityImpl implements LicenseDetails {
      */
     public constructor(licenseDetailsParameterValue?: LicenseDetails | undefined) {
         super(licenseDetailsParameterValue);
-        const servicePlansArrValue: ServicePlanInfoImpl[] = []; this.servicePlans?.forEach(element => {servicePlansArrValue.push(element instanceof ServicePlanInfoImpl? element : new ServicePlanInfoImpl(element));});
+        const servicePlansArrValue: ServicePlanInfoImpl[] = []; licenseDetailsParameterValue.servicePlans?.forEach(element => {servicePlansArrValue.push(element instanceof ServicePlanInfoImpl? element : new ServicePlanInfoImpl(element));});
         this.servicePlans = servicePlansArrValue;
         this.skuId = licenseDetailsParameterValue?.skuId;
         this.skuPartNumber = licenseDetailsParameterValue?.skuPartNumber;

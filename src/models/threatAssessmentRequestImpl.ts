@@ -41,7 +41,7 @@ export class ThreatAssessmentRequestImpl extends EntityImpl implements ThreatAss
         this.createdDateTime = threatAssessmentRequestParameterValue?.createdDateTime;
         this.expectedAssessment = threatAssessmentRequestParameterValue?.expectedAssessment;
         this.requestSource = threatAssessmentRequestParameterValue?.requestSource;
-        const resultsArrValue: ThreatAssessmentResultImpl[] = []; this.results?.forEach(element => {resultsArrValue.push(element instanceof ThreatAssessmentResultImpl? element : new ThreatAssessmentResultImpl(element));});
+        const resultsArrValue: ThreatAssessmentResultImpl[] = []; threatAssessmentRequestParameterValue.results?.forEach(element => {resultsArrValue.push(element instanceof ThreatAssessmentResultImpl? element : new ThreatAssessmentResultImpl(element));});
         this.results = resultsArrValue;
         this.status = threatAssessmentRequestParameterValue?.status;
     };

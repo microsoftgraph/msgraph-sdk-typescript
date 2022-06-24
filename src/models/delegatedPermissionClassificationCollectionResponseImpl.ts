@@ -18,7 +18,7 @@ export class DelegatedPermissionClassificationCollectionResponseImpl implements 
     public constructor(delegatedPermissionClassificationCollectionResponseParameterValue?: DelegatedPermissionClassificationCollectionResponse | undefined) {
         this.additionalData = delegatedPermissionClassificationCollectionResponseParameterValue?.additionalData ? delegatedPermissionClassificationCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = delegatedPermissionClassificationCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: DelegatedPermissionClassificationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof DelegatedPermissionClassificationImpl? element : new DelegatedPermissionClassificationImpl(element));});
+        const valueArrValue: DelegatedPermissionClassificationImpl[] = []; delegatedPermissionClassificationCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof DelegatedPermissionClassificationImpl? element : new DelegatedPermissionClassificationImpl(element));});
         this.value = valueArrValue;
     };
     /**

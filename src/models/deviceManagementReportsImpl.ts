@@ -14,7 +14,7 @@ export class DeviceManagementReportsImpl extends EntityImpl implements DeviceMan
      */
     public constructor(deviceManagementReportsParameterValue?: DeviceManagementReports | undefined) {
         super(deviceManagementReportsParameterValue);
-        const exportJobsArrValue: DeviceManagementExportJobImpl[] = []; this.exportJobs?.forEach(element => {exportJobsArrValue.push(element instanceof DeviceManagementExportJobImpl? element : new DeviceManagementExportJobImpl(element));});
+        const exportJobsArrValue: DeviceManagementExportJobImpl[] = []; deviceManagementReportsParameterValue.exportJobs?.forEach(element => {exportJobsArrValue.push(element instanceof DeviceManagementExportJobImpl? element : new DeviceManagementExportJobImpl(element));});
         this.exportJobs = exportJobsArrValue;
     };
     /**

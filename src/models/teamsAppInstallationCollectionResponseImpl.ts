@@ -18,7 +18,7 @@ export class TeamsAppInstallationCollectionResponseImpl implements TeamsAppInsta
     public constructor(teamsAppInstallationCollectionResponseParameterValue?: TeamsAppInstallationCollectionResponse | undefined) {
         this.additionalData = teamsAppInstallationCollectionResponseParameterValue?.additionalData ? teamsAppInstallationCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = teamsAppInstallationCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: TeamsAppInstallationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof TeamsAppInstallationImpl? element : new TeamsAppInstallationImpl(element));});
+        const valueArrValue: TeamsAppInstallationImpl[] = []; teamsAppInstallationCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof TeamsAppInstallationImpl? element : new TeamsAppInstallationImpl(element));});
         this.value = valueArrValue;
     };
     /**

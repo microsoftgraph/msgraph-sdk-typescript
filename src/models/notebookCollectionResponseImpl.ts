@@ -18,7 +18,7 @@ export class NotebookCollectionResponseImpl implements NotebookCollectionRespons
     public constructor(notebookCollectionResponseParameterValue?: NotebookCollectionResponse | undefined) {
         this.additionalData = notebookCollectionResponseParameterValue?.additionalData ? notebookCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = notebookCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: NotebookImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof NotebookImpl? element : new NotebookImpl(element));});
+        const valueArrValue: NotebookImpl[] = []; notebookCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof NotebookImpl? element : new NotebookImpl(element));});
         this.value = valueArrValue;
     };
     /**

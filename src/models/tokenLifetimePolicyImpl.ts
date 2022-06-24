@@ -2,10 +2,9 @@ import {StsPolicyImpl} from './index';
 import {TokenLifetimePolicy} from './tokenLifetimePolicy';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the instantiate method. */
 export class TokenLifetimePolicyImpl extends StsPolicyImpl implements TokenLifetimePolicy {
     /**
-     * Instantiates a new tokenLifetimePolicy and sets the default values.
+     * Instantiates a new TokenLifetimePolicy and sets the default values.
      * @param tokenLifetimePolicyParameterValue 
      */
     public constructor(tokenLifetimePolicyParameterValue?: TokenLifetimePolicy | undefined) {

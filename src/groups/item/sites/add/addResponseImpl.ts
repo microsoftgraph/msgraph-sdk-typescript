@@ -16,7 +16,7 @@ export class AddResponseImpl implements AddResponse {
      */
     public constructor(addResponseParameterValue?: AddResponse | undefined) {
         this.additionalData = addResponseParameterValue?.additionalData ? addResponseParameterValue?.additionalData! : {};
-        const valueArrValue: SiteImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof SiteImpl? element : new SiteImpl(element));});
+        const valueArrValue: SiteImpl[] = []; addResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof SiteImpl? element : new SiteImpl(element));});
         this.value = valueArrValue;
     };
     /**

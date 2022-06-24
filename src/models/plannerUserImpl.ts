@@ -18,9 +18,9 @@ export class PlannerUserImpl extends EntityImpl implements PlannerUser {
      */
     public constructor(plannerUserParameterValue?: PlannerUser | undefined) {
         super(plannerUserParameterValue);
-        const plansArrValue: PlannerPlanImpl[] = []; this.plans?.forEach(element => {plansArrValue.push(element instanceof PlannerPlanImpl? element : new PlannerPlanImpl(element));});
+        const plansArrValue: PlannerPlanImpl[] = []; plannerUserParameterValue.plans?.forEach(element => {plansArrValue.push(element instanceof PlannerPlanImpl? element : new PlannerPlanImpl(element));});
         this.plans = plansArrValue;
-        const tasksArrValue: PlannerTaskImpl[] = []; this.tasks?.forEach(element => {tasksArrValue.push(element instanceof PlannerTaskImpl? element : new PlannerTaskImpl(element));});
+        const tasksArrValue: PlannerTaskImpl[] = []; plannerUserParameterValue.tasks?.forEach(element => {tasksArrValue.push(element instanceof PlannerTaskImpl? element : new PlannerTaskImpl(element));});
         this.tasks = tasksArrValue;
     };
     /**

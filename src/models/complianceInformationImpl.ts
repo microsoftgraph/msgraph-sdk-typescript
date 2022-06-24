@@ -17,7 +17,7 @@ export class ComplianceInformationImpl implements ComplianceInformation {
      */
     public constructor(complianceInformationParameterValue?: ComplianceInformation | undefined) {
         this.additionalData = complianceInformationParameterValue?.additionalData ? complianceInformationParameterValue?.additionalData! : {};
-        const certificationControlsArrValue: CertificationControlImpl[] = []; this.certificationControls?.forEach(element => {certificationControlsArrValue.push(element instanceof CertificationControlImpl? element : new CertificationControlImpl(element));});
+        const certificationControlsArrValue: CertificationControlImpl[] = []; complianceInformationParameterValue.certificationControls?.forEach(element => {certificationControlsArrValue.push(element instanceof CertificationControlImpl? element : new CertificationControlImpl(element));});
         this.certificationControls = certificationControlsArrValue;
         this.certificationName = complianceInformationParameterValue?.certificationName;
     };

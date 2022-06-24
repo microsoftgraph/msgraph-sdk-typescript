@@ -41,9 +41,9 @@ export class CallRecordImpl extends EntityImpl implements CallRecord {
         this.lastModifiedDateTime = callRecordParameterValue?.lastModifiedDateTime;
         this.modalities = callRecordParameterValue?.modalities;
         this.organizer = callRecordParameterValue?.organizer instanceof IdentitySetImpl? callRecordParameterValue?.organizer:new IdentitySetImpl(callRecordParameterValue?.organizer);
-        const participantsArrValue: IdentitySetImpl[] = []; this.participants?.forEach(element => {participantsArrValue.push(element instanceof IdentitySetImpl? element : new IdentitySetImpl(element));});
+        const participantsArrValue: IdentitySetImpl[] = []; callRecordParameterValue.participants?.forEach(element => {participantsArrValue.push(element instanceof IdentitySetImpl? element : new IdentitySetImpl(element));});
         this.participants = participantsArrValue;
-        const sessionsArrValue: SessionImpl[] = []; this.sessions?.forEach(element => {sessionsArrValue.push(element instanceof SessionImpl? element : new SessionImpl(element));});
+        const sessionsArrValue: SessionImpl[] = []; callRecordParameterValue.sessions?.forEach(element => {sessionsArrValue.push(element instanceof SessionImpl? element : new SessionImpl(element));});
         this.sessions = sessionsArrValue;
         this.startDateTime = callRecordParameterValue?.startDateTime;
         this.type = callRecordParameterValue?.type;

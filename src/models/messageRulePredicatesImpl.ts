@@ -81,7 +81,7 @@ export class MessageRulePredicatesImpl implements MessageRulePredicates {
         this.bodyContains = messageRulePredicatesParameterValue?.bodyContains;
         this.bodyOrSubjectContains = messageRulePredicatesParameterValue?.bodyOrSubjectContains;
         this.categories = messageRulePredicatesParameterValue?.categories;
-        const fromAddressesArrValue: RecipientImpl[] = []; this.fromAddresses?.forEach(element => {fromAddressesArrValue.push(element instanceof RecipientImpl? element : new RecipientImpl(element));});
+        const fromAddressesArrValue: RecipientImpl[] = []; messageRulePredicatesParameterValue.fromAddresses?.forEach(element => {fromAddressesArrValue.push(element instanceof RecipientImpl? element : new RecipientImpl(element));});
         this.fromAddresses = fromAddressesArrValue;
         this.hasAttachments = messageRulePredicatesParameterValue?.hasAttachments;
         this.headerContains = messageRulePredicatesParameterValue?.headerContains;
@@ -104,7 +104,7 @@ export class MessageRulePredicatesImpl implements MessageRulePredicates {
         this.sensitivity = messageRulePredicatesParameterValue?.sensitivity;
         this.sentCcMe = messageRulePredicatesParameterValue?.sentCcMe;
         this.sentOnlyToMe = messageRulePredicatesParameterValue?.sentOnlyToMe;
-        const sentToAddressesArrValue: RecipientImpl[] = []; this.sentToAddresses?.forEach(element => {sentToAddressesArrValue.push(element instanceof RecipientImpl? element : new RecipientImpl(element));});
+        const sentToAddressesArrValue: RecipientImpl[] = []; messageRulePredicatesParameterValue.sentToAddresses?.forEach(element => {sentToAddressesArrValue.push(element instanceof RecipientImpl? element : new RecipientImpl(element));});
         this.sentToAddresses = sentToAddressesArrValue;
         this.sentToMe = messageRulePredicatesParameterValue?.sentToMe;
         this.sentToOrCcMe = messageRulePredicatesParameterValue?.sentToOrCcMe;

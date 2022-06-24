@@ -19,7 +19,7 @@ export class InvitePostRequestBodyImpl implements InvitePostRequestBody {
     public constructor(invitePostRequestBodyParameterValue?: InvitePostRequestBody | undefined) {
         this.additionalData = invitePostRequestBodyParameterValue?.additionalData ? invitePostRequestBodyParameterValue?.additionalData! : {};
         this.clientContext = invitePostRequestBodyParameterValue?.clientContext;
-        const participantsArrValue: InvitationParticipantInfoImpl[] = []; this.participants?.forEach(element => {participantsArrValue.push(element instanceof InvitationParticipantInfoImpl? element : new InvitationParticipantInfoImpl(element));});
+        const participantsArrValue: InvitationParticipantInfoImpl[] = []; invitePostRequestBodyParameterValue.participants?.forEach(element => {participantsArrValue.push(element instanceof InvitationParticipantInfoImpl? element : new InvitationParticipantInfoImpl(element));});
         this.participants = participantsArrValue;
     };
     /**

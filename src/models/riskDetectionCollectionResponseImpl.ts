@@ -18,7 +18,7 @@ export class RiskDetectionCollectionResponseImpl implements RiskDetectionCollect
     public constructor(riskDetectionCollectionResponseParameterValue?: RiskDetectionCollectionResponse | undefined) {
         this.additionalData = riskDetectionCollectionResponseParameterValue?.additionalData ? riskDetectionCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = riskDetectionCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: RiskDetectionImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof RiskDetectionImpl? element : new RiskDetectionImpl(element));});
+        const valueArrValue: RiskDetectionImpl[] = []; riskDetectionCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof RiskDetectionImpl? element : new RiskDetectionImpl(element));});
         this.value = valueArrValue;
     };
     /**

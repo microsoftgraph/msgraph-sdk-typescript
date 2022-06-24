@@ -20,7 +20,7 @@ export class BookingWorkHoursImpl implements BookingWorkHours {
     public constructor(bookingWorkHoursParameterValue?: BookingWorkHours | undefined) {
         this.additionalData = bookingWorkHoursParameterValue?.additionalData ? bookingWorkHoursParameterValue?.additionalData! : {};
         this.day = bookingWorkHoursParameterValue?.day;
-        const timeSlotsArrValue: BookingWorkTimeSlotImpl[] = []; this.timeSlots?.forEach(element => {timeSlotsArrValue.push(element instanceof BookingWorkTimeSlotImpl? element : new BookingWorkTimeSlotImpl(element));});
+        const timeSlotsArrValue: BookingWorkTimeSlotImpl[] = []; bookingWorkHoursParameterValue.timeSlots?.forEach(element => {timeSlotsArrValue.push(element instanceof BookingWorkTimeSlotImpl? element : new BookingWorkTimeSlotImpl(element));});
         this.timeSlots = timeSlotsArrValue;
     };
     /**

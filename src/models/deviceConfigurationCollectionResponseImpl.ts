@@ -18,7 +18,7 @@ export class DeviceConfigurationCollectionResponseImpl implements DeviceConfigur
     public constructor(deviceConfigurationCollectionResponseParameterValue?: DeviceConfigurationCollectionResponse | undefined) {
         this.additionalData = deviceConfigurationCollectionResponseParameterValue?.additionalData ? deviceConfigurationCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = deviceConfigurationCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: DeviceConfigurationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof DeviceConfigurationImpl? element : new DeviceConfigurationImpl(element));});
+        const valueArrValue: DeviceConfigurationImpl[] = []; deviceConfigurationCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof DeviceConfigurationImpl? element : new DeviceConfigurationImpl(element));});
         this.value = valueArrValue;
     };
     /**

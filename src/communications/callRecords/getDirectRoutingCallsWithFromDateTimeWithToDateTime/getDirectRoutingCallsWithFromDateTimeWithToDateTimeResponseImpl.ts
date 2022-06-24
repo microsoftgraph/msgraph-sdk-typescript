@@ -16,7 +16,7 @@ export class GetDirectRoutingCallsWithFromDateTimeWithToDateTimeResponseImpl imp
      */
     public constructor(getDirectRoutingCallsWithFromDateTimeWithToDateTimeResponseParameterValue?: GetDirectRoutingCallsWithFromDateTimeWithToDateTimeResponse | undefined) {
         this.additionalData = getDirectRoutingCallsWithFromDateTimeWithToDateTimeResponseParameterValue?.additionalData ? getDirectRoutingCallsWithFromDateTimeWithToDateTimeResponseParameterValue?.additionalData! : {};
-        const valueArrValue: DirectRoutingLogRowImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof DirectRoutingLogRowImpl? element : new DirectRoutingLogRowImpl(element));});
+        const valueArrValue: DirectRoutingLogRowImpl[] = []; getDirectRoutingCallsWithFromDateTimeWithToDateTimeResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof DirectRoutingLogRowImpl? element : new DirectRoutingLogRowImpl(element));});
         this.value = valueArrValue;
     };
     /**

@@ -6,7 +6,6 @@ import {PromptLoginBehavior} from './promptLoginBehavior';
 import {SigningCertificateUpdateStatus} from './signingCertificateUpdateStatus';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of domain entities. */
 export class InternalDomainFederationImpl extends SamlOrWsFedProviderImpl implements InternalDomainFederation {
     /** URL of the endpoint used by active clients when authenticating with federated domains set up for single sign-on in Azure Active Directory (Azure AD). Corresponds to the ActiveLogOnUri property of the Set-MsolDomainFederationSettings MSOnline v1 PowerShell cmdlet. */
     public activeSignInUri?: string | undefined;
@@ -23,7 +22,7 @@ export class InternalDomainFederationImpl extends SamlOrWsFedProviderImpl implem
     /** URI that clients are redirected to when they sign out of Azure AD services. Corresponds to the LogOffUri property of the Set-MsolDomainFederationSettings MSOnline v1 PowerShell cmdlet. */
     public signOutUri?: string | undefined;
     /**
-     * Instantiates a new internalDomainFederation and sets the default values.
+     * Instantiates a new InternalDomainFederation and sets the default values.
      * @param internalDomainFederationParameterValue 
      */
     public constructor(internalDomainFederationParameterValue?: InternalDomainFederation | undefined) {

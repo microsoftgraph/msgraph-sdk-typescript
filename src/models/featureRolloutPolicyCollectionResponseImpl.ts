@@ -18,7 +18,7 @@ export class FeatureRolloutPolicyCollectionResponseImpl implements FeatureRollou
     public constructor(featureRolloutPolicyCollectionResponseParameterValue?: FeatureRolloutPolicyCollectionResponse | undefined) {
         this.additionalData = featureRolloutPolicyCollectionResponseParameterValue?.additionalData ? featureRolloutPolicyCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = featureRolloutPolicyCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: FeatureRolloutPolicyImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof FeatureRolloutPolicyImpl? element : new FeatureRolloutPolicyImpl(element));});
+        const valueArrValue: FeatureRolloutPolicyImpl[] = []; featureRolloutPolicyCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof FeatureRolloutPolicyImpl? element : new FeatureRolloutPolicyImpl(element));});
         this.value = valueArrValue;
     };
     /**

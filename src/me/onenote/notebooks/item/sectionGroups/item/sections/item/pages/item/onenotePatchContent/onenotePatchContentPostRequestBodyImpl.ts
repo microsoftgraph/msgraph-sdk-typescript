@@ -16,7 +16,7 @@ export class OnenotePatchContentPostRequestBodyImpl implements OnenotePatchConte
      */
     public constructor(onenotePatchContentPostRequestBodyParameterValue?: OnenotePatchContentPostRequestBody | undefined) {
         this.additionalData = onenotePatchContentPostRequestBodyParameterValue?.additionalData ? onenotePatchContentPostRequestBodyParameterValue?.additionalData! : {};
-        const commandsArrValue: OnenotePatchContentCommandImpl[] = []; this.commands?.forEach(element => {commandsArrValue.push(element instanceof OnenotePatchContentCommandImpl? element : new OnenotePatchContentCommandImpl(element));});
+        const commandsArrValue: OnenotePatchContentCommandImpl[] = []; onenotePatchContentPostRequestBodyParameterValue.commands?.forEach(element => {commandsArrValue.push(element instanceof OnenotePatchContentCommandImpl? element : new OnenotePatchContentCommandImpl(element));});
         this.commands = commandsArrValue;
     };
     /**

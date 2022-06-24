@@ -18,7 +18,7 @@ export class IdentityApiConnectorCollectionResponseImpl implements IdentityApiCo
     public constructor(identityApiConnectorCollectionResponseParameterValue?: IdentityApiConnectorCollectionResponse | undefined) {
         this.additionalData = identityApiConnectorCollectionResponseParameterValue?.additionalData ? identityApiConnectorCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = identityApiConnectorCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: IdentityApiConnectorImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof IdentityApiConnectorImpl? element : new IdentityApiConnectorImpl(element));});
+        const valueArrValue: IdentityApiConnectorImpl[] = []; identityApiConnectorCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof IdentityApiConnectorImpl? element : new IdentityApiConnectorImpl(element));});
         this.value = valueArrValue;
     };
     /**

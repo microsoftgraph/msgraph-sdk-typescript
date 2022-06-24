@@ -18,7 +18,7 @@ export class MobileAppCategoryCollectionResponseImpl implements MobileAppCategor
     public constructor(mobileAppCategoryCollectionResponseParameterValue?: MobileAppCategoryCollectionResponse | undefined) {
         this.additionalData = mobileAppCategoryCollectionResponseParameterValue?.additionalData ? mobileAppCategoryCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = mobileAppCategoryCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: MobileAppCategoryImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof MobileAppCategoryImpl? element : new MobileAppCategoryImpl(element));});
+        const valueArrValue: MobileAppCategoryImpl[] = []; mobileAppCategoryCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof MobileAppCategoryImpl? element : new MobileAppCategoryImpl(element));});
         this.value = valueArrValue;
     };
     /**

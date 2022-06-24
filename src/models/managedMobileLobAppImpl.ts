@@ -4,7 +4,6 @@ import {ManagedMobileLobApp} from './managedMobileLobApp';
 import {MobileAppContent} from './mobileAppContent';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** An abstract base class containing properties for all managed mobile line of business apps. */
 export class ManagedMobileLobAppImpl extends ManagedAppImpl implements ManagedMobileLobApp {
     /** The internal committed content version. */
     public committedContentVersion?: string | undefined;
@@ -15,13 +14,13 @@ export class ManagedMobileLobAppImpl extends ManagedAppImpl implements ManagedMo
     /** The total size, including all uploaded files. */
     public size?: number | undefined;
     /**
-     * Instantiates a new managedMobileLobApp and sets the default values.
+     * Instantiates a new ManagedMobileLobApp and sets the default values.
      * @param managedMobileLobAppParameterValue 
      */
     public constructor(managedMobileLobAppParameterValue?: ManagedMobileLobApp | undefined) {
         super(managedMobileLobAppParameterValue);
         this.committedContentVersion = managedMobileLobAppParameterValue?.committedContentVersion;
-        const contentVersionsArrValue: MobileAppContentImpl[] = []; this.contentVersions?.forEach(element => {contentVersionsArrValue.push(element instanceof MobileAppContentImpl? element : new MobileAppContentImpl(element));});
+        const contentVersionsArrValue: MobileAppContentImpl[] = []; managedMobileLobAppParameterValue.contentVersions?.forEach(element => {contentVersionsArrValue.push(element instanceof MobileAppContentImpl? element : new MobileAppContentImpl(element));});
         this.contentVersions = contentVersionsArrValue;
         this.fileName = managedMobileLobAppParameterValue?.fileName;
         this.size = managedMobileLobAppParameterValue?.size;

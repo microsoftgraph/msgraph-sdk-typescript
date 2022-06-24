@@ -47,9 +47,9 @@ export class MobileAppImpl extends EntityImpl implements MobileApp {
      */
     public constructor(mobileAppParameterValue?: MobileApp | undefined) {
         super(mobileAppParameterValue);
-        const assignmentsArrValue: MobileAppAssignmentImpl[] = []; this.assignments?.forEach(element => {assignmentsArrValue.push(element instanceof MobileAppAssignmentImpl? element : new MobileAppAssignmentImpl(element));});
+        const assignmentsArrValue: MobileAppAssignmentImpl[] = []; mobileAppParameterValue.assignments?.forEach(element => {assignmentsArrValue.push(element instanceof MobileAppAssignmentImpl? element : new MobileAppAssignmentImpl(element));});
         this.assignments = assignmentsArrValue;
-        const categoriesArrValue: MobileAppCategoryImpl[] = []; this.categories?.forEach(element => {categoriesArrValue.push(element instanceof MobileAppCategoryImpl? element : new MobileAppCategoryImpl(element));});
+        const categoriesArrValue: MobileAppCategoryImpl[] = []; mobileAppParameterValue.categories?.forEach(element => {categoriesArrValue.push(element instanceof MobileAppCategoryImpl? element : new MobileAppCategoryImpl(element));});
         this.categories = categoriesArrValue;
         this.createdDateTime = mobileAppParameterValue?.createdDateTime;
         this.description = mobileAppParameterValue?.description;

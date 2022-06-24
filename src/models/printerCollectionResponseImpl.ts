@@ -18,7 +18,7 @@ export class PrinterCollectionResponseImpl implements PrinterCollectionResponse 
     public constructor(printerCollectionResponseParameterValue?: PrinterCollectionResponse | undefined) {
         this.additionalData = printerCollectionResponseParameterValue?.additionalData ? printerCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = printerCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: PrinterImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof PrinterImpl? element : new PrinterImpl(element));});
+        const valueArrValue: PrinterImpl[] = []; printerCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof PrinterImpl? element : new PrinterImpl(element));});
         this.value = valueArrValue;
     };
     /**

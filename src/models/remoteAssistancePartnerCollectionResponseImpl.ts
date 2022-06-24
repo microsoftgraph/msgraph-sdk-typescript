@@ -18,7 +18,7 @@ export class RemoteAssistancePartnerCollectionResponseImpl implements RemoteAssi
     public constructor(remoteAssistancePartnerCollectionResponseParameterValue?: RemoteAssistancePartnerCollectionResponse | undefined) {
         this.additionalData = remoteAssistancePartnerCollectionResponseParameterValue?.additionalData ? remoteAssistancePartnerCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = remoteAssistancePartnerCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: RemoteAssistancePartnerImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof RemoteAssistancePartnerImpl? element : new RemoteAssistancePartnerImpl(element));});
+        const valueArrValue: RemoteAssistancePartnerImpl[] = []; remoteAssistancePartnerCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof RemoteAssistancePartnerImpl? element : new RemoteAssistancePartnerImpl(element));});
         this.value = valueArrValue;
     };
     /**

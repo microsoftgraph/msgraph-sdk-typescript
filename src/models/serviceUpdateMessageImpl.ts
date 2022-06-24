@@ -40,7 +40,7 @@ export class ServiceUpdateMessageImpl extends ServiceAnnouncementBaseImpl implem
     public constructor(serviceUpdateMessageParameterValue?: ServiceUpdateMessage | undefined) {
         super(serviceUpdateMessageParameterValue);
         this.actionRequiredByDateTime = serviceUpdateMessageParameterValue?.actionRequiredByDateTime;
-        const attachmentsArrValue: ServiceAnnouncementAttachmentImpl[] = []; this.attachments?.forEach(element => {attachmentsArrValue.push(element instanceof ServiceAnnouncementAttachmentImpl? element : new ServiceAnnouncementAttachmentImpl(element));});
+        const attachmentsArrValue: ServiceAnnouncementAttachmentImpl[] = []; serviceUpdateMessageParameterValue.attachments?.forEach(element => {attachmentsArrValue.push(element instanceof ServiceAnnouncementAttachmentImpl? element : new ServiceAnnouncementAttachmentImpl(element));});
         this.attachments = attachmentsArrValue;
         this.attachmentsArchive = serviceUpdateMessageParameterValue?.attachmentsArchive;
         this.body = serviceUpdateMessageParameterValue?.body instanceof ItemBodyImpl? serviceUpdateMessageParameterValue?.body:new ItemBodyImpl(serviceUpdateMessageParameterValue?.body);

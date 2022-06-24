@@ -13,7 +13,7 @@ export class MicrosoftAuthenticatorAuthenticationMethodConfigurationImpl extends
      */
     public constructor(microsoftAuthenticatorAuthenticationMethodConfigurationParameterValue?: MicrosoftAuthenticatorAuthenticationMethodConfiguration | undefined) {
         super(microsoftAuthenticatorAuthenticationMethodConfigurationParameterValue);
-        const includeTargetsArrValue: MicrosoftAuthenticatorAuthenticationMethodTargetImpl[] = []; this.includeTargets?.forEach(element => {includeTargetsArrValue.push(element instanceof MicrosoftAuthenticatorAuthenticationMethodTargetImpl? element : new MicrosoftAuthenticatorAuthenticationMethodTargetImpl(element));});
+        const includeTargetsArrValue: MicrosoftAuthenticatorAuthenticationMethodTargetImpl[] = []; microsoftAuthenticatorAuthenticationMethodConfigurationParameterValue.includeTargets?.forEach(element => {includeTargetsArrValue.push(element instanceof MicrosoftAuthenticatorAuthenticationMethodTargetImpl? element : new MicrosoftAuthenticatorAuthenticationMethodTargetImpl(element));});
         this.includeTargets = includeTargetsArrValue;
     };
     /**

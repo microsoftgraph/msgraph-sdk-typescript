@@ -18,7 +18,7 @@ export class BookingAppointmentCollectionResponseImpl implements BookingAppointm
     public constructor(bookingAppointmentCollectionResponseParameterValue?: BookingAppointmentCollectionResponse | undefined) {
         this.additionalData = bookingAppointmentCollectionResponseParameterValue?.additionalData ? bookingAppointmentCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = bookingAppointmentCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: BookingAppointmentImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof BookingAppointmentImpl? element : new BookingAppointmentImpl(element));});
+        const valueArrValue: BookingAppointmentImpl[] = []; bookingAppointmentCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof BookingAppointmentImpl? element : new BookingAppointmentImpl(element));});
         this.value = valueArrValue;
     };
     /**

@@ -88,12 +88,12 @@ export class CallImpl extends EntityImpl implements Call {
      */
     public constructor(callParameterValue?: Call | undefined) {
         super(callParameterValue);
-        const audioRoutingGroupsArrValue: AudioRoutingGroupImpl[] = []; this.audioRoutingGroups?.forEach(element => {audioRoutingGroupsArrValue.push(element instanceof AudioRoutingGroupImpl? element : new AudioRoutingGroupImpl(element));});
+        const audioRoutingGroupsArrValue: AudioRoutingGroupImpl[] = []; callParameterValue.audioRoutingGroups?.forEach(element => {audioRoutingGroupsArrValue.push(element instanceof AudioRoutingGroupImpl? element : new AudioRoutingGroupImpl(element));});
         this.audioRoutingGroups = audioRoutingGroupsArrValue;
         this.callbackUri = callParameterValue?.callbackUri;
         this.callChainId = callParameterValue?.callChainId;
         this.callOptions = callParameterValue?.callOptions instanceof CallOptionsImpl? callParameterValue?.callOptions:new CallOptionsImpl(callParameterValue?.callOptions);
-        const callRoutesArrValue: CallRouteImpl[] = []; this.callRoutes?.forEach(element => {callRoutesArrValue.push(element instanceof CallRouteImpl? element : new CallRouteImpl(element));});
+        const callRoutesArrValue: CallRouteImpl[] = []; callParameterValue.callRoutes?.forEach(element => {callRoutesArrValue.push(element instanceof CallRouteImpl? element : new CallRouteImpl(element));});
         this.callRoutes = callRoutesArrValue;
         this.chatInfo = callParameterValue?.chatInfo instanceof ChatInfoImpl? callParameterValue?.chatInfo:new ChatInfoImpl(callParameterValue?.chatInfo);
         this.direction = callParameterValue?.direction;
@@ -102,16 +102,16 @@ export class CallImpl extends EntityImpl implements Call {
         this.mediaState = callParameterValue?.mediaState instanceof CallMediaStateImpl? callParameterValue?.mediaState:new CallMediaStateImpl(callParameterValue?.mediaState);
         this.meetingInfo = callParameterValue?.meetingInfo instanceof MeetingInfoImpl? callParameterValue?.meetingInfo:new MeetingInfoImpl(callParameterValue?.meetingInfo);
         this.myParticipantId = callParameterValue?.myParticipantId;
-        const operationsArrValue: CommsOperationImpl[] = []; this.operations?.forEach(element => {operationsArrValue.push(element instanceof CommsOperationImpl? element : new CommsOperationImpl(element));});
+        const operationsArrValue: CommsOperationImpl[] = []; callParameterValue.operations?.forEach(element => {operationsArrValue.push(element instanceof CommsOperationImpl? element : new CommsOperationImpl(element));});
         this.operations = operationsArrValue;
-        const participantsArrValue: ParticipantImpl[] = []; this.participants?.forEach(element => {participantsArrValue.push(element instanceof ParticipantImpl? element : new ParticipantImpl(element));});
+        const participantsArrValue: ParticipantImpl[] = []; callParameterValue.participants?.forEach(element => {participantsArrValue.push(element instanceof ParticipantImpl? element : new ParticipantImpl(element));});
         this.participants = participantsArrValue;
         this.requestedModalities = callParameterValue?.requestedModalities;
         this.resultInfo = callParameterValue?.resultInfo instanceof ResultInfoImpl? callParameterValue?.resultInfo:new ResultInfoImpl(callParameterValue?.resultInfo);
         this.source = callParameterValue?.source instanceof ParticipantInfoImpl? callParameterValue?.source:new ParticipantInfoImpl(callParameterValue?.source);
         this.state = callParameterValue?.state;
         this.subject = callParameterValue?.subject;
-        const targetsArrValue: InvitationParticipantInfoImpl[] = []; this.targets?.forEach(element => {targetsArrValue.push(element instanceof InvitationParticipantInfoImpl? element : new InvitationParticipantInfoImpl(element));});
+        const targetsArrValue: InvitationParticipantInfoImpl[] = []; callParameterValue.targets?.forEach(element => {targetsArrValue.push(element instanceof InvitationParticipantInfoImpl? element : new InvitationParticipantInfoImpl(element));});
         this.targets = targetsArrValue;
         this.tenantId = callParameterValue?.tenantId;
         this.toneInfo = callParameterValue?.toneInfo instanceof ToneInfoImpl? callParameterValue?.toneInfo:new ToneInfoImpl(callParameterValue?.toneInfo);

@@ -20,7 +20,7 @@ export class MobileLobAppImpl extends MobileAppImpl implements MobileLobApp {
     public constructor(mobileLobAppParameterValue?: MobileLobApp | undefined) {
         super(mobileLobAppParameterValue);
         this.committedContentVersion = mobileLobAppParameterValue?.committedContentVersion;
-        const contentVersionsArrValue: MobileAppContentImpl[] = []; this.contentVersions?.forEach(element => {contentVersionsArrValue.push(element instanceof MobileAppContentImpl? element : new MobileAppContentImpl(element));});
+        const contentVersionsArrValue: MobileAppContentImpl[] = []; mobileLobAppParameterValue.contentVersions?.forEach(element => {contentVersionsArrValue.push(element instanceof MobileAppContentImpl? element : new MobileAppContentImpl(element));});
         this.contentVersions = contentVersionsArrValue;
         this.fileName = mobileLobAppParameterValue?.fileName;
         this.size = mobileLobAppParameterValue?.size;

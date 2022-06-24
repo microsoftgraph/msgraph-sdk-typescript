@@ -16,7 +16,7 @@ export class GetPstnCallsWithFromDateTimeWithToDateTimeResponseImpl implements G
      */
     public constructor(getPstnCallsWithFromDateTimeWithToDateTimeResponseParameterValue?: GetPstnCallsWithFromDateTimeWithToDateTimeResponse | undefined) {
         this.additionalData = getPstnCallsWithFromDateTimeWithToDateTimeResponseParameterValue?.additionalData ? getPstnCallsWithFromDateTimeWithToDateTimeResponseParameterValue?.additionalData! : {};
-        const valueArrValue: PstnCallLogRowImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof PstnCallLogRowImpl? element : new PstnCallLogRowImpl(element));});
+        const valueArrValue: PstnCallLogRowImpl[] = []; getPstnCallsWithFromDateTimeWithToDateTimeResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof PstnCallLogRowImpl? element : new PstnCallLogRowImpl(element));});
         this.value = valueArrValue;
     };
     /**

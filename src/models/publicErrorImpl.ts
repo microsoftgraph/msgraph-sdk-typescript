@@ -26,7 +26,7 @@ export class PublicErrorImpl implements PublicError {
     public constructor(publicErrorParameterValue?: PublicError | undefined) {
         this.additionalData = publicErrorParameterValue?.additionalData ? publicErrorParameterValue?.additionalData! : {};
         this.code = publicErrorParameterValue?.code;
-        const detailsArrValue: PublicErrorDetailImpl[] = []; this.details?.forEach(element => {detailsArrValue.push(element instanceof PublicErrorDetailImpl? element : new PublicErrorDetailImpl(element));});
+        const detailsArrValue: PublicErrorDetailImpl[] = []; publicErrorParameterValue.details?.forEach(element => {detailsArrValue.push(element instanceof PublicErrorDetailImpl? element : new PublicErrorDetailImpl(element));});
         this.details = detailsArrValue;
         this.innerError = publicErrorParameterValue?.innerError instanceof PublicInnerErrorImpl? publicErrorParameterValue?.innerError:new PublicInnerErrorImpl(publicErrorParameterValue?.innerError);
         this.message = publicErrorParameterValue?.message;

@@ -16,7 +16,7 @@ export class RecentResponseImpl implements RecentResponse {
      */
     public constructor(recentResponseParameterValue?: RecentResponse | undefined) {
         this.additionalData = recentResponseParameterValue?.additionalData ? recentResponseParameterValue?.additionalData! : {};
-        const valueArrValue: DriveItemImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof DriveItemImpl? element : new DriveItemImpl(element));});
+        const valueArrValue: DriveItemImpl[] = []; recentResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof DriveItemImpl? element : new DriveItemImpl(element));});
         this.value = valueArrValue;
     };
     /**

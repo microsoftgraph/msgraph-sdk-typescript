@@ -24,7 +24,7 @@ export class DetectedAppImpl extends EntityImpl implements DetectedApp {
         super(detectedAppParameterValue);
         this.deviceCount = detectedAppParameterValue?.deviceCount;
         this.displayName = detectedAppParameterValue?.displayName;
-        const managedDevicesArrValue: ManagedDeviceImpl[] = []; this.managedDevices?.forEach(element => {managedDevicesArrValue.push(element instanceof ManagedDeviceImpl? element : new ManagedDeviceImpl(element));});
+        const managedDevicesArrValue: ManagedDeviceImpl[] = []; detectedAppParameterValue.managedDevices?.forEach(element => {managedDevicesArrValue.push(element instanceof ManagedDeviceImpl? element : new ManagedDeviceImpl(element));});
         this.managedDevices = managedDevicesArrValue;
         this.sizeInByte = detectedAppParameterValue?.sizeInByte;
         this.version = detectedAppParameterValue?.version;

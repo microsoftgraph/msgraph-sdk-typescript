@@ -19,7 +19,7 @@ export class ServiceHealthImpl extends EntityImpl implements ServiceHealth {
      */
     public constructor(serviceHealthParameterValue?: ServiceHealth | undefined) {
         super(serviceHealthParameterValue);
-        const issuesArrValue: ServiceHealthIssueImpl[] = []; this.issues?.forEach(element => {issuesArrValue.push(element instanceof ServiceHealthIssueImpl? element : new ServiceHealthIssueImpl(element));});
+        const issuesArrValue: ServiceHealthIssueImpl[] = []; serviceHealthParameterValue.issues?.forEach(element => {issuesArrValue.push(element instanceof ServiceHealthIssueImpl? element : new ServiceHealthIssueImpl(element));});
         this.issues = issuesArrValue;
         this.service = serviceHealthParameterValue?.service;
         this.status = serviceHealthParameterValue?.status;

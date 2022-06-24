@@ -18,7 +18,7 @@ export class AdministrativeUnitCollectionResponseImpl implements AdministrativeU
     public constructor(administrativeUnitCollectionResponseParameterValue?: AdministrativeUnitCollectionResponse | undefined) {
         this.additionalData = administrativeUnitCollectionResponseParameterValue?.additionalData ? administrativeUnitCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = administrativeUnitCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: AdministrativeUnitImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof AdministrativeUnitImpl? element : new AdministrativeUnitImpl(element));});
+        const valueArrValue: AdministrativeUnitImpl[] = []; administrativeUnitCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof AdministrativeUnitImpl? element : new AdministrativeUnitImpl(element));});
         this.value = valueArrValue;
     };
     /**

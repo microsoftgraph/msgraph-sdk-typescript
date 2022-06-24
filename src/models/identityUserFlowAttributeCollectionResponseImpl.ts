@@ -18,7 +18,7 @@ export class IdentityUserFlowAttributeCollectionResponseImpl implements Identity
     public constructor(identityUserFlowAttributeCollectionResponseParameterValue?: IdentityUserFlowAttributeCollectionResponse | undefined) {
         this.additionalData = identityUserFlowAttributeCollectionResponseParameterValue?.additionalData ? identityUserFlowAttributeCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = identityUserFlowAttributeCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: IdentityUserFlowAttributeImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof IdentityUserFlowAttributeImpl? element : new IdentityUserFlowAttributeImpl(element));});
+        const valueArrValue: IdentityUserFlowAttributeImpl[] = []; identityUserFlowAttributeCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof IdentityUserFlowAttributeImpl? element : new IdentityUserFlowAttributeImpl(element));});
         this.value = valueArrValue;
     };
     /**

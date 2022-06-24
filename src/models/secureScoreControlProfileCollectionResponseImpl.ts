@@ -18,7 +18,7 @@ export class SecureScoreControlProfileCollectionResponseImpl implements SecureSc
     public constructor(secureScoreControlProfileCollectionResponseParameterValue?: SecureScoreControlProfileCollectionResponse | undefined) {
         this.additionalData = secureScoreControlProfileCollectionResponseParameterValue?.additionalData ? secureScoreControlProfileCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = secureScoreControlProfileCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: SecureScoreControlProfileImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof SecureScoreControlProfileImpl? element : new SecureScoreControlProfileImpl(element));});
+        const valueArrValue: SecureScoreControlProfileImpl[] = []; secureScoreControlProfileCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof SecureScoreControlProfileImpl? element : new SecureScoreControlProfileImpl(element));});
         this.value = valueArrValue;
     };
     /**

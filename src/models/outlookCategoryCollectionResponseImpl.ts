@@ -18,7 +18,7 @@ export class OutlookCategoryCollectionResponseImpl implements OutlookCategoryCol
     public constructor(outlookCategoryCollectionResponseParameterValue?: OutlookCategoryCollectionResponse | undefined) {
         this.additionalData = outlookCategoryCollectionResponseParameterValue?.additionalData ? outlookCategoryCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = outlookCategoryCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: OutlookCategoryImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof OutlookCategoryImpl? element : new OutlookCategoryImpl(element));});
+        const valueArrValue: OutlookCategoryImpl[] = []; outlookCategoryCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof OutlookCategoryImpl? element : new OutlookCategoryImpl(element));});
         this.value = valueArrValue;
     };
     /**

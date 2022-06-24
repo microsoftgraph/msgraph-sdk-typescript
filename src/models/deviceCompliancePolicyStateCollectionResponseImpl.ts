@@ -18,7 +18,7 @@ export class DeviceCompliancePolicyStateCollectionResponseImpl implements Device
     public constructor(deviceCompliancePolicyStateCollectionResponseParameterValue?: DeviceCompliancePolicyStateCollectionResponse | undefined) {
         this.additionalData = deviceCompliancePolicyStateCollectionResponseParameterValue?.additionalData ? deviceCompliancePolicyStateCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = deviceCompliancePolicyStateCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: DeviceCompliancePolicyStateImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof DeviceCompliancePolicyStateImpl? element : new DeviceCompliancePolicyStateImpl(element));});
+        const valueArrValue: DeviceCompliancePolicyStateImpl[] = []; deviceCompliancePolicyStateCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof DeviceCompliancePolicyStateImpl? element : new DeviceCompliancePolicyStateImpl(element));});
         this.value = valueArrValue;
     };
     /**

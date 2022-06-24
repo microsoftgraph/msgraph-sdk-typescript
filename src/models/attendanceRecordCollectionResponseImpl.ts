@@ -18,7 +18,7 @@ export class AttendanceRecordCollectionResponseImpl implements AttendanceRecordC
     public constructor(attendanceRecordCollectionResponseParameterValue?: AttendanceRecordCollectionResponse | undefined) {
         this.additionalData = attendanceRecordCollectionResponseParameterValue?.additionalData ? attendanceRecordCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = attendanceRecordCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: AttendanceRecordImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof AttendanceRecordImpl? element : new AttendanceRecordImpl(element));});
+        const valueArrValue: AttendanceRecordImpl[] = []; attendanceRecordCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof AttendanceRecordImpl? element : new AttendanceRecordImpl(element));});
         this.value = valueArrValue;
     };
     /**

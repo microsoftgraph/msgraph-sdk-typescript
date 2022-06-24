@@ -2,7 +2,7 @@ import {ScheduleEntityImpl} from './index';
 import {TimeOffItem} from './timeOffItem';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to group. */
+/** Provides operations to manage the collection of application entities. */
 export class TimeOffItemImpl extends ScheduleEntityImpl implements TimeOffItem {
     /** ID of the timeOffReason for this timeOffItem. Required. */
     public timeOffReasonId?: string | undefined;

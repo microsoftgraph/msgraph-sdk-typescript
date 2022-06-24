@@ -18,7 +18,7 @@ export class UserFlowLanguagePageCollectionResponseImpl implements UserFlowLangu
     public constructor(userFlowLanguagePageCollectionResponseParameterValue?: UserFlowLanguagePageCollectionResponse | undefined) {
         this.additionalData = userFlowLanguagePageCollectionResponseParameterValue?.additionalData ? userFlowLanguagePageCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = userFlowLanguagePageCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: UserFlowLanguagePageImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof UserFlowLanguagePageImpl? element : new UserFlowLanguagePageImpl(element));});
+        const valueArrValue: UserFlowLanguagePageImpl[] = []; userFlowLanguagePageCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof UserFlowLanguagePageImpl? element : new UserFlowLanguagePageImpl(element));});
         this.value = valueArrValue;
     };
     /**

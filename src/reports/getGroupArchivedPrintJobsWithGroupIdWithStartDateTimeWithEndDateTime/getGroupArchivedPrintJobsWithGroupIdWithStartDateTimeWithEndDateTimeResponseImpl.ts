@@ -16,7 +16,7 @@ export class GetGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTim
      */
     public constructor(getGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTimeResponseParameterValue?: GetGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTimeResponse | undefined) {
         this.additionalData = getGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTimeResponseParameterValue?.additionalData ? getGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTimeResponseParameterValue?.additionalData! : {};
-        const valueArrValue: ArchivedPrintJobImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ArchivedPrintJobImpl? element : new ArchivedPrintJobImpl(element));});
+        const valueArrValue: ArchivedPrintJobImpl[] = []; getGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTimeResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof ArchivedPrintJobImpl? element : new ArchivedPrintJobImpl(element));});
         this.value = valueArrValue;
     };
     /**

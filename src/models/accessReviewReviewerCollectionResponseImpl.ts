@@ -18,7 +18,7 @@ export class AccessReviewReviewerCollectionResponseImpl implements AccessReviewR
     public constructor(accessReviewReviewerCollectionResponseParameterValue?: AccessReviewReviewerCollectionResponse | undefined) {
         this.additionalData = accessReviewReviewerCollectionResponseParameterValue?.additionalData ? accessReviewReviewerCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = accessReviewReviewerCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: AccessReviewReviewerImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof AccessReviewReviewerImpl? element : new AccessReviewReviewerImpl(element));});
+        const valueArrValue: AccessReviewReviewerImpl[] = []; accessReviewReviewerCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof AccessReviewReviewerImpl? element : new AccessReviewReviewerImpl(element));});
         this.value = valueArrValue;
     };
     /**

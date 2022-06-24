@@ -18,7 +18,7 @@ export class DeviceConfigurationStateCollectionResponseImpl implements DeviceCon
     public constructor(deviceConfigurationStateCollectionResponseParameterValue?: DeviceConfigurationStateCollectionResponse | undefined) {
         this.additionalData = deviceConfigurationStateCollectionResponseParameterValue?.additionalData ? deviceConfigurationStateCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = deviceConfigurationStateCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: DeviceConfigurationStateImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof DeviceConfigurationStateImpl? element : new DeviceConfigurationStateImpl(element));});
+        const valueArrValue: DeviceConfigurationStateImpl[] = []; deviceConfigurationStateCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof DeviceConfigurationStateImpl? element : new DeviceConfigurationStateImpl(element));});
         this.value = valueArrValue;
     };
     /**

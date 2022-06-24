@@ -71,10 +71,10 @@ export class EducationClassImpl extends EntityImpl implements EducationClass {
      */
     public constructor(educationClassParameterValue?: EducationClass | undefined) {
         super(educationClassParameterValue);
-        const assignmentCategoriesArrValue: EducationCategoryImpl[] = []; this.assignmentCategories?.forEach(element => {assignmentCategoriesArrValue.push(element instanceof EducationCategoryImpl? element : new EducationCategoryImpl(element));});
+        const assignmentCategoriesArrValue: EducationCategoryImpl[] = []; educationClassParameterValue.assignmentCategories?.forEach(element => {assignmentCategoriesArrValue.push(element instanceof EducationCategoryImpl? element : new EducationCategoryImpl(element));});
         this.assignmentCategories = assignmentCategoriesArrValue;
         this.assignmentDefaults = educationClassParameterValue?.assignmentDefaults instanceof EducationAssignmentDefaultsImpl? educationClassParameterValue?.assignmentDefaults:new EducationAssignmentDefaultsImpl(educationClassParameterValue?.assignmentDefaults);
-        const assignmentsArrValue: EducationAssignmentImpl[] = []; this.assignments?.forEach(element => {assignmentsArrValue.push(element instanceof EducationAssignmentImpl? element : new EducationAssignmentImpl(element));});
+        const assignmentsArrValue: EducationAssignmentImpl[] = []; educationClassParameterValue.assignments?.forEach(element => {assignmentsArrValue.push(element instanceof EducationAssignmentImpl? element : new EducationAssignmentImpl(element));});
         this.assignments = assignmentsArrValue;
         this.assignmentSettings = educationClassParameterValue?.assignmentSettings instanceof EducationAssignmentSettingsImpl? educationClassParameterValue?.assignmentSettings:new EducationAssignmentSettingsImpl(educationClassParameterValue?.assignmentSettings);
         this.classCode = educationClassParameterValue?.classCode;
@@ -89,11 +89,11 @@ export class EducationClassImpl extends EntityImpl implements EducationClass {
         this.grade = educationClassParameterValue?.grade;
         this.group = educationClassParameterValue?.group instanceof GroupImpl? educationClassParameterValue?.group:new GroupImpl(educationClassParameterValue?.group);
         this.mailNickname = educationClassParameterValue?.mailNickname;
-        const membersArrValue: EducationUserImpl[] = []; this.members?.forEach(element => {membersArrValue.push(element instanceof EducationUserImpl? element : new EducationUserImpl(element));});
+        const membersArrValue: EducationUserImpl[] = []; educationClassParameterValue.members?.forEach(element => {membersArrValue.push(element instanceof EducationUserImpl? element : new EducationUserImpl(element));});
         this.members = membersArrValue;
-        const schoolsArrValue: EducationSchoolImpl[] = []; this.schools?.forEach(element => {schoolsArrValue.push(element instanceof EducationSchoolImpl? element : new EducationSchoolImpl(element));});
+        const schoolsArrValue: EducationSchoolImpl[] = []; educationClassParameterValue.schools?.forEach(element => {schoolsArrValue.push(element instanceof EducationSchoolImpl? element : new EducationSchoolImpl(element));});
         this.schools = schoolsArrValue;
-        const teachersArrValue: EducationUserImpl[] = []; this.teachers?.forEach(element => {teachersArrValue.push(element instanceof EducationUserImpl? element : new EducationUserImpl(element));});
+        const teachersArrValue: EducationUserImpl[] = []; educationClassParameterValue.teachers?.forEach(element => {teachersArrValue.push(element instanceof EducationUserImpl? element : new EducationUserImpl(element));});
         this.teachers = teachersArrValue;
         this.term = educationClassParameterValue?.term instanceof EducationTermImpl? educationClassParameterValue?.term:new EducationTermImpl(educationClassParameterValue?.term);
     };

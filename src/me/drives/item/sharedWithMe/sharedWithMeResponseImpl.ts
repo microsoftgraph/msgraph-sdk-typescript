@@ -16,7 +16,7 @@ export class SharedWithMeResponseImpl implements SharedWithMeResponse {
      */
     public constructor(sharedWithMeResponseParameterValue?: SharedWithMeResponse | undefined) {
         this.additionalData = sharedWithMeResponseParameterValue?.additionalData ? sharedWithMeResponseParameterValue?.additionalData! : {};
-        const valueArrValue: DriveItemImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof DriveItemImpl? element : new DriveItemImpl(element));});
+        const valueArrValue: DriveItemImpl[] = []; sharedWithMeResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof DriveItemImpl? element : new DriveItemImpl(element));});
         this.value = valueArrValue;
     };
     /**

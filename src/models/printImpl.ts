@@ -39,18 +39,18 @@ export class PrintImpl implements Print {
      */
     public constructor(printParameterValue?: Print | undefined) {
         this.additionalData = printParameterValue?.additionalData ? printParameterValue?.additionalData! : {};
-        const connectorsArrValue: PrintConnectorImpl[] = []; this.connectors?.forEach(element => {connectorsArrValue.push(element instanceof PrintConnectorImpl? element : new PrintConnectorImpl(element));});
+        const connectorsArrValue: PrintConnectorImpl[] = []; printParameterValue.connectors?.forEach(element => {connectorsArrValue.push(element instanceof PrintConnectorImpl? element : new PrintConnectorImpl(element));});
         this.connectors = connectorsArrValue;
-        const operationsArrValue: PrintOperationImpl[] = []; this.operations?.forEach(element => {operationsArrValue.push(element instanceof PrintOperationImpl? element : new PrintOperationImpl(element));});
+        const operationsArrValue: PrintOperationImpl[] = []; printParameterValue.operations?.forEach(element => {operationsArrValue.push(element instanceof PrintOperationImpl? element : new PrintOperationImpl(element));});
         this.operations = operationsArrValue;
-        const printersArrValue: PrinterImpl[] = []; this.printers?.forEach(element => {printersArrValue.push(element instanceof PrinterImpl? element : new PrinterImpl(element));});
+        const printersArrValue: PrinterImpl[] = []; printParameterValue.printers?.forEach(element => {printersArrValue.push(element instanceof PrinterImpl? element : new PrinterImpl(element));});
         this.printers = printersArrValue;
-        const servicesArrValue: PrintServiceImpl[] = []; this.services?.forEach(element => {servicesArrValue.push(element instanceof PrintServiceImpl? element : new PrintServiceImpl(element));});
+        const servicesArrValue: PrintServiceImpl[] = []; printParameterValue.services?.forEach(element => {servicesArrValue.push(element instanceof PrintServiceImpl? element : new PrintServiceImpl(element));});
         this.services = servicesArrValue;
         this.settings = printParameterValue?.settings instanceof PrintSettingsImpl? printParameterValue?.settings:new PrintSettingsImpl(printParameterValue?.settings);
-        const sharesArrValue: PrinterShareImpl[] = []; this.shares?.forEach(element => {sharesArrValue.push(element instanceof PrinterShareImpl? element : new PrinterShareImpl(element));});
+        const sharesArrValue: PrinterShareImpl[] = []; printParameterValue.shares?.forEach(element => {sharesArrValue.push(element instanceof PrinterShareImpl? element : new PrinterShareImpl(element));});
         this.shares = sharesArrValue;
-        const taskDefinitionsArrValue: PrintTaskDefinitionImpl[] = []; this.taskDefinitions?.forEach(element => {taskDefinitionsArrValue.push(element instanceof PrintTaskDefinitionImpl? element : new PrintTaskDefinitionImpl(element));});
+        const taskDefinitionsArrValue: PrintTaskDefinitionImpl[] = []; printParameterValue.taskDefinitions?.forEach(element => {taskDefinitionsArrValue.push(element instanceof PrintTaskDefinitionImpl? element : new PrintTaskDefinitionImpl(element));});
         this.taskDefinitions = taskDefinitionsArrValue;
     };
     /**

@@ -18,7 +18,7 @@ export class DeviceComplianceUserStatusCollectionResponseImpl implements DeviceC
     public constructor(deviceComplianceUserStatusCollectionResponseParameterValue?: DeviceComplianceUserStatusCollectionResponse | undefined) {
         this.additionalData = deviceComplianceUserStatusCollectionResponseParameterValue?.additionalData ? deviceComplianceUserStatusCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = deviceComplianceUserStatusCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: DeviceComplianceUserStatusImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof DeviceComplianceUserStatusImpl? element : new DeviceComplianceUserStatusImpl(element));});
+        const valueArrValue: DeviceComplianceUserStatusImpl[] = []; deviceComplianceUserStatusCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof DeviceComplianceUserStatusImpl? element : new DeviceComplianceUserStatusImpl(element));});
         this.value = valueArrValue;
     };
     /**

@@ -21,7 +21,7 @@ export class RedirectPostRequestBodyImpl implements RedirectPostRequestBody {
     public constructor(redirectPostRequestBodyParameterValue?: RedirectPostRequestBody | undefined) {
         this.additionalData = redirectPostRequestBodyParameterValue?.additionalData ? redirectPostRequestBodyParameterValue?.additionalData! : {};
         this.callbackUri = redirectPostRequestBodyParameterValue?.callbackUri;
-        const targetsArrValue: InvitationParticipantInfoImpl[] = []; this.targets?.forEach(element => {targetsArrValue.push(element instanceof InvitationParticipantInfoImpl? element : new InvitationParticipantInfoImpl(element));});
+        const targetsArrValue: InvitationParticipantInfoImpl[] = []; redirectPostRequestBodyParameterValue.targets?.forEach(element => {targetsArrValue.push(element instanceof InvitationParticipantInfoImpl? element : new InvitationParticipantInfoImpl(element));});
         this.targets = targetsArrValue;
         this.timeout = redirectPostRequestBodyParameterValue?.timeout;
     };

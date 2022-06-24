@@ -18,7 +18,7 @@ export class AndroidManagedAppProtectionCollectionResponseImpl implements Androi
     public constructor(androidManagedAppProtectionCollectionResponseParameterValue?: AndroidManagedAppProtectionCollectionResponse | undefined) {
         this.additionalData = androidManagedAppProtectionCollectionResponseParameterValue?.additionalData ? androidManagedAppProtectionCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = androidManagedAppProtectionCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: AndroidManagedAppProtectionImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof AndroidManagedAppProtectionImpl? element : new AndroidManagedAppProtectionImpl(element));});
+        const valueArrValue: AndroidManagedAppProtectionImpl[] = []; androidManagedAppProtectionCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof AndroidManagedAppProtectionImpl? element : new AndroidManagedAppProtectionImpl(element));});
         this.value = valueArrValue;
     };
     /**

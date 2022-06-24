@@ -18,7 +18,7 @@ export class SubscriptionCollectionResponseImpl implements SubscriptionCollectio
     public constructor(subscriptionCollectionResponseParameterValue?: SubscriptionCollectionResponse | undefined) {
         this.additionalData = subscriptionCollectionResponseParameterValue?.additionalData ? subscriptionCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = subscriptionCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: SubscriptionImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof SubscriptionImpl? element : new SubscriptionImpl(element));});
+        const valueArrValue: SubscriptionImpl[] = []; subscriptionCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof SubscriptionImpl? element : new SubscriptionImpl(element));});
         this.value = valueArrValue;
     };
     /**

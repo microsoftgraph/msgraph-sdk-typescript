@@ -16,7 +16,7 @@ export class SearchWithQResponseImpl implements SearchWithQResponse {
      */
     public constructor(searchWithQResponseParameterValue?: SearchWithQResponse | undefined) {
         this.additionalData = searchWithQResponseParameterValue?.additionalData ? searchWithQResponseParameterValue?.additionalData! : {};
-        const valueArrValue: DriveItemImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof DriveItemImpl? element : new DriveItemImpl(element));});
+        const valueArrValue: DriveItemImpl[] = []; searchWithQResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof DriveItemImpl? element : new DriveItemImpl(element));});
         this.value = valueArrValue;
     };
     /**

@@ -16,7 +16,7 @@ export class IosMobileAppConfigurationImpl extends ManagedDeviceMobileAppConfigu
     public constructor(iosMobileAppConfigurationParameterValue?: IosMobileAppConfiguration | undefined) {
         super(iosMobileAppConfigurationParameterValue);
         this.encodedSettingXml = iosMobileAppConfigurationParameterValue?.encodedSettingXml;
-        const settingsArrValue: AppConfigurationSettingItemImpl[] = []; this.settings?.forEach(element => {settingsArrValue.push(element instanceof AppConfigurationSettingItemImpl? element : new AppConfigurationSettingItemImpl(element));});
+        const settingsArrValue: AppConfigurationSettingItemImpl[] = []; iosMobileAppConfigurationParameterValue.settings?.forEach(element => {settingsArrValue.push(element instanceof AppConfigurationSettingItemImpl? element : new AppConfigurationSettingItemImpl(element));});
         this.settings = settingsArrValue;
     };
     /**

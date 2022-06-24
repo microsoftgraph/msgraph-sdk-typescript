@@ -18,7 +18,7 @@ export class UsedInsightCollectionResponseImpl implements UsedInsightCollectionR
     public constructor(usedInsightCollectionResponseParameterValue?: UsedInsightCollectionResponse | undefined) {
         this.additionalData = usedInsightCollectionResponseParameterValue?.additionalData ? usedInsightCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = usedInsightCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: UsedInsightImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof UsedInsightImpl? element : new UsedInsightImpl(element));});
+        const valueArrValue: UsedInsightImpl[] = []; usedInsightCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof UsedInsightImpl? element : new UsedInsightImpl(element));});
         this.value = valueArrValue;
     };
     /**

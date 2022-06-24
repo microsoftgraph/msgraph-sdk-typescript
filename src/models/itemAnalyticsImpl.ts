@@ -19,7 +19,7 @@ export class ItemAnalyticsImpl extends EntityImpl implements ItemAnalytics {
     public constructor(itemAnalyticsParameterValue?: ItemAnalytics | undefined) {
         super(itemAnalyticsParameterValue);
         this.allTime = itemAnalyticsParameterValue?.allTime instanceof ItemActivityStatImpl? itemAnalyticsParameterValue?.allTime:new ItemActivityStatImpl(itemAnalyticsParameterValue?.allTime);
-        const itemActivityStatsArrValue: ItemActivityStatImpl[] = []; this.itemActivityStats?.forEach(element => {itemActivityStatsArrValue.push(element instanceof ItemActivityStatImpl? element : new ItemActivityStatImpl(element));});
+        const itemActivityStatsArrValue: ItemActivityStatImpl[] = []; itemAnalyticsParameterValue.itemActivityStats?.forEach(element => {itemActivityStatsArrValue.push(element instanceof ItemActivityStatImpl? element : new ItemActivityStatImpl(element));});
         this.itemActivityStats = itemActivityStatsArrValue;
         this.lastSevenDays = itemAnalyticsParameterValue?.lastSevenDays instanceof ItemActivityStatImpl? itemAnalyticsParameterValue?.lastSevenDays:new ItemActivityStatImpl(itemAnalyticsParameterValue?.lastSevenDays);
     };

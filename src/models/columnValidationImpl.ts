@@ -20,7 +20,7 @@ export class ColumnValidationImpl implements ColumnValidation {
     public constructor(columnValidationParameterValue?: ColumnValidation | undefined) {
         this.additionalData = columnValidationParameterValue?.additionalData ? columnValidationParameterValue?.additionalData! : {};
         this.defaultLanguage = columnValidationParameterValue?.defaultLanguage;
-        const descriptionsArrValue: DisplayNameLocalizationImpl[] = []; this.descriptions?.forEach(element => {descriptionsArrValue.push(element instanceof DisplayNameLocalizationImpl? element : new DisplayNameLocalizationImpl(element));});
+        const descriptionsArrValue: DisplayNameLocalizationImpl[] = []; columnValidationParameterValue.descriptions?.forEach(element => {descriptionsArrValue.push(element instanceof DisplayNameLocalizationImpl? element : new DisplayNameLocalizationImpl(element));});
         this.descriptions = descriptionsArrValue;
         this.formula = columnValidationParameterValue?.formula;
     };

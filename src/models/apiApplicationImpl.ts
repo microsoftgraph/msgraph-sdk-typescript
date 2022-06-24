@@ -27,9 +27,9 @@ export class ApiApplicationImpl implements ApiApplication {
         this.acceptMappedClaims = apiApplicationParameterValue?.acceptMappedClaims;
         this.additionalData = apiApplicationParameterValue?.additionalData ? apiApplicationParameterValue?.additionalData! : {};
         this.knownClientApplications = apiApplicationParameterValue?.knownClientApplications;
-        const oauth2PermissionScopesArrValue: PermissionScopeImpl[] = []; this.oauth2PermissionScopes?.forEach(element => {oauth2PermissionScopesArrValue.push(element instanceof PermissionScopeImpl? element : new PermissionScopeImpl(element));});
+        const oauth2PermissionScopesArrValue: PermissionScopeImpl[] = []; apiApplicationParameterValue.oauth2PermissionScopes?.forEach(element => {oauth2PermissionScopesArrValue.push(element instanceof PermissionScopeImpl? element : new PermissionScopeImpl(element));});
         this.oauth2PermissionScopes = oauth2PermissionScopesArrValue;
-        const preAuthorizedApplicationsArrValue: PreAuthorizedApplicationImpl[] = []; this.preAuthorizedApplications?.forEach(element => {preAuthorizedApplicationsArrValue.push(element instanceof PreAuthorizedApplicationImpl? element : new PreAuthorizedApplicationImpl(element));});
+        const preAuthorizedApplicationsArrValue: PreAuthorizedApplicationImpl[] = []; apiApplicationParameterValue.preAuthorizedApplications?.forEach(element => {preAuthorizedApplicationsArrValue.push(element instanceof PreAuthorizedApplicationImpl? element : new PreAuthorizedApplicationImpl(element));});
         this.preAuthorizedApplications = preAuthorizedApplicationsArrValue;
         this.requestedAccessTokenVersion = apiApplicationParameterValue?.requestedAccessTokenVersion;
     };

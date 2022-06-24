@@ -16,7 +16,7 @@ export class GetEffectivePermissionsWithScopeResponseImpl implements GetEffectiv
      */
     public constructor(getEffectivePermissionsWithScopeResponseParameterValue?: GetEffectivePermissionsWithScopeResponse | undefined) {
         this.additionalData = getEffectivePermissionsWithScopeResponseParameterValue?.additionalData ? getEffectivePermissionsWithScopeResponseParameterValue?.additionalData! : {};
-        const valueArrValue: RolePermissionImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof RolePermissionImpl? element : new RolePermissionImpl(element));});
+        const valueArrValue: RolePermissionImpl[] = []; getEffectivePermissionsWithScopeResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof RolePermissionImpl? element : new RolePermissionImpl(element));});
         this.value = valueArrValue;
     };
     /**

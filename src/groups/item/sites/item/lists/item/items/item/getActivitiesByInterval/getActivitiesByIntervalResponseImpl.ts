@@ -16,7 +16,7 @@ export class GetActivitiesByIntervalResponseImpl implements GetActivitiesByInter
      */
     public constructor(getActivitiesByIntervalResponseParameterValue?: GetActivitiesByIntervalResponse | undefined) {
         this.additionalData = getActivitiesByIntervalResponseParameterValue?.additionalData ? getActivitiesByIntervalResponseParameterValue?.additionalData! : {};
-        const valueArrValue: ItemActivityStatImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ItemActivityStatImpl? element : new ItemActivityStatImpl(element));});
+        const valueArrValue: ItemActivityStatImpl[] = []; getActivitiesByIntervalResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof ItemActivityStatImpl? element : new ItemActivityStatImpl(element));});
         this.value = valueArrValue;
     };
     /**

@@ -32,16 +32,16 @@ export class ConversationThreadImpl extends EntityImpl implements ConversationTh
      */
     public constructor(conversationThreadParameterValue?: ConversationThread | undefined) {
         super(conversationThreadParameterValue);
-        const ccRecipientsArrValue: RecipientImpl[] = []; this.ccRecipients?.forEach(element => {ccRecipientsArrValue.push(element instanceof RecipientImpl? element : new RecipientImpl(element));});
+        const ccRecipientsArrValue: RecipientImpl[] = []; conversationThreadParameterValue.ccRecipients?.forEach(element => {ccRecipientsArrValue.push(element instanceof RecipientImpl? element : new RecipientImpl(element));});
         this.ccRecipients = ccRecipientsArrValue;
         this.hasAttachments = conversationThreadParameterValue?.hasAttachments;
         this.isLocked = conversationThreadParameterValue?.isLocked;
         this.lastDeliveredDateTime = conversationThreadParameterValue?.lastDeliveredDateTime;
-        const postsArrValue: PostImpl[] = []; this.posts?.forEach(element => {postsArrValue.push(element instanceof PostImpl? element : new PostImpl(element));});
+        const postsArrValue: PostImpl[] = []; conversationThreadParameterValue.posts?.forEach(element => {postsArrValue.push(element instanceof PostImpl? element : new PostImpl(element));});
         this.posts = postsArrValue;
         this.preview = conversationThreadParameterValue?.preview;
         this.topic = conversationThreadParameterValue?.topic;
-        const toRecipientsArrValue: RecipientImpl[] = []; this.toRecipients?.forEach(element => {toRecipientsArrValue.push(element instanceof RecipientImpl? element : new RecipientImpl(element));});
+        const toRecipientsArrValue: RecipientImpl[] = []; conversationThreadParameterValue.toRecipients?.forEach(element => {toRecipientsArrValue.push(element instanceof RecipientImpl? element : new RecipientImpl(element));});
         this.toRecipients = toRecipientsArrValue;
         this.uniqueSenders = conversationThreadParameterValue?.uniqueSenders;
     };

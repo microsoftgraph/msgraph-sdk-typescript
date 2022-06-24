@@ -27,7 +27,7 @@ export class OnlineMeetingInfoImpl implements OnlineMeetingInfo {
         this.additionalData = onlineMeetingInfoParameterValue?.additionalData ? onlineMeetingInfoParameterValue?.additionalData! : {};
         this.conferenceId = onlineMeetingInfoParameterValue?.conferenceId;
         this.joinUrl = onlineMeetingInfoParameterValue?.joinUrl;
-        const phonesArrValue: PhoneImpl[] = []; this.phones?.forEach(element => {phonesArrValue.push(element instanceof PhoneImpl? element : new PhoneImpl(element));});
+        const phonesArrValue: PhoneImpl[] = []; onlineMeetingInfoParameterValue.phones?.forEach(element => {phonesArrValue.push(element instanceof PhoneImpl? element : new PhoneImpl(element));});
         this.phones = phonesArrValue;
         this.quickDial = onlineMeetingInfoParameterValue?.quickDial;
         this.tollFreeNumbers = onlineMeetingInfoParameterValue?.tollFreeNumbers;

@@ -38,7 +38,7 @@ export class ServiceHealthIssueImpl extends ServiceAnnouncementBaseImpl implemen
         this.impactDescription = serviceHealthIssueParameterValue?.impactDescription;
         this.isResolved = serviceHealthIssueParameterValue?.isResolved;
         this.origin = serviceHealthIssueParameterValue?.origin;
-        const postsArrValue: ServiceHealthIssuePostImpl[] = []; this.posts?.forEach(element => {postsArrValue.push(element instanceof ServiceHealthIssuePostImpl? element : new ServiceHealthIssuePostImpl(element));});
+        const postsArrValue: ServiceHealthIssuePostImpl[] = []; serviceHealthIssueParameterValue.posts?.forEach(element => {postsArrValue.push(element instanceof ServiceHealthIssuePostImpl? element : new ServiceHealthIssuePostImpl(element));});
         this.posts = postsArrValue;
         this.service = serviceHealthIssueParameterValue?.service;
         this.status = serviceHealthIssueParameterValue?.status;

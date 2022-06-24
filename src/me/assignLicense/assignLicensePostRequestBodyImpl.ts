@@ -18,7 +18,7 @@ export class AssignLicensePostRequestBodyImpl implements AssignLicensePostReques
      */
     public constructor(assignLicensePostRequestBodyParameterValue?: AssignLicensePostRequestBody | undefined) {
         this.additionalData = assignLicensePostRequestBodyParameterValue?.additionalData ? assignLicensePostRequestBodyParameterValue?.additionalData! : {};
-        const addLicensesArrValue: AssignedLicenseImpl[] = []; this.addLicenses?.forEach(element => {addLicensesArrValue.push(element instanceof AssignedLicenseImpl? element : new AssignedLicenseImpl(element));});
+        const addLicensesArrValue: AssignedLicenseImpl[] = []; assignLicensePostRequestBodyParameterValue.addLicenses?.forEach(element => {addLicensesArrValue.push(element instanceof AssignedLicenseImpl? element : new AssignedLicenseImpl(element));});
         this.addLicenses = addLicensesArrValue;
         this.removeLicenses = assignLicensePostRequestBodyParameterValue?.removeLicenses;
     };

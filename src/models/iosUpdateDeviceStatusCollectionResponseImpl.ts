@@ -18,7 +18,7 @@ export class IosUpdateDeviceStatusCollectionResponseImpl implements IosUpdateDev
     public constructor(iosUpdateDeviceStatusCollectionResponseParameterValue?: IosUpdateDeviceStatusCollectionResponse | undefined) {
         this.additionalData = iosUpdateDeviceStatusCollectionResponseParameterValue?.additionalData ? iosUpdateDeviceStatusCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = iosUpdateDeviceStatusCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: IosUpdateDeviceStatusImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof IosUpdateDeviceStatusImpl? element : new IosUpdateDeviceStatusImpl(element));});
+        const valueArrValue: IosUpdateDeviceStatusImpl[] = []; iosUpdateDeviceStatusCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof IosUpdateDeviceStatusImpl? element : new IosUpdateDeviceStatusImpl(element));});
         this.value = valueArrValue;
     };
     /**

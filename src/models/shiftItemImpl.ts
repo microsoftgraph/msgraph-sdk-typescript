@@ -4,7 +4,7 @@ import {ShiftActivity} from './shiftActivity';
 import {ShiftItem} from './shiftItem';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to group. */
+/** Provides operations to manage the collection of application entities. */
 export class ShiftItemImpl extends ScheduleEntityImpl implements ShiftItem {
     /** An incremental part of a shift which can cover details of when and where an employee is during their shift. For example, an assignment or a scheduled break or lunch. Required. */
     public activities?: ShiftActivity[] | undefined;
@@ -18,7 +18,7 @@ export class ShiftItemImpl extends ScheduleEntityImpl implements ShiftItem {
      */
     public constructor(shiftItemParameterValue?: ShiftItem | undefined) {
         super(shiftItemParameterValue);
-        const activitiesArrValue: ShiftActivityImpl[] = []; this.activities?.forEach(element => {activitiesArrValue.push(element instanceof ShiftActivityImpl? element : new ShiftActivityImpl(element));});
+        const activitiesArrValue: ShiftActivityImpl[] = []; shiftItemParameterValue.activities?.forEach(element => {activitiesArrValue.push(element instanceof ShiftActivityImpl? element : new ShiftActivityImpl(element));});
         this.activities = activitiesArrValue;
         this.displayName = shiftItemParameterValue?.displayName;
         this.notes = shiftItemParameterValue?.notes;

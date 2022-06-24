@@ -18,7 +18,7 @@ export class PrintTaskCollectionResponseImpl implements PrintTaskCollectionRespo
     public constructor(printTaskCollectionResponseParameterValue?: PrintTaskCollectionResponse | undefined) {
         this.additionalData = printTaskCollectionResponseParameterValue?.additionalData ? printTaskCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = printTaskCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: PrintTaskImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof PrintTaskImpl? element : new PrintTaskImpl(element));});
+        const valueArrValue: PrintTaskImpl[] = []; printTaskCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof PrintTaskImpl? element : new PrintTaskImpl(element));});
         this.value = valueArrValue;
     };
     /**

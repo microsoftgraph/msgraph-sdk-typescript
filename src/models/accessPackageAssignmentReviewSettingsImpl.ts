@@ -33,13 +33,13 @@ export class AccessPackageAssignmentReviewSettingsImpl implements AccessPackageA
     public constructor(accessPackageAssignmentReviewSettingsParameterValue?: AccessPackageAssignmentReviewSettings | undefined) {
         this.additionalData = accessPackageAssignmentReviewSettingsParameterValue?.additionalData ? accessPackageAssignmentReviewSettingsParameterValue?.additionalData! : {};
         this.expirationBehavior = accessPackageAssignmentReviewSettingsParameterValue?.expirationBehavior;
-        const fallbackReviewersArrValue: SubjectSetImpl[] = []; this.fallbackReviewers?.forEach(element => {fallbackReviewersArrValue.push(element instanceof SubjectSetImpl? element : new SubjectSetImpl(element));});
+        const fallbackReviewersArrValue: SubjectSetImpl[] = []; accessPackageAssignmentReviewSettingsParameterValue.fallbackReviewers?.forEach(element => {fallbackReviewersArrValue.push(element instanceof SubjectSetImpl? element : new SubjectSetImpl(element));});
         this.fallbackReviewers = fallbackReviewersArrValue;
         this.isEnabled = accessPackageAssignmentReviewSettingsParameterValue?.isEnabled;
         this.isRecommendationEnabled = accessPackageAssignmentReviewSettingsParameterValue?.isRecommendationEnabled;
         this.isReviewerJustificationRequired = accessPackageAssignmentReviewSettingsParameterValue?.isReviewerJustificationRequired;
         this.isSelfReview = accessPackageAssignmentReviewSettingsParameterValue?.isSelfReview;
-        const primaryReviewersArrValue: SubjectSetImpl[] = []; this.primaryReviewers?.forEach(element => {primaryReviewersArrValue.push(element instanceof SubjectSetImpl? element : new SubjectSetImpl(element));});
+        const primaryReviewersArrValue: SubjectSetImpl[] = []; accessPackageAssignmentReviewSettingsParameterValue.primaryReviewers?.forEach(element => {primaryReviewersArrValue.push(element instanceof SubjectSetImpl? element : new SubjectSetImpl(element));});
         this.primaryReviewers = primaryReviewersArrValue;
         this.schedule = accessPackageAssignmentReviewSettingsParameterValue?.schedule instanceof EntitlementManagementScheduleImpl? accessPackageAssignmentReviewSettingsParameterValue?.schedule:new EntitlementManagementScheduleImpl(accessPackageAssignmentReviewSettingsParameterValue?.schedule);
     };

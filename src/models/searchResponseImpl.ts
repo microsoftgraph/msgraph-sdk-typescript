@@ -25,7 +25,7 @@ export class SearchResponseImpl implements SearchResponse {
      */
     public constructor(searchResponseParameterValue?: SearchResponse | undefined) {
         this.additionalData = searchResponseParameterValue?.additionalData ? searchResponseParameterValue?.additionalData! : {};
-        const hitsContainersArrValue: SearchHitsContainerImpl[] = []; this.hitsContainers?.forEach(element => {hitsContainersArrValue.push(element instanceof SearchHitsContainerImpl? element : new SearchHitsContainerImpl(element));});
+        const hitsContainersArrValue: SearchHitsContainerImpl[] = []; searchResponseParameterValue.hitsContainers?.forEach(element => {hitsContainersArrValue.push(element instanceof SearchHitsContainerImpl? element : new SearchHitsContainerImpl(element));});
         this.hitsContainers = hitsContainersArrValue;
         this.queryAlterationResponse = searchResponseParameterValue?.queryAlterationResponse instanceof AlterationResponseImpl? searchResponseParameterValue?.queryAlterationResponse:new AlterationResponseImpl(searchResponseParameterValue?.queryAlterationResponse);
         this.resultTemplates = searchResponseParameterValue?.resultTemplates instanceof ResultTemplateDictionaryImpl? searchResponseParameterValue?.resultTemplates:new ResultTemplateDictionaryImpl(searchResponseParameterValue?.resultTemplates);

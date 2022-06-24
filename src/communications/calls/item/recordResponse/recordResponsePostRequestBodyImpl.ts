@@ -36,7 +36,7 @@ export class RecordResponsePostRequestBodyImpl implements RecordResponsePostRequ
         this.maxRecordDurationInSeconds = recordResponsePostRequestBodyParameterValue?.maxRecordDurationInSeconds;
         this.maxSilenceTimeoutInSeconds = recordResponsePostRequestBodyParameterValue?.maxSilenceTimeoutInSeconds;
         this.playBeep = recordResponsePostRequestBodyParameterValue?.playBeep;
-        const promptsArrValue: PromptImpl[] = []; this.prompts?.forEach(element => {promptsArrValue.push(element instanceof PromptImpl? element : new PromptImpl(element));});
+        const promptsArrValue: PromptImpl[] = []; recordResponsePostRequestBodyParameterValue.prompts?.forEach(element => {promptsArrValue.push(element instanceof PromptImpl? element : new PromptImpl(element));});
         this.prompts = promptsArrValue;
         this.stopTones = recordResponsePostRequestBodyParameterValue?.stopTones;
     };

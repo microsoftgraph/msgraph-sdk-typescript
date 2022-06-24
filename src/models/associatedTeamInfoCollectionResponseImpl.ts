@@ -18,7 +18,7 @@ export class AssociatedTeamInfoCollectionResponseImpl implements AssociatedTeamI
     public constructor(associatedTeamInfoCollectionResponseParameterValue?: AssociatedTeamInfoCollectionResponse | undefined) {
         this.additionalData = associatedTeamInfoCollectionResponseParameterValue?.additionalData ? associatedTeamInfoCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = associatedTeamInfoCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: AssociatedTeamInfoImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof AssociatedTeamInfoImpl? element : new AssociatedTeamInfoImpl(element));});
+        const valueArrValue: AssociatedTeamInfoImpl[] = []; associatedTeamInfoCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof AssociatedTeamInfoImpl? element : new AssociatedTeamInfoImpl(element));});
         this.value = valueArrValue;
     };
     /**

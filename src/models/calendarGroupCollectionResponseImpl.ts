@@ -18,7 +18,7 @@ export class CalendarGroupCollectionResponseImpl implements CalendarGroupCollect
     public constructor(calendarGroupCollectionResponseParameterValue?: CalendarGroupCollectionResponse | undefined) {
         this.additionalData = calendarGroupCollectionResponseParameterValue?.additionalData ? calendarGroupCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = calendarGroupCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: CalendarGroupImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof CalendarGroupImpl? element : new CalendarGroupImpl(element));});
+        const valueArrValue: CalendarGroupImpl[] = []; calendarGroupCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof CalendarGroupImpl? element : new CalendarGroupImpl(element));});
         this.value = valueArrValue;
     };
     /**

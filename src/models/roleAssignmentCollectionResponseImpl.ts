@@ -18,7 +18,7 @@ export class RoleAssignmentCollectionResponseImpl implements RoleAssignmentColle
     public constructor(roleAssignmentCollectionResponseParameterValue?: RoleAssignmentCollectionResponse | undefined) {
         this.additionalData = roleAssignmentCollectionResponseParameterValue?.additionalData ? roleAssignmentCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = roleAssignmentCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: RoleAssignmentImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof RoleAssignmentImpl? element : new RoleAssignmentImpl(element));});
+        const valueArrValue: RoleAssignmentImpl[] = []; roleAssignmentCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof RoleAssignmentImpl? element : new RoleAssignmentImpl(element));});
         this.value = valueArrValue;
     };
     /**

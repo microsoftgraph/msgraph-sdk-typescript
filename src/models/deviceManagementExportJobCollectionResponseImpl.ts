@@ -18,7 +18,7 @@ export class DeviceManagementExportJobCollectionResponseImpl implements DeviceMa
     public constructor(deviceManagementExportJobCollectionResponseParameterValue?: DeviceManagementExportJobCollectionResponse | undefined) {
         this.additionalData = deviceManagementExportJobCollectionResponseParameterValue?.additionalData ? deviceManagementExportJobCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = deviceManagementExportJobCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: DeviceManagementExportJobImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof DeviceManagementExportJobImpl? element : new DeviceManagementExportJobImpl(element));});
+        const valueArrValue: DeviceManagementExportJobImpl[] = []; deviceManagementExportJobCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof DeviceManagementExportJobImpl? element : new DeviceManagementExportJobImpl(element));});
         this.value = valueArrValue;
     };
     /**

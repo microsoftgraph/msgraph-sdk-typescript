@@ -18,7 +18,7 @@ export class SectionGroupCollectionResponseImpl implements SectionGroupCollectio
     public constructor(sectionGroupCollectionResponseParameterValue?: SectionGroupCollectionResponse | undefined) {
         this.additionalData = sectionGroupCollectionResponseParameterValue?.additionalData ? sectionGroupCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = sectionGroupCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: SectionGroupImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof SectionGroupImpl? element : new SectionGroupImpl(element));});
+        const valueArrValue: SectionGroupImpl[] = []; sectionGroupCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof SectionGroupImpl? element : new SectionGroupImpl(element));});
         this.value = valueArrValue;
     };
     /**

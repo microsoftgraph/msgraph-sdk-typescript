@@ -60,7 +60,7 @@ export class AccessPackageAssignmentPolicyImpl extends EntityImpl implements Acc
         this.requestApprovalSettings = accessPackageAssignmentPolicyParameterValue?.requestApprovalSettings instanceof AccessPackageAssignmentApprovalSettingsImpl? accessPackageAssignmentPolicyParameterValue?.requestApprovalSettings:new AccessPackageAssignmentApprovalSettingsImpl(accessPackageAssignmentPolicyParameterValue?.requestApprovalSettings);
         this.requestorSettings = accessPackageAssignmentPolicyParameterValue?.requestorSettings instanceof AccessPackageAssignmentRequestorSettingsImpl? accessPackageAssignmentPolicyParameterValue?.requestorSettings:new AccessPackageAssignmentRequestorSettingsImpl(accessPackageAssignmentPolicyParameterValue?.requestorSettings);
         this.reviewSettings = accessPackageAssignmentPolicyParameterValue?.reviewSettings instanceof AccessPackageAssignmentReviewSettingsImpl? accessPackageAssignmentPolicyParameterValue?.reviewSettings:new AccessPackageAssignmentReviewSettingsImpl(accessPackageAssignmentPolicyParameterValue?.reviewSettings);
-        const specificAllowedTargetsArrValue: SubjectSetImpl[] = []; this.specificAllowedTargets?.forEach(element => {specificAllowedTargetsArrValue.push(element instanceof SubjectSetImpl? element : new SubjectSetImpl(element));});
+        const specificAllowedTargetsArrValue: SubjectSetImpl[] = []; accessPackageAssignmentPolicyParameterValue.specificAllowedTargets?.forEach(element => {specificAllowedTargetsArrValue.push(element instanceof SubjectSetImpl? element : new SubjectSetImpl(element));});
         this.specificAllowedTargets = specificAllowedTargetsArrValue;
     };
     /**

@@ -18,9 +18,9 @@ export class TermsOfUseContainerImpl extends EntityImpl implements TermsOfUseCon
      */
     public constructor(termsOfUseContainerParameterValue?: TermsOfUseContainer | undefined) {
         super(termsOfUseContainerParameterValue);
-        const agreementAcceptancesArrValue: AgreementAcceptanceImpl[] = []; this.agreementAcceptances?.forEach(element => {agreementAcceptancesArrValue.push(element instanceof AgreementAcceptanceImpl? element : new AgreementAcceptanceImpl(element));});
+        const agreementAcceptancesArrValue: AgreementAcceptanceImpl[] = []; termsOfUseContainerParameterValue.agreementAcceptances?.forEach(element => {agreementAcceptancesArrValue.push(element instanceof AgreementAcceptanceImpl? element : new AgreementAcceptanceImpl(element));});
         this.agreementAcceptances = agreementAcceptancesArrValue;
-        const agreementsArrValue: AgreementImpl[] = []; this.agreements?.forEach(element => {agreementsArrValue.push(element instanceof AgreementImpl? element : new AgreementImpl(element));});
+        const agreementsArrValue: AgreementImpl[] = []; termsOfUseContainerParameterValue.agreements?.forEach(element => {agreementsArrValue.push(element instanceof AgreementImpl? element : new AgreementImpl(element));});
         this.agreements = agreementsArrValue;
     };
     /**

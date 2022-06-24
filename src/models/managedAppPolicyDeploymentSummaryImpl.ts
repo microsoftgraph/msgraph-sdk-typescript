@@ -23,7 +23,7 @@ export class ManagedAppPolicyDeploymentSummaryImpl extends EntityImpl implements
     public constructor(managedAppPolicyDeploymentSummaryParameterValue?: ManagedAppPolicyDeploymentSummary | undefined) {
         super(managedAppPolicyDeploymentSummaryParameterValue);
         this.configurationDeployedUserCount = managedAppPolicyDeploymentSummaryParameterValue?.configurationDeployedUserCount;
-        const configurationDeploymentSummaryPerAppArrValue: ManagedAppPolicyDeploymentSummaryPerAppImpl[] = []; this.configurationDeploymentSummaryPerApp?.forEach(element => {configurationDeploymentSummaryPerAppArrValue.push(element instanceof ManagedAppPolicyDeploymentSummaryPerAppImpl? element : new ManagedAppPolicyDeploymentSummaryPerAppImpl(element));});
+        const configurationDeploymentSummaryPerAppArrValue: ManagedAppPolicyDeploymentSummaryPerAppImpl[] = []; managedAppPolicyDeploymentSummaryParameterValue.configurationDeploymentSummaryPerApp?.forEach(element => {configurationDeploymentSummaryPerAppArrValue.push(element instanceof ManagedAppPolicyDeploymentSummaryPerAppImpl? element : new ManagedAppPolicyDeploymentSummaryPerAppImpl(element));});
         this.configurationDeploymentSummaryPerApp = configurationDeploymentSummaryPerAppArrValue;
         this.displayName = managedAppPolicyDeploymentSummaryParameterValue?.displayName;
         this.lastRefreshTime = managedAppPolicyDeploymentSummaryParameterValue?.lastRefreshTime;

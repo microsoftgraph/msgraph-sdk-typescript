@@ -38,7 +38,7 @@ import {TextColumn} from './textColumn';
 import {ThumbnailColumn} from './thumbnailColumn';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of application entities. */
+/** Casts the previous resource to group. */
 export class ColumnDefinitionImpl extends EntityImpl implements ColumnDefinition {
     /** This column stores boolean values. */
     public boolean?: BooleanColumn | undefined;

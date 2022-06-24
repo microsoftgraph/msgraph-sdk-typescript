@@ -18,7 +18,7 @@ export class DeviceConfigurationUserStatusCollectionResponseImpl implements Devi
     public constructor(deviceConfigurationUserStatusCollectionResponseParameterValue?: DeviceConfigurationUserStatusCollectionResponse | undefined) {
         this.additionalData = deviceConfigurationUserStatusCollectionResponseParameterValue?.additionalData ? deviceConfigurationUserStatusCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = deviceConfigurationUserStatusCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: DeviceConfigurationUserStatusImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof DeviceConfigurationUserStatusImpl? element : new DeviceConfigurationUserStatusImpl(element));});
+        const valueArrValue: DeviceConfigurationUserStatusImpl[] = []; deviceConfigurationUserStatusCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof DeviceConfigurationUserStatusImpl? element : new DeviceConfigurationUserStatusImpl(element));});
         this.value = valueArrValue;
     };
     /**

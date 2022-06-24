@@ -43,19 +43,19 @@ export class DriveImpl extends BaseItemImpl implements Drive {
      */
     public constructor(driveParameterValue?: Drive | undefined) {
         super(driveParameterValue);
-        const bundlesArrValue: DriveItemImpl[] = []; this.bundles?.forEach(element => {bundlesArrValue.push(element instanceof DriveItemImpl? element : new DriveItemImpl(element));});
+        const bundlesArrValue: DriveItemImpl[] = []; driveParameterValue.bundles?.forEach(element => {bundlesArrValue.push(element instanceof DriveItemImpl? element : new DriveItemImpl(element));});
         this.bundles = bundlesArrValue;
         this.driveType = driveParameterValue?.driveType;
-        const followingArrValue: DriveItemImpl[] = []; this.following?.forEach(element => {followingArrValue.push(element instanceof DriveItemImpl? element : new DriveItemImpl(element));});
+        const followingArrValue: DriveItemImpl[] = []; driveParameterValue.following?.forEach(element => {followingArrValue.push(element instanceof DriveItemImpl? element : new DriveItemImpl(element));});
         this.following = followingArrValue;
-        const itemsArrValue: DriveItemImpl[] = []; this.items?.forEach(element => {itemsArrValue.push(element instanceof DriveItemImpl? element : new DriveItemImpl(element));});
+        const itemsArrValue: DriveItemImpl[] = []; driveParameterValue.items?.forEach(element => {itemsArrValue.push(element instanceof DriveItemImpl? element : new DriveItemImpl(element));});
         this.items = itemsArrValue;
         this.list = driveParameterValue?.list instanceof ListImpl? driveParameterValue?.list:new ListImpl(driveParameterValue?.list);
         this.owner = driveParameterValue?.owner instanceof IdentitySetImpl? driveParameterValue?.owner:new IdentitySetImpl(driveParameterValue?.owner);
         this.quota = driveParameterValue?.quota instanceof QuotaImpl? driveParameterValue?.quota:new QuotaImpl(driveParameterValue?.quota);
         this.root = driveParameterValue?.root instanceof DriveItemImpl? driveParameterValue?.root:new DriveItemImpl(driveParameterValue?.root);
         this.sharePointIds = driveParameterValue?.sharePointIds instanceof SharepointIdsImpl? driveParameterValue?.sharePointIds:new SharepointIdsImpl(driveParameterValue?.sharePointIds);
-        const specialArrValue: DriveItemImpl[] = []; this.special?.forEach(element => {specialArrValue.push(element instanceof DriveItemImpl? element : new DriveItemImpl(element));});
+        const specialArrValue: DriveItemImpl[] = []; driveParameterValue.special?.forEach(element => {specialArrValue.push(element instanceof DriveItemImpl? element : new DriveItemImpl(element));});
         this.special = specialArrValue;
         this.system = driveParameterValue?.system instanceof SystemFacetImpl? driveParameterValue?.system:new SystemFacetImpl(driveParameterValue?.system);
     };

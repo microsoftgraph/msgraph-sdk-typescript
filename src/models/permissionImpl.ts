@@ -44,9 +44,9 @@ export class PermissionImpl extends EntityImpl implements Permission {
         super(permissionParameterValue);
         this.expirationDateTime = permissionParameterValue?.expirationDateTime;
         this.grantedTo = permissionParameterValue?.grantedTo instanceof IdentitySetImpl? permissionParameterValue?.grantedTo:new IdentitySetImpl(permissionParameterValue?.grantedTo);
-        const grantedToIdentitiesArrValue: IdentitySetImpl[] = []; this.grantedToIdentities?.forEach(element => {grantedToIdentitiesArrValue.push(element instanceof IdentitySetImpl? element : new IdentitySetImpl(element));});
+        const grantedToIdentitiesArrValue: IdentitySetImpl[] = []; permissionParameterValue.grantedToIdentities?.forEach(element => {grantedToIdentitiesArrValue.push(element instanceof IdentitySetImpl? element : new IdentitySetImpl(element));});
         this.grantedToIdentities = grantedToIdentitiesArrValue;
-        const grantedToIdentitiesV2ArrValue: SharePointIdentitySetImpl[] = []; this.grantedToIdentitiesV2?.forEach(element => {grantedToIdentitiesV2ArrValue.push(element instanceof SharePointIdentitySetImpl? element : new SharePointIdentitySetImpl(element));});
+        const grantedToIdentitiesV2ArrValue: SharePointIdentitySetImpl[] = []; permissionParameterValue.grantedToIdentitiesV2?.forEach(element => {grantedToIdentitiesV2ArrValue.push(element instanceof SharePointIdentitySetImpl? element : new SharePointIdentitySetImpl(element));});
         this.grantedToIdentitiesV2 = grantedToIdentitiesV2ArrValue;
         this.grantedToV2 = permissionParameterValue?.grantedToV2 instanceof SharePointIdentitySetImpl? permissionParameterValue?.grantedToV2:new SharePointIdentitySetImpl(permissionParameterValue?.grantedToV2);
         this.hasPassword = permissionParameterValue?.hasPassword;

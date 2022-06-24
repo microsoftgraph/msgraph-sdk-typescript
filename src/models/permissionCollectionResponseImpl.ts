@@ -18,7 +18,7 @@ export class PermissionCollectionResponseImpl implements PermissionCollectionRes
     public constructor(permissionCollectionResponseParameterValue?: PermissionCollectionResponse | undefined) {
         this.additionalData = permissionCollectionResponseParameterValue?.additionalData ? permissionCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = permissionCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: PermissionImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof PermissionImpl? element : new PermissionImpl(element));});
+        const valueArrValue: PermissionImpl[] = []; permissionCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof PermissionImpl? element : new PermissionImpl(element));});
         this.value = valueArrValue;
     };
     /**

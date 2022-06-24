@@ -29,15 +29,15 @@ export class ContactFolderImpl extends EntityImpl implements ContactFolder {
      */
     public constructor(contactFolderParameterValue?: ContactFolder | undefined) {
         super(contactFolderParameterValue);
-        const childFoldersArrValue: ContactFolderImpl[] = []; this.childFolders?.forEach(element => {childFoldersArrValue.push(element instanceof ContactFolderImpl? element : new ContactFolderImpl(element));});
+        const childFoldersArrValue: ContactFolderImpl[] = []; contactFolderParameterValue.childFolders?.forEach(element => {childFoldersArrValue.push(element instanceof ContactFolderImpl? element : new ContactFolderImpl(element));});
         this.childFolders = childFoldersArrValue;
-        const contactsArrValue: ContactImpl[] = []; this.contacts?.forEach(element => {contactsArrValue.push(element instanceof ContactImpl? element : new ContactImpl(element));});
+        const contactsArrValue: ContactImpl[] = []; contactFolderParameterValue.contacts?.forEach(element => {contactsArrValue.push(element instanceof ContactImpl? element : new ContactImpl(element));});
         this.contacts = contactsArrValue;
         this.displayName = contactFolderParameterValue?.displayName;
-        const multiValueExtendedPropertiesArrValue: MultiValueLegacyExtendedPropertyImpl[] = []; this.multiValueExtendedProperties?.forEach(element => {multiValueExtendedPropertiesArrValue.push(element instanceof MultiValueLegacyExtendedPropertyImpl? element : new MultiValueLegacyExtendedPropertyImpl(element));});
+        const multiValueExtendedPropertiesArrValue: MultiValueLegacyExtendedPropertyImpl[] = []; contactFolderParameterValue.multiValueExtendedProperties?.forEach(element => {multiValueExtendedPropertiesArrValue.push(element instanceof MultiValueLegacyExtendedPropertyImpl? element : new MultiValueLegacyExtendedPropertyImpl(element));});
         this.multiValueExtendedProperties = multiValueExtendedPropertiesArrValue;
         this.parentFolderId = contactFolderParameterValue?.parentFolderId;
-        const singleValueExtendedPropertiesArrValue: SingleValueLegacyExtendedPropertyImpl[] = []; this.singleValueExtendedProperties?.forEach(element => {singleValueExtendedPropertiesArrValue.push(element instanceof SingleValueLegacyExtendedPropertyImpl? element : new SingleValueLegacyExtendedPropertyImpl(element));});
+        const singleValueExtendedPropertiesArrValue: SingleValueLegacyExtendedPropertyImpl[] = []; contactFolderParameterValue.singleValueExtendedProperties?.forEach(element => {singleValueExtendedPropertiesArrValue.push(element instanceof SingleValueLegacyExtendedPropertyImpl? element : new SingleValueLegacyExtendedPropertyImpl(element));});
         this.singleValueExtendedProperties = singleValueExtendedPropertiesArrValue;
     };
     /**

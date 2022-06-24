@@ -14,7 +14,7 @@ export class AppConsentApprovalRouteImpl extends EntityImpl implements AppConsen
      */
     public constructor(appConsentApprovalRouteParameterValue?: AppConsentApprovalRoute | undefined) {
         super(appConsentApprovalRouteParameterValue);
-        const appConsentRequestsArrValue: AppConsentRequestImpl[] = []; this.appConsentRequests?.forEach(element => {appConsentRequestsArrValue.push(element instanceof AppConsentRequestImpl? element : new AppConsentRequestImpl(element));});
+        const appConsentRequestsArrValue: AppConsentRequestImpl[] = []; appConsentApprovalRouteParameterValue.appConsentRequests?.forEach(element => {appConsentRequestsArrValue.push(element instanceof AppConsentRequestImpl? element : new AppConsentRequestImpl(element));});
         this.appConsentRequests = appConsentRequestsArrValue;
     };
     /**

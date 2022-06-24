@@ -18,7 +18,7 @@ export class ActivityHistoryItemCollectionResponseImpl implements ActivityHistor
     public constructor(activityHistoryItemCollectionResponseParameterValue?: ActivityHistoryItemCollectionResponse | undefined) {
         this.additionalData = activityHistoryItemCollectionResponseParameterValue?.additionalData ? activityHistoryItemCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = activityHistoryItemCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: ActivityHistoryItemImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ActivityHistoryItemImpl? element : new ActivityHistoryItemImpl(element));});
+        const valueArrValue: ActivityHistoryItemImpl[] = []; activityHistoryItemCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof ActivityHistoryItemImpl? element : new ActivityHistoryItemImpl(element));});
         this.value = valueArrValue;
     };
     /**

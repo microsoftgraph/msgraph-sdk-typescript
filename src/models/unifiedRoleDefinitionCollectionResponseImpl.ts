@@ -18,7 +18,7 @@ export class UnifiedRoleDefinitionCollectionResponseImpl implements UnifiedRoleD
     public constructor(unifiedRoleDefinitionCollectionResponseParameterValue?: UnifiedRoleDefinitionCollectionResponse | undefined) {
         this.additionalData = unifiedRoleDefinitionCollectionResponseParameterValue?.additionalData ? unifiedRoleDefinitionCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = unifiedRoleDefinitionCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: UnifiedRoleDefinitionImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof UnifiedRoleDefinitionImpl? element : new UnifiedRoleDefinitionImpl(element));});
+        const valueArrValue: UnifiedRoleDefinitionImpl[] = []; unifiedRoleDefinitionCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof UnifiedRoleDefinitionImpl? element : new UnifiedRoleDefinitionImpl(element));});
         this.value = valueArrValue;
     };
     /**

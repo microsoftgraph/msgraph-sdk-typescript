@@ -54,24 +54,24 @@ export class AccessReviewScheduleDefinitionImpl extends EntityImpl implements Ac
      */
     public constructor(accessReviewScheduleDefinitionParameterValue?: AccessReviewScheduleDefinition | undefined) {
         super(accessReviewScheduleDefinitionParameterValue);
-        const additionalNotificationRecipientsArrValue: AccessReviewNotificationRecipientItemImpl[] = []; this.additionalNotificationRecipients?.forEach(element => {additionalNotificationRecipientsArrValue.push(element instanceof AccessReviewNotificationRecipientItemImpl? element : new AccessReviewNotificationRecipientItemImpl(element));});
+        const additionalNotificationRecipientsArrValue: AccessReviewNotificationRecipientItemImpl[] = []; accessReviewScheduleDefinitionParameterValue.additionalNotificationRecipients?.forEach(element => {additionalNotificationRecipientsArrValue.push(element instanceof AccessReviewNotificationRecipientItemImpl? element : new AccessReviewNotificationRecipientItemImpl(element));});
         this.additionalNotificationRecipients = additionalNotificationRecipientsArrValue;
         this.createdBy = accessReviewScheduleDefinitionParameterValue?.createdBy instanceof UserIdentityImpl? accessReviewScheduleDefinitionParameterValue?.createdBy:new UserIdentityImpl(accessReviewScheduleDefinitionParameterValue?.createdBy);
         this.createdDateTime = accessReviewScheduleDefinitionParameterValue?.createdDateTime;
         this.descriptionForAdmins = accessReviewScheduleDefinitionParameterValue?.descriptionForAdmins;
         this.descriptionForReviewers = accessReviewScheduleDefinitionParameterValue?.descriptionForReviewers;
         this.displayName = accessReviewScheduleDefinitionParameterValue?.displayName;
-        const fallbackReviewersArrValue: AccessReviewReviewerScopeImpl[] = []; this.fallbackReviewers?.forEach(element => {fallbackReviewersArrValue.push(element instanceof AccessReviewReviewerScopeImpl? element : new AccessReviewReviewerScopeImpl(element));});
+        const fallbackReviewersArrValue: AccessReviewReviewerScopeImpl[] = []; accessReviewScheduleDefinitionParameterValue.fallbackReviewers?.forEach(element => {fallbackReviewersArrValue.push(element instanceof AccessReviewReviewerScopeImpl? element : new AccessReviewReviewerScopeImpl(element));});
         this.fallbackReviewers = fallbackReviewersArrValue;
         this.instanceEnumerationScope = accessReviewScheduleDefinitionParameterValue?.instanceEnumerationScope instanceof AccessReviewScopeImpl? accessReviewScheduleDefinitionParameterValue?.instanceEnumerationScope:new AccessReviewScopeImpl(accessReviewScheduleDefinitionParameterValue?.instanceEnumerationScope);
-        const instancesArrValue: AccessReviewInstanceImpl[] = []; this.instances?.forEach(element => {instancesArrValue.push(element instanceof AccessReviewInstanceImpl? element : new AccessReviewInstanceImpl(element));});
+        const instancesArrValue: AccessReviewInstanceImpl[] = []; accessReviewScheduleDefinitionParameterValue.instances?.forEach(element => {instancesArrValue.push(element instanceof AccessReviewInstanceImpl? element : new AccessReviewInstanceImpl(element));});
         this.instances = instancesArrValue;
         this.lastModifiedDateTime = accessReviewScheduleDefinitionParameterValue?.lastModifiedDateTime;
-        const reviewersArrValue: AccessReviewReviewerScopeImpl[] = []; this.reviewers?.forEach(element => {reviewersArrValue.push(element instanceof AccessReviewReviewerScopeImpl? element : new AccessReviewReviewerScopeImpl(element));});
+        const reviewersArrValue: AccessReviewReviewerScopeImpl[] = []; accessReviewScheduleDefinitionParameterValue.reviewers?.forEach(element => {reviewersArrValue.push(element instanceof AccessReviewReviewerScopeImpl? element : new AccessReviewReviewerScopeImpl(element));});
         this.reviewers = reviewersArrValue;
         this.scope = accessReviewScheduleDefinitionParameterValue?.scope instanceof AccessReviewScopeImpl? accessReviewScheduleDefinitionParameterValue?.scope:new AccessReviewScopeImpl(accessReviewScheduleDefinitionParameterValue?.scope);
         this.settings = accessReviewScheduleDefinitionParameterValue?.settings instanceof AccessReviewScheduleSettingsImpl? accessReviewScheduleDefinitionParameterValue?.settings:new AccessReviewScheduleSettingsImpl(accessReviewScheduleDefinitionParameterValue?.settings);
-        const stageSettingsArrValue: AccessReviewStageSettingsImpl[] = []; this.stageSettings?.forEach(element => {stageSettingsArrValue.push(element instanceof AccessReviewStageSettingsImpl? element : new AccessReviewStageSettingsImpl(element));});
+        const stageSettingsArrValue: AccessReviewStageSettingsImpl[] = []; accessReviewScheduleDefinitionParameterValue.stageSettings?.forEach(element => {stageSettingsArrValue.push(element instanceof AccessReviewStageSettingsImpl? element : new AccessReviewStageSettingsImpl(element));});
         this.stageSettings = stageSettingsArrValue;
         this.status = accessReviewScheduleDefinitionParameterValue?.status;
     };
