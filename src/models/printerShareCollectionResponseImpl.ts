@@ -18,7 +18,8 @@ export class PrinterShareCollectionResponseImpl implements PrinterShareCollectio
     public constructor(printerShareCollectionResponseParameterValue?: PrinterShareCollectionResponse | undefined) {
         this.additionalData = printerShareCollectionResponseParameterValue?.additionalData ? printerShareCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = printerShareCollectionResponseParameterValue?.nextLink;
-        this.value = printerShareCollectionResponseParameterValue?.value;
+        const valueArrValue: PrinterShareImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof PrinterShareImpl? element : new PrinterShareImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -39,7 +40,7 @@ export class PrinterShareCollectionResponseImpl implements PrinterShareCollectio
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: PrinterShareImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new PrinterShareImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: PrinterShareImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof PrinterShareImpl? element : new PrinterShareImpl(element));});
             writer.writeCollectionOfObjectValues<PrinterShareImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

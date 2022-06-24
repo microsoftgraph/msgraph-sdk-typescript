@@ -18,7 +18,8 @@ export class PrintTaskTriggerCollectionResponseImpl implements PrintTaskTriggerC
     public constructor(printTaskTriggerCollectionResponseParameterValue?: PrintTaskTriggerCollectionResponse | undefined) {
         this.additionalData = printTaskTriggerCollectionResponseParameterValue?.additionalData ? printTaskTriggerCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = printTaskTriggerCollectionResponseParameterValue?.nextLink;
-        this.value = printTaskTriggerCollectionResponseParameterValue?.value;
+        const valueArrValue: PrintTaskTriggerImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof PrintTaskTriggerImpl? element : new PrintTaskTriggerImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -39,7 +40,7 @@ export class PrintTaskTriggerCollectionResponseImpl implements PrintTaskTriggerC
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: PrintTaskTriggerImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new PrintTaskTriggerImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: PrintTaskTriggerImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof PrintTaskTriggerImpl? element : new PrintTaskTriggerImpl(element));});
             writer.writeCollectionOfObjectValues<PrintTaskTriggerImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

@@ -16,7 +16,8 @@ export class GetMailTipsResponseImpl implements GetMailTipsResponse {
      */
     public constructor(getMailTipsResponseParameterValue?: GetMailTipsResponse | undefined) {
         this.additionalData = getMailTipsResponseParameterValue?.additionalData ? getMailTipsResponseParameterValue?.additionalData! : {};
-        this.value = getMailTipsResponseParameterValue?.value;
+        const valueArrValue: MailTipsImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof MailTipsImpl? element : new MailTipsImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -33,7 +34,7 @@ export class GetMailTipsResponseImpl implements GetMailTipsResponse {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        if(this.value && this.value.length != 0){        const valueArrValue: MailTipsImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new MailTipsImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: MailTipsImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof MailTipsImpl? element : new MailTipsImpl(element));});
             writer.writeCollectionOfObjectValues<MailTipsImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

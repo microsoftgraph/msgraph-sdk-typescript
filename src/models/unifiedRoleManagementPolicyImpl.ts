@@ -12,17 +12,17 @@ export class UnifiedRoleManagementPolicyImpl extends EntityImpl implements Unifi
     public description?: string | undefined;
     /** Display name for the policy. */
     public displayName?: string | undefined;
-    /** Not implemented. The list of effective rules like approval rules and expiration rules evaluated based on inherited referenced rules. For example, if there is a tenant-wide policy to enforce enabling an approval rule, the effective rule will be to enable approval even if the policy has a rule to disable approval. */
+    /** The list of effective rules like approval rules and expiration rules evaluated based on inherited referenced rules. For example, if there is a tenant-wide policy to enforce enabling an approval rule, the effective rule will be to enable approval even if the policy has a rule to disable approval. Supports $expand. */
     public effectiveRules?: UnifiedRoleManagementPolicyRule[] | undefined;
-    /** This can only be set to true for a single tenant wide policy which will apply to all scopes and roles. Set the scopeId to '/' and scopeType to Directory. */
+    /** This can only be set to true for a single tenant-wide policy which will apply to all scopes and roles. Set the scopeId to / and scopeType to Directory. Supports $filter (eq, ne). */
     public isOrganizationDefault?: boolean | undefined;
     /** The identity who last modified the role setting. */
     public lastModifiedBy?: Identity | undefined;
     /** The time when the role setting was last modified. */
     public lastModifiedDateTime?: Date | undefined;
-    /** The collection of rules like approval rules and expiration rules. */
+    /** The collection of rules like approval rules and expiration rules. Supports $expand. */
     public rules?: UnifiedRoleManagementPolicyRule[] | undefined;
-    /** The id of the scope where the policy is created. Can be / for the tenant or a group ID. Required. */
+    /** The identifier of the scope where the policy is created. Can be / for the tenant or a group ID. Required. */
     public scopeId?: string | undefined;
     /** The type of the scope where the policy is created. One of Directory, DirectoryRole. Required. */
     public scopeType?: string | undefined;
@@ -34,11 +34,13 @@ export class UnifiedRoleManagementPolicyImpl extends EntityImpl implements Unifi
         super(unifiedRoleManagementPolicyParameterValue);
         this.description = unifiedRoleManagementPolicyParameterValue?.description;
         this.displayName = unifiedRoleManagementPolicyParameterValue?.displayName;
-        this.effectiveRules = unifiedRoleManagementPolicyParameterValue?.effectiveRules;
+        const effectiveRulesArrValue: UnifiedRoleManagementPolicyRuleImpl[] = []; this.effectiveRules?.forEach(element => {effectiveRulesArrValue.push(element instanceof UnifiedRoleManagementPolicyRuleImpl? element : new UnifiedRoleManagementPolicyRuleImpl(element));});
+        this.effectiveRules = effectiveRulesArrValue;
         this.isOrganizationDefault = unifiedRoleManagementPolicyParameterValue?.isOrganizationDefault;
-        this.lastModifiedBy = unifiedRoleManagementPolicyParameterValue?.lastModifiedBy;
+        this.lastModifiedBy = unifiedRoleManagementPolicyParameterValue?.lastModifiedBy instanceof IdentityImpl? unifiedRoleManagementPolicyParameterValue?.lastModifiedBy:new IdentityImpl(unifiedRoleManagementPolicyParameterValue?.lastModifiedBy);
         this.lastModifiedDateTime = unifiedRoleManagementPolicyParameterValue?.lastModifiedDateTime;
-        this.rules = unifiedRoleManagementPolicyParameterValue?.rules;
+        const rulesArrValue: UnifiedRoleManagementPolicyRuleImpl[] = []; this.rules?.forEach(element => {rulesArrValue.push(element instanceof UnifiedRoleManagementPolicyRuleImpl? element : new UnifiedRoleManagementPolicyRuleImpl(element));});
+        this.rules = rulesArrValue;
         this.scopeId = unifiedRoleManagementPolicyParameterValue?.scopeId;
         this.scopeType = unifiedRoleManagementPolicyParameterValue?.scopeType;
     };
@@ -72,7 +74,7 @@ export class UnifiedRoleManagementPolicyImpl extends EntityImpl implements Unifi
         if(this.displayName){
             writer.writeStringValue("displayName", this.displayName);
         }
-        if(this.effectiveRules && this.effectiveRules.length != 0){        const effectiveRulesArrValue: UnifiedRoleManagementPolicyRuleImpl[] = []; this.effectiveRules?.forEach(element => {effectiveRulesArrValue.push(new UnifiedRoleManagementPolicyRuleImpl(element));});
+        if(this.effectiveRules && this.effectiveRules.length != 0){        const effectiveRulesArrValue: UnifiedRoleManagementPolicyRuleImpl[] = []; this.effectiveRules?.forEach(element => {effectiveRulesArrValue.push(element instanceof UnifiedRoleManagementPolicyRuleImpl? element : new UnifiedRoleManagementPolicyRuleImpl(element));});
             writer.writeCollectionOfObjectValues<UnifiedRoleManagementPolicyRuleImpl>("effectiveRules", effectiveRulesArrValue);
         }
         if(this.isOrganizationDefault){
@@ -84,7 +86,7 @@ export class UnifiedRoleManagementPolicyImpl extends EntityImpl implements Unifi
         if(this.lastModifiedDateTime){
             writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
         }
-        if(this.rules && this.rules.length != 0){        const rulesArrValue: UnifiedRoleManagementPolicyRuleImpl[] = []; this.rules?.forEach(element => {rulesArrValue.push(new UnifiedRoleManagementPolicyRuleImpl(element));});
+        if(this.rules && this.rules.length != 0){        const rulesArrValue: UnifiedRoleManagementPolicyRuleImpl[] = []; this.rules?.forEach(element => {rulesArrValue.push(element instanceof UnifiedRoleManagementPolicyRuleImpl? element : new UnifiedRoleManagementPolicyRuleImpl(element));});
             writer.writeCollectionOfObjectValues<UnifiedRoleManagementPolicyRuleImpl>("rules", rulesArrValue);
         }
         if(this.scopeId){

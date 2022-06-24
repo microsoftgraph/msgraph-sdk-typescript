@@ -1,3 +1,5 @@
+import {ODataErrorImpl} from '../../models/oDataErrors/';
+import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {createGetMemberObjectsResponseFromDiscriminatorValue} from './createGetMemberObjectsResponseFromDiscriminatorValue';
 import {GetMemberObjectsPostRequestBody} from './getMemberObjectsPostRequestBody';
 import {GetMemberObjectsRequestBuilderPostRequestConfiguration} from './getMemberObjectsRequestBuilderPostRequestConfiguration';
@@ -58,6 +60,10 @@ export class GetMemberObjectsRequestBuilder {
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration
         );
-        return this.requestAdapter?.sendAsync<GetMemberObjectsResponseImpl>(requestInfo, createGetMemberObjectsResponseFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<GetMemberObjectsResponseImpl>(requestInfo, createGetMemberObjectsResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

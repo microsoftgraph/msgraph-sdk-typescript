@@ -5,7 +5,7 @@ import {Status} from './status';
 import {UserActivity} from './userActivity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the collection of application entities. */
 export class ActivityHistoryItemImpl extends EntityImpl implements ActivityHistoryItem {
     /** Optional. The duration of active user engagement. if not supplied, this is calculated from the startedDateTime and lastActiveDateTime. */
     public activeDurationSeconds?: number | undefined;
@@ -32,7 +32,7 @@ export class ActivityHistoryItemImpl extends EntityImpl implements ActivityHisto
     public constructor(activityHistoryItemParameterValue?: ActivityHistoryItem | undefined) {
         super(activityHistoryItemParameterValue);
         this.activeDurationSeconds = activityHistoryItemParameterValue?.activeDurationSeconds;
-        this.activity = activityHistoryItemParameterValue?.activity;
+        this.activity = activityHistoryItemParameterValue?.activity instanceof UserActivityImpl? activityHistoryItemParameterValue?.activity:new UserActivityImpl(activityHistoryItemParameterValue?.activity);
         this.createdDateTime = activityHistoryItemParameterValue?.createdDateTime;
         this.expirationDateTime = activityHistoryItemParameterValue?.expirationDateTime;
         this.lastActiveDateTime = activityHistoryItemParameterValue?.lastActiveDateTime;

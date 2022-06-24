@@ -22,9 +22,9 @@ export class PlaceImpl extends EntityImpl implements Place {
      */
     public constructor(placeParameterValue?: Place | undefined) {
         super(placeParameterValue);
-        this.address = placeParameterValue?.address;
+        this.address = placeParameterValue?.address instanceof PhysicalAddressImpl? placeParameterValue?.address:new PhysicalAddressImpl(placeParameterValue?.address);
         this.displayName = placeParameterValue?.displayName;
-        this.geoCoordinates = placeParameterValue?.geoCoordinates;
+        this.geoCoordinates = placeParameterValue?.geoCoordinates instanceof OutlookGeoCoordinatesImpl? placeParameterValue?.geoCoordinates:new OutlookGeoCoordinatesImpl(placeParameterValue?.geoCoordinates);
         this.phone = placeParameterValue?.phone;
     };
     /**

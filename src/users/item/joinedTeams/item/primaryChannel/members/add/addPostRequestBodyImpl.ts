@@ -16,7 +16,8 @@ export class AddPostRequestBodyImpl implements AddPostRequestBody {
      */
     public constructor(addPostRequestBodyParameterValue?: AddPostRequestBody | undefined) {
         this.additionalData = addPostRequestBodyParameterValue?.additionalData ? addPostRequestBodyParameterValue?.additionalData! : {};
-        this.values = addPostRequestBodyParameterValue?.values;
+        const valuesArrValue: ConversationMemberImpl[] = []; this.values?.forEach(element => {valuesArrValue.push(element instanceof ConversationMemberImpl? element : new ConversationMemberImpl(element));});
+        this.values = valuesArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -33,7 +34,7 @@ export class AddPostRequestBodyImpl implements AddPostRequestBody {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        if(this.values && this.values.length != 0){        const valuesArrValue: ConversationMemberImpl[] = []; this.values?.forEach(element => {valuesArrValue.push(new ConversationMemberImpl(element));});
+        if(this.values && this.values.length != 0){        const valuesArrValue: ConversationMemberImpl[] = []; this.values?.forEach(element => {valuesArrValue.push(element instanceof ConversationMemberImpl? element : new ConversationMemberImpl(element));});
             writer.writeCollectionOfObjectValues<ConversationMemberImpl>("values", valuesArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

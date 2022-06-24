@@ -16,7 +16,7 @@ export class SetOrderPostRequestBodyImpl implements SetOrderPostRequestBody {
      */
     public constructor(setOrderPostRequestBodyParameterValue?: SetOrderPostRequestBody | undefined) {
         this.additionalData = setOrderPostRequestBodyParameterValue?.additionalData ? setOrderPostRequestBodyParameterValue?.additionalData! : {};
-        this.newAssignmentOrder = setOrderPostRequestBodyParameterValue?.newAssignmentOrder;
+        this.newAssignmentOrder = setOrderPostRequestBodyParameterValue?.newAssignmentOrder instanceof AssignmentOrderImpl? setOrderPostRequestBodyParameterValue?.newAssignmentOrder:new AssignmentOrderImpl(setOrderPostRequestBodyParameterValue?.newAssignmentOrder);
     };
     /**
      * The deserialization information for the current model

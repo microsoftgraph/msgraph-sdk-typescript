@@ -4,29 +4,28 @@ import {UnifiedRoleAssignmentScheduleInstance} from './unifiedRoleAssignmentSche
 import {UnifiedRoleEligibilityScheduleInstance} from './unifiedRoleEligibilityScheduleInstance';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the roleManagement singleton. */
 export class UnifiedRoleAssignmentScheduleInstanceImpl extends UnifiedRoleScheduleInstanceBaseImpl implements UnifiedRoleAssignmentScheduleInstance {
-    /** If the roleAssignmentScheduleInstance is activated by a roleEligibilityScheduleRequest, this is the link to the related schedule instance. */
+    /** If the request is from an eligible administrator to activate a role, this parameter will show the related eligible assignment for that activation. Otherwise, it is null. Supports $expand. */
     public activatedUsing?: UnifiedRoleEligibilityScheduleInstance | undefined;
-    /** Type of the assignment. It can either be Assigned or Activated. */
+    /** Type of the assignment which can either be Assigned or Activated. Supports $filter (eq, ne). */
     public assignmentType?: string | undefined;
-    /** Time that the roleAssignmentInstance will expire */
+    /** The end date of the schedule instance. */
     public endDateTime?: Date | undefined;
-    /** Membership type of the assignment. It can either be Inherited, Direct, or Group. */
+    /** How the assignments is inherited. It can either be Inherited, Direct, or Group. It can further imply whether the unifiedRoleAssignmentSchedule can be managed by the caller. Supports $filter (eq, ne). */
     public memberType?: string | undefined;
-    /** ID of the roleAssignment in the directory */
+    /** The identifier of the role assignment in Azure AD. */
     public roleAssignmentOriginId?: string | undefined;
-    /** ID of the parent roleAssignmentSchedule for this instance */
+    /** The identifier of the unifiedRoleAssignmentSchedule object from which this instance was created. */
     public roleAssignmentScheduleId?: string | undefined;
-    /** Time that the roleAssignmentInstance will start */
+    /** When this instance starts. */
     public startDateTime?: Date | undefined;
     /**
-     * Instantiates a new unifiedRoleAssignmentScheduleInstance and sets the default values.
+     * Instantiates a new UnifiedRoleAssignmentScheduleInstance and sets the default values.
      * @param unifiedRoleAssignmentScheduleInstanceParameterValue 
      */
     public constructor(unifiedRoleAssignmentScheduleInstanceParameterValue?: UnifiedRoleAssignmentScheduleInstance | undefined) {
         super(unifiedRoleAssignmentScheduleInstanceParameterValue);
-        this.activatedUsing = unifiedRoleAssignmentScheduleInstanceParameterValue?.activatedUsing;
+        this.activatedUsing = unifiedRoleAssignmentScheduleInstanceParameterValue?.activatedUsing instanceof UnifiedRoleEligibilityScheduleInstanceImpl? unifiedRoleAssignmentScheduleInstanceParameterValue?.activatedUsing:new UnifiedRoleEligibilityScheduleInstanceImpl(unifiedRoleAssignmentScheduleInstanceParameterValue?.activatedUsing);
         this.assignmentType = unifiedRoleAssignmentScheduleInstanceParameterValue?.assignmentType;
         this.endDateTime = unifiedRoleAssignmentScheduleInstanceParameterValue?.endDateTime;
         this.memberType = unifiedRoleAssignmentScheduleInstanceParameterValue?.memberType;

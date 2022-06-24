@@ -2,12 +2,11 @@ import {IdentitySecurityDefaultsEnforcementPolicy} from './identitySecurityDefau
 import {PolicyBaseImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the policyRoot singleton. */
 export class IdentitySecurityDefaultsEnforcementPolicyImpl extends PolicyBaseImpl implements IdentitySecurityDefaultsEnforcementPolicy {
     /** If set to true, Azure Active Directory security defaults is enabled for the tenant. */
     public isEnabled?: boolean | undefined;
     /**
-     * Instantiates a new identitySecurityDefaultsEnforcementPolicy and sets the default values.
+     * Instantiates a new IdentitySecurityDefaultsEnforcementPolicy and sets the default values.
      * @param identitySecurityDefaultsEnforcementPolicyParameterValue 
      */
     public constructor(identitySecurityDefaultsEnforcementPolicyParameterValue?: IdentitySecurityDefaultsEnforcementPolicy | undefined) {

@@ -20,9 +20,10 @@ export class PrintTaskDefinitionImpl extends EntityImpl implements PrintTaskDefi
      */
     public constructor(printTaskDefinitionParameterValue?: PrintTaskDefinition | undefined) {
         super(printTaskDefinitionParameterValue);
-        this.createdBy = printTaskDefinitionParameterValue?.createdBy;
+        this.createdBy = printTaskDefinitionParameterValue?.createdBy instanceof AppIdentityImpl? printTaskDefinitionParameterValue?.createdBy:new AppIdentityImpl(printTaskDefinitionParameterValue?.createdBy);
         this.displayName = printTaskDefinitionParameterValue?.displayName;
-        this.tasks = printTaskDefinitionParameterValue?.tasks;
+        const tasksArrValue: PrintTaskImpl[] = []; this.tasks?.forEach(element => {tasksArrValue.push(element instanceof PrintTaskImpl? element : new PrintTaskImpl(element));});
+        this.tasks = tasksArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -48,7 +49,7 @@ export class PrintTaskDefinitionImpl extends EntityImpl implements PrintTaskDefi
         if(this.displayName){
             writer.writeStringValue("displayName", this.displayName);
         }
-        if(this.tasks && this.tasks.length != 0){        const tasksArrValue: PrintTaskImpl[] = []; this.tasks?.forEach(element => {tasksArrValue.push(new PrintTaskImpl(element));});
+        if(this.tasks && this.tasks.length != 0){        const tasksArrValue: PrintTaskImpl[] = []; this.tasks?.forEach(element => {tasksArrValue.push(element instanceof PrintTaskImpl? element : new PrintTaskImpl(element));});
             writer.writeCollectionOfObjectValues<PrintTaskImpl>("tasks", tasksArrValue);
         }
     };

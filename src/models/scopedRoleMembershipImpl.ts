@@ -4,7 +4,7 @@ import {EntityImpl, IdentityImpl} from './index';
 import {ScopedRoleMembership} from './scopedRoleMembership';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the directory singleton. */
+/** Provides operations to manage the collection of application entities. */
 export class ScopedRoleMembershipImpl extends EntityImpl implements ScopedRoleMembership {
     /** Unique identifier for the administrative unit that the directory role is scoped to */
     public administrativeUnitId?: string | undefined;
@@ -20,7 +20,7 @@ export class ScopedRoleMembershipImpl extends EntityImpl implements ScopedRoleMe
         super(scopedRoleMembershipParameterValue);
         this.administrativeUnitId = scopedRoleMembershipParameterValue?.administrativeUnitId;
         this.roleId = scopedRoleMembershipParameterValue?.roleId;
-        this.roleMemberInfo = scopedRoleMembershipParameterValue?.roleMemberInfo;
+        this.roleMemberInfo = scopedRoleMembershipParameterValue?.roleMemberInfo instanceof IdentityImpl? scopedRoleMembershipParameterValue?.roleMemberInfo:new IdentityImpl(scopedRoleMembershipParameterValue?.roleMemberInfo);
     };
     /**
      * The deserialization information for the current model

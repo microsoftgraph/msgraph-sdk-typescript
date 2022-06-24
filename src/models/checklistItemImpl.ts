@@ -2,7 +2,7 @@ import {ChecklistItem} from './checklistItem';
 import {EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the collection of application entities. */
 export class ChecklistItemImpl extends EntityImpl implements ChecklistItem {
     /** The date and time when the checklistItem was finished. */
     public checkedDateTime?: Date | undefined;

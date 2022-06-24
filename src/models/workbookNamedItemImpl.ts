@@ -6,7 +6,7 @@ import {WorkbookNamedItem} from './workbookNamedItem';
 import {WorkbookWorksheet} from './workbookWorksheet';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to group. */
+/** Provides operations to manage the collection of application entities. */
 export class WorkbookNamedItemImpl extends EntityImpl implements WorkbookNamedItem {
     /** Represents the comment associated with this name. */
     public comment?: string | undefined;
@@ -32,9 +32,9 @@ export class WorkbookNamedItemImpl extends EntityImpl implements WorkbookNamedIt
         this.name = workbookNamedItemParameterValue?.name;
         this.scope = workbookNamedItemParameterValue?.scope;
         this.type = workbookNamedItemParameterValue?.type;
-        this.value = workbookNamedItemParameterValue?.value;
+        this.value = workbookNamedItemParameterValue?.value instanceof JsonImpl? workbookNamedItemParameterValue?.value:new JsonImpl(workbookNamedItemParameterValue?.value);
         this.visible = workbookNamedItemParameterValue?.visible;
-        this.worksheet = workbookNamedItemParameterValue?.worksheet;
+        this.worksheet = workbookNamedItemParameterValue?.worksheet instanceof WorkbookWorksheetImpl? workbookNamedItemParameterValue?.worksheet:new WorkbookWorksheetImpl(workbookNamedItemParameterValue?.worksheet);
     };
     /**
      * The deserialization information for the current model

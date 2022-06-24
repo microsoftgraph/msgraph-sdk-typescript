@@ -18,7 +18,8 @@ export class ChatMessageHostedContentCollectionResponseImpl implements ChatMessa
     public constructor(chatMessageHostedContentCollectionResponseParameterValue?: ChatMessageHostedContentCollectionResponse | undefined) {
         this.additionalData = chatMessageHostedContentCollectionResponseParameterValue?.additionalData ? chatMessageHostedContentCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = chatMessageHostedContentCollectionResponseParameterValue?.nextLink;
-        this.value = chatMessageHostedContentCollectionResponseParameterValue?.value;
+        const valueArrValue: ChatMessageHostedContentImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ChatMessageHostedContentImpl? element : new ChatMessageHostedContentImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -39,7 +40,7 @@ export class ChatMessageHostedContentCollectionResponseImpl implements ChatMessa
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: ChatMessageHostedContentImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ChatMessageHostedContentImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: ChatMessageHostedContentImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ChatMessageHostedContentImpl? element : new ChatMessageHostedContentImpl(element));});
             writer.writeCollectionOfObjectValues<ChatMessageHostedContentImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

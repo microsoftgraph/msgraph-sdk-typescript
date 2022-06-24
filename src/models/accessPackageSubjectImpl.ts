@@ -27,7 +27,7 @@ export class AccessPackageSubjectImpl extends EntityImpl implements AccessPackag
      */
     public constructor(accessPackageSubjectParameterValue?: AccessPackageSubject | undefined) {
         super(accessPackageSubjectParameterValue);
-        this.connectedOrganization = accessPackageSubjectParameterValue?.connectedOrganization;
+        this.connectedOrganization = accessPackageSubjectParameterValue?.connectedOrganization instanceof ConnectedOrganizationImpl? accessPackageSubjectParameterValue?.connectedOrganization:new ConnectedOrganizationImpl(accessPackageSubjectParameterValue?.connectedOrganization);
         this.displayName = accessPackageSubjectParameterValue?.displayName;
         this.email = accessPackageSubjectParameterValue?.email;
         this.objectId = accessPackageSubjectParameterValue?.objectId;

@@ -4,7 +4,7 @@ import {IdentitySetImpl, OnenoteEntitySchemaObjectModelImpl} from './index';
 import {OnenoteEntityHierarchyModel} from './onenoteEntityHierarchyModel';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Casts the previous resource to group. */
 export class OnenoteEntityHierarchyModelImpl extends OnenoteEntitySchemaObjectModelImpl implements OnenoteEntityHierarchyModel {
     /** Identity of the user, device, and application which created the item. Read-only. */
     public createdBy?: IdentitySet | undefined;
@@ -20,9 +20,9 @@ export class OnenoteEntityHierarchyModelImpl extends OnenoteEntitySchemaObjectMo
      */
     public constructor(onenoteEntityHierarchyModelParameterValue?: OnenoteEntityHierarchyModel | undefined) {
         super(onenoteEntityHierarchyModelParameterValue);
-        this.createdBy = onenoteEntityHierarchyModelParameterValue?.createdBy;
+        this.createdBy = onenoteEntityHierarchyModelParameterValue?.createdBy instanceof IdentitySetImpl? onenoteEntityHierarchyModelParameterValue?.createdBy:new IdentitySetImpl(onenoteEntityHierarchyModelParameterValue?.createdBy);
         this.displayName = onenoteEntityHierarchyModelParameterValue?.displayName;
-        this.lastModifiedBy = onenoteEntityHierarchyModelParameterValue?.lastModifiedBy;
+        this.lastModifiedBy = onenoteEntityHierarchyModelParameterValue?.lastModifiedBy instanceof IdentitySetImpl? onenoteEntityHierarchyModelParameterValue?.lastModifiedBy:new IdentitySetImpl(onenoteEntityHierarchyModelParameterValue?.lastModifiedBy);
         this.lastModifiedDateTime = onenoteEntityHierarchyModelParameterValue?.lastModifiedDateTime;
     };
     /**

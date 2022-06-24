@@ -18,7 +18,8 @@ export class MeetingTimeSuggestionsResultImpl implements MeetingTimeSuggestionsR
     public constructor(meetingTimeSuggestionsResultParameterValue?: MeetingTimeSuggestionsResult | undefined) {
         this.additionalData = meetingTimeSuggestionsResultParameterValue?.additionalData ? meetingTimeSuggestionsResultParameterValue?.additionalData! : {};
         this.emptySuggestionsReason = meetingTimeSuggestionsResultParameterValue?.emptySuggestionsReason;
-        this.meetingTimeSuggestions = meetingTimeSuggestionsResultParameterValue?.meetingTimeSuggestions;
+        const meetingTimeSuggestionsArrValue: MeetingTimeSuggestionImpl[] = []; this.meetingTimeSuggestions?.forEach(element => {meetingTimeSuggestionsArrValue.push(element instanceof MeetingTimeSuggestionImpl? element : new MeetingTimeSuggestionImpl(element));});
+        this.meetingTimeSuggestions = meetingTimeSuggestionsArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -39,7 +40,7 @@ export class MeetingTimeSuggestionsResultImpl implements MeetingTimeSuggestionsR
         if(this.emptySuggestionsReason){
             writer.writeStringValue("emptySuggestionsReason", this.emptySuggestionsReason);
         }
-        if(this.meetingTimeSuggestions && this.meetingTimeSuggestions.length != 0){        const meetingTimeSuggestionsArrValue: MeetingTimeSuggestionImpl[] = []; this.meetingTimeSuggestions?.forEach(element => {meetingTimeSuggestionsArrValue.push(new MeetingTimeSuggestionImpl(element));});
+        if(this.meetingTimeSuggestions && this.meetingTimeSuggestions.length != 0){        const meetingTimeSuggestionsArrValue: MeetingTimeSuggestionImpl[] = []; this.meetingTimeSuggestions?.forEach(element => {meetingTimeSuggestionsArrValue.push(element instanceof MeetingTimeSuggestionImpl? element : new MeetingTimeSuggestionImpl(element));});
             writer.writeCollectionOfObjectValues<MeetingTimeSuggestionImpl>("meetingTimeSuggestions", meetingTimeSuggestionsArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

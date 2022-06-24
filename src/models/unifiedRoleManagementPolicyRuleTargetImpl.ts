@@ -7,15 +7,15 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class UnifiedRoleManagementPolicyRuleTargetImpl implements UnifiedRoleManagementPolicyRuleTarget {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
-    /** The caller for the policy rule target. Allowed values are: None, Admin, EndUser. */
+    /** The type of caller that's the target of the policy rule. Allowed values are: None, Admin, EndUser. */
     public caller?: string | undefined;
-    /** The list of settings which are enforced and cannot be overridden by child scopes. Use All for all settings. */
+    /** The list of role settings that are enforced and cannot be overridden by child scopes. Use All for all settings. */
     public enforcedSettings?: string[] | undefined;
-    /** The list of settings which can be inherited by child scopes. Use All for all settings. */
+    /** The list of role settings that can be inherited by child scopes. Use All for all settings. */
     public inheritableSettings?: string[] | undefined;
-    /** The level for the policy rule target. Allowed values are: Eligibility, Assignment. */
+    /** The role assignment type that's the target of policy rule. Allowed values are: Eligibility, Assignment. */
     public level?: string | undefined;
-    /** The operations for policy rule target. Allowed values are: All, Activate, Deactivate, Assign, Update, Remove, Extend, Renew. */
+    /** The role management operations that are the target of the policy rule. Allowed values are: All, Activate, Deactivate, Assign, Update, Remove, Extend, Renew. */
     public operations?: string[] | undefined;
     /** The targetObjects property */
     public targetObjects?: DirectoryObject[] | undefined;
@@ -30,7 +30,8 @@ export class UnifiedRoleManagementPolicyRuleTargetImpl implements UnifiedRoleMan
         this.inheritableSettings = unifiedRoleManagementPolicyRuleTargetParameterValue?.inheritableSettings;
         this.level = unifiedRoleManagementPolicyRuleTargetParameterValue?.level;
         this.operations = unifiedRoleManagementPolicyRuleTargetParameterValue?.operations;
-        this.targetObjects = unifiedRoleManagementPolicyRuleTargetParameterValue?.targetObjects;
+        const targetObjectsArrValue: DirectoryObjectImpl[] = []; this.targetObjects?.forEach(element => {targetObjectsArrValue.push(element instanceof DirectoryObjectImpl? element : new DirectoryObjectImpl(element));});
+        this.targetObjects = targetObjectsArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -67,7 +68,7 @@ export class UnifiedRoleManagementPolicyRuleTargetImpl implements UnifiedRoleMan
         if(this.operations){
             writer.writeCollectionOfPrimitiveValues<string>("operations", this.operations);
         }
-        if(this.targetObjects && this.targetObjects.length != 0){        const targetObjectsArrValue: DirectoryObjectImpl[] = []; this.targetObjects?.forEach(element => {targetObjectsArrValue.push(new DirectoryObjectImpl(element));});
+        if(this.targetObjects && this.targetObjects.length != 0){        const targetObjectsArrValue: DirectoryObjectImpl[] = []; this.targetObjects?.forEach(element => {targetObjectsArrValue.push(element instanceof DirectoryObjectImpl? element : new DirectoryObjectImpl(element));});
             writer.writeCollectionOfObjectValues<DirectoryObjectImpl>("targetObjects", targetObjectsArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

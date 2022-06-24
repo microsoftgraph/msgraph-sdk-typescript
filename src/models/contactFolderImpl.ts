@@ -9,7 +9,7 @@ import {MultiValueLegacyExtendedProperty} from './multiValueLegacyExtendedProper
 import {SingleValueLegacyExtendedProperty} from './singleValueLegacyExtendedProperty';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the collection of application entities. */
 export class ContactFolderImpl extends EntityImpl implements ContactFolder {
     /** The collection of child folders in the folder. Navigation property. Read-only. Nullable. */
     public childFolders?: ContactFolder[] | undefined;
@@ -29,12 +29,16 @@ export class ContactFolderImpl extends EntityImpl implements ContactFolder {
      */
     public constructor(contactFolderParameterValue?: ContactFolder | undefined) {
         super(contactFolderParameterValue);
-        this.childFolders = contactFolderParameterValue?.childFolders;
-        this.contacts = contactFolderParameterValue?.contacts;
+        const childFoldersArrValue: ContactFolderImpl[] = []; this.childFolders?.forEach(element => {childFoldersArrValue.push(element instanceof ContactFolderImpl? element : new ContactFolderImpl(element));});
+        this.childFolders = childFoldersArrValue;
+        const contactsArrValue: ContactImpl[] = []; this.contacts?.forEach(element => {contactsArrValue.push(element instanceof ContactImpl? element : new ContactImpl(element));});
+        this.contacts = contactsArrValue;
         this.displayName = contactFolderParameterValue?.displayName;
-        this.multiValueExtendedProperties = contactFolderParameterValue?.multiValueExtendedProperties;
+        const multiValueExtendedPropertiesArrValue: MultiValueLegacyExtendedPropertyImpl[] = []; this.multiValueExtendedProperties?.forEach(element => {multiValueExtendedPropertiesArrValue.push(element instanceof MultiValueLegacyExtendedPropertyImpl? element : new MultiValueLegacyExtendedPropertyImpl(element));});
+        this.multiValueExtendedProperties = multiValueExtendedPropertiesArrValue;
         this.parentFolderId = contactFolderParameterValue?.parentFolderId;
-        this.singleValueExtendedProperties = contactFolderParameterValue?.singleValueExtendedProperties;
+        const singleValueExtendedPropertiesArrValue: SingleValueLegacyExtendedPropertyImpl[] = []; this.singleValueExtendedProperties?.forEach(element => {singleValueExtendedPropertiesArrValue.push(element instanceof SingleValueLegacyExtendedPropertyImpl? element : new SingleValueLegacyExtendedPropertyImpl(element));});
+        this.singleValueExtendedProperties = singleValueExtendedPropertiesArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -57,22 +61,22 @@ export class ContactFolderImpl extends EntityImpl implements ContactFolder {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.childFolders && this.childFolders.length != 0){        const childFoldersArrValue: ContactFolderImpl[] = []; this.childFolders?.forEach(element => {childFoldersArrValue.push(new ContactFolderImpl(element));});
+        if(this.childFolders && this.childFolders.length != 0){        const childFoldersArrValue: ContactFolderImpl[] = []; this.childFolders?.forEach(element => {childFoldersArrValue.push(element instanceof ContactFolderImpl? element : new ContactFolderImpl(element));});
             writer.writeCollectionOfObjectValues<ContactFolderImpl>("childFolders", childFoldersArrValue);
         }
-        if(this.contacts && this.contacts.length != 0){        const contactsArrValue: ContactImpl[] = []; this.contacts?.forEach(element => {contactsArrValue.push(new ContactImpl(element));});
+        if(this.contacts && this.contacts.length != 0){        const contactsArrValue: ContactImpl[] = []; this.contacts?.forEach(element => {contactsArrValue.push(element instanceof ContactImpl? element : new ContactImpl(element));});
             writer.writeCollectionOfObjectValues<ContactImpl>("contacts", contactsArrValue);
         }
         if(this.displayName){
             writer.writeStringValue("displayName", this.displayName);
         }
-        if(this.multiValueExtendedProperties && this.multiValueExtendedProperties.length != 0){        const multiValueExtendedPropertiesArrValue: MultiValueLegacyExtendedPropertyImpl[] = []; this.multiValueExtendedProperties?.forEach(element => {multiValueExtendedPropertiesArrValue.push(new MultiValueLegacyExtendedPropertyImpl(element));});
+        if(this.multiValueExtendedProperties && this.multiValueExtendedProperties.length != 0){        const multiValueExtendedPropertiesArrValue: MultiValueLegacyExtendedPropertyImpl[] = []; this.multiValueExtendedProperties?.forEach(element => {multiValueExtendedPropertiesArrValue.push(element instanceof MultiValueLegacyExtendedPropertyImpl? element : new MultiValueLegacyExtendedPropertyImpl(element));});
             writer.writeCollectionOfObjectValues<MultiValueLegacyExtendedPropertyImpl>("multiValueExtendedProperties", multiValueExtendedPropertiesArrValue);
         }
         if(this.parentFolderId){
             writer.writeStringValue("parentFolderId", this.parentFolderId);
         }
-        if(this.singleValueExtendedProperties && this.singleValueExtendedProperties.length != 0){        const singleValueExtendedPropertiesArrValue: SingleValueLegacyExtendedPropertyImpl[] = []; this.singleValueExtendedProperties?.forEach(element => {singleValueExtendedPropertiesArrValue.push(new SingleValueLegacyExtendedPropertyImpl(element));});
+        if(this.singleValueExtendedProperties && this.singleValueExtendedProperties.length != 0){        const singleValueExtendedPropertiesArrValue: SingleValueLegacyExtendedPropertyImpl[] = []; this.singleValueExtendedProperties?.forEach(element => {singleValueExtendedPropertiesArrValue.push(element instanceof SingleValueLegacyExtendedPropertyImpl? element : new SingleValueLegacyExtendedPropertyImpl(element));});
             writer.writeCollectionOfObjectValues<SingleValueLegacyExtendedPropertyImpl>("singleValueExtendedProperties", singleValueExtendedPropertiesArrValue);
         }
     };

@@ -46,7 +46,7 @@ export class ChecklistItemItemRequestBuilder {
         return requestInfo;
     };
     /**
-     * Get checklistItems from me
+     * A collection of smaller subtasks linked to the more complex parent task.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -99,7 +99,7 @@ export class ChecklistItemItemRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Get checklistItems from me
+     * A collection of smaller subtasks linked to the more complex parent task.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ChecklistItem

@@ -24,9 +24,9 @@ export class AutomaticRepliesMailTipsImpl implements AutomaticRepliesMailTips {
     public constructor(automaticRepliesMailTipsParameterValue?: AutomaticRepliesMailTips | undefined) {
         this.additionalData = automaticRepliesMailTipsParameterValue?.additionalData ? automaticRepliesMailTipsParameterValue?.additionalData! : {};
         this.message = automaticRepliesMailTipsParameterValue?.message;
-        this.messageLanguage = automaticRepliesMailTipsParameterValue?.messageLanguage;
-        this.scheduledEndTime = automaticRepliesMailTipsParameterValue?.scheduledEndTime;
-        this.scheduledStartTime = automaticRepliesMailTipsParameterValue?.scheduledStartTime;
+        this.messageLanguage = automaticRepliesMailTipsParameterValue?.messageLanguage instanceof LocaleInfoImpl? automaticRepliesMailTipsParameterValue?.messageLanguage:new LocaleInfoImpl(automaticRepliesMailTipsParameterValue?.messageLanguage);
+        this.scheduledEndTime = automaticRepliesMailTipsParameterValue?.scheduledEndTime instanceof DateTimeTimeZoneImpl? automaticRepliesMailTipsParameterValue?.scheduledEndTime:new DateTimeTimeZoneImpl(automaticRepliesMailTipsParameterValue?.scheduledEndTime);
+        this.scheduledStartTime = automaticRepliesMailTipsParameterValue?.scheduledStartTime instanceof DateTimeTimeZoneImpl? automaticRepliesMailTipsParameterValue?.scheduledStartTime:new DateTimeTimeZoneImpl(automaticRepliesMailTipsParameterValue?.scheduledStartTime);
     };
     /**
      * The deserialization information for the current model

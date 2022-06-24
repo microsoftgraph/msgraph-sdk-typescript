@@ -18,7 +18,8 @@ export class ProfilePhotoCollectionResponseImpl implements ProfilePhotoCollectio
     public constructor(profilePhotoCollectionResponseParameterValue?: ProfilePhotoCollectionResponse | undefined) {
         this.additionalData = profilePhotoCollectionResponseParameterValue?.additionalData ? profilePhotoCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = profilePhotoCollectionResponseParameterValue?.nextLink;
-        this.value = profilePhotoCollectionResponseParameterValue?.value;
+        const valueArrValue: ProfilePhotoImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ProfilePhotoImpl? element : new ProfilePhotoImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -39,7 +40,7 @@ export class ProfilePhotoCollectionResponseImpl implements ProfilePhotoCollectio
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: ProfilePhotoImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ProfilePhotoImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: ProfilePhotoImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ProfilePhotoImpl? element : new ProfilePhotoImpl(element));});
             writer.writeCollectionOfObjectValues<ProfilePhotoImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

@@ -18,7 +18,8 @@ export class ServiceHealthCollectionResponseImpl implements ServiceHealthCollect
     public constructor(serviceHealthCollectionResponseParameterValue?: ServiceHealthCollectionResponse | undefined) {
         this.additionalData = serviceHealthCollectionResponseParameterValue?.additionalData ? serviceHealthCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = serviceHealthCollectionResponseParameterValue?.nextLink;
-        this.value = serviceHealthCollectionResponseParameterValue?.value;
+        const valueArrValue: ServiceHealthImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ServiceHealthImpl? element : new ServiceHealthImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -39,7 +40,7 @@ export class ServiceHealthCollectionResponseImpl implements ServiceHealthCollect
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: ServiceHealthImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ServiceHealthImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: ServiceHealthImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ServiceHealthImpl? element : new ServiceHealthImpl(element));});
             writer.writeCollectionOfObjectValues<ServiceHealthImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

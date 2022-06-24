@@ -4,9 +4,9 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class TicketInfoImpl implements TicketInfo {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
-    /** Ticket number meta data */
+    /** The ticket number. */
     public ticketNumber?: string | undefined;
-    /** Ticket system meta data */
+    /** The description of the ticket system. */
     public ticketSystem?: string | undefined;
     /**
      * Instantiates a new ticketInfo and sets the default values.

@@ -18,7 +18,8 @@ export class ExternalConnectionCollectionResponseImpl implements ExternalConnect
     public constructor(externalConnectionCollectionResponseParameterValue?: ExternalConnectionCollectionResponse | undefined) {
         this.additionalData = externalConnectionCollectionResponseParameterValue?.additionalData ? externalConnectionCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = externalConnectionCollectionResponseParameterValue?.nextLink;
-        this.value = externalConnectionCollectionResponseParameterValue?.value;
+        const valueArrValue: ExternalConnectionImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ExternalConnectionImpl? element : new ExternalConnectionImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -39,7 +40,7 @@ export class ExternalConnectionCollectionResponseImpl implements ExternalConnect
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: ExternalConnectionImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ExternalConnectionImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: ExternalConnectionImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ExternalConnectionImpl? element : new ExternalConnectionImpl(element));});
             writer.writeCollectionOfObjectValues<ExternalConnectionImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

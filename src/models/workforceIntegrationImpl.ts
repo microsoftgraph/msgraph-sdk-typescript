@@ -5,7 +5,6 @@ import {WorkforceIntegrationEncryption} from './workforceIntegrationEncryption';
 import {WorkforceIntegrationSupportedEntities} from './workforceIntegrationSupportedEntities';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the teamwork singleton. */
 export class WorkforceIntegrationImpl extends ChangeTrackedEntityImpl implements WorkforceIntegration {
     /** API version for the call back URL. Start with 1. */
     public apiVersion?: number | undefined;
@@ -20,14 +19,14 @@ export class WorkforceIntegrationImpl extends ChangeTrackedEntityImpl implements
     /** Workforce Integration URL for callbacks from the Shifts service. */
     public url?: string | undefined;
     /**
-     * Instantiates a new workforceIntegration and sets the default values.
+     * Instantiates a new WorkforceIntegration and sets the default values.
      * @param workforceIntegrationParameterValue 
      */
     public constructor(workforceIntegrationParameterValue?: WorkforceIntegration | undefined) {
         super(workforceIntegrationParameterValue);
         this.apiVersion = workforceIntegrationParameterValue?.apiVersion;
         this.displayName = workforceIntegrationParameterValue?.displayName;
-        this.encryption = workforceIntegrationParameterValue?.encryption;
+        this.encryption = workforceIntegrationParameterValue?.encryption instanceof WorkforceIntegrationEncryptionImpl? workforceIntegrationParameterValue?.encryption:new WorkforceIntegrationEncryptionImpl(workforceIntegrationParameterValue?.encryption);
         this.isActive = workforceIntegrationParameterValue?.isActive;
         this.supportedEntities = workforceIntegrationParameterValue?.supportedEntities;
         this.url = workforceIntegrationParameterValue?.url;

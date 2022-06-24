@@ -7,6 +7,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/c
 import {ChatsRequestBuilderGetRequestConfiguration} from './chatsRequestBuilderGetRequestConfiguration';
 import {ChatsRequestBuilderPostRequestConfiguration} from './chatsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {GetAllMessagesRequestBuilder} from './getAllMessages/getAllMessagesRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the chats property of the microsoft.graph.user entity. */
@@ -88,6 +89,13 @@ export class ChatsRequestBuilder {
             "5XX": createODataErrorFromDiscriminatorValue,
         };
         return this.requestAdapter?.sendAsync<ChatCollectionResponseImpl>(requestInfo, createChatCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+    };
+    /**
+     * Provides operations to call the getAllMessages method.
+     * @returns a getAllMessagesRequestBuilder
+     */
+    public getAllMessages() : GetAllMessagesRequestBuilder {
+        return new GetAllMessagesRequestBuilder(this.pathParameters, this.requestAdapter);
     };
     /**
      * Create new navigation property to chats for me

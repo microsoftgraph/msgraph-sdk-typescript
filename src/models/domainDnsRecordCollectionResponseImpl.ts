@@ -18,7 +18,8 @@ export class DomainDnsRecordCollectionResponseImpl implements DomainDnsRecordCol
     public constructor(domainDnsRecordCollectionResponseParameterValue?: DomainDnsRecordCollectionResponse | undefined) {
         this.additionalData = domainDnsRecordCollectionResponseParameterValue?.additionalData ? domainDnsRecordCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = domainDnsRecordCollectionResponseParameterValue?.nextLink;
-        this.value = domainDnsRecordCollectionResponseParameterValue?.value;
+        const valueArrValue: DomainDnsRecordImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof DomainDnsRecordImpl? element : new DomainDnsRecordImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -39,7 +40,7 @@ export class DomainDnsRecordCollectionResponseImpl implements DomainDnsRecordCol
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: DomainDnsRecordImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new DomainDnsRecordImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: DomainDnsRecordImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof DomainDnsRecordImpl? element : new DomainDnsRecordImpl(element));});
             writer.writeCollectionOfObjectValues<DomainDnsRecordImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

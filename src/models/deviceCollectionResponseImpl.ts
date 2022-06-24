@@ -18,7 +18,8 @@ export class DeviceCollectionResponseImpl implements DeviceCollectionResponse {
     public constructor(deviceCollectionResponseParameterValue?: DeviceCollectionResponse | undefined) {
         this.additionalData = deviceCollectionResponseParameterValue?.additionalData ? deviceCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = deviceCollectionResponseParameterValue?.nextLink;
-        this.value = deviceCollectionResponseParameterValue?.value;
+        const valueArrValue: DeviceImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof DeviceImpl? element : new DeviceImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -39,7 +40,7 @@ export class DeviceCollectionResponseImpl implements DeviceCollectionResponse {
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: DeviceImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new DeviceImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: DeviceImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof DeviceImpl? element : new DeviceImpl(element));});
             writer.writeCollectionOfObjectValues<DeviceImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

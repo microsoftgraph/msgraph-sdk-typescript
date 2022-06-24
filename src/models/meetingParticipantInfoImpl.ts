@@ -20,7 +20,7 @@ export class MeetingParticipantInfoImpl implements MeetingParticipantInfo {
      */
     public constructor(meetingParticipantInfoParameterValue?: MeetingParticipantInfo | undefined) {
         this.additionalData = meetingParticipantInfoParameterValue?.additionalData ? meetingParticipantInfoParameterValue?.additionalData! : {};
-        this.identity = meetingParticipantInfoParameterValue?.identity;
+        this.identity = meetingParticipantInfoParameterValue?.identity instanceof IdentitySetImpl? meetingParticipantInfoParameterValue?.identity:new IdentitySetImpl(meetingParticipantInfoParameterValue?.identity);
         this.role = meetingParticipantInfoParameterValue?.role;
         this.upn = meetingParticipantInfoParameterValue?.upn;
     };

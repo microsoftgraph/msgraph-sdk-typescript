@@ -18,8 +18,10 @@ export class TermsOfUseContainerImpl extends EntityImpl implements TermsOfUseCon
      */
     public constructor(termsOfUseContainerParameterValue?: TermsOfUseContainer | undefined) {
         super(termsOfUseContainerParameterValue);
-        this.agreementAcceptances = termsOfUseContainerParameterValue?.agreementAcceptances;
-        this.agreements = termsOfUseContainerParameterValue?.agreements;
+        const agreementAcceptancesArrValue: AgreementAcceptanceImpl[] = []; this.agreementAcceptances?.forEach(element => {agreementAcceptancesArrValue.push(element instanceof AgreementAcceptanceImpl? element : new AgreementAcceptanceImpl(element));});
+        this.agreementAcceptances = agreementAcceptancesArrValue;
+        const agreementsArrValue: AgreementImpl[] = []; this.agreements?.forEach(element => {agreementsArrValue.push(element instanceof AgreementImpl? element : new AgreementImpl(element));});
+        this.agreements = agreementsArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -38,10 +40,10 @@ export class TermsOfUseContainerImpl extends EntityImpl implements TermsOfUseCon
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.agreementAcceptances && this.agreementAcceptances.length != 0){        const agreementAcceptancesArrValue: AgreementAcceptanceImpl[] = []; this.agreementAcceptances?.forEach(element => {agreementAcceptancesArrValue.push(new AgreementAcceptanceImpl(element));});
+        if(this.agreementAcceptances && this.agreementAcceptances.length != 0){        const agreementAcceptancesArrValue: AgreementAcceptanceImpl[] = []; this.agreementAcceptances?.forEach(element => {agreementAcceptancesArrValue.push(element instanceof AgreementAcceptanceImpl? element : new AgreementAcceptanceImpl(element));});
             writer.writeCollectionOfObjectValues<AgreementAcceptanceImpl>("agreementAcceptances", agreementAcceptancesArrValue);
         }
-        if(this.agreements && this.agreements.length != 0){        const agreementsArrValue: AgreementImpl[] = []; this.agreements?.forEach(element => {agreementsArrValue.push(new AgreementImpl(element));});
+        if(this.agreements && this.agreements.length != 0){        const agreementsArrValue: AgreementImpl[] = []; this.agreements?.forEach(element => {agreementsArrValue.push(element instanceof AgreementImpl? element : new AgreementImpl(element));});
             writer.writeCollectionOfObjectValues<AgreementImpl>("agreements", agreementsArrValue);
         }
     };

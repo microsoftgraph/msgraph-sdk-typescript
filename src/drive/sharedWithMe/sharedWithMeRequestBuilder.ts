@@ -1,3 +1,5 @@
+import {ODataErrorImpl} from '../../models/oDataErrors/';
+import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {createSharedWithMeResponseFromDiscriminatorValue} from './createSharedWithMeResponseFromDiscriminatorValue';
 import {SharedWithMeResponseImpl} from './index';
 import {SharedWithMeRequestBuilderGetRequestConfiguration} from './sharedWithMeRequestBuilderGetRequestConfiguration';
@@ -51,6 +53,10 @@ export class SharedWithMeRequestBuilder {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
-        return this.requestAdapter?.sendAsync<SharedWithMeResponseImpl>(requestInfo, createSharedWithMeResponseFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<SharedWithMeResponseImpl>(requestInfo, createSharedWithMeResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

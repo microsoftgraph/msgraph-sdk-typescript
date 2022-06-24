@@ -4,10 +4,15 @@ import {DirectoryObject} from '../../../models/directoryObject';
 import {ODataErrorImpl} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {ApplicationRequestBuilder} from './application/applicationRequestBuilder';
+import {CheckMemberGroupsRequestBuilder} from './checkMemberGroups/checkMemberGroupsRequestBuilder';
+import {CheckMemberObjectsRequestBuilder} from './checkMemberObjects/checkMemberObjectsRequestBuilder';
 import {DirectoryObjectItemRequestBuilderDeleteRequestConfiguration} from './directoryObjectItemRequestBuilderDeleteRequestConfiguration';
 import {DirectoryObjectItemRequestBuilderGetRequestConfiguration} from './directoryObjectItemRequestBuilderGetRequestConfiguration';
 import {DirectoryObjectItemRequestBuilderPatchRequestConfiguration} from './directoryObjectItemRequestBuilderPatchRequestConfiguration';
+import {GetMemberGroupsRequestBuilder} from './getMemberGroups/getMemberGroupsRequestBuilder';
+import {GetMemberObjectsRequestBuilder} from './getMemberObjects/getMemberObjectsRequestBuilder';
 import {GroupRequestBuilder} from './group/groupRequestBuilder';
+import {RestoreRequestBuilder} from './restore/restoreRequestBuilder';
 import {UserRequestBuilder} from './user/userRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
@@ -17,6 +22,22 @@ export class DirectoryObjectItemRequestBuilder {
     public get application(): ApplicationRequestBuilder {
         return new ApplicationRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The checkMemberGroups property */
+    public get checkMemberGroups(): CheckMemberGroupsRequestBuilder {
+        return new CheckMemberGroupsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** The checkMemberObjects property */
+    public get checkMemberObjects(): CheckMemberObjectsRequestBuilder {
+        return new CheckMemberObjectsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** The getMemberGroups property */
+    public get getMemberGroups(): GetMemberGroupsRequestBuilder {
+        return new GetMemberGroupsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** The getMemberObjects property */
+    public get getMemberObjects(): GetMemberObjectsRequestBuilder {
+        return new GetMemberObjectsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** The group property */
     public get group(): GroupRequestBuilder {
         return new GroupRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -25,6 +46,10 @@ export class DirectoryObjectItemRequestBuilder {
     private readonly pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
+    /** The restore property */
+    public get restore(): RestoreRequestBuilder {
+        return new RestoreRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /** The user property */

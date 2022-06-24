@@ -2,9 +2,11 @@ import {AddIn} from './addIn';
 import {ApiApplication} from './apiApplication';
 import {Application} from './application';
 import {AppRole} from './appRole';
+import {Certification} from './certification';
 import {createAddInFromDiscriminatorValue} from './createAddInFromDiscriminatorValue';
 import {createApiApplicationFromDiscriminatorValue} from './createApiApplicationFromDiscriminatorValue';
 import {createAppRoleFromDiscriminatorValue} from './createAppRoleFromDiscriminatorValue';
+import {createCertificationFromDiscriminatorValue} from './createCertificationFromDiscriminatorValue';
 import {createDirectoryObjectFromDiscriminatorValue} from './createDirectoryObjectFromDiscriminatorValue';
 import {createExtensionPropertyFromDiscriminatorValue} from './createExtensionPropertyFromDiscriminatorValue';
 import {createHomeRealmDiscoveryPolicyFromDiscriminatorValue} from './createHomeRealmDiscoveryPolicyFromDiscriminatorValue';
@@ -23,7 +25,7 @@ import {createWebApplicationFromDiscriminatorValue} from './createWebApplication
 import {DirectoryObject} from './directoryObject';
 import {ExtensionProperty} from './extensionProperty';
 import {HomeRealmDiscoveryPolicy} from './homeRealmDiscoveryPolicy';
-import {AddInImpl, ApiApplicationImpl, AppRoleImpl, DirectoryObjectImpl, ExtensionPropertyImpl, HomeRealmDiscoveryPolicyImpl, InformationalUrlImpl, KeyCredentialImpl, OptionalClaimsImpl, ParentalControlSettingsImpl, PasswordCredentialImpl, PublicClientApplicationImpl, RequiredResourceAccessImpl, SpaApplicationImpl, TokenIssuancePolicyImpl, TokenLifetimePolicyImpl, VerifiedPublisherImpl, WebApplicationImpl} from './index';
+import {AddInImpl, ApiApplicationImpl, AppRoleImpl, CertificationImpl, DirectoryObjectImpl, ExtensionPropertyImpl, HomeRealmDiscoveryPolicyImpl, InformationalUrlImpl, KeyCredentialImpl, OptionalClaimsImpl, ParentalControlSettingsImpl, PasswordCredentialImpl, PublicClientApplicationImpl, RequiredResourceAccessImpl, SpaApplicationImpl, TokenIssuancePolicyImpl, TokenLifetimePolicyImpl, VerifiedPublisherImpl, WebApplicationImpl} from './index';
 import {InformationalUrl} from './informationalUrl';
 import {KeyCredential} from './keyCredential';
 import {OptionalClaims} from './optionalClaims';
@@ -38,7 +40,7 @@ import {VerifiedPublisher} from './verifiedPublisher';
 import {WebApplication} from './webApplication';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of application entities. */
+/** Provides operations to call the instantiate method. */
 export class ApplicationImpl extends DirectoryObjectImpl implements Application {
     /** Defines custom behavior that a consuming service can use to call an app in specific contexts. For example, applications that can render file streams may set the addIns property for its 'FileHandler' functionality. This will let services like Office 365 call the application in the context of a document the user is working on. */
     public addIns?: AddIn[] | undefined;
@@ -50,9 +52,11 @@ export class ApplicationImpl extends DirectoryObjectImpl implements Application 
     public applicationTemplateId?: string | undefined;
     /** The collection of roles assigned to the application. With app role assignments, these roles can be assigned to users, groups, or service principals associated with other applications. Not nullable. */
     public appRoles?: AppRole[] | undefined;
+    /** Specifies the certification status of the application. */
+    public certification?: Certification | undefined;
     /** The date and time the application was registered. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.  Supports $filter (eq, ne, not, ge, le, in, and eq on null values) and $orderBy. */
     public createdDateTime?: Date | undefined;
-    /** Read-only. */
+    /** The createdOnBehalfOf property */
     public createdOnBehalfOf?: DirectoryObject | undefined;
     /** Free text field to provide a description of the application object to end users. The maximum allowed size is 1024 characters. Returned by default. Supports $filter (eq, ne, not, ge, le, startsWith) and $search. */
     public description?: string | undefined;
@@ -120,43 +124,54 @@ export class ApplicationImpl extends DirectoryObjectImpl implements Application 
      */
     public constructor(applicationParameterValue?: Application | undefined) {
         super(applicationParameterValue);
-        this.addIns = applicationParameterValue?.addIns;
-        this.api = applicationParameterValue?.api;
+        const addInsArrValue: AddInImpl[] = []; this.addIns?.forEach(element => {addInsArrValue.push(element instanceof AddInImpl? element : new AddInImpl(element));});
+        this.addIns = addInsArrValue;
+        this.api = applicationParameterValue?.api instanceof ApiApplicationImpl? applicationParameterValue?.api:new ApiApplicationImpl(applicationParameterValue?.api);
         this.appId = applicationParameterValue?.appId;
         this.applicationTemplateId = applicationParameterValue?.applicationTemplateId;
-        this.appRoles = applicationParameterValue?.appRoles;
+        const appRolesArrValue: AppRoleImpl[] = []; this.appRoles?.forEach(element => {appRolesArrValue.push(element instanceof AppRoleImpl? element : new AppRoleImpl(element));});
+        this.appRoles = appRolesArrValue;
+        this.certification = applicationParameterValue?.certification instanceof CertificationImpl? applicationParameterValue?.certification:new CertificationImpl(applicationParameterValue?.certification);
         this.createdDateTime = applicationParameterValue?.createdDateTime;
-        this.createdOnBehalfOf = applicationParameterValue?.createdOnBehalfOf;
+        this.createdOnBehalfOf = applicationParameterValue?.createdOnBehalfOf instanceof DirectoryObjectImpl? applicationParameterValue?.createdOnBehalfOf:new DirectoryObjectImpl(applicationParameterValue?.createdOnBehalfOf);
         this.description = applicationParameterValue?.description;
         this.disabledByMicrosoftStatus = applicationParameterValue?.disabledByMicrosoftStatus;
         this.displayName = applicationParameterValue?.displayName;
-        this.extensionProperties = applicationParameterValue?.extensionProperties;
+        const extensionPropertiesArrValue: ExtensionPropertyImpl[] = []; this.extensionProperties?.forEach(element => {extensionPropertiesArrValue.push(element instanceof ExtensionPropertyImpl? element : new ExtensionPropertyImpl(element));});
+        this.extensionProperties = extensionPropertiesArrValue;
         this.groupMembershipClaims = applicationParameterValue?.groupMembershipClaims;
-        this.homeRealmDiscoveryPolicies = applicationParameterValue?.homeRealmDiscoveryPolicies;
+        const homeRealmDiscoveryPoliciesArrValue: HomeRealmDiscoveryPolicyImpl[] = []; this.homeRealmDiscoveryPolicies?.forEach(element => {homeRealmDiscoveryPoliciesArrValue.push(element instanceof HomeRealmDiscoveryPolicyImpl? element : new HomeRealmDiscoveryPolicyImpl(element));});
+        this.homeRealmDiscoveryPolicies = homeRealmDiscoveryPoliciesArrValue;
         this.identifierUris = applicationParameterValue?.identifierUris;
-        this.info = applicationParameterValue?.info;
+        this.info = applicationParameterValue?.info instanceof InformationalUrlImpl? applicationParameterValue?.info:new InformationalUrlImpl(applicationParameterValue?.info);
         this.isDeviceOnlyAuthSupported = applicationParameterValue?.isDeviceOnlyAuthSupported;
         this.isFallbackPublicClient = applicationParameterValue?.isFallbackPublicClient;
-        this.keyCredentials = applicationParameterValue?.keyCredentials;
+        const keyCredentialsArrValue: KeyCredentialImpl[] = []; this.keyCredentials?.forEach(element => {keyCredentialsArrValue.push(element instanceof KeyCredentialImpl? element : new KeyCredentialImpl(element));});
+        this.keyCredentials = keyCredentialsArrValue;
         this.logo = applicationParameterValue?.logo;
         this.notes = applicationParameterValue?.notes;
         this.oauth2RequirePostResponse = applicationParameterValue?.oauth2RequirePostResponse;
-        this.optionalClaims = applicationParameterValue?.optionalClaims;
-        this.owners = applicationParameterValue?.owners;
-        this.parentalControlSettings = applicationParameterValue?.parentalControlSettings;
-        this.passwordCredentials = applicationParameterValue?.passwordCredentials;
-        this.publicClient = applicationParameterValue?.publicClient;
+        this.optionalClaims = applicationParameterValue?.optionalClaims instanceof OptionalClaimsImpl? applicationParameterValue?.optionalClaims:new OptionalClaimsImpl(applicationParameterValue?.optionalClaims);
+        const ownersArrValue: DirectoryObjectImpl[] = []; this.owners?.forEach(element => {ownersArrValue.push(element instanceof DirectoryObjectImpl? element : new DirectoryObjectImpl(element));});
+        this.owners = ownersArrValue;
+        this.parentalControlSettings = applicationParameterValue?.parentalControlSettings instanceof ParentalControlSettingsImpl? applicationParameterValue?.parentalControlSettings:new ParentalControlSettingsImpl(applicationParameterValue?.parentalControlSettings);
+        const passwordCredentialsArrValue: PasswordCredentialImpl[] = []; this.passwordCredentials?.forEach(element => {passwordCredentialsArrValue.push(element instanceof PasswordCredentialImpl? element : new PasswordCredentialImpl(element));});
+        this.passwordCredentials = passwordCredentialsArrValue;
+        this.publicClient = applicationParameterValue?.publicClient instanceof PublicClientApplicationImpl? applicationParameterValue?.publicClient:new PublicClientApplicationImpl(applicationParameterValue?.publicClient);
         this.publisherDomain = applicationParameterValue?.publisherDomain;
-        this.requiredResourceAccess = applicationParameterValue?.requiredResourceAccess;
+        const requiredResourceAccessArrValue: RequiredResourceAccessImpl[] = []; this.requiredResourceAccess?.forEach(element => {requiredResourceAccessArrValue.push(element instanceof RequiredResourceAccessImpl? element : new RequiredResourceAccessImpl(element));});
+        this.requiredResourceAccess = requiredResourceAccessArrValue;
         this.serviceManagementReference = applicationParameterValue?.serviceManagementReference;
         this.signInAudience = applicationParameterValue?.signInAudience;
-        this.spa = applicationParameterValue?.spa;
+        this.spa = applicationParameterValue?.spa instanceof SpaApplicationImpl? applicationParameterValue?.spa:new SpaApplicationImpl(applicationParameterValue?.spa);
         this.tags = applicationParameterValue?.tags;
         this.tokenEncryptionKeyId = applicationParameterValue?.tokenEncryptionKeyId;
-        this.tokenIssuancePolicies = applicationParameterValue?.tokenIssuancePolicies;
-        this.tokenLifetimePolicies = applicationParameterValue?.tokenLifetimePolicies;
-        this.verifiedPublisher = applicationParameterValue?.verifiedPublisher;
-        this.web = applicationParameterValue?.web;
+        const tokenIssuancePoliciesArrValue: TokenIssuancePolicyImpl[] = []; this.tokenIssuancePolicies?.forEach(element => {tokenIssuancePoliciesArrValue.push(element instanceof TokenIssuancePolicyImpl? element : new TokenIssuancePolicyImpl(element));});
+        this.tokenIssuancePolicies = tokenIssuancePoliciesArrValue;
+        const tokenLifetimePoliciesArrValue: TokenLifetimePolicyImpl[] = []; this.tokenLifetimePolicies?.forEach(element => {tokenLifetimePoliciesArrValue.push(element instanceof TokenLifetimePolicyImpl? element : new TokenLifetimePolicyImpl(element));});
+        this.tokenLifetimePolicies = tokenLifetimePoliciesArrValue;
+        this.verifiedPublisher = applicationParameterValue?.verifiedPublisher instanceof VerifiedPublisherImpl? applicationParameterValue?.verifiedPublisher:new VerifiedPublisherImpl(applicationParameterValue?.verifiedPublisher);
+        this.web = applicationParameterValue?.web instanceof WebApplicationImpl? applicationParameterValue?.web:new WebApplicationImpl(applicationParameterValue?.web);
     };
     /**
      * The deserialization information for the current model
@@ -169,6 +184,7 @@ export class ApplicationImpl extends DirectoryObjectImpl implements Application 
             "appId": n => { this.appId = n.getStringValue(); },
             "applicationTemplateId": n => { this.applicationTemplateId = n.getStringValue(); },
             "appRoles": n => { this.appRoles = n.getCollectionOfObjectValues<AppRoleImpl>(createAppRoleFromDiscriminatorValue); },
+            "certification": n => { this.certification = n.getObjectValue<CertificationImpl>(createCertificationFromDiscriminatorValue); },
             "createdDateTime": n => { this.createdDateTime = n.getDateValue(); },
             "createdOnBehalfOf": n => { this.createdOnBehalfOf = n.getObjectValue<DirectoryObjectImpl>(createDirectoryObjectFromDiscriminatorValue); },
             "description": n => { this.description = n.getStringValue(); },
@@ -210,7 +226,7 @@ export class ApplicationImpl extends DirectoryObjectImpl implements Application 
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.addIns && this.addIns.length != 0){        const addInsArrValue: AddInImpl[] = []; this.addIns?.forEach(element => {addInsArrValue.push(new AddInImpl(element));});
+        if(this.addIns && this.addIns.length != 0){        const addInsArrValue: AddInImpl[] = []; this.addIns?.forEach(element => {addInsArrValue.push(element instanceof AddInImpl? element : new AddInImpl(element));});
             writer.writeCollectionOfObjectValues<AddInImpl>("addIns", addInsArrValue);
         }
         if(this.api){
@@ -222,8 +238,11 @@ export class ApplicationImpl extends DirectoryObjectImpl implements Application 
         if(this.applicationTemplateId){
             writer.writeStringValue("applicationTemplateId", this.applicationTemplateId);
         }
-        if(this.appRoles && this.appRoles.length != 0){        const appRolesArrValue: AppRoleImpl[] = []; this.appRoles?.forEach(element => {appRolesArrValue.push(new AppRoleImpl(element));});
+        if(this.appRoles && this.appRoles.length != 0){        const appRolesArrValue: AppRoleImpl[] = []; this.appRoles?.forEach(element => {appRolesArrValue.push(element instanceof AppRoleImpl? element : new AppRoleImpl(element));});
             writer.writeCollectionOfObjectValues<AppRoleImpl>("appRoles", appRolesArrValue);
+        }
+        if(this.certification){
+            writer.writeObjectValue<CertificationImpl>("certification", new CertificationImpl(this.certification));
         }
         if(this.createdDateTime){
             writer.writeDateValue("createdDateTime", this.createdDateTime);
@@ -240,13 +259,13 @@ export class ApplicationImpl extends DirectoryObjectImpl implements Application 
         if(this.displayName){
             writer.writeStringValue("displayName", this.displayName);
         }
-        if(this.extensionProperties && this.extensionProperties.length != 0){        const extensionPropertiesArrValue: ExtensionPropertyImpl[] = []; this.extensionProperties?.forEach(element => {extensionPropertiesArrValue.push(new ExtensionPropertyImpl(element));});
+        if(this.extensionProperties && this.extensionProperties.length != 0){        const extensionPropertiesArrValue: ExtensionPropertyImpl[] = []; this.extensionProperties?.forEach(element => {extensionPropertiesArrValue.push(element instanceof ExtensionPropertyImpl? element : new ExtensionPropertyImpl(element));});
             writer.writeCollectionOfObjectValues<ExtensionPropertyImpl>("extensionProperties", extensionPropertiesArrValue);
         }
         if(this.groupMembershipClaims){
             writer.writeStringValue("groupMembershipClaims", this.groupMembershipClaims);
         }
-        if(this.homeRealmDiscoveryPolicies && this.homeRealmDiscoveryPolicies.length != 0){        const homeRealmDiscoveryPoliciesArrValue: HomeRealmDiscoveryPolicyImpl[] = []; this.homeRealmDiscoveryPolicies?.forEach(element => {homeRealmDiscoveryPoliciesArrValue.push(new HomeRealmDiscoveryPolicyImpl(element));});
+        if(this.homeRealmDiscoveryPolicies && this.homeRealmDiscoveryPolicies.length != 0){        const homeRealmDiscoveryPoliciesArrValue: HomeRealmDiscoveryPolicyImpl[] = []; this.homeRealmDiscoveryPolicies?.forEach(element => {homeRealmDiscoveryPoliciesArrValue.push(element instanceof HomeRealmDiscoveryPolicyImpl? element : new HomeRealmDiscoveryPolicyImpl(element));});
             writer.writeCollectionOfObjectValues<HomeRealmDiscoveryPolicyImpl>("homeRealmDiscoveryPolicies", homeRealmDiscoveryPoliciesArrValue);
         }
         if(this.identifierUris){
@@ -261,7 +280,7 @@ export class ApplicationImpl extends DirectoryObjectImpl implements Application 
         if(this.isFallbackPublicClient){
             writer.writeBooleanValue("isFallbackPublicClient", this.isFallbackPublicClient);
         }
-        if(this.keyCredentials && this.keyCredentials.length != 0){        const keyCredentialsArrValue: KeyCredentialImpl[] = []; this.keyCredentials?.forEach(element => {keyCredentialsArrValue.push(new KeyCredentialImpl(element));});
+        if(this.keyCredentials && this.keyCredentials.length != 0){        const keyCredentialsArrValue: KeyCredentialImpl[] = []; this.keyCredentials?.forEach(element => {keyCredentialsArrValue.push(element instanceof KeyCredentialImpl? element : new KeyCredentialImpl(element));});
             writer.writeCollectionOfObjectValues<KeyCredentialImpl>("keyCredentials", keyCredentialsArrValue);
         }
         if(this.logo){
@@ -276,13 +295,13 @@ export class ApplicationImpl extends DirectoryObjectImpl implements Application 
         if(this.optionalClaims){
             writer.writeObjectValue<OptionalClaimsImpl>("optionalClaims", new OptionalClaimsImpl(this.optionalClaims));
         }
-        if(this.owners && this.owners.length != 0){        const ownersArrValue: DirectoryObjectImpl[] = []; this.owners?.forEach(element => {ownersArrValue.push(new DirectoryObjectImpl(element));});
+        if(this.owners && this.owners.length != 0){        const ownersArrValue: DirectoryObjectImpl[] = []; this.owners?.forEach(element => {ownersArrValue.push(element instanceof DirectoryObjectImpl? element : new DirectoryObjectImpl(element));});
             writer.writeCollectionOfObjectValues<DirectoryObjectImpl>("owners", ownersArrValue);
         }
         if(this.parentalControlSettings){
             writer.writeObjectValue<ParentalControlSettingsImpl>("parentalControlSettings", new ParentalControlSettingsImpl(this.parentalControlSettings));
         }
-        if(this.passwordCredentials && this.passwordCredentials.length != 0){        const passwordCredentialsArrValue: PasswordCredentialImpl[] = []; this.passwordCredentials?.forEach(element => {passwordCredentialsArrValue.push(new PasswordCredentialImpl(element));});
+        if(this.passwordCredentials && this.passwordCredentials.length != 0){        const passwordCredentialsArrValue: PasswordCredentialImpl[] = []; this.passwordCredentials?.forEach(element => {passwordCredentialsArrValue.push(element instanceof PasswordCredentialImpl? element : new PasswordCredentialImpl(element));});
             writer.writeCollectionOfObjectValues<PasswordCredentialImpl>("passwordCredentials", passwordCredentialsArrValue);
         }
         if(this.publicClient){
@@ -291,7 +310,7 @@ export class ApplicationImpl extends DirectoryObjectImpl implements Application 
         if(this.publisherDomain){
             writer.writeStringValue("publisherDomain", this.publisherDomain);
         }
-        if(this.requiredResourceAccess && this.requiredResourceAccess.length != 0){        const requiredResourceAccessArrValue: RequiredResourceAccessImpl[] = []; this.requiredResourceAccess?.forEach(element => {requiredResourceAccessArrValue.push(new RequiredResourceAccessImpl(element));});
+        if(this.requiredResourceAccess && this.requiredResourceAccess.length != 0){        const requiredResourceAccessArrValue: RequiredResourceAccessImpl[] = []; this.requiredResourceAccess?.forEach(element => {requiredResourceAccessArrValue.push(element instanceof RequiredResourceAccessImpl? element : new RequiredResourceAccessImpl(element));});
             writer.writeCollectionOfObjectValues<RequiredResourceAccessImpl>("requiredResourceAccess", requiredResourceAccessArrValue);
         }
         if(this.serviceManagementReference){
@@ -309,10 +328,10 @@ export class ApplicationImpl extends DirectoryObjectImpl implements Application 
         if(this.tokenEncryptionKeyId){
             writer.writeStringValue("tokenEncryptionKeyId", this.tokenEncryptionKeyId);
         }
-        if(this.tokenIssuancePolicies && this.tokenIssuancePolicies.length != 0){        const tokenIssuancePoliciesArrValue: TokenIssuancePolicyImpl[] = []; this.tokenIssuancePolicies?.forEach(element => {tokenIssuancePoliciesArrValue.push(new TokenIssuancePolicyImpl(element));});
+        if(this.tokenIssuancePolicies && this.tokenIssuancePolicies.length != 0){        const tokenIssuancePoliciesArrValue: TokenIssuancePolicyImpl[] = []; this.tokenIssuancePolicies?.forEach(element => {tokenIssuancePoliciesArrValue.push(element instanceof TokenIssuancePolicyImpl? element : new TokenIssuancePolicyImpl(element));});
             writer.writeCollectionOfObjectValues<TokenIssuancePolicyImpl>("tokenIssuancePolicies", tokenIssuancePoliciesArrValue);
         }
-        if(this.tokenLifetimePolicies && this.tokenLifetimePolicies.length != 0){        const tokenLifetimePoliciesArrValue: TokenLifetimePolicyImpl[] = []; this.tokenLifetimePolicies?.forEach(element => {tokenLifetimePoliciesArrValue.push(new TokenLifetimePolicyImpl(element));});
+        if(this.tokenLifetimePolicies && this.tokenLifetimePolicies.length != 0){        const tokenLifetimePoliciesArrValue: TokenLifetimePolicyImpl[] = []; this.tokenLifetimePolicies?.forEach(element => {tokenLifetimePoliciesArrValue.push(element instanceof TokenLifetimePolicyImpl? element : new TokenLifetimePolicyImpl(element));});
             writer.writeCollectionOfObjectValues<TokenLifetimePolicyImpl>("tokenLifetimePolicies", tokenLifetimePoliciesArrValue);
         }
         if(this.verifiedPublisher){

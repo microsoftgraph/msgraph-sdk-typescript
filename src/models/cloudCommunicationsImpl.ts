@@ -27,10 +27,14 @@ export class CloudCommunicationsImpl extends EntityImpl implements CloudCommunic
      */
     public constructor(cloudCommunicationsParameterValue?: CloudCommunications | undefined) {
         super(cloudCommunicationsParameterValue);
-        this.callRecords = cloudCommunicationsParameterValue?.callRecords;
-        this.calls = cloudCommunicationsParameterValue?.calls;
-        this.onlineMeetings = cloudCommunicationsParameterValue?.onlineMeetings;
-        this.presences = cloudCommunicationsParameterValue?.presences;
+        const callRecordsArrValue: CallRecordImpl[] = []; this.callRecords?.forEach(element => {callRecordsArrValue.push(element instanceof CallRecordImpl? element : new CallRecordImpl(element));});
+        this.callRecords = callRecordsArrValue;
+        const callsArrValue: CallImpl[] = []; this.calls?.forEach(element => {callsArrValue.push(element instanceof CallImpl? element : new CallImpl(element));});
+        this.calls = callsArrValue;
+        const onlineMeetingsArrValue: OnlineMeetingImpl[] = []; this.onlineMeetings?.forEach(element => {onlineMeetingsArrValue.push(element instanceof OnlineMeetingImpl? element : new OnlineMeetingImpl(element));});
+        this.onlineMeetings = onlineMeetingsArrValue;
+        const presencesArrValue: PresenceImpl[] = []; this.presences?.forEach(element => {presencesArrValue.push(element instanceof PresenceImpl? element : new PresenceImpl(element));});
+        this.presences = presencesArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -51,16 +55,16 @@ export class CloudCommunicationsImpl extends EntityImpl implements CloudCommunic
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.callRecords && this.callRecords.length != 0){        const callRecordsArrValue: CallRecordImpl[] = []; this.callRecords?.forEach(element => {callRecordsArrValue.push(new CallRecordImpl(element));});
+        if(this.callRecords && this.callRecords.length != 0){        const callRecordsArrValue: CallRecordImpl[] = []; this.callRecords?.forEach(element => {callRecordsArrValue.push(element instanceof CallRecordImpl? element : new CallRecordImpl(element));});
             writer.writeCollectionOfObjectValues<CallRecordImpl>("callRecords", callRecordsArrValue);
         }
-        if(this.calls && this.calls.length != 0){        const callsArrValue: CallImpl[] = []; this.calls?.forEach(element => {callsArrValue.push(new CallImpl(element));});
+        if(this.calls && this.calls.length != 0){        const callsArrValue: CallImpl[] = []; this.calls?.forEach(element => {callsArrValue.push(element instanceof CallImpl? element : new CallImpl(element));});
             writer.writeCollectionOfObjectValues<CallImpl>("calls", callsArrValue);
         }
-        if(this.onlineMeetings && this.onlineMeetings.length != 0){        const onlineMeetingsArrValue: OnlineMeetingImpl[] = []; this.onlineMeetings?.forEach(element => {onlineMeetingsArrValue.push(new OnlineMeetingImpl(element));});
+        if(this.onlineMeetings && this.onlineMeetings.length != 0){        const onlineMeetingsArrValue: OnlineMeetingImpl[] = []; this.onlineMeetings?.forEach(element => {onlineMeetingsArrValue.push(element instanceof OnlineMeetingImpl? element : new OnlineMeetingImpl(element));});
             writer.writeCollectionOfObjectValues<OnlineMeetingImpl>("onlineMeetings", onlineMeetingsArrValue);
         }
-        if(this.presences && this.presences.length != 0){        const presencesArrValue: PresenceImpl[] = []; this.presences?.forEach(element => {presencesArrValue.push(new PresenceImpl(element));});
+        if(this.presences && this.presences.length != 0){        const presencesArrValue: PresenceImpl[] = []; this.presences?.forEach(element => {presencesArrValue.push(element instanceof PresenceImpl? element : new PresenceImpl(element));});
             writer.writeCollectionOfObjectValues<PresenceImpl>("presences", presencesArrValue);
         }
     };

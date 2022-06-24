@@ -12,7 +12,7 @@ import {SharingInvitation} from './sharingInvitation';
 import {SharingLink} from './sharingLink';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to group. */
+/** Provides operations to manage the collection of application entities. */
 export class PermissionImpl extends EntityImpl implements Permission {
     /** A format of yyyy-MM-ddTHH:mm:ssZ of DateTimeOffset indicates the expiration time of the permission. DateTime.MinValue indicates there is no expiration set for this permission. Optional. */
     public expirationDateTime?: Date | undefined;
@@ -43,14 +43,16 @@ export class PermissionImpl extends EntityImpl implements Permission {
     public constructor(permissionParameterValue?: Permission | undefined) {
         super(permissionParameterValue);
         this.expirationDateTime = permissionParameterValue?.expirationDateTime;
-        this.grantedTo = permissionParameterValue?.grantedTo;
-        this.grantedToIdentities = permissionParameterValue?.grantedToIdentities;
-        this.grantedToIdentitiesV2 = permissionParameterValue?.grantedToIdentitiesV2;
-        this.grantedToV2 = permissionParameterValue?.grantedToV2;
+        this.grantedTo = permissionParameterValue?.grantedTo instanceof IdentitySetImpl? permissionParameterValue?.grantedTo:new IdentitySetImpl(permissionParameterValue?.grantedTo);
+        const grantedToIdentitiesArrValue: IdentitySetImpl[] = []; this.grantedToIdentities?.forEach(element => {grantedToIdentitiesArrValue.push(element instanceof IdentitySetImpl? element : new IdentitySetImpl(element));});
+        this.grantedToIdentities = grantedToIdentitiesArrValue;
+        const grantedToIdentitiesV2ArrValue: SharePointIdentitySetImpl[] = []; this.grantedToIdentitiesV2?.forEach(element => {grantedToIdentitiesV2ArrValue.push(element instanceof SharePointIdentitySetImpl? element : new SharePointIdentitySetImpl(element));});
+        this.grantedToIdentitiesV2 = grantedToIdentitiesV2ArrValue;
+        this.grantedToV2 = permissionParameterValue?.grantedToV2 instanceof SharePointIdentitySetImpl? permissionParameterValue?.grantedToV2:new SharePointIdentitySetImpl(permissionParameterValue?.grantedToV2);
         this.hasPassword = permissionParameterValue?.hasPassword;
-        this.inheritedFrom = permissionParameterValue?.inheritedFrom;
-        this.invitation = permissionParameterValue?.invitation;
-        this.link = permissionParameterValue?.link;
+        this.inheritedFrom = permissionParameterValue?.inheritedFrom instanceof ItemReferenceImpl? permissionParameterValue?.inheritedFrom:new ItemReferenceImpl(permissionParameterValue?.inheritedFrom);
+        this.invitation = permissionParameterValue?.invitation instanceof SharingInvitationImpl? permissionParameterValue?.invitation:new SharingInvitationImpl(permissionParameterValue?.invitation);
+        this.link = permissionParameterValue?.link instanceof SharingLinkImpl? permissionParameterValue?.link:new SharingLinkImpl(permissionParameterValue?.link);
         this.roles = permissionParameterValue?.roles;
         this.shareId = permissionParameterValue?.shareId;
     };
@@ -86,10 +88,10 @@ export class PermissionImpl extends EntityImpl implements Permission {
         if(this.grantedTo){
             writer.writeObjectValue<IdentitySetImpl>("grantedTo", new IdentitySetImpl(this.grantedTo));
         }
-        if(this.grantedToIdentities && this.grantedToIdentities.length != 0){        const grantedToIdentitiesArrValue: IdentitySetImpl[] = []; this.grantedToIdentities?.forEach(element => {grantedToIdentitiesArrValue.push(new IdentitySetImpl(element));});
+        if(this.grantedToIdentities && this.grantedToIdentities.length != 0){        const grantedToIdentitiesArrValue: IdentitySetImpl[] = []; this.grantedToIdentities?.forEach(element => {grantedToIdentitiesArrValue.push(element instanceof IdentitySetImpl? element : new IdentitySetImpl(element));});
             writer.writeCollectionOfObjectValues<IdentitySetImpl>("grantedToIdentities", grantedToIdentitiesArrValue);
         }
-        if(this.grantedToIdentitiesV2 && this.grantedToIdentitiesV2.length != 0){        const grantedToIdentitiesV2ArrValue: SharePointIdentitySetImpl[] = []; this.grantedToIdentitiesV2?.forEach(element => {grantedToIdentitiesV2ArrValue.push(new SharePointIdentitySetImpl(element));});
+        if(this.grantedToIdentitiesV2 && this.grantedToIdentitiesV2.length != 0){        const grantedToIdentitiesV2ArrValue: SharePointIdentitySetImpl[] = []; this.grantedToIdentitiesV2?.forEach(element => {grantedToIdentitiesV2ArrValue.push(element instanceof SharePointIdentitySetImpl? element : new SharePointIdentitySetImpl(element));});
             writer.writeCollectionOfObjectValues<SharePointIdentitySetImpl>("grantedToIdentitiesV2", grantedToIdentitiesV2ArrValue);
         }
         if(this.grantedToV2){

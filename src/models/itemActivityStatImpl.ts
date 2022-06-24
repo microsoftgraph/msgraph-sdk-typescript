@@ -8,7 +8,7 @@ import {ItemActivity} from './itemActivity';
 import {ItemActivityStat} from './itemActivityStat';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the collection of application entities. */
 export class ItemActivityStatImpl extends EntityImpl implements ItemActivityStat {
     /** Statistics about the access actions in this interval. Read-only. */
     public access?: ItemActionStat | undefined;
@@ -36,15 +36,16 @@ export class ItemActivityStatImpl extends EntityImpl implements ItemActivityStat
      */
     public constructor(itemActivityStatParameterValue?: ItemActivityStat | undefined) {
         super(itemActivityStatParameterValue);
-        this.access = itemActivityStatParameterValue?.access;
-        this.activities = itemActivityStatParameterValue?.activities;
-        this.create = itemActivityStatParameterValue?.create;
-        this.delete = itemActivityStatParameterValue?.delete;
-        this.edit = itemActivityStatParameterValue?.edit;
+        this.access = itemActivityStatParameterValue?.access instanceof ItemActionStatImpl? itemActivityStatParameterValue?.access:new ItemActionStatImpl(itemActivityStatParameterValue?.access);
+        const activitiesArrValue: ItemActivityImpl[] = []; this.activities?.forEach(element => {activitiesArrValue.push(element instanceof ItemActivityImpl? element : new ItemActivityImpl(element));});
+        this.activities = activitiesArrValue;
+        this.create = itemActivityStatParameterValue?.create instanceof ItemActionStatImpl? itemActivityStatParameterValue?.create:new ItemActionStatImpl(itemActivityStatParameterValue?.create);
+        this.delete = itemActivityStatParameterValue?.delete instanceof ItemActionStatImpl? itemActivityStatParameterValue?.delete:new ItemActionStatImpl(itemActivityStatParameterValue?.delete);
+        this.edit = itemActivityStatParameterValue?.edit instanceof ItemActionStatImpl? itemActivityStatParameterValue?.edit:new ItemActionStatImpl(itemActivityStatParameterValue?.edit);
         this.endDateTime = itemActivityStatParameterValue?.endDateTime;
-        this.incompleteData = itemActivityStatParameterValue?.incompleteData;
+        this.incompleteData = itemActivityStatParameterValue?.incompleteData instanceof IncompleteDataImpl? itemActivityStatParameterValue?.incompleteData:new IncompleteDataImpl(itemActivityStatParameterValue?.incompleteData);
         this.isTrending = itemActivityStatParameterValue?.isTrending;
-        this.move = itemActivityStatParameterValue?.move;
+        this.move = itemActivityStatParameterValue?.move instanceof ItemActionStatImpl? itemActivityStatParameterValue?.move:new ItemActionStatImpl(itemActivityStatParameterValue?.move);
         this.startDateTime = itemActivityStatParameterValue?.startDateTime;
     };
     /**
@@ -75,7 +76,7 @@ export class ItemActivityStatImpl extends EntityImpl implements ItemActivityStat
         if(this.access){
             writer.writeObjectValue<ItemActionStatImpl>("access", new ItemActionStatImpl(this.access));
         }
-        if(this.activities && this.activities.length != 0){        const activitiesArrValue: ItemActivityImpl[] = []; this.activities?.forEach(element => {activitiesArrValue.push(new ItemActivityImpl(element));});
+        if(this.activities && this.activities.length != 0){        const activitiesArrValue: ItemActivityImpl[] = []; this.activities?.forEach(element => {activitiesArrValue.push(element instanceof ItemActivityImpl? element : new ItemActivityImpl(element));});
             writer.writeCollectionOfObjectValues<ItemActivityImpl>("activities", activitiesArrValue);
         }
         if(this.create){

@@ -13,6 +13,8 @@ export class AccessReviewScheduleSettingsImpl implements AccessReviewScheduleSet
     public applyActions?: AccessReviewApplyAction[] | undefined;
     /** Indicates whether decisions are automatically applied. When set to false, an admin must apply the decisions manually once the reviewer completes the access review. When set to true, decisions are applied automatically after the access review instance duration ends, whether or not the reviewers have responded. Default value is false. */
     public autoApplyDecisionsEnabled?: boolean | undefined;
+    /** Indicates whether decisions on previous access review stages are available for reviewers on an accessReviewInstance with multiple subsequent stages. If not provided, the default is disabled (false). */
+    public decisionHistoriesForReviewersEnabled?: boolean | undefined;
     /** Decision chosen if defaultDecisionEnabled is enabled. Can be one of Approve, Deny, or Recommendation. */
     public defaultDecision?: string | undefined;
     /** Indicates whether the default decision is enabled or disabled when reviewers do not respond. Default value is false. */
@@ -35,15 +37,17 @@ export class AccessReviewScheduleSettingsImpl implements AccessReviewScheduleSet
      */
     public constructor(accessReviewScheduleSettingsParameterValue?: AccessReviewScheduleSettings | undefined) {
         this.additionalData = accessReviewScheduleSettingsParameterValue?.additionalData ? accessReviewScheduleSettingsParameterValue?.additionalData! : {};
-        this.applyActions = accessReviewScheduleSettingsParameterValue?.applyActions;
+        const applyActionsArrValue: AccessReviewApplyActionImpl[] = []; this.applyActions?.forEach(element => {applyActionsArrValue.push(element instanceof AccessReviewApplyActionImpl? element : new AccessReviewApplyActionImpl(element));});
+        this.applyActions = applyActionsArrValue;
         this.autoApplyDecisionsEnabled = accessReviewScheduleSettingsParameterValue?.autoApplyDecisionsEnabled;
+        this.decisionHistoriesForReviewersEnabled = accessReviewScheduleSettingsParameterValue?.decisionHistoriesForReviewersEnabled;
         this.defaultDecision = accessReviewScheduleSettingsParameterValue?.defaultDecision;
         this.defaultDecisionEnabled = accessReviewScheduleSettingsParameterValue?.defaultDecisionEnabled;
         this.instanceDurationInDays = accessReviewScheduleSettingsParameterValue?.instanceDurationInDays;
         this.justificationRequiredOnApproval = accessReviewScheduleSettingsParameterValue?.justificationRequiredOnApproval;
         this.mailNotificationsEnabled = accessReviewScheduleSettingsParameterValue?.mailNotificationsEnabled;
         this.recommendationsEnabled = accessReviewScheduleSettingsParameterValue?.recommendationsEnabled;
-        this.recurrence = accessReviewScheduleSettingsParameterValue?.recurrence;
+        this.recurrence = accessReviewScheduleSettingsParameterValue?.recurrence instanceof PatternedRecurrenceImpl? accessReviewScheduleSettingsParameterValue?.recurrence:new PatternedRecurrenceImpl(accessReviewScheduleSettingsParameterValue?.recurrence);
         this.reminderNotificationsEnabled = accessReviewScheduleSettingsParameterValue?.reminderNotificationsEnabled;
     };
     /**
@@ -54,6 +58,7 @@ export class AccessReviewScheduleSettingsImpl implements AccessReviewScheduleSet
         return {
             "applyActions": n => { this.applyActions = n.getCollectionOfObjectValues<AccessReviewApplyActionImpl>(createAccessReviewApplyActionFromDiscriminatorValue); },
             "autoApplyDecisionsEnabled": n => { this.autoApplyDecisionsEnabled = n.getBooleanValue(); },
+            "decisionHistoriesForReviewersEnabled": n => { this.decisionHistoriesForReviewersEnabled = n.getBooleanValue(); },
             "defaultDecision": n => { this.defaultDecision = n.getStringValue(); },
             "defaultDecisionEnabled": n => { this.defaultDecisionEnabled = n.getBooleanValue(); },
             "instanceDurationInDays": n => { this.instanceDurationInDays = n.getNumberValue(); },
@@ -70,11 +75,14 @@ export class AccessReviewScheduleSettingsImpl implements AccessReviewScheduleSet
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        if(this.applyActions && this.applyActions.length != 0){        const applyActionsArrValue: AccessReviewApplyActionImpl[] = []; this.applyActions?.forEach(element => {applyActionsArrValue.push(new AccessReviewApplyActionImpl(element));});
+        if(this.applyActions && this.applyActions.length != 0){        const applyActionsArrValue: AccessReviewApplyActionImpl[] = []; this.applyActions?.forEach(element => {applyActionsArrValue.push(element instanceof AccessReviewApplyActionImpl? element : new AccessReviewApplyActionImpl(element));});
             writer.writeCollectionOfObjectValues<AccessReviewApplyActionImpl>("applyActions", applyActionsArrValue);
         }
         if(this.autoApplyDecisionsEnabled){
             writer.writeBooleanValue("autoApplyDecisionsEnabled", this.autoApplyDecisionsEnabled);
+        }
+        if(this.decisionHistoriesForReviewersEnabled){
+            writer.writeBooleanValue("decisionHistoriesForReviewersEnabled", this.decisionHistoriesForReviewersEnabled);
         }
         if(this.defaultDecision){
             writer.writeStringValue("defaultDecision", this.defaultDecision);

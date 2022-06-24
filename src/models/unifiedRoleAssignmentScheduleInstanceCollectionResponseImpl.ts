@@ -18,7 +18,8 @@ export class UnifiedRoleAssignmentScheduleInstanceCollectionResponseImpl impleme
     public constructor(unifiedRoleAssignmentScheduleInstanceCollectionResponseParameterValue?: UnifiedRoleAssignmentScheduleInstanceCollectionResponse | undefined) {
         this.additionalData = unifiedRoleAssignmentScheduleInstanceCollectionResponseParameterValue?.additionalData ? unifiedRoleAssignmentScheduleInstanceCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = unifiedRoleAssignmentScheduleInstanceCollectionResponseParameterValue?.nextLink;
-        this.value = unifiedRoleAssignmentScheduleInstanceCollectionResponseParameterValue?.value;
+        const valueArrValue: UnifiedRoleAssignmentScheduleInstanceImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof UnifiedRoleAssignmentScheduleInstanceImpl? element : new UnifiedRoleAssignmentScheduleInstanceImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -39,7 +40,7 @@ export class UnifiedRoleAssignmentScheduleInstanceCollectionResponseImpl impleme
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: UnifiedRoleAssignmentScheduleInstanceImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new UnifiedRoleAssignmentScheduleInstanceImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: UnifiedRoleAssignmentScheduleInstanceImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof UnifiedRoleAssignmentScheduleInstanceImpl? element : new UnifiedRoleAssignmentScheduleInstanceImpl(element));});
             writer.writeCollectionOfObjectValues<UnifiedRoleAssignmentScheduleInstanceImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

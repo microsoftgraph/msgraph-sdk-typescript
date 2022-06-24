@@ -16,7 +16,7 @@ export class ManagedMobileAppImpl extends EntityImpl implements ManagedMobileApp
      */
     public constructor(managedMobileAppParameterValue?: ManagedMobileApp | undefined) {
         super(managedMobileAppParameterValue);
-        this.mobileAppIdentifier = managedMobileAppParameterValue?.mobileAppIdentifier;
+        this.mobileAppIdentifier = managedMobileAppParameterValue?.mobileAppIdentifier instanceof MobileAppIdentifierImpl? managedMobileAppParameterValue?.mobileAppIdentifier:new MobileAppIdentifierImpl(managedMobileAppParameterValue?.mobileAppIdentifier);
         this.version = managedMobileAppParameterValue?.version;
     };
     /**

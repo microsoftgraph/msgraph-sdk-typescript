@@ -8,7 +8,7 @@ import {Trending} from './trending';
 import {UsedInsight} from './usedInsight';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the collection of application entities. */
 export class OfficeGraphInsightsImpl extends EntityImpl implements OfficeGraphInsights {
     /** Access this property from the derived type itemInsights. */
     public shared?: SharedInsight[] | undefined;
@@ -22,9 +22,12 @@ export class OfficeGraphInsightsImpl extends EntityImpl implements OfficeGraphIn
      */
     public constructor(officeGraphInsightsParameterValue?: OfficeGraphInsights | undefined) {
         super(officeGraphInsightsParameterValue);
-        this.shared = officeGraphInsightsParameterValue?.shared;
-        this.trending = officeGraphInsightsParameterValue?.trending;
-        this.used = officeGraphInsightsParameterValue?.used;
+        const sharedArrValue: SharedInsightImpl[] = []; this.shared?.forEach(element => {sharedArrValue.push(element instanceof SharedInsightImpl? element : new SharedInsightImpl(element));});
+        this.shared = sharedArrValue;
+        const trendingArrValue: TrendingImpl[] = []; this.trending?.forEach(element => {trendingArrValue.push(element instanceof TrendingImpl? element : new TrendingImpl(element));});
+        this.trending = trendingArrValue;
+        const usedArrValue: UsedInsightImpl[] = []; this.used?.forEach(element => {usedArrValue.push(element instanceof UsedInsightImpl? element : new UsedInsightImpl(element));});
+        this.used = usedArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -44,13 +47,13 @@ export class OfficeGraphInsightsImpl extends EntityImpl implements OfficeGraphIn
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.shared && this.shared.length != 0){        const sharedArrValue: SharedInsightImpl[] = []; this.shared?.forEach(element => {sharedArrValue.push(new SharedInsightImpl(element));});
+        if(this.shared && this.shared.length != 0){        const sharedArrValue: SharedInsightImpl[] = []; this.shared?.forEach(element => {sharedArrValue.push(element instanceof SharedInsightImpl? element : new SharedInsightImpl(element));});
             writer.writeCollectionOfObjectValues<SharedInsightImpl>("shared", sharedArrValue);
         }
-        if(this.trending && this.trending.length != 0){        const trendingArrValue: TrendingImpl[] = []; this.trending?.forEach(element => {trendingArrValue.push(new TrendingImpl(element));});
+        if(this.trending && this.trending.length != 0){        const trendingArrValue: TrendingImpl[] = []; this.trending?.forEach(element => {trendingArrValue.push(element instanceof TrendingImpl? element : new TrendingImpl(element));});
             writer.writeCollectionOfObjectValues<TrendingImpl>("trending", trendingArrValue);
         }
-        if(this.used && this.used.length != 0){        const usedArrValue: UsedInsightImpl[] = []; this.used?.forEach(element => {usedArrValue.push(new UsedInsightImpl(element));});
+        if(this.used && this.used.length != 0){        const usedArrValue: UsedInsightImpl[] = []; this.used?.forEach(element => {usedArrValue.push(element instanceof UsedInsightImpl? element : new UsedInsightImpl(element));});
             writer.writeCollectionOfObjectValues<UsedInsightImpl>("used", usedArrValue);
         }
     };

@@ -18,7 +18,8 @@ export class ContactCollectionResponseImpl implements ContactCollectionResponse 
     public constructor(contactCollectionResponseParameterValue?: ContactCollectionResponse | undefined) {
         this.additionalData = contactCollectionResponseParameterValue?.additionalData ? contactCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = contactCollectionResponseParameterValue?.nextLink;
-        this.value = contactCollectionResponseParameterValue?.value;
+        const valueArrValue: ContactImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ContactImpl? element : new ContactImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -39,7 +40,7 @@ export class ContactCollectionResponseImpl implements ContactCollectionResponse 
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: ContactImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ContactImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: ContactImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ContactImpl? element : new ContactImpl(element));});
             writer.writeCollectionOfObjectValues<ContactImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

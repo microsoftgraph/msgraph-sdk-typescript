@@ -24,9 +24,9 @@ export class TermColumnImpl implements TermColumn {
     public constructor(termColumnParameterValue?: TermColumn | undefined) {
         this.additionalData = termColumnParameterValue?.additionalData ? termColumnParameterValue?.additionalData! : {};
         this.allowMultipleValues = termColumnParameterValue?.allowMultipleValues;
-        this.parentTerm = termColumnParameterValue?.parentTerm;
+        this.parentTerm = termColumnParameterValue?.parentTerm instanceof TermImpl? termColumnParameterValue?.parentTerm:new TermImpl(termColumnParameterValue?.parentTerm);
         this.showFullyQualifiedName = termColumnParameterValue?.showFullyQualifiedName;
-        this.termSet = termColumnParameterValue?.termSet;
+        this.termSet = termColumnParameterValue?.termSet instanceof SetImpl? termColumnParameterValue?.termSet:new SetImpl(termColumnParameterValue?.termSet);
     };
     /**
      * The deserialization information for the current model

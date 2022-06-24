@@ -1,3 +1,5 @@
+import {ODataErrorImpl} from '../../../../../../../../models/oDataErrors/';
+import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {createIsPublishedResponseFromDiscriminatorValue} from './createIsPublishedResponseFromDiscriminatorValue';
 import {IsPublishedResponseImpl} from './index';
 import {IsPublishedRequestBuilderGetRequestConfiguration} from './isPublishedRequestBuilderGetRequestConfiguration';
@@ -51,6 +53,10 @@ export class IsPublishedRequestBuilder {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
-        return this.requestAdapter?.sendAsync<IsPublishedResponseImpl>(requestInfo, createIsPublishedResponseFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<IsPublishedResponseImpl>(requestInfo, createIsPublishedResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

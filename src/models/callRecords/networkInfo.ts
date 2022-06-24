@@ -1,4 +1,6 @@
 import {NetworkConnectionType} from './networkConnectionType';
+import {NetworkTransportProtocol} from './networkTransportProtocol';
+import {TraceRouteHop} from './traceRouteHop';
 import {WifiBand} from './wifiBand';
 import {WifiRadioType} from './wifiRadioType';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
@@ -22,6 +24,8 @@ export interface NetworkInfo extends Partial<AdditionalDataHolder>, Partial<Pars
     linkSpeed?: number | undefined;
     /** The media access control (MAC) address of the media endpoint's network device. */
     macAddress?: string | undefined;
+    /** Network protocol used for the transmission of stream. Possible values are: unknown, udp, tcp, unknownFutureValue. */
+    networkTransportProtocol?: NetworkTransportProtocol | undefined;
     /** Network port number used by media endpoint. */
     port?: number | undefined;
     /** Fraction of the call that the media endpoint detected the network was causing poor quality of the audio received. */
@@ -36,6 +40,8 @@ export interface NetworkInfo extends Partial<AdditionalDataHolder>, Partial<Pars
     sentQualityEventRatio?: number | undefined;
     /** Subnet used for media stream by the media endpoint. */
     subnet?: string | undefined;
+    /** List of network trace route hops collected for this media stream. */
+    traceRouteHops?: TraceRouteHop[] | undefined;
     /** WiFi band used by the media endpoint. Possible values are: unknown, frequency24GHz, frequency50GHz, frequency60GHz, unknownFutureValue. */
     wifiBand?: WifiBand | undefined;
     /** Estimated remaining battery charge in percentage reported by the media endpoint. */

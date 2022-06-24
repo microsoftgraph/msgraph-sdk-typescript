@@ -16,7 +16,8 @@ export class RolePermissionImpl implements RolePermission {
      */
     public constructor(rolePermissionParameterValue?: RolePermission | undefined) {
         this.additionalData = rolePermissionParameterValue?.additionalData ? rolePermissionParameterValue?.additionalData! : {};
-        this.resourceActions = rolePermissionParameterValue?.resourceActions;
+        const resourceActionsArrValue: ResourceActionImpl[] = []; this.resourceActions?.forEach(element => {resourceActionsArrValue.push(element instanceof ResourceActionImpl? element : new ResourceActionImpl(element));});
+        this.resourceActions = resourceActionsArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -33,7 +34,7 @@ export class RolePermissionImpl implements RolePermission {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        if(this.resourceActions && this.resourceActions.length != 0){        const resourceActionsArrValue: ResourceActionImpl[] = []; this.resourceActions?.forEach(element => {resourceActionsArrValue.push(new ResourceActionImpl(element));});
+        if(this.resourceActions && this.resourceActions.length != 0){        const resourceActionsArrValue: ResourceActionImpl[] = []; this.resourceActions?.forEach(element => {resourceActionsArrValue.push(element instanceof ResourceActionImpl? element : new ResourceActionImpl(element));});
             writer.writeCollectionOfObjectValues<ResourceActionImpl>("resourceActions", resourceActionsArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

@@ -1,3 +1,5 @@
+import {ODataErrorImpl} from '../../models/oDataErrors/';
+import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {createSearchWithQResponseFromDiscriminatorValue} from './createSearchWithQResponseFromDiscriminatorValue';
 import {SearchWithQResponseImpl} from './index';
 import {SearchWithQRequestBuilderGetRequestConfiguration} from './searchWithQRequestBuilderGetRequestConfiguration';
@@ -53,6 +55,10 @@ export class SearchWithQRequestBuilder {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
-        return this.requestAdapter?.sendAsync<SearchWithQResponseImpl>(requestInfo, createSearchWithQResponseFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<SearchWithQResponseImpl>(requestInfo, createSearchWithQResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

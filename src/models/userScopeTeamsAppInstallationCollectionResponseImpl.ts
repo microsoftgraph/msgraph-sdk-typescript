@@ -18,7 +18,8 @@ export class UserScopeTeamsAppInstallationCollectionResponseImpl implements User
     public constructor(userScopeTeamsAppInstallationCollectionResponseParameterValue?: UserScopeTeamsAppInstallationCollectionResponse | undefined) {
         this.additionalData = userScopeTeamsAppInstallationCollectionResponseParameterValue?.additionalData ? userScopeTeamsAppInstallationCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = userScopeTeamsAppInstallationCollectionResponseParameterValue?.nextLink;
-        this.value = userScopeTeamsAppInstallationCollectionResponseParameterValue?.value;
+        const valueArrValue: UserScopeTeamsAppInstallationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof UserScopeTeamsAppInstallationImpl? element : new UserScopeTeamsAppInstallationImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -39,7 +40,7 @@ export class UserScopeTeamsAppInstallationCollectionResponseImpl implements User
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: UserScopeTeamsAppInstallationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new UserScopeTeamsAppInstallationImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: UserScopeTeamsAppInstallationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof UserScopeTeamsAppInstallationImpl? element : new UserScopeTeamsAppInstallationImpl(element));});
             writer.writeCollectionOfObjectValues<UserScopeTeamsAppInstallationImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

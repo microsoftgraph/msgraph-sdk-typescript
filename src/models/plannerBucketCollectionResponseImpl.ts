@@ -18,7 +18,8 @@ export class PlannerBucketCollectionResponseImpl implements PlannerBucketCollect
     public constructor(plannerBucketCollectionResponseParameterValue?: PlannerBucketCollectionResponse | undefined) {
         this.additionalData = plannerBucketCollectionResponseParameterValue?.additionalData ? plannerBucketCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = plannerBucketCollectionResponseParameterValue?.nextLink;
-        this.value = plannerBucketCollectionResponseParameterValue?.value;
+        const valueArrValue: PlannerBucketImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof PlannerBucketImpl? element : new PlannerBucketImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -39,7 +40,7 @@ export class PlannerBucketCollectionResponseImpl implements PlannerBucketCollect
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: PlannerBucketImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new PlannerBucketImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: PlannerBucketImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof PlannerBucketImpl? element : new PlannerBucketImpl(element));});
             writer.writeCollectionOfObjectValues<PlannerBucketImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

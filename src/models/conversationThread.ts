@@ -12,7 +12,7 @@ export interface ConversationThread extends Entity, Partial<Parsable> {
     isLocked?: boolean | undefined;
     /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Returned by default. */
     lastDeliveredDateTime?: Date | undefined;
-    /** Read-only. Nullable. */
+    /** The posts property */
     posts?: Post[] | undefined;
     /** A short summary from the body of the latest post in this conversation. Returned by default. */
     preview?: string | undefined;

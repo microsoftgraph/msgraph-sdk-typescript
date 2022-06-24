@@ -15,7 +15,8 @@ export class ExternalImpl implements External {
      */
     public constructor(externalParameterValue?: External | undefined) {
         this.additionalData = externalParameterValue?.additionalData ? externalParameterValue?.additionalData! : {};
-        this.connections = externalParameterValue?.connections;
+        const connectionsArrValue: ExternalConnectionImpl[] = []; this.connections?.forEach(element => {connectionsArrValue.push(element instanceof ExternalConnectionImpl? element : new ExternalConnectionImpl(element));});
+        this.connections = connectionsArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -32,7 +33,7 @@ export class ExternalImpl implements External {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        if(this.connections && this.connections.length != 0){        const connectionsArrValue: ExternalConnectionImpl[] = []; this.connections?.forEach(element => {connectionsArrValue.push(new ExternalConnectionImpl(element));});
+        if(this.connections && this.connections.length != 0){        const connectionsArrValue: ExternalConnectionImpl[] = []; this.connections?.forEach(element => {connectionsArrValue.push(element instanceof ExternalConnectionImpl? element : new ExternalConnectionImpl(element));});
             writer.writeCollectionOfObjectValues<ExternalConnectionImpl>("connections", connectionsArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

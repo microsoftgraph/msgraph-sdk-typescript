@@ -1,5 +1,7 @@
 import {VppTokenImpl} from '../../../../models/';
 import {createVppTokenFromDiscriminatorValue} from '../../../../models/createVppTokenFromDiscriminatorValue';
+import {ODataErrorImpl} from '../../../../models/oDataErrors/';
+import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {SyncLicensesRequestBuilderPostRequestConfiguration} from './syncLicensesRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
@@ -51,6 +53,10 @@ export class SyncLicensesRequestBuilder {
         const requestInfo = this.createPostRequestInformation(
             requestConfiguration
         );
-        return this.requestAdapter?.sendAsync<VppTokenImpl>(requestInfo, createVppTokenFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<VppTokenImpl>(requestInfo, createVppTokenFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

@@ -26,11 +26,11 @@ export class IdentityGovernanceImpl implements IdentityGovernance {
      * @param identityGovernanceParameterValue 
      */
     public constructor(identityGovernanceParameterValue?: IdentityGovernance | undefined) {
-        this.accessReviews = identityGovernanceParameterValue?.accessReviews;
+        this.accessReviews = identityGovernanceParameterValue?.accessReviews instanceof AccessReviewSetImpl? identityGovernanceParameterValue?.accessReviews:new AccessReviewSetImpl(identityGovernanceParameterValue?.accessReviews);
         this.additionalData = identityGovernanceParameterValue?.additionalData ? identityGovernanceParameterValue?.additionalData! : {};
-        this.appConsent = identityGovernanceParameterValue?.appConsent;
-        this.entitlementManagement = identityGovernanceParameterValue?.entitlementManagement;
-        this.termsOfUse = identityGovernanceParameterValue?.termsOfUse;
+        this.appConsent = identityGovernanceParameterValue?.appConsent instanceof AppConsentApprovalRouteImpl? identityGovernanceParameterValue?.appConsent:new AppConsentApprovalRouteImpl(identityGovernanceParameterValue?.appConsent);
+        this.entitlementManagement = identityGovernanceParameterValue?.entitlementManagement instanceof EntitlementManagementImpl? identityGovernanceParameterValue?.entitlementManagement:new EntitlementManagementImpl(identityGovernanceParameterValue?.entitlementManagement);
+        this.termsOfUse = identityGovernanceParameterValue?.termsOfUse instanceof TermsOfUseContainerImpl? identityGovernanceParameterValue?.termsOfUse:new TermsOfUseContainerImpl(identityGovernanceParameterValue?.termsOfUse);
     };
     /**
      * The deserialization information for the current model

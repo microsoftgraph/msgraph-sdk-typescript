@@ -18,7 +18,8 @@ export class ManagedEBookCollectionResponseImpl implements ManagedEBookCollectio
     public constructor(managedEBookCollectionResponseParameterValue?: ManagedEBookCollectionResponse | undefined) {
         this.additionalData = managedEBookCollectionResponseParameterValue?.additionalData ? managedEBookCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = managedEBookCollectionResponseParameterValue?.nextLink;
-        this.value = managedEBookCollectionResponseParameterValue?.value;
+        const valueArrValue: ManagedEBookImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ManagedEBookImpl? element : new ManagedEBookImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -39,7 +40,7 @@ export class ManagedEBookCollectionResponseImpl implements ManagedEBookCollectio
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: ManagedEBookImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ManagedEBookImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: ManagedEBookImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ManagedEBookImpl? element : new ManagedEBookImpl(element));});
             writer.writeCollectionOfObjectValues<ManagedEBookImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

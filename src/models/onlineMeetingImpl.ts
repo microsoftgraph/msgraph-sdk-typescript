@@ -77,20 +77,21 @@ export class OnlineMeetingImpl extends EntityImpl implements OnlineMeeting {
         this.allowedPresenters = onlineMeetingParameterValue?.allowedPresenters;
         this.allowMeetingChat = onlineMeetingParameterValue?.allowMeetingChat;
         this.allowTeamworkReactions = onlineMeetingParameterValue?.allowTeamworkReactions;
-        this.attendanceReports = onlineMeetingParameterValue?.attendanceReports;
+        const attendanceReportsArrValue: MeetingAttendanceReportImpl[] = []; this.attendanceReports?.forEach(element => {attendanceReportsArrValue.push(element instanceof MeetingAttendanceReportImpl? element : new MeetingAttendanceReportImpl(element));});
+        this.attendanceReports = attendanceReportsArrValue;
         this.attendeeReport = onlineMeetingParameterValue?.attendeeReport;
-        this.audioConferencing = onlineMeetingParameterValue?.audioConferencing;
-        this.broadcastSettings = onlineMeetingParameterValue?.broadcastSettings;
-        this.chatInfo = onlineMeetingParameterValue?.chatInfo;
+        this.audioConferencing = onlineMeetingParameterValue?.audioConferencing instanceof AudioConferencingImpl? onlineMeetingParameterValue?.audioConferencing:new AudioConferencingImpl(onlineMeetingParameterValue?.audioConferencing);
+        this.broadcastSettings = onlineMeetingParameterValue?.broadcastSettings instanceof BroadcastMeetingSettingsImpl? onlineMeetingParameterValue?.broadcastSettings:new BroadcastMeetingSettingsImpl(onlineMeetingParameterValue?.broadcastSettings);
+        this.chatInfo = onlineMeetingParameterValue?.chatInfo instanceof ChatInfoImpl? onlineMeetingParameterValue?.chatInfo:new ChatInfoImpl(onlineMeetingParameterValue?.chatInfo);
         this.creationDateTime = onlineMeetingParameterValue?.creationDateTime;
         this.endDateTime = onlineMeetingParameterValue?.endDateTime;
         this.externalId = onlineMeetingParameterValue?.externalId;
         this.isBroadcast = onlineMeetingParameterValue?.isBroadcast;
         this.isEntryExitAnnounced = onlineMeetingParameterValue?.isEntryExitAnnounced;
-        this.joinInformation = onlineMeetingParameterValue?.joinInformation;
+        this.joinInformation = onlineMeetingParameterValue?.joinInformation instanceof ItemBodyImpl? onlineMeetingParameterValue?.joinInformation:new ItemBodyImpl(onlineMeetingParameterValue?.joinInformation);
         this.joinWebUrl = onlineMeetingParameterValue?.joinWebUrl;
-        this.lobbyBypassSettings = onlineMeetingParameterValue?.lobbyBypassSettings;
-        this.participants = onlineMeetingParameterValue?.participants;
+        this.lobbyBypassSettings = onlineMeetingParameterValue?.lobbyBypassSettings instanceof LobbyBypassSettingsImpl? onlineMeetingParameterValue?.lobbyBypassSettings:new LobbyBypassSettingsImpl(onlineMeetingParameterValue?.lobbyBypassSettings);
+        this.participants = onlineMeetingParameterValue?.participants instanceof MeetingParticipantsImpl? onlineMeetingParameterValue?.participants:new MeetingParticipantsImpl(onlineMeetingParameterValue?.participants);
         this.recordAutomatically = onlineMeetingParameterValue?.recordAutomatically;
         this.startDateTime = onlineMeetingParameterValue?.startDateTime;
         this.subject = onlineMeetingParameterValue?.subject;
@@ -149,7 +150,7 @@ export class OnlineMeetingImpl extends EntityImpl implements OnlineMeeting {
         if(this.allowTeamworkReactions){
             writer.writeBooleanValue("allowTeamworkReactions", this.allowTeamworkReactions);
         }
-        if(this.attendanceReports && this.attendanceReports.length != 0){        const attendanceReportsArrValue: MeetingAttendanceReportImpl[] = []; this.attendanceReports?.forEach(element => {attendanceReportsArrValue.push(new MeetingAttendanceReportImpl(element));});
+        if(this.attendanceReports && this.attendanceReports.length != 0){        const attendanceReportsArrValue: MeetingAttendanceReportImpl[] = []; this.attendanceReports?.forEach(element => {attendanceReportsArrValue.push(element instanceof MeetingAttendanceReportImpl? element : new MeetingAttendanceReportImpl(element));});
             writer.writeCollectionOfObjectValues<MeetingAttendanceReportImpl>("attendanceReports", attendanceReportsArrValue);
         }
         if(this.attendeeReport){

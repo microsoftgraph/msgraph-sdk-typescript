@@ -18,7 +18,8 @@ export class DirectoryAuditCollectionResponseImpl implements DirectoryAuditColle
     public constructor(directoryAuditCollectionResponseParameterValue?: DirectoryAuditCollectionResponse | undefined) {
         this.additionalData = directoryAuditCollectionResponseParameterValue?.additionalData ? directoryAuditCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = directoryAuditCollectionResponseParameterValue?.nextLink;
-        this.value = directoryAuditCollectionResponseParameterValue?.value;
+        const valueArrValue: DirectoryAuditImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof DirectoryAuditImpl? element : new DirectoryAuditImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -39,7 +40,7 @@ export class DirectoryAuditCollectionResponseImpl implements DirectoryAuditColle
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: DirectoryAuditImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new DirectoryAuditImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: DirectoryAuditImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof DirectoryAuditImpl? element : new DirectoryAuditImpl(element));});
             writer.writeCollectionOfObjectValues<DirectoryAuditImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

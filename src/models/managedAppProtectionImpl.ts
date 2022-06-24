@@ -6,7 +6,6 @@ import {ManagedAppProtection} from './managedAppProtection';
 import {ManagedBrowserType} from './managedBrowserType';
 import {Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Policy used to configure detailed management settings for a specified set of apps */
 export class ManagedAppProtectionImpl extends ManagedAppPolicyImpl implements ManagedAppProtection {
     /** Data storage locations where a user may store managed data. */
     public allowedDataStorageLocations?: string[] | undefined;
@@ -63,7 +62,7 @@ export class ManagedAppProtectionImpl extends ManagedAppPolicyImpl implements Ma
     /** Indicates whether simplePin is blocked. */
     public simplePinBlocked?: boolean | undefined;
     /**
-     * Instantiates a new managedAppProtection and sets the default values.
+     * Instantiates a new ManagedAppProtection and sets the default values.
      * @param managedAppProtectionParameterValue 
      */
     public constructor(managedAppProtectionParameterValue?: ManagedAppProtection | undefined) {

@@ -4,13 +4,15 @@ import {AccessReviewReviewerScope} from './accessReviewReviewerScope';
 import {AccessReviewScheduleDefinition} from './accessReviewScheduleDefinition';
 import {AccessReviewScheduleSettings} from './accessReviewScheduleSettings';
 import {AccessReviewScope} from './accessReviewScope';
+import {AccessReviewStageSettings} from './accessReviewStageSettings';
 import {createAccessReviewInstanceFromDiscriminatorValue} from './createAccessReviewInstanceFromDiscriminatorValue';
 import {createAccessReviewNotificationRecipientItemFromDiscriminatorValue} from './createAccessReviewNotificationRecipientItemFromDiscriminatorValue';
 import {createAccessReviewReviewerScopeFromDiscriminatorValue} from './createAccessReviewReviewerScopeFromDiscriminatorValue';
 import {createAccessReviewScheduleSettingsFromDiscriminatorValue} from './createAccessReviewScheduleSettingsFromDiscriminatorValue';
 import {createAccessReviewScopeFromDiscriminatorValue} from './createAccessReviewScopeFromDiscriminatorValue';
+import {createAccessReviewStageSettingsFromDiscriminatorValue} from './createAccessReviewStageSettingsFromDiscriminatorValue';
 import {createUserIdentityFromDiscriminatorValue} from './createUserIdentityFromDiscriminatorValue';
-import {AccessReviewInstanceImpl, AccessReviewNotificationRecipientItemImpl, AccessReviewReviewerScopeImpl, AccessReviewScheduleSettingsImpl, AccessReviewScopeImpl, EntityImpl, UserIdentityImpl} from './index';
+import {AccessReviewInstanceImpl, AccessReviewNotificationRecipientItemImpl, AccessReviewReviewerScopeImpl, AccessReviewScheduleSettingsImpl, AccessReviewScopeImpl, AccessReviewStageSettingsImpl, EntityImpl, UserIdentityImpl} from './index';
 import {UserIdentity} from './userIdentity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
@@ -42,6 +44,8 @@ export class AccessReviewScheduleDefinitionImpl extends EntityImpl implements Ac
     public scope?: AccessReviewScope | undefined;
     /** The settings for an access review series, see type definition below. Supports $select. Required on create. */
     public settings?: AccessReviewScheduleSettings | undefined;
+    /** Required only for a multi-stage access review to define the stages and their settings. You can break down each review instance into up to three sequential stages, where each stage can have a different set of reviewers, fallback reviewers, and settings. Stages will be created sequentially based on the dependsOn property. Optional.  When this property is defined, its settings are used instead of the corresponding settings in the accessReviewScheduleDefinition object and its settings, reviewers, and fallbackReviewers properties. */
+    public stageSettings?: AccessReviewStageSettings[] | undefined;
     /** This read-only field specifies the status of an access review. The typical states include Initializing, NotStarted, Starting, InProgress, Completing, Completed, AutoReviewing, and AutoReviewed.  Supports $select, $orderby, and $filter (eq only). Read-only. */
     public status?: string | undefined;
     /**
@@ -50,19 +54,25 @@ export class AccessReviewScheduleDefinitionImpl extends EntityImpl implements Ac
      */
     public constructor(accessReviewScheduleDefinitionParameterValue?: AccessReviewScheduleDefinition | undefined) {
         super(accessReviewScheduleDefinitionParameterValue);
-        this.additionalNotificationRecipients = accessReviewScheduleDefinitionParameterValue?.additionalNotificationRecipients;
-        this.createdBy = accessReviewScheduleDefinitionParameterValue?.createdBy;
+        const additionalNotificationRecipientsArrValue: AccessReviewNotificationRecipientItemImpl[] = []; this.additionalNotificationRecipients?.forEach(element => {additionalNotificationRecipientsArrValue.push(element instanceof AccessReviewNotificationRecipientItemImpl? element : new AccessReviewNotificationRecipientItemImpl(element));});
+        this.additionalNotificationRecipients = additionalNotificationRecipientsArrValue;
+        this.createdBy = accessReviewScheduleDefinitionParameterValue?.createdBy instanceof UserIdentityImpl? accessReviewScheduleDefinitionParameterValue?.createdBy:new UserIdentityImpl(accessReviewScheduleDefinitionParameterValue?.createdBy);
         this.createdDateTime = accessReviewScheduleDefinitionParameterValue?.createdDateTime;
         this.descriptionForAdmins = accessReviewScheduleDefinitionParameterValue?.descriptionForAdmins;
         this.descriptionForReviewers = accessReviewScheduleDefinitionParameterValue?.descriptionForReviewers;
         this.displayName = accessReviewScheduleDefinitionParameterValue?.displayName;
-        this.fallbackReviewers = accessReviewScheduleDefinitionParameterValue?.fallbackReviewers;
-        this.instanceEnumerationScope = accessReviewScheduleDefinitionParameterValue?.instanceEnumerationScope;
-        this.instances = accessReviewScheduleDefinitionParameterValue?.instances;
+        const fallbackReviewersArrValue: AccessReviewReviewerScopeImpl[] = []; this.fallbackReviewers?.forEach(element => {fallbackReviewersArrValue.push(element instanceof AccessReviewReviewerScopeImpl? element : new AccessReviewReviewerScopeImpl(element));});
+        this.fallbackReviewers = fallbackReviewersArrValue;
+        this.instanceEnumerationScope = accessReviewScheduleDefinitionParameterValue?.instanceEnumerationScope instanceof AccessReviewScopeImpl? accessReviewScheduleDefinitionParameterValue?.instanceEnumerationScope:new AccessReviewScopeImpl(accessReviewScheduleDefinitionParameterValue?.instanceEnumerationScope);
+        const instancesArrValue: AccessReviewInstanceImpl[] = []; this.instances?.forEach(element => {instancesArrValue.push(element instanceof AccessReviewInstanceImpl? element : new AccessReviewInstanceImpl(element));});
+        this.instances = instancesArrValue;
         this.lastModifiedDateTime = accessReviewScheduleDefinitionParameterValue?.lastModifiedDateTime;
-        this.reviewers = accessReviewScheduleDefinitionParameterValue?.reviewers;
-        this.scope = accessReviewScheduleDefinitionParameterValue?.scope;
-        this.settings = accessReviewScheduleDefinitionParameterValue?.settings;
+        const reviewersArrValue: AccessReviewReviewerScopeImpl[] = []; this.reviewers?.forEach(element => {reviewersArrValue.push(element instanceof AccessReviewReviewerScopeImpl? element : new AccessReviewReviewerScopeImpl(element));});
+        this.reviewers = reviewersArrValue;
+        this.scope = accessReviewScheduleDefinitionParameterValue?.scope instanceof AccessReviewScopeImpl? accessReviewScheduleDefinitionParameterValue?.scope:new AccessReviewScopeImpl(accessReviewScheduleDefinitionParameterValue?.scope);
+        this.settings = accessReviewScheduleDefinitionParameterValue?.settings instanceof AccessReviewScheduleSettingsImpl? accessReviewScheduleDefinitionParameterValue?.settings:new AccessReviewScheduleSettingsImpl(accessReviewScheduleDefinitionParameterValue?.settings);
+        const stageSettingsArrValue: AccessReviewStageSettingsImpl[] = []; this.stageSettings?.forEach(element => {stageSettingsArrValue.push(element instanceof AccessReviewStageSettingsImpl? element : new AccessReviewStageSettingsImpl(element));});
+        this.stageSettings = stageSettingsArrValue;
         this.status = accessReviewScheduleDefinitionParameterValue?.status;
     };
     /**
@@ -84,6 +94,7 @@ export class AccessReviewScheduleDefinitionImpl extends EntityImpl implements Ac
             "reviewers": n => { this.reviewers = n.getCollectionOfObjectValues<AccessReviewReviewerScopeImpl>(createAccessReviewReviewerScopeFromDiscriminatorValue); },
             "scope": n => { this.scope = n.getObjectValue<AccessReviewScopeImpl>(createAccessReviewScopeFromDiscriminatorValue); },
             "settings": n => { this.settings = n.getObjectValue<AccessReviewScheduleSettingsImpl>(createAccessReviewScheduleSettingsFromDiscriminatorValue); },
+            "stageSettings": n => { this.stageSettings = n.getCollectionOfObjectValues<AccessReviewStageSettingsImpl>(createAccessReviewStageSettingsFromDiscriminatorValue); },
             "status": n => { this.status = n.getStringValue(); },
         };
     };
@@ -94,7 +105,7 @@ export class AccessReviewScheduleDefinitionImpl extends EntityImpl implements Ac
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.additionalNotificationRecipients && this.additionalNotificationRecipients.length != 0){        const additionalNotificationRecipientsArrValue: AccessReviewNotificationRecipientItemImpl[] = []; this.additionalNotificationRecipients?.forEach(element => {additionalNotificationRecipientsArrValue.push(new AccessReviewNotificationRecipientItemImpl(element));});
+        if(this.additionalNotificationRecipients && this.additionalNotificationRecipients.length != 0){        const additionalNotificationRecipientsArrValue: AccessReviewNotificationRecipientItemImpl[] = []; this.additionalNotificationRecipients?.forEach(element => {additionalNotificationRecipientsArrValue.push(element instanceof AccessReviewNotificationRecipientItemImpl? element : new AccessReviewNotificationRecipientItemImpl(element));});
             writer.writeCollectionOfObjectValues<AccessReviewNotificationRecipientItemImpl>("additionalNotificationRecipients", additionalNotificationRecipientsArrValue);
         }
         if(this.createdBy){
@@ -112,19 +123,19 @@ export class AccessReviewScheduleDefinitionImpl extends EntityImpl implements Ac
         if(this.displayName){
             writer.writeStringValue("displayName", this.displayName);
         }
-        if(this.fallbackReviewers && this.fallbackReviewers.length != 0){        const fallbackReviewersArrValue: AccessReviewReviewerScopeImpl[] = []; this.fallbackReviewers?.forEach(element => {fallbackReviewersArrValue.push(new AccessReviewReviewerScopeImpl(element));});
+        if(this.fallbackReviewers && this.fallbackReviewers.length != 0){        const fallbackReviewersArrValue: AccessReviewReviewerScopeImpl[] = []; this.fallbackReviewers?.forEach(element => {fallbackReviewersArrValue.push(element instanceof AccessReviewReviewerScopeImpl? element : new AccessReviewReviewerScopeImpl(element));});
             writer.writeCollectionOfObjectValues<AccessReviewReviewerScopeImpl>("fallbackReviewers", fallbackReviewersArrValue);
         }
         if(this.instanceEnumerationScope){
             writer.writeObjectValue<AccessReviewScopeImpl>("instanceEnumerationScope", new AccessReviewScopeImpl(this.instanceEnumerationScope));
         }
-        if(this.instances && this.instances.length != 0){        const instancesArrValue: AccessReviewInstanceImpl[] = []; this.instances?.forEach(element => {instancesArrValue.push(new AccessReviewInstanceImpl(element));});
+        if(this.instances && this.instances.length != 0){        const instancesArrValue: AccessReviewInstanceImpl[] = []; this.instances?.forEach(element => {instancesArrValue.push(element instanceof AccessReviewInstanceImpl? element : new AccessReviewInstanceImpl(element));});
             writer.writeCollectionOfObjectValues<AccessReviewInstanceImpl>("instances", instancesArrValue);
         }
         if(this.lastModifiedDateTime){
             writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
         }
-        if(this.reviewers && this.reviewers.length != 0){        const reviewersArrValue: AccessReviewReviewerScopeImpl[] = []; this.reviewers?.forEach(element => {reviewersArrValue.push(new AccessReviewReviewerScopeImpl(element));});
+        if(this.reviewers && this.reviewers.length != 0){        const reviewersArrValue: AccessReviewReviewerScopeImpl[] = []; this.reviewers?.forEach(element => {reviewersArrValue.push(element instanceof AccessReviewReviewerScopeImpl? element : new AccessReviewReviewerScopeImpl(element));});
             writer.writeCollectionOfObjectValues<AccessReviewReviewerScopeImpl>("reviewers", reviewersArrValue);
         }
         if(this.scope){
@@ -132,6 +143,9 @@ export class AccessReviewScheduleDefinitionImpl extends EntityImpl implements Ac
         }
         if(this.settings){
             writer.writeObjectValue<AccessReviewScheduleSettingsImpl>("settings", new AccessReviewScheduleSettingsImpl(this.settings));
+        }
+        if(this.stageSettings && this.stageSettings.length != 0){        const stageSettingsArrValue: AccessReviewStageSettingsImpl[] = []; this.stageSettings?.forEach(element => {stageSettingsArrValue.push(element instanceof AccessReviewStageSettingsImpl? element : new AccessReviewStageSettingsImpl(element));});
+            writer.writeCollectionOfObjectValues<AccessReviewStageSettingsImpl>("stageSettings", stageSettingsArrValue);
         }
         if(this.status){
             writer.writeStringValue("status", this.status);

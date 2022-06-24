@@ -23,8 +23,9 @@ export class ForwardPostRequestBodyImpl implements ForwardPostRequestBody {
     public constructor(forwardPostRequestBodyParameterValue?: ForwardPostRequestBody | undefined) {
         this.additionalData = forwardPostRequestBodyParameterValue?.additionalData ? forwardPostRequestBodyParameterValue?.additionalData! : {};
         this.comment = forwardPostRequestBodyParameterValue?.comment;
-        this.message = forwardPostRequestBodyParameterValue?.message;
-        this.toRecipients = forwardPostRequestBodyParameterValue?.toRecipients;
+        this.message = forwardPostRequestBodyParameterValue?.message instanceof MessageImpl? forwardPostRequestBodyParameterValue?.message:new MessageImpl(forwardPostRequestBodyParameterValue?.message);
+        const toRecipientsArrValue: RecipientImpl[] = []; this.ToRecipients?.forEach(element => {toRecipientsArrValue.push(element instanceof RecipientImpl? element : new RecipientImpl(element));});
+        this.toRecipients = toRecipientsArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -49,7 +50,7 @@ export class ForwardPostRequestBodyImpl implements ForwardPostRequestBody {
         if(this.message){
             writer.writeObjectValue<MessageImpl>("message", new MessageImpl(this.message));
         }
-        if(this.toRecipients && this.toRecipients.length != 0){        const toRecipientsArrValue: RecipientImpl[] = []; this.toRecipients?.forEach(element => {toRecipientsArrValue.push(new RecipientImpl(element));});
+        if(this.toRecipients && this.toRecipients.length != 0){        const toRecipientsArrValue: RecipientImpl[] = []; this.toRecipients?.forEach(element => {toRecipientsArrValue.push(element instanceof RecipientImpl? element : new RecipientImpl(element));});
             writer.writeCollectionOfObjectValues<RecipientImpl>("toRecipients", toRecipientsArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

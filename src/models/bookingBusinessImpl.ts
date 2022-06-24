@@ -60,22 +60,29 @@ export class BookingBusinessImpl extends EntityImpl implements BookingBusiness {
      */
     public constructor(bookingBusinessParameterValue?: BookingBusiness | undefined) {
         super(bookingBusinessParameterValue);
-        this.address = bookingBusinessParameterValue?.address;
-        this.appointments = bookingBusinessParameterValue?.appointments;
-        this.businessHours = bookingBusinessParameterValue?.businessHours;
+        this.address = bookingBusinessParameterValue?.address instanceof PhysicalAddressImpl? bookingBusinessParameterValue?.address:new PhysicalAddressImpl(bookingBusinessParameterValue?.address);
+        const appointmentsArrValue: BookingAppointmentImpl[] = []; this.appointments?.forEach(element => {appointmentsArrValue.push(element instanceof BookingAppointmentImpl? element : new BookingAppointmentImpl(element));});
+        this.appointments = appointmentsArrValue;
+        const businessHoursArrValue: BookingWorkHoursImpl[] = []; this.businessHours?.forEach(element => {businessHoursArrValue.push(element instanceof BookingWorkHoursImpl? element : new BookingWorkHoursImpl(element));});
+        this.businessHours = businessHoursArrValue;
         this.businessType = bookingBusinessParameterValue?.businessType;
-        this.calendarView = bookingBusinessParameterValue?.calendarView;
-        this.customers = bookingBusinessParameterValue?.customers;
-        this.customQuestions = bookingBusinessParameterValue?.customQuestions;
+        const calendarViewArrValue: BookingAppointmentImpl[] = []; this.calendarView?.forEach(element => {calendarViewArrValue.push(element instanceof BookingAppointmentImpl? element : new BookingAppointmentImpl(element));});
+        this.calendarView = calendarViewArrValue;
+        const customersArrValue: BookingCustomerBaseImpl[] = []; this.customers?.forEach(element => {customersArrValue.push(element instanceof BookingCustomerBaseImpl? element : new BookingCustomerBaseImpl(element));});
+        this.customers = customersArrValue;
+        const customQuestionsArrValue: BookingCustomQuestionImpl[] = []; this.customQuestions?.forEach(element => {customQuestionsArrValue.push(element instanceof BookingCustomQuestionImpl? element : new BookingCustomQuestionImpl(element));});
+        this.customQuestions = customQuestionsArrValue;
         this.defaultCurrencyIso = bookingBusinessParameterValue?.defaultCurrencyIso;
         this.displayName = bookingBusinessParameterValue?.displayName;
         this.email = bookingBusinessParameterValue?.email;
         this.isPublished = bookingBusinessParameterValue?.isPublished;
         this.phone = bookingBusinessParameterValue?.phone;
         this.publicUrl = bookingBusinessParameterValue?.publicUrl;
-        this.schedulingPolicy = bookingBusinessParameterValue?.schedulingPolicy;
-        this.services = bookingBusinessParameterValue?.services;
-        this.staffMembers = bookingBusinessParameterValue?.staffMembers;
+        this.schedulingPolicy = bookingBusinessParameterValue?.schedulingPolicy instanceof BookingSchedulingPolicyImpl? bookingBusinessParameterValue?.schedulingPolicy:new BookingSchedulingPolicyImpl(bookingBusinessParameterValue?.schedulingPolicy);
+        const servicesArrValue: BookingServiceImpl[] = []; this.services?.forEach(element => {servicesArrValue.push(element instanceof BookingServiceImpl? element : new BookingServiceImpl(element));});
+        this.services = servicesArrValue;
+        const staffMembersArrValue: BookingStaffMemberBaseImpl[] = []; this.staffMembers?.forEach(element => {staffMembersArrValue.push(element instanceof BookingStaffMemberBaseImpl? element : new BookingStaffMemberBaseImpl(element));});
+        this.staffMembers = staffMembersArrValue;
         this.webSiteUrl = bookingBusinessParameterValue?.webSiteUrl;
     };
     /**
@@ -113,22 +120,22 @@ export class BookingBusinessImpl extends EntityImpl implements BookingBusiness {
         if(this.address){
             writer.writeObjectValue<PhysicalAddressImpl>("address", new PhysicalAddressImpl(this.address));
         }
-        if(this.appointments && this.appointments.length != 0){        const appointmentsArrValue: BookingAppointmentImpl[] = []; this.appointments?.forEach(element => {appointmentsArrValue.push(new BookingAppointmentImpl(element));});
+        if(this.appointments && this.appointments.length != 0){        const appointmentsArrValue: BookingAppointmentImpl[] = []; this.appointments?.forEach(element => {appointmentsArrValue.push(element instanceof BookingAppointmentImpl? element : new BookingAppointmentImpl(element));});
             writer.writeCollectionOfObjectValues<BookingAppointmentImpl>("appointments", appointmentsArrValue);
         }
-        if(this.businessHours && this.businessHours.length != 0){        const businessHoursArrValue: BookingWorkHoursImpl[] = []; this.businessHours?.forEach(element => {businessHoursArrValue.push(new BookingWorkHoursImpl(element));});
+        if(this.businessHours && this.businessHours.length != 0){        const businessHoursArrValue: BookingWorkHoursImpl[] = []; this.businessHours?.forEach(element => {businessHoursArrValue.push(element instanceof BookingWorkHoursImpl? element : new BookingWorkHoursImpl(element));});
             writer.writeCollectionOfObjectValues<BookingWorkHoursImpl>("businessHours", businessHoursArrValue);
         }
         if(this.businessType){
             writer.writeStringValue("businessType", this.businessType);
         }
-        if(this.calendarView && this.calendarView.length != 0){        const calendarViewArrValue: BookingAppointmentImpl[] = []; this.calendarView?.forEach(element => {calendarViewArrValue.push(new BookingAppointmentImpl(element));});
+        if(this.calendarView && this.calendarView.length != 0){        const calendarViewArrValue: BookingAppointmentImpl[] = []; this.calendarView?.forEach(element => {calendarViewArrValue.push(element instanceof BookingAppointmentImpl? element : new BookingAppointmentImpl(element));});
             writer.writeCollectionOfObjectValues<BookingAppointmentImpl>("calendarView", calendarViewArrValue);
         }
-        if(this.customers && this.customers.length != 0){        const customersArrValue: BookingCustomerBaseImpl[] = []; this.customers?.forEach(element => {customersArrValue.push(new BookingCustomerBaseImpl(element));});
+        if(this.customers && this.customers.length != 0){        const customersArrValue: BookingCustomerBaseImpl[] = []; this.customers?.forEach(element => {customersArrValue.push(element instanceof BookingCustomerBaseImpl? element : new BookingCustomerBaseImpl(element));});
             writer.writeCollectionOfObjectValues<BookingCustomerBaseImpl>("customers", customersArrValue);
         }
-        if(this.customQuestions && this.customQuestions.length != 0){        const customQuestionsArrValue: BookingCustomQuestionImpl[] = []; this.customQuestions?.forEach(element => {customQuestionsArrValue.push(new BookingCustomQuestionImpl(element));});
+        if(this.customQuestions && this.customQuestions.length != 0){        const customQuestionsArrValue: BookingCustomQuestionImpl[] = []; this.customQuestions?.forEach(element => {customQuestionsArrValue.push(element instanceof BookingCustomQuestionImpl? element : new BookingCustomQuestionImpl(element));});
             writer.writeCollectionOfObjectValues<BookingCustomQuestionImpl>("customQuestions", customQuestionsArrValue);
         }
         if(this.defaultCurrencyIso){
@@ -152,10 +159,10 @@ export class BookingBusinessImpl extends EntityImpl implements BookingBusiness {
         if(this.schedulingPolicy){
             writer.writeObjectValue<BookingSchedulingPolicyImpl>("schedulingPolicy", new BookingSchedulingPolicyImpl(this.schedulingPolicy));
         }
-        if(this.services && this.services.length != 0){        const servicesArrValue: BookingServiceImpl[] = []; this.services?.forEach(element => {servicesArrValue.push(new BookingServiceImpl(element));});
+        if(this.services && this.services.length != 0){        const servicesArrValue: BookingServiceImpl[] = []; this.services?.forEach(element => {servicesArrValue.push(element instanceof BookingServiceImpl? element : new BookingServiceImpl(element));});
             writer.writeCollectionOfObjectValues<BookingServiceImpl>("services", servicesArrValue);
         }
-        if(this.staffMembers && this.staffMembers.length != 0){        const staffMembersArrValue: BookingStaffMemberBaseImpl[] = []; this.staffMembers?.forEach(element => {staffMembersArrValue.push(new BookingStaffMemberBaseImpl(element));});
+        if(this.staffMembers && this.staffMembers.length != 0){        const staffMembersArrValue: BookingStaffMemberBaseImpl[] = []; this.staffMembers?.forEach(element => {staffMembersArrValue.push(element instanceof BookingStaffMemberBaseImpl? element : new BookingStaffMemberBaseImpl(element));});
             writer.writeCollectionOfObjectValues<BookingStaffMemberBaseImpl>("staffMembers", staffMembersArrValue);
         }
         if(this.webSiteUrl){

@@ -6,7 +6,7 @@ import {ResponseStatus} from './responseStatus';
 import {TimeSlot} from './timeSlot';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the collection of application entities. */
 export class AttendeeImpl extends AttendeeBaseImpl implements Attendee {
     /** An alternate date/time proposed by the attendee for a meeting request to start and end. If the attendee hasn't proposed another time, then this property is not included in a response of a GET event. */
     public proposedNewTime?: TimeSlot | undefined;
@@ -18,8 +18,8 @@ export class AttendeeImpl extends AttendeeBaseImpl implements Attendee {
      */
     public constructor(attendeeParameterValue?: Attendee | undefined) {
         super(attendeeParameterValue);
-        this.proposedNewTime = attendeeParameterValue?.proposedNewTime;
-        this.status = attendeeParameterValue?.status;
+        this.proposedNewTime = attendeeParameterValue?.proposedNewTime instanceof TimeSlotImpl? attendeeParameterValue?.proposedNewTime:new TimeSlotImpl(attendeeParameterValue?.proposedNewTime);
+        this.status = attendeeParameterValue?.status instanceof ResponseStatusImpl? attendeeParameterValue?.status:new ResponseStatusImpl(attendeeParameterValue?.status);
     };
     /**
      * The deserialization information for the current model

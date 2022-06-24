@@ -18,7 +18,8 @@ export class BitlockerRecoveryKeyCollectionResponseImpl implements BitlockerReco
     public constructor(bitlockerRecoveryKeyCollectionResponseParameterValue?: BitlockerRecoveryKeyCollectionResponse | undefined) {
         this.additionalData = bitlockerRecoveryKeyCollectionResponseParameterValue?.additionalData ? bitlockerRecoveryKeyCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = bitlockerRecoveryKeyCollectionResponseParameterValue?.nextLink;
-        this.value = bitlockerRecoveryKeyCollectionResponseParameterValue?.value;
+        const valueArrValue: BitlockerRecoveryKeyImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof BitlockerRecoveryKeyImpl? element : new BitlockerRecoveryKeyImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -39,7 +40,7 @@ export class BitlockerRecoveryKeyCollectionResponseImpl implements BitlockerReco
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: BitlockerRecoveryKeyImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new BitlockerRecoveryKeyImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: BitlockerRecoveryKeyImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof BitlockerRecoveryKeyImpl? element : new BitlockerRecoveryKeyImpl(element));});
             writer.writeCollectionOfObjectValues<BitlockerRecoveryKeyImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

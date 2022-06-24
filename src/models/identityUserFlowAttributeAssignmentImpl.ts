@@ -30,8 +30,9 @@ export class IdentityUserFlowAttributeAssignmentImpl extends EntityImpl implemen
         this.displayName = identityUserFlowAttributeAssignmentParameterValue?.displayName;
         this.isOptional = identityUserFlowAttributeAssignmentParameterValue?.isOptional;
         this.requiresVerification = identityUserFlowAttributeAssignmentParameterValue?.requiresVerification;
-        this.userAttribute = identityUserFlowAttributeAssignmentParameterValue?.userAttribute;
-        this.userAttributeValues = identityUserFlowAttributeAssignmentParameterValue?.userAttributeValues;
+        this.userAttribute = identityUserFlowAttributeAssignmentParameterValue?.userAttribute instanceof IdentityUserFlowAttributeImpl? identityUserFlowAttributeAssignmentParameterValue?.userAttribute:new IdentityUserFlowAttributeImpl(identityUserFlowAttributeAssignmentParameterValue?.userAttribute);
+        const userAttributeValuesArrValue: UserAttributeValuesItemImpl[] = []; this.userAttributeValues?.forEach(element => {userAttributeValuesArrValue.push(element instanceof UserAttributeValuesItemImpl? element : new UserAttributeValuesItemImpl(element));});
+        this.userAttributeValues = userAttributeValuesArrValue;
         this.userInputType = identityUserFlowAttributeAssignmentParameterValue?.userInputType;
     };
     /**
@@ -67,7 +68,7 @@ export class IdentityUserFlowAttributeAssignmentImpl extends EntityImpl implemen
         if(this.userAttribute){
             writer.writeObjectValue<IdentityUserFlowAttributeImpl>("userAttribute", new IdentityUserFlowAttributeImpl(this.userAttribute));
         }
-        if(this.userAttributeValues && this.userAttributeValues.length != 0){        const userAttributeValuesArrValue: UserAttributeValuesItemImpl[] = []; this.userAttributeValues?.forEach(element => {userAttributeValuesArrValue.push(new UserAttributeValuesItemImpl(element));});
+        if(this.userAttributeValues && this.userAttributeValues.length != 0){        const userAttributeValuesArrValue: UserAttributeValuesItemImpl[] = []; this.userAttributeValues?.forEach(element => {userAttributeValuesArrValue.push(element instanceof UserAttributeValuesItemImpl? element : new UserAttributeValuesItemImpl(element));});
             writer.writeCollectionOfObjectValues<UserAttributeValuesItemImpl>("userAttributeValues", userAttributeValuesArrValue);
         }
         if(this.userInputType){

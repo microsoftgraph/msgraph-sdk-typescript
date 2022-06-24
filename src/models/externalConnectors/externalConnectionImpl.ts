@@ -20,15 +20,15 @@ export class ExternalConnectionImpl extends EntityImpl implements ExternalConnec
     public configuration?: Configuration | undefined;
     /** Description of the connection displayed in the Microsoft 365 admin center. Optional. */
     public description?: string | undefined;
-    /** Read-only. Nullable. */
+    /** The groups property */
     public groups?: ExternalGroup[] | undefined;
-    /** Read-only. Nullable. */
+    /** The items property */
     public items?: ExternalItem[] | undefined;
     /** The display name of the connection to be displayed in the Microsoft 365 admin center. Maximum length of 128 characters. Required. */
     public name?: string | undefined;
-    /** Read-only. Nullable. */
+    /** The operations property */
     public operations?: ConnectionOperation[] | undefined;
-    /** Read-only. Nullable. */
+    /** The schema property */
     public schema?: Schema | undefined;
     /** Indicates the current state of the connection. Possible values are draft, ready, obsolete, and limitExceeded. Required. */
     public state?: ConnectionState | undefined;
@@ -38,13 +38,16 @@ export class ExternalConnectionImpl extends EntityImpl implements ExternalConnec
      */
     public constructor(externalConnectionParameterValue?: ExternalConnection | undefined) {
         super(externalConnectionParameterValue);
-        this.configuration = externalConnectionParameterValue?.configuration;
+        this.configuration = externalConnectionParameterValue?.configuration instanceof ConfigurationImpl? externalConnectionParameterValue?.configuration:new ConfigurationImpl(externalConnectionParameterValue?.configuration);
         this.description = externalConnectionParameterValue?.description;
-        this.groups = externalConnectionParameterValue?.groups;
-        this.items = externalConnectionParameterValue?.items;
+        const groupsArrValue: ExternalGroupImpl[] = []; this.groups?.forEach(element => {groupsArrValue.push(element instanceof ExternalGroupImpl? element : new ExternalGroupImpl(element));});
+        this.groups = groupsArrValue;
+        const itemsArrValue: ExternalItemImpl[] = []; this.items?.forEach(element => {itemsArrValue.push(element instanceof ExternalItemImpl? element : new ExternalItemImpl(element));});
+        this.items = itemsArrValue;
         this.name = externalConnectionParameterValue?.name;
-        this.operations = externalConnectionParameterValue?.operations;
-        this.schema = externalConnectionParameterValue?.schema;
+        const operationsArrValue: ConnectionOperationImpl[] = []; this.operations?.forEach(element => {operationsArrValue.push(element instanceof ConnectionOperationImpl? element : new ConnectionOperationImpl(element));});
+        this.operations = operationsArrValue;
+        this.schema = externalConnectionParameterValue?.schema instanceof SchemaImpl? externalConnectionParameterValue?.schema:new SchemaImpl(externalConnectionParameterValue?.schema);
         this.state = externalConnectionParameterValue?.state;
     };
     /**
@@ -76,16 +79,16 @@ export class ExternalConnectionImpl extends EntityImpl implements ExternalConnec
         if(this.description){
             writer.writeStringValue("description", this.description);
         }
-        if(this.groups && this.groups.length != 0){        const groupsArrValue: ExternalGroupImpl[] = []; this.groups?.forEach(element => {groupsArrValue.push(new ExternalGroupImpl(element));});
+        if(this.groups && this.groups.length != 0){        const groupsArrValue: ExternalGroupImpl[] = []; this.groups?.forEach(element => {groupsArrValue.push(element instanceof ExternalGroupImpl? element : new ExternalGroupImpl(element));});
             writer.writeCollectionOfObjectValues<ExternalGroupImpl>("groups", groupsArrValue);
         }
-        if(this.items && this.items.length != 0){        const itemsArrValue: ExternalItemImpl[] = []; this.items?.forEach(element => {itemsArrValue.push(new ExternalItemImpl(element));});
+        if(this.items && this.items.length != 0){        const itemsArrValue: ExternalItemImpl[] = []; this.items?.forEach(element => {itemsArrValue.push(element instanceof ExternalItemImpl? element : new ExternalItemImpl(element));});
             writer.writeCollectionOfObjectValues<ExternalItemImpl>("items", itemsArrValue);
         }
         if(this.name){
             writer.writeStringValue("name", this.name);
         }
-        if(this.operations && this.operations.length != 0){        const operationsArrValue: ConnectionOperationImpl[] = []; this.operations?.forEach(element => {operationsArrValue.push(new ConnectionOperationImpl(element));});
+        if(this.operations && this.operations.length != 0){        const operationsArrValue: ConnectionOperationImpl[] = []; this.operations?.forEach(element => {operationsArrValue.push(element instanceof ConnectionOperationImpl? element : new ConnectionOperationImpl(element));});
             writer.writeCollectionOfObjectValues<ConnectionOperationImpl>("operations", operationsArrValue);
         }
         if(this.schema){

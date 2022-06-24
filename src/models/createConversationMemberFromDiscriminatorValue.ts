@@ -1,4 +1,4 @@
-import {ConversationMemberImpl} from './index';
+import {AadUserConversationMemberImpl, ConversationMemberImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
 export function createConversationMemberFromDiscriminatorValue(parseNode: ParseNode | undefined) : ConversationMemberImpl {
@@ -8,8 +8,8 @@ export function createConversationMemberFromDiscriminatorValue(parseNode: ParseN
         const mappingValue = mappingValueNode.getStringValue();
         if (mappingValue) {
             switch (mappingValue) {
-                case "#microsoft.graph.conversationMember":
-                    return new ConversationMemberImpl();
+                case "#microsoft.graph.aadUserConversationMember":
+                    return new AadUserConversationMemberImpl();
             }
         }
     }

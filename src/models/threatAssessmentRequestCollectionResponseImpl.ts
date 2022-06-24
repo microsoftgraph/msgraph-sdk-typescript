@@ -18,7 +18,8 @@ export class ThreatAssessmentRequestCollectionResponseImpl implements ThreatAsse
     public constructor(threatAssessmentRequestCollectionResponseParameterValue?: ThreatAssessmentRequestCollectionResponse | undefined) {
         this.additionalData = threatAssessmentRequestCollectionResponseParameterValue?.additionalData ? threatAssessmentRequestCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = threatAssessmentRequestCollectionResponseParameterValue?.nextLink;
-        this.value = threatAssessmentRequestCollectionResponseParameterValue?.value;
+        const valueArrValue: ThreatAssessmentRequestImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ThreatAssessmentRequestImpl? element : new ThreatAssessmentRequestImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -39,7 +40,7 @@ export class ThreatAssessmentRequestCollectionResponseImpl implements ThreatAsse
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: ThreatAssessmentRequestImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ThreatAssessmentRequestImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: ThreatAssessmentRequestImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ThreatAssessmentRequestImpl? element : new ThreatAssessmentRequestImpl(element));});
             writer.writeCollectionOfObjectValues<ThreatAssessmentRequestImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

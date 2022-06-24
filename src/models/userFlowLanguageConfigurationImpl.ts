@@ -20,10 +20,12 @@ export class UserFlowLanguageConfigurationImpl extends EntityImpl implements Use
      */
     public constructor(userFlowLanguageConfigurationParameterValue?: UserFlowLanguageConfiguration | undefined) {
         super(userFlowLanguageConfigurationParameterValue);
-        this.defaultPages = userFlowLanguageConfigurationParameterValue?.defaultPages;
+        const defaultPagesArrValue: UserFlowLanguagePageImpl[] = []; this.defaultPages?.forEach(element => {defaultPagesArrValue.push(element instanceof UserFlowLanguagePageImpl? element : new UserFlowLanguagePageImpl(element));});
+        this.defaultPages = defaultPagesArrValue;
         this.displayName = userFlowLanguageConfigurationParameterValue?.displayName;
         this.isEnabled = userFlowLanguageConfigurationParameterValue?.isEnabled;
-        this.overridesPages = userFlowLanguageConfigurationParameterValue?.overridesPages;
+        const overridesPagesArrValue: UserFlowLanguagePageImpl[] = []; this.overridesPages?.forEach(element => {overridesPagesArrValue.push(element instanceof UserFlowLanguagePageImpl? element : new UserFlowLanguagePageImpl(element));});
+        this.overridesPages = overridesPagesArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -44,7 +46,7 @@ export class UserFlowLanguageConfigurationImpl extends EntityImpl implements Use
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.defaultPages && this.defaultPages.length != 0){        const defaultPagesArrValue: UserFlowLanguagePageImpl[] = []; this.defaultPages?.forEach(element => {defaultPagesArrValue.push(new UserFlowLanguagePageImpl(element));});
+        if(this.defaultPages && this.defaultPages.length != 0){        const defaultPagesArrValue: UserFlowLanguagePageImpl[] = []; this.defaultPages?.forEach(element => {defaultPagesArrValue.push(element instanceof UserFlowLanguagePageImpl? element : new UserFlowLanguagePageImpl(element));});
             writer.writeCollectionOfObjectValues<UserFlowLanguagePageImpl>("defaultPages", defaultPagesArrValue);
         }
         if(this.displayName){
@@ -53,7 +55,7 @@ export class UserFlowLanguageConfigurationImpl extends EntityImpl implements Use
         if(this.isEnabled){
             writer.writeBooleanValue("isEnabled", this.isEnabled);
         }
-        if(this.overridesPages && this.overridesPages.length != 0){        const overridesPagesArrValue: UserFlowLanguagePageImpl[] = []; this.overridesPages?.forEach(element => {overridesPagesArrValue.push(new UserFlowLanguagePageImpl(element));});
+        if(this.overridesPages && this.overridesPages.length != 0){        const overridesPagesArrValue: UserFlowLanguagePageImpl[] = []; this.overridesPages?.forEach(element => {overridesPagesArrValue.push(element instanceof UserFlowLanguagePageImpl? element : new UserFlowLanguagePageImpl(element));});
             writer.writeCollectionOfObjectValues<UserFlowLanguagePageImpl>("overridesPages", overridesPagesArrValue);
         }
     };

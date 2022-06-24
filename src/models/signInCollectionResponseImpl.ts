@@ -18,7 +18,8 @@ export class SignInCollectionResponseImpl implements SignInCollectionResponse {
     public constructor(signInCollectionResponseParameterValue?: SignInCollectionResponse | undefined) {
         this.additionalData = signInCollectionResponseParameterValue?.additionalData ? signInCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = signInCollectionResponseParameterValue?.nextLink;
-        this.value = signInCollectionResponseParameterValue?.value;
+        const valueArrValue: SignInImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof SignInImpl? element : new SignInImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -39,7 +40,7 @@ export class SignInCollectionResponseImpl implements SignInCollectionResponse {
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: SignInImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new SignInImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: SignInImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof SignInImpl? element : new SignInImpl(element));});
             writer.writeCollectionOfObjectValues<SignInImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

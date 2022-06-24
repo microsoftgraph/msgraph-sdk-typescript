@@ -18,7 +18,8 @@ export class CalendarGroupCollectionResponseImpl implements CalendarGroupCollect
     public constructor(calendarGroupCollectionResponseParameterValue?: CalendarGroupCollectionResponse | undefined) {
         this.additionalData = calendarGroupCollectionResponseParameterValue?.additionalData ? calendarGroupCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = calendarGroupCollectionResponseParameterValue?.nextLink;
-        this.value = calendarGroupCollectionResponseParameterValue?.value;
+        const valueArrValue: CalendarGroupImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof CalendarGroupImpl? element : new CalendarGroupImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -39,7 +40,7 @@ export class CalendarGroupCollectionResponseImpl implements CalendarGroupCollect
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: CalendarGroupImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new CalendarGroupImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: CalendarGroupImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof CalendarGroupImpl? element : new CalendarGroupImpl(element));});
             writer.writeCollectionOfObjectValues<CalendarGroupImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

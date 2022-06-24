@@ -1,4 +1,4 @@
-import {RequestImpl} from './index';
+import {RequestImpl, UnifiedRoleAssignmentScheduleRequestImpl, UnifiedRoleEligibilityScheduleRequestImpl, UserConsentRequestImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
 export function createRequestFromDiscriminatorValue(parseNode: ParseNode | undefined) : RequestImpl {
@@ -8,8 +8,12 @@ export function createRequestFromDiscriminatorValue(parseNode: ParseNode | undef
         const mappingValue = mappingValueNode.getStringValue();
         if (mappingValue) {
             switch (mappingValue) {
-                case "#microsoft.graph.request":
-                    return new RequestImpl();
+                case "#microsoft.graph.unifiedRoleAssignmentScheduleRequest":
+                    return new UnifiedRoleAssignmentScheduleRequestImpl();
+                case "#microsoft.graph.unifiedRoleEligibilityScheduleRequest":
+                    return new UnifiedRoleEligibilityScheduleRequestImpl();
+                case "#microsoft.graph.userConsentRequest":
+                    return new UserConsentRequestImpl();
             }
         }
     }

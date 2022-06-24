@@ -44,16 +44,20 @@ export class DeviceConfigurationImpl extends EntityImpl implements DeviceConfigu
      */
     public constructor(deviceConfigurationParameterValue?: DeviceConfiguration | undefined) {
         super(deviceConfigurationParameterValue);
-        this.assignments = deviceConfigurationParameterValue?.assignments;
+        const assignmentsArrValue: DeviceConfigurationAssignmentImpl[] = []; this.assignments?.forEach(element => {assignmentsArrValue.push(element instanceof DeviceConfigurationAssignmentImpl? element : new DeviceConfigurationAssignmentImpl(element));});
+        this.assignments = assignmentsArrValue;
         this.createdDateTime = deviceConfigurationParameterValue?.createdDateTime;
         this.description = deviceConfigurationParameterValue?.description;
-        this.deviceSettingStateSummaries = deviceConfigurationParameterValue?.deviceSettingStateSummaries;
-        this.deviceStatuses = deviceConfigurationParameterValue?.deviceStatuses;
-        this.deviceStatusOverview = deviceConfigurationParameterValue?.deviceStatusOverview;
+        const deviceSettingStateSummariesArrValue: SettingStateDeviceSummaryImpl[] = []; this.deviceSettingStateSummaries?.forEach(element => {deviceSettingStateSummariesArrValue.push(element instanceof SettingStateDeviceSummaryImpl? element : new SettingStateDeviceSummaryImpl(element));});
+        this.deviceSettingStateSummaries = deviceSettingStateSummariesArrValue;
+        const deviceStatusesArrValue: DeviceConfigurationDeviceStatusImpl[] = []; this.deviceStatuses?.forEach(element => {deviceStatusesArrValue.push(element instanceof DeviceConfigurationDeviceStatusImpl? element : new DeviceConfigurationDeviceStatusImpl(element));});
+        this.deviceStatuses = deviceStatusesArrValue;
+        this.deviceStatusOverview = deviceConfigurationParameterValue?.deviceStatusOverview instanceof DeviceConfigurationDeviceOverviewImpl? deviceConfigurationParameterValue?.deviceStatusOverview:new DeviceConfigurationDeviceOverviewImpl(deviceConfigurationParameterValue?.deviceStatusOverview);
         this.displayName = deviceConfigurationParameterValue?.displayName;
         this.lastModifiedDateTime = deviceConfigurationParameterValue?.lastModifiedDateTime;
-        this.userStatuses = deviceConfigurationParameterValue?.userStatuses;
-        this.userStatusOverview = deviceConfigurationParameterValue?.userStatusOverview;
+        const userStatusesArrValue: DeviceConfigurationUserStatusImpl[] = []; this.userStatuses?.forEach(element => {userStatusesArrValue.push(element instanceof DeviceConfigurationUserStatusImpl? element : new DeviceConfigurationUserStatusImpl(element));});
+        this.userStatuses = userStatusesArrValue;
+        this.userStatusOverview = deviceConfigurationParameterValue?.userStatusOverview instanceof DeviceConfigurationUserOverviewImpl? deviceConfigurationParameterValue?.userStatusOverview:new DeviceConfigurationUserOverviewImpl(deviceConfigurationParameterValue?.userStatusOverview);
         this.version = deviceConfigurationParameterValue?.version;
     };
     /**
@@ -82,7 +86,7 @@ export class DeviceConfigurationImpl extends EntityImpl implements DeviceConfigu
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.assignments && this.assignments.length != 0){        const assignmentsArrValue: DeviceConfigurationAssignmentImpl[] = []; this.assignments?.forEach(element => {assignmentsArrValue.push(new DeviceConfigurationAssignmentImpl(element));});
+        if(this.assignments && this.assignments.length != 0){        const assignmentsArrValue: DeviceConfigurationAssignmentImpl[] = []; this.assignments?.forEach(element => {assignmentsArrValue.push(element instanceof DeviceConfigurationAssignmentImpl? element : new DeviceConfigurationAssignmentImpl(element));});
             writer.writeCollectionOfObjectValues<DeviceConfigurationAssignmentImpl>("assignments", assignmentsArrValue);
         }
         if(this.createdDateTime){
@@ -91,10 +95,10 @@ export class DeviceConfigurationImpl extends EntityImpl implements DeviceConfigu
         if(this.description){
             writer.writeStringValue("description", this.description);
         }
-        if(this.deviceSettingStateSummaries && this.deviceSettingStateSummaries.length != 0){        const deviceSettingStateSummariesArrValue: SettingStateDeviceSummaryImpl[] = []; this.deviceSettingStateSummaries?.forEach(element => {deviceSettingStateSummariesArrValue.push(new SettingStateDeviceSummaryImpl(element));});
+        if(this.deviceSettingStateSummaries && this.deviceSettingStateSummaries.length != 0){        const deviceSettingStateSummariesArrValue: SettingStateDeviceSummaryImpl[] = []; this.deviceSettingStateSummaries?.forEach(element => {deviceSettingStateSummariesArrValue.push(element instanceof SettingStateDeviceSummaryImpl? element : new SettingStateDeviceSummaryImpl(element));});
             writer.writeCollectionOfObjectValues<SettingStateDeviceSummaryImpl>("deviceSettingStateSummaries", deviceSettingStateSummariesArrValue);
         }
-        if(this.deviceStatuses && this.deviceStatuses.length != 0){        const deviceStatusesArrValue: DeviceConfigurationDeviceStatusImpl[] = []; this.deviceStatuses?.forEach(element => {deviceStatusesArrValue.push(new DeviceConfigurationDeviceStatusImpl(element));});
+        if(this.deviceStatuses && this.deviceStatuses.length != 0){        const deviceStatusesArrValue: DeviceConfigurationDeviceStatusImpl[] = []; this.deviceStatuses?.forEach(element => {deviceStatusesArrValue.push(element instanceof DeviceConfigurationDeviceStatusImpl? element : new DeviceConfigurationDeviceStatusImpl(element));});
             writer.writeCollectionOfObjectValues<DeviceConfigurationDeviceStatusImpl>("deviceStatuses", deviceStatusesArrValue);
         }
         if(this.deviceStatusOverview){
@@ -106,7 +110,7 @@ export class DeviceConfigurationImpl extends EntityImpl implements DeviceConfigu
         if(this.lastModifiedDateTime){
             writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
         }
-        if(this.userStatuses && this.userStatuses.length != 0){        const userStatusesArrValue: DeviceConfigurationUserStatusImpl[] = []; this.userStatuses?.forEach(element => {userStatusesArrValue.push(new DeviceConfigurationUserStatusImpl(element));});
+        if(this.userStatuses && this.userStatuses.length != 0){        const userStatusesArrValue: DeviceConfigurationUserStatusImpl[] = []; this.userStatuses?.forEach(element => {userStatusesArrValue.push(element instanceof DeviceConfigurationUserStatusImpl? element : new DeviceConfigurationUserStatusImpl(element));});
             writer.writeCollectionOfObjectValues<DeviceConfigurationUserStatusImpl>("userStatuses", userStatusesArrValue);
         }
         if(this.userStatusOverview){

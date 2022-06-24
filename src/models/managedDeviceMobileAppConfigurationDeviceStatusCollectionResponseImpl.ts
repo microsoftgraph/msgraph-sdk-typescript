@@ -18,7 +18,8 @@ export class ManagedDeviceMobileAppConfigurationDeviceStatusCollectionResponseIm
     public constructor(managedDeviceMobileAppConfigurationDeviceStatusCollectionResponseParameterValue?: ManagedDeviceMobileAppConfigurationDeviceStatusCollectionResponse | undefined) {
         this.additionalData = managedDeviceMobileAppConfigurationDeviceStatusCollectionResponseParameterValue?.additionalData ? managedDeviceMobileAppConfigurationDeviceStatusCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = managedDeviceMobileAppConfigurationDeviceStatusCollectionResponseParameterValue?.nextLink;
-        this.value = managedDeviceMobileAppConfigurationDeviceStatusCollectionResponseParameterValue?.value;
+        const valueArrValue: ManagedDeviceMobileAppConfigurationDeviceStatusImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ManagedDeviceMobileAppConfigurationDeviceStatusImpl? element : new ManagedDeviceMobileAppConfigurationDeviceStatusImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -39,7 +40,7 @@ export class ManagedDeviceMobileAppConfigurationDeviceStatusCollectionResponseIm
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: ManagedDeviceMobileAppConfigurationDeviceStatusImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ManagedDeviceMobileAppConfigurationDeviceStatusImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: ManagedDeviceMobileAppConfigurationDeviceStatusImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ManagedDeviceMobileAppConfigurationDeviceStatusImpl? element : new ManagedDeviceMobileAppConfigurationDeviceStatusImpl(element));});
             writer.writeCollectionOfObjectValues<ManagedDeviceMobileAppConfigurationDeviceStatusImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

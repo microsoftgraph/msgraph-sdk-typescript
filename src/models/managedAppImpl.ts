@@ -3,14 +3,13 @@ import {ManagedApp} from './managedApp';
 import {ManagedAppAvailability} from './managedAppAvailability';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Abstract class that contains properties and inherited properties for apps that you can manage with an Intune app protection policy. */
 export class ManagedAppImpl extends MobileAppImpl implements ManagedApp {
     /** The Application's availability. Possible values are: global, lineOfBusiness. */
     public appAvailability?: ManagedAppAvailability | undefined;
     /** The Application's version. */
     public version?: string | undefined;
     /**
-     * Instantiates a new managedApp and sets the default values.
+     * Instantiates a new ManagedApp and sets the default values.
      * @param managedAppParameterValue 
      */
     public constructor(managedAppParameterValue?: ManagedApp | undefined) {

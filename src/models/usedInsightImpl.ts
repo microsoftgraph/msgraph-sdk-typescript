@@ -10,7 +10,7 @@ import {UsageDetails} from './usageDetails';
 import {UsedInsight} from './usedInsight';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the collection of application entities. */
 export class UsedInsightImpl extends EntityImpl implements UsedInsight {
     /** Information about when the item was last viewed or modified by the user. Read only. */
     public lastUsed?: UsageDetails | undefined;
@@ -26,10 +26,10 @@ export class UsedInsightImpl extends EntityImpl implements UsedInsight {
      */
     public constructor(usedInsightParameterValue?: UsedInsight | undefined) {
         super(usedInsightParameterValue);
-        this.lastUsed = usedInsightParameterValue?.lastUsed;
-        this.resource = usedInsightParameterValue?.resource;
-        this.resourceReference = usedInsightParameterValue?.resourceReference;
-        this.resourceVisualization = usedInsightParameterValue?.resourceVisualization;
+        this.lastUsed = usedInsightParameterValue?.lastUsed instanceof UsageDetailsImpl? usedInsightParameterValue?.lastUsed:new UsageDetailsImpl(usedInsightParameterValue?.lastUsed);
+        this.resource = usedInsightParameterValue?.resource instanceof EntityImpl? usedInsightParameterValue?.resource:new EntityImpl(usedInsightParameterValue?.resource);
+        this.resourceReference = usedInsightParameterValue?.resourceReference instanceof ResourceReferenceImpl? usedInsightParameterValue?.resourceReference:new ResourceReferenceImpl(usedInsightParameterValue?.resourceReference);
+        this.resourceVisualization = usedInsightParameterValue?.resourceVisualization instanceof ResourceVisualizationImpl? usedInsightParameterValue?.resourceVisualization:new ResourceVisualizationImpl(usedInsightParameterValue?.resourceVisualization);
     };
     /**
      * The deserialization information for the current model

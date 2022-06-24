@@ -14,7 +14,7 @@ export class EnrollmentConfigurationAssignmentImpl extends EntityImpl implements
      */
     public constructor(enrollmentConfigurationAssignmentParameterValue?: EnrollmentConfigurationAssignment | undefined) {
         super(enrollmentConfigurationAssignmentParameterValue);
-        this.target = enrollmentConfigurationAssignmentParameterValue?.target;
+        this.target = enrollmentConfigurationAssignmentParameterValue?.target instanceof DeviceAndAppManagementAssignmentTargetImpl? enrollmentConfigurationAssignmentParameterValue?.target:new DeviceAndAppManagementAssignmentTargetImpl(enrollmentConfigurationAssignmentParameterValue?.target);
     };
     /**
      * The deserialization information for the current model

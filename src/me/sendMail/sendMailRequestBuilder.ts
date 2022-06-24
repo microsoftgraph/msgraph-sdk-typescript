@@ -1,3 +1,5 @@
+import {ODataErrorImpl} from '../../models/oDataErrors/';
+import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {SendMailPostRequestBodyImpl} from './index';
 import {SendMailPostRequestBody} from './sendMailPostRequestBody';
 import {SendMailRequestBuilderPostRequestConfiguration} from './sendMailRequestBuilderPostRequestConfiguration';
@@ -55,6 +57,10 @@ export class SendMailRequestBuilder {
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration
         );
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

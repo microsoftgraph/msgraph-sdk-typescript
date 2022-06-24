@@ -1,4 +1,4 @@
-import {OfferShiftRequestImpl} from './index';
+import {OfferShiftRequestImpl, SwapShiftsChangeRequestImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
 export function createOfferShiftRequestFromDiscriminatorValue(parseNode: ParseNode | undefined) : OfferShiftRequestImpl {
@@ -8,8 +8,8 @@ export function createOfferShiftRequestFromDiscriminatorValue(parseNode: ParseNo
         const mappingValue = mappingValueNode.getStringValue();
         if (mappingValue) {
             switch (mappingValue) {
-                case "#microsoft.graph.offerShiftRequest":
-                    return new OfferShiftRequestImpl();
+                case "#microsoft.graph.swapShiftsChangeRequest":
+                    return new SwapShiftsChangeRequestImpl();
             }
         }
     }

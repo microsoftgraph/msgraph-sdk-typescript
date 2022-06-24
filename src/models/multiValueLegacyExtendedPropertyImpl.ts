@@ -2,7 +2,7 @@ import {EntityImpl} from './index';
 import {MultiValueLegacyExtendedProperty} from './multiValueLegacyExtendedProperty';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to group. */
+/** Provides operations to manage the collection of application entities. */
 export class MultiValueLegacyExtendedPropertyImpl extends EntityImpl implements MultiValueLegacyExtendedProperty {
     /** A collection of property values. */
     public value?: string[] | undefined;

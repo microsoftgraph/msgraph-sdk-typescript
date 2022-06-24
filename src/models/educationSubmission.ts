@@ -7,7 +7,7 @@ import {IdentitySet} from './identitySet';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface EducationSubmission extends Entity, Partial<Parsable> {
-    /** Read-Write. Nullable. */
+    /** The outcomes property */
     outcomes?: EducationOutcome[] | undefined;
     /** User who moved the status of this submission to reassigned. */
     reassignedBy?: IdentitySet | undefined;
@@ -15,7 +15,7 @@ export interface EducationSubmission extends Entity, Partial<Parsable> {
     reassignedDateTime?: Date | undefined;
     /** Who this submission is assigned to. */
     recipient?: EducationSubmissionRecipient | undefined;
-    /** Nullable. */
+    /** The resources property */
     resources?: EducationSubmissionResource[] | undefined;
     /** Folder where all file resources for this submission need to be stored. */
     resourcesFolderUrl?: string | undefined;
@@ -29,7 +29,7 @@ export interface EducationSubmission extends Entity, Partial<Parsable> {
     submittedBy?: IdentitySet | undefined;
     /** Moment in time when the submission was moved into the submitted state. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     submittedDateTime?: Date | undefined;
-    /** Read-only. Nullable. */
+    /** The submittedResources property */
     submittedResources?: EducationSubmissionResource[] | undefined;
     /** User who moved the resource from submitted into the working state. */
     unsubmittedBy?: IdentitySet | undefined;

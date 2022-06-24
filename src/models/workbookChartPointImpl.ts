@@ -6,7 +6,7 @@ import {WorkbookChartPoint} from './workbookChartPoint';
 import {WorkbookChartPointFormat} from './workbookChartPointFormat';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to group. */
+/** Provides operations to manage the collection of application entities. */
 export class WorkbookChartPointImpl extends EntityImpl implements WorkbookChartPoint {
     /** Encapsulates the format properties chart point. Read-only. */
     public format?: WorkbookChartPointFormat | undefined;
@@ -18,8 +18,8 @@ export class WorkbookChartPointImpl extends EntityImpl implements WorkbookChartP
      */
     public constructor(workbookChartPointParameterValue?: WorkbookChartPoint | undefined) {
         super(workbookChartPointParameterValue);
-        this.format = workbookChartPointParameterValue?.format;
-        this.value = workbookChartPointParameterValue?.value;
+        this.format = workbookChartPointParameterValue?.format instanceof WorkbookChartPointFormatImpl? workbookChartPointParameterValue?.format:new WorkbookChartPointFormatImpl(workbookChartPointParameterValue?.format);
+        this.value = workbookChartPointParameterValue?.value instanceof JsonImpl? workbookChartPointParameterValue?.value:new JsonImpl(workbookChartPointParameterValue?.value);
     };
     /**
      * The deserialization information for the current model

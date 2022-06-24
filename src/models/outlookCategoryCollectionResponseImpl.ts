@@ -18,7 +18,8 @@ export class OutlookCategoryCollectionResponseImpl implements OutlookCategoryCol
     public constructor(outlookCategoryCollectionResponseParameterValue?: OutlookCategoryCollectionResponse | undefined) {
         this.additionalData = outlookCategoryCollectionResponseParameterValue?.additionalData ? outlookCategoryCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = outlookCategoryCollectionResponseParameterValue?.nextLink;
-        this.value = outlookCategoryCollectionResponseParameterValue?.value;
+        const valueArrValue: OutlookCategoryImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof OutlookCategoryImpl? element : new OutlookCategoryImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -39,7 +40,7 @@ export class OutlookCategoryCollectionResponseImpl implements OutlookCategoryCol
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: OutlookCategoryImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new OutlookCategoryImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: OutlookCategoryImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof OutlookCategoryImpl? element : new OutlookCategoryImpl(element));});
             writer.writeCollectionOfObjectValues<OutlookCategoryImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

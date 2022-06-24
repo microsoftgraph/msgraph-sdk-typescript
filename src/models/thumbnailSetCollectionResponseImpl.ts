@@ -18,7 +18,8 @@ export class ThumbnailSetCollectionResponseImpl implements ThumbnailSetCollectio
     public constructor(thumbnailSetCollectionResponseParameterValue?: ThumbnailSetCollectionResponse | undefined) {
         this.additionalData = thumbnailSetCollectionResponseParameterValue?.additionalData ? thumbnailSetCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = thumbnailSetCollectionResponseParameterValue?.nextLink;
-        this.value = thumbnailSetCollectionResponseParameterValue?.value;
+        const valueArrValue: ThumbnailSetImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ThumbnailSetImpl? element : new ThumbnailSetImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -39,7 +40,7 @@ export class ThumbnailSetCollectionResponseImpl implements ThumbnailSetCollectio
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: ThumbnailSetImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ThumbnailSetImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: ThumbnailSetImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ThumbnailSetImpl? element : new ThumbnailSetImpl(element));});
             writer.writeCollectionOfObjectValues<ThumbnailSetImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

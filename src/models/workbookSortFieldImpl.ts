@@ -28,7 +28,7 @@ export class WorkbookSortFieldImpl implements WorkbookSortField {
         this.ascending = workbookSortFieldParameterValue?.ascending;
         this.color = workbookSortFieldParameterValue?.color;
         this.dataOption = workbookSortFieldParameterValue?.dataOption;
-        this.icon = workbookSortFieldParameterValue?.icon;
+        this.icon = workbookSortFieldParameterValue?.icon instanceof WorkbookIconImpl? workbookSortFieldParameterValue?.icon:new WorkbookIconImpl(workbookSortFieldParameterValue?.icon);
         this.key = workbookSortFieldParameterValue?.key;
         this.sortOn = workbookSortFieldParameterValue?.sortOn;
     };

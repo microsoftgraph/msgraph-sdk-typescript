@@ -2,7 +2,7 @@ import {ExtensionProperty} from './extensionProperty';
 import {DirectoryObjectImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of application entities. */
+/** Provides operations to call the instantiate method. */
 export class ExtensionPropertyImpl extends DirectoryObjectImpl implements ExtensionProperty {
     /** Display name of the application object on which this extension property is defined. Read-only. */
     public appDisplayName?: string | undefined;

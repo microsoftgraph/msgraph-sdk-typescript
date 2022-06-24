@@ -21,7 +21,8 @@ export class TeamsAppImpl extends EntityImpl implements TeamsApp {
      */
     public constructor(teamsAppParameterValue?: TeamsApp | undefined) {
         super(teamsAppParameterValue);
-        this.appDefinitions = teamsAppParameterValue?.appDefinitions;
+        const appDefinitionsArrValue: TeamsAppDefinitionImpl[] = []; this.appDefinitions?.forEach(element => {appDefinitionsArrValue.push(element instanceof TeamsAppDefinitionImpl? element : new TeamsAppDefinitionImpl(element));});
+        this.appDefinitions = appDefinitionsArrValue;
         this.displayName = teamsAppParameterValue?.displayName;
         this.distributionMethod = teamsAppParameterValue?.distributionMethod;
         this.externalId = teamsAppParameterValue?.externalId;
@@ -45,7 +46,7 @@ export class TeamsAppImpl extends EntityImpl implements TeamsApp {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.appDefinitions && this.appDefinitions.length != 0){        const appDefinitionsArrValue: TeamsAppDefinitionImpl[] = []; this.appDefinitions?.forEach(element => {appDefinitionsArrValue.push(new TeamsAppDefinitionImpl(element));});
+        if(this.appDefinitions && this.appDefinitions.length != 0){        const appDefinitionsArrValue: TeamsAppDefinitionImpl[] = []; this.appDefinitions?.forEach(element => {appDefinitionsArrValue.push(element instanceof TeamsAppDefinitionImpl? element : new TeamsAppDefinitionImpl(element));});
             writer.writeCollectionOfObjectValues<TeamsAppDefinitionImpl>("appDefinitions", appDefinitionsArrValue);
         }
         if(this.displayName){

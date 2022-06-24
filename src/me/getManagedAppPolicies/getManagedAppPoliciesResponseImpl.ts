@@ -16,7 +16,8 @@ export class GetManagedAppPoliciesResponseImpl implements GetManagedAppPoliciesR
      */
     public constructor(getManagedAppPoliciesResponseParameterValue?: GetManagedAppPoliciesResponse | undefined) {
         this.additionalData = getManagedAppPoliciesResponseParameterValue?.additionalData ? getManagedAppPoliciesResponseParameterValue?.additionalData! : {};
-        this.value = getManagedAppPoliciesResponseParameterValue?.value;
+        const valueArrValue: ManagedAppPolicyImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ManagedAppPolicyImpl? element : new ManagedAppPolicyImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -33,7 +34,7 @@ export class GetManagedAppPoliciesResponseImpl implements GetManagedAppPoliciesR
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        if(this.value && this.value.length != 0){        const valueArrValue: ManagedAppPolicyImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ManagedAppPolicyImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: ManagedAppPolicyImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ManagedAppPolicyImpl? element : new ManagedAppPolicyImpl(element));});
             writer.writeCollectionOfObjectValues<ManagedAppPolicyImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

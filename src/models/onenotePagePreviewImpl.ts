@@ -17,7 +17,7 @@ export class OnenotePagePreviewImpl implements OnenotePagePreview {
      */
     public constructor(onenotePagePreviewParameterValue?: OnenotePagePreview | undefined) {
         this.additionalData = onenotePagePreviewParameterValue?.additionalData ? onenotePagePreviewParameterValue?.additionalData! : {};
-        this.links = onenotePagePreviewParameterValue?.links;
+        this.links = onenotePagePreviewParameterValue?.links instanceof OnenotePagePreviewLinksImpl? onenotePagePreviewParameterValue?.links:new OnenotePagePreviewLinksImpl(onenotePagePreviewParameterValue?.links);
         this.previewText = onenotePagePreviewParameterValue?.previewText;
     };
     /**

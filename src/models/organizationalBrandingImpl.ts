@@ -4,17 +4,17 @@ import {OrganizationalBranding} from './organizationalBranding';
 import {OrganizationalBrandingLocalization} from './organizationalBrandingLocalization';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the organizationalBranding singleton. */
 export class OrganizationalBrandingImpl extends OrganizationalBrandingPropertiesImpl implements OrganizationalBranding {
     /** Add different branding based on a locale. */
     public localizations?: OrganizationalBrandingLocalization[] | undefined;
     /**
-     * Instantiates a new organizationalBranding and sets the default values.
+     * Instantiates a new OrganizationalBranding and sets the default values.
      * @param organizationalBrandingParameterValue 
      */
     public constructor(organizationalBrandingParameterValue?: OrganizationalBranding | undefined) {
         super(organizationalBrandingParameterValue);
-        this.localizations = organizationalBrandingParameterValue?.localizations;
+        const localizationsArrValue: OrganizationalBrandingLocalizationImpl[] = []; this.localizations?.forEach(element => {localizationsArrValue.push(element instanceof OrganizationalBrandingLocalizationImpl? element : new OrganizationalBrandingLocalizationImpl(element));});
+        this.localizations = localizationsArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -32,7 +32,7 @@ export class OrganizationalBrandingImpl extends OrganizationalBrandingProperties
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.localizations && this.localizations.length != 0){        const localizationsArrValue: OrganizationalBrandingLocalizationImpl[] = []; this.localizations?.forEach(element => {localizationsArrValue.push(new OrganizationalBrandingLocalizationImpl(element));});
+        if(this.localizations && this.localizations.length != 0){        const localizationsArrValue: OrganizationalBrandingLocalizationImpl[] = []; this.localizations?.forEach(element => {localizationsArrValue.push(element instanceof OrganizationalBrandingLocalizationImpl? element : new OrganizationalBrandingLocalizationImpl(element));});
             writer.writeCollectionOfObjectValues<OrganizationalBrandingLocalizationImpl>("localizations", localizationsArrValue);
         }
     };

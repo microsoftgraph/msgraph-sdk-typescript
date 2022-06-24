@@ -28,13 +28,14 @@ export class AuthenticationMethodsPolicyImpl extends EntityImpl implements Authe
      */
     public constructor(authenticationMethodsPolicyParameterValue?: AuthenticationMethodsPolicy | undefined) {
         super(authenticationMethodsPolicyParameterValue);
-        this.authenticationMethodConfigurations = authenticationMethodsPolicyParameterValue?.authenticationMethodConfigurations;
+        const authenticationMethodConfigurationsArrValue: AuthenticationMethodConfigurationImpl[] = []; this.authenticationMethodConfigurations?.forEach(element => {authenticationMethodConfigurationsArrValue.push(element instanceof AuthenticationMethodConfigurationImpl? element : new AuthenticationMethodConfigurationImpl(element));});
+        this.authenticationMethodConfigurations = authenticationMethodConfigurationsArrValue;
         this.description = authenticationMethodsPolicyParameterValue?.description;
         this.displayName = authenticationMethodsPolicyParameterValue?.displayName;
         this.lastModifiedDateTime = authenticationMethodsPolicyParameterValue?.lastModifiedDateTime;
         this.policyVersion = authenticationMethodsPolicyParameterValue?.policyVersion;
         this.reconfirmationInDays = authenticationMethodsPolicyParameterValue?.reconfirmationInDays;
-        this.registrationEnforcement = authenticationMethodsPolicyParameterValue?.registrationEnforcement;
+        this.registrationEnforcement = authenticationMethodsPolicyParameterValue?.registrationEnforcement instanceof RegistrationEnforcementImpl? authenticationMethodsPolicyParameterValue?.registrationEnforcement:new RegistrationEnforcementImpl(authenticationMethodsPolicyParameterValue?.registrationEnforcement);
     };
     /**
      * The deserialization information for the current model
@@ -58,7 +59,7 @@ export class AuthenticationMethodsPolicyImpl extends EntityImpl implements Authe
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.authenticationMethodConfigurations && this.authenticationMethodConfigurations.length != 0){        const authenticationMethodConfigurationsArrValue: AuthenticationMethodConfigurationImpl[] = []; this.authenticationMethodConfigurations?.forEach(element => {authenticationMethodConfigurationsArrValue.push(new AuthenticationMethodConfigurationImpl(element));});
+        if(this.authenticationMethodConfigurations && this.authenticationMethodConfigurations.length != 0){        const authenticationMethodConfigurationsArrValue: AuthenticationMethodConfigurationImpl[] = []; this.authenticationMethodConfigurations?.forEach(element => {authenticationMethodConfigurationsArrValue.push(element instanceof AuthenticationMethodConfigurationImpl? element : new AuthenticationMethodConfigurationImpl(element));});
             writer.writeCollectionOfObjectValues<AuthenticationMethodConfigurationImpl>("authenticationMethodConfigurations", authenticationMethodConfigurationsArrValue);
         }
         if(this.description){

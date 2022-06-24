@@ -1,4 +1,4 @@
-import {ManagedAppStatusImpl} from './index';
+import {ManagedAppStatusImpl, ManagedAppStatusRawImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
 export function createManagedAppStatusFromDiscriminatorValue(parseNode: ParseNode | undefined) : ManagedAppStatusImpl {
@@ -8,8 +8,8 @@ export function createManagedAppStatusFromDiscriminatorValue(parseNode: ParseNod
         const mappingValue = mappingValueNode.getStringValue();
         if (mappingValue) {
             switch (mappingValue) {
-                case "#microsoft.graph.managedAppStatus":
-                    return new ManagedAppStatusImpl();
+                case "#microsoft.graph.managedAppStatusRaw":
+                    return new ManagedAppStatusRawImpl();
             }
         }
     }

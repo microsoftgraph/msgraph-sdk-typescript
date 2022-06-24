@@ -4,7 +4,7 @@ import {RequestSchedule} from './requestSchedule';
 import {UnifiedRoleEligibilitySchedule} from './unifiedRoleEligibilitySchedule';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the roleManagement singleton. */
+/** Provides operations to manage the identityGovernance singleton. */
 export class UnifiedRoleEligibilityScheduleImpl extends UnifiedRoleScheduleBaseImpl implements UnifiedRoleEligibilitySchedule {
     /** Membership type of the eligible assignment. It can either be Inherited, Direct, or Group. */
     public memberType?: string | undefined;
@@ -17,7 +17,7 @@ export class UnifiedRoleEligibilityScheduleImpl extends UnifiedRoleScheduleBaseI
     public constructor(unifiedRoleEligibilityScheduleParameterValue?: UnifiedRoleEligibilitySchedule | undefined) {
         super(unifiedRoleEligibilityScheduleParameterValue);
         this.memberType = unifiedRoleEligibilityScheduleParameterValue?.memberType;
-        this.scheduleInfo = unifiedRoleEligibilityScheduleParameterValue?.scheduleInfo;
+        this.scheduleInfo = unifiedRoleEligibilityScheduleParameterValue?.scheduleInfo instanceof RequestScheduleImpl? unifiedRoleEligibilityScheduleParameterValue?.scheduleInfo:new RequestScheduleImpl(unifiedRoleEligibilityScheduleParameterValue?.scheduleInfo);
     };
     /**
      * The deserialization information for the current model

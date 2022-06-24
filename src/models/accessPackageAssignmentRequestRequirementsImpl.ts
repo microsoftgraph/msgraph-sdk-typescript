@@ -33,7 +33,7 @@ export class AccessPackageAssignmentRequestRequirementsImpl implements AccessPac
         this.policyDescription = accessPackageAssignmentRequestRequirementsParameterValue?.policyDescription;
         this.policyDisplayName = accessPackageAssignmentRequestRequirementsParameterValue?.policyDisplayName;
         this.policyId = accessPackageAssignmentRequestRequirementsParameterValue?.policyId;
-        this.schedule = accessPackageAssignmentRequestRequirementsParameterValue?.schedule;
+        this.schedule = accessPackageAssignmentRequestRequirementsParameterValue?.schedule instanceof EntitlementManagementScheduleImpl? accessPackageAssignmentRequestRequirementsParameterValue?.schedule:new EntitlementManagementScheduleImpl(accessPackageAssignmentRequestRequirementsParameterValue?.schedule);
     };
     /**
      * The deserialization information for the current model

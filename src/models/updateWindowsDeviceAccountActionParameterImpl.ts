@@ -26,7 +26,7 @@ export class UpdateWindowsDeviceAccountActionParameterImpl implements UpdateWind
     public constructor(updateWindowsDeviceAccountActionParameterParameterValue?: UpdateWindowsDeviceAccountActionParameter | undefined) {
         this.additionalData = updateWindowsDeviceAccountActionParameterParameterValue?.additionalData ? updateWindowsDeviceAccountActionParameterParameterValue?.additionalData! : {};
         this.calendarSyncEnabled = updateWindowsDeviceAccountActionParameterParameterValue?.calendarSyncEnabled;
-        this.deviceAccount = updateWindowsDeviceAccountActionParameterParameterValue?.deviceAccount;
+        this.deviceAccount = updateWindowsDeviceAccountActionParameterParameterValue?.deviceAccount instanceof WindowsDeviceAccountImpl? updateWindowsDeviceAccountActionParameterParameterValue?.deviceAccount:new WindowsDeviceAccountImpl(updateWindowsDeviceAccountActionParameterParameterValue?.deviceAccount);
         this.deviceAccountEmail = updateWindowsDeviceAccountActionParameterParameterValue?.deviceAccountEmail;
         this.exchangeServer = updateWindowsDeviceAccountActionParameterParameterValue?.exchangeServer;
         this.passwordRotationEnabled = updateWindowsDeviceAccountActionParameterParameterValue?.passwordRotationEnabled;

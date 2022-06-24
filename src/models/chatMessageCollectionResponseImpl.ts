@@ -18,7 +18,8 @@ export class ChatMessageCollectionResponseImpl implements ChatMessageCollectionR
     public constructor(chatMessageCollectionResponseParameterValue?: ChatMessageCollectionResponse | undefined) {
         this.additionalData = chatMessageCollectionResponseParameterValue?.additionalData ? chatMessageCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = chatMessageCollectionResponseParameterValue?.nextLink;
-        this.value = chatMessageCollectionResponseParameterValue?.value;
+        const valueArrValue: ChatMessageImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ChatMessageImpl? element : new ChatMessageImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -39,7 +40,7 @@ export class ChatMessageCollectionResponseImpl implements ChatMessageCollectionR
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: ChatMessageImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ChatMessageImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: ChatMessageImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ChatMessageImpl? element : new ChatMessageImpl(element));});
             writer.writeCollectionOfObjectValues<ChatMessageImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

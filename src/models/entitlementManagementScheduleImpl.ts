@@ -21,8 +21,8 @@ export class EntitlementManagementScheduleImpl implements EntitlementManagementS
      */
     public constructor(entitlementManagementScheduleParameterValue?: EntitlementManagementSchedule | undefined) {
         this.additionalData = entitlementManagementScheduleParameterValue?.additionalData ? entitlementManagementScheduleParameterValue?.additionalData! : {};
-        this.expiration = entitlementManagementScheduleParameterValue?.expiration;
-        this.recurrence = entitlementManagementScheduleParameterValue?.recurrence;
+        this.expiration = entitlementManagementScheduleParameterValue?.expiration instanceof ExpirationPatternImpl? entitlementManagementScheduleParameterValue?.expiration:new ExpirationPatternImpl(entitlementManagementScheduleParameterValue?.expiration);
+        this.recurrence = entitlementManagementScheduleParameterValue?.recurrence instanceof PatternedRecurrenceImpl? entitlementManagementScheduleParameterValue?.recurrence:new PatternedRecurrenceImpl(entitlementManagementScheduleParameterValue?.recurrence);
         this.startDateTime = entitlementManagementScheduleParameterValue?.startDateTime;
     };
     /**

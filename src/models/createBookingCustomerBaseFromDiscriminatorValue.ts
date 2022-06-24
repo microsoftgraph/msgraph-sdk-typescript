@@ -1,4 +1,4 @@
-import {BookingCustomerBaseImpl} from './index';
+import {BookingCustomerBaseImpl, BookingCustomerImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
 export function createBookingCustomerBaseFromDiscriminatorValue(parseNode: ParseNode | undefined) : BookingCustomerBaseImpl {
@@ -8,8 +8,8 @@ export function createBookingCustomerBaseFromDiscriminatorValue(parseNode: Parse
         const mappingValue = mappingValueNode.getStringValue();
         if (mappingValue) {
             switch (mappingValue) {
-                case "#microsoft.graph.bookingCustomerBase":
-                    return new BookingCustomerBaseImpl();
+                case "#microsoft.graph.bookingCustomer":
+                    return new BookingCustomerImpl();
             }
         }
     }

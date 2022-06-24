@@ -18,7 +18,8 @@ export class DetectedAppCollectionResponseImpl implements DetectedAppCollectionR
     public constructor(detectedAppCollectionResponseParameterValue?: DetectedAppCollectionResponse | undefined) {
         this.additionalData = detectedAppCollectionResponseParameterValue?.additionalData ? detectedAppCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = detectedAppCollectionResponseParameterValue?.nextLink;
-        this.value = detectedAppCollectionResponseParameterValue?.value;
+        const valueArrValue: DetectedAppImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof DetectedAppImpl? element : new DetectedAppImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -39,7 +40,7 @@ export class DetectedAppCollectionResponseImpl implements DetectedAppCollectionR
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: DetectedAppImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new DetectedAppImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: DetectedAppImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof DetectedAppImpl? element : new DetectedAppImpl(element));});
             writer.writeCollectionOfObjectValues<DetectedAppImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

@@ -20,7 +20,8 @@ export class ColumnValidationImpl implements ColumnValidation {
     public constructor(columnValidationParameterValue?: ColumnValidation | undefined) {
         this.additionalData = columnValidationParameterValue?.additionalData ? columnValidationParameterValue?.additionalData! : {};
         this.defaultLanguage = columnValidationParameterValue?.defaultLanguage;
-        this.descriptions = columnValidationParameterValue?.descriptions;
+        const descriptionsArrValue: DisplayNameLocalizationImpl[] = []; this.descriptions?.forEach(element => {descriptionsArrValue.push(element instanceof DisplayNameLocalizationImpl? element : new DisplayNameLocalizationImpl(element));});
+        this.descriptions = descriptionsArrValue;
         this.formula = columnValidationParameterValue?.formula;
     };
     /**
@@ -43,7 +44,7 @@ export class ColumnValidationImpl implements ColumnValidation {
         if(this.defaultLanguage){
             writer.writeStringValue("defaultLanguage", this.defaultLanguage);
         }
-        if(this.descriptions && this.descriptions.length != 0){        const descriptionsArrValue: DisplayNameLocalizationImpl[] = []; this.descriptions?.forEach(element => {descriptionsArrValue.push(new DisplayNameLocalizationImpl(element));});
+        if(this.descriptions && this.descriptions.length != 0){        const descriptionsArrValue: DisplayNameLocalizationImpl[] = []; this.descriptions?.forEach(element => {descriptionsArrValue.push(element instanceof DisplayNameLocalizationImpl? element : new DisplayNameLocalizationImpl(element));});
             writer.writeCollectionOfObjectValues<DisplayNameLocalizationImpl>("descriptions", descriptionsArrValue);
         }
         if(this.formula){

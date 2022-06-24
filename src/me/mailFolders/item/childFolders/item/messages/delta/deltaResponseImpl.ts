@@ -16,7 +16,8 @@ export class DeltaResponseImpl implements DeltaResponse {
      */
     public constructor(deltaResponseParameterValue?: DeltaResponse | undefined) {
         this.additionalData = deltaResponseParameterValue?.additionalData ? deltaResponseParameterValue?.additionalData! : {};
-        this.value = deltaResponseParameterValue?.value;
+        const valueArrValue: MessageImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof MessageImpl? element : new MessageImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -33,7 +34,7 @@ export class DeltaResponseImpl implements DeltaResponse {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        if(this.value && this.value.length != 0){        const valueArrValue: MessageImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new MessageImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: MessageImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof MessageImpl? element : new MessageImpl(element));});
             writer.writeCollectionOfObjectValues<MessageImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

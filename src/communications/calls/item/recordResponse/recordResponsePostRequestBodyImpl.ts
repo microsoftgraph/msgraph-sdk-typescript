@@ -36,7 +36,8 @@ export class RecordResponsePostRequestBodyImpl implements RecordResponsePostRequ
         this.maxRecordDurationInSeconds = recordResponsePostRequestBodyParameterValue?.maxRecordDurationInSeconds;
         this.maxSilenceTimeoutInSeconds = recordResponsePostRequestBodyParameterValue?.maxSilenceTimeoutInSeconds;
         this.playBeep = recordResponsePostRequestBodyParameterValue?.playBeep;
-        this.prompts = recordResponsePostRequestBodyParameterValue?.prompts;
+        const promptsArrValue: PromptImpl[] = []; this.prompts?.forEach(element => {promptsArrValue.push(element instanceof PromptImpl? element : new PromptImpl(element));});
+        this.prompts = promptsArrValue;
         this.stopTones = recordResponsePostRequestBodyParameterValue?.stopTones;
     };
     /**
@@ -79,7 +80,7 @@ export class RecordResponsePostRequestBodyImpl implements RecordResponsePostRequ
         if(this.playBeep){
             writer.writeBooleanValue("playBeep", this.playBeep);
         }
-        if(this.prompts && this.prompts.length != 0){        const promptsArrValue: PromptImpl[] = []; this.prompts?.forEach(element => {promptsArrValue.push(new PromptImpl(element));});
+        if(this.prompts && this.prompts.length != 0){        const promptsArrValue: PromptImpl[] = []; this.prompts?.forEach(element => {promptsArrValue.push(element instanceof PromptImpl? element : new PromptImpl(element));});
             writer.writeCollectionOfObjectValues<PromptImpl>("prompts", promptsArrValue);
         }
         if(this.stopTones){

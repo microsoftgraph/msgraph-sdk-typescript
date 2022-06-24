@@ -14,7 +14,7 @@ export class TargetedManagedAppPolicyAssignmentImpl extends EntityImpl implement
      */
     public constructor(targetedManagedAppPolicyAssignmentParameterValue?: TargetedManagedAppPolicyAssignment | undefined) {
         super(targetedManagedAppPolicyAssignmentParameterValue);
-        this.target = targetedManagedAppPolicyAssignmentParameterValue?.target;
+        this.target = targetedManagedAppPolicyAssignmentParameterValue?.target instanceof DeviceAndAppManagementAssignmentTargetImpl? targetedManagedAppPolicyAssignmentParameterValue?.target:new DeviceAndAppManagementAssignmentTargetImpl(targetedManagedAppPolicyAssignmentParameterValue?.target);
     };
     /**
      * The deserialization information for the current model

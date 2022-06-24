@@ -21,7 +21,8 @@ export class AccessPackageAssignmentApprovalSettingsImpl implements AccessPackag
         this.additionalData = accessPackageAssignmentApprovalSettingsParameterValue?.additionalData ? accessPackageAssignmentApprovalSettingsParameterValue?.additionalData! : {};
         this.isApprovalRequiredForAdd = accessPackageAssignmentApprovalSettingsParameterValue?.isApprovalRequiredForAdd;
         this.isApprovalRequiredForUpdate = accessPackageAssignmentApprovalSettingsParameterValue?.isApprovalRequiredForUpdate;
-        this.stages = accessPackageAssignmentApprovalSettingsParameterValue?.stages;
+        const stagesArrValue: AccessPackageApprovalStageImpl[] = []; this.stages?.forEach(element => {stagesArrValue.push(element instanceof AccessPackageApprovalStageImpl? element : new AccessPackageApprovalStageImpl(element));});
+        this.stages = stagesArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -46,7 +47,7 @@ export class AccessPackageAssignmentApprovalSettingsImpl implements AccessPackag
         if(this.isApprovalRequiredForUpdate){
             writer.writeBooleanValue("isApprovalRequiredForUpdate", this.isApprovalRequiredForUpdate);
         }
-        if(this.stages && this.stages.length != 0){        const stagesArrValue: AccessPackageApprovalStageImpl[] = []; this.stages?.forEach(element => {stagesArrValue.push(new AccessPackageApprovalStageImpl(element));});
+        if(this.stages && this.stages.length != 0){        const stagesArrValue: AccessPackageApprovalStageImpl[] = []; this.stages?.forEach(element => {stagesArrValue.push(element instanceof AccessPackageApprovalStageImpl? element : new AccessPackageApprovalStageImpl(element));});
             writer.writeCollectionOfObjectValues<AccessPackageApprovalStageImpl>("stages", stagesArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

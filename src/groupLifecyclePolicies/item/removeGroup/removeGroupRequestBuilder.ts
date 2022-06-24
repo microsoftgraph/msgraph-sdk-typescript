@@ -1,3 +1,5 @@
+import {ODataErrorImpl} from '../../../models/oDataErrors/';
+import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {createRemoveGroupResponseFromDiscriminatorValue} from './createRemoveGroupResponseFromDiscriminatorValue';
 import {RemoveGroupPostRequestBodyImpl, RemoveGroupResponseImpl} from './index';
 import {RemoveGroupPostRequestBody} from './removeGroupPostRequestBody';
@@ -58,6 +60,10 @@ export class RemoveGroupRequestBuilder {
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration
         );
-        return this.requestAdapter?.sendAsync<RemoveGroupResponseImpl>(requestInfo, createRemoveGroupResponseFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<RemoveGroupResponseImpl>(requestInfo, createRemoveGroupResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

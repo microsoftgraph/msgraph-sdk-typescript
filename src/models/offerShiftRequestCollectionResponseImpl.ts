@@ -18,7 +18,8 @@ export class OfferShiftRequestCollectionResponseImpl implements OfferShiftReques
     public constructor(offerShiftRequestCollectionResponseParameterValue?: OfferShiftRequestCollectionResponse | undefined) {
         this.additionalData = offerShiftRequestCollectionResponseParameterValue?.additionalData ? offerShiftRequestCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = offerShiftRequestCollectionResponseParameterValue?.nextLink;
-        this.value = offerShiftRequestCollectionResponseParameterValue?.value;
+        const valueArrValue: OfferShiftRequestImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof OfferShiftRequestImpl? element : new OfferShiftRequestImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -39,7 +40,7 @@ export class OfferShiftRequestCollectionResponseImpl implements OfferShiftReques
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: OfferShiftRequestImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new OfferShiftRequestImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: OfferShiftRequestImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof OfferShiftRequestImpl? element : new OfferShiftRequestImpl(element));});
             writer.writeCollectionOfObjectValues<OfferShiftRequestImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

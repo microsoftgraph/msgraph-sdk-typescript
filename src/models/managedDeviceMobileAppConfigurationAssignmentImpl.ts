@@ -14,7 +14,7 @@ export class ManagedDeviceMobileAppConfigurationAssignmentImpl extends EntityImp
      */
     public constructor(managedDeviceMobileAppConfigurationAssignmentParameterValue?: ManagedDeviceMobileAppConfigurationAssignment | undefined) {
         super(managedDeviceMobileAppConfigurationAssignmentParameterValue);
-        this.target = managedDeviceMobileAppConfigurationAssignmentParameterValue?.target;
+        this.target = managedDeviceMobileAppConfigurationAssignmentParameterValue?.target instanceof DeviceAndAppManagementAssignmentTargetImpl? managedDeviceMobileAppConfigurationAssignmentParameterValue?.target:new DeviceAndAppManagementAssignmentTargetImpl(managedDeviceMobileAppConfigurationAssignmentParameterValue?.target);
     };
     /**
      * The deserialization information for the current model

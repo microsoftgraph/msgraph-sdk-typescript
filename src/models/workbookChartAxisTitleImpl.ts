@@ -4,7 +4,7 @@ import {WorkbookChartAxisTitle} from './workbookChartAxisTitle';
 import {WorkbookChartAxisTitleFormat} from './workbookChartAxisTitleFormat';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to group. */
+/** Provides operations to manage the collection of application entities. */
 export class WorkbookChartAxisTitleImpl extends EntityImpl implements WorkbookChartAxisTitle {
     /** Represents the formatting of chart axis title. Read-only. */
     public format?: WorkbookChartAxisTitleFormat | undefined;
@@ -18,7 +18,7 @@ export class WorkbookChartAxisTitleImpl extends EntityImpl implements WorkbookCh
      */
     public constructor(workbookChartAxisTitleParameterValue?: WorkbookChartAxisTitle | undefined) {
         super(workbookChartAxisTitleParameterValue);
-        this.format = workbookChartAxisTitleParameterValue?.format;
+        this.format = workbookChartAxisTitleParameterValue?.format instanceof WorkbookChartAxisTitleFormatImpl? workbookChartAxisTitleParameterValue?.format:new WorkbookChartAxisTitleFormatImpl(workbookChartAxisTitleParameterValue?.format);
         this.text = workbookChartAxisTitleParameterValue?.text;
         this.visible = workbookChartAxisTitleParameterValue?.visible;
     };

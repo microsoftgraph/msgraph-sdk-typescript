@@ -18,7 +18,8 @@ export class DeviceEnrollmentConfigurationCollectionResponseImpl implements Devi
     public constructor(deviceEnrollmentConfigurationCollectionResponseParameterValue?: DeviceEnrollmentConfigurationCollectionResponse | undefined) {
         this.additionalData = deviceEnrollmentConfigurationCollectionResponseParameterValue?.additionalData ? deviceEnrollmentConfigurationCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = deviceEnrollmentConfigurationCollectionResponseParameterValue?.nextLink;
-        this.value = deviceEnrollmentConfigurationCollectionResponseParameterValue?.value;
+        const valueArrValue: DeviceEnrollmentConfigurationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof DeviceEnrollmentConfigurationImpl? element : new DeviceEnrollmentConfigurationImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -39,7 +40,7 @@ export class DeviceEnrollmentConfigurationCollectionResponseImpl implements Devi
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: DeviceEnrollmentConfigurationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new DeviceEnrollmentConfigurationImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: DeviceEnrollmentConfigurationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof DeviceEnrollmentConfigurationImpl? element : new DeviceEnrollmentConfigurationImpl(element));});
             writer.writeCollectionOfObjectValues<DeviceEnrollmentConfigurationImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

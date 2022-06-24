@@ -15,6 +15,8 @@ import {DecisionsRequestBuilder} from './decisions/decisionsRequestBuilder';
 import {AccessReviewInstanceDecisionItemItemRequestBuilder} from './decisions/item/accessReviewInstanceDecisionItemItemRequestBuilder';
 import {ResetDecisionsRequestBuilder} from './resetDecisions/resetDecisionsRequestBuilder';
 import {SendReminderRequestBuilder} from './sendReminder/sendReminderRequestBuilder';
+import {AccessReviewStageItemRequestBuilder} from './stages/item/accessReviewStageItemRequestBuilder';
+import {StagesRequestBuilder} from './stages/stagesRequestBuilder';
 import {StopRequestBuilder} from './stop/stopRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
@@ -51,6 +53,10 @@ export class AccessReviewInstanceItemRequestBuilder {
     /** The sendReminder property */
     public get sendReminder(): SendReminderRequestBuilder {
         return new SendReminderRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** The stages property */
+    public get stages(): StagesRequestBuilder {
+        return new StagesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** The stop property */
     public get stop(): StopRequestBuilder {
@@ -194,5 +200,16 @@ export class AccessReviewInstanceItemRequestBuilder {
             "5XX": createODataErrorFromDiscriminatorValue,
         };
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+    };
+    /**
+     * Gets an item from the MicrosoftGraph.identityGovernance.accessReviews.definitions.item.instances.item.stages.item collection
+     * @param id Unique identifier of the item
+     * @returns a accessReviewStageItemRequestBuilder
+     */
+    public stagesById(id: string) : AccessReviewStageItemRequestBuilder {
+        if(!id) throw new Error("id cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["accessReviewStage%2Did"] = id
+        return new AccessReviewStageItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
 }

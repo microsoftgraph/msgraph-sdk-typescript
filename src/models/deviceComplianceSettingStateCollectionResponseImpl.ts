@@ -18,7 +18,8 @@ export class DeviceComplianceSettingStateCollectionResponseImpl implements Devic
     public constructor(deviceComplianceSettingStateCollectionResponseParameterValue?: DeviceComplianceSettingStateCollectionResponse | undefined) {
         this.additionalData = deviceComplianceSettingStateCollectionResponseParameterValue?.additionalData ? deviceComplianceSettingStateCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = deviceComplianceSettingStateCollectionResponseParameterValue?.nextLink;
-        this.value = deviceComplianceSettingStateCollectionResponseParameterValue?.value;
+        const valueArrValue: DeviceComplianceSettingStateImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof DeviceComplianceSettingStateImpl? element : new DeviceComplianceSettingStateImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -39,7 +40,7 @@ export class DeviceComplianceSettingStateCollectionResponseImpl implements Devic
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: DeviceComplianceSettingStateImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new DeviceComplianceSettingStateImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: DeviceComplianceSettingStateImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof DeviceComplianceSettingStateImpl? element : new DeviceComplianceSettingStateImpl(element));});
             writer.writeCollectionOfObjectValues<DeviceComplianceSettingStateImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

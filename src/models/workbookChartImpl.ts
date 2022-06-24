@@ -16,7 +16,7 @@ import {WorkbookChartTitle} from './workbookChartTitle';
 import {WorkbookWorksheet} from './workbookWorksheet';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to group. */
+/** Provides operations to manage the collection of application entities. */
 export class WorkbookChartImpl extends EntityImpl implements WorkbookChart {
     /** Represents chart axes. Read-only. */
     public axes?: WorkbookChartAxes | undefined;
@@ -48,18 +48,19 @@ export class WorkbookChartImpl extends EntityImpl implements WorkbookChart {
      */
     public constructor(workbookChartParameterValue?: WorkbookChart | undefined) {
         super(workbookChartParameterValue);
-        this.axes = workbookChartParameterValue?.axes;
-        this.dataLabels = workbookChartParameterValue?.dataLabels;
-        this.format = workbookChartParameterValue?.format;
+        this.axes = workbookChartParameterValue?.axes instanceof WorkbookChartAxesImpl? workbookChartParameterValue?.axes:new WorkbookChartAxesImpl(workbookChartParameterValue?.axes);
+        this.dataLabels = workbookChartParameterValue?.dataLabels instanceof WorkbookChartDataLabelsImpl? workbookChartParameterValue?.dataLabels:new WorkbookChartDataLabelsImpl(workbookChartParameterValue?.dataLabels);
+        this.format = workbookChartParameterValue?.format instanceof WorkbookChartAreaFormatImpl? workbookChartParameterValue?.format:new WorkbookChartAreaFormatImpl(workbookChartParameterValue?.format);
         this.height = workbookChartParameterValue?.height;
         this.left = workbookChartParameterValue?.left;
-        this.legend = workbookChartParameterValue?.legend;
+        this.legend = workbookChartParameterValue?.legend instanceof WorkbookChartLegendImpl? workbookChartParameterValue?.legend:new WorkbookChartLegendImpl(workbookChartParameterValue?.legend);
         this.name = workbookChartParameterValue?.name;
-        this.series = workbookChartParameterValue?.series;
-        this.title = workbookChartParameterValue?.title;
+        const seriesArrValue: WorkbookChartSeriesImpl[] = []; this.series?.forEach(element => {seriesArrValue.push(element instanceof WorkbookChartSeriesImpl? element : new WorkbookChartSeriesImpl(element));});
+        this.series = seriesArrValue;
+        this.title = workbookChartParameterValue?.title instanceof WorkbookChartTitleImpl? workbookChartParameterValue?.title:new WorkbookChartTitleImpl(workbookChartParameterValue?.title);
         this.top = workbookChartParameterValue?.top;
         this.width = workbookChartParameterValue?.width;
-        this.worksheet = workbookChartParameterValue?.worksheet;
+        this.worksheet = workbookChartParameterValue?.worksheet instanceof WorkbookWorksheetImpl? workbookChartParameterValue?.worksheet:new WorkbookWorksheetImpl(workbookChartParameterValue?.worksheet);
     };
     /**
      * The deserialization information for the current model
@@ -109,7 +110,7 @@ export class WorkbookChartImpl extends EntityImpl implements WorkbookChart {
         if(this.name){
             writer.writeStringValue("name", this.name);
         }
-        if(this.series && this.series.length != 0){        const seriesArrValue: WorkbookChartSeriesImpl[] = []; this.series?.forEach(element => {seriesArrValue.push(new WorkbookChartSeriesImpl(element));});
+        if(this.series && this.series.length != 0){        const seriesArrValue: WorkbookChartSeriesImpl[] = []; this.series?.forEach(element => {seriesArrValue.push(element instanceof WorkbookChartSeriesImpl? element : new WorkbookChartSeriesImpl(element));});
             writer.writeCollectionOfObjectValues<WorkbookChartSeriesImpl>("series", seriesArrValue);
         }
         if(this.title){

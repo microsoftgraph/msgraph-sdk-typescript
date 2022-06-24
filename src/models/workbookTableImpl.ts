@@ -10,7 +10,7 @@ import {WorkbookTableSort} from './workbookTableSort';
 import {WorkbookWorksheet} from './workbookWorksheet';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to group. */
+/** Provides operations to manage the collection of application entities. */
 export class WorkbookTableImpl extends EntityImpl implements WorkbookTable {
     /** Represents a collection of all the columns in the table. Read-only. */
     public columns?: WorkbookTableColumn[] | undefined;
@@ -46,20 +46,22 @@ export class WorkbookTableImpl extends EntityImpl implements WorkbookTable {
      */
     public constructor(workbookTableParameterValue?: WorkbookTable | undefined) {
         super(workbookTableParameterValue);
-        this.columns = workbookTableParameterValue?.columns;
+        const columnsArrValue: WorkbookTableColumnImpl[] = []; this.columns?.forEach(element => {columnsArrValue.push(element instanceof WorkbookTableColumnImpl? element : new WorkbookTableColumnImpl(element));});
+        this.columns = columnsArrValue;
         this.highlightFirstColumn = workbookTableParameterValue?.highlightFirstColumn;
         this.highlightLastColumn = workbookTableParameterValue?.highlightLastColumn;
         this.legacyId = workbookTableParameterValue?.legacyId;
         this.name = workbookTableParameterValue?.name;
-        this.rows = workbookTableParameterValue?.rows;
+        const rowsArrValue: WorkbookTableRowImpl[] = []; this.rows?.forEach(element => {rowsArrValue.push(element instanceof WorkbookTableRowImpl? element : new WorkbookTableRowImpl(element));});
+        this.rows = rowsArrValue;
         this.showBandedColumns = workbookTableParameterValue?.showBandedColumns;
         this.showBandedRows = workbookTableParameterValue?.showBandedRows;
         this.showFilterButton = workbookTableParameterValue?.showFilterButton;
         this.showHeaders = workbookTableParameterValue?.showHeaders;
         this.showTotals = workbookTableParameterValue?.showTotals;
-        this.sort = workbookTableParameterValue?.sort;
+        this.sort = workbookTableParameterValue?.sort instanceof WorkbookTableSortImpl? workbookTableParameterValue?.sort:new WorkbookTableSortImpl(workbookTableParameterValue?.sort);
         this.style = workbookTableParameterValue?.style;
-        this.worksheet = workbookTableParameterValue?.worksheet;
+        this.worksheet = workbookTableParameterValue?.worksheet instanceof WorkbookWorksheetImpl? workbookTableParameterValue?.worksheet:new WorkbookWorksheetImpl(workbookTableParameterValue?.worksheet);
     };
     /**
      * The deserialization information for the current model
@@ -90,7 +92,7 @@ export class WorkbookTableImpl extends EntityImpl implements WorkbookTable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.columns && this.columns.length != 0){        const columnsArrValue: WorkbookTableColumnImpl[] = []; this.columns?.forEach(element => {columnsArrValue.push(new WorkbookTableColumnImpl(element));});
+        if(this.columns && this.columns.length != 0){        const columnsArrValue: WorkbookTableColumnImpl[] = []; this.columns?.forEach(element => {columnsArrValue.push(element instanceof WorkbookTableColumnImpl? element : new WorkbookTableColumnImpl(element));});
             writer.writeCollectionOfObjectValues<WorkbookTableColumnImpl>("columns", columnsArrValue);
         }
         if(this.highlightFirstColumn){
@@ -105,7 +107,7 @@ export class WorkbookTableImpl extends EntityImpl implements WorkbookTable {
         if(this.name){
             writer.writeStringValue("name", this.name);
         }
-        if(this.rows && this.rows.length != 0){        const rowsArrValue: WorkbookTableRowImpl[] = []; this.rows?.forEach(element => {rowsArrValue.push(new WorkbookTableRowImpl(element));});
+        if(this.rows && this.rows.length != 0){        const rowsArrValue: WorkbookTableRowImpl[] = []; this.rows?.forEach(element => {rowsArrValue.push(element instanceof WorkbookTableRowImpl? element : new WorkbookTableRowImpl(element));});
             writer.writeCollectionOfObjectValues<WorkbookTableRowImpl>("rows", rowsArrValue);
         }
         if(this.showBandedColumns){

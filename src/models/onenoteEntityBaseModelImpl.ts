@@ -2,7 +2,7 @@ import {EntityImpl} from './index';
 import {OnenoteEntityBaseModel} from './onenoteEntityBaseModel';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Casts the previous resource to group. */
 export class OnenoteEntityBaseModelImpl extends EntityImpl implements OnenoteEntityBaseModel {
     /** The endpoint where you can get details about the page. Read-only. */
     public self?: string | undefined;

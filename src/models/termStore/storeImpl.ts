@@ -7,7 +7,7 @@ import {Set} from './set';
 import {Store} from './store';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Casts the previous resource to group. */
 export class StoreImpl extends EntityImpl implements Store {
     /** Default language of the term store. */
     public defaultLanguageTag?: string | undefined;
@@ -24,9 +24,11 @@ export class StoreImpl extends EntityImpl implements Store {
     public constructor(storeParameterValue?: Store | undefined) {
         super(storeParameterValue);
         this.defaultLanguageTag = storeParameterValue?.defaultLanguageTag;
-        this.groups = storeParameterValue?.groups;
+        const groupsArrValue: GroupImpl[] = []; this.groups?.forEach(element => {groupsArrValue.push(element instanceof GroupImpl? element : new GroupImpl(element));});
+        this.groups = groupsArrValue;
         this.languageTags = storeParameterValue?.languageTags;
-        this.sets = storeParameterValue?.sets;
+        const setsArrValue: SetImpl[] = []; this.sets?.forEach(element => {setsArrValue.push(element instanceof SetImpl? element : new SetImpl(element));});
+        this.sets = setsArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -50,13 +52,13 @@ export class StoreImpl extends EntityImpl implements Store {
         if(this.defaultLanguageTag){
             writer.writeStringValue("defaultLanguageTag", this.defaultLanguageTag);
         }
-        if(this.groups && this.groups.length != 0){        const groupsArrValue: GroupImpl[] = []; this.groups?.forEach(element => {groupsArrValue.push(new GroupImpl(element));});
+        if(this.groups && this.groups.length != 0){        const groupsArrValue: GroupImpl[] = []; this.groups?.forEach(element => {groupsArrValue.push(element instanceof GroupImpl? element : new GroupImpl(element));});
             writer.writeCollectionOfObjectValues<GroupImpl>("groups", groupsArrValue);
         }
         if(this.languageTags){
             writer.writeCollectionOfPrimitiveValues<string>("languageTags", this.languageTags);
         }
-        if(this.sets && this.sets.length != 0){        const setsArrValue: SetImpl[] = []; this.sets?.forEach(element => {setsArrValue.push(new SetImpl(element));});
+        if(this.sets && this.sets.length != 0){        const setsArrValue: SetImpl[] = []; this.sets?.forEach(element => {setsArrValue.push(element instanceof SetImpl? element : new SetImpl(element));});
             writer.writeCollectionOfObjectValues<SetImpl>("sets", setsArrValue);
         }
     };

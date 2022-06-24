@@ -18,7 +18,8 @@ export class VppTokenCollectionResponseImpl implements VppTokenCollectionRespons
     public constructor(vppTokenCollectionResponseParameterValue?: VppTokenCollectionResponse | undefined) {
         this.additionalData = vppTokenCollectionResponseParameterValue?.additionalData ? vppTokenCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = vppTokenCollectionResponseParameterValue?.nextLink;
-        this.value = vppTokenCollectionResponseParameterValue?.value;
+        const valueArrValue: VppTokenImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof VppTokenImpl? element : new VppTokenImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -39,7 +40,7 @@ export class VppTokenCollectionResponseImpl implements VppTokenCollectionRespons
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: VppTokenImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new VppTokenImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: VppTokenImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof VppTokenImpl? element : new VppTokenImpl(element));});
             writer.writeCollectionOfObjectValues<VppTokenImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

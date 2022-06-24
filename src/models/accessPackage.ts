@@ -4,9 +4,9 @@ import {Entity} from './entity';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface AccessPackage extends Entity, Partial<Parsable> {
-    /** Read-only. Nullable. */
+    /** The assignmentPolicies property */
     assignmentPolicies?: AccessPackageAssignmentPolicy[] | undefined;
-    /** Read-only. Nullable. */
+    /** The catalog property */
     catalog?: AccessPackageCatalog | undefined;
     /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. */
     createdDateTime?: Date | undefined;

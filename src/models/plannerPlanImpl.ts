@@ -12,7 +12,7 @@ import {PlannerPlanDetails} from './plannerPlanDetails';
 import {PlannerTask} from './plannerTask';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to group. */
+/** Provides operations to manage the collection of application entities. */
 export class PlannerPlanImpl extends EntityImpl implements PlannerPlan {
     /** Collection of buckets in the plan. Read-only. Nullable. */
     public buckets?: PlannerBucket[] | undefined;
@@ -36,13 +36,15 @@ export class PlannerPlanImpl extends EntityImpl implements PlannerPlan {
      */
     public constructor(plannerPlanParameterValue?: PlannerPlan | undefined) {
         super(plannerPlanParameterValue);
-        this.buckets = plannerPlanParameterValue?.buckets;
-        this.container = plannerPlanParameterValue?.container;
-        this.createdBy = plannerPlanParameterValue?.createdBy;
+        const bucketsArrValue: PlannerBucketImpl[] = []; this.buckets?.forEach(element => {bucketsArrValue.push(element instanceof PlannerBucketImpl? element : new PlannerBucketImpl(element));});
+        this.buckets = bucketsArrValue;
+        this.container = plannerPlanParameterValue?.container instanceof PlannerPlanContainerImpl? plannerPlanParameterValue?.container:new PlannerPlanContainerImpl(plannerPlanParameterValue?.container);
+        this.createdBy = plannerPlanParameterValue?.createdBy instanceof IdentitySetImpl? plannerPlanParameterValue?.createdBy:new IdentitySetImpl(plannerPlanParameterValue?.createdBy);
         this.createdDateTime = plannerPlanParameterValue?.createdDateTime;
-        this.details = plannerPlanParameterValue?.details;
+        this.details = plannerPlanParameterValue?.details instanceof PlannerPlanDetailsImpl? plannerPlanParameterValue?.details:new PlannerPlanDetailsImpl(plannerPlanParameterValue?.details);
         this.owner = plannerPlanParameterValue?.owner;
-        this.tasks = plannerPlanParameterValue?.tasks;
+        const tasksArrValue: PlannerTaskImpl[] = []; this.tasks?.forEach(element => {tasksArrValue.push(element instanceof PlannerTaskImpl? element : new PlannerTaskImpl(element));});
+        this.tasks = tasksArrValue;
         this.title = plannerPlanParameterValue?.title;
     };
     /**
@@ -68,7 +70,7 @@ export class PlannerPlanImpl extends EntityImpl implements PlannerPlan {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.buckets && this.buckets.length != 0){        const bucketsArrValue: PlannerBucketImpl[] = []; this.buckets?.forEach(element => {bucketsArrValue.push(new PlannerBucketImpl(element));});
+        if(this.buckets && this.buckets.length != 0){        const bucketsArrValue: PlannerBucketImpl[] = []; this.buckets?.forEach(element => {bucketsArrValue.push(element instanceof PlannerBucketImpl? element : new PlannerBucketImpl(element));});
             writer.writeCollectionOfObjectValues<PlannerBucketImpl>("buckets", bucketsArrValue);
         }
         if(this.container){
@@ -86,7 +88,7 @@ export class PlannerPlanImpl extends EntityImpl implements PlannerPlan {
         if(this.owner){
             writer.writeStringValue("owner", this.owner);
         }
-        if(this.tasks && this.tasks.length != 0){        const tasksArrValue: PlannerTaskImpl[] = []; this.tasks?.forEach(element => {tasksArrValue.push(new PlannerTaskImpl(element));});
+        if(this.tasks && this.tasks.length != 0){        const tasksArrValue: PlannerTaskImpl[] = []; this.tasks?.forEach(element => {tasksArrValue.push(element instanceof PlannerTaskImpl? element : new PlannerTaskImpl(element));});
             writer.writeCollectionOfObjectValues<PlannerTaskImpl>("tasks", tasksArrValue);
         }
         if(this.title){

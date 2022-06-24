@@ -16,7 +16,8 @@ export class CheckGrantedPermissionsForAppResponseImpl implements CheckGrantedPe
      */
     public constructor(checkGrantedPermissionsForAppResponseParameterValue?: CheckGrantedPermissionsForAppResponse | undefined) {
         this.additionalData = checkGrantedPermissionsForAppResponseParameterValue?.additionalData ? checkGrantedPermissionsForAppResponseParameterValue?.additionalData! : {};
-        this.value = checkGrantedPermissionsForAppResponseParameterValue?.value;
+        const valueArrValue: ResourceSpecificPermissionGrantImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ResourceSpecificPermissionGrantImpl? element : new ResourceSpecificPermissionGrantImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -33,7 +34,7 @@ export class CheckGrantedPermissionsForAppResponseImpl implements CheckGrantedPe
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        if(this.value && this.value.length != 0){        const valueArrValue: ResourceSpecificPermissionGrantImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ResourceSpecificPermissionGrantImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: ResourceSpecificPermissionGrantImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ResourceSpecificPermissionGrantImpl? element : new ResourceSpecificPermissionGrantImpl(element));});
             writer.writeCollectionOfObjectValues<ResourceSpecificPermissionGrantImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

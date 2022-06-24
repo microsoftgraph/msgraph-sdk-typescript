@@ -18,7 +18,8 @@ export class NotificationMessageTemplateCollectionResponseImpl implements Notifi
     public constructor(notificationMessageTemplateCollectionResponseParameterValue?: NotificationMessageTemplateCollectionResponse | undefined) {
         this.additionalData = notificationMessageTemplateCollectionResponseParameterValue?.additionalData ? notificationMessageTemplateCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = notificationMessageTemplateCollectionResponseParameterValue?.nextLink;
-        this.value = notificationMessageTemplateCollectionResponseParameterValue?.value;
+        const valueArrValue: NotificationMessageTemplateImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof NotificationMessageTemplateImpl? element : new NotificationMessageTemplateImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -39,7 +40,7 @@ export class NotificationMessageTemplateCollectionResponseImpl implements Notifi
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: NotificationMessageTemplateImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new NotificationMessageTemplateImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: NotificationMessageTemplateImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof NotificationMessageTemplateImpl? element : new NotificationMessageTemplateImpl(element));});
             writer.writeCollectionOfObjectValues<NotificationMessageTemplateImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

@@ -18,7 +18,8 @@ export class TimeOffReasonCollectionResponseImpl implements TimeOffReasonCollect
     public constructor(timeOffReasonCollectionResponseParameterValue?: TimeOffReasonCollectionResponse | undefined) {
         this.additionalData = timeOffReasonCollectionResponseParameterValue?.additionalData ? timeOffReasonCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = timeOffReasonCollectionResponseParameterValue?.nextLink;
-        this.value = timeOffReasonCollectionResponseParameterValue?.value;
+        const valueArrValue: TimeOffReasonImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof TimeOffReasonImpl? element : new TimeOffReasonImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -39,7 +40,7 @@ export class TimeOffReasonCollectionResponseImpl implements TimeOffReasonCollect
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: TimeOffReasonImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new TimeOffReasonImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: TimeOffReasonImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof TimeOffReasonImpl? element : new TimeOffReasonImpl(element));});
             writer.writeCollectionOfObjectValues<TimeOffReasonImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

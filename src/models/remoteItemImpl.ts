@@ -71,23 +71,23 @@ export class RemoteItemImpl implements RemoteItem {
      */
     public constructor(remoteItemParameterValue?: RemoteItem | undefined) {
         this.additionalData = remoteItemParameterValue?.additionalData ? remoteItemParameterValue?.additionalData! : {};
-        this.createdBy = remoteItemParameterValue?.createdBy;
+        this.createdBy = remoteItemParameterValue?.createdBy instanceof IdentitySetImpl? remoteItemParameterValue?.createdBy:new IdentitySetImpl(remoteItemParameterValue?.createdBy);
         this.createdDateTime = remoteItemParameterValue?.createdDateTime;
-        this.file = remoteItemParameterValue?.file;
-        this.fileSystemInfo = remoteItemParameterValue?.fileSystemInfo;
-        this.folder = remoteItemParameterValue?.folder;
+        this.file = remoteItemParameterValue?.file instanceof FileImpl? remoteItemParameterValue?.file:new FileImpl(remoteItemParameterValue?.file);
+        this.fileSystemInfo = remoteItemParameterValue?.fileSystemInfo instanceof FileSystemInfoImpl? remoteItemParameterValue?.fileSystemInfo:new FileSystemInfoImpl(remoteItemParameterValue?.fileSystemInfo);
+        this.folder = remoteItemParameterValue?.folder instanceof FolderImpl? remoteItemParameterValue?.folder:new FolderImpl(remoteItemParameterValue?.folder);
         this.id = remoteItemParameterValue?.id;
-        this.image = remoteItemParameterValue?.image;
-        this.lastModifiedBy = remoteItemParameterValue?.lastModifiedBy;
+        this.image = remoteItemParameterValue?.image instanceof ImageImpl? remoteItemParameterValue?.image:new ImageImpl(remoteItemParameterValue?.image);
+        this.lastModifiedBy = remoteItemParameterValue?.lastModifiedBy instanceof IdentitySetImpl? remoteItemParameterValue?.lastModifiedBy:new IdentitySetImpl(remoteItemParameterValue?.lastModifiedBy);
         this.lastModifiedDateTime = remoteItemParameterValue?.lastModifiedDateTime;
         this.name = remoteItemParameterValue?.name;
-        this.package = remoteItemParameterValue?.package;
-        this.parentReference = remoteItemParameterValue?.parentReference;
-        this.shared = remoteItemParameterValue?.shared;
-        this.sharepointIds = remoteItemParameterValue?.sharepointIds;
+        this.package = remoteItemParameterValue?.package instanceof PackageImpl? remoteItemParameterValue?.package:new PackageImpl(remoteItemParameterValue?.package);
+        this.parentReference = remoteItemParameterValue?.parentReference instanceof ItemReferenceImpl? remoteItemParameterValue?.parentReference:new ItemReferenceImpl(remoteItemParameterValue?.parentReference);
+        this.shared = remoteItemParameterValue?.shared instanceof SharedImpl? remoteItemParameterValue?.shared:new SharedImpl(remoteItemParameterValue?.shared);
+        this.sharepointIds = remoteItemParameterValue?.sharepointIds instanceof SharepointIdsImpl? remoteItemParameterValue?.sharepointIds:new SharepointIdsImpl(remoteItemParameterValue?.sharepointIds);
         this.size = remoteItemParameterValue?.size;
-        this.specialFolder = remoteItemParameterValue?.specialFolder;
-        this.video = remoteItemParameterValue?.video;
+        this.specialFolder = remoteItemParameterValue?.specialFolder instanceof SpecialFolderImpl? remoteItemParameterValue?.specialFolder:new SpecialFolderImpl(remoteItemParameterValue?.specialFolder);
+        this.video = remoteItemParameterValue?.video instanceof VideoImpl? remoteItemParameterValue?.video:new VideoImpl(remoteItemParameterValue?.video);
         this.webDavUrl = remoteItemParameterValue?.webDavUrl;
         this.webUrl = remoteItemParameterValue?.webUrl;
     };

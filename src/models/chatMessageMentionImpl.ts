@@ -20,7 +20,7 @@ export class ChatMessageMentionImpl implements ChatMessageMention {
     public constructor(chatMessageMentionParameterValue?: ChatMessageMention | undefined) {
         this.additionalData = chatMessageMentionParameterValue?.additionalData ? chatMessageMentionParameterValue?.additionalData! : {};
         this.id = chatMessageMentionParameterValue?.id;
-        this.mentioned = chatMessageMentionParameterValue?.mentioned;
+        this.mentioned = chatMessageMentionParameterValue?.mentioned instanceof ChatMessageMentionedIdentitySetImpl? chatMessageMentionParameterValue?.mentioned:new ChatMessageMentionedIdentitySetImpl(chatMessageMentionParameterValue?.mentioned);
         this.mentionText = chatMessageMentionParameterValue?.mentionText;
     };
     /**

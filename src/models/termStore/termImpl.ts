@@ -14,7 +14,7 @@ import {Set} from './set';
 import {Term} from './term';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the collection of application entities. */
 export class TermImpl extends EntityImpl implements Term {
     /** Children of current term. */
     public children?: Term[] | undefined;
@@ -38,14 +38,19 @@ export class TermImpl extends EntityImpl implements Term {
      */
     public constructor(termParameterValue?: Term | undefined) {
         super(termParameterValue);
-        this.children = termParameterValue?.children;
+        const childrenArrValue: TermImpl[] = []; this.children?.forEach(element => {childrenArrValue.push(element instanceof TermImpl? element : new TermImpl(element));});
+        this.children = childrenArrValue;
         this.createdDateTime = termParameterValue?.createdDateTime;
-        this.descriptions = termParameterValue?.descriptions;
-        this.labels = termParameterValue?.labels;
+        const descriptionsArrValue: LocalizedDescriptionImpl[] = []; this.descriptions?.forEach(element => {descriptionsArrValue.push(element instanceof LocalizedDescriptionImpl? element : new LocalizedDescriptionImpl(element));});
+        this.descriptions = descriptionsArrValue;
+        const labelsArrValue: LocalizedLabelImpl[] = []; this.labels?.forEach(element => {labelsArrValue.push(element instanceof LocalizedLabelImpl? element : new LocalizedLabelImpl(element));});
+        this.labels = labelsArrValue;
         this.lastModifiedDateTime = termParameterValue?.lastModifiedDateTime;
-        this.properties = termParameterValue?.properties;
-        this.relations = termParameterValue?.relations;
-        this.set = termParameterValue?.set;
+        const propertiesArrValue: KeyValueImpl[] = []; this.properties?.forEach(element => {propertiesArrValue.push(element instanceof KeyValueImpl? element : new KeyValueImpl(element));});
+        this.properties = propertiesArrValue;
+        const relationsArrValue: RelationImpl[] = []; this.relations?.forEach(element => {relationsArrValue.push(element instanceof RelationImpl? element : new RelationImpl(element));});
+        this.relations = relationsArrValue;
+        this.set = termParameterValue?.set instanceof SetImpl? termParameterValue?.set:new SetImpl(termParameterValue?.set);
     };
     /**
      * The deserialization information for the current model
@@ -70,25 +75,25 @@ export class TermImpl extends EntityImpl implements Term {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.children && this.children.length != 0){        const childrenArrValue: TermImpl[] = []; this.children?.forEach(element => {childrenArrValue.push(new TermImpl(element));});
+        if(this.children && this.children.length != 0){        const childrenArrValue: TermImpl[] = []; this.children?.forEach(element => {childrenArrValue.push(element instanceof TermImpl? element : new TermImpl(element));});
             writer.writeCollectionOfObjectValues<TermImpl>("children", childrenArrValue);
         }
         if(this.createdDateTime){
             writer.writeDateValue("createdDateTime", this.createdDateTime);
         }
-        if(this.descriptions && this.descriptions.length != 0){        const descriptionsArrValue: LocalizedDescriptionImpl[] = []; this.descriptions?.forEach(element => {descriptionsArrValue.push(new LocalizedDescriptionImpl(element));});
+        if(this.descriptions && this.descriptions.length != 0){        const descriptionsArrValue: LocalizedDescriptionImpl[] = []; this.descriptions?.forEach(element => {descriptionsArrValue.push(element instanceof LocalizedDescriptionImpl? element : new LocalizedDescriptionImpl(element));});
             writer.writeCollectionOfObjectValues<LocalizedDescriptionImpl>("descriptions", descriptionsArrValue);
         }
-        if(this.labels && this.labels.length != 0){        const labelsArrValue: LocalizedLabelImpl[] = []; this.labels?.forEach(element => {labelsArrValue.push(new LocalizedLabelImpl(element));});
+        if(this.labels && this.labels.length != 0){        const labelsArrValue: LocalizedLabelImpl[] = []; this.labels?.forEach(element => {labelsArrValue.push(element instanceof LocalizedLabelImpl? element : new LocalizedLabelImpl(element));});
             writer.writeCollectionOfObjectValues<LocalizedLabelImpl>("labels", labelsArrValue);
         }
         if(this.lastModifiedDateTime){
             writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
         }
-        if(this.properties && this.properties.length != 0){        const propertiesArrValue: KeyValueImpl[] = []; this.properties?.forEach(element => {propertiesArrValue.push(new KeyValueImpl(element));});
+        if(this.properties && this.properties.length != 0){        const propertiesArrValue: KeyValueImpl[] = []; this.properties?.forEach(element => {propertiesArrValue.push(element instanceof KeyValueImpl? element : new KeyValueImpl(element));});
             writer.writeCollectionOfObjectValues<KeyValueImpl>("properties", propertiesArrValue);
         }
-        if(this.relations && this.relations.length != 0){        const relationsArrValue: RelationImpl[] = []; this.relations?.forEach(element => {relationsArrValue.push(new RelationImpl(element));});
+        if(this.relations && this.relations.length != 0){        const relationsArrValue: RelationImpl[] = []; this.relations?.forEach(element => {relationsArrValue.push(element instanceof RelationImpl? element : new RelationImpl(element));});
             writer.writeCollectionOfObjectValues<RelationImpl>("relations", relationsArrValue);
         }
         if(this.set){

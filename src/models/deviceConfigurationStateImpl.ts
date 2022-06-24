@@ -29,7 +29,8 @@ export class DeviceConfigurationStateImpl extends EntityImpl implements DeviceCo
         this.displayName = deviceConfigurationStateParameterValue?.displayName;
         this.platformType = deviceConfigurationStateParameterValue?.platformType;
         this.settingCount = deviceConfigurationStateParameterValue?.settingCount;
-        this.settingStates = deviceConfigurationStateParameterValue?.settingStates;
+        const settingStatesArrValue: DeviceConfigurationSettingStateImpl[] = []; this.settingStates?.forEach(element => {settingStatesArrValue.push(element instanceof DeviceConfigurationSettingStateImpl? element : new DeviceConfigurationSettingStateImpl(element));});
+        this.settingStates = settingStatesArrValue;
         this.state = deviceConfigurationStateParameterValue?.state;
         this.version = deviceConfigurationStateParameterValue?.version;
     };
@@ -63,7 +64,7 @@ export class DeviceConfigurationStateImpl extends EntityImpl implements DeviceCo
         if(this.settingCount){
             writer.writeNumberValue("settingCount", this.settingCount);
         }
-        if(this.settingStates && this.settingStates.length != 0){        const settingStatesArrValue: DeviceConfigurationSettingStateImpl[] = []; this.settingStates?.forEach(element => {settingStatesArrValue.push(new DeviceConfigurationSettingStateImpl(element));});
+        if(this.settingStates && this.settingStates.length != 0){        const settingStatesArrValue: DeviceConfigurationSettingStateImpl[] = []; this.settingStates?.forEach(element => {settingStatesArrValue.push(element instanceof DeviceConfigurationSettingStateImpl? element : new DeviceConfigurationSettingStateImpl(element));});
             writer.writeCollectionOfObjectValues<DeviceConfigurationSettingStateImpl>("settingStates", settingStatesArrValue);
         }
         if(this.state){

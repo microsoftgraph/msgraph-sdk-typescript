@@ -4,7 +4,6 @@ import {PublicError} from './publicError';
 import {RichLongRunningOperation} from './richLongRunningOperation';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to group. */
 export class RichLongRunningOperationImpl extends LongRunningOperationImpl implements RichLongRunningOperation {
     /** Error due to which the operation failed. */
     public error_escaped?: PublicError | undefined;
@@ -15,12 +14,12 @@ export class RichLongRunningOperationImpl extends LongRunningOperationImpl imple
     /** Type of the operation. */
     public type?: string | undefined;
     /**
-     * Instantiates a new richLongRunningOperation and sets the default values.
+     * Instantiates a new RichLongRunningOperation and sets the default values.
      * @param richLongRunningOperationParameterValue 
      */
     public constructor(richLongRunningOperationParameterValue?: RichLongRunningOperation | undefined) {
         super(richLongRunningOperationParameterValue);
-        this.error_escaped = richLongRunningOperationParameterValue?.error_escaped;
+        this.error_escaped = richLongRunningOperationParameterValue?.error_escaped instanceof PublicErrorImpl? richLongRunningOperationParameterValue?.error_escaped:new PublicErrorImpl(richLongRunningOperationParameterValue?.error_escaped);
         this.percentageComplete = richLongRunningOperationParameterValue?.percentageComplete;
         this.resourceId = richLongRunningOperationParameterValue?.resourceId;
         this.type = richLongRunningOperationParameterValue?.type;

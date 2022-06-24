@@ -6,7 +6,7 @@ import {PlannerPlanDetails} from './plannerPlanDetails';
 import {PlannerUserIds} from './plannerUserIds';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to group. */
+/** Provides operations to manage the collection of application entities. */
 export class PlannerPlanDetailsImpl extends EntityImpl implements PlannerPlanDetails {
     /** An object that specifies the descriptions of the 25 categories that can be associated with tasks in the plan */
     public categoryDescriptions?: PlannerCategoryDescriptions | undefined;
@@ -18,8 +18,8 @@ export class PlannerPlanDetailsImpl extends EntityImpl implements PlannerPlanDet
      */
     public constructor(plannerPlanDetailsParameterValue?: PlannerPlanDetails | undefined) {
         super(plannerPlanDetailsParameterValue);
-        this.categoryDescriptions = plannerPlanDetailsParameterValue?.categoryDescriptions;
-        this.sharedWith = plannerPlanDetailsParameterValue?.sharedWith;
+        this.categoryDescriptions = plannerPlanDetailsParameterValue?.categoryDescriptions instanceof PlannerCategoryDescriptionsImpl? plannerPlanDetailsParameterValue?.categoryDescriptions:new PlannerCategoryDescriptionsImpl(plannerPlanDetailsParameterValue?.categoryDescriptions);
+        this.sharedWith = plannerPlanDetailsParameterValue?.sharedWith instanceof PlannerUserIdsImpl? plannerPlanDetailsParameterValue?.sharedWith:new PlannerUserIdsImpl(plannerPlanDetailsParameterValue?.sharedWith);
     };
     /**
      * The deserialization information for the current model

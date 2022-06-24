@@ -18,7 +18,8 @@ export class TodoTaskListCollectionResponseImpl implements TodoTaskListCollectio
     public constructor(todoTaskListCollectionResponseParameterValue?: TodoTaskListCollectionResponse | undefined) {
         this.additionalData = todoTaskListCollectionResponseParameterValue?.additionalData ? todoTaskListCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = todoTaskListCollectionResponseParameterValue?.nextLink;
-        this.value = todoTaskListCollectionResponseParameterValue?.value;
+        const valueArrValue: TodoTaskListImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof TodoTaskListImpl? element : new TodoTaskListImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -39,7 +40,7 @@ export class TodoTaskListCollectionResponseImpl implements TodoTaskListCollectio
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: TodoTaskListImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new TodoTaskListImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: TodoTaskListImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof TodoTaskListImpl? element : new TodoTaskListImpl(element));});
             writer.writeCollectionOfObjectValues<TodoTaskListImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

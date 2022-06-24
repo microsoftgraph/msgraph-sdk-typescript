@@ -3,18 +3,18 @@ import {UnifiedRoleScheduleInstanceBase} from './unifiedRoleScheduleInstanceBase
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface UnifiedRoleAssignmentScheduleInstance extends Partial<Parsable>, UnifiedRoleScheduleInstanceBase {
-    /** If the roleAssignmentScheduleInstance is activated by a roleEligibilityScheduleRequest, this is the link to the related schedule instance. */
+    /** If the request is from an eligible administrator to activate a role, this parameter will show the related eligible assignment for that activation. Otherwise, it is null. Supports $expand. */
     activatedUsing?: UnifiedRoleEligibilityScheduleInstance | undefined;
-    /** Type of the assignment. It can either be Assigned or Activated. */
+    /** Type of the assignment which can either be Assigned or Activated. Supports $filter (eq, ne). */
     assignmentType?: string | undefined;
-    /** Time that the roleAssignmentInstance will expire */
+    /** The end date of the schedule instance. */
     endDateTime?: Date | undefined;
-    /** Membership type of the assignment. It can either be Inherited, Direct, or Group. */
+    /** How the assignments is inherited. It can either be Inherited, Direct, or Group. It can further imply whether the unifiedRoleAssignmentSchedule can be managed by the caller. Supports $filter (eq, ne). */
     memberType?: string | undefined;
-    /** ID of the roleAssignment in the directory */
+    /** The identifier of the role assignment in Azure AD. */
     roleAssignmentOriginId?: string | undefined;
-    /** ID of the parent roleAssignmentSchedule for this instance */
+    /** The identifier of the unifiedRoleAssignmentSchedule object from which this instance was created. */
     roleAssignmentScheduleId?: string | undefined;
-    /** Time that the roleAssignmentInstance will start */
+    /** When this instance starts. */
     startDateTime?: Date | undefined;
 }

@@ -36,7 +36,7 @@ export class ArchivedPrintJobImpl implements ArchivedPrintJob {
         this.additionalData = archivedPrintJobParameterValue?.additionalData ? archivedPrintJobParameterValue?.additionalData! : {};
         this.completionDateTime = archivedPrintJobParameterValue?.completionDateTime;
         this.copiesPrinted = archivedPrintJobParameterValue?.copiesPrinted;
-        this.createdBy = archivedPrintJobParameterValue?.createdBy;
+        this.createdBy = archivedPrintJobParameterValue?.createdBy instanceof UserIdentityImpl? archivedPrintJobParameterValue?.createdBy:new UserIdentityImpl(archivedPrintJobParameterValue?.createdBy);
         this.createdDateTime = archivedPrintJobParameterValue?.createdDateTime;
         this.id = archivedPrintJobParameterValue?.id;
         this.printerId = archivedPrintJobParameterValue?.printerId;

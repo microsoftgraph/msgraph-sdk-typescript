@@ -18,7 +18,8 @@ export class AgreementFileVersionCollectionResponseImpl implements AgreementFile
     public constructor(agreementFileVersionCollectionResponseParameterValue?: AgreementFileVersionCollectionResponse | undefined) {
         this.additionalData = agreementFileVersionCollectionResponseParameterValue?.additionalData ? agreementFileVersionCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = agreementFileVersionCollectionResponseParameterValue?.nextLink;
-        this.value = agreementFileVersionCollectionResponseParameterValue?.value;
+        const valueArrValue: AgreementFileVersionImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof AgreementFileVersionImpl? element : new AgreementFileVersionImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -39,7 +40,7 @@ export class AgreementFileVersionCollectionResponseImpl implements AgreementFile
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: AgreementFileVersionImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new AgreementFileVersionImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: AgreementFileVersionImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof AgreementFileVersionImpl? element : new AgreementFileVersionImpl(element));});
             writer.writeCollectionOfObjectValues<AgreementFileVersionImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

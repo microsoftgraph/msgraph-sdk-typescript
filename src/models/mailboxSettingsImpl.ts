@@ -38,14 +38,14 @@ export class MailboxSettingsImpl implements MailboxSettings {
     public constructor(mailboxSettingsParameterValue?: MailboxSettings | undefined) {
         this.additionalData = mailboxSettingsParameterValue?.additionalData ? mailboxSettingsParameterValue?.additionalData! : {};
         this.archiveFolder = mailboxSettingsParameterValue?.archiveFolder;
-        this.automaticRepliesSetting = mailboxSettingsParameterValue?.automaticRepliesSetting;
+        this.automaticRepliesSetting = mailboxSettingsParameterValue?.automaticRepliesSetting instanceof AutomaticRepliesSettingImpl? mailboxSettingsParameterValue?.automaticRepliesSetting:new AutomaticRepliesSettingImpl(mailboxSettingsParameterValue?.automaticRepliesSetting);
         this.dateFormat = mailboxSettingsParameterValue?.dateFormat;
         this.delegateMeetingMessageDeliveryOptions = mailboxSettingsParameterValue?.delegateMeetingMessageDeliveryOptions;
-        this.language = mailboxSettingsParameterValue?.language;
+        this.language = mailboxSettingsParameterValue?.language instanceof LocaleInfoImpl? mailboxSettingsParameterValue?.language:new LocaleInfoImpl(mailboxSettingsParameterValue?.language);
         this.timeFormat = mailboxSettingsParameterValue?.timeFormat;
         this.timeZone = mailboxSettingsParameterValue?.timeZone;
         this.userPurpose = mailboxSettingsParameterValue?.userPurpose;
-        this.workingHours = mailboxSettingsParameterValue?.workingHours;
+        this.workingHours = mailboxSettingsParameterValue?.workingHours instanceof WorkingHoursImpl? mailboxSettingsParameterValue?.workingHours:new WorkingHoursImpl(mailboxSettingsParameterValue?.workingHours);
     };
     /**
      * The deserialization information for the current model

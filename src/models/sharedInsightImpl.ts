@@ -10,7 +10,7 @@ import {SharedInsight} from './sharedInsight';
 import {SharingDetail} from './sharingDetail';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the collection of application entities. */
 export class SharedInsightImpl extends EntityImpl implements SharedInsight {
     /** Details about the shared item. Read only. */
     public lastShared?: SharingDetail | undefined;
@@ -30,12 +30,13 @@ export class SharedInsightImpl extends EntityImpl implements SharedInsight {
      */
     public constructor(sharedInsightParameterValue?: SharedInsight | undefined) {
         super(sharedInsightParameterValue);
-        this.lastShared = sharedInsightParameterValue?.lastShared;
-        this.lastSharedMethod = sharedInsightParameterValue?.lastSharedMethod;
-        this.resource = sharedInsightParameterValue?.resource;
-        this.resourceReference = sharedInsightParameterValue?.resourceReference;
-        this.resourceVisualization = sharedInsightParameterValue?.resourceVisualization;
-        this.sharingHistory = sharedInsightParameterValue?.sharingHistory;
+        this.lastShared = sharedInsightParameterValue?.lastShared instanceof SharingDetailImpl? sharedInsightParameterValue?.lastShared:new SharingDetailImpl(sharedInsightParameterValue?.lastShared);
+        this.lastSharedMethod = sharedInsightParameterValue?.lastSharedMethod instanceof EntityImpl? sharedInsightParameterValue?.lastSharedMethod:new EntityImpl(sharedInsightParameterValue?.lastSharedMethod);
+        this.resource = sharedInsightParameterValue?.resource instanceof EntityImpl? sharedInsightParameterValue?.resource:new EntityImpl(sharedInsightParameterValue?.resource);
+        this.resourceReference = sharedInsightParameterValue?.resourceReference instanceof ResourceReferenceImpl? sharedInsightParameterValue?.resourceReference:new ResourceReferenceImpl(sharedInsightParameterValue?.resourceReference);
+        this.resourceVisualization = sharedInsightParameterValue?.resourceVisualization instanceof ResourceVisualizationImpl? sharedInsightParameterValue?.resourceVisualization:new ResourceVisualizationImpl(sharedInsightParameterValue?.resourceVisualization);
+        const sharingHistoryArrValue: SharingDetailImpl[] = []; this.sharingHistory?.forEach(element => {sharingHistoryArrValue.push(element instanceof SharingDetailImpl? element : new SharingDetailImpl(element));});
+        this.sharingHistory = sharingHistoryArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -73,7 +74,7 @@ export class SharedInsightImpl extends EntityImpl implements SharedInsight {
         if(this.resourceVisualization){
             writer.writeObjectValue<ResourceVisualizationImpl>("resourceVisualization", new ResourceVisualizationImpl(this.resourceVisualization));
         }
-        if(this.sharingHistory && this.sharingHistory.length != 0){        const sharingHistoryArrValue: SharingDetailImpl[] = []; this.sharingHistory?.forEach(element => {sharingHistoryArrValue.push(new SharingDetailImpl(element));});
+        if(this.sharingHistory && this.sharingHistory.length != 0){        const sharingHistoryArrValue: SharingDetailImpl[] = []; this.sharingHistory?.forEach(element => {sharingHistoryArrValue.push(element instanceof SharingDetailImpl? element : new SharingDetailImpl(element));});
             writer.writeCollectionOfObjectValues<SharingDetailImpl>("sharingHistory", sharingHistoryArrValue);
         }
     };

@@ -4,7 +4,7 @@ import {WorkbookChartAxisTitleFormat} from './workbookChartAxisTitleFormat';
 import {WorkbookChartFont} from './workbookChartFont';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to group. */
+/** Provides operations to manage the collection of application entities. */
 export class WorkbookChartAxisTitleFormatImpl extends EntityImpl implements WorkbookChartAxisTitleFormat {
     /** Represents the font attributes, such as font name, font size, color, etc. of chart axis title object. Read-only. */
     public font?: WorkbookChartFont | undefined;
@@ -14,7 +14,7 @@ export class WorkbookChartAxisTitleFormatImpl extends EntityImpl implements Work
      */
     public constructor(workbookChartAxisTitleFormatParameterValue?: WorkbookChartAxisTitleFormat | undefined) {
         super(workbookChartAxisTitleFormatParameterValue);
-        this.font = workbookChartAxisTitleFormatParameterValue?.font;
+        this.font = workbookChartAxisTitleFormatParameterValue?.font instanceof WorkbookChartFontImpl? workbookChartAxisTitleFormatParameterValue?.font:new WorkbookChartFontImpl(workbookChartAxisTitleFormatParameterValue?.font);
     };
     /**
      * The deserialization information for the current model

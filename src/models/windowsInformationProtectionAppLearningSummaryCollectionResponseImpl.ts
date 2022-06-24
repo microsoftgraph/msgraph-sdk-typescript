@@ -18,7 +18,8 @@ export class WindowsInformationProtectionAppLearningSummaryCollectionResponseImp
     public constructor(windowsInformationProtectionAppLearningSummaryCollectionResponseParameterValue?: WindowsInformationProtectionAppLearningSummaryCollectionResponse | undefined) {
         this.additionalData = windowsInformationProtectionAppLearningSummaryCollectionResponseParameterValue?.additionalData ? windowsInformationProtectionAppLearningSummaryCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = windowsInformationProtectionAppLearningSummaryCollectionResponseParameterValue?.nextLink;
-        this.value = windowsInformationProtectionAppLearningSummaryCollectionResponseParameterValue?.value;
+        const valueArrValue: WindowsInformationProtectionAppLearningSummaryImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof WindowsInformationProtectionAppLearningSummaryImpl? element : new WindowsInformationProtectionAppLearningSummaryImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -39,7 +40,7 @@ export class WindowsInformationProtectionAppLearningSummaryCollectionResponseImp
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: WindowsInformationProtectionAppLearningSummaryImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new WindowsInformationProtectionAppLearningSummaryImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: WindowsInformationProtectionAppLearningSummaryImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof WindowsInformationProtectionAppLearningSummaryImpl? element : new WindowsInformationProtectionAppLearningSummaryImpl(element));});
             writer.writeCollectionOfObjectValues<WindowsInformationProtectionAppLearningSummaryImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

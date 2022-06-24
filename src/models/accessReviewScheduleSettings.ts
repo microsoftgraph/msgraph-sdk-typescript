@@ -9,6 +9,8 @@ export interface AccessReviewScheduleSettings extends Partial<AdditionalDataHold
     applyActions?: AccessReviewApplyAction[] | undefined;
     /** Indicates whether decisions are automatically applied. When set to false, an admin must apply the decisions manually once the reviewer completes the access review. When set to true, decisions are applied automatically after the access review instance duration ends, whether or not the reviewers have responded. Default value is false. */
     autoApplyDecisionsEnabled?: boolean | undefined;
+    /** Indicates whether decisions on previous access review stages are available for reviewers on an accessReviewInstance with multiple subsequent stages. If not provided, the default is disabled (false). */
+    decisionHistoriesForReviewersEnabled?: boolean | undefined;
     /** Decision chosen if defaultDecisionEnabled is enabled. Can be one of Approve, Deny, or Recommendation. */
     defaultDecision?: string | undefined;
     /** Indicates whether the default decision is enabled or disabled when reviewers do not respond. Default value is false. */

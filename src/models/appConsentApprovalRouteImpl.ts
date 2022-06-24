@@ -14,7 +14,8 @@ export class AppConsentApprovalRouteImpl extends EntityImpl implements AppConsen
      */
     public constructor(appConsentApprovalRouteParameterValue?: AppConsentApprovalRoute | undefined) {
         super(appConsentApprovalRouteParameterValue);
-        this.appConsentRequests = appConsentApprovalRouteParameterValue?.appConsentRequests;
+        const appConsentRequestsArrValue: AppConsentRequestImpl[] = []; this.appConsentRequests?.forEach(element => {appConsentRequestsArrValue.push(element instanceof AppConsentRequestImpl? element : new AppConsentRequestImpl(element));});
+        this.appConsentRequests = appConsentRequestsArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -32,7 +33,7 @@ export class AppConsentApprovalRouteImpl extends EntityImpl implements AppConsen
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.appConsentRequests && this.appConsentRequests.length != 0){        const appConsentRequestsArrValue: AppConsentRequestImpl[] = []; this.appConsentRequests?.forEach(element => {appConsentRequestsArrValue.push(new AppConsentRequestImpl(element));});
+        if(this.appConsentRequests && this.appConsentRequests.length != 0){        const appConsentRequestsArrValue: AppConsentRequestImpl[] = []; this.appConsentRequests?.forEach(element => {appConsentRequestsArrValue.push(element instanceof AppConsentRequestImpl? element : new AppConsentRequestImpl(element));});
             writer.writeCollectionOfObjectValues<AppConsentRequestImpl>("appConsentRequests", appConsentRequestsArrValue);
         }
     };

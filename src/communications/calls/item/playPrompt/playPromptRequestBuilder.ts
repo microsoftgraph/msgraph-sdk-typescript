@@ -1,5 +1,7 @@
 import {PlayPromptOperationImpl} from '../../../../models/';
 import {createPlayPromptOperationFromDiscriminatorValue} from '../../../../models/createPlayPromptOperationFromDiscriminatorValue';
+import {ODataErrorImpl} from '../../../../models/oDataErrors/';
+import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {PlayPromptPostRequestBodyImpl} from './index';
 import {PlayPromptPostRequestBody} from './playPromptPostRequestBody';
 import {PlayPromptRequestBuilderPostRequestConfiguration} from './playPromptRequestBuilderPostRequestConfiguration';
@@ -59,6 +61,10 @@ export class PlayPromptRequestBuilder {
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration
         );
-        return this.requestAdapter?.sendAsync<PlayPromptOperationImpl>(requestInfo, createPlayPromptOperationFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<PlayPromptOperationImpl>(requestInfo, createPlayPromptOperationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

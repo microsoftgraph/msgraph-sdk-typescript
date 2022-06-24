@@ -18,7 +18,8 @@ export class AccessPackageAssignmentPolicyCollectionResponseImpl implements Acce
     public constructor(accessPackageAssignmentPolicyCollectionResponseParameterValue?: AccessPackageAssignmentPolicyCollectionResponse | undefined) {
         this.additionalData = accessPackageAssignmentPolicyCollectionResponseParameterValue?.additionalData ? accessPackageAssignmentPolicyCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = accessPackageAssignmentPolicyCollectionResponseParameterValue?.nextLink;
-        this.value = accessPackageAssignmentPolicyCollectionResponseParameterValue?.value;
+        const valueArrValue: AccessPackageAssignmentPolicyImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof AccessPackageAssignmentPolicyImpl? element : new AccessPackageAssignmentPolicyImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -39,7 +40,7 @@ export class AccessPackageAssignmentPolicyCollectionResponseImpl implements Acce
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: AccessPackageAssignmentPolicyImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new AccessPackageAssignmentPolicyImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: AccessPackageAssignmentPolicyImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof AccessPackageAssignmentPolicyImpl? element : new AccessPackageAssignmentPolicyImpl(element));});
             writer.writeCollectionOfObjectValues<AccessPackageAssignmentPolicyImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

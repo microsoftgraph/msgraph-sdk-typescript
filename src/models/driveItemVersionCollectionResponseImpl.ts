@@ -18,7 +18,8 @@ export class DriveItemVersionCollectionResponseImpl implements DriveItemVersionC
     public constructor(driveItemVersionCollectionResponseParameterValue?: DriveItemVersionCollectionResponse | undefined) {
         this.additionalData = driveItemVersionCollectionResponseParameterValue?.additionalData ? driveItemVersionCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = driveItemVersionCollectionResponseParameterValue?.nextLink;
-        this.value = driveItemVersionCollectionResponseParameterValue?.value;
+        const valueArrValue: DriveItemVersionImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof DriveItemVersionImpl? element : new DriveItemVersionImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -39,7 +40,7 @@ export class DriveItemVersionCollectionResponseImpl implements DriveItemVersionC
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: DriveItemVersionImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new DriveItemVersionImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: DriveItemVersionImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof DriveItemVersionImpl? element : new DriveItemVersionImpl(element));});
             writer.writeCollectionOfObjectValues<DriveItemVersionImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

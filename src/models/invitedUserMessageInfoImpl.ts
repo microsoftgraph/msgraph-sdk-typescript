@@ -19,7 +19,8 @@ export class InvitedUserMessageInfoImpl implements InvitedUserMessageInfo {
      */
     public constructor(invitedUserMessageInfoParameterValue?: InvitedUserMessageInfo | undefined) {
         this.additionalData = invitedUserMessageInfoParameterValue?.additionalData ? invitedUserMessageInfoParameterValue?.additionalData! : {};
-        this.ccRecipients = invitedUserMessageInfoParameterValue?.ccRecipients;
+        const ccRecipientsArrValue: RecipientImpl[] = []; this.ccRecipients?.forEach(element => {ccRecipientsArrValue.push(element instanceof RecipientImpl? element : new RecipientImpl(element));});
+        this.ccRecipients = ccRecipientsArrValue;
         this.customizedMessageBody = invitedUserMessageInfoParameterValue?.customizedMessageBody;
         this.messageLanguage = invitedUserMessageInfoParameterValue?.messageLanguage;
     };
@@ -40,7 +41,7 @@ export class InvitedUserMessageInfoImpl implements InvitedUserMessageInfo {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        if(this.ccRecipients && this.ccRecipients.length != 0){        const ccRecipientsArrValue: RecipientImpl[] = []; this.ccRecipients?.forEach(element => {ccRecipientsArrValue.push(new RecipientImpl(element));});
+        if(this.ccRecipients && this.ccRecipients.length != 0){        const ccRecipientsArrValue: RecipientImpl[] = []; this.ccRecipients?.forEach(element => {ccRecipientsArrValue.push(element instanceof RecipientImpl? element : new RecipientImpl(element));});
             writer.writeCollectionOfObjectValues<RecipientImpl>("ccRecipients", ccRecipientsArrValue);
         }
         if(this.customizedMessageBody){

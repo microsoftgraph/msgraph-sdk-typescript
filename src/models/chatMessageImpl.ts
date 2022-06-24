@@ -77,25 +77,30 @@ export class ChatMessageImpl extends EntityImpl implements ChatMessage {
      */
     public constructor(chatMessageParameterValue?: ChatMessage | undefined) {
         super(chatMessageParameterValue);
-        this.attachments = chatMessageParameterValue?.attachments;
-        this.body = chatMessageParameterValue?.body;
-        this.channelIdentity = chatMessageParameterValue?.channelIdentity;
+        const attachmentsArrValue: ChatMessageAttachmentImpl[] = []; this.attachments?.forEach(element => {attachmentsArrValue.push(element instanceof ChatMessageAttachmentImpl? element : new ChatMessageAttachmentImpl(element));});
+        this.attachments = attachmentsArrValue;
+        this.body = chatMessageParameterValue?.body instanceof ItemBodyImpl? chatMessageParameterValue?.body:new ItemBodyImpl(chatMessageParameterValue?.body);
+        this.channelIdentity = chatMessageParameterValue?.channelIdentity instanceof ChannelIdentityImpl? chatMessageParameterValue?.channelIdentity:new ChannelIdentityImpl(chatMessageParameterValue?.channelIdentity);
         this.chatId = chatMessageParameterValue?.chatId;
         this.createdDateTime = chatMessageParameterValue?.createdDateTime;
         this.deletedDateTime = chatMessageParameterValue?.deletedDateTime;
         this.etag = chatMessageParameterValue?.etag;
-        this.eventDetail = chatMessageParameterValue?.eventDetail;
-        this.from = chatMessageParameterValue?.from;
-        this.hostedContents = chatMessageParameterValue?.hostedContents;
+        this.eventDetail = chatMessageParameterValue?.eventDetail instanceof EventMessageDetailImpl? chatMessageParameterValue?.eventDetail:new EventMessageDetailImpl(chatMessageParameterValue?.eventDetail);
+        this.from = chatMessageParameterValue?.from instanceof ChatMessageFromIdentitySetImpl? chatMessageParameterValue?.from:new ChatMessageFromIdentitySetImpl(chatMessageParameterValue?.from);
+        const hostedContentsArrValue: ChatMessageHostedContentImpl[] = []; this.hostedContents?.forEach(element => {hostedContentsArrValue.push(element instanceof ChatMessageHostedContentImpl? element : new ChatMessageHostedContentImpl(element));});
+        this.hostedContents = hostedContentsArrValue;
         this.importance = chatMessageParameterValue?.importance;
         this.lastEditedDateTime = chatMessageParameterValue?.lastEditedDateTime;
         this.lastModifiedDateTime = chatMessageParameterValue?.lastModifiedDateTime;
         this.locale = chatMessageParameterValue?.locale;
-        this.mentions = chatMessageParameterValue?.mentions;
+        const mentionsArrValue: ChatMessageMentionImpl[] = []; this.mentions?.forEach(element => {mentionsArrValue.push(element instanceof ChatMessageMentionImpl? element : new ChatMessageMentionImpl(element));});
+        this.mentions = mentionsArrValue;
         this.messageType = chatMessageParameterValue?.messageType;
-        this.policyViolation = chatMessageParameterValue?.policyViolation;
-        this.reactions = chatMessageParameterValue?.reactions;
-        this.replies = chatMessageParameterValue?.replies;
+        this.policyViolation = chatMessageParameterValue?.policyViolation instanceof ChatMessagePolicyViolationImpl? chatMessageParameterValue?.policyViolation:new ChatMessagePolicyViolationImpl(chatMessageParameterValue?.policyViolation);
+        const reactionsArrValue: ChatMessageReactionImpl[] = []; this.reactions?.forEach(element => {reactionsArrValue.push(element instanceof ChatMessageReactionImpl? element : new ChatMessageReactionImpl(element));});
+        this.reactions = reactionsArrValue;
+        const repliesArrValue: ChatMessageImpl[] = []; this.replies?.forEach(element => {repliesArrValue.push(element instanceof ChatMessageImpl? element : new ChatMessageImpl(element));});
+        this.replies = repliesArrValue;
         this.replyToId = chatMessageParameterValue?.replyToId;
         this.subject = chatMessageParameterValue?.subject;
         this.summary = chatMessageParameterValue?.summary;
@@ -139,7 +144,7 @@ export class ChatMessageImpl extends EntityImpl implements ChatMessage {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.attachments && this.attachments.length != 0){        const attachmentsArrValue: ChatMessageAttachmentImpl[] = []; this.attachments?.forEach(element => {attachmentsArrValue.push(new ChatMessageAttachmentImpl(element));});
+        if(this.attachments && this.attachments.length != 0){        const attachmentsArrValue: ChatMessageAttachmentImpl[] = []; this.attachments?.forEach(element => {attachmentsArrValue.push(element instanceof ChatMessageAttachmentImpl? element : new ChatMessageAttachmentImpl(element));});
             writer.writeCollectionOfObjectValues<ChatMessageAttachmentImpl>("attachments", attachmentsArrValue);
         }
         if(this.body){
@@ -166,7 +171,7 @@ export class ChatMessageImpl extends EntityImpl implements ChatMessage {
         if(this.from){
             writer.writeObjectValue<ChatMessageFromIdentitySetImpl>("from", new ChatMessageFromIdentitySetImpl(this.from));
         }
-        if(this.hostedContents && this.hostedContents.length != 0){        const hostedContentsArrValue: ChatMessageHostedContentImpl[] = []; this.hostedContents?.forEach(element => {hostedContentsArrValue.push(new ChatMessageHostedContentImpl(element));});
+        if(this.hostedContents && this.hostedContents.length != 0){        const hostedContentsArrValue: ChatMessageHostedContentImpl[] = []; this.hostedContents?.forEach(element => {hostedContentsArrValue.push(element instanceof ChatMessageHostedContentImpl? element : new ChatMessageHostedContentImpl(element));});
             writer.writeCollectionOfObjectValues<ChatMessageHostedContentImpl>("hostedContents", hostedContentsArrValue);
         }
         if(this.importance){
@@ -181,7 +186,7 @@ export class ChatMessageImpl extends EntityImpl implements ChatMessage {
         if(this.locale){
             writer.writeStringValue("locale", this.locale);
         }
-        if(this.mentions && this.mentions.length != 0){        const mentionsArrValue: ChatMessageMentionImpl[] = []; this.mentions?.forEach(element => {mentionsArrValue.push(new ChatMessageMentionImpl(element));});
+        if(this.mentions && this.mentions.length != 0){        const mentionsArrValue: ChatMessageMentionImpl[] = []; this.mentions?.forEach(element => {mentionsArrValue.push(element instanceof ChatMessageMentionImpl? element : new ChatMessageMentionImpl(element));});
             writer.writeCollectionOfObjectValues<ChatMessageMentionImpl>("mentions", mentionsArrValue);
         }
         if(this.messageType){
@@ -190,10 +195,10 @@ export class ChatMessageImpl extends EntityImpl implements ChatMessage {
         if(this.policyViolation){
             writer.writeObjectValue<ChatMessagePolicyViolationImpl>("policyViolation", new ChatMessagePolicyViolationImpl(this.policyViolation));
         }
-        if(this.reactions && this.reactions.length != 0){        const reactionsArrValue: ChatMessageReactionImpl[] = []; this.reactions?.forEach(element => {reactionsArrValue.push(new ChatMessageReactionImpl(element));});
+        if(this.reactions && this.reactions.length != 0){        const reactionsArrValue: ChatMessageReactionImpl[] = []; this.reactions?.forEach(element => {reactionsArrValue.push(element instanceof ChatMessageReactionImpl? element : new ChatMessageReactionImpl(element));});
             writer.writeCollectionOfObjectValues<ChatMessageReactionImpl>("reactions", reactionsArrValue);
         }
-        if(this.replies && this.replies.length != 0){        const repliesArrValue: ChatMessageImpl[] = []; this.replies?.forEach(element => {repliesArrValue.push(new ChatMessageImpl(element));});
+        if(this.replies && this.replies.length != 0){        const repliesArrValue: ChatMessageImpl[] = []; this.replies?.forEach(element => {repliesArrValue.push(element instanceof ChatMessageImpl? element : new ChatMessageImpl(element));});
             writer.writeCollectionOfObjectValues<ChatMessageImpl>("replies", repliesArrValue);
         }
         if(this.replyToId){

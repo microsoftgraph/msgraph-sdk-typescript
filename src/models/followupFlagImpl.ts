@@ -22,10 +22,10 @@ export class FollowupFlagImpl implements FollowupFlag {
      */
     public constructor(followupFlagParameterValue?: FollowupFlag | undefined) {
         this.additionalData = followupFlagParameterValue?.additionalData ? followupFlagParameterValue?.additionalData! : {};
-        this.completedDateTime = followupFlagParameterValue?.completedDateTime;
-        this.dueDateTime = followupFlagParameterValue?.dueDateTime;
+        this.completedDateTime = followupFlagParameterValue?.completedDateTime instanceof DateTimeTimeZoneImpl? followupFlagParameterValue?.completedDateTime:new DateTimeTimeZoneImpl(followupFlagParameterValue?.completedDateTime);
+        this.dueDateTime = followupFlagParameterValue?.dueDateTime instanceof DateTimeTimeZoneImpl? followupFlagParameterValue?.dueDateTime:new DateTimeTimeZoneImpl(followupFlagParameterValue?.dueDateTime);
         this.flagStatus = followupFlagParameterValue?.flagStatus;
-        this.startDateTime = followupFlagParameterValue?.startDateTime;
+        this.startDateTime = followupFlagParameterValue?.startDateTime instanceof DateTimeTimeZoneImpl? followupFlagParameterValue?.startDateTime:new DateTimeTimeZoneImpl(followupFlagParameterValue?.startDateTime);
     };
     /**
      * The deserialization information for the current model

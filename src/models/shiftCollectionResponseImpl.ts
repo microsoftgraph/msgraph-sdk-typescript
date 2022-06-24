@@ -18,7 +18,8 @@ export class ShiftCollectionResponseImpl implements ShiftCollectionResponse {
     public constructor(shiftCollectionResponseParameterValue?: ShiftCollectionResponse | undefined) {
         this.additionalData = shiftCollectionResponseParameterValue?.additionalData ? shiftCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = shiftCollectionResponseParameterValue?.nextLink;
-        this.value = shiftCollectionResponseParameterValue?.value;
+        const valueArrValue: ShiftImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ShiftImpl? element : new ShiftImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -39,7 +40,7 @@ export class ShiftCollectionResponseImpl implements ShiftCollectionResponse {
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: ShiftImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ShiftImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: ShiftImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ShiftImpl? element : new ShiftImpl(element));});
             writer.writeCollectionOfObjectValues<ShiftImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

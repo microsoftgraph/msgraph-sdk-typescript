@@ -18,7 +18,8 @@ export class Fido2AuthenticationMethodCollectionResponseImpl implements Fido2Aut
     public constructor(fido2AuthenticationMethodCollectionResponseParameterValue?: Fido2AuthenticationMethodCollectionResponse | undefined) {
         this.additionalData = fido2AuthenticationMethodCollectionResponseParameterValue?.additionalData ? fido2AuthenticationMethodCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = fido2AuthenticationMethodCollectionResponseParameterValue?.nextLink;
-        this.value = fido2AuthenticationMethodCollectionResponseParameterValue?.value;
+        const valueArrValue: Fido2AuthenticationMethodImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof Fido2AuthenticationMethodImpl? element : new Fido2AuthenticationMethodImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -39,7 +40,7 @@ export class Fido2AuthenticationMethodCollectionResponseImpl implements Fido2Aut
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: Fido2AuthenticationMethodImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new Fido2AuthenticationMethodImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: Fido2AuthenticationMethodImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof Fido2AuthenticationMethodImpl? element : new Fido2AuthenticationMethodImpl(element));});
             writer.writeCollectionOfObjectValues<Fido2AuthenticationMethodImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

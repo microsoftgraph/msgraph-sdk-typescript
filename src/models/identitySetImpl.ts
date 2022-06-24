@@ -7,11 +7,11 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class IdentitySetImpl implements IdentitySet {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
-    /** The Identity of the Application. This property is read-only. */
+    /** Optional. The application associated with this action. */
     public application?: Identity | undefined;
-    /** The Identity of the Device. This property is read-only. */
+    /** Optional. The device associated with this action. */
     public device?: Identity | undefined;
-    /** The Identity of the User. This property is read-only. */
+    /** Optional. The user associated with this action. */
     public user?: Identity | undefined;
     /**
      * Instantiates a new identitySet and sets the default values.
@@ -19,9 +19,9 @@ export class IdentitySetImpl implements IdentitySet {
      */
     public constructor(identitySetParameterValue?: IdentitySet | undefined) {
         this.additionalData = identitySetParameterValue?.additionalData ? identitySetParameterValue?.additionalData! : {};
-        this.application = identitySetParameterValue?.application;
-        this.device = identitySetParameterValue?.device;
-        this.user = identitySetParameterValue?.user;
+        this.application = identitySetParameterValue?.application instanceof IdentityImpl? identitySetParameterValue?.application:new IdentityImpl(identitySetParameterValue?.application);
+        this.device = identitySetParameterValue?.device instanceof IdentityImpl? identitySetParameterValue?.device:new IdentityImpl(identitySetParameterValue?.device);
+        this.user = identitySetParameterValue?.user instanceof IdentityImpl? identitySetParameterValue?.user:new IdentityImpl(identitySetParameterValue?.user);
     };
     /**
      * The deserialization information for the current model

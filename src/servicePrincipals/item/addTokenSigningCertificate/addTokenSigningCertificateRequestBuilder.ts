@@ -1,5 +1,7 @@
 import {SelfSignedCertificateImpl} from '../../../models/';
 import {createSelfSignedCertificateFromDiscriminatorValue} from '../../../models/createSelfSignedCertificateFromDiscriminatorValue';
+import {ODataErrorImpl} from '../../../models/oDataErrors/';
+import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {AddTokenSigningCertificateRequestBuilderPostRequestConfiguration} from './addTokenSigningCertificateRequestBuilderPostRequestConfiguration';
 import {SelfSignedCertificatePostRequestBodyImpl} from './index';
 import {SelfSignedCertificatePostRequestBody} from './selfSignedCertificatePostRequestBody';
@@ -59,6 +61,10 @@ export class AddTokenSigningCertificateRequestBuilder {
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration
         );
-        return this.requestAdapter?.sendAsync<SelfSignedCertificateImpl>(requestInfo, createSelfSignedCertificateFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<SelfSignedCertificateImpl>(requestInfo, createSelfSignedCertificateFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

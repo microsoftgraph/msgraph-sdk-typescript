@@ -66,10 +66,11 @@ export class BookingAppointmentImpl extends EntityImpl implements BookingAppoint
     public constructor(bookingAppointmentParameterValue?: BookingAppointment | undefined) {
         super(bookingAppointmentParameterValue);
         this.additionalInformation = bookingAppointmentParameterValue?.additionalInformation;
-        this.customers = bookingAppointmentParameterValue?.customers;
+        const customersArrValue: BookingCustomerInformationBaseImpl[] = []; this.customers?.forEach(element => {customersArrValue.push(element instanceof BookingCustomerInformationBaseImpl? element : new BookingCustomerInformationBaseImpl(element));});
+        this.customers = customersArrValue;
         this.customerTimeZone = bookingAppointmentParameterValue?.customerTimeZone;
         this.duration = bookingAppointmentParameterValue?.duration;
-        this.endDateTime = bookingAppointmentParameterValue?.endDateTime;
+        this.endDateTime = bookingAppointmentParameterValue?.endDateTime instanceof DateTimeTimeZoneImpl? bookingAppointmentParameterValue?.endDateTime:new DateTimeTimeZoneImpl(bookingAppointmentParameterValue?.endDateTime);
         this.filledAttendeesCount = bookingAppointmentParameterValue?.filledAttendeesCount;
         this.isLocationOnline = bookingAppointmentParameterValue?.isLocationOnline;
         this.joinWebUrl = bookingAppointmentParameterValue?.joinWebUrl;
@@ -79,15 +80,16 @@ export class BookingAppointmentImpl extends EntityImpl implements BookingAppoint
         this.preBuffer = bookingAppointmentParameterValue?.preBuffer;
         this.price = bookingAppointmentParameterValue?.price;
         this.priceType = bookingAppointmentParameterValue?.priceType;
-        this.reminders = bookingAppointmentParameterValue?.reminders;
+        const remindersArrValue: BookingReminderImpl[] = []; this.reminders?.forEach(element => {remindersArrValue.push(element instanceof BookingReminderImpl? element : new BookingReminderImpl(element));});
+        this.reminders = remindersArrValue;
         this.selfServiceAppointmentId = bookingAppointmentParameterValue?.selfServiceAppointmentId;
         this.serviceId = bookingAppointmentParameterValue?.serviceId;
-        this.serviceLocation = bookingAppointmentParameterValue?.serviceLocation;
+        this.serviceLocation = bookingAppointmentParameterValue?.serviceLocation instanceof LocationImpl? bookingAppointmentParameterValue?.serviceLocation:new LocationImpl(bookingAppointmentParameterValue?.serviceLocation);
         this.serviceName = bookingAppointmentParameterValue?.serviceName;
         this.serviceNotes = bookingAppointmentParameterValue?.serviceNotes;
         this.smsNotificationsEnabled = bookingAppointmentParameterValue?.smsNotificationsEnabled;
         this.staffMemberIds = bookingAppointmentParameterValue?.staffMemberIds;
-        this.startDateTime = bookingAppointmentParameterValue?.startDateTime;
+        this.startDateTime = bookingAppointmentParameterValue?.startDateTime instanceof DateTimeTimeZoneImpl? bookingAppointmentParameterValue?.startDateTime:new DateTimeTimeZoneImpl(bookingAppointmentParameterValue?.startDateTime);
     };
     /**
      * The deserialization information for the current model
@@ -130,7 +132,7 @@ export class BookingAppointmentImpl extends EntityImpl implements BookingAppoint
         if(this.additionalInformation){
             writer.writeStringValue("additionalInformation", this.additionalInformation);
         }
-        if(this.customers && this.customers.length != 0){        const customersArrValue: BookingCustomerInformationBaseImpl[] = []; this.customers?.forEach(element => {customersArrValue.push(new BookingCustomerInformationBaseImpl(element));});
+        if(this.customers && this.customers.length != 0){        const customersArrValue: BookingCustomerInformationBaseImpl[] = []; this.customers?.forEach(element => {customersArrValue.push(element instanceof BookingCustomerInformationBaseImpl? element : new BookingCustomerInformationBaseImpl(element));});
             writer.writeCollectionOfObjectValues<BookingCustomerInformationBaseImpl>("customers", customersArrValue);
         }
         if(this.customerTimeZone){
@@ -169,7 +171,7 @@ export class BookingAppointmentImpl extends EntityImpl implements BookingAppoint
         if(this.priceType){
             writer.writeEnumValue<BookingPriceType>("priceType", this.priceType);
         }
-        if(this.reminders && this.reminders.length != 0){        const remindersArrValue: BookingReminderImpl[] = []; this.reminders?.forEach(element => {remindersArrValue.push(new BookingReminderImpl(element));});
+        if(this.reminders && this.reminders.length != 0){        const remindersArrValue: BookingReminderImpl[] = []; this.reminders?.forEach(element => {remindersArrValue.push(element instanceof BookingReminderImpl? element : new BookingReminderImpl(element));});
             writer.writeCollectionOfObjectValues<BookingReminderImpl>("reminders", remindersArrValue);
         }
         if(this.selfServiceAppointmentId){

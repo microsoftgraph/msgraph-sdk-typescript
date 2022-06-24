@@ -4,7 +4,7 @@ import {WorkbookWorksheetProtection} from './workbookWorksheetProtection';
 import {WorkbookWorksheetProtectionOptions} from './workbookWorksheetProtectionOptions';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to group. */
+/** Provides operations to manage the collection of application entities. */
 export class WorkbookWorksheetProtectionImpl extends EntityImpl implements WorkbookWorksheetProtection {
     /** Sheet protection options. Read-only. */
     public options?: WorkbookWorksheetProtectionOptions | undefined;
@@ -16,7 +16,7 @@ export class WorkbookWorksheetProtectionImpl extends EntityImpl implements Workb
      */
     public constructor(workbookWorksheetProtectionParameterValue?: WorkbookWorksheetProtection | undefined) {
         super(workbookWorksheetProtectionParameterValue);
-        this.options = workbookWorksheetProtectionParameterValue?.options;
+        this.options = workbookWorksheetProtectionParameterValue?.options instanceof WorkbookWorksheetProtectionOptionsImpl? workbookWorksheetProtectionParameterValue?.options:new WorkbookWorksheetProtectionOptionsImpl(workbookWorksheetProtectionParameterValue?.options);
         this.protected = workbookWorksheetProtectionParameterValue?.protected;
     };
     /**

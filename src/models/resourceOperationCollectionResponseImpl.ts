@@ -18,7 +18,8 @@ export class ResourceOperationCollectionResponseImpl implements ResourceOperatio
     public constructor(resourceOperationCollectionResponseParameterValue?: ResourceOperationCollectionResponse | undefined) {
         this.additionalData = resourceOperationCollectionResponseParameterValue?.additionalData ? resourceOperationCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = resourceOperationCollectionResponseParameterValue?.nextLink;
-        this.value = resourceOperationCollectionResponseParameterValue?.value;
+        const valueArrValue: ResourceOperationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ResourceOperationImpl? element : new ResourceOperationImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -39,7 +40,7 @@ export class ResourceOperationCollectionResponseImpl implements ResourceOperatio
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: ResourceOperationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ResourceOperationImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: ResourceOperationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ResourceOperationImpl? element : new ResourceOperationImpl(element));});
             writer.writeCollectionOfObjectValues<ResourceOperationImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

@@ -4,17 +4,17 @@ import {ShiftAvailability} from './shiftAvailability';
 import {ShiftPreferences} from './shiftPreferences';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class ShiftPreferencesImpl extends ChangeTrackedEntityImpl implements ShiftPreferences {
     /** Availability of the user to be scheduled for work and its recurrence pattern. */
     public availability?: ShiftAvailability[] | undefined;
     /**
-     * Instantiates a new shiftPreferences and sets the default values.
+     * Instantiates a new ShiftPreferences and sets the default values.
      * @param shiftPreferencesParameterValue 
      */
     public constructor(shiftPreferencesParameterValue?: ShiftPreferences | undefined) {
         super(shiftPreferencesParameterValue);
-        this.availability = shiftPreferencesParameterValue?.availability;
+        const availabilityArrValue: ShiftAvailabilityImpl[] = []; this.availability?.forEach(element => {availabilityArrValue.push(element instanceof ShiftAvailabilityImpl? element : new ShiftAvailabilityImpl(element));});
+        this.availability = availabilityArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -32,7 +32,7 @@ export class ShiftPreferencesImpl extends ChangeTrackedEntityImpl implements Shi
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.availability && this.availability.length != 0){        const availabilityArrValue: ShiftAvailabilityImpl[] = []; this.availability?.forEach(element => {availabilityArrValue.push(new ShiftAvailabilityImpl(element));});
+        if(this.availability && this.availability.length != 0){        const availabilityArrValue: ShiftAvailabilityImpl[] = []; this.availability?.forEach(element => {availabilityArrValue.push(element instanceof ShiftAvailabilityImpl? element : new ShiftAvailabilityImpl(element));});
             writer.writeCollectionOfObjectValues<ShiftAvailabilityImpl>("availability", availabilityArrValue);
         }
     };

@@ -1,4 +1,4 @@
-import {PrintUsageImpl} from './index';
+import {PrintUsageByPrinterImpl, PrintUsageByUserImpl, PrintUsageImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
 export function createPrintUsageFromDiscriminatorValue(parseNode: ParseNode | undefined) : PrintUsageImpl {
@@ -8,8 +8,10 @@ export function createPrintUsageFromDiscriminatorValue(parseNode: ParseNode | un
         const mappingValue = mappingValueNode.getStringValue();
         if (mappingValue) {
             switch (mappingValue) {
-                case "#microsoft.graph.printUsage":
-                    return new PrintUsageImpl();
+                case "#microsoft.graph.printUsageByPrinter":
+                    return new PrintUsageByPrinterImpl();
+                case "#microsoft.graph.printUsageByUser":
+                    return new PrintUsageByUserImpl();
             }
         }
     }

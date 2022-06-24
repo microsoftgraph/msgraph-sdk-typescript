@@ -23,7 +23,7 @@ export class DriveItemUploadablePropertiesImpl implements DriveItemUploadablePro
         this.additionalData = driveItemUploadablePropertiesParameterValue?.additionalData ? driveItemUploadablePropertiesParameterValue?.additionalData! : {};
         this.description = driveItemUploadablePropertiesParameterValue?.description;
         this.fileSize = driveItemUploadablePropertiesParameterValue?.fileSize;
-        this.fileSystemInfo = driveItemUploadablePropertiesParameterValue?.fileSystemInfo;
+        this.fileSystemInfo = driveItemUploadablePropertiesParameterValue?.fileSystemInfo instanceof FileSystemInfoImpl? driveItemUploadablePropertiesParameterValue?.fileSystemInfo:new FileSystemInfoImpl(driveItemUploadablePropertiesParameterValue?.fileSystemInfo);
         this.name = driveItemUploadablePropertiesParameterValue?.name;
     };
     /**

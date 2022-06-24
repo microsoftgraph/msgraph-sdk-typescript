@@ -18,7 +18,8 @@ export class DeviceComplianceScheduledActionForRuleCollectionResponseImpl implem
     public constructor(deviceComplianceScheduledActionForRuleCollectionResponseParameterValue?: DeviceComplianceScheduledActionForRuleCollectionResponse | undefined) {
         this.additionalData = deviceComplianceScheduledActionForRuleCollectionResponseParameterValue?.additionalData ? deviceComplianceScheduledActionForRuleCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = deviceComplianceScheduledActionForRuleCollectionResponseParameterValue?.nextLink;
-        this.value = deviceComplianceScheduledActionForRuleCollectionResponseParameterValue?.value;
+        const valueArrValue: DeviceComplianceScheduledActionForRuleImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof DeviceComplianceScheduledActionForRuleImpl? element : new DeviceComplianceScheduledActionForRuleImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -39,7 +40,7 @@ export class DeviceComplianceScheduledActionForRuleCollectionResponseImpl implem
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: DeviceComplianceScheduledActionForRuleImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new DeviceComplianceScheduledActionForRuleImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: DeviceComplianceScheduledActionForRuleImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof DeviceComplianceScheduledActionForRuleImpl? element : new DeviceComplianceScheduledActionForRuleImpl(element));});
             writer.writeCollectionOfObjectValues<DeviceComplianceScheduledActionForRuleImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

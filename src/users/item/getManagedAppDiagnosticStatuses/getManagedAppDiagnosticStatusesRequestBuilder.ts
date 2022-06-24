@@ -1,3 +1,5 @@
+import {ODataErrorImpl} from '../../../models/oDataErrors/';
+import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {createGetManagedAppDiagnosticStatusesResponseFromDiscriminatorValue} from './createGetManagedAppDiagnosticStatusesResponseFromDiscriminatorValue';
 import {GetManagedAppDiagnosticStatusesRequestBuilderGetRequestConfiguration} from './getManagedAppDiagnosticStatusesRequestBuilderGetRequestConfiguration';
 import {GetManagedAppDiagnosticStatusesResponseImpl} from './index';
@@ -51,6 +53,10 @@ export class GetManagedAppDiagnosticStatusesRequestBuilder {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
-        return this.requestAdapter?.sendAsync<GetManagedAppDiagnosticStatusesResponseImpl>(requestInfo, createGetManagedAppDiagnosticStatusesResponseFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<GetManagedAppDiagnosticStatusesResponseImpl>(requestInfo, createGetManagedAppDiagnosticStatusesResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

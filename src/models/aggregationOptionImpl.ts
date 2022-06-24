@@ -19,7 +19,7 @@ export class AggregationOptionImpl implements AggregationOption {
      */
     public constructor(aggregationOptionParameterValue?: AggregationOption | undefined) {
         this.additionalData = aggregationOptionParameterValue?.additionalData ? aggregationOptionParameterValue?.additionalData! : {};
-        this.bucketDefinition = aggregationOptionParameterValue?.bucketDefinition;
+        this.bucketDefinition = aggregationOptionParameterValue?.bucketDefinition instanceof BucketAggregationDefinitionImpl? aggregationOptionParameterValue?.bucketDefinition:new BucketAggregationDefinitionImpl(aggregationOptionParameterValue?.bucketDefinition);
         this.field = aggregationOptionParameterValue?.field;
         this.size = aggregationOptionParameterValue?.size;
     };

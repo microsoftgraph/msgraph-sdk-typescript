@@ -18,7 +18,8 @@ export class ApplicationCollectionResponseImpl implements ApplicationCollectionR
     public constructor(applicationCollectionResponseParameterValue?: ApplicationCollectionResponse | undefined) {
         this.additionalData = applicationCollectionResponseParameterValue?.additionalData ? applicationCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = applicationCollectionResponseParameterValue?.nextLink;
-        this.value = applicationCollectionResponseParameterValue?.value;
+        const valueArrValue: ApplicationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ApplicationImpl? element : new ApplicationImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -39,7 +40,7 @@ export class ApplicationCollectionResponseImpl implements ApplicationCollectionR
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: ApplicationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ApplicationImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: ApplicationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ApplicationImpl? element : new ApplicationImpl(element));});
             writer.writeCollectionOfObjectValues<ApplicationImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

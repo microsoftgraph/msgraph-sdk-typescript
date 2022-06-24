@@ -2,7 +2,7 @@ import {AuthenticationMethod} from './authenticationMethod';
 import {EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the collection of application entities. */
 export class AuthenticationMethodImpl extends EntityImpl implements AuthenticationMethod {
     /**
      * Instantiates a new authenticationMethod and sets the default values.

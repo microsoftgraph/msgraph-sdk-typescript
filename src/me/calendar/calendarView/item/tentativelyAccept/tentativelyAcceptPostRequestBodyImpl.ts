@@ -21,7 +21,7 @@ export class TentativelyAcceptPostRequestBodyImpl implements TentativelyAcceptPo
     public constructor(tentativelyAcceptPostRequestBodyParameterValue?: TentativelyAcceptPostRequestBody | undefined) {
         this.additionalData = tentativelyAcceptPostRequestBodyParameterValue?.additionalData ? tentativelyAcceptPostRequestBodyParameterValue?.additionalData! : {};
         this.comment = tentativelyAcceptPostRequestBodyParameterValue?.comment;
-        this.proposedNewTime = tentativelyAcceptPostRequestBodyParameterValue?.proposedNewTime;
+        this.proposedNewTime = tentativelyAcceptPostRequestBodyParameterValue?.proposedNewTime instanceof TimeSlotImpl? tentativelyAcceptPostRequestBodyParameterValue?.proposedNewTime:new TimeSlotImpl(tentativelyAcceptPostRequestBodyParameterValue?.proposedNewTime);
         this.sendResponse = tentativelyAcceptPostRequestBodyParameterValue?.sendResponse;
     };
     /**

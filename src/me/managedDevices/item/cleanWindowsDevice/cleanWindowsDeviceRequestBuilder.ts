@@ -1,3 +1,5 @@
+import {ODataErrorImpl} from '../../../../models/oDataErrors/';
+import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CleanWindowsDevicePostRequestBody} from './cleanWindowsDevicePostRequestBody';
 import {CleanWindowsDeviceRequestBuilderPostRequestConfiguration} from './cleanWindowsDeviceRequestBuilderPostRequestConfiguration';
 import {CleanWindowsDevicePostRequestBodyImpl} from './index';
@@ -55,6 +57,10 @@ export class CleanWindowsDeviceRequestBuilder {
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration
         );
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

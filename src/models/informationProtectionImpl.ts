@@ -18,8 +18,9 @@ export class InformationProtectionImpl extends EntityImpl implements Information
      */
     public constructor(informationProtectionParameterValue?: InformationProtection | undefined) {
         super(informationProtectionParameterValue);
-        this.bitlocker = informationProtectionParameterValue?.bitlocker;
-        this.threatAssessmentRequests = informationProtectionParameterValue?.threatAssessmentRequests;
+        this.bitlocker = informationProtectionParameterValue?.bitlocker instanceof BitlockerImpl? informationProtectionParameterValue?.bitlocker:new BitlockerImpl(informationProtectionParameterValue?.bitlocker);
+        const threatAssessmentRequestsArrValue: ThreatAssessmentRequestImpl[] = []; this.threatAssessmentRequests?.forEach(element => {threatAssessmentRequestsArrValue.push(element instanceof ThreatAssessmentRequestImpl? element : new ThreatAssessmentRequestImpl(element));});
+        this.threatAssessmentRequests = threatAssessmentRequestsArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -41,7 +42,7 @@ export class InformationProtectionImpl extends EntityImpl implements Information
         if(this.bitlocker){
             writer.writeObjectValue<BitlockerImpl>("bitlocker", new BitlockerImpl(this.bitlocker));
         }
-        if(this.threatAssessmentRequests && this.threatAssessmentRequests.length != 0){        const threatAssessmentRequestsArrValue: ThreatAssessmentRequestImpl[] = []; this.threatAssessmentRequests?.forEach(element => {threatAssessmentRequestsArrValue.push(new ThreatAssessmentRequestImpl(element));});
+        if(this.threatAssessmentRequests && this.threatAssessmentRequests.length != 0){        const threatAssessmentRequestsArrValue: ThreatAssessmentRequestImpl[] = []; this.threatAssessmentRequests?.forEach(element => {threatAssessmentRequestsArrValue.push(element instanceof ThreatAssessmentRequestImpl? element : new ThreatAssessmentRequestImpl(element));});
             writer.writeCollectionOfObjectValues<ThreatAssessmentRequestImpl>("threatAssessmentRequests", threatAssessmentRequestsArrValue);
         }
     };

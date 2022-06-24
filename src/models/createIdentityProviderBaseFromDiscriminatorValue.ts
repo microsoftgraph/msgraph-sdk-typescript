@@ -1,4 +1,4 @@
-import {IdentityProviderBaseImpl} from './index';
+import {AppleManagedIdentityProviderImpl, BuiltInIdentityProviderImpl, IdentityProviderBaseImpl, SamlOrWsFedProviderImpl, SocialIdentityProviderImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
 export function createIdentityProviderBaseFromDiscriminatorValue(parseNode: ParseNode | undefined) : IdentityProviderBaseImpl {
@@ -8,8 +8,14 @@ export function createIdentityProviderBaseFromDiscriminatorValue(parseNode: Pars
         const mappingValue = mappingValueNode.getStringValue();
         if (mappingValue) {
             switch (mappingValue) {
-                case "#microsoft.graph.identityProviderBase":
-                    return new IdentityProviderBaseImpl();
+                case "#microsoft.graph.appleManagedIdentityProvider":
+                    return new AppleManagedIdentityProviderImpl();
+                case "#microsoft.graph.builtInIdentityProvider":
+                    return new BuiltInIdentityProviderImpl();
+                case "#microsoft.graph.samlOrWsFedProvider":
+                    return new SamlOrWsFedProviderImpl();
+                case "#microsoft.graph.socialIdentityProvider":
+                    return new SocialIdentityProviderImpl();
             }
         }
     }

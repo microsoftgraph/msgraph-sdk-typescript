@@ -18,7 +18,8 @@ export class DeviceConfigurationUserStatusCollectionResponseImpl implements Devi
     public constructor(deviceConfigurationUserStatusCollectionResponseParameterValue?: DeviceConfigurationUserStatusCollectionResponse | undefined) {
         this.additionalData = deviceConfigurationUserStatusCollectionResponseParameterValue?.additionalData ? deviceConfigurationUserStatusCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = deviceConfigurationUserStatusCollectionResponseParameterValue?.nextLink;
-        this.value = deviceConfigurationUserStatusCollectionResponseParameterValue?.value;
+        const valueArrValue: DeviceConfigurationUserStatusImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof DeviceConfigurationUserStatusImpl? element : new DeviceConfigurationUserStatusImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -39,7 +40,7 @@ export class DeviceConfigurationUserStatusCollectionResponseImpl implements Devi
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: DeviceConfigurationUserStatusImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new DeviceConfigurationUserStatusImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: DeviceConfigurationUserStatusImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof DeviceConfigurationUserStatusImpl? element : new DeviceConfigurationUserStatusImpl(element));});
             writer.writeCollectionOfObjectValues<DeviceConfigurationUserStatusImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

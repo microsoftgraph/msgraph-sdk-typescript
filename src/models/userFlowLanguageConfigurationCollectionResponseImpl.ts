@@ -18,7 +18,8 @@ export class UserFlowLanguageConfigurationCollectionResponseImpl implements User
     public constructor(userFlowLanguageConfigurationCollectionResponseParameterValue?: UserFlowLanguageConfigurationCollectionResponse | undefined) {
         this.additionalData = userFlowLanguageConfigurationCollectionResponseParameterValue?.additionalData ? userFlowLanguageConfigurationCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = userFlowLanguageConfigurationCollectionResponseParameterValue?.nextLink;
-        this.value = userFlowLanguageConfigurationCollectionResponseParameterValue?.value;
+        const valueArrValue: UserFlowLanguageConfigurationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof UserFlowLanguageConfigurationImpl? element : new UserFlowLanguageConfigurationImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -39,7 +40,7 @@ export class UserFlowLanguageConfigurationCollectionResponseImpl implements User
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: UserFlowLanguageConfigurationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new UserFlowLanguageConfigurationImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: UserFlowLanguageConfigurationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof UserFlowLanguageConfigurationImpl? element : new UserFlowLanguageConfigurationImpl(element));});
             writer.writeCollectionOfObjectValues<UserFlowLanguageConfigurationImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

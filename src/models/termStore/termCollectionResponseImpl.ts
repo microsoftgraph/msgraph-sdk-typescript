@@ -18,7 +18,8 @@ export class TermCollectionResponseImpl implements TermCollectionResponse {
     public constructor(termCollectionResponseParameterValue?: TermCollectionResponse | undefined) {
         this.additionalData = termCollectionResponseParameterValue?.additionalData ? termCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = termCollectionResponseParameterValue?.nextLink;
-        this.value = termCollectionResponseParameterValue?.value;
+        const valueArrValue: TermImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof TermImpl? element : new TermImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -39,7 +40,7 @@ export class TermCollectionResponseImpl implements TermCollectionResponse {
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: TermImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new TermImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: TermImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof TermImpl? element : new TermImpl(element));});
             writer.writeCollectionOfObjectValues<TermImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

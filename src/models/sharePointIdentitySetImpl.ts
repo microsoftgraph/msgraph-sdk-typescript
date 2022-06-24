@@ -6,7 +6,7 @@ import {SharePointIdentity} from './sharePointIdentity';
 import {SharePointIdentitySet} from './sharePointIdentitySet';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to group. */
+/** Provides operations to manage the collection of application entities. */
 export class SharePointIdentitySetImpl extends IdentitySetImpl implements SharePointIdentitySet {
     /** The group associated with this action. Optional. */
     public group?: Identity | undefined;
@@ -20,9 +20,9 @@ export class SharePointIdentitySetImpl extends IdentitySetImpl implements ShareP
      */
     public constructor(sharePointIdentitySetParameterValue?: SharePointIdentitySet | undefined) {
         super(sharePointIdentitySetParameterValue);
-        this.group = sharePointIdentitySetParameterValue?.group;
-        this.siteGroup = sharePointIdentitySetParameterValue?.siteGroup;
-        this.siteUser = sharePointIdentitySetParameterValue?.siteUser;
+        this.group = sharePointIdentitySetParameterValue?.group instanceof IdentityImpl? sharePointIdentitySetParameterValue?.group:new IdentityImpl(sharePointIdentitySetParameterValue?.group);
+        this.siteGroup = sharePointIdentitySetParameterValue?.siteGroup instanceof SharePointIdentityImpl? sharePointIdentitySetParameterValue?.siteGroup:new SharePointIdentityImpl(sharePointIdentitySetParameterValue?.siteGroup);
+        this.siteUser = sharePointIdentitySetParameterValue?.siteUser instanceof SharePointIdentityImpl? sharePointIdentitySetParameterValue?.siteUser:new SharePointIdentityImpl(sharePointIdentitySetParameterValue?.siteUser);
     };
     /**
      * The deserialization information for the current model

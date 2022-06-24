@@ -5,7 +5,6 @@ import {AuthenticationMethodImpl, DeviceImpl} from './index';
 import {WindowsHelloForBusinessAuthenticationMethod} from './windowsHelloForBusinessAuthenticationMethod';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class WindowsHelloForBusinessAuthenticationMethodImpl extends AuthenticationMethodImpl implements WindowsHelloForBusinessAuthenticationMethod {
     /** The date and time that this Windows Hello for Business key was registered. */
     public createdDateTime?: Date | undefined;
@@ -16,13 +15,13 @@ export class WindowsHelloForBusinessAuthenticationMethodImpl extends Authenticat
     /** Key strength of this Windows Hello for Business key. Possible values are: normal, weak, unknown. */
     public keyStrength?: AuthenticationMethodKeyStrength | undefined;
     /**
-     * Instantiates a new windowsHelloForBusinessAuthenticationMethod and sets the default values.
+     * Instantiates a new WindowsHelloForBusinessAuthenticationMethod and sets the default values.
      * @param windowsHelloForBusinessAuthenticationMethodParameterValue 
      */
     public constructor(windowsHelloForBusinessAuthenticationMethodParameterValue?: WindowsHelloForBusinessAuthenticationMethod | undefined) {
         super(windowsHelloForBusinessAuthenticationMethodParameterValue);
         this.createdDateTime = windowsHelloForBusinessAuthenticationMethodParameterValue?.createdDateTime;
-        this.device = windowsHelloForBusinessAuthenticationMethodParameterValue?.device;
+        this.device = windowsHelloForBusinessAuthenticationMethodParameterValue?.device instanceof DeviceImpl? windowsHelloForBusinessAuthenticationMethodParameterValue?.device:new DeviceImpl(windowsHelloForBusinessAuthenticationMethodParameterValue?.device);
         this.displayName = windowsHelloForBusinessAuthenticationMethodParameterValue?.displayName;
         this.keyStrength = windowsHelloForBusinessAuthenticationMethodParameterValue?.keyStrength;
     };

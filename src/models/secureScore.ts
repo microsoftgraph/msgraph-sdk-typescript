@@ -17,7 +17,7 @@ export interface SecureScore extends Entity, Partial<Parsable> {
     createdDateTime?: Date | undefined;
     /** Tenant current attained score on specified date. */
     currentScore?: number | undefined;
-    /** Microsoft-provided services for the tenant (for example, Exchange online, Skype, Sharepoint). */
+    /** Microsoft-provided services for the tenant (for example, Exchange online, Skype, SharePoint). */
     enabledServices?: string[] | undefined;
     /** Licensed user count of the given tenant. */
     licensedUserCount?: number | undefined;

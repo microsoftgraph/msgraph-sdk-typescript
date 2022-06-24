@@ -18,7 +18,8 @@ export class InvitationCollectionResponseImpl implements InvitationCollectionRes
     public constructor(invitationCollectionResponseParameterValue?: InvitationCollectionResponse | undefined) {
         this.additionalData = invitationCollectionResponseParameterValue?.additionalData ? invitationCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = invitationCollectionResponseParameterValue?.nextLink;
-        this.value = invitationCollectionResponseParameterValue?.value;
+        const valueArrValue: InvitationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof InvitationImpl? element : new InvitationImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -39,7 +40,7 @@ export class InvitationCollectionResponseImpl implements InvitationCollectionRes
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: InvitationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new InvitationImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: InvitationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof InvitationImpl? element : new InvitationImpl(element));});
             writer.writeCollectionOfObjectValues<InvitationImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

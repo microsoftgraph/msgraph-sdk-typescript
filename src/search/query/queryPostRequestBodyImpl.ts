@@ -16,7 +16,8 @@ export class QueryPostRequestBodyImpl implements QueryPostRequestBody {
      */
     public constructor(queryPostRequestBodyParameterValue?: QueryPostRequestBody | undefined) {
         this.additionalData = queryPostRequestBodyParameterValue?.additionalData ? queryPostRequestBodyParameterValue?.additionalData! : {};
-        this.requests = queryPostRequestBodyParameterValue?.requests;
+        const requestsArrValue: SearchRequestImpl[] = []; this.requests?.forEach(element => {requestsArrValue.push(element instanceof SearchRequestImpl? element : new SearchRequestImpl(element));});
+        this.requests = requestsArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -33,7 +34,7 @@ export class QueryPostRequestBodyImpl implements QueryPostRequestBody {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        if(this.requests && this.requests.length != 0){        const requestsArrValue: SearchRequestImpl[] = []; this.requests?.forEach(element => {requestsArrValue.push(new SearchRequestImpl(element));});
+        if(this.requests && this.requests.length != 0){        const requestsArrValue: SearchRequestImpl[] = []; this.requests?.forEach(element => {requestsArrValue.push(element instanceof SearchRequestImpl? element : new SearchRequestImpl(element));});
             writer.writeCollectionOfObjectValues<SearchRequestImpl>("requests", requestsArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

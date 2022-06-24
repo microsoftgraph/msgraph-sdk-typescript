@@ -126,13 +126,15 @@ export class AlertImpl extends EntityImpl implements Alert {
     public constructor(alertParameterValue?: Alert | undefined) {
         super(alertParameterValue);
         this.activityGroupName = alertParameterValue?.activityGroupName;
-        this.alertDetections = alertParameterValue?.alertDetections;
+        const alertDetectionsArrValue: AlertDetectionImpl[] = []; this.alertDetections?.forEach(element => {alertDetectionsArrValue.push(element instanceof AlertDetectionImpl? element : new AlertDetectionImpl(element));});
+        this.alertDetections = alertDetectionsArrValue;
         this.assignedTo = alertParameterValue?.assignedTo;
         this.azureSubscriptionId = alertParameterValue?.azureSubscriptionId;
         this.azureTenantId = alertParameterValue?.azureTenantId;
         this.category = alertParameterValue?.category;
         this.closedDateTime = alertParameterValue?.closedDateTime;
-        this.cloudAppStates = alertParameterValue?.cloudAppStates;
+        const cloudAppStatesArrValue: CloudAppSecurityStateImpl[] = []; this.cloudAppStates?.forEach(element => {cloudAppStatesArrValue.push(element instanceof CloudAppSecurityStateImpl? element : new CloudAppSecurityStateImpl(element));});
+        this.cloudAppStates = cloudAppStatesArrValue;
         this.comments = alertParameterValue?.comments;
         this.confidence = alertParameterValue?.confidence;
         this.createdDateTime = alertParameterValue?.createdDateTime;
@@ -140,30 +142,44 @@ export class AlertImpl extends EntityImpl implements Alert {
         this.detectionIds = alertParameterValue?.detectionIds;
         this.eventDateTime = alertParameterValue?.eventDateTime;
         this.feedback = alertParameterValue?.feedback;
-        this.fileStates = alertParameterValue?.fileStates;
-        this.historyStates = alertParameterValue?.historyStates;
-        this.hostStates = alertParameterValue?.hostStates;
+        const fileStatesArrValue: FileSecurityStateImpl[] = []; this.fileStates?.forEach(element => {fileStatesArrValue.push(element instanceof FileSecurityStateImpl? element : new FileSecurityStateImpl(element));});
+        this.fileStates = fileStatesArrValue;
+        const historyStatesArrValue: AlertHistoryStateImpl[] = []; this.historyStates?.forEach(element => {historyStatesArrValue.push(element instanceof AlertHistoryStateImpl? element : new AlertHistoryStateImpl(element));});
+        this.historyStates = historyStatesArrValue;
+        const hostStatesArrValue: HostSecurityStateImpl[] = []; this.hostStates?.forEach(element => {hostStatesArrValue.push(element instanceof HostSecurityStateImpl? element : new HostSecurityStateImpl(element));});
+        this.hostStates = hostStatesArrValue;
         this.incidentIds = alertParameterValue?.incidentIds;
-        this.investigationSecurityStates = alertParameterValue?.investigationSecurityStates;
+        const investigationSecurityStatesArrValue: InvestigationSecurityStateImpl[] = []; this.investigationSecurityStates?.forEach(element => {investigationSecurityStatesArrValue.push(element instanceof InvestigationSecurityStateImpl? element : new InvestigationSecurityStateImpl(element));});
+        this.investigationSecurityStates = investigationSecurityStatesArrValue;
         this.lastEventDateTime = alertParameterValue?.lastEventDateTime;
         this.lastModifiedDateTime = alertParameterValue?.lastModifiedDateTime;
-        this.malwareStates = alertParameterValue?.malwareStates;
-        this.messageSecurityStates = alertParameterValue?.messageSecurityStates;
-        this.networkConnections = alertParameterValue?.networkConnections;
-        this.processes = alertParameterValue?.processes;
+        const malwareStatesArrValue: MalwareStateImpl[] = []; this.malwareStates?.forEach(element => {malwareStatesArrValue.push(element instanceof MalwareStateImpl? element : new MalwareStateImpl(element));});
+        this.malwareStates = malwareStatesArrValue;
+        const messageSecurityStatesArrValue: MessageSecurityStateImpl[] = []; this.messageSecurityStates?.forEach(element => {messageSecurityStatesArrValue.push(element instanceof MessageSecurityStateImpl? element : new MessageSecurityStateImpl(element));});
+        this.messageSecurityStates = messageSecurityStatesArrValue;
+        const networkConnectionsArrValue: NetworkConnectionImpl[] = []; this.networkConnections?.forEach(element => {networkConnectionsArrValue.push(element instanceof NetworkConnectionImpl? element : new NetworkConnectionImpl(element));});
+        this.networkConnections = networkConnectionsArrValue;
+        const processesArrValue: ProcessImpl[] = []; this.processes?.forEach(element => {processesArrValue.push(element instanceof ProcessImpl? element : new ProcessImpl(element));});
+        this.processes = processesArrValue;
         this.recommendedActions = alertParameterValue?.recommendedActions;
-        this.registryKeyStates = alertParameterValue?.registryKeyStates;
-        this.securityResources = alertParameterValue?.securityResources;
+        const registryKeyStatesArrValue: RegistryKeyStateImpl[] = []; this.registryKeyStates?.forEach(element => {registryKeyStatesArrValue.push(element instanceof RegistryKeyStateImpl? element : new RegistryKeyStateImpl(element));});
+        this.registryKeyStates = registryKeyStatesArrValue;
+        const securityResourcesArrValue: SecurityResourceImpl[] = []; this.securityResources?.forEach(element => {securityResourcesArrValue.push(element instanceof SecurityResourceImpl? element : new SecurityResourceImpl(element));});
+        this.securityResources = securityResourcesArrValue;
         this.severity = alertParameterValue?.severity;
         this.sourceMaterials = alertParameterValue?.sourceMaterials;
         this.status = alertParameterValue?.status;
         this.tags = alertParameterValue?.tags;
         this.title = alertParameterValue?.title;
-        this.triggers = alertParameterValue?.triggers;
-        this.uriClickSecurityStates = alertParameterValue?.uriClickSecurityStates;
-        this.userStates = alertParameterValue?.userStates;
-        this.vendorInformation = alertParameterValue?.vendorInformation;
-        this.vulnerabilityStates = alertParameterValue?.vulnerabilityStates;
+        const triggersArrValue: AlertTriggerImpl[] = []; this.triggers?.forEach(element => {triggersArrValue.push(element instanceof AlertTriggerImpl? element : new AlertTriggerImpl(element));});
+        this.triggers = triggersArrValue;
+        const uriClickSecurityStatesArrValue: UriClickSecurityStateImpl[] = []; this.uriClickSecurityStates?.forEach(element => {uriClickSecurityStatesArrValue.push(element instanceof UriClickSecurityStateImpl? element : new UriClickSecurityStateImpl(element));});
+        this.uriClickSecurityStates = uriClickSecurityStatesArrValue;
+        const userStatesArrValue: UserSecurityStateImpl[] = []; this.userStates?.forEach(element => {userStatesArrValue.push(element instanceof UserSecurityStateImpl? element : new UserSecurityStateImpl(element));});
+        this.userStates = userStatesArrValue;
+        this.vendorInformation = alertParameterValue?.vendorInformation instanceof SecurityVendorInformationImpl? alertParameterValue?.vendorInformation:new SecurityVendorInformationImpl(alertParameterValue?.vendorInformation);
+        const vulnerabilityStatesArrValue: VulnerabilityStateImpl[] = []; this.vulnerabilityStates?.forEach(element => {vulnerabilityStatesArrValue.push(element instanceof VulnerabilityStateImpl? element : new VulnerabilityStateImpl(element));});
+        this.vulnerabilityStates = vulnerabilityStatesArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -222,7 +238,7 @@ export class AlertImpl extends EntityImpl implements Alert {
         if(this.activityGroupName){
             writer.writeStringValue("activityGroupName", this.activityGroupName);
         }
-        if(this.alertDetections && this.alertDetections.length != 0){        const alertDetectionsArrValue: AlertDetectionImpl[] = []; this.alertDetections?.forEach(element => {alertDetectionsArrValue.push(new AlertDetectionImpl(element));});
+        if(this.alertDetections && this.alertDetections.length != 0){        const alertDetectionsArrValue: AlertDetectionImpl[] = []; this.alertDetections?.forEach(element => {alertDetectionsArrValue.push(element instanceof AlertDetectionImpl? element : new AlertDetectionImpl(element));});
             writer.writeCollectionOfObjectValues<AlertDetectionImpl>("alertDetections", alertDetectionsArrValue);
         }
         if(this.assignedTo){
@@ -240,7 +256,7 @@ export class AlertImpl extends EntityImpl implements Alert {
         if(this.closedDateTime){
             writer.writeDateValue("closedDateTime", this.closedDateTime);
         }
-        if(this.cloudAppStates && this.cloudAppStates.length != 0){        const cloudAppStatesArrValue: CloudAppSecurityStateImpl[] = []; this.cloudAppStates?.forEach(element => {cloudAppStatesArrValue.push(new CloudAppSecurityStateImpl(element));});
+        if(this.cloudAppStates && this.cloudAppStates.length != 0){        const cloudAppStatesArrValue: CloudAppSecurityStateImpl[] = []; this.cloudAppStates?.forEach(element => {cloudAppStatesArrValue.push(element instanceof CloudAppSecurityStateImpl? element : new CloudAppSecurityStateImpl(element));});
             writer.writeCollectionOfObjectValues<CloudAppSecurityStateImpl>("cloudAppStates", cloudAppStatesArrValue);
         }
         if(this.comments){
@@ -264,19 +280,19 @@ export class AlertImpl extends EntityImpl implements Alert {
         if(this.feedback){
             writer.writeEnumValue<AlertFeedback>("feedback", this.feedback);
         }
-        if(this.fileStates && this.fileStates.length != 0){        const fileStatesArrValue: FileSecurityStateImpl[] = []; this.fileStates?.forEach(element => {fileStatesArrValue.push(new FileSecurityStateImpl(element));});
+        if(this.fileStates && this.fileStates.length != 0){        const fileStatesArrValue: FileSecurityStateImpl[] = []; this.fileStates?.forEach(element => {fileStatesArrValue.push(element instanceof FileSecurityStateImpl? element : new FileSecurityStateImpl(element));});
             writer.writeCollectionOfObjectValues<FileSecurityStateImpl>("fileStates", fileStatesArrValue);
         }
-        if(this.historyStates && this.historyStates.length != 0){        const historyStatesArrValue: AlertHistoryStateImpl[] = []; this.historyStates?.forEach(element => {historyStatesArrValue.push(new AlertHistoryStateImpl(element));});
+        if(this.historyStates && this.historyStates.length != 0){        const historyStatesArrValue: AlertHistoryStateImpl[] = []; this.historyStates?.forEach(element => {historyStatesArrValue.push(element instanceof AlertHistoryStateImpl? element : new AlertHistoryStateImpl(element));});
             writer.writeCollectionOfObjectValues<AlertHistoryStateImpl>("historyStates", historyStatesArrValue);
         }
-        if(this.hostStates && this.hostStates.length != 0){        const hostStatesArrValue: HostSecurityStateImpl[] = []; this.hostStates?.forEach(element => {hostStatesArrValue.push(new HostSecurityStateImpl(element));});
+        if(this.hostStates && this.hostStates.length != 0){        const hostStatesArrValue: HostSecurityStateImpl[] = []; this.hostStates?.forEach(element => {hostStatesArrValue.push(element instanceof HostSecurityStateImpl? element : new HostSecurityStateImpl(element));});
             writer.writeCollectionOfObjectValues<HostSecurityStateImpl>("hostStates", hostStatesArrValue);
         }
         if(this.incidentIds){
             writer.writeCollectionOfPrimitiveValues<string>("incidentIds", this.incidentIds);
         }
-        if(this.investigationSecurityStates && this.investigationSecurityStates.length != 0){        const investigationSecurityStatesArrValue: InvestigationSecurityStateImpl[] = []; this.investigationSecurityStates?.forEach(element => {investigationSecurityStatesArrValue.push(new InvestigationSecurityStateImpl(element));});
+        if(this.investigationSecurityStates && this.investigationSecurityStates.length != 0){        const investigationSecurityStatesArrValue: InvestigationSecurityStateImpl[] = []; this.investigationSecurityStates?.forEach(element => {investigationSecurityStatesArrValue.push(element instanceof InvestigationSecurityStateImpl? element : new InvestigationSecurityStateImpl(element));});
             writer.writeCollectionOfObjectValues<InvestigationSecurityStateImpl>("investigationSecurityStates", investigationSecurityStatesArrValue);
         }
         if(this.lastEventDateTime){
@@ -285,25 +301,25 @@ export class AlertImpl extends EntityImpl implements Alert {
         if(this.lastModifiedDateTime){
             writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
         }
-        if(this.malwareStates && this.malwareStates.length != 0){        const malwareStatesArrValue: MalwareStateImpl[] = []; this.malwareStates?.forEach(element => {malwareStatesArrValue.push(new MalwareStateImpl(element));});
+        if(this.malwareStates && this.malwareStates.length != 0){        const malwareStatesArrValue: MalwareStateImpl[] = []; this.malwareStates?.forEach(element => {malwareStatesArrValue.push(element instanceof MalwareStateImpl? element : new MalwareStateImpl(element));});
             writer.writeCollectionOfObjectValues<MalwareStateImpl>("malwareStates", malwareStatesArrValue);
         }
-        if(this.messageSecurityStates && this.messageSecurityStates.length != 0){        const messageSecurityStatesArrValue: MessageSecurityStateImpl[] = []; this.messageSecurityStates?.forEach(element => {messageSecurityStatesArrValue.push(new MessageSecurityStateImpl(element));});
+        if(this.messageSecurityStates && this.messageSecurityStates.length != 0){        const messageSecurityStatesArrValue: MessageSecurityStateImpl[] = []; this.messageSecurityStates?.forEach(element => {messageSecurityStatesArrValue.push(element instanceof MessageSecurityStateImpl? element : new MessageSecurityStateImpl(element));});
             writer.writeCollectionOfObjectValues<MessageSecurityStateImpl>("messageSecurityStates", messageSecurityStatesArrValue);
         }
-        if(this.networkConnections && this.networkConnections.length != 0){        const networkConnectionsArrValue: NetworkConnectionImpl[] = []; this.networkConnections?.forEach(element => {networkConnectionsArrValue.push(new NetworkConnectionImpl(element));});
+        if(this.networkConnections && this.networkConnections.length != 0){        const networkConnectionsArrValue: NetworkConnectionImpl[] = []; this.networkConnections?.forEach(element => {networkConnectionsArrValue.push(element instanceof NetworkConnectionImpl? element : new NetworkConnectionImpl(element));});
             writer.writeCollectionOfObjectValues<NetworkConnectionImpl>("networkConnections", networkConnectionsArrValue);
         }
-        if(this.processes && this.processes.length != 0){        const processesArrValue: ProcessImpl[] = []; this.processes?.forEach(element => {processesArrValue.push(new ProcessImpl(element));});
+        if(this.processes && this.processes.length != 0){        const processesArrValue: ProcessImpl[] = []; this.processes?.forEach(element => {processesArrValue.push(element instanceof ProcessImpl? element : new ProcessImpl(element));});
             writer.writeCollectionOfObjectValues<ProcessImpl>("processes", processesArrValue);
         }
         if(this.recommendedActions){
             writer.writeCollectionOfPrimitiveValues<string>("recommendedActions", this.recommendedActions);
         }
-        if(this.registryKeyStates && this.registryKeyStates.length != 0){        const registryKeyStatesArrValue: RegistryKeyStateImpl[] = []; this.registryKeyStates?.forEach(element => {registryKeyStatesArrValue.push(new RegistryKeyStateImpl(element));});
+        if(this.registryKeyStates && this.registryKeyStates.length != 0){        const registryKeyStatesArrValue: RegistryKeyStateImpl[] = []; this.registryKeyStates?.forEach(element => {registryKeyStatesArrValue.push(element instanceof RegistryKeyStateImpl? element : new RegistryKeyStateImpl(element));});
             writer.writeCollectionOfObjectValues<RegistryKeyStateImpl>("registryKeyStates", registryKeyStatesArrValue);
         }
-        if(this.securityResources && this.securityResources.length != 0){        const securityResourcesArrValue: SecurityResourceImpl[] = []; this.securityResources?.forEach(element => {securityResourcesArrValue.push(new SecurityResourceImpl(element));});
+        if(this.securityResources && this.securityResources.length != 0){        const securityResourcesArrValue: SecurityResourceImpl[] = []; this.securityResources?.forEach(element => {securityResourcesArrValue.push(element instanceof SecurityResourceImpl? element : new SecurityResourceImpl(element));});
             writer.writeCollectionOfObjectValues<SecurityResourceImpl>("securityResources", securityResourcesArrValue);
         }
         if(this.severity){
@@ -321,19 +337,19 @@ export class AlertImpl extends EntityImpl implements Alert {
         if(this.title){
             writer.writeStringValue("title", this.title);
         }
-        if(this.triggers && this.triggers.length != 0){        const triggersArrValue: AlertTriggerImpl[] = []; this.triggers?.forEach(element => {triggersArrValue.push(new AlertTriggerImpl(element));});
+        if(this.triggers && this.triggers.length != 0){        const triggersArrValue: AlertTriggerImpl[] = []; this.triggers?.forEach(element => {triggersArrValue.push(element instanceof AlertTriggerImpl? element : new AlertTriggerImpl(element));});
             writer.writeCollectionOfObjectValues<AlertTriggerImpl>("triggers", triggersArrValue);
         }
-        if(this.uriClickSecurityStates && this.uriClickSecurityStates.length != 0){        const uriClickSecurityStatesArrValue: UriClickSecurityStateImpl[] = []; this.uriClickSecurityStates?.forEach(element => {uriClickSecurityStatesArrValue.push(new UriClickSecurityStateImpl(element));});
+        if(this.uriClickSecurityStates && this.uriClickSecurityStates.length != 0){        const uriClickSecurityStatesArrValue: UriClickSecurityStateImpl[] = []; this.uriClickSecurityStates?.forEach(element => {uriClickSecurityStatesArrValue.push(element instanceof UriClickSecurityStateImpl? element : new UriClickSecurityStateImpl(element));});
             writer.writeCollectionOfObjectValues<UriClickSecurityStateImpl>("uriClickSecurityStates", uriClickSecurityStatesArrValue);
         }
-        if(this.userStates && this.userStates.length != 0){        const userStatesArrValue: UserSecurityStateImpl[] = []; this.userStates?.forEach(element => {userStatesArrValue.push(new UserSecurityStateImpl(element));});
+        if(this.userStates && this.userStates.length != 0){        const userStatesArrValue: UserSecurityStateImpl[] = []; this.userStates?.forEach(element => {userStatesArrValue.push(element instanceof UserSecurityStateImpl? element : new UserSecurityStateImpl(element));});
             writer.writeCollectionOfObjectValues<UserSecurityStateImpl>("userStates", userStatesArrValue);
         }
         if(this.vendorInformation){
             writer.writeObjectValue<SecurityVendorInformationImpl>("vendorInformation", new SecurityVendorInformationImpl(this.vendorInformation));
         }
-        if(this.vulnerabilityStates && this.vulnerabilityStates.length != 0){        const vulnerabilityStatesArrValue: VulnerabilityStateImpl[] = []; this.vulnerabilityStates?.forEach(element => {vulnerabilityStatesArrValue.push(new VulnerabilityStateImpl(element));});
+        if(this.vulnerabilityStates && this.vulnerabilityStates.length != 0){        const vulnerabilityStatesArrValue: VulnerabilityStateImpl[] = []; this.vulnerabilityStates?.forEach(element => {vulnerabilityStatesArrValue.push(element instanceof VulnerabilityStateImpl? element : new VulnerabilityStateImpl(element));});
             writer.writeCollectionOfObjectValues<VulnerabilityStateImpl>("vulnerabilityStates", vulnerabilityStatesArrValue);
         }
     };

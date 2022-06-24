@@ -37,11 +37,12 @@ export class ThreatAssessmentRequestImpl extends EntityImpl implements ThreatAss
         super(threatAssessmentRequestParameterValue);
         this.category = threatAssessmentRequestParameterValue?.category;
         this.contentType = threatAssessmentRequestParameterValue?.contentType;
-        this.createdBy = threatAssessmentRequestParameterValue?.createdBy;
+        this.createdBy = threatAssessmentRequestParameterValue?.createdBy instanceof IdentitySetImpl? threatAssessmentRequestParameterValue?.createdBy:new IdentitySetImpl(threatAssessmentRequestParameterValue?.createdBy);
         this.createdDateTime = threatAssessmentRequestParameterValue?.createdDateTime;
         this.expectedAssessment = threatAssessmentRequestParameterValue?.expectedAssessment;
         this.requestSource = threatAssessmentRequestParameterValue?.requestSource;
-        this.results = threatAssessmentRequestParameterValue?.results;
+        const resultsArrValue: ThreatAssessmentResultImpl[] = []; this.results?.forEach(element => {resultsArrValue.push(element instanceof ThreatAssessmentResultImpl? element : new ThreatAssessmentResultImpl(element));});
+        this.results = resultsArrValue;
         this.status = threatAssessmentRequestParameterValue?.status;
     };
     /**
@@ -85,7 +86,7 @@ export class ThreatAssessmentRequestImpl extends EntityImpl implements ThreatAss
         if(this.requestSource){
             writer.writeEnumValue<ThreatAssessmentRequestSource>("requestSource", this.requestSource);
         }
-        if(this.results && this.results.length != 0){        const resultsArrValue: ThreatAssessmentResultImpl[] = []; this.results?.forEach(element => {resultsArrValue.push(new ThreatAssessmentResultImpl(element));});
+        if(this.results && this.results.length != 0){        const resultsArrValue: ThreatAssessmentResultImpl[] = []; this.results?.forEach(element => {resultsArrValue.push(element instanceof ThreatAssessmentResultImpl? element : new ThreatAssessmentResultImpl(element));});
             writer.writeCollectionOfObjectValues<ThreatAssessmentResultImpl>("results", resultsArrValue);
         }
         if(this.status){

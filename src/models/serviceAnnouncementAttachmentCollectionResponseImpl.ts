@@ -18,7 +18,8 @@ export class ServiceAnnouncementAttachmentCollectionResponseImpl implements Serv
     public constructor(serviceAnnouncementAttachmentCollectionResponseParameterValue?: ServiceAnnouncementAttachmentCollectionResponse | undefined) {
         this.additionalData = serviceAnnouncementAttachmentCollectionResponseParameterValue?.additionalData ? serviceAnnouncementAttachmentCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = serviceAnnouncementAttachmentCollectionResponseParameterValue?.nextLink;
-        this.value = serviceAnnouncementAttachmentCollectionResponseParameterValue?.value;
+        const valueArrValue: ServiceAnnouncementAttachmentImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ServiceAnnouncementAttachmentImpl? element : new ServiceAnnouncementAttachmentImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -39,7 +40,7 @@ export class ServiceAnnouncementAttachmentCollectionResponseImpl implements Serv
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: ServiceAnnouncementAttachmentImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ServiceAnnouncementAttachmentImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: ServiceAnnouncementAttachmentImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ServiceAnnouncementAttachmentImpl? element : new ServiceAnnouncementAttachmentImpl(element));});
             writer.writeCollectionOfObjectValues<ServiceAnnouncementAttachmentImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

@@ -18,7 +18,8 @@ export class ComplianceManagementPartnerCollectionResponseImpl implements Compli
     public constructor(complianceManagementPartnerCollectionResponseParameterValue?: ComplianceManagementPartnerCollectionResponse | undefined) {
         this.additionalData = complianceManagementPartnerCollectionResponseParameterValue?.additionalData ? complianceManagementPartnerCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = complianceManagementPartnerCollectionResponseParameterValue?.nextLink;
-        this.value = complianceManagementPartnerCollectionResponseParameterValue?.value;
+        const valueArrValue: ComplianceManagementPartnerImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ComplianceManagementPartnerImpl? element : new ComplianceManagementPartnerImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -39,7 +40,7 @@ export class ComplianceManagementPartnerCollectionResponseImpl implements Compli
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: ComplianceManagementPartnerImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ComplianceManagementPartnerImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: ComplianceManagementPartnerImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ComplianceManagementPartnerImpl? element : new ComplianceManagementPartnerImpl(element));});
             writer.writeCollectionOfObjectValues<ComplianceManagementPartnerImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

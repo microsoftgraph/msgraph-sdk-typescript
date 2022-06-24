@@ -1,4 +1,4 @@
-import {TeamworkHostedContentImpl} from './index';
+import {ChatMessageHostedContentImpl, TeamworkHostedContentImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
 export function createTeamworkHostedContentFromDiscriminatorValue(parseNode: ParseNode | undefined) : TeamworkHostedContentImpl {
@@ -8,8 +8,8 @@ export function createTeamworkHostedContentFromDiscriminatorValue(parseNode: Par
         const mappingValue = mappingValueNode.getStringValue();
         if (mappingValue) {
             switch (mappingValue) {
-                case "#microsoft.graph.teamworkHostedContent":
-                    return new TeamworkHostedContentImpl();
+                case "#microsoft.graph.chatMessageHostedContent":
+                    return new ChatMessageHostedContentImpl();
             }
         }
     }

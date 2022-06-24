@@ -18,7 +18,8 @@ export class ManagedAppRegistrationCollectionResponseImpl implements ManagedAppR
     public constructor(managedAppRegistrationCollectionResponseParameterValue?: ManagedAppRegistrationCollectionResponse | undefined) {
         this.additionalData = managedAppRegistrationCollectionResponseParameterValue?.additionalData ? managedAppRegistrationCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = managedAppRegistrationCollectionResponseParameterValue?.nextLink;
-        this.value = managedAppRegistrationCollectionResponseParameterValue?.value;
+        const valueArrValue: ManagedAppRegistrationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ManagedAppRegistrationImpl? element : new ManagedAppRegistrationImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -39,7 +40,7 @@ export class ManagedAppRegistrationCollectionResponseImpl implements ManagedAppR
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: ManagedAppRegistrationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ManagedAppRegistrationImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: ManagedAppRegistrationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ManagedAppRegistrationImpl? element : new ManagedAppRegistrationImpl(element));});
             writer.writeCollectionOfObjectValues<ManagedAppRegistrationImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

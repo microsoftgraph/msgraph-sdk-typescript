@@ -39,13 +39,19 @@ export class PrintImpl implements Print {
      */
     public constructor(printParameterValue?: Print | undefined) {
         this.additionalData = printParameterValue?.additionalData ? printParameterValue?.additionalData! : {};
-        this.connectors = printParameterValue?.connectors;
-        this.operations = printParameterValue?.operations;
-        this.printers = printParameterValue?.printers;
-        this.services = printParameterValue?.services;
-        this.settings = printParameterValue?.settings;
-        this.shares = printParameterValue?.shares;
-        this.taskDefinitions = printParameterValue?.taskDefinitions;
+        const connectorsArrValue: PrintConnectorImpl[] = []; this.connectors?.forEach(element => {connectorsArrValue.push(element instanceof PrintConnectorImpl? element : new PrintConnectorImpl(element));});
+        this.connectors = connectorsArrValue;
+        const operationsArrValue: PrintOperationImpl[] = []; this.operations?.forEach(element => {operationsArrValue.push(element instanceof PrintOperationImpl? element : new PrintOperationImpl(element));});
+        this.operations = operationsArrValue;
+        const printersArrValue: PrinterImpl[] = []; this.printers?.forEach(element => {printersArrValue.push(element instanceof PrinterImpl? element : new PrinterImpl(element));});
+        this.printers = printersArrValue;
+        const servicesArrValue: PrintServiceImpl[] = []; this.services?.forEach(element => {servicesArrValue.push(element instanceof PrintServiceImpl? element : new PrintServiceImpl(element));});
+        this.services = servicesArrValue;
+        this.settings = printParameterValue?.settings instanceof PrintSettingsImpl? printParameterValue?.settings:new PrintSettingsImpl(printParameterValue?.settings);
+        const sharesArrValue: PrinterShareImpl[] = []; this.shares?.forEach(element => {sharesArrValue.push(element instanceof PrinterShareImpl? element : new PrinterShareImpl(element));});
+        this.shares = sharesArrValue;
+        const taskDefinitionsArrValue: PrintTaskDefinitionImpl[] = []; this.taskDefinitions?.forEach(element => {taskDefinitionsArrValue.push(element instanceof PrintTaskDefinitionImpl? element : new PrintTaskDefinitionImpl(element));});
+        this.taskDefinitions = taskDefinitionsArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -68,25 +74,25 @@ export class PrintImpl implements Print {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        if(this.connectors && this.connectors.length != 0){        const connectorsArrValue: PrintConnectorImpl[] = []; this.connectors?.forEach(element => {connectorsArrValue.push(new PrintConnectorImpl(element));});
+        if(this.connectors && this.connectors.length != 0){        const connectorsArrValue: PrintConnectorImpl[] = []; this.connectors?.forEach(element => {connectorsArrValue.push(element instanceof PrintConnectorImpl? element : new PrintConnectorImpl(element));});
             writer.writeCollectionOfObjectValues<PrintConnectorImpl>("connectors", connectorsArrValue);
         }
-        if(this.operations && this.operations.length != 0){        const operationsArrValue: PrintOperationImpl[] = []; this.operations?.forEach(element => {operationsArrValue.push(new PrintOperationImpl(element));});
+        if(this.operations && this.operations.length != 0){        const operationsArrValue: PrintOperationImpl[] = []; this.operations?.forEach(element => {operationsArrValue.push(element instanceof PrintOperationImpl? element : new PrintOperationImpl(element));});
             writer.writeCollectionOfObjectValues<PrintOperationImpl>("operations", operationsArrValue);
         }
-        if(this.printers && this.printers.length != 0){        const printersArrValue: PrinterImpl[] = []; this.printers?.forEach(element => {printersArrValue.push(new PrinterImpl(element));});
+        if(this.printers && this.printers.length != 0){        const printersArrValue: PrinterImpl[] = []; this.printers?.forEach(element => {printersArrValue.push(element instanceof PrinterImpl? element : new PrinterImpl(element));});
             writer.writeCollectionOfObjectValues<PrinterImpl>("printers", printersArrValue);
         }
-        if(this.services && this.services.length != 0){        const servicesArrValue: PrintServiceImpl[] = []; this.services?.forEach(element => {servicesArrValue.push(new PrintServiceImpl(element));});
+        if(this.services && this.services.length != 0){        const servicesArrValue: PrintServiceImpl[] = []; this.services?.forEach(element => {servicesArrValue.push(element instanceof PrintServiceImpl? element : new PrintServiceImpl(element));});
             writer.writeCollectionOfObjectValues<PrintServiceImpl>("services", servicesArrValue);
         }
         if(this.settings){
             writer.writeObjectValue<PrintSettingsImpl>("settings", new PrintSettingsImpl(this.settings));
         }
-        if(this.shares && this.shares.length != 0){        const sharesArrValue: PrinterShareImpl[] = []; this.shares?.forEach(element => {sharesArrValue.push(new PrinterShareImpl(element));});
+        if(this.shares && this.shares.length != 0){        const sharesArrValue: PrinterShareImpl[] = []; this.shares?.forEach(element => {sharesArrValue.push(element instanceof PrinterShareImpl? element : new PrinterShareImpl(element));});
             writer.writeCollectionOfObjectValues<PrinterShareImpl>("shares", sharesArrValue);
         }
-        if(this.taskDefinitions && this.taskDefinitions.length != 0){        const taskDefinitionsArrValue: PrintTaskDefinitionImpl[] = []; this.taskDefinitions?.forEach(element => {taskDefinitionsArrValue.push(new PrintTaskDefinitionImpl(element));});
+        if(this.taskDefinitions && this.taskDefinitions.length != 0){        const taskDefinitionsArrValue: PrintTaskDefinitionImpl[] = []; this.taskDefinitions?.forEach(element => {taskDefinitionsArrValue.push(element instanceof PrintTaskDefinitionImpl? element : new PrintTaskDefinitionImpl(element));});
             writer.writeCollectionOfObjectValues<PrintTaskDefinitionImpl>("taskDefinitions", taskDefinitionsArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

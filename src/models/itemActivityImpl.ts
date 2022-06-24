@@ -8,7 +8,7 @@ import {AccessActionImpl, DriveItemImpl, EntityImpl, IdentitySetImpl} from './in
 import {ItemActivity} from './itemActivity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the collection of application entities. */
 export class ItemActivityImpl extends EntityImpl implements ItemActivity {
     /** An item was accessed. */
     public access?: AccessAction | undefined;
@@ -24,10 +24,10 @@ export class ItemActivityImpl extends EntityImpl implements ItemActivity {
      */
     public constructor(itemActivityParameterValue?: ItemActivity | undefined) {
         super(itemActivityParameterValue);
-        this.access = itemActivityParameterValue?.access;
+        this.access = itemActivityParameterValue?.access instanceof AccessActionImpl? itemActivityParameterValue?.access:new AccessActionImpl(itemActivityParameterValue?.access);
         this.activityDateTime = itemActivityParameterValue?.activityDateTime;
-        this.actor = itemActivityParameterValue?.actor;
-        this.driveItem = itemActivityParameterValue?.driveItem;
+        this.actor = itemActivityParameterValue?.actor instanceof IdentitySetImpl? itemActivityParameterValue?.actor:new IdentitySetImpl(itemActivityParameterValue?.actor);
+        this.driveItem = itemActivityParameterValue?.driveItem instanceof DriveItemImpl? itemActivityParameterValue?.driveItem:new DriveItemImpl(itemActivityParameterValue?.driveItem);
     };
     /**
      * The deserialization information for the current model

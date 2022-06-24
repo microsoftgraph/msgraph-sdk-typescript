@@ -18,7 +18,8 @@ export class TeamsAppDefinitionCollectionResponseImpl implements TeamsAppDefinit
     public constructor(teamsAppDefinitionCollectionResponseParameterValue?: TeamsAppDefinitionCollectionResponse | undefined) {
         this.additionalData = teamsAppDefinitionCollectionResponseParameterValue?.additionalData ? teamsAppDefinitionCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = teamsAppDefinitionCollectionResponseParameterValue?.nextLink;
-        this.value = teamsAppDefinitionCollectionResponseParameterValue?.value;
+        const valueArrValue: TeamsAppDefinitionImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof TeamsAppDefinitionImpl? element : new TeamsAppDefinitionImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -39,7 +40,7 @@ export class TeamsAppDefinitionCollectionResponseImpl implements TeamsAppDefinit
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: TeamsAppDefinitionImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new TeamsAppDefinitionImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: TeamsAppDefinitionImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof TeamsAppDefinitionImpl? element : new TeamsAppDefinitionImpl(element));});
             writer.writeCollectionOfObjectValues<TeamsAppDefinitionImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

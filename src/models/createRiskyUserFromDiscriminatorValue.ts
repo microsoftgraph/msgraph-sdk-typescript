@@ -1,4 +1,4 @@
-import {RiskyUserImpl} from './index';
+import {RiskyUserHistoryItemImpl, RiskyUserImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
 export function createRiskyUserFromDiscriminatorValue(parseNode: ParseNode | undefined) : RiskyUserImpl {
@@ -8,8 +8,8 @@ export function createRiskyUserFromDiscriminatorValue(parseNode: ParseNode | und
         const mappingValue = mappingValueNode.getStringValue();
         if (mappingValue) {
             switch (mappingValue) {
-                case "#microsoft.graph.riskyUser":
-                    return new RiskyUserImpl();
+                case "#microsoft.graph.riskyUserHistoryItem":
+                    return new RiskyUserHistoryItemImpl();
             }
         }
     }

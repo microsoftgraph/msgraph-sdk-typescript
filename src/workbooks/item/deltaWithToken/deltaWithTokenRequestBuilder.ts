@@ -1,3 +1,5 @@
+import {ODataErrorImpl} from '../../../models/oDataErrors/';
+import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {createDeltaWithTokenResponseFromDiscriminatorValue} from './createDeltaWithTokenResponseFromDiscriminatorValue';
 import {DeltaWithTokenRequestBuilderGetRequestConfiguration} from './deltaWithTokenRequestBuilderGetRequestConfiguration';
 import {DeltaWithTokenResponseImpl} from './index';
@@ -53,6 +55,10 @@ export class DeltaWithTokenRequestBuilder {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
-        return this.requestAdapter?.sendAsync<DeltaWithTokenResponseImpl>(requestInfo, createDeltaWithTokenResponseFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<DeltaWithTokenResponseImpl>(requestInfo, createDeltaWithTokenResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

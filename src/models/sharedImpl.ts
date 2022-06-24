@@ -21,9 +21,9 @@ export class SharedImpl implements Shared {
      */
     public constructor(sharedParameterValue?: Shared | undefined) {
         this.additionalData = sharedParameterValue?.additionalData ? sharedParameterValue?.additionalData! : {};
-        this.owner = sharedParameterValue?.owner;
+        this.owner = sharedParameterValue?.owner instanceof IdentitySetImpl? sharedParameterValue?.owner:new IdentitySetImpl(sharedParameterValue?.owner);
         this.scope = sharedParameterValue?.scope;
-        this.sharedBy = sharedParameterValue?.sharedBy;
+        this.sharedBy = sharedParameterValue?.sharedBy instanceof IdentitySetImpl? sharedParameterValue?.sharedBy:new IdentitySetImpl(sharedParameterValue?.sharedBy);
         this.sharedDateTime = sharedParameterValue?.sharedDateTime;
     };
     /**

@@ -18,7 +18,8 @@ export class ConversationThreadCollectionResponseImpl implements ConversationThr
     public constructor(conversationThreadCollectionResponseParameterValue?: ConversationThreadCollectionResponse | undefined) {
         this.additionalData = conversationThreadCollectionResponseParameterValue?.additionalData ? conversationThreadCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = conversationThreadCollectionResponseParameterValue?.nextLink;
-        this.value = conversationThreadCollectionResponseParameterValue?.value;
+        const valueArrValue: ConversationThreadImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ConversationThreadImpl? element : new ConversationThreadImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -39,7 +40,7 @@ export class ConversationThreadCollectionResponseImpl implements ConversationThr
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: ConversationThreadImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ConversationThreadImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: ConversationThreadImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ConversationThreadImpl? element : new ConversationThreadImpl(element));});
             writer.writeCollectionOfObjectValues<ConversationThreadImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

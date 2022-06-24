@@ -16,7 +16,8 @@ export class QueryResponseImpl implements QueryResponse {
      */
     public constructor(queryResponseParameterValue?: QueryResponse | undefined) {
         this.additionalData = queryResponseParameterValue?.additionalData ? queryResponseParameterValue?.additionalData! : {};
-        this.value = queryResponseParameterValue?.value;
+        const valueArrValue: SearchResponseImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof SearchResponseImpl? element : new SearchResponseImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -33,7 +34,7 @@ export class QueryResponseImpl implements QueryResponse {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        if(this.value && this.value.length != 0){        const valueArrValue: SearchResponseImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new SearchResponseImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: SearchResponseImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof SearchResponseImpl? element : new SearchResponseImpl(element));});
             writer.writeCollectionOfObjectValues<SearchResponseImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

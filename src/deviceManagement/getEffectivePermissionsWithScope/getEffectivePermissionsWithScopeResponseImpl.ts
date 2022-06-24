@@ -16,7 +16,8 @@ export class GetEffectivePermissionsWithScopeResponseImpl implements GetEffectiv
      */
     public constructor(getEffectivePermissionsWithScopeResponseParameterValue?: GetEffectivePermissionsWithScopeResponse | undefined) {
         this.additionalData = getEffectivePermissionsWithScopeResponseParameterValue?.additionalData ? getEffectivePermissionsWithScopeResponseParameterValue?.additionalData! : {};
-        this.value = getEffectivePermissionsWithScopeResponseParameterValue?.value;
+        const valueArrValue: RolePermissionImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof RolePermissionImpl? element : new RolePermissionImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -33,7 +34,7 @@ export class GetEffectivePermissionsWithScopeResponseImpl implements GetEffectiv
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        if(this.value && this.value.length != 0){        const valueArrValue: RolePermissionImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new RolePermissionImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: RolePermissionImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof RolePermissionImpl? element : new RolePermissionImpl(element));});
             writer.writeCollectionOfObjectValues<RolePermissionImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

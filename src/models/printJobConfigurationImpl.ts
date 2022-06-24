@@ -69,13 +69,14 @@ export class PrintJobConfigurationImpl implements PrintJobConfiguration {
         this.finishings = printJobConfigurationParameterValue?.finishings;
         this.fitPdfToPage = printJobConfigurationParameterValue?.fitPdfToPage;
         this.inputBin = printJobConfigurationParameterValue?.inputBin;
-        this.margin = printJobConfigurationParameterValue?.margin;
+        this.margin = printJobConfigurationParameterValue?.margin instanceof PrintMarginImpl? printJobConfigurationParameterValue?.margin:new PrintMarginImpl(printJobConfigurationParameterValue?.margin);
         this.mediaSize = printJobConfigurationParameterValue?.mediaSize;
         this.mediaType = printJobConfigurationParameterValue?.mediaType;
         this.multipageLayout = printJobConfigurationParameterValue?.multipageLayout;
         this.orientation = printJobConfigurationParameterValue?.orientation;
         this.outputBin = printJobConfigurationParameterValue?.outputBin;
-        this.pageRanges = printJobConfigurationParameterValue?.pageRanges;
+        const pageRangesArrValue: IntegerRangeImpl[] = []; this.pageRanges?.forEach(element => {pageRangesArrValue.push(element instanceof IntegerRangeImpl? element : new IntegerRangeImpl(element));});
+        this.pageRanges = pageRangesArrValue;
         this.pagesPerSheet = printJobConfigurationParameterValue?.pagesPerSheet;
         this.quality = printJobConfigurationParameterValue?.quality;
         this.scaling = printJobConfigurationParameterValue?.scaling;
@@ -158,7 +159,7 @@ export class PrintJobConfigurationImpl implements PrintJobConfiguration {
         if(this.outputBin){
             writer.writeStringValue("outputBin", this.outputBin);
         }
-        if(this.pageRanges && this.pageRanges.length != 0){        const pageRangesArrValue: IntegerRangeImpl[] = []; this.pageRanges?.forEach(element => {pageRangesArrValue.push(new IntegerRangeImpl(element));});
+        if(this.pageRanges && this.pageRanges.length != 0){        const pageRangesArrValue: IntegerRangeImpl[] = []; this.pageRanges?.forEach(element => {pageRangesArrValue.push(element instanceof IntegerRangeImpl? element : new IntegerRangeImpl(element));});
             writer.writeCollectionOfObjectValues<IntegerRangeImpl>("pageRanges", pageRangesArrValue);
         }
         if(this.pagesPerSheet){

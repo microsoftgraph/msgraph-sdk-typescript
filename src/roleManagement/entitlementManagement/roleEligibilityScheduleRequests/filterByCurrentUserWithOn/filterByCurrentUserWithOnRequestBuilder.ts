@@ -1,3 +1,5 @@
+import {ODataErrorImpl} from '../../../../models/oDataErrors/';
+import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {createFilterByCurrentUserWithOnResponseFromDiscriminatorValue} from './createFilterByCurrentUserWithOnResponseFromDiscriminatorValue';
 import {FilterByCurrentUserWithOnRequestBuilderGetRequestConfiguration} from './filterByCurrentUserWithOnRequestBuilderGetRequestConfiguration';
 import {FilterByCurrentUserWithOnResponseImpl} from './index';
@@ -53,6 +55,10 @@ export class FilterByCurrentUserWithOnRequestBuilder {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
-        return this.requestAdapter?.sendAsync<FilterByCurrentUserWithOnResponseImpl>(requestInfo, createFilterByCurrentUserWithOnResponseFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<FilterByCurrentUserWithOnResponseImpl>(requestInfo, createFilterByCurrentUserWithOnResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

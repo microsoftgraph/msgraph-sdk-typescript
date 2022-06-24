@@ -1,4 +1,4 @@
-/** Provides operations to manage the collection of domain entities. */
+/** Provides operations to manage the directory singleton. */
 export enum AuthenticationProtocol {
     WsFed = "wsFed",
     Saml = "saml",

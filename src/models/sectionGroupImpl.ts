@@ -7,7 +7,7 @@ import {OnenoteSection} from './onenoteSection';
 import {SectionGroup} from './sectionGroup';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Casts the previous resource to group. */
 export class SectionGroupImpl extends OnenoteEntityHierarchyModelImpl implements SectionGroup {
     /** The notebook that contains the section group. Read-only. */
     public parentNotebook?: Notebook | undefined;
@@ -27,11 +27,13 @@ export class SectionGroupImpl extends OnenoteEntityHierarchyModelImpl implements
      */
     public constructor(sectionGroupParameterValue?: SectionGroup | undefined) {
         super(sectionGroupParameterValue);
-        this.parentNotebook = sectionGroupParameterValue?.parentNotebook;
-        this.parentSectionGroup = sectionGroupParameterValue?.parentSectionGroup;
-        this.sectionGroups = sectionGroupParameterValue?.sectionGroups;
+        this.parentNotebook = sectionGroupParameterValue?.parentNotebook instanceof NotebookImpl? sectionGroupParameterValue?.parentNotebook:new NotebookImpl(sectionGroupParameterValue?.parentNotebook);
+        this.parentSectionGroup = sectionGroupParameterValue?.parentSectionGroup instanceof SectionGroupImpl? sectionGroupParameterValue?.parentSectionGroup:new SectionGroupImpl(sectionGroupParameterValue?.parentSectionGroup);
+        const sectionGroupsArrValue: SectionGroupImpl[] = []; this.sectionGroups?.forEach(element => {sectionGroupsArrValue.push(element instanceof SectionGroupImpl? element : new SectionGroupImpl(element));});
+        this.sectionGroups = sectionGroupsArrValue;
         this.sectionGroupsUrl = sectionGroupParameterValue?.sectionGroupsUrl;
-        this.sections = sectionGroupParameterValue?.sections;
+        const sectionsArrValue: OnenoteSectionImpl[] = []; this.sections?.forEach(element => {sectionsArrValue.push(element instanceof OnenoteSectionImpl? element : new OnenoteSectionImpl(element));});
+        this.sections = sectionsArrValue;
         this.sectionsUrl = sectionGroupParameterValue?.sectionsUrl;
     };
     /**
@@ -61,13 +63,13 @@ export class SectionGroupImpl extends OnenoteEntityHierarchyModelImpl implements
         if(this.parentSectionGroup){
             writer.writeObjectValue<SectionGroupImpl>("parentSectionGroup", new SectionGroupImpl(this.parentSectionGroup));
         }
-        if(this.sectionGroups && this.sectionGroups.length != 0){        const sectionGroupsArrValue: SectionGroupImpl[] = []; this.sectionGroups?.forEach(element => {sectionGroupsArrValue.push(new SectionGroupImpl(element));});
+        if(this.sectionGroups && this.sectionGroups.length != 0){        const sectionGroupsArrValue: SectionGroupImpl[] = []; this.sectionGroups?.forEach(element => {sectionGroupsArrValue.push(element instanceof SectionGroupImpl? element : new SectionGroupImpl(element));});
             writer.writeCollectionOfObjectValues<SectionGroupImpl>("sectionGroups", sectionGroupsArrValue);
         }
         if(this.sectionGroupsUrl){
             writer.writeStringValue("sectionGroupsUrl", this.sectionGroupsUrl);
         }
-        if(this.sections && this.sections.length != 0){        const sectionsArrValue: OnenoteSectionImpl[] = []; this.sections?.forEach(element => {sectionsArrValue.push(new OnenoteSectionImpl(element));});
+        if(this.sections && this.sections.length != 0){        const sectionsArrValue: OnenoteSectionImpl[] = []; this.sections?.forEach(element => {sectionsArrValue.push(element instanceof OnenoteSectionImpl? element : new OnenoteSectionImpl(element));});
             writer.writeCollectionOfObjectValues<OnenoteSectionImpl>("sections", sectionsArrValue);
         }
         if(this.sectionsUrl){

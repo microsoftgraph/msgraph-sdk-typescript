@@ -1,4 +1,4 @@
-import {ManagedDeviceMobileAppConfigurationImpl} from './index';
+import {IosMobileAppConfigurationImpl, ManagedDeviceMobileAppConfigurationImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
 export function createManagedDeviceMobileAppConfigurationFromDiscriminatorValue(parseNode: ParseNode | undefined) : ManagedDeviceMobileAppConfigurationImpl {
@@ -8,8 +8,8 @@ export function createManagedDeviceMobileAppConfigurationFromDiscriminatorValue(
         const mappingValue = mappingValueNode.getStringValue();
         if (mappingValue) {
             switch (mappingValue) {
-                case "#microsoft.graph.managedDeviceMobileAppConfiguration":
-                    return new ManagedDeviceMobileAppConfigurationImpl();
+                case "#microsoft.graph.iosMobileAppConfiguration":
+                    return new IosMobileAppConfigurationImpl();
             }
         }
     }

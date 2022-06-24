@@ -7,6 +7,7 @@ import {Place} from '../models/place';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {PlacesRequestBuilderGetRequestConfiguration} from './placesRequestBuilderGetRequestConfiguration';
 import {PlacesRequestBuilderPostRequestConfiguration} from './placesRequestBuilderPostRequestConfiguration';
+import {RoomRequestBuilder} from './room/roomRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the collection of place entities. */
@@ -19,6 +20,10 @@ export class PlacesRequestBuilder {
     private readonly pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
+    /** The room property */
+    public get room(): RoomRequestBuilder {
+        return new RoomRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**

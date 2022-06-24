@@ -17,8 +17,8 @@ export class RecentNotebookLinksImpl implements RecentNotebookLinks {
      */
     public constructor(recentNotebookLinksParameterValue?: RecentNotebookLinks | undefined) {
         this.additionalData = recentNotebookLinksParameterValue?.additionalData ? recentNotebookLinksParameterValue?.additionalData! : {};
-        this.oneNoteClientUrl = recentNotebookLinksParameterValue?.oneNoteClientUrl;
-        this.oneNoteWebUrl = recentNotebookLinksParameterValue?.oneNoteWebUrl;
+        this.oneNoteClientUrl = recentNotebookLinksParameterValue?.oneNoteClientUrl instanceof ExternalLinkImpl? recentNotebookLinksParameterValue?.oneNoteClientUrl:new ExternalLinkImpl(recentNotebookLinksParameterValue?.oneNoteClientUrl);
+        this.oneNoteWebUrl = recentNotebookLinksParameterValue?.oneNoteWebUrl instanceof ExternalLinkImpl? recentNotebookLinksParameterValue?.oneNoteWebUrl:new ExternalLinkImpl(recentNotebookLinksParameterValue?.oneNoteWebUrl);
     };
     /**
      * The deserialization information for the current model

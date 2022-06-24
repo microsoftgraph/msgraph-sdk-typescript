@@ -6,7 +6,7 @@ import {EntityImpl, IdentitySetImpl, PublicationFacetImpl} from './index';
 import {PublicationFacet} from './publicationFacet';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to group. */
+/** Provides operations to manage the collection of application entities. */
 export class BaseItemVersionImpl extends EntityImpl implements BaseItemVersion {
     /** Identity of the user which last modified the version. Read-only. */
     public lastModifiedBy?: IdentitySet | undefined;
@@ -20,9 +20,9 @@ export class BaseItemVersionImpl extends EntityImpl implements BaseItemVersion {
      */
     public constructor(baseItemVersionParameterValue?: BaseItemVersion | undefined) {
         super(baseItemVersionParameterValue);
-        this.lastModifiedBy = baseItemVersionParameterValue?.lastModifiedBy;
+        this.lastModifiedBy = baseItemVersionParameterValue?.lastModifiedBy instanceof IdentitySetImpl? baseItemVersionParameterValue?.lastModifiedBy:new IdentitySetImpl(baseItemVersionParameterValue?.lastModifiedBy);
         this.lastModifiedDateTime = baseItemVersionParameterValue?.lastModifiedDateTime;
-        this.publication = baseItemVersionParameterValue?.publication;
+        this.publication = baseItemVersionParameterValue?.publication instanceof PublicationFacetImpl? baseItemVersionParameterValue?.publication:new PublicationFacetImpl(baseItemVersionParameterValue?.publication);
     };
     /**
      * The deserialization information for the current model

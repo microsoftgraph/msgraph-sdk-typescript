@@ -49,18 +49,19 @@ export class AccessPackageAssignmentPolicyImpl extends EntityImpl implements Acc
      */
     public constructor(accessPackageAssignmentPolicyParameterValue?: AccessPackageAssignmentPolicy | undefined) {
         super(accessPackageAssignmentPolicyParameterValue);
-        this.accessPackage = accessPackageAssignmentPolicyParameterValue?.accessPackage;
+        this.accessPackage = accessPackageAssignmentPolicyParameterValue?.accessPackage instanceof AccessPackageImpl? accessPackageAssignmentPolicyParameterValue?.accessPackage:new AccessPackageImpl(accessPackageAssignmentPolicyParameterValue?.accessPackage);
         this.allowedTargetScope = accessPackageAssignmentPolicyParameterValue?.allowedTargetScope;
-        this.catalog = accessPackageAssignmentPolicyParameterValue?.catalog;
+        this.catalog = accessPackageAssignmentPolicyParameterValue?.catalog instanceof AccessPackageCatalogImpl? accessPackageAssignmentPolicyParameterValue?.catalog:new AccessPackageCatalogImpl(accessPackageAssignmentPolicyParameterValue?.catalog);
         this.createdDateTime = accessPackageAssignmentPolicyParameterValue?.createdDateTime;
         this.description = accessPackageAssignmentPolicyParameterValue?.description;
         this.displayName = accessPackageAssignmentPolicyParameterValue?.displayName;
-        this.expiration = accessPackageAssignmentPolicyParameterValue?.expiration;
+        this.expiration = accessPackageAssignmentPolicyParameterValue?.expiration instanceof ExpirationPatternImpl? accessPackageAssignmentPolicyParameterValue?.expiration:new ExpirationPatternImpl(accessPackageAssignmentPolicyParameterValue?.expiration);
         this.modifiedDateTime = accessPackageAssignmentPolicyParameterValue?.modifiedDateTime;
-        this.requestApprovalSettings = accessPackageAssignmentPolicyParameterValue?.requestApprovalSettings;
-        this.requestorSettings = accessPackageAssignmentPolicyParameterValue?.requestorSettings;
-        this.reviewSettings = accessPackageAssignmentPolicyParameterValue?.reviewSettings;
-        this.specificAllowedTargets = accessPackageAssignmentPolicyParameterValue?.specificAllowedTargets;
+        this.requestApprovalSettings = accessPackageAssignmentPolicyParameterValue?.requestApprovalSettings instanceof AccessPackageAssignmentApprovalSettingsImpl? accessPackageAssignmentPolicyParameterValue?.requestApprovalSettings:new AccessPackageAssignmentApprovalSettingsImpl(accessPackageAssignmentPolicyParameterValue?.requestApprovalSettings);
+        this.requestorSettings = accessPackageAssignmentPolicyParameterValue?.requestorSettings instanceof AccessPackageAssignmentRequestorSettingsImpl? accessPackageAssignmentPolicyParameterValue?.requestorSettings:new AccessPackageAssignmentRequestorSettingsImpl(accessPackageAssignmentPolicyParameterValue?.requestorSettings);
+        this.reviewSettings = accessPackageAssignmentPolicyParameterValue?.reviewSettings instanceof AccessPackageAssignmentReviewSettingsImpl? accessPackageAssignmentPolicyParameterValue?.reviewSettings:new AccessPackageAssignmentReviewSettingsImpl(accessPackageAssignmentPolicyParameterValue?.reviewSettings);
+        const specificAllowedTargetsArrValue: SubjectSetImpl[] = []; this.specificAllowedTargets?.forEach(element => {specificAllowedTargetsArrValue.push(element instanceof SubjectSetImpl? element : new SubjectSetImpl(element));});
+        this.specificAllowedTargets = specificAllowedTargetsArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -122,7 +123,7 @@ export class AccessPackageAssignmentPolicyImpl extends EntityImpl implements Acc
         if(this.reviewSettings){
             writer.writeObjectValue<AccessPackageAssignmentReviewSettingsImpl>("reviewSettings", new AccessPackageAssignmentReviewSettingsImpl(this.reviewSettings));
         }
-        if(this.specificAllowedTargets && this.specificAllowedTargets.length != 0){        const specificAllowedTargetsArrValue: SubjectSetImpl[] = []; this.specificAllowedTargets?.forEach(element => {specificAllowedTargetsArrValue.push(new SubjectSetImpl(element));});
+        if(this.specificAllowedTargets && this.specificAllowedTargets.length != 0){        const specificAllowedTargetsArrValue: SubjectSetImpl[] = []; this.specificAllowedTargets?.forEach(element => {specificAllowedTargetsArrValue.push(element instanceof SubjectSetImpl? element : new SubjectSetImpl(element));});
             writer.writeCollectionOfObjectValues<SubjectSetImpl>("specificAllowedTargets", specificAllowedTargetsArrValue);
         }
     };

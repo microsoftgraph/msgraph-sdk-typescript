@@ -48,16 +48,16 @@ export class IntuneBrandImpl implements IntuneBrand {
         this.contactITName = intuneBrandParameterValue?.contactITName;
         this.contactITNotes = intuneBrandParameterValue?.contactITNotes;
         this.contactITPhoneNumber = intuneBrandParameterValue?.contactITPhoneNumber;
-        this.darkBackgroundLogo = intuneBrandParameterValue?.darkBackgroundLogo;
+        this.darkBackgroundLogo = intuneBrandParameterValue?.darkBackgroundLogo instanceof MimeContentImpl? intuneBrandParameterValue?.darkBackgroundLogo:new MimeContentImpl(intuneBrandParameterValue?.darkBackgroundLogo);
         this.displayName = intuneBrandParameterValue?.displayName;
-        this.lightBackgroundLogo = intuneBrandParameterValue?.lightBackgroundLogo;
+        this.lightBackgroundLogo = intuneBrandParameterValue?.lightBackgroundLogo instanceof MimeContentImpl? intuneBrandParameterValue?.lightBackgroundLogo:new MimeContentImpl(intuneBrandParameterValue?.lightBackgroundLogo);
         this.onlineSupportSiteName = intuneBrandParameterValue?.onlineSupportSiteName;
         this.onlineSupportSiteUrl = intuneBrandParameterValue?.onlineSupportSiteUrl;
         this.privacyUrl = intuneBrandParameterValue?.privacyUrl;
         this.showDisplayNameNextToLogo = intuneBrandParameterValue?.showDisplayNameNextToLogo;
         this.showLogo = intuneBrandParameterValue?.showLogo;
         this.showNameNextToLogo = intuneBrandParameterValue?.showNameNextToLogo;
-        this.themeColor = intuneBrandParameterValue?.themeColor;
+        this.themeColor = intuneBrandParameterValue?.themeColor instanceof RgbColorImpl? intuneBrandParameterValue?.themeColor:new RgbColorImpl(intuneBrandParameterValue?.themeColor);
     };
     /**
      * The deserialization information for the current model

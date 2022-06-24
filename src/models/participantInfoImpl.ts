@@ -28,7 +28,7 @@ export class ParticipantInfoImpl implements ParticipantInfo {
         this.additionalData = participantInfoParameterValue?.additionalData ? participantInfoParameterValue?.additionalData! : {};
         this.countryCode = participantInfoParameterValue?.countryCode;
         this.endpointType = participantInfoParameterValue?.endpointType;
-        this.identity = participantInfoParameterValue?.identity;
+        this.identity = participantInfoParameterValue?.identity instanceof IdentitySetImpl? participantInfoParameterValue?.identity:new IdentitySetImpl(participantInfoParameterValue?.identity);
         this.languageId = participantInfoParameterValue?.languageId;
         this.participantId = participantInfoParameterValue?.participantId;
         this.region = participantInfoParameterValue?.region;

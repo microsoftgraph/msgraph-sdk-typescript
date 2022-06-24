@@ -18,7 +18,8 @@ export class AgreementAcceptanceCollectionResponseImpl implements AgreementAccep
     public constructor(agreementAcceptanceCollectionResponseParameterValue?: AgreementAcceptanceCollectionResponse | undefined) {
         this.additionalData = agreementAcceptanceCollectionResponseParameterValue?.additionalData ? agreementAcceptanceCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = agreementAcceptanceCollectionResponseParameterValue?.nextLink;
-        this.value = agreementAcceptanceCollectionResponseParameterValue?.value;
+        const valueArrValue: AgreementAcceptanceImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof AgreementAcceptanceImpl? element : new AgreementAcceptanceImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -39,7 +40,7 @@ export class AgreementAcceptanceCollectionResponseImpl implements AgreementAccep
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: AgreementAcceptanceImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new AgreementAcceptanceImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: AgreementAcceptanceImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof AgreementAcceptanceImpl? element : new AgreementAcceptanceImpl(element));});
             writer.writeCollectionOfObjectValues<AgreementAcceptanceImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

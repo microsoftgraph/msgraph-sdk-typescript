@@ -18,7 +18,8 @@ export class AttendanceRecordCollectionResponseImpl implements AttendanceRecordC
     public constructor(attendanceRecordCollectionResponseParameterValue?: AttendanceRecordCollectionResponse | undefined) {
         this.additionalData = attendanceRecordCollectionResponseParameterValue?.additionalData ? attendanceRecordCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = attendanceRecordCollectionResponseParameterValue?.nextLink;
-        this.value = attendanceRecordCollectionResponseParameterValue?.value;
+        const valueArrValue: AttendanceRecordImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof AttendanceRecordImpl? element : new AttendanceRecordImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -39,7 +40,7 @@ export class AttendanceRecordCollectionResponseImpl implements AttendanceRecordC
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: AttendanceRecordImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new AttendanceRecordImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: AttendanceRecordImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof AttendanceRecordImpl? element : new AttendanceRecordImpl(element));});
             writer.writeCollectionOfObjectValues<AttendanceRecordImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

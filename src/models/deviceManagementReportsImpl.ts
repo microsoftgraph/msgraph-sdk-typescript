@@ -14,7 +14,8 @@ export class DeviceManagementReportsImpl extends EntityImpl implements DeviceMan
      */
     public constructor(deviceManagementReportsParameterValue?: DeviceManagementReports | undefined) {
         super(deviceManagementReportsParameterValue);
-        this.exportJobs = deviceManagementReportsParameterValue?.exportJobs;
+        const exportJobsArrValue: DeviceManagementExportJobImpl[] = []; this.exportJobs?.forEach(element => {exportJobsArrValue.push(element instanceof DeviceManagementExportJobImpl? element : new DeviceManagementExportJobImpl(element));});
+        this.exportJobs = exportJobsArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -32,7 +33,7 @@ export class DeviceManagementReportsImpl extends EntityImpl implements DeviceMan
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.exportJobs && this.exportJobs.length != 0){        const exportJobsArrValue: DeviceManagementExportJobImpl[] = []; this.exportJobs?.forEach(element => {exportJobsArrValue.push(new DeviceManagementExportJobImpl(element));});
+        if(this.exportJobs && this.exportJobs.length != 0){        const exportJobsArrValue: DeviceManagementExportJobImpl[] = []; this.exportJobs?.forEach(element => {exportJobsArrValue.push(element instanceof DeviceManagementExportJobImpl? element : new DeviceManagementExportJobImpl(element));});
             writer.writeCollectionOfObjectValues<DeviceManagementExportJobImpl>("exportJobs", exportJobsArrValue);
         }
     };

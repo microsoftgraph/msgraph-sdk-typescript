@@ -1,5 +1,7 @@
 import {StartHoldMusicOperationImpl} from '../../../../../../models/';
 import {createStartHoldMusicOperationFromDiscriminatorValue} from '../../../../../../models/createStartHoldMusicOperationFromDiscriminatorValue';
+import {ODataErrorImpl} from '../../../../../../models/oDataErrors/';
+import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {StartHoldMusicPostRequestBodyImpl} from './index';
 import {StartHoldMusicPostRequestBody} from './startHoldMusicPostRequestBody';
 import {StartHoldMusicRequestBuilderPostRequestConfiguration} from './startHoldMusicRequestBuilderPostRequestConfiguration';
@@ -59,6 +61,10 @@ export class StartHoldMusicRequestBuilder {
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration
         );
-        return this.requestAdapter?.sendAsync<StartHoldMusicOperationImpl>(requestInfo, createStartHoldMusicOperationFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<StartHoldMusicOperationImpl>(requestInfo, createStartHoldMusicOperationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

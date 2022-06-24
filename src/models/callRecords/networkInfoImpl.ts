@@ -1,5 +1,9 @@
+import {createTraceRouteHopFromDiscriminatorValue} from './createTraceRouteHopFromDiscriminatorValue';
+import {TraceRouteHopImpl} from './index';
 import {NetworkConnectionType} from './networkConnectionType';
 import {NetworkInfo} from './networkInfo';
+import {NetworkTransportProtocol} from './networkTransportProtocol';
+import {TraceRouteHop} from './traceRouteHop';
 import {WifiBand} from './wifiBand';
 import {WifiRadioType} from './wifiRadioType';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
@@ -23,6 +27,8 @@ export class NetworkInfoImpl implements NetworkInfo {
     public linkSpeed?: number | undefined;
     /** The media access control (MAC) address of the media endpoint's network device. */
     public macAddress?: string | undefined;
+    /** Network protocol used for the transmission of stream. Possible values are: unknown, udp, tcp, unknownFutureValue. */
+    public networkTransportProtocol?: NetworkTransportProtocol | undefined;
     /** Network port number used by media endpoint. */
     public port?: number | undefined;
     /** Fraction of the call that the media endpoint detected the network was causing poor quality of the audio received. */
@@ -37,6 +43,8 @@ export class NetworkInfoImpl implements NetworkInfo {
     public sentQualityEventRatio?: number | undefined;
     /** Subnet used for media stream by the media endpoint. */
     public subnet?: string | undefined;
+    /** List of network trace route hops collected for this media stream. */
+    public traceRouteHops?: TraceRouteHop[] | undefined;
     /** WiFi band used by the media endpoint. Possible values are: unknown, frequency24GHz, frequency50GHz, frequency60GHz, unknownFutureValue. */
     public wifiBand?: WifiBand | undefined;
     /** Estimated remaining battery charge in percentage reported by the media endpoint. */
@@ -69,6 +77,7 @@ export class NetworkInfoImpl implements NetworkInfo {
         this.ipAddress = networkInfoParameterValue?.ipAddress;
         this.linkSpeed = networkInfoParameterValue?.linkSpeed;
         this.macAddress = networkInfoParameterValue?.macAddress;
+        this.networkTransportProtocol = networkInfoParameterValue?.networkTransportProtocol;
         this.port = networkInfoParameterValue?.port;
         this.receivedQualityEventRatio = networkInfoParameterValue?.receivedQualityEventRatio;
         this.reflexiveIPAddress = networkInfoParameterValue?.reflexiveIPAddress;
@@ -76,6 +85,8 @@ export class NetworkInfoImpl implements NetworkInfo {
         this.relayPort = networkInfoParameterValue?.relayPort;
         this.sentQualityEventRatio = networkInfoParameterValue?.sentQualityEventRatio;
         this.subnet = networkInfoParameterValue?.subnet;
+        const traceRouteHopsArrValue: TraceRouteHopImpl[] = []; this.traceRouteHops?.forEach(element => {traceRouteHopsArrValue.push(element instanceof TraceRouteHopImpl? element : new TraceRouteHopImpl(element));});
+        this.traceRouteHops = traceRouteHopsArrValue;
         this.wifiBand = networkInfoParameterValue?.wifiBand;
         this.wifiBatteryCharge = networkInfoParameterValue?.wifiBatteryCharge;
         this.wifiChannel = networkInfoParameterValue?.wifiChannel;
@@ -100,6 +111,7 @@ export class NetworkInfoImpl implements NetworkInfo {
             "ipAddress": n => { this.ipAddress = n.getStringValue(); },
             "linkSpeed": n => { this.linkSpeed = n.getNumberValue(); },
             "macAddress": n => { this.macAddress = n.getStringValue(); },
+            "networkTransportProtocol": n => { this.networkTransportProtocol = n.getEnumValue<NetworkTransportProtocol>(NetworkTransportProtocol); },
             "port": n => { this.port = n.getNumberValue(); },
             "receivedQualityEventRatio": n => { this.receivedQualityEventRatio = n.getNumberValue(); },
             "reflexiveIPAddress": n => { this.reflexiveIPAddress = n.getStringValue(); },
@@ -107,6 +119,7 @@ export class NetworkInfoImpl implements NetworkInfo {
             "relayPort": n => { this.relayPort = n.getNumberValue(); },
             "sentQualityEventRatio": n => { this.sentQualityEventRatio = n.getNumberValue(); },
             "subnet": n => { this.subnet = n.getStringValue(); },
+            "traceRouteHops": n => { this.traceRouteHops = n.getCollectionOfObjectValues<TraceRouteHopImpl>(createTraceRouteHopFromDiscriminatorValue); },
             "wifiBand": n => { this.wifiBand = n.getEnumValue<WifiBand>(WifiBand); },
             "wifiBatteryCharge": n => { this.wifiBatteryCharge = n.getNumberValue(); },
             "wifiChannel": n => { this.wifiChannel = n.getNumberValue(); },
@@ -148,6 +161,9 @@ export class NetworkInfoImpl implements NetworkInfo {
         if(this.macAddress){
             writer.writeStringValue("macAddress", this.macAddress);
         }
+        if(this.networkTransportProtocol){
+            writer.writeEnumValue<NetworkTransportProtocol>("networkTransportProtocol", this.networkTransportProtocol);
+        }
         if(this.port){
             writer.writeNumberValue("port", this.port);
         }
@@ -168,6 +184,9 @@ export class NetworkInfoImpl implements NetworkInfo {
         }
         if(this.subnet){
             writer.writeStringValue("subnet", this.subnet);
+        }
+        if(this.traceRouteHops && this.traceRouteHops.length != 0){        const traceRouteHopsArrValue: TraceRouteHopImpl[] = []; this.traceRouteHops?.forEach(element => {traceRouteHopsArrValue.push(element instanceof TraceRouteHopImpl? element : new TraceRouteHopImpl(element));});
+            writer.writeCollectionOfObjectValues<TraceRouteHopImpl>("traceRouteHops", traceRouteHopsArrValue);
         }
         if(this.wifiBand){
             writer.writeEnumValue<WifiBand>("wifiBand", this.wifiBand);

@@ -18,7 +18,8 @@ export class TeamsAsyncOperationCollectionResponseImpl implements TeamsAsyncOper
     public constructor(teamsAsyncOperationCollectionResponseParameterValue?: TeamsAsyncOperationCollectionResponse | undefined) {
         this.additionalData = teamsAsyncOperationCollectionResponseParameterValue?.additionalData ? teamsAsyncOperationCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = teamsAsyncOperationCollectionResponseParameterValue?.nextLink;
-        this.value = teamsAsyncOperationCollectionResponseParameterValue?.value;
+        const valueArrValue: TeamsAsyncOperationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof TeamsAsyncOperationImpl? element : new TeamsAsyncOperationImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -39,7 +40,7 @@ export class TeamsAsyncOperationCollectionResponseImpl implements TeamsAsyncOper
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: TeamsAsyncOperationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new TeamsAsyncOperationImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: TeamsAsyncOperationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof TeamsAsyncOperationImpl? element : new TeamsAsyncOperationImpl(element));});
             writer.writeCollectionOfObjectValues<TeamsAsyncOperationImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

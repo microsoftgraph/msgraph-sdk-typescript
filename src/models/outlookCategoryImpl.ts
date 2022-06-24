@@ -3,7 +3,7 @@ import {EntityImpl} from './index';
 import {OutlookCategory} from './outlookCategory';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the collection of application entities. */
 export class OutlookCategoryImpl extends EntityImpl implements OutlookCategory {
     /** A pre-set color constant that characterizes a category, and that is mapped to one of 25 predefined colors. See the note below. */
     public color?: CategoryColor | undefined;

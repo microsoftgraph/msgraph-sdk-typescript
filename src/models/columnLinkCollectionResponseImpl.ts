@@ -18,7 +18,8 @@ export class ColumnLinkCollectionResponseImpl implements ColumnLinkCollectionRes
     public constructor(columnLinkCollectionResponseParameterValue?: ColumnLinkCollectionResponse | undefined) {
         this.additionalData = columnLinkCollectionResponseParameterValue?.additionalData ? columnLinkCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = columnLinkCollectionResponseParameterValue?.nextLink;
-        this.value = columnLinkCollectionResponseParameterValue?.value;
+        const valueArrValue: ColumnLinkImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ColumnLinkImpl? element : new ColumnLinkImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -39,7 +40,7 @@ export class ColumnLinkCollectionResponseImpl implements ColumnLinkCollectionRes
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: ColumnLinkImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ColumnLinkImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: ColumnLinkImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ColumnLinkImpl? element : new ColumnLinkImpl(element));});
             writer.writeCollectionOfObjectValues<ColumnLinkImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

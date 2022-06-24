@@ -6,26 +6,25 @@ import {UnifiedRoleAssignmentSchedule} from './unifiedRoleAssignmentSchedule';
 import {UnifiedRoleEligibilitySchedule} from './unifiedRoleEligibilitySchedule';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the roleManagement singleton. */
 export class UnifiedRoleAssignmentScheduleImpl extends UnifiedRoleScheduleBaseImpl implements UnifiedRoleAssignmentSchedule {
-    /** If the roleAssignmentSchedule is activated by a roleEligibilitySchedule, this is the link to that schedule. */
+    /** If the request is from an eligible administrator to activate a role, this parameter will show the related eligible assignment for that activation. Otherwise, it is null. Supports $expand. */
     public activatedUsing?: UnifiedRoleEligibilitySchedule | undefined;
-    /** Type of the assignment. It can either be Assigned or Activated. */
+    /** Type of the assignment which can either be Assigned or Activated. Supports $filter (eq, ne). */
     public assignmentType?: string | undefined;
-    /** Membership type of the assignment. It can either be Inherited, Direct, or Group. */
+    /** How the assignments is inherited. It can either be Inherited, Direct, or Group. It can further imply whether the unifiedRoleAssignmentSchedule can be managed by the caller. Supports $filter (eq, ne). */
     public memberType?: string | undefined;
-    /** The schedule object of the role assignment request. */
+    /** The period of the role assignment. It can represent a single occurrence or multiple recurrences. */
     public scheduleInfo?: RequestSchedule | undefined;
     /**
-     * Instantiates a new unifiedRoleAssignmentSchedule and sets the default values.
+     * Instantiates a new UnifiedRoleAssignmentSchedule and sets the default values.
      * @param unifiedRoleAssignmentScheduleParameterValue 
      */
     public constructor(unifiedRoleAssignmentScheduleParameterValue?: UnifiedRoleAssignmentSchedule | undefined) {
         super(unifiedRoleAssignmentScheduleParameterValue);
-        this.activatedUsing = unifiedRoleAssignmentScheduleParameterValue?.activatedUsing;
+        this.activatedUsing = unifiedRoleAssignmentScheduleParameterValue?.activatedUsing instanceof UnifiedRoleEligibilityScheduleImpl? unifiedRoleAssignmentScheduleParameterValue?.activatedUsing:new UnifiedRoleEligibilityScheduleImpl(unifiedRoleAssignmentScheduleParameterValue?.activatedUsing);
         this.assignmentType = unifiedRoleAssignmentScheduleParameterValue?.assignmentType;
         this.memberType = unifiedRoleAssignmentScheduleParameterValue?.memberType;
-        this.scheduleInfo = unifiedRoleAssignmentScheduleParameterValue?.scheduleInfo;
+        this.scheduleInfo = unifiedRoleAssignmentScheduleParameterValue?.scheduleInfo instanceof RequestScheduleImpl? unifiedRoleAssignmentScheduleParameterValue?.scheduleInfo:new RequestScheduleImpl(unifiedRoleAssignmentScheduleParameterValue?.scheduleInfo);
     };
     /**
      * The deserialization information for the current model

@@ -18,7 +18,8 @@ export class GroupSettingCollectionResponseImpl implements GroupSettingCollectio
     public constructor(groupSettingCollectionResponseParameterValue?: GroupSettingCollectionResponse | undefined) {
         this.additionalData = groupSettingCollectionResponseParameterValue?.additionalData ? groupSettingCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = groupSettingCollectionResponseParameterValue?.nextLink;
-        this.value = groupSettingCollectionResponseParameterValue?.value;
+        const valueArrValue: GroupSettingImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof GroupSettingImpl? element : new GroupSettingImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -39,7 +40,7 @@ export class GroupSettingCollectionResponseImpl implements GroupSettingCollectio
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: GroupSettingImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new GroupSettingImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: GroupSettingImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof GroupSettingImpl? element : new GroupSettingImpl(element));});
             writer.writeCollectionOfObjectValues<GroupSettingImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

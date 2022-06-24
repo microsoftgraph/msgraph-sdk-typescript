@@ -16,7 +16,8 @@ export class SharedWithMeResponseImpl implements SharedWithMeResponse {
      */
     public constructor(sharedWithMeResponseParameterValue?: SharedWithMeResponse | undefined) {
         this.additionalData = sharedWithMeResponseParameterValue?.additionalData ? sharedWithMeResponseParameterValue?.additionalData! : {};
-        this.value = sharedWithMeResponseParameterValue?.value;
+        const valueArrValue: DriveItemImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof DriveItemImpl? element : new DriveItemImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -33,7 +34,7 @@ export class SharedWithMeResponseImpl implements SharedWithMeResponse {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        if(this.value && this.value.length != 0){        const valueArrValue: DriveItemImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new DriveItemImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: DriveItemImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof DriveItemImpl? element : new DriveItemImpl(element));});
             writer.writeCollectionOfObjectValues<DriveItemImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

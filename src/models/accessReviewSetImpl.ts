@@ -18,8 +18,10 @@ export class AccessReviewSetImpl extends EntityImpl implements AccessReviewSet {
      */
     public constructor(accessReviewSetParameterValue?: AccessReviewSet | undefined) {
         super(accessReviewSetParameterValue);
-        this.definitions = accessReviewSetParameterValue?.definitions;
-        this.historyDefinitions = accessReviewSetParameterValue?.historyDefinitions;
+        const definitionsArrValue: AccessReviewScheduleDefinitionImpl[] = []; this.definitions?.forEach(element => {definitionsArrValue.push(element instanceof AccessReviewScheduleDefinitionImpl? element : new AccessReviewScheduleDefinitionImpl(element));});
+        this.definitions = definitionsArrValue;
+        const historyDefinitionsArrValue: AccessReviewHistoryDefinitionImpl[] = []; this.historyDefinitions?.forEach(element => {historyDefinitionsArrValue.push(element instanceof AccessReviewHistoryDefinitionImpl? element : new AccessReviewHistoryDefinitionImpl(element));});
+        this.historyDefinitions = historyDefinitionsArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -38,10 +40,10 @@ export class AccessReviewSetImpl extends EntityImpl implements AccessReviewSet {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.definitions && this.definitions.length != 0){        const definitionsArrValue: AccessReviewScheduleDefinitionImpl[] = []; this.definitions?.forEach(element => {definitionsArrValue.push(new AccessReviewScheduleDefinitionImpl(element));});
+        if(this.definitions && this.definitions.length != 0){        const definitionsArrValue: AccessReviewScheduleDefinitionImpl[] = []; this.definitions?.forEach(element => {definitionsArrValue.push(element instanceof AccessReviewScheduleDefinitionImpl? element : new AccessReviewScheduleDefinitionImpl(element));});
             writer.writeCollectionOfObjectValues<AccessReviewScheduleDefinitionImpl>("definitions", definitionsArrValue);
         }
-        if(this.historyDefinitions && this.historyDefinitions.length != 0){        const historyDefinitionsArrValue: AccessReviewHistoryDefinitionImpl[] = []; this.historyDefinitions?.forEach(element => {historyDefinitionsArrValue.push(new AccessReviewHistoryDefinitionImpl(element));});
+        if(this.historyDefinitions && this.historyDefinitions.length != 0){        const historyDefinitionsArrValue: AccessReviewHistoryDefinitionImpl[] = []; this.historyDefinitions?.forEach(element => {historyDefinitionsArrValue.push(element instanceof AccessReviewHistoryDefinitionImpl? element : new AccessReviewHistoryDefinitionImpl(element));});
             writer.writeCollectionOfObjectValues<AccessReviewHistoryDefinitionImpl>("historyDefinitions", historyDefinitionsArrValue);
         }
     };

@@ -38,15 +38,16 @@ export class PrinterBaseImpl extends EntityImpl implements PrinterBase {
      */
     public constructor(printerBaseParameterValue?: PrinterBase | undefined) {
         super(printerBaseParameterValue);
-        this.capabilities = printerBaseParameterValue?.capabilities;
-        this.defaults = printerBaseParameterValue?.defaults;
+        this.capabilities = printerBaseParameterValue?.capabilities instanceof PrinterCapabilitiesImpl? printerBaseParameterValue?.capabilities:new PrinterCapabilitiesImpl(printerBaseParameterValue?.capabilities);
+        this.defaults = printerBaseParameterValue?.defaults instanceof PrinterDefaultsImpl? printerBaseParameterValue?.defaults:new PrinterDefaultsImpl(printerBaseParameterValue?.defaults);
         this.displayName = printerBaseParameterValue?.displayName;
         this.isAcceptingJobs = printerBaseParameterValue?.isAcceptingJobs;
-        this.jobs = printerBaseParameterValue?.jobs;
-        this.location = printerBaseParameterValue?.location;
+        const jobsArrValue: PrintJobImpl[] = []; this.jobs?.forEach(element => {jobsArrValue.push(element instanceof PrintJobImpl? element : new PrintJobImpl(element));});
+        this.jobs = jobsArrValue;
+        this.location = printerBaseParameterValue?.location instanceof PrinterLocationImpl? printerBaseParameterValue?.location:new PrinterLocationImpl(printerBaseParameterValue?.location);
         this.manufacturer = printerBaseParameterValue?.manufacturer;
         this.model = printerBaseParameterValue?.model;
-        this.status = printerBaseParameterValue?.status;
+        this.status = printerBaseParameterValue?.status instanceof PrinterStatusImpl? printerBaseParameterValue?.status:new PrinterStatusImpl(printerBaseParameterValue?.status);
     };
     /**
      * The deserialization information for the current model
@@ -84,7 +85,7 @@ export class PrinterBaseImpl extends EntityImpl implements PrinterBase {
         if(this.isAcceptingJobs){
             writer.writeBooleanValue("isAcceptingJobs", this.isAcceptingJobs);
         }
-        if(this.jobs && this.jobs.length != 0){        const jobsArrValue: PrintJobImpl[] = []; this.jobs?.forEach(element => {jobsArrValue.push(new PrintJobImpl(element));});
+        if(this.jobs && this.jobs.length != 0){        const jobsArrValue: PrintJobImpl[] = []; this.jobs?.forEach(element => {jobsArrValue.push(element instanceof PrintJobImpl? element : new PrintJobImpl(element));});
             writer.writeCollectionOfObjectValues<PrintJobImpl>("jobs", jobsArrValue);
         }
         if(this.location){

@@ -22,9 +22,9 @@ export class IncomingContextImpl implements IncomingContext {
     public constructor(incomingContextParameterValue?: IncomingContext | undefined) {
         this.additionalData = incomingContextParameterValue?.additionalData ? incomingContextParameterValue?.additionalData! : {};
         this.observedParticipantId = incomingContextParameterValue?.observedParticipantId;
-        this.onBehalfOf = incomingContextParameterValue?.onBehalfOf;
+        this.onBehalfOf = incomingContextParameterValue?.onBehalfOf instanceof IdentitySetImpl? incomingContextParameterValue?.onBehalfOf:new IdentitySetImpl(incomingContextParameterValue?.onBehalfOf);
         this.sourceParticipantId = incomingContextParameterValue?.sourceParticipantId;
-        this.transferor = incomingContextParameterValue?.transferor;
+        this.transferor = incomingContextParameterValue?.transferor instanceof IdentitySetImpl? incomingContextParameterValue?.transferor:new IdentitySetImpl(incomingContextParameterValue?.transferor);
     };
     /**
      * The deserialization information for the current model

@@ -16,11 +16,11 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 export class PrintJobImpl extends EntityImpl implements PrintJob {
     /** The configuration property */
     public configuration?: PrintJobConfiguration | undefined;
-    /** Read-only. Nullable. */
+    /** The createdBy property */
     public createdBy?: UserIdentity | undefined;
     /** The DateTimeOffset when the job was created. Read-only. */
     public createdDateTime?: Date | undefined;
-    /** Read-only. */
+    /** The documents property */
     public documents?: PrintDocument[] | undefined;
     /** If true, document can be fetched by printer. */
     public isFetchable?: boolean | undefined;
@@ -38,15 +38,17 @@ export class PrintJobImpl extends EntityImpl implements PrintJob {
      */
     public constructor(printJobParameterValue?: PrintJob | undefined) {
         super(printJobParameterValue);
-        this.configuration = printJobParameterValue?.configuration;
-        this.createdBy = printJobParameterValue?.createdBy;
+        this.configuration = printJobParameterValue?.configuration instanceof PrintJobConfigurationImpl? printJobParameterValue?.configuration:new PrintJobConfigurationImpl(printJobParameterValue?.configuration);
+        this.createdBy = printJobParameterValue?.createdBy instanceof UserIdentityImpl? printJobParameterValue?.createdBy:new UserIdentityImpl(printJobParameterValue?.createdBy);
         this.createdDateTime = printJobParameterValue?.createdDateTime;
-        this.documents = printJobParameterValue?.documents;
+        const documentsArrValue: PrintDocumentImpl[] = []; this.documents?.forEach(element => {documentsArrValue.push(element instanceof PrintDocumentImpl? element : new PrintDocumentImpl(element));});
+        this.documents = documentsArrValue;
         this.isFetchable = printJobParameterValue?.isFetchable;
         this.redirectedFrom = printJobParameterValue?.redirectedFrom;
         this.redirectedTo = printJobParameterValue?.redirectedTo;
-        this.status = printJobParameterValue?.status;
-        this.tasks = printJobParameterValue?.tasks;
+        this.status = printJobParameterValue?.status instanceof PrintJobStatusImpl? printJobParameterValue?.status:new PrintJobStatusImpl(printJobParameterValue?.status);
+        const tasksArrValue: PrintTaskImpl[] = []; this.tasks?.forEach(element => {tasksArrValue.push(element instanceof PrintTaskImpl? element : new PrintTaskImpl(element));});
+        this.tasks = tasksArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -81,7 +83,7 @@ export class PrintJobImpl extends EntityImpl implements PrintJob {
         if(this.createdDateTime){
             writer.writeDateValue("createdDateTime", this.createdDateTime);
         }
-        if(this.documents && this.documents.length != 0){        const documentsArrValue: PrintDocumentImpl[] = []; this.documents?.forEach(element => {documentsArrValue.push(new PrintDocumentImpl(element));});
+        if(this.documents && this.documents.length != 0){        const documentsArrValue: PrintDocumentImpl[] = []; this.documents?.forEach(element => {documentsArrValue.push(element instanceof PrintDocumentImpl? element : new PrintDocumentImpl(element));});
             writer.writeCollectionOfObjectValues<PrintDocumentImpl>("documents", documentsArrValue);
         }
         if(this.isFetchable){
@@ -96,7 +98,7 @@ export class PrintJobImpl extends EntityImpl implements PrintJob {
         if(this.status){
             writer.writeObjectValue<PrintJobStatusImpl>("status", new PrintJobStatusImpl(this.status));
         }
-        if(this.tasks && this.tasks.length != 0){        const tasksArrValue: PrintTaskImpl[] = []; this.tasks?.forEach(element => {tasksArrValue.push(new PrintTaskImpl(element));});
+        if(this.tasks && this.tasks.length != 0){        const tasksArrValue: PrintTaskImpl[] = []; this.tasks?.forEach(element => {tasksArrValue.push(element instanceof PrintTaskImpl? element : new PrintTaskImpl(element));});
             writer.writeCollectionOfObjectValues<PrintTaskImpl>("tasks", tasksArrValue);
         }
     };

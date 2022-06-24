@@ -19,7 +19,8 @@ export class InvitePostRequestBodyImpl implements InvitePostRequestBody {
     public constructor(invitePostRequestBodyParameterValue?: InvitePostRequestBody | undefined) {
         this.additionalData = invitePostRequestBodyParameterValue?.additionalData ? invitePostRequestBodyParameterValue?.additionalData! : {};
         this.clientContext = invitePostRequestBodyParameterValue?.clientContext;
-        this.participants = invitePostRequestBodyParameterValue?.participants;
+        const participantsArrValue: InvitationParticipantInfoImpl[] = []; this.participants?.forEach(element => {participantsArrValue.push(element instanceof InvitationParticipantInfoImpl? element : new InvitationParticipantInfoImpl(element));});
+        this.participants = participantsArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +41,7 @@ export class InvitePostRequestBodyImpl implements InvitePostRequestBody {
         if(this.clientContext){
             writer.writeStringValue("clientContext", this.clientContext);
         }
-        if(this.participants && this.participants.length != 0){        const participantsArrValue: InvitationParticipantInfoImpl[] = []; this.participants?.forEach(element => {participantsArrValue.push(new InvitationParticipantInfoImpl(element));});
+        if(this.participants && this.participants.length != 0){        const participantsArrValue: InvitationParticipantInfoImpl[] = []; this.participants?.forEach(element => {participantsArrValue.push(element instanceof InvitationParticipantInfoImpl? element : new InvitationParticipantInfoImpl(element));});
             writer.writeCollectionOfObjectValues<InvitationParticipantInfoImpl>("participants", participantsArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

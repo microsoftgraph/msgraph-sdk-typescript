@@ -42,16 +42,19 @@ export class ManagedDeviceMobileAppConfigurationImpl extends EntityImpl implemen
      */
     public constructor(managedDeviceMobileAppConfigurationParameterValue?: ManagedDeviceMobileAppConfiguration | undefined) {
         super(managedDeviceMobileAppConfigurationParameterValue);
-        this.assignments = managedDeviceMobileAppConfigurationParameterValue?.assignments;
+        const assignmentsArrValue: ManagedDeviceMobileAppConfigurationAssignmentImpl[] = []; this.assignments?.forEach(element => {assignmentsArrValue.push(element instanceof ManagedDeviceMobileAppConfigurationAssignmentImpl? element : new ManagedDeviceMobileAppConfigurationAssignmentImpl(element));});
+        this.assignments = assignmentsArrValue;
         this.createdDateTime = managedDeviceMobileAppConfigurationParameterValue?.createdDateTime;
         this.description = managedDeviceMobileAppConfigurationParameterValue?.description;
-        this.deviceStatuses = managedDeviceMobileAppConfigurationParameterValue?.deviceStatuses;
-        this.deviceStatusSummary = managedDeviceMobileAppConfigurationParameterValue?.deviceStatusSummary;
+        const deviceStatusesArrValue: ManagedDeviceMobileAppConfigurationDeviceStatusImpl[] = []; this.deviceStatuses?.forEach(element => {deviceStatusesArrValue.push(element instanceof ManagedDeviceMobileAppConfigurationDeviceStatusImpl? element : new ManagedDeviceMobileAppConfigurationDeviceStatusImpl(element));});
+        this.deviceStatuses = deviceStatusesArrValue;
+        this.deviceStatusSummary = managedDeviceMobileAppConfigurationParameterValue?.deviceStatusSummary instanceof ManagedDeviceMobileAppConfigurationDeviceSummaryImpl? managedDeviceMobileAppConfigurationParameterValue?.deviceStatusSummary:new ManagedDeviceMobileAppConfigurationDeviceSummaryImpl(managedDeviceMobileAppConfigurationParameterValue?.deviceStatusSummary);
         this.displayName = managedDeviceMobileAppConfigurationParameterValue?.displayName;
         this.lastModifiedDateTime = managedDeviceMobileAppConfigurationParameterValue?.lastModifiedDateTime;
         this.targetedMobileApps = managedDeviceMobileAppConfigurationParameterValue?.targetedMobileApps;
-        this.userStatuses = managedDeviceMobileAppConfigurationParameterValue?.userStatuses;
-        this.userStatusSummary = managedDeviceMobileAppConfigurationParameterValue?.userStatusSummary;
+        const userStatusesArrValue: ManagedDeviceMobileAppConfigurationUserStatusImpl[] = []; this.userStatuses?.forEach(element => {userStatusesArrValue.push(element instanceof ManagedDeviceMobileAppConfigurationUserStatusImpl? element : new ManagedDeviceMobileAppConfigurationUserStatusImpl(element));});
+        this.userStatuses = userStatusesArrValue;
+        this.userStatusSummary = managedDeviceMobileAppConfigurationParameterValue?.userStatusSummary instanceof ManagedDeviceMobileAppConfigurationUserSummaryImpl? managedDeviceMobileAppConfigurationParameterValue?.userStatusSummary:new ManagedDeviceMobileAppConfigurationUserSummaryImpl(managedDeviceMobileAppConfigurationParameterValue?.userStatusSummary);
         this.version = managedDeviceMobileAppConfigurationParameterValue?.version;
     };
     /**
@@ -80,7 +83,7 @@ export class ManagedDeviceMobileAppConfigurationImpl extends EntityImpl implemen
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.assignments && this.assignments.length != 0){        const assignmentsArrValue: ManagedDeviceMobileAppConfigurationAssignmentImpl[] = []; this.assignments?.forEach(element => {assignmentsArrValue.push(new ManagedDeviceMobileAppConfigurationAssignmentImpl(element));});
+        if(this.assignments && this.assignments.length != 0){        const assignmentsArrValue: ManagedDeviceMobileAppConfigurationAssignmentImpl[] = []; this.assignments?.forEach(element => {assignmentsArrValue.push(element instanceof ManagedDeviceMobileAppConfigurationAssignmentImpl? element : new ManagedDeviceMobileAppConfigurationAssignmentImpl(element));});
             writer.writeCollectionOfObjectValues<ManagedDeviceMobileAppConfigurationAssignmentImpl>("assignments", assignmentsArrValue);
         }
         if(this.createdDateTime){
@@ -89,7 +92,7 @@ export class ManagedDeviceMobileAppConfigurationImpl extends EntityImpl implemen
         if(this.description){
             writer.writeStringValue("description", this.description);
         }
-        if(this.deviceStatuses && this.deviceStatuses.length != 0){        const deviceStatusesArrValue: ManagedDeviceMobileAppConfigurationDeviceStatusImpl[] = []; this.deviceStatuses?.forEach(element => {deviceStatusesArrValue.push(new ManagedDeviceMobileAppConfigurationDeviceStatusImpl(element));});
+        if(this.deviceStatuses && this.deviceStatuses.length != 0){        const deviceStatusesArrValue: ManagedDeviceMobileAppConfigurationDeviceStatusImpl[] = []; this.deviceStatuses?.forEach(element => {deviceStatusesArrValue.push(element instanceof ManagedDeviceMobileAppConfigurationDeviceStatusImpl? element : new ManagedDeviceMobileAppConfigurationDeviceStatusImpl(element));});
             writer.writeCollectionOfObjectValues<ManagedDeviceMobileAppConfigurationDeviceStatusImpl>("deviceStatuses", deviceStatusesArrValue);
         }
         if(this.deviceStatusSummary){
@@ -104,7 +107,7 @@ export class ManagedDeviceMobileAppConfigurationImpl extends EntityImpl implemen
         if(this.targetedMobileApps){
             writer.writeCollectionOfPrimitiveValues<string>("targetedMobileApps", this.targetedMobileApps);
         }
-        if(this.userStatuses && this.userStatuses.length != 0){        const userStatusesArrValue: ManagedDeviceMobileAppConfigurationUserStatusImpl[] = []; this.userStatuses?.forEach(element => {userStatusesArrValue.push(new ManagedDeviceMobileAppConfigurationUserStatusImpl(element));});
+        if(this.userStatuses && this.userStatuses.length != 0){        const userStatusesArrValue: ManagedDeviceMobileAppConfigurationUserStatusImpl[] = []; this.userStatuses?.forEach(element => {userStatusesArrValue.push(element instanceof ManagedDeviceMobileAppConfigurationUserStatusImpl? element : new ManagedDeviceMobileAppConfigurationUserStatusImpl(element));});
             writer.writeCollectionOfObjectValues<ManagedDeviceMobileAppConfigurationUserStatusImpl>("userStatuses", userStatusesArrValue);
         }
         if(this.userStatusSummary){

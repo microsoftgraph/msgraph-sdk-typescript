@@ -1,3 +1,5 @@
+import {ODataErrorImpl} from '../../../../models/oDataErrors/';
+import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {AssignPostRequestBody} from './assignPostRequestBody';
 import {AssignRequestBuilderPostRequestConfiguration} from './assignRequestBuilderPostRequestConfiguration';
 import {createAssignResponseFromDiscriminatorValue} from './createAssignResponseFromDiscriminatorValue';
@@ -58,6 +60,10 @@ export class AssignRequestBuilder {
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration
         );
-        return this.requestAdapter?.sendAsync<AssignResponseImpl>(requestInfo, createAssignResponseFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<AssignResponseImpl>(requestInfo, createAssignResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

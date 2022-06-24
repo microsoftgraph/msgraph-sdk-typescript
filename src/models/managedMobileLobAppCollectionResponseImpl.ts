@@ -18,7 +18,8 @@ export class ManagedMobileLobAppCollectionResponseImpl implements ManagedMobileL
     public constructor(managedMobileLobAppCollectionResponseParameterValue?: ManagedMobileLobAppCollectionResponse | undefined) {
         this.additionalData = managedMobileLobAppCollectionResponseParameterValue?.additionalData ? managedMobileLobAppCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = managedMobileLobAppCollectionResponseParameterValue?.nextLink;
-        this.value = managedMobileLobAppCollectionResponseParameterValue?.value;
+        const valueArrValue: ManagedMobileLobAppImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ManagedMobileLobAppImpl? element : new ManagedMobileLobAppImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -39,7 +40,7 @@ export class ManagedMobileLobAppCollectionResponseImpl implements ManagedMobileL
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: ManagedMobileLobAppImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ManagedMobileLobAppImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: ManagedMobileLobAppImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ManagedMobileLobAppImpl? element : new ManagedMobileLobAppImpl(element));});
             writer.writeCollectionOfObjectValues<ManagedMobileLobAppImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

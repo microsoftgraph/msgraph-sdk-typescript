@@ -70,21 +70,31 @@ export class PolicyRootImpl extends EntityImpl implements PolicyRoot {
      */
     public constructor(policyRootParameterValue?: PolicyRoot | undefined) {
         super(policyRootParameterValue);
-        this.activityBasedTimeoutPolicies = policyRootParameterValue?.activityBasedTimeoutPolicies;
-        this.adminConsentRequestPolicy = policyRootParameterValue?.adminConsentRequestPolicy;
-        this.authenticationFlowsPolicy = policyRootParameterValue?.authenticationFlowsPolicy;
-        this.authenticationMethodsPolicy = policyRootParameterValue?.authenticationMethodsPolicy;
-        this.authorizationPolicy = policyRootParameterValue?.authorizationPolicy;
-        this.claimsMappingPolicies = policyRootParameterValue?.claimsMappingPolicies;
-        this.conditionalAccessPolicies = policyRootParameterValue?.conditionalAccessPolicies;
-        this.featureRolloutPolicies = policyRootParameterValue?.featureRolloutPolicies;
-        this.homeRealmDiscoveryPolicies = policyRootParameterValue?.homeRealmDiscoveryPolicies;
-        this.identitySecurityDefaultsEnforcementPolicy = policyRootParameterValue?.identitySecurityDefaultsEnforcementPolicy;
-        this.permissionGrantPolicies = policyRootParameterValue?.permissionGrantPolicies;
-        this.roleManagementPolicies = policyRootParameterValue?.roleManagementPolicies;
-        this.roleManagementPolicyAssignments = policyRootParameterValue?.roleManagementPolicyAssignments;
-        this.tokenIssuancePolicies = policyRootParameterValue?.tokenIssuancePolicies;
-        this.tokenLifetimePolicies = policyRootParameterValue?.tokenLifetimePolicies;
+        const activityBasedTimeoutPoliciesArrValue: ActivityBasedTimeoutPolicyImpl[] = []; this.activityBasedTimeoutPolicies?.forEach(element => {activityBasedTimeoutPoliciesArrValue.push(element instanceof ActivityBasedTimeoutPolicyImpl? element : new ActivityBasedTimeoutPolicyImpl(element));});
+        this.activityBasedTimeoutPolicies = activityBasedTimeoutPoliciesArrValue;
+        this.adminConsentRequestPolicy = policyRootParameterValue?.adminConsentRequestPolicy instanceof AdminConsentRequestPolicyImpl? policyRootParameterValue?.adminConsentRequestPolicy:new AdminConsentRequestPolicyImpl(policyRootParameterValue?.adminConsentRequestPolicy);
+        this.authenticationFlowsPolicy = policyRootParameterValue?.authenticationFlowsPolicy instanceof AuthenticationFlowsPolicyImpl? policyRootParameterValue?.authenticationFlowsPolicy:new AuthenticationFlowsPolicyImpl(policyRootParameterValue?.authenticationFlowsPolicy);
+        this.authenticationMethodsPolicy = policyRootParameterValue?.authenticationMethodsPolicy instanceof AuthenticationMethodsPolicyImpl? policyRootParameterValue?.authenticationMethodsPolicy:new AuthenticationMethodsPolicyImpl(policyRootParameterValue?.authenticationMethodsPolicy);
+        this.authorizationPolicy = policyRootParameterValue?.authorizationPolicy instanceof AuthorizationPolicyImpl? policyRootParameterValue?.authorizationPolicy:new AuthorizationPolicyImpl(policyRootParameterValue?.authorizationPolicy);
+        const claimsMappingPoliciesArrValue: ClaimsMappingPolicyImpl[] = []; this.claimsMappingPolicies?.forEach(element => {claimsMappingPoliciesArrValue.push(element instanceof ClaimsMappingPolicyImpl? element : new ClaimsMappingPolicyImpl(element));});
+        this.claimsMappingPolicies = claimsMappingPoliciesArrValue;
+        const conditionalAccessPoliciesArrValue: ConditionalAccessPolicyImpl[] = []; this.conditionalAccessPolicies?.forEach(element => {conditionalAccessPoliciesArrValue.push(element instanceof ConditionalAccessPolicyImpl? element : new ConditionalAccessPolicyImpl(element));});
+        this.conditionalAccessPolicies = conditionalAccessPoliciesArrValue;
+        const featureRolloutPoliciesArrValue: FeatureRolloutPolicyImpl[] = []; this.featureRolloutPolicies?.forEach(element => {featureRolloutPoliciesArrValue.push(element instanceof FeatureRolloutPolicyImpl? element : new FeatureRolloutPolicyImpl(element));});
+        this.featureRolloutPolicies = featureRolloutPoliciesArrValue;
+        const homeRealmDiscoveryPoliciesArrValue: HomeRealmDiscoveryPolicyImpl[] = []; this.homeRealmDiscoveryPolicies?.forEach(element => {homeRealmDiscoveryPoliciesArrValue.push(element instanceof HomeRealmDiscoveryPolicyImpl? element : new HomeRealmDiscoveryPolicyImpl(element));});
+        this.homeRealmDiscoveryPolicies = homeRealmDiscoveryPoliciesArrValue;
+        this.identitySecurityDefaultsEnforcementPolicy = policyRootParameterValue?.identitySecurityDefaultsEnforcementPolicy instanceof IdentitySecurityDefaultsEnforcementPolicyImpl? policyRootParameterValue?.identitySecurityDefaultsEnforcementPolicy:new IdentitySecurityDefaultsEnforcementPolicyImpl(policyRootParameterValue?.identitySecurityDefaultsEnforcementPolicy);
+        const permissionGrantPoliciesArrValue: PermissionGrantPolicyImpl[] = []; this.permissionGrantPolicies?.forEach(element => {permissionGrantPoliciesArrValue.push(element instanceof PermissionGrantPolicyImpl? element : new PermissionGrantPolicyImpl(element));});
+        this.permissionGrantPolicies = permissionGrantPoliciesArrValue;
+        const roleManagementPoliciesArrValue: UnifiedRoleManagementPolicyImpl[] = []; this.roleManagementPolicies?.forEach(element => {roleManagementPoliciesArrValue.push(element instanceof UnifiedRoleManagementPolicyImpl? element : new UnifiedRoleManagementPolicyImpl(element));});
+        this.roleManagementPolicies = roleManagementPoliciesArrValue;
+        const roleManagementPolicyAssignmentsArrValue: UnifiedRoleManagementPolicyAssignmentImpl[] = []; this.roleManagementPolicyAssignments?.forEach(element => {roleManagementPolicyAssignmentsArrValue.push(element instanceof UnifiedRoleManagementPolicyAssignmentImpl? element : new UnifiedRoleManagementPolicyAssignmentImpl(element));});
+        this.roleManagementPolicyAssignments = roleManagementPolicyAssignmentsArrValue;
+        const tokenIssuancePoliciesArrValue: TokenIssuancePolicyImpl[] = []; this.tokenIssuancePolicies?.forEach(element => {tokenIssuancePoliciesArrValue.push(element instanceof TokenIssuancePolicyImpl? element : new TokenIssuancePolicyImpl(element));});
+        this.tokenIssuancePolicies = tokenIssuancePoliciesArrValue;
+        const tokenLifetimePoliciesArrValue: TokenLifetimePolicyImpl[] = []; this.tokenLifetimePolicies?.forEach(element => {tokenLifetimePoliciesArrValue.push(element instanceof TokenLifetimePolicyImpl? element : new TokenLifetimePolicyImpl(element));});
+        this.tokenLifetimePolicies = tokenLifetimePoliciesArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -116,7 +126,7 @@ export class PolicyRootImpl extends EntityImpl implements PolicyRoot {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.activityBasedTimeoutPolicies && this.activityBasedTimeoutPolicies.length != 0){        const activityBasedTimeoutPoliciesArrValue: ActivityBasedTimeoutPolicyImpl[] = []; this.activityBasedTimeoutPolicies?.forEach(element => {activityBasedTimeoutPoliciesArrValue.push(new ActivityBasedTimeoutPolicyImpl(element));});
+        if(this.activityBasedTimeoutPolicies && this.activityBasedTimeoutPolicies.length != 0){        const activityBasedTimeoutPoliciesArrValue: ActivityBasedTimeoutPolicyImpl[] = []; this.activityBasedTimeoutPolicies?.forEach(element => {activityBasedTimeoutPoliciesArrValue.push(element instanceof ActivityBasedTimeoutPolicyImpl? element : new ActivityBasedTimeoutPolicyImpl(element));});
             writer.writeCollectionOfObjectValues<ActivityBasedTimeoutPolicyImpl>("activityBasedTimeoutPolicies", activityBasedTimeoutPoliciesArrValue);
         }
         if(this.adminConsentRequestPolicy){
@@ -131,34 +141,34 @@ export class PolicyRootImpl extends EntityImpl implements PolicyRoot {
         if(this.authorizationPolicy){
             writer.writeObjectValue<AuthorizationPolicyImpl>("authorizationPolicy", new AuthorizationPolicyImpl(this.authorizationPolicy));
         }
-        if(this.claimsMappingPolicies && this.claimsMappingPolicies.length != 0){        const claimsMappingPoliciesArrValue: ClaimsMappingPolicyImpl[] = []; this.claimsMappingPolicies?.forEach(element => {claimsMappingPoliciesArrValue.push(new ClaimsMappingPolicyImpl(element));});
+        if(this.claimsMappingPolicies && this.claimsMappingPolicies.length != 0){        const claimsMappingPoliciesArrValue: ClaimsMappingPolicyImpl[] = []; this.claimsMappingPolicies?.forEach(element => {claimsMappingPoliciesArrValue.push(element instanceof ClaimsMappingPolicyImpl? element : new ClaimsMappingPolicyImpl(element));});
             writer.writeCollectionOfObjectValues<ClaimsMappingPolicyImpl>("claimsMappingPolicies", claimsMappingPoliciesArrValue);
         }
-        if(this.conditionalAccessPolicies && this.conditionalAccessPolicies.length != 0){        const conditionalAccessPoliciesArrValue: ConditionalAccessPolicyImpl[] = []; this.conditionalAccessPolicies?.forEach(element => {conditionalAccessPoliciesArrValue.push(new ConditionalAccessPolicyImpl(element));});
+        if(this.conditionalAccessPolicies && this.conditionalAccessPolicies.length != 0){        const conditionalAccessPoliciesArrValue: ConditionalAccessPolicyImpl[] = []; this.conditionalAccessPolicies?.forEach(element => {conditionalAccessPoliciesArrValue.push(element instanceof ConditionalAccessPolicyImpl? element : new ConditionalAccessPolicyImpl(element));});
             writer.writeCollectionOfObjectValues<ConditionalAccessPolicyImpl>("conditionalAccessPolicies", conditionalAccessPoliciesArrValue);
         }
-        if(this.featureRolloutPolicies && this.featureRolloutPolicies.length != 0){        const featureRolloutPoliciesArrValue: FeatureRolloutPolicyImpl[] = []; this.featureRolloutPolicies?.forEach(element => {featureRolloutPoliciesArrValue.push(new FeatureRolloutPolicyImpl(element));});
+        if(this.featureRolloutPolicies && this.featureRolloutPolicies.length != 0){        const featureRolloutPoliciesArrValue: FeatureRolloutPolicyImpl[] = []; this.featureRolloutPolicies?.forEach(element => {featureRolloutPoliciesArrValue.push(element instanceof FeatureRolloutPolicyImpl? element : new FeatureRolloutPolicyImpl(element));});
             writer.writeCollectionOfObjectValues<FeatureRolloutPolicyImpl>("featureRolloutPolicies", featureRolloutPoliciesArrValue);
         }
-        if(this.homeRealmDiscoveryPolicies && this.homeRealmDiscoveryPolicies.length != 0){        const homeRealmDiscoveryPoliciesArrValue: HomeRealmDiscoveryPolicyImpl[] = []; this.homeRealmDiscoveryPolicies?.forEach(element => {homeRealmDiscoveryPoliciesArrValue.push(new HomeRealmDiscoveryPolicyImpl(element));});
+        if(this.homeRealmDiscoveryPolicies && this.homeRealmDiscoveryPolicies.length != 0){        const homeRealmDiscoveryPoliciesArrValue: HomeRealmDiscoveryPolicyImpl[] = []; this.homeRealmDiscoveryPolicies?.forEach(element => {homeRealmDiscoveryPoliciesArrValue.push(element instanceof HomeRealmDiscoveryPolicyImpl? element : new HomeRealmDiscoveryPolicyImpl(element));});
             writer.writeCollectionOfObjectValues<HomeRealmDiscoveryPolicyImpl>("homeRealmDiscoveryPolicies", homeRealmDiscoveryPoliciesArrValue);
         }
         if(this.identitySecurityDefaultsEnforcementPolicy){
             writer.writeObjectValue<IdentitySecurityDefaultsEnforcementPolicyImpl>("identitySecurityDefaultsEnforcementPolicy", new IdentitySecurityDefaultsEnforcementPolicyImpl(this.identitySecurityDefaultsEnforcementPolicy));
         }
-        if(this.permissionGrantPolicies && this.permissionGrantPolicies.length != 0){        const permissionGrantPoliciesArrValue: PermissionGrantPolicyImpl[] = []; this.permissionGrantPolicies?.forEach(element => {permissionGrantPoliciesArrValue.push(new PermissionGrantPolicyImpl(element));});
+        if(this.permissionGrantPolicies && this.permissionGrantPolicies.length != 0){        const permissionGrantPoliciesArrValue: PermissionGrantPolicyImpl[] = []; this.permissionGrantPolicies?.forEach(element => {permissionGrantPoliciesArrValue.push(element instanceof PermissionGrantPolicyImpl? element : new PermissionGrantPolicyImpl(element));});
             writer.writeCollectionOfObjectValues<PermissionGrantPolicyImpl>("permissionGrantPolicies", permissionGrantPoliciesArrValue);
         }
-        if(this.roleManagementPolicies && this.roleManagementPolicies.length != 0){        const roleManagementPoliciesArrValue: UnifiedRoleManagementPolicyImpl[] = []; this.roleManagementPolicies?.forEach(element => {roleManagementPoliciesArrValue.push(new UnifiedRoleManagementPolicyImpl(element));});
+        if(this.roleManagementPolicies && this.roleManagementPolicies.length != 0){        const roleManagementPoliciesArrValue: UnifiedRoleManagementPolicyImpl[] = []; this.roleManagementPolicies?.forEach(element => {roleManagementPoliciesArrValue.push(element instanceof UnifiedRoleManagementPolicyImpl? element : new UnifiedRoleManagementPolicyImpl(element));});
             writer.writeCollectionOfObjectValues<UnifiedRoleManagementPolicyImpl>("roleManagementPolicies", roleManagementPoliciesArrValue);
         }
-        if(this.roleManagementPolicyAssignments && this.roleManagementPolicyAssignments.length != 0){        const roleManagementPolicyAssignmentsArrValue: UnifiedRoleManagementPolicyAssignmentImpl[] = []; this.roleManagementPolicyAssignments?.forEach(element => {roleManagementPolicyAssignmentsArrValue.push(new UnifiedRoleManagementPolicyAssignmentImpl(element));});
+        if(this.roleManagementPolicyAssignments && this.roleManagementPolicyAssignments.length != 0){        const roleManagementPolicyAssignmentsArrValue: UnifiedRoleManagementPolicyAssignmentImpl[] = []; this.roleManagementPolicyAssignments?.forEach(element => {roleManagementPolicyAssignmentsArrValue.push(element instanceof UnifiedRoleManagementPolicyAssignmentImpl? element : new UnifiedRoleManagementPolicyAssignmentImpl(element));});
             writer.writeCollectionOfObjectValues<UnifiedRoleManagementPolicyAssignmentImpl>("roleManagementPolicyAssignments", roleManagementPolicyAssignmentsArrValue);
         }
-        if(this.tokenIssuancePolicies && this.tokenIssuancePolicies.length != 0){        const tokenIssuancePoliciesArrValue: TokenIssuancePolicyImpl[] = []; this.tokenIssuancePolicies?.forEach(element => {tokenIssuancePoliciesArrValue.push(new TokenIssuancePolicyImpl(element));});
+        if(this.tokenIssuancePolicies && this.tokenIssuancePolicies.length != 0){        const tokenIssuancePoliciesArrValue: TokenIssuancePolicyImpl[] = []; this.tokenIssuancePolicies?.forEach(element => {tokenIssuancePoliciesArrValue.push(element instanceof TokenIssuancePolicyImpl? element : new TokenIssuancePolicyImpl(element));});
             writer.writeCollectionOfObjectValues<TokenIssuancePolicyImpl>("tokenIssuancePolicies", tokenIssuancePoliciesArrValue);
         }
-        if(this.tokenLifetimePolicies && this.tokenLifetimePolicies.length != 0){        const tokenLifetimePoliciesArrValue: TokenLifetimePolicyImpl[] = []; this.tokenLifetimePolicies?.forEach(element => {tokenLifetimePoliciesArrValue.push(new TokenLifetimePolicyImpl(element));});
+        if(this.tokenLifetimePolicies && this.tokenLifetimePolicies.length != 0){        const tokenLifetimePoliciesArrValue: TokenLifetimePolicyImpl[] = []; this.tokenLifetimePolicies?.forEach(element => {tokenLifetimePoliciesArrValue.push(element instanceof TokenLifetimePolicyImpl? element : new TokenLifetimePolicyImpl(element));});
             writer.writeCollectionOfObjectValues<TokenLifetimePolicyImpl>("tokenLifetimePolicies", tokenLifetimePoliciesArrValue);
         }
     };

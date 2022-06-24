@@ -18,7 +18,8 @@ export class InternalDomainFederationCollectionResponseImpl implements InternalD
     public constructor(internalDomainFederationCollectionResponseParameterValue?: InternalDomainFederationCollectionResponse | undefined) {
         this.additionalData = internalDomainFederationCollectionResponseParameterValue?.additionalData ? internalDomainFederationCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = internalDomainFederationCollectionResponseParameterValue?.nextLink;
-        this.value = internalDomainFederationCollectionResponseParameterValue?.value;
+        const valueArrValue: InternalDomainFederationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof InternalDomainFederationImpl? element : new InternalDomainFederationImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -39,7 +40,7 @@ export class InternalDomainFederationCollectionResponseImpl implements InternalD
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: InternalDomainFederationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new InternalDomainFederationImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: InternalDomainFederationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof InternalDomainFederationImpl? element : new InternalDomainFederationImpl(element));});
             writer.writeCollectionOfObjectValues<InternalDomainFederationImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

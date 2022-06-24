@@ -4,7 +4,7 @@ import {WorkbookFilter} from './workbookFilter';
 import {WorkbookFilterCriteria} from './workbookFilterCriteria';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to group. */
+/** Provides operations to manage the collection of application entities. */
 export class WorkbookFilterImpl extends EntityImpl implements WorkbookFilter {
     /** The currently applied filter on the given column. Read-only. */
     public criteria?: WorkbookFilterCriteria | undefined;
@@ -14,7 +14,7 @@ export class WorkbookFilterImpl extends EntityImpl implements WorkbookFilter {
      */
     public constructor(workbookFilterParameterValue?: WorkbookFilter | undefined) {
         super(workbookFilterParameterValue);
-        this.criteria = workbookFilterParameterValue?.criteria;
+        this.criteria = workbookFilterParameterValue?.criteria instanceof WorkbookFilterCriteriaImpl? workbookFilterParameterValue?.criteria:new WorkbookFilterCriteriaImpl(workbookFilterParameterValue?.criteria);
     };
     /**
      * The deserialization information for the current model

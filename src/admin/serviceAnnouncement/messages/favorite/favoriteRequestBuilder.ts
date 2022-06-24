@@ -1,3 +1,5 @@
+import {ODataErrorImpl} from '../../../../models/oDataErrors/';
+import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {createFavoriteResponseFromDiscriminatorValue} from './createFavoriteResponseFromDiscriminatorValue';
 import {FavoritePostRequestBody} from './favoritePostRequestBody';
 import {FavoriteRequestBuilderPostRequestConfiguration} from './favoriteRequestBuilderPostRequestConfiguration';
@@ -58,6 +60,10 @@ export class FavoriteRequestBuilder {
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration
         );
-        return this.requestAdapter?.sendAsync<FavoriteResponseImpl>(requestInfo, createFavoriteResponseFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<FavoriteResponseImpl>(requestInfo, createFavoriteResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

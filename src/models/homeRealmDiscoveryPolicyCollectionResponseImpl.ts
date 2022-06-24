@@ -18,7 +18,8 @@ export class HomeRealmDiscoveryPolicyCollectionResponseImpl implements HomeRealm
     public constructor(homeRealmDiscoveryPolicyCollectionResponseParameterValue?: HomeRealmDiscoveryPolicyCollectionResponse | undefined) {
         this.additionalData = homeRealmDiscoveryPolicyCollectionResponseParameterValue?.additionalData ? homeRealmDiscoveryPolicyCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = homeRealmDiscoveryPolicyCollectionResponseParameterValue?.nextLink;
-        this.value = homeRealmDiscoveryPolicyCollectionResponseParameterValue?.value;
+        const valueArrValue: HomeRealmDiscoveryPolicyImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof HomeRealmDiscoveryPolicyImpl? element : new HomeRealmDiscoveryPolicyImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -39,7 +40,7 @@ export class HomeRealmDiscoveryPolicyCollectionResponseImpl implements HomeRealm
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: HomeRealmDiscoveryPolicyImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new HomeRealmDiscoveryPolicyImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: HomeRealmDiscoveryPolicyImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof HomeRealmDiscoveryPolicyImpl? element : new HomeRealmDiscoveryPolicyImpl(element));});
             writer.writeCollectionOfObjectValues<HomeRealmDiscoveryPolicyImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

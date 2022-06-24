@@ -19,7 +19,7 @@ import {ToneInfo} from './toneInfo';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface Call extends Entity, Partial<Parsable> {
-    /** Read-only. Nullable. */
+    /** The audioRoutingGroups property */
     audioRoutingGroups?: AudioRoutingGroup[] | undefined;
     /** The callback URL on which callbacks will be delivered. Must be https. */
     callbackUri?: string | undefined;
@@ -43,9 +43,9 @@ export interface Call extends Entity, Partial<Parsable> {
     meetingInfo?: MeetingInfo | undefined;
     /** The myParticipantId property */
     myParticipantId?: string | undefined;
-    /** Read-only. Nullable. */
+    /** The operations property */
     operations?: CommsOperation[] | undefined;
-    /** Read-only. Nullable. */
+    /** The participants property */
     participants?: Participant[] | undefined;
     /** The requestedModalities property */
     requestedModalities?: string[] | undefined;

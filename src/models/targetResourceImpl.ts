@@ -29,7 +29,8 @@ export class TargetResourceImpl implements TargetResource {
         this.displayName = targetResourceParameterValue?.displayName;
         this.groupType = targetResourceParameterValue?.groupType;
         this.id = targetResourceParameterValue?.id;
-        this.modifiedProperties = targetResourceParameterValue?.modifiedProperties;
+        const modifiedPropertiesArrValue: ModifiedPropertyImpl[] = []; this.modifiedProperties?.forEach(element => {modifiedPropertiesArrValue.push(element instanceof ModifiedPropertyImpl? element : new ModifiedPropertyImpl(element));});
+        this.modifiedProperties = modifiedPropertiesArrValue;
         this.type = targetResourceParameterValue?.type;
         this.userPrincipalName = targetResourceParameterValue?.userPrincipalName;
     };
@@ -62,7 +63,7 @@ export class TargetResourceImpl implements TargetResource {
         if(this.id){
             writer.writeStringValue("id", this.id);
         }
-        if(this.modifiedProperties && this.modifiedProperties.length != 0){        const modifiedPropertiesArrValue: ModifiedPropertyImpl[] = []; this.modifiedProperties?.forEach(element => {modifiedPropertiesArrValue.push(new ModifiedPropertyImpl(element));});
+        if(this.modifiedProperties && this.modifiedProperties.length != 0){        const modifiedPropertiesArrValue: ModifiedPropertyImpl[] = []; this.modifiedProperties?.forEach(element => {modifiedPropertiesArrValue.push(element instanceof ModifiedPropertyImpl? element : new ModifiedPropertyImpl(element));});
             writer.writeCollectionOfObjectValues<ModifiedPropertyImpl>("modifiedProperties", modifiedPropertiesArrValue);
         }
         if(this.type){

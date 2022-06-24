@@ -40,9 +40,11 @@ export class CallRecordImpl extends EntityImpl implements CallRecord {
         this.joinWebUrl = callRecordParameterValue?.joinWebUrl;
         this.lastModifiedDateTime = callRecordParameterValue?.lastModifiedDateTime;
         this.modalities = callRecordParameterValue?.modalities;
-        this.organizer = callRecordParameterValue?.organizer;
-        this.participants = callRecordParameterValue?.participants;
-        this.sessions = callRecordParameterValue?.sessions;
+        this.organizer = callRecordParameterValue?.organizer instanceof IdentitySetImpl? callRecordParameterValue?.organizer:new IdentitySetImpl(callRecordParameterValue?.organizer);
+        const participantsArrValue: IdentitySetImpl[] = []; this.participants?.forEach(element => {participantsArrValue.push(element instanceof IdentitySetImpl? element : new IdentitySetImpl(element));});
+        this.participants = participantsArrValue;
+        const sessionsArrValue: SessionImpl[] = []; this.sessions?.forEach(element => {sessionsArrValue.push(element instanceof SessionImpl? element : new SessionImpl(element));});
+        this.sessions = sessionsArrValue;
         this.startDateTime = callRecordParameterValue?.startDateTime;
         this.type = callRecordParameterValue?.type;
         this.version = callRecordParameterValue?.version;
@@ -87,10 +89,10 @@ export class CallRecordImpl extends EntityImpl implements CallRecord {
         if(this.organizer){
             writer.writeObjectValue<IdentitySetImpl>("organizer", new IdentitySetImpl(this.organizer));
         }
-        if(this.participants && this.participants.length != 0){        const participantsArrValue: IdentitySetImpl[] = []; this.participants?.forEach(element => {participantsArrValue.push(new IdentitySetImpl(element));});
+        if(this.participants && this.participants.length != 0){        const participantsArrValue: IdentitySetImpl[] = []; this.participants?.forEach(element => {participantsArrValue.push(element instanceof IdentitySetImpl? element : new IdentitySetImpl(element));});
             writer.writeCollectionOfObjectValues<IdentitySetImpl>("participants", participantsArrValue);
         }
-        if(this.sessions && this.sessions.length != 0){        const sessionsArrValue: SessionImpl[] = []; this.sessions?.forEach(element => {sessionsArrValue.push(new SessionImpl(element));});
+        if(this.sessions && this.sessions.length != 0){        const sessionsArrValue: SessionImpl[] = []; this.sessions?.forEach(element => {sessionsArrValue.push(element instanceof SessionImpl? element : new SessionImpl(element));});
             writer.writeCollectionOfObjectValues<SessionImpl>("sessions", sessionsArrValue);
         }
         if(this.startDateTime){

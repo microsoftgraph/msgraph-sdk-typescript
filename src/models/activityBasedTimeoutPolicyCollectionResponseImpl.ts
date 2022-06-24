@@ -18,7 +18,8 @@ export class ActivityBasedTimeoutPolicyCollectionResponseImpl implements Activit
     public constructor(activityBasedTimeoutPolicyCollectionResponseParameterValue?: ActivityBasedTimeoutPolicyCollectionResponse | undefined) {
         this.additionalData = activityBasedTimeoutPolicyCollectionResponseParameterValue?.additionalData ? activityBasedTimeoutPolicyCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = activityBasedTimeoutPolicyCollectionResponseParameterValue?.nextLink;
-        this.value = activityBasedTimeoutPolicyCollectionResponseParameterValue?.value;
+        const valueArrValue: ActivityBasedTimeoutPolicyImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ActivityBasedTimeoutPolicyImpl? element : new ActivityBasedTimeoutPolicyImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -39,7 +40,7 @@ export class ActivityBasedTimeoutPolicyCollectionResponseImpl implements Activit
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: ActivityBasedTimeoutPolicyImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ActivityBasedTimeoutPolicyImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: ActivityBasedTimeoutPolicyImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ActivityBasedTimeoutPolicyImpl? element : new ActivityBasedTimeoutPolicyImpl(element));});
             writer.writeCollectionOfObjectValues<ActivityBasedTimeoutPolicyImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

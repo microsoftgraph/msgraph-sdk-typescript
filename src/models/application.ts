@@ -1,6 +1,7 @@
 import {AddIn} from './addIn';
 import {ApiApplication} from './apiApplication';
 import {AppRole} from './appRole';
+import {Certification} from './certification';
 import {DirectoryObject} from './directoryObject';
 import {ExtensionProperty} from './extensionProperty';
 import {HomeRealmDiscoveryPolicy} from './homeRealmDiscoveryPolicy';
@@ -29,9 +30,11 @@ export interface Application extends DirectoryObject, Partial<Parsable> {
     applicationTemplateId?: string | undefined;
     /** The collection of roles assigned to the application. With app role assignments, these roles can be assigned to users, groups, or service principals associated with other applications. Not nullable. */
     appRoles?: AppRole[] | undefined;
+    /** Specifies the certification status of the application. */
+    certification?: Certification | undefined;
     /** The date and time the application was registered. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.  Supports $filter (eq, ne, not, ge, le, in, and eq on null values) and $orderBy. */
     createdDateTime?: Date | undefined;
-    /** Read-only. */
+    /** The createdOnBehalfOf property */
     createdOnBehalfOf?: DirectoryObject | undefined;
     /** Free text field to provide a description of the application object to end users. The maximum allowed size is 1024 characters. Returned by default. Supports $filter (eq, ne, not, ge, le, startsWith) and $search. */
     description?: string | undefined;

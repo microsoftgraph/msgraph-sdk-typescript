@@ -16,7 +16,8 @@ export class GetManagedAppDiagnosticStatusesResponseImpl implements GetManagedAp
      */
     public constructor(getManagedAppDiagnosticStatusesResponseParameterValue?: GetManagedAppDiagnosticStatusesResponse | undefined) {
         this.additionalData = getManagedAppDiagnosticStatusesResponseParameterValue?.additionalData ? getManagedAppDiagnosticStatusesResponseParameterValue?.additionalData! : {};
-        this.value = getManagedAppDiagnosticStatusesResponseParameterValue?.value;
+        const valueArrValue: ManagedAppDiagnosticStatusImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ManagedAppDiagnosticStatusImpl? element : new ManagedAppDiagnosticStatusImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -33,7 +34,7 @@ export class GetManagedAppDiagnosticStatusesResponseImpl implements GetManagedAp
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        if(this.value && this.value.length != 0){        const valueArrValue: ManagedAppDiagnosticStatusImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ManagedAppDiagnosticStatusImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: ManagedAppDiagnosticStatusImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ManagedAppDiagnosticStatusImpl? element : new ManagedAppDiagnosticStatusImpl(element));});
             writer.writeCollectionOfObjectValues<ManagedAppDiagnosticStatusImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

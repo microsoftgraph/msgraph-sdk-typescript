@@ -1,5 +1,7 @@
 import {EducationSubmissionImpl} from '../../../../../../../../models/';
 import {createEducationSubmissionFromDiscriminatorValue} from '../../../../../../../../models/createEducationSubmissionFromDiscriminatorValue';
+import {ODataErrorImpl} from '../../../../../../../../models/oDataErrors/';
+import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {ReassignRequestBuilderPostRequestConfiguration} from './reassignRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
@@ -51,6 +53,10 @@ export class ReassignRequestBuilder {
         const requestInfo = this.createPostRequestInformation(
             requestConfiguration
         );
-        return this.requestAdapter?.sendAsync<EducationSubmissionImpl>(requestInfo, createEducationSubmissionFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<EducationSubmissionImpl>(requestInfo, createEducationSubmissionFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

@@ -18,7 +18,8 @@ export class PlaceCollectionResponseImpl implements PlaceCollectionResponse {
     public constructor(placeCollectionResponseParameterValue?: PlaceCollectionResponse | undefined) {
         this.additionalData = placeCollectionResponseParameterValue?.additionalData ? placeCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = placeCollectionResponseParameterValue?.nextLink;
-        this.value = placeCollectionResponseParameterValue?.value;
+        const valueArrValue: PlaceImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof PlaceImpl? element : new PlaceImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -39,7 +40,7 @@ export class PlaceCollectionResponseImpl implements PlaceCollectionResponse {
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: PlaceImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new PlaceImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: PlaceImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof PlaceImpl? element : new PlaceImpl(element));});
             writer.writeCollectionOfObjectValues<PlaceImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

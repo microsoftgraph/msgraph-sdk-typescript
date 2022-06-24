@@ -7,7 +7,7 @@ import {TodoTaskList} from './todoTaskList';
 import {WellknownListName} from './wellknownListName';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the collection of application entities. */
 export class TodoTaskListImpl extends EntityImpl implements TodoTaskList {
     /** The name of the task list. */
     public displayName?: string | undefined;
@@ -28,10 +28,12 @@ export class TodoTaskListImpl extends EntityImpl implements TodoTaskList {
     public constructor(todoTaskListParameterValue?: TodoTaskList | undefined) {
         super(todoTaskListParameterValue);
         this.displayName = todoTaskListParameterValue?.displayName;
-        this.extensions = todoTaskListParameterValue?.extensions;
+        const extensionsArrValue: ExtensionImpl[] = []; this.extensions?.forEach(element => {extensionsArrValue.push(element instanceof ExtensionImpl? element : new ExtensionImpl(element));});
+        this.extensions = extensionsArrValue;
         this.isOwner = todoTaskListParameterValue?.isOwner;
         this.isShared = todoTaskListParameterValue?.isShared;
-        this.tasks = todoTaskListParameterValue?.tasks;
+        const tasksArrValue: TodoTaskImpl[] = []; this.tasks?.forEach(element => {tasksArrValue.push(element instanceof TodoTaskImpl? element : new TodoTaskImpl(element));});
+        this.tasks = tasksArrValue;
         this.wellknownListName = todoTaskListParameterValue?.wellknownListName;
     };
     /**
@@ -58,7 +60,7 @@ export class TodoTaskListImpl extends EntityImpl implements TodoTaskList {
         if(this.displayName){
             writer.writeStringValue("displayName", this.displayName);
         }
-        if(this.extensions && this.extensions.length != 0){        const extensionsArrValue: ExtensionImpl[] = []; this.extensions?.forEach(element => {extensionsArrValue.push(new ExtensionImpl(element));});
+        if(this.extensions && this.extensions.length != 0){        const extensionsArrValue: ExtensionImpl[] = []; this.extensions?.forEach(element => {extensionsArrValue.push(element instanceof ExtensionImpl? element : new ExtensionImpl(element));});
             writer.writeCollectionOfObjectValues<ExtensionImpl>("extensions", extensionsArrValue);
         }
         if(this.isOwner){
@@ -67,7 +69,7 @@ export class TodoTaskListImpl extends EntityImpl implements TodoTaskList {
         if(this.isShared){
             writer.writeBooleanValue("isShared", this.isShared);
         }
-        if(this.tasks && this.tasks.length != 0){        const tasksArrValue: TodoTaskImpl[] = []; this.tasks?.forEach(element => {tasksArrValue.push(new TodoTaskImpl(element));});
+        if(this.tasks && this.tasks.length != 0){        const tasksArrValue: TodoTaskImpl[] = []; this.tasks?.forEach(element => {tasksArrValue.push(element instanceof TodoTaskImpl? element : new TodoTaskImpl(element));});
             writer.writeCollectionOfObjectValues<TodoTaskImpl>("tasks", tasksArrValue);
         }
         if(this.wellknownListName){

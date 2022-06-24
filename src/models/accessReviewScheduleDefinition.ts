@@ -3,6 +3,7 @@ import {AccessReviewNotificationRecipientItem} from './accessReviewNotificationR
 import {AccessReviewReviewerScope} from './accessReviewReviewerScope';
 import {AccessReviewScheduleSettings} from './accessReviewScheduleSettings';
 import {AccessReviewScope} from './accessReviewScope';
+import {AccessReviewStageSettings} from './accessReviewStageSettings';
 import {Entity} from './entity';
 import {UserIdentity} from './userIdentity';
 import {Parsable} from '@microsoft/kiota-abstractions';
@@ -34,6 +35,8 @@ export interface AccessReviewScheduleDefinition extends Entity, Partial<Parsable
     scope?: AccessReviewScope | undefined;
     /** The settings for an access review series, see type definition below. Supports $select. Required on create. */
     settings?: AccessReviewScheduleSettings | undefined;
+    /** Required only for a multi-stage access review to define the stages and their settings. You can break down each review instance into up to three sequential stages, where each stage can have a different set of reviewers, fallback reviewers, and settings. Stages will be created sequentially based on the dependsOn property. Optional.  When this property is defined, its settings are used instead of the corresponding settings in the accessReviewScheduleDefinition object and its settings, reviewers, and fallbackReviewers properties. */
+    stageSettings?: AccessReviewStageSettings[] | undefined;
     /** This read-only field specifies the status of an access review. The typical states include Initializing, NotStarted, Starting, InProgress, Completing, Completed, AutoReviewing, and AutoReviewed.  Supports $select, $orderby, and $filter (eq only). Read-only. */
     status?: string | undefined;
 }

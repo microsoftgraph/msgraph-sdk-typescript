@@ -18,7 +18,7 @@ export class RecordingInfoImpl implements RecordingInfo {
      */
     public constructor(recordingInfoParameterValue?: RecordingInfo | undefined) {
         this.additionalData = recordingInfoParameterValue?.additionalData ? recordingInfoParameterValue?.additionalData! : {};
-        this.initiator = recordingInfoParameterValue?.initiator;
+        this.initiator = recordingInfoParameterValue?.initiator instanceof IdentitySetImpl? recordingInfoParameterValue?.initiator:new IdentitySetImpl(recordingInfoParameterValue?.initiator);
         this.recordingStatus = recordingInfoParameterValue?.recordingStatus;
     };
     /**

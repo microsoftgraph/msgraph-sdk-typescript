@@ -16,7 +16,7 @@ export class LogTeleconferenceDeviceQualityPostRequestBodyImpl implements LogTel
      */
     public constructor(logTeleconferenceDeviceQualityPostRequestBodyParameterValue?: LogTeleconferenceDeviceQualityPostRequestBody | undefined) {
         this.additionalData = logTeleconferenceDeviceQualityPostRequestBodyParameterValue?.additionalData ? logTeleconferenceDeviceQualityPostRequestBodyParameterValue?.additionalData! : {};
-        this.quality = logTeleconferenceDeviceQualityPostRequestBodyParameterValue?.quality;
+        this.quality = logTeleconferenceDeviceQualityPostRequestBodyParameterValue?.quality instanceof TeleconferenceDeviceQualityImpl? logTeleconferenceDeviceQualityPostRequestBodyParameterValue?.quality:new TeleconferenceDeviceQualityImpl(logTeleconferenceDeviceQualityPostRequestBodyParameterValue?.quality);
     };
     /**
      * The deserialization information for the current model

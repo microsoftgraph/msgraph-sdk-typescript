@@ -6,7 +6,7 @@ import {WorkbookChartLineFormat} from './workbookChartLineFormat';
 import {WorkbookChartSeriesFormat} from './workbookChartSeriesFormat';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to group. */
+/** Provides operations to manage the collection of application entities. */
 export class WorkbookChartSeriesFormatImpl extends EntityImpl implements WorkbookChartSeriesFormat {
     /** Represents the fill format of a chart series, which includes background formating information. Read-only. */
     public fill?: WorkbookChartFill | undefined;
@@ -18,8 +18,8 @@ export class WorkbookChartSeriesFormatImpl extends EntityImpl implements Workboo
      */
     public constructor(workbookChartSeriesFormatParameterValue?: WorkbookChartSeriesFormat | undefined) {
         super(workbookChartSeriesFormatParameterValue);
-        this.fill = workbookChartSeriesFormatParameterValue?.fill;
-        this.line = workbookChartSeriesFormatParameterValue?.line;
+        this.fill = workbookChartSeriesFormatParameterValue?.fill instanceof WorkbookChartFillImpl? workbookChartSeriesFormatParameterValue?.fill:new WorkbookChartFillImpl(workbookChartSeriesFormatParameterValue?.fill);
+        this.line = workbookChartSeriesFormatParameterValue?.line instanceof WorkbookChartLineFormatImpl? workbookChartSeriesFormatParameterValue?.line:new WorkbookChartLineFormatImpl(workbookChartSeriesFormatParameterValue?.line);
     };
     /**
      * The deserialization information for the current model

@@ -18,7 +18,8 @@ export class ConditionalAccessPolicyCollectionResponseImpl implements Conditiona
     public constructor(conditionalAccessPolicyCollectionResponseParameterValue?: ConditionalAccessPolicyCollectionResponse | undefined) {
         this.additionalData = conditionalAccessPolicyCollectionResponseParameterValue?.additionalData ? conditionalAccessPolicyCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = conditionalAccessPolicyCollectionResponseParameterValue?.nextLink;
-        this.value = conditionalAccessPolicyCollectionResponseParameterValue?.value;
+        const valueArrValue: ConditionalAccessPolicyImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ConditionalAccessPolicyImpl? element : new ConditionalAccessPolicyImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -39,7 +40,7 @@ export class ConditionalAccessPolicyCollectionResponseImpl implements Conditiona
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: ConditionalAccessPolicyImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ConditionalAccessPolicyImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: ConditionalAccessPolicyImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ConditionalAccessPolicyImpl? element : new ConditionalAccessPolicyImpl(element));});
             writer.writeCollectionOfObjectValues<ConditionalAccessPolicyImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

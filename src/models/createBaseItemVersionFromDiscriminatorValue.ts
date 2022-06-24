@@ -1,4 +1,4 @@
-import {BaseItemVersionImpl} from './index';
+import {BaseItemVersionImpl, DriveItemVersionImpl, ListItemVersionImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
 export function createBaseItemVersionFromDiscriminatorValue(parseNode: ParseNode | undefined) : BaseItemVersionImpl {
@@ -8,8 +8,10 @@ export function createBaseItemVersionFromDiscriminatorValue(parseNode: ParseNode
         const mappingValue = mappingValueNode.getStringValue();
         if (mappingValue) {
             switch (mappingValue) {
-                case "#microsoft.graph.baseItemVersion":
-                    return new BaseItemVersionImpl();
+                case "#microsoft.graph.driveItemVersion":
+                    return new DriveItemVersionImpl();
+                case "#microsoft.graph.listItemVersion":
+                    return new ListItemVersionImpl();
             }
         }
     }

@@ -7,7 +7,7 @@ export interface Request extends Entity, Partial<Parsable> {
     approvalId?: string | undefined;
     /** The request completion date time. */
     completedDateTime?: Date | undefined;
-    /** The user who created this request. */
+    /** The principal that created the request. */
     createdBy?: IdentitySet | undefined;
     /** The request creation date time. */
     createdDateTime?: Date | undefined;

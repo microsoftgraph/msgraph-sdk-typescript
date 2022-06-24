@@ -35,7 +35,7 @@ export class ItemReferenceImpl implements ItemReference {
         this.name = itemReferenceParameterValue?.name;
         this.path = itemReferenceParameterValue?.path;
         this.shareId = itemReferenceParameterValue?.shareId;
-        this.sharepointIds = itemReferenceParameterValue?.sharepointIds;
+        this.sharepointIds = itemReferenceParameterValue?.sharepointIds instanceof SharepointIdsImpl? itemReferenceParameterValue?.sharepointIds:new SharepointIdsImpl(itemReferenceParameterValue?.sharepointIds);
         this.siteId = itemReferenceParameterValue?.siteId;
     };
     /**

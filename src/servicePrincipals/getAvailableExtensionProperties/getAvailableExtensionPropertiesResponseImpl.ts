@@ -16,7 +16,8 @@ export class GetAvailableExtensionPropertiesResponseImpl implements GetAvailable
      */
     public constructor(getAvailableExtensionPropertiesResponseParameterValue?: GetAvailableExtensionPropertiesResponse | undefined) {
         this.additionalData = getAvailableExtensionPropertiesResponseParameterValue?.additionalData ? getAvailableExtensionPropertiesResponseParameterValue?.additionalData! : {};
-        this.value = getAvailableExtensionPropertiesResponseParameterValue?.value;
+        const valueArrValue: ExtensionPropertyImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ExtensionPropertyImpl? element : new ExtensionPropertyImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -33,7 +34,7 @@ export class GetAvailableExtensionPropertiesResponseImpl implements GetAvailable
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        if(this.value && this.value.length != 0){        const valueArrValue: ExtensionPropertyImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ExtensionPropertyImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: ExtensionPropertyImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ExtensionPropertyImpl? element : new ExtensionPropertyImpl(element));});
             writer.writeCollectionOfObjectValues<ExtensionPropertyImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

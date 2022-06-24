@@ -31,12 +31,16 @@ export class AccessPackageApprovalStageImpl implements AccessPackageApprovalStag
         this.additionalData = accessPackageApprovalStageParameterValue?.additionalData ? accessPackageApprovalStageParameterValue?.additionalData! : {};
         this.durationBeforeAutomaticDenial = accessPackageApprovalStageParameterValue?.durationBeforeAutomaticDenial;
         this.durationBeforeEscalation = accessPackageApprovalStageParameterValue?.durationBeforeEscalation;
-        this.escalationApprovers = accessPackageApprovalStageParameterValue?.escalationApprovers;
-        this.fallbackEscalationApprovers = accessPackageApprovalStageParameterValue?.fallbackEscalationApprovers;
-        this.fallbackPrimaryApprovers = accessPackageApprovalStageParameterValue?.fallbackPrimaryApprovers;
+        const escalationApproversArrValue: SubjectSetImpl[] = []; this.escalationApprovers?.forEach(element => {escalationApproversArrValue.push(element instanceof SubjectSetImpl? element : new SubjectSetImpl(element));});
+        this.escalationApprovers = escalationApproversArrValue;
+        const fallbackEscalationApproversArrValue: SubjectSetImpl[] = []; this.fallbackEscalationApprovers?.forEach(element => {fallbackEscalationApproversArrValue.push(element instanceof SubjectSetImpl? element : new SubjectSetImpl(element));});
+        this.fallbackEscalationApprovers = fallbackEscalationApproversArrValue;
+        const fallbackPrimaryApproversArrValue: SubjectSetImpl[] = []; this.fallbackPrimaryApprovers?.forEach(element => {fallbackPrimaryApproversArrValue.push(element instanceof SubjectSetImpl? element : new SubjectSetImpl(element));});
+        this.fallbackPrimaryApprovers = fallbackPrimaryApproversArrValue;
         this.isApproverJustificationRequired = accessPackageApprovalStageParameterValue?.isApproverJustificationRequired;
         this.isEscalationEnabled = accessPackageApprovalStageParameterValue?.isEscalationEnabled;
-        this.primaryApprovers = accessPackageApprovalStageParameterValue?.primaryApprovers;
+        const primaryApproversArrValue: SubjectSetImpl[] = []; this.primaryApprovers?.forEach(element => {primaryApproversArrValue.push(element instanceof SubjectSetImpl? element : new SubjectSetImpl(element));});
+        this.primaryApprovers = primaryApproversArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -66,13 +70,13 @@ export class AccessPackageApprovalStageImpl implements AccessPackageApprovalStag
         if(this.durationBeforeEscalation){
             writer.writeDurationValue("durationBeforeEscalation", this.durationBeforeEscalation);
         }
-        if(this.escalationApprovers && this.escalationApprovers.length != 0){        const escalationApproversArrValue: SubjectSetImpl[] = []; this.escalationApprovers?.forEach(element => {escalationApproversArrValue.push(new SubjectSetImpl(element));});
+        if(this.escalationApprovers && this.escalationApprovers.length != 0){        const escalationApproversArrValue: SubjectSetImpl[] = []; this.escalationApprovers?.forEach(element => {escalationApproversArrValue.push(element instanceof SubjectSetImpl? element : new SubjectSetImpl(element));});
             writer.writeCollectionOfObjectValues<SubjectSetImpl>("escalationApprovers", escalationApproversArrValue);
         }
-        if(this.fallbackEscalationApprovers && this.fallbackEscalationApprovers.length != 0){        const fallbackEscalationApproversArrValue: SubjectSetImpl[] = []; this.fallbackEscalationApprovers?.forEach(element => {fallbackEscalationApproversArrValue.push(new SubjectSetImpl(element));});
+        if(this.fallbackEscalationApprovers && this.fallbackEscalationApprovers.length != 0){        const fallbackEscalationApproversArrValue: SubjectSetImpl[] = []; this.fallbackEscalationApprovers?.forEach(element => {fallbackEscalationApproversArrValue.push(element instanceof SubjectSetImpl? element : new SubjectSetImpl(element));});
             writer.writeCollectionOfObjectValues<SubjectSetImpl>("fallbackEscalationApprovers", fallbackEscalationApproversArrValue);
         }
-        if(this.fallbackPrimaryApprovers && this.fallbackPrimaryApprovers.length != 0){        const fallbackPrimaryApproversArrValue: SubjectSetImpl[] = []; this.fallbackPrimaryApprovers?.forEach(element => {fallbackPrimaryApproversArrValue.push(new SubjectSetImpl(element));});
+        if(this.fallbackPrimaryApprovers && this.fallbackPrimaryApprovers.length != 0){        const fallbackPrimaryApproversArrValue: SubjectSetImpl[] = []; this.fallbackPrimaryApprovers?.forEach(element => {fallbackPrimaryApproversArrValue.push(element instanceof SubjectSetImpl? element : new SubjectSetImpl(element));});
             writer.writeCollectionOfObjectValues<SubjectSetImpl>("fallbackPrimaryApprovers", fallbackPrimaryApproversArrValue);
         }
         if(this.isApproverJustificationRequired){
@@ -81,7 +85,7 @@ export class AccessPackageApprovalStageImpl implements AccessPackageApprovalStag
         if(this.isEscalationEnabled){
             writer.writeBooleanValue("isEscalationEnabled", this.isEscalationEnabled);
         }
-        if(this.primaryApprovers && this.primaryApprovers.length != 0){        const primaryApproversArrValue: SubjectSetImpl[] = []; this.primaryApprovers?.forEach(element => {primaryApproversArrValue.push(new SubjectSetImpl(element));});
+        if(this.primaryApprovers && this.primaryApprovers.length != 0){        const primaryApproversArrValue: SubjectSetImpl[] = []; this.primaryApprovers?.forEach(element => {primaryApproversArrValue.push(element instanceof SubjectSetImpl? element : new SubjectSetImpl(element));});
             writer.writeCollectionOfObjectValues<SubjectSetImpl>("primaryApprovers", primaryApproversArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

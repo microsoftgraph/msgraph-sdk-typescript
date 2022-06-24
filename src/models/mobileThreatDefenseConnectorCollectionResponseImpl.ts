@@ -18,7 +18,8 @@ export class MobileThreatDefenseConnectorCollectionResponseImpl implements Mobil
     public constructor(mobileThreatDefenseConnectorCollectionResponseParameterValue?: MobileThreatDefenseConnectorCollectionResponse | undefined) {
         this.additionalData = mobileThreatDefenseConnectorCollectionResponseParameterValue?.additionalData ? mobileThreatDefenseConnectorCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = mobileThreatDefenseConnectorCollectionResponseParameterValue?.nextLink;
-        this.value = mobileThreatDefenseConnectorCollectionResponseParameterValue?.value;
+        const valueArrValue: MobileThreatDefenseConnectorImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof MobileThreatDefenseConnectorImpl? element : new MobileThreatDefenseConnectorImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -39,7 +40,7 @@ export class MobileThreatDefenseConnectorCollectionResponseImpl implements Mobil
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: MobileThreatDefenseConnectorImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new MobileThreatDefenseConnectorImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: MobileThreatDefenseConnectorImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof MobileThreatDefenseConnectorImpl? element : new MobileThreatDefenseConnectorImpl(element));});
             writer.writeCollectionOfObjectValues<MobileThreatDefenseConnectorImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

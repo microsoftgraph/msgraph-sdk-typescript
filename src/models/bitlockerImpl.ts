@@ -14,7 +14,8 @@ export class BitlockerImpl extends EntityImpl implements Bitlocker {
      */
     public constructor(bitlockerParameterValue?: Bitlocker | undefined) {
         super(bitlockerParameterValue);
-        this.recoveryKeys = bitlockerParameterValue?.recoveryKeys;
+        const recoveryKeysArrValue: BitlockerRecoveryKeyImpl[] = []; this.recoveryKeys?.forEach(element => {recoveryKeysArrValue.push(element instanceof BitlockerRecoveryKeyImpl? element : new BitlockerRecoveryKeyImpl(element));});
+        this.recoveryKeys = recoveryKeysArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -32,7 +33,7 @@ export class BitlockerImpl extends EntityImpl implements Bitlocker {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.recoveryKeys && this.recoveryKeys.length != 0){        const recoveryKeysArrValue: BitlockerRecoveryKeyImpl[] = []; this.recoveryKeys?.forEach(element => {recoveryKeysArrValue.push(new BitlockerRecoveryKeyImpl(element));});
+        if(this.recoveryKeys && this.recoveryKeys.length != 0){        const recoveryKeysArrValue: BitlockerRecoveryKeyImpl[] = []; this.recoveryKeys?.forEach(element => {recoveryKeysArrValue.push(element instanceof BitlockerRecoveryKeyImpl? element : new BitlockerRecoveryKeyImpl(element));});
             writer.writeCollectionOfObjectValues<BitlockerRecoveryKeyImpl>("recoveryKeys", recoveryKeysArrValue);
         }
     };

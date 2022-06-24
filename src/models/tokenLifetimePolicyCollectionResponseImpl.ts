@@ -18,7 +18,8 @@ export class TokenLifetimePolicyCollectionResponseImpl implements TokenLifetimeP
     public constructor(tokenLifetimePolicyCollectionResponseParameterValue?: TokenLifetimePolicyCollectionResponse | undefined) {
         this.additionalData = tokenLifetimePolicyCollectionResponseParameterValue?.additionalData ? tokenLifetimePolicyCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = tokenLifetimePolicyCollectionResponseParameterValue?.nextLink;
-        this.value = tokenLifetimePolicyCollectionResponseParameterValue?.value;
+        const valueArrValue: TokenLifetimePolicyImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof TokenLifetimePolicyImpl? element : new TokenLifetimePolicyImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -39,7 +40,7 @@ export class TokenLifetimePolicyCollectionResponseImpl implements TokenLifetimeP
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: TokenLifetimePolicyImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new TokenLifetimePolicyImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: TokenLifetimePolicyImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof TokenLifetimePolicyImpl? element : new TokenLifetimePolicyImpl(element));});
             writer.writeCollectionOfObjectValues<TokenLifetimePolicyImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

@@ -62,7 +62,7 @@ export interface User extends DirectoryObject, Partial<Parsable> {
     assignedLicenses?: AssignedLicense[] | undefined;
     /** The plans that are assigned to the user. Read-only. Not nullable.Supports $filter (eq and not). */
     assignedPlans?: AssignedPlan[] | undefined;
-    /** TODO: Add Description */
+    /** The authentication methods that are supported for the user. */
     authentication?: Authentication | undefined;
     /** The birthday of the user. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z Returned only on $select. */
     birthday?: Date | undefined;
@@ -140,7 +140,7 @@ export interface User extends DirectoryObject, Partial<Parsable> {
     imAddresses?: string[] | undefined;
     /** Relevance classification of the user's messages based on explicit designations which override inferred relevance or importance. */
     inferenceClassification?: InferenceClassification | undefined;
-    /** Read-only. Nullable. */
+    /** The insights property */
     insights?: OfficeGraphInsights | undefined;
     /** A list for the user to describe their interests. Returned only on $select. */
     interests?: string[] | undefined;
@@ -184,7 +184,7 @@ export interface User extends DirectoryObject, Partial<Parsable> {
     oauth2PermissionGrants?: OAuth2PermissionGrant[] | undefined;
     /** The office location in the user's place of business. Maximum length is 128 characters. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values). */
     officeLocation?: string | undefined;
-    /** Read-only. */
+    /** The onenote property */
     onenote?: Onenote | undefined;
     /** The onlineMeetings property */
     onlineMeetings?: OnlineMeeting[] | undefined;
@@ -226,7 +226,7 @@ export interface User extends DirectoryObject, Partial<Parsable> {
     people?: Person[] | undefined;
     /** The user's profile photo. Read-only. */
     photo?: ProfilePhoto | undefined;
-    /** Read-only. Nullable. */
+    /** The photos property */
     photos?: ProfilePhoto[] | undefined;
     /** Selective Planner services available to the user. Read-only. Nullable. */
     planner?: PlannerUser | undefined;
@@ -252,7 +252,7 @@ export interface User extends DirectoryObject, Partial<Parsable> {
     schools?: string[] | undefined;
     /** The scoped-role administrative unit memberships for this user. Read-only. Nullable. */
     scopedRoleMemberOf?: ScopedRoleMembership[] | undefined;
-    /** Read-only. Nullable. */
+    /** The settings property */
     settings?: UserSettings | undefined;
     /** Do not use in Microsoft Graph. Manage this property through the Microsoft 365 admin center instead. Represents whether the user should be included in the Outlook global address list. See Known issue. */
     showInAddressList?: boolean | undefined;

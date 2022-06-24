@@ -1,5 +1,7 @@
 import {AccessReviewHistoryInstanceImpl} from '../../../../../../../models/';
 import {createAccessReviewHistoryInstanceFromDiscriminatorValue} from '../../../../../../../models/createAccessReviewHistoryInstanceFromDiscriminatorValue';
+import {ODataErrorImpl} from '../../../../../../../models/oDataErrors/';
+import {createODataErrorFromDiscriminatorValue} from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {GenerateDownloadUriRequestBuilderPostRequestConfiguration} from './generateDownloadUriRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
@@ -51,6 +53,10 @@ export class GenerateDownloadUriRequestBuilder {
         const requestInfo = this.createPostRequestInformation(
             requestConfiguration
         );
-        return this.requestAdapter?.sendAsync<AccessReviewHistoryInstanceImpl>(requestInfo, createAccessReviewHistoryInstanceFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<AccessReviewHistoryInstanceImpl>(requestInfo, createAccessReviewHistoryInstanceFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

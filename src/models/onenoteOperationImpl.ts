@@ -4,7 +4,6 @@ import {OnenoteOperation} from './onenoteOperation';
 import {OnenoteOperationError} from './onenoteOperationError';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class OnenoteOperationImpl extends OperationImpl implements OnenoteOperation {
     /** The error returned by the operation. */
     public error_escaped?: OnenoteOperationError | undefined;
@@ -15,12 +14,12 @@ export class OnenoteOperationImpl extends OperationImpl implements OnenoteOperat
     /** The resource URI for the object. For example, the resource URI for a copied page or section. */
     public resourceLocation?: string | undefined;
     /**
-     * Instantiates a new onenoteOperation and sets the default values.
+     * Instantiates a new OnenoteOperation and sets the default values.
      * @param onenoteOperationParameterValue 
      */
     public constructor(onenoteOperationParameterValue?: OnenoteOperation | undefined) {
         super(onenoteOperationParameterValue);
-        this.error_escaped = onenoteOperationParameterValue?.error_escaped;
+        this.error_escaped = onenoteOperationParameterValue?.error_escaped instanceof OnenoteOperationErrorImpl? onenoteOperationParameterValue?.error_escaped:new OnenoteOperationErrorImpl(onenoteOperationParameterValue?.error_escaped);
         this.percentComplete = onenoteOperationParameterValue?.percentComplete;
         this.resourceId = onenoteOperationParameterValue?.resourceId;
         this.resourceLocation = onenoteOperationParameterValue?.resourceLocation;

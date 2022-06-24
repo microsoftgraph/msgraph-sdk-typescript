@@ -18,7 +18,8 @@ export class ActivityHistoryItemCollectionResponseImpl implements ActivityHistor
     public constructor(activityHistoryItemCollectionResponseParameterValue?: ActivityHistoryItemCollectionResponse | undefined) {
         this.additionalData = activityHistoryItemCollectionResponseParameterValue?.additionalData ? activityHistoryItemCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = activityHistoryItemCollectionResponseParameterValue?.nextLink;
-        this.value = activityHistoryItemCollectionResponseParameterValue?.value;
+        const valueArrValue: ActivityHistoryItemImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ActivityHistoryItemImpl? element : new ActivityHistoryItemImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -39,7 +40,7 @@ export class ActivityHistoryItemCollectionResponseImpl implements ActivityHistor
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: ActivityHistoryItemImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ActivityHistoryItemImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: ActivityHistoryItemImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ActivityHistoryItemImpl? element : new ActivityHistoryItemImpl(element));});
             writer.writeCollectionOfObjectValues<ActivityHistoryItemImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

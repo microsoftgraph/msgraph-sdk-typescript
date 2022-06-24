@@ -2,7 +2,7 @@ import {Attachment} from './attachment';
 import {EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the collection of application entities. */
 export class AttachmentImpl extends EntityImpl implements Attachment {
     /** The MIME type. */
     public contentType?: string | undefined;

@@ -4,7 +4,7 @@ import {WorkbookSortField} from './workbookSortField';
 import {WorkbookTableSort} from './workbookTableSort';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to group. */
+/** Provides operations to manage the collection of application entities. */
 export class WorkbookTableSortImpl extends EntityImpl implements WorkbookTableSort {
     /** Represents the current conditions used to last sort the table. Read-only. */
     public fields?: WorkbookSortField[] | undefined;
@@ -18,7 +18,8 @@ export class WorkbookTableSortImpl extends EntityImpl implements WorkbookTableSo
      */
     public constructor(workbookTableSortParameterValue?: WorkbookTableSort | undefined) {
         super(workbookTableSortParameterValue);
-        this.fields = workbookTableSortParameterValue?.fields;
+        const fieldsArrValue: WorkbookSortFieldImpl[] = []; this.fields?.forEach(element => {fieldsArrValue.push(element instanceof WorkbookSortFieldImpl? element : new WorkbookSortFieldImpl(element));});
+        this.fields = fieldsArrValue;
         this.matchCase = workbookTableSortParameterValue?.matchCase;
         this.method = workbookTableSortParameterValue?.method;
     };
@@ -40,7 +41,7 @@ export class WorkbookTableSortImpl extends EntityImpl implements WorkbookTableSo
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.fields && this.fields.length != 0){        const fieldsArrValue: WorkbookSortFieldImpl[] = []; this.fields?.forEach(element => {fieldsArrValue.push(new WorkbookSortFieldImpl(element));});
+        if(this.fields && this.fields.length != 0){        const fieldsArrValue: WorkbookSortFieldImpl[] = []; this.fields?.forEach(element => {fieldsArrValue.push(element instanceof WorkbookSortFieldImpl? element : new WorkbookSortFieldImpl(element));});
             writer.writeCollectionOfObjectValues<WorkbookSortFieldImpl>("fields", fieldsArrValue);
         }
         if(this.matchCase){

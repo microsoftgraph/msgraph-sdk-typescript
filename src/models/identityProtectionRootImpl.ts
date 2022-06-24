@@ -19,8 +19,10 @@ export class IdentityProtectionRootImpl implements IdentityProtectionRoot {
      */
     public constructor(identityProtectionRootParameterValue?: IdentityProtectionRoot | undefined) {
         this.additionalData = identityProtectionRootParameterValue?.additionalData ? identityProtectionRootParameterValue?.additionalData! : {};
-        this.riskDetections = identityProtectionRootParameterValue?.riskDetections;
-        this.riskyUsers = identityProtectionRootParameterValue?.riskyUsers;
+        const riskDetectionsArrValue: RiskDetectionImpl[] = []; this.riskDetections?.forEach(element => {riskDetectionsArrValue.push(element instanceof RiskDetectionImpl? element : new RiskDetectionImpl(element));});
+        this.riskDetections = riskDetectionsArrValue;
+        const riskyUsersArrValue: RiskyUserImpl[] = []; this.riskyUsers?.forEach(element => {riskyUsersArrValue.push(element instanceof RiskyUserImpl? element : new RiskyUserImpl(element));});
+        this.riskyUsers = riskyUsersArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -38,10 +40,10 @@ export class IdentityProtectionRootImpl implements IdentityProtectionRoot {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        if(this.riskDetections && this.riskDetections.length != 0){        const riskDetectionsArrValue: RiskDetectionImpl[] = []; this.riskDetections?.forEach(element => {riskDetectionsArrValue.push(new RiskDetectionImpl(element));});
+        if(this.riskDetections && this.riskDetections.length != 0){        const riskDetectionsArrValue: RiskDetectionImpl[] = []; this.riskDetections?.forEach(element => {riskDetectionsArrValue.push(element instanceof RiskDetectionImpl? element : new RiskDetectionImpl(element));});
             writer.writeCollectionOfObjectValues<RiskDetectionImpl>("riskDetections", riskDetectionsArrValue);
         }
-        if(this.riskyUsers && this.riskyUsers.length != 0){        const riskyUsersArrValue: RiskyUserImpl[] = []; this.riskyUsers?.forEach(element => {riskyUsersArrValue.push(new RiskyUserImpl(element));});
+        if(this.riskyUsers && this.riskyUsers.length != 0){        const riskyUsersArrValue: RiskyUserImpl[] = []; this.riskyUsers?.forEach(element => {riskyUsersArrValue.push(element instanceof RiskyUserImpl? element : new RiskyUserImpl(element));});
             writer.writeCollectionOfObjectValues<RiskyUserImpl>("riskyUsers", riskyUsersArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

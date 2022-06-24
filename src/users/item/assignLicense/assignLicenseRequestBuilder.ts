@@ -1,5 +1,7 @@
 import {UserImpl} from '../../../models/';
 import {createUserFromDiscriminatorValue} from '../../../models/createUserFromDiscriminatorValue';
+import {ODataErrorImpl} from '../../../models/oDataErrors/';
+import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {AssignLicensePostRequestBody} from './assignLicensePostRequestBody';
 import {AssignLicenseRequestBuilderPostRequestConfiguration} from './assignLicenseRequestBuilderPostRequestConfiguration';
 import {AssignLicensePostRequestBodyImpl} from './index';
@@ -59,6 +61,10 @@ export class AssignLicenseRequestBuilder {
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration
         );
-        return this.requestAdapter?.sendAsync<UserImpl>(requestInfo, createUserFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<UserImpl>(requestInfo, createUserFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

@@ -19,7 +19,7 @@ export class StartHoldMusicPostRequestBodyImpl implements StartHoldMusicPostRequ
     public constructor(startHoldMusicPostRequestBodyParameterValue?: StartHoldMusicPostRequestBody | undefined) {
         this.additionalData = startHoldMusicPostRequestBodyParameterValue?.additionalData ? startHoldMusicPostRequestBodyParameterValue?.additionalData! : {};
         this.clientContext = startHoldMusicPostRequestBodyParameterValue?.clientContext;
-        this.customPrompt = startHoldMusicPostRequestBodyParameterValue?.customPrompt;
+        this.customPrompt = startHoldMusicPostRequestBodyParameterValue?.customPrompt instanceof PromptImpl? startHoldMusicPostRequestBodyParameterValue?.customPrompt:new PromptImpl(startHoldMusicPostRequestBodyParameterValue?.customPrompt);
     };
     /**
      * The deserialization information for the current model

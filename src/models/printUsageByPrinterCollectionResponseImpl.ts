@@ -18,7 +18,8 @@ export class PrintUsageByPrinterCollectionResponseImpl implements PrintUsageByPr
     public constructor(printUsageByPrinterCollectionResponseParameterValue?: PrintUsageByPrinterCollectionResponse | undefined) {
         this.additionalData = printUsageByPrinterCollectionResponseParameterValue?.additionalData ? printUsageByPrinterCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = printUsageByPrinterCollectionResponseParameterValue?.nextLink;
-        this.value = printUsageByPrinterCollectionResponseParameterValue?.value;
+        const valueArrValue: PrintUsageByPrinterImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof PrintUsageByPrinterImpl? element : new PrintUsageByPrinterImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -39,7 +40,7 @@ export class PrintUsageByPrinterCollectionResponseImpl implements PrintUsageByPr
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: PrintUsageByPrinterImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new PrintUsageByPrinterImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: PrintUsageByPrinterImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof PrintUsageByPrinterImpl? element : new PrintUsageByPrinterImpl(element));});
             writer.writeCollectionOfObjectValues<PrintUsageByPrinterImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

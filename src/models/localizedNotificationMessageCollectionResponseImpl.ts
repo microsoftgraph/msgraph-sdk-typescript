@@ -18,7 +18,8 @@ export class LocalizedNotificationMessageCollectionResponseImpl implements Local
     public constructor(localizedNotificationMessageCollectionResponseParameterValue?: LocalizedNotificationMessageCollectionResponse | undefined) {
         this.additionalData = localizedNotificationMessageCollectionResponseParameterValue?.additionalData ? localizedNotificationMessageCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = localizedNotificationMessageCollectionResponseParameterValue?.nextLink;
-        this.value = localizedNotificationMessageCollectionResponseParameterValue?.value;
+        const valueArrValue: LocalizedNotificationMessageImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof LocalizedNotificationMessageImpl? element : new LocalizedNotificationMessageImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -39,7 +40,7 @@ export class LocalizedNotificationMessageCollectionResponseImpl implements Local
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: LocalizedNotificationMessageImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new LocalizedNotificationMessageImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: LocalizedNotificationMessageImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof LocalizedNotificationMessageImpl? element : new LocalizedNotificationMessageImpl(element));});
             writer.writeCollectionOfObjectValues<LocalizedNotificationMessageImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

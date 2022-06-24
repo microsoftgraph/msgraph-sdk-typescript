@@ -18,7 +18,8 @@ export class PresenceCollectionResponseImpl implements PresenceCollectionRespons
     public constructor(presenceCollectionResponseParameterValue?: PresenceCollectionResponse | undefined) {
         this.additionalData = presenceCollectionResponseParameterValue?.additionalData ? presenceCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = presenceCollectionResponseParameterValue?.nextLink;
-        this.value = presenceCollectionResponseParameterValue?.value;
+        const valueArrValue: PresenceImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof PresenceImpl? element : new PresenceImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -39,7 +40,7 @@ export class PresenceCollectionResponseImpl implements PresenceCollectionRespons
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: PresenceImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new PresenceImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: PresenceImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof PresenceImpl? element : new PresenceImpl(element));});
             writer.writeCollectionOfObjectValues<PresenceImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

@@ -19,8 +19,8 @@ export class AuditActivityInitiatorImpl implements AuditActivityInitiator {
      */
     public constructor(auditActivityInitiatorParameterValue?: AuditActivityInitiator | undefined) {
         this.additionalData = auditActivityInitiatorParameterValue?.additionalData ? auditActivityInitiatorParameterValue?.additionalData! : {};
-        this.app = auditActivityInitiatorParameterValue?.app;
-        this.user = auditActivityInitiatorParameterValue?.user;
+        this.app = auditActivityInitiatorParameterValue?.app instanceof AppIdentityImpl? auditActivityInitiatorParameterValue?.app:new AppIdentityImpl(auditActivityInitiatorParameterValue?.app);
+        this.user = auditActivityInitiatorParameterValue?.user instanceof UserIdentityImpl? auditActivityInitiatorParameterValue?.user:new UserIdentityImpl(auditActivityInitiatorParameterValue?.user);
     };
     /**
      * The deserialization information for the current model

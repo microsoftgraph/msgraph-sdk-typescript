@@ -18,7 +18,8 @@ export class ApprovalStageCollectionResponseImpl implements ApprovalStageCollect
     public constructor(approvalStageCollectionResponseParameterValue?: ApprovalStageCollectionResponse | undefined) {
         this.additionalData = approvalStageCollectionResponseParameterValue?.additionalData ? approvalStageCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = approvalStageCollectionResponseParameterValue?.nextLink;
-        this.value = approvalStageCollectionResponseParameterValue?.value;
+        const valueArrValue: ApprovalStageImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ApprovalStageImpl? element : new ApprovalStageImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -39,7 +40,7 @@ export class ApprovalStageCollectionResponseImpl implements ApprovalStageCollect
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: ApprovalStageImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ApprovalStageImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: ApprovalStageImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ApprovalStageImpl? element : new ApprovalStageImpl(element));});
             writer.writeCollectionOfObjectValues<ApprovalStageImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

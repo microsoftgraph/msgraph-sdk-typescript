@@ -1,3 +1,5 @@
+import {ODataErrorImpl} from '../../../models/oDataErrors/';
+import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {createGetDirectRoutingCallsWithFromDateTimeWithToDateTimeResponseFromDiscriminatorValue} from './createGetDirectRoutingCallsWithFromDateTimeWithToDateTimeResponseFromDiscriminatorValue';
 import {GetDirectRoutingCallsWithFromDateTimeWithToDateTimeRequestBuilderGetRequestConfiguration} from './getDirectRoutingCallsWithFromDateTimeWithToDateTimeRequestBuilderGetRequestConfiguration';
 import {GetDirectRoutingCallsWithFromDateTimeWithToDateTimeResponseImpl} from './index';
@@ -55,6 +57,10 @@ export class GetDirectRoutingCallsWithFromDateTimeWithToDateTimeRequestBuilder {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
-        return this.requestAdapter?.sendAsync<GetDirectRoutingCallsWithFromDateTimeWithToDateTimeResponseImpl>(requestInfo, createGetDirectRoutingCallsWithFromDateTimeWithToDateTimeResponseFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<GetDirectRoutingCallsWithFromDateTimeWithToDateTimeResponseImpl>(requestInfo, createGetDirectRoutingCallsWithFromDateTimeWithToDateTimeResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

@@ -24,7 +24,7 @@ export class InvitationParticipantInfoImpl implements InvitationParticipantInfo 
     public constructor(invitationParticipantInfoParameterValue?: InvitationParticipantInfo | undefined) {
         this.additionalData = invitationParticipantInfoParameterValue?.additionalData ? invitationParticipantInfoParameterValue?.additionalData! : {};
         this.hidden = invitationParticipantInfoParameterValue?.hidden;
-        this.identity = invitationParticipantInfoParameterValue?.identity;
+        this.identity = invitationParticipantInfoParameterValue?.identity instanceof IdentitySetImpl? invitationParticipantInfoParameterValue?.identity:new IdentitySetImpl(invitationParticipantInfoParameterValue?.identity);
         this.participantId = invitationParticipantInfoParameterValue?.participantId;
         this.removeFromDefaultAudioRoutingGroup = invitationParticipantInfoParameterValue?.removeFromDefaultAudioRoutingGroup;
         this.replacesCallId = invitationParticipantInfoParameterValue?.replacesCallId;

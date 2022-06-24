@@ -14,9 +14,9 @@ export interface TodoTask extends Entity, Partial<Parsable> {
     body?: ItemBody | undefined;
     /** The date and time when the task was last modified. By default, it is in UTC. You can provide a custom time zone in the request header. The property value uses ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2020 would look like this: '2020-01-01T00:00:00Z'. */
     bodyLastModifiedDateTime?: Date | undefined;
-    /** The categories property */
+    /** The categories associated with the task. Each category corresponds to the displayName property of an outlookCategory that the user has defined. */
     categories?: string[] | undefined;
-    /** The checklistItems property */
+    /** A collection of smaller subtasks linked to the more complex parent task. */
     checklistItems?: ChecklistItem[] | undefined;
     /** The date in the specified time zone that the task was finished. */
     completedDateTime?: DateTimeTimeZone | undefined;

@@ -18,7 +18,8 @@ export class MdmWindowsInformationProtectionPolicyCollectionResponseImpl impleme
     public constructor(mdmWindowsInformationProtectionPolicyCollectionResponseParameterValue?: MdmWindowsInformationProtectionPolicyCollectionResponse | undefined) {
         this.additionalData = mdmWindowsInformationProtectionPolicyCollectionResponseParameterValue?.additionalData ? mdmWindowsInformationProtectionPolicyCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = mdmWindowsInformationProtectionPolicyCollectionResponseParameterValue?.nextLink;
-        this.value = mdmWindowsInformationProtectionPolicyCollectionResponseParameterValue?.value;
+        const valueArrValue: MdmWindowsInformationProtectionPolicyImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof MdmWindowsInformationProtectionPolicyImpl? element : new MdmWindowsInformationProtectionPolicyImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -39,7 +40,7 @@ export class MdmWindowsInformationProtectionPolicyCollectionResponseImpl impleme
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: MdmWindowsInformationProtectionPolicyImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new MdmWindowsInformationProtectionPolicyImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: MdmWindowsInformationProtectionPolicyImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof MdmWindowsInformationProtectionPolicyImpl? element : new MdmWindowsInformationProtectionPolicyImpl(element));});
             writer.writeCollectionOfObjectValues<MdmWindowsInformationProtectionPolicyImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

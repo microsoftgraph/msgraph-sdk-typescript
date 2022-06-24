@@ -1,5 +1,7 @@
 import {UploadSessionImpl} from '../../../../../../models/';
 import {createUploadSessionFromDiscriminatorValue} from '../../../../../../models/createUploadSessionFromDiscriminatorValue';
+import {ODataErrorImpl} from '../../../../../../models/oDataErrors/';
+import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CreateUploadSessionPostRequestBody} from './createUploadSessionPostRequestBody';
 import {CreateUploadSessionRequestBuilderPostRequestConfiguration} from './createUploadSessionRequestBuilderPostRequestConfiguration';
 import {CreateUploadSessionPostRequestBodyImpl} from './index';
@@ -59,6 +61,10 @@ export class CreateUploadSessionRequestBuilder {
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration
         );
-        return this.requestAdapter?.sendAsync<UploadSessionImpl>(requestInfo, createUploadSessionFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<UploadSessionImpl>(requestInfo, createUploadSessionFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

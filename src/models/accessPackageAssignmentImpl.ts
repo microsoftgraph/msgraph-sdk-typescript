@@ -33,13 +33,13 @@ export class AccessPackageAssignmentImpl extends EntityImpl implements AccessPac
      */
     public constructor(accessPackageAssignmentParameterValue?: AccessPackageAssignment | undefined) {
         super(accessPackageAssignmentParameterValue);
-        this.accessPackage = accessPackageAssignmentParameterValue?.accessPackage;
-        this.assignmentPolicy = accessPackageAssignmentParameterValue?.assignmentPolicy;
+        this.accessPackage = accessPackageAssignmentParameterValue?.accessPackage instanceof AccessPackageImpl? accessPackageAssignmentParameterValue?.accessPackage:new AccessPackageImpl(accessPackageAssignmentParameterValue?.accessPackage);
+        this.assignmentPolicy = accessPackageAssignmentParameterValue?.assignmentPolicy instanceof AccessPackageAssignmentPolicyImpl? accessPackageAssignmentParameterValue?.assignmentPolicy:new AccessPackageAssignmentPolicyImpl(accessPackageAssignmentParameterValue?.assignmentPolicy);
         this.expiredDateTime = accessPackageAssignmentParameterValue?.expiredDateTime;
-        this.schedule = accessPackageAssignmentParameterValue?.schedule;
+        this.schedule = accessPackageAssignmentParameterValue?.schedule instanceof EntitlementManagementScheduleImpl? accessPackageAssignmentParameterValue?.schedule:new EntitlementManagementScheduleImpl(accessPackageAssignmentParameterValue?.schedule);
         this.state = accessPackageAssignmentParameterValue?.state;
         this.status = accessPackageAssignmentParameterValue?.status;
-        this.target = accessPackageAssignmentParameterValue?.target;
+        this.target = accessPackageAssignmentParameterValue?.target instanceof AccessPackageSubjectImpl? accessPackageAssignmentParameterValue?.target:new AccessPackageSubjectImpl(accessPackageAssignmentParameterValue?.target);
     };
     /**
      * The deserialization information for the current model

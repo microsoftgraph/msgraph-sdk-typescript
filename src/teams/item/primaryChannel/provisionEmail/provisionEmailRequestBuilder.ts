@@ -1,5 +1,7 @@
 import {ProvisionChannelEmailResultImpl} from '../../../../models/';
 import {createProvisionChannelEmailResultFromDiscriminatorValue} from '../../../../models/createProvisionChannelEmailResultFromDiscriminatorValue';
+import {ODataErrorImpl} from '../../../../models/oDataErrors/';
+import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {ProvisionEmailRequestBuilderPostRequestConfiguration} from './provisionEmailRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
@@ -51,6 +53,10 @@ export class ProvisionEmailRequestBuilder {
         const requestInfo = this.createPostRequestInformation(
             requestConfiguration
         );
-        return this.requestAdapter?.sendAsync<ProvisionChannelEmailResultImpl>(requestInfo, createProvisionChannelEmailResultFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<ProvisionChannelEmailResultImpl>(requestInfo, createProvisionChannelEmailResultFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

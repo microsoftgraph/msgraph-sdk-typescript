@@ -2,14 +2,13 @@ import {DriveItemVersion} from './driveItemVersion';
 import {BaseItemVersionImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to group. */
 export class DriveItemVersionImpl extends BaseItemVersionImpl implements DriveItemVersion {
     /** The content property */
     public content?: string | undefined;
     /** Indicates the size of the content stream for this version of the item. */
     public size?: number | undefined;
     /**
-     * Instantiates a new driveItemVersion and sets the default values.
+     * Instantiates a new DriveItemVersion and sets the default values.
      * @param driveItemVersionParameterValue 
      */
     public constructor(driveItemVersionParameterValue?: DriveItemVersion | undefined) {

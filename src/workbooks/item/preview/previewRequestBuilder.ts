@@ -1,5 +1,7 @@
 import {ItemPreviewInfoImpl} from '../../../models/';
 import {createItemPreviewInfoFromDiscriminatorValue} from '../../../models/createItemPreviewInfoFromDiscriminatorValue';
+import {ODataErrorImpl} from '../../../models/oDataErrors/';
+import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {PreviewPostRequestBodyImpl} from './index';
 import {PreviewPostRequestBody} from './previewPostRequestBody';
 import {PreviewRequestBuilderPostRequestConfiguration} from './previewRequestBuilderPostRequestConfiguration';
@@ -59,6 +61,10 @@ export class PreviewRequestBuilder {
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration
         );
-        return this.requestAdapter?.sendAsync<ItemPreviewInfoImpl>(requestInfo, createItemPreviewInfoFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<ItemPreviewInfoImpl>(requestInfo, createItemPreviewInfoFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

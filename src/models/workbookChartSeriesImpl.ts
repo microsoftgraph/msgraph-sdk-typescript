@@ -6,7 +6,7 @@ import {WorkbookChartSeries} from './workbookChartSeries';
 import {WorkbookChartSeriesFormat} from './workbookChartSeriesFormat';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to group. */
+/** Provides operations to manage the collection of application entities. */
 export class WorkbookChartSeriesImpl extends EntityImpl implements WorkbookChartSeries {
     /** Represents the formatting of a chart series, which includes fill and line formatting. Read-only. */
     public format?: WorkbookChartSeriesFormat | undefined;
@@ -20,9 +20,10 @@ export class WorkbookChartSeriesImpl extends EntityImpl implements WorkbookChart
      */
     public constructor(workbookChartSeriesParameterValue?: WorkbookChartSeries | undefined) {
         super(workbookChartSeriesParameterValue);
-        this.format = workbookChartSeriesParameterValue?.format;
+        this.format = workbookChartSeriesParameterValue?.format instanceof WorkbookChartSeriesFormatImpl? workbookChartSeriesParameterValue?.format:new WorkbookChartSeriesFormatImpl(workbookChartSeriesParameterValue?.format);
         this.name = workbookChartSeriesParameterValue?.name;
-        this.points = workbookChartSeriesParameterValue?.points;
+        const pointsArrValue: WorkbookChartPointImpl[] = []; this.points?.forEach(element => {pointsArrValue.push(element instanceof WorkbookChartPointImpl? element : new WorkbookChartPointImpl(element));});
+        this.points = pointsArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -48,7 +49,7 @@ export class WorkbookChartSeriesImpl extends EntityImpl implements WorkbookChart
         if(this.name){
             writer.writeStringValue("name", this.name);
         }
-        if(this.points && this.points.length != 0){        const pointsArrValue: WorkbookChartPointImpl[] = []; this.points?.forEach(element => {pointsArrValue.push(new WorkbookChartPointImpl(element));});
+        if(this.points && this.points.length != 0){        const pointsArrValue: WorkbookChartPointImpl[] = []; this.points?.forEach(element => {pointsArrValue.push(element instanceof WorkbookChartPointImpl? element : new WorkbookChartPointImpl(element));});
             writer.writeCollectionOfObjectValues<WorkbookChartPointImpl>("points", pointsArrValue);
         }
     };

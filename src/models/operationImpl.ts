@@ -3,7 +3,7 @@ import {Operation} from './operation';
 import {OperationStatus} from './operationStatus';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Casts the previous resource to group. */
 export class OperationImpl extends EntityImpl implements Operation {
     /** The start time of the operation. */
     public createdDateTime?: Date | undefined;

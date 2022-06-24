@@ -17,7 +17,7 @@ export class PrintOperationImpl extends EntityImpl implements PrintOperation {
     public constructor(printOperationParameterValue?: PrintOperation | undefined) {
         super(printOperationParameterValue);
         this.createdDateTime = printOperationParameterValue?.createdDateTime;
-        this.status = printOperationParameterValue?.status;
+        this.status = printOperationParameterValue?.status instanceof PrintOperationStatusImpl? printOperationParameterValue?.status:new PrintOperationStatusImpl(printOperationParameterValue?.status);
     };
     /**
      * The deserialization information for the current model

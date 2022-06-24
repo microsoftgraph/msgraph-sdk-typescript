@@ -6,7 +6,7 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 
 /** Provides operations to manage the policyRoot singleton. */
 export class UnifiedRoleManagementPolicyRuleImpl extends EntityImpl implements UnifiedRoleManagementPolicyRule {
-    /** The target for the policy rule. */
+    /** Not implemented. Defines details of scope that's targeted by role management policy rule. The details can include the principal type, the role assignment type, and actions affecting a role. Supports $filter (eq, ne). */
     public target?: UnifiedRoleManagementPolicyRuleTarget | undefined;
     /**
      * Instantiates a new unifiedRoleManagementPolicyRule and sets the default values.
@@ -14,7 +14,7 @@ export class UnifiedRoleManagementPolicyRuleImpl extends EntityImpl implements U
      */
     public constructor(unifiedRoleManagementPolicyRuleParameterValue?: UnifiedRoleManagementPolicyRule | undefined) {
         super(unifiedRoleManagementPolicyRuleParameterValue);
-        this.target = unifiedRoleManagementPolicyRuleParameterValue?.target;
+        this.target = unifiedRoleManagementPolicyRuleParameterValue?.target instanceof UnifiedRoleManagementPolicyRuleTargetImpl? unifiedRoleManagementPolicyRuleParameterValue?.target:new UnifiedRoleManagementPolicyRuleTargetImpl(unifiedRoleManagementPolicyRuleParameterValue?.target);
     };
     /**
      * The deserialization information for the current model

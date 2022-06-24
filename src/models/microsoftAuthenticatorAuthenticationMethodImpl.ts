@@ -4,7 +4,6 @@ import {AuthenticationMethodImpl, DeviceImpl} from './index';
 import {MicrosoftAuthenticatorAuthenticationMethod} from './microsoftAuthenticatorAuthenticationMethod';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class MicrosoftAuthenticatorAuthenticationMethodImpl extends AuthenticationMethodImpl implements MicrosoftAuthenticatorAuthenticationMethod {
     /** The date and time that this app was registered. This property is null if the device is not registered for passwordless Phone Sign-In. */
     public createdDateTime?: Date | undefined;
@@ -17,13 +16,13 @@ export class MicrosoftAuthenticatorAuthenticationMethodImpl extends Authenticati
     /** Numerical version of this instance of the Authenticator app. */
     public phoneAppVersion?: string | undefined;
     /**
-     * Instantiates a new microsoftAuthenticatorAuthenticationMethod and sets the default values.
+     * Instantiates a new MicrosoftAuthenticatorAuthenticationMethod and sets the default values.
      * @param microsoftAuthenticatorAuthenticationMethodParameterValue 
      */
     public constructor(microsoftAuthenticatorAuthenticationMethodParameterValue?: MicrosoftAuthenticatorAuthenticationMethod | undefined) {
         super(microsoftAuthenticatorAuthenticationMethodParameterValue);
         this.createdDateTime = microsoftAuthenticatorAuthenticationMethodParameterValue?.createdDateTime;
-        this.device = microsoftAuthenticatorAuthenticationMethodParameterValue?.device;
+        this.device = microsoftAuthenticatorAuthenticationMethodParameterValue?.device instanceof DeviceImpl? microsoftAuthenticatorAuthenticationMethodParameterValue?.device:new DeviceImpl(microsoftAuthenticatorAuthenticationMethodParameterValue?.device);
         this.deviceTag = microsoftAuthenticatorAuthenticationMethodParameterValue?.deviceTag;
         this.displayName = microsoftAuthenticatorAuthenticationMethodParameterValue?.displayName;
         this.phoneAppVersion = microsoftAuthenticatorAuthenticationMethodParameterValue?.phoneAppVersion;

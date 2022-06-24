@@ -18,7 +18,8 @@ export class ConnectedOrganizationCollectionResponseImpl implements ConnectedOrg
     public constructor(connectedOrganizationCollectionResponseParameterValue?: ConnectedOrganizationCollectionResponse | undefined) {
         this.additionalData = connectedOrganizationCollectionResponseParameterValue?.additionalData ? connectedOrganizationCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = connectedOrganizationCollectionResponseParameterValue?.nextLink;
-        this.value = connectedOrganizationCollectionResponseParameterValue?.value;
+        const valueArrValue: ConnectedOrganizationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ConnectedOrganizationImpl? element : new ConnectedOrganizationImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -39,7 +40,7 @@ export class ConnectedOrganizationCollectionResponseImpl implements ConnectedOrg
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: ConnectedOrganizationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ConnectedOrganizationImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: ConnectedOrganizationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ConnectedOrganizationImpl? element : new ConnectedOrganizationImpl(element));});
             writer.writeCollectionOfObjectValues<ConnectedOrganizationImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

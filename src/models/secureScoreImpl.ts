@@ -22,7 +22,7 @@ export class SecureScoreImpl extends EntityImpl implements SecureScore {
     public createdDateTime?: Date | undefined;
     /** Tenant current attained score on specified date. */
     public currentScore?: number | undefined;
-    /** Microsoft-provided services for the tenant (for example, Exchange online, Skype, Sharepoint). */
+    /** Microsoft-provided services for the tenant (for example, Exchange online, Skype, SharePoint). */
     public enabledServices?: string[] | undefined;
     /** Licensed user count of the given tenant. */
     public licensedUserCount?: number | undefined;
@@ -37,15 +37,17 @@ export class SecureScoreImpl extends EntityImpl implements SecureScore {
     public constructor(secureScoreParameterValue?: SecureScore | undefined) {
         super(secureScoreParameterValue);
         this.activeUserCount = secureScoreParameterValue?.activeUserCount;
-        this.averageComparativeScores = secureScoreParameterValue?.averageComparativeScores;
+        const averageComparativeScoresArrValue: AverageComparativeScoreImpl[] = []; this.averageComparativeScores?.forEach(element => {averageComparativeScoresArrValue.push(element instanceof AverageComparativeScoreImpl? element : new AverageComparativeScoreImpl(element));});
+        this.averageComparativeScores = averageComparativeScoresArrValue;
         this.azureTenantId = secureScoreParameterValue?.azureTenantId;
-        this.controlScores = secureScoreParameterValue?.controlScores;
+        const controlScoresArrValue: ControlScoreImpl[] = []; this.controlScores?.forEach(element => {controlScoresArrValue.push(element instanceof ControlScoreImpl? element : new ControlScoreImpl(element));});
+        this.controlScores = controlScoresArrValue;
         this.createdDateTime = secureScoreParameterValue?.createdDateTime;
         this.currentScore = secureScoreParameterValue?.currentScore;
         this.enabledServices = secureScoreParameterValue?.enabledServices;
         this.licensedUserCount = secureScoreParameterValue?.licensedUserCount;
         this.maxScore = secureScoreParameterValue?.maxScore;
-        this.vendorInformation = secureScoreParameterValue?.vendorInformation;
+        this.vendorInformation = secureScoreParameterValue?.vendorInformation instanceof SecurityVendorInformationImpl? secureScoreParameterValue?.vendorInformation:new SecurityVendorInformationImpl(secureScoreParameterValue?.vendorInformation);
     };
     /**
      * The deserialization information for the current model
@@ -75,13 +77,13 @@ export class SecureScoreImpl extends EntityImpl implements SecureScore {
         if(this.activeUserCount){
             writer.writeNumberValue("activeUserCount", this.activeUserCount);
         }
-        if(this.averageComparativeScores && this.averageComparativeScores.length != 0){        const averageComparativeScoresArrValue: AverageComparativeScoreImpl[] = []; this.averageComparativeScores?.forEach(element => {averageComparativeScoresArrValue.push(new AverageComparativeScoreImpl(element));});
+        if(this.averageComparativeScores && this.averageComparativeScores.length != 0){        const averageComparativeScoresArrValue: AverageComparativeScoreImpl[] = []; this.averageComparativeScores?.forEach(element => {averageComparativeScoresArrValue.push(element instanceof AverageComparativeScoreImpl? element : new AverageComparativeScoreImpl(element));});
             writer.writeCollectionOfObjectValues<AverageComparativeScoreImpl>("averageComparativeScores", averageComparativeScoresArrValue);
         }
         if(this.azureTenantId){
             writer.writeStringValue("azureTenantId", this.azureTenantId);
         }
-        if(this.controlScores && this.controlScores.length != 0){        const controlScoresArrValue: ControlScoreImpl[] = []; this.controlScores?.forEach(element => {controlScoresArrValue.push(new ControlScoreImpl(element));});
+        if(this.controlScores && this.controlScores.length != 0){        const controlScoresArrValue: ControlScoreImpl[] = []; this.controlScores?.forEach(element => {controlScoresArrValue.push(element instanceof ControlScoreImpl? element : new ControlScoreImpl(element));});
             writer.writeCollectionOfObjectValues<ControlScoreImpl>("controlScores", controlScoresArrValue);
         }
         if(this.createdDateTime){

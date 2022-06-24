@@ -1,4 +1,4 @@
-import {AgreementFilePropertiesImpl} from './index';
+import {AgreementFileImpl, AgreementFileLocalizationImpl, AgreementFilePropertiesImpl, AgreementFileVersionImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
 export function createAgreementFilePropertiesFromDiscriminatorValue(parseNode: ParseNode | undefined) : AgreementFilePropertiesImpl {
@@ -8,8 +8,12 @@ export function createAgreementFilePropertiesFromDiscriminatorValue(parseNode: P
         const mappingValue = mappingValueNode.getStringValue();
         if (mappingValue) {
             switch (mappingValue) {
-                case "#microsoft.graph.agreementFileProperties":
-                    return new AgreementFilePropertiesImpl();
+                case "#microsoft.graph.agreementFile":
+                    return new AgreementFileImpl();
+                case "#microsoft.graph.agreementFileLocalization":
+                    return new AgreementFileLocalizationImpl();
+                case "#microsoft.graph.agreementFileVersion":
+                    return new AgreementFileVersionImpl();
             }
         }
     }

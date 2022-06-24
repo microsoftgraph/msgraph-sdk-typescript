@@ -10,7 +10,7 @@ export class RequestImpl extends EntityImpl implements Request {
     public approvalId?: string | undefined;
     /** The request completion date time. */
     public completedDateTime?: Date | undefined;
-    /** The user who created this request. */
+    /** The principal that created the request. */
     public createdBy?: IdentitySet | undefined;
     /** The request creation date time. */
     public createdDateTime?: Date | undefined;
@@ -26,7 +26,7 @@ export class RequestImpl extends EntityImpl implements Request {
         super(requestParameterValue);
         this.approvalId = requestParameterValue?.approvalId;
         this.completedDateTime = requestParameterValue?.completedDateTime;
-        this.createdBy = requestParameterValue?.createdBy;
+        this.createdBy = requestParameterValue?.createdBy instanceof IdentitySetImpl? requestParameterValue?.createdBy:new IdentitySetImpl(requestParameterValue?.createdBy);
         this.createdDateTime = requestParameterValue?.createdDateTime;
         this.customData = requestParameterValue?.customData;
         this.status = requestParameterValue?.status;

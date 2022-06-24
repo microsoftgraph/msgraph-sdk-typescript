@@ -5,7 +5,6 @@ import {ODataErrorImpl} from '../../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {AttachmentsRequestBuilder} from './attachments/attachmentsRequestBuilder';
 import {AttachmentItemRequestBuilder} from './attachments/item/attachmentItemRequestBuilder';
-import {CalendarSharingMessageRequestBuilder} from './calendarSharingMessage/calendarSharingMessageRequestBuilder';
 import {CopyRequestBuilder} from './copy/copyRequestBuilder';
 import {CreateForwardRequestBuilder} from './createForward/createForwardRequestBuilder';
 import {CreateReplyRequestBuilder} from './createReply/createReplyRequestBuilder';
@@ -32,10 +31,6 @@ export class MessageItemRequestBuilder {
     /** The attachments property */
     public get attachments(): AttachmentsRequestBuilder {
         return new AttachmentsRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** The calendarSharingMessage property */
-    public get calendarSharingMessage(): CalendarSharingMessageRequestBuilder {
-        return new CalendarSharingMessageRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** The Content property */
     public get content(): ContentRequestBuilder {

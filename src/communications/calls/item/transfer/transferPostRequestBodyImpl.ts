@@ -20,8 +20,8 @@ export class TransferPostRequestBodyImpl implements TransferPostRequestBody {
      */
     public constructor(transferPostRequestBodyParameterValue?: TransferPostRequestBody | undefined) {
         this.additionalData = transferPostRequestBodyParameterValue?.additionalData ? transferPostRequestBodyParameterValue?.additionalData! : {};
-        this.transferee = transferPostRequestBodyParameterValue?.transferee;
-        this.transferTarget = transferPostRequestBodyParameterValue?.transferTarget;
+        this.transferee = transferPostRequestBodyParameterValue?.transferee instanceof ParticipantInfoImpl? transferPostRequestBodyParameterValue?.transferee:new ParticipantInfoImpl(transferPostRequestBodyParameterValue?.transferee);
+        this.transferTarget = transferPostRequestBodyParameterValue?.transferTarget instanceof InvitationParticipantInfoImpl? transferPostRequestBodyParameterValue?.transferTarget:new InvitationParticipantInfoImpl(transferPostRequestBodyParameterValue?.transferTarget);
     };
     /**
      * The deserialization information for the current model

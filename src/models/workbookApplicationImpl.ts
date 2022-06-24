@@ -2,7 +2,7 @@ import {EntityImpl} from './index';
 import {WorkbookApplication} from './workbookApplication';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to group. */
+/** Provides operations to manage the collection of application entities. */
 export class WorkbookApplicationImpl extends EntityImpl implements WorkbookApplication {
     /** Returns the calculation mode used in the workbook. Possible values are: Automatic, AutomaticExceptTables, Manual. */
     public calculationMode?: string | undefined;

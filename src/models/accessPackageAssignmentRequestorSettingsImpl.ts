@@ -36,7 +36,8 @@ export class AccessPackageAssignmentRequestorSettingsImpl implements AccessPacka
         this.enableTargetsToSelfAddAccess = accessPackageAssignmentRequestorSettingsParameterValue?.enableTargetsToSelfAddAccess;
         this.enableTargetsToSelfRemoveAccess = accessPackageAssignmentRequestorSettingsParameterValue?.enableTargetsToSelfRemoveAccess;
         this.enableTargetsToSelfUpdateAccess = accessPackageAssignmentRequestorSettingsParameterValue?.enableTargetsToSelfUpdateAccess;
-        this.onBehalfRequestors = accessPackageAssignmentRequestorSettingsParameterValue?.onBehalfRequestors;
+        const onBehalfRequestorsArrValue: SubjectSetImpl[] = []; this.onBehalfRequestors?.forEach(element => {onBehalfRequestorsArrValue.push(element instanceof SubjectSetImpl? element : new SubjectSetImpl(element));});
+        this.onBehalfRequestors = onBehalfRequestorsArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -81,7 +82,7 @@ export class AccessPackageAssignmentRequestorSettingsImpl implements AccessPacka
         if(this.enableTargetsToSelfUpdateAccess){
             writer.writeBooleanValue("enableTargetsToSelfUpdateAccess", this.enableTargetsToSelfUpdateAccess);
         }
-        if(this.onBehalfRequestors && this.onBehalfRequestors.length != 0){        const onBehalfRequestorsArrValue: SubjectSetImpl[] = []; this.onBehalfRequestors?.forEach(element => {onBehalfRequestorsArrValue.push(new SubjectSetImpl(element));});
+        if(this.onBehalfRequestors && this.onBehalfRequestors.length != 0){        const onBehalfRequestorsArrValue: SubjectSetImpl[] = []; this.onBehalfRequestors?.forEach(element => {onBehalfRequestorsArrValue.push(element instanceof SubjectSetImpl? element : new SubjectSetImpl(element));});
             writer.writeCollectionOfObjectValues<SubjectSetImpl>("onBehalfRequestors", onBehalfRequestorsArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

@@ -18,7 +18,8 @@ export class BookingCustomerBaseCollectionResponseImpl implements BookingCustome
     public constructor(bookingCustomerBaseCollectionResponseParameterValue?: BookingCustomerBaseCollectionResponse | undefined) {
         this.additionalData = bookingCustomerBaseCollectionResponseParameterValue?.additionalData ? bookingCustomerBaseCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = bookingCustomerBaseCollectionResponseParameterValue?.nextLink;
-        this.value = bookingCustomerBaseCollectionResponseParameterValue?.value;
+        const valueArrValue: BookingCustomerBaseImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof BookingCustomerBaseImpl? element : new BookingCustomerBaseImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -39,7 +40,7 @@ export class BookingCustomerBaseCollectionResponseImpl implements BookingCustome
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: BookingCustomerBaseImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new BookingCustomerBaseImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: BookingCustomerBaseImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof BookingCustomerBaseImpl? element : new BookingCustomerBaseImpl(element));});
             writer.writeCollectionOfObjectValues<BookingCustomerBaseImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

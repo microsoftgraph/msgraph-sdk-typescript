@@ -1,5 +1,7 @@
 import {StopHoldMusicOperationImpl} from '../../../../../../models/';
 import {createStopHoldMusicOperationFromDiscriminatorValue} from '../../../../../../models/createStopHoldMusicOperationFromDiscriminatorValue';
+import {ODataErrorImpl} from '../../../../../../models/oDataErrors/';
+import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {StopHoldMusicPostRequestBodyImpl} from './index';
 import {StopHoldMusicPostRequestBody} from './stopHoldMusicPostRequestBody';
 import {StopHoldMusicRequestBuilderPostRequestConfiguration} from './stopHoldMusicRequestBuilderPostRequestConfiguration';
@@ -59,6 +61,10 @@ export class StopHoldMusicRequestBuilder {
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration
         );
-        return this.requestAdapter?.sendAsync<StopHoldMusicOperationImpl>(requestInfo, createStopHoldMusicOperationFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<StopHoldMusicOperationImpl>(requestInfo, createStopHoldMusicOperationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

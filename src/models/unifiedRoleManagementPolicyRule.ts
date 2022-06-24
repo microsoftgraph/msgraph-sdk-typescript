@@ -3,6 +3,6 @@ import {UnifiedRoleManagementPolicyRuleTarget} from './unifiedRoleManagementPoli
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface UnifiedRoleManagementPolicyRule extends Entity, Partial<Parsable> {
-    /** The target for the policy rule. */
+    /** Not implemented. Defines details of scope that's targeted by role management policy rule. The details can include the principal type, the role assignment type, and actions affecting a role. Supports $filter (eq, ne). */
     target?: UnifiedRoleManagementPolicyRuleTarget | undefined;
 }

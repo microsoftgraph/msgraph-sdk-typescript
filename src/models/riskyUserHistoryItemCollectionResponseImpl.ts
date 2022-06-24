@@ -18,7 +18,8 @@ export class RiskyUserHistoryItemCollectionResponseImpl implements RiskyUserHist
     public constructor(riskyUserHistoryItemCollectionResponseParameterValue?: RiskyUserHistoryItemCollectionResponse | undefined) {
         this.additionalData = riskyUserHistoryItemCollectionResponseParameterValue?.additionalData ? riskyUserHistoryItemCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = riskyUserHistoryItemCollectionResponseParameterValue?.nextLink;
-        this.value = riskyUserHistoryItemCollectionResponseParameterValue?.value;
+        const valueArrValue: RiskyUserHistoryItemImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof RiskyUserHistoryItemImpl? element : new RiskyUserHistoryItemImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -39,7 +40,7 @@ export class RiskyUserHistoryItemCollectionResponseImpl implements RiskyUserHist
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: RiskyUserHistoryItemImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new RiskyUserHistoryItemImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: RiskyUserHistoryItemImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof RiskyUserHistoryItemImpl? element : new RiskyUserHistoryItemImpl(element));});
             writer.writeCollectionOfObjectValues<RiskyUserHistoryItemImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

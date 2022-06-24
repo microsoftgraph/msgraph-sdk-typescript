@@ -93,7 +93,7 @@ export interface Group extends DirectoryObject, Partial<Parsable> {
     membershipRuleProcessingState?: string | undefined;
     /** A list of group members with license errors from this group-based license assignment. Read-only. */
     membersWithLicenseErrors?: DirectoryObject[] | undefined;
-    /** Read-only. */
+    /** The onenote property */
     onenote?: Onenote | undefined;
     /** Contains the on-premises domain FQDN, also called dnsDomainName synchronized from the on-premises directory. The property is only populated for customers who are synchronizing their on-premises directory to Azure Active Directory via Azure AD Connect.Returned by default. Read-only. */
     onPremisesDomainName?: string | undefined;

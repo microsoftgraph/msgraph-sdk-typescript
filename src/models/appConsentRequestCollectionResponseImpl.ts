@@ -18,7 +18,8 @@ export class AppConsentRequestCollectionResponseImpl implements AppConsentReques
     public constructor(appConsentRequestCollectionResponseParameterValue?: AppConsentRequestCollectionResponse | undefined) {
         this.additionalData = appConsentRequestCollectionResponseParameterValue?.additionalData ? appConsentRequestCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = appConsentRequestCollectionResponseParameterValue?.nextLink;
-        this.value = appConsentRequestCollectionResponseParameterValue?.value;
+        const valueArrValue: AppConsentRequestImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof AppConsentRequestImpl? element : new AppConsentRequestImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -39,7 +40,7 @@ export class AppConsentRequestCollectionResponseImpl implements AppConsentReques
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: AppConsentRequestImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new AppConsentRequestImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: AppConsentRequestImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof AppConsentRequestImpl? element : new AppConsentRequestImpl(element));});
             writer.writeCollectionOfObjectValues<AppConsentRequestImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

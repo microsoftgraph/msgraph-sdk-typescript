@@ -14,7 +14,7 @@ export class ProvisioningSystemImpl extends IdentityImpl implements Provisioning
      */
     public constructor(provisioningSystemParameterValue?: ProvisioningSystem | undefined) {
         super(provisioningSystemParameterValue);
-        this.details = provisioningSystemParameterValue?.details;
+        this.details = provisioningSystemParameterValue?.details instanceof DetailsInfoImpl? provisioningSystemParameterValue?.details:new DetailsInfoImpl(provisioningSystemParameterValue?.details);
     };
     /**
      * The deserialization information for the current model

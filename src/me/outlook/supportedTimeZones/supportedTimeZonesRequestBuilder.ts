@@ -1,3 +1,5 @@
+import {ODataErrorImpl} from '../../../models/oDataErrors/';
+import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {createSupportedTimeZonesResponseFromDiscriminatorValue} from './createSupportedTimeZonesResponseFromDiscriminatorValue';
 import {SupportedTimeZonesResponseImpl} from './index';
 import {SupportedTimeZonesRequestBuilderGetRequestConfiguration} from './supportedTimeZonesRequestBuilderGetRequestConfiguration';
@@ -51,6 +53,10 @@ export class SupportedTimeZonesRequestBuilder {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
-        return this.requestAdapter?.sendAsync<SupportedTimeZonesResponseImpl>(requestInfo, createSupportedTimeZonesResponseFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<SupportedTimeZonesResponseImpl>(requestInfo, createSupportedTimeZonesResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

@@ -18,7 +18,8 @@ export class ContractCollectionResponseImpl implements ContractCollectionRespons
     public constructor(contractCollectionResponseParameterValue?: ContractCollectionResponse | undefined) {
         this.additionalData = contractCollectionResponseParameterValue?.additionalData ? contractCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = contractCollectionResponseParameterValue?.nextLink;
-        this.value = contractCollectionResponseParameterValue?.value;
+        const valueArrValue: ContractImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ContractImpl? element : new ContractImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -39,7 +40,7 @@ export class ContractCollectionResponseImpl implements ContractCollectionRespons
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: ContractImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ContractImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: ContractImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ContractImpl? element : new ContractImpl(element));});
             writer.writeCollectionOfObjectValues<ContractImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

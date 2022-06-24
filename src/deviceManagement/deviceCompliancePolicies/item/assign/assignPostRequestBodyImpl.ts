@@ -16,7 +16,8 @@ export class AssignPostRequestBodyImpl implements AssignPostRequestBody {
      */
     public constructor(assignPostRequestBodyParameterValue?: AssignPostRequestBody | undefined) {
         this.additionalData = assignPostRequestBodyParameterValue?.additionalData ? assignPostRequestBodyParameterValue?.additionalData! : {};
-        this.assignments = assignPostRequestBodyParameterValue?.assignments;
+        const assignmentsArrValue: DeviceCompliancePolicyAssignmentImpl[] = []; this.assignments?.forEach(element => {assignmentsArrValue.push(element instanceof DeviceCompliancePolicyAssignmentImpl? element : new DeviceCompliancePolicyAssignmentImpl(element));});
+        this.assignments = assignmentsArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -33,7 +34,7 @@ export class AssignPostRequestBodyImpl implements AssignPostRequestBody {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        if(this.assignments && this.assignments.length != 0){        const assignmentsArrValue: DeviceCompliancePolicyAssignmentImpl[] = []; this.assignments?.forEach(element => {assignmentsArrValue.push(new DeviceCompliancePolicyAssignmentImpl(element));});
+        if(this.assignments && this.assignments.length != 0){        const assignmentsArrValue: DeviceCompliancePolicyAssignmentImpl[] = []; this.assignments?.forEach(element => {assignmentsArrValue.push(element instanceof DeviceCompliancePolicyAssignmentImpl? element : new DeviceCompliancePolicyAssignmentImpl(element));});
             writer.writeCollectionOfObjectValues<DeviceCompliancePolicyAssignmentImpl>("assignments", assignmentsArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

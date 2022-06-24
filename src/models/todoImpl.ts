@@ -4,7 +4,7 @@ import {Todo} from './todo';
 import {TodoTaskList} from './todoTaskList';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the collection of application entities. */
 export class TodoImpl extends EntityImpl implements Todo {
     /** The task lists in the users mailbox. */
     public lists?: TodoTaskList[] | undefined;
@@ -14,7 +14,8 @@ export class TodoImpl extends EntityImpl implements Todo {
      */
     public constructor(todoParameterValue?: Todo | undefined) {
         super(todoParameterValue);
-        this.lists = todoParameterValue?.lists;
+        const listsArrValue: TodoTaskListImpl[] = []; this.lists?.forEach(element => {listsArrValue.push(element instanceof TodoTaskListImpl? element : new TodoTaskListImpl(element));});
+        this.lists = listsArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -32,7 +33,7 @@ export class TodoImpl extends EntityImpl implements Todo {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.lists && this.lists.length != 0){        const listsArrValue: TodoTaskListImpl[] = []; this.lists?.forEach(element => {listsArrValue.push(new TodoTaskListImpl(element));});
+        if(this.lists && this.lists.length != 0){        const listsArrValue: TodoTaskListImpl[] = []; this.lists?.forEach(element => {listsArrValue.push(element instanceof TodoTaskListImpl? element : new TodoTaskListImpl(element));});
             writer.writeCollectionOfObjectValues<TodoTaskListImpl>("lists", listsArrValue);
         }
     };

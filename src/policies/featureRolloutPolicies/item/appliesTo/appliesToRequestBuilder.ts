@@ -7,7 +7,10 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataEr
 import {AppliesToRequestBuilderGetRequestConfiguration} from './appliesToRequestBuilderGetRequestConfiguration';
 import {AppliesToRequestBuilderPostRequestConfiguration} from './appliesToRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {GetAvailableExtensionPropertiesRequestBuilder} from './getAvailableExtensionProperties/getAvailableExtensionPropertiesRequestBuilder';
+import {GetByIdsRequestBuilder} from './getByIds/getByIdsRequestBuilder';
 import {RefRequestBuilder} from './ref/refRequestBuilder';
+import {ValidatePropertiesRequestBuilder} from './validateProperties/validatePropertiesRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the appliesTo property of the microsoft.graph.featureRolloutPolicy entity. */
@@ -15,6 +18,14 @@ export class AppliesToRequestBuilder {
     /** The count property */
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** The getAvailableExtensionProperties property */
+    public get getAvailableExtensionProperties(): GetAvailableExtensionPropertiesRequestBuilder {
+        return new GetAvailableExtensionPropertiesRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** The getByIds property */
+    public get getByIds(): GetByIdsRequestBuilder {
+        return new GetByIdsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
@@ -26,6 +37,10 @@ export class AppliesToRequestBuilder {
     private readonly requestAdapter: RequestAdapter;
     /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
+    /** The validateProperties property */
+    public get validateProperties(): ValidatePropertiesRequestBuilder {
+        return new ValidatePropertiesRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /**
      * Instantiates a new AppliesToRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

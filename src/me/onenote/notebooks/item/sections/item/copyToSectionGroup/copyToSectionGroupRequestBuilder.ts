@@ -1,5 +1,7 @@
 import {OnenoteOperationImpl} from '../../../../../../../models/';
 import {createOnenoteOperationFromDiscriminatorValue} from '../../../../../../../models/createOnenoteOperationFromDiscriminatorValue';
+import {ODataErrorImpl} from '../../../../../../../models/oDataErrors/';
+import {createODataErrorFromDiscriminatorValue} from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CopyToSectionGroupPostRequestBody} from './copyToSectionGroupPostRequestBody';
 import {CopyToSectionGroupRequestBuilderPostRequestConfiguration} from './copyToSectionGroupRequestBuilderPostRequestConfiguration';
 import {CopyToSectionGroupPostRequestBodyImpl} from './index';
@@ -59,6 +61,10 @@ export class CopyToSectionGroupRequestBuilder {
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration
         );
-        return this.requestAdapter?.sendAsync<OnenoteOperationImpl>(requestInfo, createOnenoteOperationFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<OnenoteOperationImpl>(requestInfo, createOnenoteOperationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

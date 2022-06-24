@@ -3,7 +3,6 @@ import {IdentityProviderBaseImpl} from './index';
 import {SamlOrWsFedProvider} from './samlOrWsFedProvider';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of domain entities. */
 export class SamlOrWsFedProviderImpl extends IdentityProviderBaseImpl implements SamlOrWsFedProvider {
     /** Issuer URI of the federation server. */
     public issuerUri?: string | undefined;
@@ -16,7 +15,7 @@ export class SamlOrWsFedProviderImpl extends IdentityProviderBaseImpl implements
     /** Current certificate used to sign tokens passed to the Microsoft identity platform. The certificate is formatted as a Base64 encoded string of the public portion of the federated IdP's token signing certificate and must be compatible with the X509Certificate2 class.   This property is used in the following scenarios:  if a rollover is required outside of the autorollover update a new federation service is being set up  if the new token signing certificate isn't present in the federation properties after the federation service certificate has been updated.   Azure AD updates certificates via an autorollover process in which it attempts to retrieve a new certificate from the federation service metadata, 30 days before expiry of the current certificate. If a new certificate isn't available, Azure AD monitors the metadata daily and will update the federation settings for the domain when a new certificate is available. */
     public signingCertificate?: string | undefined;
     /**
-     * Instantiates a new samlOrWsFedProvider and sets the default values.
+     * Instantiates a new SamlOrWsFedProvider and sets the default values.
      * @param samlOrWsFedProviderParameterValue 
      */
     public constructor(samlOrWsFedProviderParameterValue?: SamlOrWsFedProvider | undefined) {

@@ -16,7 +16,8 @@ export class ReminderViewWithStartDateTimeWithEndDateTimeResponseImpl implements
      */
     public constructor(reminderViewWithStartDateTimeWithEndDateTimeResponseParameterValue?: ReminderViewWithStartDateTimeWithEndDateTimeResponse | undefined) {
         this.additionalData = reminderViewWithStartDateTimeWithEndDateTimeResponseParameterValue?.additionalData ? reminderViewWithStartDateTimeWithEndDateTimeResponseParameterValue?.additionalData! : {};
-        this.value = reminderViewWithStartDateTimeWithEndDateTimeResponseParameterValue?.value;
+        const valueArrValue: ReminderImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ReminderImpl? element : new ReminderImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -33,7 +34,7 @@ export class ReminderViewWithStartDateTimeWithEndDateTimeResponseImpl implements
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        if(this.value && this.value.length != 0){        const valueArrValue: ReminderImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ReminderImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: ReminderImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ReminderImpl? element : new ReminderImpl(element));});
             writer.writeCollectionOfObjectValues<ReminderImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

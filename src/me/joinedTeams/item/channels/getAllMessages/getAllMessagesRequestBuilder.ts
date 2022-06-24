@@ -1,3 +1,5 @@
+import {ODataErrorImpl} from '../../../../../models/oDataErrors/';
+import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {createGetAllMessagesResponseFromDiscriminatorValue} from './createGetAllMessagesResponseFromDiscriminatorValue';
 import {GetAllMessagesRequestBuilderGetRequestConfiguration} from './getAllMessagesRequestBuilderGetRequestConfiguration';
 import {GetAllMessagesResponseImpl} from './index';
@@ -51,6 +53,10 @@ export class GetAllMessagesRequestBuilder {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
-        return this.requestAdapter?.sendAsync<GetAllMessagesResponseImpl>(requestInfo, createGetAllMessagesResponseFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<GetAllMessagesResponseImpl>(requestInfo, createGetAllMessagesResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

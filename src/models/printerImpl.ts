@@ -8,7 +8,6 @@ import {PrinterShare} from './printerShare';
 import {PrintTaskTrigger} from './printTaskTrigger';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the print singleton. */
 export class PrinterImpl extends PrinterBaseImpl implements Printer {
     /** The connectors that are associated with the printer. */
     public connectors?: PrintConnector[] | undefined;
@@ -25,18 +24,21 @@ export class PrinterImpl extends PrinterBaseImpl implements Printer {
     /** A list of task triggers that are associated with the printer. */
     public taskTriggers?: PrintTaskTrigger[] | undefined;
     /**
-     * Instantiates a new printer and sets the default values.
+     * Instantiates a new Printer and sets the default values.
      * @param printerParameterValue 
      */
     public constructor(printerParameterValue?: Printer | undefined) {
         super(printerParameterValue);
-        this.connectors = printerParameterValue?.connectors;
+        const connectorsArrValue: PrintConnectorImpl[] = []; this.connectors?.forEach(element => {connectorsArrValue.push(element instanceof PrintConnectorImpl? element : new PrintConnectorImpl(element));});
+        this.connectors = connectorsArrValue;
         this.hasPhysicalDevice = printerParameterValue?.hasPhysicalDevice;
         this.isShared = printerParameterValue?.isShared;
         this.lastSeenDateTime = printerParameterValue?.lastSeenDateTime;
         this.registeredDateTime = printerParameterValue?.registeredDateTime;
-        this.shares = printerParameterValue?.shares;
-        this.taskTriggers = printerParameterValue?.taskTriggers;
+        const sharesArrValue: PrinterShareImpl[] = []; this.shares?.forEach(element => {sharesArrValue.push(element instanceof PrinterShareImpl? element : new PrinterShareImpl(element));});
+        this.shares = sharesArrValue;
+        const taskTriggersArrValue: PrintTaskTriggerImpl[] = []; this.taskTriggers?.forEach(element => {taskTriggersArrValue.push(element instanceof PrintTaskTriggerImpl? element : new PrintTaskTriggerImpl(element));});
+        this.taskTriggers = taskTriggersArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -60,7 +62,7 @@ export class PrinterImpl extends PrinterBaseImpl implements Printer {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.connectors && this.connectors.length != 0){        const connectorsArrValue: PrintConnectorImpl[] = []; this.connectors?.forEach(element => {connectorsArrValue.push(new PrintConnectorImpl(element));});
+        if(this.connectors && this.connectors.length != 0){        const connectorsArrValue: PrintConnectorImpl[] = []; this.connectors?.forEach(element => {connectorsArrValue.push(element instanceof PrintConnectorImpl? element : new PrintConnectorImpl(element));});
             writer.writeCollectionOfObjectValues<PrintConnectorImpl>("connectors", connectorsArrValue);
         }
         if(this.hasPhysicalDevice){
@@ -75,10 +77,10 @@ export class PrinterImpl extends PrinterBaseImpl implements Printer {
         if(this.registeredDateTime){
             writer.writeDateValue("registeredDateTime", this.registeredDateTime);
         }
-        if(this.shares && this.shares.length != 0){        const sharesArrValue: PrinterShareImpl[] = []; this.shares?.forEach(element => {sharesArrValue.push(new PrinterShareImpl(element));});
+        if(this.shares && this.shares.length != 0){        const sharesArrValue: PrinterShareImpl[] = []; this.shares?.forEach(element => {sharesArrValue.push(element instanceof PrinterShareImpl? element : new PrinterShareImpl(element));});
             writer.writeCollectionOfObjectValues<PrinterShareImpl>("shares", sharesArrValue);
         }
-        if(this.taskTriggers && this.taskTriggers.length != 0){        const taskTriggersArrValue: PrintTaskTriggerImpl[] = []; this.taskTriggers?.forEach(element => {taskTriggersArrValue.push(new PrintTaskTriggerImpl(element));});
+        if(this.taskTriggers && this.taskTriggers.length != 0){        const taskTriggersArrValue: PrintTaskTriggerImpl[] = []; this.taskTriggers?.forEach(element => {taskTriggersArrValue.push(element instanceof PrintTaskTriggerImpl? element : new PrintTaskTriggerImpl(element));});
             writer.writeCollectionOfObjectValues<PrintTaskTriggerImpl>("taskTriggers", taskTriggersArrValue);
         }
     };

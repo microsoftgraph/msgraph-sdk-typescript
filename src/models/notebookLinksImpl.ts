@@ -17,8 +17,8 @@ export class NotebookLinksImpl implements NotebookLinks {
      */
     public constructor(notebookLinksParameterValue?: NotebookLinks | undefined) {
         this.additionalData = notebookLinksParameterValue?.additionalData ? notebookLinksParameterValue?.additionalData! : {};
-        this.oneNoteClientUrl = notebookLinksParameterValue?.oneNoteClientUrl;
-        this.oneNoteWebUrl = notebookLinksParameterValue?.oneNoteWebUrl;
+        this.oneNoteClientUrl = notebookLinksParameterValue?.oneNoteClientUrl instanceof ExternalLinkImpl? notebookLinksParameterValue?.oneNoteClientUrl:new ExternalLinkImpl(notebookLinksParameterValue?.oneNoteClientUrl);
+        this.oneNoteWebUrl = notebookLinksParameterValue?.oneNoteWebUrl instanceof ExternalLinkImpl? notebookLinksParameterValue?.oneNoteWebUrl:new ExternalLinkImpl(notebookLinksParameterValue?.oneNoteWebUrl);
     };
     /**
      * The deserialization information for the current model

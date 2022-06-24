@@ -10,7 +10,7 @@ import {WorkbookChartAxisTitle} from './workbookChartAxisTitle';
 import {WorkbookChartGridlines} from './workbookChartGridlines';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to group. */
+/** Provides operations to manage the collection of application entities. */
 export class WorkbookChartAxisImpl extends EntityImpl implements WorkbookChartAxis {
     /** Represents the formatting of a chart object, which includes line and font formatting. Read-only. */
     public format?: WorkbookChartAxisFormat | undefined;
@@ -34,14 +34,14 @@ export class WorkbookChartAxisImpl extends EntityImpl implements WorkbookChartAx
      */
     public constructor(workbookChartAxisParameterValue?: WorkbookChartAxis | undefined) {
         super(workbookChartAxisParameterValue);
-        this.format = workbookChartAxisParameterValue?.format;
-        this.majorGridlines = workbookChartAxisParameterValue?.majorGridlines;
-        this.majorUnit = workbookChartAxisParameterValue?.majorUnit;
-        this.maximum = workbookChartAxisParameterValue?.maximum;
-        this.minimum = workbookChartAxisParameterValue?.minimum;
-        this.minorGridlines = workbookChartAxisParameterValue?.minorGridlines;
-        this.minorUnit = workbookChartAxisParameterValue?.minorUnit;
-        this.title = workbookChartAxisParameterValue?.title;
+        this.format = workbookChartAxisParameterValue?.format instanceof WorkbookChartAxisFormatImpl? workbookChartAxisParameterValue?.format:new WorkbookChartAxisFormatImpl(workbookChartAxisParameterValue?.format);
+        this.majorGridlines = workbookChartAxisParameterValue?.majorGridlines instanceof WorkbookChartGridlinesImpl? workbookChartAxisParameterValue?.majorGridlines:new WorkbookChartGridlinesImpl(workbookChartAxisParameterValue?.majorGridlines);
+        this.majorUnit = workbookChartAxisParameterValue?.majorUnit instanceof JsonImpl? workbookChartAxisParameterValue?.majorUnit:new JsonImpl(workbookChartAxisParameterValue?.majorUnit);
+        this.maximum = workbookChartAxisParameterValue?.maximum instanceof JsonImpl? workbookChartAxisParameterValue?.maximum:new JsonImpl(workbookChartAxisParameterValue?.maximum);
+        this.minimum = workbookChartAxisParameterValue?.minimum instanceof JsonImpl? workbookChartAxisParameterValue?.minimum:new JsonImpl(workbookChartAxisParameterValue?.minimum);
+        this.minorGridlines = workbookChartAxisParameterValue?.minorGridlines instanceof WorkbookChartGridlinesImpl? workbookChartAxisParameterValue?.minorGridlines:new WorkbookChartGridlinesImpl(workbookChartAxisParameterValue?.minorGridlines);
+        this.minorUnit = workbookChartAxisParameterValue?.minorUnit instanceof JsonImpl? workbookChartAxisParameterValue?.minorUnit:new JsonImpl(workbookChartAxisParameterValue?.minorUnit);
+        this.title = workbookChartAxisParameterValue?.title instanceof WorkbookChartAxisTitleImpl? workbookChartAxisParameterValue?.title:new WorkbookChartAxisTitleImpl(workbookChartAxisParameterValue?.title);
     };
     /**
      * The deserialization information for the current model

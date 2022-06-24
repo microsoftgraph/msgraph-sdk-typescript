@@ -7,6 +7,6 @@ export interface WorkbookComment extends Entity, Partial<Parsable> {
     content?: string | undefined;
     /** Indicates the type for the comment. */
     contentType?: string | undefined;
-    /** Read-only. Nullable. */
+    /** The replies property */
     replies?: WorkbookCommentReply[] | undefined;
 }

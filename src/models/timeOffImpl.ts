@@ -4,7 +4,6 @@ import {TimeOff} from './timeOff';
 import {TimeOffItem} from './timeOffItem';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to group. */
 export class TimeOffImpl extends ChangeTrackedEntityImpl implements TimeOff {
     /** The draft version of this timeOff that is viewable by managers. Required. */
     public draftTimeOff?: TimeOffItem | undefined;
@@ -13,13 +12,13 @@ export class TimeOffImpl extends ChangeTrackedEntityImpl implements TimeOff {
     /** ID of the user assigned to the timeOff. Required. */
     public userId?: string | undefined;
     /**
-     * Instantiates a new timeOff and sets the default values.
+     * Instantiates a new TimeOff and sets the default values.
      * @param timeOffParameterValue 
      */
     public constructor(timeOffParameterValue?: TimeOff | undefined) {
         super(timeOffParameterValue);
-        this.draftTimeOff = timeOffParameterValue?.draftTimeOff;
-        this.sharedTimeOff = timeOffParameterValue?.sharedTimeOff;
+        this.draftTimeOff = timeOffParameterValue?.draftTimeOff instanceof TimeOffItemImpl? timeOffParameterValue?.draftTimeOff:new TimeOffItemImpl(timeOffParameterValue?.draftTimeOff);
+        this.sharedTimeOff = timeOffParameterValue?.sharedTimeOff instanceof TimeOffItemImpl? timeOffParameterValue?.sharedTimeOff:new TimeOffItemImpl(timeOffParameterValue?.sharedTimeOff);
         this.userId = timeOffParameterValue?.userId;
     };
     /**

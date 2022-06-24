@@ -4,7 +4,7 @@ import {WorkbookChartGridlinesFormat} from './workbookChartGridlinesFormat';
 import {WorkbookChartLineFormat} from './workbookChartLineFormat';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to group. */
+/** Provides operations to manage the collection of application entities. */
 export class WorkbookChartGridlinesFormatImpl extends EntityImpl implements WorkbookChartGridlinesFormat {
     /** Represents chart line formatting. Read-only. */
     public line?: WorkbookChartLineFormat | undefined;
@@ -14,7 +14,7 @@ export class WorkbookChartGridlinesFormatImpl extends EntityImpl implements Work
      */
     public constructor(workbookChartGridlinesFormatParameterValue?: WorkbookChartGridlinesFormat | undefined) {
         super(workbookChartGridlinesFormatParameterValue);
-        this.line = workbookChartGridlinesFormatParameterValue?.line;
+        this.line = workbookChartGridlinesFormatParameterValue?.line instanceof WorkbookChartLineFormatImpl? workbookChartGridlinesFormatParameterValue?.line:new WorkbookChartLineFormatImpl(workbookChartGridlinesFormatParameterValue?.line);
     };
     /**
      * The deserialization information for the current model

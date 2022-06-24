@@ -30,7 +30,8 @@ export class AccessPackageCatalogImpl extends EntityImpl implements AccessPackag
      */
     public constructor(accessPackageCatalogParameterValue?: AccessPackageCatalog | undefined) {
         super(accessPackageCatalogParameterValue);
-        this.accessPackages = accessPackageCatalogParameterValue?.accessPackages;
+        const accessPackagesArrValue: AccessPackageImpl[] = []; this.accessPackages?.forEach(element => {accessPackagesArrValue.push(element instanceof AccessPackageImpl? element : new AccessPackageImpl(element));});
+        this.accessPackages = accessPackagesArrValue;
         this.catalogType = accessPackageCatalogParameterValue?.catalogType;
         this.createdDateTime = accessPackageCatalogParameterValue?.createdDateTime;
         this.description = accessPackageCatalogParameterValue?.description;
@@ -62,7 +63,7 @@ export class AccessPackageCatalogImpl extends EntityImpl implements AccessPackag
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.accessPackages && this.accessPackages.length != 0){        const accessPackagesArrValue: AccessPackageImpl[] = []; this.accessPackages?.forEach(element => {accessPackagesArrValue.push(new AccessPackageImpl(element));});
+        if(this.accessPackages && this.accessPackages.length != 0){        const accessPackagesArrValue: AccessPackageImpl[] = []; this.accessPackages?.forEach(element => {accessPackagesArrValue.push(element instanceof AccessPackageImpl? element : new AccessPackageImpl(element));});
             writer.writeCollectionOfObjectValues<AccessPackageImpl>("accessPackages", accessPackagesArrValue);
         }
         if(this.catalogType){

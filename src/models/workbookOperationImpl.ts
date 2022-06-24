@@ -5,7 +5,7 @@ import {WorkbookOperationError} from './workbookOperationError';
 import {WorkbookOperationStatus} from './workbookOperationStatus';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to group. */
+/** Provides operations to manage the collection of application entities. */
 export class WorkbookOperationImpl extends EntityImpl implements WorkbookOperation {
     /** The error returned by the operation. */
     public error_escaped?: WorkbookOperationError | undefined;
@@ -19,7 +19,7 @@ export class WorkbookOperationImpl extends EntityImpl implements WorkbookOperati
      */
     public constructor(workbookOperationParameterValue?: WorkbookOperation | undefined) {
         super(workbookOperationParameterValue);
-        this.error_escaped = workbookOperationParameterValue?.error_escaped;
+        this.error_escaped = workbookOperationParameterValue?.error_escaped instanceof WorkbookOperationErrorImpl? workbookOperationParameterValue?.error_escaped:new WorkbookOperationErrorImpl(workbookOperationParameterValue?.error_escaped);
         this.resourceLocation = workbookOperationParameterValue?.resourceLocation;
         this.status = workbookOperationParameterValue?.status;
     };

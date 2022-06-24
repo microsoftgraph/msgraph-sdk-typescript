@@ -19,7 +19,7 @@ export class ChangeTrackedEntityImpl extends EntityImpl implements ChangeTracked
     public constructor(changeTrackedEntityParameterValue?: ChangeTrackedEntity | undefined) {
         super(changeTrackedEntityParameterValue);
         this.createdDateTime = changeTrackedEntityParameterValue?.createdDateTime;
-        this.lastModifiedBy = changeTrackedEntityParameterValue?.lastModifiedBy;
+        this.lastModifiedBy = changeTrackedEntityParameterValue?.lastModifiedBy instanceof IdentitySetImpl? changeTrackedEntityParameterValue?.lastModifiedBy:new IdentitySetImpl(changeTrackedEntityParameterValue?.lastModifiedBy);
         this.lastModifiedDateTime = changeTrackedEntityParameterValue?.lastModifiedDateTime;
     };
     /**

@@ -18,7 +18,8 @@ export class PrintTaskDefinitionCollectionResponseImpl implements PrintTaskDefin
     public constructor(printTaskDefinitionCollectionResponseParameterValue?: PrintTaskDefinitionCollectionResponse | undefined) {
         this.additionalData = printTaskDefinitionCollectionResponseParameterValue?.additionalData ? printTaskDefinitionCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = printTaskDefinitionCollectionResponseParameterValue?.nextLink;
-        this.value = printTaskDefinitionCollectionResponseParameterValue?.value;
+        const valueArrValue: PrintTaskDefinitionImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof PrintTaskDefinitionImpl? element : new PrintTaskDefinitionImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -39,7 +40,7 @@ export class PrintTaskDefinitionCollectionResponseImpl implements PrintTaskDefin
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: PrintTaskDefinitionImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new PrintTaskDefinitionImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: PrintTaskDefinitionImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof PrintTaskDefinitionImpl? element : new PrintTaskDefinitionImpl(element));});
             writer.writeCollectionOfObjectValues<PrintTaskDefinitionImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

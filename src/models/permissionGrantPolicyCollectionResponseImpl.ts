@@ -18,7 +18,8 @@ export class PermissionGrantPolicyCollectionResponseImpl implements PermissionGr
     public constructor(permissionGrantPolicyCollectionResponseParameterValue?: PermissionGrantPolicyCollectionResponse | undefined) {
         this.additionalData = permissionGrantPolicyCollectionResponseParameterValue?.additionalData ? permissionGrantPolicyCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = permissionGrantPolicyCollectionResponseParameterValue?.nextLink;
-        this.value = permissionGrantPolicyCollectionResponseParameterValue?.value;
+        const valueArrValue: PermissionGrantPolicyImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof PermissionGrantPolicyImpl? element : new PermissionGrantPolicyImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -39,7 +40,7 @@ export class PermissionGrantPolicyCollectionResponseImpl implements PermissionGr
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: PermissionGrantPolicyImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new PermissionGrantPolicyImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: PermissionGrantPolicyImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof PermissionGrantPolicyImpl? element : new PermissionGrantPolicyImpl(element));});
             writer.writeCollectionOfObjectValues<PermissionGrantPolicyImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

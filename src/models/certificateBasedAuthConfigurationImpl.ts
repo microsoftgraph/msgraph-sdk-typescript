@@ -14,7 +14,8 @@ export class CertificateBasedAuthConfigurationImpl extends EntityImpl implements
      */
     public constructor(certificateBasedAuthConfigurationParameterValue?: CertificateBasedAuthConfiguration | undefined) {
         super(certificateBasedAuthConfigurationParameterValue);
-        this.certificateAuthorities = certificateBasedAuthConfigurationParameterValue?.certificateAuthorities;
+        const certificateAuthoritiesArrValue: CertificateAuthorityImpl[] = []; this.certificateAuthorities?.forEach(element => {certificateAuthoritiesArrValue.push(element instanceof CertificateAuthorityImpl? element : new CertificateAuthorityImpl(element));});
+        this.certificateAuthorities = certificateAuthoritiesArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -32,7 +33,7 @@ export class CertificateBasedAuthConfigurationImpl extends EntityImpl implements
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.certificateAuthorities && this.certificateAuthorities.length != 0){        const certificateAuthoritiesArrValue: CertificateAuthorityImpl[] = []; this.certificateAuthorities?.forEach(element => {certificateAuthoritiesArrValue.push(new CertificateAuthorityImpl(element));});
+        if(this.certificateAuthorities && this.certificateAuthorities.length != 0){        const certificateAuthoritiesArrValue: CertificateAuthorityImpl[] = []; this.certificateAuthorities?.forEach(element => {certificateAuthoritiesArrValue.push(element instanceof CertificateAuthorityImpl? element : new CertificateAuthorityImpl(element));});
             writer.writeCollectionOfObjectValues<CertificateAuthorityImpl>("certificateAuthorities", certificateAuthoritiesArrValue);
         }
     };

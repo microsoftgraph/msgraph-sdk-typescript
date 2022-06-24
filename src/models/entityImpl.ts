@@ -4,7 +4,7 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class EntityImpl implements Entity {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
-    /** Read-only. */
+    /** The id property */
     public id?: string | undefined;
     /**
      * Instantiates a new entity and sets the default values.

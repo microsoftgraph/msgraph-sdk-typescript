@@ -4,7 +4,7 @@ import {WorkbookPivotTable} from './workbookPivotTable';
 import {WorkbookWorksheet} from './workbookWorksheet';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to group. */
+/** Provides operations to manage the collection of application entities. */
 export class WorkbookPivotTableImpl extends EntityImpl implements WorkbookPivotTable {
     /** Name of the PivotTable. */
     public name?: string | undefined;
@@ -17,7 +17,7 @@ export class WorkbookPivotTableImpl extends EntityImpl implements WorkbookPivotT
     public constructor(workbookPivotTableParameterValue?: WorkbookPivotTable | undefined) {
         super(workbookPivotTableParameterValue);
         this.name = workbookPivotTableParameterValue?.name;
-        this.worksheet = workbookPivotTableParameterValue?.worksheet;
+        this.worksheet = workbookPivotTableParameterValue?.worksheet instanceof WorkbookWorksheetImpl? workbookPivotTableParameterValue?.worksheet:new WorkbookWorksheetImpl(workbookPivotTableParameterValue?.worksheet);
     };
     /**
      * The deserialization information for the current model

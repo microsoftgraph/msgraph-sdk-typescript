@@ -16,7 +16,8 @@ export class FilterByCurrentUserWithOnResponseImpl implements FilterByCurrentUse
      */
     public constructor(filterByCurrentUserWithOnResponseParameterValue?: FilterByCurrentUserWithOnResponse | undefined) {
         this.additionalData = filterByCurrentUserWithOnResponseParameterValue?.additionalData ? filterByCurrentUserWithOnResponseParameterValue?.additionalData! : {};
-        this.value = filterByCurrentUserWithOnResponseParameterValue?.value;
+        const valueArrValue: AccessPackageImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof AccessPackageImpl? element : new AccessPackageImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -33,7 +34,7 @@ export class FilterByCurrentUserWithOnResponseImpl implements FilterByCurrentUse
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        if(this.value && this.value.length != 0){        const valueArrValue: AccessPackageImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new AccessPackageImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: AccessPackageImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof AccessPackageImpl? element : new AccessPackageImpl(element));});
             writer.writeCollectionOfObjectValues<AccessPackageImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

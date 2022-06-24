@@ -9,11 +9,11 @@ import {Parsable} from '@microsoft/kiota-abstractions';
 export interface PrintJob extends Entity, Partial<Parsable> {
     /** The configuration property */
     configuration?: PrintJobConfiguration | undefined;
-    /** Read-only. Nullable. */
+    /** The createdBy property */
     createdBy?: UserIdentity | undefined;
     /** The DateTimeOffset when the job was created. Read-only. */
     createdDateTime?: Date | undefined;
-    /** Read-only. */
+    /** The documents property */
     documents?: PrintDocument[] | undefined;
     /** If true, document can be fetched by printer. */
     isFetchable?: boolean | undefined;

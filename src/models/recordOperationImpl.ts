@@ -2,14 +2,13 @@ import {CommsOperationImpl} from './index';
 import {RecordOperation} from './recordOperation';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the recordResponse method. */
 export class RecordOperationImpl extends CommsOperationImpl implements RecordOperation {
     /** The access token required to retrieve the recording. */
     public recordingAccessToken?: string | undefined;
     /** The location where the recording is located. */
     public recordingLocation?: string | undefined;
     /**
-     * Instantiates a new recordOperation and sets the default values.
+     * Instantiates a new RecordOperation and sets the default values.
      * @param recordOperationParameterValue 
      */
     public constructor(recordOperationParameterValue?: RecordOperation | undefined) {

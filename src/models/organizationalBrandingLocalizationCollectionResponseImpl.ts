@@ -18,7 +18,8 @@ export class OrganizationalBrandingLocalizationCollectionResponseImpl implements
     public constructor(organizationalBrandingLocalizationCollectionResponseParameterValue?: OrganizationalBrandingLocalizationCollectionResponse | undefined) {
         this.additionalData = organizationalBrandingLocalizationCollectionResponseParameterValue?.additionalData ? organizationalBrandingLocalizationCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = organizationalBrandingLocalizationCollectionResponseParameterValue?.nextLink;
-        this.value = organizationalBrandingLocalizationCollectionResponseParameterValue?.value;
+        const valueArrValue: OrganizationalBrandingLocalizationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof OrganizationalBrandingLocalizationImpl? element : new OrganizationalBrandingLocalizationImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -39,7 +40,7 @@ export class OrganizationalBrandingLocalizationCollectionResponseImpl implements
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: OrganizationalBrandingLocalizationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new OrganizationalBrandingLocalizationImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: OrganizationalBrandingLocalizationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof OrganizationalBrandingLocalizationImpl? element : new OrganizationalBrandingLocalizationImpl(element));});
             writer.writeCollectionOfObjectValues<OrganizationalBrandingLocalizationImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

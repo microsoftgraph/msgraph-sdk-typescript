@@ -6,7 +6,7 @@ import {WorkbookChartFont} from './workbookChartFont';
 import {WorkbookChartTitleFormat} from './workbookChartTitleFormat';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to group. */
+/** Provides operations to manage the collection of application entities. */
 export class WorkbookChartTitleFormatImpl extends EntityImpl implements WorkbookChartTitleFormat {
     /** Represents the fill format of an object, which includes background formatting information. Read-only. */
     public fill?: WorkbookChartFill | undefined;
@@ -18,8 +18,8 @@ export class WorkbookChartTitleFormatImpl extends EntityImpl implements Workbook
      */
     public constructor(workbookChartTitleFormatParameterValue?: WorkbookChartTitleFormat | undefined) {
         super(workbookChartTitleFormatParameterValue);
-        this.fill = workbookChartTitleFormatParameterValue?.fill;
-        this.font = workbookChartTitleFormatParameterValue?.font;
+        this.fill = workbookChartTitleFormatParameterValue?.fill instanceof WorkbookChartFillImpl? workbookChartTitleFormatParameterValue?.fill:new WorkbookChartFillImpl(workbookChartTitleFormatParameterValue?.fill);
+        this.font = workbookChartTitleFormatParameterValue?.font instanceof WorkbookChartFontImpl? workbookChartTitleFormatParameterValue?.font:new WorkbookChartFontImpl(workbookChartTitleFormatParameterValue?.font);
     };
     /**
      * The deserialization information for the current model

@@ -4,7 +4,7 @@ import {WorkbookChartLegend} from './workbookChartLegend';
 import {WorkbookChartLegendFormat} from './workbookChartLegendFormat';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to group. */
+/** Provides operations to manage the collection of application entities. */
 export class WorkbookChartLegendImpl extends EntityImpl implements WorkbookChartLegend {
     /** Represents the formatting of a chart legend, which includes fill and font formatting. Read-only. */
     public format?: WorkbookChartLegendFormat | undefined;
@@ -20,7 +20,7 @@ export class WorkbookChartLegendImpl extends EntityImpl implements WorkbookChart
      */
     public constructor(workbookChartLegendParameterValue?: WorkbookChartLegend | undefined) {
         super(workbookChartLegendParameterValue);
-        this.format = workbookChartLegendParameterValue?.format;
+        this.format = workbookChartLegendParameterValue?.format instanceof WorkbookChartLegendFormatImpl? workbookChartLegendParameterValue?.format:new WorkbookChartLegendFormatImpl(workbookChartLegendParameterValue?.format);
         this.overlay = workbookChartLegendParameterValue?.overlay;
         this.position = workbookChartLegendParameterValue?.position;
         this.visible = workbookChartLegendParameterValue?.visible;

@@ -16,7 +16,8 @@ export class GetDirectRoutingCallsWithFromDateTimeWithToDateTimeResponseImpl imp
      */
     public constructor(getDirectRoutingCallsWithFromDateTimeWithToDateTimeResponseParameterValue?: GetDirectRoutingCallsWithFromDateTimeWithToDateTimeResponse | undefined) {
         this.additionalData = getDirectRoutingCallsWithFromDateTimeWithToDateTimeResponseParameterValue?.additionalData ? getDirectRoutingCallsWithFromDateTimeWithToDateTimeResponseParameterValue?.additionalData! : {};
-        this.value = getDirectRoutingCallsWithFromDateTimeWithToDateTimeResponseParameterValue?.value;
+        const valueArrValue: DirectRoutingLogRowImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof DirectRoutingLogRowImpl? element : new DirectRoutingLogRowImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -33,7 +34,7 @@ export class GetDirectRoutingCallsWithFromDateTimeWithToDateTimeResponseImpl imp
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        if(this.value && this.value.length != 0){        const valueArrValue: DirectRoutingLogRowImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new DirectRoutingLogRowImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: DirectRoutingLogRowImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof DirectRoutingLogRowImpl? element : new DirectRoutingLogRowImpl(element));});
             writer.writeCollectionOfObjectValues<DirectRoutingLogRowImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

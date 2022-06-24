@@ -6,7 +6,7 @@ import {MessageRuleActions} from './messageRuleActions';
 import {MessageRulePredicates} from './messageRulePredicates';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the collection of application entities. */
 export class MessageRuleImpl extends EntityImpl implements MessageRule {
     /** Actions to be taken on a message when the corresponding conditions are fulfilled. */
     public actions?: MessageRuleActions | undefined;
@@ -30,10 +30,10 @@ export class MessageRuleImpl extends EntityImpl implements MessageRule {
      */
     public constructor(messageRuleParameterValue?: MessageRule | undefined) {
         super(messageRuleParameterValue);
-        this.actions = messageRuleParameterValue?.actions;
-        this.conditions = messageRuleParameterValue?.conditions;
+        this.actions = messageRuleParameterValue?.actions instanceof MessageRuleActionsImpl? messageRuleParameterValue?.actions:new MessageRuleActionsImpl(messageRuleParameterValue?.actions);
+        this.conditions = messageRuleParameterValue?.conditions instanceof MessageRulePredicatesImpl? messageRuleParameterValue?.conditions:new MessageRulePredicatesImpl(messageRuleParameterValue?.conditions);
         this.displayName = messageRuleParameterValue?.displayName;
-        this.exceptions = messageRuleParameterValue?.exceptions;
+        this.exceptions = messageRuleParameterValue?.exceptions instanceof MessageRulePredicatesImpl? messageRuleParameterValue?.exceptions:new MessageRulePredicatesImpl(messageRuleParameterValue?.exceptions);
         this.hasError = messageRuleParameterValue?.hasError;
         this.isEnabled = messageRuleParameterValue?.isEnabled;
         this.isReadOnly = messageRuleParameterValue?.isReadOnly;

@@ -3,7 +3,6 @@ import {TimeOffReason} from './timeOffReason';
 import {TimeOffReasonIconType} from './timeOffReasonIconType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to group. */
 export class TimeOffReasonImpl extends ChangeTrackedEntityImpl implements TimeOffReason {
     /** The name of the timeOffReason. Required. */
     public displayName?: string | undefined;
@@ -12,7 +11,7 @@ export class TimeOffReasonImpl extends ChangeTrackedEntityImpl implements TimeOf
     /** Indicates whether the timeOffReason can be used when creating new entities or updating existing ones. Required. */
     public isActive?: boolean | undefined;
     /**
-     * Instantiates a new timeOffReason and sets the default values.
+     * Instantiates a new TimeOffReason and sets the default values.
      * @param timeOffReasonParameterValue 
      */
     public constructor(timeOffReasonParameterValue?: TimeOffReason | undefined) {

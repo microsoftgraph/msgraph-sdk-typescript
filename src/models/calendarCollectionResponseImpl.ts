@@ -18,7 +18,8 @@ export class CalendarCollectionResponseImpl implements CalendarCollectionRespons
     public constructor(calendarCollectionResponseParameterValue?: CalendarCollectionResponse | undefined) {
         this.additionalData = calendarCollectionResponseParameterValue?.additionalData ? calendarCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = calendarCollectionResponseParameterValue?.nextLink;
-        this.value = calendarCollectionResponseParameterValue?.value;
+        const valueArrValue: CalendarImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof CalendarImpl? element : new CalendarImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -39,7 +40,7 @@ export class CalendarCollectionResponseImpl implements CalendarCollectionRespons
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: CalendarImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new CalendarImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: CalendarImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof CalendarImpl? element : new CalendarImpl(element));});
             writer.writeCollectionOfObjectValues<CalendarImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

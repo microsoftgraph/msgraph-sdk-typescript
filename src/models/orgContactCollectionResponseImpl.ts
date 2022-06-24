@@ -18,7 +18,8 @@ export class OrgContactCollectionResponseImpl implements OrgContactCollectionRes
     public constructor(orgContactCollectionResponseParameterValue?: OrgContactCollectionResponse | undefined) {
         this.additionalData = orgContactCollectionResponseParameterValue?.additionalData ? orgContactCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = orgContactCollectionResponseParameterValue?.nextLink;
-        this.value = orgContactCollectionResponseParameterValue?.value;
+        const valueArrValue: OrgContactImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof OrgContactImpl? element : new OrgContactImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -39,7 +40,7 @@ export class OrgContactCollectionResponseImpl implements OrgContactCollectionRes
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: OrgContactImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new OrgContactImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: OrgContactImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof OrgContactImpl? element : new OrgContactImpl(element));});
             writer.writeCollectionOfObjectValues<OrgContactImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

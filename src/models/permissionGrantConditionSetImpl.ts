@@ -3,7 +3,7 @@ import {PermissionGrantConditionSet} from './permissionGrantConditionSet';
 import {PermissionType} from './permissionType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the policyRoot singleton. */
+/** Provides operations to call the instantiate method. */
 export class PermissionGrantConditionSetImpl extends EntityImpl implements PermissionGrantConditionSet {
     /** A list of appId values for the client applications to match with, or a list with the single value all to match any client application. Default is the single value all. */
     public clientApplicationIds?: string[] | undefined;

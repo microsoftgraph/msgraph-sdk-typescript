@@ -2,10 +2,9 @@ import {CommsOperationImpl} from './index';
 import {SubscribeToToneOperation} from './subscribeToToneOperation';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the subscribeToTone method. */
 export class SubscribeToToneOperationImpl extends CommsOperationImpl implements SubscribeToToneOperation {
     /**
-     * Instantiates a new subscribeToToneOperation and sets the default values.
+     * Instantiates a new SubscribeToToneOperation and sets the default values.
      * @param subscribeToToneOperationParameterValue 
      */
     public constructor(subscribeToToneOperationParameterValue?: SubscribeToToneOperation | undefined) {

@@ -1,5 +1,7 @@
 import {UpdateRecordingStatusOperationImpl} from '../../../../models/';
 import {createUpdateRecordingStatusOperationFromDiscriminatorValue} from '../../../../models/createUpdateRecordingStatusOperationFromDiscriminatorValue';
+import {ODataErrorImpl} from '../../../../models/oDataErrors/';
+import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {UpdateRecordingStatusPostRequestBodyImpl} from './index';
 import {UpdateRecordingStatusPostRequestBody} from './updateRecordingStatusPostRequestBody';
 import {UpdateRecordingStatusRequestBuilderPostRequestConfiguration} from './updateRecordingStatusRequestBuilderPostRequestConfiguration';
@@ -59,6 +61,10 @@ export class UpdateRecordingStatusRequestBuilder {
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration
         );
-        return this.requestAdapter?.sendAsync<UpdateRecordingStatusOperationImpl>(requestInfo, createUpdateRecordingStatusOperationFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<UpdateRecordingStatusOperationImpl>(requestInfo, createUpdateRecordingStatusOperationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

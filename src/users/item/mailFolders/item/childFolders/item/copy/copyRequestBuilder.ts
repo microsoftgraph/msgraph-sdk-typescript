@@ -1,5 +1,7 @@
 import {MailFolderImpl} from '../../../../../../../models/';
 import {createMailFolderFromDiscriminatorValue} from '../../../../../../../models/createMailFolderFromDiscriminatorValue';
+import {ODataErrorImpl} from '../../../../../../../models/oDataErrors/';
+import {createODataErrorFromDiscriminatorValue} from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CopyPostRequestBody} from './copyPostRequestBody';
 import {CopyRequestBuilderPostRequestConfiguration} from './copyRequestBuilderPostRequestConfiguration';
 import {CopyPostRequestBodyImpl} from './index';
@@ -59,6 +61,10 @@ export class CopyRequestBuilder {
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration
         );
-        return this.requestAdapter?.sendAsync<MailFolderImpl>(requestInfo, createMailFolderFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<MailFolderImpl>(requestInfo, createMailFolderFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

@@ -6,7 +6,7 @@ import {Set} from './set';
 import {TermGroupScope} from './termGroupScope';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Casts the previous resource to group. */
 export class GroupImpl extends EntityImpl implements Group {
     /** Date and time of the group creation. Read-only. */
     public createdDateTime?: Date | undefined;
@@ -31,7 +31,8 @@ export class GroupImpl extends EntityImpl implements Group {
         this.displayName = groupParameterValue?.displayName;
         this.parentSiteId = groupParameterValue?.parentSiteId;
         this.scope = groupParameterValue?.scope;
-        this.sets = groupParameterValue?.sets;
+        const setsArrValue: SetImpl[] = []; this.sets?.forEach(element => {setsArrValue.push(element instanceof SetImpl? element : new SetImpl(element));});
+        this.sets = setsArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -69,7 +70,7 @@ export class GroupImpl extends EntityImpl implements Group {
         if(this.scope){
             writer.writeEnumValue<TermGroupScope>("scope", this.scope);
         }
-        if(this.sets && this.sets.length != 0){        const setsArrValue: SetImpl[] = []; this.sets?.forEach(element => {setsArrValue.push(new SetImpl(element));});
+        if(this.sets && this.sets.length != 0){        const setsArrValue: SetImpl[] = []; this.sets?.forEach(element => {setsArrValue.push(element instanceof SetImpl? element : new SetImpl(element));});
             writer.writeCollectionOfObjectValues<SetImpl>("sets", setsArrValue);
         }
     };

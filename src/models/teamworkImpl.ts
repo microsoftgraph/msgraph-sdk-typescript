@@ -14,7 +14,8 @@ export class TeamworkImpl extends EntityImpl implements Teamwork {
      */
     public constructor(teamworkParameterValue?: Teamwork | undefined) {
         super(teamworkParameterValue);
-        this.workforceIntegrations = teamworkParameterValue?.workforceIntegrations;
+        const workforceIntegrationsArrValue: WorkforceIntegrationImpl[] = []; this.workforceIntegrations?.forEach(element => {workforceIntegrationsArrValue.push(element instanceof WorkforceIntegrationImpl? element : new WorkforceIntegrationImpl(element));});
+        this.workforceIntegrations = workforceIntegrationsArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -32,7 +33,7 @@ export class TeamworkImpl extends EntityImpl implements Teamwork {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.workforceIntegrations && this.workforceIntegrations.length != 0){        const workforceIntegrationsArrValue: WorkforceIntegrationImpl[] = []; this.workforceIntegrations?.forEach(element => {workforceIntegrationsArrValue.push(new WorkforceIntegrationImpl(element));});
+        if(this.workforceIntegrations && this.workforceIntegrations.length != 0){        const workforceIntegrationsArrValue: WorkforceIntegrationImpl[] = []; this.workforceIntegrations?.forEach(element => {workforceIntegrationsArrValue.push(element instanceof WorkforceIntegrationImpl? element : new WorkforceIntegrationImpl(element));});
             writer.writeCollectionOfObjectValues<WorkforceIntegrationImpl>("workforceIntegrations", workforceIntegrationsArrValue);
         }
     };

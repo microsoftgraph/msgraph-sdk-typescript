@@ -33,7 +33,8 @@ export class RiskyUserImpl extends EntityImpl implements RiskyUser {
      */
     public constructor(riskyUserParameterValue?: RiskyUser | undefined) {
         super(riskyUserParameterValue);
-        this.history = riskyUserParameterValue?.history;
+        const historyArrValue: RiskyUserHistoryItemImpl[] = []; this.history?.forEach(element => {historyArrValue.push(element instanceof RiskyUserHistoryItemImpl? element : new RiskyUserHistoryItemImpl(element));});
+        this.history = historyArrValue;
         this.isDeleted = riskyUserParameterValue?.isDeleted;
         this.isProcessing = riskyUserParameterValue?.isProcessing;
         this.riskDetail = riskyUserParameterValue?.riskDetail;
@@ -67,7 +68,7 @@ export class RiskyUserImpl extends EntityImpl implements RiskyUser {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.history && this.history.length != 0){        const historyArrValue: RiskyUserHistoryItemImpl[] = []; this.history?.forEach(element => {historyArrValue.push(new RiskyUserHistoryItemImpl(element));});
+        if(this.history && this.history.length != 0){        const historyArrValue: RiskyUserHistoryItemImpl[] = []; this.history?.forEach(element => {historyArrValue.push(element instanceof RiskyUserHistoryItemImpl? element : new RiskyUserHistoryItemImpl(element));});
             writer.writeCollectionOfObjectValues<RiskyUserHistoryItemImpl>("history", historyArrValue);
         }
         if(this.isDeleted){

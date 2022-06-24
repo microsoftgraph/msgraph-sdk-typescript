@@ -23,9 +23,9 @@ export class GetSchedulePostRequestBodyImpl implements GetSchedulePostRequestBod
     public constructor(getSchedulePostRequestBodyParameterValue?: GetSchedulePostRequestBody | undefined) {
         this.additionalData = getSchedulePostRequestBodyParameterValue?.additionalData ? getSchedulePostRequestBodyParameterValue?.additionalData! : {};
         this.availabilityViewInterval = getSchedulePostRequestBodyParameterValue?.availabilityViewInterval;
-        this.endTime = getSchedulePostRequestBodyParameterValue?.endTime;
+        this.endTime = getSchedulePostRequestBodyParameterValue?.endTime instanceof DateTimeTimeZoneImpl? getSchedulePostRequestBodyParameterValue?.endTime:new DateTimeTimeZoneImpl(getSchedulePostRequestBodyParameterValue?.endTime);
         this.schedules = getSchedulePostRequestBodyParameterValue?.schedules;
-        this.startTime = getSchedulePostRequestBodyParameterValue?.startTime;
+        this.startTime = getSchedulePostRequestBodyParameterValue?.startTime instanceof DateTimeTimeZoneImpl? getSchedulePostRequestBodyParameterValue?.startTime:new DateTimeTimeZoneImpl(getSchedulePostRequestBodyParameterValue?.startTime);
     };
     /**
      * The deserialization information for the current model

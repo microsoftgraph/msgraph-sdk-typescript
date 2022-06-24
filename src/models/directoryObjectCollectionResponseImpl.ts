@@ -18,7 +18,8 @@ export class DirectoryObjectCollectionResponseImpl implements DirectoryObjectCol
     public constructor(directoryObjectCollectionResponseParameterValue?: DirectoryObjectCollectionResponse | undefined) {
         this.additionalData = directoryObjectCollectionResponseParameterValue?.additionalData ? directoryObjectCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = directoryObjectCollectionResponseParameterValue?.nextLink;
-        this.value = directoryObjectCollectionResponseParameterValue?.value;
+        const valueArrValue: DirectoryObjectImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof DirectoryObjectImpl? element : new DirectoryObjectImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -39,7 +40,7 @@ export class DirectoryObjectCollectionResponseImpl implements DirectoryObjectCol
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: DirectoryObjectImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new DirectoryObjectImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: DirectoryObjectImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof DirectoryObjectImpl? element : new DirectoryObjectImpl(element));});
             writer.writeCollectionOfObjectValues<DirectoryObjectImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

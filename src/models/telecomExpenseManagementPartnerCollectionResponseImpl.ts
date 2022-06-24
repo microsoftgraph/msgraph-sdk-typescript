@@ -18,7 +18,8 @@ export class TelecomExpenseManagementPartnerCollectionResponseImpl implements Te
     public constructor(telecomExpenseManagementPartnerCollectionResponseParameterValue?: TelecomExpenseManagementPartnerCollectionResponse | undefined) {
         this.additionalData = telecomExpenseManagementPartnerCollectionResponseParameterValue?.additionalData ? telecomExpenseManagementPartnerCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = telecomExpenseManagementPartnerCollectionResponseParameterValue?.nextLink;
-        this.value = telecomExpenseManagementPartnerCollectionResponseParameterValue?.value;
+        const valueArrValue: TelecomExpenseManagementPartnerImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof TelecomExpenseManagementPartnerImpl? element : new TelecomExpenseManagementPartnerImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -39,7 +40,7 @@ export class TelecomExpenseManagementPartnerCollectionResponseImpl implements Te
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: TelecomExpenseManagementPartnerImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new TelecomExpenseManagementPartnerImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: TelecomExpenseManagementPartnerImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof TelecomExpenseManagementPartnerImpl? element : new TelecomExpenseManagementPartnerImpl(element));});
             writer.writeCollectionOfObjectValues<TelecomExpenseManagementPartnerImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

@@ -6,7 +6,6 @@ import {ManagedAppPolicyDeploymentSummary} from './managedAppPolicyDeploymentSum
 import {ManagedMobileApp} from './managedMobileApp';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Policy used to configure detailed management settings targeted to specific security groups and for a specified set of apps on an Android device */
 export class AndroidManagedAppProtectionImpl extends TargetedManagedAppProtectionImpl implements AndroidManagedAppProtection {
     /** List of apps to which the policy is deployed. */
     public apps?: ManagedMobileApp[] | undefined;
@@ -29,16 +28,17 @@ export class AndroidManagedAppProtectionImpl extends TargetedManagedAppProtectio
     /** Indicates whether a managed user can take screen captures of managed apps */
     public screenCaptureBlocked?: boolean | undefined;
     /**
-     * Instantiates a new androidManagedAppProtection and sets the default values.
+     * Instantiates a new AndroidManagedAppProtection and sets the default values.
      * @param androidManagedAppProtectionParameterValue 
      */
     public constructor(androidManagedAppProtectionParameterValue?: AndroidManagedAppProtection | undefined) {
         super(androidManagedAppProtectionParameterValue);
-        this.apps = androidManagedAppProtectionParameterValue?.apps;
+        const appsArrValue: ManagedMobileAppImpl[] = []; this.apps?.forEach(element => {appsArrValue.push(element instanceof ManagedMobileAppImpl? element : new ManagedMobileAppImpl(element));});
+        this.apps = appsArrValue;
         this.customBrowserDisplayName = androidManagedAppProtectionParameterValue?.customBrowserDisplayName;
         this.customBrowserPackageId = androidManagedAppProtectionParameterValue?.customBrowserPackageId;
         this.deployedAppCount = androidManagedAppProtectionParameterValue?.deployedAppCount;
-        this.deploymentSummary = androidManagedAppProtectionParameterValue?.deploymentSummary;
+        this.deploymentSummary = androidManagedAppProtectionParameterValue?.deploymentSummary instanceof ManagedAppPolicyDeploymentSummaryImpl? androidManagedAppProtectionParameterValue?.deploymentSummary:new ManagedAppPolicyDeploymentSummaryImpl(androidManagedAppProtectionParameterValue?.deploymentSummary);
         this.disableAppEncryptionIfDeviceEncryptionIsEnabled = androidManagedAppProtectionParameterValue?.disableAppEncryptionIfDeviceEncryptionIsEnabled;
         this.encryptAppData = androidManagedAppProtectionParameterValue?.encryptAppData;
         this.minimumRequiredPatchVersion = androidManagedAppProtectionParameterValue?.minimumRequiredPatchVersion;
@@ -70,7 +70,7 @@ export class AndroidManagedAppProtectionImpl extends TargetedManagedAppProtectio
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.apps && this.apps.length != 0){        const appsArrValue: ManagedMobileAppImpl[] = []; this.apps?.forEach(element => {appsArrValue.push(new ManagedMobileAppImpl(element));});
+        if(this.apps && this.apps.length != 0){        const appsArrValue: ManagedMobileAppImpl[] = []; this.apps?.forEach(element => {appsArrValue.push(element instanceof ManagedMobileAppImpl? element : new ManagedMobileAppImpl(element));});
             writer.writeCollectionOfObjectValues<ManagedMobileAppImpl>("apps", appsArrValue);
         }
         if(this.customBrowserDisplayName){

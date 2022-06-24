@@ -18,7 +18,8 @@ export class AccessPackageCatalogCollectionResponseImpl implements AccessPackage
     public constructor(accessPackageCatalogCollectionResponseParameterValue?: AccessPackageCatalogCollectionResponse | undefined) {
         this.additionalData = accessPackageCatalogCollectionResponseParameterValue?.additionalData ? accessPackageCatalogCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = accessPackageCatalogCollectionResponseParameterValue?.nextLink;
-        this.value = accessPackageCatalogCollectionResponseParameterValue?.value;
+        const valueArrValue: AccessPackageCatalogImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof AccessPackageCatalogImpl? element : new AccessPackageCatalogImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -39,7 +40,7 @@ export class AccessPackageCatalogCollectionResponseImpl implements AccessPackage
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: AccessPackageCatalogImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new AccessPackageCatalogImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: AccessPackageCatalogImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof AccessPackageCatalogImpl? element : new AccessPackageCatalogImpl(element));});
             writer.writeCollectionOfObjectValues<AccessPackageCatalogImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

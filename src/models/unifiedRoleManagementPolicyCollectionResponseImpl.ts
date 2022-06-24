@@ -18,7 +18,8 @@ export class UnifiedRoleManagementPolicyCollectionResponseImpl implements Unifie
     public constructor(unifiedRoleManagementPolicyCollectionResponseParameterValue?: UnifiedRoleManagementPolicyCollectionResponse | undefined) {
         this.additionalData = unifiedRoleManagementPolicyCollectionResponseParameterValue?.additionalData ? unifiedRoleManagementPolicyCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = unifiedRoleManagementPolicyCollectionResponseParameterValue?.nextLink;
-        this.value = unifiedRoleManagementPolicyCollectionResponseParameterValue?.value;
+        const valueArrValue: UnifiedRoleManagementPolicyImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof UnifiedRoleManagementPolicyImpl? element : new UnifiedRoleManagementPolicyImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -39,7 +40,7 @@ export class UnifiedRoleManagementPolicyCollectionResponseImpl implements Unifie
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: UnifiedRoleManagementPolicyImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new UnifiedRoleManagementPolicyImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: UnifiedRoleManagementPolicyImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof UnifiedRoleManagementPolicyImpl? element : new UnifiedRoleManagementPolicyImpl(element));});
             writer.writeCollectionOfObjectValues<UnifiedRoleManagementPolicyImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

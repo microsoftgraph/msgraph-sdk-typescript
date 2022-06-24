@@ -1,4 +1,4 @@
-import {AttachmentImpl} from './index';
+import {AttachmentImpl, FileAttachmentImpl, ItemAttachmentImpl, ReferenceAttachmentImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
 export function createAttachmentFromDiscriminatorValue(parseNode: ParseNode | undefined) : AttachmentImpl {
@@ -8,8 +8,12 @@ export function createAttachmentFromDiscriminatorValue(parseNode: ParseNode | un
         const mappingValue = mappingValueNode.getStringValue();
         if (mappingValue) {
             switch (mappingValue) {
-                case "#microsoft.graph.attachment":
-                    return new AttachmentImpl();
+                case "#microsoft.graph.fileAttachment":
+                    return new FileAttachmentImpl();
+                case "#microsoft.graph.itemAttachment":
+                    return new ItemAttachmentImpl();
+                case "#microsoft.graph.referenceAttachment":
+                    return new ReferenceAttachmentImpl();
             }
         }
     }

@@ -16,7 +16,8 @@ export class GetPrinterArchivedPrintJobsWithPrinterIdWithStartDateTimeWithEndDat
      */
     public constructor(getPrinterArchivedPrintJobsWithPrinterIdWithStartDateTimeWithEndDateTimeResponseParameterValue?: GetPrinterArchivedPrintJobsWithPrinterIdWithStartDateTimeWithEndDateTimeResponse | undefined) {
         this.additionalData = getPrinterArchivedPrintJobsWithPrinterIdWithStartDateTimeWithEndDateTimeResponseParameterValue?.additionalData ? getPrinterArchivedPrintJobsWithPrinterIdWithStartDateTimeWithEndDateTimeResponseParameterValue?.additionalData! : {};
-        this.value = getPrinterArchivedPrintJobsWithPrinterIdWithStartDateTimeWithEndDateTimeResponseParameterValue?.value;
+        const valueArrValue: ArchivedPrintJobImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ArchivedPrintJobImpl? element : new ArchivedPrintJobImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -33,7 +34,7 @@ export class GetPrinterArchivedPrintJobsWithPrinterIdWithStartDateTimeWithEndDat
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        if(this.value && this.value.length != 0){        const valueArrValue: ArchivedPrintJobImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ArchivedPrintJobImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: ArchivedPrintJobImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ArchivedPrintJobImpl? element : new ArchivedPrintJobImpl(element));});
             writer.writeCollectionOfObjectValues<ArchivedPrintJobImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

@@ -25,9 +25,9 @@ export class VisualInfoImpl implements VisualInfo {
      */
     public constructor(visualInfoParameterValue?: VisualInfo | undefined) {
         this.additionalData = visualInfoParameterValue?.additionalData ? visualInfoParameterValue?.additionalData! : {};
-        this.attribution = visualInfoParameterValue?.attribution;
+        this.attribution = visualInfoParameterValue?.attribution instanceof ImageInfoImpl? visualInfoParameterValue?.attribution:new ImageInfoImpl(visualInfoParameterValue?.attribution);
         this.backgroundColor = visualInfoParameterValue?.backgroundColor;
-        this.content = visualInfoParameterValue?.content;
+        this.content = visualInfoParameterValue?.content instanceof JsonImpl? visualInfoParameterValue?.content:new JsonImpl(visualInfoParameterValue?.content);
         this.description = visualInfoParameterValue?.description;
         this.displayText = visualInfoParameterValue?.displayText;
     };

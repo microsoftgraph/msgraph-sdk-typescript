@@ -4,7 +4,7 @@ import {createCalendarFromDiscriminatorValue} from './createCalendarFromDiscrimi
 import {CalendarImpl, EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the collection of application entities. */
 export class CalendarGroupImpl extends EntityImpl implements CalendarGroup {
     /** The calendars in the calendar group. Navigation property. Read-only. Nullable. */
     public calendars?: Calendar[] | undefined;
@@ -20,7 +20,8 @@ export class CalendarGroupImpl extends EntityImpl implements CalendarGroup {
      */
     public constructor(calendarGroupParameterValue?: CalendarGroup | undefined) {
         super(calendarGroupParameterValue);
-        this.calendars = calendarGroupParameterValue?.calendars;
+        const calendarsArrValue: CalendarImpl[] = []; this.calendars?.forEach(element => {calendarsArrValue.push(element instanceof CalendarImpl? element : new CalendarImpl(element));});
+        this.calendars = calendarsArrValue;
         this.changeKey = calendarGroupParameterValue?.changeKey;
         this.classId = calendarGroupParameterValue?.classId;
         this.name = calendarGroupParameterValue?.name;
@@ -44,7 +45,7 @@ export class CalendarGroupImpl extends EntityImpl implements CalendarGroup {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.calendars && this.calendars.length != 0){        const calendarsArrValue: CalendarImpl[] = []; this.calendars?.forEach(element => {calendarsArrValue.push(new CalendarImpl(element));});
+        if(this.calendars && this.calendars.length != 0){        const calendarsArrValue: CalendarImpl[] = []; this.calendars?.forEach(element => {calendarsArrValue.push(element instanceof CalendarImpl? element : new CalendarImpl(element));});
             writer.writeCollectionOfObjectValues<CalendarImpl>("calendars", calendarsArrValue);
         }
         if(this.changeKey){

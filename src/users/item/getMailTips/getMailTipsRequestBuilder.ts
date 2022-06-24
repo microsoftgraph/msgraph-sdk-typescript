@@ -1,3 +1,5 @@
+import {ODataErrorImpl} from '../../../models/oDataErrors/';
+import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {createGetMailTipsResponseFromDiscriminatorValue} from './createGetMailTipsResponseFromDiscriminatorValue';
 import {GetMailTipsPostRequestBody} from './getMailTipsPostRequestBody';
 import {GetMailTipsRequestBuilderPostRequestConfiguration} from './getMailTipsRequestBuilderPostRequestConfiguration';
@@ -58,6 +60,10 @@ export class GetMailTipsRequestBuilder {
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration
         );
-        return this.requestAdapter?.sendAsync<GetMailTipsResponseImpl>(requestInfo, createGetMailTipsResponseFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<GetMailTipsResponseImpl>(requestInfo, createGetMailTipsResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

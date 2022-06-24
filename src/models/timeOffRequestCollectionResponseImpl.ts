@@ -18,7 +18,8 @@ export class TimeOffRequestCollectionResponseImpl implements TimeOffRequestColle
     public constructor(timeOffRequestCollectionResponseParameterValue?: TimeOffRequestCollectionResponse | undefined) {
         this.additionalData = timeOffRequestCollectionResponseParameterValue?.additionalData ? timeOffRequestCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = timeOffRequestCollectionResponseParameterValue?.nextLink;
-        this.value = timeOffRequestCollectionResponseParameterValue?.value;
+        const valueArrValue: TimeOffRequestImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof TimeOffRequestImpl? element : new TimeOffRequestImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -39,7 +40,7 @@ export class TimeOffRequestCollectionResponseImpl implements TimeOffRequestColle
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: TimeOffRequestImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new TimeOffRequestImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: TimeOffRequestImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof TimeOffRequestImpl? element : new TimeOffRequestImpl(element));});
             writer.writeCollectionOfObjectValues<TimeOffRequestImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

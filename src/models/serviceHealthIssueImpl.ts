@@ -7,7 +7,6 @@ import {ServiceHealthOrigin} from './serviceHealthOrigin';
 import {ServiceHealthStatus} from './serviceHealthStatus';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the admin singleton. */
 export class ServiceHealthIssueImpl extends ServiceAnnouncementBaseImpl implements ServiceHealthIssue {
     /** The type of service health issue. Possible values are: advisory, incident, unknownFutureValue. */
     public classification?: ServiceHealthClassificationType | undefined;
@@ -28,7 +27,7 @@ export class ServiceHealthIssueImpl extends ServiceAnnouncementBaseImpl implemen
     /** The status of the service issue. Possible values are: serviceOperational, investigating, restoringService, verifyingService, serviceRestored, postIncidentReviewPublished, serviceDegradation, serviceInterruption, extendedRecovery, falsePositive, investigationSuspended, resolved, mitigatedExternal, mitigated, resolvedExternal, confirmed, reported, unknownFutureValue. For more details, see serviceHealthStatus values. */
     public status?: ServiceHealthStatus | undefined;
     /**
-     * Instantiates a new serviceHealthIssue and sets the default values.
+     * Instantiates a new ServiceHealthIssue and sets the default values.
      * @param serviceHealthIssueParameterValue 
      */
     public constructor(serviceHealthIssueParameterValue?: ServiceHealthIssue | undefined) {
@@ -39,7 +38,8 @@ export class ServiceHealthIssueImpl extends ServiceAnnouncementBaseImpl implemen
         this.impactDescription = serviceHealthIssueParameterValue?.impactDescription;
         this.isResolved = serviceHealthIssueParameterValue?.isResolved;
         this.origin = serviceHealthIssueParameterValue?.origin;
-        this.posts = serviceHealthIssueParameterValue?.posts;
+        const postsArrValue: ServiceHealthIssuePostImpl[] = []; this.posts?.forEach(element => {postsArrValue.push(element instanceof ServiceHealthIssuePostImpl? element : new ServiceHealthIssuePostImpl(element));});
+        this.posts = postsArrValue;
         this.service = serviceHealthIssueParameterValue?.service;
         this.status = serviceHealthIssueParameterValue?.status;
     };
@@ -85,7 +85,7 @@ export class ServiceHealthIssueImpl extends ServiceAnnouncementBaseImpl implemen
         if(this.origin){
             writer.writeEnumValue<ServiceHealthOrigin>("origin", this.origin);
         }
-        if(this.posts && this.posts.length != 0){        const postsArrValue: ServiceHealthIssuePostImpl[] = []; this.posts?.forEach(element => {postsArrValue.push(new ServiceHealthIssuePostImpl(element));});
+        if(this.posts && this.posts.length != 0){        const postsArrValue: ServiceHealthIssuePostImpl[] = []; this.posts?.forEach(element => {postsArrValue.push(element instanceof ServiceHealthIssuePostImpl? element : new ServiceHealthIssuePostImpl(element));});
             writer.writeCollectionOfObjectValues<ServiceHealthIssuePostImpl>("posts", postsArrValue);
         }
         if(this.service){

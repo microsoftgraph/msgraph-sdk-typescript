@@ -2,7 +2,7 @@ import {EntityImpl} from './index';
 import {SingleValueLegacyExtendedProperty} from './singleValueLegacyExtendedProperty';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the collection of application entities. */
 export class SingleValueLegacyExtendedPropertyImpl extends EntityImpl implements SingleValueLegacyExtendedProperty {
     /** A property value. */
     public value?: string | undefined;

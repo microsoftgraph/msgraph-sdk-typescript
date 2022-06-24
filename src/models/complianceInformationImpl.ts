@@ -17,7 +17,8 @@ export class ComplianceInformationImpl implements ComplianceInformation {
      */
     public constructor(complianceInformationParameterValue?: ComplianceInformation | undefined) {
         this.additionalData = complianceInformationParameterValue?.additionalData ? complianceInformationParameterValue?.additionalData! : {};
-        this.certificationControls = complianceInformationParameterValue?.certificationControls;
+        const certificationControlsArrValue: CertificationControlImpl[] = []; this.certificationControls?.forEach(element => {certificationControlsArrValue.push(element instanceof CertificationControlImpl? element : new CertificationControlImpl(element));});
+        this.certificationControls = certificationControlsArrValue;
         this.certificationName = complianceInformationParameterValue?.certificationName;
     };
     /**
@@ -36,7 +37,7 @@ export class ComplianceInformationImpl implements ComplianceInformation {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        if(this.certificationControls && this.certificationControls.length != 0){        const certificationControlsArrValue: CertificationControlImpl[] = []; this.certificationControls?.forEach(element => {certificationControlsArrValue.push(new CertificationControlImpl(element));});
+        if(this.certificationControls && this.certificationControls.length != 0){        const certificationControlsArrValue: CertificationControlImpl[] = []; this.certificationControls?.forEach(element => {certificationControlsArrValue.push(element instanceof CertificationControlImpl? element : new CertificationControlImpl(element));});
             writer.writeCollectionOfObjectValues<CertificationControlImpl>("certificationControls", certificationControlsArrValue);
         }
         if(this.certificationName){

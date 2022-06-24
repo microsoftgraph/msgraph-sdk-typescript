@@ -1,3 +1,5 @@
+import {ODataErrorImpl} from '../../../../models/oDataErrors/';
+import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {createGrantResponseFromDiscriminatorValue} from './createGrantResponseFromDiscriminatorValue';
 import {GrantPostRequestBody} from './grantPostRequestBody';
 import {GrantRequestBuilderPostRequestConfiguration} from './grantRequestBuilderPostRequestConfiguration';
@@ -58,6 +60,10 @@ export class GrantRequestBuilder {
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration
         );
-        return this.requestAdapter?.sendAsync<GrantResponseImpl>(requestInfo, createGrantResponseFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<GrantResponseImpl>(requestInfo, createGrantResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

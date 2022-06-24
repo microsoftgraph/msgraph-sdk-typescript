@@ -1,5 +1,7 @@
 import {ApplicationServicePrincipalImpl} from '../../../models/';
 import {createApplicationServicePrincipalFromDiscriminatorValue} from '../../../models/createApplicationServicePrincipalFromDiscriminatorValue';
+import {ODataErrorImpl} from '../../../models/oDataErrors/';
+import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {InstantiatePostRequestBodyImpl} from './index';
 import {InstantiatePostRequestBody} from './instantiatePostRequestBody';
 import {InstantiateRequestBuilderPostRequestConfiguration} from './instantiateRequestBuilderPostRequestConfiguration';
@@ -59,6 +61,10 @@ export class InstantiateRequestBuilder {
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration
         );
-        return this.requestAdapter?.sendAsync<ApplicationServicePrincipalImpl>(requestInfo, createApplicationServicePrincipalFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<ApplicationServicePrincipalImpl>(requestInfo, createApplicationServicePrincipalFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

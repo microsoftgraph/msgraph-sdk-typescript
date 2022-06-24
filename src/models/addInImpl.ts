@@ -20,7 +20,8 @@ export class AddInImpl implements AddIn {
     public constructor(addInParameterValue?: AddIn | undefined) {
         this.additionalData = addInParameterValue?.additionalData ? addInParameterValue?.additionalData! : {};
         this.id = addInParameterValue?.id;
-        this.properties = addInParameterValue?.properties;
+        const propertiesArrValue: KeyValueImpl[] = []; this.properties?.forEach(element => {propertiesArrValue.push(element instanceof KeyValueImpl? element : new KeyValueImpl(element));});
+        this.properties = propertiesArrValue;
         this.type = addInParameterValue?.type;
     };
     /**
@@ -43,7 +44,7 @@ export class AddInImpl implements AddIn {
         if(this.id){
             writer.writeStringValue("id", this.id);
         }
-        if(this.properties && this.properties.length != 0){        const propertiesArrValue: KeyValueImpl[] = []; this.properties?.forEach(element => {propertiesArrValue.push(new KeyValueImpl(element));});
+        if(this.properties && this.properties.length != 0){        const propertiesArrValue: KeyValueImpl[] = []; this.properties?.forEach(element => {propertiesArrValue.push(element instanceof KeyValueImpl? element : new KeyValueImpl(element));});
             writer.writeCollectionOfObjectValues<KeyValueImpl>("properties", propertiesArrValue);
         }
         if(this.type){

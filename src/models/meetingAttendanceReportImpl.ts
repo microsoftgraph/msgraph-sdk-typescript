@@ -20,7 +20,8 @@ export class MeetingAttendanceReportImpl extends EntityImpl implements MeetingAt
      */
     public constructor(meetingAttendanceReportParameterValue?: MeetingAttendanceReport | undefined) {
         super(meetingAttendanceReportParameterValue);
-        this.attendanceRecords = meetingAttendanceReportParameterValue?.attendanceRecords;
+        const attendanceRecordsArrValue: AttendanceRecordImpl[] = []; this.attendanceRecords?.forEach(element => {attendanceRecordsArrValue.push(element instanceof AttendanceRecordImpl? element : new AttendanceRecordImpl(element));});
+        this.attendanceRecords = attendanceRecordsArrValue;
         this.meetingEndDateTime = meetingAttendanceReportParameterValue?.meetingEndDateTime;
         this.meetingStartDateTime = meetingAttendanceReportParameterValue?.meetingStartDateTime;
         this.totalParticipantCount = meetingAttendanceReportParameterValue?.totalParticipantCount;
@@ -44,7 +45,7 @@ export class MeetingAttendanceReportImpl extends EntityImpl implements MeetingAt
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.attendanceRecords && this.attendanceRecords.length != 0){        const attendanceRecordsArrValue: AttendanceRecordImpl[] = []; this.attendanceRecords?.forEach(element => {attendanceRecordsArrValue.push(new AttendanceRecordImpl(element));});
+        if(this.attendanceRecords && this.attendanceRecords.length != 0){        const attendanceRecordsArrValue: AttendanceRecordImpl[] = []; this.attendanceRecords?.forEach(element => {attendanceRecordsArrValue.push(element instanceof AttendanceRecordImpl? element : new AttendanceRecordImpl(element));});
             writer.writeCollectionOfObjectValues<AttendanceRecordImpl>("attendanceRecords", attendanceRecordsArrValue);
         }
         if(this.meetingEndDateTime){

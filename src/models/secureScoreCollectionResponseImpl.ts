@@ -18,7 +18,8 @@ export class SecureScoreCollectionResponseImpl implements SecureScoreCollectionR
     public constructor(secureScoreCollectionResponseParameterValue?: SecureScoreCollectionResponse | undefined) {
         this.additionalData = secureScoreCollectionResponseParameterValue?.additionalData ? secureScoreCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = secureScoreCollectionResponseParameterValue?.nextLink;
-        this.value = secureScoreCollectionResponseParameterValue?.value;
+        const valueArrValue: SecureScoreImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof SecureScoreImpl? element : new SecureScoreImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -39,7 +40,7 @@ export class SecureScoreCollectionResponseImpl implements SecureScoreCollectionR
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: SecureScoreImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new SecureScoreImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: SecureScoreImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof SecureScoreImpl? element : new SecureScoreImpl(element));});
             writer.writeCollectionOfObjectValues<SecureScoreImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

@@ -3,26 +3,47 @@ import {createDeviceFromDiscriminatorValue} from '../../../../../../models/creat
 import {Device} from '../../../../../../models/device';
 import {ODataErrorImpl} from '../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {CheckMemberGroupsRequestBuilder} from './checkMemberGroups/checkMemberGroupsRequestBuilder';
+import {CheckMemberObjectsRequestBuilder} from './checkMemberObjects/checkMemberObjectsRequestBuilder';
 import {DeviceRequestBuilderDeleteRequestConfiguration} from './deviceRequestBuilderDeleteRequestConfiguration';
 import {DeviceRequestBuilderGetRequestConfiguration} from './deviceRequestBuilderGetRequestConfiguration';
 import {DeviceRequestBuilderPatchRequestConfiguration} from './deviceRequestBuilderPatchRequestConfiguration';
 import {ExtensionsRequestBuilder} from './extensions/extensionsRequestBuilder';
 import {ExtensionItemRequestBuilder} from './extensions/item/extensionItemRequestBuilder';
+import {GetMemberGroupsRequestBuilder} from './getMemberGroups/getMemberGroupsRequestBuilder';
+import {GetMemberObjectsRequestBuilder} from './getMemberObjects/getMemberObjectsRequestBuilder';
 import {DirectoryObjectItemRequestBuilder as i1c97bc07853adf1ba060cf7cd9963c81a22f404a4ac68d7eda8831fc433f7631} from './memberOf/item/directoryObjectItemRequestBuilder';
 import {MemberOfRequestBuilder} from './memberOf/memberOfRequestBuilder';
 import {DirectoryObjectItemRequestBuilder as i7147b5270934de4e57a7b34f1044fb70ab8f7ed38c8e4748f83ffa39bef9a0f3} from './registeredOwners/item/directoryObjectItemRequestBuilder';
 import {RegisteredOwnersRequestBuilder} from './registeredOwners/registeredOwnersRequestBuilder';
 import {DirectoryObjectItemRequestBuilder as i7d870f6ee5f6d6c45e178c95589870ec55338ceb7786f70cce587ae268f61e93} from './registeredUsers/item/directoryObjectItemRequestBuilder';
 import {RegisteredUsersRequestBuilder} from './registeredUsers/registeredUsersRequestBuilder';
+import {RestoreRequestBuilder} from './restore/restoreRequestBuilder';
 import {DirectoryObjectItemRequestBuilder as i3eb0dafa18ea51037a06b137fe9a271c8804f24bd0288246fee5639bceb1e2be} from './transitiveMemberOf/item/directoryObjectItemRequestBuilder';
 import {TransitiveMemberOfRequestBuilder} from './transitiveMemberOf/transitiveMemberOfRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the device property of the microsoft.graph.microsoftAuthenticatorAuthenticationMethod entity. */
 export class DeviceRequestBuilder {
+    /** The checkMemberGroups property */
+    public get checkMemberGroups(): CheckMemberGroupsRequestBuilder {
+        return new CheckMemberGroupsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** The checkMemberObjects property */
+    public get checkMemberObjects(): CheckMemberObjectsRequestBuilder {
+        return new CheckMemberObjectsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** The extensions property */
     public get extensions(): ExtensionsRequestBuilder {
         return new ExtensionsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** The getMemberGroups property */
+    public get getMemberGroups(): GetMemberGroupsRequestBuilder {
+        return new GetMemberGroupsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** The getMemberObjects property */
+    public get getMemberObjects(): GetMemberObjectsRequestBuilder {
+        return new GetMemberObjectsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** The memberOf property */
     public get memberOf(): MemberOfRequestBuilder {
@@ -40,6 +61,10 @@ export class DeviceRequestBuilder {
     }
     /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
+    /** The restore property */
+    public get restore(): RestoreRequestBuilder {
+        return new RestoreRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** The transitiveMemberOf property */
     public get transitiveMemberOf(): TransitiveMemberOfRequestBuilder {
         return new TransitiveMemberOfRequestBuilder(this.pathParameters, this.requestAdapter);

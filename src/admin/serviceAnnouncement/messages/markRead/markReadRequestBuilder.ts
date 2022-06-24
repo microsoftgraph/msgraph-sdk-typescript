@@ -1,3 +1,5 @@
+import {ODataErrorImpl} from '../../../../models/oDataErrors/';
+import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {createMarkReadResponseFromDiscriminatorValue} from './createMarkReadResponseFromDiscriminatorValue';
 import {MarkReadPostRequestBodyImpl, MarkReadResponseImpl} from './index';
 import {MarkReadPostRequestBody} from './markReadPostRequestBody';
@@ -58,6 +60,10 @@ export class MarkReadRequestBuilder {
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration
         );
-        return this.requestAdapter?.sendAsync<MarkReadResponseImpl>(requestInfo, createMarkReadResponseFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<MarkReadResponseImpl>(requestInfo, createMarkReadResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

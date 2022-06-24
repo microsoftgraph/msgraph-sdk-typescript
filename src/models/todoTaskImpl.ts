@@ -16,15 +16,15 @@ import {TaskStatus} from './taskStatus';
 import {TodoTask} from './todoTask';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the collection of application entities. */
 export class TodoTaskImpl extends EntityImpl implements TodoTask {
     /** The task body that typically contains information about the task. */
     public body?: ItemBody | undefined;
     /** The date and time when the task was last modified. By default, it is in UTC. You can provide a custom time zone in the request header. The property value uses ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2020 would look like this: '2020-01-01T00:00:00Z'. */
     public bodyLastModifiedDateTime?: Date | undefined;
-    /** The categories property */
+    /** The categories associated with the task. Each category corresponds to the displayName property of an outlookCategory that the user has defined. */
     public categories?: string[] | undefined;
-    /** The checklistItems property */
+    /** A collection of smaller subtasks linked to the more complex parent task. */
     public checklistItems?: ChecklistItem[] | undefined;
     /** The date in the specified time zone that the task was finished. */
     public completedDateTime?: DateTimeTimeZone | undefined;
@@ -56,20 +56,23 @@ export class TodoTaskImpl extends EntityImpl implements TodoTask {
      */
     public constructor(todoTaskParameterValue?: TodoTask | undefined) {
         super(todoTaskParameterValue);
-        this.body = todoTaskParameterValue?.body;
+        this.body = todoTaskParameterValue?.body instanceof ItemBodyImpl? todoTaskParameterValue?.body:new ItemBodyImpl(todoTaskParameterValue?.body);
         this.bodyLastModifiedDateTime = todoTaskParameterValue?.bodyLastModifiedDateTime;
         this.categories = todoTaskParameterValue?.categories;
-        this.checklistItems = todoTaskParameterValue?.checklistItems;
-        this.completedDateTime = todoTaskParameterValue?.completedDateTime;
+        const checklistItemsArrValue: ChecklistItemImpl[] = []; this.checklistItems?.forEach(element => {checklistItemsArrValue.push(element instanceof ChecklistItemImpl? element : new ChecklistItemImpl(element));});
+        this.checklistItems = checklistItemsArrValue;
+        this.completedDateTime = todoTaskParameterValue?.completedDateTime instanceof DateTimeTimeZoneImpl? todoTaskParameterValue?.completedDateTime:new DateTimeTimeZoneImpl(todoTaskParameterValue?.completedDateTime);
         this.createdDateTime = todoTaskParameterValue?.createdDateTime;
-        this.dueDateTime = todoTaskParameterValue?.dueDateTime;
-        this.extensions = todoTaskParameterValue?.extensions;
+        this.dueDateTime = todoTaskParameterValue?.dueDateTime instanceof DateTimeTimeZoneImpl? todoTaskParameterValue?.dueDateTime:new DateTimeTimeZoneImpl(todoTaskParameterValue?.dueDateTime);
+        const extensionsArrValue: ExtensionImpl[] = []; this.extensions?.forEach(element => {extensionsArrValue.push(element instanceof ExtensionImpl? element : new ExtensionImpl(element));});
+        this.extensions = extensionsArrValue;
         this.importance = todoTaskParameterValue?.importance;
         this.isReminderOn = todoTaskParameterValue?.isReminderOn;
         this.lastModifiedDateTime = todoTaskParameterValue?.lastModifiedDateTime;
-        this.linkedResources = todoTaskParameterValue?.linkedResources;
-        this.recurrence = todoTaskParameterValue?.recurrence;
-        this.reminderDateTime = todoTaskParameterValue?.reminderDateTime;
+        const linkedResourcesArrValue: LinkedResourceImpl[] = []; this.linkedResources?.forEach(element => {linkedResourcesArrValue.push(element instanceof LinkedResourceImpl? element : new LinkedResourceImpl(element));});
+        this.linkedResources = linkedResourcesArrValue;
+        this.recurrence = todoTaskParameterValue?.recurrence instanceof PatternedRecurrenceImpl? todoTaskParameterValue?.recurrence:new PatternedRecurrenceImpl(todoTaskParameterValue?.recurrence);
+        this.reminderDateTime = todoTaskParameterValue?.reminderDateTime instanceof DateTimeTimeZoneImpl? todoTaskParameterValue?.reminderDateTime:new DateTimeTimeZoneImpl(todoTaskParameterValue?.reminderDateTime);
         this.status = todoTaskParameterValue?.status;
         this.title = todoTaskParameterValue?.title;
     };
@@ -113,7 +116,7 @@ export class TodoTaskImpl extends EntityImpl implements TodoTask {
         if(this.categories){
             writer.writeCollectionOfPrimitiveValues<string>("categories", this.categories);
         }
-        if(this.checklistItems && this.checklistItems.length != 0){        const checklistItemsArrValue: ChecklistItemImpl[] = []; this.checklistItems?.forEach(element => {checklistItemsArrValue.push(new ChecklistItemImpl(element));});
+        if(this.checklistItems && this.checklistItems.length != 0){        const checklistItemsArrValue: ChecklistItemImpl[] = []; this.checklistItems?.forEach(element => {checklistItemsArrValue.push(element instanceof ChecklistItemImpl? element : new ChecklistItemImpl(element));});
             writer.writeCollectionOfObjectValues<ChecklistItemImpl>("checklistItems", checklistItemsArrValue);
         }
         if(this.completedDateTime){
@@ -125,7 +128,7 @@ export class TodoTaskImpl extends EntityImpl implements TodoTask {
         if(this.dueDateTime){
             writer.writeObjectValue<DateTimeTimeZoneImpl>("dueDateTime", new DateTimeTimeZoneImpl(this.dueDateTime));
         }
-        if(this.extensions && this.extensions.length != 0){        const extensionsArrValue: ExtensionImpl[] = []; this.extensions?.forEach(element => {extensionsArrValue.push(new ExtensionImpl(element));});
+        if(this.extensions && this.extensions.length != 0){        const extensionsArrValue: ExtensionImpl[] = []; this.extensions?.forEach(element => {extensionsArrValue.push(element instanceof ExtensionImpl? element : new ExtensionImpl(element));});
             writer.writeCollectionOfObjectValues<ExtensionImpl>("extensions", extensionsArrValue);
         }
         if(this.importance){
@@ -137,7 +140,7 @@ export class TodoTaskImpl extends EntityImpl implements TodoTask {
         if(this.lastModifiedDateTime){
             writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
         }
-        if(this.linkedResources && this.linkedResources.length != 0){        const linkedResourcesArrValue: LinkedResourceImpl[] = []; this.linkedResources?.forEach(element => {linkedResourcesArrValue.push(new LinkedResourceImpl(element));});
+        if(this.linkedResources && this.linkedResources.length != 0){        const linkedResourcesArrValue: LinkedResourceImpl[] = []; this.linkedResources?.forEach(element => {linkedResourcesArrValue.push(element instanceof LinkedResourceImpl? element : new LinkedResourceImpl(element));});
             writer.writeCollectionOfObjectValues<LinkedResourceImpl>("linkedResources", linkedResourcesArrValue);
         }
         if(this.recurrence){

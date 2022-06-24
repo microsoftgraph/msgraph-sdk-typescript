@@ -47,15 +47,15 @@ export class CopyNotebookModelImpl implements CopyNotebookModel {
     public constructor(copyNotebookModelParameterValue?: CopyNotebookModel | undefined) {
         this.additionalData = copyNotebookModelParameterValue?.additionalData ? copyNotebookModelParameterValue?.additionalData! : {};
         this.createdBy = copyNotebookModelParameterValue?.createdBy;
-        this.createdByIdentity = copyNotebookModelParameterValue?.createdByIdentity;
+        this.createdByIdentity = copyNotebookModelParameterValue?.createdByIdentity instanceof IdentitySetImpl? copyNotebookModelParameterValue?.createdByIdentity:new IdentitySetImpl(copyNotebookModelParameterValue?.createdByIdentity);
         this.createdTime = copyNotebookModelParameterValue?.createdTime;
         this.id = copyNotebookModelParameterValue?.id;
         this.isDefault = copyNotebookModelParameterValue?.isDefault;
         this.isShared = copyNotebookModelParameterValue?.isShared;
         this.lastModifiedBy = copyNotebookModelParameterValue?.lastModifiedBy;
-        this.lastModifiedByIdentity = copyNotebookModelParameterValue?.lastModifiedByIdentity;
+        this.lastModifiedByIdentity = copyNotebookModelParameterValue?.lastModifiedByIdentity instanceof IdentitySetImpl? copyNotebookModelParameterValue?.lastModifiedByIdentity:new IdentitySetImpl(copyNotebookModelParameterValue?.lastModifiedByIdentity);
         this.lastModifiedTime = copyNotebookModelParameterValue?.lastModifiedTime;
-        this.links = copyNotebookModelParameterValue?.links;
+        this.links = copyNotebookModelParameterValue?.links instanceof NotebookLinksImpl? copyNotebookModelParameterValue?.links:new NotebookLinksImpl(copyNotebookModelParameterValue?.links);
         this.name = copyNotebookModelParameterValue?.name;
         this.sectionGroupsUrl = copyNotebookModelParameterValue?.sectionGroupsUrl;
         this.sectionsUrl = copyNotebookModelParameterValue?.sectionsUrl;

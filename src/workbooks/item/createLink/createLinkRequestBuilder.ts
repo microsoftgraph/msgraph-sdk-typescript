@@ -1,5 +1,7 @@
 import {PermissionImpl} from '../../../models/';
 import {createPermissionFromDiscriminatorValue} from '../../../models/createPermissionFromDiscriminatorValue';
+import {ODataErrorImpl} from '../../../models/oDataErrors/';
+import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CreateLinkPostRequestBody} from './createLinkPostRequestBody';
 import {CreateLinkRequestBuilderPostRequestConfiguration} from './createLinkRequestBuilderPostRequestConfiguration';
 import {CreateLinkPostRequestBodyImpl} from './index';
@@ -59,6 +61,10 @@ export class CreateLinkRequestBuilder {
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration
         );
-        return this.requestAdapter?.sendAsync<PermissionImpl>(requestInfo, createPermissionFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<PermissionImpl>(requestInfo, createPermissionFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

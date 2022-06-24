@@ -29,7 +29,7 @@ export class ApprovalStageImpl extends EntityImpl implements ApprovalStage {
         this.assignedToMe = approvalStageParameterValue?.assignedToMe;
         this.displayName = approvalStageParameterValue?.displayName;
         this.justification = approvalStageParameterValue?.justification;
-        this.reviewedBy = approvalStageParameterValue?.reviewedBy;
+        this.reviewedBy = approvalStageParameterValue?.reviewedBy instanceof IdentityImpl? approvalStageParameterValue?.reviewedBy:new IdentityImpl(approvalStageParameterValue?.reviewedBy);
         this.reviewedDateTime = approvalStageParameterValue?.reviewedDateTime;
         this.reviewResult = approvalStageParameterValue?.reviewResult;
         this.status = approvalStageParameterValue?.status;

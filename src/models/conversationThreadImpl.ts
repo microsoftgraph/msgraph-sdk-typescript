@@ -16,7 +16,7 @@ export class ConversationThreadImpl extends EntityImpl implements ConversationTh
     public isLocked?: boolean | undefined;
     /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Returned by default. */
     public lastDeliveredDateTime?: Date | undefined;
-    /** Read-only. Nullable. */
+    /** The posts property */
     public posts?: Post[] | undefined;
     /** A short summary from the body of the latest post in this conversation. Returned by default. */
     public preview?: string | undefined;
@@ -32,14 +32,17 @@ export class ConversationThreadImpl extends EntityImpl implements ConversationTh
      */
     public constructor(conversationThreadParameterValue?: ConversationThread | undefined) {
         super(conversationThreadParameterValue);
-        this.ccRecipients = conversationThreadParameterValue?.ccRecipients;
+        const ccRecipientsArrValue: RecipientImpl[] = []; this.ccRecipients?.forEach(element => {ccRecipientsArrValue.push(element instanceof RecipientImpl? element : new RecipientImpl(element));});
+        this.ccRecipients = ccRecipientsArrValue;
         this.hasAttachments = conversationThreadParameterValue?.hasAttachments;
         this.isLocked = conversationThreadParameterValue?.isLocked;
         this.lastDeliveredDateTime = conversationThreadParameterValue?.lastDeliveredDateTime;
-        this.posts = conversationThreadParameterValue?.posts;
+        const postsArrValue: PostImpl[] = []; this.posts?.forEach(element => {postsArrValue.push(element instanceof PostImpl? element : new PostImpl(element));});
+        this.posts = postsArrValue;
         this.preview = conversationThreadParameterValue?.preview;
         this.topic = conversationThreadParameterValue?.topic;
-        this.toRecipients = conversationThreadParameterValue?.toRecipients;
+        const toRecipientsArrValue: RecipientImpl[] = []; this.toRecipients?.forEach(element => {toRecipientsArrValue.push(element instanceof RecipientImpl? element : new RecipientImpl(element));});
+        this.toRecipients = toRecipientsArrValue;
         this.uniqueSenders = conversationThreadParameterValue?.uniqueSenders;
     };
     /**
@@ -66,7 +69,7 @@ export class ConversationThreadImpl extends EntityImpl implements ConversationTh
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.ccRecipients && this.ccRecipients.length != 0){        const ccRecipientsArrValue: RecipientImpl[] = []; this.ccRecipients?.forEach(element => {ccRecipientsArrValue.push(new RecipientImpl(element));});
+        if(this.ccRecipients && this.ccRecipients.length != 0){        const ccRecipientsArrValue: RecipientImpl[] = []; this.ccRecipients?.forEach(element => {ccRecipientsArrValue.push(element instanceof RecipientImpl? element : new RecipientImpl(element));});
             writer.writeCollectionOfObjectValues<RecipientImpl>("ccRecipients", ccRecipientsArrValue);
         }
         if(this.hasAttachments){
@@ -78,7 +81,7 @@ export class ConversationThreadImpl extends EntityImpl implements ConversationTh
         if(this.lastDeliveredDateTime){
             writer.writeDateValue("lastDeliveredDateTime", this.lastDeliveredDateTime);
         }
-        if(this.posts && this.posts.length != 0){        const postsArrValue: PostImpl[] = []; this.posts?.forEach(element => {postsArrValue.push(new PostImpl(element));});
+        if(this.posts && this.posts.length != 0){        const postsArrValue: PostImpl[] = []; this.posts?.forEach(element => {postsArrValue.push(element instanceof PostImpl? element : new PostImpl(element));});
             writer.writeCollectionOfObjectValues<PostImpl>("posts", postsArrValue);
         }
         if(this.preview){
@@ -87,7 +90,7 @@ export class ConversationThreadImpl extends EntityImpl implements ConversationTh
         if(this.topic){
             writer.writeStringValue("topic", this.topic);
         }
-        if(this.toRecipients && this.toRecipients.length != 0){        const toRecipientsArrValue: RecipientImpl[] = []; this.toRecipients?.forEach(element => {toRecipientsArrValue.push(new RecipientImpl(element));});
+        if(this.toRecipients && this.toRecipients.length != 0){        const toRecipientsArrValue: RecipientImpl[] = []; this.toRecipients?.forEach(element => {toRecipientsArrValue.push(element instanceof RecipientImpl? element : new RecipientImpl(element));});
             writer.writeCollectionOfObjectValues<RecipientImpl>("toRecipients", toRecipientsArrValue);
         }
         if(this.uniqueSenders){

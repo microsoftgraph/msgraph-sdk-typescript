@@ -18,7 +18,8 @@ export class DirectoryRoleCollectionResponseImpl implements DirectoryRoleCollect
     public constructor(directoryRoleCollectionResponseParameterValue?: DirectoryRoleCollectionResponse | undefined) {
         this.additionalData = directoryRoleCollectionResponseParameterValue?.additionalData ? directoryRoleCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = directoryRoleCollectionResponseParameterValue?.nextLink;
-        this.value = directoryRoleCollectionResponseParameterValue?.value;
+        const valueArrValue: DirectoryRoleImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof DirectoryRoleImpl? element : new DirectoryRoleImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -39,7 +40,7 @@ export class DirectoryRoleCollectionResponseImpl implements DirectoryRoleCollect
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: DirectoryRoleImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new DirectoryRoleImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: DirectoryRoleImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof DirectoryRoleImpl? element : new DirectoryRoleImpl(element));});
             writer.writeCollectionOfObjectValues<DirectoryRoleImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

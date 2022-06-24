@@ -7,7 +7,6 @@ import {ManagedAppPolicyDeploymentSummary} from './managedAppPolicyDeploymentSum
 import {ManagedMobileApp} from './managedMobileApp';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Policy used to configure detailed management settings targeted to specific security groups and for a specified set of apps on an iOS device */
 export class IosManagedAppProtectionImpl extends TargetedManagedAppProtectionImpl implements IosManagedAppProtection {
     /** Type of encryption which should be used for data in a managed app. Possible values are: useDeviceSettings, afterDeviceRestart, whenDeviceLockedExceptOpenFiles, whenDeviceLocked. */
     public appDataEncryptionType?: ManagedAppDataEncryptionType | undefined;
@@ -24,16 +23,17 @@ export class IosManagedAppProtectionImpl extends TargetedManagedAppProtectionImp
     /** Versions less than the specified version will block the managed app from accessing company data. */
     public minimumRequiredSdkVersion?: string | undefined;
     /**
-     * Instantiates a new iosManagedAppProtection and sets the default values.
+     * Instantiates a new IosManagedAppProtection and sets the default values.
      * @param iosManagedAppProtectionParameterValue 
      */
     public constructor(iosManagedAppProtectionParameterValue?: IosManagedAppProtection | undefined) {
         super(iosManagedAppProtectionParameterValue);
         this.appDataEncryptionType = iosManagedAppProtectionParameterValue?.appDataEncryptionType;
-        this.apps = iosManagedAppProtectionParameterValue?.apps;
+        const appsArrValue: ManagedMobileAppImpl[] = []; this.apps?.forEach(element => {appsArrValue.push(element instanceof ManagedMobileAppImpl? element : new ManagedMobileAppImpl(element));});
+        this.apps = appsArrValue;
         this.customBrowserProtocol = iosManagedAppProtectionParameterValue?.customBrowserProtocol;
         this.deployedAppCount = iosManagedAppProtectionParameterValue?.deployedAppCount;
-        this.deploymentSummary = iosManagedAppProtectionParameterValue?.deploymentSummary;
+        this.deploymentSummary = iosManagedAppProtectionParameterValue?.deploymentSummary instanceof ManagedAppPolicyDeploymentSummaryImpl? iosManagedAppProtectionParameterValue?.deploymentSummary:new ManagedAppPolicyDeploymentSummaryImpl(iosManagedAppProtectionParameterValue?.deploymentSummary);
         this.faceIdBlocked = iosManagedAppProtectionParameterValue?.faceIdBlocked;
         this.minimumRequiredSdkVersion = iosManagedAppProtectionParameterValue?.minimumRequiredSdkVersion;
     };
@@ -62,7 +62,7 @@ export class IosManagedAppProtectionImpl extends TargetedManagedAppProtectionImp
         if(this.appDataEncryptionType){
             writer.writeEnumValue<ManagedAppDataEncryptionType>("appDataEncryptionType", this.appDataEncryptionType);
         }
-        if(this.apps && this.apps.length != 0){        const appsArrValue: ManagedMobileAppImpl[] = []; this.apps?.forEach(element => {appsArrValue.push(new ManagedMobileAppImpl(element));});
+        if(this.apps && this.apps.length != 0){        const appsArrValue: ManagedMobileAppImpl[] = []; this.apps?.forEach(element => {appsArrValue.push(element instanceof ManagedMobileAppImpl? element : new ManagedMobileAppImpl(element));});
             writer.writeCollectionOfObjectValues<ManagedMobileAppImpl>("apps", appsArrValue);
         }
         if(this.customBrowserProtocol){

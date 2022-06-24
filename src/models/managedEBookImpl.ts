@@ -46,19 +46,22 @@ export class ManagedEBookImpl extends EntityImpl implements ManagedEBook {
      */
     public constructor(managedEBookParameterValue?: ManagedEBook | undefined) {
         super(managedEBookParameterValue);
-        this.assignments = managedEBookParameterValue?.assignments;
+        const assignmentsArrValue: ManagedEBookAssignmentImpl[] = []; this.assignments?.forEach(element => {assignmentsArrValue.push(element instanceof ManagedEBookAssignmentImpl? element : new ManagedEBookAssignmentImpl(element));});
+        this.assignments = assignmentsArrValue;
         this.createdDateTime = managedEBookParameterValue?.createdDateTime;
         this.description = managedEBookParameterValue?.description;
-        this.deviceStates = managedEBookParameterValue?.deviceStates;
+        const deviceStatesArrValue: DeviceInstallStateImpl[] = []; this.deviceStates?.forEach(element => {deviceStatesArrValue.push(element instanceof DeviceInstallStateImpl? element : new DeviceInstallStateImpl(element));});
+        this.deviceStates = deviceStatesArrValue;
         this.displayName = managedEBookParameterValue?.displayName;
         this.informationUrl = managedEBookParameterValue?.informationUrl;
-        this.installSummary = managedEBookParameterValue?.installSummary;
-        this.largeCover = managedEBookParameterValue?.largeCover;
+        this.installSummary = managedEBookParameterValue?.installSummary instanceof EBookInstallSummaryImpl? managedEBookParameterValue?.installSummary:new EBookInstallSummaryImpl(managedEBookParameterValue?.installSummary);
+        this.largeCover = managedEBookParameterValue?.largeCover instanceof MimeContentImpl? managedEBookParameterValue?.largeCover:new MimeContentImpl(managedEBookParameterValue?.largeCover);
         this.lastModifiedDateTime = managedEBookParameterValue?.lastModifiedDateTime;
         this.privacyInformationUrl = managedEBookParameterValue?.privacyInformationUrl;
         this.publishedDateTime = managedEBookParameterValue?.publishedDateTime;
         this.publisher = managedEBookParameterValue?.publisher;
-        this.userStateSummary = managedEBookParameterValue?.userStateSummary;
+        const userStateSummaryArrValue: UserInstallStateSummaryImpl[] = []; this.userStateSummary?.forEach(element => {userStateSummaryArrValue.push(element instanceof UserInstallStateSummaryImpl? element : new UserInstallStateSummaryImpl(element));});
+        this.userStateSummary = userStateSummaryArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -88,7 +91,7 @@ export class ManagedEBookImpl extends EntityImpl implements ManagedEBook {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.assignments && this.assignments.length != 0){        const assignmentsArrValue: ManagedEBookAssignmentImpl[] = []; this.assignments?.forEach(element => {assignmentsArrValue.push(new ManagedEBookAssignmentImpl(element));});
+        if(this.assignments && this.assignments.length != 0){        const assignmentsArrValue: ManagedEBookAssignmentImpl[] = []; this.assignments?.forEach(element => {assignmentsArrValue.push(element instanceof ManagedEBookAssignmentImpl? element : new ManagedEBookAssignmentImpl(element));});
             writer.writeCollectionOfObjectValues<ManagedEBookAssignmentImpl>("assignments", assignmentsArrValue);
         }
         if(this.createdDateTime){
@@ -97,7 +100,7 @@ export class ManagedEBookImpl extends EntityImpl implements ManagedEBook {
         if(this.description){
             writer.writeStringValue("description", this.description);
         }
-        if(this.deviceStates && this.deviceStates.length != 0){        const deviceStatesArrValue: DeviceInstallStateImpl[] = []; this.deviceStates?.forEach(element => {deviceStatesArrValue.push(new DeviceInstallStateImpl(element));});
+        if(this.deviceStates && this.deviceStates.length != 0){        const deviceStatesArrValue: DeviceInstallStateImpl[] = []; this.deviceStates?.forEach(element => {deviceStatesArrValue.push(element instanceof DeviceInstallStateImpl? element : new DeviceInstallStateImpl(element));});
             writer.writeCollectionOfObjectValues<DeviceInstallStateImpl>("deviceStates", deviceStatesArrValue);
         }
         if(this.displayName){
@@ -124,7 +127,7 @@ export class ManagedEBookImpl extends EntityImpl implements ManagedEBook {
         if(this.publisher){
             writer.writeStringValue("publisher", this.publisher);
         }
-        if(this.userStateSummary && this.userStateSummary.length != 0){        const userStateSummaryArrValue: UserInstallStateSummaryImpl[] = []; this.userStateSummary?.forEach(element => {userStateSummaryArrValue.push(new UserInstallStateSummaryImpl(element));});
+        if(this.userStateSummary && this.userStateSummary.length != 0){        const userStateSummaryArrValue: UserInstallStateSummaryImpl[] = []; this.userStateSummary?.forEach(element => {userStateSummaryArrValue.push(element instanceof UserInstallStateSummaryImpl? element : new UserInstallStateSummaryImpl(element));});
             writer.writeCollectionOfObjectValues<UserInstallStateSummaryImpl>("userStateSummary", userStateSummaryArrValue);
         }
     };

@@ -13,6 +13,10 @@ import {DrivesRequestBuilder} from './drives/drivesRequestBuilder';
 import {DriveItemRequestBuilder} from './drives/item/driveItemRequestBuilder';
 import {ExternalColumnsRequestBuilder} from './externalColumns/externalColumnsRequestBuilder';
 import {ColumnDefinitionItemRequestBuilder as i381adabe01ab5dc92cb377d88d1ede05b0b9c9130b9d3d2b867915bdf1708fa1} from './externalColumns/item/columnDefinitionItemRequestBuilder';
+import {GetActivitiesByIntervalRequestBuilder} from './getActivitiesByInterval/getActivitiesByIntervalRequestBuilder';
+import {GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder} from './getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInterval/getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder';
+import {GetApplicableContentTypesForListWithListIdRequestBuilder} from './getApplicableContentTypesForListWithListId/getApplicableContentTypesForListWithListIdRequestBuilder';
+import {GetByPathWithPathRequestBuilder} from './getByPathWithPath/getByPathWithPathRequestBuilder';
 import {BaseItemItemRequestBuilder} from './items/item/baseItemItemRequestBuilder';
 import {ItemsRequestBuilder} from './items/itemsRequestBuilder';
 import {ListItemRequestBuilder} from './lists/item/listItemRequestBuilder';
@@ -22,7 +26,6 @@ import {RichLongRunningOperationItemRequestBuilder} from './operations/item/rich
 import {OperationsRequestBuilder} from './operations/operationsRequestBuilder';
 import {PermissionItemRequestBuilder} from './permissions/item/permissionItemRequestBuilder';
 import {PermissionsRequestBuilder} from './permissions/permissionsRequestBuilder';
-import {SiteItemRequestBuilderDeleteRequestConfiguration} from './siteItemRequestBuilderDeleteRequestConfiguration';
 import {SiteItemRequestBuilderGetRequestConfiguration} from './siteItemRequestBuilderGetRequestConfiguration';
 import {SiteItemRequestBuilderPatchRequestConfiguration} from './siteItemRequestBuilderPatchRequestConfiguration';
 import {SiteItemRequestBuilder as ie9f838ca929f8253d370b39ddbbfea7b95c5863322f17f10c20e47d0bcfadb2e} from './sites/item/siteItemRequestBuilder';
@@ -132,22 +135,6 @@ export class SiteItemRequestBuilder {
         return new ContentTypeItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Delete navigation property sites for groups
-     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
-     */
-    public createDeleteRequestInformation(requestConfiguration?: SiteItemRequestBuilderDeleteRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.DELETE;
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        return requestInfo;
-    };
-    /**
      * The list of SharePoint sites in this group. Access the default site with /sites/root.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -186,21 +173,6 @@ export class SiteItemRequestBuilder {
         return requestInfo;
     };
     /**
-     * Delete navigation property sites for groups
-     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     */
-    public delete(requestConfiguration?: SiteItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
-        const requestInfo = this.createDeleteRequestInformation(
-            requestConfiguration
-        );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
-            "4XX": createODataErrorFromDiscriminatorValue,
-            "5XX": createODataErrorFromDiscriminatorValue,
-        };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
-    };
-    /**
      * Gets an item from the MicrosoftGraph.groups.item.sites.item.drives.item collection
      * @param id Unique identifier of the item
      * @returns a driveItemRequestBuilder
@@ -237,6 +209,44 @@ export class SiteItemRequestBuilder {
             "5XX": createODataErrorFromDiscriminatorValue,
         };
         return this.requestAdapter?.sendAsync<SiteImpl>(requestInfo, createSiteFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+    };
+    /**
+     * Provides operations to call the getActivitiesByInterval method.
+     * @returns a getActivitiesByIntervalRequestBuilder
+     */
+    public getActivitiesByInterval() : GetActivitiesByIntervalRequestBuilder {
+        return new GetActivitiesByIntervalRequestBuilder(this.pathParameters, this.requestAdapter);
+    };
+    /**
+     * Provides operations to call the getActivitiesByInterval method.
+     * @param endDateTime Usage: endDateTime='{endDateTime}'
+     * @param interval Usage: interval='{interval}'
+     * @param startDateTime Usage: startDateTime='{startDateTime}'
+     * @returns a getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder
+     */
+    public getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInterval(endDateTime: string | undefined, interval: string | undefined, startDateTime: string | undefined) : GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder {
+        if(!endDateTime) throw new Error("endDateTime cannot be undefined");
+        if(!interval) throw new Error("interval cannot be undefined");
+        if(!startDateTime) throw new Error("startDateTime cannot be undefined");
+        return new GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder(this.pathParameters, this.requestAdapter, endDateTime, interval, startDateTime);
+    };
+    /**
+     * Provides operations to call the getApplicableContentTypesForList method.
+     * @param listId Usage: listId='{listId}'
+     * @returns a getApplicableContentTypesForListWithListIdRequestBuilder
+     */
+    public getApplicableContentTypesForListWithListId(listId: string | undefined) : GetApplicableContentTypesForListWithListIdRequestBuilder {
+        if(!listId) throw new Error("listId cannot be undefined");
+        return new GetApplicableContentTypesForListWithListIdRequestBuilder(this.pathParameters, this.requestAdapter, listId);
+    };
+    /**
+     * Provides operations to call the getByPath method.
+     * @param path Usage: path='{path}'
+     * @returns a getByPathWithPathRequestBuilder
+     */
+    public getByPathWithPath(path: string | undefined) : GetByPathWithPathRequestBuilder {
+        if(!path) throw new Error("path cannot be undefined");
+        return new GetByPathWithPathRequestBuilder(this.pathParameters, this.requestAdapter, path);
     };
     /**
      * Gets an item from the MicrosoftGraph.groups.item.sites.item.items.item collection

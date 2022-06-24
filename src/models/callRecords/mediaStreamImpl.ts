@@ -1,10 +1,14 @@
+import {AudioCodec} from './audioCodec';
 import {MediaStream} from './mediaStream';
 import {MediaStreamDirection} from './mediaStreamDirection';
+import {VideoCodec} from './videoCodec';
 import {AdditionalDataHolder, Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class MediaStreamImpl implements MediaStream {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
+    /** Codec name used to encode audio for transmission on the network. Possible values are: unknown, invalid, cn, pcma, pcmu, amrWide, g722, g7221, g7221c, g729, multiChannelAudio, muchv2, opus, satin, satinFullband, rtAudio8, rtAudio16, silk, silkNarrow, silkWide, siren, xmsRTA, unknownFutureValue. */
+    public audioCodec?: AudioCodec | undefined;
     /** Average Network Mean Opinion Score degradation for stream. Represents how much the network loss and jitter has impacted the quality of received audio. */
     public averageAudioDegradation?: number | undefined;
     /** Average jitter for the stream computed as specified in [RFC 3550][], denoted in [ISO 8601][] format. For example, 1 second is denoted as 'PT1S', where 'P' is the duration designator, 'T' is the time designator, and 'S' is the second designator. */
@@ -53,6 +57,8 @@ export class MediaStreamImpl implements MediaStream {
     public streamDirection?: MediaStreamDirection | undefined;
     /** Unique identifier for the stream. */
     public streamId?: string | undefined;
+    /** Codec name used to encode video for transmission on the network. Possible values are: unknown, invalid, av1, h263, h264, h264s, h264uc, h265, rtvc1, rtVideo, xrtvc1, unknownFutureValue. */
+    public videoCodec?: VideoCodec | undefined;
     /** True if the media stream bypassed the Mediation Server and went straight between client and PSTN Gateway/PBX, false otherwise. */
     public wasMediaBypassed?: boolean | undefined;
     /**
@@ -61,6 +67,7 @@ export class MediaStreamImpl implements MediaStream {
      */
     public constructor(mediaStreamParameterValue?: MediaStream | undefined) {
         this.additionalData = mediaStreamParameterValue?.additionalData ? mediaStreamParameterValue?.additionalData! : {};
+        this.audioCodec = mediaStreamParameterValue?.audioCodec;
         this.averageAudioDegradation = mediaStreamParameterValue?.averageAudioDegradation;
         this.averageAudioNetworkJitter = mediaStreamParameterValue?.averageAudioNetworkJitter;
         this.averageBandwidthEstimate = mediaStreamParameterValue?.averageBandwidthEstimate;
@@ -85,6 +92,7 @@ export class MediaStreamImpl implements MediaStream {
         this.startDateTime = mediaStreamParameterValue?.startDateTime;
         this.streamDirection = mediaStreamParameterValue?.streamDirection;
         this.streamId = mediaStreamParameterValue?.streamId;
+        this.videoCodec = mediaStreamParameterValue?.videoCodec;
         this.wasMediaBypassed = mediaStreamParameterValue?.wasMediaBypassed;
     };
     /**
@@ -93,6 +101,7 @@ export class MediaStreamImpl implements MediaStream {
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
+            "audioCodec": n => { this.audioCodec = n.getEnumValue<AudioCodec>(AudioCodec); },
             "averageAudioDegradation": n => { this.averageAudioDegradation = n.getNumberValue(); },
             "averageAudioNetworkJitter": n => { this.averageAudioNetworkJitter = n.getDurationValue(); },
             "averageBandwidthEstimate": n => { this.averageBandwidthEstimate = n.getNumberValue(); },
@@ -117,6 +126,7 @@ export class MediaStreamImpl implements MediaStream {
             "startDateTime": n => { this.startDateTime = n.getDateValue(); },
             "streamDirection": n => { this.streamDirection = n.getEnumValue<MediaStreamDirection>(MediaStreamDirection); },
             "streamId": n => { this.streamId = n.getStringValue(); },
+            "videoCodec": n => { this.videoCodec = n.getEnumValue<VideoCodec>(VideoCodec); },
             "wasMediaBypassed": n => { this.wasMediaBypassed = n.getBooleanValue(); },
         };
     };
@@ -126,6 +136,9 @@ export class MediaStreamImpl implements MediaStream {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
+        if(this.audioCodec){
+            writer.writeEnumValue<AudioCodec>("audioCodec", this.audioCodec);
+        }
         if(this.averageAudioDegradation){
             writer.writeNumberValue("averageAudioDegradation", this.averageAudioDegradation);
         }
@@ -197,6 +210,9 @@ export class MediaStreamImpl implements MediaStream {
         }
         if(this.streamId){
             writer.writeStringValue("streamId", this.streamId);
+        }
+        if(this.videoCodec){
+            writer.writeEnumValue<VideoCodec>("videoCodec", this.videoCodec);
         }
         if(this.wasMediaBypassed){
             writer.writeBooleanValue("wasMediaBypassed", this.wasMediaBypassed);

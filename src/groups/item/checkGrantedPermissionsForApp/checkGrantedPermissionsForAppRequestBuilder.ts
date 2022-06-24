@@ -1,3 +1,5 @@
+import {ODataErrorImpl} from '../../../models/oDataErrors/';
+import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CheckGrantedPermissionsForAppRequestBuilderPostRequestConfiguration} from './checkGrantedPermissionsForAppRequestBuilderPostRequestConfiguration';
 import {createCheckGrantedPermissionsForAppResponseFromDiscriminatorValue} from './createCheckGrantedPermissionsForAppResponseFromDiscriminatorValue';
 import {CheckGrantedPermissionsForAppResponseImpl} from './index';
@@ -51,6 +53,10 @@ export class CheckGrantedPermissionsForAppRequestBuilder {
         const requestInfo = this.createPostRequestInformation(
             requestConfiguration
         );
-        return this.requestAdapter?.sendAsync<CheckGrantedPermissionsForAppResponseImpl>(requestInfo, createCheckGrantedPermissionsForAppResponseFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<CheckGrantedPermissionsForAppResponseImpl>(requestInfo, createCheckGrantedPermissionsForAppResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

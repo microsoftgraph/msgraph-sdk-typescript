@@ -4,7 +4,7 @@ import {Json} from './json';
 import {WorkbookTableRow} from './workbookTableRow';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to group. */
+/** Provides operations to manage the collection of application entities. */
 export class WorkbookTableRowImpl extends EntityImpl implements WorkbookTableRow {
     /** Returns the index number of the row within the rows collection of the table. Zero-indexed. Read-only. */
     public index?: number | undefined;
@@ -17,7 +17,7 @@ export class WorkbookTableRowImpl extends EntityImpl implements WorkbookTableRow
     public constructor(workbookTableRowParameterValue?: WorkbookTableRow | undefined) {
         super(workbookTableRowParameterValue);
         this.index = workbookTableRowParameterValue?.index;
-        this.values = workbookTableRowParameterValue?.values;
+        this.values = workbookTableRowParameterValue?.values instanceof JsonImpl? workbookTableRowParameterValue?.values:new JsonImpl(workbookTableRowParameterValue?.values);
     };
     /**
      * The deserialization information for the current model

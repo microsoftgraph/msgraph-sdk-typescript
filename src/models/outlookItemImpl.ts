@@ -2,7 +2,7 @@ import {EntityImpl} from './index';
 import {OutlookItem} from './outlookItem';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the collection of application entities. */
 export class OutlookItemImpl extends EntityImpl implements OutlookItem {
     /** The categories associated with the item */
     public categories?: string[] | undefined;

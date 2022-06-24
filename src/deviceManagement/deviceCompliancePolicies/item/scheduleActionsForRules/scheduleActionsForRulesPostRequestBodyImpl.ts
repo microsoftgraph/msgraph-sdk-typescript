@@ -16,7 +16,8 @@ export class ScheduleActionsForRulesPostRequestBodyImpl implements ScheduleActio
      */
     public constructor(scheduleActionsForRulesPostRequestBodyParameterValue?: ScheduleActionsForRulesPostRequestBody | undefined) {
         this.additionalData = scheduleActionsForRulesPostRequestBodyParameterValue?.additionalData ? scheduleActionsForRulesPostRequestBodyParameterValue?.additionalData! : {};
-        this.deviceComplianceScheduledActionForRules = scheduleActionsForRulesPostRequestBodyParameterValue?.deviceComplianceScheduledActionForRules;
+        const deviceComplianceScheduledActionForRulesArrValue: DeviceComplianceScheduledActionForRuleImpl[] = []; this.deviceComplianceScheduledActionForRules?.forEach(element => {deviceComplianceScheduledActionForRulesArrValue.push(element instanceof DeviceComplianceScheduledActionForRuleImpl? element : new DeviceComplianceScheduledActionForRuleImpl(element));});
+        this.deviceComplianceScheduledActionForRules = deviceComplianceScheduledActionForRulesArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -33,7 +34,7 @@ export class ScheduleActionsForRulesPostRequestBodyImpl implements ScheduleActio
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        if(this.deviceComplianceScheduledActionForRules && this.deviceComplianceScheduledActionForRules.length != 0){        const deviceComplianceScheduledActionForRulesArrValue: DeviceComplianceScheduledActionForRuleImpl[] = []; this.deviceComplianceScheduledActionForRules?.forEach(element => {deviceComplianceScheduledActionForRulesArrValue.push(new DeviceComplianceScheduledActionForRuleImpl(element));});
+        if(this.deviceComplianceScheduledActionForRules && this.deviceComplianceScheduledActionForRules.length != 0){        const deviceComplianceScheduledActionForRulesArrValue: DeviceComplianceScheduledActionForRuleImpl[] = []; this.deviceComplianceScheduledActionForRules?.forEach(element => {deviceComplianceScheduledActionForRulesArrValue.push(element instanceof DeviceComplianceScheduledActionForRuleImpl? element : new DeviceComplianceScheduledActionForRuleImpl(element));});
             writer.writeCollectionOfObjectValues<DeviceComplianceScheduledActionForRuleImpl>("deviceComplianceScheduledActionForRules", deviceComplianceScheduledActionForRulesArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

@@ -8,9 +8,9 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 
 /** Provides operations to manage the identityGovernance singleton. */
 export class AccessPackageImpl extends EntityImpl implements AccessPackage {
-    /** Read-only. Nullable. */
+    /** The assignmentPolicies property */
     public assignmentPolicies?: AccessPackageAssignmentPolicy[] | undefined;
-    /** Read-only. Nullable. */
+    /** The catalog property */
     public catalog?: AccessPackageCatalog | undefined;
     /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. */
     public createdDateTime?: Date | undefined;
@@ -28,8 +28,9 @@ export class AccessPackageImpl extends EntityImpl implements AccessPackage {
      */
     public constructor(accessPackageParameterValue?: AccessPackage | undefined) {
         super(accessPackageParameterValue);
-        this.assignmentPolicies = accessPackageParameterValue?.assignmentPolicies;
-        this.catalog = accessPackageParameterValue?.catalog;
+        const assignmentPoliciesArrValue: AccessPackageAssignmentPolicyImpl[] = []; this.assignmentPolicies?.forEach(element => {assignmentPoliciesArrValue.push(element instanceof AccessPackageAssignmentPolicyImpl? element : new AccessPackageAssignmentPolicyImpl(element));});
+        this.assignmentPolicies = assignmentPoliciesArrValue;
+        this.catalog = accessPackageParameterValue?.catalog instanceof AccessPackageCatalogImpl? accessPackageParameterValue?.catalog:new AccessPackageCatalogImpl(accessPackageParameterValue?.catalog);
         this.createdDateTime = accessPackageParameterValue?.createdDateTime;
         this.description = accessPackageParameterValue?.description;
         this.displayName = accessPackageParameterValue?.displayName;
@@ -58,7 +59,7 @@ export class AccessPackageImpl extends EntityImpl implements AccessPackage {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.assignmentPolicies && this.assignmentPolicies.length != 0){        const assignmentPoliciesArrValue: AccessPackageAssignmentPolicyImpl[] = []; this.assignmentPolicies?.forEach(element => {assignmentPoliciesArrValue.push(new AccessPackageAssignmentPolicyImpl(element));});
+        if(this.assignmentPolicies && this.assignmentPolicies.length != 0){        const assignmentPoliciesArrValue: AccessPackageAssignmentPolicyImpl[] = []; this.assignmentPolicies?.forEach(element => {assignmentPoliciesArrValue.push(element instanceof AccessPackageAssignmentPolicyImpl? element : new AccessPackageAssignmentPolicyImpl(element));});
             writer.writeCollectionOfObjectValues<AccessPackageAssignmentPolicyImpl>("assignmentPolicies", assignmentPoliciesArrValue);
         }
         if(this.catalog){

@@ -24,8 +24,10 @@ export class AppConsentRequestImpl extends EntityImpl implements AppConsentReque
         super(appConsentRequestParameterValue);
         this.appDisplayName = appConsentRequestParameterValue?.appDisplayName;
         this.appId = appConsentRequestParameterValue?.appId;
-        this.pendingScopes = appConsentRequestParameterValue?.pendingScopes;
-        this.userConsentRequests = appConsentRequestParameterValue?.userConsentRequests;
+        const pendingScopesArrValue: AppConsentRequestScopeImpl[] = []; this.pendingScopes?.forEach(element => {pendingScopesArrValue.push(element instanceof AppConsentRequestScopeImpl? element : new AppConsentRequestScopeImpl(element));});
+        this.pendingScopes = pendingScopesArrValue;
+        const userConsentRequestsArrValue: UserConsentRequestImpl[] = []; this.userConsentRequests?.forEach(element => {userConsentRequestsArrValue.push(element instanceof UserConsentRequestImpl? element : new UserConsentRequestImpl(element));});
+        this.userConsentRequests = userConsentRequestsArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -52,10 +54,10 @@ export class AppConsentRequestImpl extends EntityImpl implements AppConsentReque
         if(this.appId){
             writer.writeStringValue("appId", this.appId);
         }
-        if(this.pendingScopes && this.pendingScopes.length != 0){        const pendingScopesArrValue: AppConsentRequestScopeImpl[] = []; this.pendingScopes?.forEach(element => {pendingScopesArrValue.push(new AppConsentRequestScopeImpl(element));});
+        if(this.pendingScopes && this.pendingScopes.length != 0){        const pendingScopesArrValue: AppConsentRequestScopeImpl[] = []; this.pendingScopes?.forEach(element => {pendingScopesArrValue.push(element instanceof AppConsentRequestScopeImpl? element : new AppConsentRequestScopeImpl(element));});
             writer.writeCollectionOfObjectValues<AppConsentRequestScopeImpl>("pendingScopes", pendingScopesArrValue);
         }
-        if(this.userConsentRequests && this.userConsentRequests.length != 0){        const userConsentRequestsArrValue: UserConsentRequestImpl[] = []; this.userConsentRequests?.forEach(element => {userConsentRequestsArrValue.push(new UserConsentRequestImpl(element));});
+        if(this.userConsentRequests && this.userConsentRequests.length != 0){        const userConsentRequestsArrValue: UserConsentRequestImpl[] = []; this.userConsentRequests?.forEach(element => {userConsentRequestsArrValue.push(element instanceof UserConsentRequestImpl? element : new UserConsentRequestImpl(element));});
             writer.writeCollectionOfObjectValues<UserConsentRequestImpl>("userConsentRequests", userConsentRequestsArrValue);
         }
     };

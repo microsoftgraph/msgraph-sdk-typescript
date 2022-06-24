@@ -1,4 +1,4 @@
-import {LongRunningOperationImpl} from './index';
+import {LongRunningOperationImpl, RichLongRunningOperationImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
 export function createLongRunningOperationFromDiscriminatorValue(parseNode: ParseNode | undefined) : LongRunningOperationImpl {
@@ -8,8 +8,8 @@ export function createLongRunningOperationFromDiscriminatorValue(parseNode: Pars
         const mappingValue = mappingValueNode.getStringValue();
         if (mappingValue) {
             switch (mappingValue) {
-                case "#microsoft.graph.longRunningOperation":
-                    return new LongRunningOperationImpl();
+                case "#microsoft.graph.richLongRunningOperation":
+                    return new RichLongRunningOperationImpl();
             }
         }
     }

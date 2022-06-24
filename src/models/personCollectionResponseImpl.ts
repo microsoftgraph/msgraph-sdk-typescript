@@ -18,7 +18,8 @@ export class PersonCollectionResponseImpl implements PersonCollectionResponse {
     public constructor(personCollectionResponseParameterValue?: PersonCollectionResponse | undefined) {
         this.additionalData = personCollectionResponseParameterValue?.additionalData ? personCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = personCollectionResponseParameterValue?.nextLink;
-        this.value = personCollectionResponseParameterValue?.value;
+        const valueArrValue: PersonImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof PersonImpl? element : new PersonImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -39,7 +40,7 @@ export class PersonCollectionResponseImpl implements PersonCollectionResponse {
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: PersonImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new PersonImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: PersonImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof PersonImpl? element : new PersonImpl(element));});
             writer.writeCollectionOfObjectValues<PersonImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

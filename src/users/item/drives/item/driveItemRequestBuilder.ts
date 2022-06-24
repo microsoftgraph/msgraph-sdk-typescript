@@ -13,7 +13,10 @@ import {DriveItemItemRequestBuilder as i15712a8c6e021d4d7e8cdf923d79d93bcc51fd79
 import {DriveItemItemRequestBuilder as i81fcf2134d13b81e176a7abc8e74e13d947cddfe22b2a7b083f70ae9bcdd40c9} from './items/item/driveItemItemRequestBuilder';
 import {ItemsRequestBuilder} from './items/itemsRequestBuilder';
 import {ListRequestBuilder} from './list/listRequestBuilder';
+import {RecentRequestBuilder} from './recent/recentRequestBuilder';
 import {RootRequestBuilder} from './root/rootRequestBuilder';
+import {SearchWithQRequestBuilder} from './searchWithQ/searchWithQRequestBuilder';
+import {SharedWithMeRequestBuilder} from './sharedWithMe/sharedWithMeRequestBuilder';
 import {DriveItemItemRequestBuilder as i336719712999105ade96878fbc0aa73065a8ce1ac51c4e2e3973ae46a5772800} from './special/item/driveItemItemRequestBuilder';
 import {SpecialRequestBuilder} from './special/specialRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
@@ -197,6 +200,29 @@ export class DriveItemRequestBuilder {
             "5XX": createODataErrorFromDiscriminatorValue,
         };
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+    };
+    /**
+     * Provides operations to call the recent method.
+     * @returns a recentRequestBuilder
+     */
+    public recent() : RecentRequestBuilder {
+        return new RecentRequestBuilder(this.pathParameters, this.requestAdapter);
+    };
+    /**
+     * Provides operations to call the search method.
+     * @param q Usage: q='{q}'
+     * @returns a searchWithQRequestBuilder
+     */
+    public searchWithQ(q: string | undefined) : SearchWithQRequestBuilder {
+        if(!q) throw new Error("q cannot be undefined");
+        return new SearchWithQRequestBuilder(this.pathParameters, this.requestAdapter, q);
+    };
+    /**
+     * Provides operations to call the sharedWithMe method.
+     * @returns a sharedWithMeRequestBuilder
+     */
+    public sharedWithMe() : SharedWithMeRequestBuilder {
+        return new SharedWithMeRequestBuilder(this.pathParameters, this.requestAdapter);
     };
     /**
      * Gets an item from the MicrosoftGraph.users.item.drives.item.special.item collection

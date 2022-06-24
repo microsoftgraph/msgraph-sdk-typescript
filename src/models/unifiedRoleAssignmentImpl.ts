@@ -34,14 +34,14 @@ export class UnifiedRoleAssignmentImpl extends EntityImpl implements UnifiedRole
      */
     public constructor(unifiedRoleAssignmentParameterValue?: UnifiedRoleAssignment | undefined) {
         super(unifiedRoleAssignmentParameterValue);
-        this.appScope = unifiedRoleAssignmentParameterValue?.appScope;
+        this.appScope = unifiedRoleAssignmentParameterValue?.appScope instanceof AppScopeImpl? unifiedRoleAssignmentParameterValue?.appScope:new AppScopeImpl(unifiedRoleAssignmentParameterValue?.appScope);
         this.appScopeId = unifiedRoleAssignmentParameterValue?.appScopeId;
         this.condition = unifiedRoleAssignmentParameterValue?.condition;
-        this.directoryScope = unifiedRoleAssignmentParameterValue?.directoryScope;
+        this.directoryScope = unifiedRoleAssignmentParameterValue?.directoryScope instanceof DirectoryObjectImpl? unifiedRoleAssignmentParameterValue?.directoryScope:new DirectoryObjectImpl(unifiedRoleAssignmentParameterValue?.directoryScope);
         this.directoryScopeId = unifiedRoleAssignmentParameterValue?.directoryScopeId;
-        this.principal = unifiedRoleAssignmentParameterValue?.principal;
+        this.principal = unifiedRoleAssignmentParameterValue?.principal instanceof DirectoryObjectImpl? unifiedRoleAssignmentParameterValue?.principal:new DirectoryObjectImpl(unifiedRoleAssignmentParameterValue?.principal);
         this.principalId = unifiedRoleAssignmentParameterValue?.principalId;
-        this.roleDefinition = unifiedRoleAssignmentParameterValue?.roleDefinition;
+        this.roleDefinition = unifiedRoleAssignmentParameterValue?.roleDefinition instanceof UnifiedRoleDefinitionImpl? unifiedRoleAssignmentParameterValue?.roleDefinition:new UnifiedRoleDefinitionImpl(unifiedRoleAssignmentParameterValue?.roleDefinition);
         this.roleDefinitionId = unifiedRoleAssignmentParameterValue?.roleDefinitionId;
     };
     /**

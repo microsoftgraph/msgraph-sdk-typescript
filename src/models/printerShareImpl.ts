@@ -27,10 +27,12 @@ export class PrinterShareImpl extends PrinterBaseImpl implements PrinterShare {
     public constructor(printerShareParameterValue?: PrinterShare | undefined) {
         super(printerShareParameterValue);
         this.allowAllUsers = printerShareParameterValue?.allowAllUsers;
-        this.allowedGroups = printerShareParameterValue?.allowedGroups;
-        this.allowedUsers = printerShareParameterValue?.allowedUsers;
+        const allowedGroupsArrValue: GroupImpl[] = []; this.allowedGroups?.forEach(element => {allowedGroupsArrValue.push(element instanceof GroupImpl? element : new GroupImpl(element));});
+        this.allowedGroups = allowedGroupsArrValue;
+        const allowedUsersArrValue: UserImpl[] = []; this.allowedUsers?.forEach(element => {allowedUsersArrValue.push(element instanceof UserImpl? element : new UserImpl(element));});
+        this.allowedUsers = allowedUsersArrValue;
         this.createdDateTime = printerShareParameterValue?.createdDateTime;
-        this.printer = printerShareParameterValue?.printer;
+        this.printer = printerShareParameterValue?.printer instanceof PrinterImpl? printerShareParameterValue?.printer:new PrinterImpl(printerShareParameterValue?.printer);
     };
     /**
      * The deserialization information for the current model
@@ -55,10 +57,10 @@ export class PrinterShareImpl extends PrinterBaseImpl implements PrinterShare {
         if(this.allowAllUsers){
             writer.writeBooleanValue("allowAllUsers", this.allowAllUsers);
         }
-        if(this.allowedGroups && this.allowedGroups.length != 0){        const allowedGroupsArrValue: GroupImpl[] = []; this.allowedGroups?.forEach(element => {allowedGroupsArrValue.push(new GroupImpl(element));});
+        if(this.allowedGroups && this.allowedGroups.length != 0){        const allowedGroupsArrValue: GroupImpl[] = []; this.allowedGroups?.forEach(element => {allowedGroupsArrValue.push(element instanceof GroupImpl? element : new GroupImpl(element));});
             writer.writeCollectionOfObjectValues<GroupImpl>("allowedGroups", allowedGroupsArrValue);
         }
-        if(this.allowedUsers && this.allowedUsers.length != 0){        const allowedUsersArrValue: UserImpl[] = []; this.allowedUsers?.forEach(element => {allowedUsersArrValue.push(new UserImpl(element));});
+        if(this.allowedUsers && this.allowedUsers.length != 0){        const allowedUsersArrValue: UserImpl[] = []; this.allowedUsers?.forEach(element => {allowedUsersArrValue.push(element instanceof UserImpl? element : new UserImpl(element));});
             writer.writeCollectionOfObjectValues<UserImpl>("allowedUsers", allowedUsersArrValue);
         }
         if(this.createdDateTime){

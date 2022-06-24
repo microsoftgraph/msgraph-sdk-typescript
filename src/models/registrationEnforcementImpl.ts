@@ -15,7 +15,7 @@ export class RegistrationEnforcementImpl implements RegistrationEnforcement {
      */
     public constructor(registrationEnforcementParameterValue?: RegistrationEnforcement | undefined) {
         this.additionalData = registrationEnforcementParameterValue?.additionalData ? registrationEnforcementParameterValue?.additionalData! : {};
-        this.authenticationMethodsRegistrationCampaign = registrationEnforcementParameterValue?.authenticationMethodsRegistrationCampaign;
+        this.authenticationMethodsRegistrationCampaign = registrationEnforcementParameterValue?.authenticationMethodsRegistrationCampaign instanceof AuthenticationMethodsRegistrationCampaignImpl? registrationEnforcementParameterValue?.authenticationMethodsRegistrationCampaign:new AuthenticationMethodsRegistrationCampaignImpl(registrationEnforcementParameterValue?.authenticationMethodsRegistrationCampaign);
     };
     /**
      * The deserialization information for the current model

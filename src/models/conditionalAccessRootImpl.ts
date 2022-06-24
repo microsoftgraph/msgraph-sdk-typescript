@@ -18,8 +18,10 @@ export class ConditionalAccessRootImpl extends EntityImpl implements Conditional
      */
     public constructor(conditionalAccessRootParameterValue?: ConditionalAccessRoot | undefined) {
         super(conditionalAccessRootParameterValue);
-        this.namedLocations = conditionalAccessRootParameterValue?.namedLocations;
-        this.policies = conditionalAccessRootParameterValue?.policies;
+        const namedLocationsArrValue: NamedLocationImpl[] = []; this.namedLocations?.forEach(element => {namedLocationsArrValue.push(element instanceof NamedLocationImpl? element : new NamedLocationImpl(element));});
+        this.namedLocations = namedLocationsArrValue;
+        const policiesArrValue: ConditionalAccessPolicyImpl[] = []; this.policies?.forEach(element => {policiesArrValue.push(element instanceof ConditionalAccessPolicyImpl? element : new ConditionalAccessPolicyImpl(element));});
+        this.policies = policiesArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -38,10 +40,10 @@ export class ConditionalAccessRootImpl extends EntityImpl implements Conditional
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.namedLocations && this.namedLocations.length != 0){        const namedLocationsArrValue: NamedLocationImpl[] = []; this.namedLocations?.forEach(element => {namedLocationsArrValue.push(new NamedLocationImpl(element));});
+        if(this.namedLocations && this.namedLocations.length != 0){        const namedLocationsArrValue: NamedLocationImpl[] = []; this.namedLocations?.forEach(element => {namedLocationsArrValue.push(element instanceof NamedLocationImpl? element : new NamedLocationImpl(element));});
             writer.writeCollectionOfObjectValues<NamedLocationImpl>("namedLocations", namedLocationsArrValue);
         }
-        if(this.policies && this.policies.length != 0){        const policiesArrValue: ConditionalAccessPolicyImpl[] = []; this.policies?.forEach(element => {policiesArrValue.push(new ConditionalAccessPolicyImpl(element));});
+        if(this.policies && this.policies.length != 0){        const policiesArrValue: ConditionalAccessPolicyImpl[] = []; this.policies?.forEach(element => {policiesArrValue.push(element instanceof ConditionalAccessPolicyImpl? element : new ConditionalAccessPolicyImpl(element));});
             writer.writeCollectionOfObjectValues<ConditionalAccessPolicyImpl>("policies", policiesArrValue);
         }
     };

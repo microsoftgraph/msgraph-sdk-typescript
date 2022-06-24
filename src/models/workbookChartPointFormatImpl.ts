@@ -4,7 +4,7 @@ import {WorkbookChartFill} from './workbookChartFill';
 import {WorkbookChartPointFormat} from './workbookChartPointFormat';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to group. */
+/** Provides operations to manage the collection of application entities. */
 export class WorkbookChartPointFormatImpl extends EntityImpl implements WorkbookChartPointFormat {
     /** Represents the fill format of a chart, which includes background formating information. Read-only. */
     public fill?: WorkbookChartFill | undefined;
@@ -14,7 +14,7 @@ export class WorkbookChartPointFormatImpl extends EntityImpl implements Workbook
      */
     public constructor(workbookChartPointFormatParameterValue?: WorkbookChartPointFormat | undefined) {
         super(workbookChartPointFormatParameterValue);
-        this.fill = workbookChartPointFormatParameterValue?.fill;
+        this.fill = workbookChartPointFormatParameterValue?.fill instanceof WorkbookChartFillImpl? workbookChartPointFormatParameterValue?.fill:new WorkbookChartFillImpl(workbookChartPointFormatParameterValue?.fill);
     };
     /**
      * The deserialization information for the current model

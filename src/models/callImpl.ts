@@ -36,7 +36,7 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 
 /** Provides operations to manage the cloudCommunications singleton. */
 export class CallImpl extends EntityImpl implements Call {
-    /** Read-only. Nullable. */
+    /** The audioRoutingGroups property */
     public audioRoutingGroups?: AudioRoutingGroup[] | undefined;
     /** The callback URL on which callbacks will be delivered. Must be https. */
     public callbackUri?: string | undefined;
@@ -60,9 +60,9 @@ export class CallImpl extends EntityImpl implements Call {
     public meetingInfo?: MeetingInfo | undefined;
     /** The myParticipantId property */
     public myParticipantId?: string | undefined;
-    /** Read-only. Nullable. */
+    /** The operations property */
     public operations?: CommsOperation[] | undefined;
-    /** Read-only. Nullable. */
+    /** The participants property */
     public participants?: Participant[] | undefined;
     /** The requestedModalities property */
     public requestedModalities?: string[] | undefined;
@@ -88,29 +88,34 @@ export class CallImpl extends EntityImpl implements Call {
      */
     public constructor(callParameterValue?: Call | undefined) {
         super(callParameterValue);
-        this.audioRoutingGroups = callParameterValue?.audioRoutingGroups;
+        const audioRoutingGroupsArrValue: AudioRoutingGroupImpl[] = []; this.audioRoutingGroups?.forEach(element => {audioRoutingGroupsArrValue.push(element instanceof AudioRoutingGroupImpl? element : new AudioRoutingGroupImpl(element));});
+        this.audioRoutingGroups = audioRoutingGroupsArrValue;
         this.callbackUri = callParameterValue?.callbackUri;
         this.callChainId = callParameterValue?.callChainId;
-        this.callOptions = callParameterValue?.callOptions;
-        this.callRoutes = callParameterValue?.callRoutes;
-        this.chatInfo = callParameterValue?.chatInfo;
+        this.callOptions = callParameterValue?.callOptions instanceof CallOptionsImpl? callParameterValue?.callOptions:new CallOptionsImpl(callParameterValue?.callOptions);
+        const callRoutesArrValue: CallRouteImpl[] = []; this.callRoutes?.forEach(element => {callRoutesArrValue.push(element instanceof CallRouteImpl? element : new CallRouteImpl(element));});
+        this.callRoutes = callRoutesArrValue;
+        this.chatInfo = callParameterValue?.chatInfo instanceof ChatInfoImpl? callParameterValue?.chatInfo:new ChatInfoImpl(callParameterValue?.chatInfo);
         this.direction = callParameterValue?.direction;
-        this.incomingContext = callParameterValue?.incomingContext;
-        this.mediaConfig = callParameterValue?.mediaConfig;
-        this.mediaState = callParameterValue?.mediaState;
-        this.meetingInfo = callParameterValue?.meetingInfo;
+        this.incomingContext = callParameterValue?.incomingContext instanceof IncomingContextImpl? callParameterValue?.incomingContext:new IncomingContextImpl(callParameterValue?.incomingContext);
+        this.mediaConfig = callParameterValue?.mediaConfig instanceof MediaConfigImpl? callParameterValue?.mediaConfig:new MediaConfigImpl(callParameterValue?.mediaConfig);
+        this.mediaState = callParameterValue?.mediaState instanceof CallMediaStateImpl? callParameterValue?.mediaState:new CallMediaStateImpl(callParameterValue?.mediaState);
+        this.meetingInfo = callParameterValue?.meetingInfo instanceof MeetingInfoImpl? callParameterValue?.meetingInfo:new MeetingInfoImpl(callParameterValue?.meetingInfo);
         this.myParticipantId = callParameterValue?.myParticipantId;
-        this.operations = callParameterValue?.operations;
-        this.participants = callParameterValue?.participants;
+        const operationsArrValue: CommsOperationImpl[] = []; this.operations?.forEach(element => {operationsArrValue.push(element instanceof CommsOperationImpl? element : new CommsOperationImpl(element));});
+        this.operations = operationsArrValue;
+        const participantsArrValue: ParticipantImpl[] = []; this.participants?.forEach(element => {participantsArrValue.push(element instanceof ParticipantImpl? element : new ParticipantImpl(element));});
+        this.participants = participantsArrValue;
         this.requestedModalities = callParameterValue?.requestedModalities;
-        this.resultInfo = callParameterValue?.resultInfo;
-        this.source = callParameterValue?.source;
+        this.resultInfo = callParameterValue?.resultInfo instanceof ResultInfoImpl? callParameterValue?.resultInfo:new ResultInfoImpl(callParameterValue?.resultInfo);
+        this.source = callParameterValue?.source instanceof ParticipantInfoImpl? callParameterValue?.source:new ParticipantInfoImpl(callParameterValue?.source);
         this.state = callParameterValue?.state;
         this.subject = callParameterValue?.subject;
-        this.targets = callParameterValue?.targets;
+        const targetsArrValue: InvitationParticipantInfoImpl[] = []; this.targets?.forEach(element => {targetsArrValue.push(element instanceof InvitationParticipantInfoImpl? element : new InvitationParticipantInfoImpl(element));});
+        this.targets = targetsArrValue;
         this.tenantId = callParameterValue?.tenantId;
-        this.toneInfo = callParameterValue?.toneInfo;
-        this.transcription = callParameterValue?.transcription;
+        this.toneInfo = callParameterValue?.toneInfo instanceof ToneInfoImpl? callParameterValue?.toneInfo:new ToneInfoImpl(callParameterValue?.toneInfo);
+        this.transcription = callParameterValue?.transcription instanceof CallTranscriptionInfoImpl? callParameterValue?.transcription:new CallTranscriptionInfoImpl(callParameterValue?.transcription);
     };
     /**
      * The deserialization information for the current model
@@ -150,7 +155,7 @@ export class CallImpl extends EntityImpl implements Call {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.audioRoutingGroups && this.audioRoutingGroups.length != 0){        const audioRoutingGroupsArrValue: AudioRoutingGroupImpl[] = []; this.audioRoutingGroups?.forEach(element => {audioRoutingGroupsArrValue.push(new AudioRoutingGroupImpl(element));});
+        if(this.audioRoutingGroups && this.audioRoutingGroups.length != 0){        const audioRoutingGroupsArrValue: AudioRoutingGroupImpl[] = []; this.audioRoutingGroups?.forEach(element => {audioRoutingGroupsArrValue.push(element instanceof AudioRoutingGroupImpl? element : new AudioRoutingGroupImpl(element));});
             writer.writeCollectionOfObjectValues<AudioRoutingGroupImpl>("audioRoutingGroups", audioRoutingGroupsArrValue);
         }
         if(this.callbackUri){
@@ -162,7 +167,7 @@ export class CallImpl extends EntityImpl implements Call {
         if(this.callOptions){
             writer.writeObjectValue<CallOptionsImpl>("callOptions", new CallOptionsImpl(this.callOptions));
         }
-        if(this.callRoutes && this.callRoutes.length != 0){        const callRoutesArrValue: CallRouteImpl[] = []; this.callRoutes?.forEach(element => {callRoutesArrValue.push(new CallRouteImpl(element));});
+        if(this.callRoutes && this.callRoutes.length != 0){        const callRoutesArrValue: CallRouteImpl[] = []; this.callRoutes?.forEach(element => {callRoutesArrValue.push(element instanceof CallRouteImpl? element : new CallRouteImpl(element));});
             writer.writeCollectionOfObjectValues<CallRouteImpl>("callRoutes", callRoutesArrValue);
         }
         if(this.chatInfo){
@@ -186,10 +191,10 @@ export class CallImpl extends EntityImpl implements Call {
         if(this.myParticipantId){
             writer.writeStringValue("myParticipantId", this.myParticipantId);
         }
-        if(this.operations && this.operations.length != 0){        const operationsArrValue: CommsOperationImpl[] = []; this.operations?.forEach(element => {operationsArrValue.push(new CommsOperationImpl(element));});
+        if(this.operations && this.operations.length != 0){        const operationsArrValue: CommsOperationImpl[] = []; this.operations?.forEach(element => {operationsArrValue.push(element instanceof CommsOperationImpl? element : new CommsOperationImpl(element));});
             writer.writeCollectionOfObjectValues<CommsOperationImpl>("operations", operationsArrValue);
         }
-        if(this.participants && this.participants.length != 0){        const participantsArrValue: ParticipantImpl[] = []; this.participants?.forEach(element => {participantsArrValue.push(new ParticipantImpl(element));});
+        if(this.participants && this.participants.length != 0){        const participantsArrValue: ParticipantImpl[] = []; this.participants?.forEach(element => {participantsArrValue.push(element instanceof ParticipantImpl? element : new ParticipantImpl(element));});
             writer.writeCollectionOfObjectValues<ParticipantImpl>("participants", participantsArrValue);
         }
         if(this.requestedModalities){
@@ -207,7 +212,7 @@ export class CallImpl extends EntityImpl implements Call {
         if(this.subject){
             writer.writeStringValue("subject", this.subject);
         }
-        if(this.targets && this.targets.length != 0){        const targetsArrValue: InvitationParticipantInfoImpl[] = []; this.targets?.forEach(element => {targetsArrValue.push(new InvitationParticipantInfoImpl(element));});
+        if(this.targets && this.targets.length != 0){        const targetsArrValue: InvitationParticipantInfoImpl[] = []; this.targets?.forEach(element => {targetsArrValue.push(element instanceof InvitationParticipantInfoImpl? element : new InvitationParticipantInfoImpl(element));});
             writer.writeCollectionOfObjectValues<InvitationParticipantInfoImpl>("targets", targetsArrValue);
         }
         if(this.tenantId){

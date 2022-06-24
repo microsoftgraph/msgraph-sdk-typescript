@@ -26,10 +26,10 @@ export class ScheduleItemImpl implements ScheduleItem {
      */
     public constructor(scheduleItemParameterValue?: ScheduleItem | undefined) {
         this.additionalData = scheduleItemParameterValue?.additionalData ? scheduleItemParameterValue?.additionalData! : {};
-        this.end = scheduleItemParameterValue?.end;
+        this.end = scheduleItemParameterValue?.end instanceof DateTimeTimeZoneImpl? scheduleItemParameterValue?.end:new DateTimeTimeZoneImpl(scheduleItemParameterValue?.end);
         this.isPrivate = scheduleItemParameterValue?.isPrivate;
         this.location = scheduleItemParameterValue?.location;
-        this.start = scheduleItemParameterValue?.start;
+        this.start = scheduleItemParameterValue?.start instanceof DateTimeTimeZoneImpl? scheduleItemParameterValue?.start:new DateTimeTimeZoneImpl(scheduleItemParameterValue?.start);
         this.status = scheduleItemParameterValue?.status;
         this.subject = scheduleItemParameterValue?.subject;
     };

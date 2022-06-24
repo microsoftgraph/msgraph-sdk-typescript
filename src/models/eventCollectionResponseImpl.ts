@@ -18,7 +18,8 @@ export class EventCollectionResponseImpl implements EventCollectionResponse {
     public constructor(eventCollectionResponseParameterValue?: EventCollectionResponse | undefined) {
         this.additionalData = eventCollectionResponseParameterValue?.additionalData ? eventCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = eventCollectionResponseParameterValue?.nextLink;
-        this.value = eventCollectionResponseParameterValue?.value;
+        const valueArrValue: EventImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof EventImpl? element : new EventImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -39,7 +40,7 @@ export class EventCollectionResponseImpl implements EventCollectionResponse {
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: EventImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new EventImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: EventImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof EventImpl? element : new EventImpl(element));});
             writer.writeCollectionOfObjectValues<EventImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

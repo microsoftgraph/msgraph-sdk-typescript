@@ -12,7 +12,6 @@ import {AdministrativeUnitImpl, EducationClassImpl, EducationOrganizationImpl, E
 import {PhysicalAddress} from './physicalAddress';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the educationRoot singleton. */
 export class EducationSchoolImpl extends EducationOrganizationImpl implements EducationSchool {
     /** Address of the school. */
     public address?: PhysicalAddress | undefined;
@@ -43,15 +42,16 @@ export class EducationSchoolImpl extends EducationOrganizationImpl implements Ed
     /** Users in the school. Nullable. */
     public users?: EducationUser[] | undefined;
     /**
-     * Instantiates a new educationSchool and sets the default values.
+     * Instantiates a new EducationSchool and sets the default values.
      * @param educationSchoolParameterValue 
      */
     public constructor(educationSchoolParameterValue?: EducationSchool | undefined) {
         super(educationSchoolParameterValue);
-        this.address = educationSchoolParameterValue?.address;
-        this.administrativeUnit = educationSchoolParameterValue?.administrativeUnit;
-        this.classes = educationSchoolParameterValue?.classes;
-        this.createdBy = educationSchoolParameterValue?.createdBy;
+        this.address = educationSchoolParameterValue?.address instanceof PhysicalAddressImpl? educationSchoolParameterValue?.address:new PhysicalAddressImpl(educationSchoolParameterValue?.address);
+        this.administrativeUnit = educationSchoolParameterValue?.administrativeUnit instanceof AdministrativeUnitImpl? educationSchoolParameterValue?.administrativeUnit:new AdministrativeUnitImpl(educationSchoolParameterValue?.administrativeUnit);
+        const classesArrValue: EducationClassImpl[] = []; this.classes?.forEach(element => {classesArrValue.push(element instanceof EducationClassImpl? element : new EducationClassImpl(element));});
+        this.classes = classesArrValue;
+        this.createdBy = educationSchoolParameterValue?.createdBy instanceof IdentitySetImpl? educationSchoolParameterValue?.createdBy:new IdentitySetImpl(educationSchoolParameterValue?.createdBy);
         this.externalId = educationSchoolParameterValue?.externalId;
         this.externalPrincipalId = educationSchoolParameterValue?.externalPrincipalId;
         this.fax = educationSchoolParameterValue?.fax;
@@ -61,7 +61,8 @@ export class EducationSchoolImpl extends EducationOrganizationImpl implements Ed
         this.principalEmail = educationSchoolParameterValue?.principalEmail;
         this.principalName = educationSchoolParameterValue?.principalName;
         this.schoolNumber = educationSchoolParameterValue?.schoolNumber;
-        this.users = educationSchoolParameterValue?.users;
+        const usersArrValue: EducationUserImpl[] = []; this.users?.forEach(element => {usersArrValue.push(element instanceof EducationUserImpl? element : new EducationUserImpl(element));});
+        this.users = usersArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -98,7 +99,7 @@ export class EducationSchoolImpl extends EducationOrganizationImpl implements Ed
         if(this.administrativeUnit){
             writer.writeObjectValue<AdministrativeUnitImpl>("administrativeUnit", new AdministrativeUnitImpl(this.administrativeUnit));
         }
-        if(this.classes && this.classes.length != 0){        const classesArrValue: EducationClassImpl[] = []; this.classes?.forEach(element => {classesArrValue.push(new EducationClassImpl(element));});
+        if(this.classes && this.classes.length != 0){        const classesArrValue: EducationClassImpl[] = []; this.classes?.forEach(element => {classesArrValue.push(element instanceof EducationClassImpl? element : new EducationClassImpl(element));});
             writer.writeCollectionOfObjectValues<EducationClassImpl>("classes", classesArrValue);
         }
         if(this.createdBy){
@@ -131,7 +132,7 @@ export class EducationSchoolImpl extends EducationOrganizationImpl implements Ed
         if(this.schoolNumber){
             writer.writeStringValue("schoolNumber", this.schoolNumber);
         }
-        if(this.users && this.users.length != 0){        const usersArrValue: EducationUserImpl[] = []; this.users?.forEach(element => {usersArrValue.push(new EducationUserImpl(element));});
+        if(this.users && this.users.length != 0){        const usersArrValue: EducationUserImpl[] = []; this.users?.forEach(element => {usersArrValue.push(element instanceof EducationUserImpl? element : new EducationUserImpl(element));});
             writer.writeCollectionOfObjectValues<EducationUserImpl>("users", usersArrValue);
         }
     };

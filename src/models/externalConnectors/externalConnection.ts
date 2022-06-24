@@ -12,15 +12,15 @@ export interface ExternalConnection extends Entity, Partial<Parsable> {
     configuration?: Configuration | undefined;
     /** Description of the connection displayed in the Microsoft 365 admin center. Optional. */
     description?: string | undefined;
-    /** Read-only. Nullable. */
+    /** The groups property */
     groups?: ExternalGroup[] | undefined;
-    /** Read-only. Nullable. */
+    /** The items property */
     items?: ExternalItem[] | undefined;
     /** The display name of the connection to be displayed in the Microsoft 365 admin center. Maximum length of 128 characters. Required. */
     name?: string | undefined;
-    /** Read-only. Nullable. */
+    /** The operations property */
     operations?: ConnectionOperation[] | undefined;
-    /** Read-only. Nullable. */
+    /** The schema property */
     schema?: Schema | undefined;
     /** Indicates the current state of the connection. Possible values are draft, ready, obsolete, and limitExceeded. Required. */
     state?: ConnectionState | undefined;

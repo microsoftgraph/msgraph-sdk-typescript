@@ -18,7 +18,8 @@ export class ManagedDeviceMobileAppConfigurationAssignmentCollectionResponseImpl
     public constructor(managedDeviceMobileAppConfigurationAssignmentCollectionResponseParameterValue?: ManagedDeviceMobileAppConfigurationAssignmentCollectionResponse | undefined) {
         this.additionalData = managedDeviceMobileAppConfigurationAssignmentCollectionResponseParameterValue?.additionalData ? managedDeviceMobileAppConfigurationAssignmentCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = managedDeviceMobileAppConfigurationAssignmentCollectionResponseParameterValue?.nextLink;
-        this.value = managedDeviceMobileAppConfigurationAssignmentCollectionResponseParameterValue?.value;
+        const valueArrValue: ManagedDeviceMobileAppConfigurationAssignmentImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ManagedDeviceMobileAppConfigurationAssignmentImpl? element : new ManagedDeviceMobileAppConfigurationAssignmentImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -39,7 +40,7 @@ export class ManagedDeviceMobileAppConfigurationAssignmentCollectionResponseImpl
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: ManagedDeviceMobileAppConfigurationAssignmentImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ManagedDeviceMobileAppConfigurationAssignmentImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: ManagedDeviceMobileAppConfigurationAssignmentImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ManagedDeviceMobileAppConfigurationAssignmentImpl? element : new ManagedDeviceMobileAppConfigurationAssignmentImpl(element));});
             writer.writeCollectionOfObjectValues<ManagedDeviceMobileAppConfigurationAssignmentImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

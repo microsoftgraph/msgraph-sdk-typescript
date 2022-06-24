@@ -4,7 +4,7 @@ import {OutlookCategory} from './outlookCategory';
 import {OutlookUser} from './outlookUser';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the collection of application entities. */
 export class OutlookUserImpl extends EntityImpl implements OutlookUser {
     /** A list of categories defined for the user. */
     public masterCategories?: OutlookCategory[] | undefined;
@@ -14,7 +14,8 @@ export class OutlookUserImpl extends EntityImpl implements OutlookUser {
      */
     public constructor(outlookUserParameterValue?: OutlookUser | undefined) {
         super(outlookUserParameterValue);
-        this.masterCategories = outlookUserParameterValue?.masterCategories;
+        const masterCategoriesArrValue: OutlookCategoryImpl[] = []; this.masterCategories?.forEach(element => {masterCategoriesArrValue.push(element instanceof OutlookCategoryImpl? element : new OutlookCategoryImpl(element));});
+        this.masterCategories = masterCategoriesArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -32,7 +33,7 @@ export class OutlookUserImpl extends EntityImpl implements OutlookUser {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.masterCategories && this.masterCategories.length != 0){        const masterCategoriesArrValue: OutlookCategoryImpl[] = []; this.masterCategories?.forEach(element => {masterCategoriesArrValue.push(new OutlookCategoryImpl(element));});
+        if(this.masterCategories && this.masterCategories.length != 0){        const masterCategoriesArrValue: OutlookCategoryImpl[] = []; this.masterCategories?.forEach(element => {masterCategoriesArrValue.push(element instanceof OutlookCategoryImpl? element : new OutlookCategoryImpl(element));});
             writer.writeCollectionOfObjectValues<OutlookCategoryImpl>("masterCategories", masterCategoriesArrValue);
         }
     };

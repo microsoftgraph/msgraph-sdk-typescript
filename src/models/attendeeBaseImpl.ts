@@ -3,7 +3,7 @@ import {AttendeeType} from './attendeeType';
 import {RecipientImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the collection of application entities. */
 export class AttendeeBaseImpl extends RecipientImpl implements AttendeeBase {
     /** The type of attendee. Possible values are: required, optional, resource. Currently if the attendee is a person, findMeetingTimes always considers the person is of the Required type. */
     public type?: AttendeeType | undefined;

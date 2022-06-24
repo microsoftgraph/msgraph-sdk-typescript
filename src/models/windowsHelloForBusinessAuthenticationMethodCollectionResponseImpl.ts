@@ -18,7 +18,8 @@ export class WindowsHelloForBusinessAuthenticationMethodCollectionResponseImpl i
     public constructor(windowsHelloForBusinessAuthenticationMethodCollectionResponseParameterValue?: WindowsHelloForBusinessAuthenticationMethodCollectionResponse | undefined) {
         this.additionalData = windowsHelloForBusinessAuthenticationMethodCollectionResponseParameterValue?.additionalData ? windowsHelloForBusinessAuthenticationMethodCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = windowsHelloForBusinessAuthenticationMethodCollectionResponseParameterValue?.nextLink;
-        this.value = windowsHelloForBusinessAuthenticationMethodCollectionResponseParameterValue?.value;
+        const valueArrValue: WindowsHelloForBusinessAuthenticationMethodImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof WindowsHelloForBusinessAuthenticationMethodImpl? element : new WindowsHelloForBusinessAuthenticationMethodImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -39,7 +40,7 @@ export class WindowsHelloForBusinessAuthenticationMethodCollectionResponseImpl i
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: WindowsHelloForBusinessAuthenticationMethodImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new WindowsHelloForBusinessAuthenticationMethodImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: WindowsHelloForBusinessAuthenticationMethodImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof WindowsHelloForBusinessAuthenticationMethodImpl? element : new WindowsHelloForBusinessAuthenticationMethodImpl(element));});
             writer.writeCollectionOfObjectValues<WindowsHelloForBusinessAuthenticationMethodImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

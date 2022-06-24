@@ -6,7 +6,7 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 export class ConversationMemberImpl extends EntityImpl implements ConversationMember {
     /** The display name of the user. */
     public displayName?: string | undefined;
-    /** The roles for that user. */
+    /** The roles for that user. This property only contains additional qualifiers when relevant - for example, if the member has owner privileges, the roles property contains owner as one of the values. Similarly, if the member is a guest, the roles property contains guest as one of the values. A basic member should not have any values specified in the roles property. */
     public roles?: string[] | undefined;
     /** The timestamp denoting how far back a conversation's history is shared with the conversation member. This property is settable only for members of a chat. */
     public visibleHistoryStartDateTime?: Date | undefined;

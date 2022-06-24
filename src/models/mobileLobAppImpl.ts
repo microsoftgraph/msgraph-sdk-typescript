@@ -4,7 +4,6 @@ import {MobileAppContent} from './mobileAppContent';
 import {MobileLobApp} from './mobileLobApp';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** An abstract base class containing properties for all mobile line of business apps. */
 export class MobileLobAppImpl extends MobileAppImpl implements MobileLobApp {
     /** The internal committed content version. */
     public committedContentVersion?: string | undefined;
@@ -15,13 +14,14 @@ export class MobileLobAppImpl extends MobileAppImpl implements MobileLobApp {
     /** The total size, including all uploaded files. */
     public size?: number | undefined;
     /**
-     * Instantiates a new mobileLobApp and sets the default values.
+     * Instantiates a new MobileLobApp and sets the default values.
      * @param mobileLobAppParameterValue 
      */
     public constructor(mobileLobAppParameterValue?: MobileLobApp | undefined) {
         super(mobileLobAppParameterValue);
         this.committedContentVersion = mobileLobAppParameterValue?.committedContentVersion;
-        this.contentVersions = mobileLobAppParameterValue?.contentVersions;
+        const contentVersionsArrValue: MobileAppContentImpl[] = []; this.contentVersions?.forEach(element => {contentVersionsArrValue.push(element instanceof MobileAppContentImpl? element : new MobileAppContentImpl(element));});
+        this.contentVersions = contentVersionsArrValue;
         this.fileName = mobileLobAppParameterValue?.fileName;
         this.size = mobileLobAppParameterValue?.size;
     };
@@ -47,7 +47,7 @@ export class MobileLobAppImpl extends MobileAppImpl implements MobileLobApp {
         if(this.committedContentVersion){
             writer.writeStringValue("committedContentVersion", this.committedContentVersion);
         }
-        if(this.contentVersions && this.contentVersions.length != 0){        const contentVersionsArrValue: MobileAppContentImpl[] = []; this.contentVersions?.forEach(element => {contentVersionsArrValue.push(new MobileAppContentImpl(element));});
+        if(this.contentVersions && this.contentVersions.length != 0){        const contentVersionsArrValue: MobileAppContentImpl[] = []; this.contentVersions?.forEach(element => {contentVersionsArrValue.push(element instanceof MobileAppContentImpl? element : new MobileAppContentImpl(element));});
             writer.writeCollectionOfObjectValues<MobileAppContentImpl>("contentVersions", contentVersionsArrValue);
         }
         if(this.fileName){

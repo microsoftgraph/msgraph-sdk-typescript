@@ -18,7 +18,8 @@ export class UnifiedRoleEligibilityScheduleCollectionResponseImpl implements Uni
     public constructor(unifiedRoleEligibilityScheduleCollectionResponseParameterValue?: UnifiedRoleEligibilityScheduleCollectionResponse | undefined) {
         this.additionalData = unifiedRoleEligibilityScheduleCollectionResponseParameterValue?.additionalData ? unifiedRoleEligibilityScheduleCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = unifiedRoleEligibilityScheduleCollectionResponseParameterValue?.nextLink;
-        this.value = unifiedRoleEligibilityScheduleCollectionResponseParameterValue?.value;
+        const valueArrValue: UnifiedRoleEligibilityScheduleImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof UnifiedRoleEligibilityScheduleImpl? element : new UnifiedRoleEligibilityScheduleImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -39,7 +40,7 @@ export class UnifiedRoleEligibilityScheduleCollectionResponseImpl implements Uni
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: UnifiedRoleEligibilityScheduleImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new UnifiedRoleEligibilityScheduleImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: UnifiedRoleEligibilityScheduleImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof UnifiedRoleEligibilityScheduleImpl? element : new UnifiedRoleEligibilityScheduleImpl(element));});
             writer.writeCollectionOfObjectValues<UnifiedRoleEligibilityScheduleImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

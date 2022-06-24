@@ -15,7 +15,6 @@ import {UnifiedRoleEligibilityScheduleRequest} from './unifiedRoleEligibilitySch
 import {UnifiedRoleScheduleRequestActions} from './unifiedRoleScheduleRequestActions';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the roleManagement singleton. */
 export class UnifiedRoleEligibilityScheduleRequestImpl extends RequestImpl implements UnifiedRoleEligibilityScheduleRequest {
     /** Represents the type of the operation on the role eligibility assignment. The possible values are: AdminAssign: For administrators to assign role eligibility to users or groups to roles.AdminExtend: For administrators to extend expiring assignments.AdminUpdate: For administrators to change existing role assignments.AdminRenew: For administrators to renew expired assignments.AdminRemove: For administrators to remove users or groups from eligible roles.UserAdd: For users to activate their eligible assignments.UserExtend: For users to request to extend their expiring eligible assignments.UserRemove: For users to deactivate their active eligible assignments.UserRenew: For users to request to renew their expired eligible assignments. */
     public action?: UnifiedRoleScheduleRequestActions | undefined;
@@ -48,26 +47,26 @@ export class UnifiedRoleEligibilityScheduleRequestImpl extends RequestImpl imple
     /** The details of the ticket number and ticket system that is attached to the role assignment request. */
     public ticketInfo?: TicketInfo | undefined;
     /**
-     * Instantiates a new unifiedRoleEligibilityScheduleRequest and sets the default values.
+     * Instantiates a new UnifiedRoleEligibilityScheduleRequest and sets the default values.
      * @param unifiedRoleEligibilityScheduleRequestParameterValue 
      */
     public constructor(unifiedRoleEligibilityScheduleRequestParameterValue?: UnifiedRoleEligibilityScheduleRequest | undefined) {
         super(unifiedRoleEligibilityScheduleRequestParameterValue);
         this.action = unifiedRoleEligibilityScheduleRequestParameterValue?.action;
-        this.appScope = unifiedRoleEligibilityScheduleRequestParameterValue?.appScope;
+        this.appScope = unifiedRoleEligibilityScheduleRequestParameterValue?.appScope instanceof AppScopeImpl? unifiedRoleEligibilityScheduleRequestParameterValue?.appScope:new AppScopeImpl(unifiedRoleEligibilityScheduleRequestParameterValue?.appScope);
         this.appScopeId = unifiedRoleEligibilityScheduleRequestParameterValue?.appScopeId;
-        this.directoryScope = unifiedRoleEligibilityScheduleRequestParameterValue?.directoryScope;
+        this.directoryScope = unifiedRoleEligibilityScheduleRequestParameterValue?.directoryScope instanceof DirectoryObjectImpl? unifiedRoleEligibilityScheduleRequestParameterValue?.directoryScope:new DirectoryObjectImpl(unifiedRoleEligibilityScheduleRequestParameterValue?.directoryScope);
         this.directoryScopeId = unifiedRoleEligibilityScheduleRequestParameterValue?.directoryScopeId;
         this.isValidationOnly = unifiedRoleEligibilityScheduleRequestParameterValue?.isValidationOnly;
         this.justification = unifiedRoleEligibilityScheduleRequestParameterValue?.justification;
-        this.principal = unifiedRoleEligibilityScheduleRequestParameterValue?.principal;
+        this.principal = unifiedRoleEligibilityScheduleRequestParameterValue?.principal instanceof DirectoryObjectImpl? unifiedRoleEligibilityScheduleRequestParameterValue?.principal:new DirectoryObjectImpl(unifiedRoleEligibilityScheduleRequestParameterValue?.principal);
         this.principalId = unifiedRoleEligibilityScheduleRequestParameterValue?.principalId;
-        this.roleDefinition = unifiedRoleEligibilityScheduleRequestParameterValue?.roleDefinition;
+        this.roleDefinition = unifiedRoleEligibilityScheduleRequestParameterValue?.roleDefinition instanceof UnifiedRoleDefinitionImpl? unifiedRoleEligibilityScheduleRequestParameterValue?.roleDefinition:new UnifiedRoleDefinitionImpl(unifiedRoleEligibilityScheduleRequestParameterValue?.roleDefinition);
         this.roleDefinitionId = unifiedRoleEligibilityScheduleRequestParameterValue?.roleDefinitionId;
-        this.scheduleInfo = unifiedRoleEligibilityScheduleRequestParameterValue?.scheduleInfo;
-        this.targetSchedule = unifiedRoleEligibilityScheduleRequestParameterValue?.targetSchedule;
+        this.scheduleInfo = unifiedRoleEligibilityScheduleRequestParameterValue?.scheduleInfo instanceof RequestScheduleImpl? unifiedRoleEligibilityScheduleRequestParameterValue?.scheduleInfo:new RequestScheduleImpl(unifiedRoleEligibilityScheduleRequestParameterValue?.scheduleInfo);
+        this.targetSchedule = unifiedRoleEligibilityScheduleRequestParameterValue?.targetSchedule instanceof UnifiedRoleEligibilityScheduleImpl? unifiedRoleEligibilityScheduleRequestParameterValue?.targetSchedule:new UnifiedRoleEligibilityScheduleImpl(unifiedRoleEligibilityScheduleRequestParameterValue?.targetSchedule);
         this.targetScheduleId = unifiedRoleEligibilityScheduleRequestParameterValue?.targetScheduleId;
-        this.ticketInfo = unifiedRoleEligibilityScheduleRequestParameterValue?.ticketInfo;
+        this.ticketInfo = unifiedRoleEligibilityScheduleRequestParameterValue?.ticketInfo instanceof TicketInfoImpl? unifiedRoleEligibilityScheduleRequestParameterValue?.ticketInfo:new TicketInfoImpl(unifiedRoleEligibilityScheduleRequestParameterValue?.ticketInfo);
     };
     /**
      * The deserialization information for the current model

@@ -18,7 +18,8 @@ export class B2xIdentityUserFlowCollectionResponseImpl implements B2xIdentityUse
     public constructor(b2xIdentityUserFlowCollectionResponseParameterValue?: B2xIdentityUserFlowCollectionResponse | undefined) {
         this.additionalData = b2xIdentityUserFlowCollectionResponseParameterValue?.additionalData ? b2xIdentityUserFlowCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = b2xIdentityUserFlowCollectionResponseParameterValue?.nextLink;
-        this.value = b2xIdentityUserFlowCollectionResponseParameterValue?.value;
+        const valueArrValue: B2xIdentityUserFlowImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof B2xIdentityUserFlowImpl? element : new B2xIdentityUserFlowImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -39,7 +40,7 @@ export class B2xIdentityUserFlowCollectionResponseImpl implements B2xIdentityUse
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: B2xIdentityUserFlowImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new B2xIdentityUserFlowImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: B2xIdentityUserFlowImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof B2xIdentityUserFlowImpl? element : new B2xIdentityUserFlowImpl(element));});
             writer.writeCollectionOfObjectValues<B2xIdentityUserFlowImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

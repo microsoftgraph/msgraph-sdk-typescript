@@ -15,7 +15,7 @@ export class EndpointImpl implements Endpoint {
      */
     public constructor(endpointParameterValue?: Endpoint | undefined) {
         this.additionalData = endpointParameterValue?.additionalData ? endpointParameterValue?.additionalData! : {};
-        this.userAgent = endpointParameterValue?.userAgent;
+        this.userAgent = endpointParameterValue?.userAgent instanceof UserAgentImpl? endpointParameterValue?.userAgent:new UserAgentImpl(endpointParameterValue?.userAgent);
     };
     /**
      * The deserialization information for the current model

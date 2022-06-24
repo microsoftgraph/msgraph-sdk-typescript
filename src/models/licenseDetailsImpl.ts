@@ -4,7 +4,7 @@ import {LicenseDetails} from './licenseDetails';
 import {ServicePlanInfo} from './servicePlanInfo';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the collection of application entities. */
 export class LicenseDetailsImpl extends EntityImpl implements LicenseDetails {
     /** Information about the service plans assigned with the license. Read-only, Not nullable */
     public servicePlans?: ServicePlanInfo[] | undefined;
@@ -18,7 +18,8 @@ export class LicenseDetailsImpl extends EntityImpl implements LicenseDetails {
      */
     public constructor(licenseDetailsParameterValue?: LicenseDetails | undefined) {
         super(licenseDetailsParameterValue);
-        this.servicePlans = licenseDetailsParameterValue?.servicePlans;
+        const servicePlansArrValue: ServicePlanInfoImpl[] = []; this.servicePlans?.forEach(element => {servicePlansArrValue.push(element instanceof ServicePlanInfoImpl? element : new ServicePlanInfoImpl(element));});
+        this.servicePlans = servicePlansArrValue;
         this.skuId = licenseDetailsParameterValue?.skuId;
         this.skuPartNumber = licenseDetailsParameterValue?.skuPartNumber;
     };
@@ -40,7 +41,7 @@ export class LicenseDetailsImpl extends EntityImpl implements LicenseDetails {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.servicePlans && this.servicePlans.length != 0){        const servicePlansArrValue: ServicePlanInfoImpl[] = []; this.servicePlans?.forEach(element => {servicePlansArrValue.push(new ServicePlanInfoImpl(element));});
+        if(this.servicePlans && this.servicePlans.length != 0){        const servicePlansArrValue: ServicePlanInfoImpl[] = []; this.servicePlans?.forEach(element => {servicePlansArrValue.push(element instanceof ServicePlanInfoImpl? element : new ServicePlanInfoImpl(element));});
             writer.writeCollectionOfObjectValues<ServicePlanInfoImpl>("servicePlans", servicePlansArrValue);
         }
         if(this.skuId){

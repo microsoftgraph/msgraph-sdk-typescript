@@ -17,7 +17,7 @@ import {PlannerTask} from './plannerTask';
 import {PlannerTaskDetails} from './plannerTaskDetails';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to group. */
+/** Provides operations to manage the collection of application entities. */
 export class PlannerTaskImpl extends EntityImpl implements PlannerTask {
     /** Number of checklist items with value set to false, representing incomplete items. */
     public activeChecklistItemCount?: number | undefined;
@@ -76,19 +76,19 @@ export class PlannerTaskImpl extends EntityImpl implements PlannerTask {
     public constructor(plannerTaskParameterValue?: PlannerTask | undefined) {
         super(plannerTaskParameterValue);
         this.activeChecklistItemCount = plannerTaskParameterValue?.activeChecklistItemCount;
-        this.appliedCategories = plannerTaskParameterValue?.appliedCategories;
-        this.assignedToTaskBoardFormat = plannerTaskParameterValue?.assignedToTaskBoardFormat;
+        this.appliedCategories = plannerTaskParameterValue?.appliedCategories instanceof PlannerAppliedCategoriesImpl? plannerTaskParameterValue?.appliedCategories:new PlannerAppliedCategoriesImpl(plannerTaskParameterValue?.appliedCategories);
+        this.assignedToTaskBoardFormat = plannerTaskParameterValue?.assignedToTaskBoardFormat instanceof PlannerAssignedToTaskBoardTaskFormatImpl? plannerTaskParameterValue?.assignedToTaskBoardFormat:new PlannerAssignedToTaskBoardTaskFormatImpl(plannerTaskParameterValue?.assignedToTaskBoardFormat);
         this.assigneePriority = plannerTaskParameterValue?.assigneePriority;
-        this.assignments = plannerTaskParameterValue?.assignments;
+        this.assignments = plannerTaskParameterValue?.assignments instanceof PlannerAssignmentsImpl? plannerTaskParameterValue?.assignments:new PlannerAssignmentsImpl(plannerTaskParameterValue?.assignments);
         this.bucketId = plannerTaskParameterValue?.bucketId;
-        this.bucketTaskBoardFormat = plannerTaskParameterValue?.bucketTaskBoardFormat;
+        this.bucketTaskBoardFormat = plannerTaskParameterValue?.bucketTaskBoardFormat instanceof PlannerBucketTaskBoardTaskFormatImpl? plannerTaskParameterValue?.bucketTaskBoardFormat:new PlannerBucketTaskBoardTaskFormatImpl(plannerTaskParameterValue?.bucketTaskBoardFormat);
         this.checklistItemCount = plannerTaskParameterValue?.checklistItemCount;
-        this.completedBy = plannerTaskParameterValue?.completedBy;
+        this.completedBy = plannerTaskParameterValue?.completedBy instanceof IdentitySetImpl? plannerTaskParameterValue?.completedBy:new IdentitySetImpl(plannerTaskParameterValue?.completedBy);
         this.completedDateTime = plannerTaskParameterValue?.completedDateTime;
         this.conversationThreadId = plannerTaskParameterValue?.conversationThreadId;
-        this.createdBy = plannerTaskParameterValue?.createdBy;
+        this.createdBy = plannerTaskParameterValue?.createdBy instanceof IdentitySetImpl? plannerTaskParameterValue?.createdBy:new IdentitySetImpl(plannerTaskParameterValue?.createdBy);
         this.createdDateTime = plannerTaskParameterValue?.createdDateTime;
-        this.details = plannerTaskParameterValue?.details;
+        this.details = plannerTaskParameterValue?.details instanceof PlannerTaskDetailsImpl? plannerTaskParameterValue?.details:new PlannerTaskDetailsImpl(plannerTaskParameterValue?.details);
         this.dueDateTime = plannerTaskParameterValue?.dueDateTime;
         this.hasDescription = plannerTaskParameterValue?.hasDescription;
         this.orderHint = plannerTaskParameterValue?.orderHint;
@@ -96,7 +96,7 @@ export class PlannerTaskImpl extends EntityImpl implements PlannerTask {
         this.planId = plannerTaskParameterValue?.planId;
         this.previewType = plannerTaskParameterValue?.previewType;
         this.priority = plannerTaskParameterValue?.priority;
-        this.progressTaskBoardFormat = plannerTaskParameterValue?.progressTaskBoardFormat;
+        this.progressTaskBoardFormat = plannerTaskParameterValue?.progressTaskBoardFormat instanceof PlannerProgressTaskBoardTaskFormatImpl? plannerTaskParameterValue?.progressTaskBoardFormat:new PlannerProgressTaskBoardTaskFormatImpl(plannerTaskParameterValue?.progressTaskBoardFormat);
         this.referenceCount = plannerTaskParameterValue?.referenceCount;
         this.startDateTime = plannerTaskParameterValue?.startDateTime;
         this.title = plannerTaskParameterValue?.title;

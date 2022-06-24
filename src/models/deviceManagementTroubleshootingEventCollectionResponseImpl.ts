@@ -18,7 +18,8 @@ export class DeviceManagementTroubleshootingEventCollectionResponseImpl implemen
     public constructor(deviceManagementTroubleshootingEventCollectionResponseParameterValue?: DeviceManagementTroubleshootingEventCollectionResponse | undefined) {
         this.additionalData = deviceManagementTroubleshootingEventCollectionResponseParameterValue?.additionalData ? deviceManagementTroubleshootingEventCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = deviceManagementTroubleshootingEventCollectionResponseParameterValue?.nextLink;
-        this.value = deviceManagementTroubleshootingEventCollectionResponseParameterValue?.value;
+        const valueArrValue: DeviceManagementTroubleshootingEventImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof DeviceManagementTroubleshootingEventImpl? element : new DeviceManagementTroubleshootingEventImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -39,7 +40,7 @@ export class DeviceManagementTroubleshootingEventCollectionResponseImpl implemen
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: DeviceManagementTroubleshootingEventImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new DeviceManagementTroubleshootingEventImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: DeviceManagementTroubleshootingEventImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof DeviceManagementTroubleshootingEventImpl? element : new DeviceManagementTroubleshootingEventImpl(element));});
             writer.writeCollectionOfObjectValues<DeviceManagementTroubleshootingEventImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

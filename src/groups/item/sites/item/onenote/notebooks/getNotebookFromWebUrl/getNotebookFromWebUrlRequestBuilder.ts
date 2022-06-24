@@ -1,5 +1,7 @@
 import {CopyNotebookModelImpl} from '../../../../../../../models/';
 import {createCopyNotebookModelFromDiscriminatorValue} from '../../../../../../../models/createCopyNotebookModelFromDiscriminatorValue';
+import {ODataErrorImpl} from '../../../../../../../models/oDataErrors/';
+import {createODataErrorFromDiscriminatorValue} from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {GetNotebookFromWebUrlPostRequestBody} from './getNotebookFromWebUrlPostRequestBody';
 import {GetNotebookFromWebUrlRequestBuilderPostRequestConfiguration} from './getNotebookFromWebUrlRequestBuilderPostRequestConfiguration';
 import {GetNotebookFromWebUrlPostRequestBodyImpl} from './index';
@@ -59,6 +61,10 @@ export class GetNotebookFromWebUrlRequestBuilder {
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration
         );
-        return this.requestAdapter?.sendAsync<CopyNotebookModelImpl>(requestInfo, createCopyNotebookModelFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<CopyNotebookModelImpl>(requestInfo, createCopyNotebookModelFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

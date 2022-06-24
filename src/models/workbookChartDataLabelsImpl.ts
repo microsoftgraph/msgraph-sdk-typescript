@@ -4,7 +4,7 @@ import {WorkbookChartDataLabelFormat} from './workbookChartDataLabelFormat';
 import {WorkbookChartDataLabels} from './workbookChartDataLabels';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to group. */
+/** Provides operations to manage the collection of application entities. */
 export class WorkbookChartDataLabelsImpl extends EntityImpl implements WorkbookChartDataLabels {
     /** Represents the format of chart data labels, which includes fill and font formatting. Read-only. */
     public format?: WorkbookChartDataLabelFormat | undefined;
@@ -30,7 +30,7 @@ export class WorkbookChartDataLabelsImpl extends EntityImpl implements WorkbookC
      */
     public constructor(workbookChartDataLabelsParameterValue?: WorkbookChartDataLabels | undefined) {
         super(workbookChartDataLabelsParameterValue);
-        this.format = workbookChartDataLabelsParameterValue?.format;
+        this.format = workbookChartDataLabelsParameterValue?.format instanceof WorkbookChartDataLabelFormatImpl? workbookChartDataLabelsParameterValue?.format:new WorkbookChartDataLabelFormatImpl(workbookChartDataLabelsParameterValue?.format);
         this.position = workbookChartDataLabelsParameterValue?.position;
         this.separator = workbookChartDataLabelsParameterValue?.separator;
         this.showBubbleSize = workbookChartDataLabelsParameterValue?.showBubbleSize;

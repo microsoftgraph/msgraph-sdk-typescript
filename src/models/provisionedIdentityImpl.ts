@@ -16,7 +16,7 @@ export class ProvisionedIdentityImpl extends IdentityImpl implements Provisioned
      */
     public constructor(provisionedIdentityParameterValue?: ProvisionedIdentity | undefined) {
         super(provisionedIdentityParameterValue);
-        this.details = provisionedIdentityParameterValue?.details;
+        this.details = provisionedIdentityParameterValue?.details instanceof DetailsInfoImpl? provisionedIdentityParameterValue?.details:new DetailsInfoImpl(provisionedIdentityParameterValue?.details);
         this.identityType = provisionedIdentityParameterValue?.identityType;
     };
     /**

@@ -18,7 +18,7 @@ export class SendMailPostRequestBodyImpl implements SendMailPostRequestBody {
      */
     public constructor(sendMailPostRequestBodyParameterValue?: SendMailPostRequestBody | undefined) {
         this.additionalData = sendMailPostRequestBodyParameterValue?.additionalData ? sendMailPostRequestBodyParameterValue?.additionalData! : {};
-        this.message = sendMailPostRequestBodyParameterValue?.message;
+        this.message = sendMailPostRequestBodyParameterValue?.message instanceof MessageImpl? sendMailPostRequestBodyParameterValue?.message:new MessageImpl(sendMailPostRequestBodyParameterValue?.message);
         this.saveToSentItems = sendMailPostRequestBodyParameterValue?.saveToSentItems;
     };
     /**

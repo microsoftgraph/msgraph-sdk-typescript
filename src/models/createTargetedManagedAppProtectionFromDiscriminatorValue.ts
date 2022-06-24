@@ -1,4 +1,4 @@
-import {TargetedManagedAppProtectionImpl} from './index';
+import {AndroidManagedAppProtectionImpl, IosManagedAppProtectionImpl, TargetedManagedAppProtectionImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
 export function createTargetedManagedAppProtectionFromDiscriminatorValue(parseNode: ParseNode | undefined) : TargetedManagedAppProtectionImpl {
@@ -8,8 +8,10 @@ export function createTargetedManagedAppProtectionFromDiscriminatorValue(parseNo
         const mappingValue = mappingValueNode.getStringValue();
         if (mappingValue) {
             switch (mappingValue) {
-                case "#microsoft.graph.targetedManagedAppProtection":
-                    return new TargetedManagedAppProtectionImpl();
+                case "#microsoft.graph.androidManagedAppProtection":
+                    return new AndroidManagedAppProtectionImpl();
+                case "#microsoft.graph.iosManagedAppProtection":
+                    return new IosManagedAppProtectionImpl();
             }
         }
     }

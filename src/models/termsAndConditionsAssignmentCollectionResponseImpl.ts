@@ -18,7 +18,8 @@ export class TermsAndConditionsAssignmentCollectionResponseImpl implements Terms
     public constructor(termsAndConditionsAssignmentCollectionResponseParameterValue?: TermsAndConditionsAssignmentCollectionResponse | undefined) {
         this.additionalData = termsAndConditionsAssignmentCollectionResponseParameterValue?.additionalData ? termsAndConditionsAssignmentCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = termsAndConditionsAssignmentCollectionResponseParameterValue?.nextLink;
-        this.value = termsAndConditionsAssignmentCollectionResponseParameterValue?.value;
+        const valueArrValue: TermsAndConditionsAssignmentImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof TermsAndConditionsAssignmentImpl? element : new TermsAndConditionsAssignmentImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -39,7 +40,7 @@ export class TermsAndConditionsAssignmentCollectionResponseImpl implements Terms
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: TermsAndConditionsAssignmentImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new TermsAndConditionsAssignmentImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: TermsAndConditionsAssignmentImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof TermsAndConditionsAssignmentImpl? element : new TermsAndConditionsAssignmentImpl(element));});
             writer.writeCollectionOfObjectValues<TermsAndConditionsAssignmentImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

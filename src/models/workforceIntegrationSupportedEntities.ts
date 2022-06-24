@@ -1,4 +1,4 @@
-/** Provides operations to manage the teamwork singleton. */
+/** Casts the previous resource to group. */
 export enum WorkforceIntegrationSupportedEntities {
     None = "none",
     Shift = "shift",

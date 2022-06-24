@@ -61,17 +61,19 @@ export class ProvisioningObjectSummaryImpl extends EntityImpl implements Provisi
         this.changeId = provisioningObjectSummaryParameterValue?.changeId;
         this.cycleId = provisioningObjectSummaryParameterValue?.cycleId;
         this.durationInMilliseconds = provisioningObjectSummaryParameterValue?.durationInMilliseconds;
-        this.initiatedBy = provisioningObjectSummaryParameterValue?.initiatedBy;
+        this.initiatedBy = provisioningObjectSummaryParameterValue?.initiatedBy instanceof InitiatorImpl? provisioningObjectSummaryParameterValue?.initiatedBy:new InitiatorImpl(provisioningObjectSummaryParameterValue?.initiatedBy);
         this.jobId = provisioningObjectSummaryParameterValue?.jobId;
-        this.modifiedProperties = provisioningObjectSummaryParameterValue?.modifiedProperties;
+        const modifiedPropertiesArrValue: ModifiedPropertyImpl[] = []; this.modifiedProperties?.forEach(element => {modifiedPropertiesArrValue.push(element instanceof ModifiedPropertyImpl? element : new ModifiedPropertyImpl(element));});
+        this.modifiedProperties = modifiedPropertiesArrValue;
         this.provisioningAction = provisioningObjectSummaryParameterValue?.provisioningAction;
-        this.provisioningStatusInfo = provisioningObjectSummaryParameterValue?.provisioningStatusInfo;
-        this.provisioningSteps = provisioningObjectSummaryParameterValue?.provisioningSteps;
-        this.servicePrincipal = provisioningObjectSummaryParameterValue?.servicePrincipal;
-        this.sourceIdentity = provisioningObjectSummaryParameterValue?.sourceIdentity;
-        this.sourceSystem = provisioningObjectSummaryParameterValue?.sourceSystem;
-        this.targetIdentity = provisioningObjectSummaryParameterValue?.targetIdentity;
-        this.targetSystem = provisioningObjectSummaryParameterValue?.targetSystem;
+        this.provisioningStatusInfo = provisioningObjectSummaryParameterValue?.provisioningStatusInfo instanceof ProvisioningStatusInfoImpl? provisioningObjectSummaryParameterValue?.provisioningStatusInfo:new ProvisioningStatusInfoImpl(provisioningObjectSummaryParameterValue?.provisioningStatusInfo);
+        const provisioningStepsArrValue: ProvisioningStepImpl[] = []; this.provisioningSteps?.forEach(element => {provisioningStepsArrValue.push(element instanceof ProvisioningStepImpl? element : new ProvisioningStepImpl(element));});
+        this.provisioningSteps = provisioningStepsArrValue;
+        this.servicePrincipal = provisioningObjectSummaryParameterValue?.servicePrincipal instanceof ProvisioningServicePrincipalImpl? provisioningObjectSummaryParameterValue?.servicePrincipal:new ProvisioningServicePrincipalImpl(provisioningObjectSummaryParameterValue?.servicePrincipal);
+        this.sourceIdentity = provisioningObjectSummaryParameterValue?.sourceIdentity instanceof ProvisionedIdentityImpl? provisioningObjectSummaryParameterValue?.sourceIdentity:new ProvisionedIdentityImpl(provisioningObjectSummaryParameterValue?.sourceIdentity);
+        this.sourceSystem = provisioningObjectSummaryParameterValue?.sourceSystem instanceof ProvisioningSystemImpl? provisioningObjectSummaryParameterValue?.sourceSystem:new ProvisioningSystemImpl(provisioningObjectSummaryParameterValue?.sourceSystem);
+        this.targetIdentity = provisioningObjectSummaryParameterValue?.targetIdentity instanceof ProvisionedIdentityImpl? provisioningObjectSummaryParameterValue?.targetIdentity:new ProvisionedIdentityImpl(provisioningObjectSummaryParameterValue?.targetIdentity);
+        this.targetSystem = provisioningObjectSummaryParameterValue?.targetSystem instanceof ProvisioningSystemImpl? provisioningObjectSummaryParameterValue?.targetSystem:new ProvisioningSystemImpl(provisioningObjectSummaryParameterValue?.targetSystem);
         this.tenantId = provisioningObjectSummaryParameterValue?.tenantId;
     };
     /**
@@ -123,7 +125,7 @@ export class ProvisioningObjectSummaryImpl extends EntityImpl implements Provisi
         if(this.jobId){
             writer.writeStringValue("jobId", this.jobId);
         }
-        if(this.modifiedProperties && this.modifiedProperties.length != 0){        const modifiedPropertiesArrValue: ModifiedPropertyImpl[] = []; this.modifiedProperties?.forEach(element => {modifiedPropertiesArrValue.push(new ModifiedPropertyImpl(element));});
+        if(this.modifiedProperties && this.modifiedProperties.length != 0){        const modifiedPropertiesArrValue: ModifiedPropertyImpl[] = []; this.modifiedProperties?.forEach(element => {modifiedPropertiesArrValue.push(element instanceof ModifiedPropertyImpl? element : new ModifiedPropertyImpl(element));});
             writer.writeCollectionOfObjectValues<ModifiedPropertyImpl>("modifiedProperties", modifiedPropertiesArrValue);
         }
         if(this.provisioningAction){
@@ -132,7 +134,7 @@ export class ProvisioningObjectSummaryImpl extends EntityImpl implements Provisi
         if(this.provisioningStatusInfo){
             writer.writeObjectValue<ProvisioningStatusInfoImpl>("provisioningStatusInfo", new ProvisioningStatusInfoImpl(this.provisioningStatusInfo));
         }
-        if(this.provisioningSteps && this.provisioningSteps.length != 0){        const provisioningStepsArrValue: ProvisioningStepImpl[] = []; this.provisioningSteps?.forEach(element => {provisioningStepsArrValue.push(new ProvisioningStepImpl(element));});
+        if(this.provisioningSteps && this.provisioningSteps.length != 0){        const provisioningStepsArrValue: ProvisioningStepImpl[] = []; this.provisioningSteps?.forEach(element => {provisioningStepsArrValue.push(element instanceof ProvisioningStepImpl? element : new ProvisioningStepImpl(element));});
             writer.writeCollectionOfObjectValues<ProvisioningStepImpl>("provisioningSteps", provisioningStepsArrValue);
         }
         if(this.servicePrincipal){

@@ -19,7 +19,8 @@ export class WindowsInformationProtectionProxiedDomainCollectionImpl implements 
     public constructor(windowsInformationProtectionProxiedDomainCollectionParameterValue?: WindowsInformationProtectionProxiedDomainCollection | undefined) {
         this.additionalData = windowsInformationProtectionProxiedDomainCollectionParameterValue?.additionalData ? windowsInformationProtectionProxiedDomainCollectionParameterValue?.additionalData! : {};
         this.displayName = windowsInformationProtectionProxiedDomainCollectionParameterValue?.displayName;
-        this.proxiedDomains = windowsInformationProtectionProxiedDomainCollectionParameterValue?.proxiedDomains;
+        const proxiedDomainsArrValue: ProxiedDomainImpl[] = []; this.proxiedDomains?.forEach(element => {proxiedDomainsArrValue.push(element instanceof ProxiedDomainImpl? element : new ProxiedDomainImpl(element));});
+        this.proxiedDomains = proxiedDomainsArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +41,7 @@ export class WindowsInformationProtectionProxiedDomainCollectionImpl implements 
         if(this.displayName){
             writer.writeStringValue("displayName", this.displayName);
         }
-        if(this.proxiedDomains && this.proxiedDomains.length != 0){        const proxiedDomainsArrValue: ProxiedDomainImpl[] = []; this.proxiedDomains?.forEach(element => {proxiedDomainsArrValue.push(new ProxiedDomainImpl(element));});
+        if(this.proxiedDomains && this.proxiedDomains.length != 0){        const proxiedDomainsArrValue: ProxiedDomainImpl[] = []; this.proxiedDomains?.forEach(element => {proxiedDomainsArrValue.push(element instanceof ProxiedDomainImpl? element : new ProxiedDomainImpl(element));});
             writer.writeCollectionOfObjectValues<ProxiedDomainImpl>("proxiedDomains", proxiedDomainsArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

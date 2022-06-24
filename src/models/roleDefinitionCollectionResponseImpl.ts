@@ -18,7 +18,8 @@ export class RoleDefinitionCollectionResponseImpl implements RoleDefinitionColle
     public constructor(roleDefinitionCollectionResponseParameterValue?: RoleDefinitionCollectionResponse | undefined) {
         this.additionalData = roleDefinitionCollectionResponseParameterValue?.additionalData ? roleDefinitionCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = roleDefinitionCollectionResponseParameterValue?.nextLink;
-        this.value = roleDefinitionCollectionResponseParameterValue?.value;
+        const valueArrValue: RoleDefinitionImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof RoleDefinitionImpl? element : new RoleDefinitionImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -39,7 +40,7 @@ export class RoleDefinitionCollectionResponseImpl implements RoleDefinitionColle
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: RoleDefinitionImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new RoleDefinitionImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: RoleDefinitionImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof RoleDefinitionImpl? element : new RoleDefinitionImpl(element));});
             writer.writeCollectionOfObjectValues<RoleDefinitionImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

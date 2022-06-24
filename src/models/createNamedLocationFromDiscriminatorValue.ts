@@ -1,4 +1,4 @@
-import {NamedLocationImpl} from './index';
+import {CountryNamedLocationImpl, IpNamedLocationImpl, NamedLocationImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
 export function createNamedLocationFromDiscriminatorValue(parseNode: ParseNode | undefined) : NamedLocationImpl {
@@ -8,8 +8,10 @@ export function createNamedLocationFromDiscriminatorValue(parseNode: ParseNode |
         const mappingValue = mappingValueNode.getStringValue();
         if (mappingValue) {
             switch (mappingValue) {
-                case "#microsoft.graph.namedLocation":
-                    return new NamedLocationImpl();
+                case "#microsoft.graph.countryNamedLocation":
+                    return new CountryNamedLocationImpl();
+                case "#microsoft.graph.ipNamedLocation":
+                    return new IpNamedLocationImpl();
             }
         }
     }

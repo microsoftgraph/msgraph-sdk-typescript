@@ -1,3 +1,5 @@
+import {ODataErrorImpl} from '../../../../models/oDataErrors/';
+import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {createGetOmaSettingPlainTextValueWithSecretReferenceValueIdResponseFromDiscriminatorValue} from './createGetOmaSettingPlainTextValueWithSecretReferenceValueIdResponseFromDiscriminatorValue';
 import {GetOmaSettingPlainTextValueWithSecretReferenceValueIdRequestBuilderGetRequestConfiguration} from './getOmaSettingPlainTextValueWithSecretReferenceValueIdRequestBuilderGetRequestConfiguration';
 import {GetOmaSettingPlainTextValueWithSecretReferenceValueIdResponseImpl} from './index';
@@ -53,6 +55,10 @@ export class GetOmaSettingPlainTextValueWithSecretReferenceValueIdRequestBuilder
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
-        return this.requestAdapter?.sendAsync<GetOmaSettingPlainTextValueWithSecretReferenceValueIdResponseImpl>(requestInfo, createGetOmaSettingPlainTextValueWithSecretReferenceValueIdResponseFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<GetOmaSettingPlainTextValueWithSecretReferenceValueIdResponseImpl>(requestInfo, createGetOmaSettingPlainTextValueWithSecretReferenceValueIdResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

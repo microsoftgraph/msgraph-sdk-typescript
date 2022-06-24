@@ -1,0 +1,7 @@
+import {IosNetworkUsageRuleImpl} from './index';
+import {ParseNode} from '@microsoft/kiota-abstractions';
+
+export function createIosNetworkUsageRuleFromDiscriminatorValue(parseNode: ParseNode | undefined) : IosNetworkUsageRuleImpl {
+    if(!parseNode) throw new Error("parseNode cannot be undefined");
+    return new IosNetworkUsageRuleImpl();
+}

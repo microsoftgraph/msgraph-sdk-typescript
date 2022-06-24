@@ -42,14 +42,21 @@ export class EntitlementManagementImpl extends EntityImpl implements Entitlement
      */
     public constructor(entitlementManagementParameterValue?: EntitlementManagement | undefined) {
         super(entitlementManagementParameterValue);
-        this.accessPackageAssignmentApprovals = entitlementManagementParameterValue?.accessPackageAssignmentApprovals;
-        this.accessPackages = entitlementManagementParameterValue?.accessPackages;
-        this.assignmentPolicies = entitlementManagementParameterValue?.assignmentPolicies;
-        this.assignmentRequests = entitlementManagementParameterValue?.assignmentRequests;
-        this.assignments = entitlementManagementParameterValue?.assignments;
-        this.catalogs = entitlementManagementParameterValue?.catalogs;
-        this.connectedOrganizations = entitlementManagementParameterValue?.connectedOrganizations;
-        this.settings = entitlementManagementParameterValue?.settings;
+        const accessPackageAssignmentApprovalsArrValue: ApprovalImpl[] = []; this.accessPackageAssignmentApprovals?.forEach(element => {accessPackageAssignmentApprovalsArrValue.push(element instanceof ApprovalImpl? element : new ApprovalImpl(element));});
+        this.accessPackageAssignmentApprovals = accessPackageAssignmentApprovalsArrValue;
+        const accessPackagesArrValue: AccessPackageImpl[] = []; this.accessPackages?.forEach(element => {accessPackagesArrValue.push(element instanceof AccessPackageImpl? element : new AccessPackageImpl(element));});
+        this.accessPackages = accessPackagesArrValue;
+        const assignmentPoliciesArrValue: AccessPackageAssignmentPolicyImpl[] = []; this.assignmentPolicies?.forEach(element => {assignmentPoliciesArrValue.push(element instanceof AccessPackageAssignmentPolicyImpl? element : new AccessPackageAssignmentPolicyImpl(element));});
+        this.assignmentPolicies = assignmentPoliciesArrValue;
+        const assignmentRequestsArrValue: AccessPackageAssignmentRequestImpl[] = []; this.assignmentRequests?.forEach(element => {assignmentRequestsArrValue.push(element instanceof AccessPackageAssignmentRequestImpl? element : new AccessPackageAssignmentRequestImpl(element));});
+        this.assignmentRequests = assignmentRequestsArrValue;
+        const assignmentsArrValue: AccessPackageAssignmentImpl[] = []; this.assignments?.forEach(element => {assignmentsArrValue.push(element instanceof AccessPackageAssignmentImpl? element : new AccessPackageAssignmentImpl(element));});
+        this.assignments = assignmentsArrValue;
+        const catalogsArrValue: AccessPackageCatalogImpl[] = []; this.catalogs?.forEach(element => {catalogsArrValue.push(element instanceof AccessPackageCatalogImpl? element : new AccessPackageCatalogImpl(element));});
+        this.catalogs = catalogsArrValue;
+        const connectedOrganizationsArrValue: ConnectedOrganizationImpl[] = []; this.connectedOrganizations?.forEach(element => {connectedOrganizationsArrValue.push(element instanceof ConnectedOrganizationImpl? element : new ConnectedOrganizationImpl(element));});
+        this.connectedOrganizations = connectedOrganizationsArrValue;
+        this.settings = entitlementManagementParameterValue?.settings instanceof EntitlementManagementSettingsImpl? entitlementManagementParameterValue?.settings:new EntitlementManagementSettingsImpl(entitlementManagementParameterValue?.settings);
     };
     /**
      * The deserialization information for the current model
@@ -74,25 +81,25 @@ export class EntitlementManagementImpl extends EntityImpl implements Entitlement
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.accessPackageAssignmentApprovals && this.accessPackageAssignmentApprovals.length != 0){        const accessPackageAssignmentApprovalsArrValue: ApprovalImpl[] = []; this.accessPackageAssignmentApprovals?.forEach(element => {accessPackageAssignmentApprovalsArrValue.push(new ApprovalImpl(element));});
+        if(this.accessPackageAssignmentApprovals && this.accessPackageAssignmentApprovals.length != 0){        const accessPackageAssignmentApprovalsArrValue: ApprovalImpl[] = []; this.accessPackageAssignmentApprovals?.forEach(element => {accessPackageAssignmentApprovalsArrValue.push(element instanceof ApprovalImpl? element : new ApprovalImpl(element));});
             writer.writeCollectionOfObjectValues<ApprovalImpl>("accessPackageAssignmentApprovals", accessPackageAssignmentApprovalsArrValue);
         }
-        if(this.accessPackages && this.accessPackages.length != 0){        const accessPackagesArrValue: AccessPackageImpl[] = []; this.accessPackages?.forEach(element => {accessPackagesArrValue.push(new AccessPackageImpl(element));});
+        if(this.accessPackages && this.accessPackages.length != 0){        const accessPackagesArrValue: AccessPackageImpl[] = []; this.accessPackages?.forEach(element => {accessPackagesArrValue.push(element instanceof AccessPackageImpl? element : new AccessPackageImpl(element));});
             writer.writeCollectionOfObjectValues<AccessPackageImpl>("accessPackages", accessPackagesArrValue);
         }
-        if(this.assignmentPolicies && this.assignmentPolicies.length != 0){        const assignmentPoliciesArrValue: AccessPackageAssignmentPolicyImpl[] = []; this.assignmentPolicies?.forEach(element => {assignmentPoliciesArrValue.push(new AccessPackageAssignmentPolicyImpl(element));});
+        if(this.assignmentPolicies && this.assignmentPolicies.length != 0){        const assignmentPoliciesArrValue: AccessPackageAssignmentPolicyImpl[] = []; this.assignmentPolicies?.forEach(element => {assignmentPoliciesArrValue.push(element instanceof AccessPackageAssignmentPolicyImpl? element : new AccessPackageAssignmentPolicyImpl(element));});
             writer.writeCollectionOfObjectValues<AccessPackageAssignmentPolicyImpl>("assignmentPolicies", assignmentPoliciesArrValue);
         }
-        if(this.assignmentRequests && this.assignmentRequests.length != 0){        const assignmentRequestsArrValue: AccessPackageAssignmentRequestImpl[] = []; this.assignmentRequests?.forEach(element => {assignmentRequestsArrValue.push(new AccessPackageAssignmentRequestImpl(element));});
+        if(this.assignmentRequests && this.assignmentRequests.length != 0){        const assignmentRequestsArrValue: AccessPackageAssignmentRequestImpl[] = []; this.assignmentRequests?.forEach(element => {assignmentRequestsArrValue.push(element instanceof AccessPackageAssignmentRequestImpl? element : new AccessPackageAssignmentRequestImpl(element));});
             writer.writeCollectionOfObjectValues<AccessPackageAssignmentRequestImpl>("assignmentRequests", assignmentRequestsArrValue);
         }
-        if(this.assignments && this.assignments.length != 0){        const assignmentsArrValue: AccessPackageAssignmentImpl[] = []; this.assignments?.forEach(element => {assignmentsArrValue.push(new AccessPackageAssignmentImpl(element));});
+        if(this.assignments && this.assignments.length != 0){        const assignmentsArrValue: AccessPackageAssignmentImpl[] = []; this.assignments?.forEach(element => {assignmentsArrValue.push(element instanceof AccessPackageAssignmentImpl? element : new AccessPackageAssignmentImpl(element));});
             writer.writeCollectionOfObjectValues<AccessPackageAssignmentImpl>("assignments", assignmentsArrValue);
         }
-        if(this.catalogs && this.catalogs.length != 0){        const catalogsArrValue: AccessPackageCatalogImpl[] = []; this.catalogs?.forEach(element => {catalogsArrValue.push(new AccessPackageCatalogImpl(element));});
+        if(this.catalogs && this.catalogs.length != 0){        const catalogsArrValue: AccessPackageCatalogImpl[] = []; this.catalogs?.forEach(element => {catalogsArrValue.push(element instanceof AccessPackageCatalogImpl? element : new AccessPackageCatalogImpl(element));});
             writer.writeCollectionOfObjectValues<AccessPackageCatalogImpl>("catalogs", catalogsArrValue);
         }
-        if(this.connectedOrganizations && this.connectedOrganizations.length != 0){        const connectedOrganizationsArrValue: ConnectedOrganizationImpl[] = []; this.connectedOrganizations?.forEach(element => {connectedOrganizationsArrValue.push(new ConnectedOrganizationImpl(element));});
+        if(this.connectedOrganizations && this.connectedOrganizations.length != 0){        const connectedOrganizationsArrValue: ConnectedOrganizationImpl[] = []; this.connectedOrganizations?.forEach(element => {connectedOrganizationsArrValue.push(element instanceof ConnectedOrganizationImpl? element : new ConnectedOrganizationImpl(element));});
             writer.writeCollectionOfObjectValues<ConnectedOrganizationImpl>("connectedOrganizations", connectedOrganizationsArrValue);
         }
         if(this.settings){

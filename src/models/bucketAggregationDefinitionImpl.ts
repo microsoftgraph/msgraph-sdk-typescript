@@ -27,7 +27,8 @@ export class BucketAggregationDefinitionImpl implements BucketAggregationDefinit
         this.isDescending = bucketAggregationDefinitionParameterValue?.isDescending;
         this.minimumCount = bucketAggregationDefinitionParameterValue?.minimumCount;
         this.prefixFilter = bucketAggregationDefinitionParameterValue?.prefixFilter;
-        this.ranges = bucketAggregationDefinitionParameterValue?.ranges;
+        const rangesArrValue: BucketAggregationRangeImpl[] = []; this.ranges?.forEach(element => {rangesArrValue.push(element instanceof BucketAggregationRangeImpl? element : new BucketAggregationRangeImpl(element));});
+        this.ranges = rangesArrValue;
         this.sortBy = bucketAggregationDefinitionParameterValue?.sortBy;
     };
     /**
@@ -58,7 +59,7 @@ export class BucketAggregationDefinitionImpl implements BucketAggregationDefinit
         if(this.prefixFilter){
             writer.writeStringValue("prefixFilter", this.prefixFilter);
         }
-        if(this.ranges && this.ranges.length != 0){        const rangesArrValue: BucketAggregationRangeImpl[] = []; this.ranges?.forEach(element => {rangesArrValue.push(new BucketAggregationRangeImpl(element));});
+        if(this.ranges && this.ranges.length != 0){        const rangesArrValue: BucketAggregationRangeImpl[] = []; this.ranges?.forEach(element => {rangesArrValue.push(element instanceof BucketAggregationRangeImpl? element : new BucketAggregationRangeImpl(element));});
             writer.writeCollectionOfObjectValues<BucketAggregationRangeImpl>("ranges", rangesArrValue);
         }
         if(this.sortBy){

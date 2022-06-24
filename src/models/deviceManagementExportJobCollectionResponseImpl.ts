@@ -18,7 +18,8 @@ export class DeviceManagementExportJobCollectionResponseImpl implements DeviceMa
     public constructor(deviceManagementExportJobCollectionResponseParameterValue?: DeviceManagementExportJobCollectionResponse | undefined) {
         this.additionalData = deviceManagementExportJobCollectionResponseParameterValue?.additionalData ? deviceManagementExportJobCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = deviceManagementExportJobCollectionResponseParameterValue?.nextLink;
-        this.value = deviceManagementExportJobCollectionResponseParameterValue?.value;
+        const valueArrValue: DeviceManagementExportJobImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof DeviceManagementExportJobImpl? element : new DeviceManagementExportJobImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -39,7 +40,7 @@ export class DeviceManagementExportJobCollectionResponseImpl implements DeviceMa
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: DeviceManagementExportJobImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new DeviceManagementExportJobImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: DeviceManagementExportJobImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof DeviceManagementExportJobImpl? element : new DeviceManagementExportJobImpl(element));});
             writer.writeCollectionOfObjectValues<DeviceManagementExportJobImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

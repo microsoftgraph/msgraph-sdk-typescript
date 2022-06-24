@@ -38,15 +38,17 @@ export class EducationRubricImpl extends EntityImpl implements EducationRubric {
      */
     public constructor(educationRubricParameterValue?: EducationRubric | undefined) {
         super(educationRubricParameterValue);
-        this.createdBy = educationRubricParameterValue?.createdBy;
+        this.createdBy = educationRubricParameterValue?.createdBy instanceof IdentitySetImpl? educationRubricParameterValue?.createdBy:new IdentitySetImpl(educationRubricParameterValue?.createdBy);
         this.createdDateTime = educationRubricParameterValue?.createdDateTime;
-        this.description = educationRubricParameterValue?.description;
+        this.description = educationRubricParameterValue?.description instanceof EducationItemBodyImpl? educationRubricParameterValue?.description:new EducationItemBodyImpl(educationRubricParameterValue?.description);
         this.displayName = educationRubricParameterValue?.displayName;
-        this.grading = educationRubricParameterValue?.grading;
-        this.lastModifiedBy = educationRubricParameterValue?.lastModifiedBy;
+        this.grading = educationRubricParameterValue?.grading instanceof EducationAssignmentGradeTypeImpl? educationRubricParameterValue?.grading:new EducationAssignmentGradeTypeImpl(educationRubricParameterValue?.grading);
+        this.lastModifiedBy = educationRubricParameterValue?.lastModifiedBy instanceof IdentitySetImpl? educationRubricParameterValue?.lastModifiedBy:new IdentitySetImpl(educationRubricParameterValue?.lastModifiedBy);
         this.lastModifiedDateTime = educationRubricParameterValue?.lastModifiedDateTime;
-        this.levels = educationRubricParameterValue?.levels;
-        this.qualities = educationRubricParameterValue?.qualities;
+        const levelsArrValue: RubricLevelImpl[] = []; this.levels?.forEach(element => {levelsArrValue.push(element instanceof RubricLevelImpl? element : new RubricLevelImpl(element));});
+        this.levels = levelsArrValue;
+        const qualitiesArrValue: RubricQualityImpl[] = []; this.qualities?.forEach(element => {qualitiesArrValue.push(element instanceof RubricQualityImpl? element : new RubricQualityImpl(element));});
+        this.qualities = qualitiesArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -93,10 +95,10 @@ export class EducationRubricImpl extends EntityImpl implements EducationRubric {
         if(this.lastModifiedDateTime){
             writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
         }
-        if(this.levels && this.levels.length != 0){        const levelsArrValue: RubricLevelImpl[] = []; this.levels?.forEach(element => {levelsArrValue.push(new RubricLevelImpl(element));});
+        if(this.levels && this.levels.length != 0){        const levelsArrValue: RubricLevelImpl[] = []; this.levels?.forEach(element => {levelsArrValue.push(element instanceof RubricLevelImpl? element : new RubricLevelImpl(element));});
             writer.writeCollectionOfObjectValues<RubricLevelImpl>("levels", levelsArrValue);
         }
-        if(this.qualities && this.qualities.length != 0){        const qualitiesArrValue: RubricQualityImpl[] = []; this.qualities?.forEach(element => {qualitiesArrValue.push(new RubricQualityImpl(element));});
+        if(this.qualities && this.qualities.length != 0){        const qualitiesArrValue: RubricQualityImpl[] = []; this.qualities?.forEach(element => {qualitiesArrValue.push(element instanceof RubricQualityImpl? element : new RubricQualityImpl(element));});
             writer.writeCollectionOfObjectValues<RubricQualityImpl>("qualities", qualitiesArrValue);
         }
     };

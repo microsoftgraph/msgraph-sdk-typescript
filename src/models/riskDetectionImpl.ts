@@ -64,7 +64,7 @@ export class RiskDetectionImpl extends EntityImpl implements RiskDetection {
         this.detectionTimingType = riskDetectionParameterValue?.detectionTimingType;
         this.ipAddress = riskDetectionParameterValue?.ipAddress;
         this.lastUpdatedDateTime = riskDetectionParameterValue?.lastUpdatedDateTime;
-        this.location = riskDetectionParameterValue?.location;
+        this.location = riskDetectionParameterValue?.location instanceof SignInLocationImpl? riskDetectionParameterValue?.location:new SignInLocationImpl(riskDetectionParameterValue?.location);
         this.requestId = riskDetectionParameterValue?.requestId;
         this.riskDetail = riskDetectionParameterValue?.riskDetail;
         this.riskEventType = riskDetectionParameterValue?.riskEventType;

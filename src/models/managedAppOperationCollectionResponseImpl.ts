@@ -18,7 +18,8 @@ export class ManagedAppOperationCollectionResponseImpl implements ManagedAppOper
     public constructor(managedAppOperationCollectionResponseParameterValue?: ManagedAppOperationCollectionResponse | undefined) {
         this.additionalData = managedAppOperationCollectionResponseParameterValue?.additionalData ? managedAppOperationCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = managedAppOperationCollectionResponseParameterValue?.nextLink;
-        this.value = managedAppOperationCollectionResponseParameterValue?.value;
+        const valueArrValue: ManagedAppOperationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ManagedAppOperationImpl? element : new ManagedAppOperationImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -39,7 +40,7 @@ export class ManagedAppOperationCollectionResponseImpl implements ManagedAppOper
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: ManagedAppOperationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ManagedAppOperationImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: ManagedAppOperationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ManagedAppOperationImpl? element : new ManagedAppOperationImpl(element));});
             writer.writeCollectionOfObjectValues<ManagedAppOperationImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

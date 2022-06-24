@@ -26,8 +26,9 @@ export class MainErrorImpl implements MainError {
     public constructor(mainErrorParameterValue?: MainError | undefined) {
         this.additionalData = mainErrorParameterValue?.additionalData ? mainErrorParameterValue?.additionalData! : {};
         this.code = mainErrorParameterValue?.code;
-        this.details = mainErrorParameterValue?.details;
-        this.innererror = mainErrorParameterValue?.innererror;
+        const detailsArrValue: ErrorDetailsImpl[] = []; this.details?.forEach(element => {detailsArrValue.push(element instanceof ErrorDetailsImpl? element : new ErrorDetailsImpl(element));});
+        this.details = detailsArrValue;
+        this.innererror = mainErrorParameterValue?.innererror instanceof InnerErrorImpl? mainErrorParameterValue?.innererror:new InnerErrorImpl(mainErrorParameterValue?.innererror);
         this.message = mainErrorParameterValue?.message;
         this.target = mainErrorParameterValue?.target;
     };
@@ -53,7 +54,7 @@ export class MainErrorImpl implements MainError {
         if(this.code){
             writer.writeStringValue("code", this.code);
         }
-        if(this.details && this.details.length != 0){        const detailsArrValue: ErrorDetailsImpl[] = []; this.details?.forEach(element => {detailsArrValue.push(new ErrorDetailsImpl(element));});
+        if(this.details && this.details.length != 0){        const detailsArrValue: ErrorDetailsImpl[] = []; this.details?.forEach(element => {detailsArrValue.push(element instanceof ErrorDetailsImpl? element : new ErrorDetailsImpl(element));});
             writer.writeCollectionOfObjectValues<ErrorDetailsImpl>("details", detailsArrValue);
         }
         if(this.innererror){

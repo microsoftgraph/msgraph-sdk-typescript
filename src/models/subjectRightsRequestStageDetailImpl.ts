@@ -21,7 +21,7 @@ export class SubjectRightsRequestStageDetailImpl implements SubjectRightsRequest
      */
     public constructor(subjectRightsRequestStageDetailParameterValue?: SubjectRightsRequestStageDetail | undefined) {
         this.additionalData = subjectRightsRequestStageDetailParameterValue?.additionalData ? subjectRightsRequestStageDetailParameterValue?.additionalData! : {};
-        this.error_escaped = subjectRightsRequestStageDetailParameterValue?.error_escaped;
+        this.error_escaped = subjectRightsRequestStageDetailParameterValue?.error_escaped instanceof PublicErrorImpl? subjectRightsRequestStageDetailParameterValue?.error_escaped:new PublicErrorImpl(subjectRightsRequestStageDetailParameterValue?.error_escaped);
         this.stage = subjectRightsRequestStageDetailParameterValue?.stage;
         this.status = subjectRightsRequestStageDetailParameterValue?.status;
     };

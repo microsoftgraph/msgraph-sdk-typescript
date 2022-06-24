@@ -4,7 +4,7 @@ import {WorkbookChartTitle} from './workbookChartTitle';
 import {WorkbookChartTitleFormat} from './workbookChartTitleFormat';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to group. */
+/** Provides operations to manage the collection of application entities. */
 export class WorkbookChartTitleImpl extends EntityImpl implements WorkbookChartTitle {
     /** Represents the formatting of a chart title, which includes fill and font formatting. Read-only. */
     public format?: WorkbookChartTitleFormat | undefined;
@@ -20,7 +20,7 @@ export class WorkbookChartTitleImpl extends EntityImpl implements WorkbookChartT
      */
     public constructor(workbookChartTitleParameterValue?: WorkbookChartTitle | undefined) {
         super(workbookChartTitleParameterValue);
-        this.format = workbookChartTitleParameterValue?.format;
+        this.format = workbookChartTitleParameterValue?.format instanceof WorkbookChartTitleFormatImpl? workbookChartTitleParameterValue?.format:new WorkbookChartTitleFormatImpl(workbookChartTitleParameterValue?.format);
         this.overlay = workbookChartTitleParameterValue?.overlay;
         this.text = workbookChartTitleParameterValue?.text;
         this.visible = workbookChartTitleParameterValue?.visible;

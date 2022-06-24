@@ -17,7 +17,7 @@ export class ConnectionOperationImpl extends EntityImpl implements ConnectionOpe
      */
     public constructor(connectionOperationParameterValue?: ConnectionOperation | undefined) {
         super(connectionOperationParameterValue);
-        this.error_escaped = connectionOperationParameterValue?.error_escaped;
+        this.error_escaped = connectionOperationParameterValue?.error_escaped instanceof PublicErrorImpl? connectionOperationParameterValue?.error_escaped:new PublicErrorImpl(connectionOperationParameterValue?.error_escaped);
         this.status = connectionOperationParameterValue?.status;
     };
     /**

@@ -28,10 +28,10 @@ export class CreateOrGetPostRequestBodyImpl implements CreateOrGetPostRequestBod
      */
     public constructor(createOrGetPostRequestBodyParameterValue?: CreateOrGetPostRequestBody | undefined) {
         this.additionalData = createOrGetPostRequestBodyParameterValue?.additionalData ? createOrGetPostRequestBodyParameterValue?.additionalData! : {};
-        this.chatInfo = createOrGetPostRequestBodyParameterValue?.chatInfo;
+        this.chatInfo = createOrGetPostRequestBodyParameterValue?.chatInfo instanceof ChatInfoImpl? createOrGetPostRequestBodyParameterValue?.chatInfo:new ChatInfoImpl(createOrGetPostRequestBodyParameterValue?.chatInfo);
         this.endDateTime = createOrGetPostRequestBodyParameterValue?.endDateTime;
         this.externalId = createOrGetPostRequestBodyParameterValue?.externalId;
-        this.participants = createOrGetPostRequestBodyParameterValue?.participants;
+        this.participants = createOrGetPostRequestBodyParameterValue?.participants instanceof MeetingParticipantsImpl? createOrGetPostRequestBodyParameterValue?.participants:new MeetingParticipantsImpl(createOrGetPostRequestBodyParameterValue?.participants);
         this.startDateTime = createOrGetPostRequestBodyParameterValue?.startDateTime;
         this.subject = createOrGetPostRequestBodyParameterValue?.subject;
     };

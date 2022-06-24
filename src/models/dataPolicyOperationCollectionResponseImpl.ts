@@ -18,7 +18,8 @@ export class DataPolicyOperationCollectionResponseImpl implements DataPolicyOper
     public constructor(dataPolicyOperationCollectionResponseParameterValue?: DataPolicyOperationCollectionResponse | undefined) {
         this.additionalData = dataPolicyOperationCollectionResponseParameterValue?.additionalData ? dataPolicyOperationCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = dataPolicyOperationCollectionResponseParameterValue?.nextLink;
-        this.value = dataPolicyOperationCollectionResponseParameterValue?.value;
+        const valueArrValue: DataPolicyOperationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof DataPolicyOperationImpl? element : new DataPolicyOperationImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -39,7 +40,7 @@ export class DataPolicyOperationCollectionResponseImpl implements DataPolicyOper
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: DataPolicyOperationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new DataPolicyOperationImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: DataPolicyOperationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof DataPolicyOperationImpl? element : new DataPolicyOperationImpl(element));});
             writer.writeCollectionOfObjectValues<DataPolicyOperationImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

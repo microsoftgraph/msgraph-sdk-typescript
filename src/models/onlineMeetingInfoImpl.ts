@@ -27,7 +27,8 @@ export class OnlineMeetingInfoImpl implements OnlineMeetingInfo {
         this.additionalData = onlineMeetingInfoParameterValue?.additionalData ? onlineMeetingInfoParameterValue?.additionalData! : {};
         this.conferenceId = onlineMeetingInfoParameterValue?.conferenceId;
         this.joinUrl = onlineMeetingInfoParameterValue?.joinUrl;
-        this.phones = onlineMeetingInfoParameterValue?.phones;
+        const phonesArrValue: PhoneImpl[] = []; this.phones?.forEach(element => {phonesArrValue.push(element instanceof PhoneImpl? element : new PhoneImpl(element));});
+        this.phones = phonesArrValue;
         this.quickDial = onlineMeetingInfoParameterValue?.quickDial;
         this.tollFreeNumbers = onlineMeetingInfoParameterValue?.tollFreeNumbers;
         this.tollNumber = onlineMeetingInfoParameterValue?.tollNumber;
@@ -58,7 +59,7 @@ export class OnlineMeetingInfoImpl implements OnlineMeetingInfo {
         if(this.joinUrl){
             writer.writeStringValue("joinUrl", this.joinUrl);
         }
-        if(this.phones && this.phones.length != 0){        const phonesArrValue: PhoneImpl[] = []; this.phones?.forEach(element => {phonesArrValue.push(new PhoneImpl(element));});
+        if(this.phones && this.phones.length != 0){        const phonesArrValue: PhoneImpl[] = []; this.phones?.forEach(element => {phonesArrValue.push(element instanceof PhoneImpl? element : new PhoneImpl(element));});
             writer.writeCollectionOfObjectValues<PhoneImpl>("phones", phonesArrValue);
         }
         if(this.quickDial){

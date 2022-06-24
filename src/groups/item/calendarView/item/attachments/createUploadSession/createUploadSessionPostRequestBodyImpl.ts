@@ -16,7 +16,7 @@ export class CreateUploadSessionPostRequestBodyImpl implements CreateUploadSessi
      */
     public constructor(createUploadSessionPostRequestBodyParameterValue?: CreateUploadSessionPostRequestBody | undefined) {
         this.additionalData = createUploadSessionPostRequestBodyParameterValue?.additionalData ? createUploadSessionPostRequestBodyParameterValue?.additionalData! : {};
-        this.attachmentItem = createUploadSessionPostRequestBodyParameterValue?.attachmentItem;
+        this.attachmentItem = createUploadSessionPostRequestBodyParameterValue?.attachmentItem instanceof AttachmentItemImpl? createUploadSessionPostRequestBodyParameterValue?.attachmentItem:new AttachmentItemImpl(createUploadSessionPostRequestBodyParameterValue?.attachmentItem);
     };
     /**
      * The deserialization information for the current model

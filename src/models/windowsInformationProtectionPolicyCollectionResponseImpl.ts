@@ -18,7 +18,8 @@ export class WindowsInformationProtectionPolicyCollectionResponseImpl implements
     public constructor(windowsInformationProtectionPolicyCollectionResponseParameterValue?: WindowsInformationProtectionPolicyCollectionResponse | undefined) {
         this.additionalData = windowsInformationProtectionPolicyCollectionResponseParameterValue?.additionalData ? windowsInformationProtectionPolicyCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = windowsInformationProtectionPolicyCollectionResponseParameterValue?.nextLink;
-        this.value = windowsInformationProtectionPolicyCollectionResponseParameterValue?.value;
+        const valueArrValue: WindowsInformationProtectionPolicyImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof WindowsInformationProtectionPolicyImpl? element : new WindowsInformationProtectionPolicyImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -39,7 +40,7 @@ export class WindowsInformationProtectionPolicyCollectionResponseImpl implements
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: WindowsInformationProtectionPolicyImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new WindowsInformationProtectionPolicyImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: WindowsInformationProtectionPolicyImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof WindowsInformationProtectionPolicyImpl? element : new WindowsInformationProtectionPolicyImpl(element));});
             writer.writeCollectionOfObjectValues<WindowsInformationProtectionPolicyImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

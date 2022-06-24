@@ -16,7 +16,8 @@ export class AssignPostRequestBodyImpl implements AssignPostRequestBody {
      */
     public constructor(assignPostRequestBodyParameterValue?: AssignPostRequestBody | undefined) {
         this.additionalData = assignPostRequestBodyParameterValue?.additionalData ? assignPostRequestBodyParameterValue?.additionalData! : {};
-        this.mobileAppAssignments = assignPostRequestBodyParameterValue?.mobileAppAssignments;
+        const mobileAppAssignmentsArrValue: MobileAppAssignmentImpl[] = []; this.mobileAppAssignments?.forEach(element => {mobileAppAssignmentsArrValue.push(element instanceof MobileAppAssignmentImpl? element : new MobileAppAssignmentImpl(element));});
+        this.mobileAppAssignments = mobileAppAssignmentsArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -33,7 +34,7 @@ export class AssignPostRequestBodyImpl implements AssignPostRequestBody {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        if(this.mobileAppAssignments && this.mobileAppAssignments.length != 0){        const mobileAppAssignmentsArrValue: MobileAppAssignmentImpl[] = []; this.mobileAppAssignments?.forEach(element => {mobileAppAssignmentsArrValue.push(new MobileAppAssignmentImpl(element));});
+        if(this.mobileAppAssignments && this.mobileAppAssignments.length != 0){        const mobileAppAssignmentsArrValue: MobileAppAssignmentImpl[] = []; this.mobileAppAssignments?.forEach(element => {mobileAppAssignmentsArrValue.push(element instanceof MobileAppAssignmentImpl? element : new MobileAppAssignmentImpl(element));});
             writer.writeCollectionOfObjectValues<MobileAppAssignmentImpl>("mobileAppAssignments", mobileAppAssignmentsArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

@@ -28,10 +28,11 @@ export class ScheduleInformationImpl implements ScheduleInformation {
     public constructor(scheduleInformationParameterValue?: ScheduleInformation | undefined) {
         this.additionalData = scheduleInformationParameterValue?.additionalData ? scheduleInformationParameterValue?.additionalData! : {};
         this.availabilityView = scheduleInformationParameterValue?.availabilityView;
-        this.error_escaped = scheduleInformationParameterValue?.error_escaped;
+        this.error_escaped = scheduleInformationParameterValue?.error_escaped instanceof FreeBusyErrorImpl? scheduleInformationParameterValue?.error_escaped:new FreeBusyErrorImpl(scheduleInformationParameterValue?.error_escaped);
         this.scheduleId = scheduleInformationParameterValue?.scheduleId;
-        this.scheduleItems = scheduleInformationParameterValue?.scheduleItems;
-        this.workingHours = scheduleInformationParameterValue?.workingHours;
+        const scheduleItemsArrValue: ScheduleItemImpl[] = []; this.scheduleItems?.forEach(element => {scheduleItemsArrValue.push(element instanceof ScheduleItemImpl? element : new ScheduleItemImpl(element));});
+        this.scheduleItems = scheduleItemsArrValue;
+        this.workingHours = scheduleInformationParameterValue?.workingHours instanceof WorkingHoursImpl? scheduleInformationParameterValue?.workingHours:new WorkingHoursImpl(scheduleInformationParameterValue?.workingHours);
     };
     /**
      * The deserialization information for the current model
@@ -61,7 +62,7 @@ export class ScheduleInformationImpl implements ScheduleInformation {
         if(this.scheduleId){
             writer.writeStringValue("scheduleId", this.scheduleId);
         }
-        if(this.scheduleItems && this.scheduleItems.length != 0){        const scheduleItemsArrValue: ScheduleItemImpl[] = []; this.scheduleItems?.forEach(element => {scheduleItemsArrValue.push(new ScheduleItemImpl(element));});
+        if(this.scheduleItems && this.scheduleItems.length != 0){        const scheduleItemsArrValue: ScheduleItemImpl[] = []; this.scheduleItems?.forEach(element => {scheduleItemsArrValue.push(element instanceof ScheduleItemImpl? element : new ScheduleItemImpl(element));});
             writer.writeCollectionOfObjectValues<ScheduleItemImpl>("scheduleItems", scheduleItemsArrValue);
         }
         if(this.workingHours){

@@ -116,7 +116,7 @@ export class GroupImpl extends DirectoryObjectImpl implements Group {
     public membershipRuleProcessingState?: string | undefined;
     /** A list of group members with license errors from this group-based license assignment. Read-only. */
     public membersWithLicenseErrors?: DirectoryObject[] | undefined;
-    /** Read-only. */
+    /** The onenote property */
     public onenote?: Onenote | undefined;
     /** Contains the on-premises domain FQDN, also called dnsDomainName synchronized from the on-premises directory. The property is only populated for customers who are synchronizing their on-premises directory to Azure Active Directory via Azure AD Connect.Returned by default. Read-only. */
     public onPremisesDomainName?: string | undefined;
@@ -180,26 +180,36 @@ export class GroupImpl extends DirectoryObjectImpl implements Group {
      */
     public constructor(groupParameterValue?: Group | undefined) {
         super(groupParameterValue);
-        this.acceptedSenders = groupParameterValue?.acceptedSenders;
+        const acceptedSendersArrValue: DirectoryObjectImpl[] = []; this.acceptedSenders?.forEach(element => {acceptedSendersArrValue.push(element instanceof DirectoryObjectImpl? element : new DirectoryObjectImpl(element));});
+        this.acceptedSenders = acceptedSendersArrValue;
         this.allowExternalSenders = groupParameterValue?.allowExternalSenders;
-        this.appRoleAssignments = groupParameterValue?.appRoleAssignments;
-        this.assignedLabels = groupParameterValue?.assignedLabels;
-        this.assignedLicenses = groupParameterValue?.assignedLicenses;
+        const appRoleAssignmentsArrValue: AppRoleAssignmentImpl[] = []; this.appRoleAssignments?.forEach(element => {appRoleAssignmentsArrValue.push(element instanceof AppRoleAssignmentImpl? element : new AppRoleAssignmentImpl(element));});
+        this.appRoleAssignments = appRoleAssignmentsArrValue;
+        const assignedLabelsArrValue: AssignedLabelImpl[] = []; this.assignedLabels?.forEach(element => {assignedLabelsArrValue.push(element instanceof AssignedLabelImpl? element : new AssignedLabelImpl(element));});
+        this.assignedLabels = assignedLabelsArrValue;
+        const assignedLicensesArrValue: AssignedLicenseImpl[] = []; this.assignedLicenses?.forEach(element => {assignedLicensesArrValue.push(element instanceof AssignedLicenseImpl? element : new AssignedLicenseImpl(element));});
+        this.assignedLicenses = assignedLicensesArrValue;
         this.autoSubscribeNewMembers = groupParameterValue?.autoSubscribeNewMembers;
-        this.calendar = groupParameterValue?.calendar;
-        this.calendarView = groupParameterValue?.calendarView;
+        this.calendar = groupParameterValue?.calendar instanceof CalendarImpl? groupParameterValue?.calendar:new CalendarImpl(groupParameterValue?.calendar);
+        const calendarViewArrValue: EventImpl[] = []; this.calendarView?.forEach(element => {calendarViewArrValue.push(element instanceof EventImpl? element : new EventImpl(element));});
+        this.calendarView = calendarViewArrValue;
         this.classification = groupParameterValue?.classification;
-        this.conversations = groupParameterValue?.conversations;
+        const conversationsArrValue: ConversationImpl[] = []; this.conversations?.forEach(element => {conversationsArrValue.push(element instanceof ConversationImpl? element : new ConversationImpl(element));});
+        this.conversations = conversationsArrValue;
         this.createdDateTime = groupParameterValue?.createdDateTime;
-        this.createdOnBehalfOf = groupParameterValue?.createdOnBehalfOf;
+        this.createdOnBehalfOf = groupParameterValue?.createdOnBehalfOf instanceof DirectoryObjectImpl? groupParameterValue?.createdOnBehalfOf:new DirectoryObjectImpl(groupParameterValue?.createdOnBehalfOf);
         this.description = groupParameterValue?.description;
         this.displayName = groupParameterValue?.displayName;
-        this.drive = groupParameterValue?.drive;
-        this.drives = groupParameterValue?.drives;
-        this.events = groupParameterValue?.events;
+        this.drive = groupParameterValue?.drive instanceof DriveImpl? groupParameterValue?.drive:new DriveImpl(groupParameterValue?.drive);
+        const drivesArrValue: DriveImpl[] = []; this.drives?.forEach(element => {drivesArrValue.push(element instanceof DriveImpl? element : new DriveImpl(element));});
+        this.drives = drivesArrValue;
+        const eventsArrValue: EventImpl[] = []; this.events?.forEach(element => {eventsArrValue.push(element instanceof EventImpl? element : new EventImpl(element));});
+        this.events = eventsArrValue;
         this.expirationDateTime = groupParameterValue?.expirationDateTime;
-        this.extensions = groupParameterValue?.extensions;
-        this.groupLifecyclePolicies = groupParameterValue?.groupLifecyclePolicies;
+        const extensionsArrValue: ExtensionImpl[] = []; this.extensions?.forEach(element => {extensionsArrValue.push(element instanceof ExtensionImpl? element : new ExtensionImpl(element));});
+        this.extensions = extensionsArrValue;
+        const groupLifecyclePoliciesArrValue: GroupLifecyclePolicyImpl[] = []; this.groupLifecyclePolicies?.forEach(element => {groupLifecyclePoliciesArrValue.push(element instanceof GroupLifecyclePolicyImpl? element : new GroupLifecyclePolicyImpl(element));});
+        this.groupLifecyclePolicies = groupLifecyclePoliciesArrValue;
         this.groupTypes = groupParameterValue?.groupTypes;
         this.hasMembersWithLicenseErrors = groupParameterValue?.hasMembersWithLicenseErrors;
         this.hideFromAddressLists = groupParameterValue?.hideFromAddressLists;
@@ -207,42 +217,55 @@ export class GroupImpl extends DirectoryObjectImpl implements Group {
         this.isArchived = groupParameterValue?.isArchived;
         this.isAssignableToRole = groupParameterValue?.isAssignableToRole;
         this.isSubscribedByMail = groupParameterValue?.isSubscribedByMail;
-        this.licenseProcessingState = groupParameterValue?.licenseProcessingState;
+        this.licenseProcessingState = groupParameterValue?.licenseProcessingState instanceof LicenseProcessingStateImpl? groupParameterValue?.licenseProcessingState:new LicenseProcessingStateImpl(groupParameterValue?.licenseProcessingState);
         this.mail = groupParameterValue?.mail;
         this.mailEnabled = groupParameterValue?.mailEnabled;
         this.mailNickname = groupParameterValue?.mailNickname;
-        this.memberOf = groupParameterValue?.memberOf;
-        this.members = groupParameterValue?.members;
+        const memberOfArrValue: DirectoryObjectImpl[] = []; this.memberOf?.forEach(element => {memberOfArrValue.push(element instanceof DirectoryObjectImpl? element : new DirectoryObjectImpl(element));});
+        this.memberOf = memberOfArrValue;
+        const membersArrValue: DirectoryObjectImpl[] = []; this.members?.forEach(element => {membersArrValue.push(element instanceof DirectoryObjectImpl? element : new DirectoryObjectImpl(element));});
+        this.members = membersArrValue;
         this.membershipRule = groupParameterValue?.membershipRule;
         this.membershipRuleProcessingState = groupParameterValue?.membershipRuleProcessingState;
-        this.membersWithLicenseErrors = groupParameterValue?.membersWithLicenseErrors;
-        this.onenote = groupParameterValue?.onenote;
+        const membersWithLicenseErrorsArrValue: DirectoryObjectImpl[] = []; this.membersWithLicenseErrors?.forEach(element => {membersWithLicenseErrorsArrValue.push(element instanceof DirectoryObjectImpl? element : new DirectoryObjectImpl(element));});
+        this.membersWithLicenseErrors = membersWithLicenseErrorsArrValue;
+        this.onenote = groupParameterValue?.onenote instanceof OnenoteImpl? groupParameterValue?.onenote:new OnenoteImpl(groupParameterValue?.onenote);
         this.onPremisesDomainName = groupParameterValue?.onPremisesDomainName;
         this.onPremisesLastSyncDateTime = groupParameterValue?.onPremisesLastSyncDateTime;
         this.onPremisesNetBiosName = groupParameterValue?.onPremisesNetBiosName;
-        this.onPremisesProvisioningErrors = groupParameterValue?.onPremisesProvisioningErrors;
+        const onPremisesProvisioningErrorsArrValue: OnPremisesProvisioningErrorImpl[] = []; this.onPremisesProvisioningErrors?.forEach(element => {onPremisesProvisioningErrorsArrValue.push(element instanceof OnPremisesProvisioningErrorImpl? element : new OnPremisesProvisioningErrorImpl(element));});
+        this.onPremisesProvisioningErrors = onPremisesProvisioningErrorsArrValue;
         this.onPremisesSamAccountName = groupParameterValue?.onPremisesSamAccountName;
         this.onPremisesSecurityIdentifier = groupParameterValue?.onPremisesSecurityIdentifier;
         this.onPremisesSyncEnabled = groupParameterValue?.onPremisesSyncEnabled;
-        this.owners = groupParameterValue?.owners;
-        this.permissionGrants = groupParameterValue?.permissionGrants;
-        this.photo = groupParameterValue?.photo;
-        this.photos = groupParameterValue?.photos;
-        this.planner = groupParameterValue?.planner;
+        const ownersArrValue: DirectoryObjectImpl[] = []; this.owners?.forEach(element => {ownersArrValue.push(element instanceof DirectoryObjectImpl? element : new DirectoryObjectImpl(element));});
+        this.owners = ownersArrValue;
+        const permissionGrantsArrValue: ResourceSpecificPermissionGrantImpl[] = []; this.permissionGrants?.forEach(element => {permissionGrantsArrValue.push(element instanceof ResourceSpecificPermissionGrantImpl? element : new ResourceSpecificPermissionGrantImpl(element));});
+        this.permissionGrants = permissionGrantsArrValue;
+        this.photo = groupParameterValue?.photo instanceof ProfilePhotoImpl? groupParameterValue?.photo:new ProfilePhotoImpl(groupParameterValue?.photo);
+        const photosArrValue: ProfilePhotoImpl[] = []; this.photos?.forEach(element => {photosArrValue.push(element instanceof ProfilePhotoImpl? element : new ProfilePhotoImpl(element));});
+        this.photos = photosArrValue;
+        this.planner = groupParameterValue?.planner instanceof PlannerGroupImpl? groupParameterValue?.planner:new PlannerGroupImpl(groupParameterValue?.planner);
         this.preferredDataLocation = groupParameterValue?.preferredDataLocation;
         this.preferredLanguage = groupParameterValue?.preferredLanguage;
         this.proxyAddresses = groupParameterValue?.proxyAddresses;
-        this.rejectedSenders = groupParameterValue?.rejectedSenders;
+        const rejectedSendersArrValue: DirectoryObjectImpl[] = []; this.rejectedSenders?.forEach(element => {rejectedSendersArrValue.push(element instanceof DirectoryObjectImpl? element : new DirectoryObjectImpl(element));});
+        this.rejectedSenders = rejectedSendersArrValue;
         this.renewedDateTime = groupParameterValue?.renewedDateTime;
         this.securityEnabled = groupParameterValue?.securityEnabled;
         this.securityIdentifier = groupParameterValue?.securityIdentifier;
-        this.settings = groupParameterValue?.settings;
-        this.sites = groupParameterValue?.sites;
-        this.team = groupParameterValue?.team;
+        const settingsArrValue: GroupSettingImpl[] = []; this.settings?.forEach(element => {settingsArrValue.push(element instanceof GroupSettingImpl? element : new GroupSettingImpl(element));});
+        this.settings = settingsArrValue;
+        const sitesArrValue: SiteImpl[] = []; this.sites?.forEach(element => {sitesArrValue.push(element instanceof SiteImpl? element : new SiteImpl(element));});
+        this.sites = sitesArrValue;
+        this.team = groupParameterValue?.team instanceof TeamImpl? groupParameterValue?.team:new TeamImpl(groupParameterValue?.team);
         this.theme = groupParameterValue?.theme;
-        this.threads = groupParameterValue?.threads;
-        this.transitiveMemberOf = groupParameterValue?.transitiveMemberOf;
-        this.transitiveMembers = groupParameterValue?.transitiveMembers;
+        const threadsArrValue: ConversationThreadImpl[] = []; this.threads?.forEach(element => {threadsArrValue.push(element instanceof ConversationThreadImpl? element : new ConversationThreadImpl(element));});
+        this.threads = threadsArrValue;
+        const transitiveMemberOfArrValue: DirectoryObjectImpl[] = []; this.transitiveMemberOf?.forEach(element => {transitiveMemberOfArrValue.push(element instanceof DirectoryObjectImpl? element : new DirectoryObjectImpl(element));});
+        this.transitiveMemberOf = transitiveMemberOfArrValue;
+        const transitiveMembersArrValue: DirectoryObjectImpl[] = []; this.transitiveMembers?.forEach(element => {transitiveMembersArrValue.push(element instanceof DirectoryObjectImpl? element : new DirectoryObjectImpl(element));});
+        this.transitiveMembers = transitiveMembersArrValue;
         this.unseenCount = groupParameterValue?.unseenCount;
         this.visibility = groupParameterValue?.visibility;
     };
@@ -326,19 +349,19 @@ export class GroupImpl extends DirectoryObjectImpl implements Group {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.acceptedSenders && this.acceptedSenders.length != 0){        const acceptedSendersArrValue: DirectoryObjectImpl[] = []; this.acceptedSenders?.forEach(element => {acceptedSendersArrValue.push(new DirectoryObjectImpl(element));});
+        if(this.acceptedSenders && this.acceptedSenders.length != 0){        const acceptedSendersArrValue: DirectoryObjectImpl[] = []; this.acceptedSenders?.forEach(element => {acceptedSendersArrValue.push(element instanceof DirectoryObjectImpl? element : new DirectoryObjectImpl(element));});
             writer.writeCollectionOfObjectValues<DirectoryObjectImpl>("acceptedSenders", acceptedSendersArrValue);
         }
         if(this.allowExternalSenders){
             writer.writeBooleanValue("allowExternalSenders", this.allowExternalSenders);
         }
-        if(this.appRoleAssignments && this.appRoleAssignments.length != 0){        const appRoleAssignmentsArrValue: AppRoleAssignmentImpl[] = []; this.appRoleAssignments?.forEach(element => {appRoleAssignmentsArrValue.push(new AppRoleAssignmentImpl(element));});
+        if(this.appRoleAssignments && this.appRoleAssignments.length != 0){        const appRoleAssignmentsArrValue: AppRoleAssignmentImpl[] = []; this.appRoleAssignments?.forEach(element => {appRoleAssignmentsArrValue.push(element instanceof AppRoleAssignmentImpl? element : new AppRoleAssignmentImpl(element));});
             writer.writeCollectionOfObjectValues<AppRoleAssignmentImpl>("appRoleAssignments", appRoleAssignmentsArrValue);
         }
-        if(this.assignedLabels && this.assignedLabels.length != 0){        const assignedLabelsArrValue: AssignedLabelImpl[] = []; this.assignedLabels?.forEach(element => {assignedLabelsArrValue.push(new AssignedLabelImpl(element));});
+        if(this.assignedLabels && this.assignedLabels.length != 0){        const assignedLabelsArrValue: AssignedLabelImpl[] = []; this.assignedLabels?.forEach(element => {assignedLabelsArrValue.push(element instanceof AssignedLabelImpl? element : new AssignedLabelImpl(element));});
             writer.writeCollectionOfObjectValues<AssignedLabelImpl>("assignedLabels", assignedLabelsArrValue);
         }
-        if(this.assignedLicenses && this.assignedLicenses.length != 0){        const assignedLicensesArrValue: AssignedLicenseImpl[] = []; this.assignedLicenses?.forEach(element => {assignedLicensesArrValue.push(new AssignedLicenseImpl(element));});
+        if(this.assignedLicenses && this.assignedLicenses.length != 0){        const assignedLicensesArrValue: AssignedLicenseImpl[] = []; this.assignedLicenses?.forEach(element => {assignedLicensesArrValue.push(element instanceof AssignedLicenseImpl? element : new AssignedLicenseImpl(element));});
             writer.writeCollectionOfObjectValues<AssignedLicenseImpl>("assignedLicenses", assignedLicensesArrValue);
         }
         if(this.autoSubscribeNewMembers){
@@ -347,13 +370,13 @@ export class GroupImpl extends DirectoryObjectImpl implements Group {
         if(this.calendar){
             writer.writeObjectValue<CalendarImpl>("calendar", new CalendarImpl(this.calendar));
         }
-        if(this.calendarView && this.calendarView.length != 0){        const calendarViewArrValue: EventImpl[] = []; this.calendarView?.forEach(element => {calendarViewArrValue.push(new EventImpl(element));});
+        if(this.calendarView && this.calendarView.length != 0){        const calendarViewArrValue: EventImpl[] = []; this.calendarView?.forEach(element => {calendarViewArrValue.push(element instanceof EventImpl? element : new EventImpl(element));});
             writer.writeCollectionOfObjectValues<EventImpl>("calendarView", calendarViewArrValue);
         }
         if(this.classification){
             writer.writeStringValue("classification", this.classification);
         }
-        if(this.conversations && this.conversations.length != 0){        const conversationsArrValue: ConversationImpl[] = []; this.conversations?.forEach(element => {conversationsArrValue.push(new ConversationImpl(element));});
+        if(this.conversations && this.conversations.length != 0){        const conversationsArrValue: ConversationImpl[] = []; this.conversations?.forEach(element => {conversationsArrValue.push(element instanceof ConversationImpl? element : new ConversationImpl(element));});
             writer.writeCollectionOfObjectValues<ConversationImpl>("conversations", conversationsArrValue);
         }
         if(this.createdDateTime){
@@ -371,19 +394,19 @@ export class GroupImpl extends DirectoryObjectImpl implements Group {
         if(this.drive){
             writer.writeObjectValue<DriveImpl>("drive", new DriveImpl(this.drive));
         }
-        if(this.drives && this.drives.length != 0){        const drivesArrValue: DriveImpl[] = []; this.drives?.forEach(element => {drivesArrValue.push(new DriveImpl(element));});
+        if(this.drives && this.drives.length != 0){        const drivesArrValue: DriveImpl[] = []; this.drives?.forEach(element => {drivesArrValue.push(element instanceof DriveImpl? element : new DriveImpl(element));});
             writer.writeCollectionOfObjectValues<DriveImpl>("drives", drivesArrValue);
         }
-        if(this.events && this.events.length != 0){        const eventsArrValue: EventImpl[] = []; this.events?.forEach(element => {eventsArrValue.push(new EventImpl(element));});
+        if(this.events && this.events.length != 0){        const eventsArrValue: EventImpl[] = []; this.events?.forEach(element => {eventsArrValue.push(element instanceof EventImpl? element : new EventImpl(element));});
             writer.writeCollectionOfObjectValues<EventImpl>("events", eventsArrValue);
         }
         if(this.expirationDateTime){
             writer.writeDateValue("expirationDateTime", this.expirationDateTime);
         }
-        if(this.extensions && this.extensions.length != 0){        const extensionsArrValue: ExtensionImpl[] = []; this.extensions?.forEach(element => {extensionsArrValue.push(new ExtensionImpl(element));});
+        if(this.extensions && this.extensions.length != 0){        const extensionsArrValue: ExtensionImpl[] = []; this.extensions?.forEach(element => {extensionsArrValue.push(element instanceof ExtensionImpl? element : new ExtensionImpl(element));});
             writer.writeCollectionOfObjectValues<ExtensionImpl>("extensions", extensionsArrValue);
         }
-        if(this.groupLifecyclePolicies && this.groupLifecyclePolicies.length != 0){        const groupLifecyclePoliciesArrValue: GroupLifecyclePolicyImpl[] = []; this.groupLifecyclePolicies?.forEach(element => {groupLifecyclePoliciesArrValue.push(new GroupLifecyclePolicyImpl(element));});
+        if(this.groupLifecyclePolicies && this.groupLifecyclePolicies.length != 0){        const groupLifecyclePoliciesArrValue: GroupLifecyclePolicyImpl[] = []; this.groupLifecyclePolicies?.forEach(element => {groupLifecyclePoliciesArrValue.push(element instanceof GroupLifecyclePolicyImpl? element : new GroupLifecyclePolicyImpl(element));});
             writer.writeCollectionOfObjectValues<GroupLifecyclePolicyImpl>("groupLifecyclePolicies", groupLifecyclePoliciesArrValue);
         }
         if(this.groupTypes){
@@ -419,10 +442,10 @@ export class GroupImpl extends DirectoryObjectImpl implements Group {
         if(this.mailNickname){
             writer.writeStringValue("mailNickname", this.mailNickname);
         }
-        if(this.memberOf && this.memberOf.length != 0){        const memberOfArrValue: DirectoryObjectImpl[] = []; this.memberOf?.forEach(element => {memberOfArrValue.push(new DirectoryObjectImpl(element));});
+        if(this.memberOf && this.memberOf.length != 0){        const memberOfArrValue: DirectoryObjectImpl[] = []; this.memberOf?.forEach(element => {memberOfArrValue.push(element instanceof DirectoryObjectImpl? element : new DirectoryObjectImpl(element));});
             writer.writeCollectionOfObjectValues<DirectoryObjectImpl>("memberOf", memberOfArrValue);
         }
-        if(this.members && this.members.length != 0){        const membersArrValue: DirectoryObjectImpl[] = []; this.members?.forEach(element => {membersArrValue.push(new DirectoryObjectImpl(element));});
+        if(this.members && this.members.length != 0){        const membersArrValue: DirectoryObjectImpl[] = []; this.members?.forEach(element => {membersArrValue.push(element instanceof DirectoryObjectImpl? element : new DirectoryObjectImpl(element));});
             writer.writeCollectionOfObjectValues<DirectoryObjectImpl>("members", membersArrValue);
         }
         if(this.membershipRule){
@@ -431,7 +454,7 @@ export class GroupImpl extends DirectoryObjectImpl implements Group {
         if(this.membershipRuleProcessingState){
             writer.writeStringValue("membershipRuleProcessingState", this.membershipRuleProcessingState);
         }
-        if(this.membersWithLicenseErrors && this.membersWithLicenseErrors.length != 0){        const membersWithLicenseErrorsArrValue: DirectoryObjectImpl[] = []; this.membersWithLicenseErrors?.forEach(element => {membersWithLicenseErrorsArrValue.push(new DirectoryObjectImpl(element));});
+        if(this.membersWithLicenseErrors && this.membersWithLicenseErrors.length != 0){        const membersWithLicenseErrorsArrValue: DirectoryObjectImpl[] = []; this.membersWithLicenseErrors?.forEach(element => {membersWithLicenseErrorsArrValue.push(element instanceof DirectoryObjectImpl? element : new DirectoryObjectImpl(element));});
             writer.writeCollectionOfObjectValues<DirectoryObjectImpl>("membersWithLicenseErrors", membersWithLicenseErrorsArrValue);
         }
         if(this.onenote){
@@ -446,7 +469,7 @@ export class GroupImpl extends DirectoryObjectImpl implements Group {
         if(this.onPremisesNetBiosName){
             writer.writeStringValue("onPremisesNetBiosName", this.onPremisesNetBiosName);
         }
-        if(this.onPremisesProvisioningErrors && this.onPremisesProvisioningErrors.length != 0){        const onPremisesProvisioningErrorsArrValue: OnPremisesProvisioningErrorImpl[] = []; this.onPremisesProvisioningErrors?.forEach(element => {onPremisesProvisioningErrorsArrValue.push(new OnPremisesProvisioningErrorImpl(element));});
+        if(this.onPremisesProvisioningErrors && this.onPremisesProvisioningErrors.length != 0){        const onPremisesProvisioningErrorsArrValue: OnPremisesProvisioningErrorImpl[] = []; this.onPremisesProvisioningErrors?.forEach(element => {onPremisesProvisioningErrorsArrValue.push(element instanceof OnPremisesProvisioningErrorImpl? element : new OnPremisesProvisioningErrorImpl(element));});
             writer.writeCollectionOfObjectValues<OnPremisesProvisioningErrorImpl>("onPremisesProvisioningErrors", onPremisesProvisioningErrorsArrValue);
         }
         if(this.onPremisesSamAccountName){
@@ -458,16 +481,16 @@ export class GroupImpl extends DirectoryObjectImpl implements Group {
         if(this.onPremisesSyncEnabled){
             writer.writeBooleanValue("onPremisesSyncEnabled", this.onPremisesSyncEnabled);
         }
-        if(this.owners && this.owners.length != 0){        const ownersArrValue: DirectoryObjectImpl[] = []; this.owners?.forEach(element => {ownersArrValue.push(new DirectoryObjectImpl(element));});
+        if(this.owners && this.owners.length != 0){        const ownersArrValue: DirectoryObjectImpl[] = []; this.owners?.forEach(element => {ownersArrValue.push(element instanceof DirectoryObjectImpl? element : new DirectoryObjectImpl(element));});
             writer.writeCollectionOfObjectValues<DirectoryObjectImpl>("owners", ownersArrValue);
         }
-        if(this.permissionGrants && this.permissionGrants.length != 0){        const permissionGrantsArrValue: ResourceSpecificPermissionGrantImpl[] = []; this.permissionGrants?.forEach(element => {permissionGrantsArrValue.push(new ResourceSpecificPermissionGrantImpl(element));});
+        if(this.permissionGrants && this.permissionGrants.length != 0){        const permissionGrantsArrValue: ResourceSpecificPermissionGrantImpl[] = []; this.permissionGrants?.forEach(element => {permissionGrantsArrValue.push(element instanceof ResourceSpecificPermissionGrantImpl? element : new ResourceSpecificPermissionGrantImpl(element));});
             writer.writeCollectionOfObjectValues<ResourceSpecificPermissionGrantImpl>("permissionGrants", permissionGrantsArrValue);
         }
         if(this.photo){
             writer.writeObjectValue<ProfilePhotoImpl>("photo", new ProfilePhotoImpl(this.photo));
         }
-        if(this.photos && this.photos.length != 0){        const photosArrValue: ProfilePhotoImpl[] = []; this.photos?.forEach(element => {photosArrValue.push(new ProfilePhotoImpl(element));});
+        if(this.photos && this.photos.length != 0){        const photosArrValue: ProfilePhotoImpl[] = []; this.photos?.forEach(element => {photosArrValue.push(element instanceof ProfilePhotoImpl? element : new ProfilePhotoImpl(element));});
             writer.writeCollectionOfObjectValues<ProfilePhotoImpl>("photos", photosArrValue);
         }
         if(this.planner){
@@ -482,7 +505,7 @@ export class GroupImpl extends DirectoryObjectImpl implements Group {
         if(this.proxyAddresses){
             writer.writeCollectionOfPrimitiveValues<string>("proxyAddresses", this.proxyAddresses);
         }
-        if(this.rejectedSenders && this.rejectedSenders.length != 0){        const rejectedSendersArrValue: DirectoryObjectImpl[] = []; this.rejectedSenders?.forEach(element => {rejectedSendersArrValue.push(new DirectoryObjectImpl(element));});
+        if(this.rejectedSenders && this.rejectedSenders.length != 0){        const rejectedSendersArrValue: DirectoryObjectImpl[] = []; this.rejectedSenders?.forEach(element => {rejectedSendersArrValue.push(element instanceof DirectoryObjectImpl? element : new DirectoryObjectImpl(element));});
             writer.writeCollectionOfObjectValues<DirectoryObjectImpl>("rejectedSenders", rejectedSendersArrValue);
         }
         if(this.renewedDateTime){
@@ -494,10 +517,10 @@ export class GroupImpl extends DirectoryObjectImpl implements Group {
         if(this.securityIdentifier){
             writer.writeStringValue("securityIdentifier", this.securityIdentifier);
         }
-        if(this.settings && this.settings.length != 0){        const settingsArrValue: GroupSettingImpl[] = []; this.settings?.forEach(element => {settingsArrValue.push(new GroupSettingImpl(element));});
+        if(this.settings && this.settings.length != 0){        const settingsArrValue: GroupSettingImpl[] = []; this.settings?.forEach(element => {settingsArrValue.push(element instanceof GroupSettingImpl? element : new GroupSettingImpl(element));});
             writer.writeCollectionOfObjectValues<GroupSettingImpl>("settings", settingsArrValue);
         }
-        if(this.sites && this.sites.length != 0){        const sitesArrValue: SiteImpl[] = []; this.sites?.forEach(element => {sitesArrValue.push(new SiteImpl(element));});
+        if(this.sites && this.sites.length != 0){        const sitesArrValue: SiteImpl[] = []; this.sites?.forEach(element => {sitesArrValue.push(element instanceof SiteImpl? element : new SiteImpl(element));});
             writer.writeCollectionOfObjectValues<SiteImpl>("sites", sitesArrValue);
         }
         if(this.team){
@@ -506,13 +529,13 @@ export class GroupImpl extends DirectoryObjectImpl implements Group {
         if(this.theme){
             writer.writeStringValue("theme", this.theme);
         }
-        if(this.threads && this.threads.length != 0){        const threadsArrValue: ConversationThreadImpl[] = []; this.threads?.forEach(element => {threadsArrValue.push(new ConversationThreadImpl(element));});
+        if(this.threads && this.threads.length != 0){        const threadsArrValue: ConversationThreadImpl[] = []; this.threads?.forEach(element => {threadsArrValue.push(element instanceof ConversationThreadImpl? element : new ConversationThreadImpl(element));});
             writer.writeCollectionOfObjectValues<ConversationThreadImpl>("threads", threadsArrValue);
         }
-        if(this.transitiveMemberOf && this.transitiveMemberOf.length != 0){        const transitiveMemberOfArrValue: DirectoryObjectImpl[] = []; this.transitiveMemberOf?.forEach(element => {transitiveMemberOfArrValue.push(new DirectoryObjectImpl(element));});
+        if(this.transitiveMemberOf && this.transitiveMemberOf.length != 0){        const transitiveMemberOfArrValue: DirectoryObjectImpl[] = []; this.transitiveMemberOf?.forEach(element => {transitiveMemberOfArrValue.push(element instanceof DirectoryObjectImpl? element : new DirectoryObjectImpl(element));});
             writer.writeCollectionOfObjectValues<DirectoryObjectImpl>("transitiveMemberOf", transitiveMemberOfArrValue);
         }
-        if(this.transitiveMembers && this.transitiveMembers.length != 0){        const transitiveMembersArrValue: DirectoryObjectImpl[] = []; this.transitiveMembers?.forEach(element => {transitiveMembersArrValue.push(new DirectoryObjectImpl(element));});
+        if(this.transitiveMembers && this.transitiveMembers.length != 0){        const transitiveMembersArrValue: DirectoryObjectImpl[] = []; this.transitiveMembers?.forEach(element => {transitiveMembersArrValue.push(element instanceof DirectoryObjectImpl? element : new DirectoryObjectImpl(element));});
             writer.writeCollectionOfObjectValues<DirectoryObjectImpl>("transitiveMembers", transitiveMembersArrValue);
         }
         if(this.unseenCount){

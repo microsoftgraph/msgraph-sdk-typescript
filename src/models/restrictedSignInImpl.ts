@@ -2,12 +2,11 @@ import {SignInImpl} from './index';
 import {RestrictedSignIn} from './restrictedSignIn';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the auditLogRoot singleton. */
 export class RestrictedSignInImpl extends SignInImpl implements RestrictedSignIn {
     /** The targetTenantId property */
     public targetTenantId?: string | undefined;
     /**
-     * Instantiates a new restrictedSignIn and sets the default values.
+     * Instantiates a new RestrictedSignIn and sets the default values.
      * @param restrictedSignInParameterValue 
      */
     public constructor(restrictedSignInParameterValue?: RestrictedSignIn | undefined) {

@@ -6,12 +6,12 @@ import {SignIn} from './signIn';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface AuditLogRoot extends Entity, Partial<Parsable> {
-    /** Read-only. Nullable. */
+    /** The directoryAudits property */
     directoryAudits?: DirectoryAudit[] | undefined;
     /** The provisioning property */
     provisioning?: ProvisioningObjectSummary[] | undefined;
     /** The restrictedSignIns property */
     restrictedSignIns?: RestrictedSignIn[] | undefined;
-    /** Read-only. Nullable. */
+    /** The signIns property */
     signIns?: SignIn[] | undefined;
 }

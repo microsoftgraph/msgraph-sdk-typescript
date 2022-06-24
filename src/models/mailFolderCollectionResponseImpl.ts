@@ -18,7 +18,8 @@ export class MailFolderCollectionResponseImpl implements MailFolderCollectionRes
     public constructor(mailFolderCollectionResponseParameterValue?: MailFolderCollectionResponse | undefined) {
         this.additionalData = mailFolderCollectionResponseParameterValue?.additionalData ? mailFolderCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = mailFolderCollectionResponseParameterValue?.nextLink;
-        this.value = mailFolderCollectionResponseParameterValue?.value;
+        const valueArrValue: MailFolderImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof MailFolderImpl? element : new MailFolderImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -39,7 +40,7 @@ export class MailFolderCollectionResponseImpl implements MailFolderCollectionRes
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: MailFolderImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new MailFolderImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: MailFolderImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof MailFolderImpl? element : new MailFolderImpl(element));});
             writer.writeCollectionOfObjectValues<MailFolderImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

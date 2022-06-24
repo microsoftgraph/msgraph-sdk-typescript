@@ -22,9 +22,12 @@ export class ServiceAnnouncementImpl extends EntityImpl implements ServiceAnnoun
      */
     public constructor(serviceAnnouncementParameterValue?: ServiceAnnouncement | undefined) {
         super(serviceAnnouncementParameterValue);
-        this.healthOverviews = serviceAnnouncementParameterValue?.healthOverviews;
-        this.issues = serviceAnnouncementParameterValue?.issues;
-        this.messages = serviceAnnouncementParameterValue?.messages;
+        const healthOverviewsArrValue: ServiceHealthImpl[] = []; this.healthOverviews?.forEach(element => {healthOverviewsArrValue.push(element instanceof ServiceHealthImpl? element : new ServiceHealthImpl(element));});
+        this.healthOverviews = healthOverviewsArrValue;
+        const issuesArrValue: ServiceHealthIssueImpl[] = []; this.issues?.forEach(element => {issuesArrValue.push(element instanceof ServiceHealthIssueImpl? element : new ServiceHealthIssueImpl(element));});
+        this.issues = issuesArrValue;
+        const messagesArrValue: ServiceUpdateMessageImpl[] = []; this.messages?.forEach(element => {messagesArrValue.push(element instanceof ServiceUpdateMessageImpl? element : new ServiceUpdateMessageImpl(element));});
+        this.messages = messagesArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -44,13 +47,13 @@ export class ServiceAnnouncementImpl extends EntityImpl implements ServiceAnnoun
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.healthOverviews && this.healthOverviews.length != 0){        const healthOverviewsArrValue: ServiceHealthImpl[] = []; this.healthOverviews?.forEach(element => {healthOverviewsArrValue.push(new ServiceHealthImpl(element));});
+        if(this.healthOverviews && this.healthOverviews.length != 0){        const healthOverviewsArrValue: ServiceHealthImpl[] = []; this.healthOverviews?.forEach(element => {healthOverviewsArrValue.push(element instanceof ServiceHealthImpl? element : new ServiceHealthImpl(element));});
             writer.writeCollectionOfObjectValues<ServiceHealthImpl>("healthOverviews", healthOverviewsArrValue);
         }
-        if(this.issues && this.issues.length != 0){        const issuesArrValue: ServiceHealthIssueImpl[] = []; this.issues?.forEach(element => {issuesArrValue.push(new ServiceHealthIssueImpl(element));});
+        if(this.issues && this.issues.length != 0){        const issuesArrValue: ServiceHealthIssueImpl[] = []; this.issues?.forEach(element => {issuesArrValue.push(element instanceof ServiceHealthIssueImpl? element : new ServiceHealthIssueImpl(element));});
             writer.writeCollectionOfObjectValues<ServiceHealthIssueImpl>("issues", issuesArrValue);
         }
-        if(this.messages && this.messages.length != 0){        const messagesArrValue: ServiceUpdateMessageImpl[] = []; this.messages?.forEach(element => {messagesArrValue.push(new ServiceUpdateMessageImpl(element));});
+        if(this.messages && this.messages.length != 0){        const messagesArrValue: ServiceUpdateMessageImpl[] = []; this.messages?.forEach(element => {messagesArrValue.push(element instanceof ServiceUpdateMessageImpl? element : new ServiceUpdateMessageImpl(element));});
             writer.writeCollectionOfObjectValues<ServiceUpdateMessageImpl>("messages", messagesArrValue);
         }
     };

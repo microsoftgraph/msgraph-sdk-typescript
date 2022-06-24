@@ -4,17 +4,16 @@ import {ChatImpl, TeamsAppInstallationImpl} from './index';
 import {UserScopeTeamsAppInstallation} from './userScopeTeamsAppInstallation';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class UserScopeTeamsAppInstallationImpl extends TeamsAppInstallationImpl implements UserScopeTeamsAppInstallation {
     /** The chat between the user and Teams app. */
     public chat?: Chat | undefined;
     /**
-     * Instantiates a new userScopeTeamsAppInstallation and sets the default values.
+     * Instantiates a new UserScopeTeamsAppInstallation and sets the default values.
      * @param userScopeTeamsAppInstallationParameterValue 
      */
     public constructor(userScopeTeamsAppInstallationParameterValue?: UserScopeTeamsAppInstallation | undefined) {
         super(userScopeTeamsAppInstallationParameterValue);
-        this.chat = userScopeTeamsAppInstallationParameterValue?.chat;
+        this.chat = userScopeTeamsAppInstallationParameterValue?.chat instanceof ChatImpl? userScopeTeamsAppInstallationParameterValue?.chat:new ChatImpl(userScopeTeamsAppInstallationParameterValue?.chat);
     };
     /**
      * The deserialization information for the current model

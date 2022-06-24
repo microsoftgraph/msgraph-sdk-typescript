@@ -15,11 +15,11 @@ export class ConnectedOrganizationImpl extends EntityImpl implements ConnectedOr
     public description?: string | undefined;
     /** The display name of the connected organization. Supports $filter (eq). */
     public displayName?: string | undefined;
-    /** Nullable. */
+    /** The externalSponsors property */
     public externalSponsors?: DirectoryObject[] | undefined;
     /** The identity sources in this connected organization, one of azureActiveDirectoryTenant, crossCloudAzureActiveDirectoryTenant, domainIdentitySource or externalDomainFederation. Read-only. Nullable. Supports $select and $filter(eq). To filter by the derived types, you must declare the resource using its full OData cast, for example, $filter=identitySources/any(is:is/microsoft.graph.azureActiveDirectoryTenant/tenantId eq 'bcfdfff4-cbc3-43f2-9000-ba7b7515054f'). */
     public identitySources?: IdentitySource[] | undefined;
-    /** Nullable. */
+    /** The internalSponsors property */
     public internalSponsors?: DirectoryObject[] | undefined;
     /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. */
     public modifiedDateTime?: Date | undefined;
@@ -34,9 +34,12 @@ export class ConnectedOrganizationImpl extends EntityImpl implements ConnectedOr
         this.createdDateTime = connectedOrganizationParameterValue?.createdDateTime;
         this.description = connectedOrganizationParameterValue?.description;
         this.displayName = connectedOrganizationParameterValue?.displayName;
-        this.externalSponsors = connectedOrganizationParameterValue?.externalSponsors;
-        this.identitySources = connectedOrganizationParameterValue?.identitySources;
-        this.internalSponsors = connectedOrganizationParameterValue?.internalSponsors;
+        const externalSponsorsArrValue: DirectoryObjectImpl[] = []; this.externalSponsors?.forEach(element => {externalSponsorsArrValue.push(element instanceof DirectoryObjectImpl? element : new DirectoryObjectImpl(element));});
+        this.externalSponsors = externalSponsorsArrValue;
+        const identitySourcesArrValue: IdentitySourceImpl[] = []; this.identitySources?.forEach(element => {identitySourcesArrValue.push(element instanceof IdentitySourceImpl? element : new IdentitySourceImpl(element));});
+        this.identitySources = identitySourcesArrValue;
+        const internalSponsorsArrValue: DirectoryObjectImpl[] = []; this.internalSponsors?.forEach(element => {internalSponsorsArrValue.push(element instanceof DirectoryObjectImpl? element : new DirectoryObjectImpl(element));});
+        this.internalSponsors = internalSponsorsArrValue;
         this.modifiedDateTime = connectedOrganizationParameterValue?.modifiedDateTime;
         this.state = connectedOrganizationParameterValue?.state;
     };
@@ -72,13 +75,13 @@ export class ConnectedOrganizationImpl extends EntityImpl implements ConnectedOr
         if(this.displayName){
             writer.writeStringValue("displayName", this.displayName);
         }
-        if(this.externalSponsors && this.externalSponsors.length != 0){        const externalSponsorsArrValue: DirectoryObjectImpl[] = []; this.externalSponsors?.forEach(element => {externalSponsorsArrValue.push(new DirectoryObjectImpl(element));});
+        if(this.externalSponsors && this.externalSponsors.length != 0){        const externalSponsorsArrValue: DirectoryObjectImpl[] = []; this.externalSponsors?.forEach(element => {externalSponsorsArrValue.push(element instanceof DirectoryObjectImpl? element : new DirectoryObjectImpl(element));});
             writer.writeCollectionOfObjectValues<DirectoryObjectImpl>("externalSponsors", externalSponsorsArrValue);
         }
-        if(this.identitySources && this.identitySources.length != 0){        const identitySourcesArrValue: IdentitySourceImpl[] = []; this.identitySources?.forEach(element => {identitySourcesArrValue.push(new IdentitySourceImpl(element));});
+        if(this.identitySources && this.identitySources.length != 0){        const identitySourcesArrValue: IdentitySourceImpl[] = []; this.identitySources?.forEach(element => {identitySourcesArrValue.push(element instanceof IdentitySourceImpl? element : new IdentitySourceImpl(element));});
             writer.writeCollectionOfObjectValues<IdentitySourceImpl>("identitySources", identitySourcesArrValue);
         }
-        if(this.internalSponsors && this.internalSponsors.length != 0){        const internalSponsorsArrValue: DirectoryObjectImpl[] = []; this.internalSponsors?.forEach(element => {internalSponsorsArrValue.push(new DirectoryObjectImpl(element));});
+        if(this.internalSponsors && this.internalSponsors.length != 0){        const internalSponsorsArrValue: DirectoryObjectImpl[] = []; this.internalSponsors?.forEach(element => {internalSponsorsArrValue.push(element instanceof DirectoryObjectImpl? element : new DirectoryObjectImpl(element));});
             writer.writeCollectionOfObjectValues<DirectoryObjectImpl>("internalSponsors", internalSponsorsArrValue);
         }
         if(this.modifiedDateTime){

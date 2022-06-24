@@ -18,7 +18,8 @@ export class GroupLifecyclePolicyCollectionResponseImpl implements GroupLifecycl
     public constructor(groupLifecyclePolicyCollectionResponseParameterValue?: GroupLifecyclePolicyCollectionResponse | undefined) {
         this.additionalData = groupLifecyclePolicyCollectionResponseParameterValue?.additionalData ? groupLifecyclePolicyCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = groupLifecyclePolicyCollectionResponseParameterValue?.nextLink;
-        this.value = groupLifecyclePolicyCollectionResponseParameterValue?.value;
+        const valueArrValue: GroupLifecyclePolicyImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof GroupLifecyclePolicyImpl? element : new GroupLifecyclePolicyImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -39,7 +40,7 @@ export class GroupLifecyclePolicyCollectionResponseImpl implements GroupLifecycl
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: GroupLifecyclePolicyImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new GroupLifecyclePolicyImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: GroupLifecyclePolicyImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof GroupLifecyclePolicyImpl? element : new GroupLifecyclePolicyImpl(element));});
             writer.writeCollectionOfObjectValues<GroupLifecyclePolicyImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

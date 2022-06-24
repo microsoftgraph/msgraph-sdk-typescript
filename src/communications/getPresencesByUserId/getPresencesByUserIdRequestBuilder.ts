@@ -1,3 +1,5 @@
+import {ODataErrorImpl} from '../../models/oDataErrors/';
+import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {createGetPresencesByUserIdResponseFromDiscriminatorValue} from './createGetPresencesByUserIdResponseFromDiscriminatorValue';
 import {GetPresencesByUserIdPostRequestBody} from './getPresencesByUserIdPostRequestBody';
 import {GetPresencesByUserIdRequestBuilderPostRequestConfiguration} from './getPresencesByUserIdRequestBuilderPostRequestConfiguration';
@@ -58,6 +60,10 @@ export class GetPresencesByUserIdRequestBuilder {
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration
         );
-        return this.requestAdapter?.sendAsync<GetPresencesByUserIdResponseImpl>(requestInfo, createGetPresencesByUserIdResponseFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<GetPresencesByUserIdResponseImpl>(requestInfo, createGetPresencesByUserIdResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

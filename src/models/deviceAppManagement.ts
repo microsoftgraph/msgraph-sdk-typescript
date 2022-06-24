@@ -34,7 +34,7 @@ export interface DeviceAppManagement extends Entity, Partial<Parsable> {
     managedEBooks?: ManagedEBook[] | undefined;
     /** Windows information protection for apps running on devices which are MDM enrolled. */
     mdmWindowsInformationProtectionPolicies?: MdmWindowsInformationProtectionPolicy[] | undefined;
-    /** The locale information used to sync applications from the Microsoft Store for Business. Cultures that are specific to a country/region. The names of these cultures follow RFC 4646 (Windows Vista and later). The format is -<country/regioncode2>, where  is a lowercase two-letter code derived from ISO 639-1 and <country/regioncode2> is an uppercase two-letter code derived from ISO 3166. For example, en-US for English (United States) is a specific culture. */
+    /** The locale information used to sync applications from the Microsoft Store for Business. Cultures that are specific to a country/region. The names of these cultures follow RFC 4646 (Windows Vista and later). The format is <languagecode2>-<country/regioncode2>, where <languagecode2> is a lowercase two-letter code derived from ISO 639-1 and <country/regioncode2> is an uppercase two-letter code derived from ISO 3166. For example, en-US for English (United States) is a specific culture. */
     microsoftStoreForBusinessLanguage?: string | undefined;
     /** The last time an application sync from the Microsoft Store for Business was completed. */
     microsoftStoreForBusinessLastCompletedApplicationSyncTime?: Date | undefined;

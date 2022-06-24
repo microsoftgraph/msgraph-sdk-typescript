@@ -19,8 +19,8 @@ export class ApplicationServicePrincipalImpl implements ApplicationServicePrinci
      */
     public constructor(applicationServicePrincipalParameterValue?: ApplicationServicePrincipal | undefined) {
         this.additionalData = applicationServicePrincipalParameterValue?.additionalData ? applicationServicePrincipalParameterValue?.additionalData! : {};
-        this.application = applicationServicePrincipalParameterValue?.application;
-        this.servicePrincipal = applicationServicePrincipalParameterValue?.servicePrincipal;
+        this.application = applicationServicePrincipalParameterValue?.application instanceof ApplicationImpl? applicationServicePrincipalParameterValue?.application:new ApplicationImpl(applicationServicePrincipalParameterValue?.application);
+        this.servicePrincipal = applicationServicePrincipalParameterValue?.servicePrincipal instanceof ServicePrincipalImpl? applicationServicePrincipalParameterValue?.servicePrincipal:new ServicePrincipalImpl(applicationServicePrincipalParameterValue?.servicePrincipal);
     };
     /**
      * The deserialization information for the current model

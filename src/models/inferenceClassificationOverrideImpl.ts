@@ -5,7 +5,7 @@ import {InferenceClassificationOverride} from './inferenceClassificationOverride
 import {InferenceClassificationType} from './inferenceClassificationType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the collection of application entities. */
 export class InferenceClassificationOverrideImpl extends EntityImpl implements InferenceClassificationOverride {
     /** Specifies how incoming messages from a specific sender should always be classified as. Possible values are: focused, other. */
     public classifyAs?: InferenceClassificationType | undefined;
@@ -18,7 +18,7 @@ export class InferenceClassificationOverrideImpl extends EntityImpl implements I
     public constructor(inferenceClassificationOverrideParameterValue?: InferenceClassificationOverride | undefined) {
         super(inferenceClassificationOverrideParameterValue);
         this.classifyAs = inferenceClassificationOverrideParameterValue?.classifyAs;
-        this.senderEmailAddress = inferenceClassificationOverrideParameterValue?.senderEmailAddress;
+        this.senderEmailAddress = inferenceClassificationOverrideParameterValue?.senderEmailAddress instanceof EmailAddressImpl? inferenceClassificationOverrideParameterValue?.senderEmailAddress:new EmailAddressImpl(inferenceClassificationOverrideParameterValue?.senderEmailAddress);
     };
     /**
      * The deserialization information for the current model

@@ -1,4 +1,4 @@
-import {TeamsAppInstallationImpl} from './index';
+import {TeamsAppInstallationImpl, UserScopeTeamsAppInstallationImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
 export function createTeamsAppInstallationFromDiscriminatorValue(parseNode: ParseNode | undefined) : TeamsAppInstallationImpl {
@@ -8,8 +8,8 @@ export function createTeamsAppInstallationFromDiscriminatorValue(parseNode: Pars
         const mappingValue = mappingValueNode.getStringValue();
         if (mappingValue) {
             switch (mappingValue) {
-                case "#microsoft.graph.teamsAppInstallation":
-                    return new TeamsAppInstallationImpl();
+                case "#microsoft.graph.userScopeTeamsAppInstallation":
+                    return new UserScopeTeamsAppInstallationImpl();
             }
         }
     }

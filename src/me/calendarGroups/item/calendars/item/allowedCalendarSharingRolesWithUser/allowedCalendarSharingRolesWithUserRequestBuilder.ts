@@ -1,3 +1,5 @@
+import {ODataErrorImpl} from '../../../../../../models/oDataErrors/';
+import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {AllowedCalendarSharingRolesWithUserRequestBuilderGetRequestConfiguration} from './allowedCalendarSharingRolesWithUserRequestBuilderGetRequestConfiguration';
 import {createAllowedCalendarSharingRolesWithUserResponseFromDiscriminatorValue} from './createAllowedCalendarSharingRolesWithUserResponseFromDiscriminatorValue';
 import {AllowedCalendarSharingRolesWithUserResponseImpl} from './index';
@@ -53,6 +55,10 @@ export class AllowedCalendarSharingRolesWithUserRequestBuilder {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
-        return this.requestAdapter?.sendAsync<AllowedCalendarSharingRolesWithUserResponseImpl>(requestInfo, createAllowedCalendarSharingRolesWithUserResponseFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<AllowedCalendarSharingRolesWithUserResponseImpl>(requestInfo, createAllowedCalendarSharingRolesWithUserResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

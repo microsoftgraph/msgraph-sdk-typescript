@@ -7,7 +7,7 @@ import {PlannerPreviewType} from './plannerPreviewType';
 import {PlannerTaskDetails} from './plannerTaskDetails';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to group. */
+/** Provides operations to manage the collection of application entities. */
 export class PlannerTaskDetailsImpl extends EntityImpl implements PlannerTaskDetails {
     /** The collection of checklist items on the task. */
     public checklist?: PlannerChecklistItems | undefined;
@@ -23,10 +23,10 @@ export class PlannerTaskDetailsImpl extends EntityImpl implements PlannerTaskDet
      */
     public constructor(plannerTaskDetailsParameterValue?: PlannerTaskDetails | undefined) {
         super(plannerTaskDetailsParameterValue);
-        this.checklist = plannerTaskDetailsParameterValue?.checklist;
+        this.checklist = plannerTaskDetailsParameterValue?.checklist instanceof PlannerChecklistItemsImpl? plannerTaskDetailsParameterValue?.checklist:new PlannerChecklistItemsImpl(plannerTaskDetailsParameterValue?.checklist);
         this.description = plannerTaskDetailsParameterValue?.description;
         this.previewType = plannerTaskDetailsParameterValue?.previewType;
-        this.references = plannerTaskDetailsParameterValue?.references;
+        this.references = plannerTaskDetailsParameterValue?.references instanceof PlannerExternalReferencesImpl? plannerTaskDetailsParameterValue?.references:new PlannerExternalReferencesImpl(plannerTaskDetailsParameterValue?.references);
     };
     /**
      * The deserialization information for the current model

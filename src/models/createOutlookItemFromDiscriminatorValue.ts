@@ -1,4 +1,4 @@
-import {OutlookItemImpl} from './index';
+import {ContactImpl, EventImpl, MessageImpl, OutlookItemImpl, PostImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
 export function createOutlookItemFromDiscriminatorValue(parseNode: ParseNode | undefined) : OutlookItemImpl {
@@ -8,8 +8,14 @@ export function createOutlookItemFromDiscriminatorValue(parseNode: ParseNode | u
         const mappingValue = mappingValueNode.getStringValue();
         if (mappingValue) {
             switch (mappingValue) {
-                case "#microsoft.graph.outlookItem":
-                    return new OutlookItemImpl();
+                case "#microsoft.graph.contact":
+                    return new ContactImpl();
+                case "#microsoft.graph.event":
+                    return new EventImpl();
+                case "#microsoft.graph.message":
+                    return new MessageImpl();
+                case "#microsoft.graph.post":
+                    return new PostImpl();
             }
         }
     }

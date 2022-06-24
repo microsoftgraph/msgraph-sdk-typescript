@@ -32,7 +32,7 @@ export class ImportedWindowsAutopilotDeviceIdentityImpl extends EntityImpl imple
         this.importId = importedWindowsAutopilotDeviceIdentityParameterValue?.importId;
         this.productKey = importedWindowsAutopilotDeviceIdentityParameterValue?.productKey;
         this.serialNumber = importedWindowsAutopilotDeviceIdentityParameterValue?.serialNumber;
-        this.state = importedWindowsAutopilotDeviceIdentityParameterValue?.state;
+        this.state = importedWindowsAutopilotDeviceIdentityParameterValue?.state instanceof ImportedWindowsAutopilotDeviceIdentityStateImpl? importedWindowsAutopilotDeviceIdentityParameterValue?.state:new ImportedWindowsAutopilotDeviceIdentityStateImpl(importedWindowsAutopilotDeviceIdentityParameterValue?.state);
     };
     /**
      * The deserialization information for the current model

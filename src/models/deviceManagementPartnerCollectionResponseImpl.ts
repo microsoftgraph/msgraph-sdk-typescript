@@ -18,7 +18,8 @@ export class DeviceManagementPartnerCollectionResponseImpl implements DeviceMana
     public constructor(deviceManagementPartnerCollectionResponseParameterValue?: DeviceManagementPartnerCollectionResponse | undefined) {
         this.additionalData = deviceManagementPartnerCollectionResponseParameterValue?.additionalData ? deviceManagementPartnerCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = deviceManagementPartnerCollectionResponseParameterValue?.nextLink;
-        this.value = deviceManagementPartnerCollectionResponseParameterValue?.value;
+        const valueArrValue: DeviceManagementPartnerImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof DeviceManagementPartnerImpl? element : new DeviceManagementPartnerImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -39,7 +40,7 @@ export class DeviceManagementPartnerCollectionResponseImpl implements DeviceMana
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: DeviceManagementPartnerImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new DeviceManagementPartnerImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: DeviceManagementPartnerImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof DeviceManagementPartnerImpl? element : new DeviceManagementPartnerImpl(element));});
             writer.writeCollectionOfObjectValues<DeviceManagementPartnerImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

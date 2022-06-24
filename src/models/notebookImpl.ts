@@ -9,7 +9,6 @@ import {OnenoteUserRole} from './onenoteUserRole';
 import {SectionGroup} from './sectionGroup';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class NotebookImpl extends OnenoteEntityHierarchyModelImpl implements Notebook {
     /** Indicates whether this is the user's default notebook. Read-only. */
     public isDefault?: boolean | undefined;
@@ -28,17 +27,19 @@ export class NotebookImpl extends OnenoteEntityHierarchyModelImpl implements Not
     /** Possible values are: Owner, Contributor, Reader, None. Owner represents owner-level access to the notebook. Contributor represents read/write access to the notebook. Reader represents read-only access to the notebook. Read-only. */
     public userRole?: OnenoteUserRole | undefined;
     /**
-     * Instantiates a new notebook and sets the default values.
+     * Instantiates a new Notebook and sets the default values.
      * @param notebookParameterValue 
      */
     public constructor(notebookParameterValue?: Notebook | undefined) {
         super(notebookParameterValue);
         this.isDefault = notebookParameterValue?.isDefault;
         this.isShared = notebookParameterValue?.isShared;
-        this.links = notebookParameterValue?.links;
-        this.sectionGroups = notebookParameterValue?.sectionGroups;
+        this.links = notebookParameterValue?.links instanceof NotebookLinksImpl? notebookParameterValue?.links:new NotebookLinksImpl(notebookParameterValue?.links);
+        const sectionGroupsArrValue: SectionGroupImpl[] = []; this.sectionGroups?.forEach(element => {sectionGroupsArrValue.push(element instanceof SectionGroupImpl? element : new SectionGroupImpl(element));});
+        this.sectionGroups = sectionGroupsArrValue;
         this.sectionGroupsUrl = notebookParameterValue?.sectionGroupsUrl;
-        this.sections = notebookParameterValue?.sections;
+        const sectionsArrValue: OnenoteSectionImpl[] = []; this.sections?.forEach(element => {sectionsArrValue.push(element instanceof OnenoteSectionImpl? element : new OnenoteSectionImpl(element));});
+        this.sections = sectionsArrValue;
         this.sectionsUrl = notebookParameterValue?.sectionsUrl;
         this.userRole = notebookParameterValue?.userRole;
     };
@@ -74,13 +75,13 @@ export class NotebookImpl extends OnenoteEntityHierarchyModelImpl implements Not
         if(this.links){
             writer.writeObjectValue<NotebookLinksImpl>("links", new NotebookLinksImpl(this.links));
         }
-        if(this.sectionGroups && this.sectionGroups.length != 0){        const sectionGroupsArrValue: SectionGroupImpl[] = []; this.sectionGroups?.forEach(element => {sectionGroupsArrValue.push(new SectionGroupImpl(element));});
+        if(this.sectionGroups && this.sectionGroups.length != 0){        const sectionGroupsArrValue: SectionGroupImpl[] = []; this.sectionGroups?.forEach(element => {sectionGroupsArrValue.push(element instanceof SectionGroupImpl? element : new SectionGroupImpl(element));});
             writer.writeCollectionOfObjectValues<SectionGroupImpl>("sectionGroups", sectionGroupsArrValue);
         }
         if(this.sectionGroupsUrl){
             writer.writeStringValue("sectionGroupsUrl", this.sectionGroupsUrl);
         }
-        if(this.sections && this.sections.length != 0){        const sectionsArrValue: OnenoteSectionImpl[] = []; this.sections?.forEach(element => {sectionsArrValue.push(new OnenoteSectionImpl(element));});
+        if(this.sections && this.sections.length != 0){        const sectionsArrValue: OnenoteSectionImpl[] = []; this.sections?.forEach(element => {sectionsArrValue.push(element instanceof OnenoteSectionImpl? element : new OnenoteSectionImpl(element));});
             writer.writeCollectionOfObjectValues<OnenoteSectionImpl>("sections", sectionsArrValue);
         }
         if(this.sectionsUrl){

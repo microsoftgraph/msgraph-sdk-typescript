@@ -62,20 +62,24 @@ export class ContentTypeImpl extends EntityImpl implements ContentType {
     public constructor(contentTypeParameterValue?: ContentType | undefined) {
         super(contentTypeParameterValue);
         this.associatedHubsUrls = contentTypeParameterValue?.associatedHubsUrls;
-        this.base = contentTypeParameterValue?.base;
-        this.baseTypes = contentTypeParameterValue?.baseTypes;
-        this.columnLinks = contentTypeParameterValue?.columnLinks;
-        this.columnPositions = contentTypeParameterValue?.columnPositions;
-        this.columns = contentTypeParameterValue?.columns;
+        this.base = contentTypeParameterValue?.base instanceof ContentTypeImpl? contentTypeParameterValue?.base:new ContentTypeImpl(contentTypeParameterValue?.base);
+        const baseTypesArrValue: ContentTypeImpl[] = []; this.baseTypes?.forEach(element => {baseTypesArrValue.push(element instanceof ContentTypeImpl? element : new ContentTypeImpl(element));});
+        this.baseTypes = baseTypesArrValue;
+        const columnLinksArrValue: ColumnLinkImpl[] = []; this.columnLinks?.forEach(element => {columnLinksArrValue.push(element instanceof ColumnLinkImpl? element : new ColumnLinkImpl(element));});
+        this.columnLinks = columnLinksArrValue;
+        const columnPositionsArrValue: ColumnDefinitionImpl[] = []; this.columnPositions?.forEach(element => {columnPositionsArrValue.push(element instanceof ColumnDefinitionImpl? element : new ColumnDefinitionImpl(element));});
+        this.columnPositions = columnPositionsArrValue;
+        const columnsArrValue: ColumnDefinitionImpl[] = []; this.columns?.forEach(element => {columnsArrValue.push(element instanceof ColumnDefinitionImpl? element : new ColumnDefinitionImpl(element));});
+        this.columns = columnsArrValue;
         this.description = contentTypeParameterValue?.description;
-        this.documentSet = contentTypeParameterValue?.documentSet;
-        this.documentTemplate = contentTypeParameterValue?.documentTemplate;
+        this.documentSet = contentTypeParameterValue?.documentSet instanceof DocumentSetImpl? contentTypeParameterValue?.documentSet:new DocumentSetImpl(contentTypeParameterValue?.documentSet);
+        this.documentTemplate = contentTypeParameterValue?.documentTemplate instanceof DocumentSetContentImpl? contentTypeParameterValue?.documentTemplate:new DocumentSetContentImpl(contentTypeParameterValue?.documentTemplate);
         this.group = contentTypeParameterValue?.group;
         this.hidden = contentTypeParameterValue?.hidden;
-        this.inheritedFrom = contentTypeParameterValue?.inheritedFrom;
+        this.inheritedFrom = contentTypeParameterValue?.inheritedFrom instanceof ItemReferenceImpl? contentTypeParameterValue?.inheritedFrom:new ItemReferenceImpl(contentTypeParameterValue?.inheritedFrom);
         this.isBuiltIn = contentTypeParameterValue?.isBuiltIn;
         this.name = contentTypeParameterValue?.name;
-        this.order = contentTypeParameterValue?.order;
+        this.order = contentTypeParameterValue?.order instanceof ContentTypeOrderImpl? contentTypeParameterValue?.order:new ContentTypeOrderImpl(contentTypeParameterValue?.order);
         this.parentId = contentTypeParameterValue?.parentId;
         this.propagateChanges = contentTypeParameterValue?.propagateChanges;
         this.readOnly = contentTypeParameterValue?.readOnly;
@@ -121,16 +125,16 @@ export class ContentTypeImpl extends EntityImpl implements ContentType {
         if(this.base){
             writer.writeObjectValue<ContentTypeImpl>("base", new ContentTypeImpl(this.base));
         }
-        if(this.baseTypes && this.baseTypes.length != 0){        const baseTypesArrValue: ContentTypeImpl[] = []; this.baseTypes?.forEach(element => {baseTypesArrValue.push(new ContentTypeImpl(element));});
+        if(this.baseTypes && this.baseTypes.length != 0){        const baseTypesArrValue: ContentTypeImpl[] = []; this.baseTypes?.forEach(element => {baseTypesArrValue.push(element instanceof ContentTypeImpl? element : new ContentTypeImpl(element));});
             writer.writeCollectionOfObjectValues<ContentTypeImpl>("baseTypes", baseTypesArrValue);
         }
-        if(this.columnLinks && this.columnLinks.length != 0){        const columnLinksArrValue: ColumnLinkImpl[] = []; this.columnLinks?.forEach(element => {columnLinksArrValue.push(new ColumnLinkImpl(element));});
+        if(this.columnLinks && this.columnLinks.length != 0){        const columnLinksArrValue: ColumnLinkImpl[] = []; this.columnLinks?.forEach(element => {columnLinksArrValue.push(element instanceof ColumnLinkImpl? element : new ColumnLinkImpl(element));});
             writer.writeCollectionOfObjectValues<ColumnLinkImpl>("columnLinks", columnLinksArrValue);
         }
-        if(this.columnPositions && this.columnPositions.length != 0){        const columnPositionsArrValue: ColumnDefinitionImpl[] = []; this.columnPositions?.forEach(element => {columnPositionsArrValue.push(new ColumnDefinitionImpl(element));});
+        if(this.columnPositions && this.columnPositions.length != 0){        const columnPositionsArrValue: ColumnDefinitionImpl[] = []; this.columnPositions?.forEach(element => {columnPositionsArrValue.push(element instanceof ColumnDefinitionImpl? element : new ColumnDefinitionImpl(element));});
             writer.writeCollectionOfObjectValues<ColumnDefinitionImpl>("columnPositions", columnPositionsArrValue);
         }
-        if(this.columns && this.columns.length != 0){        const columnsArrValue: ColumnDefinitionImpl[] = []; this.columns?.forEach(element => {columnsArrValue.push(new ColumnDefinitionImpl(element));});
+        if(this.columns && this.columns.length != 0){        const columnsArrValue: ColumnDefinitionImpl[] = []; this.columns?.forEach(element => {columnsArrValue.push(element instanceof ColumnDefinitionImpl? element : new ColumnDefinitionImpl(element));});
             writer.writeCollectionOfObjectValues<ColumnDefinitionImpl>("columns", columnsArrValue);
         }
         if(this.description){

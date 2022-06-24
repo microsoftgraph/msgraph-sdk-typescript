@@ -2,7 +2,7 @@ import {IdentityImpl} from './index';
 import {SharePointIdentity} from './sharePointIdentity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to group. */
+/** Provides operations to manage the collection of application entities. */
 export class SharePointIdentityImpl extends IdentityImpl implements SharePointIdentity {
     /** The sign in name of the SharePoint identity. */
     public loginName?: string | undefined;

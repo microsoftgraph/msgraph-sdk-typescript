@@ -4,17 +4,17 @@ import {InvitationParticipantInfo} from './invitationParticipantInfo';
 import {InviteParticipantsOperation} from './inviteParticipantsOperation';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the invite method. */
 export class InviteParticipantsOperationImpl extends CommsOperationImpl implements InviteParticipantsOperation {
     /** The participants to invite. */
     public participants?: InvitationParticipantInfo[] | undefined;
     /**
-     * Instantiates a new inviteParticipantsOperation and sets the default values.
+     * Instantiates a new InviteParticipantsOperation and sets the default values.
      * @param inviteParticipantsOperationParameterValue 
      */
     public constructor(inviteParticipantsOperationParameterValue?: InviteParticipantsOperation | undefined) {
         super(inviteParticipantsOperationParameterValue);
-        this.participants = inviteParticipantsOperationParameterValue?.participants;
+        const participantsArrValue: InvitationParticipantInfoImpl[] = []; this.participants?.forEach(element => {participantsArrValue.push(element instanceof InvitationParticipantInfoImpl? element : new InvitationParticipantInfoImpl(element));});
+        this.participants = participantsArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -32,7 +32,7 @@ export class InviteParticipantsOperationImpl extends CommsOperationImpl implemen
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.participants && this.participants.length != 0){        const participantsArrValue: InvitationParticipantInfoImpl[] = []; this.participants?.forEach(element => {participantsArrValue.push(new InvitationParticipantInfoImpl(element));});
+        if(this.participants && this.participants.length != 0){        const participantsArrValue: InvitationParticipantInfoImpl[] = []; this.participants?.forEach(element => {participantsArrValue.push(element instanceof InvitationParticipantInfoImpl? element : new InvitationParticipantInfoImpl(element));});
             writer.writeCollectionOfObjectValues<InvitationParticipantInfoImpl>("participants", participantsArrValue);
         }
     };

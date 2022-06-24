@@ -4,7 +4,6 @@ import {RiskUserActivity} from './riskUserActivity';
 import {RiskyUserHistoryItem} from './riskyUserHistoryItem';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the identityProtectionRoot singleton. */
 export class RiskyUserHistoryItemImpl extends RiskyUserImpl implements RiskyUserHistoryItem {
     /** The activity related to user risk level change. */
     public activity?: RiskUserActivity | undefined;
@@ -13,12 +12,12 @@ export class RiskyUserHistoryItemImpl extends RiskyUserImpl implements RiskyUser
     /** The id of the user. */
     public userId?: string | undefined;
     /**
-     * Instantiates a new riskyUserHistoryItem and sets the default values.
+     * Instantiates a new RiskyUserHistoryItem and sets the default values.
      * @param riskyUserHistoryItemParameterValue 
      */
     public constructor(riskyUserHistoryItemParameterValue?: RiskyUserHistoryItem | undefined) {
         super(riskyUserHistoryItemParameterValue);
-        this.activity = riskyUserHistoryItemParameterValue?.activity;
+        this.activity = riskyUserHistoryItemParameterValue?.activity instanceof RiskUserActivityImpl? riskyUserHistoryItemParameterValue?.activity:new RiskUserActivityImpl(riskyUserHistoryItemParameterValue?.activity);
         this.initiatedBy = riskyUserHistoryItemParameterValue?.initiatedBy;
         this.userId = riskyUserHistoryItemParameterValue?.userId;
     };

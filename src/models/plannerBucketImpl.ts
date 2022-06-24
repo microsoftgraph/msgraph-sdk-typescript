@@ -4,7 +4,7 @@ import {PlannerBucket} from './plannerBucket';
 import {PlannerTask} from './plannerTask';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to group. */
+/** Provides operations to manage the collection of application entities. */
 export class PlannerBucketImpl extends EntityImpl implements PlannerBucket {
     /** Name of the bucket. */
     public name?: string | undefined;
@@ -23,7 +23,8 @@ export class PlannerBucketImpl extends EntityImpl implements PlannerBucket {
         this.name = plannerBucketParameterValue?.name;
         this.orderHint = plannerBucketParameterValue?.orderHint;
         this.planId = plannerBucketParameterValue?.planId;
-        this.tasks = plannerBucketParameterValue?.tasks;
+        const tasksArrValue: PlannerTaskImpl[] = []; this.tasks?.forEach(element => {tasksArrValue.push(element instanceof PlannerTaskImpl? element : new PlannerTaskImpl(element));});
+        this.tasks = tasksArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -53,7 +54,7 @@ export class PlannerBucketImpl extends EntityImpl implements PlannerBucket {
         if(this.planId){
             writer.writeStringValue("planId", this.planId);
         }
-        if(this.tasks && this.tasks.length != 0){        const tasksArrValue: PlannerTaskImpl[] = []; this.tasks?.forEach(element => {tasksArrValue.push(new PlannerTaskImpl(element));});
+        if(this.tasks && this.tasks.length != 0){        const tasksArrValue: PlannerTaskImpl[] = []; this.tasks?.forEach(element => {tasksArrValue.push(element instanceof PlannerTaskImpl? element : new PlannerTaskImpl(element));});
             writer.writeCollectionOfObjectValues<PlannerTaskImpl>("tasks", tasksArrValue);
         }
     };

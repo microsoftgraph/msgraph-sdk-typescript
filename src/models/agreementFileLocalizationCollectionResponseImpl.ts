@@ -18,7 +18,8 @@ export class AgreementFileLocalizationCollectionResponseImpl implements Agreemen
     public constructor(agreementFileLocalizationCollectionResponseParameterValue?: AgreementFileLocalizationCollectionResponse | undefined) {
         this.additionalData = agreementFileLocalizationCollectionResponseParameterValue?.additionalData ? agreementFileLocalizationCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = agreementFileLocalizationCollectionResponseParameterValue?.nextLink;
-        this.value = agreementFileLocalizationCollectionResponseParameterValue?.value;
+        const valueArrValue: AgreementFileLocalizationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof AgreementFileLocalizationImpl? element : new AgreementFileLocalizationImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -39,7 +40,7 @@ export class AgreementFileLocalizationCollectionResponseImpl implements Agreemen
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: AgreementFileLocalizationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new AgreementFileLocalizationImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: AgreementFileLocalizationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof AgreementFileLocalizationImpl? element : new AgreementFileLocalizationImpl(element));});
             writer.writeCollectionOfObjectValues<AgreementFileLocalizationImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

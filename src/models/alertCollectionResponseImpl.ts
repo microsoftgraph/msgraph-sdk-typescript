@@ -18,7 +18,8 @@ export class AlertCollectionResponseImpl implements AlertCollectionResponse {
     public constructor(alertCollectionResponseParameterValue?: AlertCollectionResponse | undefined) {
         this.additionalData = alertCollectionResponseParameterValue?.additionalData ? alertCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = alertCollectionResponseParameterValue?.nextLink;
-        this.value = alertCollectionResponseParameterValue?.value;
+        const valueArrValue: AlertImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof AlertImpl? element : new AlertImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -39,7 +40,7 @@ export class AlertCollectionResponseImpl implements AlertCollectionResponse {
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: AlertImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new AlertImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: AlertImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof AlertImpl? element : new AlertImpl(element));});
             writer.writeCollectionOfObjectValues<AlertImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

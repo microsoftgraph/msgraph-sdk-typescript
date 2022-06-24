@@ -16,7 +16,7 @@ import {WorkbookTable} from './workbookTable';
 import {WorkbookWorksheet} from './workbookWorksheet';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to group. */
+/** Provides operations to manage the collection of application entities. */
 export class WorkbookImpl extends EntityImpl implements Workbook {
     /** The application property */
     public application?: WorkbookApplication | undefined;
@@ -38,13 +38,18 @@ export class WorkbookImpl extends EntityImpl implements Workbook {
      */
     public constructor(workbookParameterValue?: Workbook | undefined) {
         super(workbookParameterValue);
-        this.application = workbookParameterValue?.application;
-        this.comments = workbookParameterValue?.comments;
-        this.functions = workbookParameterValue?.functions;
-        this.names = workbookParameterValue?.names;
-        this.operations = workbookParameterValue?.operations;
-        this.tables = workbookParameterValue?.tables;
-        this.worksheets = workbookParameterValue?.worksheets;
+        this.application = workbookParameterValue?.application instanceof WorkbookApplicationImpl? workbookParameterValue?.application:new WorkbookApplicationImpl(workbookParameterValue?.application);
+        const commentsArrValue: WorkbookCommentImpl[] = []; this.comments?.forEach(element => {commentsArrValue.push(element instanceof WorkbookCommentImpl? element : new WorkbookCommentImpl(element));});
+        this.comments = commentsArrValue;
+        this.functions = workbookParameterValue?.functions instanceof WorkbookFunctionsImpl? workbookParameterValue?.functions:new WorkbookFunctionsImpl(workbookParameterValue?.functions);
+        const namesArrValue: WorkbookNamedItemImpl[] = []; this.names?.forEach(element => {namesArrValue.push(element instanceof WorkbookNamedItemImpl? element : new WorkbookNamedItemImpl(element));});
+        this.names = namesArrValue;
+        const operationsArrValue: WorkbookOperationImpl[] = []; this.operations?.forEach(element => {operationsArrValue.push(element instanceof WorkbookOperationImpl? element : new WorkbookOperationImpl(element));});
+        this.operations = operationsArrValue;
+        const tablesArrValue: WorkbookTableImpl[] = []; this.tables?.forEach(element => {tablesArrValue.push(element instanceof WorkbookTableImpl? element : new WorkbookTableImpl(element));});
+        this.tables = tablesArrValue;
+        const worksheetsArrValue: WorkbookWorksheetImpl[] = []; this.worksheets?.forEach(element => {worksheetsArrValue.push(element instanceof WorkbookWorksheetImpl? element : new WorkbookWorksheetImpl(element));});
+        this.worksheets = worksheetsArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -71,22 +76,22 @@ export class WorkbookImpl extends EntityImpl implements Workbook {
         if(this.application){
             writer.writeObjectValue<WorkbookApplicationImpl>("application", new WorkbookApplicationImpl(this.application));
         }
-        if(this.comments && this.comments.length != 0){        const commentsArrValue: WorkbookCommentImpl[] = []; this.comments?.forEach(element => {commentsArrValue.push(new WorkbookCommentImpl(element));});
+        if(this.comments && this.comments.length != 0){        const commentsArrValue: WorkbookCommentImpl[] = []; this.comments?.forEach(element => {commentsArrValue.push(element instanceof WorkbookCommentImpl? element : new WorkbookCommentImpl(element));});
             writer.writeCollectionOfObjectValues<WorkbookCommentImpl>("comments", commentsArrValue);
         }
         if(this.functions){
             writer.writeObjectValue<WorkbookFunctionsImpl>("functions", new WorkbookFunctionsImpl(this.functions));
         }
-        if(this.names && this.names.length != 0){        const namesArrValue: WorkbookNamedItemImpl[] = []; this.names?.forEach(element => {namesArrValue.push(new WorkbookNamedItemImpl(element));});
+        if(this.names && this.names.length != 0){        const namesArrValue: WorkbookNamedItemImpl[] = []; this.names?.forEach(element => {namesArrValue.push(element instanceof WorkbookNamedItemImpl? element : new WorkbookNamedItemImpl(element));});
             writer.writeCollectionOfObjectValues<WorkbookNamedItemImpl>("names", namesArrValue);
         }
-        if(this.operations && this.operations.length != 0){        const operationsArrValue: WorkbookOperationImpl[] = []; this.operations?.forEach(element => {operationsArrValue.push(new WorkbookOperationImpl(element));});
+        if(this.operations && this.operations.length != 0){        const operationsArrValue: WorkbookOperationImpl[] = []; this.operations?.forEach(element => {operationsArrValue.push(element instanceof WorkbookOperationImpl? element : new WorkbookOperationImpl(element));});
             writer.writeCollectionOfObjectValues<WorkbookOperationImpl>("operations", operationsArrValue);
         }
-        if(this.tables && this.tables.length != 0){        const tablesArrValue: WorkbookTableImpl[] = []; this.tables?.forEach(element => {tablesArrValue.push(new WorkbookTableImpl(element));});
+        if(this.tables && this.tables.length != 0){        const tablesArrValue: WorkbookTableImpl[] = []; this.tables?.forEach(element => {tablesArrValue.push(element instanceof WorkbookTableImpl? element : new WorkbookTableImpl(element));});
             writer.writeCollectionOfObjectValues<WorkbookTableImpl>("tables", tablesArrValue);
         }
-        if(this.worksheets && this.worksheets.length != 0){        const worksheetsArrValue: WorkbookWorksheetImpl[] = []; this.worksheets?.forEach(element => {worksheetsArrValue.push(new WorkbookWorksheetImpl(element));});
+        if(this.worksheets && this.worksheets.length != 0){        const worksheetsArrValue: WorkbookWorksheetImpl[] = []; this.worksheets?.forEach(element => {worksheetsArrValue.push(element instanceof WorkbookWorksheetImpl? element : new WorkbookWorksheetImpl(element));});
             writer.writeCollectionOfObjectValues<WorkbookWorksheetImpl>("worksheets", worksheetsArrValue);
         }
     };

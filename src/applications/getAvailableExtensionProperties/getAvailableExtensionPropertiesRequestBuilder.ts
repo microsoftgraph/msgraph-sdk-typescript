@@ -1,3 +1,5 @@
+import {ODataErrorImpl} from '../../models/oDataErrors/';
+import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {createGetAvailableExtensionPropertiesResponseFromDiscriminatorValue} from './createGetAvailableExtensionPropertiesResponseFromDiscriminatorValue';
 import {GetAvailableExtensionPropertiesPostRequestBody} from './getAvailableExtensionPropertiesPostRequestBody';
 import {GetAvailableExtensionPropertiesRequestBuilderPostRequestConfiguration} from './getAvailableExtensionPropertiesRequestBuilderPostRequestConfiguration';
@@ -58,6 +60,10 @@ export class GetAvailableExtensionPropertiesRequestBuilder {
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration
         );
-        return this.requestAdapter?.sendAsync<GetAvailableExtensionPropertiesResponseImpl>(requestInfo, createGetAvailableExtensionPropertiesResponseFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<GetAvailableExtensionPropertiesResponseImpl>(requestInfo, createGetAvailableExtensionPropertiesResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

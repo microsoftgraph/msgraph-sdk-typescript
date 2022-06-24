@@ -16,7 +16,8 @@ export class TranslateExchangeIdsResponseImpl implements TranslateExchangeIdsRes
      */
     public constructor(translateExchangeIdsResponseParameterValue?: TranslateExchangeIdsResponse | undefined) {
         this.additionalData = translateExchangeIdsResponseParameterValue?.additionalData ? translateExchangeIdsResponseParameterValue?.additionalData! : {};
-        this.value = translateExchangeIdsResponseParameterValue?.value;
+        const valueArrValue: ConvertIdResultImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ConvertIdResultImpl? element : new ConvertIdResultImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -33,7 +34,7 @@ export class TranslateExchangeIdsResponseImpl implements TranslateExchangeIdsRes
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        if(this.value && this.value.length != 0){        const valueArrValue: ConvertIdResultImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ConvertIdResultImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: ConvertIdResultImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ConvertIdResultImpl? element : new ConvertIdResultImpl(element));});
             writer.writeCollectionOfObjectValues<ConvertIdResultImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

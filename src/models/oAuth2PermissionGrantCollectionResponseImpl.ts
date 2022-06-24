@@ -18,7 +18,8 @@ export class OAuth2PermissionGrantCollectionResponseImpl implements OAuth2Permis
     public constructor(oAuth2PermissionGrantCollectionResponseParameterValue?: OAuth2PermissionGrantCollectionResponse | undefined) {
         this.additionalData = oAuth2PermissionGrantCollectionResponseParameterValue?.additionalData ? oAuth2PermissionGrantCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = oAuth2PermissionGrantCollectionResponseParameterValue?.nextLink;
-        this.value = oAuth2PermissionGrantCollectionResponseParameterValue?.value;
+        const valueArrValue: OAuth2PermissionGrantImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof OAuth2PermissionGrantImpl? element : new OAuth2PermissionGrantImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -39,7 +40,7 @@ export class OAuth2PermissionGrantCollectionResponseImpl implements OAuth2Permis
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: OAuth2PermissionGrantImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new OAuth2PermissionGrantImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: OAuth2PermissionGrantImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof OAuth2PermissionGrantImpl? element : new OAuth2PermissionGrantImpl(element));});
             writer.writeCollectionOfObjectValues<OAuth2PermissionGrantImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

@@ -6,7 +6,7 @@ import {WorkbookFilter} from './workbookFilter';
 import {WorkbookTableColumn} from './workbookTableColumn';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to group. */
+/** Provides operations to manage the collection of application entities. */
 export class WorkbookTableColumnImpl extends EntityImpl implements WorkbookTableColumn {
     /** Retrieve the filter applied to the column. Read-only. */
     public filter?: WorkbookFilter | undefined;
@@ -22,10 +22,10 @@ export class WorkbookTableColumnImpl extends EntityImpl implements WorkbookTable
      */
     public constructor(workbookTableColumnParameterValue?: WorkbookTableColumn | undefined) {
         super(workbookTableColumnParameterValue);
-        this.filter = workbookTableColumnParameterValue?.filter;
+        this.filter = workbookTableColumnParameterValue?.filter instanceof WorkbookFilterImpl? workbookTableColumnParameterValue?.filter:new WorkbookFilterImpl(workbookTableColumnParameterValue?.filter);
         this.index = workbookTableColumnParameterValue?.index;
         this.name = workbookTableColumnParameterValue?.name;
-        this.values = workbookTableColumnParameterValue?.values;
+        this.values = workbookTableColumnParameterValue?.values instanceof JsonImpl? workbookTableColumnParameterValue?.values:new JsonImpl(workbookTableColumnParameterValue?.values);
     };
     /**
      * The deserialization information for the current model

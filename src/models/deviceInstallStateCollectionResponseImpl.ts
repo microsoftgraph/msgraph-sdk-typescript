@@ -18,7 +18,8 @@ export class DeviceInstallStateCollectionResponseImpl implements DeviceInstallSt
     public constructor(deviceInstallStateCollectionResponseParameterValue?: DeviceInstallStateCollectionResponse | undefined) {
         this.additionalData = deviceInstallStateCollectionResponseParameterValue?.additionalData ? deviceInstallStateCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = deviceInstallStateCollectionResponseParameterValue?.nextLink;
-        this.value = deviceInstallStateCollectionResponseParameterValue?.value;
+        const valueArrValue: DeviceInstallStateImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof DeviceInstallStateImpl? element : new DeviceInstallStateImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -39,7 +40,7 @@ export class DeviceInstallStateCollectionResponseImpl implements DeviceInstallSt
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: DeviceInstallStateImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new DeviceInstallStateImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: DeviceInstallStateImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof DeviceInstallStateImpl? element : new DeviceInstallStateImpl(element));});
             writer.writeCollectionOfObjectValues<DeviceInstallStateImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

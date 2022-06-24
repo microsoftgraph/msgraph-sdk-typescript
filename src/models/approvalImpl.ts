@@ -14,7 +14,8 @@ export class ApprovalImpl extends EntityImpl implements Approval {
      */
     public constructor(approvalParameterValue?: Approval | undefined) {
         super(approvalParameterValue);
-        this.stages = approvalParameterValue?.stages;
+        const stagesArrValue: ApprovalStageImpl[] = []; this.stages?.forEach(element => {stagesArrValue.push(element instanceof ApprovalStageImpl? element : new ApprovalStageImpl(element));});
+        this.stages = stagesArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -32,7 +33,7 @@ export class ApprovalImpl extends EntityImpl implements Approval {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.stages && this.stages.length != 0){        const stagesArrValue: ApprovalStageImpl[] = []; this.stages?.forEach(element => {stagesArrValue.push(new ApprovalStageImpl(element));});
+        if(this.stages && this.stages.length != 0){        const stagesArrValue: ApprovalStageImpl[] = []; this.stages?.forEach(element => {stagesArrValue.push(element instanceof ApprovalStageImpl? element : new ApprovalStageImpl(element));});
             writer.writeCollectionOfObjectValues<ApprovalStageImpl>("stages", stagesArrValue);
         }
     };

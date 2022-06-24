@@ -25,7 +25,8 @@ export class FeatureRolloutPolicyImpl extends EntityImpl implements FeatureRollo
      */
     public constructor(featureRolloutPolicyParameterValue?: FeatureRolloutPolicy | undefined) {
         super(featureRolloutPolicyParameterValue);
-        this.appliesTo = featureRolloutPolicyParameterValue?.appliesTo;
+        const appliesToArrValue: DirectoryObjectImpl[] = []; this.appliesTo?.forEach(element => {appliesToArrValue.push(element instanceof DirectoryObjectImpl? element : new DirectoryObjectImpl(element));});
+        this.appliesTo = appliesToArrValue;
         this.description = featureRolloutPolicyParameterValue?.description;
         this.displayName = featureRolloutPolicyParameterValue?.displayName;
         this.feature = featureRolloutPolicyParameterValue?.feature;
@@ -53,7 +54,7 @@ export class FeatureRolloutPolicyImpl extends EntityImpl implements FeatureRollo
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.appliesTo && this.appliesTo.length != 0){        const appliesToArrValue: DirectoryObjectImpl[] = []; this.appliesTo?.forEach(element => {appliesToArrValue.push(new DirectoryObjectImpl(element));});
+        if(this.appliesTo && this.appliesTo.length != 0){        const appliesToArrValue: DirectoryObjectImpl[] = []; this.appliesTo?.forEach(element => {appliesToArrValue.push(element instanceof DirectoryObjectImpl? element : new DirectoryObjectImpl(element));});
             writer.writeCollectionOfObjectValues<DirectoryObjectImpl>("appliesTo", appliesToArrValue);
         }
         if(this.description){

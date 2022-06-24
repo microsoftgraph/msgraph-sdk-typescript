@@ -1,4 +1,4 @@
-import {DeviceCompliancePolicyImpl} from './index';
+import {AndroidCompliancePolicyImpl, AndroidWorkProfileCompliancePolicyImpl, DeviceCompliancePolicyImpl, IosCompliancePolicyImpl, MacOSCompliancePolicyImpl, Windows10CompliancePolicyImpl, Windows10MobileCompliancePolicyImpl, Windows81CompliancePolicyImpl, WindowsPhone81CompliancePolicyImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
 export function createDeviceCompliancePolicyFromDiscriminatorValue(parseNode: ParseNode | undefined) : DeviceCompliancePolicyImpl {
@@ -8,8 +8,22 @@ export function createDeviceCompliancePolicyFromDiscriminatorValue(parseNode: Pa
         const mappingValue = mappingValueNode.getStringValue();
         if (mappingValue) {
             switch (mappingValue) {
-                case "#microsoft.graph.deviceCompliancePolicy":
-                    return new DeviceCompliancePolicyImpl();
+                case "#microsoft.graph.androidCompliancePolicy":
+                    return new AndroidCompliancePolicyImpl();
+                case "#microsoft.graph.androidWorkProfileCompliancePolicy":
+                    return new AndroidWorkProfileCompliancePolicyImpl();
+                case "#microsoft.graph.iosCompliancePolicy":
+                    return new IosCompliancePolicyImpl();
+                case "#microsoft.graph.macOSCompliancePolicy":
+                    return new MacOSCompliancePolicyImpl();
+                case "#microsoft.graph.windows10CompliancePolicy":
+                    return new Windows10CompliancePolicyImpl();
+                case "#microsoft.graph.windows10MobileCompliancePolicy":
+                    return new Windows10MobileCompliancePolicyImpl();
+                case "#microsoft.graph.windows81CompliancePolicy":
+                    return new Windows81CompliancePolicyImpl();
+                case "#microsoft.graph.windowsPhone81CompliancePolicy":
+                    return new WindowsPhone81CompliancePolicyImpl();
             }
         }
     }

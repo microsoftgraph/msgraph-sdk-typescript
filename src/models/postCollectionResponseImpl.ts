@@ -18,7 +18,8 @@ export class PostCollectionResponseImpl implements PostCollectionResponse {
     public constructor(postCollectionResponseParameterValue?: PostCollectionResponse | undefined) {
         this.additionalData = postCollectionResponseParameterValue?.additionalData ? postCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = postCollectionResponseParameterValue?.nextLink;
-        this.value = postCollectionResponseParameterValue?.value;
+        const valueArrValue: PostImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof PostImpl? element : new PostImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -39,7 +40,7 @@ export class PostCollectionResponseImpl implements PostCollectionResponse {
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: PostImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new PostImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: PostImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof PostImpl? element : new PostImpl(element));});
             writer.writeCollectionOfObjectValues<PostImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

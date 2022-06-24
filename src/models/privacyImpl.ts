@@ -15,7 +15,8 @@ export class PrivacyImpl implements Privacy {
      */
     public constructor(privacyParameterValue?: Privacy | undefined) {
         this.additionalData = privacyParameterValue?.additionalData ? privacyParameterValue?.additionalData! : {};
-        this.subjectRightsRequests = privacyParameterValue?.subjectRightsRequests;
+        const subjectRightsRequestsArrValue: SubjectRightsRequestImpl[] = []; this.subjectRightsRequests?.forEach(element => {subjectRightsRequestsArrValue.push(element instanceof SubjectRightsRequestImpl? element : new SubjectRightsRequestImpl(element));});
+        this.subjectRightsRequests = subjectRightsRequestsArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -32,7 +33,7 @@ export class PrivacyImpl implements Privacy {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        if(this.subjectRightsRequests && this.subjectRightsRequests.length != 0){        const subjectRightsRequestsArrValue: SubjectRightsRequestImpl[] = []; this.subjectRightsRequests?.forEach(element => {subjectRightsRequestsArrValue.push(new SubjectRightsRequestImpl(element));});
+        if(this.subjectRightsRequests && this.subjectRightsRequests.length != 0){        const subjectRightsRequestsArrValue: SubjectRightsRequestImpl[] = []; this.subjectRightsRequests?.forEach(element => {subjectRightsRequestsArrValue.push(element instanceof SubjectRightsRequestImpl? element : new SubjectRightsRequestImpl(element));});
             writer.writeCollectionOfObjectValues<SubjectRightsRequestImpl>("subjectRightsRequests", subjectRightsRequestsArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

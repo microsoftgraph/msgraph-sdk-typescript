@@ -9,7 +9,7 @@ import {UserActivity} from './userActivity';
 import {VisualInfo} from './visualInfo';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the collection of application entities. */
 export class UserActivityImpl extends EntityImpl implements UserActivity {
     /** Required. URL used to launch the activity in the best native experience represented by the appId. Might launch a web-based app if no native app exists. */
     public activationUrl?: string | undefined;
@@ -49,16 +49,17 @@ export class UserActivityImpl extends EntityImpl implements UserActivity {
         this.activitySourceHost = userActivityParameterValue?.activitySourceHost;
         this.appActivityId = userActivityParameterValue?.appActivityId;
         this.appDisplayName = userActivityParameterValue?.appDisplayName;
-        this.contentInfo = userActivityParameterValue?.contentInfo;
+        this.contentInfo = userActivityParameterValue?.contentInfo instanceof JsonImpl? userActivityParameterValue?.contentInfo:new JsonImpl(userActivityParameterValue?.contentInfo);
         this.contentUrl = userActivityParameterValue?.contentUrl;
         this.createdDateTime = userActivityParameterValue?.createdDateTime;
         this.expirationDateTime = userActivityParameterValue?.expirationDateTime;
         this.fallbackUrl = userActivityParameterValue?.fallbackUrl;
-        this.historyItems = userActivityParameterValue?.historyItems;
+        const historyItemsArrValue: ActivityHistoryItemImpl[] = []; this.historyItems?.forEach(element => {historyItemsArrValue.push(element instanceof ActivityHistoryItemImpl? element : new ActivityHistoryItemImpl(element));});
+        this.historyItems = historyItemsArrValue;
         this.lastModifiedDateTime = userActivityParameterValue?.lastModifiedDateTime;
         this.status = userActivityParameterValue?.status;
         this.userTimezone = userActivityParameterValue?.userTimezone;
-        this.visualElements = userActivityParameterValue?.visualElements;
+        this.visualElements = userActivityParameterValue?.visualElements instanceof VisualInfoImpl? userActivityParameterValue?.visualElements:new VisualInfoImpl(userActivityParameterValue?.visualElements);
     };
     /**
      * The deserialization information for the current model
@@ -116,7 +117,7 @@ export class UserActivityImpl extends EntityImpl implements UserActivity {
         if(this.fallbackUrl){
             writer.writeStringValue("fallbackUrl", this.fallbackUrl);
         }
-        if(this.historyItems && this.historyItems.length != 0){        const historyItemsArrValue: ActivityHistoryItemImpl[] = []; this.historyItems?.forEach(element => {historyItemsArrValue.push(new ActivityHistoryItemImpl(element));});
+        if(this.historyItems && this.historyItems.length != 0){        const historyItemsArrValue: ActivityHistoryItemImpl[] = []; this.historyItems?.forEach(element => {historyItemsArrValue.push(element instanceof ActivityHistoryItemImpl? element : new ActivityHistoryItemImpl(element));});
             writer.writeCollectionOfObjectValues<ActivityHistoryItemImpl>("historyItems", historyItemsArrValue);
         }
         if(this.lastModifiedDateTime){

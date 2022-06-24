@@ -11,7 +11,7 @@ import {MultiValueLegacyExtendedProperty} from './multiValueLegacyExtendedProper
 import {SingleValueLegacyExtendedProperty} from './singleValueLegacyExtendedProperty';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the collection of application entities. */
 export class MailFolderImpl extends EntityImpl implements MailFolder {
     /** The number of immediate child mailFolders in the current mailFolder. */
     public childFolderCount?: number | undefined;
@@ -42,14 +42,19 @@ export class MailFolderImpl extends EntityImpl implements MailFolder {
     public constructor(mailFolderParameterValue?: MailFolder | undefined) {
         super(mailFolderParameterValue);
         this.childFolderCount = mailFolderParameterValue?.childFolderCount;
-        this.childFolders = mailFolderParameterValue?.childFolders;
+        const childFoldersArrValue: MailFolderImpl[] = []; this.childFolders?.forEach(element => {childFoldersArrValue.push(element instanceof MailFolderImpl? element : new MailFolderImpl(element));});
+        this.childFolders = childFoldersArrValue;
         this.displayName = mailFolderParameterValue?.displayName;
         this.isHidden = mailFolderParameterValue?.isHidden;
-        this.messageRules = mailFolderParameterValue?.messageRules;
-        this.messages = mailFolderParameterValue?.messages;
-        this.multiValueExtendedProperties = mailFolderParameterValue?.multiValueExtendedProperties;
+        const messageRulesArrValue: MessageRuleImpl[] = []; this.messageRules?.forEach(element => {messageRulesArrValue.push(element instanceof MessageRuleImpl? element : new MessageRuleImpl(element));});
+        this.messageRules = messageRulesArrValue;
+        const messagesArrValue: MessageImpl[] = []; this.messages?.forEach(element => {messagesArrValue.push(element instanceof MessageImpl? element : new MessageImpl(element));});
+        this.messages = messagesArrValue;
+        const multiValueExtendedPropertiesArrValue: MultiValueLegacyExtendedPropertyImpl[] = []; this.multiValueExtendedProperties?.forEach(element => {multiValueExtendedPropertiesArrValue.push(element instanceof MultiValueLegacyExtendedPropertyImpl? element : new MultiValueLegacyExtendedPropertyImpl(element));});
+        this.multiValueExtendedProperties = multiValueExtendedPropertiesArrValue;
         this.parentFolderId = mailFolderParameterValue?.parentFolderId;
-        this.singleValueExtendedProperties = mailFolderParameterValue?.singleValueExtendedProperties;
+        const singleValueExtendedPropertiesArrValue: SingleValueLegacyExtendedPropertyImpl[] = []; this.singleValueExtendedProperties?.forEach(element => {singleValueExtendedPropertiesArrValue.push(element instanceof SingleValueLegacyExtendedPropertyImpl? element : new SingleValueLegacyExtendedPropertyImpl(element));});
+        this.singleValueExtendedProperties = singleValueExtendedPropertiesArrValue;
         this.totalItemCount = mailFolderParameterValue?.totalItemCount;
         this.unreadItemCount = mailFolderParameterValue?.unreadItemCount;
     };
@@ -82,7 +87,7 @@ export class MailFolderImpl extends EntityImpl implements MailFolder {
         if(this.childFolderCount){
             writer.writeNumberValue("childFolderCount", this.childFolderCount);
         }
-        if(this.childFolders && this.childFolders.length != 0){        const childFoldersArrValue: MailFolderImpl[] = []; this.childFolders?.forEach(element => {childFoldersArrValue.push(new MailFolderImpl(element));});
+        if(this.childFolders && this.childFolders.length != 0){        const childFoldersArrValue: MailFolderImpl[] = []; this.childFolders?.forEach(element => {childFoldersArrValue.push(element instanceof MailFolderImpl? element : new MailFolderImpl(element));});
             writer.writeCollectionOfObjectValues<MailFolderImpl>("childFolders", childFoldersArrValue);
         }
         if(this.displayName){
@@ -91,19 +96,19 @@ export class MailFolderImpl extends EntityImpl implements MailFolder {
         if(this.isHidden){
             writer.writeBooleanValue("isHidden", this.isHidden);
         }
-        if(this.messageRules && this.messageRules.length != 0){        const messageRulesArrValue: MessageRuleImpl[] = []; this.messageRules?.forEach(element => {messageRulesArrValue.push(new MessageRuleImpl(element));});
+        if(this.messageRules && this.messageRules.length != 0){        const messageRulesArrValue: MessageRuleImpl[] = []; this.messageRules?.forEach(element => {messageRulesArrValue.push(element instanceof MessageRuleImpl? element : new MessageRuleImpl(element));});
             writer.writeCollectionOfObjectValues<MessageRuleImpl>("messageRules", messageRulesArrValue);
         }
-        if(this.messages && this.messages.length != 0){        const messagesArrValue: MessageImpl[] = []; this.messages?.forEach(element => {messagesArrValue.push(new MessageImpl(element));});
+        if(this.messages && this.messages.length != 0){        const messagesArrValue: MessageImpl[] = []; this.messages?.forEach(element => {messagesArrValue.push(element instanceof MessageImpl? element : new MessageImpl(element));});
             writer.writeCollectionOfObjectValues<MessageImpl>("messages", messagesArrValue);
         }
-        if(this.multiValueExtendedProperties && this.multiValueExtendedProperties.length != 0){        const multiValueExtendedPropertiesArrValue: MultiValueLegacyExtendedPropertyImpl[] = []; this.multiValueExtendedProperties?.forEach(element => {multiValueExtendedPropertiesArrValue.push(new MultiValueLegacyExtendedPropertyImpl(element));});
+        if(this.multiValueExtendedProperties && this.multiValueExtendedProperties.length != 0){        const multiValueExtendedPropertiesArrValue: MultiValueLegacyExtendedPropertyImpl[] = []; this.multiValueExtendedProperties?.forEach(element => {multiValueExtendedPropertiesArrValue.push(element instanceof MultiValueLegacyExtendedPropertyImpl? element : new MultiValueLegacyExtendedPropertyImpl(element));});
             writer.writeCollectionOfObjectValues<MultiValueLegacyExtendedPropertyImpl>("multiValueExtendedProperties", multiValueExtendedPropertiesArrValue);
         }
         if(this.parentFolderId){
             writer.writeStringValue("parentFolderId", this.parentFolderId);
         }
-        if(this.singleValueExtendedProperties && this.singleValueExtendedProperties.length != 0){        const singleValueExtendedPropertiesArrValue: SingleValueLegacyExtendedPropertyImpl[] = []; this.singleValueExtendedProperties?.forEach(element => {singleValueExtendedPropertiesArrValue.push(new SingleValueLegacyExtendedPropertyImpl(element));});
+        if(this.singleValueExtendedProperties && this.singleValueExtendedProperties.length != 0){        const singleValueExtendedPropertiesArrValue: SingleValueLegacyExtendedPropertyImpl[] = []; this.singleValueExtendedProperties?.forEach(element => {singleValueExtendedPropertiesArrValue.push(element instanceof SingleValueLegacyExtendedPropertyImpl? element : new SingleValueLegacyExtendedPropertyImpl(element));});
             writer.writeCollectionOfObjectValues<SingleValueLegacyExtendedPropertyImpl>("singleValueExtendedProperties", singleValueExtendedPropertiesArrValue);
         }
         if(this.totalItemCount){

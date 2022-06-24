@@ -28,7 +28,7 @@ export class QuotaImpl implements Quota {
         this.deleted = quotaParameterValue?.deleted;
         this.remaining = quotaParameterValue?.remaining;
         this.state = quotaParameterValue?.state;
-        this.storagePlanInformation = quotaParameterValue?.storagePlanInformation;
+        this.storagePlanInformation = quotaParameterValue?.storagePlanInformation instanceof StoragePlanInformationImpl? quotaParameterValue?.storagePlanInformation:new StoragePlanInformationImpl(quotaParameterValue?.storagePlanInformation);
         this.total = quotaParameterValue?.total;
         this.used = quotaParameterValue?.used;
     };

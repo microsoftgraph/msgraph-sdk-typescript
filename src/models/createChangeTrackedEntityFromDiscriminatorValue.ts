@@ -1,4 +1,4 @@
-import {ChangeTrackedEntityImpl} from './index';
+import {ChangeTrackedEntityImpl, OpenShiftImpl, ScheduleChangeRequestImpl, SchedulingGroupImpl, ShiftImpl, ShiftPreferencesImpl, TimeOffImpl, TimeOffReasonImpl, WorkforceIntegrationImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
 export function createChangeTrackedEntityFromDiscriminatorValue(parseNode: ParseNode | undefined) : ChangeTrackedEntityImpl {
@@ -8,8 +8,22 @@ export function createChangeTrackedEntityFromDiscriminatorValue(parseNode: Parse
         const mappingValue = mappingValueNode.getStringValue();
         if (mappingValue) {
             switch (mappingValue) {
-                case "#microsoft.graph.changeTrackedEntity":
-                    return new ChangeTrackedEntityImpl();
+                case "#microsoft.graph.openShift":
+                    return new OpenShiftImpl();
+                case "#microsoft.graph.scheduleChangeRequest":
+                    return new ScheduleChangeRequestImpl();
+                case "#microsoft.graph.schedulingGroup":
+                    return new SchedulingGroupImpl();
+                case "#microsoft.graph.shift":
+                    return new ShiftImpl();
+                case "#microsoft.graph.shiftPreferences":
+                    return new ShiftPreferencesImpl();
+                case "#microsoft.graph.timeOff":
+                    return new TimeOffImpl();
+                case "#microsoft.graph.timeOffReason":
+                    return new TimeOffReasonImpl();
+                case "#microsoft.graph.workforceIntegration":
+                    return new WorkforceIntegrationImpl();
             }
         }
     }

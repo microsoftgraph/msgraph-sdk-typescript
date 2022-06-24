@@ -12,6 +12,7 @@ import {ConversationMemberItemRequestBuilder} from './members/item/conversationM
 import {MembersRequestBuilder} from './members/membersRequestBuilder';
 import {ChatMessageItemRequestBuilder} from './messages/item/chatMessageItemRequestBuilder';
 import {MessagesRequestBuilder} from './messages/messagesRequestBuilder';
+import {SendActivityNotificationRequestBuilder} from './sendActivityNotification/sendActivityNotificationRequestBuilder';
 import {TeamsTabItemRequestBuilder} from './tabs/item/teamsTabItemRequestBuilder';
 import {TabsRequestBuilder} from './tabs/tabsRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
@@ -34,6 +35,10 @@ export class ChatItemRequestBuilder {
     private readonly pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
+    /** The sendActivityNotification property */
+    public get sendActivityNotification(): SendActivityNotificationRequestBuilder {
+        return new SendActivityNotificationRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** The tabs property */
     public get tabs(): TabsRequestBuilder {
         return new TabsRequestBuilder(this.pathParameters, this.requestAdapter);

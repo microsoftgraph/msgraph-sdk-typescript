@@ -16,7 +16,8 @@ export class TargetAppsPostRequestBodyImpl implements TargetAppsPostRequestBody 
      */
     public constructor(targetAppsPostRequestBodyParameterValue?: TargetAppsPostRequestBody | undefined) {
         this.additionalData = targetAppsPostRequestBodyParameterValue?.additionalData ? targetAppsPostRequestBodyParameterValue?.additionalData! : {};
-        this.apps = targetAppsPostRequestBodyParameterValue?.apps;
+        const appsArrValue: ManagedMobileAppImpl[] = []; this.apps?.forEach(element => {appsArrValue.push(element instanceof ManagedMobileAppImpl? element : new ManagedMobileAppImpl(element));});
+        this.apps = appsArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -33,7 +34,7 @@ export class TargetAppsPostRequestBodyImpl implements TargetAppsPostRequestBody 
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        if(this.apps && this.apps.length != 0){        const appsArrValue: ManagedMobileAppImpl[] = []; this.apps?.forEach(element => {appsArrValue.push(new ManagedMobileAppImpl(element));});
+        if(this.apps && this.apps.length != 0){        const appsArrValue: ManagedMobileAppImpl[] = []; this.apps?.forEach(element => {appsArrValue.push(element instanceof ManagedMobileAppImpl? element : new ManagedMobileAppImpl(element));});
             writer.writeCollectionOfObjectValues<ManagedMobileAppImpl>("apps", appsArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

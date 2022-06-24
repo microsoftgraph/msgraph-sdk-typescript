@@ -16,7 +16,8 @@ export class RemovePostRequestBodyImpl implements RemovePostRequestBody {
      */
     public constructor(removePostRequestBodyParameterValue?: RemovePostRequestBody | undefined) {
         this.additionalData = removePostRequestBodyParameterValue?.additionalData ? removePostRequestBodyParameterValue?.additionalData! : {};
-        this.value = removePostRequestBodyParameterValue?.value;
+        const valueArrValue: SiteImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof SiteImpl? element : new SiteImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -33,7 +34,7 @@ export class RemovePostRequestBodyImpl implements RemovePostRequestBody {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        if(this.value && this.value.length != 0){        const valueArrValue: SiteImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new SiteImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: SiteImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof SiteImpl? element : new SiteImpl(element));});
             writer.writeCollectionOfObjectValues<SiteImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

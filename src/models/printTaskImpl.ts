@@ -24,10 +24,10 @@ export class PrintTaskImpl extends EntityImpl implements PrintTask {
      */
     public constructor(printTaskParameterValue?: PrintTask | undefined) {
         super(printTaskParameterValue);
-        this.definition = printTaskParameterValue?.definition;
+        this.definition = printTaskParameterValue?.definition instanceof PrintTaskDefinitionImpl? printTaskParameterValue?.definition:new PrintTaskDefinitionImpl(printTaskParameterValue?.definition);
         this.parentUrl = printTaskParameterValue?.parentUrl;
-        this.status = printTaskParameterValue?.status;
-        this.trigger = printTaskParameterValue?.trigger;
+        this.status = printTaskParameterValue?.status instanceof PrintTaskStatusImpl? printTaskParameterValue?.status:new PrintTaskStatusImpl(printTaskParameterValue?.status);
+        this.trigger = printTaskParameterValue?.trigger instanceof PrintTaskTriggerImpl? printTaskParameterValue?.trigger:new PrintTaskTriggerImpl(printTaskParameterValue?.trigger);
     };
     /**
      * The deserialization information for the current model

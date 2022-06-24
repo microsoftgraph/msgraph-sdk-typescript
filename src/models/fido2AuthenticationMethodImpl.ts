@@ -3,7 +3,6 @@ import {Fido2AuthenticationMethod} from './fido2AuthenticationMethod';
 import {AuthenticationMethodImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class Fido2AuthenticationMethodImpl extends AuthenticationMethodImpl implements Fido2AuthenticationMethod {
     /** Authenticator Attestation GUID, an identifier that indicates the type (e.g. make and model) of the authenticator. */
     public aaGuid?: string | undefined;
@@ -18,7 +17,7 @@ export class Fido2AuthenticationMethodImpl extends AuthenticationMethodImpl impl
     /** The manufacturer-assigned model of the FIDO2 security key. */
     public model?: string | undefined;
     /**
-     * Instantiates a new fido2AuthenticationMethod and sets the default values.
+     * Instantiates a new Fido2AuthenticationMethod and sets the default values.
      * @param fido2AuthenticationMethodParameterValue 
      */
     public constructor(fido2AuthenticationMethodParameterValue?: Fido2AuthenticationMethod | undefined) {

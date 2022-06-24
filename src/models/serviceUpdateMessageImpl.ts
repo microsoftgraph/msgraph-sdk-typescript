@@ -10,7 +10,6 @@ import {ServiceUpdateMessageViewpoint} from './serviceUpdateMessageViewpoint';
 import {ServiceUpdateSeverity} from './serviceUpdateSeverity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the admin singleton. */
 export class ServiceUpdateMessageImpl extends ServiceAnnouncementBaseImpl implements ServiceUpdateMessage {
     /** The expected deadline of the action for the message. */
     public actionRequiredByDateTime?: Date | undefined;
@@ -35,22 +34,23 @@ export class ServiceUpdateMessageImpl extends ServiceAnnouncementBaseImpl implem
     /** Represents user viewpoints data of the service message. This data includes message status such as whether the user has archived, read, or marked the message as favorite. This property is null when accessed with application permissions. */
     public viewPoint?: ServiceUpdateMessageViewpoint | undefined;
     /**
-     * Instantiates a new serviceUpdateMessage and sets the default values.
+     * Instantiates a new ServiceUpdateMessage and sets the default values.
      * @param serviceUpdateMessageParameterValue 
      */
     public constructor(serviceUpdateMessageParameterValue?: ServiceUpdateMessage | undefined) {
         super(serviceUpdateMessageParameterValue);
         this.actionRequiredByDateTime = serviceUpdateMessageParameterValue?.actionRequiredByDateTime;
-        this.attachments = serviceUpdateMessageParameterValue?.attachments;
+        const attachmentsArrValue: ServiceAnnouncementAttachmentImpl[] = []; this.attachments?.forEach(element => {attachmentsArrValue.push(element instanceof ServiceAnnouncementAttachmentImpl? element : new ServiceAnnouncementAttachmentImpl(element));});
+        this.attachments = attachmentsArrValue;
         this.attachmentsArchive = serviceUpdateMessageParameterValue?.attachmentsArchive;
-        this.body = serviceUpdateMessageParameterValue?.body;
+        this.body = serviceUpdateMessageParameterValue?.body instanceof ItemBodyImpl? serviceUpdateMessageParameterValue?.body:new ItemBodyImpl(serviceUpdateMessageParameterValue?.body);
         this.category = serviceUpdateMessageParameterValue?.category;
         this.hasAttachments = serviceUpdateMessageParameterValue?.hasAttachments;
         this.isMajorChange = serviceUpdateMessageParameterValue?.isMajorChange;
         this.services = serviceUpdateMessageParameterValue?.services;
         this.severity = serviceUpdateMessageParameterValue?.severity;
         this.tags = serviceUpdateMessageParameterValue?.tags;
-        this.viewPoint = serviceUpdateMessageParameterValue?.viewPoint;
+        this.viewPoint = serviceUpdateMessageParameterValue?.viewPoint instanceof ServiceUpdateMessageViewpointImpl? serviceUpdateMessageParameterValue?.viewPoint:new ServiceUpdateMessageViewpointImpl(serviceUpdateMessageParameterValue?.viewPoint);
     };
     /**
      * The deserialization information for the current model
@@ -81,7 +81,7 @@ export class ServiceUpdateMessageImpl extends ServiceAnnouncementBaseImpl implem
         if(this.actionRequiredByDateTime){
             writer.writeDateValue("actionRequiredByDateTime", this.actionRequiredByDateTime);
         }
-        if(this.attachments && this.attachments.length != 0){        const attachmentsArrValue: ServiceAnnouncementAttachmentImpl[] = []; this.attachments?.forEach(element => {attachmentsArrValue.push(new ServiceAnnouncementAttachmentImpl(element));});
+        if(this.attachments && this.attachments.length != 0){        const attachmentsArrValue: ServiceAnnouncementAttachmentImpl[] = []; this.attachments?.forEach(element => {attachmentsArrValue.push(element instanceof ServiceAnnouncementAttachmentImpl? element : new ServiceAnnouncementAttachmentImpl(element));});
             writer.writeCollectionOfObjectValues<ServiceAnnouncementAttachmentImpl>("attachments", attachmentsArrValue);
         }
         if(this.attachmentsArchive){

@@ -3,15 +3,25 @@ import {createGroupLifecyclePolicyFromDiscriminatorValue} from '../../../../mode
 import {GroupLifecyclePolicy} from '../../../../models/groupLifecyclePolicy';
 import {ODataErrorImpl} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {AddGroupRequestBuilder} from './addGroup/addGroupRequestBuilder';
 import {GroupLifecyclePolicyItemRequestBuilderDeleteRequestConfiguration} from './groupLifecyclePolicyItemRequestBuilderDeleteRequestConfiguration';
 import {GroupLifecyclePolicyItemRequestBuilderGetRequestConfiguration} from './groupLifecyclePolicyItemRequestBuilderGetRequestConfiguration';
 import {GroupLifecyclePolicyItemRequestBuilderPatchRequestConfiguration} from './groupLifecyclePolicyItemRequestBuilderPatchRequestConfiguration';
+import {RemoveGroupRequestBuilder} from './removeGroup/removeGroupRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the groupLifecyclePolicies property of the microsoft.graph.group entity. */
 export class GroupLifecyclePolicyItemRequestBuilder {
+    /** The addGroup property */
+    public get addGroup(): AddGroupRequestBuilder {
+        return new AddGroupRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
+    /** The removeGroup property */
+    public get removeGroup(): RemoveGroupRequestBuilder {
+        return new RemoveGroupRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
     /** Url template to use to build the URL for the current request builder */

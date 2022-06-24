@@ -1,3 +1,5 @@
+import {ODataErrorImpl} from '../../../../models/oDataErrors/';
+import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {createUnarchiveResponseFromDiscriminatorValue} from './createUnarchiveResponseFromDiscriminatorValue';
 import {UnarchivePostRequestBodyImpl, UnarchiveResponseImpl} from './index';
 import {UnarchivePostRequestBody} from './unarchivePostRequestBody';
@@ -58,6 +60,10 @@ export class UnarchiveRequestBuilder {
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration
         );
-        return this.requestAdapter?.sendAsync<UnarchiveResponseImpl>(requestInfo, createUnarchiveResponseFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<UnarchiveResponseImpl>(requestInfo, createUnarchiveResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

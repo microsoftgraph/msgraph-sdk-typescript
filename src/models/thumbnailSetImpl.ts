@@ -4,7 +4,7 @@ import {Thumbnail} from './thumbnail';
 import {ThumbnailSet} from './thumbnailSet';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to group. */
+/** Provides operations to manage the collection of application entities. */
 export class ThumbnailSetImpl extends EntityImpl implements ThumbnailSet {
     /** A 1920x1920 scaled thumbnail. */
     public large?: Thumbnail | undefined;
@@ -20,10 +20,10 @@ export class ThumbnailSetImpl extends EntityImpl implements ThumbnailSet {
      */
     public constructor(thumbnailSetParameterValue?: ThumbnailSet | undefined) {
         super(thumbnailSetParameterValue);
-        this.large = thumbnailSetParameterValue?.large;
-        this.medium = thumbnailSetParameterValue?.medium;
-        this.small = thumbnailSetParameterValue?.small;
-        this.source = thumbnailSetParameterValue?.source;
+        this.large = thumbnailSetParameterValue?.large instanceof ThumbnailImpl? thumbnailSetParameterValue?.large:new ThumbnailImpl(thumbnailSetParameterValue?.large);
+        this.medium = thumbnailSetParameterValue?.medium instanceof ThumbnailImpl? thumbnailSetParameterValue?.medium:new ThumbnailImpl(thumbnailSetParameterValue?.medium);
+        this.small = thumbnailSetParameterValue?.small instanceof ThumbnailImpl? thumbnailSetParameterValue?.small:new ThumbnailImpl(thumbnailSetParameterValue?.small);
+        this.source = thumbnailSetParameterValue?.source instanceof ThumbnailImpl? thumbnailSetParameterValue?.source:new ThumbnailImpl(thumbnailSetParameterValue?.source);
     };
     /**
      * The deserialization information for the current model

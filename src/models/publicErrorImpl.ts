@@ -26,8 +26,9 @@ export class PublicErrorImpl implements PublicError {
     public constructor(publicErrorParameterValue?: PublicError | undefined) {
         this.additionalData = publicErrorParameterValue?.additionalData ? publicErrorParameterValue?.additionalData! : {};
         this.code = publicErrorParameterValue?.code;
-        this.details = publicErrorParameterValue?.details;
-        this.innerError = publicErrorParameterValue?.innerError;
+        const detailsArrValue: PublicErrorDetailImpl[] = []; this.details?.forEach(element => {detailsArrValue.push(element instanceof PublicErrorDetailImpl? element : new PublicErrorDetailImpl(element));});
+        this.details = detailsArrValue;
+        this.innerError = publicErrorParameterValue?.innerError instanceof PublicInnerErrorImpl? publicErrorParameterValue?.innerError:new PublicInnerErrorImpl(publicErrorParameterValue?.innerError);
         this.message = publicErrorParameterValue?.message;
         this.target = publicErrorParameterValue?.target;
     };
@@ -53,7 +54,7 @@ export class PublicErrorImpl implements PublicError {
         if(this.code){
             writer.writeStringValue("code", this.code);
         }
-        if(this.details && this.details.length != 0){        const detailsArrValue: PublicErrorDetailImpl[] = []; this.details?.forEach(element => {detailsArrValue.push(new PublicErrorDetailImpl(element));});
+        if(this.details && this.details.length != 0){        const detailsArrValue: PublicErrorDetailImpl[] = []; this.details?.forEach(element => {detailsArrValue.push(element instanceof PublicErrorDetailImpl? element : new PublicErrorDetailImpl(element));});
             writer.writeCollectionOfObjectValues<PublicErrorDetailImpl>("details", detailsArrValue);
         }
         if(this.innerError){

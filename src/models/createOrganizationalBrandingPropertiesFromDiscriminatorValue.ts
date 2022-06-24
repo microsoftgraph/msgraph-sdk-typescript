@@ -1,4 +1,4 @@
-import {OrganizationalBrandingPropertiesImpl} from './index';
+import {OrganizationalBrandingImpl, OrganizationalBrandingLocalizationImpl, OrganizationalBrandingPropertiesImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
 export function createOrganizationalBrandingPropertiesFromDiscriminatorValue(parseNode: ParseNode | undefined) : OrganizationalBrandingPropertiesImpl {
@@ -8,8 +8,10 @@ export function createOrganizationalBrandingPropertiesFromDiscriminatorValue(par
         const mappingValue = mappingValueNode.getStringValue();
         if (mappingValue) {
             switch (mappingValue) {
-                case "#microsoft.graph.organizationalBrandingProperties":
-                    return new OrganizationalBrandingPropertiesImpl();
+                case "#microsoft.graph.organizationalBranding":
+                    return new OrganizationalBrandingImpl();
+                case "#microsoft.graph.organizationalBrandingLocalization":
+                    return new OrganizationalBrandingLocalizationImpl();
             }
         }
     }

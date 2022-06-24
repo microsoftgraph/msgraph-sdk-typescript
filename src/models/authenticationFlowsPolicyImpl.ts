@@ -20,7 +20,7 @@ export class AuthenticationFlowsPolicyImpl extends EntityImpl implements Authent
         super(authenticationFlowsPolicyParameterValue);
         this.description = authenticationFlowsPolicyParameterValue?.description;
         this.displayName = authenticationFlowsPolicyParameterValue?.displayName;
-        this.selfServiceSignUp = authenticationFlowsPolicyParameterValue?.selfServiceSignUp;
+        this.selfServiceSignUp = authenticationFlowsPolicyParameterValue?.selfServiceSignUp instanceof SelfServiceSignUpAuthenticationFlowConfigurationImpl? authenticationFlowsPolicyParameterValue?.selfServiceSignUp:new SelfServiceSignUpAuthenticationFlowConfigurationImpl(authenticationFlowsPolicyParameterValue?.selfServiceSignUp);
     };
     /**
      * The deserialization information for the current model

@@ -41,15 +41,17 @@ export class DirectoryAuditImpl extends EntityImpl implements DirectoryAudit {
         super(directoryAuditParameterValue);
         this.activityDateTime = directoryAuditParameterValue?.activityDateTime;
         this.activityDisplayName = directoryAuditParameterValue?.activityDisplayName;
-        this.additionalDetails = directoryAuditParameterValue?.additionalDetails;
+        const additionalDetailsArrValue: KeyValueImpl[] = []; this.additionalDetails?.forEach(element => {additionalDetailsArrValue.push(element instanceof KeyValueImpl? element : new KeyValueImpl(element));});
+        this.additionalDetails = additionalDetailsArrValue;
         this.category = directoryAuditParameterValue?.category;
         this.correlationId = directoryAuditParameterValue?.correlationId;
-        this.initiatedBy = directoryAuditParameterValue?.initiatedBy;
+        this.initiatedBy = directoryAuditParameterValue?.initiatedBy instanceof AuditActivityInitiatorImpl? directoryAuditParameterValue?.initiatedBy:new AuditActivityInitiatorImpl(directoryAuditParameterValue?.initiatedBy);
         this.loggedByService = directoryAuditParameterValue?.loggedByService;
         this.operationType = directoryAuditParameterValue?.operationType;
         this.result = directoryAuditParameterValue?.result;
         this.resultReason = directoryAuditParameterValue?.resultReason;
-        this.targetResources = directoryAuditParameterValue?.targetResources;
+        const targetResourcesArrValue: TargetResourceImpl[] = []; this.targetResources?.forEach(element => {targetResourcesArrValue.push(element instanceof TargetResourceImpl? element : new TargetResourceImpl(element));});
+        this.targetResources = targetResourcesArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -83,7 +85,7 @@ export class DirectoryAuditImpl extends EntityImpl implements DirectoryAudit {
         if(this.activityDisplayName){
             writer.writeStringValue("activityDisplayName", this.activityDisplayName);
         }
-        if(this.additionalDetails && this.additionalDetails.length != 0){        const additionalDetailsArrValue: KeyValueImpl[] = []; this.additionalDetails?.forEach(element => {additionalDetailsArrValue.push(new KeyValueImpl(element));});
+        if(this.additionalDetails && this.additionalDetails.length != 0){        const additionalDetailsArrValue: KeyValueImpl[] = []; this.additionalDetails?.forEach(element => {additionalDetailsArrValue.push(element instanceof KeyValueImpl? element : new KeyValueImpl(element));});
             writer.writeCollectionOfObjectValues<KeyValueImpl>("additionalDetails", additionalDetailsArrValue);
         }
         if(this.category){
@@ -107,7 +109,7 @@ export class DirectoryAuditImpl extends EntityImpl implements DirectoryAudit {
         if(this.resultReason){
             writer.writeStringValue("resultReason", this.resultReason);
         }
-        if(this.targetResources && this.targetResources.length != 0){        const targetResourcesArrValue: TargetResourceImpl[] = []; this.targetResources?.forEach(element => {targetResourcesArrValue.push(new TargetResourceImpl(element));});
+        if(this.targetResources && this.targetResources.length != 0){        const targetResourcesArrValue: TargetResourceImpl[] = []; this.targetResources?.forEach(element => {targetResourcesArrValue.push(element instanceof TargetResourceImpl? element : new TargetResourceImpl(element));});
             writer.writeCollectionOfObjectValues<TargetResourceImpl>("targetResources", targetResourcesArrValue);
         }
     };

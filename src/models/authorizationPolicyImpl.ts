@@ -5,7 +5,6 @@ import {DefaultUserRolePermissions} from './defaultUserRolePermissions';
 import {DefaultUserRolePermissionsImpl, PolicyBaseImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the policyRoot singleton. */
 export class AuthorizationPolicyImpl extends PolicyBaseImpl implements AuthorizationPolicy {
     /** Indicates whether users can sign up for email based subscriptions. */
     public allowedToSignUpEmailBasedSubscriptions?: boolean | undefined;
@@ -22,7 +21,7 @@ export class AuthorizationPolicyImpl extends PolicyBaseImpl implements Authoriza
     /** Represents role templateId for the role that should be granted to guest user. Refer to List unifiedRoleDefinitions to find the list of available role templates. Currently following roles are supported:  User (a0b1b346-4d3e-4e8b-98f8-753987be4970), Guest User (10dae51f-b6af-4016-8d66-8c2a99b929b3), and Restricted Guest User (2af84b1e-32c8-42b7-82bc-daa82404023b). */
     public guestUserRoleId?: string | undefined;
     /**
-     * Instantiates a new authorizationPolicy and sets the default values.
+     * Instantiates a new AuthorizationPolicy and sets the default values.
      * @param authorizationPolicyParameterValue 
      */
     public constructor(authorizationPolicyParameterValue?: AuthorizationPolicy | undefined) {
@@ -32,7 +31,7 @@ export class AuthorizationPolicyImpl extends PolicyBaseImpl implements Authoriza
         this.allowEmailVerifiedUsersToJoinOrganization = authorizationPolicyParameterValue?.allowEmailVerifiedUsersToJoinOrganization;
         this.allowInvitesFrom = authorizationPolicyParameterValue?.allowInvitesFrom;
         this.blockMsolPowerShell = authorizationPolicyParameterValue?.blockMsolPowerShell;
-        this.defaultUserRolePermissions = authorizationPolicyParameterValue?.defaultUserRolePermissions;
+        this.defaultUserRolePermissions = authorizationPolicyParameterValue?.defaultUserRolePermissions instanceof DefaultUserRolePermissionsImpl? authorizationPolicyParameterValue?.defaultUserRolePermissions:new DefaultUserRolePermissionsImpl(authorizationPolicyParameterValue?.defaultUserRolePermissions);
         this.guestUserRoleId = authorizationPolicyParameterValue?.guestUserRoleId;
     };
     /**

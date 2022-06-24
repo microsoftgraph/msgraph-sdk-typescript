@@ -16,7 +16,8 @@ export class SupportedLanguagesResponseImpl implements SupportedLanguagesRespons
      */
     public constructor(supportedLanguagesResponseParameterValue?: SupportedLanguagesResponse | undefined) {
         this.additionalData = supportedLanguagesResponseParameterValue?.additionalData ? supportedLanguagesResponseParameterValue?.additionalData! : {};
-        this.value = supportedLanguagesResponseParameterValue?.value;
+        const valueArrValue: LocaleInfoImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof LocaleInfoImpl? element : new LocaleInfoImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -33,7 +34,7 @@ export class SupportedLanguagesResponseImpl implements SupportedLanguagesRespons
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        if(this.value && this.value.length != 0){        const valueArrValue: LocaleInfoImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new LocaleInfoImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: LocaleInfoImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof LocaleInfoImpl? element : new LocaleInfoImpl(element));});
             writer.writeCollectionOfObjectValues<LocaleInfoImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

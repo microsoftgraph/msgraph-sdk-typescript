@@ -10,21 +10,21 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 
 /** Provides operations to manage the roleManagement singleton. */
 export class UnifiedRoleScheduleInstanceBaseImpl extends EntityImpl implements UnifiedRoleScheduleInstanceBase {
-    /** Read-only property with details of the app specific scope when the assignment scope is app specific. Containment entity. */
+    /** Read-only property with details of the app-specific scope when the assignment or role eligibility is scoped to an app. Nullable. */
     public appScope?: AppScope | undefined;
-    /** Identifier of the app-specific scope when the assignment scope is app-specific. The scope of an assignment determines the set of resources for which the principal has been granted access. App scopes are scopes that are defined and understood by this application only. Use / for tenant-wide app scopes. Use directoryScopeId to limit the scope to particular directory objects, for example, administrative units. */
+    /** Identifier of the app-specific scope when the assignment or role eligibility is scoped to an app. The scope of an assignment or role eligibility determines the set of resources for which the principal has been granted access. App scopes are scopes that are defined and understood by this application only. Use / for tenant-wide app scopes. Use directoryScopeId to limit the scope to particular directory objects, for example, administrative units. */
     public appScopeId?: string | undefined;
-    /** The directory object that is the scope of the assignment. Enables the retrieval of the directory object using $expand at the same time as getting the role assignment. Read-only. */
+    /** The directory object that is the scope of the assignment or role eligibility. Read-only. */
     public directoryScope?: DirectoryObject | undefined;
-    /** Identifier of the directory object representing the scope of the assignment. The scope of an assignment determines the set of resources for which the principal has been granted access. Directory scopes are shared scopes stored in the directory that are understood by multiple applications. Use / for tenant-wide scope. Use appScopeId to limit the scope to an application only. */
+    /** Identifier of the directory object representing the scope of the assignment or role eligibility. The scope of an assignment or role eligibility determines the set of resources for which the principal has been granted access. Directory scopes are shared scopes stored in the directory that are understood by multiple applications. Use / for tenant-wide scope. Use appScopeId to limit the scope to an application only. */
     public directoryScopeId?: string | undefined;
-    /** The principal that is getting a role assignment through the request. Enables the retrieval of the principal using $expand at the same time as getting the role assignment. Read-only. */
+    /** The principal that's getting a role assignment or role eligibility through the request. */
     public principal?: DirectoryObject | undefined;
-    /** Identifier of the principal to which the assignment is being granted to. Can be a group or a user. */
+    /** Identifier of the principal that has been granted the role assignment or that's eligible for a role. */
     public principalId?: string | undefined;
-    /** The roleDefinition for the assignment. Enables the retrieval of the role definition using $expand at the same time as getting the role assignment. The roleDefinition.Id is automatically expanded. */
+    /** Detailed information for the roleDefinition object that is referenced through the roleDefinitionId property. */
     public roleDefinition?: UnifiedRoleDefinition | undefined;
-    /** Identifier of the unifiedRoleDefinition the assignment is for. Read only.  Supports $filter (eq). */
+    /** Identifier of the unifiedRoleDefinition object that is being assigned to the principal or that the principal is eligible for. */
     public roleDefinitionId?: string | undefined;
     /**
      * Instantiates a new unifiedRoleScheduleInstanceBase and sets the default values.
@@ -32,13 +32,13 @@ export class UnifiedRoleScheduleInstanceBaseImpl extends EntityImpl implements U
      */
     public constructor(unifiedRoleScheduleInstanceBaseParameterValue?: UnifiedRoleScheduleInstanceBase | undefined) {
         super(unifiedRoleScheduleInstanceBaseParameterValue);
-        this.appScope = unifiedRoleScheduleInstanceBaseParameterValue?.appScope;
+        this.appScope = unifiedRoleScheduleInstanceBaseParameterValue?.appScope instanceof AppScopeImpl? unifiedRoleScheduleInstanceBaseParameterValue?.appScope:new AppScopeImpl(unifiedRoleScheduleInstanceBaseParameterValue?.appScope);
         this.appScopeId = unifiedRoleScheduleInstanceBaseParameterValue?.appScopeId;
-        this.directoryScope = unifiedRoleScheduleInstanceBaseParameterValue?.directoryScope;
+        this.directoryScope = unifiedRoleScheduleInstanceBaseParameterValue?.directoryScope instanceof DirectoryObjectImpl? unifiedRoleScheduleInstanceBaseParameterValue?.directoryScope:new DirectoryObjectImpl(unifiedRoleScheduleInstanceBaseParameterValue?.directoryScope);
         this.directoryScopeId = unifiedRoleScheduleInstanceBaseParameterValue?.directoryScopeId;
-        this.principal = unifiedRoleScheduleInstanceBaseParameterValue?.principal;
+        this.principal = unifiedRoleScheduleInstanceBaseParameterValue?.principal instanceof DirectoryObjectImpl? unifiedRoleScheduleInstanceBaseParameterValue?.principal:new DirectoryObjectImpl(unifiedRoleScheduleInstanceBaseParameterValue?.principal);
         this.principalId = unifiedRoleScheduleInstanceBaseParameterValue?.principalId;
-        this.roleDefinition = unifiedRoleScheduleInstanceBaseParameterValue?.roleDefinition;
+        this.roleDefinition = unifiedRoleScheduleInstanceBaseParameterValue?.roleDefinition instanceof UnifiedRoleDefinitionImpl? unifiedRoleScheduleInstanceBaseParameterValue?.roleDefinition:new UnifiedRoleDefinitionImpl(unifiedRoleScheduleInstanceBaseParameterValue?.roleDefinition);
         this.roleDefinitionId = unifiedRoleScheduleInstanceBaseParameterValue?.roleDefinitionId;
     };
     /**

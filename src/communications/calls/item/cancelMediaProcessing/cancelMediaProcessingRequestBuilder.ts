@@ -1,5 +1,7 @@
 import {CancelMediaProcessingOperationImpl} from '../../../../models/';
 import {createCancelMediaProcessingOperationFromDiscriminatorValue} from '../../../../models/createCancelMediaProcessingOperationFromDiscriminatorValue';
+import {ODataErrorImpl} from '../../../../models/oDataErrors/';
+import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CancelMediaProcessingPostRequestBody} from './cancelMediaProcessingPostRequestBody';
 import {CancelMediaProcessingRequestBuilderPostRequestConfiguration} from './cancelMediaProcessingRequestBuilderPostRequestConfiguration';
 import {CancelMediaProcessingPostRequestBodyImpl} from './index';
@@ -59,6 +61,10 @@ export class CancelMediaProcessingRequestBuilder {
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration
         );
-        return this.requestAdapter?.sendAsync<CancelMediaProcessingOperationImpl>(requestInfo, createCancelMediaProcessingOperationFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<CancelMediaProcessingOperationImpl>(requestInfo, createCancelMediaProcessingOperationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

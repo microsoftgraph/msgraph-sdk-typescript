@@ -5,7 +5,7 @@ import {EmailAddress} from './emailAddress';
 import {EmailAddressImpl, EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the collection of application entities. */
 export class CalendarPermissionImpl extends EntityImpl implements CalendarPermission {
     /** List of allowed sharing or delegating permission levels for the calendar. Possible values are: none, freeBusyRead, limitedRead, read, write, delegateWithoutPrivateEventAccess, delegateWithPrivateEventAccess, custom. */
     public allowedRoles?: string[] | undefined;
@@ -24,7 +24,7 @@ export class CalendarPermissionImpl extends EntityImpl implements CalendarPermis
     public constructor(calendarPermissionParameterValue?: CalendarPermission | undefined) {
         super(calendarPermissionParameterValue);
         this.allowedRoles = calendarPermissionParameterValue?.allowedRoles;
-        this.emailAddress = calendarPermissionParameterValue?.emailAddress;
+        this.emailAddress = calendarPermissionParameterValue?.emailAddress instanceof EmailAddressImpl? calendarPermissionParameterValue?.emailAddress:new EmailAddressImpl(calendarPermissionParameterValue?.emailAddress);
         this.isInsideOrganization = calendarPermissionParameterValue?.isInsideOrganization;
         this.isRemovable = calendarPermissionParameterValue?.isRemovable;
         this.role = calendarPermissionParameterValue?.role;

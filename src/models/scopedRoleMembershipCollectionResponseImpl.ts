@@ -18,7 +18,8 @@ export class ScopedRoleMembershipCollectionResponseImpl implements ScopedRoleMem
     public constructor(scopedRoleMembershipCollectionResponseParameterValue?: ScopedRoleMembershipCollectionResponse | undefined) {
         this.additionalData = scopedRoleMembershipCollectionResponseParameterValue?.additionalData ? scopedRoleMembershipCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = scopedRoleMembershipCollectionResponseParameterValue?.nextLink;
-        this.value = scopedRoleMembershipCollectionResponseParameterValue?.value;
+        const valueArrValue: ScopedRoleMembershipImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ScopedRoleMembershipImpl? element : new ScopedRoleMembershipImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -39,7 +40,7 @@ export class ScopedRoleMembershipCollectionResponseImpl implements ScopedRoleMem
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: ScopedRoleMembershipImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ScopedRoleMembershipImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: ScopedRoleMembershipImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ScopedRoleMembershipImpl? element : new ScopedRoleMembershipImpl(element));});
             writer.writeCollectionOfObjectValues<ScopedRoleMembershipImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

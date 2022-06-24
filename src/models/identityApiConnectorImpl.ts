@@ -18,7 +18,7 @@ export class IdentityApiConnectorImpl extends EntityImpl implements IdentityApiC
      */
     public constructor(identityApiConnectorParameterValue?: IdentityApiConnector | undefined) {
         super(identityApiConnectorParameterValue);
-        this.authenticationConfiguration = identityApiConnectorParameterValue?.authenticationConfiguration;
+        this.authenticationConfiguration = identityApiConnectorParameterValue?.authenticationConfiguration instanceof ApiAuthenticationConfigurationBaseImpl? identityApiConnectorParameterValue?.authenticationConfiguration:new ApiAuthenticationConfigurationBaseImpl(identityApiConnectorParameterValue?.authenticationConfiguration);
         this.displayName = identityApiConnectorParameterValue?.displayName;
         this.targetUrl = identityApiConnectorParameterValue?.targetUrl;
     };

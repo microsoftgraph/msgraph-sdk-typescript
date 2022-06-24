@@ -3,6 +3,7 @@ import {createSubscriptionFromDiscriminatorValue} from '../../../../../../models
 import {ODataErrorImpl} from '../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {Subscription} from '../../../../../../models/subscription';
+import {ReauthorizeRequestBuilder} from './reauthorize/reauthorizeRequestBuilder';
 import {SubscriptionItemRequestBuilderDeleteRequestConfiguration} from './subscriptionItemRequestBuilderDeleteRequestConfiguration';
 import {SubscriptionItemRequestBuilderGetRequestConfiguration} from './subscriptionItemRequestBuilderGetRequestConfiguration';
 import {SubscriptionItemRequestBuilderPatchRequestConfiguration} from './subscriptionItemRequestBuilderPatchRequestConfiguration';
@@ -12,6 +13,10 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
 export class SubscriptionItemRequestBuilder {
     /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
+    /** The reauthorize property */
+    public get reauthorize(): ReauthorizeRequestBuilder {
+        return new ReauthorizeRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
     /** Url template to use to build the URL for the current request builder */

@@ -2,7 +2,7 @@ import {EntityImpl} from './index';
 import {WorkbookFunctions} from './workbookFunctions';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to group. */
+/** Provides operations to manage the collection of application entities. */
 export class WorkbookFunctionsImpl extends EntityImpl implements WorkbookFunctions {
     /**
      * Instantiates a new workbookFunctions and sets the default values.

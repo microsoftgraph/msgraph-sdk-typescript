@@ -1,9 +1,13 @@
+import {AudioCodec} from './audioCodec';
 import {MediaStreamDirection} from './mediaStreamDirection';
+import {VideoCodec} from './videoCodec';
 import {AdditionalDataHolder, Duration, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface MediaStream extends Partial<AdditionalDataHolder>, Partial<Parsable> {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData?: Record<string, unknown>;
+    /** Codec name used to encode audio for transmission on the network. Possible values are: unknown, invalid, cn, pcma, pcmu, amrWide, g722, g7221, g7221c, g729, multiChannelAudio, muchv2, opus, satin, satinFullband, rtAudio8, rtAudio16, silk, silkNarrow, silkWide, siren, xmsRTA, unknownFutureValue. */
+    audioCodec?: AudioCodec | undefined;
     /** Average Network Mean Opinion Score degradation for stream. Represents how much the network loss and jitter has impacted the quality of received audio. */
     averageAudioDegradation?: number | undefined;
     /** Average jitter for the stream computed as specified in [RFC 3550][], denoted in [ISO 8601][] format. For example, 1 second is denoted as 'PT1S', where 'P' is the duration designator, 'T' is the time designator, and 'S' is the second designator. */
@@ -52,6 +56,8 @@ export interface MediaStream extends Partial<AdditionalDataHolder>, Partial<Pars
     streamDirection?: MediaStreamDirection | undefined;
     /** Unique identifier for the stream. */
     streamId?: string | undefined;
+    /** Codec name used to encode video for transmission on the network. Possible values are: unknown, invalid, av1, h263, h264, h264s, h264uc, h265, rtvc1, rtVideo, xrtvc1, unknownFutureValue. */
+    videoCodec?: VideoCodec | undefined;
     /** True if the media stream bypassed the Mediation Server and went straight between client and PSTN Gateway/PBX, false otherwise. */
     wasMediaBypassed?: boolean | undefined;
 }

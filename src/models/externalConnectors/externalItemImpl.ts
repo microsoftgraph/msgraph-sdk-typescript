@@ -23,9 +23,10 @@ export class ExternalItemImpl extends EntityImpl implements ExternalItem {
      */
     public constructor(externalItemParameterValue?: ExternalItem | undefined) {
         super(externalItemParameterValue);
-        this.acl = externalItemParameterValue?.acl;
-        this.content = externalItemParameterValue?.content;
-        this.properties = externalItemParameterValue?.properties;
+        const aclArrValue: AclImpl[] = []; this.acl?.forEach(element => {aclArrValue.push(element instanceof AclImpl? element : new AclImpl(element));});
+        this.acl = aclArrValue;
+        this.content = externalItemParameterValue?.content instanceof ExternalItemContentImpl? externalItemParameterValue?.content:new ExternalItemContentImpl(externalItemParameterValue?.content);
+        this.properties = externalItemParameterValue?.properties instanceof PropertiesImpl? externalItemParameterValue?.properties:new PropertiesImpl(externalItemParameterValue?.properties);
     };
     /**
      * The deserialization information for the current model
@@ -45,7 +46,7 @@ export class ExternalItemImpl extends EntityImpl implements ExternalItem {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.acl && this.acl.length != 0){        const aclArrValue: AclImpl[] = []; this.acl?.forEach(element => {aclArrValue.push(new AclImpl(element));});
+        if(this.acl && this.acl.length != 0){        const aclArrValue: AclImpl[] = []; this.acl?.forEach(element => {aclArrValue.push(element instanceof AclImpl? element : new AclImpl(element));});
             writer.writeCollectionOfObjectValues<AclImpl>("acl", aclArrValue);
         }
         if(this.content){

@@ -2,7 +2,7 @@ import {EntityImpl} from './index';
 import {PlannerProgressTaskBoardTaskFormat} from './plannerProgressTaskBoardTaskFormat';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to group. */
+/** Provides operations to manage the collection of application entities. */
 export class PlannerProgressTaskBoardTaskFormatImpl extends EntityImpl implements PlannerProgressTaskBoardTaskFormat {
     /** Hint value used to order the task on the Progress view of the Task Board. The format is defined as outlined here. */
     public orderHint?: string | undefined;

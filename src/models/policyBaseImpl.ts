@@ -2,7 +2,7 @@ import {DirectoryObjectImpl} from './index';
 import {PolicyBase} from './policyBase';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of application entities. */
+/** Provides operations to call the instantiate method. */
 export class PolicyBaseImpl extends DirectoryObjectImpl implements PolicyBase {
     /** Description for this policy. Required. */
     public description?: string | undefined;

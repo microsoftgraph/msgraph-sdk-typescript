@@ -1,3 +1,5 @@
+import {ODataErrorImpl} from '../../../../models/oDataErrors/';
+import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {createUnfavoriteResponseFromDiscriminatorValue} from './createUnfavoriteResponseFromDiscriminatorValue';
 import {UnfavoritePostRequestBodyImpl, UnfavoriteResponseImpl} from './index';
 import {UnfavoritePostRequestBody} from './unfavoritePostRequestBody';
@@ -58,6 +60,10 @@ export class UnfavoriteRequestBuilder {
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration
         );
-        return this.requestAdapter?.sendAsync<UnfavoriteResponseImpl>(requestInfo, createUnfavoriteResponseFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<UnfavoriteResponseImpl>(requestInfo, createUnfavoriteResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

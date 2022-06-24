@@ -28,12 +28,13 @@ export class ParticipantImpl extends EntityImpl implements Participant {
      */
     public constructor(participantParameterValue?: Participant | undefined) {
         super(participantParameterValue);
-        this.info = participantParameterValue?.info;
+        this.info = participantParameterValue?.info instanceof ParticipantInfoImpl? participantParameterValue?.info:new ParticipantInfoImpl(participantParameterValue?.info);
         this.isInLobby = participantParameterValue?.isInLobby;
         this.isMuted = participantParameterValue?.isMuted;
-        this.mediaStreams = participantParameterValue?.mediaStreams;
+        const mediaStreamsArrValue: MediaStreamImpl[] = []; this.mediaStreams?.forEach(element => {mediaStreamsArrValue.push(element instanceof MediaStreamImpl? element : new MediaStreamImpl(element));});
+        this.mediaStreams = mediaStreamsArrValue;
         this.metadata = participantParameterValue?.metadata;
-        this.recordingInfo = participantParameterValue?.recordingInfo;
+        this.recordingInfo = participantParameterValue?.recordingInfo instanceof RecordingInfoImpl? participantParameterValue?.recordingInfo:new RecordingInfoImpl(participantParameterValue?.recordingInfo);
     };
     /**
      * The deserialization information for the current model
@@ -65,7 +66,7 @@ export class ParticipantImpl extends EntityImpl implements Participant {
         if(this.isMuted){
             writer.writeBooleanValue("isMuted", this.isMuted);
         }
-        if(this.mediaStreams && this.mediaStreams.length != 0){        const mediaStreamsArrValue: MediaStreamImpl[] = []; this.mediaStreams?.forEach(element => {mediaStreamsArrValue.push(new MediaStreamImpl(element));});
+        if(this.mediaStreams && this.mediaStreams.length != 0){        const mediaStreamsArrValue: MediaStreamImpl[] = []; this.mediaStreams?.forEach(element => {mediaStreamsArrValue.push(element instanceof MediaStreamImpl? element : new MediaStreamImpl(element));});
             writer.writeCollectionOfObjectValues<MediaStreamImpl>("mediaStreams", mediaStreamsArrValue);
         }
         if(this.metadata){

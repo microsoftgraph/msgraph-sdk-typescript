@@ -8,7 +8,7 @@ import {ResourceVisualization} from './resourceVisualization';
 import {Trending} from './trending';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the collection of application entities. */
 export class TrendingImpl extends EntityImpl implements Trending {
     /** The lastModifiedDateTime property */
     public lastModifiedDateTime?: Date | undefined;
@@ -27,9 +27,9 @@ export class TrendingImpl extends EntityImpl implements Trending {
     public constructor(trendingParameterValue?: Trending | undefined) {
         super(trendingParameterValue);
         this.lastModifiedDateTime = trendingParameterValue?.lastModifiedDateTime;
-        this.resource = trendingParameterValue?.resource;
-        this.resourceReference = trendingParameterValue?.resourceReference;
-        this.resourceVisualization = trendingParameterValue?.resourceVisualization;
+        this.resource = trendingParameterValue?.resource instanceof EntityImpl? trendingParameterValue?.resource:new EntityImpl(trendingParameterValue?.resource);
+        this.resourceReference = trendingParameterValue?.resourceReference instanceof ResourceReferenceImpl? trendingParameterValue?.resourceReference:new ResourceReferenceImpl(trendingParameterValue?.resourceReference);
+        this.resourceVisualization = trendingParameterValue?.resourceVisualization instanceof ResourceVisualizationImpl? trendingParameterValue?.resourceVisualization:new ResourceVisualizationImpl(trendingParameterValue?.resourceVisualization);
         this.weight = trendingParameterValue?.weight;
     };
     /**

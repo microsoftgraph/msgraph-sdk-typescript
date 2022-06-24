@@ -4,7 +4,7 @@ import {ShiftPreferences} from './shiftPreferences';
 import {UserSettings} from './userSettings';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the collection of application entities. */
 export class UserSettingsImpl extends EntityImpl implements UserSettings {
     /** Reflects the Office Delve organization level setting. When set to true, the organization doesn't have access to Office Delve. This setting is read-only and can only be changed by administrators in the SharePoint admin center. */
     public contributionToContentDiscoveryAsOrganizationDisabled?: boolean | undefined;
@@ -20,7 +20,7 @@ export class UserSettingsImpl extends EntityImpl implements UserSettings {
         super(userSettingsParameterValue);
         this.contributionToContentDiscoveryAsOrganizationDisabled = userSettingsParameterValue?.contributionToContentDiscoveryAsOrganizationDisabled;
         this.contributionToContentDiscoveryDisabled = userSettingsParameterValue?.contributionToContentDiscoveryDisabled;
-        this.shiftPreferences = userSettingsParameterValue?.shiftPreferences;
+        this.shiftPreferences = userSettingsParameterValue?.shiftPreferences instanceof ShiftPreferencesImpl? userSettingsParameterValue?.shiftPreferences:new ShiftPreferencesImpl(userSettingsParameterValue?.shiftPreferences);
     };
     /**
      * The deserialization information for the current model

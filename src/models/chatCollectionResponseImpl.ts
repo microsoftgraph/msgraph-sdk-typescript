@@ -18,7 +18,8 @@ export class ChatCollectionResponseImpl implements ChatCollectionResponse {
     public constructor(chatCollectionResponseParameterValue?: ChatCollectionResponse | undefined) {
         this.additionalData = chatCollectionResponseParameterValue?.additionalData ? chatCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = chatCollectionResponseParameterValue?.nextLink;
-        this.value = chatCollectionResponseParameterValue?.value;
+        const valueArrValue: ChatImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ChatImpl? element : new ChatImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -39,7 +40,7 @@ export class ChatCollectionResponseImpl implements ChatCollectionResponse {
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: ChatImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ChatImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: ChatImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ChatImpl? element : new ChatImpl(element));});
             writer.writeCollectionOfObjectValues<ChatImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

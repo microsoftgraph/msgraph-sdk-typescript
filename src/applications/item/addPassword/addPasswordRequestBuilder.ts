@@ -1,5 +1,7 @@
 import {PasswordCredentialImpl} from '../../../models/';
 import {createPasswordCredentialFromDiscriminatorValue} from '../../../models/createPasswordCredentialFromDiscriminatorValue';
+import {ODataErrorImpl} from '../../../models/oDataErrors/';
+import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {AddPasswordRequestBuilderPostRequestConfiguration} from './addPasswordRequestBuilderPostRequestConfiguration';
 import {PasswordCredentialPostRequestBodyImpl} from './index';
 import {PasswordCredentialPostRequestBody} from './passwordCredentialPostRequestBody';
@@ -59,6 +61,10 @@ export class AddPasswordRequestBuilder {
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration
         );
-        return this.requestAdapter?.sendAsync<PasswordCredentialImpl>(requestInfo, createPasswordCredentialFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<PasswordCredentialImpl>(requestInfo, createPasswordCredentialFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

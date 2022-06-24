@@ -2,7 +2,7 @@ import {Extension} from './extension';
 import {EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of device entities. */
+/** Provides operations to manage the collection of application entities. */
 export class ExtensionImpl extends EntityImpl implements Extension {
     /**
      * Instantiates a new extension and sets the default values.

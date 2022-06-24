@@ -1,3 +1,5 @@
+import {ODataErrorImpl} from '../../models/oDataErrors/';
+import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {createRevokeSignInSessionsResponseFromDiscriminatorValue} from './createRevokeSignInSessionsResponseFromDiscriminatorValue';
 import {RevokeSignInSessionsResponseImpl} from './index';
 import {RevokeSignInSessionsRequestBuilderPostRequestConfiguration} from './revokeSignInSessionsRequestBuilderPostRequestConfiguration';
@@ -51,6 +53,10 @@ export class RevokeSignInSessionsRequestBuilder {
         const requestInfo = this.createPostRequestInformation(
             requestConfiguration
         );
-        return this.requestAdapter?.sendAsync<RevokeSignInSessionsResponseImpl>(requestInfo, createRevokeSignInSessionsResponseFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<RevokeSignInSessionsResponseImpl>(requestInfo, createRevokeSignInSessionsResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

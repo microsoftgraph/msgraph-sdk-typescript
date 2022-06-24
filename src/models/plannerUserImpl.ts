@@ -6,7 +6,7 @@ import {PlannerTask} from './plannerTask';
 import {PlannerUser} from './plannerUser';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the collection of application entities. */
 export class PlannerUserImpl extends EntityImpl implements PlannerUser {
     /** Read-only. Nullable. Returns the plannerTasks assigned to the user. */
     public plans?: PlannerPlan[] | undefined;
@@ -18,8 +18,10 @@ export class PlannerUserImpl extends EntityImpl implements PlannerUser {
      */
     public constructor(plannerUserParameterValue?: PlannerUser | undefined) {
         super(plannerUserParameterValue);
-        this.plans = plannerUserParameterValue?.plans;
-        this.tasks = plannerUserParameterValue?.tasks;
+        const plansArrValue: PlannerPlanImpl[] = []; this.plans?.forEach(element => {plansArrValue.push(element instanceof PlannerPlanImpl? element : new PlannerPlanImpl(element));});
+        this.plans = plansArrValue;
+        const tasksArrValue: PlannerTaskImpl[] = []; this.tasks?.forEach(element => {tasksArrValue.push(element instanceof PlannerTaskImpl? element : new PlannerTaskImpl(element));});
+        this.tasks = tasksArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -38,10 +40,10 @@ export class PlannerUserImpl extends EntityImpl implements PlannerUser {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.plans && this.plans.length != 0){        const plansArrValue: PlannerPlanImpl[] = []; this.plans?.forEach(element => {plansArrValue.push(new PlannerPlanImpl(element));});
+        if(this.plans && this.plans.length != 0){        const plansArrValue: PlannerPlanImpl[] = []; this.plans?.forEach(element => {plansArrValue.push(element instanceof PlannerPlanImpl? element : new PlannerPlanImpl(element));});
             writer.writeCollectionOfObjectValues<PlannerPlanImpl>("plans", plansArrValue);
         }
-        if(this.tasks && this.tasks.length != 0){        const tasksArrValue: PlannerTaskImpl[] = []; this.tasks?.forEach(element => {tasksArrValue.push(new PlannerTaskImpl(element));});
+        if(this.tasks && this.tasks.length != 0){        const tasksArrValue: PlannerTaskImpl[] = []; this.tasks?.forEach(element => {tasksArrValue.push(element instanceof PlannerTaskImpl? element : new PlannerTaskImpl(element));});
             writer.writeCollectionOfObjectValues<PlannerTaskImpl>("tasks", tasksArrValue);
         }
     };

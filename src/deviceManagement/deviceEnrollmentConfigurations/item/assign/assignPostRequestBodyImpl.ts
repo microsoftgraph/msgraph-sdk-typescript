@@ -16,7 +16,8 @@ export class AssignPostRequestBodyImpl implements AssignPostRequestBody {
      */
     public constructor(assignPostRequestBodyParameterValue?: AssignPostRequestBody | undefined) {
         this.additionalData = assignPostRequestBodyParameterValue?.additionalData ? assignPostRequestBodyParameterValue?.additionalData! : {};
-        this.enrollmentConfigurationAssignments = assignPostRequestBodyParameterValue?.enrollmentConfigurationAssignments;
+        const enrollmentConfigurationAssignmentsArrValue: EnrollmentConfigurationAssignmentImpl[] = []; this.enrollmentConfigurationAssignments?.forEach(element => {enrollmentConfigurationAssignmentsArrValue.push(element instanceof EnrollmentConfigurationAssignmentImpl? element : new EnrollmentConfigurationAssignmentImpl(element));});
+        this.enrollmentConfigurationAssignments = enrollmentConfigurationAssignmentsArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -33,7 +34,7 @@ export class AssignPostRequestBodyImpl implements AssignPostRequestBody {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        if(this.enrollmentConfigurationAssignments && this.enrollmentConfigurationAssignments.length != 0){        const enrollmentConfigurationAssignmentsArrValue: EnrollmentConfigurationAssignmentImpl[] = []; this.enrollmentConfigurationAssignments?.forEach(element => {enrollmentConfigurationAssignmentsArrValue.push(new EnrollmentConfigurationAssignmentImpl(element));});
+        if(this.enrollmentConfigurationAssignments && this.enrollmentConfigurationAssignments.length != 0){        const enrollmentConfigurationAssignmentsArrValue: EnrollmentConfigurationAssignmentImpl[] = []; this.enrollmentConfigurationAssignments?.forEach(element => {enrollmentConfigurationAssignmentsArrValue.push(element instanceof EnrollmentConfigurationAssignmentImpl? element : new EnrollmentConfigurationAssignmentImpl(element));});
             writer.writeCollectionOfObjectValues<EnrollmentConfigurationAssignmentImpl>("enrollmentConfigurationAssignments", enrollmentConfigurationAssignmentsArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

@@ -39,15 +39,17 @@ export class AccessReviewHistoryDefinitionImpl extends EntityImpl implements Acc
      */
     public constructor(accessReviewHistoryDefinitionParameterValue?: AccessReviewHistoryDefinition | undefined) {
         super(accessReviewHistoryDefinitionParameterValue);
-        this.createdBy = accessReviewHistoryDefinitionParameterValue?.createdBy;
+        this.createdBy = accessReviewHistoryDefinitionParameterValue?.createdBy instanceof UserIdentityImpl? accessReviewHistoryDefinitionParameterValue?.createdBy:new UserIdentityImpl(accessReviewHistoryDefinitionParameterValue?.createdBy);
         this.createdDateTime = accessReviewHistoryDefinitionParameterValue?.createdDateTime;
         this.decisions = accessReviewHistoryDefinitionParameterValue?.decisions;
         this.displayName = accessReviewHistoryDefinitionParameterValue?.displayName;
-        this.instances = accessReviewHistoryDefinitionParameterValue?.instances;
+        const instancesArrValue: AccessReviewHistoryInstanceImpl[] = []; this.instances?.forEach(element => {instancesArrValue.push(element instanceof AccessReviewHistoryInstanceImpl? element : new AccessReviewHistoryInstanceImpl(element));});
+        this.instances = instancesArrValue;
         this.reviewHistoryPeriodEndDateTime = accessReviewHistoryDefinitionParameterValue?.reviewHistoryPeriodEndDateTime;
         this.reviewHistoryPeriodStartDateTime = accessReviewHistoryDefinitionParameterValue?.reviewHistoryPeriodStartDateTime;
-        this.scheduleSettings = accessReviewHistoryDefinitionParameterValue?.scheduleSettings;
-        this.scopes = accessReviewHistoryDefinitionParameterValue?.scopes;
+        this.scheduleSettings = accessReviewHistoryDefinitionParameterValue?.scheduleSettings instanceof AccessReviewHistoryScheduleSettingsImpl? accessReviewHistoryDefinitionParameterValue?.scheduleSettings:new AccessReviewHistoryScheduleSettingsImpl(accessReviewHistoryDefinitionParameterValue?.scheduleSettings);
+        const scopesArrValue: AccessReviewScopeImpl[] = []; this.scopes?.forEach(element => {scopesArrValue.push(element instanceof AccessReviewScopeImpl? element : new AccessReviewScopeImpl(element));});
+        this.scopes = scopesArrValue;
         this.status = accessReviewHistoryDefinitionParameterValue?.status;
     };
     /**
@@ -87,7 +89,7 @@ export class AccessReviewHistoryDefinitionImpl extends EntityImpl implements Acc
         if(this.displayName){
             writer.writeStringValue("displayName", this.displayName);
         }
-        if(this.instances && this.instances.length != 0){        const instancesArrValue: AccessReviewHistoryInstanceImpl[] = []; this.instances?.forEach(element => {instancesArrValue.push(new AccessReviewHistoryInstanceImpl(element));});
+        if(this.instances && this.instances.length != 0){        const instancesArrValue: AccessReviewHistoryInstanceImpl[] = []; this.instances?.forEach(element => {instancesArrValue.push(element instanceof AccessReviewHistoryInstanceImpl? element : new AccessReviewHistoryInstanceImpl(element));});
             writer.writeCollectionOfObjectValues<AccessReviewHistoryInstanceImpl>("instances", instancesArrValue);
         }
         if(this.reviewHistoryPeriodEndDateTime){
@@ -99,7 +101,7 @@ export class AccessReviewHistoryDefinitionImpl extends EntityImpl implements Acc
         if(this.scheduleSettings){
             writer.writeObjectValue<AccessReviewHistoryScheduleSettingsImpl>("scheduleSettings", new AccessReviewHistoryScheduleSettingsImpl(this.scheduleSettings));
         }
-        if(this.scopes && this.scopes.length != 0){        const scopesArrValue: AccessReviewScopeImpl[] = []; this.scopes?.forEach(element => {scopesArrValue.push(new AccessReviewScopeImpl(element));});
+        if(this.scopes && this.scopes.length != 0){        const scopesArrValue: AccessReviewScopeImpl[] = []; this.scopes?.forEach(element => {scopesArrValue.push(element instanceof AccessReviewScopeImpl? element : new AccessReviewScopeImpl(element));});
             writer.writeCollectionOfObjectValues<AccessReviewScopeImpl>("scopes", scopesArrValue);
         }
         if(this.status){

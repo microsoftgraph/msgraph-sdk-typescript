@@ -16,7 +16,8 @@ export class GetActivitiesByIntervalResponseImpl implements GetActivitiesByInter
      */
     public constructor(getActivitiesByIntervalResponseParameterValue?: GetActivitiesByIntervalResponse | undefined) {
         this.additionalData = getActivitiesByIntervalResponseParameterValue?.additionalData ? getActivitiesByIntervalResponseParameterValue?.additionalData! : {};
-        this.value = getActivitiesByIntervalResponseParameterValue?.value;
+        const valueArrValue: ItemActivityStatImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ItemActivityStatImpl? element : new ItemActivityStatImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -33,7 +34,7 @@ export class GetActivitiesByIntervalResponseImpl implements GetActivitiesByInter
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        if(this.value && this.value.length != 0){        const valueArrValue: ItemActivityStatImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ItemActivityStatImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: ItemActivityStatImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ItemActivityStatImpl? element : new ItemActivityStatImpl(element));});
             writer.writeCollectionOfObjectValues<ItemActivityStatImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

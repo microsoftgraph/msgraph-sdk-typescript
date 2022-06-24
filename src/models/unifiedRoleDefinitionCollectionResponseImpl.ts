@@ -18,7 +18,8 @@ export class UnifiedRoleDefinitionCollectionResponseImpl implements UnifiedRoleD
     public constructor(unifiedRoleDefinitionCollectionResponseParameterValue?: UnifiedRoleDefinitionCollectionResponse | undefined) {
         this.additionalData = unifiedRoleDefinitionCollectionResponseParameterValue?.additionalData ? unifiedRoleDefinitionCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = unifiedRoleDefinitionCollectionResponseParameterValue?.nextLink;
-        this.value = unifiedRoleDefinitionCollectionResponseParameterValue?.value;
+        const valueArrValue: UnifiedRoleDefinitionImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof UnifiedRoleDefinitionImpl? element : new UnifiedRoleDefinitionImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -39,7 +40,7 @@ export class UnifiedRoleDefinitionCollectionResponseImpl implements UnifiedRoleD
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: UnifiedRoleDefinitionImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new UnifiedRoleDefinitionImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: UnifiedRoleDefinitionImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof UnifiedRoleDefinitionImpl? element : new UnifiedRoleDefinitionImpl(element));});
             writer.writeCollectionOfObjectValues<UnifiedRoleDefinitionImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

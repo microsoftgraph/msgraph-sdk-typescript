@@ -14,7 +14,7 @@ export class ChatMessageMentionedIdentitySetImpl extends IdentitySetImpl impleme
      */
     public constructor(chatMessageMentionedIdentitySetParameterValue?: ChatMessageMentionedIdentitySet | undefined) {
         super(chatMessageMentionedIdentitySetParameterValue);
-        this.conversation = chatMessageMentionedIdentitySetParameterValue?.conversation;
+        this.conversation = chatMessageMentionedIdentitySetParameterValue?.conversation instanceof TeamworkConversationIdentityImpl? chatMessageMentionedIdentitySetParameterValue?.conversation:new TeamworkConversationIdentityImpl(chatMessageMentionedIdentitySetParameterValue?.conversation);
     };
     /**
      * The deserialization information for the current model

@@ -4,17 +4,17 @@ import {createAgreementFileLocalizationFromDiscriminatorValue} from './createAgr
 import {AgreementFileLocalizationImpl, AgreementFilePropertiesImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of agreement entities. */
 export class AgreementFileImpl extends AgreementFilePropertiesImpl implements AgreementFile {
     /** The localized version of the terms of use agreement files attached to the agreement. */
     public localizations?: AgreementFileLocalization[] | undefined;
     /**
-     * Instantiates a new agreementFile and sets the default values.
+     * Instantiates a new AgreementFile and sets the default values.
      * @param agreementFileParameterValue 
      */
     public constructor(agreementFileParameterValue?: AgreementFile | undefined) {
         super(agreementFileParameterValue);
-        this.localizations = agreementFileParameterValue?.localizations;
+        const localizationsArrValue: AgreementFileLocalizationImpl[] = []; this.localizations?.forEach(element => {localizationsArrValue.push(element instanceof AgreementFileLocalizationImpl? element : new AgreementFileLocalizationImpl(element));});
+        this.localizations = localizationsArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -32,7 +32,7 @@ export class AgreementFileImpl extends AgreementFilePropertiesImpl implements Ag
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.localizations && this.localizations.length != 0){        const localizationsArrValue: AgreementFileLocalizationImpl[] = []; this.localizations?.forEach(element => {localizationsArrValue.push(new AgreementFileLocalizationImpl(element));});
+        if(this.localizations && this.localizations.length != 0){        const localizationsArrValue: AgreementFileLocalizationImpl[] = []; this.localizations?.forEach(element => {localizationsArrValue.push(element instanceof AgreementFileLocalizationImpl? element : new AgreementFileLocalizationImpl(element));});
             writer.writeCollectionOfObjectValues<AgreementFileLocalizationImpl>("localizations", localizationsArrValue);
         }
     };

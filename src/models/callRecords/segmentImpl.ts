@@ -29,11 +29,12 @@ export class SegmentImpl extends EntityImpl implements Segment {
      */
     public constructor(segmentParameterValue?: Segment | undefined) {
         super(segmentParameterValue);
-        this.callee = segmentParameterValue?.callee;
-        this.caller = segmentParameterValue?.caller;
+        this.callee = segmentParameterValue?.callee instanceof EndpointImpl? segmentParameterValue?.callee:new EndpointImpl(segmentParameterValue?.callee);
+        this.caller = segmentParameterValue?.caller instanceof EndpointImpl? segmentParameterValue?.caller:new EndpointImpl(segmentParameterValue?.caller);
         this.endDateTime = segmentParameterValue?.endDateTime;
-        this.failureInfo = segmentParameterValue?.failureInfo;
-        this.media = segmentParameterValue?.media;
+        this.failureInfo = segmentParameterValue?.failureInfo instanceof FailureInfoImpl? segmentParameterValue?.failureInfo:new FailureInfoImpl(segmentParameterValue?.failureInfo);
+        const mediaArrValue: MediaImpl[] = []; this.media?.forEach(element => {mediaArrValue.push(element instanceof MediaImpl? element : new MediaImpl(element));});
+        this.media = mediaArrValue;
         this.startDateTime = segmentParameterValue?.startDateTime;
     };
     /**
@@ -69,7 +70,7 @@ export class SegmentImpl extends EntityImpl implements Segment {
         if(this.failureInfo){
             writer.writeObjectValue<FailureInfoImpl>("failureInfo", new FailureInfoImpl(this.failureInfo));
         }
-        if(this.media && this.media.length != 0){        const mediaArrValue: MediaImpl[] = []; this.media?.forEach(element => {mediaArrValue.push(new MediaImpl(element));});
+        if(this.media && this.media.length != 0){        const mediaArrValue: MediaImpl[] = []; this.media?.forEach(element => {mediaArrValue.push(element instanceof MediaImpl? element : new MediaImpl(element));});
             writer.writeCollectionOfObjectValues<MediaImpl>("media", mediaArrValue);
         }
         if(this.startDateTime){

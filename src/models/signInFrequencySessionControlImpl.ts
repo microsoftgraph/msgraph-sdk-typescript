@@ -5,7 +5,7 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 
 /** Provides operations to manage the identityContainer singleton. */
 export class SignInFrequencySessionControlImpl extends ConditionalAccessSessionControlImpl implements SignInFrequencySessionControl {
-    /** Possible values are: days, hours. */
+    /** Possible values are: days, hours, or null if frequencyInterval is everyTime . */
     public type?: SigninFrequencyType | undefined;
     /** The number of days or hours. */
     public value?: number | undefined;

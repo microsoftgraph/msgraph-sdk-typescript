@@ -31,7 +31,7 @@ export class RefRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Nullable.
+     * Get ref of externalSponsors from identityGovernance
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -70,7 +70,7 @@ export class RefRequestBuilder {
         return requestInfo;
     };
     /**
-     * Nullable.
+     * Get ref of externalSponsors from identityGovernance
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of StringCollectionResponse

@@ -8,31 +8,31 @@ import {UnifiedRoleDefinition} from './unifiedRoleDefinition';
 import {UnifiedRoleScheduleBase} from './unifiedRoleScheduleBase';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the roleManagement singleton. */
+/** Provides operations to manage the identityGovernance singleton. */
 export class UnifiedRoleScheduleBaseImpl extends EntityImpl implements UnifiedRoleScheduleBase {
-    /** Read-only property with details of the app specific scope when the assignment scope is app specific. Containment entity. */
+    /** Read-only property with details of the app-specific scope when the role eligibility or assignment is scoped to an app. Nullable. */
     public appScope?: AppScope | undefined;
-    /** Identifier of the app-specific scope when the assignment scope is app-specific. The scope of an assignment determines the set of resources for which the principal has been granted access. App scopes are scopes that are defined and understood by this application only. Use / for tenant-wide app scopes. Use directoryScopeId to limit the scope to particular directory objects, for example, administrative units or all users. */
+    /** Identifier of the app-specific scope when the assignment or eligibility is scoped to an app. The scope of an assignment or eligibility determines the set of resources for which the principal has been granted access. App scopes are scopes that are defined and understood by this application only. Use / for tenant-wide app scopes. Use directoryScopeId to limit the scope to particular directory objects, for example, administrative units. */
     public appScopeId?: string | undefined;
-    /** Time that the schedule was created. */
+    /** When the schedule was created. */
     public createdDateTime?: Date | undefined;
-    /** Identifier of the roleAssignmentScheduleRequest that created this schedule. */
+    /** Identifier of the object through which this schedule was created. */
     public createdUsing?: string | undefined;
-    /** Property referencing the directory object that is the scope of the assignment. Provided so that callers can get the directory object using $expand at the same time as getting the role assignment. Read-only. */
+    /** The directory object that is the scope of the role eligibility or assignment. Read-only. */
     public directoryScope?: DirectoryObject | undefined;
-    /** Identifier of the directory object representing the scope of the assignment. The scope of an assignment determines the set of resources for which the principal has been granted access. Directory scopes are shared scopes stored in the directory that are understood by multiple applications. Use / for tenant-wide scope. Use appScopeId to limit the scope to an application only. */
+    /** Identifier of the directory object representing the scope of the assignment or eligibility. The scope of an assignment or eligibility determines the set of resources for which the principal has been granted access. Directory scopes are shared scopes stored in the directory that are understood by multiple applications. Use / for tenant-wide scope. Use appScopeId to limit the scope to an application only. */
     public directoryScopeId?: string | undefined;
-    /** Last time the schedule was updated. */
+    /** When the schedule was last modified. */
     public modifiedDateTime?: Date | undefined;
-    /** Property referencing the principal that is getting a role assignment through the request. Provided so that callers can get the principal using $expand at the same time as getting the role assignment. Read-only. */
+    /** The principal that's getting a role assignment or that's eligible for a role through the request. */
     public principal?: DirectoryObject | undefined;
-    /** Identifier of the principal to which the assignment is being granted to. Supports $filter (eq). */
+    /** Identifier of the principal that has been granted the role assignment or eligibility. */
     public principalId?: string | undefined;
-    /** Property indicating the roleDefinition the assignment is for. Provided so that callers can get the role definition using $expand at the same time as getting the role assignment. roleDefinition.Id will be auto expanded. */
+    /** Detailed information for the roleDefinition object that is referenced through the roleDefinitionId property. */
     public roleDefinition?: UnifiedRoleDefinition | undefined;
-    /** Identifier of the unifiedRoleDefinition the assignment is for. Read only. Supports $filter (eq). */
+    /** Identifier of the unifiedRoleDefinition object that is being assigned to the principal or that a principal is eligible for. */
     public roleDefinitionId?: string | undefined;
-    /** Status for the roleAssignmentSchedule. It can include state related messages like Provisioned, Revoked, Pending Provisioning, and Pending Approval. Supports $filter (eq). */
+    /** The status of the role assignment or eligibility request. */
     public status?: string | undefined;
     /**
      * Instantiates a new unifiedRoleScheduleBase and sets the default values.
@@ -40,16 +40,16 @@ export class UnifiedRoleScheduleBaseImpl extends EntityImpl implements UnifiedRo
      */
     public constructor(unifiedRoleScheduleBaseParameterValue?: UnifiedRoleScheduleBase | undefined) {
         super(unifiedRoleScheduleBaseParameterValue);
-        this.appScope = unifiedRoleScheduleBaseParameterValue?.appScope;
+        this.appScope = unifiedRoleScheduleBaseParameterValue?.appScope instanceof AppScopeImpl? unifiedRoleScheduleBaseParameterValue?.appScope:new AppScopeImpl(unifiedRoleScheduleBaseParameterValue?.appScope);
         this.appScopeId = unifiedRoleScheduleBaseParameterValue?.appScopeId;
         this.createdDateTime = unifiedRoleScheduleBaseParameterValue?.createdDateTime;
         this.createdUsing = unifiedRoleScheduleBaseParameterValue?.createdUsing;
-        this.directoryScope = unifiedRoleScheduleBaseParameterValue?.directoryScope;
+        this.directoryScope = unifiedRoleScheduleBaseParameterValue?.directoryScope instanceof DirectoryObjectImpl? unifiedRoleScheduleBaseParameterValue?.directoryScope:new DirectoryObjectImpl(unifiedRoleScheduleBaseParameterValue?.directoryScope);
         this.directoryScopeId = unifiedRoleScheduleBaseParameterValue?.directoryScopeId;
         this.modifiedDateTime = unifiedRoleScheduleBaseParameterValue?.modifiedDateTime;
-        this.principal = unifiedRoleScheduleBaseParameterValue?.principal;
+        this.principal = unifiedRoleScheduleBaseParameterValue?.principal instanceof DirectoryObjectImpl? unifiedRoleScheduleBaseParameterValue?.principal:new DirectoryObjectImpl(unifiedRoleScheduleBaseParameterValue?.principal);
         this.principalId = unifiedRoleScheduleBaseParameterValue?.principalId;
-        this.roleDefinition = unifiedRoleScheduleBaseParameterValue?.roleDefinition;
+        this.roleDefinition = unifiedRoleScheduleBaseParameterValue?.roleDefinition instanceof UnifiedRoleDefinitionImpl? unifiedRoleScheduleBaseParameterValue?.roleDefinition:new UnifiedRoleDefinitionImpl(unifiedRoleScheduleBaseParameterValue?.roleDefinition);
         this.roleDefinitionId = unifiedRoleScheduleBaseParameterValue?.roleDefinitionId;
         this.status = unifiedRoleScheduleBaseParameterValue?.status;
     };

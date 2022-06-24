@@ -34,14 +34,15 @@ export class FindMeetingTimesPostRequestBodyImpl implements FindMeetingTimesPost
      */
     public constructor(findMeetingTimesPostRequestBodyParameterValue?: FindMeetingTimesPostRequestBody | undefined) {
         this.additionalData = findMeetingTimesPostRequestBodyParameterValue?.additionalData ? findMeetingTimesPostRequestBodyParameterValue?.additionalData! : {};
-        this.attendees = findMeetingTimesPostRequestBodyParameterValue?.attendees;
+        const attendeesArrValue: AttendeeBaseImpl[] = []; this.attendees?.forEach(element => {attendeesArrValue.push(element instanceof AttendeeBaseImpl? element : new AttendeeBaseImpl(element));});
+        this.attendees = attendeesArrValue;
         this.isOrganizerOptional = findMeetingTimesPostRequestBodyParameterValue?.isOrganizerOptional;
-        this.locationConstraint = findMeetingTimesPostRequestBodyParameterValue?.locationConstraint;
+        this.locationConstraint = findMeetingTimesPostRequestBodyParameterValue?.locationConstraint instanceof LocationConstraintImpl? findMeetingTimesPostRequestBodyParameterValue?.locationConstraint:new LocationConstraintImpl(findMeetingTimesPostRequestBodyParameterValue?.locationConstraint);
         this.maxCandidates = findMeetingTimesPostRequestBodyParameterValue?.maxCandidates;
         this.meetingDuration = findMeetingTimesPostRequestBodyParameterValue?.meetingDuration;
         this.minimumAttendeePercentage = findMeetingTimesPostRequestBodyParameterValue?.minimumAttendeePercentage;
         this.returnSuggestionReasons = findMeetingTimesPostRequestBodyParameterValue?.returnSuggestionReasons;
-        this.timeConstraint = findMeetingTimesPostRequestBodyParameterValue?.timeConstraint;
+        this.timeConstraint = findMeetingTimesPostRequestBodyParameterValue?.timeConstraint instanceof TimeConstraintImpl? findMeetingTimesPostRequestBodyParameterValue?.timeConstraint:new TimeConstraintImpl(findMeetingTimesPostRequestBodyParameterValue?.timeConstraint);
     };
     /**
      * The deserialization information for the current model
@@ -65,7 +66,7 @@ export class FindMeetingTimesPostRequestBodyImpl implements FindMeetingTimesPost
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        if(this.attendees && this.attendees.length != 0){        const attendeesArrValue: AttendeeBaseImpl[] = []; this.attendees?.forEach(element => {attendeesArrValue.push(new AttendeeBaseImpl(element));});
+        if(this.attendees && this.attendees.length != 0){        const attendeesArrValue: AttendeeBaseImpl[] = []; this.attendees?.forEach(element => {attendeesArrValue.push(element instanceof AttendeeBaseImpl? element : new AttendeeBaseImpl(element));});
             writer.writeCollectionOfObjectValues<AttendeeBaseImpl>("attendees", attendeesArrValue);
         }
         if(this.isOrganizerOptional){

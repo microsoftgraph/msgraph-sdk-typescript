@@ -1,5 +1,7 @@
 import {SubscribeToToneOperationImpl} from '../../../../models/';
 import {createSubscribeToToneOperationFromDiscriminatorValue} from '../../../../models/createSubscribeToToneOperationFromDiscriminatorValue';
+import {ODataErrorImpl} from '../../../../models/oDataErrors/';
+import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {SubscribeToTonePostRequestBodyImpl} from './index';
 import {SubscribeToTonePostRequestBody} from './subscribeToTonePostRequestBody';
 import {SubscribeToToneRequestBuilderPostRequestConfiguration} from './subscribeToToneRequestBuilderPostRequestConfiguration';
@@ -59,6 +61,10 @@ export class SubscribeToToneRequestBuilder {
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration
         );
-        return this.requestAdapter?.sendAsync<SubscribeToToneOperationImpl>(requestInfo, createSubscribeToToneOperationFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<SubscribeToToneOperationImpl>(requestInfo, createSubscribeToToneOperationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

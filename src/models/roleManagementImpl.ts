@@ -7,7 +7,7 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class RoleManagementImpl implements RoleManagement {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
-    /** Read-only. Nullable. */
+    /** The directory property */
     public directory?: RbacApplication | undefined;
     /** Container for roles and assignments for entitlement management resources. */
     public entitlementManagement?: RbacApplication | undefined;
@@ -17,8 +17,8 @@ export class RoleManagementImpl implements RoleManagement {
      */
     public constructor(roleManagementParameterValue?: RoleManagement | undefined) {
         this.additionalData = roleManagementParameterValue?.additionalData ? roleManagementParameterValue?.additionalData! : {};
-        this.directory = roleManagementParameterValue?.directory;
-        this.entitlementManagement = roleManagementParameterValue?.entitlementManagement;
+        this.directory = roleManagementParameterValue?.directory instanceof RbacApplicationImpl? roleManagementParameterValue?.directory:new RbacApplicationImpl(roleManagementParameterValue?.directory);
+        this.entitlementManagement = roleManagementParameterValue?.entitlementManagement instanceof RbacApplicationImpl? roleManagementParameterValue?.entitlementManagement:new RbacApplicationImpl(roleManagementParameterValue?.entitlementManagement);
     };
     /**
      * The deserialization information for the current model

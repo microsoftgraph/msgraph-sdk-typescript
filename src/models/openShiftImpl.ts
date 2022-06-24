@@ -4,7 +4,6 @@ import {OpenShift} from './openShift';
 import {OpenShiftItem} from './openShiftItem';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to group. */
 export class OpenShiftImpl extends ChangeTrackedEntityImpl implements OpenShift {
     /** An unpublished open shift. */
     public draftOpenShift?: OpenShiftItem | undefined;
@@ -13,14 +12,14 @@ export class OpenShiftImpl extends ChangeTrackedEntityImpl implements OpenShift 
     /** A published open shift. */
     public sharedOpenShift?: OpenShiftItem | undefined;
     /**
-     * Instantiates a new openShift and sets the default values.
+     * Instantiates a new OpenShift and sets the default values.
      * @param openShiftParameterValue 
      */
     public constructor(openShiftParameterValue?: OpenShift | undefined) {
         super(openShiftParameterValue);
-        this.draftOpenShift = openShiftParameterValue?.draftOpenShift;
+        this.draftOpenShift = openShiftParameterValue?.draftOpenShift instanceof OpenShiftItemImpl? openShiftParameterValue?.draftOpenShift:new OpenShiftItemImpl(openShiftParameterValue?.draftOpenShift);
         this.schedulingGroupId = openShiftParameterValue?.schedulingGroupId;
-        this.sharedOpenShift = openShiftParameterValue?.sharedOpenShift;
+        this.sharedOpenShift = openShiftParameterValue?.sharedOpenShift instanceof OpenShiftItemImpl? openShiftParameterValue?.sharedOpenShift:new OpenShiftItemImpl(openShiftParameterValue?.sharedOpenShift);
     };
     /**
      * The deserialization information for the current model

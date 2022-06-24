@@ -46,17 +46,19 @@ export class SearchRequestImpl implements SearchRequest {
     public constructor(searchRequestParameterValue?: SearchRequest | undefined) {
         this.additionalData = searchRequestParameterValue?.additionalData ? searchRequestParameterValue?.additionalData! : {};
         this.aggregationFilters = searchRequestParameterValue?.aggregationFilters;
-        this.aggregations = searchRequestParameterValue?.aggregations;
+        const aggregationsArrValue: AggregationOptionImpl[] = []; this.aggregations?.forEach(element => {aggregationsArrValue.push(element instanceof AggregationOptionImpl? element : new AggregationOptionImpl(element));});
+        this.aggregations = aggregationsArrValue;
         this.contentSources = searchRequestParameterValue?.contentSources;
         this.enableTopResults = searchRequestParameterValue?.enableTopResults;
         this.entityTypes = searchRequestParameterValue?.entityTypes;
         this.fields = searchRequestParameterValue?.fields;
         this.from = searchRequestParameterValue?.from;
-        this.query = searchRequestParameterValue?.query;
-        this.queryAlterationOptions = searchRequestParameterValue?.queryAlterationOptions;
-        this.resultTemplateOptions = searchRequestParameterValue?.resultTemplateOptions;
+        this.query = searchRequestParameterValue?.query instanceof SearchQueryImpl? searchRequestParameterValue?.query:new SearchQueryImpl(searchRequestParameterValue?.query);
+        this.queryAlterationOptions = searchRequestParameterValue?.queryAlterationOptions instanceof SearchAlterationOptionsImpl? searchRequestParameterValue?.queryAlterationOptions:new SearchAlterationOptionsImpl(searchRequestParameterValue?.queryAlterationOptions);
+        this.resultTemplateOptions = searchRequestParameterValue?.resultTemplateOptions instanceof ResultTemplateOptionImpl? searchRequestParameterValue?.resultTemplateOptions:new ResultTemplateOptionImpl(searchRequestParameterValue?.resultTemplateOptions);
         this.size = searchRequestParameterValue?.size;
-        this.sortProperties = searchRequestParameterValue?.sortProperties;
+        const sortPropertiesArrValue: SortPropertyImpl[] = []; this.sortProperties?.forEach(element => {sortPropertiesArrValue.push(element instanceof SortPropertyImpl? element : new SortPropertyImpl(element));});
+        this.sortProperties = sortPropertiesArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -87,7 +89,7 @@ export class SearchRequestImpl implements SearchRequest {
         if(this.aggregationFilters){
             writer.writeCollectionOfPrimitiveValues<string>("aggregationFilters", this.aggregationFilters);
         }
-        if(this.aggregations && this.aggregations.length != 0){        const aggregationsArrValue: AggregationOptionImpl[] = []; this.aggregations?.forEach(element => {aggregationsArrValue.push(new AggregationOptionImpl(element));});
+        if(this.aggregations && this.aggregations.length != 0){        const aggregationsArrValue: AggregationOptionImpl[] = []; this.aggregations?.forEach(element => {aggregationsArrValue.push(element instanceof AggregationOptionImpl? element : new AggregationOptionImpl(element));});
             writer.writeCollectionOfObjectValues<AggregationOptionImpl>("aggregations", aggregationsArrValue);
         }
         if(this.contentSources){
@@ -117,7 +119,7 @@ export class SearchRequestImpl implements SearchRequest {
         if(this.size){
             writer.writeNumberValue("size", this.size);
         }
-        if(this.sortProperties && this.sortProperties.length != 0){        const sortPropertiesArrValue: SortPropertyImpl[] = []; this.sortProperties?.forEach(element => {sortPropertiesArrValue.push(new SortPropertyImpl(element));});
+        if(this.sortProperties && this.sortProperties.length != 0){        const sortPropertiesArrValue: SortPropertyImpl[] = []; this.sortProperties?.forEach(element => {sortPropertiesArrValue.push(element instanceof SortPropertyImpl? element : new SortPropertyImpl(element));});
             writer.writeCollectionOfObjectValues<SortPropertyImpl>("sortProperties", sortPropertiesArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

@@ -18,7 +18,8 @@ export class IdentityProviderCollectionResponseImpl implements IdentityProviderC
     public constructor(identityProviderCollectionResponseParameterValue?: IdentityProviderCollectionResponse | undefined) {
         this.additionalData = identityProviderCollectionResponseParameterValue?.additionalData ? identityProviderCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = identityProviderCollectionResponseParameterValue?.nextLink;
-        this.value = identityProviderCollectionResponseParameterValue?.value;
+        const valueArrValue: IdentityProviderImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof IdentityProviderImpl? element : new IdentityProviderImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -39,7 +40,7 @@ export class IdentityProviderCollectionResponseImpl implements IdentityProviderC
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: IdentityProviderImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new IdentityProviderImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: IdentityProviderImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof IdentityProviderImpl? element : new IdentityProviderImpl(element));});
             writer.writeCollectionOfObjectValues<IdentityProviderImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

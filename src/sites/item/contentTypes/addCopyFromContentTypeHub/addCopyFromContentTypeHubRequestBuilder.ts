@@ -1,5 +1,7 @@
 import {ContentTypeImpl} from '../../../../models/';
 import {createContentTypeFromDiscriminatorValue} from '../../../../models/createContentTypeFromDiscriminatorValue';
+import {ODataErrorImpl} from '../../../../models/oDataErrors/';
+import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {AddCopyFromContentTypeHubPostRequestBody} from './addCopyFromContentTypeHubPostRequestBody';
 import {AddCopyFromContentTypeHubRequestBuilderPostRequestConfiguration} from './addCopyFromContentTypeHubRequestBuilderPostRequestConfiguration';
 import {AddCopyFromContentTypeHubPostRequestBodyImpl} from './index';
@@ -59,6 +61,10 @@ export class AddCopyFromContentTypeHubRequestBuilder {
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration
         );
-        return this.requestAdapter?.sendAsync<ContentTypeImpl>(requestInfo, createContentTypeFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<ContentTypeImpl>(requestInfo, createContentTypeFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

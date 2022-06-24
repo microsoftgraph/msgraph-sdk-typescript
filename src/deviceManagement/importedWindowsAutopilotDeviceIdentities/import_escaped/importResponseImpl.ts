@@ -16,7 +16,8 @@ export class ImportResponseImpl implements ImportResponse {
      */
     public constructor(importResponseParameterValue?: ImportResponse | undefined) {
         this.additionalData = importResponseParameterValue?.additionalData ? importResponseParameterValue?.additionalData! : {};
-        this.value = importResponseParameterValue?.value;
+        const valueArrValue: ImportedWindowsAutopilotDeviceIdentityImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ImportedWindowsAutopilotDeviceIdentityImpl? element : new ImportedWindowsAutopilotDeviceIdentityImpl(element));});
+        this.value = valueArrValue;
     };
     /**
      * The deserialization information for the current model
@@ -33,7 +34,7 @@ export class ImportResponseImpl implements ImportResponse {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        if(this.value && this.value.length != 0){        const valueArrValue: ImportedWindowsAutopilotDeviceIdentityImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ImportedWindowsAutopilotDeviceIdentityImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: ImportedWindowsAutopilotDeviceIdentityImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ImportedWindowsAutopilotDeviceIdentityImpl? element : new ImportedWindowsAutopilotDeviceIdentityImpl(element));});
             writer.writeCollectionOfObjectValues<ImportedWindowsAutopilotDeviceIdentityImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
