@@ -18,7 +18,7 @@ export class ContractCollectionResponseImpl implements ContractCollectionRespons
     public constructor(contractCollectionResponseParameterValue?: ContractCollectionResponse | undefined) {
         this.additionalData = contractCollectionResponseParameterValue?.additionalData ? contractCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = contractCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: ContractImpl[] = []; contractCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof ContractImpl? element : new ContractImpl(element));});
+        const valueArrValue: ContractImpl[] = []; contractCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof ContractImpl? element : new ContractImpl(element));});
         this.value = valueArrValue;
     };
     /**

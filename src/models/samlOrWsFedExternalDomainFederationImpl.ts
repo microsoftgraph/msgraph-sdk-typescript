@@ -13,7 +13,7 @@ export class SamlOrWsFedExternalDomainFederationImpl extends SamlOrWsFedProvider
      */
     public constructor(samlOrWsFedExternalDomainFederationParameterValue?: SamlOrWsFedExternalDomainFederation | undefined) {
         super(samlOrWsFedExternalDomainFederationParameterValue);
-        const domainsArrValue: ExternalDomainNameImpl[] = []; samlOrWsFedExternalDomainFederationParameterValue.domains?.forEach(element => {domainsArrValue.push(element instanceof ExternalDomainNameImpl? element : new ExternalDomainNameImpl(element));});
+        const domainsArrValue: ExternalDomainNameImpl[] = []; samlOrWsFedExternalDomainFederationParameterValue?.domains?.forEach(element => {domainsArrValue.push(element instanceof ExternalDomainNameImpl? element : new ExternalDomainNameImpl(element));});
         this.domains = domainsArrValue;
     };
     /**

@@ -18,7 +18,7 @@ export class UserInstallStateSummaryCollectionResponseImpl implements UserInstal
     public constructor(userInstallStateSummaryCollectionResponseParameterValue?: UserInstallStateSummaryCollectionResponse | undefined) {
         this.additionalData = userInstallStateSummaryCollectionResponseParameterValue?.additionalData ? userInstallStateSummaryCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = userInstallStateSummaryCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: UserInstallStateSummaryImpl[] = []; userInstallStateSummaryCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof UserInstallStateSummaryImpl? element : new UserInstallStateSummaryImpl(element));});
+        const valueArrValue: UserInstallStateSummaryImpl[] = []; userInstallStateSummaryCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof UserInstallStateSummaryImpl? element : new UserInstallStateSummaryImpl(element));});
         this.value = valueArrValue;
     };
     /**

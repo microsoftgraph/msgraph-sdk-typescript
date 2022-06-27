@@ -24,7 +24,7 @@ export class ApprovalSettingsImpl implements ApprovalSettings {
     public constructor(approvalSettingsParameterValue?: ApprovalSettings | undefined) {
         this.additionalData = approvalSettingsParameterValue?.additionalData ? approvalSettingsParameterValue?.additionalData! : {};
         this.approvalMode = approvalSettingsParameterValue?.approvalMode;
-        const approvalStagesArrValue: UnifiedApprovalStageImpl[] = []; approvalSettingsParameterValue.approvalStages?.forEach(element => {approvalStagesArrValue.push(element instanceof UnifiedApprovalStageImpl? element : new UnifiedApprovalStageImpl(element));});
+        const approvalStagesArrValue: UnifiedApprovalStageImpl[] = []; approvalSettingsParameterValue?.approvalStages?.forEach(element => {approvalStagesArrValue.push(element instanceof UnifiedApprovalStageImpl? element : new UnifiedApprovalStageImpl(element));});
         this.approvalStages = approvalStagesArrValue;
         this.isApprovalRequired = approvalSettingsParameterValue?.isApprovalRequired;
         this.isApprovalRequiredForExtension = approvalSettingsParameterValue?.isApprovalRequiredForExtension;

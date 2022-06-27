@@ -77,7 +77,7 @@ export class ChatMessageImpl extends EntityImpl implements ChatMessage {
      */
     public constructor(chatMessageParameterValue?: ChatMessage | undefined) {
         super(chatMessageParameterValue);
-        const attachmentsArrValue: ChatMessageAttachmentImpl[] = []; chatMessageParameterValue.attachments?.forEach(element => {attachmentsArrValue.push(element instanceof ChatMessageAttachmentImpl? element : new ChatMessageAttachmentImpl(element));});
+        const attachmentsArrValue: ChatMessageAttachmentImpl[] = []; chatMessageParameterValue?.attachments?.forEach(element => {attachmentsArrValue.push(element instanceof ChatMessageAttachmentImpl? element : new ChatMessageAttachmentImpl(element));});
         this.attachments = attachmentsArrValue;
         this.body = chatMessageParameterValue?.body instanceof ItemBodyImpl? chatMessageParameterValue?.body:new ItemBodyImpl(chatMessageParameterValue?.body);
         this.channelIdentity = chatMessageParameterValue?.channelIdentity instanceof ChannelIdentityImpl? chatMessageParameterValue?.channelIdentity:new ChannelIdentityImpl(chatMessageParameterValue?.channelIdentity);
@@ -87,19 +87,19 @@ export class ChatMessageImpl extends EntityImpl implements ChatMessage {
         this.etag = chatMessageParameterValue?.etag;
         this.eventDetail = chatMessageParameterValue?.eventDetail instanceof EventMessageDetailImpl? chatMessageParameterValue?.eventDetail:new EventMessageDetailImpl(chatMessageParameterValue?.eventDetail);
         this.from = chatMessageParameterValue?.from instanceof ChatMessageFromIdentitySetImpl? chatMessageParameterValue?.from:new ChatMessageFromIdentitySetImpl(chatMessageParameterValue?.from);
-        const hostedContentsArrValue: ChatMessageHostedContentImpl[] = []; chatMessageParameterValue.hostedContents?.forEach(element => {hostedContentsArrValue.push(element instanceof ChatMessageHostedContentImpl? element : new ChatMessageHostedContentImpl(element));});
+        const hostedContentsArrValue: ChatMessageHostedContentImpl[] = []; chatMessageParameterValue?.hostedContents?.forEach(element => {hostedContentsArrValue.push(element instanceof ChatMessageHostedContentImpl? element : new ChatMessageHostedContentImpl(element));});
         this.hostedContents = hostedContentsArrValue;
         this.importance = chatMessageParameterValue?.importance;
         this.lastEditedDateTime = chatMessageParameterValue?.lastEditedDateTime;
         this.lastModifiedDateTime = chatMessageParameterValue?.lastModifiedDateTime;
         this.locale = chatMessageParameterValue?.locale;
-        const mentionsArrValue: ChatMessageMentionImpl[] = []; chatMessageParameterValue.mentions?.forEach(element => {mentionsArrValue.push(element instanceof ChatMessageMentionImpl? element : new ChatMessageMentionImpl(element));});
+        const mentionsArrValue: ChatMessageMentionImpl[] = []; chatMessageParameterValue?.mentions?.forEach(element => {mentionsArrValue.push(element instanceof ChatMessageMentionImpl? element : new ChatMessageMentionImpl(element));});
         this.mentions = mentionsArrValue;
         this.messageType = chatMessageParameterValue?.messageType;
         this.policyViolation = chatMessageParameterValue?.policyViolation instanceof ChatMessagePolicyViolationImpl? chatMessageParameterValue?.policyViolation:new ChatMessagePolicyViolationImpl(chatMessageParameterValue?.policyViolation);
-        const reactionsArrValue: ChatMessageReactionImpl[] = []; chatMessageParameterValue.reactions?.forEach(element => {reactionsArrValue.push(element instanceof ChatMessageReactionImpl? element : new ChatMessageReactionImpl(element));});
+        const reactionsArrValue: ChatMessageReactionImpl[] = []; chatMessageParameterValue?.reactions?.forEach(element => {reactionsArrValue.push(element instanceof ChatMessageReactionImpl? element : new ChatMessageReactionImpl(element));});
         this.reactions = reactionsArrValue;
-        const repliesArrValue: ChatMessageImpl[] = []; chatMessageParameterValue.replies?.forEach(element => {repliesArrValue.push(element instanceof ChatMessageImpl? element : new ChatMessageImpl(element));});
+        const repliesArrValue: ChatMessageImpl[] = []; chatMessageParameterValue?.replies?.forEach(element => {repliesArrValue.push(element instanceof ChatMessageImpl? element : new ChatMessageImpl(element));});
         this.replies = repliesArrValue;
         this.replyToId = chatMessageParameterValue?.replyToId;
         this.subject = chatMessageParameterValue?.subject;

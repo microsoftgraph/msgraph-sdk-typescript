@@ -18,7 +18,7 @@ export class ContentTypeCollectionResponseImpl implements ContentTypeCollectionR
     public constructor(contentTypeCollectionResponseParameterValue?: ContentTypeCollectionResponse | undefined) {
         this.additionalData = contentTypeCollectionResponseParameterValue?.additionalData ? contentTypeCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = contentTypeCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: ContentTypeImpl[] = []; contentTypeCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof ContentTypeImpl? element : new ContentTypeImpl(element));});
+        const valueArrValue: ContentTypeImpl[] = []; contentTypeCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof ContentTypeImpl? element : new ContentTypeImpl(element));});
         this.value = valueArrValue;
     };
     /**

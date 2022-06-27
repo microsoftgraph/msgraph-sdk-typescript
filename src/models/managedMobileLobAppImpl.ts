@@ -20,7 +20,7 @@ export class ManagedMobileLobAppImpl extends ManagedAppImpl implements ManagedMo
     public constructor(managedMobileLobAppParameterValue?: ManagedMobileLobApp | undefined) {
         super(managedMobileLobAppParameterValue);
         this.committedContentVersion = managedMobileLobAppParameterValue?.committedContentVersion;
-        const contentVersionsArrValue: MobileAppContentImpl[] = []; managedMobileLobAppParameterValue.contentVersions?.forEach(element => {contentVersionsArrValue.push(element instanceof MobileAppContentImpl? element : new MobileAppContentImpl(element));});
+        const contentVersionsArrValue: MobileAppContentImpl[] = []; managedMobileLobAppParameterValue?.contentVersions?.forEach(element => {contentVersionsArrValue.push(element instanceof MobileAppContentImpl? element : new MobileAppContentImpl(element));});
         this.contentVersions = contentVersionsArrValue;
         this.fileName = managedMobileLobAppParameterValue?.fileName;
         this.size = managedMobileLobAppParameterValue?.size;

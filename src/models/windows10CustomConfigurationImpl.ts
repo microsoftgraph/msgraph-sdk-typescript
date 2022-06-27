@@ -13,7 +13,7 @@ export class Windows10CustomConfigurationImpl extends DeviceConfigurationImpl im
      */
     public constructor(windows10CustomConfigurationParameterValue?: Windows10CustomConfiguration | undefined) {
         super(windows10CustomConfigurationParameterValue);
-        const omaSettingsArrValue: OmaSettingImpl[] = []; windows10CustomConfigurationParameterValue.omaSettings?.forEach(element => {omaSettingsArrValue.push(element instanceof OmaSettingImpl? element : new OmaSettingImpl(element));});
+        const omaSettingsArrValue: OmaSettingImpl[] = []; windows10CustomConfigurationParameterValue?.omaSettings?.forEach(element => {omaSettingsArrValue.push(element instanceof OmaSettingImpl? element : new OmaSettingImpl(element));});
         this.omaSettings = omaSettingsArrValue;
     };
     /**

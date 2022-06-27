@@ -18,7 +18,7 @@ export class ConnectionOperationCollectionResponseImpl implements ConnectionOper
     public constructor(connectionOperationCollectionResponseParameterValue?: ConnectionOperationCollectionResponse | undefined) {
         this.additionalData = connectionOperationCollectionResponseParameterValue?.additionalData ? connectionOperationCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = connectionOperationCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: ConnectionOperationImpl[] = []; connectionOperationCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof ConnectionOperationImpl? element : new ConnectionOperationImpl(element));});
+        const valueArrValue: ConnectionOperationImpl[] = []; connectionOperationCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof ConnectionOperationImpl? element : new ConnectionOperationImpl(element));});
         this.value = valueArrValue;
     };
     /**

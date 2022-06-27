@@ -15,9 +15,9 @@ export class PermissionGrantPolicyImpl extends PolicyBaseImpl implements Permiss
      */
     public constructor(permissionGrantPolicyParameterValue?: PermissionGrantPolicy | undefined) {
         super(permissionGrantPolicyParameterValue);
-        const excludesArrValue: PermissionGrantConditionSetImpl[] = []; permissionGrantPolicyParameterValue.excludes?.forEach(element => {excludesArrValue.push(element instanceof PermissionGrantConditionSetImpl? element : new PermissionGrantConditionSetImpl(element));});
+        const excludesArrValue: PermissionGrantConditionSetImpl[] = []; permissionGrantPolicyParameterValue?.excludes?.forEach(element => {excludesArrValue.push(element instanceof PermissionGrantConditionSetImpl? element : new PermissionGrantConditionSetImpl(element));});
         this.excludes = excludesArrValue;
-        const includesArrValue: PermissionGrantConditionSetImpl[] = []; permissionGrantPolicyParameterValue.includes?.forEach(element => {includesArrValue.push(element instanceof PermissionGrantConditionSetImpl? element : new PermissionGrantConditionSetImpl(element));});
+        const includesArrValue: PermissionGrantConditionSetImpl[] = []; permissionGrantPolicyParameterValue?.includes?.forEach(element => {includesArrValue.push(element instanceof PermissionGrantConditionSetImpl? element : new PermissionGrantConditionSetImpl(element));});
         this.includes = includesArrValue;
     };
     /**

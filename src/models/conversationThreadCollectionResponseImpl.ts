@@ -18,7 +18,7 @@ export class ConversationThreadCollectionResponseImpl implements ConversationThr
     public constructor(conversationThreadCollectionResponseParameterValue?: ConversationThreadCollectionResponse | undefined) {
         this.additionalData = conversationThreadCollectionResponseParameterValue?.additionalData ? conversationThreadCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = conversationThreadCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: ConversationThreadImpl[] = []; conversationThreadCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof ConversationThreadImpl? element : new ConversationThreadImpl(element));});
+        const valueArrValue: ConversationThreadImpl[] = []; conversationThreadCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof ConversationThreadImpl? element : new ConversationThreadImpl(element));});
         this.value = valueArrValue;
     };
     /**

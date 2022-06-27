@@ -48,23 +48,23 @@ export class PostImpl extends OutlookItemImpl implements Post {
      */
     public constructor(postParameterValue?: Post | undefined) {
         super(postParameterValue);
-        const attachmentsArrValue: AttachmentImpl[] = []; postParameterValue.attachments?.forEach(element => {attachmentsArrValue.push(element instanceof AttachmentImpl? element : new AttachmentImpl(element));});
+        const attachmentsArrValue: AttachmentImpl[] = []; postParameterValue?.attachments?.forEach(element => {attachmentsArrValue.push(element instanceof AttachmentImpl? element : new AttachmentImpl(element));});
         this.attachments = attachmentsArrValue;
         this.body = postParameterValue?.body instanceof ItemBodyImpl? postParameterValue?.body:new ItemBodyImpl(postParameterValue?.body);
         this.conversationId = postParameterValue?.conversationId;
         this.conversationThreadId = postParameterValue?.conversationThreadId;
-        const extensionsArrValue: ExtensionImpl[] = []; postParameterValue.extensions?.forEach(element => {extensionsArrValue.push(element instanceof ExtensionImpl? element : new ExtensionImpl(element));});
+        const extensionsArrValue: ExtensionImpl[] = []; postParameterValue?.extensions?.forEach(element => {extensionsArrValue.push(element instanceof ExtensionImpl? element : new ExtensionImpl(element));});
         this.extensions = extensionsArrValue;
         this.from = postParameterValue?.from instanceof RecipientImpl? postParameterValue?.from:new RecipientImpl(postParameterValue?.from);
         this.hasAttachments = postParameterValue?.hasAttachments;
         this.inReplyTo = postParameterValue?.inReplyTo instanceof PostImpl? postParameterValue?.inReplyTo:new PostImpl(postParameterValue?.inReplyTo);
-        const multiValueExtendedPropertiesArrValue: MultiValueLegacyExtendedPropertyImpl[] = []; postParameterValue.multiValueExtendedProperties?.forEach(element => {multiValueExtendedPropertiesArrValue.push(element instanceof MultiValueLegacyExtendedPropertyImpl? element : new MultiValueLegacyExtendedPropertyImpl(element));});
+        const multiValueExtendedPropertiesArrValue: MultiValueLegacyExtendedPropertyImpl[] = []; postParameterValue?.multiValueExtendedProperties?.forEach(element => {multiValueExtendedPropertiesArrValue.push(element instanceof MultiValueLegacyExtendedPropertyImpl? element : new MultiValueLegacyExtendedPropertyImpl(element));});
         this.multiValueExtendedProperties = multiValueExtendedPropertiesArrValue;
-        const newParticipantsArrValue: RecipientImpl[] = []; postParameterValue.newParticipants?.forEach(element => {newParticipantsArrValue.push(element instanceof RecipientImpl? element : new RecipientImpl(element));});
+        const newParticipantsArrValue: RecipientImpl[] = []; postParameterValue?.newParticipants?.forEach(element => {newParticipantsArrValue.push(element instanceof RecipientImpl? element : new RecipientImpl(element));});
         this.newParticipants = newParticipantsArrValue;
         this.receivedDateTime = postParameterValue?.receivedDateTime;
         this.sender = postParameterValue?.sender instanceof RecipientImpl? postParameterValue?.sender:new RecipientImpl(postParameterValue?.sender);
-        const singleValueExtendedPropertiesArrValue: SingleValueLegacyExtendedPropertyImpl[] = []; postParameterValue.singleValueExtendedProperties?.forEach(element => {singleValueExtendedPropertiesArrValue.push(element instanceof SingleValueLegacyExtendedPropertyImpl? element : new SingleValueLegacyExtendedPropertyImpl(element));});
+        const singleValueExtendedPropertiesArrValue: SingleValueLegacyExtendedPropertyImpl[] = []; postParameterValue?.singleValueExtendedProperties?.forEach(element => {singleValueExtendedPropertiesArrValue.push(element instanceof SingleValueLegacyExtendedPropertyImpl? element : new SingleValueLegacyExtendedPropertyImpl(element));});
         this.singleValueExtendedProperties = singleValueExtendedPropertiesArrValue;
     };
     /**

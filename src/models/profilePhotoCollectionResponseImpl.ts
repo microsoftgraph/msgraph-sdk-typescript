@@ -18,7 +18,7 @@ export class ProfilePhotoCollectionResponseImpl implements ProfilePhotoCollectio
     public constructor(profilePhotoCollectionResponseParameterValue?: ProfilePhotoCollectionResponse | undefined) {
         this.additionalData = profilePhotoCollectionResponseParameterValue?.additionalData ? profilePhotoCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = profilePhotoCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: ProfilePhotoImpl[] = []; profilePhotoCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof ProfilePhotoImpl? element : new ProfilePhotoImpl(element));});
+        const valueArrValue: ProfilePhotoImpl[] = []; profilePhotoCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof ProfilePhotoImpl? element : new ProfilePhotoImpl(element));});
         this.value = valueArrValue;
     };
     /**

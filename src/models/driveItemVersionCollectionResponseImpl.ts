@@ -18,7 +18,7 @@ export class DriveItemVersionCollectionResponseImpl implements DriveItemVersionC
     public constructor(driveItemVersionCollectionResponseParameterValue?: DriveItemVersionCollectionResponse | undefined) {
         this.additionalData = driveItemVersionCollectionResponseParameterValue?.additionalData ? driveItemVersionCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = driveItemVersionCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: DriveItemVersionImpl[] = []; driveItemVersionCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof DriveItemVersionImpl? element : new DriveItemVersionImpl(element));});
+        const valueArrValue: DriveItemVersionImpl[] = []; driveItemVersionCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof DriveItemVersionImpl? element : new DriveItemVersionImpl(element));});
         this.value = valueArrValue;
     };
     /**

@@ -16,7 +16,7 @@ export class SupportedTimeZonesResponseImpl implements SupportedTimeZonesRespons
      */
     public constructor(supportedTimeZonesResponseParameterValue?: SupportedTimeZonesResponse | undefined) {
         this.additionalData = supportedTimeZonesResponseParameterValue?.additionalData ? supportedTimeZonesResponseParameterValue?.additionalData! : {};
-        const valueArrValue: TimeZoneInformationImpl[] = []; supportedTimeZonesResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof TimeZoneInformationImpl? element : new TimeZoneInformationImpl(element));});
+        const valueArrValue: TimeZoneInformationImpl[] = []; supportedTimeZonesResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof TimeZoneInformationImpl? element : new TimeZoneInformationImpl(element));});
         this.value = valueArrValue;
     };
     /**

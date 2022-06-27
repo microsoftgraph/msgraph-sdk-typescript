@@ -16,7 +16,7 @@ export class GetApplicableContentTypesForListWithListIdResponseImpl implements G
      */
     public constructor(getApplicableContentTypesForListWithListIdResponseParameterValue?: GetApplicableContentTypesForListWithListIdResponse | undefined) {
         this.additionalData = getApplicableContentTypesForListWithListIdResponseParameterValue?.additionalData ? getApplicableContentTypesForListWithListIdResponseParameterValue?.additionalData! : {};
-        const valueArrValue: ContentTypeImpl[] = []; getApplicableContentTypesForListWithListIdResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof ContentTypeImpl? element : new ContentTypeImpl(element));});
+        const valueArrValue: ContentTypeImpl[] = []; getApplicableContentTypesForListWithListIdResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof ContentTypeImpl? element : new ContentTypeImpl(element));});
         this.value = valueArrValue;
     };
     /**

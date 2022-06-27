@@ -16,7 +16,7 @@ export class GetApplicablePolicyRequirementsResponseImpl implements GetApplicabl
      */
     public constructor(getApplicablePolicyRequirementsResponseParameterValue?: GetApplicablePolicyRequirementsResponse | undefined) {
         this.additionalData = getApplicablePolicyRequirementsResponseParameterValue?.additionalData ? getApplicablePolicyRequirementsResponseParameterValue?.additionalData! : {};
-        const valueArrValue: AccessPackageAssignmentRequestRequirementsImpl[] = []; getApplicablePolicyRequirementsResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof AccessPackageAssignmentRequestRequirementsImpl? element : new AccessPackageAssignmentRequestRequirementsImpl(element));});
+        const valueArrValue: AccessPackageAssignmentRequestRequirementsImpl[] = []; getApplicablePolicyRequirementsResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof AccessPackageAssignmentRequestRequirementsImpl? element : new AccessPackageAssignmentRequestRequirementsImpl(element));});
         this.value = valueArrValue;
     };
     /**

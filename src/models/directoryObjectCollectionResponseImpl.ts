@@ -18,7 +18,7 @@ export class DirectoryObjectCollectionResponseImpl implements DirectoryObjectCol
     public constructor(directoryObjectCollectionResponseParameterValue?: DirectoryObjectCollectionResponse | undefined) {
         this.additionalData = directoryObjectCollectionResponseParameterValue?.additionalData ? directoryObjectCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = directoryObjectCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: DirectoryObjectImpl[] = []; directoryObjectCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof DirectoryObjectImpl? element : new DirectoryObjectImpl(element));});
+        const valueArrValue: DirectoryObjectImpl[] = []; directoryObjectCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof DirectoryObjectImpl? element : new DirectoryObjectImpl(element));});
         this.value = valueArrValue;
     };
     /**

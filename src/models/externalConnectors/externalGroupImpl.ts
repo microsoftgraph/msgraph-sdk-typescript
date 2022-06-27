@@ -21,7 +21,7 @@ export class ExternalGroupImpl extends EntityImpl implements ExternalGroup {
         super(externalGroupParameterValue);
         this.description = externalGroupParameterValue?.description;
         this.displayName = externalGroupParameterValue?.displayName;
-        const membersArrValue: IdentityImpl[] = []; externalGroupParameterValue.members?.forEach(element => {membersArrValue.push(element instanceof IdentityImpl? element : new IdentityImpl(element));});
+        const membersArrValue: IdentityImpl[] = []; externalGroupParameterValue?.members?.forEach(element => {membersArrValue.push(element instanceof IdentityImpl? element : new IdentityImpl(element));});
         this.members = membersArrValue;
     };
     /**

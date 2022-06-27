@@ -16,7 +16,7 @@ export class AssignPostRequestBodyImpl implements AssignPostRequestBody {
      */
     public constructor(assignPostRequestBodyParameterValue?: AssignPostRequestBody | undefined) {
         this.additionalData = assignPostRequestBodyParameterValue?.additionalData ? assignPostRequestBodyParameterValue?.additionalData! : {};
-        const managedEBookAssignmentsArrValue: ManagedEBookAssignmentImpl[] = []; assignPostRequestBodyParameterValue.managedEBookAssignments?.forEach(element => {managedEBookAssignmentsArrValue.push(element instanceof ManagedEBookAssignmentImpl? element : new ManagedEBookAssignmentImpl(element));});
+        const managedEBookAssignmentsArrValue: ManagedEBookAssignmentImpl[] = []; assignPostRequestBodyParameterValue?.managedEBookAssignments?.forEach(element => {managedEBookAssignmentsArrValue.push(element instanceof ManagedEBookAssignmentImpl? element : new ManagedEBookAssignmentImpl(element));});
         this.managedEBookAssignments = managedEBookAssignmentsArrValue;
     };
     /**

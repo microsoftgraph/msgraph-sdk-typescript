@@ -49,7 +49,7 @@ export class EducationSchoolImpl extends EducationOrganizationImpl implements Ed
         super(educationSchoolParameterValue);
         this.address = educationSchoolParameterValue?.address instanceof PhysicalAddressImpl? educationSchoolParameterValue?.address:new PhysicalAddressImpl(educationSchoolParameterValue?.address);
         this.administrativeUnit = educationSchoolParameterValue?.administrativeUnit instanceof AdministrativeUnitImpl? educationSchoolParameterValue?.administrativeUnit:new AdministrativeUnitImpl(educationSchoolParameterValue?.administrativeUnit);
-        const classesArrValue: EducationClassImpl[] = []; educationSchoolParameterValue.classes?.forEach(element => {classesArrValue.push(element instanceof EducationClassImpl? element : new EducationClassImpl(element));});
+        const classesArrValue: EducationClassImpl[] = []; educationSchoolParameterValue?.classes?.forEach(element => {classesArrValue.push(element instanceof EducationClassImpl? element : new EducationClassImpl(element));});
         this.classes = classesArrValue;
         this.createdBy = educationSchoolParameterValue?.createdBy instanceof IdentitySetImpl? educationSchoolParameterValue?.createdBy:new IdentitySetImpl(educationSchoolParameterValue?.createdBy);
         this.externalId = educationSchoolParameterValue?.externalId;
@@ -61,7 +61,7 @@ export class EducationSchoolImpl extends EducationOrganizationImpl implements Ed
         this.principalEmail = educationSchoolParameterValue?.principalEmail;
         this.principalName = educationSchoolParameterValue?.principalName;
         this.schoolNumber = educationSchoolParameterValue?.schoolNumber;
-        const usersArrValue: EducationUserImpl[] = []; educationSchoolParameterValue.users?.forEach(element => {usersArrValue.push(element instanceof EducationUserImpl? element : new EducationUserImpl(element));});
+        const usersArrValue: EducationUserImpl[] = []; educationSchoolParameterValue?.users?.forEach(element => {usersArrValue.push(element instanceof EducationUserImpl? element : new EducationUserImpl(element));});
         this.users = usersArrValue;
     };
     /**

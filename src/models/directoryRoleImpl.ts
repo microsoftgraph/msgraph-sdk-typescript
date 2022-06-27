@@ -26,10 +26,10 @@ export class DirectoryRoleImpl extends DirectoryObjectImpl implements DirectoryR
         super(directoryRoleParameterValue);
         this.description = directoryRoleParameterValue?.description;
         this.displayName = directoryRoleParameterValue?.displayName;
-        const membersArrValue: DirectoryObjectImpl[] = []; directoryRoleParameterValue.members?.forEach(element => {membersArrValue.push(element instanceof DirectoryObjectImpl? element : new DirectoryObjectImpl(element));});
+        const membersArrValue: DirectoryObjectImpl[] = []; directoryRoleParameterValue?.members?.forEach(element => {membersArrValue.push(element instanceof DirectoryObjectImpl? element : new DirectoryObjectImpl(element));});
         this.members = membersArrValue;
         this.roleTemplateId = directoryRoleParameterValue?.roleTemplateId;
-        const scopedMembersArrValue: ScopedRoleMembershipImpl[] = []; directoryRoleParameterValue.scopedMembers?.forEach(element => {scopedMembersArrValue.push(element instanceof ScopedRoleMembershipImpl? element : new ScopedRoleMembershipImpl(element));});
+        const scopedMembersArrValue: ScopedRoleMembershipImpl[] = []; directoryRoleParameterValue?.scopedMembers?.forEach(element => {scopedMembersArrValue.push(element instanceof ScopedRoleMembershipImpl? element : new ScopedRoleMembershipImpl(element));});
         this.scopedMembers = scopedMembersArrValue;
     };
     /**

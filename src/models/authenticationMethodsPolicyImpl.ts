@@ -28,7 +28,7 @@ export class AuthenticationMethodsPolicyImpl extends EntityImpl implements Authe
      */
     public constructor(authenticationMethodsPolicyParameterValue?: AuthenticationMethodsPolicy | undefined) {
         super(authenticationMethodsPolicyParameterValue);
-        const authenticationMethodConfigurationsArrValue: AuthenticationMethodConfigurationImpl[] = []; authenticationMethodsPolicyParameterValue.authenticationMethodConfigurations?.forEach(element => {authenticationMethodConfigurationsArrValue.push(element instanceof AuthenticationMethodConfigurationImpl? element : new AuthenticationMethodConfigurationImpl(element));});
+        const authenticationMethodConfigurationsArrValue: AuthenticationMethodConfigurationImpl[] = []; authenticationMethodsPolicyParameterValue?.authenticationMethodConfigurations?.forEach(element => {authenticationMethodConfigurationsArrValue.push(element instanceof AuthenticationMethodConfigurationImpl? element : new AuthenticationMethodConfigurationImpl(element));});
         this.authenticationMethodConfigurations = authenticationMethodConfigurationsArrValue;
         this.description = authenticationMethodsPolicyParameterValue?.description;
         this.displayName = authenticationMethodsPolicyParameterValue?.displayName;

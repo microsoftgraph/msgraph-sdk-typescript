@@ -18,7 +18,7 @@ export class B2xIdentityUserFlowCollectionResponseImpl implements B2xIdentityUse
     public constructor(b2xIdentityUserFlowCollectionResponseParameterValue?: B2xIdentityUserFlowCollectionResponse | undefined) {
         this.additionalData = b2xIdentityUserFlowCollectionResponseParameterValue?.additionalData ? b2xIdentityUserFlowCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = b2xIdentityUserFlowCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: B2xIdentityUserFlowImpl[] = []; b2xIdentityUserFlowCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof B2xIdentityUserFlowImpl? element : new B2xIdentityUserFlowImpl(element));});
+        const valueArrValue: B2xIdentityUserFlowImpl[] = []; b2xIdentityUserFlowCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof B2xIdentityUserFlowImpl? element : new B2xIdentityUserFlowImpl(element));});
         this.value = valueArrValue;
     };
     /**

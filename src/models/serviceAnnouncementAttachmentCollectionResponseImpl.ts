@@ -18,7 +18,7 @@ export class ServiceAnnouncementAttachmentCollectionResponseImpl implements Serv
     public constructor(serviceAnnouncementAttachmentCollectionResponseParameterValue?: ServiceAnnouncementAttachmentCollectionResponse | undefined) {
         this.additionalData = serviceAnnouncementAttachmentCollectionResponseParameterValue?.additionalData ? serviceAnnouncementAttachmentCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = serviceAnnouncementAttachmentCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: ServiceAnnouncementAttachmentImpl[] = []; serviceAnnouncementAttachmentCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof ServiceAnnouncementAttachmentImpl? element : new ServiceAnnouncementAttachmentImpl(element));});
+        const valueArrValue: ServiceAnnouncementAttachmentImpl[] = []; serviceAnnouncementAttachmentCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof ServiceAnnouncementAttachmentImpl? element : new ServiceAnnouncementAttachmentImpl(element));});
         this.value = valueArrValue;
     };
     /**

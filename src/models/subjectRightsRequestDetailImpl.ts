@@ -28,11 +28,11 @@ export class SubjectRightsRequestDetailImpl implements SubjectRightsRequestDetai
     public constructor(subjectRightsRequestDetailParameterValue?: SubjectRightsRequestDetail | undefined) {
         this.additionalData = subjectRightsRequestDetailParameterValue?.additionalData ? subjectRightsRequestDetailParameterValue?.additionalData! : {};
         this.excludedItemCount = subjectRightsRequestDetailParameterValue?.excludedItemCount;
-        const insightCountsArrValue: KeyValuePairImpl[] = []; subjectRightsRequestDetailParameterValue.insightCounts?.forEach(element => {insightCountsArrValue.push(element instanceof KeyValuePairImpl? element : new KeyValuePairImpl(element));});
+        const insightCountsArrValue: KeyValuePairImpl[] = []; subjectRightsRequestDetailParameterValue?.insightCounts?.forEach(element => {insightCountsArrValue.push(element instanceof KeyValuePairImpl? element : new KeyValuePairImpl(element));});
         this.insightCounts = insightCountsArrValue;
         this.itemCount = subjectRightsRequestDetailParameterValue?.itemCount;
         this.itemNeedReview = subjectRightsRequestDetailParameterValue?.itemNeedReview;
-        const productItemCountsArrValue: KeyValuePairImpl[] = []; subjectRightsRequestDetailParameterValue.productItemCounts?.forEach(element => {productItemCountsArrValue.push(element instanceof KeyValuePairImpl? element : new KeyValuePairImpl(element));});
+        const productItemCountsArrValue: KeyValuePairImpl[] = []; subjectRightsRequestDetailParameterValue?.productItemCounts?.forEach(element => {productItemCountsArrValue.push(element instanceof KeyValuePairImpl? element : new KeyValuePairImpl(element));});
         this.productItemCounts = productItemCountsArrValue;
         this.signedOffItemCount = subjectRightsRequestDetailParameterValue?.signedOffItemCount;
         this.totalItemSize = subjectRightsRequestDetailParameterValue?.totalItemSize;

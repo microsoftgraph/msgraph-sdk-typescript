@@ -18,7 +18,7 @@ export class AppConsentRequestCollectionResponseImpl implements AppConsentReques
     public constructor(appConsentRequestCollectionResponseParameterValue?: AppConsentRequestCollectionResponse | undefined) {
         this.additionalData = appConsentRequestCollectionResponseParameterValue?.additionalData ? appConsentRequestCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = appConsentRequestCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: AppConsentRequestImpl[] = []; appConsentRequestCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof AppConsentRequestImpl? element : new AppConsentRequestImpl(element));});
+        const valueArrValue: AppConsentRequestImpl[] = []; appConsentRequestCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof AppConsentRequestImpl? element : new AppConsentRequestImpl(element));});
         this.value = valueArrValue;
     };
     /**

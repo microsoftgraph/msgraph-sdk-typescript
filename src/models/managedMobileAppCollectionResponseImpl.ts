@@ -18,7 +18,7 @@ export class ManagedMobileAppCollectionResponseImpl implements ManagedMobileAppC
     public constructor(managedMobileAppCollectionResponseParameterValue?: ManagedMobileAppCollectionResponse | undefined) {
         this.additionalData = managedMobileAppCollectionResponseParameterValue?.additionalData ? managedMobileAppCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = managedMobileAppCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: ManagedMobileAppImpl[] = []; managedMobileAppCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof ManagedMobileAppImpl? element : new ManagedMobileAppImpl(element));});
+        const valueArrValue: ManagedMobileAppImpl[] = []; managedMobileAppCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof ManagedMobileAppImpl? element : new ManagedMobileAppImpl(element));});
         this.value = valueArrValue;
     };
     /**

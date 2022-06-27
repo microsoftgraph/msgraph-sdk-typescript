@@ -15,7 +15,7 @@ import {ColumnDefinitionImpl, ColumnLinkImpl, ContentTypeOrderImpl, DocumentSetC
 import {ItemReference} from './itemReference';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of application entities. */
+/** Casts the previous resource to group. */
 export class ContentTypeImpl extends EntityImpl implements ContentType {
     /** List of canonical URLs for hub sites with which this content type is associated to. This will contain all hubsites where this content type is queued to be enforced or is already enforced. Enforcing a content type means that the content type will be applied to the lists in the enforced sites. */
     public associatedHubsUrls?: string[] | undefined;
@@ -63,13 +63,13 @@ export class ContentTypeImpl extends EntityImpl implements ContentType {
         super(contentTypeParameterValue);
         this.associatedHubsUrls = contentTypeParameterValue?.associatedHubsUrls;
         this.base = contentTypeParameterValue?.base instanceof ContentTypeImpl? contentTypeParameterValue?.base:new ContentTypeImpl(contentTypeParameterValue?.base);
-        const baseTypesArrValue: ContentTypeImpl[] = []; contentTypeParameterValue.baseTypes?.forEach(element => {baseTypesArrValue.push(element instanceof ContentTypeImpl? element : new ContentTypeImpl(element));});
+        const baseTypesArrValue: ContentTypeImpl[] = []; contentTypeParameterValue?.baseTypes?.forEach(element => {baseTypesArrValue.push(element instanceof ContentTypeImpl? element : new ContentTypeImpl(element));});
         this.baseTypes = baseTypesArrValue;
-        const columnLinksArrValue: ColumnLinkImpl[] = []; contentTypeParameterValue.columnLinks?.forEach(element => {columnLinksArrValue.push(element instanceof ColumnLinkImpl? element : new ColumnLinkImpl(element));});
+        const columnLinksArrValue: ColumnLinkImpl[] = []; contentTypeParameterValue?.columnLinks?.forEach(element => {columnLinksArrValue.push(element instanceof ColumnLinkImpl? element : new ColumnLinkImpl(element));});
         this.columnLinks = columnLinksArrValue;
-        const columnPositionsArrValue: ColumnDefinitionImpl[] = []; contentTypeParameterValue.columnPositions?.forEach(element => {columnPositionsArrValue.push(element instanceof ColumnDefinitionImpl? element : new ColumnDefinitionImpl(element));});
+        const columnPositionsArrValue: ColumnDefinitionImpl[] = []; contentTypeParameterValue?.columnPositions?.forEach(element => {columnPositionsArrValue.push(element instanceof ColumnDefinitionImpl? element : new ColumnDefinitionImpl(element));});
         this.columnPositions = columnPositionsArrValue;
-        const columnsArrValue: ColumnDefinitionImpl[] = []; contentTypeParameterValue.columns?.forEach(element => {columnsArrValue.push(element instanceof ColumnDefinitionImpl? element : new ColumnDefinitionImpl(element));});
+        const columnsArrValue: ColumnDefinitionImpl[] = []; contentTypeParameterValue?.columns?.forEach(element => {columnsArrValue.push(element instanceof ColumnDefinitionImpl? element : new ColumnDefinitionImpl(element));});
         this.columns = columnsArrValue;
         this.description = contentTypeParameterValue?.description;
         this.documentSet = contentTypeParameterValue?.documentSet instanceof DocumentSetImpl? contentTypeParameterValue?.documentSet:new DocumentSetImpl(contentTypeParameterValue?.documentSet);

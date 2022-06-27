@@ -22,7 +22,7 @@ export class ShiftAvailabilityImpl implements ShiftAvailability {
     public constructor(shiftAvailabilityParameterValue?: ShiftAvailability | undefined) {
         this.additionalData = shiftAvailabilityParameterValue?.additionalData ? shiftAvailabilityParameterValue?.additionalData! : {};
         this.recurrence = shiftAvailabilityParameterValue?.recurrence instanceof PatternedRecurrenceImpl? shiftAvailabilityParameterValue?.recurrence:new PatternedRecurrenceImpl(shiftAvailabilityParameterValue?.recurrence);
-        const timeSlotsArrValue: TimeRangeImpl[] = []; shiftAvailabilityParameterValue.timeSlots?.forEach(element => {timeSlotsArrValue.push(element instanceof TimeRangeImpl? element : new TimeRangeImpl(element));});
+        const timeSlotsArrValue: TimeRangeImpl[] = []; shiftAvailabilityParameterValue?.timeSlots?.forEach(element => {timeSlotsArrValue.push(element instanceof TimeRangeImpl? element : new TimeRangeImpl(element));});
         this.timeSlots = timeSlotsArrValue;
         this.timeZone = shiftAvailabilityParameterValue?.timeZone;
     };

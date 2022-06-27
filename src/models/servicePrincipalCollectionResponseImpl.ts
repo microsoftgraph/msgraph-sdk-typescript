@@ -18,7 +18,7 @@ export class ServicePrincipalCollectionResponseImpl implements ServicePrincipalC
     public constructor(servicePrincipalCollectionResponseParameterValue?: ServicePrincipalCollectionResponse | undefined) {
         this.additionalData = servicePrincipalCollectionResponseParameterValue?.additionalData ? servicePrincipalCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = servicePrincipalCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: ServicePrincipalImpl[] = []; servicePrincipalCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof ServicePrincipalImpl? element : new ServicePrincipalImpl(element));});
+        const valueArrValue: ServicePrincipalImpl[] = []; servicePrincipalCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof ServicePrincipalImpl? element : new ServicePrincipalImpl(element));});
         this.value = valueArrValue;
     };
     /**

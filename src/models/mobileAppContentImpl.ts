@@ -14,7 +14,7 @@ export class MobileAppContentImpl extends EntityImpl implements MobileAppContent
      */
     public constructor(mobileAppContentParameterValue?: MobileAppContent | undefined) {
         super(mobileAppContentParameterValue);
-        const filesArrValue: MobileAppContentFileImpl[] = []; mobileAppContentParameterValue.files?.forEach(element => {filesArrValue.push(element instanceof MobileAppContentFileImpl? element : new MobileAppContentFileImpl(element));});
+        const filesArrValue: MobileAppContentFileImpl[] = []; mobileAppContentParameterValue?.files?.forEach(element => {filesArrValue.push(element instanceof MobileAppContentFileImpl? element : new MobileAppContentFileImpl(element));});
         this.files = filesArrValue;
     };
     /**

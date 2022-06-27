@@ -18,7 +18,7 @@ export class MeetingAttendanceReportCollectionResponseImpl implements MeetingAtt
     public constructor(meetingAttendanceReportCollectionResponseParameterValue?: MeetingAttendanceReportCollectionResponse | undefined) {
         this.additionalData = meetingAttendanceReportCollectionResponseParameterValue?.additionalData ? meetingAttendanceReportCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = meetingAttendanceReportCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: MeetingAttendanceReportImpl[] = []; meetingAttendanceReportCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof MeetingAttendanceReportImpl? element : new MeetingAttendanceReportImpl(element));});
+        const valueArrValue: MeetingAttendanceReportImpl[] = []; meetingAttendanceReportCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof MeetingAttendanceReportImpl? element : new MeetingAttendanceReportImpl(element));});
         this.value = valueArrValue;
     };
     /**

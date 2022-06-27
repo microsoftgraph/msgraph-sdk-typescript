@@ -18,7 +18,7 @@ export class ResourceOperationCollectionResponseImpl implements ResourceOperatio
     public constructor(resourceOperationCollectionResponseParameterValue?: ResourceOperationCollectionResponse | undefined) {
         this.additionalData = resourceOperationCollectionResponseParameterValue?.additionalData ? resourceOperationCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = resourceOperationCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: ResourceOperationImpl[] = []; resourceOperationCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof ResourceOperationImpl? element : new ResourceOperationImpl(element));});
+        const valueArrValue: ResourceOperationImpl[] = []; resourceOperationCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof ResourceOperationImpl? element : new ResourceOperationImpl(element));});
         this.value = valueArrValue;
     };
     /**

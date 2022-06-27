@@ -18,9 +18,9 @@ export class ConditionalAccessRootImpl extends EntityImpl implements Conditional
      */
     public constructor(conditionalAccessRootParameterValue?: ConditionalAccessRoot | undefined) {
         super(conditionalAccessRootParameterValue);
-        const namedLocationsArrValue: NamedLocationImpl[] = []; conditionalAccessRootParameterValue.namedLocations?.forEach(element => {namedLocationsArrValue.push(element instanceof NamedLocationImpl? element : new NamedLocationImpl(element));});
+        const namedLocationsArrValue: NamedLocationImpl[] = []; conditionalAccessRootParameterValue?.namedLocations?.forEach(element => {namedLocationsArrValue.push(element instanceof NamedLocationImpl? element : new NamedLocationImpl(element));});
         this.namedLocations = namedLocationsArrValue;
-        const policiesArrValue: ConditionalAccessPolicyImpl[] = []; conditionalAccessRootParameterValue.policies?.forEach(element => {policiesArrValue.push(element instanceof ConditionalAccessPolicyImpl? element : new ConditionalAccessPolicyImpl(element));});
+        const policiesArrValue: ConditionalAccessPolicyImpl[] = []; conditionalAccessRootParameterValue?.policies?.forEach(element => {policiesArrValue.push(element instanceof ConditionalAccessPolicyImpl? element : new ConditionalAccessPolicyImpl(element));});
         this.policies = policiesArrValue;
     };
     /**

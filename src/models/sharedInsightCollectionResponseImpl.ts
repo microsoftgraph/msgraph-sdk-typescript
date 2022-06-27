@@ -18,7 +18,7 @@ export class SharedInsightCollectionResponseImpl implements SharedInsightCollect
     public constructor(sharedInsightCollectionResponseParameterValue?: SharedInsightCollectionResponse | undefined) {
         this.additionalData = sharedInsightCollectionResponseParameterValue?.additionalData ? sharedInsightCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = sharedInsightCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: SharedInsightImpl[] = []; sharedInsightCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof SharedInsightImpl? element : new SharedInsightImpl(element));});
+        const valueArrValue: SharedInsightImpl[] = []; sharedInsightCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof SharedInsightImpl? element : new SharedInsightImpl(element));});
         this.value = valueArrValue;
     };
     /**

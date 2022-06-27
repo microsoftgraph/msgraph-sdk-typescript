@@ -32,7 +32,7 @@ export class OnenoteSectionImpl extends OnenoteEntityHierarchyModelImpl implemen
         super(onenoteSectionParameterValue);
         this.isDefault = onenoteSectionParameterValue?.isDefault;
         this.links = onenoteSectionParameterValue?.links instanceof SectionLinksImpl? onenoteSectionParameterValue?.links:new SectionLinksImpl(onenoteSectionParameterValue?.links);
-        const pagesArrValue: OnenotePageImpl[] = []; onenoteSectionParameterValue.pages?.forEach(element => {pagesArrValue.push(element instanceof OnenotePageImpl? element : new OnenotePageImpl(element));});
+        const pagesArrValue: OnenotePageImpl[] = []; onenoteSectionParameterValue?.pages?.forEach(element => {pagesArrValue.push(element instanceof OnenotePageImpl? element : new OnenotePageImpl(element));});
         this.pages = pagesArrValue;
         this.pagesUrl = onenoteSectionParameterValue?.pagesUrl;
         this.parentNotebook = onenoteSectionParameterValue?.parentNotebook instanceof NotebookImpl? onenoteSectionParameterValue?.parentNotebook:new NotebookImpl(onenoteSectionParameterValue?.parentNotebook);

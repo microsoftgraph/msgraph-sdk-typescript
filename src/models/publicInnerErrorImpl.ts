@@ -22,7 +22,7 @@ export class PublicInnerErrorImpl implements PublicInnerError {
     public constructor(publicInnerErrorParameterValue?: PublicInnerError | undefined) {
         this.additionalData = publicInnerErrorParameterValue?.additionalData ? publicInnerErrorParameterValue?.additionalData! : {};
         this.code = publicInnerErrorParameterValue?.code;
-        const detailsArrValue: PublicErrorDetailImpl[] = []; publicInnerErrorParameterValue.details?.forEach(element => {detailsArrValue.push(element instanceof PublicErrorDetailImpl? element : new PublicErrorDetailImpl(element));});
+        const detailsArrValue: PublicErrorDetailImpl[] = []; publicInnerErrorParameterValue?.details?.forEach(element => {detailsArrValue.push(element instanceof PublicErrorDetailImpl? element : new PublicErrorDetailImpl(element));});
         this.details = detailsArrValue;
         this.message = publicInnerErrorParameterValue?.message;
         this.target = publicInnerErrorParameterValue?.target;

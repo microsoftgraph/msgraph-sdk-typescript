@@ -55,7 +55,7 @@ export class WorkbookChartImpl extends EntityImpl implements WorkbookChart {
         this.left = workbookChartParameterValue?.left;
         this.legend = workbookChartParameterValue?.legend instanceof WorkbookChartLegendImpl? workbookChartParameterValue?.legend:new WorkbookChartLegendImpl(workbookChartParameterValue?.legend);
         this.name = workbookChartParameterValue?.name;
-        const seriesArrValue: WorkbookChartSeriesImpl[] = []; workbookChartParameterValue.series?.forEach(element => {seriesArrValue.push(element instanceof WorkbookChartSeriesImpl? element : new WorkbookChartSeriesImpl(element));});
+        const seriesArrValue: WorkbookChartSeriesImpl[] = []; workbookChartParameterValue?.series?.forEach(element => {seriesArrValue.push(element instanceof WorkbookChartSeriesImpl? element : new WorkbookChartSeriesImpl(element));});
         this.series = seriesArrValue;
         this.title = workbookChartParameterValue?.title instanceof WorkbookChartTitleImpl? workbookChartParameterValue?.title:new WorkbookChartTitleImpl(workbookChartParameterValue?.title);
         this.top = workbookChartParameterValue?.top;

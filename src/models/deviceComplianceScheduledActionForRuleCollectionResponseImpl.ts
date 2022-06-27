@@ -18,7 +18,7 @@ export class DeviceComplianceScheduledActionForRuleCollectionResponseImpl implem
     public constructor(deviceComplianceScheduledActionForRuleCollectionResponseParameterValue?: DeviceComplianceScheduledActionForRuleCollectionResponse | undefined) {
         this.additionalData = deviceComplianceScheduledActionForRuleCollectionResponseParameterValue?.additionalData ? deviceComplianceScheduledActionForRuleCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = deviceComplianceScheduledActionForRuleCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: DeviceComplianceScheduledActionForRuleImpl[] = []; deviceComplianceScheduledActionForRuleCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof DeviceComplianceScheduledActionForRuleImpl? element : new DeviceComplianceScheduledActionForRuleImpl(element));});
+        const valueArrValue: DeviceComplianceScheduledActionForRuleImpl[] = []; deviceComplianceScheduledActionForRuleCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof DeviceComplianceScheduledActionForRuleImpl? element : new DeviceComplianceScheduledActionForRuleImpl(element));});
         this.value = valueArrValue;
     };
     /**

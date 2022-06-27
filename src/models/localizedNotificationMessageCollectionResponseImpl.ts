@@ -18,7 +18,7 @@ export class LocalizedNotificationMessageCollectionResponseImpl implements Local
     public constructor(localizedNotificationMessageCollectionResponseParameterValue?: LocalizedNotificationMessageCollectionResponse | undefined) {
         this.additionalData = localizedNotificationMessageCollectionResponseParameterValue?.additionalData ? localizedNotificationMessageCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = localizedNotificationMessageCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: LocalizedNotificationMessageImpl[] = []; localizedNotificationMessageCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof LocalizedNotificationMessageImpl? element : new LocalizedNotificationMessageImpl(element));});
+        const valueArrValue: LocalizedNotificationMessageImpl[] = []; localizedNotificationMessageCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof LocalizedNotificationMessageImpl? element : new LocalizedNotificationMessageImpl(element));});
         this.value = valueArrValue;
     };
     /**

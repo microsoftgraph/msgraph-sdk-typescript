@@ -18,7 +18,7 @@ export class ApprovalStageCollectionResponseImpl implements ApprovalStageCollect
     public constructor(approvalStageCollectionResponseParameterValue?: ApprovalStageCollectionResponse | undefined) {
         this.additionalData = approvalStageCollectionResponseParameterValue?.additionalData ? approvalStageCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = approvalStageCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: ApprovalStageImpl[] = []; approvalStageCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof ApprovalStageImpl? element : new ApprovalStageImpl(element));});
+        const valueArrValue: ApprovalStageImpl[] = []; approvalStageCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof ApprovalStageImpl? element : new ApprovalStageImpl(element));});
         this.value = valueArrValue;
     };
     /**

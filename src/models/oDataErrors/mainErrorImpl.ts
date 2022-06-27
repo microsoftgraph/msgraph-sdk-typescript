@@ -26,7 +26,7 @@ export class MainErrorImpl implements MainError {
     public constructor(mainErrorParameterValue?: MainError | undefined) {
         this.additionalData = mainErrorParameterValue?.additionalData ? mainErrorParameterValue?.additionalData! : {};
         this.code = mainErrorParameterValue?.code;
-        const detailsArrValue: ErrorDetailsImpl[] = []; mainErrorParameterValue.details?.forEach(element => {detailsArrValue.push(element instanceof ErrorDetailsImpl? element : new ErrorDetailsImpl(element));});
+        const detailsArrValue: ErrorDetailsImpl[] = []; mainErrorParameterValue?.details?.forEach(element => {detailsArrValue.push(element instanceof ErrorDetailsImpl? element : new ErrorDetailsImpl(element));});
         this.details = detailsArrValue;
         this.innererror = mainErrorParameterValue?.innererror instanceof InnerErrorImpl? mainErrorParameterValue?.innererror:new InnerErrorImpl(mainErrorParameterValue?.innererror);
         this.message = mainErrorParameterValue?.message;

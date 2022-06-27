@@ -18,7 +18,7 @@ export class CalendarPermissionCollectionResponseImpl implements CalendarPermiss
     public constructor(calendarPermissionCollectionResponseParameterValue?: CalendarPermissionCollectionResponse | undefined) {
         this.additionalData = calendarPermissionCollectionResponseParameterValue?.additionalData ? calendarPermissionCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = calendarPermissionCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: CalendarPermissionImpl[] = []; calendarPermissionCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof CalendarPermissionImpl? element : new CalendarPermissionImpl(element));});
+        const valueArrValue: CalendarPermissionImpl[] = []; calendarPermissionCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof CalendarPermissionImpl? element : new CalendarPermissionImpl(element));});
         this.value = valueArrValue;
     };
     /**

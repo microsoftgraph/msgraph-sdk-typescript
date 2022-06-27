@@ -18,7 +18,7 @@ export class DeviceInstallStateCollectionResponseImpl implements DeviceInstallSt
     public constructor(deviceInstallStateCollectionResponseParameterValue?: DeviceInstallStateCollectionResponse | undefined) {
         this.additionalData = deviceInstallStateCollectionResponseParameterValue?.additionalData ? deviceInstallStateCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = deviceInstallStateCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: DeviceInstallStateImpl[] = []; deviceInstallStateCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof DeviceInstallStateImpl? element : new DeviceInstallStateImpl(element));});
+        const valueArrValue: DeviceInstallStateImpl[] = []; deviceInstallStateCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof DeviceInstallStateImpl? element : new DeviceInstallStateImpl(element));});
         this.value = valueArrValue;
     };
     /**

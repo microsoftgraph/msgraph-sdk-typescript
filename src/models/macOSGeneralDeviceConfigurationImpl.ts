@@ -38,7 +38,7 @@ export class MacOSGeneralDeviceConfigurationImpl extends DeviceConfigurationImpl
     public constructor(macOSGeneralDeviceConfigurationParameterValue?: MacOSGeneralDeviceConfiguration | undefined) {
         super(macOSGeneralDeviceConfigurationParameterValue);
         this.compliantAppListType = macOSGeneralDeviceConfigurationParameterValue?.compliantAppListType;
-        const compliantAppsListArrValue: AppListItemImpl[] = []; macOSGeneralDeviceConfigurationParameterValue.compliantAppsList?.forEach(element => {compliantAppsListArrValue.push(element instanceof AppListItemImpl? element : new AppListItemImpl(element));});
+        const compliantAppsListArrValue: AppListItemImpl[] = []; macOSGeneralDeviceConfigurationParameterValue?.compliantAppsList?.forEach(element => {compliantAppsListArrValue.push(element instanceof AppListItemImpl? element : new AppListItemImpl(element));});
         this.compliantAppsList = compliantAppsListArrValue;
         this.emailInDomainSuffixes = macOSGeneralDeviceConfigurationParameterValue?.emailInDomainSuffixes;
         this.passwordBlockSimple = macOSGeneralDeviceConfigurationParameterValue?.passwordBlockSimple;

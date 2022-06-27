@@ -34,7 +34,7 @@ export class FindMeetingTimesPostRequestBodyImpl implements FindMeetingTimesPost
      */
     public constructor(findMeetingTimesPostRequestBodyParameterValue?: FindMeetingTimesPostRequestBody | undefined) {
         this.additionalData = findMeetingTimesPostRequestBodyParameterValue?.additionalData ? findMeetingTimesPostRequestBodyParameterValue?.additionalData! : {};
-        const attendeesArrValue: AttendeeBaseImpl[] = []; findMeetingTimesPostRequestBodyParameterValue.attendees?.forEach(element => {attendeesArrValue.push(element instanceof AttendeeBaseImpl? element : new AttendeeBaseImpl(element));});
+        const attendeesArrValue: AttendeeBaseImpl[] = []; findMeetingTimesPostRequestBodyParameterValue?.attendees?.forEach(element => {attendeesArrValue.push(element instanceof AttendeeBaseImpl? element : new AttendeeBaseImpl(element));});
         this.attendees = attendeesArrValue;
         this.isOrganizerOptional = findMeetingTimesPostRequestBodyParameterValue?.isOrganizerOptional;
         this.locationConstraint = findMeetingTimesPostRequestBodyParameterValue?.locationConstraint instanceof LocationConstraintImpl? findMeetingTimesPostRequestBodyParameterValue?.locationConstraint:new LocationConstraintImpl(findMeetingTimesPostRequestBodyParameterValue?.locationConstraint);

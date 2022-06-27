@@ -18,7 +18,7 @@ export class ThumbnailSetCollectionResponseImpl implements ThumbnailSetCollectio
     public constructor(thumbnailSetCollectionResponseParameterValue?: ThumbnailSetCollectionResponse | undefined) {
         this.additionalData = thumbnailSetCollectionResponseParameterValue?.additionalData ? thumbnailSetCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = thumbnailSetCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: ThumbnailSetImpl[] = []; thumbnailSetCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof ThumbnailSetImpl? element : new ThumbnailSetImpl(element));});
+        const valueArrValue: ThumbnailSetImpl[] = []; thumbnailSetCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof ThumbnailSetImpl? element : new ThumbnailSetImpl(element));});
         this.value = valueArrValue;
     };
     /**

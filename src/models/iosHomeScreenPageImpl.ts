@@ -19,7 +19,7 @@ export class IosHomeScreenPageImpl implements IosHomeScreenPage {
     public constructor(iosHomeScreenPageParameterValue?: IosHomeScreenPage | undefined) {
         this.additionalData = iosHomeScreenPageParameterValue?.additionalData ? iosHomeScreenPageParameterValue?.additionalData! : {};
         this.displayName = iosHomeScreenPageParameterValue?.displayName;
-        const iconsArrValue: IosHomeScreenItemImpl[] = []; iosHomeScreenPageParameterValue.icons?.forEach(element => {iconsArrValue.push(element instanceof IosHomeScreenItemImpl? element : new IosHomeScreenItemImpl(element));});
+        const iconsArrValue: IosHomeScreenItemImpl[] = []; iosHomeScreenPageParameterValue?.icons?.forEach(element => {iconsArrValue.push(element instanceof IosHomeScreenItemImpl? element : new IosHomeScreenItemImpl(element));});
         this.icons = iconsArrValue;
     };
     /**

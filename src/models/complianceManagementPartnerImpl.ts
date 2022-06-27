@@ -31,15 +31,15 @@ export class ComplianceManagementPartnerImpl extends EntityImpl implements Compl
      */
     public constructor(complianceManagementPartnerParameterValue?: ComplianceManagementPartner | undefined) {
         super(complianceManagementPartnerParameterValue);
-        const androidEnrollmentAssignmentsArrValue: ComplianceManagementPartnerAssignmentImpl[] = []; complianceManagementPartnerParameterValue.androidEnrollmentAssignments?.forEach(element => {androidEnrollmentAssignmentsArrValue.push(element instanceof ComplianceManagementPartnerAssignmentImpl? element : new ComplianceManagementPartnerAssignmentImpl(element));});
+        const androidEnrollmentAssignmentsArrValue: ComplianceManagementPartnerAssignmentImpl[] = []; complianceManagementPartnerParameterValue?.androidEnrollmentAssignments?.forEach(element => {androidEnrollmentAssignmentsArrValue.push(element instanceof ComplianceManagementPartnerAssignmentImpl? element : new ComplianceManagementPartnerAssignmentImpl(element));});
         this.androidEnrollmentAssignments = androidEnrollmentAssignmentsArrValue;
         this.androidOnboarded = complianceManagementPartnerParameterValue?.androidOnboarded;
         this.displayName = complianceManagementPartnerParameterValue?.displayName;
-        const iosEnrollmentAssignmentsArrValue: ComplianceManagementPartnerAssignmentImpl[] = []; complianceManagementPartnerParameterValue.iosEnrollmentAssignments?.forEach(element => {iosEnrollmentAssignmentsArrValue.push(element instanceof ComplianceManagementPartnerAssignmentImpl? element : new ComplianceManagementPartnerAssignmentImpl(element));});
+        const iosEnrollmentAssignmentsArrValue: ComplianceManagementPartnerAssignmentImpl[] = []; complianceManagementPartnerParameterValue?.iosEnrollmentAssignments?.forEach(element => {iosEnrollmentAssignmentsArrValue.push(element instanceof ComplianceManagementPartnerAssignmentImpl? element : new ComplianceManagementPartnerAssignmentImpl(element));});
         this.iosEnrollmentAssignments = iosEnrollmentAssignmentsArrValue;
         this.iosOnboarded = complianceManagementPartnerParameterValue?.iosOnboarded;
         this.lastHeartbeatDateTime = complianceManagementPartnerParameterValue?.lastHeartbeatDateTime;
-        const macOsEnrollmentAssignmentsArrValue: ComplianceManagementPartnerAssignmentImpl[] = []; complianceManagementPartnerParameterValue.macOsEnrollmentAssignments?.forEach(element => {macOsEnrollmentAssignmentsArrValue.push(element instanceof ComplianceManagementPartnerAssignmentImpl? element : new ComplianceManagementPartnerAssignmentImpl(element));});
+        const macOsEnrollmentAssignmentsArrValue: ComplianceManagementPartnerAssignmentImpl[] = []; complianceManagementPartnerParameterValue?.macOsEnrollmentAssignments?.forEach(element => {macOsEnrollmentAssignmentsArrValue.push(element instanceof ComplianceManagementPartnerAssignmentImpl? element : new ComplianceManagementPartnerAssignmentImpl(element));});
         this.macOsEnrollmentAssignments = macOsEnrollmentAssignmentsArrValue;
         this.macOsOnboarded = complianceManagementPartnerParameterValue?.macOsOnboarded;
         this.partnerState = complianceManagementPartnerParameterValue?.partnerState;

@@ -13,7 +13,7 @@ export class InviteParticipantsOperationImpl extends CommsOperationImpl implemen
      */
     public constructor(inviteParticipantsOperationParameterValue?: InviteParticipantsOperation | undefined) {
         super(inviteParticipantsOperationParameterValue);
-        const participantsArrValue: InvitationParticipantInfoImpl[] = []; inviteParticipantsOperationParameterValue.participants?.forEach(element => {participantsArrValue.push(element instanceof InvitationParticipantInfoImpl? element : new InvitationParticipantInfoImpl(element));});
+        const participantsArrValue: InvitationParticipantInfoImpl[] = []; inviteParticipantsOperationParameterValue?.participants?.forEach(element => {participantsArrValue.push(element instanceof InvitationParticipantInfoImpl? element : new InvitationParticipantInfoImpl(element));});
         this.participants = participantsArrValue;
     };
     /**

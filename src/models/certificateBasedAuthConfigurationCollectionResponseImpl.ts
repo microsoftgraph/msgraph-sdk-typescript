@@ -18,7 +18,7 @@ export class CertificateBasedAuthConfigurationCollectionResponseImpl implements 
     public constructor(certificateBasedAuthConfigurationCollectionResponseParameterValue?: CertificateBasedAuthConfigurationCollectionResponse | undefined) {
         this.additionalData = certificateBasedAuthConfigurationCollectionResponseParameterValue?.additionalData ? certificateBasedAuthConfigurationCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = certificateBasedAuthConfigurationCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: CertificateBasedAuthConfigurationImpl[] = []; certificateBasedAuthConfigurationCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof CertificateBasedAuthConfigurationImpl? element : new CertificateBasedAuthConfigurationImpl(element));});
+        const valueArrValue: CertificateBasedAuthConfigurationImpl[] = []; certificateBasedAuthConfigurationCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof CertificateBasedAuthConfigurationImpl? element : new CertificateBasedAuthConfigurationImpl(element));});
         this.value = valueArrValue;
     };
     /**

@@ -17,7 +17,7 @@ export class MeetingParticipantsImpl implements MeetingParticipants {
      */
     public constructor(meetingParticipantsParameterValue?: MeetingParticipants | undefined) {
         this.additionalData = meetingParticipantsParameterValue?.additionalData ? meetingParticipantsParameterValue?.additionalData! : {};
-        const attendeesArrValue: MeetingParticipantInfoImpl[] = []; meetingParticipantsParameterValue.attendees?.forEach(element => {attendeesArrValue.push(element instanceof MeetingParticipantInfoImpl? element : new MeetingParticipantInfoImpl(element));});
+        const attendeesArrValue: MeetingParticipantInfoImpl[] = []; meetingParticipantsParameterValue?.attendees?.forEach(element => {attendeesArrValue.push(element instanceof MeetingParticipantInfoImpl? element : new MeetingParticipantInfoImpl(element));});
         this.attendees = attendeesArrValue;
         this.organizer = meetingParticipantsParameterValue?.organizer instanceof MeetingParticipantInfoImpl? meetingParticipantsParameterValue?.organizer:new MeetingParticipantInfoImpl(meetingParticipantsParameterValue?.organizer);
     };

@@ -18,7 +18,7 @@ export class ServiceHealthCollectionResponseImpl implements ServiceHealthCollect
     public constructor(serviceHealthCollectionResponseParameterValue?: ServiceHealthCollectionResponse | undefined) {
         this.additionalData = serviceHealthCollectionResponseParameterValue?.additionalData ? serviceHealthCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = serviceHealthCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: ServiceHealthImpl[] = []; serviceHealthCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof ServiceHealthImpl? element : new ServiceHealthImpl(element));});
+        const valueArrValue: ServiceHealthImpl[] = []; serviceHealthCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof ServiceHealthImpl? element : new ServiceHealthImpl(element));});
         this.value = valueArrValue;
     };
     /**

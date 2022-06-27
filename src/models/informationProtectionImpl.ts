@@ -19,7 +19,7 @@ export class InformationProtectionImpl extends EntityImpl implements Information
     public constructor(informationProtectionParameterValue?: InformationProtection | undefined) {
         super(informationProtectionParameterValue);
         this.bitlocker = informationProtectionParameterValue?.bitlocker instanceof BitlockerImpl? informationProtectionParameterValue?.bitlocker:new BitlockerImpl(informationProtectionParameterValue?.bitlocker);
-        const threatAssessmentRequestsArrValue: ThreatAssessmentRequestImpl[] = []; informationProtectionParameterValue.threatAssessmentRequests?.forEach(element => {threatAssessmentRequestsArrValue.push(element instanceof ThreatAssessmentRequestImpl? element : new ThreatAssessmentRequestImpl(element));});
+        const threatAssessmentRequestsArrValue: ThreatAssessmentRequestImpl[] = []; informationProtectionParameterValue?.threatAssessmentRequests?.forEach(element => {threatAssessmentRequestsArrValue.push(element instanceof ThreatAssessmentRequestImpl? element : new ThreatAssessmentRequestImpl(element));});
         this.threatAssessmentRequests = threatAssessmentRequestsArrValue;
     };
     /**

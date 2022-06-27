@@ -19,7 +19,7 @@ export class GroupSettingTemplateImpl extends DirectoryObjectImpl implements Gro
         super(groupSettingTemplateParameterValue);
         this.description = groupSettingTemplateParameterValue?.description;
         this.displayName = groupSettingTemplateParameterValue?.displayName;
-        const valuesArrValue: SettingTemplateValueImpl[] = []; groupSettingTemplateParameterValue.values?.forEach(element => {valuesArrValue.push(element instanceof SettingTemplateValueImpl? element : new SettingTemplateValueImpl(element));});
+        const valuesArrValue: SettingTemplateValueImpl[] = []; groupSettingTemplateParameterValue?.values?.forEach(element => {valuesArrValue.push(element instanceof SettingTemplateValueImpl? element : new SettingTemplateValueImpl(element));});
         this.values = valuesArrValue;
     };
     /**

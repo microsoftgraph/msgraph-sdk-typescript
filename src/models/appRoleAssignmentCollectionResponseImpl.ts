@@ -18,7 +18,7 @@ export class AppRoleAssignmentCollectionResponseImpl implements AppRoleAssignmen
     public constructor(appRoleAssignmentCollectionResponseParameterValue?: AppRoleAssignmentCollectionResponse | undefined) {
         this.additionalData = appRoleAssignmentCollectionResponseParameterValue?.additionalData ? appRoleAssignmentCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = appRoleAssignmentCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: AppRoleAssignmentImpl[] = []; appRoleAssignmentCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof AppRoleAssignmentImpl? element : new AppRoleAssignmentImpl(element));});
+        const valueArrValue: AppRoleAssignmentImpl[] = []; appRoleAssignmentCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof AppRoleAssignmentImpl? element : new AppRoleAssignmentImpl(element));});
         this.value = valueArrValue;
     };
     /**

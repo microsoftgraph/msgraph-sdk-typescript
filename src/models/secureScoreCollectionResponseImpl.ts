@@ -18,7 +18,7 @@ export class SecureScoreCollectionResponseImpl implements SecureScoreCollectionR
     public constructor(secureScoreCollectionResponseParameterValue?: SecureScoreCollectionResponse | undefined) {
         this.additionalData = secureScoreCollectionResponseParameterValue?.additionalData ? secureScoreCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = secureScoreCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: SecureScoreImpl[] = []; secureScoreCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof SecureScoreImpl? element : new SecureScoreImpl(element));});
+        const valueArrValue: SecureScoreImpl[] = []; secureScoreCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof SecureScoreImpl? element : new SecureScoreImpl(element));});
         this.value = valueArrValue;
     };
     /**

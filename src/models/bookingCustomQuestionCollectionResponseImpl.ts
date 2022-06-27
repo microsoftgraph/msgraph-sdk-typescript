@@ -18,7 +18,7 @@ export class BookingCustomQuestionCollectionResponseImpl implements BookingCusto
     public constructor(bookingCustomQuestionCollectionResponseParameterValue?: BookingCustomQuestionCollectionResponse | undefined) {
         this.additionalData = bookingCustomQuestionCollectionResponseParameterValue?.additionalData ? bookingCustomQuestionCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = bookingCustomQuestionCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: BookingCustomQuestionImpl[] = []; bookingCustomQuestionCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof BookingCustomQuestionImpl? element : new BookingCustomQuestionImpl(element));});
+        const valueArrValue: BookingCustomQuestionImpl[] = []; bookingCustomQuestionCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof BookingCustomQuestionImpl? element : new BookingCustomQuestionImpl(element));});
         this.value = valueArrValue;
     };
     /**

@@ -19,7 +19,7 @@ export class ForwardPostRequestBodyImpl implements ForwardPostRequestBody {
     public constructor(forwardPostRequestBodyParameterValue?: ForwardPostRequestBody | undefined) {
         this.additionalData = forwardPostRequestBodyParameterValue?.additionalData ? forwardPostRequestBodyParameterValue?.additionalData! : {};
         this.comment = forwardPostRequestBodyParameterValue?.comment;
-        const toRecipientsArrValue: RecipientImpl[] = []; forwardPostRequestBodyParameterValue.toRecipients?.forEach(element => {toRecipientsArrValue.push(element instanceof RecipientImpl? element : new RecipientImpl(element));});
+        const toRecipientsArrValue: RecipientImpl[] = []; forwardPostRequestBodyParameterValue?.toRecipients?.forEach(element => {toRecipientsArrValue.push(element instanceof RecipientImpl? element : new RecipientImpl(element));});
         this.toRecipients = toRecipientsArrValue;
     };
     /**

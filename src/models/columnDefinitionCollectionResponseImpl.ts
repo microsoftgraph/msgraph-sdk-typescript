@@ -18,7 +18,7 @@ export class ColumnDefinitionCollectionResponseImpl implements ColumnDefinitionC
     public constructor(columnDefinitionCollectionResponseParameterValue?: ColumnDefinitionCollectionResponse | undefined) {
         this.additionalData = columnDefinitionCollectionResponseParameterValue?.additionalData ? columnDefinitionCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = columnDefinitionCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: ColumnDefinitionImpl[] = []; columnDefinitionCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof ColumnDefinitionImpl? element : new ColumnDefinitionImpl(element));});
+        const valueArrValue: ColumnDefinitionImpl[] = []; columnDefinitionCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof ColumnDefinitionImpl? element : new ColumnDefinitionImpl(element));});
         this.value = valueArrValue;
     };
     /**

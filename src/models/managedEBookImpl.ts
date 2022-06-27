@@ -46,11 +46,11 @@ export class ManagedEBookImpl extends EntityImpl implements ManagedEBook {
      */
     public constructor(managedEBookParameterValue?: ManagedEBook | undefined) {
         super(managedEBookParameterValue);
-        const assignmentsArrValue: ManagedEBookAssignmentImpl[] = []; managedEBookParameterValue.assignments?.forEach(element => {assignmentsArrValue.push(element instanceof ManagedEBookAssignmentImpl? element : new ManagedEBookAssignmentImpl(element));});
+        const assignmentsArrValue: ManagedEBookAssignmentImpl[] = []; managedEBookParameterValue?.assignments?.forEach(element => {assignmentsArrValue.push(element instanceof ManagedEBookAssignmentImpl? element : new ManagedEBookAssignmentImpl(element));});
         this.assignments = assignmentsArrValue;
         this.createdDateTime = managedEBookParameterValue?.createdDateTime;
         this.description = managedEBookParameterValue?.description;
-        const deviceStatesArrValue: DeviceInstallStateImpl[] = []; managedEBookParameterValue.deviceStates?.forEach(element => {deviceStatesArrValue.push(element instanceof DeviceInstallStateImpl? element : new DeviceInstallStateImpl(element));});
+        const deviceStatesArrValue: DeviceInstallStateImpl[] = []; managedEBookParameterValue?.deviceStates?.forEach(element => {deviceStatesArrValue.push(element instanceof DeviceInstallStateImpl? element : new DeviceInstallStateImpl(element));});
         this.deviceStates = deviceStatesArrValue;
         this.displayName = managedEBookParameterValue?.displayName;
         this.informationUrl = managedEBookParameterValue?.informationUrl;
@@ -60,7 +60,7 @@ export class ManagedEBookImpl extends EntityImpl implements ManagedEBook {
         this.privacyInformationUrl = managedEBookParameterValue?.privacyInformationUrl;
         this.publishedDateTime = managedEBookParameterValue?.publishedDateTime;
         this.publisher = managedEBookParameterValue?.publisher;
-        const userStateSummaryArrValue: UserInstallStateSummaryImpl[] = []; managedEBookParameterValue.userStateSummary?.forEach(element => {userStateSummaryArrValue.push(element instanceof UserInstallStateSummaryImpl? element : new UserInstallStateSummaryImpl(element));});
+        const userStateSummaryArrValue: UserInstallStateSummaryImpl[] = []; managedEBookParameterValue?.userStateSummary?.forEach(element => {userStateSummaryArrValue.push(element instanceof UserInstallStateSummaryImpl? element : new UserInstallStateSummaryImpl(element));});
         this.userStateSummary = userStateSummaryArrValue;
     };
     /**

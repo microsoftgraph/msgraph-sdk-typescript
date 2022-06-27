@@ -18,7 +18,7 @@ export class BookingCurrencyCollectionResponseImpl implements BookingCurrencyCol
     public constructor(bookingCurrencyCollectionResponseParameterValue?: BookingCurrencyCollectionResponse | undefined) {
         this.additionalData = bookingCurrencyCollectionResponseParameterValue?.additionalData ? bookingCurrencyCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = bookingCurrencyCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: BookingCurrencyImpl[] = []; bookingCurrencyCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof BookingCurrencyImpl? element : new BookingCurrencyImpl(element));});
+        const valueArrValue: BookingCurrencyImpl[] = []; bookingCurrencyCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof BookingCurrencyImpl? element : new BookingCurrencyImpl(element));});
         this.value = valueArrValue;
     };
     /**

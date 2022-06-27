@@ -13,7 +13,7 @@ export class ManagedAppConfigurationImpl extends ManagedAppPolicyImpl implements
      */
     public constructor(managedAppConfigurationParameterValue?: ManagedAppConfiguration | undefined) {
         super(managedAppConfigurationParameterValue);
-        const customSettingsArrValue: KeyValuePairImpl[] = []; managedAppConfigurationParameterValue.customSettings?.forEach(element => {customSettingsArrValue.push(element instanceof KeyValuePairImpl? element : new KeyValuePairImpl(element));});
+        const customSettingsArrValue: KeyValuePairImpl[] = []; managedAppConfigurationParameterValue?.customSettings?.forEach(element => {customSettingsArrValue.push(element instanceof KeyValuePairImpl? element : new KeyValuePairImpl(element));});
         this.customSettings = customSettingsArrValue;
     };
     /**

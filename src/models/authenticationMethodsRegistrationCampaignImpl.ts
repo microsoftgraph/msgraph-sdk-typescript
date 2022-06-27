@@ -24,9 +24,9 @@ export class AuthenticationMethodsRegistrationCampaignImpl implements Authentica
      */
     public constructor(authenticationMethodsRegistrationCampaignParameterValue?: AuthenticationMethodsRegistrationCampaign | undefined) {
         this.additionalData = authenticationMethodsRegistrationCampaignParameterValue?.additionalData ? authenticationMethodsRegistrationCampaignParameterValue?.additionalData! : {};
-        const excludeTargetsArrValue: ExcludeTargetImpl[] = []; authenticationMethodsRegistrationCampaignParameterValue.excludeTargets?.forEach(element => {excludeTargetsArrValue.push(element instanceof ExcludeTargetImpl? element : new ExcludeTargetImpl(element));});
+        const excludeTargetsArrValue: ExcludeTargetImpl[] = []; authenticationMethodsRegistrationCampaignParameterValue?.excludeTargets?.forEach(element => {excludeTargetsArrValue.push(element instanceof ExcludeTargetImpl? element : new ExcludeTargetImpl(element));});
         this.excludeTargets = excludeTargetsArrValue;
-        const includeTargetsArrValue: AuthenticationMethodsRegistrationCampaignIncludeTargetImpl[] = []; authenticationMethodsRegistrationCampaignParameterValue.includeTargets?.forEach(element => {includeTargetsArrValue.push(element instanceof AuthenticationMethodsRegistrationCampaignIncludeTargetImpl? element : new AuthenticationMethodsRegistrationCampaignIncludeTargetImpl(element));});
+        const includeTargetsArrValue: AuthenticationMethodsRegistrationCampaignIncludeTargetImpl[] = []; authenticationMethodsRegistrationCampaignParameterValue?.includeTargets?.forEach(element => {includeTargetsArrValue.push(element instanceof AuthenticationMethodsRegistrationCampaignIncludeTargetImpl? element : new AuthenticationMethodsRegistrationCampaignIncludeTargetImpl(element));});
         this.includeTargets = includeTargetsArrValue;
         this.snoozeDurationInDays = authenticationMethodsRegistrationCampaignParameterValue?.snoozeDurationInDays;
         this.state = authenticationMethodsRegistrationCampaignParameterValue?.state;

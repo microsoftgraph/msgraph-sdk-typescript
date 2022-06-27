@@ -29,10 +29,10 @@ export class SectionGroupImpl extends OnenoteEntityHierarchyModelImpl implements
         super(sectionGroupParameterValue);
         this.parentNotebook = sectionGroupParameterValue?.parentNotebook instanceof NotebookImpl? sectionGroupParameterValue?.parentNotebook:new NotebookImpl(sectionGroupParameterValue?.parentNotebook);
         this.parentSectionGroup = sectionGroupParameterValue?.parentSectionGroup instanceof SectionGroupImpl? sectionGroupParameterValue?.parentSectionGroup:new SectionGroupImpl(sectionGroupParameterValue?.parentSectionGroup);
-        const sectionGroupsArrValue: SectionGroupImpl[] = []; sectionGroupParameterValue.sectionGroups?.forEach(element => {sectionGroupsArrValue.push(element instanceof SectionGroupImpl? element : new SectionGroupImpl(element));});
+        const sectionGroupsArrValue: SectionGroupImpl[] = []; sectionGroupParameterValue?.sectionGroups?.forEach(element => {sectionGroupsArrValue.push(element instanceof SectionGroupImpl? element : new SectionGroupImpl(element));});
         this.sectionGroups = sectionGroupsArrValue;
         this.sectionGroupsUrl = sectionGroupParameterValue?.sectionGroupsUrl;
-        const sectionsArrValue: OnenoteSectionImpl[] = []; sectionGroupParameterValue.sections?.forEach(element => {sectionsArrValue.push(element instanceof OnenoteSectionImpl? element : new OnenoteSectionImpl(element));});
+        const sectionsArrValue: OnenoteSectionImpl[] = []; sectionGroupParameterValue?.sections?.forEach(element => {sectionsArrValue.push(element instanceof OnenoteSectionImpl? element : new OnenoteSectionImpl(element));});
         this.sections = sectionsArrValue;
         this.sectionsUrl = sectionGroupParameterValue?.sectionsUrl;
     };

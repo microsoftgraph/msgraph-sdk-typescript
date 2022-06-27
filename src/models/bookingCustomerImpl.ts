@@ -21,11 +21,11 @@ export class BookingCustomerImpl extends BookingCustomerBaseImpl implements Book
      */
     public constructor(bookingCustomerParameterValue?: BookingCustomer | undefined) {
         super(bookingCustomerParameterValue);
-        const addressesArrValue: PhysicalAddressImpl[] = []; bookingCustomerParameterValue.addresses?.forEach(element => {addressesArrValue.push(element instanceof PhysicalAddressImpl? element : new PhysicalAddressImpl(element));});
+        const addressesArrValue: PhysicalAddressImpl[] = []; bookingCustomerParameterValue?.addresses?.forEach(element => {addressesArrValue.push(element instanceof PhysicalAddressImpl? element : new PhysicalAddressImpl(element));});
         this.addresses = addressesArrValue;
         this.displayName = bookingCustomerParameterValue?.displayName;
         this.emailAddress = bookingCustomerParameterValue?.emailAddress;
-        const phonesArrValue: PhoneImpl[] = []; bookingCustomerParameterValue.phones?.forEach(element => {phonesArrValue.push(element instanceof PhoneImpl? element : new PhoneImpl(element));});
+        const phonesArrValue: PhoneImpl[] = []; bookingCustomerParameterValue?.phones?.forEach(element => {phonesArrValue.push(element instanceof PhoneImpl? element : new PhoneImpl(element));});
         this.phones = phonesArrValue;
     };
     /**

@@ -17,7 +17,7 @@ export class DeviceComplianceScheduledActionForRuleImpl extends EntityImpl imple
     public constructor(deviceComplianceScheduledActionForRuleParameterValue?: DeviceComplianceScheduledActionForRule | undefined) {
         super(deviceComplianceScheduledActionForRuleParameterValue);
         this.ruleName = deviceComplianceScheduledActionForRuleParameterValue?.ruleName;
-        const scheduledActionConfigurationsArrValue: DeviceComplianceActionItemImpl[] = []; deviceComplianceScheduledActionForRuleParameterValue.scheduledActionConfigurations?.forEach(element => {scheduledActionConfigurationsArrValue.push(element instanceof DeviceComplianceActionItemImpl? element : new DeviceComplianceActionItemImpl(element));});
+        const scheduledActionConfigurationsArrValue: DeviceComplianceActionItemImpl[] = []; deviceComplianceScheduledActionForRuleParameterValue?.scheduledActionConfigurations?.forEach(element => {scheduledActionConfigurationsArrValue.push(element instanceof DeviceComplianceActionItemImpl? element : new DeviceComplianceActionItemImpl(element));});
         this.scheduledActionConfigurations = scheduledActionConfigurationsArrValue;
     };
     /**

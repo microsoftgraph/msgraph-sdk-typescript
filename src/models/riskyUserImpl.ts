@@ -33,7 +33,7 @@ export class RiskyUserImpl extends EntityImpl implements RiskyUser {
      */
     public constructor(riskyUserParameterValue?: RiskyUser | undefined) {
         super(riskyUserParameterValue);
-        const historyArrValue: RiskyUserHistoryItemImpl[] = []; riskyUserParameterValue.history?.forEach(element => {historyArrValue.push(element instanceof RiskyUserHistoryItemImpl? element : new RiskyUserHistoryItemImpl(element));});
+        const historyArrValue: RiskyUserHistoryItemImpl[] = []; riskyUserParameterValue?.history?.forEach(element => {historyArrValue.push(element instanceof RiskyUserHistoryItemImpl? element : new RiskyUserHistoryItemImpl(element));});
         this.history = historyArrValue;
         this.isDeleted = riskyUserParameterValue?.isDeleted;
         this.isProcessing = riskyUserParameterValue?.isProcessing;

@@ -41,7 +41,7 @@ export class TeleconferenceDeviceQualityImpl implements TeleconferenceDeviceQual
         this.deviceDescription = teleconferenceDeviceQualityParameterValue?.deviceDescription;
         this.deviceName = teleconferenceDeviceQualityParameterValue?.deviceName;
         this.mediaLegId = teleconferenceDeviceQualityParameterValue?.mediaLegId;
-        const mediaQualityListArrValue: TeleconferenceDeviceMediaQualityImpl[] = []; teleconferenceDeviceQualityParameterValue.mediaQualityList?.forEach(element => {mediaQualityListArrValue.push(element instanceof TeleconferenceDeviceMediaQualityImpl? element : new TeleconferenceDeviceMediaQualityImpl(element));});
+        const mediaQualityListArrValue: TeleconferenceDeviceMediaQualityImpl[] = []; teleconferenceDeviceQualityParameterValue?.mediaQualityList?.forEach(element => {mediaQualityListArrValue.push(element instanceof TeleconferenceDeviceMediaQualityImpl? element : new TeleconferenceDeviceMediaQualityImpl(element));});
         this.mediaQualityList = mediaQualityListArrValue;
         this.participantId = teleconferenceDeviceQualityParameterValue?.participantId;
     };

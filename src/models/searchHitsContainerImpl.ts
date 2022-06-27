@@ -23,9 +23,9 @@ export class SearchHitsContainerImpl implements SearchHitsContainer {
      */
     public constructor(searchHitsContainerParameterValue?: SearchHitsContainer | undefined) {
         this.additionalData = searchHitsContainerParameterValue?.additionalData ? searchHitsContainerParameterValue?.additionalData! : {};
-        const aggregationsArrValue: SearchAggregationImpl[] = []; searchHitsContainerParameterValue.aggregations?.forEach(element => {aggregationsArrValue.push(element instanceof SearchAggregationImpl? element : new SearchAggregationImpl(element));});
+        const aggregationsArrValue: SearchAggregationImpl[] = []; searchHitsContainerParameterValue?.aggregations?.forEach(element => {aggregationsArrValue.push(element instanceof SearchAggregationImpl? element : new SearchAggregationImpl(element));});
         this.aggregations = aggregationsArrValue;
-        const hitsArrValue: SearchHitImpl[] = []; searchHitsContainerParameterValue.hits?.forEach(element => {hitsArrValue.push(element instanceof SearchHitImpl? element : new SearchHitImpl(element));});
+        const hitsArrValue: SearchHitImpl[] = []; searchHitsContainerParameterValue?.hits?.forEach(element => {hitsArrValue.push(element instanceof SearchHitImpl? element : new SearchHitImpl(element));});
         this.hits = hitsArrValue;
         this.moreResultsAvailable = searchHitsContainerParameterValue?.moreResultsAvailable;
         this.total = searchHitsContainerParameterValue?.total;

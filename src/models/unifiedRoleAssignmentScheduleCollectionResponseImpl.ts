@@ -18,7 +18,7 @@ export class UnifiedRoleAssignmentScheduleCollectionResponseImpl implements Unif
     public constructor(unifiedRoleAssignmentScheduleCollectionResponseParameterValue?: UnifiedRoleAssignmentScheduleCollectionResponse | undefined) {
         this.additionalData = unifiedRoleAssignmentScheduleCollectionResponseParameterValue?.additionalData ? unifiedRoleAssignmentScheduleCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = unifiedRoleAssignmentScheduleCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: UnifiedRoleAssignmentScheduleImpl[] = []; unifiedRoleAssignmentScheduleCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof UnifiedRoleAssignmentScheduleImpl? element : new UnifiedRoleAssignmentScheduleImpl(element));});
+        const valueArrValue: UnifiedRoleAssignmentScheduleImpl[] = []; unifiedRoleAssignmentScheduleCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof UnifiedRoleAssignmentScheduleImpl? element : new UnifiedRoleAssignmentScheduleImpl(element));});
         this.value = valueArrValue;
     };
     /**

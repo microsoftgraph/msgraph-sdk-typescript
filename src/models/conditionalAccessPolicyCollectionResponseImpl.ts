@@ -18,7 +18,7 @@ export class ConditionalAccessPolicyCollectionResponseImpl implements Conditiona
     public constructor(conditionalAccessPolicyCollectionResponseParameterValue?: ConditionalAccessPolicyCollectionResponse | undefined) {
         this.additionalData = conditionalAccessPolicyCollectionResponseParameterValue?.additionalData ? conditionalAccessPolicyCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = conditionalAccessPolicyCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: ConditionalAccessPolicyImpl[] = []; conditionalAccessPolicyCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof ConditionalAccessPolicyImpl? element : new ConditionalAccessPolicyImpl(element));});
+        const valueArrValue: ConditionalAccessPolicyImpl[] = []; conditionalAccessPolicyCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof ConditionalAccessPolicyImpl? element : new ConditionalAccessPolicyImpl(element));});
         this.value = valueArrValue;
     };
     /**

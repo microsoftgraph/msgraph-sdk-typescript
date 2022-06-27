@@ -18,7 +18,7 @@ export class HomeRealmDiscoveryPolicyCollectionResponseImpl implements HomeRealm
     public constructor(homeRealmDiscoveryPolicyCollectionResponseParameterValue?: HomeRealmDiscoveryPolicyCollectionResponse | undefined) {
         this.additionalData = homeRealmDiscoveryPolicyCollectionResponseParameterValue?.additionalData ? homeRealmDiscoveryPolicyCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = homeRealmDiscoveryPolicyCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: HomeRealmDiscoveryPolicyImpl[] = []; homeRealmDiscoveryPolicyCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof HomeRealmDiscoveryPolicyImpl? element : new HomeRealmDiscoveryPolicyImpl(element));});
+        const valueArrValue: HomeRealmDiscoveryPolicyImpl[] = []; homeRealmDiscoveryPolicyCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof HomeRealmDiscoveryPolicyImpl? element : new HomeRealmDiscoveryPolicyImpl(element));});
         this.value = valueArrValue;
     };
     /**

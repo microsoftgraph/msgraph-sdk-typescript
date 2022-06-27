@@ -25,7 +25,7 @@ export class TemporaryAccessPassAuthenticationMethodConfigurationImpl extends Au
         super(temporaryAccessPassAuthenticationMethodConfigurationParameterValue);
         this.defaultLength = temporaryAccessPassAuthenticationMethodConfigurationParameterValue?.defaultLength;
         this.defaultLifetimeInMinutes = temporaryAccessPassAuthenticationMethodConfigurationParameterValue?.defaultLifetimeInMinutes;
-        const includeTargetsArrValue: AuthenticationMethodTargetImpl[] = []; temporaryAccessPassAuthenticationMethodConfigurationParameterValue.includeTargets?.forEach(element => {includeTargetsArrValue.push(element instanceof AuthenticationMethodTargetImpl? element : new AuthenticationMethodTargetImpl(element));});
+        const includeTargetsArrValue: AuthenticationMethodTargetImpl[] = []; temporaryAccessPassAuthenticationMethodConfigurationParameterValue?.includeTargets?.forEach(element => {includeTargetsArrValue.push(element instanceof AuthenticationMethodTargetImpl? element : new AuthenticationMethodTargetImpl(element));});
         this.includeTargets = includeTargetsArrValue;
         this.isUsableOnce = temporaryAccessPassAuthenticationMethodConfigurationParameterValue?.isUsableOnce;
         this.maximumLifetimeInMinutes = temporaryAccessPassAuthenticationMethodConfigurationParameterValue?.maximumLifetimeInMinutes;

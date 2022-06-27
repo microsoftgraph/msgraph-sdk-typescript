@@ -18,7 +18,7 @@ export class GroupSettingCollectionResponseImpl implements GroupSettingCollectio
     public constructor(groupSettingCollectionResponseParameterValue?: GroupSettingCollectionResponse | undefined) {
         this.additionalData = groupSettingCollectionResponseParameterValue?.additionalData ? groupSettingCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = groupSettingCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: GroupSettingImpl[] = []; groupSettingCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof GroupSettingImpl? element : new GroupSettingImpl(element));});
+        const valueArrValue: GroupSettingImpl[] = []; groupSettingCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof GroupSettingImpl? element : new GroupSettingImpl(element));});
         this.value = valueArrValue;
     };
     /**

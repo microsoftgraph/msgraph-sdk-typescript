@@ -16,7 +16,7 @@ export class GrantResponseImpl implements GrantResponse {
      */
     public constructor(grantResponseParameterValue?: GrantResponse | undefined) {
         this.additionalData = grantResponseParameterValue?.additionalData ? grantResponseParameterValue?.additionalData! : {};
-        const valueArrValue: PermissionImpl[] = []; grantResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof PermissionImpl? element : new PermissionImpl(element));});
+        const valueArrValue: PermissionImpl[] = []; grantResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof PermissionImpl? element : new PermissionImpl(element));});
         this.value = valueArrValue;
     };
     /**

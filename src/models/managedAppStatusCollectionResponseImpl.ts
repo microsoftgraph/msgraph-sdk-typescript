@@ -18,7 +18,7 @@ export class ManagedAppStatusCollectionResponseImpl implements ManagedAppStatusC
     public constructor(managedAppStatusCollectionResponseParameterValue?: ManagedAppStatusCollectionResponse | undefined) {
         this.additionalData = managedAppStatusCollectionResponseParameterValue?.additionalData ? managedAppStatusCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = managedAppStatusCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: ManagedAppStatusImpl[] = []; managedAppStatusCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof ManagedAppStatusImpl? element : new ManagedAppStatusImpl(element));});
+        const valueArrValue: ManagedAppStatusImpl[] = []; managedAppStatusCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof ManagedAppStatusImpl? element : new ManagedAppStatusImpl(element));});
         this.value = valueArrValue;
     };
     /**

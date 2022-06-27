@@ -2,7 +2,7 @@ import {AppScope} from './appScope';
 import {EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the identityGovernance singleton. */
+/** Provides operations to manage the roleManagement singleton. */
 export class AppScopeImpl extends EntityImpl implements AppScope {
     /** Provides the display name of the app-specific resource represented by the app scope. Provided for display purposes since appScopeId is often an immutable, non-human-readable id. This property is read only. */
     public displayName?: string | undefined;

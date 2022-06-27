@@ -18,7 +18,7 @@ export class ParticipantCollectionResponseImpl implements ParticipantCollectionR
     public constructor(participantCollectionResponseParameterValue?: ParticipantCollectionResponse | undefined) {
         this.additionalData = participantCollectionResponseParameterValue?.additionalData ? participantCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = participantCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: ParticipantImpl[] = []; participantCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof ParticipantImpl? element : new ParticipantImpl(element));});
+        const valueArrValue: ParticipantImpl[] = []; participantCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof ParticipantImpl? element : new ParticipantImpl(element));});
         this.value = valueArrValue;
     };
     /**

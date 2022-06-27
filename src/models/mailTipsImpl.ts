@@ -54,7 +54,7 @@ export class MailTipsImpl implements MailTips {
         this.mailboxFull = mailTipsParameterValue?.mailboxFull;
         this.maxMessageSize = mailTipsParameterValue?.maxMessageSize;
         this.recipientScope = mailTipsParameterValue?.recipientScope;
-        const recipientSuggestionsArrValue: RecipientImpl[] = []; mailTipsParameterValue.recipientSuggestions?.forEach(element => {recipientSuggestionsArrValue.push(element instanceof RecipientImpl? element : new RecipientImpl(element));});
+        const recipientSuggestionsArrValue: RecipientImpl[] = []; mailTipsParameterValue?.recipientSuggestions?.forEach(element => {recipientSuggestionsArrValue.push(element instanceof RecipientImpl? element : new RecipientImpl(element));});
         this.recipientSuggestions = recipientSuggestionsArrValue;
         this.totalMemberCount = mailTipsParameterValue?.totalMemberCount;
     };

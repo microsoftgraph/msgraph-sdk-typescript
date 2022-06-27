@@ -18,7 +18,7 @@ export class TeamCollectionResponseImpl implements TeamCollectionResponse {
     public constructor(teamCollectionResponseParameterValue?: TeamCollectionResponse | undefined) {
         this.additionalData = teamCollectionResponseParameterValue?.additionalData ? teamCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = teamCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: TeamImpl[] = []; teamCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof TeamImpl? element : new TeamImpl(element));});
+        const valueArrValue: TeamImpl[] = []; teamCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof TeamImpl? element : new TeamImpl(element));});
         this.value = valueArrValue;
     };
     /**

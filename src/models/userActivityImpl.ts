@@ -54,7 +54,7 @@ export class UserActivityImpl extends EntityImpl implements UserActivity {
         this.createdDateTime = userActivityParameterValue?.createdDateTime;
         this.expirationDateTime = userActivityParameterValue?.expirationDateTime;
         this.fallbackUrl = userActivityParameterValue?.fallbackUrl;
-        const historyItemsArrValue: ActivityHistoryItemImpl[] = []; userActivityParameterValue.historyItems?.forEach(element => {historyItemsArrValue.push(element instanceof ActivityHistoryItemImpl? element : new ActivityHistoryItemImpl(element));});
+        const historyItemsArrValue: ActivityHistoryItemImpl[] = []; userActivityParameterValue?.historyItems?.forEach(element => {historyItemsArrValue.push(element instanceof ActivityHistoryItemImpl? element : new ActivityHistoryItemImpl(element));});
         this.historyItems = historyItemsArrValue;
         this.lastModifiedDateTime = userActivityParameterValue?.lastModifiedDateTime;
         this.status = userActivityParameterValue?.status;

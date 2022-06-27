@@ -20,7 +20,7 @@ export class CalendarGroupImpl extends EntityImpl implements CalendarGroup {
      */
     public constructor(calendarGroupParameterValue?: CalendarGroup | undefined) {
         super(calendarGroupParameterValue);
-        const calendarsArrValue: CalendarImpl[] = []; calendarGroupParameterValue.calendars?.forEach(element => {calendarsArrValue.push(element instanceof CalendarImpl? element : new CalendarImpl(element));});
+        const calendarsArrValue: CalendarImpl[] = []; calendarGroupParameterValue?.calendars?.forEach(element => {calendarsArrValue.push(element instanceof CalendarImpl? element : new CalendarImpl(element));});
         this.calendars = calendarsArrValue;
         this.changeKey = calendarGroupParameterValue?.changeKey;
         this.classId = calendarGroupParameterValue?.classId;

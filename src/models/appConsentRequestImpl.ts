@@ -24,9 +24,9 @@ export class AppConsentRequestImpl extends EntityImpl implements AppConsentReque
         super(appConsentRequestParameterValue);
         this.appDisplayName = appConsentRequestParameterValue?.appDisplayName;
         this.appId = appConsentRequestParameterValue?.appId;
-        const pendingScopesArrValue: AppConsentRequestScopeImpl[] = []; appConsentRequestParameterValue.pendingScopes?.forEach(element => {pendingScopesArrValue.push(element instanceof AppConsentRequestScopeImpl? element : new AppConsentRequestScopeImpl(element));});
+        const pendingScopesArrValue: AppConsentRequestScopeImpl[] = []; appConsentRequestParameterValue?.pendingScopes?.forEach(element => {pendingScopesArrValue.push(element instanceof AppConsentRequestScopeImpl? element : new AppConsentRequestScopeImpl(element));});
         this.pendingScopes = pendingScopesArrValue;
-        const userConsentRequestsArrValue: UserConsentRequestImpl[] = []; appConsentRequestParameterValue.userConsentRequests?.forEach(element => {userConsentRequestsArrValue.push(element instanceof UserConsentRequestImpl? element : new UserConsentRequestImpl(element));});
+        const userConsentRequestsArrValue: UserConsentRequestImpl[] = []; appConsentRequestParameterValue?.userConsentRequests?.forEach(element => {userConsentRequestsArrValue.push(element instanceof UserConsentRequestImpl? element : new UserConsentRequestImpl(element));});
         this.userConsentRequests = userConsentRequestsArrValue;
     };
     /**

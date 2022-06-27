@@ -27,7 +27,7 @@ export class NotificationMessageTemplateImpl extends EntityImpl implements Notif
         this.defaultLocale = notificationMessageTemplateParameterValue?.defaultLocale;
         this.displayName = notificationMessageTemplateParameterValue?.displayName;
         this.lastModifiedDateTime = notificationMessageTemplateParameterValue?.lastModifiedDateTime;
-        const localizedNotificationMessagesArrValue: LocalizedNotificationMessageImpl[] = []; notificationMessageTemplateParameterValue.localizedNotificationMessages?.forEach(element => {localizedNotificationMessagesArrValue.push(element instanceof LocalizedNotificationMessageImpl? element : new LocalizedNotificationMessageImpl(element));});
+        const localizedNotificationMessagesArrValue: LocalizedNotificationMessageImpl[] = []; notificationMessageTemplateParameterValue?.localizedNotificationMessages?.forEach(element => {localizedNotificationMessagesArrValue.push(element instanceof LocalizedNotificationMessageImpl? element : new LocalizedNotificationMessageImpl(element));});
         this.localizedNotificationMessages = localizedNotificationMessagesArrValue;
     };
     /**

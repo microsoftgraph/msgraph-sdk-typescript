@@ -74,18 +74,18 @@ export class OrganizationImpl extends DirectoryObjectImpl implements Organizatio
      */
     public constructor(organizationParameterValue?: Organization | undefined) {
         super(organizationParameterValue);
-        const assignedPlansArrValue: AssignedPlanImpl[] = []; organizationParameterValue.assignedPlans?.forEach(element => {assignedPlansArrValue.push(element instanceof AssignedPlanImpl? element : new AssignedPlanImpl(element));});
+        const assignedPlansArrValue: AssignedPlanImpl[] = []; organizationParameterValue?.assignedPlans?.forEach(element => {assignedPlansArrValue.push(element instanceof AssignedPlanImpl? element : new AssignedPlanImpl(element));});
         this.assignedPlans = assignedPlansArrValue;
         this.branding = organizationParameterValue?.branding instanceof OrganizationalBrandingImpl? organizationParameterValue?.branding:new OrganizationalBrandingImpl(organizationParameterValue?.branding);
         this.businessPhones = organizationParameterValue?.businessPhones;
-        const certificateBasedAuthConfigurationArrValue: CertificateBasedAuthConfigurationImpl[] = []; organizationParameterValue.certificateBasedAuthConfiguration?.forEach(element => {certificateBasedAuthConfigurationArrValue.push(element instanceof CertificateBasedAuthConfigurationImpl? element : new CertificateBasedAuthConfigurationImpl(element));});
+        const certificateBasedAuthConfigurationArrValue: CertificateBasedAuthConfigurationImpl[] = []; organizationParameterValue?.certificateBasedAuthConfiguration?.forEach(element => {certificateBasedAuthConfigurationArrValue.push(element instanceof CertificateBasedAuthConfigurationImpl? element : new CertificateBasedAuthConfigurationImpl(element));});
         this.certificateBasedAuthConfiguration = certificateBasedAuthConfigurationArrValue;
         this.city = organizationParameterValue?.city;
         this.country = organizationParameterValue?.country;
         this.countryLetterCode = organizationParameterValue?.countryLetterCode;
         this.createdDateTime = organizationParameterValue?.createdDateTime;
         this.displayName = organizationParameterValue?.displayName;
-        const extensionsArrValue: ExtensionImpl[] = []; organizationParameterValue.extensions?.forEach(element => {extensionsArrValue.push(element instanceof ExtensionImpl? element : new ExtensionImpl(element));});
+        const extensionsArrValue: ExtensionImpl[] = []; organizationParameterValue?.extensions?.forEach(element => {extensionsArrValue.push(element instanceof ExtensionImpl? element : new ExtensionImpl(element));});
         this.extensions = extensionsArrValue;
         this.marketingNotificationEmails = organizationParameterValue?.marketingNotificationEmails;
         this.mobileDeviceManagementAuthority = organizationParameterValue?.mobileDeviceManagementAuthority;
@@ -94,7 +94,7 @@ export class OrganizationImpl extends DirectoryObjectImpl implements Organizatio
         this.postalCode = organizationParameterValue?.postalCode;
         this.preferredLanguage = organizationParameterValue?.preferredLanguage;
         this.privacyProfile = organizationParameterValue?.privacyProfile instanceof PrivacyProfileImpl? organizationParameterValue?.privacyProfile:new PrivacyProfileImpl(organizationParameterValue?.privacyProfile);
-        const provisionedPlansArrValue: ProvisionedPlanImpl[] = []; organizationParameterValue.provisionedPlans?.forEach(element => {provisionedPlansArrValue.push(element instanceof ProvisionedPlanImpl? element : new ProvisionedPlanImpl(element));});
+        const provisionedPlansArrValue: ProvisionedPlanImpl[] = []; organizationParameterValue?.provisionedPlans?.forEach(element => {provisionedPlansArrValue.push(element instanceof ProvisionedPlanImpl? element : new ProvisionedPlanImpl(element));});
         this.provisionedPlans = provisionedPlansArrValue;
         this.securityComplianceNotificationMails = organizationParameterValue?.securityComplianceNotificationMails;
         this.securityComplianceNotificationPhones = organizationParameterValue?.securityComplianceNotificationPhones;
@@ -102,7 +102,7 @@ export class OrganizationImpl extends DirectoryObjectImpl implements Organizatio
         this.street = organizationParameterValue?.street;
         this.technicalNotificationMails = organizationParameterValue?.technicalNotificationMails;
         this.tenantType = organizationParameterValue?.tenantType;
-        const verifiedDomainsArrValue: VerifiedDomainImpl[] = []; organizationParameterValue.verifiedDomains?.forEach(element => {verifiedDomainsArrValue.push(element instanceof VerifiedDomainImpl? element : new VerifiedDomainImpl(element));});
+        const verifiedDomainsArrValue: VerifiedDomainImpl[] = []; organizationParameterValue?.verifiedDomains?.forEach(element => {verifiedDomainsArrValue.push(element instanceof VerifiedDomainImpl? element : new VerifiedDomainImpl(element));});
         this.verifiedDomains = verifiedDomainsArrValue;
     };
     /**

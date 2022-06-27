@@ -20,11 +20,11 @@ export class UserFlowLanguageConfigurationImpl extends EntityImpl implements Use
      */
     public constructor(userFlowLanguageConfigurationParameterValue?: UserFlowLanguageConfiguration | undefined) {
         super(userFlowLanguageConfigurationParameterValue);
-        const defaultPagesArrValue: UserFlowLanguagePageImpl[] = []; userFlowLanguageConfigurationParameterValue.defaultPages?.forEach(element => {defaultPagesArrValue.push(element instanceof UserFlowLanguagePageImpl? element : new UserFlowLanguagePageImpl(element));});
+        const defaultPagesArrValue: UserFlowLanguagePageImpl[] = []; userFlowLanguageConfigurationParameterValue?.defaultPages?.forEach(element => {defaultPagesArrValue.push(element instanceof UserFlowLanguagePageImpl? element : new UserFlowLanguagePageImpl(element));});
         this.defaultPages = defaultPagesArrValue;
         this.displayName = userFlowLanguageConfigurationParameterValue?.displayName;
         this.isEnabled = userFlowLanguageConfigurationParameterValue?.isEnabled;
-        const overridesPagesArrValue: UserFlowLanguagePageImpl[] = []; userFlowLanguageConfigurationParameterValue.overridesPages?.forEach(element => {overridesPagesArrValue.push(element instanceof UserFlowLanguagePageImpl? element : new UserFlowLanguagePageImpl(element));});
+        const overridesPagesArrValue: UserFlowLanguagePageImpl[] = []; userFlowLanguageConfigurationParameterValue?.overridesPages?.forEach(element => {overridesPagesArrValue.push(element instanceof UserFlowLanguagePageImpl? element : new UserFlowLanguagePageImpl(element));});
         this.overridesPages = overridesPagesArrValue;
     };
     /**

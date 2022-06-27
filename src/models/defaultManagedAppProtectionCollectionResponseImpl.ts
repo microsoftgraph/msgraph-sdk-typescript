@@ -18,7 +18,7 @@ export class DefaultManagedAppProtectionCollectionResponseImpl implements Defaul
     public constructor(defaultManagedAppProtectionCollectionResponseParameterValue?: DefaultManagedAppProtectionCollectionResponse | undefined) {
         this.additionalData = defaultManagedAppProtectionCollectionResponseParameterValue?.additionalData ? defaultManagedAppProtectionCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = defaultManagedAppProtectionCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: DefaultManagedAppProtectionImpl[] = []; defaultManagedAppProtectionCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof DefaultManagedAppProtectionImpl? element : new DefaultManagedAppProtectionImpl(element));});
+        const valueArrValue: DefaultManagedAppProtectionImpl[] = []; defaultManagedAppProtectionCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof DefaultManagedAppProtectionImpl? element : new DefaultManagedAppProtectionImpl(element));});
         this.value = valueArrValue;
     };
     /**

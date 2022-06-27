@@ -20,7 +20,7 @@ export class LocationConstraintImpl implements LocationConstraint {
     public constructor(locationConstraintParameterValue?: LocationConstraint | undefined) {
         this.additionalData = locationConstraintParameterValue?.additionalData ? locationConstraintParameterValue?.additionalData! : {};
         this.isRequired = locationConstraintParameterValue?.isRequired;
-        const locationsArrValue: LocationConstraintItemImpl[] = []; locationConstraintParameterValue.locations?.forEach(element => {locationsArrValue.push(element instanceof LocationConstraintItemImpl? element : new LocationConstraintItemImpl(element));});
+        const locationsArrValue: LocationConstraintItemImpl[] = []; locationConstraintParameterValue?.locations?.forEach(element => {locationsArrValue.push(element instanceof LocationConstraintItemImpl? element : new LocationConstraintItemImpl(element));});
         this.locations = locationsArrValue;
         this.suggestLocation = locationConstraintParameterValue?.suggestLocation;
     };

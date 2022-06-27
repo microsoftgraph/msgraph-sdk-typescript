@@ -18,7 +18,7 @@ export class ImportedWindowsAutopilotDeviceIdentityCollectionResponseImpl implem
     public constructor(importedWindowsAutopilotDeviceIdentityCollectionResponseParameterValue?: ImportedWindowsAutopilotDeviceIdentityCollectionResponse | undefined) {
         this.additionalData = importedWindowsAutopilotDeviceIdentityCollectionResponseParameterValue?.additionalData ? importedWindowsAutopilotDeviceIdentityCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = importedWindowsAutopilotDeviceIdentityCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: ImportedWindowsAutopilotDeviceIdentityImpl[] = []; importedWindowsAutopilotDeviceIdentityCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof ImportedWindowsAutopilotDeviceIdentityImpl? element : new ImportedWindowsAutopilotDeviceIdentityImpl(element));});
+        const valueArrValue: ImportedWindowsAutopilotDeviceIdentityImpl[] = []; importedWindowsAutopilotDeviceIdentityCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof ImportedWindowsAutopilotDeviceIdentityImpl? element : new ImportedWindowsAutopilotDeviceIdentityImpl(element));});
         this.value = valueArrValue;
     };
     /**

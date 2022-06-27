@@ -18,7 +18,7 @@ export class OrganizationCollectionResponseImpl implements OrganizationCollectio
     public constructor(organizationCollectionResponseParameterValue?: OrganizationCollectionResponse | undefined) {
         this.additionalData = organizationCollectionResponseParameterValue?.additionalData ? organizationCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = organizationCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: OrganizationImpl[] = []; organizationCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof OrganizationImpl? element : new OrganizationImpl(element));});
+        const valueArrValue: OrganizationImpl[] = []; organizationCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof OrganizationImpl? element : new OrganizationImpl(element));});
         this.value = valueArrValue;
     };
     /**

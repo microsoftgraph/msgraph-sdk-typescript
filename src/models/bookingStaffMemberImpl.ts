@@ -32,7 +32,7 @@ export class BookingStaffMemberImpl extends BookingStaffMemberBaseImpl implement
         this.role = bookingStaffMemberParameterValue?.role;
         this.timeZone = bookingStaffMemberParameterValue?.timeZone;
         this.useBusinessHours = bookingStaffMemberParameterValue?.useBusinessHours;
-        const workingHoursArrValue: BookingWorkHoursImpl[] = []; bookingStaffMemberParameterValue.workingHours?.forEach(element => {workingHoursArrValue.push(element instanceof BookingWorkHoursImpl? element : new BookingWorkHoursImpl(element));});
+        const workingHoursArrValue: BookingWorkHoursImpl[] = []; bookingStaffMemberParameterValue?.workingHours?.forEach(element => {workingHoursArrValue.push(element instanceof BookingWorkHoursImpl? element : new BookingWorkHoursImpl(element));});
         this.workingHours = workingHoursArrValue;
     };
     /**

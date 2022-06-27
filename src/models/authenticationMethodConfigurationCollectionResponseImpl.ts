@@ -18,7 +18,7 @@ export class AuthenticationMethodConfigurationCollectionResponseImpl implements 
     public constructor(authenticationMethodConfigurationCollectionResponseParameterValue?: AuthenticationMethodConfigurationCollectionResponse | undefined) {
         this.additionalData = authenticationMethodConfigurationCollectionResponseParameterValue?.additionalData ? authenticationMethodConfigurationCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = authenticationMethodConfigurationCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: AuthenticationMethodConfigurationImpl[] = []; authenticationMethodConfigurationCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof AuthenticationMethodConfigurationImpl? element : new AuthenticationMethodConfigurationImpl(element));});
+        const valueArrValue: AuthenticationMethodConfigurationImpl[] = []; authenticationMethodConfigurationCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof AuthenticationMethodConfigurationImpl? element : new AuthenticationMethodConfigurationImpl(element));});
         this.value = valueArrValue;
     };
     /**

@@ -18,7 +18,7 @@ export class BookingStaffMemberBaseCollectionResponseImpl implements BookingStaf
     public constructor(bookingStaffMemberBaseCollectionResponseParameterValue?: BookingStaffMemberBaseCollectionResponse | undefined) {
         this.additionalData = bookingStaffMemberBaseCollectionResponseParameterValue?.additionalData ? bookingStaffMemberBaseCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = bookingStaffMemberBaseCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: BookingStaffMemberBaseImpl[] = []; bookingStaffMemberBaseCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof BookingStaffMemberBaseImpl? element : new BookingStaffMemberBaseImpl(element));});
+        const valueArrValue: BookingStaffMemberBaseImpl[] = []; bookingStaffMemberBaseCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof BookingStaffMemberBaseImpl? element : new BookingStaffMemberBaseImpl(element));});
         this.value = valueArrValue;
     };
     /**

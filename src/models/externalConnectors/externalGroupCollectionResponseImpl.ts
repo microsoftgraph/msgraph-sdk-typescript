@@ -18,7 +18,7 @@ export class ExternalGroupCollectionResponseImpl implements ExternalGroupCollect
     public constructor(externalGroupCollectionResponseParameterValue?: ExternalGroupCollectionResponse | undefined) {
         this.additionalData = externalGroupCollectionResponseParameterValue?.additionalData ? externalGroupCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = externalGroupCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: ExternalGroupImpl[] = []; externalGroupCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof ExternalGroupImpl? element : new ExternalGroupImpl(element));});
+        const valueArrValue: ExternalGroupImpl[] = []; externalGroupCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof ExternalGroupImpl? element : new ExternalGroupImpl(element));});
         this.value = valueArrValue;
     };
     /**

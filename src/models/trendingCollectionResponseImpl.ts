@@ -18,7 +18,7 @@ export class TrendingCollectionResponseImpl implements TrendingCollectionRespons
     public constructor(trendingCollectionResponseParameterValue?: TrendingCollectionResponse | undefined) {
         this.additionalData = trendingCollectionResponseParameterValue?.additionalData ? trendingCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = trendingCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: TrendingImpl[] = []; trendingCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof TrendingImpl? element : new TrendingImpl(element));});
+        const valueArrValue: TrendingImpl[] = []; trendingCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof TrendingImpl? element : new TrendingImpl(element));});
         this.value = valueArrValue;
     };
     /**

@@ -18,7 +18,7 @@ export class MicrosoftAuthenticatorAuthenticationMethodCollectionResponseImpl im
     public constructor(microsoftAuthenticatorAuthenticationMethodCollectionResponseParameterValue?: MicrosoftAuthenticatorAuthenticationMethodCollectionResponse | undefined) {
         this.additionalData = microsoftAuthenticatorAuthenticationMethodCollectionResponseParameterValue?.additionalData ? microsoftAuthenticatorAuthenticationMethodCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = microsoftAuthenticatorAuthenticationMethodCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: MicrosoftAuthenticatorAuthenticationMethodImpl[] = []; microsoftAuthenticatorAuthenticationMethodCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof MicrosoftAuthenticatorAuthenticationMethodImpl? element : new MicrosoftAuthenticatorAuthenticationMethodImpl(element));});
+        const valueArrValue: MicrosoftAuthenticatorAuthenticationMethodImpl[] = []; microsoftAuthenticatorAuthenticationMethodCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof MicrosoftAuthenticatorAuthenticationMethodImpl? element : new MicrosoftAuthenticatorAuthenticationMethodImpl(element));});
         this.value = valueArrValue;
     };
     /**

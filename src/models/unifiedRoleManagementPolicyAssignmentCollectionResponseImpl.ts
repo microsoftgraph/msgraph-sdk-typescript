@@ -18,7 +18,7 @@ export class UnifiedRoleManagementPolicyAssignmentCollectionResponseImpl impleme
     public constructor(unifiedRoleManagementPolicyAssignmentCollectionResponseParameterValue?: UnifiedRoleManagementPolicyAssignmentCollectionResponse | undefined) {
         this.additionalData = unifiedRoleManagementPolicyAssignmentCollectionResponseParameterValue?.additionalData ? unifiedRoleManagementPolicyAssignmentCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = unifiedRoleManagementPolicyAssignmentCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: UnifiedRoleManagementPolicyAssignmentImpl[] = []; unifiedRoleManagementPolicyAssignmentCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof UnifiedRoleManagementPolicyAssignmentImpl? element : new UnifiedRoleManagementPolicyAssignmentImpl(element));});
+        const valueArrValue: UnifiedRoleManagementPolicyAssignmentImpl[] = []; unifiedRoleManagementPolicyAssignmentCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof UnifiedRoleManagementPolicyAssignmentImpl? element : new UnifiedRoleManagementPolicyAssignmentImpl(element));});
         this.value = valueArrValue;
     };
     /**

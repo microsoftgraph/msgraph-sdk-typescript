@@ -43,12 +43,12 @@ export class AccessReviewHistoryDefinitionImpl extends EntityImpl implements Acc
         this.createdDateTime = accessReviewHistoryDefinitionParameterValue?.createdDateTime;
         this.decisions = accessReviewHistoryDefinitionParameterValue?.decisions;
         this.displayName = accessReviewHistoryDefinitionParameterValue?.displayName;
-        const instancesArrValue: AccessReviewHistoryInstanceImpl[] = []; accessReviewHistoryDefinitionParameterValue.instances?.forEach(element => {instancesArrValue.push(element instanceof AccessReviewHistoryInstanceImpl? element : new AccessReviewHistoryInstanceImpl(element));});
+        const instancesArrValue: AccessReviewHistoryInstanceImpl[] = []; accessReviewHistoryDefinitionParameterValue?.instances?.forEach(element => {instancesArrValue.push(element instanceof AccessReviewHistoryInstanceImpl? element : new AccessReviewHistoryInstanceImpl(element));});
         this.instances = instancesArrValue;
         this.reviewHistoryPeriodEndDateTime = accessReviewHistoryDefinitionParameterValue?.reviewHistoryPeriodEndDateTime;
         this.reviewHistoryPeriodStartDateTime = accessReviewHistoryDefinitionParameterValue?.reviewHistoryPeriodStartDateTime;
         this.scheduleSettings = accessReviewHistoryDefinitionParameterValue?.scheduleSettings instanceof AccessReviewHistoryScheduleSettingsImpl? accessReviewHistoryDefinitionParameterValue?.scheduleSettings:new AccessReviewHistoryScheduleSettingsImpl(accessReviewHistoryDefinitionParameterValue?.scheduleSettings);
-        const scopesArrValue: AccessReviewScopeImpl[] = []; accessReviewHistoryDefinitionParameterValue.scopes?.forEach(element => {scopesArrValue.push(element instanceof AccessReviewScopeImpl? element : new AccessReviewScopeImpl(element));});
+        const scopesArrValue: AccessReviewScopeImpl[] = []; accessReviewHistoryDefinitionParameterValue?.scopes?.forEach(element => {scopesArrValue.push(element instanceof AccessReviewScopeImpl? element : new AccessReviewScopeImpl(element));});
         this.scopes = scopesArrValue;
         this.status = accessReviewHistoryDefinitionParameterValue?.status;
     };

@@ -36,16 +36,16 @@ export class WorkbookWorksheetImpl extends EntityImpl implements WorkbookWorkshe
      */
     public constructor(workbookWorksheetParameterValue?: WorkbookWorksheet | undefined) {
         super(workbookWorksheetParameterValue);
-        const chartsArrValue: WorkbookChartImpl[] = []; workbookWorksheetParameterValue.charts?.forEach(element => {chartsArrValue.push(element instanceof WorkbookChartImpl? element : new WorkbookChartImpl(element));});
+        const chartsArrValue: WorkbookChartImpl[] = []; workbookWorksheetParameterValue?.charts?.forEach(element => {chartsArrValue.push(element instanceof WorkbookChartImpl? element : new WorkbookChartImpl(element));});
         this.charts = chartsArrValue;
         this.name = workbookWorksheetParameterValue?.name;
-        const namesArrValue: WorkbookNamedItemImpl[] = []; workbookWorksheetParameterValue.names?.forEach(element => {namesArrValue.push(element instanceof WorkbookNamedItemImpl? element : new WorkbookNamedItemImpl(element));});
+        const namesArrValue: WorkbookNamedItemImpl[] = []; workbookWorksheetParameterValue?.names?.forEach(element => {namesArrValue.push(element instanceof WorkbookNamedItemImpl? element : new WorkbookNamedItemImpl(element));});
         this.names = namesArrValue;
-        const pivotTablesArrValue: WorkbookPivotTableImpl[] = []; workbookWorksheetParameterValue.pivotTables?.forEach(element => {pivotTablesArrValue.push(element instanceof WorkbookPivotTableImpl? element : new WorkbookPivotTableImpl(element));});
+        const pivotTablesArrValue: WorkbookPivotTableImpl[] = []; workbookWorksheetParameterValue?.pivotTables?.forEach(element => {pivotTablesArrValue.push(element instanceof WorkbookPivotTableImpl? element : new WorkbookPivotTableImpl(element));});
         this.pivotTables = pivotTablesArrValue;
         this.position = workbookWorksheetParameterValue?.position;
         this.protection = workbookWorksheetParameterValue?.protection instanceof WorkbookWorksheetProtectionImpl? workbookWorksheetParameterValue?.protection:new WorkbookWorksheetProtectionImpl(workbookWorksheetParameterValue?.protection);
-        const tablesArrValue: WorkbookTableImpl[] = []; workbookWorksheetParameterValue.tables?.forEach(element => {tablesArrValue.push(element instanceof WorkbookTableImpl? element : new WorkbookTableImpl(element));});
+        const tablesArrValue: WorkbookTableImpl[] = []; workbookWorksheetParameterValue?.tables?.forEach(element => {tablesArrValue.push(element instanceof WorkbookTableImpl? element : new WorkbookTableImpl(element));});
         this.tables = tablesArrValue;
         this.visibility = workbookWorksheetParameterValue?.visibility;
     };

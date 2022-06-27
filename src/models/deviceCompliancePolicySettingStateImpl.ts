@@ -45,7 +45,7 @@ export class DeviceCompliancePolicySettingStateImpl implements DeviceComplianceP
         this.instanceDisplayName = deviceCompliancePolicySettingStateParameterValue?.instanceDisplayName;
         this.setting = deviceCompliancePolicySettingStateParameterValue?.setting;
         this.settingName = deviceCompliancePolicySettingStateParameterValue?.settingName;
-        const sourcesArrValue: SettingSourceImpl[] = []; deviceCompliancePolicySettingStateParameterValue.sources?.forEach(element => {sourcesArrValue.push(element instanceof SettingSourceImpl? element : new SettingSourceImpl(element));});
+        const sourcesArrValue: SettingSourceImpl[] = []; deviceCompliancePolicySettingStateParameterValue?.sources?.forEach(element => {sourcesArrValue.push(element instanceof SettingSourceImpl? element : new SettingSourceImpl(element));});
         this.sources = sourcesArrValue;
         this.state = deviceCompliancePolicySettingStateParameterValue?.state;
         this.userEmail = deviceCompliancePolicySettingStateParameterValue?.userEmail;

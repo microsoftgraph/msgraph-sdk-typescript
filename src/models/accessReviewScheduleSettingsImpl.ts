@@ -37,7 +37,7 @@ export class AccessReviewScheduleSettingsImpl implements AccessReviewScheduleSet
      */
     public constructor(accessReviewScheduleSettingsParameterValue?: AccessReviewScheduleSettings | undefined) {
         this.additionalData = accessReviewScheduleSettingsParameterValue?.additionalData ? accessReviewScheduleSettingsParameterValue?.additionalData! : {};
-        const applyActionsArrValue: AccessReviewApplyActionImpl[] = []; accessReviewScheduleSettingsParameterValue.applyActions?.forEach(element => {applyActionsArrValue.push(element instanceof AccessReviewApplyActionImpl? element : new AccessReviewApplyActionImpl(element));});
+        const applyActionsArrValue: AccessReviewApplyActionImpl[] = []; accessReviewScheduleSettingsParameterValue?.applyActions?.forEach(element => {applyActionsArrValue.push(element instanceof AccessReviewApplyActionImpl? element : new AccessReviewApplyActionImpl(element));});
         this.applyActions = applyActionsArrValue;
         this.autoApplyDecisionsEnabled = accessReviewScheduleSettingsParameterValue?.autoApplyDecisionsEnabled;
         this.decisionHistoriesForReviewersEnabled = accessReviewScheduleSettingsParameterValue?.decisionHistoriesForReviewersEnabled;

@@ -16,7 +16,7 @@ export class GetPresencesByUserIdResponseImpl implements GetPresencesByUserIdRes
      */
     public constructor(getPresencesByUserIdResponseParameterValue?: GetPresencesByUserIdResponse | undefined) {
         this.additionalData = getPresencesByUserIdResponseParameterValue?.additionalData ? getPresencesByUserIdResponseParameterValue?.additionalData! : {};
-        const valueArrValue: PresenceImpl[] = []; getPresencesByUserIdResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof PresenceImpl? element : new PresenceImpl(element));});
+        const valueArrValue: PresenceImpl[] = []; getPresencesByUserIdResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof PresenceImpl? element : new PresenceImpl(element));});
         this.value = valueArrValue;
     };
     /**

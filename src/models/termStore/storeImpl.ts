@@ -24,10 +24,10 @@ export class StoreImpl extends EntityImpl implements Store {
     public constructor(storeParameterValue?: Store | undefined) {
         super(storeParameterValue);
         this.defaultLanguageTag = storeParameterValue?.defaultLanguageTag;
-        const groupsArrValue: GroupImpl[] = []; storeParameterValue.groups?.forEach(element => {groupsArrValue.push(element instanceof GroupImpl? element : new GroupImpl(element));});
+        const groupsArrValue: GroupImpl[] = []; storeParameterValue?.groups?.forEach(element => {groupsArrValue.push(element instanceof GroupImpl? element : new GroupImpl(element));});
         this.groups = groupsArrValue;
         this.languageTags = storeParameterValue?.languageTags;
-        const setsArrValue: SetImpl[] = []; storeParameterValue.sets?.forEach(element => {setsArrValue.push(element instanceof SetImpl? element : new SetImpl(element));});
+        const setsArrValue: SetImpl[] = []; storeParameterValue?.sets?.forEach(element => {setsArrValue.push(element instanceof SetImpl? element : new SetImpl(element));});
         this.sets = setsArrValue;
     };
     /**

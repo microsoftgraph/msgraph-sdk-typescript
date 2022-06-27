@@ -38,17 +38,17 @@ export class AccessReviewInstanceImpl extends EntityImpl implements AccessReview
      */
     public constructor(accessReviewInstanceParameterValue?: AccessReviewInstance | undefined) {
         super(accessReviewInstanceParameterValue);
-        const contactedReviewersArrValue: AccessReviewReviewerImpl[] = []; accessReviewInstanceParameterValue.contactedReviewers?.forEach(element => {contactedReviewersArrValue.push(element instanceof AccessReviewReviewerImpl? element : new AccessReviewReviewerImpl(element));});
+        const contactedReviewersArrValue: AccessReviewReviewerImpl[] = []; accessReviewInstanceParameterValue?.contactedReviewers?.forEach(element => {contactedReviewersArrValue.push(element instanceof AccessReviewReviewerImpl? element : new AccessReviewReviewerImpl(element));});
         this.contactedReviewers = contactedReviewersArrValue;
-        const decisionsArrValue: AccessReviewInstanceDecisionItemImpl[] = []; accessReviewInstanceParameterValue.decisions?.forEach(element => {decisionsArrValue.push(element instanceof AccessReviewInstanceDecisionItemImpl? element : new AccessReviewInstanceDecisionItemImpl(element));});
+        const decisionsArrValue: AccessReviewInstanceDecisionItemImpl[] = []; accessReviewInstanceParameterValue?.decisions?.forEach(element => {decisionsArrValue.push(element instanceof AccessReviewInstanceDecisionItemImpl? element : new AccessReviewInstanceDecisionItemImpl(element));});
         this.decisions = decisionsArrValue;
         this.endDateTime = accessReviewInstanceParameterValue?.endDateTime;
-        const fallbackReviewersArrValue: AccessReviewReviewerScopeImpl[] = []; accessReviewInstanceParameterValue.fallbackReviewers?.forEach(element => {fallbackReviewersArrValue.push(element instanceof AccessReviewReviewerScopeImpl? element : new AccessReviewReviewerScopeImpl(element));});
+        const fallbackReviewersArrValue: AccessReviewReviewerScopeImpl[] = []; accessReviewInstanceParameterValue?.fallbackReviewers?.forEach(element => {fallbackReviewersArrValue.push(element instanceof AccessReviewReviewerScopeImpl? element : new AccessReviewReviewerScopeImpl(element));});
         this.fallbackReviewers = fallbackReviewersArrValue;
-        const reviewersArrValue: AccessReviewReviewerScopeImpl[] = []; accessReviewInstanceParameterValue.reviewers?.forEach(element => {reviewersArrValue.push(element instanceof AccessReviewReviewerScopeImpl? element : new AccessReviewReviewerScopeImpl(element));});
+        const reviewersArrValue: AccessReviewReviewerScopeImpl[] = []; accessReviewInstanceParameterValue?.reviewers?.forEach(element => {reviewersArrValue.push(element instanceof AccessReviewReviewerScopeImpl? element : new AccessReviewReviewerScopeImpl(element));});
         this.reviewers = reviewersArrValue;
         this.scope = accessReviewInstanceParameterValue?.scope instanceof AccessReviewScopeImpl? accessReviewInstanceParameterValue?.scope:new AccessReviewScopeImpl(accessReviewInstanceParameterValue?.scope);
-        const stagesArrValue: AccessReviewStageImpl[] = []; accessReviewInstanceParameterValue.stages?.forEach(element => {stagesArrValue.push(element instanceof AccessReviewStageImpl? element : new AccessReviewStageImpl(element));});
+        const stagesArrValue: AccessReviewStageImpl[] = []; accessReviewInstanceParameterValue?.stages?.forEach(element => {stagesArrValue.push(element instanceof AccessReviewStageImpl? element : new AccessReviewStageImpl(element));});
         this.stages = stagesArrValue;
         this.startDateTime = accessReviewInstanceParameterValue?.startDateTime;
         this.status = accessReviewInstanceParameterValue?.status;

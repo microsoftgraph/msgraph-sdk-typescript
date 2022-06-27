@@ -18,12 +18,12 @@ export class OptionalClaimsImpl implements OptionalClaims {
      * @param optionalClaimsParameterValue 
      */
     public constructor(optionalClaimsParameterValue?: OptionalClaims | undefined) {
-        const accessTokenArrValue: OptionalClaimImpl[] = []; optionalClaimsParameterValue.accessToken?.forEach(element => {accessTokenArrValue.push(element instanceof OptionalClaimImpl? element : new OptionalClaimImpl(element));});
+        const accessTokenArrValue: OptionalClaimImpl[] = []; optionalClaimsParameterValue?.accessToken?.forEach(element => {accessTokenArrValue.push(element instanceof OptionalClaimImpl? element : new OptionalClaimImpl(element));});
         this.accessToken = accessTokenArrValue;
         this.additionalData = optionalClaimsParameterValue?.additionalData ? optionalClaimsParameterValue?.additionalData! : {};
-        const idTokenArrValue: OptionalClaimImpl[] = []; optionalClaimsParameterValue.idToken?.forEach(element => {idTokenArrValue.push(element instanceof OptionalClaimImpl? element : new OptionalClaimImpl(element));});
+        const idTokenArrValue: OptionalClaimImpl[] = []; optionalClaimsParameterValue?.idToken?.forEach(element => {idTokenArrValue.push(element instanceof OptionalClaimImpl? element : new OptionalClaimImpl(element));});
         this.idToken = idTokenArrValue;
-        const saml2TokenArrValue: OptionalClaimImpl[] = []; optionalClaimsParameterValue.saml2Token?.forEach(element => {saml2TokenArrValue.push(element instanceof OptionalClaimImpl? element : new OptionalClaimImpl(element));});
+        const saml2TokenArrValue: OptionalClaimImpl[] = []; optionalClaimsParameterValue?.saml2Token?.forEach(element => {saml2TokenArrValue.push(element instanceof OptionalClaimImpl? element : new OptionalClaimImpl(element));});
         this.saml2Token = saml2TokenArrValue;
     };
     /**

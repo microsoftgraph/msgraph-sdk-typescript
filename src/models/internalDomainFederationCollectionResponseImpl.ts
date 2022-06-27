@@ -18,7 +18,7 @@ export class InternalDomainFederationCollectionResponseImpl implements InternalD
     public constructor(internalDomainFederationCollectionResponseParameterValue?: InternalDomainFederationCollectionResponse | undefined) {
         this.additionalData = internalDomainFederationCollectionResponseParameterValue?.additionalData ? internalDomainFederationCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = internalDomainFederationCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: InternalDomainFederationImpl[] = []; internalDomainFederationCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof InternalDomainFederationImpl? element : new InternalDomainFederationImpl(element));});
+        const valueArrValue: InternalDomainFederationImpl[] = []; internalDomainFederationCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof InternalDomainFederationImpl? element : new InternalDomainFederationImpl(element));});
         this.value = valueArrValue;
     };
     /**

@@ -41,7 +41,7 @@ export class DirectoryAuditImpl extends EntityImpl implements DirectoryAudit {
         super(directoryAuditParameterValue);
         this.activityDateTime = directoryAuditParameterValue?.activityDateTime;
         this.activityDisplayName = directoryAuditParameterValue?.activityDisplayName;
-        const additionalDetailsArrValue: KeyValueImpl[] = []; directoryAuditParameterValue.additionalDetails?.forEach(element => {additionalDetailsArrValue.push(element instanceof KeyValueImpl? element : new KeyValueImpl(element));});
+        const additionalDetailsArrValue: KeyValueImpl[] = []; directoryAuditParameterValue?.additionalDetails?.forEach(element => {additionalDetailsArrValue.push(element instanceof KeyValueImpl? element : new KeyValueImpl(element));});
         this.additionalDetails = additionalDetailsArrValue;
         this.category = directoryAuditParameterValue?.category;
         this.correlationId = directoryAuditParameterValue?.correlationId;
@@ -50,7 +50,7 @@ export class DirectoryAuditImpl extends EntityImpl implements DirectoryAudit {
         this.operationType = directoryAuditParameterValue?.operationType;
         this.result = directoryAuditParameterValue?.result;
         this.resultReason = directoryAuditParameterValue?.resultReason;
-        const targetResourcesArrValue: TargetResourceImpl[] = []; directoryAuditParameterValue.targetResources?.forEach(element => {targetResourcesArrValue.push(element instanceof TargetResourceImpl? element : new TargetResourceImpl(element));});
+        const targetResourcesArrValue: TargetResourceImpl[] = []; directoryAuditParameterValue?.targetResources?.forEach(element => {targetResourcesArrValue.push(element instanceof TargetResourceImpl? element : new TargetResourceImpl(element));});
         this.targetResources = targetResourcesArrValue;
     };
     /**

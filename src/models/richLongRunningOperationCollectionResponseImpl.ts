@@ -18,7 +18,7 @@ export class RichLongRunningOperationCollectionResponseImpl implements RichLongR
     public constructor(richLongRunningOperationCollectionResponseParameterValue?: RichLongRunningOperationCollectionResponse | undefined) {
         this.additionalData = richLongRunningOperationCollectionResponseParameterValue?.additionalData ? richLongRunningOperationCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = richLongRunningOperationCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: RichLongRunningOperationImpl[] = []; richLongRunningOperationCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof RichLongRunningOperationImpl? element : new RichLongRunningOperationImpl(element));});
+        const valueArrValue: RichLongRunningOperationImpl[] = []; richLongRunningOperationCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof RichLongRunningOperationImpl? element : new RichLongRunningOperationImpl(element));});
         this.value = valueArrValue;
     };
     /**

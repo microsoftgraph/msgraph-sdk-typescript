@@ -18,7 +18,7 @@ export class BookingCustomerBaseCollectionResponseImpl implements BookingCustome
     public constructor(bookingCustomerBaseCollectionResponseParameterValue?: BookingCustomerBaseCollectionResponse | undefined) {
         this.additionalData = bookingCustomerBaseCollectionResponseParameterValue?.additionalData ? bookingCustomerBaseCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = bookingCustomerBaseCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: BookingCustomerBaseImpl[] = []; bookingCustomerBaseCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof BookingCustomerBaseImpl? element : new BookingCustomerBaseImpl(element));});
+        const valueArrValue: BookingCustomerBaseImpl[] = []; bookingCustomerBaseCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof BookingCustomerBaseImpl? element : new BookingCustomerBaseImpl(element));});
         this.value = valueArrValue;
     };
     /**

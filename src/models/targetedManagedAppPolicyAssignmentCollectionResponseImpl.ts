@@ -18,7 +18,7 @@ export class TargetedManagedAppPolicyAssignmentCollectionResponseImpl implements
     public constructor(targetedManagedAppPolicyAssignmentCollectionResponseParameterValue?: TargetedManagedAppPolicyAssignmentCollectionResponse | undefined) {
         this.additionalData = targetedManagedAppPolicyAssignmentCollectionResponseParameterValue?.additionalData ? targetedManagedAppPolicyAssignmentCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = targetedManagedAppPolicyAssignmentCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: TargetedManagedAppPolicyAssignmentImpl[] = []; targetedManagedAppPolicyAssignmentCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof TargetedManagedAppPolicyAssignmentImpl? element : new TargetedManagedAppPolicyAssignmentImpl(element));});
+        const valueArrValue: TargetedManagedAppPolicyAssignmentImpl[] = []; targetedManagedAppPolicyAssignmentCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof TargetedManagedAppPolicyAssignmentImpl? element : new TargetedManagedAppPolicyAssignmentImpl(element));});
         this.value = valueArrValue;
     };
     /**

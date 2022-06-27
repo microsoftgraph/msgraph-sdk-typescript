@@ -18,7 +18,7 @@ export class OnlineMeetingCollectionResponseImpl implements OnlineMeetingCollect
     public constructor(onlineMeetingCollectionResponseParameterValue?: OnlineMeetingCollectionResponse | undefined) {
         this.additionalData = onlineMeetingCollectionResponseParameterValue?.additionalData ? onlineMeetingCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = onlineMeetingCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: OnlineMeetingImpl[] = []; onlineMeetingCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof OnlineMeetingImpl? element : new OnlineMeetingImpl(element));});
+        const valueArrValue: OnlineMeetingImpl[] = []; onlineMeetingCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof OnlineMeetingImpl? element : new OnlineMeetingImpl(element));});
         this.value = valueArrValue;
     };
     /**

@@ -77,7 +77,7 @@ export class OnlineMeetingImpl extends EntityImpl implements OnlineMeeting {
         this.allowedPresenters = onlineMeetingParameterValue?.allowedPresenters;
         this.allowMeetingChat = onlineMeetingParameterValue?.allowMeetingChat;
         this.allowTeamworkReactions = onlineMeetingParameterValue?.allowTeamworkReactions;
-        const attendanceReportsArrValue: MeetingAttendanceReportImpl[] = []; onlineMeetingParameterValue.attendanceReports?.forEach(element => {attendanceReportsArrValue.push(element instanceof MeetingAttendanceReportImpl? element : new MeetingAttendanceReportImpl(element));});
+        const attendanceReportsArrValue: MeetingAttendanceReportImpl[] = []; onlineMeetingParameterValue?.attendanceReports?.forEach(element => {attendanceReportsArrValue.push(element instanceof MeetingAttendanceReportImpl? element : new MeetingAttendanceReportImpl(element));});
         this.attendanceReports = attendanceReportsArrValue;
         this.attendeeReport = onlineMeetingParameterValue?.attendeeReport;
         this.audioConferencing = onlineMeetingParameterValue?.audioConferencing instanceof AudioConferencingImpl? onlineMeetingParameterValue?.audioConferencing:new AudioConferencingImpl(onlineMeetingParameterValue?.audioConferencing);

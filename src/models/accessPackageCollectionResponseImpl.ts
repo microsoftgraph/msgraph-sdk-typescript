@@ -18,7 +18,7 @@ export class AccessPackageCollectionResponseImpl implements AccessPackageCollect
     public constructor(accessPackageCollectionResponseParameterValue?: AccessPackageCollectionResponse | undefined) {
         this.additionalData = accessPackageCollectionResponseParameterValue?.additionalData ? accessPackageCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = accessPackageCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: AccessPackageImpl[] = []; accessPackageCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof AccessPackageImpl? element : new AccessPackageImpl(element));});
+        const valueArrValue: AccessPackageImpl[] = []; accessPackageCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof AccessPackageImpl? element : new AccessPackageImpl(element));});
         this.value = valueArrValue;
     };
     /**

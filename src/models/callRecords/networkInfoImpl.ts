@@ -85,7 +85,7 @@ export class NetworkInfoImpl implements NetworkInfo {
         this.relayPort = networkInfoParameterValue?.relayPort;
         this.sentQualityEventRatio = networkInfoParameterValue?.sentQualityEventRatio;
         this.subnet = networkInfoParameterValue?.subnet;
-        const traceRouteHopsArrValue: TraceRouteHopImpl[] = []; networkInfoParameterValue.traceRouteHops?.forEach(element => {traceRouteHopsArrValue.push(element instanceof TraceRouteHopImpl? element : new TraceRouteHopImpl(element));});
+        const traceRouteHopsArrValue: TraceRouteHopImpl[] = []; networkInfoParameterValue?.traceRouteHops?.forEach(element => {traceRouteHopsArrValue.push(element instanceof TraceRouteHopImpl? element : new TraceRouteHopImpl(element));});
         this.traceRouteHops = traceRouteHopsArrValue;
         this.wifiBand = networkInfoParameterValue?.wifiBand;
         this.wifiBatteryCharge = networkInfoParameterValue?.wifiBatteryCharge;

@@ -21,13 +21,13 @@ export class EducationRubricOutcomeImpl extends EducationOutcomeImpl implements 
      */
     public constructor(educationRubricOutcomeParameterValue?: EducationRubricOutcome | undefined) {
         super(educationRubricOutcomeParameterValue);
-        const publishedRubricQualityFeedbackArrValue: RubricQualityFeedbackModelImpl[] = []; educationRubricOutcomeParameterValue.publishedRubricQualityFeedback?.forEach(element => {publishedRubricQualityFeedbackArrValue.push(element instanceof RubricQualityFeedbackModelImpl? element : new RubricQualityFeedbackModelImpl(element));});
+        const publishedRubricQualityFeedbackArrValue: RubricQualityFeedbackModelImpl[] = []; educationRubricOutcomeParameterValue?.publishedRubricQualityFeedback?.forEach(element => {publishedRubricQualityFeedbackArrValue.push(element instanceof RubricQualityFeedbackModelImpl? element : new RubricQualityFeedbackModelImpl(element));});
         this.publishedRubricQualityFeedback = publishedRubricQualityFeedbackArrValue;
-        const publishedRubricQualitySelectedLevelsArrValue: RubricQualitySelectedColumnModelImpl[] = []; educationRubricOutcomeParameterValue.publishedRubricQualitySelectedLevels?.forEach(element => {publishedRubricQualitySelectedLevelsArrValue.push(element instanceof RubricQualitySelectedColumnModelImpl? element : new RubricQualitySelectedColumnModelImpl(element));});
+        const publishedRubricQualitySelectedLevelsArrValue: RubricQualitySelectedColumnModelImpl[] = []; educationRubricOutcomeParameterValue?.publishedRubricQualitySelectedLevels?.forEach(element => {publishedRubricQualitySelectedLevelsArrValue.push(element instanceof RubricQualitySelectedColumnModelImpl? element : new RubricQualitySelectedColumnModelImpl(element));});
         this.publishedRubricQualitySelectedLevels = publishedRubricQualitySelectedLevelsArrValue;
-        const rubricQualityFeedbackArrValue: RubricQualityFeedbackModelImpl[] = []; educationRubricOutcomeParameterValue.rubricQualityFeedback?.forEach(element => {rubricQualityFeedbackArrValue.push(element instanceof RubricQualityFeedbackModelImpl? element : new RubricQualityFeedbackModelImpl(element));});
+        const rubricQualityFeedbackArrValue: RubricQualityFeedbackModelImpl[] = []; educationRubricOutcomeParameterValue?.rubricQualityFeedback?.forEach(element => {rubricQualityFeedbackArrValue.push(element instanceof RubricQualityFeedbackModelImpl? element : new RubricQualityFeedbackModelImpl(element));});
         this.rubricQualityFeedback = rubricQualityFeedbackArrValue;
-        const rubricQualitySelectedLevelsArrValue: RubricQualitySelectedColumnModelImpl[] = []; educationRubricOutcomeParameterValue.rubricQualitySelectedLevels?.forEach(element => {rubricQualitySelectedLevelsArrValue.push(element instanceof RubricQualitySelectedColumnModelImpl? element : new RubricQualitySelectedColumnModelImpl(element));});
+        const rubricQualitySelectedLevelsArrValue: RubricQualitySelectedColumnModelImpl[] = []; educationRubricOutcomeParameterValue?.rubricQualitySelectedLevels?.forEach(element => {rubricQualitySelectedLevelsArrValue.push(element instanceof RubricQualitySelectedColumnModelImpl? element : new RubricQualitySelectedColumnModelImpl(element));});
         this.rubricQualitySelectedLevels = rubricQualitySelectedLevelsArrValue;
     };
     /**

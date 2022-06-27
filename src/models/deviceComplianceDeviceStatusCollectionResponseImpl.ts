@@ -18,7 +18,7 @@ export class DeviceComplianceDeviceStatusCollectionResponseImpl implements Devic
     public constructor(deviceComplianceDeviceStatusCollectionResponseParameterValue?: DeviceComplianceDeviceStatusCollectionResponse | undefined) {
         this.additionalData = deviceComplianceDeviceStatusCollectionResponseParameterValue?.additionalData ? deviceComplianceDeviceStatusCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = deviceComplianceDeviceStatusCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: DeviceComplianceDeviceStatusImpl[] = []; deviceComplianceDeviceStatusCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof DeviceComplianceDeviceStatusImpl? element : new DeviceComplianceDeviceStatusImpl(element));});
+        const valueArrValue: DeviceComplianceDeviceStatusImpl[] = []; deviceComplianceDeviceStatusCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof DeviceComplianceDeviceStatusImpl? element : new DeviceComplianceDeviceStatusImpl(element));});
         this.value = valueArrValue;
     };
     /**

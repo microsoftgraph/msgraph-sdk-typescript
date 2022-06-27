@@ -18,7 +18,7 @@ export class DeviceCompliancePolicyAssignmentCollectionResponseImpl implements D
     public constructor(deviceCompliancePolicyAssignmentCollectionResponseParameterValue?: DeviceCompliancePolicyAssignmentCollectionResponse | undefined) {
         this.additionalData = deviceCompliancePolicyAssignmentCollectionResponseParameterValue?.additionalData ? deviceCompliancePolicyAssignmentCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = deviceCompliancePolicyAssignmentCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: DeviceCompliancePolicyAssignmentImpl[] = []; deviceCompliancePolicyAssignmentCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof DeviceCompliancePolicyAssignmentImpl? element : new DeviceCompliancePolicyAssignmentImpl(element));});
+        const valueArrValue: DeviceCompliancePolicyAssignmentImpl[] = []; deviceCompliancePolicyAssignmentCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof DeviceCompliancePolicyAssignmentImpl? element : new DeviceCompliancePolicyAssignmentImpl(element));});
         this.value = valueArrValue;
     };
     /**

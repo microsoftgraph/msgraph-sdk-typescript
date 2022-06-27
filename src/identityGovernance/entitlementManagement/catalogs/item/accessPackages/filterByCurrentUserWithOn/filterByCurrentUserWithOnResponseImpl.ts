@@ -16,7 +16,7 @@ export class FilterByCurrentUserWithOnResponseImpl implements FilterByCurrentUse
      */
     public constructor(filterByCurrentUserWithOnResponseParameterValue?: FilterByCurrentUserWithOnResponse | undefined) {
         this.additionalData = filterByCurrentUserWithOnResponseParameterValue?.additionalData ? filterByCurrentUserWithOnResponseParameterValue?.additionalData! : {};
-        const valueArrValue: AccessPackageImpl[] = []; filterByCurrentUserWithOnResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof AccessPackageImpl? element : new AccessPackageImpl(element));});
+        const valueArrValue: AccessPackageImpl[] = []; filterByCurrentUserWithOnResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof AccessPackageImpl? element : new AccessPackageImpl(element));});
         this.value = valueArrValue;
     };
     /**

@@ -18,7 +18,7 @@ export class SetCollectionResponseImpl implements SetCollectionResponse {
     public constructor(setCollectionResponseParameterValue?: SetCollectionResponse | undefined) {
         this.additionalData = setCollectionResponseParameterValue?.additionalData ? setCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = setCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: SetImpl[] = []; setCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof SetImpl? element : new SetImpl(element));});
+        const valueArrValue: SetImpl[] = []; setCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof SetImpl? element : new SetImpl(element));});
         this.value = valueArrValue;
     };
     /**

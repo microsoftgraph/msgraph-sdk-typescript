@@ -16,7 +16,7 @@ export class RoomListImpl extends PlaceImpl implements RoomList {
     public constructor(roomListParameterValue?: RoomList | undefined) {
         super(roomListParameterValue);
         this.emailAddress = roomListParameterValue?.emailAddress;
-        const roomsArrValue: RoomImpl[] = []; roomListParameterValue.rooms?.forEach(element => {roomsArrValue.push(element instanceof RoomImpl? element : new RoomImpl(element));});
+        const roomsArrValue: RoomImpl[] = []; roomListParameterValue?.rooms?.forEach(element => {roomsArrValue.push(element instanceof RoomImpl? element : new RoomImpl(element));});
         this.rooms = roomsArrValue;
     };
     /**

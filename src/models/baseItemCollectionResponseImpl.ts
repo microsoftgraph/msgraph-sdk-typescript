@@ -18,7 +18,7 @@ export class BaseItemCollectionResponseImpl implements BaseItemCollectionRespons
     public constructor(baseItemCollectionResponseParameterValue?: BaseItemCollectionResponse | undefined) {
         this.additionalData = baseItemCollectionResponseParameterValue?.additionalData ? baseItemCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = baseItemCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: BaseItemImpl[] = []; baseItemCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof BaseItemImpl? element : new BaseItemImpl(element));});
+        const valueArrValue: BaseItemImpl[] = []; baseItemCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof BaseItemImpl? element : new BaseItemImpl(element));});
         this.value = valueArrValue;
     };
     /**

@@ -18,7 +18,7 @@ export class ScopedRoleMembershipCollectionResponseImpl implements ScopedRoleMem
     public constructor(scopedRoleMembershipCollectionResponseParameterValue?: ScopedRoleMembershipCollectionResponse | undefined) {
         this.additionalData = scopedRoleMembershipCollectionResponseParameterValue?.additionalData ? scopedRoleMembershipCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = scopedRoleMembershipCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: ScopedRoleMembershipImpl[] = []; scopedRoleMembershipCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof ScopedRoleMembershipImpl? element : new ScopedRoleMembershipImpl(element));});
+        const valueArrValue: ScopedRoleMembershipImpl[] = []; scopedRoleMembershipCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof ScopedRoleMembershipImpl? element : new ScopedRoleMembershipImpl(element));});
         this.value = valueArrValue;
     };
     /**

@@ -18,7 +18,7 @@ export class AlertCollectionResponseImpl implements AlertCollectionResponse {
     public constructor(alertCollectionResponseParameterValue?: AlertCollectionResponse | undefined) {
         this.additionalData = alertCollectionResponseParameterValue?.additionalData ? alertCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = alertCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: AlertImpl[] = []; alertCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof AlertImpl? element : new AlertImpl(element));});
+        const valueArrValue: AlertImpl[] = []; alertCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof AlertImpl? element : new AlertImpl(element));});
         this.value = valueArrValue;
     };
     /**

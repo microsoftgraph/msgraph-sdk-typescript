@@ -18,7 +18,7 @@ export class WindowsInformationProtectionAppLearningSummaryCollectionResponseImp
     public constructor(windowsInformationProtectionAppLearningSummaryCollectionResponseParameterValue?: WindowsInformationProtectionAppLearningSummaryCollectionResponse | undefined) {
         this.additionalData = windowsInformationProtectionAppLearningSummaryCollectionResponseParameterValue?.additionalData ? windowsInformationProtectionAppLearningSummaryCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = windowsInformationProtectionAppLearningSummaryCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: WindowsInformationProtectionAppLearningSummaryImpl[] = []; windowsInformationProtectionAppLearningSummaryCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof WindowsInformationProtectionAppLearningSummaryImpl? element : new WindowsInformationProtectionAppLearningSummaryImpl(element));});
+        const valueArrValue: WindowsInformationProtectionAppLearningSummaryImpl[] = []; windowsInformationProtectionAppLearningSummaryCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof WindowsInformationProtectionAppLearningSummaryImpl? element : new WindowsInformationProtectionAppLearningSummaryImpl(element));});
         this.value = valueArrValue;
     };
     /**

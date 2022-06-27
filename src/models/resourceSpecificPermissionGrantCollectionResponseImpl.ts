@@ -18,7 +18,7 @@ export class ResourceSpecificPermissionGrantCollectionResponseImpl implements Re
     public constructor(resourceSpecificPermissionGrantCollectionResponseParameterValue?: ResourceSpecificPermissionGrantCollectionResponse | undefined) {
         this.additionalData = resourceSpecificPermissionGrantCollectionResponseParameterValue?.additionalData ? resourceSpecificPermissionGrantCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = resourceSpecificPermissionGrantCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: ResourceSpecificPermissionGrantImpl[] = []; resourceSpecificPermissionGrantCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof ResourceSpecificPermissionGrantImpl? element : new ResourceSpecificPermissionGrantImpl(element));});
+        const valueArrValue: ResourceSpecificPermissionGrantImpl[] = []; resourceSpecificPermissionGrantCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof ResourceSpecificPermissionGrantImpl? element : new ResourceSpecificPermissionGrantImpl(element));});
         this.value = valueArrValue;
     };
     /**

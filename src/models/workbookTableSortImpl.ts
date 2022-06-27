@@ -18,7 +18,7 @@ export class WorkbookTableSortImpl extends EntityImpl implements WorkbookTableSo
      */
     public constructor(workbookTableSortParameterValue?: WorkbookTableSort | undefined) {
         super(workbookTableSortParameterValue);
-        const fieldsArrValue: WorkbookSortFieldImpl[] = []; workbookTableSortParameterValue.fields?.forEach(element => {fieldsArrValue.push(element instanceof WorkbookSortFieldImpl? element : new WorkbookSortFieldImpl(element));});
+        const fieldsArrValue: WorkbookSortFieldImpl[] = []; workbookTableSortParameterValue?.fields?.forEach(element => {fieldsArrValue.push(element instanceof WorkbookSortFieldImpl? element : new WorkbookSortFieldImpl(element));});
         this.fields = fieldsArrValue;
         this.matchCase = workbookTableSortParameterValue?.matchCase;
         this.method = workbookTableSortParameterValue?.method;

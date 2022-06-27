@@ -16,7 +16,7 @@ export class ScheduleActionsForRulesPostRequestBodyImpl implements ScheduleActio
      */
     public constructor(scheduleActionsForRulesPostRequestBodyParameterValue?: ScheduleActionsForRulesPostRequestBody | undefined) {
         this.additionalData = scheduleActionsForRulesPostRequestBodyParameterValue?.additionalData ? scheduleActionsForRulesPostRequestBodyParameterValue?.additionalData! : {};
-        const deviceComplianceScheduledActionForRulesArrValue: DeviceComplianceScheduledActionForRuleImpl[] = []; scheduleActionsForRulesPostRequestBodyParameterValue.deviceComplianceScheduledActionForRules?.forEach(element => {deviceComplianceScheduledActionForRulesArrValue.push(element instanceof DeviceComplianceScheduledActionForRuleImpl? element : new DeviceComplianceScheduledActionForRuleImpl(element));});
+        const deviceComplianceScheduledActionForRulesArrValue: DeviceComplianceScheduledActionForRuleImpl[] = []; scheduleActionsForRulesPostRequestBodyParameterValue?.deviceComplianceScheduledActionForRules?.forEach(element => {deviceComplianceScheduledActionForRulesArrValue.push(element instanceof DeviceComplianceScheduledActionForRuleImpl? element : new DeviceComplianceScheduledActionForRuleImpl(element));});
         this.deviceComplianceScheduledActionForRules = deviceComplianceScheduledActionForRulesArrValue;
     };
     /**

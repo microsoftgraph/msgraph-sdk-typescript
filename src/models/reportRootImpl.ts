@@ -22,13 +22,13 @@ export class ReportRootImpl extends EntityImpl implements ReportRoot {
      */
     public constructor(reportRootParameterValue?: ReportRoot | undefined) {
         super(reportRootParameterValue);
-        const dailyPrintUsageByPrinterArrValue: PrintUsageByPrinterImpl[] = []; reportRootParameterValue.dailyPrintUsageByPrinter?.forEach(element => {dailyPrintUsageByPrinterArrValue.push(element instanceof PrintUsageByPrinterImpl? element : new PrintUsageByPrinterImpl(element));});
+        const dailyPrintUsageByPrinterArrValue: PrintUsageByPrinterImpl[] = []; reportRootParameterValue?.dailyPrintUsageByPrinter?.forEach(element => {dailyPrintUsageByPrinterArrValue.push(element instanceof PrintUsageByPrinterImpl? element : new PrintUsageByPrinterImpl(element));});
         this.dailyPrintUsageByPrinter = dailyPrintUsageByPrinterArrValue;
-        const dailyPrintUsageByUserArrValue: PrintUsageByUserImpl[] = []; reportRootParameterValue.dailyPrintUsageByUser?.forEach(element => {dailyPrintUsageByUserArrValue.push(element instanceof PrintUsageByUserImpl? element : new PrintUsageByUserImpl(element));});
+        const dailyPrintUsageByUserArrValue: PrintUsageByUserImpl[] = []; reportRootParameterValue?.dailyPrintUsageByUser?.forEach(element => {dailyPrintUsageByUserArrValue.push(element instanceof PrintUsageByUserImpl? element : new PrintUsageByUserImpl(element));});
         this.dailyPrintUsageByUser = dailyPrintUsageByUserArrValue;
-        const monthlyPrintUsageByPrinterArrValue: PrintUsageByPrinterImpl[] = []; reportRootParameterValue.monthlyPrintUsageByPrinter?.forEach(element => {monthlyPrintUsageByPrinterArrValue.push(element instanceof PrintUsageByPrinterImpl? element : new PrintUsageByPrinterImpl(element));});
+        const monthlyPrintUsageByPrinterArrValue: PrintUsageByPrinterImpl[] = []; reportRootParameterValue?.monthlyPrintUsageByPrinter?.forEach(element => {monthlyPrintUsageByPrinterArrValue.push(element instanceof PrintUsageByPrinterImpl? element : new PrintUsageByPrinterImpl(element));});
         this.monthlyPrintUsageByPrinter = monthlyPrintUsageByPrinterArrValue;
-        const monthlyPrintUsageByUserArrValue: PrintUsageByUserImpl[] = []; reportRootParameterValue.monthlyPrintUsageByUser?.forEach(element => {monthlyPrintUsageByUserArrValue.push(element instanceof PrintUsageByUserImpl? element : new PrintUsageByUserImpl(element));});
+        const monthlyPrintUsageByUserArrValue: PrintUsageByUserImpl[] = []; reportRootParameterValue?.monthlyPrintUsageByUser?.forEach(element => {monthlyPrintUsageByUserArrValue.push(element instanceof PrintUsageByUserImpl? element : new PrintUsageByUserImpl(element));});
         this.monthlyPrintUsageByUser = monthlyPrintUsageByUserArrValue;
     };
     /**

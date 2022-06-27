@@ -16,7 +16,7 @@ export class GetByIdsResponseImpl implements GetByIdsResponse {
      */
     public constructor(getByIdsResponseParameterValue?: GetByIdsResponse | undefined) {
         this.additionalData = getByIdsResponseParameterValue?.additionalData ? getByIdsResponseParameterValue?.additionalData! : {};
-        const valueArrValue: DirectoryObjectImpl[] = []; getByIdsResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof DirectoryObjectImpl? element : new DirectoryObjectImpl(element));});
+        const valueArrValue: DirectoryObjectImpl[] = []; getByIdsResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof DirectoryObjectImpl? element : new DirectoryObjectImpl(element));});
         this.value = valueArrValue;
     };
     /**

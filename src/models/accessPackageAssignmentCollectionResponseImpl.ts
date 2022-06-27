@@ -18,7 +18,7 @@ export class AccessPackageAssignmentCollectionResponseImpl implements AccessPack
     public constructor(accessPackageAssignmentCollectionResponseParameterValue?: AccessPackageAssignmentCollectionResponse | undefined) {
         this.additionalData = accessPackageAssignmentCollectionResponseParameterValue?.additionalData ? accessPackageAssignmentCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = accessPackageAssignmentCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: AccessPackageAssignmentImpl[] = []; accessPackageAssignmentCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof AccessPackageAssignmentImpl? element : new AccessPackageAssignmentImpl(element));});
+        const valueArrValue: AccessPackageAssignmentImpl[] = []; accessPackageAssignmentCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof AccessPackageAssignmentImpl? element : new AccessPackageAssignmentImpl(element));});
         this.value = valueArrValue;
     };
     /**

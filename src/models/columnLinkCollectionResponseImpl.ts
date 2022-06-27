@@ -18,7 +18,7 @@ export class ColumnLinkCollectionResponseImpl implements ColumnLinkCollectionRes
     public constructor(columnLinkCollectionResponseParameterValue?: ColumnLinkCollectionResponse | undefined) {
         this.additionalData = columnLinkCollectionResponseParameterValue?.additionalData ? columnLinkCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = columnLinkCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: ColumnLinkImpl[] = []; columnLinkCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof ColumnLinkImpl? element : new ColumnLinkImpl(element));});
+        const valueArrValue: ColumnLinkImpl[] = []; columnLinkCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof ColumnLinkImpl? element : new ColumnLinkImpl(element));});
         this.value = valueArrValue;
     };
     /**

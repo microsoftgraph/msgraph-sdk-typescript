@@ -18,7 +18,7 @@ export class SignInCollectionResponseImpl implements SignInCollectionResponse {
     public constructor(signInCollectionResponseParameterValue?: SignInCollectionResponse | undefined) {
         this.additionalData = signInCollectionResponseParameterValue?.additionalData ? signInCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = signInCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: SignInImpl[] = []; signInCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof SignInImpl? element : new SignInImpl(element));});
+        const valueArrValue: SignInImpl[] = []; signInCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof SignInImpl? element : new SignInImpl(element));});
         this.value = valueArrValue;
     };
     /**

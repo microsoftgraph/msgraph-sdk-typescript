@@ -14,7 +14,7 @@ export class CertificateBasedAuthConfigurationImpl extends EntityImpl implements
      */
     public constructor(certificateBasedAuthConfigurationParameterValue?: CertificateBasedAuthConfiguration | undefined) {
         super(certificateBasedAuthConfigurationParameterValue);
-        const certificateAuthoritiesArrValue: CertificateAuthorityImpl[] = []; certificateBasedAuthConfigurationParameterValue.certificateAuthorities?.forEach(element => {certificateAuthoritiesArrValue.push(element instanceof CertificateAuthorityImpl? element : new CertificateAuthorityImpl(element));});
+        const certificateAuthoritiesArrValue: CertificateAuthorityImpl[] = []; certificateBasedAuthConfigurationParameterValue?.certificateAuthorities?.forEach(element => {certificateAuthoritiesArrValue.push(element instanceof CertificateAuthorityImpl? element : new CertificateAuthorityImpl(element));});
         this.certificateAuthorities = certificateAuthoritiesArrValue;
     };
     /**

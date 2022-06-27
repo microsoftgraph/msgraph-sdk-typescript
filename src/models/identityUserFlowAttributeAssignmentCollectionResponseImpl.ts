@@ -18,7 +18,7 @@ export class IdentityUserFlowAttributeAssignmentCollectionResponseImpl implement
     public constructor(identityUserFlowAttributeAssignmentCollectionResponseParameterValue?: IdentityUserFlowAttributeAssignmentCollectionResponse | undefined) {
         this.additionalData = identityUserFlowAttributeAssignmentCollectionResponseParameterValue?.additionalData ? identityUserFlowAttributeAssignmentCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = identityUserFlowAttributeAssignmentCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: IdentityUserFlowAttributeAssignmentImpl[] = []; identityUserFlowAttributeAssignmentCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof IdentityUserFlowAttributeAssignmentImpl? element : new IdentityUserFlowAttributeAssignmentImpl(element));});
+        const valueArrValue: IdentityUserFlowAttributeAssignmentImpl[] = []; identityUserFlowAttributeAssignmentCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof IdentityUserFlowAttributeAssignmentImpl? element : new IdentityUserFlowAttributeAssignmentImpl(element));});
         this.value = valueArrValue;
     };
     /**

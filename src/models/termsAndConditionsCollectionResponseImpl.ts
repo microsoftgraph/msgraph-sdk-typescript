@@ -18,7 +18,7 @@ export class TermsAndConditionsCollectionResponseImpl implements TermsAndConditi
     public constructor(termsAndConditionsCollectionResponseParameterValue?: TermsAndConditionsCollectionResponse | undefined) {
         this.additionalData = termsAndConditionsCollectionResponseParameterValue?.additionalData ? termsAndConditionsCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = termsAndConditionsCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: TermsAndConditionsImpl[] = []; termsAndConditionsCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof TermsAndConditionsImpl? element : new TermsAndConditionsImpl(element));});
+        const valueArrValue: TermsAndConditionsImpl[] = []; termsAndConditionsCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof TermsAndConditionsImpl? element : new TermsAndConditionsImpl(element));});
         this.value = valueArrValue;
     };
     /**

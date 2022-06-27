@@ -18,7 +18,7 @@ export class AccessReviewInstanceCollectionResponseImpl implements AccessReviewI
     public constructor(accessReviewInstanceCollectionResponseParameterValue?: AccessReviewInstanceCollectionResponse | undefined) {
         this.additionalData = accessReviewInstanceCollectionResponseParameterValue?.additionalData ? accessReviewInstanceCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = accessReviewInstanceCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: AccessReviewInstanceImpl[] = []; accessReviewInstanceCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof AccessReviewInstanceImpl? element : new AccessReviewInstanceImpl(element));});
+        const valueArrValue: AccessReviewInstanceImpl[] = []; accessReviewInstanceCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof AccessReviewInstanceImpl? element : new AccessReviewInstanceImpl(element));});
         this.value = valueArrValue;
     };
     /**

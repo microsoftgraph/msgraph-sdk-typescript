@@ -18,7 +18,7 @@ export class SiteCollectionResponseImpl implements SiteCollectionResponse {
     public constructor(siteCollectionResponseParameterValue?: SiteCollectionResponse | undefined) {
         this.additionalData = siteCollectionResponseParameterValue?.additionalData ? siteCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = siteCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: SiteImpl[] = []; siteCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof SiteImpl? element : new SiteImpl(element));});
+        const valueArrValue: SiteImpl[] = []; siteCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof SiteImpl? element : new SiteImpl(element));});
         this.value = valueArrValue;
     };
     /**

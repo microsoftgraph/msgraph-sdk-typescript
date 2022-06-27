@@ -18,7 +18,7 @@ export class AuthenticationMethodCollectionResponseImpl implements Authenticatio
     public constructor(authenticationMethodCollectionResponseParameterValue?: AuthenticationMethodCollectionResponse | undefined) {
         this.additionalData = authenticationMethodCollectionResponseParameterValue?.additionalData ? authenticationMethodCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = authenticationMethodCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: AuthenticationMethodImpl[] = []; authenticationMethodCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof AuthenticationMethodImpl? element : new AuthenticationMethodImpl(element));});
+        const valueArrValue: AuthenticationMethodImpl[] = []; authenticationMethodCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof AuthenticationMethodImpl? element : new AuthenticationMethodImpl(element));});
         this.value = valueArrValue;
     };
     /**

@@ -19,9 +19,9 @@ export class SolutionsRootImpl implements SolutionsRoot {
      */
     public constructor(solutionsRootParameterValue?: SolutionsRoot | undefined) {
         this.additionalData = solutionsRootParameterValue?.additionalData ? solutionsRootParameterValue?.additionalData! : {};
-        const bookingBusinessesArrValue: BookingBusinessImpl[] = []; solutionsRootParameterValue.bookingBusinesses?.forEach(element => {bookingBusinessesArrValue.push(element instanceof BookingBusinessImpl? element : new BookingBusinessImpl(element));});
+        const bookingBusinessesArrValue: BookingBusinessImpl[] = []; solutionsRootParameterValue?.bookingBusinesses?.forEach(element => {bookingBusinessesArrValue.push(element instanceof BookingBusinessImpl? element : new BookingBusinessImpl(element));});
         this.bookingBusinesses = bookingBusinessesArrValue;
-        const bookingCurrenciesArrValue: BookingCurrencyImpl[] = []; solutionsRootParameterValue.bookingCurrencies?.forEach(element => {bookingCurrenciesArrValue.push(element instanceof BookingCurrencyImpl? element : new BookingCurrencyImpl(element));});
+        const bookingCurrenciesArrValue: BookingCurrencyImpl[] = []; solutionsRootParameterValue?.bookingCurrencies?.forEach(element => {bookingCurrenciesArrValue.push(element instanceof BookingCurrencyImpl? element : new BookingCurrencyImpl(element));});
         this.bookingCurrencies = bookingCurrenciesArrValue;
     };
     /**

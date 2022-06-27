@@ -29,15 +29,15 @@ export class PrinterImpl extends PrinterBaseImpl implements Printer {
      */
     public constructor(printerParameterValue?: Printer | undefined) {
         super(printerParameterValue);
-        const connectorsArrValue: PrintConnectorImpl[] = []; printerParameterValue.connectors?.forEach(element => {connectorsArrValue.push(element instanceof PrintConnectorImpl? element : new PrintConnectorImpl(element));});
+        const connectorsArrValue: PrintConnectorImpl[] = []; printerParameterValue?.connectors?.forEach(element => {connectorsArrValue.push(element instanceof PrintConnectorImpl? element : new PrintConnectorImpl(element));});
         this.connectors = connectorsArrValue;
         this.hasPhysicalDevice = printerParameterValue?.hasPhysicalDevice;
         this.isShared = printerParameterValue?.isShared;
         this.lastSeenDateTime = printerParameterValue?.lastSeenDateTime;
         this.registeredDateTime = printerParameterValue?.registeredDateTime;
-        const sharesArrValue: PrinterShareImpl[] = []; printerParameterValue.shares?.forEach(element => {sharesArrValue.push(element instanceof PrinterShareImpl? element : new PrinterShareImpl(element));});
+        const sharesArrValue: PrinterShareImpl[] = []; printerParameterValue?.shares?.forEach(element => {sharesArrValue.push(element instanceof PrinterShareImpl? element : new PrinterShareImpl(element));});
         this.shares = sharesArrValue;
-        const taskTriggersArrValue: PrintTaskTriggerImpl[] = []; printerParameterValue.taskTriggers?.forEach(element => {taskTriggersArrValue.push(element instanceof PrintTaskTriggerImpl? element : new PrintTaskTriggerImpl(element));});
+        const taskTriggersArrValue: PrintTaskTriggerImpl[] = []; printerParameterValue?.taskTriggers?.forEach(element => {taskTriggersArrValue.push(element instanceof PrintTaskTriggerImpl? element : new PrintTaskTriggerImpl(element));});
         this.taskTriggers = taskTriggersArrValue;
     };
     /**

@@ -53,9 +53,9 @@ export class Win32LobAppImpl extends MobileLobAppImpl implements Win32LobApp {
         this.minimumNumberOfProcessors = win32LobAppParameterValue?.minimumNumberOfProcessors;
         this.minimumSupportedWindowsRelease = win32LobAppParameterValue?.minimumSupportedWindowsRelease;
         this.msiInformation = win32LobAppParameterValue?.msiInformation instanceof Win32LobAppMsiInformationImpl? win32LobAppParameterValue?.msiInformation:new Win32LobAppMsiInformationImpl(win32LobAppParameterValue?.msiInformation);
-        const returnCodesArrValue: Win32LobAppReturnCodeImpl[] = []; win32LobAppParameterValue.returnCodes?.forEach(element => {returnCodesArrValue.push(element instanceof Win32LobAppReturnCodeImpl? element : new Win32LobAppReturnCodeImpl(element));});
+        const returnCodesArrValue: Win32LobAppReturnCodeImpl[] = []; win32LobAppParameterValue?.returnCodes?.forEach(element => {returnCodesArrValue.push(element instanceof Win32LobAppReturnCodeImpl? element : new Win32LobAppReturnCodeImpl(element));});
         this.returnCodes = returnCodesArrValue;
-        const rulesArrValue: Win32LobAppRuleImpl[] = []; win32LobAppParameterValue.rules?.forEach(element => {rulesArrValue.push(element instanceof Win32LobAppRuleImpl? element : new Win32LobAppRuleImpl(element));});
+        const rulesArrValue: Win32LobAppRuleImpl[] = []; win32LobAppParameterValue?.rules?.forEach(element => {rulesArrValue.push(element instanceof Win32LobAppRuleImpl? element : new Win32LobAppRuleImpl(element));});
         this.rules = rulesArrValue;
         this.setupFilePath = win32LobAppParameterValue?.setupFilePath;
         this.uninstallCommandLine = win32LobAppParameterValue?.uninstallCommandLine;

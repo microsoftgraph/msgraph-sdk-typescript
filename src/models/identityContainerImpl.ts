@@ -30,14 +30,14 @@ export class IdentityContainerImpl extends EntityImpl implements IdentityContain
      */
     public constructor(identityContainerParameterValue?: IdentityContainer | undefined) {
         super(identityContainerParameterValue);
-        const apiConnectorsArrValue: IdentityApiConnectorImpl[] = []; identityContainerParameterValue.apiConnectors?.forEach(element => {apiConnectorsArrValue.push(element instanceof IdentityApiConnectorImpl? element : new IdentityApiConnectorImpl(element));});
+        const apiConnectorsArrValue: IdentityApiConnectorImpl[] = []; identityContainerParameterValue?.apiConnectors?.forEach(element => {apiConnectorsArrValue.push(element instanceof IdentityApiConnectorImpl? element : new IdentityApiConnectorImpl(element));});
         this.apiConnectors = apiConnectorsArrValue;
-        const b2xUserFlowsArrValue: B2xIdentityUserFlowImpl[] = []; identityContainerParameterValue.b2xUserFlows?.forEach(element => {b2xUserFlowsArrValue.push(element instanceof B2xIdentityUserFlowImpl? element : new B2xIdentityUserFlowImpl(element));});
+        const b2xUserFlowsArrValue: B2xIdentityUserFlowImpl[] = []; identityContainerParameterValue?.b2xUserFlows?.forEach(element => {b2xUserFlowsArrValue.push(element instanceof B2xIdentityUserFlowImpl? element : new B2xIdentityUserFlowImpl(element));});
         this.b2xUserFlows = b2xUserFlowsArrValue;
         this.conditionalAccess = identityContainerParameterValue?.conditionalAccess instanceof ConditionalAccessRootImpl? identityContainerParameterValue?.conditionalAccess:new ConditionalAccessRootImpl(identityContainerParameterValue?.conditionalAccess);
-        const identityProvidersArrValue: IdentityProviderBaseImpl[] = []; identityContainerParameterValue.identityProviders?.forEach(element => {identityProvidersArrValue.push(element instanceof IdentityProviderBaseImpl? element : new IdentityProviderBaseImpl(element));});
+        const identityProvidersArrValue: IdentityProviderBaseImpl[] = []; identityContainerParameterValue?.identityProviders?.forEach(element => {identityProvidersArrValue.push(element instanceof IdentityProviderBaseImpl? element : new IdentityProviderBaseImpl(element));});
         this.identityProviders = identityProvidersArrValue;
-        const userFlowAttributesArrValue: IdentityUserFlowAttributeImpl[] = []; identityContainerParameterValue.userFlowAttributes?.forEach(element => {userFlowAttributesArrValue.push(element instanceof IdentityUserFlowAttributeImpl? element : new IdentityUserFlowAttributeImpl(element));});
+        const userFlowAttributesArrValue: IdentityUserFlowAttributeImpl[] = []; identityContainerParameterValue?.userFlowAttributes?.forEach(element => {userFlowAttributesArrValue.push(element instanceof IdentityUserFlowAttributeImpl? element : new IdentityUserFlowAttributeImpl(element));});
         this.userFlowAttributes = userFlowAttributesArrValue;
     };
     /**

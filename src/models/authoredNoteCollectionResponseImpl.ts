@@ -18,7 +18,7 @@ export class AuthoredNoteCollectionResponseImpl implements AuthoredNoteCollectio
     public constructor(authoredNoteCollectionResponseParameterValue?: AuthoredNoteCollectionResponse | undefined) {
         this.additionalData = authoredNoteCollectionResponseParameterValue?.additionalData ? authoredNoteCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = authoredNoteCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: AuthoredNoteImpl[] = []; authoredNoteCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof AuthoredNoteImpl? element : new AuthoredNoteImpl(element));});
+        const valueArrValue: AuthoredNoteImpl[] = []; authoredNoteCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof AuthoredNoteImpl? element : new AuthoredNoteImpl(element));});
         this.value = valueArrValue;
     };
     /**

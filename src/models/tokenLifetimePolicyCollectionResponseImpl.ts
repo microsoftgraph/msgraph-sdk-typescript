@@ -18,7 +18,7 @@ export class TokenLifetimePolicyCollectionResponseImpl implements TokenLifetimeP
     public constructor(tokenLifetimePolicyCollectionResponseParameterValue?: TokenLifetimePolicyCollectionResponse | undefined) {
         this.additionalData = tokenLifetimePolicyCollectionResponseParameterValue?.additionalData ? tokenLifetimePolicyCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = tokenLifetimePolicyCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: TokenLifetimePolicyImpl[] = []; tokenLifetimePolicyCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof TokenLifetimePolicyImpl? element : new TokenLifetimePolicyImpl(element));});
+        const valueArrValue: TokenLifetimePolicyImpl[] = []; tokenLifetimePolicyCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof TokenLifetimePolicyImpl? element : new TokenLifetimePolicyImpl(element));});
         this.value = valueArrValue;
     };
     /**

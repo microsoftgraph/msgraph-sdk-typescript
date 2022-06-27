@@ -26,12 +26,12 @@ export class IosDeviceFeaturesConfigurationImpl extends AppleDeviceFeaturesConfi
     public constructor(iosDeviceFeaturesConfigurationParameterValue?: IosDeviceFeaturesConfiguration | undefined) {
         super(iosDeviceFeaturesConfigurationParameterValue);
         this.assetTagTemplate = iosDeviceFeaturesConfigurationParameterValue?.assetTagTemplate;
-        const homeScreenDockIconsArrValue: IosHomeScreenItemImpl[] = []; iosDeviceFeaturesConfigurationParameterValue.homeScreenDockIcons?.forEach(element => {homeScreenDockIconsArrValue.push(element instanceof IosHomeScreenItemImpl? element : new IosHomeScreenItemImpl(element));});
+        const homeScreenDockIconsArrValue: IosHomeScreenItemImpl[] = []; iosDeviceFeaturesConfigurationParameterValue?.homeScreenDockIcons?.forEach(element => {homeScreenDockIconsArrValue.push(element instanceof IosHomeScreenItemImpl? element : new IosHomeScreenItemImpl(element));});
         this.homeScreenDockIcons = homeScreenDockIconsArrValue;
-        const homeScreenPagesArrValue: IosHomeScreenPageImpl[] = []; iosDeviceFeaturesConfigurationParameterValue.homeScreenPages?.forEach(element => {homeScreenPagesArrValue.push(element instanceof IosHomeScreenPageImpl? element : new IosHomeScreenPageImpl(element));});
+        const homeScreenPagesArrValue: IosHomeScreenPageImpl[] = []; iosDeviceFeaturesConfigurationParameterValue?.homeScreenPages?.forEach(element => {homeScreenPagesArrValue.push(element instanceof IosHomeScreenPageImpl? element : new IosHomeScreenPageImpl(element));});
         this.homeScreenPages = homeScreenPagesArrValue;
         this.lockScreenFootnote = iosDeviceFeaturesConfigurationParameterValue?.lockScreenFootnote;
-        const notificationSettingsArrValue: IosNotificationSettingsImpl[] = []; iosDeviceFeaturesConfigurationParameterValue.notificationSettings?.forEach(element => {notificationSettingsArrValue.push(element instanceof IosNotificationSettingsImpl? element : new IosNotificationSettingsImpl(element));});
+        const notificationSettingsArrValue: IosNotificationSettingsImpl[] = []; iosDeviceFeaturesConfigurationParameterValue?.notificationSettings?.forEach(element => {notificationSettingsArrValue.push(element instanceof IosNotificationSettingsImpl? element : new IosNotificationSettingsImpl(element));});
         this.notificationSettings = notificationSettingsArrValue;
     };
     /**

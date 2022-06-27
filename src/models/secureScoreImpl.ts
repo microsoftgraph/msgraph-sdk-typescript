@@ -37,10 +37,10 @@ export class SecureScoreImpl extends EntityImpl implements SecureScore {
     public constructor(secureScoreParameterValue?: SecureScore | undefined) {
         super(secureScoreParameterValue);
         this.activeUserCount = secureScoreParameterValue?.activeUserCount;
-        const averageComparativeScoresArrValue: AverageComparativeScoreImpl[] = []; secureScoreParameterValue.averageComparativeScores?.forEach(element => {averageComparativeScoresArrValue.push(element instanceof AverageComparativeScoreImpl? element : new AverageComparativeScoreImpl(element));});
+        const averageComparativeScoresArrValue: AverageComparativeScoreImpl[] = []; secureScoreParameterValue?.averageComparativeScores?.forEach(element => {averageComparativeScoresArrValue.push(element instanceof AverageComparativeScoreImpl? element : new AverageComparativeScoreImpl(element));});
         this.averageComparativeScores = averageComparativeScoresArrValue;
         this.azureTenantId = secureScoreParameterValue?.azureTenantId;
-        const controlScoresArrValue: ControlScoreImpl[] = []; secureScoreParameterValue.controlScores?.forEach(element => {controlScoresArrValue.push(element instanceof ControlScoreImpl? element : new ControlScoreImpl(element));});
+        const controlScoresArrValue: ControlScoreImpl[] = []; secureScoreParameterValue?.controlScores?.forEach(element => {controlScoresArrValue.push(element instanceof ControlScoreImpl? element : new ControlScoreImpl(element));});
         this.controlScores = controlScoresArrValue;
         this.createdDateTime = secureScoreParameterValue?.createdDateTime;
         this.currentScore = secureScoreParameterValue?.currentScore;

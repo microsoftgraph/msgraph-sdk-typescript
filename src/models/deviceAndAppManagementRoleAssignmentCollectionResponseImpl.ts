@@ -18,7 +18,7 @@ export class DeviceAndAppManagementRoleAssignmentCollectionResponseImpl implemen
     public constructor(deviceAndAppManagementRoleAssignmentCollectionResponseParameterValue?: DeviceAndAppManagementRoleAssignmentCollectionResponse | undefined) {
         this.additionalData = deviceAndAppManagementRoleAssignmentCollectionResponseParameterValue?.additionalData ? deviceAndAppManagementRoleAssignmentCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = deviceAndAppManagementRoleAssignmentCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: DeviceAndAppManagementRoleAssignmentImpl[] = []; deviceAndAppManagementRoleAssignmentCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof DeviceAndAppManagementRoleAssignmentImpl? element : new DeviceAndAppManagementRoleAssignmentImpl(element));});
+        const valueArrValue: DeviceAndAppManagementRoleAssignmentImpl[] = []; deviceAndAppManagementRoleAssignmentCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof DeviceAndAppManagementRoleAssignmentImpl? element : new DeviceAndAppManagementRoleAssignmentImpl(element));});
         this.value = valueArrValue;
     };
     /**

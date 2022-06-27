@@ -18,7 +18,7 @@ export class ServiceUpdateMessageCollectionResponseImpl implements ServiceUpdate
     public constructor(serviceUpdateMessageCollectionResponseParameterValue?: ServiceUpdateMessageCollectionResponse | undefined) {
         this.additionalData = serviceUpdateMessageCollectionResponseParameterValue?.additionalData ? serviceUpdateMessageCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = serviceUpdateMessageCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: ServiceUpdateMessageImpl[] = []; serviceUpdateMessageCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof ServiceUpdateMessageImpl? element : new ServiceUpdateMessageImpl(element));});
+        const valueArrValue: ServiceUpdateMessageImpl[] = []; serviceUpdateMessageCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof ServiceUpdateMessageImpl? element : new ServiceUpdateMessageImpl(element));});
         this.value = valueArrValue;
     };
     /**

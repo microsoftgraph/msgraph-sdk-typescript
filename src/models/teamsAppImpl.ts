@@ -21,7 +21,7 @@ export class TeamsAppImpl extends EntityImpl implements TeamsApp {
      */
     public constructor(teamsAppParameterValue?: TeamsApp | undefined) {
         super(teamsAppParameterValue);
-        const appDefinitionsArrValue: TeamsAppDefinitionImpl[] = []; teamsAppParameterValue.appDefinitions?.forEach(element => {appDefinitionsArrValue.push(element instanceof TeamsAppDefinitionImpl? element : new TeamsAppDefinitionImpl(element));});
+        const appDefinitionsArrValue: TeamsAppDefinitionImpl[] = []; teamsAppParameterValue?.appDefinitions?.forEach(element => {appDefinitionsArrValue.push(element instanceof TeamsAppDefinitionImpl? element : new TeamsAppDefinitionImpl(element));});
         this.appDefinitions = appDefinitionsArrValue;
         this.displayName = teamsAppParameterValue?.displayName;
         this.distributionMethod = teamsAppParameterValue?.distributionMethod;

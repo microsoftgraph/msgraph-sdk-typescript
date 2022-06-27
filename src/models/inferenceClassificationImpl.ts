@@ -14,7 +14,7 @@ export class InferenceClassificationImpl extends EntityImpl implements Inference
      */
     public constructor(inferenceClassificationParameterValue?: InferenceClassification | undefined) {
         super(inferenceClassificationParameterValue);
-        const overridesArrValue: InferenceClassificationOverrideImpl[] = []; inferenceClassificationParameterValue.overrides?.forEach(element => {overridesArrValue.push(element instanceof InferenceClassificationOverrideImpl? element : new InferenceClassificationOverrideImpl(element));});
+        const overridesArrValue: InferenceClassificationOverrideImpl[] = []; inferenceClassificationParameterValue?.overrides?.forEach(element => {overridesArrValue.push(element instanceof InferenceClassificationOverrideImpl? element : new InferenceClassificationOverrideImpl(element));});
         this.overrides = overridesArrValue;
     };
     /**

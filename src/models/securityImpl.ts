@@ -22,11 +22,11 @@ export class SecurityImpl extends EntityImpl implements Security {
      */
     public constructor(securityParameterValue?: Security | undefined) {
         super(securityParameterValue);
-        const alertsArrValue: AlertImpl[] = []; securityParameterValue.alerts?.forEach(element => {alertsArrValue.push(element instanceof AlertImpl? element : new AlertImpl(element));});
+        const alertsArrValue: AlertImpl[] = []; securityParameterValue?.alerts?.forEach(element => {alertsArrValue.push(element instanceof AlertImpl? element : new AlertImpl(element));});
         this.alerts = alertsArrValue;
-        const secureScoreControlProfilesArrValue: SecureScoreControlProfileImpl[] = []; securityParameterValue.secureScoreControlProfiles?.forEach(element => {secureScoreControlProfilesArrValue.push(element instanceof SecureScoreControlProfileImpl? element : new SecureScoreControlProfileImpl(element));});
+        const secureScoreControlProfilesArrValue: SecureScoreControlProfileImpl[] = []; securityParameterValue?.secureScoreControlProfiles?.forEach(element => {secureScoreControlProfilesArrValue.push(element instanceof SecureScoreControlProfileImpl? element : new SecureScoreControlProfileImpl(element));});
         this.secureScoreControlProfiles = secureScoreControlProfilesArrValue;
-        const secureScoresArrValue: SecureScoreImpl[] = []; securityParameterValue.secureScores?.forEach(element => {secureScoresArrValue.push(element instanceof SecureScoreImpl? element : new SecureScoreImpl(element));});
+        const secureScoresArrValue: SecureScoreImpl[] = []; securityParameterValue?.secureScores?.forEach(element => {secureScoresArrValue.push(element instanceof SecureScoreImpl? element : new SecureScoreImpl(element));});
         this.secureScores = secureScoresArrValue;
     };
     /**

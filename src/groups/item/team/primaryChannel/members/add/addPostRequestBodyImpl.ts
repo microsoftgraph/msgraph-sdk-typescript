@@ -16,7 +16,7 @@ export class AddPostRequestBodyImpl implements AddPostRequestBody {
      */
     public constructor(addPostRequestBodyParameterValue?: AddPostRequestBody | undefined) {
         this.additionalData = addPostRequestBodyParameterValue?.additionalData ? addPostRequestBodyParameterValue?.additionalData! : {};
-        const valuesArrValue: ConversationMemberImpl[] = []; addPostRequestBodyParameterValue.values?.forEach(element => {valuesArrValue.push(element instanceof ConversationMemberImpl? element : new ConversationMemberImpl(element));});
+        const valuesArrValue: ConversationMemberImpl[] = []; addPostRequestBodyParameterValue?.values?.forEach(element => {valuesArrValue.push(element instanceof ConversationMemberImpl? element : new ConversationMemberImpl(element));});
         this.values = valuesArrValue;
     };
     /**

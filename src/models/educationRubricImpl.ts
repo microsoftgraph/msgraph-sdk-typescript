@@ -45,9 +45,9 @@ export class EducationRubricImpl extends EntityImpl implements EducationRubric {
         this.grading = educationRubricParameterValue?.grading instanceof EducationAssignmentGradeTypeImpl? educationRubricParameterValue?.grading:new EducationAssignmentGradeTypeImpl(educationRubricParameterValue?.grading);
         this.lastModifiedBy = educationRubricParameterValue?.lastModifiedBy instanceof IdentitySetImpl? educationRubricParameterValue?.lastModifiedBy:new IdentitySetImpl(educationRubricParameterValue?.lastModifiedBy);
         this.lastModifiedDateTime = educationRubricParameterValue?.lastModifiedDateTime;
-        const levelsArrValue: RubricLevelImpl[] = []; educationRubricParameterValue.levels?.forEach(element => {levelsArrValue.push(element instanceof RubricLevelImpl? element : new RubricLevelImpl(element));});
+        const levelsArrValue: RubricLevelImpl[] = []; educationRubricParameterValue?.levels?.forEach(element => {levelsArrValue.push(element instanceof RubricLevelImpl? element : new RubricLevelImpl(element));});
         this.levels = levelsArrValue;
-        const qualitiesArrValue: RubricQualityImpl[] = []; educationRubricParameterValue.qualities?.forEach(element => {qualitiesArrValue.push(element instanceof RubricQualityImpl? element : new RubricQualityImpl(element));});
+        const qualitiesArrValue: RubricQualityImpl[] = []; educationRubricParameterValue?.qualities?.forEach(element => {qualitiesArrValue.push(element instanceof RubricQualityImpl? element : new RubricQualityImpl(element));});
         this.qualities = qualitiesArrValue;
     };
     /**

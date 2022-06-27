@@ -18,7 +18,7 @@ export class PermissionGrantConditionSetCollectionResponseImpl implements Permis
     public constructor(permissionGrantConditionSetCollectionResponseParameterValue?: PermissionGrantConditionSetCollectionResponse | undefined) {
         this.additionalData = permissionGrantConditionSetCollectionResponseParameterValue?.additionalData ? permissionGrantConditionSetCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = permissionGrantConditionSetCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: PermissionGrantConditionSetImpl[] = []; permissionGrantConditionSetCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof PermissionGrantConditionSetImpl? element : new PermissionGrantConditionSetImpl(element));});
+        const valueArrValue: PermissionGrantConditionSetImpl[] = []; permissionGrantConditionSetCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof PermissionGrantConditionSetImpl? element : new PermissionGrantConditionSetImpl(element));});
         this.value = valueArrValue;
     };
     /**

@@ -18,7 +18,7 @@ export class ExternalConnectionCollectionResponseImpl implements ExternalConnect
     public constructor(externalConnectionCollectionResponseParameterValue?: ExternalConnectionCollectionResponse | undefined) {
         this.additionalData = externalConnectionCollectionResponseParameterValue?.additionalData ? externalConnectionCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = externalConnectionCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: ExternalConnectionImpl[] = []; externalConnectionCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof ExternalConnectionImpl? element : new ExternalConnectionImpl(element));});
+        const valueArrValue: ExternalConnectionImpl[] = []; externalConnectionCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof ExternalConnectionImpl? element : new ExternalConnectionImpl(element));});
         this.value = valueArrValue;
     };
     /**

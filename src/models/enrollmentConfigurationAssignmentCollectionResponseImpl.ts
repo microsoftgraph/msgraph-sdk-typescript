@@ -18,7 +18,7 @@ export class EnrollmentConfigurationAssignmentCollectionResponseImpl implements 
     public constructor(enrollmentConfigurationAssignmentCollectionResponseParameterValue?: EnrollmentConfigurationAssignmentCollectionResponse | undefined) {
         this.additionalData = enrollmentConfigurationAssignmentCollectionResponseParameterValue?.additionalData ? enrollmentConfigurationAssignmentCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = enrollmentConfigurationAssignmentCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: EnrollmentConfigurationAssignmentImpl[] = []; enrollmentConfigurationAssignmentCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof EnrollmentConfigurationAssignmentImpl? element : new EnrollmentConfigurationAssignmentImpl(element));});
+        const valueArrValue: EnrollmentConfigurationAssignmentImpl[] = []; enrollmentConfigurationAssignmentCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof EnrollmentConfigurationAssignmentImpl? element : new EnrollmentConfigurationAssignmentImpl(element));});
         this.value = valueArrValue;
     };
     /**

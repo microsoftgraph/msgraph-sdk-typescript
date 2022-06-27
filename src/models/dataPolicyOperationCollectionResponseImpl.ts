@@ -18,7 +18,7 @@ export class DataPolicyOperationCollectionResponseImpl implements DataPolicyOper
     public constructor(dataPolicyOperationCollectionResponseParameterValue?: DataPolicyOperationCollectionResponse | undefined) {
         this.additionalData = dataPolicyOperationCollectionResponseParameterValue?.additionalData ? dataPolicyOperationCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = dataPolicyOperationCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: DataPolicyOperationImpl[] = []; dataPolicyOperationCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof DataPolicyOperationImpl? element : new DataPolicyOperationImpl(element));});
+        const valueArrValue: DataPolicyOperationImpl[] = []; dataPolicyOperationCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof DataPolicyOperationImpl? element : new DataPolicyOperationImpl(element));});
         this.value = valueArrValue;
     };
     /**

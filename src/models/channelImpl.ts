@@ -47,12 +47,12 @@ export class ChannelImpl extends EntityImpl implements Channel {
         this.email = channelParameterValue?.email;
         this.filesFolder = channelParameterValue?.filesFolder instanceof DriveItemImpl? channelParameterValue?.filesFolder:new DriveItemImpl(channelParameterValue?.filesFolder);
         this.isFavoriteByDefault = channelParameterValue?.isFavoriteByDefault;
-        const membersArrValue: ConversationMemberImpl[] = []; channelParameterValue.members?.forEach(element => {membersArrValue.push(element instanceof ConversationMemberImpl? element : new ConversationMemberImpl(element));});
+        const membersArrValue: ConversationMemberImpl[] = []; channelParameterValue?.members?.forEach(element => {membersArrValue.push(element instanceof ConversationMemberImpl? element : new ConversationMemberImpl(element));});
         this.members = membersArrValue;
         this.membershipType = channelParameterValue?.membershipType;
-        const messagesArrValue: ChatMessageImpl[] = []; channelParameterValue.messages?.forEach(element => {messagesArrValue.push(element instanceof ChatMessageImpl? element : new ChatMessageImpl(element));});
+        const messagesArrValue: ChatMessageImpl[] = []; channelParameterValue?.messages?.forEach(element => {messagesArrValue.push(element instanceof ChatMessageImpl? element : new ChatMessageImpl(element));});
         this.messages = messagesArrValue;
-        const tabsArrValue: TeamsTabImpl[] = []; channelParameterValue.tabs?.forEach(element => {tabsArrValue.push(element instanceof TeamsTabImpl? element : new TeamsTabImpl(element));});
+        const tabsArrValue: TeamsTabImpl[] = []; channelParameterValue?.tabs?.forEach(element => {tabsArrValue.push(element instanceof TeamsTabImpl? element : new TeamsTabImpl(element));});
         this.tabs = tabsArrValue;
         this.webUrl = channelParameterValue?.webUrl;
     };

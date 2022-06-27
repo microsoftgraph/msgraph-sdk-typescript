@@ -18,7 +18,7 @@ export class BookingBusinessCollectionResponseImpl implements BookingBusinessCol
     public constructor(bookingBusinessCollectionResponseParameterValue?: BookingBusinessCollectionResponse | undefined) {
         this.additionalData = bookingBusinessCollectionResponseParameterValue?.additionalData ? bookingBusinessCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = bookingBusinessCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: BookingBusinessImpl[] = []; bookingBusinessCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof BookingBusinessImpl? element : new BookingBusinessImpl(element));});
+        const valueArrValue: BookingBusinessImpl[] = []; bookingBusinessCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof BookingBusinessImpl? element : new BookingBusinessImpl(element));});
         this.value = valueArrValue;
     };
     /**

@@ -18,7 +18,7 @@ export class UnifiedRoleManagementPolicyCollectionResponseImpl implements Unifie
     public constructor(unifiedRoleManagementPolicyCollectionResponseParameterValue?: UnifiedRoleManagementPolicyCollectionResponse | undefined) {
         this.additionalData = unifiedRoleManagementPolicyCollectionResponseParameterValue?.additionalData ? unifiedRoleManagementPolicyCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = unifiedRoleManagementPolicyCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: UnifiedRoleManagementPolicyImpl[] = []; unifiedRoleManagementPolicyCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof UnifiedRoleManagementPolicyImpl? element : new UnifiedRoleManagementPolicyImpl(element));});
+        const valueArrValue: UnifiedRoleManagementPolicyImpl[] = []; unifiedRoleManagementPolicyCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof UnifiedRoleManagementPolicyImpl? element : new UnifiedRoleManagementPolicyImpl(element));});
         this.value = valueArrValue;
     };
     /**

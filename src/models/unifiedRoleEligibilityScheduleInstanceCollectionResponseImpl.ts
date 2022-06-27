@@ -18,7 +18,7 @@ export class UnifiedRoleEligibilityScheduleInstanceCollectionResponseImpl implem
     public constructor(unifiedRoleEligibilityScheduleInstanceCollectionResponseParameterValue?: UnifiedRoleEligibilityScheduleInstanceCollectionResponse | undefined) {
         this.additionalData = unifiedRoleEligibilityScheduleInstanceCollectionResponseParameterValue?.additionalData ? unifiedRoleEligibilityScheduleInstanceCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = unifiedRoleEligibilityScheduleInstanceCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: UnifiedRoleEligibilityScheduleInstanceImpl[] = []; unifiedRoleEligibilityScheduleInstanceCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof UnifiedRoleEligibilityScheduleInstanceImpl? element : new UnifiedRoleEligibilityScheduleInstanceImpl(element));});
+        const valueArrValue: UnifiedRoleEligibilityScheduleInstanceImpl[] = []; unifiedRoleEligibilityScheduleInstanceCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof UnifiedRoleEligibilityScheduleInstanceImpl? element : new UnifiedRoleEligibilityScheduleInstanceImpl(element));});
         this.value = valueArrValue;
     };
     /**

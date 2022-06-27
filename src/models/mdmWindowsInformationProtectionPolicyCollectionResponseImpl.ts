@@ -18,7 +18,7 @@ export class MdmWindowsInformationProtectionPolicyCollectionResponseImpl impleme
     public constructor(mdmWindowsInformationProtectionPolicyCollectionResponseParameterValue?: MdmWindowsInformationProtectionPolicyCollectionResponse | undefined) {
         this.additionalData = mdmWindowsInformationProtectionPolicyCollectionResponseParameterValue?.additionalData ? mdmWindowsInformationProtectionPolicyCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = mdmWindowsInformationProtectionPolicyCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: MdmWindowsInformationProtectionPolicyImpl[] = []; mdmWindowsInformationProtectionPolicyCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof MdmWindowsInformationProtectionPolicyImpl? element : new MdmWindowsInformationProtectionPolicyImpl(element));});
+        const valueArrValue: MdmWindowsInformationProtectionPolicyImpl[] = []; mdmWindowsInformationProtectionPolicyCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof MdmWindowsInformationProtectionPolicyImpl? element : new MdmWindowsInformationProtectionPolicyImpl(element));});
         this.value = valueArrValue;
     };
     /**

@@ -34,7 +34,7 @@ export class MediaImpl implements Media {
         this.callerDevice = mediaParameterValue?.callerDevice instanceof DeviceInfoImpl? mediaParameterValue?.callerDevice:new DeviceInfoImpl(mediaParameterValue?.callerDevice);
         this.callerNetwork = mediaParameterValue?.callerNetwork instanceof NetworkInfoImpl? mediaParameterValue?.callerNetwork:new NetworkInfoImpl(mediaParameterValue?.callerNetwork);
         this.label = mediaParameterValue?.label;
-        const streamsArrValue: MediaStreamImpl[] = []; mediaParameterValue.streams?.forEach(element => {streamsArrValue.push(element instanceof MediaStreamImpl? element : new MediaStreamImpl(element));});
+        const streamsArrValue: MediaStreamImpl[] = []; mediaParameterValue?.streams?.forEach(element => {streamsArrValue.push(element instanceof MediaStreamImpl? element : new MediaStreamImpl(element));});
         this.streams = streamsArrValue;
     };
     /**

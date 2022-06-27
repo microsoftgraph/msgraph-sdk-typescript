@@ -18,7 +18,7 @@ export class PrintUsageByUserCollectionResponseImpl implements PrintUsageByUserC
     public constructor(printUsageByUserCollectionResponseParameterValue?: PrintUsageByUserCollectionResponse | undefined) {
         this.additionalData = printUsageByUserCollectionResponseParameterValue?.additionalData ? printUsageByUserCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = printUsageByUserCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: PrintUsageByUserImpl[] = []; printUsageByUserCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof PrintUsageByUserImpl? element : new PrintUsageByUserImpl(element));});
+        const valueArrValue: PrintUsageByUserImpl[] = []; printUsageByUserCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof PrintUsageByUserImpl? element : new PrintUsageByUserImpl(element));});
         this.value = valueArrValue;
     };
     /**

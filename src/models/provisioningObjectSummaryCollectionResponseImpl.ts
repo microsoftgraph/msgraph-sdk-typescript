@@ -18,7 +18,7 @@ export class ProvisioningObjectSummaryCollectionResponseImpl implements Provisio
     public constructor(provisioningObjectSummaryCollectionResponseParameterValue?: ProvisioningObjectSummaryCollectionResponse | undefined) {
         this.additionalData = provisioningObjectSummaryCollectionResponseParameterValue?.additionalData ? provisioningObjectSummaryCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = provisioningObjectSummaryCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: ProvisioningObjectSummaryImpl[] = []; provisioningObjectSummaryCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof ProvisioningObjectSummaryImpl? element : new ProvisioningObjectSummaryImpl(element));});
+        const valueArrValue: ProvisioningObjectSummaryImpl[] = []; provisioningObjectSummaryCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof ProvisioningObjectSummaryImpl? element : new ProvisioningObjectSummaryImpl(element));});
         this.value = valueArrValue;
     };
     /**

@@ -46,13 +46,13 @@ export class WorkbookTableImpl extends EntityImpl implements WorkbookTable {
      */
     public constructor(workbookTableParameterValue?: WorkbookTable | undefined) {
         super(workbookTableParameterValue);
-        const columnsArrValue: WorkbookTableColumnImpl[] = []; workbookTableParameterValue.columns?.forEach(element => {columnsArrValue.push(element instanceof WorkbookTableColumnImpl? element : new WorkbookTableColumnImpl(element));});
+        const columnsArrValue: WorkbookTableColumnImpl[] = []; workbookTableParameterValue?.columns?.forEach(element => {columnsArrValue.push(element instanceof WorkbookTableColumnImpl? element : new WorkbookTableColumnImpl(element));});
         this.columns = columnsArrValue;
         this.highlightFirstColumn = workbookTableParameterValue?.highlightFirstColumn;
         this.highlightLastColumn = workbookTableParameterValue?.highlightLastColumn;
         this.legacyId = workbookTableParameterValue?.legacyId;
         this.name = workbookTableParameterValue?.name;
-        const rowsArrValue: WorkbookTableRowImpl[] = []; workbookTableParameterValue.rows?.forEach(element => {rowsArrValue.push(element instanceof WorkbookTableRowImpl? element : new WorkbookTableRowImpl(element));});
+        const rowsArrValue: WorkbookTableRowImpl[] = []; workbookTableParameterValue?.rows?.forEach(element => {rowsArrValue.push(element instanceof WorkbookTableRowImpl? element : new WorkbookTableRowImpl(element));});
         this.rows = rowsArrValue;
         this.showBandedColumns = workbookTableParameterValue?.showBandedColumns;
         this.showBandedRows = workbookTableParameterValue?.showBandedRows;

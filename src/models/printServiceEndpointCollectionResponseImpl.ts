@@ -18,7 +18,7 @@ export class PrintServiceEndpointCollectionResponseImpl implements PrintServiceE
     public constructor(printServiceEndpointCollectionResponseParameterValue?: PrintServiceEndpointCollectionResponse | undefined) {
         this.additionalData = printServiceEndpointCollectionResponseParameterValue?.additionalData ? printServiceEndpointCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = printServiceEndpointCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: PrintServiceEndpointImpl[] = []; printServiceEndpointCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof PrintServiceEndpointImpl? element : new PrintServiceEndpointImpl(element));});
+        const valueArrValue: PrintServiceEndpointImpl[] = []; printServiceEndpointCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof PrintServiceEndpointImpl? element : new PrintServiceEndpointImpl(element));});
         this.value = valueArrValue;
     };
     /**

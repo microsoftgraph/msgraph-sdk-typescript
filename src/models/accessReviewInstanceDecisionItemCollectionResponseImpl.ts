@@ -18,7 +18,7 @@ export class AccessReviewInstanceDecisionItemCollectionResponseImpl implements A
     public constructor(accessReviewInstanceDecisionItemCollectionResponseParameterValue?: AccessReviewInstanceDecisionItemCollectionResponse | undefined) {
         this.additionalData = accessReviewInstanceDecisionItemCollectionResponseParameterValue?.additionalData ? accessReviewInstanceDecisionItemCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = accessReviewInstanceDecisionItemCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: AccessReviewInstanceDecisionItemImpl[] = []; accessReviewInstanceDecisionItemCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof AccessReviewInstanceDecisionItemImpl? element : new AccessReviewInstanceDecisionItemImpl(element));});
+        const valueArrValue: AccessReviewInstanceDecisionItemImpl[] = []; accessReviewInstanceDecisionItemCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof AccessReviewInstanceDecisionItemImpl? element : new AccessReviewInstanceDecisionItemImpl(element));});
         this.value = valueArrValue;
     };
     /**

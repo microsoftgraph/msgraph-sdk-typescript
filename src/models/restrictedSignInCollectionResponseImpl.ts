@@ -18,7 +18,7 @@ export class RestrictedSignInCollectionResponseImpl implements RestrictedSignInC
     public constructor(restrictedSignInCollectionResponseParameterValue?: RestrictedSignInCollectionResponse | undefined) {
         this.additionalData = restrictedSignInCollectionResponseParameterValue?.additionalData ? restrictedSignInCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = restrictedSignInCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: RestrictedSignInImpl[] = []; restrictedSignInCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof RestrictedSignInImpl? element : new RestrictedSignInImpl(element));});
+        const valueArrValue: RestrictedSignInImpl[] = []; restrictedSignInCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof RestrictedSignInImpl? element : new RestrictedSignInImpl(element));});
         this.value = valueArrValue;
     };
     /**

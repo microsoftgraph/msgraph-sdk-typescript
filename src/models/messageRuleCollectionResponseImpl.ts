@@ -18,7 +18,7 @@ export class MessageRuleCollectionResponseImpl implements MessageRuleCollectionR
     public constructor(messageRuleCollectionResponseParameterValue?: MessageRuleCollectionResponse | undefined) {
         this.additionalData = messageRuleCollectionResponseParameterValue?.additionalData ? messageRuleCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = messageRuleCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: MessageRuleImpl[] = []; messageRuleCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof MessageRuleImpl? element : new MessageRuleImpl(element));});
+        const valueArrValue: MessageRuleImpl[] = []; messageRuleCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof MessageRuleImpl? element : new MessageRuleImpl(element));});
         this.value = valueArrValue;
     };
     /**

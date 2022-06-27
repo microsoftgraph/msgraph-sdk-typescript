@@ -31,7 +31,7 @@ export class IdentityUserFlowAttributeAssignmentImpl extends EntityImpl implemen
         this.isOptional = identityUserFlowAttributeAssignmentParameterValue?.isOptional;
         this.requiresVerification = identityUserFlowAttributeAssignmentParameterValue?.requiresVerification;
         this.userAttribute = identityUserFlowAttributeAssignmentParameterValue?.userAttribute instanceof IdentityUserFlowAttributeImpl? identityUserFlowAttributeAssignmentParameterValue?.userAttribute:new IdentityUserFlowAttributeImpl(identityUserFlowAttributeAssignmentParameterValue?.userAttribute);
-        const userAttributeValuesArrValue: UserAttributeValuesItemImpl[] = []; identityUserFlowAttributeAssignmentParameterValue.userAttributeValues?.forEach(element => {userAttributeValuesArrValue.push(element instanceof UserAttributeValuesItemImpl? element : new UserAttributeValuesItemImpl(element));});
+        const userAttributeValuesArrValue: UserAttributeValuesItemImpl[] = []; identityUserFlowAttributeAssignmentParameterValue?.userAttributeValues?.forEach(element => {userAttributeValuesArrValue.push(element instanceof UserAttributeValuesItemImpl? element : new UserAttributeValuesItemImpl(element));});
         this.userAttributeValues = userAttributeValuesArrValue;
         this.userInputType = identityUserFlowAttributeAssignmentParameterValue?.userInputType;
     };

@@ -27,9 +27,9 @@ export class RoleDefinitionImpl extends EntityImpl implements RoleDefinition {
         this.description = roleDefinitionParameterValue?.description;
         this.displayName = roleDefinitionParameterValue?.displayName;
         this.isBuiltIn = roleDefinitionParameterValue?.isBuiltIn;
-        const roleAssignmentsArrValue: RoleAssignmentImpl[] = []; roleDefinitionParameterValue.roleAssignments?.forEach(element => {roleAssignmentsArrValue.push(element instanceof RoleAssignmentImpl? element : new RoleAssignmentImpl(element));});
+        const roleAssignmentsArrValue: RoleAssignmentImpl[] = []; roleDefinitionParameterValue?.roleAssignments?.forEach(element => {roleAssignmentsArrValue.push(element instanceof RoleAssignmentImpl? element : new RoleAssignmentImpl(element));});
         this.roleAssignments = roleAssignmentsArrValue;
-        const rolePermissionsArrValue: RolePermissionImpl[] = []; roleDefinitionParameterValue.rolePermissions?.forEach(element => {rolePermissionsArrValue.push(element instanceof RolePermissionImpl? element : new RolePermissionImpl(element));});
+        const rolePermissionsArrValue: RolePermissionImpl[] = []; roleDefinitionParameterValue?.rolePermissions?.forEach(element => {rolePermissionsArrValue.push(element instanceof RolePermissionImpl? element : new RolePermissionImpl(element));});
         this.rolePermissions = rolePermissionsArrValue;
     };
     /**

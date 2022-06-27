@@ -1,3 +1,3 @@
 export * from './keyCredentialPostRequestBodyImpl'
-export * from './keyCredentialPostRequestBody'
 export * from './addKeyRequestBuilderPostRequestConfiguration'
+export * from './keyCredentialPostRequestBody'

@@ -18,7 +18,7 @@ export class MultiValueLegacyExtendedPropertyCollectionResponseImpl implements M
     public constructor(multiValueLegacyExtendedPropertyCollectionResponseParameterValue?: MultiValueLegacyExtendedPropertyCollectionResponse | undefined) {
         this.additionalData = multiValueLegacyExtendedPropertyCollectionResponseParameterValue?.additionalData ? multiValueLegacyExtendedPropertyCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = multiValueLegacyExtendedPropertyCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: MultiValueLegacyExtendedPropertyImpl[] = []; multiValueLegacyExtendedPropertyCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof MultiValueLegacyExtendedPropertyImpl? element : new MultiValueLegacyExtendedPropertyImpl(element));});
+        const valueArrValue: MultiValueLegacyExtendedPropertyImpl[] = []; multiValueLegacyExtendedPropertyCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof MultiValueLegacyExtendedPropertyImpl? element : new MultiValueLegacyExtendedPropertyImpl(element));});
         this.value = valueArrValue;
     };
     /**

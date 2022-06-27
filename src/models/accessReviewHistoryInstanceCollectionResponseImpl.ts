@@ -18,7 +18,7 @@ export class AccessReviewHistoryInstanceCollectionResponseImpl implements Access
     public constructor(accessReviewHistoryInstanceCollectionResponseParameterValue?: AccessReviewHistoryInstanceCollectionResponse | undefined) {
         this.additionalData = accessReviewHistoryInstanceCollectionResponseParameterValue?.additionalData ? accessReviewHistoryInstanceCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = accessReviewHistoryInstanceCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: AccessReviewHistoryInstanceImpl[] = []; accessReviewHistoryInstanceCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof AccessReviewHistoryInstanceImpl? element : new AccessReviewHistoryInstanceImpl(element));});
+        const valueArrValue: AccessReviewHistoryInstanceImpl[] = []; accessReviewHistoryInstanceCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof AccessReviewHistoryInstanceImpl? element : new AccessReviewHistoryInstanceImpl(element));});
         this.value = valueArrValue;
     };
     /**

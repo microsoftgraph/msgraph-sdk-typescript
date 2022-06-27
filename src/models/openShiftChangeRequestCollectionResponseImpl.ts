@@ -18,7 +18,7 @@ export class OpenShiftChangeRequestCollectionResponseImpl implements OpenShiftCh
     public constructor(openShiftChangeRequestCollectionResponseParameterValue?: OpenShiftChangeRequestCollectionResponse | undefined) {
         this.additionalData = openShiftChangeRequestCollectionResponseParameterValue?.additionalData ? openShiftChangeRequestCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = openShiftChangeRequestCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: OpenShiftChangeRequestImpl[] = []; openShiftChangeRequestCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof OpenShiftChangeRequestImpl? element : new OpenShiftChangeRequestImpl(element));});
+        const valueArrValue: OpenShiftChangeRequestImpl[] = []; openShiftChangeRequestCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof OpenShiftChangeRequestImpl? element : new OpenShiftChangeRequestImpl(element));});
         this.value = valueArrValue;
     };
     /**

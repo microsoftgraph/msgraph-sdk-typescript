@@ -18,7 +18,7 @@ export class MobileThreatDefenseConnectorCollectionResponseImpl implements Mobil
     public constructor(mobileThreatDefenseConnectorCollectionResponseParameterValue?: MobileThreatDefenseConnectorCollectionResponse | undefined) {
         this.additionalData = mobileThreatDefenseConnectorCollectionResponseParameterValue?.additionalData ? mobileThreatDefenseConnectorCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = mobileThreatDefenseConnectorCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: MobileThreatDefenseConnectorImpl[] = []; mobileThreatDefenseConnectorCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof MobileThreatDefenseConnectorImpl? element : new MobileThreatDefenseConnectorImpl(element));});
+        const valueArrValue: MobileThreatDefenseConnectorImpl[] = []; mobileThreatDefenseConnectorCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof MobileThreatDefenseConnectorImpl? element : new MobileThreatDefenseConnectorImpl(element));});
         this.value = valueArrValue;
     };
     /**

@@ -16,7 +16,7 @@ export class GetManagedAppDiagnosticStatusesResponseImpl implements GetManagedAp
      */
     public constructor(getManagedAppDiagnosticStatusesResponseParameterValue?: GetManagedAppDiagnosticStatusesResponse | undefined) {
         this.additionalData = getManagedAppDiagnosticStatusesResponseParameterValue?.additionalData ? getManagedAppDiagnosticStatusesResponseParameterValue?.additionalData! : {};
-        const valueArrValue: ManagedAppDiagnosticStatusImpl[] = []; getManagedAppDiagnosticStatusesResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof ManagedAppDiagnosticStatusImpl? element : new ManagedAppDiagnosticStatusImpl(element));});
+        const valueArrValue: ManagedAppDiagnosticStatusImpl[] = []; getManagedAppDiagnosticStatusesResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof ManagedAppDiagnosticStatusImpl? element : new ManagedAppDiagnosticStatusImpl(element));});
         this.value = valueArrValue;
     };
     /**

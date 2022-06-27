@@ -18,7 +18,7 @@ export class LinkedResourceCollectionResponseImpl implements LinkedResourceColle
     public constructor(linkedResourceCollectionResponseParameterValue?: LinkedResourceCollectionResponse | undefined) {
         this.additionalData = linkedResourceCollectionResponseParameterValue?.additionalData ? linkedResourceCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = linkedResourceCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: LinkedResourceImpl[] = []; linkedResourceCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof LinkedResourceImpl? element : new LinkedResourceImpl(element));});
+        const valueArrValue: LinkedResourceImpl[] = []; linkedResourceCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof LinkedResourceImpl? element : new LinkedResourceImpl(element));});
         this.value = valueArrValue;
     };
     /**

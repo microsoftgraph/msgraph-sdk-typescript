@@ -16,7 +16,7 @@ export class SupportedLanguagesResponseImpl implements SupportedLanguagesRespons
      */
     public constructor(supportedLanguagesResponseParameterValue?: SupportedLanguagesResponse | undefined) {
         this.additionalData = supportedLanguagesResponseParameterValue?.additionalData ? supportedLanguagesResponseParameterValue?.additionalData! : {};
-        const valueArrValue: LocaleInfoImpl[] = []; supportedLanguagesResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof LocaleInfoImpl? element : new LocaleInfoImpl(element));});
+        const valueArrValue: LocaleInfoImpl[] = []; supportedLanguagesResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof LocaleInfoImpl? element : new LocaleInfoImpl(element));});
         this.value = valueArrValue;
     };
     /**

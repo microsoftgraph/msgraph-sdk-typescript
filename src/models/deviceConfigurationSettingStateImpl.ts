@@ -45,7 +45,7 @@ export class DeviceConfigurationSettingStateImpl implements DeviceConfigurationS
         this.instanceDisplayName = deviceConfigurationSettingStateParameterValue?.instanceDisplayName;
         this.setting = deviceConfigurationSettingStateParameterValue?.setting;
         this.settingName = deviceConfigurationSettingStateParameterValue?.settingName;
-        const sourcesArrValue: SettingSourceImpl[] = []; deviceConfigurationSettingStateParameterValue.sources?.forEach(element => {sourcesArrValue.push(element instanceof SettingSourceImpl? element : new SettingSourceImpl(element));});
+        const sourcesArrValue: SettingSourceImpl[] = []; deviceConfigurationSettingStateParameterValue?.sources?.forEach(element => {sourcesArrValue.push(element instanceof SettingSourceImpl? element : new SettingSourceImpl(element));});
         this.sources = sourcesArrValue;
         this.state = deviceConfigurationSettingStateParameterValue?.state;
         this.userEmail = deviceConfigurationSettingStateParameterValue?.userEmail;

@@ -18,7 +18,7 @@ export class PrintOperationCollectionResponseImpl implements PrintOperationColle
     public constructor(printOperationCollectionResponseParameterValue?: PrintOperationCollectionResponse | undefined) {
         this.additionalData = printOperationCollectionResponseParameterValue?.additionalData ? printOperationCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = printOperationCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: PrintOperationImpl[] = []; printOperationCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof PrintOperationImpl? element : new PrintOperationImpl(element));});
+        const valueArrValue: PrintOperationImpl[] = []; printOperationCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof PrintOperationImpl? element : new PrintOperationImpl(element));});
         this.value = valueArrValue;
     };
     /**

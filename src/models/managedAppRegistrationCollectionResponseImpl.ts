@@ -18,7 +18,7 @@ export class ManagedAppRegistrationCollectionResponseImpl implements ManagedAppR
     public constructor(managedAppRegistrationCollectionResponseParameterValue?: ManagedAppRegistrationCollectionResponse | undefined) {
         this.additionalData = managedAppRegistrationCollectionResponseParameterValue?.additionalData ? managedAppRegistrationCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = managedAppRegistrationCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: ManagedAppRegistrationImpl[] = []; managedAppRegistrationCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof ManagedAppRegistrationImpl? element : new ManagedAppRegistrationImpl(element));});
+        const valueArrValue: ManagedAppRegistrationImpl[] = []; managedAppRegistrationCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof ManagedAppRegistrationImpl? element : new ManagedAppRegistrationImpl(element));});
         this.value = valueArrValue;
     };
     /**

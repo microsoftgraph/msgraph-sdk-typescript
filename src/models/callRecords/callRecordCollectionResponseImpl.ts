@@ -18,7 +18,7 @@ export class CallRecordCollectionResponseImpl implements CallRecordCollectionRes
     public constructor(callRecordCollectionResponseParameterValue?: CallRecordCollectionResponse | undefined) {
         this.additionalData = callRecordCollectionResponseParameterValue?.additionalData ? callRecordCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = callRecordCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: CallRecordImpl[] = []; callRecordCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof CallRecordImpl? element : new CallRecordImpl(element));});
+        const valueArrValue: CallRecordImpl[] = []; callRecordCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof CallRecordImpl? element : new CallRecordImpl(element));});
         this.value = valueArrValue;
     };
     /**

@@ -18,7 +18,7 @@ export class EducationAssignmentCollectionResponseImpl implements EducationAssig
     public constructor(educationAssignmentCollectionResponseParameterValue?: EducationAssignmentCollectionResponse | undefined) {
         this.additionalData = educationAssignmentCollectionResponseParameterValue?.additionalData ? educationAssignmentCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = educationAssignmentCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: EducationAssignmentImpl[] = []; educationAssignmentCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof EducationAssignmentImpl? element : new EducationAssignmentImpl(element));});
+        const valueArrValue: EducationAssignmentImpl[] = []; educationAssignmentCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof EducationAssignmentImpl? element : new EducationAssignmentImpl(element));});
         this.value = valueArrValue;
     };
     /**

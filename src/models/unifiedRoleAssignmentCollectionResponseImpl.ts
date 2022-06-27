@@ -18,7 +18,7 @@ export class UnifiedRoleAssignmentCollectionResponseImpl implements UnifiedRoleA
     public constructor(unifiedRoleAssignmentCollectionResponseParameterValue?: UnifiedRoleAssignmentCollectionResponse | undefined) {
         this.additionalData = unifiedRoleAssignmentCollectionResponseParameterValue?.additionalData ? unifiedRoleAssignmentCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = unifiedRoleAssignmentCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: UnifiedRoleAssignmentImpl[] = []; unifiedRoleAssignmentCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof UnifiedRoleAssignmentImpl? element : new UnifiedRoleAssignmentImpl(element));});
+        const valueArrValue: UnifiedRoleAssignmentImpl[] = []; unifiedRoleAssignmentCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof UnifiedRoleAssignmentImpl? element : new UnifiedRoleAssignmentImpl(element));});
         this.value = valueArrValue;
     };
     /**

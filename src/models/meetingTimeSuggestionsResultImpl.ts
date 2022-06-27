@@ -18,7 +18,7 @@ export class MeetingTimeSuggestionsResultImpl implements MeetingTimeSuggestionsR
     public constructor(meetingTimeSuggestionsResultParameterValue?: MeetingTimeSuggestionsResult | undefined) {
         this.additionalData = meetingTimeSuggestionsResultParameterValue?.additionalData ? meetingTimeSuggestionsResultParameterValue?.additionalData! : {};
         this.emptySuggestionsReason = meetingTimeSuggestionsResultParameterValue?.emptySuggestionsReason;
-        const meetingTimeSuggestionsArrValue: MeetingTimeSuggestionImpl[] = []; meetingTimeSuggestionsResultParameterValue.meetingTimeSuggestions?.forEach(element => {meetingTimeSuggestionsArrValue.push(element instanceof MeetingTimeSuggestionImpl? element : new MeetingTimeSuggestionImpl(element));});
+        const meetingTimeSuggestionsArrValue: MeetingTimeSuggestionImpl[] = []; meetingTimeSuggestionsResultParameterValue?.meetingTimeSuggestions?.forEach(element => {meetingTimeSuggestionsArrValue.push(element instanceof MeetingTimeSuggestionImpl? element : new MeetingTimeSuggestionImpl(element));});
         this.meetingTimeSuggestions = meetingTimeSuggestionsArrValue;
     };
     /**

@@ -18,7 +18,7 @@ export class SingleValueLegacyExtendedPropertyCollectionResponseImpl implements 
     public constructor(singleValueLegacyExtendedPropertyCollectionResponseParameterValue?: SingleValueLegacyExtendedPropertyCollectionResponse | undefined) {
         this.additionalData = singleValueLegacyExtendedPropertyCollectionResponseParameterValue?.additionalData ? singleValueLegacyExtendedPropertyCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = singleValueLegacyExtendedPropertyCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: SingleValueLegacyExtendedPropertyImpl[] = []; singleValueLegacyExtendedPropertyCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof SingleValueLegacyExtendedPropertyImpl? element : new SingleValueLegacyExtendedPropertyImpl(element));});
+        const valueArrValue: SingleValueLegacyExtendedPropertyImpl[] = []; singleValueLegacyExtendedPropertyCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof SingleValueLegacyExtendedPropertyImpl? element : new SingleValueLegacyExtendedPropertyImpl(element));});
         this.value = valueArrValue;
     };
     /**

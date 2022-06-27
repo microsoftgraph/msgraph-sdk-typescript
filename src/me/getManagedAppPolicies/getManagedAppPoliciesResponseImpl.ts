@@ -16,7 +16,7 @@ export class GetManagedAppPoliciesResponseImpl implements GetManagedAppPoliciesR
      */
     public constructor(getManagedAppPoliciesResponseParameterValue?: GetManagedAppPoliciesResponse | undefined) {
         this.additionalData = getManagedAppPoliciesResponseParameterValue?.additionalData ? getManagedAppPoliciesResponseParameterValue?.additionalData! : {};
-        const valueArrValue: ManagedAppPolicyImpl[] = []; getManagedAppPoliciesResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof ManagedAppPolicyImpl? element : new ManagedAppPolicyImpl(element));});
+        const valueArrValue: ManagedAppPolicyImpl[] = []; getManagedAppPoliciesResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof ManagedAppPolicyImpl? element : new ManagedAppPolicyImpl(element));});
         this.value = valueArrValue;
     };
     /**

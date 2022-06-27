@@ -16,7 +16,7 @@ export class AssignResponseImpl implements AssignResponse {
      */
     public constructor(assignResponseParameterValue?: AssignResponse | undefined) {
         this.additionalData = assignResponseParameterValue?.additionalData ? assignResponseParameterValue?.additionalData! : {};
-        const valueArrValue: DeviceCompliancePolicyAssignmentImpl[] = []; assignResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof DeviceCompliancePolicyAssignmentImpl? element : new DeviceCompliancePolicyAssignmentImpl(element));});
+        const valueArrValue: DeviceCompliancePolicyAssignmentImpl[] = []; assignResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof DeviceCompliancePolicyAssignmentImpl? element : new DeviceCompliancePolicyAssignmentImpl(element));});
         this.value = valueArrValue;
     };
     /**

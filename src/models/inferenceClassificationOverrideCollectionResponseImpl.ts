@@ -18,7 +18,7 @@ export class InferenceClassificationOverrideCollectionResponseImpl implements In
     public constructor(inferenceClassificationOverrideCollectionResponseParameterValue?: InferenceClassificationOverrideCollectionResponse | undefined) {
         this.additionalData = inferenceClassificationOverrideCollectionResponseParameterValue?.additionalData ? inferenceClassificationOverrideCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = inferenceClassificationOverrideCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: InferenceClassificationOverrideImpl[] = []; inferenceClassificationOverrideCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof InferenceClassificationOverrideImpl? element : new InferenceClassificationOverrideImpl(element));});
+        const valueArrValue: InferenceClassificationOverrideImpl[] = []; inferenceClassificationOverrideCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof InferenceClassificationOverrideImpl? element : new InferenceClassificationOverrideImpl(element));});
         this.value = valueArrValue;
     };
     /**

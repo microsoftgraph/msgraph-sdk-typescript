@@ -18,7 +18,7 @@ export class PlannerBucketCollectionResponseImpl implements PlannerBucketCollect
     public constructor(plannerBucketCollectionResponseParameterValue?: PlannerBucketCollectionResponse | undefined) {
         this.additionalData = plannerBucketCollectionResponseParameterValue?.additionalData ? plannerBucketCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = plannerBucketCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: PlannerBucketImpl[] = []; plannerBucketCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof PlannerBucketImpl? element : new PlannerBucketImpl(element));});
+        const valueArrValue: PlannerBucketImpl[] = []; plannerBucketCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof PlannerBucketImpl? element : new PlannerBucketImpl(element));});
         this.value = valueArrValue;
     };
     /**

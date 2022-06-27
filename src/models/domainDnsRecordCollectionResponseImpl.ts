@@ -18,7 +18,7 @@ export class DomainDnsRecordCollectionResponseImpl implements DomainDnsRecordCol
     public constructor(domainDnsRecordCollectionResponseParameterValue?: DomainDnsRecordCollectionResponse | undefined) {
         this.additionalData = domainDnsRecordCollectionResponseParameterValue?.additionalData ? domainDnsRecordCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = domainDnsRecordCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: DomainDnsRecordImpl[] = []; domainDnsRecordCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof DomainDnsRecordImpl? element : new DomainDnsRecordImpl(element));});
+        const valueArrValue: DomainDnsRecordImpl[] = []; domainDnsRecordCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof DomainDnsRecordImpl? element : new DomainDnsRecordImpl(element));});
         this.value = valueArrValue;
     };
     /**

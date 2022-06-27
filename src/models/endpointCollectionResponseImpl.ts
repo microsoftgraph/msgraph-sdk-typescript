@@ -18,7 +18,7 @@ export class EndpointCollectionResponseImpl implements EndpointCollectionRespons
     public constructor(endpointCollectionResponseParameterValue?: EndpointCollectionResponse | undefined) {
         this.additionalData = endpointCollectionResponseParameterValue?.additionalData ? endpointCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = endpointCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: EndpointImpl[] = []; endpointCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof EndpointImpl? element : new EndpointImpl(element));});
+        const valueArrValue: EndpointImpl[] = []; endpointCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof EndpointImpl? element : new EndpointImpl(element));});
         this.value = valueArrValue;
     };
     /**

@@ -19,7 +19,7 @@ export class InvitedUserMessageInfoImpl implements InvitedUserMessageInfo {
      */
     public constructor(invitedUserMessageInfoParameterValue?: InvitedUserMessageInfo | undefined) {
         this.additionalData = invitedUserMessageInfoParameterValue?.additionalData ? invitedUserMessageInfoParameterValue?.additionalData! : {};
-        const ccRecipientsArrValue: RecipientImpl[] = []; invitedUserMessageInfoParameterValue.ccRecipients?.forEach(element => {ccRecipientsArrValue.push(element instanceof RecipientImpl? element : new RecipientImpl(element));});
+        const ccRecipientsArrValue: RecipientImpl[] = []; invitedUserMessageInfoParameterValue?.ccRecipients?.forEach(element => {ccRecipientsArrValue.push(element instanceof RecipientImpl? element : new RecipientImpl(element));});
         this.ccRecipients = ccRecipientsArrValue;
         this.customizedMessageBody = invitedUserMessageInfoParameterValue?.customizedMessageBody;
         this.messageLanguage = invitedUserMessageInfoParameterValue?.messageLanguage;

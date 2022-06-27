@@ -5,7 +5,7 @@ import {UnifiedRoleDefinition} from './unifiedRoleDefinition';
 import {UnifiedRolePermission} from './unifiedRolePermission';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the identityGovernance singleton. */
+/** Provides operations to manage the roleManagement singleton. */
 export class UnifiedRoleDefinitionImpl extends EntityImpl implements UnifiedRoleDefinition {
     /** The description for the unifiedRoleDefinition. Read-only when isBuiltIn is true. */
     public description?: string | undefined;
@@ -33,12 +33,12 @@ export class UnifiedRoleDefinitionImpl extends EntityImpl implements UnifiedRole
         super(unifiedRoleDefinitionParameterValue);
         this.description = unifiedRoleDefinitionParameterValue?.description;
         this.displayName = unifiedRoleDefinitionParameterValue?.displayName;
-        const inheritsPermissionsFromArrValue: UnifiedRoleDefinitionImpl[] = []; unifiedRoleDefinitionParameterValue.inheritsPermissionsFrom?.forEach(element => {inheritsPermissionsFromArrValue.push(element instanceof UnifiedRoleDefinitionImpl? element : new UnifiedRoleDefinitionImpl(element));});
+        const inheritsPermissionsFromArrValue: UnifiedRoleDefinitionImpl[] = []; unifiedRoleDefinitionParameterValue?.inheritsPermissionsFrom?.forEach(element => {inheritsPermissionsFromArrValue.push(element instanceof UnifiedRoleDefinitionImpl? element : new UnifiedRoleDefinitionImpl(element));});
         this.inheritsPermissionsFrom = inheritsPermissionsFromArrValue;
         this.isBuiltIn = unifiedRoleDefinitionParameterValue?.isBuiltIn;
         this.isEnabled = unifiedRoleDefinitionParameterValue?.isEnabled;
         this.resourceScopes = unifiedRoleDefinitionParameterValue?.resourceScopes;
-        const rolePermissionsArrValue: UnifiedRolePermissionImpl[] = []; unifiedRoleDefinitionParameterValue.rolePermissions?.forEach(element => {rolePermissionsArrValue.push(element instanceof UnifiedRolePermissionImpl? element : new UnifiedRolePermissionImpl(element));});
+        const rolePermissionsArrValue: UnifiedRolePermissionImpl[] = []; unifiedRoleDefinitionParameterValue?.rolePermissions?.forEach(element => {rolePermissionsArrValue.push(element instanceof UnifiedRolePermissionImpl? element : new UnifiedRolePermissionImpl(element));});
         this.rolePermissions = rolePermissionsArrValue;
         this.templateId = unifiedRoleDefinitionParameterValue?.templateId;
         this.version = unifiedRoleDefinitionParameterValue?.version;

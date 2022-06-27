@@ -20,7 +20,7 @@ import {Subscription} from './subscription';
 import {SystemFacet} from './systemFacet';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of application entities. */
+/** Casts the previous resource to group. */
 export class ListImpl extends BaseItemImpl implements List {
     /** The collection of field definitions for this list. */
     public columns?: ColumnDefinition[] | undefined;
@@ -48,19 +48,19 @@ export class ListImpl extends BaseItemImpl implements List {
      */
     public constructor(listParameterValue?: List | undefined) {
         super(listParameterValue);
-        const columnsArrValue: ColumnDefinitionImpl[] = []; listParameterValue.columns?.forEach(element => {columnsArrValue.push(element instanceof ColumnDefinitionImpl? element : new ColumnDefinitionImpl(element));});
+        const columnsArrValue: ColumnDefinitionImpl[] = []; listParameterValue?.columns?.forEach(element => {columnsArrValue.push(element instanceof ColumnDefinitionImpl? element : new ColumnDefinitionImpl(element));});
         this.columns = columnsArrValue;
-        const contentTypesArrValue: ContentTypeImpl[] = []; listParameterValue.contentTypes?.forEach(element => {contentTypesArrValue.push(element instanceof ContentTypeImpl? element : new ContentTypeImpl(element));});
+        const contentTypesArrValue: ContentTypeImpl[] = []; listParameterValue?.contentTypes?.forEach(element => {contentTypesArrValue.push(element instanceof ContentTypeImpl? element : new ContentTypeImpl(element));});
         this.contentTypes = contentTypesArrValue;
         this.displayName = listParameterValue?.displayName;
         this.drive = listParameterValue?.drive instanceof DriveImpl? listParameterValue?.drive:new DriveImpl(listParameterValue?.drive);
-        const itemsArrValue: ListItemImpl[] = []; listParameterValue.items?.forEach(element => {itemsArrValue.push(element instanceof ListItemImpl? element : new ListItemImpl(element));});
+        const itemsArrValue: ListItemImpl[] = []; listParameterValue?.items?.forEach(element => {itemsArrValue.push(element instanceof ListItemImpl? element : new ListItemImpl(element));});
         this.items = itemsArrValue;
         this.list = listParameterValue?.list instanceof ListInfoImpl? listParameterValue?.list:new ListInfoImpl(listParameterValue?.list);
-        const operationsArrValue: RichLongRunningOperationImpl[] = []; listParameterValue.operations?.forEach(element => {operationsArrValue.push(element instanceof RichLongRunningOperationImpl? element : new RichLongRunningOperationImpl(element));});
+        const operationsArrValue: RichLongRunningOperationImpl[] = []; listParameterValue?.operations?.forEach(element => {operationsArrValue.push(element instanceof RichLongRunningOperationImpl? element : new RichLongRunningOperationImpl(element));});
         this.operations = operationsArrValue;
         this.sharepointIds = listParameterValue?.sharepointIds instanceof SharepointIdsImpl? listParameterValue?.sharepointIds:new SharepointIdsImpl(listParameterValue?.sharepointIds);
-        const subscriptionsArrValue: SubscriptionImpl[] = []; listParameterValue.subscriptions?.forEach(element => {subscriptionsArrValue.push(element instanceof SubscriptionImpl? element : new SubscriptionImpl(element));});
+        const subscriptionsArrValue: SubscriptionImpl[] = []; listParameterValue?.subscriptions?.forEach(element => {subscriptionsArrValue.push(element instanceof SubscriptionImpl? element : new SubscriptionImpl(element));});
         this.subscriptions = subscriptionsArrValue;
         this.system = listParameterValue?.system instanceof SystemFacetImpl? listParameterValue?.system:new SystemFacetImpl(listParameterValue?.system);
     };

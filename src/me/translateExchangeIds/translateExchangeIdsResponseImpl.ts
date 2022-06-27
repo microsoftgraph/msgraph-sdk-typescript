@@ -16,7 +16,7 @@ export class TranslateExchangeIdsResponseImpl implements TranslateExchangeIdsRes
      */
     public constructor(translateExchangeIdsResponseParameterValue?: TranslateExchangeIdsResponse | undefined) {
         this.additionalData = translateExchangeIdsResponseParameterValue?.additionalData ? translateExchangeIdsResponseParameterValue?.additionalData! : {};
-        const valueArrValue: ConvertIdResultImpl[] = []; translateExchangeIdsResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof ConvertIdResultImpl? element : new ConvertIdResultImpl(element));});
+        const valueArrValue: ConvertIdResultImpl[] = []; translateExchangeIdsResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof ConvertIdResultImpl? element : new ConvertIdResultImpl(element));});
         this.value = valueArrValue;
     };
     /**

@@ -25,7 +25,7 @@ export class RubricQualityImpl implements RubricQuality {
      */
     public constructor(rubricQualityParameterValue?: RubricQuality | undefined) {
         this.additionalData = rubricQualityParameterValue?.additionalData ? rubricQualityParameterValue?.additionalData! : {};
-        const criteriaArrValue: RubricCriterionImpl[] = []; rubricQualityParameterValue.criteria?.forEach(element => {criteriaArrValue.push(element instanceof RubricCriterionImpl? element : new RubricCriterionImpl(element));});
+        const criteriaArrValue: RubricCriterionImpl[] = []; rubricQualityParameterValue?.criteria?.forEach(element => {criteriaArrValue.push(element instanceof RubricCriterionImpl? element : new RubricCriterionImpl(element));});
         this.criteria = criteriaArrValue;
         this.description = rubricQualityParameterValue?.description instanceof EducationItemBodyImpl? rubricQualityParameterValue?.description:new EducationItemBodyImpl(rubricQualityParameterValue?.description);
         this.displayName = rubricQualityParameterValue?.displayName;

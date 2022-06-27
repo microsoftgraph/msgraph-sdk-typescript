@@ -31,7 +31,7 @@ export class SendActivityNotificationPostRequestBodyImpl implements SendActivity
         this.additionalData = sendActivityNotificationPostRequestBodyParameterValue?.additionalData ? sendActivityNotificationPostRequestBodyParameterValue?.additionalData! : {};
         this.chainId = sendActivityNotificationPostRequestBodyParameterValue?.chainId;
         this.previewText = sendActivityNotificationPostRequestBodyParameterValue?.previewText instanceof ItemBodyImpl? sendActivityNotificationPostRequestBodyParameterValue?.previewText:new ItemBodyImpl(sendActivityNotificationPostRequestBodyParameterValue?.previewText);
-        const templateParametersArrValue: KeyValuePairImpl[] = []; sendActivityNotificationPostRequestBodyParameterValue.templateParameters?.forEach(element => {templateParametersArrValue.push(element instanceof KeyValuePairImpl? element : new KeyValuePairImpl(element));});
+        const templateParametersArrValue: KeyValuePairImpl[] = []; sendActivityNotificationPostRequestBodyParameterValue?.templateParameters?.forEach(element => {templateParametersArrValue.push(element instanceof KeyValuePairImpl? element : new KeyValuePairImpl(element));});
         this.templateParameters = templateParametersArrValue;
         this.topic = sendActivityNotificationPostRequestBodyParameterValue?.topic instanceof TeamworkActivityTopicImpl? sendActivityNotificationPostRequestBodyParameterValue?.topic:new TeamworkActivityTopicImpl(sendActivityNotificationPostRequestBodyParameterValue?.topic);
     };

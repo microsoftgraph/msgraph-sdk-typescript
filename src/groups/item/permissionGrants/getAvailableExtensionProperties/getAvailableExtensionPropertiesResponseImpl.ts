@@ -16,7 +16,7 @@ export class GetAvailableExtensionPropertiesResponseImpl implements GetAvailable
      */
     public constructor(getAvailableExtensionPropertiesResponseParameterValue?: GetAvailableExtensionPropertiesResponse | undefined) {
         this.additionalData = getAvailableExtensionPropertiesResponseParameterValue?.additionalData ? getAvailableExtensionPropertiesResponseParameterValue?.additionalData! : {};
-        const valueArrValue: ExtensionPropertyImpl[] = []; getAvailableExtensionPropertiesResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof ExtensionPropertyImpl? element : new ExtensionPropertyImpl(element));});
+        const valueArrValue: ExtensionPropertyImpl[] = []; getAvailableExtensionPropertiesResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof ExtensionPropertyImpl? element : new ExtensionPropertyImpl(element));});
         this.value = valueArrValue;
     };
     /**

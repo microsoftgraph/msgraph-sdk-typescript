@@ -18,7 +18,7 @@ export class UserFlowLanguageConfigurationCollectionResponseImpl implements User
     public constructor(userFlowLanguageConfigurationCollectionResponseParameterValue?: UserFlowLanguageConfigurationCollectionResponse | undefined) {
         this.additionalData = userFlowLanguageConfigurationCollectionResponseParameterValue?.additionalData ? userFlowLanguageConfigurationCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = userFlowLanguageConfigurationCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: UserFlowLanguageConfigurationImpl[] = []; userFlowLanguageConfigurationCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof UserFlowLanguageConfigurationImpl? element : new UserFlowLanguageConfigurationImpl(element));});
+        const valueArrValue: UserFlowLanguageConfigurationImpl[] = []; userFlowLanguageConfigurationCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof UserFlowLanguageConfigurationImpl? element : new UserFlowLanguageConfigurationImpl(element));});
         this.value = valueArrValue;
     };
     /**

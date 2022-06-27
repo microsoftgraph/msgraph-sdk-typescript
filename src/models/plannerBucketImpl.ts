@@ -23,7 +23,7 @@ export class PlannerBucketImpl extends EntityImpl implements PlannerBucket {
         this.name = plannerBucketParameterValue?.name;
         this.orderHint = plannerBucketParameterValue?.orderHint;
         this.planId = plannerBucketParameterValue?.planId;
-        const tasksArrValue: PlannerTaskImpl[] = []; plannerBucketParameterValue.tasks?.forEach(element => {tasksArrValue.push(element instanceof PlannerTaskImpl? element : new PlannerTaskImpl(element));});
+        const tasksArrValue: PlannerTaskImpl[] = []; plannerBucketParameterValue?.tasks?.forEach(element => {tasksArrValue.push(element instanceof PlannerTaskImpl? element : new PlannerTaskImpl(element));});
         this.tasks = tasksArrValue;
     };
     /**

@@ -104,9 +104,9 @@ export class ContactImpl extends OutlookItemImpl implements Contact {
         this.companyName = contactParameterValue?.companyName;
         this.department = contactParameterValue?.department;
         this.displayName = contactParameterValue?.displayName;
-        const emailAddressesArrValue: EmailAddressImpl[] = []; contactParameterValue.emailAddresses?.forEach(element => {emailAddressesArrValue.push(element instanceof EmailAddressImpl? element : new EmailAddressImpl(element));});
+        const emailAddressesArrValue: EmailAddressImpl[] = []; contactParameterValue?.emailAddresses?.forEach(element => {emailAddressesArrValue.push(element instanceof EmailAddressImpl? element : new EmailAddressImpl(element));});
         this.emailAddresses = emailAddressesArrValue;
-        const extensionsArrValue: ExtensionImpl[] = []; contactParameterValue.extensions?.forEach(element => {extensionsArrValue.push(element instanceof ExtensionImpl? element : new ExtensionImpl(element));});
+        const extensionsArrValue: ExtensionImpl[] = []; contactParameterValue?.extensions?.forEach(element => {extensionsArrValue.push(element instanceof ExtensionImpl? element : new ExtensionImpl(element));});
         this.extensions = extensionsArrValue;
         this.fileAs = contactParameterValue?.fileAs;
         this.generation = contactParameterValue?.generation;
@@ -119,7 +119,7 @@ export class ContactImpl extends OutlookItemImpl implements Contact {
         this.manager = contactParameterValue?.manager;
         this.middleName = contactParameterValue?.middleName;
         this.mobilePhone = contactParameterValue?.mobilePhone;
-        const multiValueExtendedPropertiesArrValue: MultiValueLegacyExtendedPropertyImpl[] = []; contactParameterValue.multiValueExtendedProperties?.forEach(element => {multiValueExtendedPropertiesArrValue.push(element instanceof MultiValueLegacyExtendedPropertyImpl? element : new MultiValueLegacyExtendedPropertyImpl(element));});
+        const multiValueExtendedPropertiesArrValue: MultiValueLegacyExtendedPropertyImpl[] = []; contactParameterValue?.multiValueExtendedProperties?.forEach(element => {multiValueExtendedPropertiesArrValue.push(element instanceof MultiValueLegacyExtendedPropertyImpl? element : new MultiValueLegacyExtendedPropertyImpl(element));});
         this.multiValueExtendedProperties = multiValueExtendedPropertiesArrValue;
         this.nickName = contactParameterValue?.nickName;
         this.officeLocation = contactParameterValue?.officeLocation;
@@ -128,7 +128,7 @@ export class ContactImpl extends OutlookItemImpl implements Contact {
         this.personalNotes = contactParameterValue?.personalNotes;
         this.photo = contactParameterValue?.photo instanceof ProfilePhotoImpl? contactParameterValue?.photo:new ProfilePhotoImpl(contactParameterValue?.photo);
         this.profession = contactParameterValue?.profession;
-        const singleValueExtendedPropertiesArrValue: SingleValueLegacyExtendedPropertyImpl[] = []; contactParameterValue.singleValueExtendedProperties?.forEach(element => {singleValueExtendedPropertiesArrValue.push(element instanceof SingleValueLegacyExtendedPropertyImpl? element : new SingleValueLegacyExtendedPropertyImpl(element));});
+        const singleValueExtendedPropertiesArrValue: SingleValueLegacyExtendedPropertyImpl[] = []; contactParameterValue?.singleValueExtendedProperties?.forEach(element => {singleValueExtendedPropertiesArrValue.push(element instanceof SingleValueLegacyExtendedPropertyImpl? element : new SingleValueLegacyExtendedPropertyImpl(element));});
         this.singleValueExtendedProperties = singleValueExtendedPropertiesArrValue;
         this.spouseName = contactParameterValue?.spouseName;
         this.surname = contactParameterValue?.surname;

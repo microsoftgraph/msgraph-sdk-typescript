@@ -18,7 +18,7 @@ export class AccessPackageAssignmentPolicyCollectionResponseImpl implements Acce
     public constructor(accessPackageAssignmentPolicyCollectionResponseParameterValue?: AccessPackageAssignmentPolicyCollectionResponse | undefined) {
         this.additionalData = accessPackageAssignmentPolicyCollectionResponseParameterValue?.additionalData ? accessPackageAssignmentPolicyCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = accessPackageAssignmentPolicyCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: AccessPackageAssignmentPolicyImpl[] = []; accessPackageAssignmentPolicyCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof AccessPackageAssignmentPolicyImpl? element : new AccessPackageAssignmentPolicyImpl(element));});
+        const valueArrValue: AccessPackageAssignmentPolicyImpl[] = []; accessPackageAssignmentPolicyCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof AccessPackageAssignmentPolicyImpl? element : new AccessPackageAssignmentPolicyImpl(element));});
         this.value = valueArrValue;
     };
     /**

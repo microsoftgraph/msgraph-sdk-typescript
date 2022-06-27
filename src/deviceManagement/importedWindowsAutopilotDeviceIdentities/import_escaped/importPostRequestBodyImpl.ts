@@ -16,7 +16,7 @@ export class ImportPostRequestBodyImpl implements ImportPostRequestBody {
      */
     public constructor(importPostRequestBodyParameterValue?: ImportPostRequestBody | undefined) {
         this.additionalData = importPostRequestBodyParameterValue?.additionalData ? importPostRequestBodyParameterValue?.additionalData! : {};
-        const importedWindowsAutopilotDeviceIdentitiesArrValue: ImportedWindowsAutopilotDeviceIdentityImpl[] = []; importPostRequestBodyParameterValue.importedWindowsAutopilotDeviceIdentities?.forEach(element => {importedWindowsAutopilotDeviceIdentitiesArrValue.push(element instanceof ImportedWindowsAutopilotDeviceIdentityImpl? element : new ImportedWindowsAutopilotDeviceIdentityImpl(element));});
+        const importedWindowsAutopilotDeviceIdentitiesArrValue: ImportedWindowsAutopilotDeviceIdentityImpl[] = []; importPostRequestBodyParameterValue?.importedWindowsAutopilotDeviceIdentities?.forEach(element => {importedWindowsAutopilotDeviceIdentitiesArrValue.push(element instanceof ImportedWindowsAutopilotDeviceIdentityImpl? element : new ImportedWindowsAutopilotDeviceIdentityImpl(element));});
         this.importedWindowsAutopilotDeviceIdentities = importedWindowsAutopilotDeviceIdentitiesArrValue;
     };
     /**

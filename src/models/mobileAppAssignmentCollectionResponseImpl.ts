@@ -18,7 +18,7 @@ export class MobileAppAssignmentCollectionResponseImpl implements MobileAppAssig
     public constructor(mobileAppAssignmentCollectionResponseParameterValue?: MobileAppAssignmentCollectionResponse | undefined) {
         this.additionalData = mobileAppAssignmentCollectionResponseParameterValue?.additionalData ? mobileAppAssignmentCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = mobileAppAssignmentCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: MobileAppAssignmentImpl[] = []; mobileAppAssignmentCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof MobileAppAssignmentImpl? element : new MobileAppAssignmentImpl(element));});
+        const valueArrValue: MobileAppAssignmentImpl[] = []; mobileAppAssignmentCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof MobileAppAssignmentImpl? element : new MobileAppAssignmentImpl(element));});
         this.value = valueArrValue;
     };
     /**

@@ -18,7 +18,7 @@ export class ExtensionPropertyCollectionResponseImpl implements ExtensionPropert
     public constructor(extensionPropertyCollectionResponseParameterValue?: ExtensionPropertyCollectionResponse | undefined) {
         this.additionalData = extensionPropertyCollectionResponseParameterValue?.additionalData ? extensionPropertyCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = extensionPropertyCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: ExtensionPropertyImpl[] = []; extensionPropertyCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof ExtensionPropertyImpl? element : new ExtensionPropertyImpl(element));});
+        const valueArrValue: ExtensionPropertyImpl[] = []; extensionPropertyCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof ExtensionPropertyImpl? element : new ExtensionPropertyImpl(element));});
         this.value = valueArrValue;
     };
     /**

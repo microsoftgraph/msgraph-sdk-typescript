@@ -305,14 +305,14 @@ export class IosGeneralDeviceConfigurationImpl extends DeviceConfigurationImpl i
         this.appleNewsBlocked = iosGeneralDeviceConfigurationParameterValue?.appleNewsBlocked;
         this.appleWatchBlockPairing = iosGeneralDeviceConfigurationParameterValue?.appleWatchBlockPairing;
         this.appleWatchForceWristDetection = iosGeneralDeviceConfigurationParameterValue?.appleWatchForceWristDetection;
-        const appsSingleAppModeListArrValue: AppListItemImpl[] = []; iosGeneralDeviceConfigurationParameterValue.appsSingleAppModeList?.forEach(element => {appsSingleAppModeListArrValue.push(element instanceof AppListItemImpl? element : new AppListItemImpl(element));});
+        const appsSingleAppModeListArrValue: AppListItemImpl[] = []; iosGeneralDeviceConfigurationParameterValue?.appsSingleAppModeList?.forEach(element => {appsSingleAppModeListArrValue.push(element instanceof AppListItemImpl? element : new AppListItemImpl(element));});
         this.appsSingleAppModeList = appsSingleAppModeListArrValue;
         this.appStoreBlockAutomaticDownloads = iosGeneralDeviceConfigurationParameterValue?.appStoreBlockAutomaticDownloads;
         this.appStoreBlocked = iosGeneralDeviceConfigurationParameterValue?.appStoreBlocked;
         this.appStoreBlockInAppPurchases = iosGeneralDeviceConfigurationParameterValue?.appStoreBlockInAppPurchases;
         this.appStoreBlockUIAppInstallation = iosGeneralDeviceConfigurationParameterValue?.appStoreBlockUIAppInstallation;
         this.appStoreRequirePassword = iosGeneralDeviceConfigurationParameterValue?.appStoreRequirePassword;
-        const appsVisibilityListArrValue: AppListItemImpl[] = []; iosGeneralDeviceConfigurationParameterValue.appsVisibilityList?.forEach(element => {appsVisibilityListArrValue.push(element instanceof AppListItemImpl? element : new AppListItemImpl(element));});
+        const appsVisibilityListArrValue: AppListItemImpl[] = []; iosGeneralDeviceConfigurationParameterValue?.appsVisibilityList?.forEach(element => {appsVisibilityListArrValue.push(element instanceof AppListItemImpl? element : new AppListItemImpl(element));});
         this.appsVisibilityList = appsVisibilityListArrValue;
         this.appsVisibilityListType = iosGeneralDeviceConfigurationParameterValue?.appsVisibilityListType;
         this.bluetoothBlockModification = iosGeneralDeviceConfigurationParameterValue?.bluetoothBlockModification;
@@ -326,7 +326,7 @@ export class IosGeneralDeviceConfigurationImpl extends DeviceConfigurationImpl i
         this.classroomAppBlockRemoteScreenObservation = iosGeneralDeviceConfigurationParameterValue?.classroomAppBlockRemoteScreenObservation;
         this.classroomAppForceUnpromptedScreenObservation = iosGeneralDeviceConfigurationParameterValue?.classroomAppForceUnpromptedScreenObservation;
         this.compliantAppListType = iosGeneralDeviceConfigurationParameterValue?.compliantAppListType;
-        const compliantAppsListArrValue: AppListItemImpl[] = []; iosGeneralDeviceConfigurationParameterValue.compliantAppsList?.forEach(element => {compliantAppsListArrValue.push(element instanceof AppListItemImpl? element : new AppListItemImpl(element));});
+        const compliantAppsListArrValue: AppListItemImpl[] = []; iosGeneralDeviceConfigurationParameterValue?.compliantAppsList?.forEach(element => {compliantAppsListArrValue.push(element instanceof AppListItemImpl? element : new AppListItemImpl(element));});
         this.compliantAppsList = compliantAppsListArrValue;
         this.configurationProfileBlockChanges = iosGeneralDeviceConfigurationParameterValue?.configurationProfileBlockChanges;
         this.definitionLookupBlocked = iosGeneralDeviceConfigurationParameterValue?.definitionLookupBlocked;
@@ -398,7 +398,7 @@ export class IosGeneralDeviceConfigurationImpl extends DeviceConfigurationImpl i
         this.mediaContentRatingUnitedKingdom = iosGeneralDeviceConfigurationParameterValue?.mediaContentRatingUnitedKingdom instanceof MediaContentRatingUnitedKingdomImpl? iosGeneralDeviceConfigurationParameterValue?.mediaContentRatingUnitedKingdom:new MediaContentRatingUnitedKingdomImpl(iosGeneralDeviceConfigurationParameterValue?.mediaContentRatingUnitedKingdom);
         this.mediaContentRatingUnitedStates = iosGeneralDeviceConfigurationParameterValue?.mediaContentRatingUnitedStates instanceof MediaContentRatingUnitedStatesImpl? iosGeneralDeviceConfigurationParameterValue?.mediaContentRatingUnitedStates:new MediaContentRatingUnitedStatesImpl(iosGeneralDeviceConfigurationParameterValue?.mediaContentRatingUnitedStates);
         this.messagesBlocked = iosGeneralDeviceConfigurationParameterValue?.messagesBlocked;
-        const networkUsageRulesArrValue: IosNetworkUsageRuleImpl[] = []; iosGeneralDeviceConfigurationParameterValue.networkUsageRules?.forEach(element => {networkUsageRulesArrValue.push(element instanceof IosNetworkUsageRuleImpl? element : new IosNetworkUsageRuleImpl(element));});
+        const networkUsageRulesArrValue: IosNetworkUsageRuleImpl[] = []; iosGeneralDeviceConfigurationParameterValue?.networkUsageRules?.forEach(element => {networkUsageRulesArrValue.push(element instanceof IosNetworkUsageRuleImpl? element : new IosNetworkUsageRuleImpl(element));});
         this.networkUsageRules = networkUsageRulesArrValue;
         this.notificationsBlockSettingsModification = iosGeneralDeviceConfigurationParameterValue?.notificationsBlockSettingsModification;
         this.passcodeBlockFingerprintModification = iosGeneralDeviceConfigurationParameterValue?.passcodeBlockFingerprintModification;

@@ -27,13 +27,13 @@ export class CloudCommunicationsImpl extends EntityImpl implements CloudCommunic
      */
     public constructor(cloudCommunicationsParameterValue?: CloudCommunications | undefined) {
         super(cloudCommunicationsParameterValue);
-        const callRecordsArrValue: CallRecordImpl[] = []; cloudCommunicationsParameterValue.callRecords?.forEach(element => {callRecordsArrValue.push(element instanceof CallRecordImpl? element : new CallRecordImpl(element));});
+        const callRecordsArrValue: CallRecordImpl[] = []; cloudCommunicationsParameterValue?.callRecords?.forEach(element => {callRecordsArrValue.push(element instanceof CallRecordImpl? element : new CallRecordImpl(element));});
         this.callRecords = callRecordsArrValue;
-        const callsArrValue: CallImpl[] = []; cloudCommunicationsParameterValue.calls?.forEach(element => {callsArrValue.push(element instanceof CallImpl? element : new CallImpl(element));});
+        const callsArrValue: CallImpl[] = []; cloudCommunicationsParameterValue?.calls?.forEach(element => {callsArrValue.push(element instanceof CallImpl? element : new CallImpl(element));});
         this.calls = callsArrValue;
-        const onlineMeetingsArrValue: OnlineMeetingImpl[] = []; cloudCommunicationsParameterValue.onlineMeetings?.forEach(element => {onlineMeetingsArrValue.push(element instanceof OnlineMeetingImpl? element : new OnlineMeetingImpl(element));});
+        const onlineMeetingsArrValue: OnlineMeetingImpl[] = []; cloudCommunicationsParameterValue?.onlineMeetings?.forEach(element => {onlineMeetingsArrValue.push(element instanceof OnlineMeetingImpl? element : new OnlineMeetingImpl(element));});
         this.onlineMeetings = onlineMeetingsArrValue;
-        const presencesArrValue: PresenceImpl[] = []; cloudCommunicationsParameterValue.presences?.forEach(element => {presencesArrValue.push(element instanceof PresenceImpl? element : new PresenceImpl(element));});
+        const presencesArrValue: PresenceImpl[] = []; cloudCommunicationsParameterValue?.presences?.forEach(element => {presencesArrValue.push(element instanceof PresenceImpl? element : new PresenceImpl(element));});
         this.presences = presencesArrValue;
     };
     /**

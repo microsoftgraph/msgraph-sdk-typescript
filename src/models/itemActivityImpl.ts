@@ -8,7 +8,7 @@ import {AccessActionImpl, DriveItemImpl, EntityImpl, IdentitySetImpl} from './in
 import {ItemActivity} from './itemActivity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of application entities. */
+/** Casts the previous resource to group. */
 export class ItemActivityImpl extends EntityImpl implements ItemActivity {
     /** An item was accessed. */
     public access?: AccessAction | undefined;

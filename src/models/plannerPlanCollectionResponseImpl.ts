@@ -18,7 +18,7 @@ export class PlannerPlanCollectionResponseImpl implements PlannerPlanCollectionR
     public constructor(plannerPlanCollectionResponseParameterValue?: PlannerPlanCollectionResponse | undefined) {
         this.additionalData = plannerPlanCollectionResponseParameterValue?.additionalData ? plannerPlanCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = plannerPlanCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: PlannerPlanImpl[] = []; plannerPlanCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof PlannerPlanImpl? element : new PlannerPlanImpl(element));});
+        const valueArrValue: PlannerPlanImpl[] = []; plannerPlanCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof PlannerPlanImpl? element : new PlannerPlanImpl(element));});
         this.value = valueArrValue;
     };
     /**

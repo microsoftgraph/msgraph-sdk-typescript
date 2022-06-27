@@ -18,7 +18,7 @@ export class DeviceEnrollmentConfigurationCollectionResponseImpl implements Devi
     public constructor(deviceEnrollmentConfigurationCollectionResponseParameterValue?: DeviceEnrollmentConfigurationCollectionResponse | undefined) {
         this.additionalData = deviceEnrollmentConfigurationCollectionResponseParameterValue?.additionalData ? deviceEnrollmentConfigurationCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = deviceEnrollmentConfigurationCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: DeviceEnrollmentConfigurationImpl[] = []; deviceEnrollmentConfigurationCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof DeviceEnrollmentConfigurationImpl? element : new DeviceEnrollmentConfigurationImpl(element));});
+        const valueArrValue: DeviceEnrollmentConfigurationImpl[] = []; deviceEnrollmentConfigurationCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof DeviceEnrollmentConfigurationImpl? element : new DeviceEnrollmentConfigurationImpl(element));});
         this.value = valueArrValue;
     };
     /**

@@ -8,7 +8,7 @@ import {ItemActivity} from './itemActivity';
 import {ItemActivityStat} from './itemActivityStat';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of application entities. */
+/** Casts the previous resource to group. */
 export class ItemActivityStatImpl extends EntityImpl implements ItemActivityStat {
     /** Statistics about the access actions in this interval. Read-only. */
     public access?: ItemActionStat | undefined;
@@ -37,7 +37,7 @@ export class ItemActivityStatImpl extends EntityImpl implements ItemActivityStat
     public constructor(itemActivityStatParameterValue?: ItemActivityStat | undefined) {
         super(itemActivityStatParameterValue);
         this.access = itemActivityStatParameterValue?.access instanceof ItemActionStatImpl? itemActivityStatParameterValue?.access:new ItemActionStatImpl(itemActivityStatParameterValue?.access);
-        const activitiesArrValue: ItemActivityImpl[] = []; itemActivityStatParameterValue.activities?.forEach(element => {activitiesArrValue.push(element instanceof ItemActivityImpl? element : new ItemActivityImpl(element));});
+        const activitiesArrValue: ItemActivityImpl[] = []; itemActivityStatParameterValue?.activities?.forEach(element => {activitiesArrValue.push(element instanceof ItemActivityImpl? element : new ItemActivityImpl(element));});
         this.activities = activitiesArrValue;
         this.create = itemActivityStatParameterValue?.create instanceof ItemActionStatImpl? itemActivityStatParameterValue?.create:new ItemActionStatImpl(itemActivityStatParameterValue?.create);
         this.delete = itemActivityStatParameterValue?.delete instanceof ItemActionStatImpl? itemActivityStatParameterValue?.delete:new ItemActionStatImpl(itemActivityStatParameterValue?.delete);

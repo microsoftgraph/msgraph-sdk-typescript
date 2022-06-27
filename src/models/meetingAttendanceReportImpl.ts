@@ -20,7 +20,7 @@ export class MeetingAttendanceReportImpl extends EntityImpl implements MeetingAt
      */
     public constructor(meetingAttendanceReportParameterValue?: MeetingAttendanceReport | undefined) {
         super(meetingAttendanceReportParameterValue);
-        const attendanceRecordsArrValue: AttendanceRecordImpl[] = []; meetingAttendanceReportParameterValue.attendanceRecords?.forEach(element => {attendanceRecordsArrValue.push(element instanceof AttendanceRecordImpl? element : new AttendanceRecordImpl(element));});
+        const attendanceRecordsArrValue: AttendanceRecordImpl[] = []; meetingAttendanceReportParameterValue?.attendanceRecords?.forEach(element => {attendanceRecordsArrValue.push(element instanceof AttendanceRecordImpl? element : new AttendanceRecordImpl(element));});
         this.attendanceRecords = attendanceRecordsArrValue;
         this.meetingEndDateTime = meetingAttendanceReportParameterValue?.meetingEndDateTime;
         this.meetingStartDateTime = meetingAttendanceReportParameterValue?.meetingStartDateTime;

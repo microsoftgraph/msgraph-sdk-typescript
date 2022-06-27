@@ -18,7 +18,7 @@ export class DeviceCategoryCollectionResponseImpl implements DeviceCategoryColle
     public constructor(deviceCategoryCollectionResponseParameterValue?: DeviceCategoryCollectionResponse | undefined) {
         this.additionalData = deviceCategoryCollectionResponseParameterValue?.additionalData ? deviceCategoryCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = deviceCategoryCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: DeviceCategoryImpl[] = []; deviceCategoryCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof DeviceCategoryImpl? element : new DeviceCategoryImpl(element));});
+        const valueArrValue: DeviceCategoryImpl[] = []; deviceCategoryCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof DeviceCategoryImpl? element : new DeviceCategoryImpl(element));});
         this.value = valueArrValue;
     };
     /**

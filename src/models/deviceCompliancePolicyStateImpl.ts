@@ -29,7 +29,7 @@ export class DeviceCompliancePolicyStateImpl extends EntityImpl implements Devic
         this.displayName = deviceCompliancePolicyStateParameterValue?.displayName;
         this.platformType = deviceCompliancePolicyStateParameterValue?.platformType;
         this.settingCount = deviceCompliancePolicyStateParameterValue?.settingCount;
-        const settingStatesArrValue: DeviceCompliancePolicySettingStateImpl[] = []; deviceCompliancePolicyStateParameterValue.settingStates?.forEach(element => {settingStatesArrValue.push(element instanceof DeviceCompliancePolicySettingStateImpl? element : new DeviceCompliancePolicySettingStateImpl(element));});
+        const settingStatesArrValue: DeviceCompliancePolicySettingStateImpl[] = []; deviceCompliancePolicyStateParameterValue?.settingStates?.forEach(element => {settingStatesArrValue.push(element instanceof DeviceCompliancePolicySettingStateImpl? element : new DeviceCompliancePolicySettingStateImpl(element));});
         this.settingStates = settingStatesArrValue;
         this.state = deviceCompliancePolicyStateParameterValue?.state;
         this.version = deviceCompliancePolicyStateParameterValue?.version;

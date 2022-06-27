@@ -18,7 +18,7 @@ export class BitlockerRecoveryKeyCollectionResponseImpl implements BitlockerReco
     public constructor(bitlockerRecoveryKeyCollectionResponseParameterValue?: BitlockerRecoveryKeyCollectionResponse | undefined) {
         this.additionalData = bitlockerRecoveryKeyCollectionResponseParameterValue?.additionalData ? bitlockerRecoveryKeyCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = bitlockerRecoveryKeyCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: BitlockerRecoveryKeyImpl[] = []; bitlockerRecoveryKeyCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof BitlockerRecoveryKeyImpl? element : new BitlockerRecoveryKeyImpl(element));});
+        const valueArrValue: BitlockerRecoveryKeyImpl[] = []; bitlockerRecoveryKeyCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof BitlockerRecoveryKeyImpl? element : new BitlockerRecoveryKeyImpl(element));});
         this.value = valueArrValue;
     };
     /**

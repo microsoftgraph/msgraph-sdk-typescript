@@ -18,7 +18,7 @@ export class ShiftItemImpl extends ScheduleEntityImpl implements ShiftItem {
      */
     public constructor(shiftItemParameterValue?: ShiftItem | undefined) {
         super(shiftItemParameterValue);
-        const activitiesArrValue: ShiftActivityImpl[] = []; shiftItemParameterValue.activities?.forEach(element => {activitiesArrValue.push(element instanceof ShiftActivityImpl? element : new ShiftActivityImpl(element));});
+        const activitiesArrValue: ShiftActivityImpl[] = []; shiftItemParameterValue?.activities?.forEach(element => {activitiesArrValue.push(element instanceof ShiftActivityImpl? element : new ShiftActivityImpl(element));});
         this.activities = activitiesArrValue;
         this.displayName = shiftItemParameterValue?.displayName;
         this.notes = shiftItemParameterValue?.notes;

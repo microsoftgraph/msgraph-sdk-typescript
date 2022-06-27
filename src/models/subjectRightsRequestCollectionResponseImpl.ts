@@ -18,7 +18,7 @@ export class SubjectRightsRequestCollectionResponseImpl implements SubjectRights
     public constructor(subjectRightsRequestCollectionResponseParameterValue?: SubjectRightsRequestCollectionResponse | undefined) {
         this.additionalData = subjectRightsRequestCollectionResponseParameterValue?.additionalData ? subjectRightsRequestCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = subjectRightsRequestCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: SubjectRightsRequestImpl[] = []; subjectRightsRequestCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof SubjectRightsRequestImpl? element : new SubjectRightsRequestImpl(element));});
+        const valueArrValue: SubjectRightsRequestImpl[] = []; subjectRightsRequestCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof SubjectRightsRequestImpl? element : new SubjectRightsRequestImpl(element));});
         this.value = valueArrValue;
     };
     /**

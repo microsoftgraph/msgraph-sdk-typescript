@@ -14,7 +14,7 @@ export class OutlookUserImpl extends EntityImpl implements OutlookUser {
      */
     public constructor(outlookUserParameterValue?: OutlookUser | undefined) {
         super(outlookUserParameterValue);
-        const masterCategoriesArrValue: OutlookCategoryImpl[] = []; outlookUserParameterValue.masterCategories?.forEach(element => {masterCategoriesArrValue.push(element instanceof OutlookCategoryImpl? element : new OutlookCategoryImpl(element));});
+        const masterCategoriesArrValue: OutlookCategoryImpl[] = []; outlookUserParameterValue?.masterCategories?.forEach(element => {masterCategoriesArrValue.push(element instanceof OutlookCategoryImpl? element : new OutlookCategoryImpl(element));});
         this.masterCategories = masterCategoriesArrValue;
     };
     /**

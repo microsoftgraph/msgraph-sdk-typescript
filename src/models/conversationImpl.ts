@@ -27,7 +27,7 @@ export class ConversationImpl extends EntityImpl implements Conversation {
         this.hasAttachments = conversationParameterValue?.hasAttachments;
         this.lastDeliveredDateTime = conversationParameterValue?.lastDeliveredDateTime;
         this.preview = conversationParameterValue?.preview;
-        const threadsArrValue: ConversationThreadImpl[] = []; conversationParameterValue.threads?.forEach(element => {threadsArrValue.push(element instanceof ConversationThreadImpl? element : new ConversationThreadImpl(element));});
+        const threadsArrValue: ConversationThreadImpl[] = []; conversationParameterValue?.threads?.forEach(element => {threadsArrValue.push(element instanceof ConversationThreadImpl? element : new ConversationThreadImpl(element));});
         this.threads = threadsArrValue;
         this.topic = conversationParameterValue?.topic;
         this.uniqueSenders = conversationParameterValue?.uniqueSenders;

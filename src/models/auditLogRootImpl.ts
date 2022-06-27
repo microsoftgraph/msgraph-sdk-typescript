@@ -26,13 +26,13 @@ export class AuditLogRootImpl extends EntityImpl implements AuditLogRoot {
      */
     public constructor(auditLogRootParameterValue?: AuditLogRoot | undefined) {
         super(auditLogRootParameterValue);
-        const directoryAuditsArrValue: DirectoryAuditImpl[] = []; auditLogRootParameterValue.directoryAudits?.forEach(element => {directoryAuditsArrValue.push(element instanceof DirectoryAuditImpl? element : new DirectoryAuditImpl(element));});
+        const directoryAuditsArrValue: DirectoryAuditImpl[] = []; auditLogRootParameterValue?.directoryAudits?.forEach(element => {directoryAuditsArrValue.push(element instanceof DirectoryAuditImpl? element : new DirectoryAuditImpl(element));});
         this.directoryAudits = directoryAuditsArrValue;
-        const provisioningArrValue: ProvisioningObjectSummaryImpl[] = []; auditLogRootParameterValue.provisioning?.forEach(element => {provisioningArrValue.push(element instanceof ProvisioningObjectSummaryImpl? element : new ProvisioningObjectSummaryImpl(element));});
+        const provisioningArrValue: ProvisioningObjectSummaryImpl[] = []; auditLogRootParameterValue?.provisioning?.forEach(element => {provisioningArrValue.push(element instanceof ProvisioningObjectSummaryImpl? element : new ProvisioningObjectSummaryImpl(element));});
         this.provisioning = provisioningArrValue;
-        const restrictedSignInsArrValue: RestrictedSignInImpl[] = []; auditLogRootParameterValue.restrictedSignIns?.forEach(element => {restrictedSignInsArrValue.push(element instanceof RestrictedSignInImpl? element : new RestrictedSignInImpl(element));});
+        const restrictedSignInsArrValue: RestrictedSignInImpl[] = []; auditLogRootParameterValue?.restrictedSignIns?.forEach(element => {restrictedSignInsArrValue.push(element instanceof RestrictedSignInImpl? element : new RestrictedSignInImpl(element));});
         this.restrictedSignIns = restrictedSignInsArrValue;
-        const signInsArrValue: SignInImpl[] = []; auditLogRootParameterValue.signIns?.forEach(element => {signInsArrValue.push(element instanceof SignInImpl? element : new SignInImpl(element));});
+        const signInsArrValue: SignInImpl[] = []; auditLogRootParameterValue?.signIns?.forEach(element => {signInsArrValue.push(element instanceof SignInImpl? element : new SignInImpl(element));});
         this.signIns = signInsArrValue;
     };
     /**

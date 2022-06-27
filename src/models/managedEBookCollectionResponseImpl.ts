@@ -18,7 +18,7 @@ export class ManagedEBookCollectionResponseImpl implements ManagedEBookCollectio
     public constructor(managedEBookCollectionResponseParameterValue?: ManagedEBookCollectionResponse | undefined) {
         this.additionalData = managedEBookCollectionResponseParameterValue?.additionalData ? managedEBookCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = managedEBookCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: ManagedEBookImpl[] = []; managedEBookCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof ManagedEBookImpl? element : new ManagedEBookImpl(element));});
+        const valueArrValue: ManagedEBookImpl[] = []; managedEBookCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof ManagedEBookImpl? element : new ManagedEBookImpl(element));});
         this.value = valueArrValue;
     };
     /**

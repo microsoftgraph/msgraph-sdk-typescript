@@ -18,7 +18,7 @@ export class IosManagedAppProtectionCollectionResponseImpl implements IosManaged
     public constructor(iosManagedAppProtectionCollectionResponseParameterValue?: IosManagedAppProtectionCollectionResponse | undefined) {
         this.additionalData = iosManagedAppProtectionCollectionResponseParameterValue?.additionalData ? iosManagedAppProtectionCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = iosManagedAppProtectionCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: IosManagedAppProtectionImpl[] = []; iosManagedAppProtectionCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof IosManagedAppProtectionImpl? element : new IosManagedAppProtectionImpl(element));});
+        const valueArrValue: IosManagedAppProtectionImpl[] = []; iosManagedAppProtectionCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof IosManagedAppProtectionImpl? element : new IosManagedAppProtectionImpl(element));});
         this.value = valueArrValue;
     };
     /**

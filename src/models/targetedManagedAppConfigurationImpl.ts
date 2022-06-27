@@ -25,9 +25,9 @@ export class TargetedManagedAppConfigurationImpl extends ManagedAppConfiguration
      */
     public constructor(targetedManagedAppConfigurationParameterValue?: TargetedManagedAppConfiguration | undefined) {
         super(targetedManagedAppConfigurationParameterValue);
-        const appsArrValue: ManagedMobileAppImpl[] = []; targetedManagedAppConfigurationParameterValue.apps?.forEach(element => {appsArrValue.push(element instanceof ManagedMobileAppImpl? element : new ManagedMobileAppImpl(element));});
+        const appsArrValue: ManagedMobileAppImpl[] = []; targetedManagedAppConfigurationParameterValue?.apps?.forEach(element => {appsArrValue.push(element instanceof ManagedMobileAppImpl? element : new ManagedMobileAppImpl(element));});
         this.apps = appsArrValue;
-        const assignmentsArrValue: TargetedManagedAppPolicyAssignmentImpl[] = []; targetedManagedAppConfigurationParameterValue.assignments?.forEach(element => {assignmentsArrValue.push(element instanceof TargetedManagedAppPolicyAssignmentImpl? element : new TargetedManagedAppPolicyAssignmentImpl(element));});
+        const assignmentsArrValue: TargetedManagedAppPolicyAssignmentImpl[] = []; targetedManagedAppConfigurationParameterValue?.assignments?.forEach(element => {assignmentsArrValue.push(element instanceof TargetedManagedAppPolicyAssignmentImpl? element : new TargetedManagedAppPolicyAssignmentImpl(element));});
         this.assignments = assignmentsArrValue;
         this.deployedAppCount = targetedManagedAppConfigurationParameterValue?.deployedAppCount;
         this.deploymentSummary = targetedManagedAppConfigurationParameterValue?.deploymentSummary instanceof ManagedAppPolicyDeploymentSummaryImpl? targetedManagedAppConfigurationParameterValue?.deploymentSummary:new ManagedAppPolicyDeploymentSummaryImpl(targetedManagedAppConfigurationParameterValue?.deploymentSummary);

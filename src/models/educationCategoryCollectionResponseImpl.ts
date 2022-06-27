@@ -18,7 +18,7 @@ export class EducationCategoryCollectionResponseImpl implements EducationCategor
     public constructor(educationCategoryCollectionResponseParameterValue?: EducationCategoryCollectionResponse | undefined) {
         this.additionalData = educationCategoryCollectionResponseParameterValue?.additionalData ? educationCategoryCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = educationCategoryCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: EducationCategoryImpl[] = []; educationCategoryCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof EducationCategoryImpl? element : new EducationCategoryImpl(element));});
+        const valueArrValue: EducationCategoryImpl[] = []; educationCategoryCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof EducationCategoryImpl? element : new EducationCategoryImpl(element));});
         this.value = valueArrValue;
     };
     /**

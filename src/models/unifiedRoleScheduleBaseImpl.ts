@@ -8,7 +8,7 @@ import {UnifiedRoleDefinition} from './unifiedRoleDefinition';
 import {UnifiedRoleScheduleBase} from './unifiedRoleScheduleBase';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the identityGovernance singleton. */
+/** Provides operations to manage the roleManagement singleton. */
 export class UnifiedRoleScheduleBaseImpl extends EntityImpl implements UnifiedRoleScheduleBase {
     /** Read-only property with details of the app-specific scope when the role eligibility or assignment is scoped to an app. Nullable. */
     public appScope?: AppScope | undefined;

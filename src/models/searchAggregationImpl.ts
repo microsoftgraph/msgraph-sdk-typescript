@@ -17,7 +17,7 @@ export class SearchAggregationImpl implements SearchAggregation {
      */
     public constructor(searchAggregationParameterValue?: SearchAggregation | undefined) {
         this.additionalData = searchAggregationParameterValue?.additionalData ? searchAggregationParameterValue?.additionalData! : {};
-        const bucketsArrValue: SearchBucketImpl[] = []; searchAggregationParameterValue.buckets?.forEach(element => {bucketsArrValue.push(element instanceof SearchBucketImpl? element : new SearchBucketImpl(element));});
+        const bucketsArrValue: SearchBucketImpl[] = []; searchAggregationParameterValue?.buckets?.forEach(element => {bucketsArrValue.push(element instanceof SearchBucketImpl? element : new SearchBucketImpl(element));});
         this.buckets = bucketsArrValue;
         this.field = searchAggregationParameterValue?.field;
     };

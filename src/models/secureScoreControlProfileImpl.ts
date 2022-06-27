@@ -57,10 +57,10 @@ export class SecureScoreControlProfileImpl extends EntityImpl implements SecureS
         this.actionType = secureScoreControlProfileParameterValue?.actionType;
         this.actionUrl = secureScoreControlProfileParameterValue?.actionUrl;
         this.azureTenantId = secureScoreControlProfileParameterValue?.azureTenantId;
-        const complianceInformationArrValue: ComplianceInformationImpl[] = []; secureScoreControlProfileParameterValue.complianceInformation?.forEach(element => {complianceInformationArrValue.push(element instanceof ComplianceInformationImpl? element : new ComplianceInformationImpl(element));});
+        const complianceInformationArrValue: ComplianceInformationImpl[] = []; secureScoreControlProfileParameterValue?.complianceInformation?.forEach(element => {complianceInformationArrValue.push(element instanceof ComplianceInformationImpl? element : new ComplianceInformationImpl(element));});
         this.complianceInformation = complianceInformationArrValue;
         this.controlCategory = secureScoreControlProfileParameterValue?.controlCategory;
-        const controlStateUpdatesArrValue: SecureScoreControlStateUpdateImpl[] = []; secureScoreControlProfileParameterValue.controlStateUpdates?.forEach(element => {controlStateUpdatesArrValue.push(element instanceof SecureScoreControlStateUpdateImpl? element : new SecureScoreControlStateUpdateImpl(element));});
+        const controlStateUpdatesArrValue: SecureScoreControlStateUpdateImpl[] = []; secureScoreControlProfileParameterValue?.controlStateUpdates?.forEach(element => {controlStateUpdatesArrValue.push(element instanceof SecureScoreControlStateUpdateImpl? element : new SecureScoreControlStateUpdateImpl(element));});
         this.controlStateUpdates = controlStateUpdatesArrValue;
         this.deprecated = secureScoreControlProfileParameterValue?.deprecated;
         this.implementationCost = secureScoreControlProfileParameterValue?.implementationCost;

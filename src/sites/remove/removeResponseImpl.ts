@@ -16,7 +16,7 @@ export class RemoveResponseImpl implements RemoveResponse {
      */
     public constructor(removeResponseParameterValue?: RemoveResponse | undefined) {
         this.additionalData = removeResponseParameterValue?.additionalData ? removeResponseParameterValue?.additionalData! : {};
-        const valueArrValue: SiteImpl[] = []; removeResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof SiteImpl? element : new SiteImpl(element));});
+        const valueArrValue: SiteImpl[] = []; removeResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof SiteImpl? element : new SiteImpl(element));});
         this.value = valueArrValue;
     };
     /**

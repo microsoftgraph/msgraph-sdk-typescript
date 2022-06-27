@@ -1,3 +1,3 @@
 export * from './unmutePostRequestBodyImpl'
-export * from './unmutePostRequestBody'
 export * from './unmuteRequestBuilderPostRequestConfiguration'
+export * from './unmutePostRequestBody'

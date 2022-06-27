@@ -18,7 +18,7 @@ export class OrgContactCollectionResponseImpl implements OrgContactCollectionRes
     public constructor(orgContactCollectionResponseParameterValue?: OrgContactCollectionResponse | undefined) {
         this.additionalData = orgContactCollectionResponseParameterValue?.additionalData ? orgContactCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = orgContactCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: OrgContactImpl[] = []; orgContactCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof OrgContactImpl? element : new OrgContactImpl(element));});
+        const valueArrValue: OrgContactImpl[] = []; orgContactCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof OrgContactImpl? element : new OrgContactImpl(element));});
         this.value = valueArrValue;
     };
     /**

@@ -39,16 +39,16 @@ export class WorkbookImpl extends EntityImpl implements Workbook {
     public constructor(workbookParameterValue?: Workbook | undefined) {
         super(workbookParameterValue);
         this.application = workbookParameterValue?.application instanceof WorkbookApplicationImpl? workbookParameterValue?.application:new WorkbookApplicationImpl(workbookParameterValue?.application);
-        const commentsArrValue: WorkbookCommentImpl[] = []; workbookParameterValue.comments?.forEach(element => {commentsArrValue.push(element instanceof WorkbookCommentImpl? element : new WorkbookCommentImpl(element));});
+        const commentsArrValue: WorkbookCommentImpl[] = []; workbookParameterValue?.comments?.forEach(element => {commentsArrValue.push(element instanceof WorkbookCommentImpl? element : new WorkbookCommentImpl(element));});
         this.comments = commentsArrValue;
         this.functions = workbookParameterValue?.functions instanceof WorkbookFunctionsImpl? workbookParameterValue?.functions:new WorkbookFunctionsImpl(workbookParameterValue?.functions);
-        const namesArrValue: WorkbookNamedItemImpl[] = []; workbookParameterValue.names?.forEach(element => {namesArrValue.push(element instanceof WorkbookNamedItemImpl? element : new WorkbookNamedItemImpl(element));});
+        const namesArrValue: WorkbookNamedItemImpl[] = []; workbookParameterValue?.names?.forEach(element => {namesArrValue.push(element instanceof WorkbookNamedItemImpl? element : new WorkbookNamedItemImpl(element));});
         this.names = namesArrValue;
-        const operationsArrValue: WorkbookOperationImpl[] = []; workbookParameterValue.operations?.forEach(element => {operationsArrValue.push(element instanceof WorkbookOperationImpl? element : new WorkbookOperationImpl(element));});
+        const operationsArrValue: WorkbookOperationImpl[] = []; workbookParameterValue?.operations?.forEach(element => {operationsArrValue.push(element instanceof WorkbookOperationImpl? element : new WorkbookOperationImpl(element));});
         this.operations = operationsArrValue;
-        const tablesArrValue: WorkbookTableImpl[] = []; workbookParameterValue.tables?.forEach(element => {tablesArrValue.push(element instanceof WorkbookTableImpl? element : new WorkbookTableImpl(element));});
+        const tablesArrValue: WorkbookTableImpl[] = []; workbookParameterValue?.tables?.forEach(element => {tablesArrValue.push(element instanceof WorkbookTableImpl? element : new WorkbookTableImpl(element));});
         this.tables = tablesArrValue;
-        const worksheetsArrValue: WorkbookWorksheetImpl[] = []; workbookParameterValue.worksheets?.forEach(element => {worksheetsArrValue.push(element instanceof WorkbookWorksheetImpl? element : new WorkbookWorksheetImpl(element));});
+        const worksheetsArrValue: WorkbookWorksheetImpl[] = []; workbookParameterValue?.worksheets?.forEach(element => {worksheetsArrValue.push(element instanceof WorkbookWorksheetImpl? element : new WorkbookWorksheetImpl(element));});
         this.worksheets = worksheetsArrValue;
     };
     /**

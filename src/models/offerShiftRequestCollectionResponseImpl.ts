@@ -18,7 +18,7 @@ export class OfferShiftRequestCollectionResponseImpl implements OfferShiftReques
     public constructor(offerShiftRequestCollectionResponseParameterValue?: OfferShiftRequestCollectionResponse | undefined) {
         this.additionalData = offerShiftRequestCollectionResponseParameterValue?.additionalData ? offerShiftRequestCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = offerShiftRequestCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: OfferShiftRequestImpl[] = []; offerShiftRequestCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof OfferShiftRequestImpl? element : new OfferShiftRequestImpl(element));});
+        const valueArrValue: OfferShiftRequestImpl[] = []; offerShiftRequestCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof OfferShiftRequestImpl? element : new OfferShiftRequestImpl(element));});
         this.value = valueArrValue;
     };
     /**

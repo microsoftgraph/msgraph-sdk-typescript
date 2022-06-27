@@ -18,7 +18,7 @@ export class UserCollectionResponseImpl implements UserCollectionResponse {
     public constructor(userCollectionResponseParameterValue?: UserCollectionResponse | undefined) {
         this.additionalData = userCollectionResponseParameterValue?.additionalData ? userCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = userCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: UserImpl[] = []; userCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof UserImpl? element : new UserImpl(element));});
+        const valueArrValue: UserImpl[] = []; userCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof UserImpl? element : new UserImpl(element));});
         this.value = valueArrValue;
     };
     /**

@@ -33,7 +33,7 @@ export class InvitePostRequestBodyImpl implements InvitePostRequestBody {
         this.expirationDateTime = invitePostRequestBodyParameterValue?.expirationDateTime;
         this.message = invitePostRequestBodyParameterValue?.message;
         this.password = invitePostRequestBodyParameterValue?.password;
-        const recipientsArrValue: DriveRecipientImpl[] = []; invitePostRequestBodyParameterValue.recipients?.forEach(element => {recipientsArrValue.push(element instanceof DriveRecipientImpl? element : new DriveRecipientImpl(element));});
+        const recipientsArrValue: DriveRecipientImpl[] = []; invitePostRequestBodyParameterValue?.recipients?.forEach(element => {recipientsArrValue.push(element instanceof DriveRecipientImpl? element : new DriveRecipientImpl(element));});
         this.recipients = recipientsArrValue;
         this.requireSignIn = invitePostRequestBodyParameterValue?.requireSignIn;
         this.retainInheritedPermissions = invitePostRequestBodyParameterValue?.retainInheritedPermissions;

@@ -59,9 +59,9 @@ export class CalendarImpl extends EntityImpl implements Calendar {
     public constructor(calendarParameterValue?: Calendar | undefined) {
         super(calendarParameterValue);
         this.allowedOnlineMeetingProviders = calendarParameterValue?.allowedOnlineMeetingProviders;
-        const calendarPermissionsArrValue: CalendarPermissionImpl[] = []; calendarParameterValue.calendarPermissions?.forEach(element => {calendarPermissionsArrValue.push(element instanceof CalendarPermissionImpl? element : new CalendarPermissionImpl(element));});
+        const calendarPermissionsArrValue: CalendarPermissionImpl[] = []; calendarParameterValue?.calendarPermissions?.forEach(element => {calendarPermissionsArrValue.push(element instanceof CalendarPermissionImpl? element : new CalendarPermissionImpl(element));});
         this.calendarPermissions = calendarPermissionsArrValue;
-        const calendarViewArrValue: EventImpl[] = []; calendarParameterValue.calendarView?.forEach(element => {calendarViewArrValue.push(element instanceof EventImpl? element : new EventImpl(element));});
+        const calendarViewArrValue: EventImpl[] = []; calendarParameterValue?.calendarView?.forEach(element => {calendarViewArrValue.push(element instanceof EventImpl? element : new EventImpl(element));});
         this.calendarView = calendarViewArrValue;
         this.canEdit = calendarParameterValue?.canEdit;
         this.canShare = calendarParameterValue?.canShare;
@@ -69,17 +69,17 @@ export class CalendarImpl extends EntityImpl implements Calendar {
         this.changeKey = calendarParameterValue?.changeKey;
         this.color = calendarParameterValue?.color;
         this.defaultOnlineMeetingProvider = calendarParameterValue?.defaultOnlineMeetingProvider;
-        const eventsArrValue: EventImpl[] = []; calendarParameterValue.events?.forEach(element => {eventsArrValue.push(element instanceof EventImpl? element : new EventImpl(element));});
+        const eventsArrValue: EventImpl[] = []; calendarParameterValue?.events?.forEach(element => {eventsArrValue.push(element instanceof EventImpl? element : new EventImpl(element));});
         this.events = eventsArrValue;
         this.hexColor = calendarParameterValue?.hexColor;
         this.isDefaultCalendar = calendarParameterValue?.isDefaultCalendar;
         this.isRemovable = calendarParameterValue?.isRemovable;
         this.isTallyingResponses = calendarParameterValue?.isTallyingResponses;
-        const multiValueExtendedPropertiesArrValue: MultiValueLegacyExtendedPropertyImpl[] = []; calendarParameterValue.multiValueExtendedProperties?.forEach(element => {multiValueExtendedPropertiesArrValue.push(element instanceof MultiValueLegacyExtendedPropertyImpl? element : new MultiValueLegacyExtendedPropertyImpl(element));});
+        const multiValueExtendedPropertiesArrValue: MultiValueLegacyExtendedPropertyImpl[] = []; calendarParameterValue?.multiValueExtendedProperties?.forEach(element => {multiValueExtendedPropertiesArrValue.push(element instanceof MultiValueLegacyExtendedPropertyImpl? element : new MultiValueLegacyExtendedPropertyImpl(element));});
         this.multiValueExtendedProperties = multiValueExtendedPropertiesArrValue;
         this.name = calendarParameterValue?.name;
         this.owner = calendarParameterValue?.owner instanceof EmailAddressImpl? calendarParameterValue?.owner:new EmailAddressImpl(calendarParameterValue?.owner);
-        const singleValueExtendedPropertiesArrValue: SingleValueLegacyExtendedPropertyImpl[] = []; calendarParameterValue.singleValueExtendedProperties?.forEach(element => {singleValueExtendedPropertiesArrValue.push(element instanceof SingleValueLegacyExtendedPropertyImpl? element : new SingleValueLegacyExtendedPropertyImpl(element));});
+        const singleValueExtendedPropertiesArrValue: SingleValueLegacyExtendedPropertyImpl[] = []; calendarParameterValue?.singleValueExtendedProperties?.forEach(element => {singleValueExtendedPropertiesArrValue.push(element instanceof SingleValueLegacyExtendedPropertyImpl? element : new SingleValueLegacyExtendedPropertyImpl(element));});
         this.singleValueExtendedProperties = singleValueExtendedPropertiesArrValue;
     };
     /**

@@ -18,7 +18,7 @@ export class EducationRubricCollectionResponseImpl implements EducationRubricCol
     public constructor(educationRubricCollectionResponseParameterValue?: EducationRubricCollectionResponse | undefined) {
         this.additionalData = educationRubricCollectionResponseParameterValue?.additionalData ? educationRubricCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = educationRubricCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: EducationRubricImpl[] = []; educationRubricCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof EducationRubricImpl? element : new EducationRubricImpl(element));});
+        const valueArrValue: EducationRubricImpl[] = []; educationRubricCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof EducationRubricImpl? element : new EducationRubricImpl(element));});
         this.value = valueArrValue;
     };
     /**

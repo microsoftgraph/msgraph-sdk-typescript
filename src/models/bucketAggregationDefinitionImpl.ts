@@ -27,7 +27,7 @@ export class BucketAggregationDefinitionImpl implements BucketAggregationDefinit
         this.isDescending = bucketAggregationDefinitionParameterValue?.isDescending;
         this.minimumCount = bucketAggregationDefinitionParameterValue?.minimumCount;
         this.prefixFilter = bucketAggregationDefinitionParameterValue?.prefixFilter;
-        const rangesArrValue: BucketAggregationRangeImpl[] = []; bucketAggregationDefinitionParameterValue.ranges?.forEach(element => {rangesArrValue.push(element instanceof BucketAggregationRangeImpl? element : new BucketAggregationRangeImpl(element));});
+        const rangesArrValue: BucketAggregationRangeImpl[] = []; bucketAggregationDefinitionParameterValue?.ranges?.forEach(element => {rangesArrValue.push(element instanceof BucketAggregationRangeImpl? element : new BucketAggregationRangeImpl(element));});
         this.ranges = rangesArrValue;
         this.sortBy = bucketAggregationDefinitionParameterValue?.sortBy;
     };

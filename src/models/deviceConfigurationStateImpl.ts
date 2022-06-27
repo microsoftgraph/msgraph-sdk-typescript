@@ -29,7 +29,7 @@ export class DeviceConfigurationStateImpl extends EntityImpl implements DeviceCo
         this.displayName = deviceConfigurationStateParameterValue?.displayName;
         this.platformType = deviceConfigurationStateParameterValue?.platformType;
         this.settingCount = deviceConfigurationStateParameterValue?.settingCount;
-        const settingStatesArrValue: DeviceConfigurationSettingStateImpl[] = []; deviceConfigurationStateParameterValue.settingStates?.forEach(element => {settingStatesArrValue.push(element instanceof DeviceConfigurationSettingStateImpl? element : new DeviceConfigurationSettingStateImpl(element));});
+        const settingStatesArrValue: DeviceConfigurationSettingStateImpl[] = []; deviceConfigurationStateParameterValue?.settingStates?.forEach(element => {settingStatesArrValue.push(element instanceof DeviceConfigurationSettingStateImpl? element : new DeviceConfigurationSettingStateImpl(element));});
         this.settingStates = settingStatesArrValue;
         this.state = deviceConfigurationStateParameterValue?.state;
         this.version = deviceConfigurationStateParameterValue?.version;

@@ -18,9 +18,9 @@ export class AccessReviewSetImpl extends EntityImpl implements AccessReviewSet {
      */
     public constructor(accessReviewSetParameterValue?: AccessReviewSet | undefined) {
         super(accessReviewSetParameterValue);
-        const definitionsArrValue: AccessReviewScheduleDefinitionImpl[] = []; accessReviewSetParameterValue.definitions?.forEach(element => {definitionsArrValue.push(element instanceof AccessReviewScheduleDefinitionImpl? element : new AccessReviewScheduleDefinitionImpl(element));});
+        const definitionsArrValue: AccessReviewScheduleDefinitionImpl[] = []; accessReviewSetParameterValue?.definitions?.forEach(element => {definitionsArrValue.push(element instanceof AccessReviewScheduleDefinitionImpl? element : new AccessReviewScheduleDefinitionImpl(element));});
         this.definitions = definitionsArrValue;
-        const historyDefinitionsArrValue: AccessReviewHistoryDefinitionImpl[] = []; accessReviewSetParameterValue.historyDefinitions?.forEach(element => {historyDefinitionsArrValue.push(element instanceof AccessReviewHistoryDefinitionImpl? element : new AccessReviewHistoryDefinitionImpl(element));});
+        const historyDefinitionsArrValue: AccessReviewHistoryDefinitionImpl[] = []; accessReviewSetParameterValue?.historyDefinitions?.forEach(element => {historyDefinitionsArrValue.push(element instanceof AccessReviewHistoryDefinitionImpl? element : new AccessReviewHistoryDefinitionImpl(element));});
         this.historyDefinitions = historyDefinitionsArrValue;
     };
     /**

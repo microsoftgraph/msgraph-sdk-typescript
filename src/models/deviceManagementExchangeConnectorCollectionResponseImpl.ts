@@ -18,7 +18,7 @@ export class DeviceManagementExchangeConnectorCollectionResponseImpl implements 
     public constructor(deviceManagementExchangeConnectorCollectionResponseParameterValue?: DeviceManagementExchangeConnectorCollectionResponse | undefined) {
         this.additionalData = deviceManagementExchangeConnectorCollectionResponseParameterValue?.additionalData ? deviceManagementExchangeConnectorCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = deviceManagementExchangeConnectorCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: DeviceManagementExchangeConnectorImpl[] = []; deviceManagementExchangeConnectorCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof DeviceManagementExchangeConnectorImpl? element : new DeviceManagementExchangeConnectorImpl(element));});
+        const valueArrValue: DeviceManagementExchangeConnectorImpl[] = []; deviceManagementExchangeConnectorCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof DeviceManagementExchangeConnectorImpl? element : new DeviceManagementExchangeConnectorImpl(element));});
         this.value = valueArrValue;
     };
     /**

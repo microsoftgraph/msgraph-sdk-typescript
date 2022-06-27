@@ -24,7 +24,7 @@ export class AttendanceRecordImpl extends EntityImpl implements AttendanceRecord
      */
     public constructor(attendanceRecordParameterValue?: AttendanceRecord | undefined) {
         super(attendanceRecordParameterValue);
-        const attendanceIntervalsArrValue: AttendanceIntervalImpl[] = []; attendanceRecordParameterValue.attendanceIntervals?.forEach(element => {attendanceIntervalsArrValue.push(element instanceof AttendanceIntervalImpl? element : new AttendanceIntervalImpl(element));});
+        const attendanceIntervalsArrValue: AttendanceIntervalImpl[] = []; attendanceRecordParameterValue?.attendanceIntervals?.forEach(element => {attendanceIntervalsArrValue.push(element instanceof AttendanceIntervalImpl? element : new AttendanceIntervalImpl(element));});
         this.attendanceIntervals = attendanceIntervalsArrValue;
         this.emailAddress = attendanceRecordParameterValue?.emailAddress;
         this.identity = attendanceRecordParameterValue?.identity instanceof IdentityImpl? attendanceRecordParameterValue?.identity:new IdentityImpl(attendanceRecordParameterValue?.identity);

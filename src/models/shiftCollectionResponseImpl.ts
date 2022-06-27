@@ -18,7 +18,7 @@ export class ShiftCollectionResponseImpl implements ShiftCollectionResponse {
     public constructor(shiftCollectionResponseParameterValue?: ShiftCollectionResponse | undefined) {
         this.additionalData = shiftCollectionResponseParameterValue?.additionalData ? shiftCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = shiftCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: ShiftImpl[] = []; shiftCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof ShiftImpl? element : new ShiftImpl(element));});
+        const valueArrValue: ShiftImpl[] = []; shiftCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof ShiftImpl? element : new ShiftImpl(element));});
         this.value = valueArrValue;
     };
     /**

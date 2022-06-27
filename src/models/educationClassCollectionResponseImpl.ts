@@ -18,7 +18,7 @@ export class EducationClassCollectionResponseImpl implements EducationClassColle
     public constructor(educationClassCollectionResponseParameterValue?: EducationClassCollectionResponse | undefined) {
         this.additionalData = educationClassCollectionResponseParameterValue?.additionalData ? educationClassCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = educationClassCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: EducationClassImpl[] = []; educationClassCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof EducationClassImpl? element : new EducationClassImpl(element));});
+        const valueArrValue: EducationClassImpl[] = []; educationClassCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof EducationClassImpl? element : new EducationClassImpl(element));});
         this.value = valueArrValue;
     };
     /**

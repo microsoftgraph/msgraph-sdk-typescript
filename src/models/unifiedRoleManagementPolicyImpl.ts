@@ -34,12 +34,12 @@ export class UnifiedRoleManagementPolicyImpl extends EntityImpl implements Unifi
         super(unifiedRoleManagementPolicyParameterValue);
         this.description = unifiedRoleManagementPolicyParameterValue?.description;
         this.displayName = unifiedRoleManagementPolicyParameterValue?.displayName;
-        const effectiveRulesArrValue: UnifiedRoleManagementPolicyRuleImpl[] = []; unifiedRoleManagementPolicyParameterValue.effectiveRules?.forEach(element => {effectiveRulesArrValue.push(element instanceof UnifiedRoleManagementPolicyRuleImpl? element : new UnifiedRoleManagementPolicyRuleImpl(element));});
+        const effectiveRulesArrValue: UnifiedRoleManagementPolicyRuleImpl[] = []; unifiedRoleManagementPolicyParameterValue?.effectiveRules?.forEach(element => {effectiveRulesArrValue.push(element instanceof UnifiedRoleManagementPolicyRuleImpl? element : new UnifiedRoleManagementPolicyRuleImpl(element));});
         this.effectiveRules = effectiveRulesArrValue;
         this.isOrganizationDefault = unifiedRoleManagementPolicyParameterValue?.isOrganizationDefault;
         this.lastModifiedBy = unifiedRoleManagementPolicyParameterValue?.lastModifiedBy instanceof IdentityImpl? unifiedRoleManagementPolicyParameterValue?.lastModifiedBy:new IdentityImpl(unifiedRoleManagementPolicyParameterValue?.lastModifiedBy);
         this.lastModifiedDateTime = unifiedRoleManagementPolicyParameterValue?.lastModifiedDateTime;
-        const rulesArrValue: UnifiedRoleManagementPolicyRuleImpl[] = []; unifiedRoleManagementPolicyParameterValue.rules?.forEach(element => {rulesArrValue.push(element instanceof UnifiedRoleManagementPolicyRuleImpl? element : new UnifiedRoleManagementPolicyRuleImpl(element));});
+        const rulesArrValue: UnifiedRoleManagementPolicyRuleImpl[] = []; unifiedRoleManagementPolicyParameterValue?.rules?.forEach(element => {rulesArrValue.push(element instanceof UnifiedRoleManagementPolicyRuleImpl? element : new UnifiedRoleManagementPolicyRuleImpl(element));});
         this.rules = rulesArrValue;
         this.scopeId = unifiedRoleManagementPolicyParameterValue?.scopeId;
         this.scopeType = unifiedRoleManagementPolicyParameterValue?.scopeType;

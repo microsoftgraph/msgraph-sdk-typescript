@@ -15,7 +15,7 @@ export class IpNamedLocationImpl extends NamedLocationImpl implements IpNamedLoc
      */
     public constructor(ipNamedLocationParameterValue?: IpNamedLocation | undefined) {
         super(ipNamedLocationParameterValue);
-        const ipRangesArrValue: IpRangeImpl[] = []; ipNamedLocationParameterValue.ipRanges?.forEach(element => {ipRangesArrValue.push(element instanceof IpRangeImpl? element : new IpRangeImpl(element));});
+        const ipRangesArrValue: IpRangeImpl[] = []; ipNamedLocationParameterValue?.ipRanges?.forEach(element => {ipRangesArrValue.push(element instanceof IpRangeImpl? element : new IpRangeImpl(element));});
         this.ipRanges = ipRangesArrValue;
         this.isTrusted = ipNamedLocationParameterValue?.isTrusted;
     };

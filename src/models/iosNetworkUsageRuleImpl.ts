@@ -22,7 +22,7 @@ export class IosNetworkUsageRuleImpl implements IosNetworkUsageRule {
         this.additionalData = iosNetworkUsageRuleParameterValue?.additionalData ? iosNetworkUsageRuleParameterValue?.additionalData! : {};
         this.cellularDataBlocked = iosNetworkUsageRuleParameterValue?.cellularDataBlocked;
         this.cellularDataBlockWhenRoaming = iosNetworkUsageRuleParameterValue?.cellularDataBlockWhenRoaming;
-        const managedAppsArrValue: AppListItemImpl[] = []; iosNetworkUsageRuleParameterValue.managedApps?.forEach(element => {managedAppsArrValue.push(element instanceof AppListItemImpl? element : new AppListItemImpl(element));});
+        const managedAppsArrValue: AppListItemImpl[] = []; iosNetworkUsageRuleParameterValue?.managedApps?.forEach(element => {managedAppsArrValue.push(element instanceof AppListItemImpl? element : new AppListItemImpl(element));});
         this.managedApps = managedAppsArrValue;
     };
     /**

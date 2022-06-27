@@ -16,7 +16,7 @@ export class RolePermissionImpl implements RolePermission {
      */
     public constructor(rolePermissionParameterValue?: RolePermission | undefined) {
         this.additionalData = rolePermissionParameterValue?.additionalData ? rolePermissionParameterValue?.additionalData! : {};
-        const resourceActionsArrValue: ResourceActionImpl[] = []; rolePermissionParameterValue.resourceActions?.forEach(element => {resourceActionsArrValue.push(element instanceof ResourceActionImpl? element : new ResourceActionImpl(element));});
+        const resourceActionsArrValue: ResourceActionImpl[] = []; rolePermissionParameterValue?.resourceActions?.forEach(element => {resourceActionsArrValue.push(element instanceof ResourceActionImpl? element : new ResourceActionImpl(element));});
         this.resourceActions = resourceActionsArrValue;
     };
     /**

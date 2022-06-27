@@ -42,17 +42,17 @@ export class ManagedDeviceMobileAppConfigurationImpl extends EntityImpl implemen
      */
     public constructor(managedDeviceMobileAppConfigurationParameterValue?: ManagedDeviceMobileAppConfiguration | undefined) {
         super(managedDeviceMobileAppConfigurationParameterValue);
-        const assignmentsArrValue: ManagedDeviceMobileAppConfigurationAssignmentImpl[] = []; managedDeviceMobileAppConfigurationParameterValue.assignments?.forEach(element => {assignmentsArrValue.push(element instanceof ManagedDeviceMobileAppConfigurationAssignmentImpl? element : new ManagedDeviceMobileAppConfigurationAssignmentImpl(element));});
+        const assignmentsArrValue: ManagedDeviceMobileAppConfigurationAssignmentImpl[] = []; managedDeviceMobileAppConfigurationParameterValue?.assignments?.forEach(element => {assignmentsArrValue.push(element instanceof ManagedDeviceMobileAppConfigurationAssignmentImpl? element : new ManagedDeviceMobileAppConfigurationAssignmentImpl(element));});
         this.assignments = assignmentsArrValue;
         this.createdDateTime = managedDeviceMobileAppConfigurationParameterValue?.createdDateTime;
         this.description = managedDeviceMobileAppConfigurationParameterValue?.description;
-        const deviceStatusesArrValue: ManagedDeviceMobileAppConfigurationDeviceStatusImpl[] = []; managedDeviceMobileAppConfigurationParameterValue.deviceStatuses?.forEach(element => {deviceStatusesArrValue.push(element instanceof ManagedDeviceMobileAppConfigurationDeviceStatusImpl? element : new ManagedDeviceMobileAppConfigurationDeviceStatusImpl(element));});
+        const deviceStatusesArrValue: ManagedDeviceMobileAppConfigurationDeviceStatusImpl[] = []; managedDeviceMobileAppConfigurationParameterValue?.deviceStatuses?.forEach(element => {deviceStatusesArrValue.push(element instanceof ManagedDeviceMobileAppConfigurationDeviceStatusImpl? element : new ManagedDeviceMobileAppConfigurationDeviceStatusImpl(element));});
         this.deviceStatuses = deviceStatusesArrValue;
         this.deviceStatusSummary = managedDeviceMobileAppConfigurationParameterValue?.deviceStatusSummary instanceof ManagedDeviceMobileAppConfigurationDeviceSummaryImpl? managedDeviceMobileAppConfigurationParameterValue?.deviceStatusSummary:new ManagedDeviceMobileAppConfigurationDeviceSummaryImpl(managedDeviceMobileAppConfigurationParameterValue?.deviceStatusSummary);
         this.displayName = managedDeviceMobileAppConfigurationParameterValue?.displayName;
         this.lastModifiedDateTime = managedDeviceMobileAppConfigurationParameterValue?.lastModifiedDateTime;
         this.targetedMobileApps = managedDeviceMobileAppConfigurationParameterValue?.targetedMobileApps;
-        const userStatusesArrValue: ManagedDeviceMobileAppConfigurationUserStatusImpl[] = []; managedDeviceMobileAppConfigurationParameterValue.userStatuses?.forEach(element => {userStatusesArrValue.push(element instanceof ManagedDeviceMobileAppConfigurationUserStatusImpl? element : new ManagedDeviceMobileAppConfigurationUserStatusImpl(element));});
+        const userStatusesArrValue: ManagedDeviceMobileAppConfigurationUserStatusImpl[] = []; managedDeviceMobileAppConfigurationParameterValue?.userStatuses?.forEach(element => {userStatusesArrValue.push(element instanceof ManagedDeviceMobileAppConfigurationUserStatusImpl? element : new ManagedDeviceMobileAppConfigurationUserStatusImpl(element));});
         this.userStatuses = userStatusesArrValue;
         this.userStatusSummary = managedDeviceMobileAppConfigurationParameterValue?.userStatusSummary instanceof ManagedDeviceMobileAppConfigurationUserSummaryImpl? managedDeviceMobileAppConfigurationParameterValue?.userStatusSummary:new ManagedDeviceMobileAppConfigurationUserSummaryImpl(managedDeviceMobileAppConfigurationParameterValue?.userStatusSummary);
         this.version = managedDeviceMobileAppConfigurationParameterValue?.version;

@@ -41,9 +41,9 @@ export class DefaultManagedAppProtectionImpl extends ManagedAppProtectionImpl im
     public constructor(defaultManagedAppProtectionParameterValue?: DefaultManagedAppProtection | undefined) {
         super(defaultManagedAppProtectionParameterValue);
         this.appDataEncryptionType = defaultManagedAppProtectionParameterValue?.appDataEncryptionType;
-        const appsArrValue: ManagedMobileAppImpl[] = []; defaultManagedAppProtectionParameterValue.apps?.forEach(element => {appsArrValue.push(element instanceof ManagedMobileAppImpl? element : new ManagedMobileAppImpl(element));});
+        const appsArrValue: ManagedMobileAppImpl[] = []; defaultManagedAppProtectionParameterValue?.apps?.forEach(element => {appsArrValue.push(element instanceof ManagedMobileAppImpl? element : new ManagedMobileAppImpl(element));});
         this.apps = appsArrValue;
-        const customSettingsArrValue: KeyValuePairImpl[] = []; defaultManagedAppProtectionParameterValue.customSettings?.forEach(element => {customSettingsArrValue.push(element instanceof KeyValuePairImpl? element : new KeyValuePairImpl(element));});
+        const customSettingsArrValue: KeyValuePairImpl[] = []; defaultManagedAppProtectionParameterValue?.customSettings?.forEach(element => {customSettingsArrValue.push(element instanceof KeyValuePairImpl? element : new KeyValuePairImpl(element));});
         this.customSettings = customSettingsArrValue;
         this.deployedAppCount = defaultManagedAppProtectionParameterValue?.deployedAppCount;
         this.deploymentSummary = defaultManagedAppProtectionParameterValue?.deploymentSummary instanceof ManagedAppPolicyDeploymentSummaryImpl? defaultManagedAppProtectionParameterValue?.deploymentSummary:new ManagedAppPolicyDeploymentSummaryImpl(defaultManagedAppProtectionParameterValue?.deploymentSummary);

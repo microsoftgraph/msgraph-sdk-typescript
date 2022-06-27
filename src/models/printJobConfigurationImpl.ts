@@ -75,7 +75,7 @@ export class PrintJobConfigurationImpl implements PrintJobConfiguration {
         this.multipageLayout = printJobConfigurationParameterValue?.multipageLayout;
         this.orientation = printJobConfigurationParameterValue?.orientation;
         this.outputBin = printJobConfigurationParameterValue?.outputBin;
-        const pageRangesArrValue: IntegerRangeImpl[] = []; printJobConfigurationParameterValue.pageRanges?.forEach(element => {pageRangesArrValue.push(element instanceof IntegerRangeImpl? element : new IntegerRangeImpl(element));});
+        const pageRangesArrValue: IntegerRangeImpl[] = []; printJobConfigurationParameterValue?.pageRanges?.forEach(element => {pageRangesArrValue.push(element instanceof IntegerRangeImpl? element : new IntegerRangeImpl(element));});
         this.pageRanges = pageRangesArrValue;
         this.pagesPerSheet = printJobConfigurationParameterValue?.pagesPerSheet;
         this.quality = printJobConfigurationParameterValue?.quality;

@@ -39,15 +39,15 @@ export class MessageRuleActionsImpl implements MessageRuleActions {
         this.assignCategories = messageRuleActionsParameterValue?.assignCategories;
         this.copyToFolder = messageRuleActionsParameterValue?.copyToFolder;
         this.delete = messageRuleActionsParameterValue?.delete;
-        const forwardAsAttachmentToArrValue: RecipientImpl[] = []; messageRuleActionsParameterValue.forwardAsAttachmentTo?.forEach(element => {forwardAsAttachmentToArrValue.push(element instanceof RecipientImpl? element : new RecipientImpl(element));});
+        const forwardAsAttachmentToArrValue: RecipientImpl[] = []; messageRuleActionsParameterValue?.forwardAsAttachmentTo?.forEach(element => {forwardAsAttachmentToArrValue.push(element instanceof RecipientImpl? element : new RecipientImpl(element));});
         this.forwardAsAttachmentTo = forwardAsAttachmentToArrValue;
-        const forwardToArrValue: RecipientImpl[] = []; messageRuleActionsParameterValue.forwardTo?.forEach(element => {forwardToArrValue.push(element instanceof RecipientImpl? element : new RecipientImpl(element));});
+        const forwardToArrValue: RecipientImpl[] = []; messageRuleActionsParameterValue?.forwardTo?.forEach(element => {forwardToArrValue.push(element instanceof RecipientImpl? element : new RecipientImpl(element));});
         this.forwardTo = forwardToArrValue;
         this.markAsRead = messageRuleActionsParameterValue?.markAsRead;
         this.markImportance = messageRuleActionsParameterValue?.markImportance;
         this.moveToFolder = messageRuleActionsParameterValue?.moveToFolder;
         this.permanentDelete = messageRuleActionsParameterValue?.permanentDelete;
-        const redirectToArrValue: RecipientImpl[] = []; messageRuleActionsParameterValue.redirectTo?.forEach(element => {redirectToArrValue.push(element instanceof RecipientImpl? element : new RecipientImpl(element));});
+        const redirectToArrValue: RecipientImpl[] = []; messageRuleActionsParameterValue?.redirectTo?.forEach(element => {redirectToArrValue.push(element instanceof RecipientImpl? element : new RecipientImpl(element));});
         this.redirectTo = redirectToArrValue;
         this.stopProcessingRules = messageRuleActionsParameterValue?.stopProcessingRules;
     };

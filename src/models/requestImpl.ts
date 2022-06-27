@@ -4,7 +4,7 @@ import {EntityImpl, IdentitySetImpl} from './index';
 import {Request} from './request';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the identityGovernance singleton. */
+/** Provides operations to manage the roleManagement singleton. */
 export class RequestImpl extends EntityImpl implements Request {
     /** The identifier of the approval of the request. */
     public approvalId?: string | undefined;

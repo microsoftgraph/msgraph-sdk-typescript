@@ -18,7 +18,7 @@ export class DeviceManagementPartnerCollectionResponseImpl implements DeviceMana
     public constructor(deviceManagementPartnerCollectionResponseParameterValue?: DeviceManagementPartnerCollectionResponse | undefined) {
         this.additionalData = deviceManagementPartnerCollectionResponseParameterValue?.additionalData ? deviceManagementPartnerCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = deviceManagementPartnerCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: DeviceManagementPartnerImpl[] = []; deviceManagementPartnerCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof DeviceManagementPartnerImpl? element : new DeviceManagementPartnerImpl(element));});
+        const valueArrValue: DeviceManagementPartnerImpl[] = []; deviceManagementPartnerCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof DeviceManagementPartnerImpl? element : new DeviceManagementPartnerImpl(element));});
         this.value = valueArrValue;
     };
     /**

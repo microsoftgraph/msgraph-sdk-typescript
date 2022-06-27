@@ -15,7 +15,7 @@ export class TargetedManagedAppProtectionImpl extends ManagedAppProtectionImpl i
      */
     public constructor(targetedManagedAppProtectionParameterValue?: TargetedManagedAppProtection | undefined) {
         super(targetedManagedAppProtectionParameterValue);
-        const assignmentsArrValue: TargetedManagedAppPolicyAssignmentImpl[] = []; targetedManagedAppProtectionParameterValue.assignments?.forEach(element => {assignmentsArrValue.push(element instanceof TargetedManagedAppPolicyAssignmentImpl? element : new TargetedManagedAppPolicyAssignmentImpl(element));});
+        const assignmentsArrValue: TargetedManagedAppPolicyAssignmentImpl[] = []; targetedManagedAppProtectionParameterValue?.assignments?.forEach(element => {assignmentsArrValue.push(element instanceof TargetedManagedAppPolicyAssignmentImpl? element : new TargetedManagedAppPolicyAssignmentImpl(element));});
         this.assignments = assignmentsArrValue;
         this.isAssigned = targetedManagedAppProtectionParameterValue?.isAssigned;
     };

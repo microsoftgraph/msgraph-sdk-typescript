@@ -21,7 +21,7 @@ export class CalendarSharingMessageImpl extends MessageImpl implements CalendarS
         super(calendarSharingMessageParameterValue);
         this.canAccept = calendarSharingMessageParameterValue?.canAccept;
         this.sharingMessageAction = calendarSharingMessageParameterValue?.sharingMessageAction instanceof CalendarSharingMessageActionImpl? calendarSharingMessageParameterValue?.sharingMessageAction:new CalendarSharingMessageActionImpl(calendarSharingMessageParameterValue?.sharingMessageAction);
-        const sharingMessageActionsArrValue: CalendarSharingMessageActionImpl[] = []; calendarSharingMessageParameterValue.sharingMessageActions?.forEach(element => {sharingMessageActionsArrValue.push(element instanceof CalendarSharingMessageActionImpl? element : new CalendarSharingMessageActionImpl(element));});
+        const sharingMessageActionsArrValue: CalendarSharingMessageActionImpl[] = []; calendarSharingMessageParameterValue?.sharingMessageActions?.forEach(element => {sharingMessageActionsArrValue.push(element instanceof CalendarSharingMessageActionImpl? element : new CalendarSharingMessageActionImpl(element));});
         this.sharingMessageActions = sharingMessageActionsArrValue;
         this.suggestedCalendarName = calendarSharingMessageParameterValue?.suggestedCalendarName;
     };

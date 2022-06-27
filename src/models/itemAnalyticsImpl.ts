@@ -4,7 +4,7 @@ import {ItemActivityStat} from './itemActivityStat';
 import {ItemAnalytics} from './itemAnalytics';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of application entities. */
+/** Casts the previous resource to group. */
 export class ItemAnalyticsImpl extends EntityImpl implements ItemAnalytics {
     /** The allTime property */
     public allTime?: ItemActivityStat | undefined;
@@ -19,7 +19,7 @@ export class ItemAnalyticsImpl extends EntityImpl implements ItemAnalytics {
     public constructor(itemAnalyticsParameterValue?: ItemAnalytics | undefined) {
         super(itemAnalyticsParameterValue);
         this.allTime = itemAnalyticsParameterValue?.allTime instanceof ItemActivityStatImpl? itemAnalyticsParameterValue?.allTime:new ItemActivityStatImpl(itemAnalyticsParameterValue?.allTime);
-        const itemActivityStatsArrValue: ItemActivityStatImpl[] = []; itemAnalyticsParameterValue.itemActivityStats?.forEach(element => {itemActivityStatsArrValue.push(element instanceof ItemActivityStatImpl? element : new ItemActivityStatImpl(element));});
+        const itemActivityStatsArrValue: ItemActivityStatImpl[] = []; itemAnalyticsParameterValue?.itemActivityStats?.forEach(element => {itemActivityStatsArrValue.push(element instanceof ItemActivityStatImpl? element : new ItemActivityStatImpl(element));});
         this.itemActivityStats = itemActivityStatsArrValue;
         this.lastSevenDays = itemAnalyticsParameterValue?.lastSevenDays instanceof ItemActivityStatImpl? itemAnalyticsParameterValue?.lastSevenDays:new ItemActivityStatImpl(itemAnalyticsParameterValue?.lastSevenDays);
     };

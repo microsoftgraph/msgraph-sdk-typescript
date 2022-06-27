@@ -18,7 +18,7 @@ export class StoreCollectionResponseImpl implements StoreCollectionResponse {
     public constructor(storeCollectionResponseParameterValue?: StoreCollectionResponse | undefined) {
         this.additionalData = storeCollectionResponseParameterValue?.additionalData ? storeCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = storeCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: StoreImpl[] = []; storeCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof StoreImpl? element : new StoreImpl(element));});
+        const valueArrValue: StoreImpl[] = []; storeCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof StoreImpl? element : new StoreImpl(element));});
         this.value = valueArrValue;
     };
     /**

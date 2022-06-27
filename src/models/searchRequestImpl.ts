@@ -46,7 +46,7 @@ export class SearchRequestImpl implements SearchRequest {
     public constructor(searchRequestParameterValue?: SearchRequest | undefined) {
         this.additionalData = searchRequestParameterValue?.additionalData ? searchRequestParameterValue?.additionalData! : {};
         this.aggregationFilters = searchRequestParameterValue?.aggregationFilters;
-        const aggregationsArrValue: AggregationOptionImpl[] = []; searchRequestParameterValue.aggregations?.forEach(element => {aggregationsArrValue.push(element instanceof AggregationOptionImpl? element : new AggregationOptionImpl(element));});
+        const aggregationsArrValue: AggregationOptionImpl[] = []; searchRequestParameterValue?.aggregations?.forEach(element => {aggregationsArrValue.push(element instanceof AggregationOptionImpl? element : new AggregationOptionImpl(element));});
         this.aggregations = aggregationsArrValue;
         this.contentSources = searchRequestParameterValue?.contentSources;
         this.enableTopResults = searchRequestParameterValue?.enableTopResults;
@@ -57,7 +57,7 @@ export class SearchRequestImpl implements SearchRequest {
         this.queryAlterationOptions = searchRequestParameterValue?.queryAlterationOptions instanceof SearchAlterationOptionsImpl? searchRequestParameterValue?.queryAlterationOptions:new SearchAlterationOptionsImpl(searchRequestParameterValue?.queryAlterationOptions);
         this.resultTemplateOptions = searchRequestParameterValue?.resultTemplateOptions instanceof ResultTemplateOptionImpl? searchRequestParameterValue?.resultTemplateOptions:new ResultTemplateOptionImpl(searchRequestParameterValue?.resultTemplateOptions);
         this.size = searchRequestParameterValue?.size;
-        const sortPropertiesArrValue: SortPropertyImpl[] = []; searchRequestParameterValue.sortProperties?.forEach(element => {sortPropertiesArrValue.push(element instanceof SortPropertyImpl? element : new SortPropertyImpl(element));});
+        const sortPropertiesArrValue: SortPropertyImpl[] = []; searchRequestParameterValue?.sortProperties?.forEach(element => {sortPropertiesArrValue.push(element instanceof SortPropertyImpl? element : new SortPropertyImpl(element));});
         this.sortProperties = sortPropertiesArrValue;
     };
     /**

@@ -29,7 +29,7 @@ export class IosManagedAppProtectionImpl extends TargetedManagedAppProtectionImp
     public constructor(iosManagedAppProtectionParameterValue?: IosManagedAppProtection | undefined) {
         super(iosManagedAppProtectionParameterValue);
         this.appDataEncryptionType = iosManagedAppProtectionParameterValue?.appDataEncryptionType;
-        const appsArrValue: ManagedMobileAppImpl[] = []; iosManagedAppProtectionParameterValue.apps?.forEach(element => {appsArrValue.push(element instanceof ManagedMobileAppImpl? element : new ManagedMobileAppImpl(element));});
+        const appsArrValue: ManagedMobileAppImpl[] = []; iosManagedAppProtectionParameterValue?.apps?.forEach(element => {appsArrValue.push(element instanceof ManagedMobileAppImpl? element : new ManagedMobileAppImpl(element));});
         this.apps = appsArrValue;
         this.customBrowserProtocol = iosManagedAppProtectionParameterValue?.customBrowserProtocol;
         this.deployedAppCount = iosManagedAppProtectionParameterValue?.deployedAppCount;

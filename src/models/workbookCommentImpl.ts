@@ -20,7 +20,7 @@ export class WorkbookCommentImpl extends EntityImpl implements WorkbookComment {
         super(workbookCommentParameterValue);
         this.content = workbookCommentParameterValue?.content;
         this.contentType = workbookCommentParameterValue?.contentType;
-        const repliesArrValue: WorkbookCommentReplyImpl[] = []; workbookCommentParameterValue.replies?.forEach(element => {repliesArrValue.push(element instanceof WorkbookCommentReplyImpl? element : new WorkbookCommentReplyImpl(element));});
+        const repliesArrValue: WorkbookCommentReplyImpl[] = []; workbookCommentParameterValue?.replies?.forEach(element => {repliesArrValue.push(element instanceof WorkbookCommentReplyImpl? element : new WorkbookCommentReplyImpl(element));});
         this.replies = repliesArrValue;
     };
     /**

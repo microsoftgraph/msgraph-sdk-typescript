@@ -4,7 +4,7 @@ import {RequestSchedule} from './requestSchedule';
 import {UnifiedRoleEligibilitySchedule} from './unifiedRoleEligibilitySchedule';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the identityGovernance singleton. */
+/** Provides operations to manage the roleManagement singleton. */
 export class UnifiedRoleEligibilityScheduleImpl extends UnifiedRoleScheduleBaseImpl implements UnifiedRoleEligibilitySchedule {
     /** Membership type of the eligible assignment. It can either be Inherited, Direct, or Group. */
     public memberType?: string | undefined;

@@ -18,7 +18,7 @@ export class ConnectedOrganizationCollectionResponseImpl implements ConnectedOrg
     public constructor(connectedOrganizationCollectionResponseParameterValue?: ConnectedOrganizationCollectionResponse | undefined) {
         this.additionalData = connectedOrganizationCollectionResponseParameterValue?.additionalData ? connectedOrganizationCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = connectedOrganizationCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: ConnectedOrganizationImpl[] = []; connectedOrganizationCollectionResponseParameterValue.value?.forEach(element => {valueArrValue.push(element instanceof ConnectedOrganizationImpl? element : new ConnectedOrganizationImpl(element));});
+        const valueArrValue: ConnectedOrganizationImpl[] = []; connectedOrganizationCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof ConnectedOrganizationImpl? element : new ConnectedOrganizationImpl(element));});
         this.value = valueArrValue;
     };
     /**
